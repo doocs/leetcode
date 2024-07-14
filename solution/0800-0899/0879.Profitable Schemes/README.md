@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0879.Profitable%20Schemes/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [879. 盈利计划](https://leetcode.cn/problems/profitable-schemes)
 
 [English Version](/solution/0800-0899/0879.Profitable%20Schemes/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>集团里有 <code>n</code> 名员工，他们可以完成各种各样的工作创造利润。</p>
 
@@ -51,7 +60,11 @@
 	<li><code>0 <= profit[i] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -70,6 +83,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def profitableSchemes(
@@ -86,6 +101,8 @@ class Solution:
 
         return dfs(0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
@@ -190,6 +211,10 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们定义 $f[i][j][k]$ 表示前 $i$ 个工作中，选择了不超过 $j$ 个员工，且至少产生 $k$ 的利润的方案数。初始时 $f[0][j][0] = 1$，表示不选择任何工作，且至少产生 $0$ 的利润的方案数为 $1$。答案即为 $f[m][n][minProfit]$。
@@ -201,6 +226,8 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 时间复杂度 $O(m \times n \times minProfit)$，空间复杂度 $O(m \times n \times minProfit)$。其中 $m$ 和 $n$ 分别为工作的数量和员工的数量，而 $minProfit$ 为至少产生的利润。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -220,6 +247,8 @@ class Solution:
                         f[i][j][k] = (f[i][j][k] + f[i - 1][j - x][max(0, k - p)]) % mod
         return f[m][n][minProfit]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -248,6 +277,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -273,6 +304,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
@@ -305,4 +338,6 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

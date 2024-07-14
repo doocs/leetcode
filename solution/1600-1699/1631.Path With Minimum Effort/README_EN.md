@@ -1,10 +1,28 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README_EN.md
+rating: 1947
+source: Weekly Contest 212 Q3
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Binary Search
+    - Matrix
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [1631. Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort)
 
 [中文文档](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Binary Search,Matrix,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are a hiker preparing for an upcoming hike. You are given <code>heights</code>, a 2D array of size <code>rows x columns</code>, where <code>heights[row][col]</code> represents the height of cell <code>(row, col)</code>. You are situated in the top-left cell, <code>(0, 0)</code>, and you hope to travel to the bottom-right cell, <code>(rows-1, columns-1)</code> (i.e.,&nbsp;<strong>0-indexed</strong>). You can move <strong>up</strong>, <strong>down</strong>, <strong>left</strong>, or <strong>right</strong>, and you wish to find a route that requires the minimum <strong>effort</strong>.</p>
 
@@ -52,7 +70,11 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 	<li><code>1 &lt;= heights[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Union-Find
 
@@ -63,6 +85,8 @@ We first construct a set of edges, then sort them in ascending order of edge wei
 The time complexity is $O(m \times n \times \log(m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -112,6 +136,8 @@ class Solution:
                 return h
         return 0
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -183,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -250,6 +278,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -325,6 +355,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     private p: number[];
@@ -398,6 +430,10 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Search + BFS
 
 We notice that if the maximum physical consumption value of a path is $x$, then for any $y > x$, this path also meets the conditions. This shows monotonicity, so we can use the binary search method to find the minimum physical consumption value that meets the conditions.
@@ -407,6 +443,8 @@ We define the left boundary of the binary search as $l=0$, and the right boundar
 The time complexity is $O(m \times n \times \log M)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively, and $M$ is the maximum value in the two-dimensional array. In this problem, $M=10^6$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -435,6 +473,8 @@ class Solution:
         m, n = len(heights), len(heights[0])
         return bisect_left(range(10**6), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -478,6 +518,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -519,6 +561,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumEffortPath(heights [][]int) int {
 	return sort.Search(1e6, func(h int) bool {
@@ -557,6 +601,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumEffortPath(heights: number[][]): number {
@@ -608,6 +654,10 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Heap-optimized Dijkstra Algorithm
 
 We can treat each cell as a node in a graph, and the absolute difference in height between two adjacent cells as the weight of the edge. Therefore, this problem is to solve the shortest path problem from the top-left node to the bottom-right node.
@@ -619,6 +669,8 @@ We use a priority queue (heap) to store nodes, and each time we take out the nod
 The time complexity is $O(m \times n \times \log(m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the two-dimensional array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -641,6 +693,8 @@ class Solution:
                     heappush(q, (d, x, y))
         return int(dist[-1][-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -673,6 +727,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -704,6 +760,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumEffortPath(heights [][]int) int {
@@ -752,6 +810,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumEffortPath(heights: number[][]): number {
     const m = heights.length;
@@ -780,4 +840,6 @@ function minimumEffortPath(heights: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

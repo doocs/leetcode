@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2742.Painting%20the%20Walls/README_EN.md
+rating: 2424
+source: Weekly Contest 350 Q4
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2742. Painting the Walls](https://leetcode.com/problems/painting-the-walls)
 
 [中文文档](/solution/2700-2799/2742.Painting%20the%20Walls/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays,&nbsp;<code>cost</code> and <code>time</code>, of size <code>n</code> representing the costs and the time taken to paint <code>n</code> different walls respectively. There are two painters available:</p>
 
@@ -42,7 +55,11 @@
 	<li><code>1 &lt;= time[i] &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorization
 
@@ -60,6 +77,8 @@ Time complexity $O(n^2)$, space complexity $O(n^2)$. Where $n$ is the length of 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def paintWalls(self, cost: List[int], time: List[int]) -> int:
@@ -74,6 +93,8 @@ class Solution:
         n = len(cost)
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func paintWalls(cost []int, time []int) int {
@@ -156,6 +181,8 @@ func paintWalls(cost []int, time []int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -172,7 +199,7 @@ impl Solution {
         j: i32,
         n: i32,
         time: &Vec<i32>,
-        cost: &Vec<i32>
+        cost: &Vec<i32>,
     ) -> i32 {
         if n - i <= j - n {
             // All the remaining walls can be printed at no cost
@@ -187,9 +214,9 @@ impl Solution {
         if record_vec[i as usize][j as usize] == -1 {
             // This record hasn't been written
             record_vec[i as usize][j as usize] = std::cmp::min(
-                Self::dfs(record_vec, i + 1, j + time[i as usize], n, time, cost) +
-                    cost[i as usize],
-                Self::dfs(record_vec, i + 1, j - 1, n, time, cost)
+                Self::dfs(record_vec, i + 1, j + time[i as usize], n, time, cost)
+                    + cost[i as usize],
+                Self::dfs(record_vec, i + 1, j - 1, n, time, cost),
             );
         }
         record_vec[i as usize][j as usize]
@@ -199,4 +226,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

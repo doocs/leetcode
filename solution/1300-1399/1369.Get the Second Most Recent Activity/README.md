@@ -1,12 +1,20 @@
-# [1369. 获取最近第二次的活动](https://leetcode.cn/problems/get-the-second-most-recent-activity)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1369. 获取最近第二次的活动 🔒](https://leetcode.cn/problems/get-the-second-most-recent-activity)
 
 [English Version](/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>UserActivity</code></p>
 
@@ -60,11 +68,17 @@ UserActivity</code> 表:
 Alice 最近一次的活动是从 2020-02-24 到 2020-02-28 的旅行, 在此之前的 2020-02-21 到 2020-02-23 她进行了舞蹈
 Bob 只有一条记录，我们就取这条记录</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -88,4 +102,6 @@ WHERE a.rk = 2 OR a.cnt = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

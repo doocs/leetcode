@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 动态规划
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum)
 
 [English Version](/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README_EN.md)
 
-<!-- tags:树,深度优先搜索,动态规划,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>二叉树中的<strong> 路径</strong> 被定义为一条节点序列，序列中每对相邻节点之间都存在一条边。同一个节点在一条路径序列中 <strong>至多出现一次</strong> 。该路径<strong> 至少包含一个 </strong>节点，且不一定经过根节点。</p>
 
@@ -40,7 +51,11 @@
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -66,6 +81,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -88,6 +105,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -125,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -181,6 +204,8 @@ func maxPathSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -213,6 +238,8 @@ function maxPathSum(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -232,8 +259,8 @@ function maxPathSum(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut i32) -> i32 {
         if root.is_none() {
@@ -253,6 +280,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -282,6 +311,8 @@ var maxPathSum = function (root) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -319,4 +350,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

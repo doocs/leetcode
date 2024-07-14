@@ -1,12 +1,20 @@
-# [2990. 贷款类型](https://leetcode.cn/problems/loan-types)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2990.Loan%20Types/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2990. 贷款类型 🔒](https://leetcode.cn/problems/loan-types)
 
 [English Version](/solution/2900-2999/2990.Loan%20Types/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Loans</code></p>
 
@@ -22,7 +30,7 @@ loan_id 是这张表具有唯一值的列。
 该表包含 loan_id, user_id,和 loan_type。
 </pre>
 
-<p>编写一个解决方案，找出所有具有至少一种 <strong>再融资</strong> 贷款类型和至少一种 <strong>抵押</strong> 贷款类型的&nbsp;<strong>不同的</strong>&nbsp;<code>user_id</code>。</p>
+<p>编写一个解决方案，找出所有具有同时具有&nbsp;<strong>Refinance</strong> 贷款类型和&nbsp;<strong>Mortgage</strong>&nbsp;贷款类型的&nbsp;<code>user_id</code>（需去重）。</p>
 
 <p>按 <em><strong>升序</strong> 返回结果表中的 </em><code>user_id</code>。</p>
 
@@ -61,13 +69,19 @@ Loans table:
 输出表以升序按 user_id 排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组求和
 
 我们可以对 `Loans` 表按照 `user_id` 进行分组，找出既包含 `Refinance` 又包含 `Mortgage` 的用户，然后按照 `user_id` 进行排序。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -80,4 +94,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README.md
+tags:
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [842. 将数组拆分成斐波那契序列](https://leetcode.cn/problems/split-array-into-fibonacci-sequence)
 
 [English Version](/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README_EN.md)
 
-<!-- tags:字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数字字符串 <code>num</code>，比如 <code>"123456579"</code>，我们可以将它分成「斐波那契式」的序列 <code>[123, 456, 579]</code>。</p>
 
@@ -29,7 +38,7 @@
 <pre>
 <strong>输入：</strong>num = "1101111"
 <strong>输出：</strong>[11,0,11,11]
-<strong>解释：</strong>输出[110,1,111]也可以。</pre>
+<strong>解释：</strong>输出 [110,1,111] 也可以。</pre>
 
 <p><strong>示例 2：</strong></p>
 
@@ -56,7 +65,11 @@
 	<li><code>num</code>&nbsp;中只含有数字</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯 + 剪枝
 
@@ -71,6 +84,8 @@
 时间复杂度 $O(n \times \log^2 M)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别是字符串 $num$ 的长度和整型数的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +112,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -170,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func splitIntoFibonacci(num string) []int {
@@ -206,4 +227,6 @@ func splitIntoFibonacci(num string) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README.md
+rating: 1252
+source: 第 279 场周赛 Q1
+tags:
+    - 数组
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2164. 对奇偶下标分别排序](https://leetcode.cn/problems/sort-even-and-odd-indices-independently)
 
 [English Version](/solution/2100-2199/2164.Sort%20Even%20and%20Odd%20Indices%20Independently/README_EN.md)
 
-<!-- tags:数组,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。根据下述规则重排 <code>nums</code> 中的值：</p>
 
@@ -61,11 +72,21 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：排序
+
+我们可以将奇数下标和偶数下标分别取出来，然后对奇数下标的数组进行非递增排序，对偶数下标的数组进行非递减排序，最后再将两个数组合并即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{nums}$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +97,8 @@ class Solution:
         nums[1::2] = b
         return nums
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,20 +137,27 @@ public:
         vector<int> a;
         vector<int> b;
         for (int i = 0; i < n; ++i) {
-            if (i % 2 == 0)
+            if (i % 2 == 0) {
                 a.push_back(nums[i]);
-            else
+            } else {
                 b.push_back(nums[i]);
+            }
         }
         sort(a.begin(), a.end());
-        sort(b.begin(), b.end(), greater<int>());
+        sort(b.rbegin(), b.rend());
         vector<int> ans(n);
-        for (int i = 0, j = 0; j < a.size(); i += 2, ++j) ans[i] = a[j];
-        for (int i = 1, j = 0; j < b.size(); i += 2, ++j) ans[i] = b[j];
+        for (int i = 0, j = 0; j < a.size(); i += 2, ++j) {
+            ans[i] = a[j];
+        }
+        for (int i = 1, j = 0; j < b.size(); i += 2, ++j) {
+            ans[i] = b[j];
+        }
         return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortEvenOdd(nums []int) []int {
@@ -154,6 +186,35 @@ func sortEvenOdd(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function sortEvenOdd(nums: number[]): number[] {
+    const n = nums.length;
+    const a: number[] = [];
+    const b: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (i % 2 === 0) {
+            a.push(nums[i]);
+        } else {
+            b.push(nums[i]);
+        }
+    }
+    a.sort((x, y) => x - y);
+    b.sort((x, y) => y - x);
+    const ans: number[] = [];
+    for (let i = 0, j = 0; j < a.length; i += 2, ++j) {
+        ans[i] = a[j];
+    }
+    for (let i = 1, j = 0; j < b.length; i += 2, ++j) {
+        ans[i] = b[j];
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

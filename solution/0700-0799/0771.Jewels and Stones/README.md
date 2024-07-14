@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0771.Jewels%20and%20Stones/README.md
+tags:
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [771. 宝石与石头](https://leetcode.cn/problems/jewels-and-stones)
 
 [English Version](/solution/0700-0799/0771.Jewels%20and%20Stones/README_EN.md)
 
-<!-- tags:哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>&nbsp;给你一个字符串 <code>jewels</code>&nbsp;代表石头中宝石的类型，另有一个字符串 <code>stones</code> 代表你拥有的石头。&nbsp;<code>stones</code>&nbsp;中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。</p>
 
@@ -38,7 +47,11 @@
 	<li><code>jewels</code> 中的所有字符都是 <strong>唯一的</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -48,12 +61,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
         s = set(jewels)
         return sum(c in s for c in stones)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +88,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numJewelsInStones(jewels string, stones string) (ans int) {
@@ -97,6 +118,8 @@ func numJewelsInStones(jewels string, stones string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numJewelsInStones(jewels: string, stones: string): number {
     const s = new Set([...jewels]);
@@ -107,6 +130,8 @@ function numJewelsInStones(jewels: string, stones: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -124,6 +149,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} jewels
@@ -135,6 +162,8 @@ var numJewelsInStones = function (jewels, stones) {
     return stones.split('').reduce((prev, val) => prev + s.has(val), 0);
 };
 ```
+
+#### C
 
 ```c
 int numJewelsInStones(char* jewels, char* stones) {
@@ -152,4 +181,6 @@ int numJewelsInStones(char* jewels, char* stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

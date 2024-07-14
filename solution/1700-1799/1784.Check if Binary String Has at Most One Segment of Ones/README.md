@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1784.Check%20if%20Binary%20String%20Has%20at%20Most%20One%20Segment%20of%20Ones/README.md
+rating: 1206
+source: 第 231 场周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1784. 检查二进制字符串字段](https://leetcode.cn/problems/check-if-binary-string-has-at-most-one-segment-of-ones)
 
 [English Version](/solution/1700-1799/1784.Check%20if%20Binary%20String%20Has%20at%20Most%20One%20Segment%20of%20Ones/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二进制字符串 <code>s</code> ，该字符串 <strong>不含前导零</strong> 。</p>
 
@@ -38,7 +48,11 @@
 	<li><code>s[0]</code> 为 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：0 后面不能有 1
 
@@ -54,11 +68,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def checkOnesSegment(self, s: str) -> bool:
         return '01' not in s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -77,11 +97,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkOnesSegment(s string) bool {
 	return !strings.Contains(s, "01")
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkOnesSegment(s: string): boolean {
@@ -96,6 +120,8 @@ function checkOnesSegment(s: string): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn check_ones_segment(s: String) -> bool {
@@ -106,9 +132,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function checkOnesSegment(s: string): boolean {
@@ -118,4 +150,6 @@ function checkOnesSegment(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

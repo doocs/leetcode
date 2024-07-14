@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [700. 二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree)
 
 [English Version](/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README_EN.md)
 
-<!-- tags:树,二叉搜索树,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定二叉搜索树（BST）的根节点<meta charset="UTF-8" />&nbsp;<code>root</code>&nbsp;和一个整数值<meta charset="UTF-8" />&nbsp;<code>val</code>。</p>
 
@@ -41,11 +51,17 @@
 	<li><code>1 &lt;= val &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -64,6 +80,8 @@ class Solution:
             else self.searchBST(root.left, val)
         )
 ```
+
+#### Java
 
 ```java
 /**
@@ -91,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -111,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -134,4 +156,6 @@ func searchBST(root *TreeNode, val int) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

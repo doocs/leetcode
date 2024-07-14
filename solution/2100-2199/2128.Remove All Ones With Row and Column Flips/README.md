@@ -1,12 +1,23 @@
-# [2128. 通过翻转行或列来去除所有的 1](https://leetcode.cn/problems/remove-all-ones-with-row-and-column-flips)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 矩阵
+---
+
+<!-- problem:start -->
+
+# [2128. 通过翻转行或列来去除所有的 1 🔒](https://leetcode.cn/problems/remove-all-ones-with-row-and-column-flips)
 
 [English Version](/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README_EN.md)
 
-<!-- tags:位运算,数组,数学,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为&nbsp;<code>m x n</code> 的二进制矩阵&nbsp;<code>grid</code>。</p>
 
@@ -50,7 +61,11 @@
 	<li><code>grid[i][j]</code> 是&nbsp;<code>0</code>&nbsp;或者&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -76,6 +91,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeOnes(self, grid: List[List[int]]) -> bool:
@@ -85,6 +102,8 @@ class Solution:
             s.add(t)
         return len(s) == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeOnes(grid [][]int) bool {
 	s := map[string]bool{}
@@ -136,6 +159,8 @@ func removeOnes(grid [][]int) bool {
 	return len(s) == 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeOnes(grid: number[][]): boolean {
@@ -155,4 +180,6 @@ function removeOnes(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

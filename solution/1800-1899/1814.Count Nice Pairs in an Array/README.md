@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README.md
+rating: 1737
+source: 第 49 场双周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
+---
+
+<!-- problem:start -->
+
 # [1814. 统计一个数组中好对子的数目](https://leetcode.cn/problems/count-nice-pairs-in-an-array)
 
 [English Version](/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README_EN.md)
 
-<!-- tags:数组,哈希表,数学,计数 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>nums</code> ，数组中只包含非负整数。定义 <code>rev(x)</code> 的值为将整数 <code>x</code> 各个数字位反转得到的结果。比方说 <code>rev(123) = 321</code> ， <code>rev(120) = 21</code> 。我们称满足下面条件的下标对 <code>(i, j)</code> 是 <strong>好的</strong> ：</p>
 
@@ -43,7 +56,11 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：式子变换 + 哈希表
 
@@ -56,6 +73,8 @@
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 `nums` 的长度和数组 `nums` 中的最大值。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +90,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(v * (v - 1) // 2 for v in cnt.values()) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNicePairs(nums []int) (ans int) {
 	rev := func(x int) (y int) {
@@ -144,6 +169,8 @@ func countNicePairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countNicePairs(nums: number[]): number {
@@ -166,6 +193,8 @@ function countNicePairs(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -193,6 +222,8 @@ var countNicePairs = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -223,9 +254,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -246,6 +283,8 @@ class Solution:
             cnt[y] += 1
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -271,6 +310,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -294,6 +335,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countNicePairs(nums []int) (ans int) {
 	rev := func(x int) (y int) {
@@ -312,6 +355,8 @@ func countNicePairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -341,4 +386,6 @@ var countNicePairs = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

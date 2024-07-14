@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md
+tags:
+    - 数组
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [713. 乘积小于 K 的子数组](https://leetcode.cn/problems/subarray-product-less-than-k)
 
 [English Version](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)
 
-<!-- tags:数组,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你返回子数组内所有元素的乘积严格小于<em> </em><code>k</code> 的连续子数组的数目。
 
@@ -37,7 +46,11 @@
 	<li><code>0 &lt;= k &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -62,6 +75,8 @@ for (int i = 0, j = 0; i < n; ++i) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
@@ -74,6 +89,8 @@ class Solution:
             ans += i - j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	ans := 0
@@ -119,6 +140,8 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {
@@ -134,6 +157,8 @@ function numSubarrayProductLessThanK(nums: number[], k: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn num_subarray_product_less_than_k(nums: Vec<i32>, k: i32) -> i32 {
@@ -144,20 +169,20 @@ impl Solution {
         let mut res = 0;
         let mut product = 1;
         let mut i = 0;
-        nums.iter()
-            .enumerate()
-            .for_each(|(j, v)| {
-                product *= v;
-                while product >= k {
-                    product /= nums[i];
-                    i += 1;
-                }
-                res += j - i + 1;
-            });
+        nums.iter().enumerate().for_each(|(j, v)| {
+            product *= v;
+            while product >= k {
+                product /= nums[i];
+                i += 1;
+            }
+            res += j - i + 1;
+        });
         res as i32
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -182,4 +207,6 @@ var numSubarrayProductLessThanK = function (nums, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

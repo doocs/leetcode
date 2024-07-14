@@ -1,10 +1,22 @@
-# [356. Line Reflection](https://leetcode.com/problems/line-reflection)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0356.Line%20Reflection/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+---
+
+<!-- problem:start -->
+
+# [356. Line Reflection 🔒](https://leetcode.com/problems/line-reflection)
 
 [中文文档](/solution/0300-0399/0356.Line%20Reflection/README.md)
 
-<!-- tags:Array,Hash Table,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>n</code> points on a 2D plane, find if there is such a line parallel to the y-axis that reflects the given points symmetrically.</p>
 
@@ -41,11 +53,17 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do better than <code>O(n<sup>2</sup>)</code>?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +77,8 @@ class Solution:
         s = min_x + max_x
         return all((s - x, y) in point_set for x, y in points)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isReflected(points [][]int) bool {
 	const inf = 1 << 30
@@ -127,4 +151,6 @@ func isReflected(points [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

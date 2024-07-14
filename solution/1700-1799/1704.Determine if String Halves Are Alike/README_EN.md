@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README_EN.md
+rating: 1207
+source: Weekly Contest 221 Q1
+tags:
+    - String
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [1704. Determine if String Halves Are Alike](https://leetcode.com/problems/determine-if-string-halves-are-alike)
 
 [中文文档](/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README.md)
 
-<!-- tags:String,Counting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> of even length. Split this string into two halves of equal lengths, and let <code>a</code> be the first half and <code>b</code> be the second half.</p>
 
@@ -39,7 +52,11 @@ Notice that the vowel o is counted twice.
 	<li><code>s</code> consists of <strong>uppercase and lowercase</strong> letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -48,6 +65,8 @@ Traverse the string. If the number of vowels in the first half of the string is 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(C)$, where $C$ is the number of vowel characters.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,21 +79,24 @@ class Solution:
         return cnt == 0
 ```
 
+#### Java
+
 ```java
 class Solution {
-    private static final Set<Character> VOWELS
-        = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
-
     public boolean halvesAreAlike(String s) {
-        int cnt = 0, n = s.length() >> 1;
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+        int n = s.length() >> 1;
+        int cnt = 0;
         for (int i = 0; i < n; ++i) {
-            cnt += VOWELS.contains(s.charAt(i)) ? 1 : 0;
-            cnt -= VOWELS.contains(s.charAt(i + n)) ? 1 : 0;
+            cnt += vowels.contains(s.charAt(i)) ? 1 : 0;
+            cnt -= vowels.contains(s.charAt(i + n)) ? 1 : 0;
         }
         return cnt == 0;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func halvesAreAlike(s string) bool {
@@ -110,41 +134,45 @@ func halvesAreAlike(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function halvesAreAlike(s: string): boolean {
-    const set = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    const vowels = new Set('aeiouAEIOU'.split(''));
+    let cnt = 0;
     const n = s.length >> 1;
-    let count = 0;
-    for (let i = 0; i < n; i++) {
-        set.has(s[i]) && count++;
-        set.has(s[n + i]) && count--;
+    for (let i = 0; i < n; ++i) {
+        cnt += vowels.has(s[i]) ? 1 : 0;
+        cnt -= vowels.has(s[n + i]) ? 1 : 0;
     }
-    return count === 0;
+    return cnt === 0;
 }
 ```
 
+#### Rust
+
 ```rust
-use std::collections::HashSet;
 impl Solution {
     pub fn halves_are_alike(s: String) -> bool {
-        let set: HashSet<&u8> = [b'a', b'e', b'i', b'o', b'u', b'A', b'E', b'I', b'O', b'U']
-            .into_iter()
-            .collect();
-        let s = s.as_bytes();
-        let n = s.len() >> 1;
-        let mut count = 0;
+        let n = s.len() / 2;
+        let vowels: std::collections::HashSet<char> = "aeiouAEIOU".chars().collect();
+        let mut cnt = 0;
+
         for i in 0..n {
-            if set.contains(&s[i]) {
-                count += 1;
+            if vowels.contains(&s.chars().nth(i).unwrap()) {
+                cnt += 1;
             }
-            if set.contains(&s[n + i]) {
-                count -= 1;
+            if vowels.contains(&s.chars().nth(i + n).unwrap()) {
+                cnt -= 1;
             }
         }
-        count == 0
+
+        cnt == 0
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -152,15 +180,18 @@ impl Solution {
  * @return {boolean}
  */
 var halvesAreAlike = function (s) {
-    const str = 'aeiouAEIOU';
+    const vowels = new Set('aeiouAEIOU'.split(''));
     let cnt = 0;
-    for (let i = 0; i < s.length / 2; i++) {
-        if (str.indexOf(s[i]) > -1) cnt++;
-        if (str.indexOf(s[s.length - 1 - i]) > -1) cnt--;
+    const n = s.length >> 1;
+    for (let i = 0; i < n; ++i) {
+        cnt += vowels.has(s[i]);
+        cnt -= vowels.has(s[n + i]);
     }
     return cnt === 0;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -169,15 +200,19 @@ class Solution {
      * @return Boolean
      */
     function halvesAreAlike($s) {
+        $n = strlen($s) / 2;
+        $vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
         $cnt = 0;
-        for ($i = 0; $i < strlen($s) / 2; $i++) {
-            if (strpos('aeiouAEIOU', $s[$i]) !== false) {
+
+        for ($i = 0; $i < $n; $i++) {
+            if (in_array($s[$i], $vowels)) {
                 $cnt++;
             }
-            if (strpos('aeiouAEIOU', $s[strlen($s) / 2 + $i]) !== false) {
+            if (in_array($s[$i + $n], $vowels)) {
                 $cnt--;
             }
         }
+
         return $cnt == 0;
     }
 }
@@ -185,18 +220,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def halvesAreAlike(self, s: str) -> bool:
-        vowels = set('aeiouAEIOU')
-        a, b = s[: len(s) >> 1], s[len(s) >> 1 :]
-        return sum(c in vowels for c in a) == sum(c in vowels for c in b)
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

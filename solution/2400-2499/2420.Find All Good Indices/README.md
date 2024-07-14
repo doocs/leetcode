@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2420.Find%20All%20Good%20Indices/README.md
+rating: 1695
+source: 第 312 场周赛 Q3
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [2420. 找到所有好下标](https://leetcode.cn/problems/find-all-good-indices)
 
 [English Version](/solution/2400-2499/2420.Find%20All%20Good%20Indices/README_EN.md)
 
-<!-- tags:数组,动态规划,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个正整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -50,7 +62,11 @@
 	<li><code>1 &lt;= k &lt;= n / 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递推
 
@@ -63,6 +79,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +96,8 @@ class Solution:
                 incr[i] = incr[i + 1] + 1
         return [i for i in range(k, n - k) if decr[i] >= k and incr[i] >= k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func goodIndices(nums []int, k int) []int {
@@ -167,4 +191,6 @@ func goodIndices(nums []int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

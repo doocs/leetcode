@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2544.Alternating%20Digit%20Sum/README.md
+rating: 1184
+source: 第 329 场周赛 Q1
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2544. 交替数字和](https://leetcode.cn/problems/alternating-digit-sum)
 
 [English Version](/solution/2500-2599/2544.Alternating%20Digit%20Sum/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>n</code> 。<code>n</code> 中的每一位数字都会按下述规则分配一个符号：</p>
 
@@ -52,7 +62,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -64,11 +78,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def alternateDigitSum(self, n: int) -> int:
         return sum((-1) ** i * int(x) for i, x in enumerate(str(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alternateDigitSum(n int) (ans int) {
 	sign := 1
@@ -110,6 +132,8 @@ func alternateDigitSum(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function alternateDigitSum(n: number): number {
@@ -123,6 +147,8 @@ function alternateDigitSum(n: number): number {
     return ans * -sign;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +165,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int alternateDigitSum(int n) {
     int ans = 0;
@@ -154,9 +182,15 @@ int alternateDigitSum(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -168,6 +202,8 @@ class Solution:
             sign *= -1
         return ans
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -188,4 +224,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

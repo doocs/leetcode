@@ -1,10 +1,28 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README_EN.md
+rating: 2610
+source: Biweekly Contest 41 Q4
+tags:
+    - Segment Tree
+    - Queue
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
+    - Monotonic Queue
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [1687. Delivering Boxes from Storage to Ports](https://leetcode.com/problems/delivering-boxes-from-storage-to-ports)
 
 [中文文档](/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README.md)
 
-<!-- tags:Segment Tree,Queue,Array,Dynamic Programming,Prefix Sum,Monotonic Queue,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have the task of delivering some boxes from storage to their ports using only one ship. However, this ship has a <strong>limit</strong> on the <strong>number of boxes</strong> and the <strong>total weight</strong> that it can carry.</p>
 
@@ -74,7 +92,11 @@ So the total number of trips is 2 + 2 + 2 = 6.
 	<li><code>1 &lt;= weights<sub>i</sub> &lt;= maxWeight</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Monotonic Queue Optimization
 
@@ -218,6 +240,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def boxDelivering(
@@ -240,6 +264,8 @@ class Solution:
                 q.append(i)
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -277,6 +303,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -304,6 +332,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
@@ -343,4 +373,6 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

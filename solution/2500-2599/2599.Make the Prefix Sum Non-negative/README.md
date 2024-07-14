@@ -1,12 +1,22 @@
-# [2599. 使前缀和数组非负](https://leetcode.cn/problems/make-the-prefix-sum-non-negative)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README.md
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
+# [2599. 使前缀和数组非负 🔒](https://leetcode.cn/problems/make-the-prefix-sum-non-negative)
 
 [English Version](/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README_EN.md)
 
-<!-- tags:贪心,数组,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>下标从0开始</strong> 的整数数组 <code>nums</code> 。你可以任意多次执行以下操作：</p>
 
@@ -47,7 +57,11 @@
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（小根堆）
 
@@ -58,6 +72,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +89,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makePrefSumNonNegative(nums []int) (ans int) {
@@ -147,6 +169,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function makePrefSumNonNegative(nums: number[]): number {
     const pq = new MinPriorityQueue();
@@ -168,4 +192,6 @@ function makePrefSumNonNegative(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

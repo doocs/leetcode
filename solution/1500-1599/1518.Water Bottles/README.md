@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1518.Water%20Bottles/README.md
+rating: 1245
+source: 第 198 场周赛 Q1
+tags:
+    - 数学
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [1518. 换水问题](https://leetcode.cn/problems/water-bottles)
 
 [English Version](/solution/1500-1599/1518.Water%20Bottles/README_EN.md)
 
-<!-- tags:数学,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>超市正在促销，你可以用 <code>numExchange</code> 个空水瓶从超市兑换一瓶水。最开始，你一共购入了 <code>numBottles</code> 瓶水。</p>
 
@@ -49,7 +60,11 @@
 	<li><code>2 &lt;= numExchange &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -65,6 +80,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
@@ -74,6 +91,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWaterBottles(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -110,6 +133,8 @@ func numWaterBottles(numBottles int, numExchange int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numWaterBottles(numBottles: number, numExchange: number): number {
     let ans = numBottles;
@@ -119,6 +144,8 @@ function numWaterBottles(numBottles: number, numExchange: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -134,6 +161,8 @@ var numWaterBottles = function (numBottles, numExchange) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -155,4 +184,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

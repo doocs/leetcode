@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0241.Different%20Ways%20to%20Add%20Parentheses/README_EN.md
+tags:
+    - Recursion
+    - Memoization
+    - Math
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [241. Different Ways to Add Parentheses](https://leetcode.com/problems/different-ways-to-add-parentheses)
 
 [中文文档](/solution/0200-0299/0241.Different%20Ways%20to%20Add%20Parentheses/README.md)
 
-<!-- tags:Recursion,Memoization,Math,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>expression</code> of numbers and operators, return <em>all possible results from computing all the different possible ways to group numbers and operators</em>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -43,11 +57,17 @@
 	<li>All the integer values in the input expression are in the range <code>[0, 99]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +92,8 @@ class Solution:
 
         return dfs(expression)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -152,6 +176,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 var memo = map[string][]int{}
 
@@ -188,6 +214,8 @@ func dfs(exp string) []int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -255,4 +283,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

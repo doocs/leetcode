@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0292.Nim%20Game/README_EN.md
+tags:
+    - Brainteaser
+    - Math
+    - Game Theory
+---
+
+<!-- problem:start -->
+
 # [292. Nim Game](https://leetcode.com/problems/nim-game)
 
 [中文文档](/solution/0200-0299/0292.Nim%20Game/README.md)
 
-<!-- tags:Brainteaser,Math,Game Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing the following Nim Game with your friend:</p>
 
@@ -51,7 +63,11 @@ In all outcomes, your friend wins.
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Finding the Pattern
 
@@ -70,11 +86,15 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canWinNim(self, n: int) -> bool:
         return n % 4 != 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,17 +115,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canWinNim(n int) bool {
 	return n%4 != 0
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canWinNim(n: number): boolean {
     return n % 4 != 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -115,4 +143,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

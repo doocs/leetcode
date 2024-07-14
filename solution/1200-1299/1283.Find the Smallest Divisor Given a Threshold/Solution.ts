@@ -3,10 +3,7 @@ function smallestDivisor(nums: number[], threshold: number): number {
     let r = Math.max(...nums);
     while (l < r) {
         const mid = (l + r) >> 1;
-        let s = 0;
-        for (const x of nums) {
-            s += Math.ceil(x / mid);
-        }
+        const s = nums.reduce((acc, x) => acc + Math.ceil(x / mid), 0);
         if (s <= threshold) {
             r = mid;
         } else {

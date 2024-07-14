@@ -14,40 +14,38 @@
  * }
  */
 class Solution {
-    private Map<TreeNode, List<TreeNode>> g;
+    private Map<TreeNode, List<TreeNode>> g = new HashMap<>();
 
     public int findClosestLeaf(TreeNode root, int k) {
-        g = new HashMap<>();
         dfs(root, null);
         Deque<TreeNode> q = new LinkedList<>();
-        for (Map.Entry<TreeNode, List<TreeNode>> entry : g.entrySet()) {
-            if (entry.getKey() != null && entry.getKey().val == k) {
-                q.offer(entry.getKey());
+        Set<TreeNode> vis = new HashSet<>(q.size());
+        for (TreeNode node : g.keySet()) {
+            if (node != null && node.val == k) {
+                vis.add(node);
+                q.offer(node);
                 break;
             }
         }
-        Set<TreeNode> seen = new HashSet<>();
-        while (!q.isEmpty()) {
+        while (true) {
             TreeNode node = q.poll();
-            seen.add(node);
             if (node != null) {
-                if (node.left == null && node.right == null) {
+                if (node.left == node.right) {
                     return node.val;
                 }
-                for (TreeNode next : g.get(node)) {
-                    if (!seen.contains(next)) {
-                        q.offer(next);
+                for (TreeNode nxt : g.get(node)) {
+                    if (vis.add(nxt)) {
+                        q.offer(nxt);
                     }
                 }
             }
         }
-        return 0;
     }
 
-    private void dfs(TreeNode root, TreeNode p) {
+    private void dfs(TreeNode root, TreeNode fa) {
         if (root != null) {
-            g.computeIfAbsent(root, k -> new ArrayList<>()).add(p);
-            g.computeIfAbsent(p, k -> new ArrayList<>()).add(root);
+            g.computeIfAbsent(root, k -> new ArrayList<>()).add(fa);
+            g.computeIfAbsent(fa, k -> new ArrayList<>()).add(root);
             dfs(root.left, root);
             dfs(root.right, root);
         }

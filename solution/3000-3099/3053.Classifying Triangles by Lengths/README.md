@@ -1,14 +1,22 @@
-# [3053. Classifying Triangles by Lengths](https://leetcode.cn/problems/classifying-triangles-by-lengths)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [3053. 根据长度分类三角形 🔒](https://leetcode.cn/problems/classifying-triangles-by-lengths)
 
 [English Version](/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>Table: <font face="monospace"><code>Triangles</code></font></p>
+<p>表：<font face="monospace"><code>Triangles</code></font></p>
 
 <pre>
 +-------------+------+ 
@@ -18,29 +26,30 @@
 | B           | int  |
 | C           | int  |
 +-------------+------+
-(A, B, C) is the primary key for this table.
-Each row include the lengths of each of a triangle&#39;s three sides.
+(A, B, C) 是这张表的主键。
+每一行包含三角形三边的长度。
 </pre>
 
-<p>Write a query to find the type of <strong>triangle</strong>. Output one of the following for each row:</p>
+<p>编写一个查询来找到 <strong>三角形</strong> 的类型。对于每一行输出下面的其中一个：</p>
 
 <ul>
-	<li><strong>Equilateral</strong>: It&#39;s a triangle with <code>3</code> sides of equal length.</li>
-	<li><strong>Isosceles</strong>: It&#39;s a triangle with <code>2</code> sides of equal length.</li>
-	<li><strong>Scalene</strong>: It&#39;s a triangle with <code>3</code> sides of differing lengths.</li>
-	<li><strong>Not A Triangle: </strong>The given values of <code>A</code>, <code>B</code>, and <code>C</code> don&#39;t form a triangle.</li>
+	<li><strong>Equilateral</strong>：<code>3</code>&nbsp;边长度相同的三角形。</li>
+	<li><strong>Isosceles</strong>：<code>2</code>&nbsp;边长度相同的三角形。</li>
+	<li><strong>Scalene</strong>：<code>3</code>&nbsp;边长度不同的三角形。</li>
+	<li><strong>Not A Triangle</strong>：给定的&nbsp;<code>A</code>&nbsp;，<code>B</code>，<code>C</code>&nbsp;的值不能形成三角形。</li>
 </ul>
 
-<p>Return <em>the result table in <strong>any order</strong></em>.</p>
+<p>以 <strong>任何顺序</strong> 返回结果表。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Triangles table:
+<strong>输入:</strong> 
+Triangles 表：
 +----+----+----+
 | A  | B  | C  |
 +----+----+----+
@@ -49,7 +58,7 @@ Triangles table:
 | 20 | 21 | 22 |
 | 13 | 14 | 30 |
 +----+----+----+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +----------------+
 | triangle_type  | 
 +----------------+
@@ -58,13 +67,17 @@ Triangles table:
 | Scalene        |
 | Not A Triangle |
 +----------------+
-<strong>Explanation:</strong> 
-- Values in the first row from an Isosceles triangle, because A = B.
-- Values in the second row from an Equilateral triangle, because A = B = C.
-- Values in the third row from an Scalene triangle, because A != B != C.
-- Values in the fourth row cannot form a triangle, because the combined value of sides A and B is not larger than that of side C.</pre>
+<strong>解释：</strong> 
+- 第一行的值形成了等腰三角形，因为 A = B。
+- 第二行的值形成了等边三角形，因为 A = B = C.
+- 第三行的值形成了斜三角形，因为 A != B != C.
+- 第四行中的值不能形成三角形，因为边 A 和边 B 的和不大于边 C。</pre>
+
+<!-- description:end -->
 
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 CASE WHEN 语句
 
@@ -79,6 +92,8 @@ Triangles table:
 否则，说明三个边的长度都不相等，我们返回 `Scalene`。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -97,4 +112,6 @@ FROM Triangles;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

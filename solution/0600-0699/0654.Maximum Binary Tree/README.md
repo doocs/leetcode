@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0654.Maximum%20Binary%20Tree/README.md
+tags:
+    - 栈
+    - 树
+    - 数组
+    - 分治
+    - 二叉树
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [654. 最大二叉树](https://leetcode.cn/problems/maximum-binary-tree)
 
 [English Version](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README_EN.md)
 
-<!-- tags:栈,树,数组,分治,二叉树,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个不重复的整数数组&nbsp;<code>nums</code> 。&nbsp;<strong>最大二叉树</strong>&nbsp;可以用下面的算法从&nbsp;<code>nums</code> 递归地构建:</p>
 
@@ -54,7 +67,11 @@
 	<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -63,6 +80,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -85,6 +104,8 @@ class Solution:
 
         return dfs(nums)
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -162,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -192,6 +217,8 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -221,6 +248,8 @@ function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -240,8 +269,8 @@ function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn construct(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if start >= end {
@@ -255,15 +284,11 @@ impl Solution {
                 max_val = nums[i];
             }
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: max_val,
-                    left: Self::construct(nums, start, idx),
-                    right: Self::construct(nums, idx + 1, end),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: max_val,
+            left: Self::construct(nums, start, idx),
+            right: Self::construct(nums, idx + 1, end),
+        })))
     }
 
     pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -271,6 +296,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -308,6 +335,10 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：线段树
 
 方法一中，每次查找区间最大值，需要 $O(n)$ 的时间，我们可以借助线段树，将每次查询区间最大值的时间降至 $O(\log n)$。
@@ -315,6 +346,8 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 最多需要查询 $n$ 次，因此，总的时间复杂度为 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -377,6 +410,8 @@ class SegmentTree:
     def pushup(self, u):
         self.tr[u].v = max(self.tr[u << 1].v, self.tr[u << 1 | 1].v)
 ```
+
+#### Java
 
 ```java
 /**
@@ -475,6 +510,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -559,6 +596,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -646,6 +685,10 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：单调栈
 
 题目表达了一个意思：如果 $nums$ 中间有一个数字 $v$，找出它左右两侧最大的数，这两个最大的数应该比 $v$ 小。
@@ -661,6 +704,8 @@ func (t *segmentTree) pushup(u int) {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -683,6 +728,8 @@ class Solution:
             stk.append(node)
         return stk[0]
 ```
+
+#### Java
 
 ```java
 /**
@@ -719,6 +766,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -757,6 +806,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -787,4 +838,6 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

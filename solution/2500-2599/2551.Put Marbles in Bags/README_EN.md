@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README_EN.md
+rating: 2042
+source: Weekly Contest 330 Q3
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2551. Put Marbles in Bags](https://leetcode.com/problems/put-marbles-in-bags)
 
 [中文文档](/solution/2500-2599/2551.Put%20Marbles%20in%20Bags/README.md)
 
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>k</code> bags. You are given a <strong>0-indexed</strong> integer array <code>weights</code> where <code>weights[i]</code> is the weight of the <code>i<sup>th</sup></code> marble. You are also given the integer <code>k.</code></p>
 
@@ -49,7 +64,11 @@ Since both the maximal and minimal score are the same, we return 0.
 	<li><code>1 &lt;= weights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Problem Transformation + Sorting
 
@@ -61,12 +80,16 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def putMarbles(self, weights: List[int], k: int) -> int:
         arr = sorted(a + b for a, b in pairwise(weights))
         return sum(arr[len(arr) - k + 1 :]) - sum(arr[: k - 1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func putMarbles(weights []int, k int) (ans int64) {
 	n := len(weights)
@@ -121,6 +148,8 @@ func putMarbles(weights []int, k int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function putMarbles(weights: number[], k: number): number {
@@ -140,4 +169,6 @@ function putMarbles(weights: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

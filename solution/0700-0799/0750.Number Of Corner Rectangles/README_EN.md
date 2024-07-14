@@ -1,10 +1,23 @@
-# [750. Number Of Corner Rectangles](https://leetcode.com/problems/number-of-corner-rectangles)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [750. Number Of Corner Rectangles 🔒](https://leetcode.com/problems/number-of-corner-rectangles)
 
 [中文文档](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README.md)
 
-<!-- tags:Array,Math,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> integer matrix <code>grid</code> where each entry is only <code>0</code> or <code>1</code>, return <em>the number of <strong>corner rectangles</strong></em>.</p>
 
@@ -46,7 +59,11 @@
 	<li>The number of <code>1</code>&#39;s in the grid is in the range <code>[1, 6000]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -55,6 +72,8 @@ We enumerate each row as the bottom of the rectangle. For the current row, if bo
 The time complexity is $O(m \times n^2)$, and the space complexity is $O(n^2)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +90,8 @@ class Solution:
                             cnt[(i, j)] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countCornerRectangles(grid [][]int) (ans int) {
 	n := len(grid[0])
@@ -141,6 +166,8 @@ func countCornerRectangles(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countCornerRectangles(grid: number[][]): number {
@@ -166,4 +193,6 @@ function countCornerRectangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

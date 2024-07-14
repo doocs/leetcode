@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md
+tags:
+    - Union Find
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [803. Bricks Falling When Hit](https://leetcode.com/problems/bricks-falling-when-hit)
 
 [中文文档](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README.md)
 
-<!-- tags:Union Find,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> binary <code>grid</code>, where each <code>1</code> represents a brick and <code>0</code> represents an empty space. A brick is <strong>stable</strong> if:</p>
 
@@ -73,11 +85,17 @@ Hence the result is [0,0].
 	<li>All <code>(x<sub>i</sub>, y<sub>i</sub>)</code> are unique.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -127,6 +145,8 @@ class Solution:
             ans.append(max(0, curr - prev - 1))
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -275,6 +297,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hitBricks(grid [][]int, hits [][]int) []int {
@@ -356,4 +380,6 @@ func hitBricks(grid [][]int, hits [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

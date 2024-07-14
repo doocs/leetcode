@@ -1,10 +1,20 @@
-# [1777. Product's Price for Each Store](https://leetcode.com/problems/products-price-for-each-store)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1777. Product's Price for Each Store 🔒](https://leetcode.com/problems/products-price-for-each-store)
 
 [中文文档](/solution/1700-1799/1777.Product%27s%20Price%20for%20Each%20Store/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Products</code></p>
 
@@ -56,11 +66,17 @@ Product 0 price&#39;s are 95 for store1, 100 for store2 and, 105 for store3.
 Product 1 price&#39;s are 70 for store1, 80 for store3 and, it&#39;s not sold in store2.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -75,4 +91,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

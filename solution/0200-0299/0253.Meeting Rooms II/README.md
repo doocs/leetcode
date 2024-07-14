@@ -1,12 +1,25 @@
-# [253. 会议室 II](https://leetcode.cn/problems/meeting-rooms-ii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0253.Meeting%20Rooms%20II/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 前缀和
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
+# [253. 会议室 II 🔒](https://leetcode.cn/problems/meeting-rooms-ii)
 
 [English Version](/solution/0200-0299/0253.Meeting%20Rooms%20II/README_EN.md)
 
-<!-- tags:贪心,数组,双指针,前缀和,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个会议时间安排的数组 <code>intervals</code> ，每个会议时间都会包括开始和结束的时间 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> ，返回 <em>所需会议室的最小数量</em> 。</p>
 
@@ -35,11 +48,17 @@
 	<li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -50,6 +69,8 @@ class Solution:
             delta[end] -= 1
         return max(accumulate(delta))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -88,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMeetingRooms(intervals [][]int) int {
 	n := 1000010
@@ -103,8 +128,10 @@ func minMeetingRooms(intervals [][]int) int {
 }
 ```
 
+#### Rust
+
 ```rust
-use std::{ collections::BinaryHeap, cmp::Reverse };
+use std::{cmp::Reverse, collections::BinaryHeap};
 
 impl Solution {
     #[allow(dead_code)]
@@ -115,7 +142,7 @@ impl Solution {
         let n = intervals.len();
 
         // Let's first sort the intervals vector
-        intervals.sort_by(|lhs, rhs| { lhs[0].cmp(&rhs[0]) });
+        intervals.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
 
         // Push the first end time to the heap
         pq.push(Reverse(intervals[0][1]));
@@ -143,4 +170,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

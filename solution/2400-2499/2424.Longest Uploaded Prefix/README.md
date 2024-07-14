@@ -1,12 +1,28 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md
+rating: 1604
+source: 第 88 场双周赛 Q2
+tags:
+    - 并查集
+    - 设计
+    - 树状数组
+    - 线段树
+    - 二分查找
+    - 有序集合
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2424. 最长上传前缀](https://leetcode.cn/problems/longest-uploaded-prefix)
 
 [English Version](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)
 
-<!-- tags:并查集,设计,树状数组,线段树,二分查找,有序集合,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>n</code>&nbsp;个视频的上传序列，每个视频编号为&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;之间的 <strong>不同</strong>&nbsp;数字，你需要依次将这些视频上传到服务器。请你实现一个数据结构，在上传的过程中计算 <strong>最长上传前缀</strong>&nbsp;。</p>
 
@@ -52,7 +68,11 @@ server.longest();                    // 前缀 [1,2,3] 是最长上传前缀，�
 	<li>至少会调用&nbsp;<code>longest</code>&nbsp;一次。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -63,6 +83,8 @@ server.longest();                    // 前缀 [1,2,3] 是最长上传前缀，�
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为视频总数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class LUPrefix:
@@ -84,6 +106,8 @@ class LUPrefix:
 # obj.upload(video)
 # param_2 = obj.longest()
 ```
+
+#### Java
 
 ```java
 class LUPrefix {
@@ -112,6 +136,8 @@ class LUPrefix {
  * int param_2 = obj.longest();
  */
 ```
+
+#### C++
 
 ```cpp
 class LUPrefix {
@@ -142,6 +168,8 @@ private:
  * int param_2 = obj->longest();
  */
 ```
+
+#### Go
 
 ```go
 type LUPrefix struct {
@@ -174,4 +202,6 @@ func (this *LUPrefix) Longest() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

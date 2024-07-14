@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii)
 
 [中文文档](/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README.md)
 
-<!-- tags:Greedy,Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>i<sup>th</sup></code> day.</p>
 
@@ -48,7 +60,11 @@ Total profit is 4.
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -58,11 +74,15 @@ The time complexity is $O(n)$, where $n$ is the length of the `prices` array. Th
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         return sum(max(0, b - a) for a, b in pairwise(prices))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +96,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -86,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int) (ans int) {
@@ -99,6 +123,8 @@ func maxProfit(prices []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[]): number {
     let ans = 0;
@@ -108,6 +134,8 @@ function maxProfit(prices: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -120,6 +148,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -135,6 +165,8 @@ var maxProfit = function (prices) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -148,6 +180,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
 
@@ -172,6 +208,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -183,6 +221,8 @@ class Solution:
             f[i][1] = max(f[i - 1][1], f[i - 1][0] + prices[i])
         return f[n - 1][1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +238,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -216,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	n := len(prices)
@@ -228,6 +272,8 @@ func maxProfit(prices []int) int {
 	return f[n-1][1]
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -245,6 +291,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Dynamic Programming (Space Optimization)
 
 We can find that in Solution 2, the state of the $i$th day is only related to the state of the $i-1$th day. Therefore, we can use only two variables to maintain the state of the $i-1$th day, thereby optimizing the space complexity to $O(1)$.
@@ -252,6 +302,8 @@ We can find that in Solution 2, the state of the $i$th day is only related to th
 The time complexity is $O(n)$, where $n$ is the length of the `prices` array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -265,6 +317,8 @@ class Solution:
             f = g
         return f[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -281,6 +335,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -299,6 +355,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	n := len(prices)
@@ -315,4 +373,6 @@ func maxProfit(prices []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

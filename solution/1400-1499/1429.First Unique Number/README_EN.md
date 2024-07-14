@@ -1,10 +1,24 @@
-# [1429. First Unique Number](https://leetcode.com/problems/first-unique-number)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1429.First%20Unique%20Number/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Hash Table
+    - Data Stream
+---
+
+<!-- problem:start -->
+
+# [1429. First Unique Number 🔒](https://leetcode.com/problems/first-unique-number)
 
 [中文文档](/solution/1400-1499/1429.First%20Unique%20Number/README.md)
 
-<!-- tags:Design,Queue,Array,Hash Table,Data Stream -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have a queue of integers, you need to retrieve the first unique integer in the queue.</p>
 
@@ -80,11 +94,17 @@ firstUnique.showFirstUnique(); // return -1
 	<li>At most <code>50000</code>&nbsp;calls will be made to <code>showFirstUnique</code>&nbsp;and <code>add</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FirstUnique:
@@ -108,6 +128,8 @@ class FirstUnique:
 # param_1 = obj.showFirstUnique()
 # obj.add(value)
 ```
+
+#### Java
 
 ```java
 class FirstUnique {
@@ -147,6 +169,8 @@ class FirstUnique {
  */
 ```
 
+#### C++
+
 ```cpp
 class FirstUnique {
 public:
@@ -179,6 +203,8 @@ private:
  * obj->add(value);
  */
 ```
+
+#### Go
 
 ```go
 type FirstUnique struct {
@@ -219,9 +245,15 @@ func (this *FirstUnique) Add(value int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FirstUnique:
@@ -244,6 +276,8 @@ class FirstUnique:
 # param_1 = obj.showFirstUnique()
 # obj.add(value)
 ```
+
+#### Java
 
 ```java
 class FirstUnique {
@@ -280,4 +314,6 @@ class FirstUnique {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

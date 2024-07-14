@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.14.Boolean%20Evaluation/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [08.14. Boolean Evaluation](https://leetcode.cn/problems/boolean-evaluation-lcci)
 
 [中文文档](/lcci/08.14.Boolean%20Evaluation/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a boolean expression consisting of the symbols <code>0</code> (false), <code>1</code> (true), <code>&amp;</code> (AND), <code>|</code> (OR), and <code>^</code>&nbsp;(XOR), and a desired boolean result value result, implement a function to count the number of ways of parenthesizing the expression such that it evaluates to result.</p>
 
@@ -40,11 +50,17 @@
 	<li>There are no more than&nbsp;19 operators in <code>s</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +88,8 @@ class Solution:
         ans = dfs(s)
         return ans[result] if 0 <= result < 2 else 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countEval(s string, result int) int {
@@ -201,6 +223,61 @@ func countEval(s string, result int) int {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var memo = [String: [Int]]()
+
+    func countEval(_ s: String, _ result: Int) -> Int {
+        memo = [:]
+        let ans = dfs(s)
+        return result == 0 || result == 1 ? ans[result] : 0
+    }
+
+    private func dfs(_ s: String) -> [Int] {
+        if let res = memo[s] {
+            return res
+        }
+
+        var res = [0, 0]
+        if s.count == 1 {
+            res[Int(String(s))!] = 1
+            return res
+        }
+
+        for k in 0..<s.count {
+            let index = s.index(s.startIndex, offsetBy: k)
+            let op = String(s[index])
+
+            if op == "&" || op == "|" || op == "^" {
+                let left = dfs(String(s[s.startIndex..<index]))
+                let right = dfs(String(s[s.index(after: index)...]))
+
+                for i in 0...1 {
+                    for j in 0...1 {
+                        var v = 0
+                        if op == "&" {
+                            v = i & j
+                        } else if op == "|" {
+                            v = i | j
+                        } else if op == "^" {
+                            v = i ^ j
+                        }
+                        res[v] += left[i] * right[j]
+                    }
+                }
+            }
+        }
+
+        memo[s] = res
+        return res
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

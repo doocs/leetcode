@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README_EN.md
+rating: 2238
+source: Weekly Contest 341 Q4
+tags:
+    - Tree
+    - Depth-First Search
+    - Graph
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2646. Minimize the Total Price of the Trips](https://leetcode.com/problems/minimize-the-total-price-of-the-trips)
 
 [中文文档](/solution/2600-2699/2646.Minimize%20the%20Total%20Price%20of%20the%20Trips/README.md)
 
-<!-- tags:Tree,Depth-First Search,Graph,Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There exists an undirected and unrooted tree with <code>n</code> nodes indexed from <code>0</code> to <code>n - 1</code>. You are given the integer <code>n</code> and a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the tree.</p>
 
@@ -57,11 +73,26 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 	<li><code>0 &lt;= start<sub>i</sub>, end<sub>i</sub>&nbsp;&lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Enumeration
+
+We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
+
+-   If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
+-   If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
+
+Finally, return $ans$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +127,8 @@ class Solution:
             dfs(start, -1, end)
         return min(dfs2(0, -1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +189,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +243,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	g := make([][]int, n)
@@ -258,6 +295,8 @@ func minimumTotalPrice(n int, edges [][]int, price []int, trips [][]int) int {
 	return min(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumTotalPrice(
@@ -313,4 +352,6 @@ function minimumTotalPrice(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

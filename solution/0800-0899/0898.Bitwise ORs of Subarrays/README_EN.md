@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [898. Bitwise ORs of Subarrays](https://leetcode.com/problems/bitwise-ors-of-subarrays)
 
 [中文文档](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README.md)
 
-<!-- tags:Bit Manipulation,Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code>, return <em>the number of distinct bitwise ORs of all the non-empty subarrays of</em> <code>arr</code>.</p>
 
@@ -47,7 +59,11 @@ There are 3 unique values, so the answer is 3.
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -63,88 +79,97 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(n \t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def subarrayBitwiseORs(self, arr: List[int]) -> int:
-        s = {0}
         ans = set()
+        s = set()
         for x in arr:
             s = {x | y for y in s} | {x}
             ans |= s
         return len(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int subarrayBitwiseORs(int[] arr) {
-        Set<Integer> s = new HashSet<>();
-        s.add(0);
         Set<Integer> ans = new HashSet<>();
+        Set<Integer> s = new HashSet<>();
         for (int x : arr) {
             Set<Integer> t = new HashSet<>();
             for (int y : s) {
                 t.add(x | y);
             }
             t.add(x);
+            ans.addAll(t);
             s = t;
-            ans.addAll(s);
         }
         return ans.size();
     }
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     int subarrayBitwiseORs(vector<int>& arr) {
-        unordered_set<int> s{{0}};
         unordered_set<int> ans;
-        for (int& x : arr) {
-            unordered_set<int> t{{x}};
+        unordered_set<int> s;
+        for (int x : arr) {
+            unordered_set<int> t;
             for (int y : s) {
                 t.insert(x | y);
             }
+            t.insert(x);
+            ans.insert(t.begin(), t.end());
             s = move(t);
-            ans.insert(s.begin(), s.end());
         }
         return ans.size();
     }
 };
 ```
 
+#### Go
+
 ```go
 func subarrayBitwiseORs(arr []int) int {
 	ans := map[int]bool{}
-	s := map[int]bool{0: true}
+	s := map[int]bool{}
 	for _, x := range arr {
 		t := map[int]bool{x: true}
 		for y := range s {
 			t[x|y] = true
 		}
-		s = t
-		for y := range s {
+		for y := range t {
 			ans[y] = true
 		}
+		s = t
 	}
 	return len(ans)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function subarrayBitwiseORs(arr: number[]): number {
-    const s: Set<number> = new Set();
     const ans: Set<number> = new Set();
+    const s: Set<number> = new Set();
     for (const x of arr) {
-        const t: Set<number> = new Set();
+        const t: Set<number> = new Set([x]);
         for (const y of s) {
             t.add(x | y);
         }
-        t.add(x);
         s.clear();
         for (const y of t) {
-            s.add(y);
             ans.add(y);
+            s.add(y);
         }
     }
     return ans.size;
@@ -153,4 +178,6 @@ function subarrayBitwiseORs(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

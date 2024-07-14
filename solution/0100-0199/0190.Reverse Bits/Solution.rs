@@ -1,10 +1,10 @@
 impl Solution {
-    pub fn reverse_bits(mut x: u32) -> u32 {
-        let mut res = 0;
-        for _ in 0..32 {
-            res = (res << 1) | (x & 1);
-            x >>= 1;
+    pub fn reverse_bits(mut n: u32) -> u32 {
+        let mut ans = 0;
+        for i in 0..32 {
+            ans |= (n & 1) << (31 - i);
+            n >>= 1;
         }
-        res
+        ans
     }
 }

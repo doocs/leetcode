@@ -1,12 +1,19 @@
-from sortedcontainers import SortedList
-
-
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
-        sl = SortedList(nums[:k])
-        ans = [sl[x - 1] if sl[x - 1] < 0 else 0]
+        def f(x: int) -> int:
+            s = 0
+            for i in range(50):
+                s += cnt[i]
+                if s >= x:
+                    return i - 50
+            return 0
+
+        cnt = [0] * 101
+        for v in nums[:k]:
+            cnt[v + 50] += 1
+        ans = [f(x)]
         for i in range(k, len(nums)):
-            sl.remove(nums[i - k])
-            sl.add(nums[i])
-            ans.append(sl[x - 1] if sl[x - 1] < 0 else 0)
+            cnt[nums[i] + 50] += 1
+            cnt[nums[i - k] + 50] -= 1
+            ans.append(f(x))
         return ans

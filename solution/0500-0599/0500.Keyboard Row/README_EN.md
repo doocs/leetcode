@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0500.Keyboard%20Row/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [500. Keyboard Row](https://leetcode.com/problems/keyboard-row)
 
 [中文文档](/solution/0500-0599/0500.Keyboard%20Row/README.md)
 
-<!-- tags:Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code>, return <em>the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below</em>.</p>
 
@@ -47,11 +59,17 @@
 	<li><code>words[i]</code> consists of English letters (both lowercase and uppercase).&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +84,8 @@ class Solution:
                 ans.append(w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findWords(words []string) (ans []string) {
 	s := "12210111011122000010020202"
@@ -134,6 +158,8 @@ func findWords(words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findWords(words: string[]): string[] {
@@ -156,6 +182,8 @@ function findWords(words: string[]): string[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -182,9 +210,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -200,4 +234,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

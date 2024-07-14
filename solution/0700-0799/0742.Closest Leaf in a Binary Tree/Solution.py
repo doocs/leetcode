@@ -5,24 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findClosestLeaf(self, root: TreeNode, k: int) -> int:
-        def dfs(root, p):
+    def findClosestLeaf(self, root: Optional[TreeNode], k: int) -> int:
+        def dfs(root: Optional[TreeNode], fa: Optional[TreeNode]):
             if root:
-                g[root].append(p)
-                g[p].append(root)
+                g[root].append(fa)
+                g[fa].append(root)
                 dfs(root.left, root)
                 dfs(root.right, root)
 
         g = defaultdict(list)
         dfs(root, None)
-        q = deque([node for node in g if node and node.val == k])
-        seen = set()
-        while q:
+        q = deque(node for node in g if node and node.val == k)
+        vis = set(q)
+        while 1:
             node = q.popleft()
-            seen.add(node)
             if node:
-                if node.left is None and node.right is None:
+                if node.left == node.right:
                     return node.val
-                for next in g[node]:
-                    if next not in seen:
-                        q.append(next)
+                for nxt in g[node]:
+                    if nxt not in vis:
+                        vis.add(nxt)
+                        q.append(nxt)

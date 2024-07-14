@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md
+rating: 1393
+source: 第 117 场双周赛 Q1
+tags:
+    - 数学
+    - 组合数学
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [2928. 给小朋友们分糖果 I](https://leetcode.cn/problems/distribute-candies-among-children-i)
 
 [English Version](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README_EN.md)
 
-<!-- tags:数学,组合数学,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数&nbsp;<code>n</code> 和&nbsp;<code>limit</code>&nbsp;。</p>
 
@@ -39,7 +51,11 @@
 	<li><code>1 &lt;= limit &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：组合数学 + 容斥原理
 
@@ -53,6 +69,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distributeCandies(self, n: int, limit: int) -> int:
@@ -65,6 +83,8 @@ class Solution:
             ans += 3 * comb(n - 2 * limit, 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distributeCandies(n int, limit int) int {
 	comb2 := func(n int) int {
@@ -128,6 +152,8 @@ func distributeCandies(n int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distributeCandies(n: number, limit: number): number {
@@ -148,4 +174,6 @@ function distributeCandies(n: number, limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

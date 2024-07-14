@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0389.Find%20the%20Difference/README.md
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [389. 找不同](https://leetcode.cn/problems/find-the-difference)
 
 [English Version](/solution/0300-0399/0389.Find%20the%20Difference/README_EN.md)
 
-<!-- tags:位运算,哈希表,字符串,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串 <code>s</code> 和 <code>t</code>&nbsp;，它们只包含小写字母。</p>
 
@@ -41,7 +52,11 @@
 	<li><code>s</code> 和 <code>t</code> 只包含小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -50,6 +65,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 为字符串的长度，而 $\Sigma$ 表示字符集，这里字符集为所有小写字母，所以 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +77,8 @@ class Solution:
             if cnt[c] < 0:
                 return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDifference(s, t string) byte {
 	cnt := [26]int{}
@@ -110,6 +133,8 @@ func findTheDifference(s, t string) byte {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheDifference(s: string, t: string): string {
@@ -128,6 +153,8 @@ function findTheDifference(s: string, t: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn find_the_difference(s: String, t: String) -> char {
@@ -140,18 +167,12 @@ impl Solution {
             count[(t[i] - b'a') as usize] -= 1;
         }
         count[(t[n] - b'a') as usize] -= 1;
-        char::from(
-            b'a' +
-                (
-                    count
-                        .iter()
-                        .position(|&v| v != 0)
-                        .unwrap() as u8
-                )
-        )
+        char::from(b'a' + (count.iter().position(|&v| v != 0).unwrap() as u8))
     }
 }
 ```
+
+#### C
 
 ```c
 char findTheDifference(char* s, char* t) {
@@ -172,6 +193,10 @@ char findTheDifference(char* s, char* t) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：求和
 
 我们可以将字符串 $t$ 中每个字符的 ASCII 码的值求和，再减去字符串 $s$ 中每个字符的 ASCII 码的值求和，最后的结果即为被添加的字符的 ASCII 码对应的值。
@@ -180,6 +205,8 @@ char findTheDifference(char* s, char* t) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
@@ -187,6 +214,8 @@ class Solution:
         b = sum(ord(c) for c in t)
         return chr(b - a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -202,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -219,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDifference(s string, t string) byte {
 	ss := 0
@@ -232,6 +265,8 @@ func findTheDifference(s string, t string) byte {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findTheDifference(s: string, t: string): string {
     return String.fromCharCode(
@@ -240,6 +275,8 @@ function findTheDifference(s: string, t: string): string {
     );
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -256,6 +293,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char findTheDifference(char* s, char* t) {
     int n = strlen(s);
@@ -271,4 +310,6 @@ char findTheDifference(char* s, char* t) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

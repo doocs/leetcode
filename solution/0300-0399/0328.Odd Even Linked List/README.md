@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md
+tags:
+    - 链表
+---
+
+<!-- problem:start -->
+
 # [328. 奇偶链表](https://leetcode.cn/problems/odd-even-linked-list)
 
 [English Version](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
 
-<!-- tags:链表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定单链表的头节点&nbsp;<code>head</code>&nbsp;，将所有索引为奇数的节点和索引为偶数的节点分别组合在一起，然后返回重新排序的列表。</p>
 
@@ -44,7 +52,11 @@
 	<li><code>-10<sup>6</sup>&nbsp;&lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -57,6 +69,8 @@
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度，需要遍历链表一次。空间复杂度 $O(1)$。只需要维护有限的指针。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -78,6 +92,8 @@ class Solution:
         a.next = c
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -140,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -164,6 +184,8 @@ func oddEvenList(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -196,4 +218,6 @@ function oddEvenList(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

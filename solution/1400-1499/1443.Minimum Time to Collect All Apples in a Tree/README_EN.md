@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1443.Minimum%20Time%20to%20Collect%20All%20Apples%20in%20a%20Tree/README_EN.md
+rating: 1682
+source: Weekly Contest 188 Q3
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [1443. Minimum Time to Collect All Apples in a Tree](https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree)
 
 [中文文档](/solution/1400-1499/1443.Minimum%20Time%20to%20Collect%20All%20Apples%20in%20a%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an undirected tree consisting of <code>n</code> vertices numbered from <code>0</code> to <code>n-1</code>, which has some apples in their vertices. You spend 1 second to walk over one edge of the tree. <em>Return the minimum time in seconds you have to spend to collect all apples in the tree, starting at <strong>vertex 0</strong> and coming back to this vertex.</em></p>
 
@@ -45,11 +60,17 @@
 	<li><code>hasApple.length == n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +93,8 @@ class Solution:
         vis = [False] * n
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTime(n int, edges [][]int, hasApple []bool) int {
@@ -159,4 +186,6 @@ func minTime(n int, edges [][]int, hasApple []bool) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

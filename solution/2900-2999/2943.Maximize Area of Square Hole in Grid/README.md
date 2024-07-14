@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README.md
+rating: 1677
+source: 第 118 场双周赛 Q2
+tags:
+    - 数组
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2943. 最大化网格图中正方形空洞的面积](https://leetcode.cn/problems/maximize-area-of-square-hole-in-grid)
 
 [English Version](/solution/2900-2999/2943.Maximize%20Area%20of%20Square%20Hole%20in%20Grid/README_EN.md)
 
-<!-- tags:数组,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个网格图，由&nbsp;<code>n + 2</code>&nbsp;条 <strong>横线段</strong>&nbsp;和&nbsp;<code>m + 2</code>&nbsp;条&nbsp;<strong>竖线段</strong>&nbsp;组成，一开始所有区域均为&nbsp;<code>1 x 1</code>&nbsp;的单元格。</p>
 
@@ -98,7 +109,11 @@
 	<li><code>vBars</code> 中的值互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -113,6 +128,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $hBars$ 或 $vBars$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -132,6 +149,8 @@ class Solution:
 
         return min(f(hBars), f(vBars)) ** 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +174,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSquareHoleArea(n int, m int, hBars []int, vBars []int) int {
 	f := func(nums []int) int {
@@ -197,6 +220,8 @@ func maximizeSquareHoleArea(n int, m int, hBars []int, vBars []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximizeSquareHoleArea(n: number, m: number, hBars: number[], vBars: number[]): number {
     const f = (nums: number[]): number => {
@@ -214,6 +239,8 @@ function maximizeSquareHoleArea(n: number, m: number, hBars: number[], vBars: nu
     return Math.min(f(hBars), f(vBars)) ** 2;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -243,4 +270,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

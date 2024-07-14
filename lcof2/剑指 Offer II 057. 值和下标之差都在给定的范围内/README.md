@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20057.%20%E5%80%BC%E5%92%8C%E4%B8%8B%E6%A0%87%E4%B9%8B%E5%B7%AE%E9%83%BD%E5%9C%A8%E7%BB%99%E5%AE%9A%E7%9A%84%E8%8C%83%E5%9B%B4%E5%86%85/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 057. 值和下标之差都在给定的范围内](https://leetcode.cn/problems/7WqeDu)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和两个整数&nbsp;<code>k</code> 和 <code>t</code> 。请你判断是否存在 <b>两个不同下标</b> <code>i</code> 和 <code>j</code>，使得&nbsp;<code>abs(nums[i] - nums[j]) &lt;= t</code> ，同时又满足 <code>abs(i - j) &lt;= k</code><em> </em>。</p>
 
@@ -43,7 +50,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 220&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/contains-duplicate-iii/">https://leetcode.cn/problems/contains-duplicate-iii/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口 + 有序集合
 
@@ -54,6 +65,8 @@
 时间复杂度 $O(n\times \log k)$，其中 $n$ 是数组 `nums` 的长度。对于每个元素，我们需要 $O(\log k)$ 的时间来查找有序集合中的元素，一共有 $n$ 个元素，因此总时间复杂度是 $O(n\times \log k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -71,6 +84,8 @@ class Solution:
                 s.remove(nums[i - k])
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
@@ -130,6 +149,8 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsNearbyAlmostDuplicate(nums: number[], k: number, t: number): boolean {
@@ -788,6 +809,182 @@ class TreeMultiSet<T = number> {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func containsNearbyAlmostDuplicate(_ nums: [Int], _ k: Int, _ t: Int) -> Bool {
+        guard nums.count > 1, k > 0, t >= 0 else { return false }
+
+        var ts = TreeSet<Int64>()
+        for i in 0..<nums.count {
+            let num = Int64(nums[i])
+            if let x = ts.ceiling(num - Int64(t)), abs(x - num) <= Int64(t) {
+                return true
+            }
+            ts.insert(num)
+            if i >= k {
+                ts.remove(Int64(nums[i - k]))
+            }
+        }
+        return false
+    }
+}
+
+class AVLTreeNode<T: Comparable> {
+    var value: T
+    var height: Int
+    var left: AVLTreeNode?
+    var right: AVLTreeNode?
+
+    init(value: T) {
+        self.value = value
+        self.height = 1
+    }
+}
+
+class TreeSet<T: Comparable> {
+    private var root: AVLTreeNode<T>?
+
+    func insert(_ value: T) {
+        root = insert(root, value)
+    }
+
+    func remove(_ value: T) {
+        root = remove(root, value)
+    }
+
+    func ceiling(_ value: T) -> T? {
+        return ceiling(root, value)
+    }
+
+    private func insert(_ node: AVLTreeNode<T>?, _ value: T) -> AVLTreeNode<T> {
+        guard let node = node else {
+            return AVLTreeNode(value: value)
+        }
+
+        if value < node.value {
+            node.left = insert(node.left, value)
+        } else if value > node.value {
+            node.right = insert(node.right, value)
+        } else {
+            return node
+        }
+
+        return balance(node)
+    }
+
+    private func remove(_ node: AVLTreeNode<T>?, _ value: T) -> AVLTreeNode<T>? {
+        guard let node = node else {
+            return nil
+        }
+
+        if value < node.value {
+            node.left = remove(node.left, value)
+        } else if value > node.value {
+            node.right = remove(node.right, value)
+        } else {
+            if node.left == nil {
+                return node.right
+            } else if node.right == nil {
+                return node.left
+            } else {
+                if let minLargerNode = minNode(node.right) {
+                    node.value = minLargerNode.value
+                    node.right = remove(node.right, minLargerNode.value)
+                }
+            }
+        }
+
+        return balance(node)
+    }
+
+    private func ceiling(_ node: AVLTreeNode<T>?, _ value: T) -> T? {
+        guard let node = node else {
+            return nil
+        }
+
+        if node.value == value {
+            return node.value
+        } else if node.value < value {
+            return ceiling(node.right, value)
+        } else {
+            return ceiling(node.left, value) ?? node.value
+        }
+    }
+
+    private func height(_ node: AVLTreeNode<T>?) -> Int {
+        return node?.height ?? 0
+    }
+
+    private func balanceFactor(_ node: AVLTreeNode<T>) -> Int {
+        return height(node.left) - height(node.right)
+    }
+
+    private func updateHeight(_ node: AVLTreeNode<T>) {
+        node.height = 1 + max(height(node.left), height(node.right))
+    }
+
+    private func rotateRight(_ y: AVLTreeNode<T>) -> AVLTreeNode<T> {
+        let x = y.left!
+        let T2 = x.right
+
+        x.right = y
+        y.left = T2
+
+        updateHeight(y)
+        updateHeight(x)
+
+        return x
+    }
+
+    private func rotateLeft(_ x: AVLTreeNode<T>) -> AVLTreeNode<T> {
+        let y = x.right!
+        let T2 = y.left
+
+        y.left = x
+        x.right = T2
+
+        updateHeight(x)
+        updateHeight(y)
+
+        return y
+    }
+
+    private func balance(_ node: AVLTreeNode<T>) -> AVLTreeNode<T> {
+        updateHeight(node)
+
+        let balance = balanceFactor(node)
+
+        if balance > 1 {
+            if balanceFactor(node.left!) < 0 {
+                node.left = rotateLeft(node.left!)
+            }
+            return rotateRight(node)
+        }
+
+        if balance < -1 {
+            if balanceFactor(node.right!) > 0 {
+                node.right = rotateRight(node.right!)
+            }
+            return rotateLeft(node)
+        }
+
+        return node
+    }
+
+    private func minNode(_ node: AVLTreeNode<T>?) -> AVLTreeNode<T>? {
+        var current = node
+        while current?.left != nil {
+            current = current?.left
+        }
+        return current
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

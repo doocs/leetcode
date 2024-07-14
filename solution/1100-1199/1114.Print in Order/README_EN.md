@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1114.Print%20in%20Order/README_EN.md
+tags:
+    - Concurrency
+---
+
+<!-- problem:start -->
+
 # [1114. Print in Order](https://leetcode.com/problems/print-in-order)
 
 [中文文档](/solution/1100-1199/1114.Print%20in%20Order/README.md)
 
-<!-- tags:Concurrency -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose we have a class:</p>
 
@@ -46,7 +56,11 @@ public class Foo {
 	<li><code>nums</code> is a permutation of <code>[1, 2, 3]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Multithreading + Lock or Semaphore
 
@@ -61,6 +75,8 @@ When thread $C$ executes the `third()` method, it first needs to acquire semapho
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Foo:
@@ -83,6 +99,8 @@ class Foo:
         self.l3.acquire()
         printThird()
 ```
+
+#### Java
 
 ```java
 class Foo {
@@ -116,6 +134,8 @@ class Foo {
 }
 ```
 
+#### C++
+
 ```cpp
 class Foo {
 private:
@@ -147,9 +167,15 @@ public:
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from threading import Semaphore
@@ -179,6 +205,8 @@ class Foo:
         printThird()
         self.a.release()
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>
@@ -219,4 +247,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md
+rating: 2153
+source: 第 357 场周赛 Q3
+tags:
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 二分查找
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [2812. 找出最安全路径](https://leetcode.cn/problems/find-the-safest-path-in-a-grid)
 
 [English Version](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md)
 
-<!-- tags:广度优先搜索,并查集,数组,二分查找,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、大小为 <code>n x n</code> 的二维矩阵 <code>grid</code> ，其中 <code>(r, c)</code> 表示：</p>
 
@@ -68,7 +82,11 @@
 	<li><code>grid</code> 至少存在一个小偷</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多源 BFS + 排序 + 并查集
 
@@ -77,6 +95,8 @@
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -135,6 +155,8 @@ class Solution:
                 return int(d)
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -225,6 +247,8 @@ class UnionFind {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -305,6 +329,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -397,6 +423,8 @@ func maximumSafenessFactor(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     private p: number[];
@@ -480,6 +508,8 @@ function maximumSafenessFactor(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::VecDeque;
 impl Solution {
@@ -489,11 +519,11 @@ impl Solution {
         }
         vis[i][j] = true;
         let n = g.len();
-        (i == n - 1 && j == n - 1) ||
-            (i != 0 && Self::dfs(i - 1, j, v, g, vis)) ||
-            (i != n - 1 && Self::dfs(i + 1, j, v, g, vis)) ||
-            (j != 0 && Self::dfs(i, j - 1, v, g, vis)) ||
-            (j != n - 1 && Self::dfs(i, j + 1, v, g, vis))
+        (i == n - 1 && j == n - 1)
+            || (i != 0 && Self::dfs(i - 1, j, v, g, vis))
+            || (i != n - 1 && Self::dfs(i + 1, j, v, g, vis))
+            || (j != 0 && Self::dfs(i, j - 1, v, g, vis))
+            || (j != n - 1 && Self::dfs(i, j + 1, v, g, vis))
     }
 
     pub fn maximum_safeness_factor(grid: Vec<Vec<i32>>) -> i32 {
@@ -548,9 +578,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function maximumSafenessFactor(grid: number[][]): number {
@@ -612,4 +648,6 @@ function maximumSafenessFactor(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

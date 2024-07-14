@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0074.Search%20a%202D%20Matrix/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix)
 
 [English Version](/solution/0000-0099/0074.Search%20a%202D%20Matrix/README_EN.md)
 
-<!-- tags:数组,二分查找,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个满足下述两条属性的 <code>m x n</code> 整数矩阵：</p>
 
@@ -44,7 +54,11 @@
 	<li><code>-10<sup>4</sup> &lt;= matrix[i][j], target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -53,6 +67,8 @@
 时间复杂度 $O(\log (m \times n))$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +84,8 @@ class Solution:
                 left = mid + 1
         return matrix[left // n][left % n] == target
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	m, n := len(matrix), len(matrix[0])
@@ -124,6 +146,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 	return matrix[left/n][left%n] == target
 }
 ```
+
+#### TypeScript
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
@@ -148,6 +172,8 @@ function searchMatrix(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -174,6 +200,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -202,6 +230,10 @@ var searchMatrix = function (matrix, target) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：从左下角或右上角搜索
 
 这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 $matrix[i][j]$ 与 $target$ 的大小关系：
@@ -215,6 +247,8 @@ var searchMatrix = function (matrix, target) {
 时间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -230,6 +264,8 @@ class Solution:
                 j += 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,6 +286,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -267,6 +305,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	m, n := len(matrix), len(matrix[0])
@@ -283,6 +323,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 	return false
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -313,6 +355,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -338,4 +382,6 @@ var searchMatrix = function (matrix, target) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

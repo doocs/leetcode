@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md
+rating: 1295
+source: 第 348 场周赛 Q2
+tags:
+    - 数组
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2717. 半有序排列](https://leetcode.cn/problems/semi-ordered-permutation)
 
 [English Version](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md)
 
-<!-- tags:数组,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的整数排列 <code>nums</code> 。</p>
 
@@ -63,7 +74,11 @@
 	<li><code>nums</code> 是一个 <strong>排列</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：寻找 1 和 n 的位置
 
@@ -75,6 +90,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def semiOrderedPermutation(self, nums: List[int]) -> int:
@@ -84,6 +101,8 @@ class Solution:
         k = 1 if i < j else 2
         return i + n - j - k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func semiOrderedPermutation(nums []int) int {
@@ -137,6 +160,8 @@ func semiOrderedPermutation(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function semiOrderedPermutation(nums: number[]): number {
     const n = nums.length;
@@ -147,65 +172,31 @@ function semiOrderedPermutation(nums: number[]): number {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn semi_ordered_permutation(nums: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = 0;
-        let mut n = nums.len();
-
-        for idx in 0..n {
-            if nums[idx] == 1 {
-                i = idx;
-            }
-            if nums[idx] == (n as i32) {
-                j = idx;
-            }
-        }
-
-        let mut ans = i - 1 + n - j;
-        if i > j {
-            ans = i - 1 + n - j - 1;
-        }
-
-        ans as i32
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
+#### Rust
 
 ```rust
 impl Solution {
     pub fn semi_ordered_permutation(nums: Vec<i32>) -> i32 {
         let n = nums.len();
-        let i = nums
-            .iter()
-            .enumerate()
-            .find(|&(_, &v)| v == 1)
-            .map(|(i, _)| i)
-            .unwrap();
-        let j = nums
-            .iter()
-            .enumerate()
-            .find(|&(_, &v)| v == (n as i32))
-            .map(|(i, _)| i)
-            .unwrap();
+        let (mut i, mut j) = (0, 0);
 
-        let mut ans = i - 1 + n - j;
-        if i > j {
-            ans = i - 1 + n - j - 1;
+        for k in 0..n {
+            if nums[k] == 1 {
+                i = k;
+            }
+            if nums[k] == (n as i32) {
+                j = k;
+            }
         }
 
-        ans as i32
+        let k = if i < j { 1 } else { 2 };
+        (i + n - j - k) as i32
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

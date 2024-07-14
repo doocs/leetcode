@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README.md
+rating: 1641
+source: 第 306 场周赛 Q3
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [2375. 根据模式串构造最小数字](https://leetcode.cn/problems/construct-smallest-number-from-di-string)
 
 [English Version](/solution/2300-2399/2375.Construct%20Smallest%20Number%20From%20DI%20String/README_EN.md)
 
-<!-- tags:栈,贪心,字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你下标从 <strong>0</strong> 开始、长度为 <code>n</code>&nbsp;的字符串&nbsp;<code>pattern</code>&nbsp;，它包含两种字符，<code>'I'</code>&nbsp;表示 <strong>上升</strong>&nbsp;，<code>'D'</code>&nbsp;表示 <strong>下降</strong>&nbsp;。</p>
 
@@ -53,7 +66,11 @@
 	<li><code>pattern</code>&nbsp;只包含字符&nbsp;<code>'I'</code> 和&nbsp;<code>'D'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -62,6 +79,8 @@
 时间复杂度 $O(n!)$，空间复杂度 $O(n)$。其中 $n$ 表示字符串 $pattern$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +110,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -168,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestNumber(pattern string) string {
 	vis := make([]bool, 10)
@@ -202,6 +227,8 @@ func smallestNumber(pattern string) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestNumber(pattern: string): string {
@@ -260,4 +287,6 @@ function smallestNumber(pattern: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

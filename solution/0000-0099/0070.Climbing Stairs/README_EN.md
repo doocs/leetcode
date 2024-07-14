@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0070.Climbing%20Stairs/README_EN.md
+tags:
+    - Memoization
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs)
 
 [中文文档](/solution/0000-0099/0070.Climbing%20Stairs/README.md)
 
-<!-- tags:Memoization,Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are climbing a staircase. It takes <code>n</code> steps to reach the top.</p>
 
@@ -39,7 +51,11 @@
 	<li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -59,6 +75,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -67,6 +85,8 @@ class Solution:
             a, b = b, a + b
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func climbStairs(n int) int {
 	a, b := 0, 1
@@ -106,6 +130,8 @@ func climbStairs(n int) int {
 	return b
 }
 ```
+
+#### TypeScript
 
 ```ts
 function climbStairs(n: number): number {
@@ -117,6 +143,8 @@ function climbStairs(n: number): number {
     return q;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -131,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -148,6 +178,8 @@ var climbStairs = function (n) {
     return b;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -169,6 +201,10 @@ class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
 
@@ -212,6 +248,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -236,6 +274,8 @@ class Solution:
         a = [[1, 1], [1, 0]]
         return pow(a, n - 1)[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -271,6 +311,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -308,6 +350,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type matrix [2][2]int
 
@@ -340,6 +384,8 @@ func pow(a matrix, n int) matrix {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function climbStairs(n: number): number {
@@ -380,6 +426,8 @@ function pow(a: number[][], n: number): number[][] {
     return res;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -427,9 +475,15 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import numpy as np
@@ -450,4 +504,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

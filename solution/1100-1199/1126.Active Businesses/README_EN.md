@@ -1,10 +1,20 @@
-# [1126. Active Businesses](https://leetcode.com/problems/active-businesses)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1126.Active%20Businesses/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1126. Active Businesses 🔒](https://leetcode.com/problems/active-businesses)
 
 [中文文档](/solution/1100-1199/1126.Active%20Businesses/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Events</code></p>
 
@@ -61,11 +71,17 @@ The average activity for each event can be calculated as follows:
 The business with id=1 has 7 &#39;reviews&#39; events (more than 5) and 11 &#39;ads&#39; events (more than 8), so it is an active business.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -87,9 +103,15 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -109,4 +131,6 @@ HAVING COUNT(1) > 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

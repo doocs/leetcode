@@ -1,38 +1,48 @@
 class Solution {
 public:
-    vector<string> words;
-    vector<string> ans;
-    unordered_set<string> visited;
-
     vector<string> findLadders(string beginWord, string endWord, vector<string>& wordList) {
-        this->words = wordList;
-        ans.resize(0);
-        vector<string> t;
-        t.push_back(beginWord);
-        dfs(beginWord, endWord, t);
-        return ans;
+        this->endWord = move(endWord);
+        this->wordList = move(wordList);
+        vis.resize(this->wordList.size(), false);
+        ans.push_back(beginWord);
+        if (dfs(beginWord)) {
+            return ans;
+        }
+        return {};
     }
 
-    void dfs(string begin, string end, vector<string>& t) {
-        if (!ans.empty()) return;
-        if (begin == end) {
-            ans = t;
-            return;
-        }
-        for (auto word : words) {
-            if (visited.count(word) || !check(begin, word)) continue;
-            visited.insert(word);
-            t.push_back(word);
-            dfs(word, end, t);
-            t.pop_back();
-        }
-    }
+private:
+    vector<string> ans;
+    vector<bool> vis;
+    string endWord;
+    vector<string> wordList;
 
-    bool check(string a, string b) {
-        if (a.size() != b.size()) return false;
+    bool check(string& s, string& t) {
+        if (s.size() != t.size()) {
+            return false;
+        }
         int cnt = 0;
-        for (int i = 0; i < a.size(); ++i)
-            if (a[i] != b[i]) ++cnt;
+        for (int i = 0; i < s.size(); ++i) {
+            cnt += s[i] != t[i];
+        }
         return cnt == 1;
+    }
+
+    bool dfs(string& s) {
+        if (s == endWord) {
+            return true;
+        }
+        for (int i = 0; i < wordList.size(); ++i) {
+            string& t = wordList[i];
+            if (!vis[i] && check(s, t)) {
+                vis[i] = true;
+                ans.push_back(t);
+                if (dfs(t)) {
+                    return true;
+                }
+                ans.pop_back();
+            }
+        }
+        return false;
     }
 };

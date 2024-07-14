@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2512.Reward%20Top%20K%20Students/README_EN.md
+rating: 1636
+source: Biweekly Contest 94 Q2
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2512. Reward Top K Students](https://leetcode.com/problems/reward-top-k-students)
 
 [中文文档](/solution/2500-2599/2512.Reward%20Top%20K%20Students/README.md)
 
-<!-- tags:Array,Hash Table,String,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two string arrays <code>positive_feedback</code> and <code>negative_feedback</code>, containing the words denoting positive and negative feedback, respectively. Note that <strong>no</strong> word is both positive and negative.</p>
 
@@ -53,7 +69,11 @@ Since student 2 has more points, [2,1] is returned.
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -66,6 +86,8 @@ Finally, we sort the array $arr$ in descending order by score, and if the scores
 The time complexity is $O(n \times \log n + (|ps| + |ns| + n) \times |s|)$, and the space complexity is $O((|ps|+|ns|) \times |s| + n)$. Here, $n$ is the number of students, $|ps|$ and $|ns|$ are the number of positive and negative words, respectively, and $|s|$ is the average length of a word.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +113,8 @@ class Solution:
         arr.sort(key=lambda x: (-x[0], x[1]))
         return [v[1] for v in arr[:k]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func topStudents(positive_feedback []string, negative_feedback []string, report []string, student_id []int, k int) (ans []int) {
 	ps := map[string]bool{}
@@ -198,6 +226,8 @@ func topStudents(positive_feedback []string, negative_feedback []string, report 
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function topStudents(
@@ -237,15 +267,17 @@ function topStudents(
 }
 ```
 
+#### Rust
+
 ```rust
-use std::collections::{ HashMap, HashSet };
+use std::collections::{HashMap, HashSet};
 impl Solution {
     pub fn top_students(
         positive_feedback: Vec<String>,
         negative_feedback: Vec<String>,
         report: Vec<String>,
         student_id: Vec<i32>,
-        k: i32
+        k: i32,
     ) -> Vec<i32> {
         let n = student_id.len();
         let ps = positive_feedback.iter().collect::<HashSet<&String>>();
@@ -271,14 +303,13 @@ impl Solution {
             }
             b.1.cmp(&a.1)
         });
-        t.iter()
-            .map(|v| v.0)
-            .collect::<Vec<i32>>()
-            [0..k as usize].to_vec()
+        t.iter().map(|v| v.0).collect::<Vec<i32>>()[0..k as usize].to_vec()
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README_EN.md
+rating: 2105
+source: Weekly Contest 250 Q3
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1937. Maximum Number of Points with Cost](https://leetcode.com/problems/maximum-number-of-points-with-cost)
 
 [中文文档](/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer matrix <code>points</code> (<strong>0-indexed</strong>). Starting with <code>0</code> points, you want to <strong>maximize</strong> the number of points you can get from the matrix.</p>
 
@@ -57,11 +70,17 @@ Your final score is 12 - 1 = 11.
 	<li><code>0 &lt;= points[r][c] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +100,8 @@ class Solution:
             f = g
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPoints(points [][]int) int64 {
 	n := len(points[0])
@@ -157,6 +182,8 @@ func maxPoints(points [][]int) int64 {
 	return slices.Max(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPoints(points: number[][]): number {
@@ -182,4 +209,6 @@ function maxPoints(points: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

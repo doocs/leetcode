@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree)
 
 [English Version](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树 <code>root</code> ，返回其最大深度。</p>
 
@@ -41,7 +52,11 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -50,6 +65,8 @@
 时间复杂度 $O(n)$，其中 $n$ 是二叉树的节点数。每个节点在递归中只被遍历一次。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -65,6 +82,8 @@ class Solution:
         l, r = self.maxDepth(root.left), self.maxDepth(root.right)
         return 1 + max(l, r)
 ```
+
+#### Java
 
 ```java
 /**
@@ -94,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -116,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -133,6 +156,8 @@ func maxDepth(root *TreeNode) int {
 	return 1 + max(l, r)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -157,6 +182,8 @@ function maxDepth(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -176,8 +203,8 @@ function maxDepth(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if root.is_none() {
@@ -192,6 +219,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -213,6 +242,8 @@ var maxDepth = function (root) {
     return 1 + Math.max(l, r);
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -238,4 +269,6 @@ int maxDepth(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

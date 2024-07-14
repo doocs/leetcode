@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2865.Beautiful%20Towers%20I/README.md
+rating: 1519
+source: 第 364 场周赛 Q2
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [2865. 美丽塔 I](https://leetcode.cn/problems/beautiful-towers-i)
 
 [English Version](/solution/2800-2899/2865.Beautiful%20Towers%20I/README_EN.md)
 
-<!-- tags:栈,数组,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>maxHeights</code>&nbsp;。</p>
 
@@ -71,7 +83,11 @@
 	<li><code>1 &lt;= maxHeights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -80,6 +96,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $maxHeights$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +115,8 @@ class Solution:
             ans = max(ans, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +141,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSumOfHeights(maxHeights []int) (ans int64) {
 	n := len(maxHeights)
@@ -166,6 +190,8 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {
@@ -191,6 +217,10 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 单调栈
 
 方法一的做法足以通过本题，但是时间复杂度较高。我们可以使用“动态规划 + 单调栈”来优化枚举的过程。
@@ -212,6 +242,8 @@ $$
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $maxHeights$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -250,6 +282,8 @@ class Solution:
                 g[i] = maxHeights[i] * (j - i) + (g[j] if j != n else 0)
         return max(a + b - c for a, b, c in zip(f, g, maxHeights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -310,6 +344,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -366,6 +402,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSumOfHeights(maxHeights []int) (ans int64) {
@@ -429,6 +467,8 @@ func maximumSumOfHeights(maxHeights []int) (ans int64) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSumOfHeights(maxHeights: number[]): number {
     const n = maxHeights.length;
@@ -486,4 +526,6 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.10.Check%20SubTree/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [04.10. Check SubTree](https://leetcode.cn/problems/check-subtree-lcci)
 
 [中文文档](/lcci/04.10.Check%20SubTree/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>T1&nbsp;and T2 are two very large binary trees, with T1&nbsp;much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1.</p>
 
@@ -34,11 +44,25 @@
 	<li>The node numbers of both tree are in [0, 20000].</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Recursion
+
+First, we check if $t_2$ is null. If it is, then $t_2$ is definitely a subtree of $t_1$, so we return `true`.
+
+Otherwise, we check if $t_1$ is null. If it is, then $t_2$ is definitely not a subtree of $t_1$, so we return `false`.
+
+Next, we check if $t_1$ and $t_2$ are equal. If they are, then $t_2$ is a subtree of $t_1$, so we return `true`. Otherwise, we recursively check if $t_1$'s left subtree is equal to $t_2$, and if $t_1$'s right subtree is equal to $t_2$. If either is `true`, then $t_2$ is a subtree of $t_1$, so we return `true`.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in $t_1$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -53,15 +77,21 @@ class Solution:
     def checkSubTree(self, t1: TreeNode, t2: TreeNode) -> bool:
         def dfs(t1, t2):
             if t2 is None:
-                return True
-            if t1 is None:
+                return t1 is None
+            if t1 is None or t1.val != t2.val:
                 return False
-            if t1.val == t2.val:
-                return dfs(t1.left, t2.left) and dfs(t1.right, t2.right)
-            return dfs(t1.left, t2) or dfs(t1.right, t2)
+            return dfs(t1.left, t2.left) and dfs(t1.right, t2.right)
 
-        return dfs(t1, t2)
+        if t2 is None:
+            return True
+        if t1 is None:
+            return False
+        if dfs(t1, t2):
+            return True
+        return self.checkSubTree(t1.left, t2) or self.checkSubTree(t1.right, t2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -81,13 +111,25 @@ class Solution {
         if (t1 == null) {
             return false;
         }
-        if (t1.val == t2.val) {
-            return checkSubTree(t1.left, t2.left) && checkSubTree(t1.right, t2.right);
+        if (dfs(t1, t2)) {
+            return true;
         }
         return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
     }
+
+    private boolean dfs(TreeNode t1, TreeNode t2) {
+        if (t2 == null) {
+            return t1 == null;
+        }
+        if (t1 == null || t1.val != t2.val) {
+            return false;
+        }
+        return dfs(t1.left, t2.left) && dfs(t1.right, t2.right);
+    }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -102,13 +144,31 @@ class Solution {
 class Solution {
 public:
     bool checkSubTree(TreeNode* t1, TreeNode* t2) {
-        if (!t2) return 1;
-        if (!t1) return 0;
-        if (t1->val == t2->val) return checkSubTree(t1->left, t2->left) && checkSubTree(t1->right, t2->right);
+        if (!t2) {
+            return true;
+        }
+        if (!t1) {
+            return false;
+        }
+        if (dfs(t1, t2)) {
+            return true;
+        }
         return checkSubTree(t1->left, t2) || checkSubTree(t1->right, t2);
+    }
+
+    bool dfs(TreeNode* t1, TreeNode* t2) {
+        if (!t2) {
+            return !t1;
+        }
+        if (!t1 || t1->val != t2->val) {
+            return false;
+        }
+        return dfs(t1->left, t2->left) && dfs(t1->right, t2->right);
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -120,18 +180,30 @@ public:
  * }
  */
 func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
+	var dfs func(t1, t2 *TreeNode) bool
+	dfs = func(t1, t2 *TreeNode) bool {
+		if t2 == nil {
+			return t1 == nil
+		}
+		if t1 == nil || t1.Val != t2.Val {
+			return false
+		}
+		return dfs(t1.Left, t2.Left) && dfs(t1.Right, t2.Right)
+	}
 	if t2 == nil {
 		return true
 	}
 	if t1 == nil {
 		return false
 	}
-	if t1.Val == t2.Val {
-		return checkSubTree(t1.Left, t2.Left) && checkSubTree(t1.Right, t2.Right)
+	if dfs(t1, t2) {
+		return true
 	}
 	return checkSubTree(t1.Left, t2) || checkSubTree(t1.Right, t2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -149,18 +221,29 @@ func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
  */
 
 function checkSubTree(t1: TreeNode | null, t2: TreeNode | null): boolean {
-    if (t1 == null && t2 == null) {
+    const dfs = (t1: TreeNode | null, t2: TreeNode | null): boolean => {
+        if (!t2) {
+            return !t1;
+        }
+        if (!t1 || t1.val !== t2.val) {
+            return false;
+        }
+        return dfs(t1.left, t2.left) && dfs(t1.right, t2.right);
+    };
+    if (!t2) {
         return true;
     }
-    if (t1 == null || t2 == null) {
+    if (!t1) {
         return false;
     }
-    if (t1.val === t2.val) {
-        return checkSubTree(t1.left, t2.left) && checkSubTree(t1.right, t2.right);
+    if (dfs(t1, t2)) {
+        return true;
     }
     return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -181,33 +264,91 @@ function checkSubTree(t1: TreeNode | null, t2: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(t1: &Option<Rc<RefCell<TreeNode>>>, t2: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if t1.is_none() && t2.is_none() {
-            return true;
+        match (t1, t2) {
+            (Some(node1), Some(node2)) => {
+                let n1 = node1.borrow();
+                let n2 = node2.borrow();
+                n1.val == n2.val
+                    && Solution::dfs(&n1.left, &n2.left)
+                    && Solution::dfs(&n1.right, &n2.right)
+            }
+            (None, Some(_)) => false,
+            (Some(_), None) => false,
+            _ => true, // Both are None
         }
-        if t1.is_none() || t2.is_none() {
-            return false;
-        }
-        let r1 = t1.as_ref().unwrap().borrow();
-        let r2 = t2.as_ref().unwrap().borrow();
-        if r1.val == r2.val {
-            return Self::dfs(&r1.left, &r2.left) && Self::dfs(&r1.right, &r2.right);
-        }
-        Self::dfs(&r1.left, t2) || Self::dfs(&r1.right, t2)
     }
 
     pub fn check_sub_tree(
         t1: Option<Rc<RefCell<TreeNode>>>,
-        t2: Option<Rc<RefCell<TreeNode>>>
+        t2: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
-        Self::dfs(&t1, &t2)
+        match (t1, t2) {
+            (Some(node1), Some(node2)) => {
+                let n1 = node1.borrow();
+                let n2 = node2.borrow();
+                Solution::dfs(&Some(Rc::clone(&node1)), &Some(Rc::clone(&node2)))
+                    || Solution::check_sub_tree(n1.left.clone(), Some(Rc::clone(&node2)))
+                    || Solution::check_sub_tree(n1.right.clone(), Some(Rc::clone(&node2)))
+            }
+            (Some(_), None) => true,
+            (None, Some(_)) => false,
+            _ => true, // Both are None or t1 is None
+        }
+    }
+}
+```
+
+#### Swift
+
+```swift
+/* class TreeNode {
+*    var val: Int
+*    var left: TreeNode?
+*    var right: TreeNode?
+*
+*    init(_ val: Int, _ left: TreeNode? = nil, _ right: TreeNode? = nil) {
+*        self.val = val
+*        self.left = left
+*        self.right = right
+*    }
+* }
+*/
+
+class Solution {
+    func checkSubTree(_ t1: TreeNode?, _ t2: TreeNode?) -> Bool {
+        if t2 == nil {
+            return true
+        }
+        if t1 == nil {
+            return false
+        }
+        if isSameTree(t1, t2) {
+            return true
+        }
+        return checkSubTree(t1!.left, t2) || checkSubTree(t1!.right, t2)
+    }
+
+    private func isSameTree(_ t1: TreeNode?, _ t2: TreeNode?) -> Bool {
+        if t1 == nil && t2 == nil {
+            return true
+        }
+        if t1 == nil || t2 == nil {
+            return false
+        }
+        if t1!.val != t2!.val {
+            return false
+        }
+        return isSameTree(t1!.left, t2!.left) && isSameTree(t1!.right, t2!.right)
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

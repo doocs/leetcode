@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0443.String%20Compression/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
 # [443. String Compression](https://leetcode.com/problems/string-compression)
 
 [中文文档](/solution/0400-0499/0443.String%20Compression/README.md)
 
-<!-- tags:Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of characters <code>chars</code>, compress it using the following algorithm:</p>
 
@@ -53,11 +64,17 @@
 	<li><code>chars[i]</code> is a lowercase English letter, uppercase English letter, digit, or symbol.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +94,8 @@ class Solution:
             i = j
         return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func compress(chars []byte) int {
@@ -143,6 +166,8 @@ func compress(chars []byte) int {
 	return k
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,4 +197,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

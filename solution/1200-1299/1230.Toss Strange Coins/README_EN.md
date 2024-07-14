@@ -1,10 +1,25 @@
-# [1230. Toss Strange Coins](https://leetcode.com/problems/toss-strange-coins)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1230.Toss%20Strange%20Coins/README_EN.md
+rating: 1808
+source: Biweekly Contest 11 Q3
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Probability and Statistics
+---
+
+<!-- problem:start -->
+
+# [1230. Toss Strange Coins 🔒](https://leetcode.com/problems/toss-strange-coins)
 
 [中文文档](/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md)
 
-<!-- tags:Array,Math,Dynamic Programming,Probability and Statistics -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have some coins.&nbsp; The <code>i</code>-th&nbsp;coin has a probability&nbsp;<code>prob[i]</code> of facing heads when tossed.</p>
 
@@ -28,7 +43,11 @@
 	<li>Answers will be accepted as correct if they are within <code>10^-5</code> of the correct answer.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -51,6 +70,8 @@ The time complexity is $O(n \times target)$, and the space complexity is $O(targ
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def probabilityOfHeads(self, prob: List[float], target: int) -> float:
@@ -64,6 +85,8 @@ class Solution:
                     f[i][j] += p * f[i - 1][j - 1]
         return f[n][target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func probabilityOfHeads(prob []float64, target int) float64 {
 	n := len(prob)
@@ -125,6 +152,8 @@ func probabilityOfHeads(prob []float64, target int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function probabilityOfHeads(prob: number[], target: number): number {
     const n = prob.length;
@@ -144,9 +173,15 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -160,6 +195,8 @@ class Solution:
                     f[j] += p * f[j - 1]
         return f[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +215,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -199,6 +238,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func probabilityOfHeads(prob []float64, target int) float64 {
 	f := make([]float64, target+1)
@@ -214,6 +255,8 @@ func probabilityOfHeads(prob []float64, target int) float64 {
 	return f[target]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function probabilityOfHeads(prob: number[], target: number): number {
@@ -233,4 +276,6 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0069.Sqrt%28x%29/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [69. Sqrt(x)](https://leetcode.com/problems/sqrtx)
 
 [中文文档](/solution/0000-0099/0069.Sqrt%28x%29/README.md)
 
-<!-- tags:Math,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a non-negative integer <code>x</code>, return <em>the square root of </em><code>x</code><em> rounded down to the nearest integer</em>. The returned integer should be <strong>non-negative</strong> as well.</p>
 
@@ -38,7 +49,11 @@
 	<li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -52,6 +67,8 @@ The time complexity is $O(\log x)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
@@ -64,6 +81,8 @@ class Solution:
                 l = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,11 +121,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mySqrt(x int) int {
 	return sort.Search(x+1, func(i int) bool { return i*i > x }) - 1
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -127,6 +152,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} x
@@ -145,6 +172,8 @@ var mySqrt = function (x) {
     return l;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -165,4 +194,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

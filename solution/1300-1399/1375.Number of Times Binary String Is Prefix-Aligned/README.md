@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1375.Number%20of%20Times%20Binary%20String%20Is%20Prefix-Aligned/README.md
+rating: 1438
+source: 第 179 场周赛 Q2
+tags:
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [1375. 二进制字符串前缀一致的次数](https://leetcode.cn/problems/number-of-times-binary-string-is-prefix-aligned)
 
 [English Version](/solution/1300-1399/1375.Number%20of%20Times%20Binary%20String%20Is%20Prefix-Aligned/README_EN.md)
 
-<!-- tags:数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 、下标从 <strong>1</strong> 开始的二进制字符串，所有位最开始都是 <code>0</code> 。我们会按步翻转该二进制字符串的所有位（即，将 <code>0</code> 变为 <code>1</code>）。</p>
 
@@ -54,7 +64,11 @@
 	<li><code>flips</code> 是范围 <code>[1, n]</code> 中所有整数构成的一个排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接遍历
 
@@ -66,6 +80,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTimesAllBlue(self, flips: List[int]) -> int:
@@ -75,6 +91,8 @@ class Solution:
             ans += mx == i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTimesAllBlue(flips []int) (ans int) {
 	mx := 0
@@ -117,6 +139,8 @@ func numTimesAllBlue(flips []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numTimesAllBlue(flips: number[]): number {
@@ -134,4 +158,6 @@ function numTimesAllBlue(flips: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

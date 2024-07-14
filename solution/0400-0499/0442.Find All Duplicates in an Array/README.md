@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [442. 数组中重复的数据](https://leetcode.cn/problems/find-all-duplicates-in-an-array)
 
 [English Version](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README_EN.md)
 
-<!-- tags:数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，其中 <code>nums</code> 的所有整数都在范围 <code>[1, n]</code> 内，且每个整数出现 <strong>一次</strong> 或 <strong>两次</strong> 。请你找出所有出现 <strong>两次</strong> 的整数，并以数组形式返回。</p>
 
@@ -46,11 +55,17 @@
 	<li><code>nums</code> 中的每个元素出现 <strong>一次</strong> 或 <strong>两次</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +75,8 @@ class Solution:
                 nums[nums[i] - 1], nums[i] = nums[i], nums[nums[i] - 1]
         return [v for i, v in enumerate(nums) if v != i + 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicates(nums []int) []int {
 	for i := range nums {
@@ -127,4 +148,6 @@ func findDuplicates(nums []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

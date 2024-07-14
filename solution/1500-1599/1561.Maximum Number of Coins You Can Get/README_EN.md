@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README_EN.md
+rating: 1405
+source: Weekly Contest 203 Q2
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Game Theory
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1561. Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get)
 
 [中文文档](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README.md)
 
-<!-- tags:Greedy,Array,Math,Game Theory,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>3n</code> piles of coins of varying size, you and your friends will take piles of coins as follows:</p>
 
@@ -55,11 +71,17 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 	<li><code>1 &lt;= piles[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +89,8 @@ class Solution:
         piles.sort()
         return sum(piles[-2 : len(piles) // 3 - 1 : -2])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxCoins(piles []int) int {
 	sort.Ints(piles)
@@ -104,6 +132,8 @@ func maxCoins(piles []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxCoins(piles: number[]): number {
@@ -116,6 +146,8 @@ function maxCoins(piles: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -130,6 +162,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -148,4 +182,6 @@ int maxCoins(int* piles, int pilesSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

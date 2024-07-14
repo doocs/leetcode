@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [825. Friends Of Appropriate Ages](https://leetcode.com/problems/friends-of-appropriate-ages)
 
 [中文文档](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README.md)
 
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> persons on a social media website. You are given an integer array <code>ages</code> where <code>ages[i]</code> is the age of the <code>i<sup>th</sup></code> person.</p>
 
@@ -56,11 +69,17 @@
 	<li><code>1 &lt;= ages[i] &lt;= 120</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +96,8 @@ class Solution:
                         ans -= n2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numFriendRequests(ages []int) int {
@@ -150,4 +175,6 @@ func numFriendRequests(ages []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

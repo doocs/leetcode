@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README_EN.md
+rating: 2396
+source: Weekly Contest 358 Q4
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Math
+    - Number Theory
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [2818. Apply Operations to Maximize Score](https://leetcode.com/problems/apply-operations-to-maximize-score)
 
 [中文文档](/solution/2800-2899/2818.Apply%20Operations%20to%20Maximize%20Score/README.md)
 
-<!-- tags:Stack,Greedy,Array,Math,Number Theory,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers and an integer <code>k</code>.</p>
 
@@ -56,7 +73,11 @@ It can be proven that 4788 is the highest score one can obtain.
 	<li><code>1 &lt;= k &lt;= min(n * (n + 1) / 2, 10<sup>9</sup>)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack + Greedy
 
@@ -69,6 +90,8 @@ Return the answer after the loop. Note that the power is large, so we need to us
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 def primeFactors(n):
@@ -121,6 +144,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -204,6 +229,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -283,6 +310,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumScore(nums []int, k int) int {
 	n := len(nums)
@@ -360,6 +389,8 @@ func primeFactors(n int) int {
 	return len(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumScore(nums: number[], k: number): number {
@@ -441,4 +472,6 @@ function qpow(a: bigint, n: number, mod: number): bigint {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

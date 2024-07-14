@@ -1,29 +1,39 @@
-use rand::Rng;
-
 impl Solution {
-    fn sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) {
-        if l + 1 > k || l >= r {
-            return;
-        }
-        nums.swap(l, rand::thread_rng().gen_range(l, r));
-        let num = nums[l];
-        let mut mark = l;
-        for i in l..r {
-            if nums[i] > num {
-                mark += 1;
-                nums.swap(i, mark);
-            }
-        }
-        nums.swap(l, mark);
-
-        Self::sort(nums, l, mark, k);
-        Self::sort(nums, mark + 1, r, k);
+    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
+        let len = nums.len();
+        let k = len - k as usize;
+        Self::quick_sort(&mut nums, 0, len - 1, k)
     }
 
-    pub fn find_kth_largest(mut nums: Vec<i32>, k: i32) -> i32 {
-        let n = nums.len();
-        let k = k as usize;
-        Self::sort(&mut nums, 0, n, k);
-        nums[k - 1]
+    fn quick_sort(nums: &mut Vec<i32>, l: usize, r: usize, k: usize) -> i32 {
+        if l == r {
+            return nums[l];
+        }
+
+        let (mut i, mut j) = (l as isize - 1, r as isize + 1);
+        let x = nums[(l + r) / 2];
+
+        while i < j {
+            i += 1;
+            while nums[i as usize] < x {
+                i += 1;
+            }
+
+            j -= 1;
+            while nums[j as usize] > x {
+                j -= 1;
+            }
+
+            if i < j {
+                nums.swap(i as usize, j as usize);
+            }
+        }
+
+        let j = j as usize;
+        if j < k {
+            Self::quick_sort(nums, j + 1, r, k)
+        } else {
+            Self::quick_sort(nums, l, j, k)
+        }
     }
 }

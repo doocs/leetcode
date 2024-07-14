@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0052.N-Queens%20II/README_EN.md
+tags:
+    - Backtracking
+---
+
+<!-- problem:start -->
+
 # [52. N-Queens II](https://leetcode.com/problems/n-queens-ii)
 
 [中文文档](/solution/0000-0099/0052.N-Queens%20II/README.md)
 
-<!-- tags:Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>
 
@@ -33,7 +43,11 @@
 	<li><code>1 &lt;= n &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -50,6 +64,8 @@ Specifically, we use the $cols$ array to record whether a queen has been placed 
 The time complexity is $O(n!)$, and the space complexity is $O(n)$. Here, $n$ is the number of queens.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +90,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalNQueens(n int) (ans int) {
 	cols := [10]bool{}
@@ -163,6 +185,8 @@ func totalNQueens(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function totalNQueens(n: number): number {
@@ -190,6 +214,68 @@ function totalNQueens(n: number): number {
 }
 ```
 
+#### JavaScript
+
+```js
+function totalNQueens(n) {
+    const cols = Array(10).fill(false);
+    const dg = Array(20).fill(false);
+    const udg = Array(20).fill(false);
+    let ans = 0;
+    const dfs = i => {
+        if (i === n) {
+            ++ans;
+            return;
+        }
+        for (let j = 0; j < n; ++j) {
+            let [a, b] = [i + j, i - j + n];
+            if (cols[j] || dg[a] || udg[b]) {
+                continue;
+            }
+            cols[j] = dg[a] = udg[b] = true;
+            dfs(i + 1);
+            cols[j] = dg[a] = udg[b] = false;
+        }
+    };
+    dfs(0);
+    return ans;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int TotalNQueens(int n) {
+        bool[] cols = new bool[10];
+        bool[] dg = new bool[20];
+        bool[] udg = new bool[20];
+        int ans = 0;
+
+        void dfs(int i) {
+            if (i == n) {
+                ans++;
+                return;
+            }
+            for (int j = 0; j < n; j++) {
+                int a = i + j, b = i - j + n;
+                if (cols[j] || dg[a] || udg[b]) {
+                    continue;
+                }
+                cols[j] = dg[a] = udg[b] = true;
+                dfs(i + 1);
+                cols[j] = dg[a] = udg[b] = false;
+            }
+        }
+
+        dfs(0);
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

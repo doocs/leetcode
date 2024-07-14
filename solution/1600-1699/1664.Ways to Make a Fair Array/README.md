@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md
+rating: 1590
+source: 第 216 场周赛 Q3
+tags:
+    - 数组
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [1664. 生成平衡数组的方案数](https://leetcode.cn/problems/ways-to-make-a-fair-array)
 
 [English Version](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md)
 
-<!-- tags:数组,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 。你需要选择 <strong>恰好</strong> 一个下标（下标从 <strong>0</strong> 开始）并删除对应的元素。请注意剩下元素的下标可能会因为删除操作而发生改变。</p>
 
@@ -62,7 +73,11 @@
 	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 前缀和
 
@@ -82,6 +97,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToMakeFair(self, nums: List[int]) -> int:
@@ -94,6 +111,8 @@ class Solution:
             t2 += v if i % 2 == 1 else 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +162,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func waysToMakeFair(nums []int) (ans int) {
@@ -168,6 +191,8 @@ func waysToMakeFair(nums []int) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -198,4 +223,6 @@ var waysToMakeFair = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

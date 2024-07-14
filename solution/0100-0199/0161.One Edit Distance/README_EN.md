@@ -1,10 +1,21 @@
-# [161. One Edit Distance](https://leetcode.com/problems/one-edit-distance)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
+# [161. One Edit Distance 🔒](https://leetcode.com/problems/one-edit-distance)
 
 [中文文档](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)
 
-<!-- tags:Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if they are both one edit distance apart, otherwise return <code>false</code>.</p>
 
@@ -41,11 +52,30 @@
 	<li><code>s</code> and <code>t</code> consist of lowercase letters, uppercase letters, and digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Discuss Different Cases
+
+Let $m$ represent the length of string $s$, and $n$ represent the length of string $t$. We can assume that $m$ is always greater than or equal to $n$.
+
+If $m-n > 1$, return false directly;
+
+Otherwise, iterate through $s$ and $t$, if $s[i]$ is not equal to $t[i]$:
+
+-   If $m \neq n$, compare $s[i+1:]$ with $t[i:]$, return true if they are equal, otherwise return false;
+-   If $m = n$, compare $s[i:]$ with $t[i:]$, return true if they are equal, otherwise return false.
+
+If the iteration ends, it means that all the characters of $s$ and $t$ that have been iterated are equal, at this time it needs to satisfy $m=n+1$.
+
+The time complexity is $O(m)$, where $m$ is the length of string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +90,8 @@ class Solution:
                 return s[i + 1 :] == t[i + 1 :] if m == n else s[i + 1 :] == t[i:]
         return m == n + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isOneEditDistance(s string, t string) bool {
@@ -123,6 +159,28 @@ func isOneEditDistance(s string, t string) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function isOneEditDistance(s: string, t: string): boolean {
+    const [m, n] = [s.length, t.length];
+    if (m < n) {
+        return isOneEditDistance(t, s);
+    }
+    if (m - n > 1) {
+        return false;
+    }
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== t[i]) {
+            return s.slice(i + 1) === t.slice(i + (m === n ? 1 : 0));
+        }
+    }
+    return m === n + 1;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

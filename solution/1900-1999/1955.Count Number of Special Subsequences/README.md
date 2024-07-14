@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README.md
+rating: 2125
+source: 第 252 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1955. 统计特殊子序列的数目](https://leetcode.cn/problems/count-number-of-special-subsequences)
 
 [English Version](/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>特殊序列</strong> 是由&nbsp;<strong>正整数</strong>&nbsp;个 <code>0</code>&nbsp;，紧接着&nbsp;<strong>正整数</strong>&nbsp;个 <code>1</code>&nbsp;，最后 <strong>正整数</strong>&nbsp;个 <code>2</code>&nbsp;组成的序列。</p>
 
@@ -61,7 +72,11 @@
 	<li><code>0 &lt;= nums[i] &lt;= 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -94,6 +109,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSpecialSubsequences(self, nums: List[int]) -> int:
@@ -116,6 +133,8 @@ class Solution:
                 f[i][2] = (f[i - 1][1] + 2 * f[i - 1][2]) % mod
         return f[n - 1][2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +162,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSpecialSubsequences(nums []int) int {
 	const mod = 1e9 + 7
@@ -199,6 +222,8 @@ func countSpecialSubsequences(nums []int) int {
 	return f[n-1][2]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSpecialSubsequences(nums: number[]): number {
@@ -229,9 +254,15 @@ function countSpecialSubsequences(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -249,6 +280,8 @@ class Solution:
                 f[2] = (f[1] + 2 * f[2]) % mod
         return f[2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -270,6 +303,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -293,6 +328,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSpecialSubsequences(nums []int) int {
 	const mod = 1e9 + 7
@@ -313,6 +350,8 @@ func countSpecialSubsequences(nums []int) int {
 	return f[2]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSpecialSubsequences(nums: number[]): number {
@@ -341,4 +380,6 @@ function countSpecialSubsequences(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

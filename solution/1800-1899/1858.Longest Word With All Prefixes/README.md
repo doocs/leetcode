@@ -1,12 +1,21 @@
-# [1858. 包含所有前缀的最长单词](https://leetcode.cn/problems/longest-word-with-all-prefixes)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README.md
+tags:
+    - 深度优先搜索
+    - 字典树
+---
+
+<!-- problem:start -->
+
+# [1858. 包含所有前缀的最长单词 🔒](https://leetcode.cn/problems/longest-word-with-all-prefixes)
 
 [English Version](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)
 
-<!-- tags:深度优先搜索,字典树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串数组 <code>words</code>，找出 <code>words</code> 中<strong>所有的前缀</strong>都在 <code>words</code> 中的<strong>最长</strong>字符串。</p>
 
@@ -49,7 +58,11 @@
 	<li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树
 
@@ -62,6 +75,8 @@
 时间复杂度 $O(\sum_{w \in words} |w|)$，空间复杂度 $O(\sum_{w \in words} |w|)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -101,6 +116,8 @@ class Solution:
                 ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -152,6 +169,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -207,6 +226,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -256,6 +277,8 @@ func longestWord(words []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: (Trie | null)[] = Array(26).fill(null);
@@ -300,6 +323,8 @@ function longestWord(words: string[]): string {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct Trie {
@@ -356,6 +381,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Trie {
     private Trie[] children = new Trie[26];
@@ -408,4 +435,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

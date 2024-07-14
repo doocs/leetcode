@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README.md
+rating: 1663
+source: 第 266 场周赛 Q2
+tags:
+    - 数学
+    - 字符串
+    - 动态规划
+    - 组合数学
+---
+
+<!-- problem:start -->
+
 # [2063. 所有子字符串中的元音](https://leetcode.cn/problems/vowels-of-all-substrings)
 
 [English Version](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md)
 
-<!-- tags:数学,字符串,动态规划,组合数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>word</code> ，返回 <code>word</code> 的所有子字符串中 <strong>元音的总数</strong> ，元音是指 <code>'a'</code>、<code>'e'</code><em>、</em><code>'i'</code><em>、</em><code>'o'</code><em> </em>和 <code>'u'</code><em> 。</em></p>
 
@@ -64,7 +77,11 @@
 	<li><code>word</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举贡献
 
@@ -74,12 +91,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countVowels(self, word: str) -> int:
         n = len(word)
         return sum((i + 1) * (n - i) for i, c in enumerate(word) if c in 'aeiou')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countVowels(word string) (ans int64) {
 	for i, c := range word {
@@ -122,6 +147,8 @@ func countVowels(word string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countVowels(word: string): number {
@@ -138,4 +165,6 @@ function countVowels(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

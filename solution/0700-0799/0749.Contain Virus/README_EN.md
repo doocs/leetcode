@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0749.Contain%20Virus/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [749. Contain Virus](https://leetcode.com/problems/contain-virus)
 
 [中文文档](/solution/0700-0799/0749.Contain%20Virus/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.</p>
 
@@ -55,11 +69,17 @@ Notice that walls are only built on the shared boundary of two different cells.
 	<li>There is always a contiguous viral region throughout the described process that will <strong>infect strictly more uncontaminated squares</strong> in the next round.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +126,8 @@ class Solution:
                                 isInfected[x][y] = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -200,6 +222,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -288,6 +312,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containVirus(isInfected [][]int) int {
 	m, n := len(isInfected), len(isInfected[0])
@@ -374,4 +400,6 @@ func containVirus(isInfected [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

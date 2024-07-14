@@ -1,12 +1,20 @@
+<!-- problem:start -->
+
+---
+
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0195.Tenth%20Line/README.md
+
+---
+
 # [195. 第十行](https://leetcode.cn/problems/tenth-line)
 
 [English Version](/solution/0100-0199/0195.Tenth%20Line/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个文本文件&nbsp;<code>file.txt</code>，请只打印这个文件中的第十行。</p>
 
@@ -35,6 +43,25 @@ Line 10
 1. 如果文件少于十行，你应当输出什么？<br>
 2. 至少有三种不同的解法，请尝试尽可能多的方法来解题。</p>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一：sed
+
+<!-- tabs:start -->
+
+#### Shell
+
+```bash
+# Read from the file file.txt and output the tenth line to stdout.
+sed -n 10p file.txt
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

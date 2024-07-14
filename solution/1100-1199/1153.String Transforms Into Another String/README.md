@@ -1,12 +1,23 @@
-# [1153. 字符串转化](https://leetcode.cn/problems/string-transforms-into-another-string)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README.md
+rating: 1949
+source: 第 6 场双周赛 Q4
+tags:
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [1153. 字符串转化 🔒](https://leetcode.cn/problems/string-transforms-into-another-string)
 
 [English Version](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)
 
-<!-- tags:哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出两个长度相同的字符串&nbsp;<code>str1</code>&nbsp;和 <code>str2</code>。请你帮忙判断字符串 <code>str1</code> 能不能在 <strong>零次</strong>&nbsp;或 <strong>多次</strong>&nbsp;<em>转化</em>&nbsp;后变成字符串 <code>str2</code>。</p>
 
@@ -41,7 +52,11 @@
 	<li><code>str1</code>&nbsp;和 <code>str2</code> 中都只会出现小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -56,6 +71,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 `str1` 的长度，而 $C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +89,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canConvert(str1 string, str2 string) bool {
 	if str1 == str2 {
@@ -162,6 +185,8 @@ func canConvert(str1 string, str2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canConvert(str1: string, str2: string): boolean {
     if (str1 === str2) {
@@ -184,4 +209,6 @@ function canConvert(str1: string, str2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

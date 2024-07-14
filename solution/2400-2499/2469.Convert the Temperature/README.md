@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2469.Convert%20the%20Temperature/README.md
+rating: 1153
+source: 第 319 场周赛 Q1
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2469. 温度转换](https://leetcode.cn/problems/convert-the-temperature)
 
 [English Version](/solution/2400-2499/2469.Convert%20the%20Temperature/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个四舍五入到两位小数的非负浮点数 <code>celsius</code> 来表示温度，以 <strong>摄氏度</strong>（<strong>Celsius</strong>）为单位。</p>
 
@@ -44,7 +54,11 @@
 	<li><code>0 &lt;= celsius &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -54,11 +68,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def convertTemperature(self, celsius: float) -> List[float]:
         return [celsius + 273.15, celsius * 1.8 + 32]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -77,17 +97,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convertTemperature(celsius float64) []float64 {
 	return []float64{celsius + 273.15, celsius*1.8 + 32}
 }
 ```
 
+#### TypeScript
+
 ```ts
 function convertTemperature(celsius: number): number[] {
     return [celsius + 273.15, celsius * 1.8 + 32];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -96,6 +122,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -112,4 +140,6 @@ double* convertTemperature(double celsius, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

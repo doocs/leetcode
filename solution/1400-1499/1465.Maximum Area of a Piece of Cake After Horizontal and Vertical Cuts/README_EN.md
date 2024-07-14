@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/README_EN.md
+rating: 1444
+source: Weekly Contest 191 Q2
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1465. Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts](https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts)
 
 [中文文档](/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/README.md)
 
-<!-- tags:Greedy,Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a rectangular cake of size <code>h x w</code> and two arrays of integers <code>horizontalCuts</code> and <code>verticalCuts</code> where:</p>
 
@@ -52,7 +66,11 @@
 	<li>All the elements in <code>verticalCuts</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting
 
@@ -63,6 +81,8 @@ Note that we need to consider the boundary cases, i.e., the first and last eleme
 The time complexity is $O(m\log m + n\log n)$, where $m$ and $n$ are the lengths of `horizontalCuts` and `verticalCuts`, respectively. The space complexity is $O(\log m + \log n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +97,8 @@ class Solution:
         y = max(b - a for a, b in pairwise(verticalCuts))
         return (x * y) % (10**9 + 7)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	horizontalCuts = append(horizontalCuts, []int{0, h}...)
@@ -139,6 +165,8 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 	return (x * y) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: number[]): number {
@@ -158,13 +186,15 @@ function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: n
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_area(
         h: i32,
         w: i32,
         mut horizontal_cuts: Vec<i32>,
-        mut vertical_cuts: Vec<i32>
+        mut vertical_cuts: Vec<i32>,
     ) -> i32 {
         const MOD: i64 = 1_000_000_007;
 
@@ -176,12 +206,18 @@ impl Solution {
 
         let mut x = i64::max(
             horizontal_cuts[0] as i64,
-            (h as i64) - (horizontal_cuts[m - 1] as i64)
+            (h as i64) - (horizontal_cuts[m - 1] as i64),
         );
-        let mut y = i64::max(vertical_cuts[0] as i64, (w as i64) - (vertical_cuts[n - 1] as i64));
+        let mut y = i64::max(
+            vertical_cuts[0] as i64,
+            (w as i64) - (vertical_cuts[n - 1] as i64),
+        );
 
         for i in 1..m {
-            x = i64::max(x, (horizontal_cuts[i] as i64) - (horizontal_cuts[i - 1] as i64));
+            x = i64::max(
+                x,
+                (horizontal_cuts[i] as i64) - (horizontal_cuts[i - 1] as i64),
+            );
         }
 
         for i in 1..n {
@@ -195,4 +231,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

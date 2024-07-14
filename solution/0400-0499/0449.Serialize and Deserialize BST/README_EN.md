@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Design
+    - Binary Search Tree
+    - String
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [449. Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
 
 [中文文档](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Design,Binary Search Tree,String,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Serialization is converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>
 
@@ -29,11 +45,17 @@
 	<li>The input tree is <strong>guaranteed</strong> to be a binary search tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -86,6 +108,8 @@ class Codec:
 # ans = deser.deserialize(tree)
 # return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -151,6 +175,8 @@ public class Codec {
 // TreeNode ans = deser.deserialize(tree);
 // return ans;
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -221,6 +247,8 @@ public:
 // TreeNode* ans = deser->deserialize(tree);
 // return ans;
 ```
+
+#### Go
 
 ```go
 /**
@@ -296,4 +324,6 @@ func (this *Codec) deserialize(data string) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

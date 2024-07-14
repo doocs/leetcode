@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0980.Unique%20Paths%20III/README.md
+tags:
+    - 位运算
+    - 数组
+    - 回溯
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [980. 不同路径 III](https://leetcode.cn/problems/unique-paths-iii)
 
 [English Version](/solution/0900-0999/0980.Unique%20Paths%20III/README_EN.md)
 
-<!-- tags:位运算,数组,回溯,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在二维网格 <code>grid</code> 上，有 4 种类型的方格：</p>
 
@@ -58,7 +69,11 @@
 	<li><code>1 &lt;= grid.length * grid[0].length &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -75,6 +90,8 @@
 时间复杂度 $O(3^{m \times n})$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +115,8 @@ class Solution:
         vis = {start}
         return dfs(*start, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +165,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -188,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePathsIII(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -228,6 +251,8 @@ func uniquePathsIII(grid [][]int) int {
 	return dfs(x, y, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function uniquePathsIII(grid: number[][]): number {
@@ -270,4 +295,6 @@ function uniquePathsIII(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

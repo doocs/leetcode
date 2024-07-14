@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0650.2%20Keys%20Keyboard/README.md
+tags:
+    - 数学
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [650. 两个键的键盘](https://leetcode.cn/problems/2-keys-keyboard)
 
 [English Version](/solution/0600-0699/0650.2%20Keys%20Keyboard/README_EN.md)
 
-<!-- tags:数学,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>最初记事本上只有一个字符 <code>'A'</code> 。你每次可以对这个记事本进行两种操作：</p>
 
@@ -46,7 +55,11 @@
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -61,6 +74,8 @@ $$
 时间复杂度 $O(n\sqrt{n})$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +93,8 @@ class Solution:
 
         return dfs(n)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(n int) int {
@@ -161,6 +182,10 @@ func minSteps(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 记忆化搜索也可以改成动态规划。
@@ -172,6 +197,8 @@ $$
 时间复杂度 $O(n\sqrt{n})$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -186,6 +213,8 @@ class Solution:
                 j += 1
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -207,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -225,6 +256,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSteps(n int) int {
@@ -246,9 +279,15 @@ func minSteps(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -267,4 +306,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README.md
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [982. 按位与为零的三元组](https://leetcode.cn/problems/triples-with-bitwise-and-equal-to-zero)
 
 [English Version](/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README_EN.md)
 
-<!-- tags:位运算,数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，返回其中 <strong>按位与三元组</strong> 的数目。</p>
 
@@ -56,7 +66,11 @@
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>16</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 计数
 
@@ -70,12 +84,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countTriplets(self, nums: List[int]) -> int:
         cnt = Counter(x & y for x in nums for y in nums)
         return sum(v for xy, v in cnt.items() for z in nums if xy & z == 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +148,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTriplets(nums []int) (ans int) {
 	mx := slices.Max(nums)
@@ -147,6 +169,8 @@ func countTriplets(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countTriplets(nums: number[]): number {
@@ -171,4 +195,6 @@ function countTriplets(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

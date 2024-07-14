@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.18.Shortest%20Supersequence/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 17.18. 最短超串](https://leetcode.cn/problems/shortest-supersequence-lcci)
 
 [English Version](/lcci/17.18.Shortest%20Supersequence/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你有两个数组，一个长一个短，短的元素均不相同。找到长数组中包含短数组所有的元素的最短子数组，其出现顺序无关紧要。</p>
 <p>返回最短子数组的左端点和右端点，如有多个满足条件的子数组，返回左端点最小的一个。若不存在，返回空数组。</p>
@@ -24,7 +32,11 @@ small = [4]
 	<li><code>1 &lt;= small.length&nbsp;&lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双指针
 
@@ -35,6 +47,8 @@ small = [4]
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是数组 $big$ 和 $small$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +70,8 @@ class Solution:
                 j += 1
         return [] if k < 0 else [k, k + mi - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestSeq(big []int, small []int) []int {
 	cnt := len(small)
@@ -156,6 +176,8 @@ func shortestSeq(big []int, small []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestSeq(big: number[], small: number[]): number[] {
     let cnt = small.length;
@@ -187,6 +209,54 @@ function shortestSeq(big: number[], small: number[]): number[] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func shortestSeq(_ big: [Int], _ small: [Int]) -> [Int] {
+        let needCount = small.count
+        var need = [Int: Int]()
+        var window = [Int: Int]()
+        small.forEach { need[$0, default: 0] += 1 }
+
+        var count = needCount
+        var minLength = Int.max
+        var result = (-1, -1)
+
+        var left = 0
+        for right in 0..<big.count {
+            let element = big[right]
+            if need[element] != nil {
+                window[element, default: 0] += 1
+                if window[element]! <= need[element]! {
+                    count -= 1
+                }
+            }
+
+            while count == 0 {
+                if right - left + 1 < minLength {
+                    minLength = right - left + 1
+                    result = (left, right)
+                }
+
+                let leftElement = big[left]
+                if need[leftElement] != nil {
+                    window[leftElement]! -= 1
+                    if window[leftElement]! < need[leftElement]! {
+                        count += 1
+                    }
+                }
+                left += 1
+            }
+        }
+
+        return result.0 == -1 ? [] : [result.0, result.1]
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

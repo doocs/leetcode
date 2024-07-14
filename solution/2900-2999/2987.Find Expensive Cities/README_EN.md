@@ -1,10 +1,20 @@
-# [2987. Find Expensive Cities](https://leetcode.com/problems/find-expensive-cities)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2987. Find Expensive Cities 🔒](https://leetcode.com/problems/find-expensive-cities)
 
 [中文文档](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Listings</code></p>
 
@@ -56,7 +66,7 @@ Listings table:
 +------------+
 <strong>Explanation</strong>
 The national average home price is $6,122,059.45. Among the cities listed:
-- Chicago has an average price of $7,043,706.75
+- Chicago has an average price of $7,048,706.75
 - Los Angeles has an average price of $6,277,754.5
 - San Francisco has an average price of $3,900,513.33
 - New York has an average price of $4,422,739
@@ -64,13 +74,19 @@ Only Chicago and Los Angeles have average home prices exceeding the national ave
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping Aggregation + Subquery
 
 We group the `Listings` table by `city`, then calculate the average house price for each city, and finally filter out the cities where the average house price is greater than the national average house price.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -83,4 +99,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

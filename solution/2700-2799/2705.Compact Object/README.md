@@ -1,14 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Compact%20Object/README.md
+---
+
+<!-- problem:start -->
+
 # [2705. 精简对象](https://leetcode.cn/problems/compact-object)
 
 [English Version](/solution/2700-2799/2705.Compact%20Object/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>现给定一个对象或数组 <code>obj</code>，返回一个 <strong>精简对象</strong> 。<strong>精简对象</strong> 与原始对象相同，只是将包含 <strong>假</strong> 值的键移除。该操作适用于对象及其嵌套对象。数组被视为索引作为键的对象。当 <code>Boolean(value)</code> 返回 <code>false</code> 时，值被视为 <strong>假</strong> 值。</p>
+<p>现给定一个对象或数组 <code>obj</code>，返回一个 <strong>精简对象</strong> 。</p>
+
+<p><strong>精简对象</strong> 与原始对象相同，只是将包含 <strong>假</strong> 值的键移除。该操作适用于对象及其嵌套对象。数组被视为索引作为键的对象。当 <code>Boolean(value)</code> 返回 <code>false</code> 时，值被视为 <strong>假</strong> 值。</p>
 
 <p>你可以假设 <code>obj</code> 是 <code>JSON.parse</code> 的输出结果。换句话说，它是有效的 JSON。</p>
 
@@ -46,7 +54,11 @@
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -60,49 +72,52 @@
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
 type Obj = Record<any, any>;
 
 function compactObject(obj: Obj): Obj {
-    if (Array.isArray(obj)) {
-        const temp = [];
-        for (const item of obj) {
-            if (item) {
-                if (typeof item === 'object') temp.push(compactObject(item));
-                else temp.push(item);
-            }
-        }
-        return temp;
-    }
-    for (const [key, value] of Object.entries(obj)) {
-        if (!value) delete obj[key];
-        else if (typeof value === 'object') obj[key] = compactObject(value);
-    }
-    return obj;
-}
-```
-
-```js
-var compactObject = function (obj) {
-    if (obj === null || typeof obj !== 'object') {
+    if (!obj || typeof obj !== 'object') {
         return obj;
     }
-
     if (Array.isArray(obj)) {
         return obj.filter(Boolean).map(compactObject);
     }
-
-    const result = {};
-    for (const key in obj) {
-        const value = compactObject(obj[key]);
-        if (Boolean(value)) {
-            result[key] = value;
+    return Object.entries(obj).reduce((acc, [key, value]) => {
+        if (value) {
+            acc[key] = compactObject(value);
         }
+        return acc;
+    }, {} as Obj);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {Object|Array} obj
+ * @return {Object|Array}
+ */
+var compactObject = function (obj) {
+    if (!obj || typeof obj !== 'object') {
+        return obj;
     }
-    return result;
+    if (Array.isArray(obj)) {
+        return obj.filter(Boolean).map(compactObject);
+    }
+    return Object.entries(obj).reduce((acc, [key, value]) => {
+        if (value) {
+            acc[key] = compactObject(value);
+        }
+        return acc;
+    }, {});
 };
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

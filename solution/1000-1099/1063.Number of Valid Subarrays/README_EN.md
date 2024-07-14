@@ -1,10 +1,22 @@
-# [1063. Number of Valid Subarrays](https://leetcode.com/problems/number-of-valid-subarrays)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
+# [1063. Number of Valid Subarrays 🔒](https://leetcode.com/problems/number-of-valid-subarrays)
 
 [中文文档](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README.md)
 
-<!-- tags:Stack,Array,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>the number of non-empty <strong>subarrays</strong> with the leftmost element of the subarray&nbsp;not larger than other elements in the subarray</em>.</p>
 
@@ -43,11 +55,17 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +81,8 @@ class Solution:
             stk.append(i)
         return sum(j - i for i, j in enumerate(right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validSubarrays(nums []int) (ans int) {
 	n := len(nums)
@@ -137,6 +161,8 @@ func validSubarrays(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validSubarrays(nums: number[]): number {
@@ -162,9 +188,15 @@ function validSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +211,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +233,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -217,6 +253,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarrays(nums []int) (ans int) {
@@ -238,6 +276,8 @@ func validSubarrays(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function validSubarrays(nums: number[]): number {
     const n = nums.length;
@@ -256,4 +296,6 @@ function validSubarrays(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

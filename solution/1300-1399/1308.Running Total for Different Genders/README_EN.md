@@ -1,10 +1,20 @@
-# [1308. Running Total for Different Genders](https://leetcode.com/problems/running-total-for-different-genders)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1308. Running Total for Different Genders 🔒](https://leetcode.com/problems/running-total-for-different-genders)
 
 [中文文档](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Scores</code></p>
 
@@ -79,11 +89,17 @@ The fourth day is 2019-12-31, Joe scored 3 points and the total score for the te
 The fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the team is 36.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -99,4 +115,6 @@ FROM Scores;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

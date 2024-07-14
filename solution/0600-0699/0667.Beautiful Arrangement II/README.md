@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README.md
+tags:
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [667. 优美的排列 II](https://leetcode.cn/problems/beautiful-arrangement-ii)
 
 [English Version](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README_EN.md)
 
-<!-- tags:数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>n</code> 和 <code>k</code> ，请你构造一个答案列表 <code>answer</code> ，该列表应当包含从 <code>1</code> 到 <code>n</code> 的 <code>n</code> 个不同正整数，并同时满足下述条件：</p>
 
@@ -44,7 +53,11 @@
 
 <p> </p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：构造
 
@@ -53,6 +66,8 @@
 时间复杂度 $O(n)$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +91,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] constructArray(int n, int k) {
@@ -91,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constructArray(n int, k int) []int {
@@ -135,6 +156,8 @@ func constructArray(n int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function constructArray(n: number, k: number): number[] {
     let l = 1;
@@ -152,4 +175,6 @@ function constructArray(n: number, k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

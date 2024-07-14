@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README_EN.md
+rating: 1867
+source: Biweekly Contest 36 Q3
+tags:
+    - Greedy
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [1605. Find Valid Matrix Given Row and Column Sums](https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums)
 
 [中文文档](/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README.md)
 
-<!-- tags:Greedy,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays <code>rowSum</code> and <code>colSum</code> of non-negative integers where <code>rowSum[i]</code> is the sum of the elements in the <code>i<sup>th</sup></code> row and <code>colSum[j]</code> is the sum of the elements of the <code>j<sup>th</sup></code> column of a 2D matrix. In other words, you do not know the elements of the matrix, but you do know the sums of each row and column.</p>
 
@@ -47,11 +61,29 @@ Another possible matrix is: [[1,2],
 	<li><code>sum(rowSum) == sum(colSum)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Greedy + Construction
+
+We can first initialize an $m$ by $n$ answer matrix $ans$.
+
+Next, we traverse each position $(i, j)$ in the matrix, set the element at this position to $x = \min(rowSum[i], colSum[j])$, and subtract $x$ from $rowSum[i]$ and $colSum[j]$ respectively. After traversing all positions, we can get a matrix $ans$ that meets the requirements of the problem.
+
+The correctness of the above strategy is explained as follows:
+
+According to the requirements of the problem, we know that the sum of $rowSum$ and $colSum$ is equal, so $rowSum[0]$ must be less than or equal to $\sum_{j = 0}^{n - 1} colSum[j]$. Therefore, after $n$ operations, $rowSum[0]$ can definitely be made $0$, and for any $j \in [0, n - 1]$, $colSum[j] \geq 0$ is guaranteed.
+
+Therefore, we reduce the original problem to a subproblem with $m-1$ rows and $n$ columns, continue the above operations, until all elements in $rowSum$ and $colSum$ are $0$, we can get a matrix $ans$ that meets the requirements of the problem.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of $rowSum$ and $colSum$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +98,8 @@ class Solution:
                 colSum[j] -= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func restoreMatrix(rowSum []int, colSum []int) [][]int {
@@ -124,6 +162,8 @@ func restoreMatrix(rowSum []int, colSum []int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
     const m = rowSum.length;
@@ -140,6 +180,8 @@ function restoreMatrix(rowSum: number[], colSum: number[]): number[][] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -165,4 +207,6 @@ var restoreMatrix = function (rowSum, colSum) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

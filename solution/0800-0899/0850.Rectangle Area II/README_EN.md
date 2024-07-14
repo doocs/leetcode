@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - Ordered Set
+    - Line Sweep
+---
+
+<!-- problem:start -->
+
 # [850. Rectangle Area II](https://leetcode.com/problems/rectangle-area-ii)
 
 [中文文档](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md)
 
-<!-- tags:Segment Tree,Array,Ordered Set,Line Sweep -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D array of axis-aligned <code>rectangles</code>. Each <code>rectangle[i] = [x<sub>i1</sub>, y<sub>i1</sub>, x<sub>i2</sub>, y<sub>i2</sub>]</code> denotes the <code>i<sup>th</sup></code> rectangle where <code>(x<sub>i1</sub>, y<sub>i1</sub>)</code> are the coordinates of the <strong>bottom-left corner</strong>, and <code>(x<sub>i2</sub>, y<sub>i2</sub>)</code> are the coordinates of the <strong>top-right corner</strong>.</p>
 
@@ -42,11 +55,17 @@ From (1,0) to (2,3), all three rectangles overlap.
 	<li><code>y<sub>i1 &lt;=</sub> y<sub>i2</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -114,6 +133,8 @@ class Solution:
         ans %= int(1e9 + 7)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -214,6 +235,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -302,6 +325,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rectangleArea(rectangles [][]int) int {
@@ -403,4 +428,6 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

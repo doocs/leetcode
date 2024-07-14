@@ -4,21 +4,19 @@ class Solution {
      * @return Integer[]
      */
     function sortedSquares($nums) {
-        $i = 0;
-        $j = $k = count($nums) - 1;
-        $rs = array_fill(0, count($nums), -1);
-        while ($i <= $j) {
-            $max1 = $nums[$i] * $nums[$i];
-            $max2 = $nums[$j] * $nums[$j];
-            if ($max1 > $max2) {
-                $rs[$k] = $max1;
-                $i++;
+        $n = count($nums);
+        $ans = array_fill(0, $n, 0);
+        for ($i = 0, $j = $n - 1, $k = $n - 1; $i <= $j; --$k) {
+            $a = $nums[$i] * $nums[$i];
+            $b = $nums[$j] * $nums[$j];
+            if ($a > $b) {
+                $ans[$k] = $a;
+                ++$i;
             } else {
-                $rs[$k] = $max2;
-                $j--;
+                $ans[$k] = $b;
+                --$j;
             }
-            $k--;
         }
-        return $rs;
+        return $ans;
     }
 }

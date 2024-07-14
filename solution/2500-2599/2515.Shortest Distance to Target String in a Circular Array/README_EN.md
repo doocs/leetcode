@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README_EN.md
+rating: 1367
+source: Weekly Contest 325 Q1
+tags:
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
 # [2515. Shortest Distance to Target String in a Circular Array](https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array)
 
 [中文文档](/solution/2500-2599/2515.Shortest%20Distance%20to%20Target%20String%20in%20a%20Circular%20Array/README.md)
 
-<!-- tags:Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <strong>circular</strong> string array <code>words</code> and a string <code>target</code>. A <strong>circular array</strong> means that the array&#39;s end connects to the array&#39;s beginning.</p>
 
@@ -58,11 +71,17 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 	<li><code>0 &lt;= startIndex &lt; words.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +94,8 @@ class Solution:
                 ans = min(ans, t, n - t)
         return -1 if ans == n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +133,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closetTarget(words []string, target string, startIndex int) int {
@@ -135,6 +160,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closetTarget(words: string[], target: string, startIndex: number): number {
     const n = words.length;
@@ -147,15 +174,15 @@ function closetTarget(words: string[], target: string, startIndex: number): numb
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn closet_target(words: Vec<String>, target: String, start_index: i32) -> i32 {
         let start_index = start_index as usize;
         let n = words.len();
         for i in 0..=n >> 1 {
-            if
-                words[(start_index - i + n) % n] == target ||
-                words[(start_index + i) % n] == target
+            if words[(start_index - i + n) % n] == target || words[(start_index + i) % n] == target
             {
                 return i as i32;
             }
@@ -164,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
@@ -178,9 +207,15 @@ int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 use std::cmp::min;
@@ -207,4 +242,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

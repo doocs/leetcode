@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README.md
+rating: 2583
+source: 第 260 场周赛 Q4
+tags:
+    - 栈
+    - 记忆化搜索
+    - 数组
+    - 数学
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2019. 解出数学表达式的学生分数](https://leetcode.cn/problems/the-score-of-students-solving-math-expression)
 
 [English Version](/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README_EN.md)
 
-<!-- tags:栈,记忆化搜索,数组,数学,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，它 <strong>只</strong> 包含数字&nbsp;<code>0-9</code>&nbsp;，加法运算符&nbsp;<code>'+'</code>&nbsp;和乘法运算符&nbsp;<code>'*'</code>&nbsp;，这个字符串表示一个&nbsp;<strong>合法</strong>&nbsp;的只含有&nbsp;<strong>个位数</strong><strong>数字</strong>&nbsp;的数学表达式（比方说&nbsp;<code>3+5*2</code>）。有 <code>n</code>&nbsp;位小学生将计算这个数学表达式，并遵循如下 <strong>运算顺序</strong>&nbsp;：</p>
 
@@ -72,7 +87,11 @@
 	<li><code>0 &lt;= answers[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（区间 DP）
 
@@ -100,6 +119,8 @@ $$
 时间复杂度 $O(n^3 \times M^2)$，空间复杂度 $O(n^2 \times M^2)$。其中 $M$ 是答案可能的最大值，而 $n$ 是字符串 $s$ 的长度中数字的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -137,6 +158,8 @@ class Solution:
                 ans += v << 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +221,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -256,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func scoreOfStudents(s string, answers []int) int {
 	n := len(s)
@@ -313,6 +340,8 @@ func cal(s string) int {
 	return res
 }
 ```
+
+#### TypeScript
 
 ```ts
 function scoreOfStudents(s: string, answers: number[]): number {
@@ -376,4 +405,6 @@ function scoreOfStudents(s: string, answers: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

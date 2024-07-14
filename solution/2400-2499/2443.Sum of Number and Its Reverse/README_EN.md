@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md
+rating: 1376
+source: Weekly Contest 315 Q3
+tags:
+    - Math
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [2443. Sum of Number and Its Reverse](https://leetcode.com/problems/sum-of-number-and-its-reverse)
 
 [中文文档](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README.md)
 
-<!-- tags:Math,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>non-negative</strong> integer <code>num</code>, return <code>true</code><em> if </em><code>num</code><em> can be expressed as the sum of any <strong>non-negative</strong> integer and its reverse, or </em><code>false</code><em> otherwise.</em></p>
 
@@ -40,7 +53,11 @@
 	<li><code>0 &lt;= num &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force Enumeration
 
@@ -50,11 +67,15 @@ The time complexity is $O(n \times \log n)$, where $n$ is the size of $num$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfNumberAndReverse(self, num: int) -> bool:
         return any(k + int(str(k)[::-1]) == num for k in range(num + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfNumberAndReverse(num int) bool {
 	for x := 0; x <= num; x++ {
@@ -111,6 +136,8 @@ func sumOfNumberAndReverse(num int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfNumberAndReverse(num: number): boolean {
     for (let i = 0; i <= num; i++) {
@@ -122,21 +149,21 @@ function sumOfNumberAndReverse(num: number): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sum_of_number_and_reverse(num: i32) -> bool {
         for i in 0..=num {
-            if
-                i +
-                    ({
-                        let mut t = i;
-                        let mut j = 0;
-                        while t > 0 {
-                            j = j * 10 + (t % 10);
-                            t /= 10;
-                        }
-                        j
-                    }) == num
+            if i + ({
+                let mut t = i;
+                let mut j = 0;
+                while t > 0 {
+                    j = j * 10 + (t % 10);
+                    t /= 10;
+                }
+                j
+            }) == num
             {
                 return true;
             }
@@ -145,6 +172,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool sumOfNumberAndReverse(int num) {
@@ -165,4 +194,6 @@ bool sumOfNumberAndReverse(int num) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

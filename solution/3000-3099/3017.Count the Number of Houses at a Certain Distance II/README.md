@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README.md
+rating: 2709
+source: 第 381 场周赛 Q4
+tags:
+    - 图
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [3017. 按距离统计房屋对数目 II](https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-ii)
 
 [English Version](/solution/3000-3099/3017.Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II/README_EN.md)
 
-<!-- tags:广度优先搜索,图,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你三个<strong> 正整数 </strong><code>n</code> 、<code>x</code> 和 <code>y</code> 。</p>
 
@@ -67,11 +78,17 @@
 	<li><code>1 &lt;= x, y &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +135,8 @@ class Solution:
         return res
 ```
 
+#### Java
+
 ```java
 class Solution {
     public long[] countOfPairs(int n, int x, int y) {
@@ -147,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -172,6 +193,8 @@ public:
   }
 };
 ```
+
+#### Go
 
 ```go
 func countOfPairs(n int, x int, y int) []int64 {
@@ -199,4 +222,6 @@ func countOfPairs(n int, x int, y int) []int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

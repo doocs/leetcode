@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README_EN.md
+tags:
+    - Bit Manipulation
+    - Memoization
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
+<!-- problem:start -->
+
 # [698. Partition to K Equal Sum Subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets)
 
 [中文文档](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md)
 
-<!-- tags:Bit Manipulation,Memoization,Array,Dynamic Programming,Backtracking,Bitmask -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> if it is possible to divide this array into <code>k</code> non-empty subsets whose sums are all equal.</p>
 
@@ -33,11 +48,17 @@
 	<li>The frequency of each element is in the range <code>[1, 4]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +82,8 @@ class Solution:
         nums.sort(reverse=True)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -171,6 +198,8 @@ func canPartitionKSubsets(nums []int, k int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPartitionKSubsets(nums: number[], k: number): boolean {
     let s = nums.reduce((a, b) => a + b);
@@ -203,9 +232,15 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -230,6 +265,8 @@ class Solution:
         mask = (1 << len(nums)) - 1
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -278,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -318,6 +357,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -364,9 +405,15 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -392,6 +439,8 @@ class Solution:
                         f[i | 1 << j] = True
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -428,6 +477,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -462,6 +513,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPartitionKSubsets(nums []int, k int) bool {
@@ -498,4 +551,6 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

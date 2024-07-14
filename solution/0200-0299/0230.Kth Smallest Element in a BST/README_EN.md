@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [230. Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
 
 [中文文档](/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree, and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>smallest value (<strong>1-indexed</strong>) of all the values of the nodes in the tree</em>.</p>
 
@@ -35,11 +48,17 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -62,6 +81,8 @@ class Solution:
                     return root.val
                 root = root.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -99,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -131,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -159,6 +184,8 @@ func kthSmallest(root *TreeNode, k int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -195,6 +222,8 @@ function kthSmallest(root: TreeNode | null, k: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -214,8 +243,8 @@ function kthSmallest(root: TreeNode | null, k: number): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>, k: usize) {
         if let Some(node) = root {
@@ -239,9 +268,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -283,6 +318,8 @@ class Solution:
         bst = BST(root)
         return bst.kthSmallest(k)
 ```
+
+#### Java
 
 ```java
 /**
@@ -344,6 +381,8 @@ class BST {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -397,6 +436,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -455,4 +496,6 @@ func kthSmallest(root *TreeNode, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

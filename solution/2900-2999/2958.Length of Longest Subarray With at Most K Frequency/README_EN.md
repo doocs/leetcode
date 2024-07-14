@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2958.Length%20of%20Longest%20Subarray%20With%20at%20Most%20K%20Frequency/README_EN.md
+rating: 1535
+source: Biweekly Contest 119 Q3
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [2958. Length of Longest Subarray With at Most K Frequency](https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency)
 
 [中文文档](/solution/2900-2999/2958.Length%20of%20Longest%20Subarray%20With%20at%20Most%20K%20Frequency/README.md)
 
-<!-- tags:Array,Hash Table,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -53,7 +67,11 @@ It can be shown that there are no good subarrays with length more than 4.
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -64,6 +82,8 @@ Next, we iterate over each element $x$ in the array $nums$. For each element $x$
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +98,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubarrayLength(nums []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -127,6 +153,8 @@ func maxSubarrayLength(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSubarrayLength(nums: number[], k: number): number {
@@ -145,4 +173,6 @@ function maxSubarrayLength(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

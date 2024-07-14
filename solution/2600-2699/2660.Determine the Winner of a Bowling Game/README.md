@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README.md
+rating: 1324
+source: 第 343 场周赛 Q1
+tags:
+    - 数组
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2660. 保龄球游戏的获胜者](https://leetcode.cn/problems/determine-the-winner-of-a-bowling-game)
 
 [English Version](/solution/2600-2699/2660.Determine%20the%20Winner%20of%20a%20Bowling%20Game/README_EN.md)
 
-<!-- tags:数组,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的整数数组 <code>player1</code> 和 <code>player2</code> ，分别表示玩家 1 和玩家 2 击中的瓶数。</p>
 
@@ -31,34 +42,61 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>player1 = [4,10,7,9], player2 = [6,5,2,3]
-<strong>输出：</strong>1
-<strong>解释：</strong>player1 的得分是 4 + 10 + 2*7 + 2*9 = 46 。
-player2 的得分是 6 + 5 + 2 + 3 = 16 。
-player1 的得分高于 player2 的得分，所以 play1 在比赛中获胜，答案为 1 。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [5,10,3,2], player2 = [6,5,7,3]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>输出：</strong><span class="example-io">1</span></p>
 
-<pre>
-<strong>输入：</strong>player1 = [3,5,7,6], player2 = [8,10,10,2]
-<strong>输出：</strong>2
-<strong>解释：</strong>player1 的得分是 3 + 5 + 7 + 6 = 21 。
-player2 的得分是 8 + 10 + 2*10 + 2*2 = 42 。
-player2 的得分高于 player1 的得分，所以 play2 在比赛中获胜，答案为 2 。</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>玩家 1 的分数为 5 + 10 + 2*3 + 2*2 = 25。</p>
 
-<pre>
-<strong>输入：</strong>player1 = [2,3], player2 = [4,1]
-<strong>输出：</strong>0
-<strong>解释：</strong>player1 的得分是 2 + 3 = 5 。
-player2 的得分是 4 + 1 = 5 。
-player1 的得分等于 player2 的得分，所以这一场比赛平局，答案为 0 。
-</pre>
+<p>玩家 2&nbsp;的分数为 6 + 5 + 7 + 3 = 21。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [3,5,7,6], player2 = [8,10,10,2]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>玩家 1 的分数为 3 + 5 + 7 + 6 = 21。</p>
+
+<p>玩家 2&nbsp;的分数为 8 + 10 + 2*10 + 2*2 = 42。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [2,3], player2 = [4,1]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>玩家 1 的分数为&nbsp;2 + 3 = 5。</p>
+
+<p>玩家 2 的分数为&nbsp;4 + 1 = 5。</p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">player1 = [1,1,1,10,10,10,10], player2 = [10,10,10,10,1,1,1]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>玩家 1 的分数为 1 + 1 + 1 + 10 + 2*10 + 2*10 + 2*10 = 73。</p>
+
+<p>玩家 2 的分数为 is 10 + 2*10 + 2*10 + 2*10 + 2*1 + 2*1 + 1 = 75。</p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -70,7 +108,11 @@ player1 的得分等于 player2 的得分，所以这一场比赛平局，答案
 	<li><code>0 &lt;= player1[i], player2[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -79,6 +121,8 @@ player1 的得分等于 player2 的得分，所以这一场比赛平局，答案
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +137,8 @@ class Solution:
         a, b = f(player1), f(player2)
         return 1 if a > b else (2 if b > a else 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isWinner(player1 []int, player2 []int) int {
@@ -154,6 +204,8 @@ func isWinner(player1 []int, player2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isWinner(player1: number[], player2: number[]): number {
     const f = (arr: number[]): number => {
@@ -171,6 +223,8 @@ function isWinner(player1: number[], player2: number[]): number {
     return a > b ? 1 : a < b ? 2 : 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -202,4 +256,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

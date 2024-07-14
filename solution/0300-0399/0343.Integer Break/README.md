@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0343.Integer%20Break/README.md
+tags:
+    - 数学
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [343. 整数拆分](https://leetcode.cn/problems/integer-break)
 
 [English Version](/solution/0300-0399/0343.Integer%20Break/README_EN.md)
 
-<!-- tags:数学,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数&nbsp;<code>n</code>&nbsp;，将其拆分为 <code>k</code> 个 <strong>正整数</strong> 的和（&nbsp;<code>k &gt;= 2</code>&nbsp;），并使这些整数的乘积最大化。</p>
 
@@ -36,7 +45,11 @@
 	<li><code>2 &lt;= n &lt;= 58</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -52,6 +65,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def integerBreak(self, n: int) -> int:
@@ -61,6 +76,8 @@ class Solution:
                 dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
         return dp[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func integerBreak(n int) int {
 	dp := make([]int, n+1)
@@ -106,6 +127,8 @@ func integerBreak(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function integerBreak(n: number): number {
     let dp = new Array(n + 1).fill(1);
@@ -117,6 +140,8 @@ function integerBreak(n: number): number {
     return dp.pop();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -130,6 +155,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int integerBreak(int n) {
     if (n < 4) {
@@ -142,6 +169,10 @@ int integerBreak(int n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数学
 
 当 $n \lt 4$ 时，$n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
@@ -149,6 +180,8 @@ int integerBreak(int n) {
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -161,6 +194,8 @@ class Solution:
             return pow(3, n // 3 - 1) * 4
         return pow(3, n // 3) * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -178,6 +213,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -197,6 +234,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func integerBreak(n int) int {
 	if n < 4 {
@@ -211,6 +250,8 @@ func integerBreak(n int) int {
 	return int(math.Pow(3, float64(n/3))) * 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function integerBreak(n: number): number {
@@ -230,4 +271,6 @@ function integerBreak(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

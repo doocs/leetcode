@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2053.Kth%20Distinct%20String%20in%20an%20Array/README_EN.md
+rating: 1350
+source: Biweekly Contest 64 Q1
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [2053. Kth Distinct String in an Array](https://leetcode.com/problems/kth-distinct-string-in-an-array)
 
 [中文文档](/solution/2000-2099/2053.Kth%20Distinct%20String%20in%20an%20Array/README.md)
 
-<!-- tags:Array,Hash Table,String,Counting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>distinct string</strong> is a string that is present only <strong>once</strong> in an array.</p>
 
@@ -52,11 +67,17 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 	<li><code>arr[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +90,8 @@ class Solution:
                     return v
         return ''
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func kthDistinct(arr []string, k int) string {
@@ -127,4 +154,6 @@ func kthDistinct(arr []string, k int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

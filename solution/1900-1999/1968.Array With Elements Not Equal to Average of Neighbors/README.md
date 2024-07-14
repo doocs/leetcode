@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1968.Array%20With%20Elements%20Not%20Equal%20to%20Average%20of%20Neighbors/README.md
+rating: 1499
+source: 第 254 场周赛 Q2
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1968. 构造元素不等于两相邻元素平均值的数组](https://leetcode.cn/problems/array-with-elements-not-equal-to-average-of-neighbors)
 
 [English Version](/solution/1900-1999/1968.Array%20With%20Elements%20Not%20Equal%20to%20Average%20of%20Neighbors/README_EN.md)
 
-<!-- tags:贪心,数组,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>下标从 0 开始</strong> 的数组 <code>nums</code> ，数组由若干 <strong>互不相同的</strong> 整数组成。你打算重新排列数组中的元素以满足：重排后，数组中的每个元素都 <strong>不等于</strong> 其两侧相邻元素的 <strong>平均值</strong> 。</p>
 
@@ -45,11 +57,17 @@ i=3, nums[i] = 2, 两相邻元素平均值为 (6+0) / 2 = 3
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +82,8 @@ class Solution:
                 ans.append(nums[i + m])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rearrangeArray(nums []int) []int {
@@ -118,9 +142,15 @@ func rearrangeArray(nums []int) []int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：随机打乱
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func rearrangeArray(nums []int) []int {
@@ -140,4 +170,6 @@ outer:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

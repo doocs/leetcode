@@ -1,15 +1,22 @@
 func numKLenSubstrNoRepeats(s string, k int) (ans int) {
-	if k > len(s) || k > 26 {
-		return 0
+	n := len(s)
+	if n < k {
+		return
 	}
-	cnt := [128]int{}
-	for i, j := 0, 0; i < len(s); i++ {
+	cnt := map[byte]int{}
+	for i := 0; i < k; i++ {
 		cnt[s[i]]++
-		for cnt[s[i]] > 1 || i-j+1 > k {
-			cnt[s[j]]--
-			j++
+	}
+	if len(cnt) == k {
+		ans++
+	}
+	for i := k; i < n; i++ {
+		cnt[s[i]]++
+		cnt[s[i-k]]--
+		if cnt[s[i-k]] == 0 {
+			delete(cnt, s[i-k])
 		}
-		if i-j+1 == k {
+		if len(cnt) == k {
 			ans++
 		}
 	}

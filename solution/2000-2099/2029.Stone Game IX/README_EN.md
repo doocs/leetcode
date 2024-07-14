@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md
+rating: 2277
+source: Weekly Contest 261 Q3
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Counting
+    - Game Theory
+---
+
+<!-- problem:start -->
+
 # [2029. Stone Game IX](https://leetcode.com/problems/stone-game-ix)
 
 [中文文档](/solution/2000-2099/2029.Stone%20Game%20IX/README.md)
 
-<!-- tags:Greedy,Array,Math,Counting,Game Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob continue their games with stones. There is a row of n stones, and each stone has an associated value. You are given an integer array <code>stones</code>, where <code>stones[i]</code> is the <strong>value</strong> of the <code>i<sup>th</sup></code> stone.</p>
 
@@ -55,103 +71,155 @@ Alice loses the game because the sum of the removed stones (15) is divisible by 
 	<li><code>1 &lt;= stones[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Greedy + Case Discussion
+
+Since the player's goal is to ensure the total value of the removed stones is not divisible by $3$, we only need to consider the remainder of each stone's value when divided by $3$.
+
+We use an array $\textit{cnt}$ of length $3$ to maintain the count of the current remaining stones' values modulo $3$, where $\textit{cnt}[0]$ represents the count of stones with a remainder of $0$, and $\textit{cnt}[1]$ and $\textit{cnt}[2]$ respectively represent the counts of stones with remainders of $1$ and $2$.
+
+In the first round, Alice cannot remove stones with a remainder of $0$, as this would make the total value of the removed stones divisible by $3$. Therefore, Alice can only remove stones with a remainder of $1$ or $2$.
+
+First, let's consider the case where Alice removes a stone with a remainder of $1$. If Alice removes a stone with a remainder of $1$, the remainder of the total value of stones $0$ against $3$ will not change, so stones with a value remainder of $0$ can be removed in any round, which we will not consider for now. Thus, Bob can only remove stones with a remainder of $1$, followed by Alice removing stones with a remainder of $2$, and so on, in the sequence $1, 1, 2, 1, 2, \ldots$. In this scenario, if the final round is odd and there are still remaining stones, then Alice wins; otherwise, Bob wins.
+
+For the case where Alice removes a stone with a remainder of $2$ in the first round, we can draw a similar conclusion.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{stones}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def stoneGameIX(self, stones: List[int]) -> bool:
-        def check(c):
-            if c[1] == 0:
+        def check(cnt: List[int]) -> bool:
+            if cnt[1] == 0:
                 return False
-            c[1] -= 1
-            turn = 1 + min(c[1], c[2]) * 2 + c[0]
-            if c[1] > c[2]:
-                turn += 1
-                c[1] -= 1
-            return turn % 2 == 1 and c[1] != c[2]
+            cnt[1] -= 1
+            r = 1 + min(cnt[1], cnt[2]) * 2 + cnt[0]
+            if cnt[1] > cnt[2]:
+                cnt[1] -= 1
+                r += 1
+            return r % 2 == 1 and cnt[1] != cnt[2]
 
-        c = [0] * 3
-        for s in stones:
-            c[s % 3] += 1
-        c1 = [c[0], c[2], c[1]]
-        return check(c) or check(c1)
+        c1 = [0] * 3
+        for x in stones:
+            c1[x % 3] += 1
+        c2 = [c1[0], c1[2], c1[1]]
+        return check(c1) or check(c2)
 ```
+
+#### Java
 
 ```java
 class Solution {
     public boolean stoneGameIX(int[] stones) {
-        int[] c = new int[3];
-        for (int s : stones) {
-            ++c[s % 3];
+        int[] c1 = new int[3];
+        for (int x : stones) {
+            c1[x % 3]++;
         }
-        int[] t = new int[] {c[0], c[2], c[1]};
-        return check(c) || check(t);
+        int[] c2 = {c1[0], c1[2], c1[1]};
+        return check(c1) || check(c2);
     }
 
-    private boolean check(int[] c) {
-        if (c[1] == 0) {
+    private boolean check(int[] cnt) {
+        if (--cnt[1] < 0) {
             return false;
         }
-        --c[1];
-        int turn = 1 + Math.min(c[1], c[2]) * 2 + c[0];
-        if (c[1] > c[2]) {
-            --c[1];
-            ++turn;
+        int r = 1 + Math.min(cnt[1], cnt[2]) * 2 + cnt[0];
+        if (cnt[1] > cnt[2]) {
+            --cnt[1];
+            ++r;
         }
-        return turn % 2 == 1 && c[1] != c[2];
+        return r % 2 == 1 && cnt[1] != cnt[2];
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     bool stoneGameIX(vector<int>& stones) {
-        vector<int> c(3);
-        for (int s : stones) ++c[s % 3];
-        vector<int> t = {c[0], c[2], c[1]};
-        return check(c) || check(t);
-    }
-
-    bool check(vector<int>& c) {
-        if (c[1] == 0) return false;
-        --c[1];
-        int turn = 1 + min(c[1], c[2]) * 2 + c[0];
-        if (c[1] > c[2]) {
-            --c[1];
-            ++turn;
+        vector<int> c1(3);
+        for (int x : stones) {
+            ++c1[x % 3];
         }
-        return turn % 2 == 1 && c[1] != c[2];
+        vector<int> c2 = {c1[0], c1[2], c1[1]};
+        auto check = [](auto& cnt) -> bool {
+            if (--cnt[1] < 0) {
+                return false;
+            }
+            int r = 1 + min(cnt[1], cnt[2]) * 2 + cnt[0];
+            if (cnt[1] > cnt[2]) {
+                --cnt[1];
+                ++r;
+            }
+            return r % 2 && cnt[1] != cnt[2];
+        };
+        return check(c1) || check(c2);
     }
 };
 ```
 
+#### Go
+
 ```go
 func stoneGameIX(stones []int) bool {
-	check := func(c [3]int) bool {
-		if c[1] == 0 {
+	c1 := [3]int{}
+	for _, x := range stones {
+		c1[x%3]++
+	}
+	c2 := [3]int{c1[0], c1[2], c1[1]}
+	check := func(cnt [3]int) bool {
+		if cnt[1] == 0 {
 			return false
 		}
-		c[1]--
-		turn := 1 + min(c[1], c[2])*2 + c[0]
-		if c[1] > c[2] {
-			c[1]--
-			turn++
+		cnt[1]--
+		r := 1 + min(cnt[1], cnt[2])*2 + cnt[0]
+		if cnt[1] > cnt[2] {
+			cnt[1]--
+			r++
 		}
-		return turn%2 == 1 && c[1] != c[2]
+		return r%2 == 1 && cnt[1] != cnt[2]
 	}
-	c := [3]int{}
-	for _, s := range stones {
-		c[s%3]++
-	}
-	return check(c) || check([3]int{c[0], c[2], c[1]})
+	return check(c1) || check(c2)
+}
+```
+
+#### TypeScript
+
+```ts
+function stoneGameIX(stones: number[]): boolean {
+    const c1: number[] = Array(3).fill(0);
+    for (const x of stones) {
+        ++c1[x % 3];
+    }
+    const c2: number[] = [c1[0], c1[2], c1[1]];
+    const check = (cnt: number[]): boolean => {
+        if (--cnt[1] < 0) {
+            return false;
+        }
+        let r = 1 + Math.min(cnt[1], cnt[2]) * 2 + cnt[0];
+        if (cnt[1] > cnt[2]) {
+            --cnt[1];
+            ++r;
+        }
+        return r % 2 === 1 && cnt[1] !== cnt[2];
+    };
+    return check(c1) || check(c2);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

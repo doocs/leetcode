@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1910.Remove%20All%20Occurrences%20of%20a%20Substring/README.md
+rating: 1460
+source: 第 55 场双周赛 Q2
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1910. 删除一个字符串中所有出现的给定子字符串](https://leetcode.cn/problems/remove-all-occurrences-of-a-substring)
 
 [English Version](/solution/1900-1999/1910.Remove%20All%20Occurrences%20of%20a%20Substring/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串 <code>s</code> 和 <code>part</code> ，请你对 <code>s</code> 反复执行以下操作直到 <b>所有</b> 子字符串 <code>part</code> 都被删除：</p>
 
@@ -53,7 +63,11 @@
 	<li><code>s</code>​​​​​​ 和 <code>part</code> 只包小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力替换
 
@@ -63,6 +77,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeOccurrences(self, s: str, part: str) -> str:
@@ -70,6 +86,8 @@ class Solution:
             s = s.replace(part, '', 1)
         return s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeOccurrences(s string, part string) string {
 	for strings.Contains(s, part) {
@@ -103,6 +125,8 @@ func removeOccurrences(s string, part string) string {
 	return s
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeOccurrences(s: string, part: string): string {
@@ -115,4 +139,6 @@ function removeOccurrences(s: string, part: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

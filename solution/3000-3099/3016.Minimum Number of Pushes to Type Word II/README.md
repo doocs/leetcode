@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README.md
+rating: 1533
+source: 第 381 场周赛 Q3
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [3016. 输入单词需要的最少按键次数 II](https://leetcode.cn/problems/minimum-number-of-pushes-to-type-word-ii)
 
 [English Version](/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/README_EN.md)
 
-<!-- tags:贪心,哈希表,字符串,计数,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>word</code>，由小写英文字母组成。</p>
 
@@ -77,7 +91,11 @@
 	<li><code>word</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
@@ -86,6 +104,8 @@
 时间复杂度 $O(n + |\Sigma| \times \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $word$ 的长度，而 $\Sigma$ 是字符串 $word$ 中出现的字母集合。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +116,8 @@ class Solution:
             ans += (i // 8 + 1) * x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPushes(word string) (ans int) {
 	cnt := make([]int, 26)
@@ -145,6 +171,8 @@ func minimumPushes(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPushes(word: string): number {
@@ -163,4 +191,6 @@ function minimumPushes(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

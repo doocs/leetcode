@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0087.Scramble%20String/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [87. 扰乱字符串](https://leetcode.cn/problems/scramble-string)
 
 [English Version](/solution/0000-0099/0087.Scramble%20String/README_EN.md)
 
-<!-- tags:字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 使用下面描述的算法可以扰乱字符串 <code>s</code> 得到字符串 <code>t</code> ：
 
@@ -65,7 +74,11 @@
 	<li><code>s1</code> 和 <code>s2</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -84,6 +97,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isScramble(self, s1: str, s2: str) -> bool:
@@ -100,6 +115,8 @@ class Solution:
 
         return dfs(0, 0, len(s1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isScramble(s1 string, s2 string) bool {
@@ -195,6 +216,8 @@ func isScramble(s1 string, s2 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isScramble(s1: string, s2: string): boolean {
     const n = s1.length;
@@ -221,6 +244,8 @@ function isScramble(s1: string, s2: string): boolean {
     return dfs(0, 0, n);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -261,6 +286,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划（区间 DP）
 
 我们定义 $f[i][j][k]$ 表示字符串 $s_1$ 从 $i$ 开始长度为 $k$ 的子串是否能变换为字符串 $s_2$ 从 $j$ 开始长度为 $k$ 的子串。那么答案就是 $f[0][0][n]$，其中 $n$ 是字符串的长度。
@@ -274,6 +303,8 @@ public class Solution {
 时间复杂度 $O(n^4)$，空间复杂度 $O(n^3)$。其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -295,6 +326,8 @@ class Solution:
                             break
         return f[0][0][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -326,6 +359,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -360,6 +395,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isScramble(s1 string, s2 string) bool {
 	n := len(s1)
@@ -386,6 +423,8 @@ func isScramble(s1 string, s2 string) bool {
 	return f[0][0][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isScramble(s1: string, s2: string): boolean {
@@ -417,6 +456,8 @@ function isScramble(s1: string, s2: string): boolean {
     return f[0][0][n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -451,4 +492,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1158.Market%20Analysis%20I/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1158. 市场分析 I](https://leetcode.cn/problems/market-analysis-i)
 
 [English Version](/solution/1100-1199/1158.Market%20Analysis%20I/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Users</code></p>
 
@@ -108,11 +116,17 @@ Items 表:
 | 4         | 2018-05-21 | 0              |
 +-----------+------------+----------------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -128,9 +142,15 @@ GROUP BY user_id;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -146,4 +166,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

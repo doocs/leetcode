@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README.md
+rating: 1775
+source: 第 327 场周赛 Q3
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
+<!-- problem:start -->
+
 # [2531. 使字符串中不同字符的数目相等](https://leetcode.cn/problems/make-number-of-distinct-characters-equal)
 
 [English Version](/solution/2500-2599/2531.Make%20Number%20of%20Distinct%20Characters%20Equal/README_EN.md)
 
-<!-- tags:哈希表,字符串,计数 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的字符串 <code>word1</code> 和 <code>word2</code> 。</p>
 
@@ -50,7 +62,11 @@
 	<li><code>word1</code> 和 <code>word2</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -63,6 +79,8 @@
 时间复杂度 $O(n + C^3)$，空间复杂度 $O(C)$，其中 $n$ 是字符串的长度，而 $C$ 是字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +102,8 @@ class Solution:
                     cnt1[j], cnt2[i] = cnt1[j] - 1, cnt2[i] - 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +146,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -170,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isItPossible(word1 string, word2 string) bool {
 	cnt1 := [26]int{}
@@ -208,4 +232,6 @@ func isItPossible(word1 string, word2 string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

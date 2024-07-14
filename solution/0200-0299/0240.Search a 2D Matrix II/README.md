@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 分治
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [240. 搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii)
 
 [English Version](/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/README_EN.md)
 
-<!-- tags:数组,二分查找,分治,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个高效的算法来搜索&nbsp;<code><em>m</em>&nbsp;x&nbsp;<em>n</em></code>&nbsp;矩阵 <code>matrix</code> 中的一个目标值 <code>target</code> 。该矩阵具有以下特性：</p>
 
@@ -45,7 +56,11 @@
 	<li><code>-10<sup>9</sup>&nbsp;&lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -53,9 +68,11 @@
 
 如果所有行都搜索完了，都没有找到目标值，说明目标值不存在，返回 `false`。
 
-时间复杂度 $O(m \times \log n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+时间复杂度 $O(m \times \log n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +83,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	for _, row := range matrix {
@@ -107,6 +130,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
@@ -129,6 +154,8 @@ function searchMatrix(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -157,6 +184,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -184,6 +213,8 @@ var searchMatrix = function (matrix, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool SearchMatrix(int[][] matrix, int target) {
@@ -200,19 +231,25 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：从左下角或右上角搜索
 
 这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 `matrix[i][j]`与 `target` 的大小关系：
 
--   若 `matrix[i][j] == target`，说明找到了目标值，直接返回 `true`。
--   若 `matrix[i][j] > target`，说明这一行从当前位置开始往右的所有元素均大于 `target`，应该让 $i$ 指针往上移动，即 $i \leftarrow i - 1$。
--   若 `matrix[i][j] < target`，说明这一列从当前位置开始往上的所有元素均小于 `target`，应该让 $j$ 指针往右移动，即 $j \leftarrow j + 1$。
+-   若 $\text{matrix}[i][j] = \text{target}$，说明找到了目标值，直接返回 `true`。
+-   若 $\text{matrix}[i][j] > \text{target}$，说明这一列从当前位置开始往上的所有元素均大于 `target`，应该让 $i$ 指针往上移动，即 $i \leftarrow i - 1$。
+-   若 $\text{matrix}[i][j] < \text{target}$，说明这一行从当前位置开始往右的所有元素均小于 `target`，应该让 $j$ 指针往右移动，即 $j \leftarrow j + 1$。
 
 若搜索结束依然找不到 `target`，返回 `false`。
 
-时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -228,6 +265,8 @@ class Solution:
                 j += 1
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -248,6 +287,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -270,6 +311,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchMatrix(matrix [][]int, target int) bool {
 	m, n := len(matrix), len(matrix[0])
@@ -288,16 +331,17 @@ func searchMatrix(matrix [][]int, target int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
-    let m = matrix.length,
-        n = matrix[0].length;
-    let i = m - 1,
-        j = 0;
+    const [m, n] = [matrix.length, matrix[0].length];
+    let [i, j] = [m - 1, 0];
     while (i >= 0 && j < n) {
-        let cur = matrix[i][j];
-        if (cur == target) return true;
-        if (cur > target) {
+        if (matrix[i][j] === target) {
+            return true;
+        }
+        if (matrix[i][j] > target) {
             --i;
         } else {
             ++j;
@@ -306,6 +350,8 @@ function searchMatrix(matrix: number[][], target: number): boolean {
     return false;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -329,4 +375,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - String
+    - Backtracking
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths)
 
 [中文文档](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
 
-<!-- tags:Tree,Depth-First Search,String,Backtracking,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, return <em>all root-to-leaf paths in <strong>any order</strong></em>.</p>
 
@@ -33,11 +47,17 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -64,6 +84,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -105,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -153,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -182,6 +208,8 @@ func binaryTreePaths(root *TreeNode) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -221,4 +249,6 @@ function binaryTreePaths(root: TreeNode | null): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

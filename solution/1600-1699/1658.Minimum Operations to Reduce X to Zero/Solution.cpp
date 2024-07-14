@@ -1,20 +1,19 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
-        x = accumulate(nums.begin(), nums.end(), 0) - x;
-        unordered_map<int, int> vis{{0, -1}};
+        int s = accumulate(nums.begin(), nums.end(), 0) - x;
+        unordered_map<int, int> vis = {{0, -1}};
+        int mx = -1, t = 0;
         int n = nums.size();
-        int ans = 1 << 30;
-        for (int i = 0, s = 0; i < n; ++i) {
-            s += nums[i];
-            if (!vis.count(s)) {
-                vis[s] = i;
+        for (int i = 0; i < n; ++i) {
+            t += nums[i];
+            if (!vis.contains(t)) {
+                vis[t] = i;
             }
-            if (vis.count(s - x)) {
-                int j = vis[s - x];
-                ans = min(ans, n - (i - j));
+            if (vis.contains(t - s)) {
+                mx = max(mx, i - vis[t - s]);
             }
         }
-        return ans == 1 << 30 ? -1 : ans;
+        return mx == -1 ? -1 : n - mx;
     }
 };

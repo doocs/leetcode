@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0763.Partition%20Labels/README_EN.md
+tags:
+    - Greedy
+    - Hash Table
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
 # [763. Partition Labels](https://leetcode.com/problems/partition-labels)
 
 [中文文档](/solution/0700-0799/0763.Partition%20Labels/README.md)
 
-<!-- tags:Greedy,Hash Table,Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>. We want to partition the string into as many parts as possible so that each letter appears in at most one part.</p>
 
@@ -39,11 +52,17 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +77,8 @@ class Solution:
                 j = i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionLabels(s string) (ans []int) {
 	last := [26]int{}
@@ -121,6 +146,8 @@ func partitionLabels(s string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function partitionLabels(s: string): number[] {
@@ -141,6 +168,8 @@ function partitionLabels(s: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +195,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -190,6 +221,8 @@ var partitionLabels = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<int> PartitionLabels(string s) {
@@ -213,4 +246,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

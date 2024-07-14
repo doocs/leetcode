@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Array
+    - Divide and Conquer
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [108. Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
 
 [中文文档](/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/README.md)
 
-<!-- tags:Tree,Binary Search Tree,Array,Divide and Conquer,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> where the elements are sorted in <strong>ascending order</strong>, convert <em>it to a </em><span data-keyword="height-balanced"><strong><em>height-balanced</em></strong></span> <em>binary search tree</em>.</p>
 
@@ -35,7 +49,11 @@
 	<li><code>nums</code> is sorted in a <strong>strictly increasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + Recursion
 
@@ -54,6 +72,8 @@ The answer is the return value of the function $dfs(0, n - 1)$.
 The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -74,6 +94,8 @@ class Solution:
 
         return dfs(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -111,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -140,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -162,6 +188,8 @@ func sortedArrayToBST(nums []int) *TreeNode {
 	return dfs(0, len(nums)-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -192,6 +220,8 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -211,23 +241,19 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn to_bst(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if start >= end {
             return None;
         }
         let mid = start + (end - start) / 2;
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: nums[mid],
-                    left: Self::to_bst(nums, start, mid),
-                    right: Self::to_bst(nums, mid + 1, end),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: nums[mid],
+            left: Self::to_bst(nums, start, mid),
+            right: Self::to_bst(nums, mid + 1, end),
+        })))
     }
 
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -235,6 +261,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -265,4 +293,6 @@ var sortedArrayToBST = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

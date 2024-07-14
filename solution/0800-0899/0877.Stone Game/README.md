@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0877.Stone%20Game/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
+<!-- problem:start -->
+
 # [877. 石子游戏](https://leetcode.cn/problems/stone-game)
 
 [English Version](/solution/0800-0899/0877.Stone%20Game/README_EN.md)
 
-<!-- tags:数组,数学,动态规划,博弈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 和 Bob 用几堆石子在做游戏。一共有偶数堆石子，<strong>排成一行</strong>；每堆都有 <strong>正</strong> 整数颗石子，数目为 <code>piles[i]</code>&nbsp;。</p>
 
@@ -49,7 +60,11 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 	<li><code>sum(piles[i])</code>&nbsp;是 <strong>奇数</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -68,6 +83,8 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGame(self, piles: List[int]) -> bool:
@@ -79,6 +96,8 @@ class Solution:
 
         return dfs(0, len(piles) - 1) > 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,19 +132,21 @@ public:
         int n = piles.size();
         int f[n][n];
         memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
+        auto dfs = [&](auto&& dfs, int i, int j) -> int {
             if (i > j) {
                 return 0;
             }
             if (f[i][j]) {
                 return f[i][j];
             }
-            return f[i][j] = max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1));
+            return f[i][j] = max(piles[i] - dfs(dfs, i + 1, j), piles[j] - dfs(dfs, i, j - 1));
         };
-        return dfs(0, n - 1) > 0;
+        return dfs(dfs, 0, n - 1) > 0;
     }
 };
 ```
+
+#### Go
 
 ```go
 func stoneGame(piles []int) bool {
@@ -146,6 +169,8 @@ func stoneGame(piles []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stoneGame(piles: number[]): boolean {
     const n = piles.length;
@@ -164,6 +189,10 @@ function stoneGame(piles: number[]): boolean {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：动态规划
 
@@ -188,6 +217,8 @@ function stoneGame(piles: number[]): boolean {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stoneGame(self, piles: List[int]) -> bool:
@@ -200,6 +231,8 @@ class Solution:
                 f[i][j] = max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])
         return f[0][n - 1] > 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -218,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -239,6 +274,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stoneGame(piles []int) bool {
 	n := len(piles)
@@ -255,6 +292,8 @@ func stoneGame(piles []int) bool {
 	return f[0][n-1] > 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stoneGame(piles: number[]): boolean {
@@ -274,4 +313,6 @@ function stoneGame(piles: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

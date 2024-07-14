@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README.md
+rating: 1322
+source: 第 316 场周赛 Q1
+tags:
+    - 数组
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2446. 判断两个事件是否存在冲突](https://leetcode.cn/problems/determine-if-two-events-have-conflict)
 
 [English Version](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README_EN.md)
 
-<!-- tags:数组,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串数组 <code>event1</code> 和&nbsp;<code>event2</code>&nbsp;，表示发生在同一天的两个闭区间时间段事件，其中：</p>
 
@@ -52,14 +63,18 @@
 <p><b>提示：</b></p>
 
 <ul>
-	<li><code>event1.length == event2.length == 2.</code></li>
+	<li><code>event1.length == event2.length == 2</code></li>
 	<li><code>event1[i].length == event2[i].length == 5</code></li>
 	<li><code>startTime<sub>1</sub> &lt;= endTime<sub>1</sub></code></li>
 	<li><code>startTime<sub>2</sub> &lt;= endTime<sub>2</sub></code></li>
 	<li>所有事件的时间都按照&nbsp;<code>HH:MM</code>&nbsp;格式给出</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串比较
 
@@ -71,11 +86,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def haveConflict(self, event1: List[str], event2: List[str]) -> bool:
         return not (event1[0] > event2[1] or event1[1] < event2[0])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,17 +115,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func haveConflict(event1 []string, event2 []string) bool {
 	return !(event1[0] > event2[1] || event1[1] < event2[0])
 }
 ```
 
+#### TypeScript
+
 ```ts
 function haveConflict(event1: string[], event2: string[]): boolean {
     return !(event1[0] > event2[1] || event1[1] < event2[0]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -116,4 +143,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

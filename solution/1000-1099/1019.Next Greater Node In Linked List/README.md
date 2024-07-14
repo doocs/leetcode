@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README.md
+rating: 1570
+source: 第 130 场周赛 Q3
+tags:
+    - 栈
+    - 数组
+    - 链表
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [1019. 链表中的下一个更大节点](https://leetcode.cn/problems/next-greater-node-in-linked-list)
 
 [English Version](/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README_EN.md)
 
-<!-- tags:栈,数组,链表,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为&nbsp;<code>n</code>&nbsp;的链表&nbsp;<code>head</code></p>
 
@@ -44,7 +57,11 @@
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -59,6 +76,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -83,6 +102,8 @@ class Solution:
             stk.append(nums[i])
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -117,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -153,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -182,6 +207,8 @@ func nextLargerNodes(head *ListNode) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -203,17 +230,19 @@ function nextLargerNodes(head: ListNode | null): number[] {
     }
     const stk: number[] = [];
     const n = nums.length;
-    const ans: number[] = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let i = n - 1; ~i; --i) {
-        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+        while (stk.length && stk.at(-1)! <= nums[i]) {
             stk.pop();
         }
-        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        ans[i] = stk.length ? stk.at(-1)! : 0;
         stk.push(nums[i]);
     }
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -232,35 +261,34 @@ function nextLargerNodes(head: ListNode | null): number[] {
 //     }
 //   }
 // }
-struct Item {
-    index: usize,
-    val: i32,
-}
-
+use std::collections::VecDeque;
 impl Solution {
     pub fn next_larger_nodes(head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut res = Vec::new();
-        let mut stack: Vec<Item> = Vec::new();
-        let mut cur = &head;
-        for i in 0..usize::MAX {
-            if cur.is_none() {
-                break;
-            }
-            res.push(0);
-            let node = cur.as_ref().unwrap();
-            while !stack.is_empty() && stack.last().unwrap().val < node.val {
-                res[stack.pop().unwrap().index] = node.val;
-            }
-            stack.push(Item {
-                index: i,
-                val: node.val,
-            });
-            cur = &node.next;
+        let mut nums = Vec::new();
+        let mut current = &head;
+        while let Some(node) = current {
+            nums.push(node.val);
+            current = &node.next;
         }
-        res
+
+        let mut stk = VecDeque::new();
+        let n = nums.len();
+        let mut ans = vec![0; n];
+        for i in (0..n).rev() {
+            while !stk.is_empty() && stk.back().copied().unwrap() <= nums[i] {
+                stk.pop_back();
+            }
+            if let Some(&top) = stk.back() {
+                ans[i] = top;
+            }
+            stk.push_back(nums[i]);
+        }
+        ans
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -296,48 +324,6 @@ var nextLargerNodes = function (head) {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-interface Item {
-    index: number;
-    val: number;
-}
-
-function nextLargerNodes(head: ListNode | null): number[] {
-    const res: number[] = [];
-    const stack: Item[] = [];
-    let cur = head;
-    for (let i = 0; cur != null; i++) {
-        res.push(0);
-        const { val, next } = cur;
-        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
-            res[stack.pop().index] = val;
-        }
-        stack.push({
-            val,
-            index: i,
-        });
-        cur = next;
-    }
-    return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

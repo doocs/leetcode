@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 动态规划
+    - 最短路
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [787. K 站中转内最便宜的航班](https://leetcode.cn/problems/cheapest-flights-within-k-stops)
 
 [English Version](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,动态规划,最短路,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 个城市通过一些航班连接。给你一个数组&nbsp;<code>flights</code> ，其中&nbsp;<code>flights[i] = [from<sub>i</sub>, to<sub>i</sub>, price<sub>i</sub>]</code> ，表示该航班都从城市 <code>from<sub>i</sub></code> 开始，以价格 <code>price<sub>i</sub></code> 抵达 <code>to<sub>i</sub></code>。</p>
 
@@ -56,11 +69,17 @@ src = 0, dst = 2, k = 0
 	<li><code>src != dst</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Bellman Ford 算法
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +95,8 @@ class Solution:
                 dist[t] = min(dist[t], backup[f] + p)
         return -1 if dist[dst] == INF else dist[dst]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
@@ -143,9 +168,15 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS + 记忆化搜索
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -170,6 +201,8 @@ class Solution:
         ans = dfs(src, k + 1)
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -215,6 +248,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -246,6 +281,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
@@ -294,4 +331,6 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

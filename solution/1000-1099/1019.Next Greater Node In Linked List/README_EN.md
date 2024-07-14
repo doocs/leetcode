@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README_EN.md
+rating: 1570
+source: Weekly Contest 130 Q3
+tags:
+    - Stack
+    - Array
+    - Linked List
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [1019. Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list)
 
 [中文文档](/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README.md)
 
-<!-- tags:Stack,Array,Linked List,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>head</code> of a linked list with <code>n</code> nodes.</p>
 
@@ -36,11 +51,27 @@
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Monotonic Stack
+
+The problem requires finding the next larger node for each node in the linked list, that is, finding the first node to the right of each node in the linked list that is larger than it. We first traverse the linked list and store the values in the linked list in an array $nums$. For each element in the array $nums$, we just need to find the first element to its right that is larger than it. The problem of finding the next larger element can be solved using a monotonic stack.
+
+We traverse the array $nums$ from back to front, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. During the traversal, if the top element of the stack is less than or equal to the current element, we loop to pop the top element of the stack until the top element of the stack is larger than the current element or the stack is empty.
+
+If the stack is empty at this time, it means that the current element does not have a next larger element, otherwise, the next larger element of the current element is the top element of the stack, and we update the answer array $ans$. Then we push the current element into the stack and continue the traversal.
+
+After the traversal is over, we return the answer array $ans$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -65,6 +96,8 @@ class Solution:
             stk.append(nums[i])
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -99,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -135,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -164,6 +201,8 @@ func nextLargerNodes(head *ListNode) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -185,17 +224,19 @@ function nextLargerNodes(head: ListNode | null): number[] {
     }
     const stk: number[] = [];
     const n = nums.length;
-    const ans: number[] = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let i = n - 1; ~i; --i) {
-        while (stk.length && stk[stk.length - 1] <= nums[i]) {
+        while (stk.length && stk.at(-1)! <= nums[i]) {
             stk.pop();
         }
-        ans[i] = stk.length ? stk[stk.length - 1] : 0;
+        ans[i] = stk.length ? stk.at(-1)! : 0;
         stk.push(nums[i]);
     }
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -214,35 +255,34 @@ function nextLargerNodes(head: ListNode | null): number[] {
 //     }
 //   }
 // }
-struct Item {
-    index: usize,
-    val: i32,
-}
-
+use std::collections::VecDeque;
 impl Solution {
     pub fn next_larger_nodes(head: Option<Box<ListNode>>) -> Vec<i32> {
-        let mut res = Vec::new();
-        let mut stack: Vec<Item> = Vec::new();
-        let mut cur = &head;
-        for i in 0..usize::MAX {
-            if cur.is_none() {
-                break;
-            }
-            res.push(0);
-            let node = cur.as_ref().unwrap();
-            while !stack.is_empty() && stack.last().unwrap().val < node.val {
-                res[stack.pop().unwrap().index] = node.val;
-            }
-            stack.push(Item {
-                index: i,
-                val: node.val,
-            });
-            cur = &node.next;
+        let mut nums = Vec::new();
+        let mut current = &head;
+        while let Some(node) = current {
+            nums.push(node.val);
+            current = &node.next;
         }
-        res
+
+        let mut stk = VecDeque::new();
+        let n = nums.len();
+        let mut ans = vec![0; n];
+        for i in (0..n).rev() {
+            while !stk.is_empty() && stk.back().copied().unwrap() <= nums[i] {
+                stk.pop_back();
+            }
+            if let Some(&top) = stk.back() {
+                ans[i] = top;
+            }
+            stk.push_back(nums[i]);
+        }
+        ans
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -278,48 +318,6 @@ var nextLargerNodes = function (head) {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-interface Item {
-    index: number;
-    val: number;
-}
-
-function nextLargerNodes(head: ListNode | null): number[] {
-    const res: number[] = [];
-    const stack: Item[] = [];
-    let cur = head;
-    for (let i = 0; cur != null; i++) {
-        res.push(0);
-        const { val, next } = cur;
-        while (stack.length !== 0 && stack[stack.length - 1].val < val) {
-            res[stack.pop().index] = val;
-        }
-        stack.push({
-            val,
-            index: i,
-        });
-        cur = next;
-    }
-    return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

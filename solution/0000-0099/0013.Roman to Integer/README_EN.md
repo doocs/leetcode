@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0013.Roman%20to%20Integer/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - String
+---
+
+<!-- problem:start -->
+
 # [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer)
 
 [中文文档](/solution/0000-0099/0013.Roman%20to%20Integer/README.md)
 
-<!-- tags:Hash Table,Math,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Roman numerals are represented by seven different symbols:&nbsp;<code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>
 
@@ -64,7 +76,11 @@ M             1000</pre>
 	<li>It is <strong>guaranteed</strong>&nbsp;that <code>s</code> is a valid roman numeral in the range <code>[1, 3999]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
@@ -74,12 +90,16 @@ The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         return sum((-1 if d[a] < d[b] else 1) * d[a] for a, b in pairwise(s)) + d[s[-1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func romanToInt(s string) (ans int) {
 	d := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -138,6 +162,8 @@ func romanToInt(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function romanToInt(s: string): number {
@@ -159,6 +185,43 @@ function romanToInt(s: string): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn roman_to_int(s: String) -> i32 {
+        let d = vec![
+            ('I', 1),
+            ('V', 5),
+            ('X', 10),
+            ('L', 50),
+            ('C', 100),
+            ('D', 500),
+            ('M', 1000),
+        ]
+        .into_iter()
+        .collect::<std::collections::HashMap<_, _>>();
+
+        let s: Vec<char> = s.chars().collect();
+        let mut ans = 0;
+        let len = s.len();
+
+        for i in 0..len - 1 {
+            if d[&s[i]] < d[&s[i + 1]] {
+                ans -= d[&s[i]];
+            } else {
+                ans += d[&s[i]];
+            }
+        }
+
+        ans += d[&s[len - 1]];
+        ans
+    }
+}
+```
+
+#### JavaScript
+
 ```js
 const romanToInt = function (s) {
     const d = {
@@ -178,6 +241,8 @@ const romanToInt = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -200,6 +265,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -207,7 +274,7 @@ class Solution {
      * @return Integer
      */
     function romanToInt($s) {
-        $hashmap = [
+        $d = [
             'I' => 1,
             'V' => 5,
             'X' => 10,
@@ -216,56 +283,52 @@ class Solution {
             'D' => 500,
             'M' => 1000,
         ];
-        $rs = 0;
-        for ($i = 0; $i < strlen($s); $i++) {
-            $left = $hashmap[$s[$i]];
-            $right = $hashmap[$s[$i + 1]];
-            if ($left >= $right) {
-                $rs += $left;
+        $ans = 0;
+        $len = strlen($s);
+
+        for ($i = 0; $i < $len - 1; $i++) {
+            if ($d[$s[$i]] < $d[$s[$i + 1]]) {
+                $ans -= $d[$s[$i]];
             } else {
-                $rs -= $left;
+                $ans += $d[$s[$i]];
             }
         }
-        return $rs;
+
+        $ans += $d[$s[$len - 1]];
+        return $ans;
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String} s
 # @return {Integer}
 def roman_to_int(s)
-  hash = Hash[
-      'I' => 1,
-      'V' => 5,
-      'X' => 10,
-      'L' => 50,
-      'C' => 100,
-      'D' => 500,
-      'M' => 1000,
-      'IV' => 4,
-      'IX' => 9,
-      'XL' => 40,
-      'XC' => 90,
-      'CD' => 400,
-      'CM' => 900
-  ]
-  res = 0
-  i = 0
-  while i < s.length
-    if i < s.length - 1 && !hash[s[i..i+1]].nil?
-      res += hash[s[i..i+1]]
-      i += 2
-    else
-      res += hash[s[i]]
-      i += 1
-    end
+  d = {
+      'I' => 1, 'V' => 5, 'X' => 10,
+      'L' => 50, 'C' => 100,
+      'D' => 500, 'M' => 1000
+  }
+  ans = 0
+  len = s.length
+
+  (0...len-1).each do |i|
+      if d[s[i]] < d[s[i + 1]]
+          ans -= d[s[i]]
+      else
+          ans += d[s[i]]
+      end
   end
 
-  res
+  ans += d[s[len - 1]]
+  ans
 end
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

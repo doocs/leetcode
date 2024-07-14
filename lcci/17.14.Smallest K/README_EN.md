@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [17.14. Smallest K](https://leetcode.cn/problems/smallest-k-lcci)
 
 [中文文档](/lcci/17.14.Smallest%20K/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm to find the smallest K numbers in an array.</p>
 <p><strong>Example: </strong></p>
@@ -19,17 +29,25 @@
 	<li><code>0 &lt;= k &lt;= min(100000, len(arr))</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def smallestK(self, arr: List[int], k: int) -> List[int]:
         return sorted(arr)[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -43,6 +61,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -58,6 +78,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestK(arr []int, k int) []int {
 	sort.Ints(arr)
@@ -69,11 +91,29 @@ func smallestK(arr []int, k int) []int {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func smallestK(_ arr: [Int], _ k: Int) -> [Int] {
+        guard k > 0 else { return [] }
+        let sortedArray = arr.sorted()
+        return Array(sortedArray.prefix(k))
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +125,8 @@ class Solution:
                 heappop(h)
         return [-v for v in h]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestK(arr []int, k int) []int {
@@ -157,4 +203,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

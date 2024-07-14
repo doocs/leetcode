@@ -1,41 +1,35 @@
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
 var magnificentSets = function (n, edges) {
-    const graph = Array.from({ length: n + 1 }, () => new Set());
-    for (const [u, v] of edges) {
-        graph[u].add(v);
-        graph[v].add(u);
+    const g = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a - 1].push(b - 1);
+        g[b - 1].push(a - 1);
     }
-    const hash = new Map();
-
-    // 2. BFS
-    for (let i = 1; i <= n; i++) {
-        let queue = [i];
-        const dis = Array(n + 1).fill(0);
-        dis[i] = 1;
-        let mx = 1,
-            mn = n;
-        while (queue.length) {
-            let next = [];
-            for (let u of queue) {
-                mn = Math.min(mn, u);
-                for (const v of graph[u]) {
-                    if (!dis[v]) {
-                        dis[v] = dis[u] + 1;
-                        mx = Math.max(mx, dis[v]);
-                        next.push(v);
-                    }
-                    if (Math.abs(dis[u] - dis[v]) != 1) {
-                        return -1;
-                    }
+    const d = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        const q = [i];
+        const dist = Array(n).fill(0);
+        dist[i] = 1;
+        let mx = 1;
+        let root = i;
+        while (q.length) {
+            const a = q.shift();
+            root = Math.min(root, a);
+            for (const b of g[a]) {
+                if (dist[b] === 0) {
+                    dist[b] = dist[a] + 1;
+                    mx = Math.max(mx, dist[b]);
+                    q.push(b);
+                } else if (Math.abs(dist[b] - dist[a]) !== 1) {
+                    return -1;
                 }
             }
-            queue = next;
         }
-        hash.set(mn, Math.max(mx, hash.get(mn) || 0));
+        d[root] = Math.max(d[root], mx);
     }
-
-    let ans = 0;
-    for (const [u, v] of hash) {
-        ans += v;
-    }
-    return ans;
+    return d.reduce((a, b) => a + b);
 };

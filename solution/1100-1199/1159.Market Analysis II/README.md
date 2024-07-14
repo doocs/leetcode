@@ -1,12 +1,20 @@
-# [1159. 市场分析 II](https://leetcode.cn/problems/market-analysis-ii)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1159.Market%20Analysis%20II/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1159. 市场分析 II 🔒](https://leetcode.cn/problems/market-analysis-ii)
 
 [English Version](/solution/1100-1199/1159.Market%20Analysis%20II/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Users</code></p>
 
@@ -111,11 +119,17 @@ id为 2 和 3 的用户的查询结果是 yes，因为他们卖出的第二件�
 id为 4 的用户的查询结果是 no，因为他卖出的第二件商品的品牌不是他最喜爱的品牌
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -144,4 +158,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

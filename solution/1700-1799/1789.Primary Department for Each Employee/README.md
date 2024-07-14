@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1789. 员工的直属部门](https://leetcode.cn/problems/primary-department-for-each-employee)
 
 [English Version](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Employee</code></p>
 
@@ -69,13 +77,19 @@ Employee table:
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：合并
 
 我们可以查出所有已经有直属部门的员工，然后再查出所有只属于一个部门的员工，最后我们可以使用 `UNION` 合并两个结果集。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -91,4 +105,6 @@ HAVING COUNT(1) = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

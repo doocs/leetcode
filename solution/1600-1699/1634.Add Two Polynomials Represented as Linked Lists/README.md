@@ -1,12 +1,22 @@
-# [1634. 求两个多项式链表的和](https://leetcode.cn/problems/add-two-polynomials-represented-as-linked-lists)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/README.md
+tags:
+    - 链表
+    - 数学
+    - 双指针
+---
+
+<!-- problem:start -->
+
+# [1634. 求两个多项式链表的和 🔒](https://leetcode.cn/problems/add-two-polynomials-represented-as-linked-lists)
 
 [English Version](/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/README_EN.md)
 
-<!-- tags:链表,数学,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>多项式链表是一种特殊形式的链表，每个节点表示多项式的一项。</p>
 
@@ -70,7 +80,11 @@
 	<li><code>PolyNode.power > PolyNode.next.power</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历链表
 
@@ -81,6 +95,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为两个链表中节点数的较大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for polynomial singly-linked list.
@@ -112,6 +128,8 @@ class Solution:
         curr.next = poly1 or poly2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -161,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for polynomial singly-linked list->
@@ -208,6 +228,8 @@ public:
 };
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for polynomial singly-linked list.
@@ -249,6 +271,8 @@ var addPoly = function (poly1, poly2) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -301,4 +325,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

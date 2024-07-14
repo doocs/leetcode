@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0566.Reshape%20the%20Matrix/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [566. 重塑矩阵](https://leetcode.cn/problems/reshape-the-matrix)
 
 [English Version](/solution/0500-0599/0566.Reshape%20the%20Matrix/README_EN.md)
 
-<!-- tags:数组,矩阵,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在 MATLAB 中，有一个非常有用的函数 <code>reshape</code> ，它可以将一个&nbsp;<code>m x n</code> 矩阵重塑为另一个大小不同（<code>r x c</code>）的新矩阵，但保留其原始数据。</p>
 
@@ -44,7 +54,11 @@
 	<li><code>1 &lt;= r, c &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -58,6 +72,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
@@ -69,6 +85,8 @@ class Solution:
             ans[i // c][i % c] = mat[i // n][i % n]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixReshape(mat [][]int, r int, c int) [][]int {
 	m, n := len(mat), len(mat[0])
@@ -120,6 +142,8 @@ func matrixReshape(mat [][]int, r int, c int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     let m = mat.length,
@@ -136,6 +160,8 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,6 +196,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Return an array of arrays of size *returnSize.
@@ -198,9 +226,15 @@ int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* 
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
@@ -219,4 +253,6 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

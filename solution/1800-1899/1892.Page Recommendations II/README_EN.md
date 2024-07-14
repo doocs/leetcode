@@ -1,10 +1,20 @@
-# [1892. Page Recommendations II](https://leetcode.com/problems/page-recommendations-ii)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1892.Page%20Recommendations%20II/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1892. Page Recommendations II 🔒](https://leetcode.com/problems/page-recommendations-ii)
 
 [中文文档](/solution/1800-1899/1892.Page%20Recommendations%20II/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Friendship</code></p>
 
@@ -115,11 +125,17 @@ Another example is user 6:
 You can recommend pages for users 2, 3, 4, and 5 using a similar process.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -144,4 +160,6 @@ GROUP BY user1_id, page_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

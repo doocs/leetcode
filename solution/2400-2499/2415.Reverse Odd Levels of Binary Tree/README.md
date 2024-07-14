@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README.md
+rating: 1431
+source: 第 311 场周赛 Q3
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [2415. 反转二叉树的奇数层](https://leetcode.cn/problems/reverse-odd-levels-of-binary-tree)
 
 [English Version](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵 <strong>完美</strong> 二叉树的根节点 <code>root</code> ，请你反转这棵树中每个 <strong>奇数</strong> 层的节点值。</p>
 
@@ -61,7 +74,11 @@
 	<li><code>root</code> 是一棵 <strong>完美</strong> 二叉树</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -70,6 +87,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -96,6 +115,8 @@ class Solution:
             i += 1
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -140,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -178,6 +201,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -209,6 +234,8 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -246,6 +273,8 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -265,27 +294,23 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     fn create_tree(vals: &Vec<Vec<i32>>, i: usize, j: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if i == vals.len() {
             return None;
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: vals[i][j],
-                    left: Self::create_tree(vals, i + 1, j * 2),
-                    right: Self::create_tree(vals, i + 1, j * 2 + 1),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: vals[i][j],
+            left: Self::create_tree(vals, i + 1, j * 2),
+            right: Self::create_tree(vals, i + 1, j * 2 + 1),
+        })))
     }
 
     pub fn reverse_odd_levels(
-        root: Option<Rc<RefCell<TreeNode>>>
+        root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         let mut queue = VecDeque::new();
         queue.push_back(root);
@@ -317,4 +342,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

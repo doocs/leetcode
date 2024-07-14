@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0395.Longest%20Substring%20with%20At%20Least%20K%20Repeating%20Characters/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Divide and Conquer
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [395. Longest Substring with At Least K Repeating Characters](https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters)
 
 [中文文档](/solution/0300-0399/0395.Longest%20Substring%20with%20At%20Least%20K%20Repeating%20Characters/README.md)
 
-<!-- tags:Hash Table,String,Divide and Conquer,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the length of the longest substring of</em> <code>s</code> <em>such that the frequency of each character in this substring is greater than or equal to</em> <code>k</code>.</p>
 
@@ -36,11 +49,17 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +86,8 @@ class Solution:
 
         return dfs(0, len(s) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestSubstring(s string, k int) int {
@@ -202,4 +227,6 @@ func longestSubstring(s string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

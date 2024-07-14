@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0814.Binary%20Tree%20Pruning/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [814. 二叉树剪枝](https://leetcode.cn/problems/binary-tree-pruning)
 
 [English Version](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根结点&nbsp;<code>root</code>&nbsp;，此外树的每个结点的值要么是 <code>0</code> ，要么是 <code>1</code> 。</p>
 
@@ -48,13 +58,19 @@
 	<li><code>Node.val</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
 观察叶节点，当叶节点 `val` 为 0 时，便将该节点抹去。回溯，查看其父节点是否成为了新的叶节点，依照此规则自底向上。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -73,6 +89,8 @@ class Solution:
             return None
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -105,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -129,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -150,6 +172,8 @@ func pruneTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -179,6 +203,8 @@ function pruneTree(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -198,8 +224,8 @@ function pruneTree(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn prune_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         if root.is_none() {
@@ -219,6 +245,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -246,4 +274,6 @@ var pruneTree = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

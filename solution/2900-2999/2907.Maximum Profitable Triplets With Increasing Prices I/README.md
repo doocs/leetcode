@@ -1,12 +1,22 @@
-# [2907. 价格递增的最大利润三元组 I](https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-i)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+---
+
+<!-- problem:start -->
+
+# [2907. 价格递增的最大利润三元组 I 🔒](https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-i)
 
 [English Version](/solution/2900-2999/2907.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20I/README_EN.md)
 
-<!-- tags:树状数组,线段树,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个长度为 <code>n</code> 的 <b>下标从 0 开始</b>&nbsp;的数组 <code>prices</code> 和 <code>profits</code>。商店里有 <code>n</code> 件商品，其中第 <code>i</code> 件商品的价格为 <code>prices[i]</code>，利润为 <code>profits[i]</code>。</p>
 
@@ -58,7 +68,11 @@
 	<li><code>1 &lt;= profits[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举中间元素
 
@@ -67,6 +81,8 @@
 时间复杂度 $O(n^2)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +101,8 @@ class Solution:
                 ans = max(ans, left + x + right)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, profits []int) int {
 	n := len(prices)
@@ -163,6 +185,8 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[], profits: number[]): number {
     const n = prices.length;
@@ -186,6 +210,8 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -221,6 +247,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：树状数组
 
 我们可以用两个树状数组分别维护每个价格左边以及右边的最大利润，然后枚举中间的价格，通过树状数组查询左右两边的最大利润，最后取最大值即可。
@@ -230,6 +260,8 @@ impl Solution {
 由于 $prices$ 的长度不超过 $2000$，而 $prices[i]$ 的取值达到 $10^6$，因此，我们可以对 $prices$ 进行离散化处理，这样可以将空间复杂度降低到 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -272,6 +304,8 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -332,6 +366,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -390,6 +426,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -450,6 +488,8 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -509,6 +549,8 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct BinaryIndexedTree {
@@ -579,9 +621,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -626,6 +674,8 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -703,6 +753,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -764,6 +816,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -833,6 +887,8 @@ func maxProfit(prices []int, profits []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -917,4 +973,6 @@ function maxProfit(prices: number[], profits: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

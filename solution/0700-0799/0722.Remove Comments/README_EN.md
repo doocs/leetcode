@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0722.Remove%20Comments/README_EN.md
+tags:
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
 # [722. Remove Comments](https://leetcode.com/problems/remove-comments)
 
 [中文文档](/solution/0700-0799/0722.Remove%20Comments/README.md)
 
-<!-- tags:Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a C++ program, remove comments from it. The program source is an array of strings <code>source</code> where <code>source[i]</code> is the <code>i<sup>th</sup></code> line of the source code. This represents the result of splitting the original source code string by the newline character <code>&#39;\n&#39;</code>.</p>
 
@@ -85,11 +96,17 @@ a = b + c;
 	<li>There are no single-quote or&nbsp;double-quote in the input.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +135,8 @@ class Solution:
                 t.clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -190,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeComments(source []string) (ans []string) {
 	t := []byte{}
@@ -221,6 +244,8 @@ func removeComments(source []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeComments(source: string[]): string[] {
@@ -254,6 +279,8 @@ function removeComments(source: string[]): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -297,4 +324,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

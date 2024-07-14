@@ -1,10 +1,25 @@
-# [737. Sentence Similarity II](https://leetcode.com/problems/sentence-similarity-ii)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0737.Sentence%20Similarity%20II/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [737. Sentence Similarity II 🔒](https://leetcode.com/problems/sentence-similarity-ii)
 
 [中文文档](/solution/0700-0799/0737.Sentence%20Similarity%20II/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>We can represent a sentence as an array of words, for example, the sentence <code>&quot;I am happy with leetcode&quot;</code> can be represented as <code>arr = [&quot;I&quot;,&quot;am&quot;,happy&quot;,&quot;with&quot;,&quot;leetcode&quot;]</code>.</p>
 
@@ -59,11 +74,17 @@ Since &quot;leetcode is similar to &quot;onepiece&quot; and the first two words 
 	<li><code>x<sub>i</sub></code> and <code>y<sub>i</sub></code> consist of English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +123,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +212,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var p []int
@@ -235,4 +262,6 @@ func find(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

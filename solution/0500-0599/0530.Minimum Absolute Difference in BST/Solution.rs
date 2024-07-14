@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     #[allow(dead_code)]
     pub fn get_minimum_difference(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {

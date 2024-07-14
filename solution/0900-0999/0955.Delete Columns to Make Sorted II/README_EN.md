@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
 # [955. Delete Columns to Make Sorted II](https://leetcode.com/problems/delete-columns-to-make-sorted-ii)
 
 [中文文档](/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README.md)
 
-<!-- tags:Greedy,Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>n</code> strings <code>strs</code>, all of the same length.</p>
 
@@ -55,11 +67,17 @@ i.e., it is NOT necessarily true that (strs[0][0] &lt;= strs[0][1] &lt;= ...)
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -92,4 +110,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,21 @@
-# [245. 最短单词距离 III](https://leetcode.cn/problems/shortest-word-distance-iii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0245.Shortest%20Word%20Distance%20III/README.md
+tags:
+    - 数组
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [245. 最短单词距离 III 🔒](https://leetcode.cn/problems/shortest-word-distance-iii)
 
 [English Version](/solution/0200-0299/0245.Shortest%20Word%20Distance%20III/README_EN.md)
 
-<!-- tags:数组,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串数组&nbsp;<code>wordsDict</code> 和两个字符串 <code>word1</code> 和 <code>word2</code> ，返回这两个单词在列表中出现的最短距离。</p>
 
@@ -39,7 +48,11 @@
 	<li><code>word1</code> 和 <code>word2</code> 都在 <code>wordsDict</code> 中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分情况讨论
 
@@ -52,6 +65,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `wordsDict` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +90,8 @@ class Solution:
                     ans = min(ans, abs(i - j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestWordDistance(wordsDict []string, word1 string, word2 string) int {
@@ -180,4 +201,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

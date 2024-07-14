@@ -1,12 +1,20 @@
-# [1084. 销售分析 III](https://leetcode.cn/problems/sales-analysis-iii)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1084.Sales%20Analysis%20III/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1084. 销售分析III](https://leetcode.cn/problems/sales-analysis-iii)
 
 [English Version](/solution/1000-1099/1084.Sales%20Analysis%20III/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Product</code></p>
 
@@ -42,7 +50,7 @@ product_id 是 Product 表的外键（reference 列）。
 
 <p>&nbsp;</p>
 
-<p>编写解决方案，报告<code>2019年春季</code>才售出的产品。即<strong>仅</strong>在<code><strong>2019-01-01</strong></code>至<code><strong>2019-03-31</strong></code>（含）之间出售的商品。</p>
+<p>编写解决方案，报告&nbsp;<code>2019年春季</code>&nbsp;才售出的产品。即&nbsp;<strong>仅&nbsp;</strong>在&nbsp;<code><strong>2019-01-01</strong></code><strong>&nbsp;</strong>（含）至&nbsp;<code><strong>2019-03-31</strong></code><strong>&nbsp;</strong>（含）之间出售的商品。</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
@@ -83,13 +91,19 @@ id 为 2 的产品在 2019 年春季销售，但也在 2019 年春季之后销�
 id 为 3 的产品在 2019 年春季之后销售。
 我们只返回 id 为 1 的产品，因为它是 2019 年春季才销售的产品。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：JOIN + GROUP BY + HAVING
 
 我们可以通过 `JOIN` 将 `Sales` 表和 `Product` 表连接起来，然后通过 `GROUP BY` 和 `HAVING` 来筛选出符合条件的产品。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -103,4 +117,6 @@ HAVING COUNT(1) = SUM(sale_date BETWEEN '2019-01-01' AND '2019-03-31');
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

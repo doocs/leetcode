@@ -1,7 +1,7 @@
 function titleToNumber(columnTitle: string): number {
-    let res: number = 0;
-    for (let char of columnTitle) {
-        res = res * 26 + char.charCodeAt(0) - 64;
+    let ans: number = 0;
+    for (const c of columnTitle) {
+        ans = ans * 26 + (c.charCodeAt(0) - 'A'.charCodeAt(0) + 1);
     }
-    return res;
+    return ans;
 }

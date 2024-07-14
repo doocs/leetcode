@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1667. 修复表中的名字](https://leetcode.cn/problems/fix-names-in-a-table)
 
 [English Version](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表： <code>Users</code></p>
 
@@ -50,11 +58,17 @@ Users table:
 | 2       | Bob   |
 +---------+-------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -68,9 +82,15 @@ ORDER BY
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -87,4 +107,6 @@ ORDER BY
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

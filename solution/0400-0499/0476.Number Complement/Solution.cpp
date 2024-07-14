@@ -1,7 +1,6 @@
 class Solution {
 public:
     int findComplement(int num) {
-        int full = pow(2, int(log2(num)) + 1) - 1;
-        return full ^ num;
+        return num ^ ((1LL << (64 - __builtin_clzll(num))) - 1);
     }
 };

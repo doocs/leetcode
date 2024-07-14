@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README.md
+tags:
+    - 数组
+    - 数学
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [628. 三个数的最大乘积](https://leetcode.cn/problems/maximum-product-of-three-numbers)
 
 [English Version](/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README_EN.md)
 
-<!-- tags:数组,数学,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整型数组 <code>nums</code> ，在数组中找出由三个数组成的最大乘积，并输出这个乘积。</p>
 
@@ -42,7 +52,11 @@
 	<li><code>-1000 <= nums[i] <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 分类讨论
 
@@ -57,6 +71,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumProduct(self, nums: List[int]) -> int:
@@ -65,6 +81,8 @@ class Solution:
         b = nums[-1] * nums[0] * nums[1]
         return max(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProduct(nums []int) int {
 	sort.Ints(nums)
@@ -104,6 +126,8 @@ func maximumProduct(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumProduct(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -116,6 +140,10 @@ function maximumProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：一次遍历
 
 我们可以不用对数组进行排序，而是维护五个变量，其中 $mi1$ 和 $mi2$ 表示数组中最小的两个数，而 $mx1$、$mx2$ 和 $mx3$ 表示数组中最大的三个数。
@@ -126,6 +154,8 @@ function maximumProduct(nums: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumProduct(self, nums: List[int]) -> int:
@@ -133,6 +163,8 @@ class Solution:
         bottom2 = nlargest(2, nums, key=lambda x: -x)
         return max(top3[0] * top3[1] * top3[2], top3[0] * bottom2[0] * bottom2[1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +194,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -193,6 +227,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumProduct(nums []int) int {
 	const inf = 1 << 30
@@ -215,6 +251,8 @@ func maximumProduct(nums []int) int {
 	return max(mi1*mi2*mx1, mx1*mx2*mx3)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumProduct(nums: number[]): number {
@@ -248,4 +286,6 @@ function maximumProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,21 @@
-# [2052. Minimum Cost to Separate Sentence Into Rows](https://leetcode.com/problems/minimum-cost-to-separate-sentence-into-rows)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2052.Minimum%20Cost%20to%20Separate%20Sentence%20Into%20Rows/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [2052. Minimum Cost to Separate Sentence Into Rows 🔒](https://leetcode.com/problems/minimum-cost-to-separate-sentence-into-rows)
 
 [中文文档](/solution/2000-2099/2052.Minimum%20Cost%20to%20Separate%20Sentence%20Into%20Rows/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>sentence</code> containing words separated by spaces, and an integer <code>k</code>. Your task is to separate <code>sentence</code> into <strong>rows</strong> where the number of characters in each row is <strong>at most </strong><code>k</code>. You may assume that <code>sentence</code> does not begin or end with a space, and the words in <code>sentence</code> are separated by a single space.</p>
 
@@ -70,11 +81,17 @@ The cost of the last row is not included in the total cost, and since there is o
 	<li>Words in <code>sentence</code> are separated by a single space.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +111,8 @@ class Solution:
         s = list(accumulate(t, initial=0))
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCost(sentence string, k int) int {
@@ -208,4 +231,6 @@ func minimumCost(sentence string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

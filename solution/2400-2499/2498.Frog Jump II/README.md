@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2498.Frog%20Jump%20II/README.md
+rating: 1759
+source: 第 93 场双周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [2498. 青蛙过河 II](https://leetcode.cn/problems/frog-jump-ii)
 
 [English Version](/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md)
 
-<!-- tags:贪心,数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>stones</code>&nbsp;，数组中的元素&nbsp;<strong>严格递增</strong>&nbsp;，表示一条河中石头的位置。</p>
 
@@ -60,7 +72,11 @@
 	<li><code>stones</code>&nbsp;中的元素严格递增。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -70,6 +86,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxJump(self, stones: List[int]) -> int:
@@ -78,6 +96,8 @@ class Solution:
             ans = max(ans, stones[i] - stones[i - 2])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxJump(stones []int) int {
@@ -114,4 +138,6 @@ func maxJump(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -2,18 +2,16 @@ class Solution:
     def findWhetherExistsPath(
         self, n: int, graph: List[List[int]], start: int, target: int
     ) -> bool:
-        def dfs(u):
-            if u == target:
+        def dfs(i: int):
+            if i == target:
                 return True
-            for v in g[u]:
-                if v not in vis:
-                    vis.add(v)
-                    if dfs(v):
-                        return True
-            return False
+            if i in vis:
+                return False
+            vis.add(i)
+            return any(dfs(j) for j in g[i])
 
-        g = defaultdict(list)
-        for u, v in graph:
-            g[u].append(v)
-        vis = {start}
+        g = [[] for _ in range(n)]
+        for a, b in graph:
+            g[a].append(b)
+        vis = set()
         return dfs(start)

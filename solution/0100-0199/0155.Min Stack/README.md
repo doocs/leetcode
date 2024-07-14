@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0155.Min%20Stack/README.md
+tags:
+    - 栈
+    - 设计
+---
+
+<!-- problem:start -->
+
 # [155. 最小栈](https://leetcode.cn/problems/min-stack)
 
 [English Version](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
 
-<!-- tags:栈,设计 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个支持 <code>push</code> ，<code>pop</code> ，<code>top</code> 操作，并能在常数时间内检索到最小元素的栈。</p>
 
@@ -53,7 +62,11 @@ minStack.getMin();   --&gt; 返回 -2.
 	<li><code>push</code>,&nbsp;<code>pop</code>,&nbsp;<code>top</code>, and&nbsp;<code>getMin</code>最多被调用&nbsp;<code>3 * 10<sup>4</sup></code>&nbsp;次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双栈
 
@@ -67,6 +80,8 @@ minStack.getMin();   --&gt; 返回 -2.
 每个操作的时间复杂度为 $O(1)$。整体的空间复杂度为 $O(n)$，其中 $n$ 为栈中元素的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MinStack:
@@ -96,6 +111,8 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+#### Java
 
 ```java
 class MinStack {
@@ -134,6 +151,8 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -175,6 +194,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -212,6 +233,8 @@ func (this *MinStack) GetMin() int {
  * param_4 := obj.GetMin();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MinStack {
@@ -252,6 +275,8 @@ class MinStack {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::VecDeque;
 struct MinStack {
@@ -265,7 +290,10 @@ struct MinStack {
  */
 impl MinStack {
     fn new() -> Self {
-        Self { stk1: VecDeque::new(), stk2: VecDeque::new() }
+        Self {
+            stk1: VecDeque::new(),
+            stk2: VecDeque::new(),
+        }
     }
 
     fn push(&mut self, x: i32) {
@@ -289,15 +317,10 @@ impl MinStack {
     fn get_min(&self) -> i32 {
         *self.stk2.back().unwrap()
     }
-}/**
- * Your MinStack object will be instantiated and called as such:
- * let obj = MinStack::new();
- * obj.push(x);
- * obj.pop();
- * let ret_3: i32 = obj.top();
- * let ret_4: i32 = obj.get_min();
- */
+}
 ```
+
+#### JavaScript
 
 ```js
 var MinStack = function () {
@@ -346,6 +369,8 @@ MinStack.prototype.getMin = function () {
  */
 ```
 
+#### C#
+
 ```cs
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
@@ -386,4 +411,6 @@ public class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

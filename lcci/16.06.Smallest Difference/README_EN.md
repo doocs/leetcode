@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Difference/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.06. Smallest Difference](https://leetcode.cn/problems/smallest-difference-lcci)
 
 [中文文档](/lcci/16.06.Smallest%20Difference/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays of integers, compute the pair of values (one value in each array) with the smallest (non-negative) difference. Return the difference.</p>
 
@@ -24,7 +34,11 @@
 	<li>The result is in the range [-2147483648, 2147483647]</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -33,6 +47,8 @@ We can sort the array $b$, and for each element $x$ in array $a$, perform a bina
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of array $b$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -48,6 +64,8 @@ class Solution:
                 ans = min(ans, x - b[j - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestDifference(a []int, b []int) int {
 	sort.Ints(b)
@@ -117,6 +139,8 @@ func smallestDifference(a []int, b []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function smallestDifference(a: number[], b: number[]): number {
@@ -147,7 +171,48 @@ function smallestDifference(a: number[], b: number[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func smallestDifference(_ a: [Int], _ b: [Int]) -> Int {
+        let sortedB = b.sorted()
+        var ans = Int.max
+
+        for x in a {
+            let j = search(sortedB, x)
+            if j < sortedB.count {
+                ans = min(ans, abs(sortedB[j] - x))
+            }
+            if j > 0 {
+                ans = min(ans, abs(x - sortedB[j - 1]))
+            }
+        }
+
+        return ans
+    }
+
+    private func search(_ nums: [Int], _ x: Int) -> Int {
+        var l = 0
+        var r = nums.count
+        while l < r {
+            let mid = (l + r) / 2
+            if nums[mid] >= x {
+                r = mid
+            } else {
+                l = mid + 1
+            }
+        }
+        return l
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Sorting + Two Pointers
 
@@ -156,6 +221,8 @@ We can sort both arrays $a$ and $b$, and use two pointers $i$ and $j$ to maintai
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of arrays $a$ and $b$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +239,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +262,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -213,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestDifference(a []int, b []int) int {
@@ -239,6 +312,8 @@ func abs(a int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestDifference(a: number[], b: number[]): number {
     a.sort((a, b) => a - b);
@@ -259,4 +334,6 @@ function smallestDifference(a: number[], b: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

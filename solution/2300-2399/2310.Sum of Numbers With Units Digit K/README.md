@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README.md
+rating: 1558
+source: 第 298 场周赛 Q2
+tags:
+    - 贪心
+    - 数学
+    - 动态规划
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [2310. 个位数字为 K 的整数之和](https://leetcode.cn/problems/sum-of-numbers-with-units-digit-k)
 
 [English Version](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md)
 
-<!-- tags:贪心,数学,动态规划,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>num</code> 和 <code>k</code> ，考虑具有以下属性的正整数多重集：</p>
 
@@ -61,7 +74,11 @@
 	<li><code>0 &lt;= k &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学 + 枚举
 
@@ -73,6 +90,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumNumbers(self, num: int, k: int) -> int:
@@ -83,6 +102,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumNumbers(num int, k int) int {
@@ -130,6 +155,8 @@ func minimumNumbers(num int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumNumbers(num: number, k: number): number {
     if (!num) return 0;
@@ -144,9 +171,15 @@ function minimumNumbers(num: number, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：记忆化搜索
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -158,6 +191,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +210,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -187,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumNumbers(num int, k int) int {
@@ -204,9 +243,15 @@ func minimumNumbers(num int, k int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -234,4 +279,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

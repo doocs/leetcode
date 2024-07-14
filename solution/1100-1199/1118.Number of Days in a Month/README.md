@@ -1,12 +1,22 @@
-# [1118. 一月有多少天](https://leetcode.cn/problems/number-of-days-in-a-month)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README.md
+rating: 1227
+source: 第 4 场双周赛 Q1
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
+# [1118. 一月有多少天 🔒](https://leetcode.cn/problems/number-of-days-in-a-month)
 
 [English Version](/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>指定年份&nbsp;<code>year</code> 和月份&nbsp;<code>month</code>，返回 <em>该月天数&nbsp;</em>。</p>
 
@@ -42,7 +52,11 @@
 	<li><code>1 &lt;= month &lt;= 12</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：判断闰年
 
@@ -56,6 +70,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfDays(self, year: int, month: int) -> int:
@@ -63,6 +79,8 @@ class Solution:
         days = [0, 31, 29 if leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         return days[month]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -84,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfDays(year int, month int) int {
@@ -97,6 +119,8 @@ func numberOfDays(year int, month int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfDays(year: number, month: number): number {
     const leap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
@@ -107,4 +131,6 @@ function numberOfDays(year: number, month: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

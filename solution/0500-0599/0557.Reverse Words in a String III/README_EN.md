@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
 # [557. Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii)
 
 [中文文档](/solution/0500-0599/0557.Reverse%20Words%20in%20a%20String%20III/README.md)
 
-<!-- tags:Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.</p>
 
@@ -34,17 +45,25 @@
 	<li>All the words in <code>s</code> are separated by a single space.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
         return ' '.join([t[::-1] for t in s.split(' ')])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -61,6 +80,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -76,6 +97,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reverseWords(s string) string {
@@ -94,6 +117,8 @@ func reverseWords(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseWords(s: string): string {
     return s
@@ -109,6 +134,8 @@ function reverseWords(s: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn reverse_words(s: String) -> String {
@@ -119,6 +146,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -138,4 +167,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

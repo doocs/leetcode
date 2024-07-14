@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README.md
+tags:
+    - 队列
+    - 哈希表
+    - 字符串
+    - 计数
+---
+
+<!-- problem:start -->
+
 # [387. 字符串中的第一个唯一字符](https://leetcode.cn/problems/first-unique-character-in-a-string)
 
 [English Version](/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README_EN.md)
 
-<!-- tags:队列,哈希表,字符串,计数 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串&nbsp;<code>s</code>&nbsp;，找到 <em>它的第一个不重复的字符，并返回它的索引</em> 。如果不存在，则返回 <code>-1</code>&nbsp;。</p>
 
@@ -42,7 +53,11 @@
 	<li><code>s</code>&nbsp;只包含小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -56,6 +71,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstUniqChar(self, s: str) -> int:
@@ -65,6 +82,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstUniqChar(s string) int {
 	cnt := [26]int{}
@@ -118,6 +141,8 @@ func firstUniqChar(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function firstUniqChar(s: string): number {
     const cnt = new Array(26).fill(0);
@@ -132,6 +157,8 @@ function firstUniqChar(s: string): number {
     return -1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -151,6 +178,8 @@ var firstUniqChar = function (s) {
     return -1;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -174,4 +203,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

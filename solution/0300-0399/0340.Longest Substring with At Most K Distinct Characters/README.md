@@ -1,14 +1,24 @@
-# [340. 至多包含 K 个不同字符的最长子串](https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0340.Longest%20Substring%20with%20At%20Most%20K%20Distinct%20Characters/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
+# [340. 至多包含 K 个不同字符的最长子串 🔒](https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters)
 
 [English Version](/solution/0300-0399/0340.Longest%20Substring%20with%20At%20Most%20K%20Distinct%20Characters/README_EN.md)
 
-<!-- tags:哈希表,字符串,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给你一个字符串 <code>s</code> 和一个整数 <code>k</code> ，请你找出&nbsp;<strong>至多&nbsp;</strong>包含<em> <code>k</code></em> 个 <strong>不同</strong> 字符的最长子串，并返回该子串的长度。</p>
+<p>给你一个字符串 <code>s</code> 和一个整数 <code>k</code> ，请你找出&nbsp;<strong>至多&nbsp;</strong>包含<em> <code>k</code></em> 个 <strong>不同</strong> 字符的最长<span data-keyword="substring-nonempty">子串</span>，并返回该子串的长度。</p>
 
 <p>&nbsp;</p>
 
@@ -36,7 +46,11 @@
 	<li><code>0 &lt;= k &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口 + 哈希表
 
@@ -47,6 +61,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(\min(n, k))$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +80,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLongestSubstringKDistinct(s string, k int) (ans int) {
 	cnt := map[byte]int{}
@@ -132,4 +154,6 @@ func lengthOfLongestSubstringKDistinct(s string, k int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

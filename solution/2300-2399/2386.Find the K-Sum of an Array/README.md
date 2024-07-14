@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README.md
+rating: 2647
+source: 第 307 场周赛 Q4
+tags:
+    - 数组
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2386. 找出数组的第 K 大和](https://leetcode.cn/problems/find-the-k-sum-of-an-array)
 
 [English Version](/solution/2300-2399/2386.Find%20the%20K-Sum%20of%20an%20Array/README_EN.md)
 
-<!-- tags:数组,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和一个 <strong>正</strong> 整数 <code>k</code> 。你可以选择数组的任一 <strong>子序列</strong> 并且对其全部元素求和。</p>
 
@@ -14,7 +26,7 @@
 
 <p>返回数组的 <strong>第 k 大和</strong> 。</p>
 
-<p>子序列是一个可以由其他数组删除某些或不删除元素排生而来的数组，且派生过程不改变剩余元素的顺序。</p>
+<p>子序列是一个可以由其他数组删除某些或不删除元素派生而来的数组，且派生过程不改变剩余元素的顺序。</p>
 
 <p><strong>注意：</strong>空子序列的和视作 <code>0</code> 。</p>
 
@@ -22,16 +34,18 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,4,-2], k = 5
+<pre>
+<strong>输入：</strong>nums = [2,4,-2], k = 5
 <strong>输出：</strong>2
 <strong>解释：</strong>所有可能获得的子序列和列出如下，按递减顺序排列：
-- 6、4、4、2、<strong><em>2</em></strong>、0、0、-2
+6、4、4、2、<strong><em>2</em></strong>、0、0、-2
 数组的第 5 大和是 2 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,-2,3,4,-10,12], k = 16
+<pre>
+<strong>输入：</strong>nums = [1,-2,3,4,-10,12], k = 16
 <strong>输出：</strong>10
 <strong>解释：</strong>数组的第 16 大和是 10 。
 </pre>
@@ -47,7 +61,11 @@
 	<li><code>1 &lt;= k &lt;= min(2000, 2<sup>n</sup>)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（小根堆）
 
@@ -59,21 +77,23 @@
 
 每次取出堆顶，并放入两种新情况：一是再选择下一位，二是选择下一位并且不选择本位。
 
-由于数组是从小到大排序，可以证明，这种方式能够不重不漏地按序遍历完所有的子序列和。
+由于数组是从小到大排序，这种方式能够不重不漏地按序遍历完所有的子序列和。
 
 时间复杂度 $O(n \times \log n + k \times \log k)$。其中 $n$ 是数组 `nums` 的长度，而 $k$ 是题目中给定的 $k$。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kSum(self, nums: List[int], k: int) -> int:
         mx = 0
-        for i, v in enumerate(nums):
-            if v > 0:
-                mx += v
+        for i, x in enumerate(nums):
+            if x > 0:
+                mx += x
             else:
-                nums[i] = -v
+                nums[i] = -x
         nums.sort()
         h = [(0, 0)]
         for _ in range(k - 1):
@@ -84,6 +104,8 @@ class Solution:
                     heappush(h, (s + nums[i] - nums[i - 1], i + 1))
         return mx - h[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,9 +139,9 @@ class Solution {
 }
 ```
 
-```cpp
-using pli = pair<long long, int>;
+#### C++
 
+```cpp
 class Solution {
 public:
     long long kSum(vector<int>& nums, int k) {
@@ -133,6 +155,7 @@ public:
             }
         }
         sort(nums.begin(), nums.end());
+        using pli = pair<long long, int>;
         priority_queue<pli, vector<pli>, greater<pli>> pq;
         pq.push({0, 0});
         while (--k) {
@@ -152,12 +175,14 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kSum(nums []int, k int) int64 {
 	mx := 0
-	for i, v := range nums {
-		if v > 0 {
-			mx += v
+	for i, x := range nums {
+		if x > 0 {
+			mx += x
 		} else {
 			nums[i] *= -1
 		}
@@ -189,4 +214,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

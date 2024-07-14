@@ -1,10 +1,20 @@
-# [2292. Products With Three or More Orders in Two Consecutive Years](https://leetcode.com/problems/products-with-three-or-more-orders-in-two-consecutive-years)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2292. Products With Three or More Orders in Two Consecutive Years 🔒](https://leetcode.com/problems/products-with-three-or-more-orders-in-two-consecutive-years)
 
 [中文文档](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Orders</code></p>
 
@@ -57,11 +67,17 @@ Product 1 was ordered in 2020 three times and in 2021 three times. Since it was 
 Product 2 was ordered one time in 2022. We do not include it in the answer.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -80,9 +96,15 @@ WHERE p1.mark AND p2.mark;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -101,4 +123,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

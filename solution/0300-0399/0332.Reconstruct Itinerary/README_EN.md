@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0332.Reconstruct%20Itinerary/README_EN.md
+tags:
+    - Depth-First Search
+    - Graph
+    - Eulerian Circuit
+---
+
+<!-- problem:start -->
+
 # [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary)
 
 [中文文档](/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md)
 
-<!-- tags:Depth-First Search,Graph,Eulerian Circuit -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a list of airline <code>tickets</code> where <code>tickets[i] = [from<sub>i</sub>, to<sub>i</sub>]</code> represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.</p>
 
@@ -44,11 +56,17 @@
 	<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +87,8 @@ class Solution:
 
         return itinerary[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,4 +164,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

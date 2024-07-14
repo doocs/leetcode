@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md
+rating: 1992
+source: Weekly Contest 211 Q2
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - String
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [1625. Lexicographically Smallest String After Applying Operations](https://leetcode.com/problems/lexicographically-smallest-string-after-applying-operations)
 
 [中文文档](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README.md)
 
-<!-- tags:Breadth-First Search,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> of <strong>even length</strong> consisting of digits from <code>0</code> to <code>9</code>, and two integers <code>a</code> and <code>b</code>.</p>
 
@@ -70,11 +85,17 @@ There is no way to obtain a string that is lexicographically smaller than &quot;
 	<li><code>1 &lt;= b &lt;= s.length - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +117,8 @@ class Solution:
                     q.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLexSmallestString(s string, a int, b int) string {
@@ -187,9 +214,15 @@ func findLexSmallestString(s string, a int, b int) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -215,6 +248,8 @@ class Solution:
                         ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -251,6 +286,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -279,6 +316,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLexSmallestString(s string, a int, b int) string {
@@ -315,4 +354,6 @@ func findLexSmallestString(s string, a int, b int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

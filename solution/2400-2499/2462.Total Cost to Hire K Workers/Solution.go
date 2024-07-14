@@ -1,42 +1,42 @@
-func totalCost(costs []int, k int, candidates int) int64 {
-	q := hp{}
+func totalCost(costs []int, k int, candidates int) (ans int64) {
 	n := len(costs)
-	i, j := candidates-1, n-candidates
-	for h := 0; h < candidates; h++ {
-		heap.Push(&q, pair{costs[h], h})
+	if candidates*2 > n {
+		sort.Ints(costs)
+		for _, x := range costs[:k] {
+			ans += int64(x)
+		}
+		return
 	}
-	for h := n - candidates; h < n; h++ {
-		if h > i {
-			heap.Push(&q, pair{costs[h], h})
+	pq := hp{}
+	for i, x := range costs[:candidates] {
+		heap.Push(&pq, pair{x, i})
+		heap.Push(&pq, pair{costs[n-i-1], n - i - 1})
+	}
+	l, r := candidates, n-candidates-1
+	for ; k > 0; k-- {
+		p := heap.Pop(&pq).(pair)
+		ans += int64(p.cost)
+		if l > r {
+			continue
+		}
+		if p.i < l {
+			heap.Push(&pq, pair{costs[l], l})
+			l++
+		} else {
+			heap.Push(&pq, pair{costs[r], r})
+			r--
 		}
 	}
-	ans := 0
-	for k > 0 {
-		p := heap.Pop(&q).(pair)
-		c, x := p.c, p.x
-		ans += c
-		if x <= i {
-			i++
-			if i < j {
-				heap.Push(&q, pair{costs[i], i})
-			}
-		}
-		if x >= j {
-			j--
-			if i < j {
-				heap.Push(&q, pair{costs[j], j})
-			}
-		}
-		k--
-	}
-	return int64(ans)
+	return
 }
 
-type pair struct{ c, x int }
+type pair struct{ cost, i int }
 type hp []pair
 
-func (h hp) Len() int           { return len(h) }
-func (h hp) Less(i, j int) bool { return h[i].c < h[j].c || h[i].c == h[j].c && h[i].x < h[j].x }
-func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+func (h hp) Len() int { return len(h) }
+func (h hp) Less(i, j int) bool {
+	return h[i].cost < h[j].cost || (h[i].cost == h[j].cost && h[i].i < h[j].i)
+}
+func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
+func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }

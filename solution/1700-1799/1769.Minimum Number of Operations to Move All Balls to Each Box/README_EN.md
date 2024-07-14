@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1769.Minimum%20Number%20of%20Operations%20to%20Move%20All%20Balls%20to%20Each%20Box/README_EN.md
+rating: 1294
+source: Weekly Contest 229 Q2
+tags:
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
 # [1769. Minimum Number of Operations to Move All Balls to Each Box](https://leetcode.com/problems/minimum-number-of-operations-to-move-all-balls-to-each-box)
 
 [中文文档](/solution/1700-1799/1769.Minimum%20Number%20of%20Operations%20to%20Move%20All%20Balls%20to%20Each%20Box/README.md)
 
-<!-- tags:Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> boxes. You are given a binary string <code>boxes</code> of length <code>n</code>, where <code>boxes[i]</code> is <code>&#39;0&#39;</code> if the <code>i<sup>th</sup></code> box is <strong>empty</strong>, and <code>&#39;1&#39;</code> if it contains <strong>one</strong> ball.</p>
 
@@ -41,11 +54,17 @@
 	<li><code>boxes[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +84,8 @@ class Solution:
             right[i] = right[i + 1] + cnt
         return [a + b for a, b in zip(left, right)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(boxes string) []int {
@@ -142,6 +167,8 @@ func minOperations(boxes string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(boxes: string): number[] {
     const n = boxes.length;
@@ -162,6 +189,8 @@ function minOperations(boxes: string): number[] {
     return left.map((v, i) => v + right[i]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,13 +213,12 @@ impl Solution {
             }
             right[i] = right[i + 1] + count;
         }
-        (0..n)
-            .into_iter()
-            .map(|i| left[i] + right[i])
-            .collect()
+        (0..n).into_iter().map(|i| left[i] + right[i]).collect()
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -227,9 +255,15 @@ int* minOperations(char* boxes, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -249,6 +283,8 @@ class Solution:
             ans[i] += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -273,6 +309,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -292,6 +330,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(boxes string) []int {
@@ -314,6 +354,8 @@ func minOperations(boxes string) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(boxes: string): number[] {
     const n = boxes.length;
@@ -334,6 +376,8 @@ function minOperations(boxes: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -361,6 +405,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -390,4 +436,6 @@ int* minOperations(char* boxes, int* returnSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

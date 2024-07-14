@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix)
 
 [中文文档](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
 
-<!-- tags:Array,Matrix,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> <code>matrix</code>, return <em>all elements of the</em> <code>matrix</code> <em>in spiral order</em>.</p>
 
@@ -33,7 +45,11 @@
 	<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -44,6 +60,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 For visited elements, we can also add a constant $300$ to their values, so we don't need an extra $vis$ array or hash table to record whether they have been visited, thereby reducing the space complexity to $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +81,8 @@ class Solution:
             j = j + dirs[k + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -134,6 +158,8 @@ func spiralOrder(matrix [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function spiralOrder(matrix: number[][]): number[] {
     const m = matrix.length;
@@ -155,6 +181,8 @@ function spiralOrder(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -194,6 +222,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -220,6 +250,8 @@ var spiralOrder = function (matrix) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<int> SpiralOrder(int[][] matrix) {
@@ -244,6 +276,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Layer-by-layer Simulation
 
 We can also traverse and store the matrix elements from the outside to the inside, layer by layer.
@@ -251,6 +287,8 @@ We can also traverse and store the matrix elements from the outside to the insid
 The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -272,6 +310,8 @@ class Solution:
         #         matrix[i][j] -= 300
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -298,6 +338,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -326,6 +368,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -347,6 +391,8 @@ func spiralOrder(matrix [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function spiralOrder(matrix: number[][]): number[] {
@@ -373,6 +419,8 @@ function spiralOrder(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -403,6 +451,8 @@ var spiralOrder = function (matrix) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -432,9 +482,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -456,6 +512,8 @@ class Solution:
             x2, y2 = x2 - 1, y2 - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -488,6 +546,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -518,6 +578,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spiralOrder(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -543,6 +605,8 @@ func spiralOrder(matrix [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function spiralOrder(matrix: number[][]): number[] {
@@ -576,6 +640,8 @@ function spiralOrder(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -613,6 +679,8 @@ var spiralOrder = function (matrix) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -647,4 +715,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

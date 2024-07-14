@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
 
 [中文文档](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, return <em>its maximum depth</em>.</p>
 
@@ -33,7 +46,11 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -42,6 +59,8 @@ Recursively traverse the left and right subtrees, calculate the maximum depth of
 The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. Each node is traversed only once in the recursion.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -57,6 +76,8 @@ class Solution:
         l, r = self.maxDepth(root.left), self.maxDepth(root.right)
         return 1 + max(l, r)
 ```
+
+#### Java
 
 ```java
 /**
@@ -86,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -108,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -125,6 +150,8 @@ func maxDepth(root *TreeNode) int {
 	return 1 + max(l, r)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -149,6 +176,8 @@ function maxDepth(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -168,8 +197,8 @@ function maxDepth(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if root.is_none() {
@@ -184,6 +213,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -205,6 +236,8 @@ var maxDepth = function (root) {
     return 1 + Math.max(l, r);
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -230,4 +263,6 @@ int maxDepth(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

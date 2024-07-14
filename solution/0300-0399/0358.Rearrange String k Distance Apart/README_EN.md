@@ -1,10 +1,25 @@
-# [358. Rearrange String k Distance Apart](https://leetcode.com/problems/rearrange-string-k-distance-apart)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
+# [358. Rearrange String k Distance Apart 🔒](https://leetcode.com/problems/rearrange-string-k-distance-apart)
 
 [中文文档](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md)
 
-<!-- tags:Greedy,Hash Table,String,Counting,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> and an integer <code>k</code>, rearrange <code>s</code> such that the same characters are <strong>at least</strong> distance <code>k</code> from each other. If it is not possible to rearrange the string, return an empty string <code>&quot;&quot;</code>.</p>
 
@@ -42,11 +57,17 @@
 	<li><code>0 &lt;= k &lt;= s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +87,8 @@ class Solution:
                     heappush(h, (-w, c))
         return "" if len(ans) != len(s) else "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rearrangeString(s string, k int) string {
@@ -178,4 +205,6 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

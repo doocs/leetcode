@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README.md
+rating: 2383
+source: 第 198 场周赛 Q4
+tags:
+    - 位运算
+    - 线段树
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [1521. 找到最接近目标值的函数值](https://leetcode.cn/problems/find-a-value-of-a-mysterious-function-closest-to-target)
 
 [English Version](/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README_EN.md)
 
-<!-- tags:位运算,线段树,数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/images/change.png" style="height: 312px; width: 635px;"></p>
 
@@ -48,7 +61,11 @@
 	<li><code>0 &lt;= target &lt;= 10^7</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -58,7 +75,13 @@
 
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 和 $M$ 分别是数组 $arr$ 的长度和数组 $arr$ 中的最大值。
 
+相似题目：
+
+-   [3171. 找到按位与最接近 K 的子数组](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README.md)
+
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +93,8 @@ class Solution:
             ans = min(ans, min(abs(y - target) for y in s))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closestToTarget(arr []int, target int) int {
@@ -141,6 +170,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closestToTarget(arr: number[], target: number): number {
     let ans = Math.abs(arr[0] - target);
@@ -163,4 +194,6 @@ function closestToTarget(arr: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

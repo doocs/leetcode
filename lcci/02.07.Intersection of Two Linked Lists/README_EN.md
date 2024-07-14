@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.07.Intersection%20of%20Two%20Linked%20Lists/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [02.07. Intersection of Two Linked Lists](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci)
 
 [中文文档](/lcci/02.07.Intersection%20of%20Two%20Linked%20Lists/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two (singly) linked lists, determine if the two lists intersect. Return the inter&shy; secting node. Note that the intersection is defined based on reference, not value. That is, if the kth node of the first linked list is the exact same node (by reference) as the jth node of the second linked list, then they are intersecting.</p>
 
@@ -45,11 +55,25 @@
 -   You may assume there are no cycles anywhere in the entire linked structure.
 -   Your code should preferably run in O(n) time and use only O(1) memory.
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two Pointers
+
+We use two pointers $a$ and $b$ to point to two linked lists $headA$ and $headB$ respectively.
+
+We traverse the linked lists simultaneously. When $a$ reaches the end of the linked list $headA$, it is repositioned to the head node of the linked list $headB$. When $b$ reaches the end of the linked list $headB$, it is repositioned to the head node of the linked list $headA$.
+
+If the two pointers meet, the node they point to is the first common node. If they don't meet, it means that the two linked lists have no common nodes. At this time, both pointers point to `null`, and we can return either one.
+
+The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the linked lists $headA$ and $headB$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -61,12 +85,14 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-        cur1, cur2 = headA, headB
-        while cur1 != cur2:
-            cur1 = headB if cur1 is None else cur1.next
-            cur2 = headA if cur2 is None else cur2.next
-        return cur1
+        a, b = headA, headB
+        while a != b:
+            a = a.next if a else headB
+            b = b.next if b else headA
+        return a
 ```
+
+#### Java
 
 ```java
 /**
@@ -82,15 +108,17 @@ class Solution:
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode cur1 = headA, cur2 = headB;
-        while (cur1 != cur2) {
-            cur1 = cur1 == null ? headB : cur1.next;
-            cur2 = cur2 == null ? headA : cur2.next;
+        ListNode a = headA, b = headB;
+        while (a != b) {
+            a = a == null ? headB : a.next;
+            b = b == null ? headA : b.next;
         }
-        return cur1;
+        return a;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -104,16 +132,17 @@ public class Solution {
 class Solution {
 public:
     ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
-        ListNode* cur1 = headA;
-        ListNode* cur2 = headB;
-        while (cur1 != cur2) {
-            cur1 = cur1 ? cur1->next : headB;
-            cur2 = cur2 ? cur2->next : headA;
+        ListNode *a = headA, *b = headB;
+        while (a != b) {
+            a = a ? a->next : headB;
+            b = b ? b->next : headA;
         }
-        return cur1;
+        return a;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -124,22 +153,50 @@ public:
  * }
  */
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	cur1, cur2 := headA, headB
-	for cur1 != cur2 {
-		if cur1 == nil {
-			cur1 = headB
+	a, b := headA, headB
+	for a != b {
+		if a == nil {
+			a = headB
 		} else {
-			cur1 = cur1.Next
+			a = a.Next
 		}
-		if cur2 == nil {
-			cur2 = headA
+		if b == nil {
+			b = headA
 		} else {
-			cur2 = cur2.Next
+			b = b.Next
 		}
 	}
-	return cur1
+	return a
 }
 ```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
+    let a = headA;
+    let b = headB;
+    while (a != b) {
+        a = a ? a.next : headB;
+        b = b ? b.next : headA;
+    }
+    return a;
+}
+```
+
+#### JavaScript
 
 ```js
 /**
@@ -156,16 +213,46 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
  * @return {ListNode}
  */
 var getIntersectionNode = function (headA, headB) {
-    let cur1 = headA;
-    let cur2 = headB;
-    while (cur1 != cur2) {
-        cur1 = cur1 ? cur1.next : headB;
-        cur2 = cur2 ? cur2.next : headA;
+    let a = headA;
+    let b = headB;
+    while (a != b) {
+        a = a ? a.next : headB;
+        b = b ? b.next : headA;
     }
-    return cur1;
+    return a;
 };
+```
+
+#### Swift
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+
+class Solution {
+    func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
+        var a = headA
+        var b = headB
+        while a !== b {
+            a = a == nil ? headB : a?.next
+            b = b == nil ? headA : b?.next
+        }
+        return a
+    }
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

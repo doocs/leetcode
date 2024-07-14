@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md
+rating: 1787
+source: 第 149 场周赛 Q3
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [1156. 单字符重复子串的最大长度](https://leetcode.cn/problems/swap-for-longest-repeated-character-substring)
 
 [English Version](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md)
 
-<!-- tags:哈希表,字符串,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果字符串中的所有字符都相同，那么这个字符串是单字符重复的字符串。</p>
 
@@ -53,7 +65,11 @@
 	<li><code>text</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -66,6 +82,8 @@
 时间复杂度为 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串的长度；而 $C$ 为字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +104,8 @@ class Solution:
             i = j
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRepOpt1(text string) (ans int) {
 	cnt := [26]int{}
@@ -167,6 +191,8 @@ func maxRepOpt1(text string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxRepOpt1(text: string): number {
@@ -198,4 +224,6 @@ function maxRepOpt1(text: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

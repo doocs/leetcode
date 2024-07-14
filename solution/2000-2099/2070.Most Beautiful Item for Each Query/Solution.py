@@ -1,13 +1,12 @@
 class Solution:
     def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
         items.sort()
-        prices = [p for p, _ in items]
-        mx = [items[0][1]]
-        for _, b in items[1:]:
-            mx.append(max(mx[-1], b))
+        n, m = len(items), len(queries)
         ans = [0] * len(queries)
-        for i, q in enumerate(queries):
-            j = bisect_right(prices, q)
-            if j:
-                ans[i] = mx[j - 1]
+        i = mx = 0
+        for q, j in sorted(zip(queries, range(m))):
+            while i < n and items[i][0] <= q:
+                mx = max(mx, items[i][1])
+                i += 1
+            ans[j] = mx
         return ans

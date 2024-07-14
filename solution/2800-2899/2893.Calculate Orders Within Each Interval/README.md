@@ -1,12 +1,20 @@
-# [2893. 计算每个区间内的订单](https://leetcode.cn/problems/calculate-orders-within-each-interval)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2893. 计算每个区间内的订单 🔒](https://leetcode.cn/problems/calculate-orders-within-each-interval)
 
 [English Version](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code><font face="monospace">Orders</font></code></p>
 
@@ -65,13 +73,19 @@ Orders table:
 - 区间号 2 包括从 7 到 12 分钟的时间。这 6 分钟内的总订单数量为 (1 + 2 + 4 + 1 + 4 + 6) = 18。
 按升序顺序返回结果表，按 interval_no 排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数
 
 我们可以用窗口函数 `sum() over()` 来计算每 $6$ 分钟的订单总数，然后每条记录中的 `minute` 能被 $6$ 整除的记录。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,9 +106,15 @@ WHERE minute % 6 = 0;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -107,4 +127,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

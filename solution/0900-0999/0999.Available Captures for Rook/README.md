@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [999. 可以被一步捕获的棋子数](https://leetcode.cn/problems/available-captures-for-rook)
 
 [English Version](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README_EN.md)
 
-<!-- tags:数组,矩阵,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个 8 x 8 的棋盘上，有一个白色的车（<code>Rook</code>），用字符 <code>&#39;R&#39;</code> 表示。棋盘上还可能存在空方块，白色的象（<code>Bishop</code>）以及黑色的卒（<code>pawn</code>），分别用字符 <code>&#39;.&#39;</code>，<code>&#39;B&#39;</code> 和 <code>&#39;p&#39;</code> 表示。不难看出，大写字符表示的是白棋，小写字符表示的是黑棋。</p>
 
@@ -63,7 +73,11 @@
 	<li>只有一个格子上存在&nbsp;<code>board[i][j] == &#39;R&#39;</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -78,6 +92,8 @@
 时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是棋盘的行数和列数，本题中 $m = n = 8$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +114,8 @@ class Solution:
                                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numRookCaptures(board [][]byte) (ans int) {
 	dirs := [5]int{-1, 0, 1, 0, -1}
@@ -183,4 +205,6 @@ func numRookCaptures(board [][]byte) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

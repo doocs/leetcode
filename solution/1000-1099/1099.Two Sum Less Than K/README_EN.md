@@ -1,10 +1,25 @@
-# [1099. Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README_EN.md
+rating: 1245
+source: Biweekly Contest 3 Q1
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [1099. Two Sum Less Than K 🔒](https://leetcode.com/problems/two-sum-less-than-k)
 
 [中文文档](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md)
 
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> of integers and&nbsp;integer <code>k</code>, return the maximum <code>sum</code> such that there exists <code>i &lt; j</code> with <code>nums[i] + nums[j] = sum</code> and <code>sum &lt; k</code>. If no <code>i</code>, <code>j</code> exist satisfying this equation, return <code>-1</code>.</p>
 
@@ -34,7 +49,11 @@
 	<li><code>1 &lt;= k &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -48,6 +67,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
@@ -59,6 +80,8 @@ class Solution:
                 ans = max(ans, x + nums[j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSumLessThanK(nums []int, k int) int {
 	sort.Ints(nums)
@@ -119,6 +146,8 @@ func twoSumLessThanK(nums []int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function twoSumLessThanK(nums: number[], k: number): number {
@@ -139,6 +168,10 @@ function twoSumLessThanK(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Two Pointers
 
 Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.
@@ -150,6 +183,8 @@ After the enumeration ends, return the answer.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -165,6 +200,8 @@ class Solution:
                 j -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -184,6 +221,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -205,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSumLessThanK(nums []int, k int) int {
 	sort.Ints(nums)
@@ -223,4 +264,6 @@ func twoSumLessThanK(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

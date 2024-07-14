@@ -5,7 +5,9 @@ public:
         istringstream ss(title);
         string ans;
         while (ss >> title) {
-            if (title.size() > 2) title[0] = toupper(title[0]);
+            if (title.size() > 2) {
+                title[0] = toupper(title[0]);
+            }
             ans += title;
             ans += " ";
         }

@@ -1,10 +1,20 @@
-# [2205. The Number of Users That Are Eligible for Discount](https://leetcode.com/problems/the-number-of-users-that-are-eligible-for-discount)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2205.The%20Number%20of%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2205. The Number of Users That Are Eligible for Discount 🔒](https://leetcode.com/problems/the-number-of-users-that-are-eligible-for-discount)
 
 [中文文档](/solution/2200-2299/2205.The%20Number%20of%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -56,11 +66,17 @@ Out of the three users, only User 3 is eligible for a discount.
  - User 3 is the only user who had a purchase that satisfies both conditions.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 CREATE FUNCTION getUserIDs(startDate DATE, endDate DATE, minAmount INT) RETURNS INT
@@ -75,4 +91,6 @@ END
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

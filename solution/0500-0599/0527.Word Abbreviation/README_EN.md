@@ -1,10 +1,24 @@
-# [527. Word Abbreviation](https://leetcode.com/problems/word-abbreviation)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md
+tags:
+    - Greedy
+    - Trie
+    - Array
+    - String
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [527. Word Abbreviation 🔒](https://leetcode.com/problems/word-abbreviation)
 
 [中文文档](/solution/0500-0599/0527.Word%20Abbreviation/README.md)
 
-<!-- tags:Greedy,Trie,Array,String,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>distinct</strong> strings <code>words</code>, return <em>the minimal possible <strong>abbreviations</strong> for every word</em>.</p>
 
@@ -43,7 +57,11 @@
 	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouped Trie
 
@@ -61,6 +79,8 @@ When querying, we start from the root node. For the current letter, if the `cnt`
 The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is the sum of the lengths of all words.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -107,6 +127,8 @@ class Solution:
             )
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -159,6 +181,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -224,6 +248,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -282,6 +308,8 @@ func wordsAbbreviation(words []string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: Trie[] = Array(26);
@@ -338,4 +366,6 @@ function wordsAbbreviation(words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

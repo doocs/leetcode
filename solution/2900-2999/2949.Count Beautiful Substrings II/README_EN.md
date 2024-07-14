@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md
+rating: 2444
+source: Weekly Contest 373 Q4
+tags:
+    - Hash Table
+    - Math
+    - String
+    - Number Theory
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [2949. Count Beautiful Substrings II](https://leetcode.com/problems/count-beautiful-substrings-ii)
 
 [中文文档](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md)
 
-<!-- tags:Hash Table,Math,String,Number Theory,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and a positive integer <code>k</code>.</p>
 
@@ -68,6 +84,60 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 	<li><code>s</code> consists of only English lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1: Prefix Sum + Hash Table
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function beautifulSubstrings(s: string, k: number): number {
+    const l = pSqrt(k * 4);
+    const n = s.length;
+    let sum = n;
+    let ans = 0;
+    const counter = new Map();
+    counter.set(((l - 1) << 17) | sum, 1);
+    for (let i = 0; i < n; i++) {
+        const char = s[i];
+        const bit = (AEIOU_MASK >> (char.charCodeAt(0) - 'a'.charCodeAt(0))) & 1;
+        sum += bit * 2 - 1; // 1 -> 1    0 -> -1
+        const key = (i % l << 17) | sum;
+        ans += counter.get(key) || 0; // ans += cnt[(i%k,sum)]++
+        counter.set(key, (counter.get(key) ?? 0) + 1);
+    }
+    return ans;
+}
+const AEIOU_MASK = 1065233;
+
+function pSqrt(n: number) {
+    let res = 1;
+    for (let i = 2; i * i <= n; i++) {
+        let i2 = i * i;
+        while (n % i2 == 0) {
+            res *= i;
+            n /= i2;
+        }
+        if (n % i == 0) {
+            res *= i;
+            n /= i;
+        }
+    }
+    if (n > 1) {
+        res *= n;
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

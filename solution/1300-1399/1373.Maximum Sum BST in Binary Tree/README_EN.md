@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README_EN.md
+rating: 1913
+source: Biweekly Contest 21 Q4
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Dynamic Programming
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [1373. Maximum Sum BST in Binary Tree](https://leetcode.com/problems/maximum-sum-bst-in-binary-tree)
 
 [中文文档](/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Dynamic Programming,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>binary tree</strong> <code>root</code>, return <em>the maximum sum of all keys of <strong>any</strong> sub-tree which is also a Binary Search Tree (BST)</em>.</p>
 
@@ -53,7 +69,11 @@
 	<li><code>-4 * 10<sup>4</sup> &lt;= Node.val &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -87,6 +107,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -112,6 +134,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -155,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -193,6 +219,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -221,6 +249,8 @@ func maxSumBST(root *TreeNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -260,4 +290,6 @@ function maxSumBST(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

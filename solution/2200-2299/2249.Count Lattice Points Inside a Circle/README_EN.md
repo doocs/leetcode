@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README_EN.md
+rating: 1602
+source: Weekly Contest 290 Q2
+tags:
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [2249. Count Lattice Points Inside a Circle](https://leetcode.com/problems/count-lattice-points-inside-a-circle)
 
 [中文文档](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README.md)
 
-<!-- tags:Geometry,Array,Hash Table,Math,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D integer array <code>circles</code> where <code>circles[i] = [x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub>]</code> represents the center <code>(x<sub>i</sub>, y<sub>i</sub>)</code> and radius <code>r<sub>i</sub></code> of the <code>i<sup>th</sup></code> circle drawn on a grid, return <em>the <strong>number of lattice points</strong> </em><em>that are present inside <strong>at least one</strong> circle</em>.</p>
 
@@ -48,11 +64,17 @@ Some of them are (0, 2), (2, 0), (2, 4), (3, 2), and (4, 4).
 	<li><code>1 &lt;= r<sub>i</sub> &lt;= min(x<sub>i</sub>, y<sub>i</sub>)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +91,8 @@ class Solution:
                         break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countLatticePoints(circles [][]int) (ans int) {
 	mx, my := 0, 0
@@ -142,6 +170,8 @@ func countLatticePoints(circles [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countLatticePoints(circles: number[][]): number {
@@ -170,4 +200,6 @@ function countLatticePoints(circles: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
-# [1244. 力扣排行榜](https://leetcode.cn/problems/design-a-leaderboard)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1244.Design%20A%20Leaderboard/README.md
+rating: 1354
+source: 第 12 场双周赛 Q1
+tags:
+    - 设计
+    - 哈希表
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [1244. 力扣排行榜 🔒](https://leetcode.cn/problems/design-a-leaderboard)
 
 [English Version](/solution/1200-1299/1244.Design%20A%20Leaderboard/README_EN.md)
 
-<!-- tags:设计,哈希表,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>新一轮的「力扣杯」编程大赛即将启动，为了动态显示参赛者的得分数据，需要设计一个排行榜 Leaderboard。</p>
 
@@ -63,7 +75,11 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 	<li>最多进行 <code>1000</code> 次函数调用</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 有序列表
 
@@ -78,6 +94,8 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 空间复杂度 $O(n)$。其中 $n$ 为参赛者的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -110,6 +128,8 @@ class Leaderboard:
 # param_2 = obj.top(K)
 # obj.reset(playerId)
 ```
+
+#### Java
 
 ```java
 class Leaderboard {
@@ -159,6 +179,8 @@ class Leaderboard {
  */
 ```
 
+#### C++
+
 ```cpp
 class Leaderboard {
 public:
@@ -205,6 +227,8 @@ private:
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::BTreeMap;
 
@@ -226,7 +250,8 @@ impl Leaderboard {
     fn add_score(&mut self, player_id: i32, score: i32) {
         if self.record_map.contains_key(&player_id) {
             // The player exists, just add the score
-            self.record_map.insert(player_id, self.record_map.get(&player_id).unwrap() + score);
+            self.record_map
+                .insert(player_id, self.record_map.get(&player_id).unwrap() + score);
         } else {
             // Add the new player to the map
             self.record_map.insert(player_id, score);
@@ -235,11 +260,8 @@ impl Leaderboard {
 
     #[allow(dead_code)]
     fn top(&self, k: i32) -> i32 {
-        let mut cur_vec: Vec<(i32, i32)> = self.record_map
-            .iter()
-            .map(|(k, v)| (*k, *v))
-            .collect();
-        cur_vec.sort_by(|lhs, rhs| { rhs.1.cmp(&lhs.1) });
+        let mut cur_vec: Vec<(i32, i32)> = self.record_map.iter().map(|(k, v)| (*k, *v)).collect();
+        cur_vec.sort_by(|lhs, rhs| rhs.1.cmp(&lhs.1));
         // Iterate reversely for K
         let mut sum = 0;
         let mut i = 0;
@@ -265,4 +287,6 @@ impl Leaderboard {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

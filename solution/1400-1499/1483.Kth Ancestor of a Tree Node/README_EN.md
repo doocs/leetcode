@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README_EN.md
+rating: 2115
+source: Weekly Contest 193 Q4
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Design
+    - Binary Search
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1483. Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node)
 
 [中文文档](/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Design,Binary Search,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a tree with <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code> in the form of a parent array <code>parent</code> where <code>parent[i]</code> is the parent of <code>i<sup>th</sup></code> node. The root of the tree is node <code>0</code>. Find the <code>k<sup>th</sup></code> ancestor of a given node.</p>
 
@@ -45,7 +62,11 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 	<li>There will be at most <code>5 * 10<sup>4</sup></code> queries.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming + Binary Lifting
 
@@ -70,6 +91,8 @@ Similar problems:
 -   [2836. Maximize Value of Function in a Ball Passing Game](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class TreeAncestor:
@@ -96,6 +119,8 @@ class TreeAncestor:
 # obj = TreeAncestor(n, parent)
 # param_1 = obj.getKthAncestor(node,k)
 ```
+
+#### Java
 
 ```java
 class TreeAncestor {
@@ -139,6 +164,8 @@ class TreeAncestor {
  */
 ```
 
+#### C++
+
 ```cpp
 class TreeAncestor {
 public:
@@ -179,6 +206,8 @@ private:
  * int param_1 = obj->getKthAncestor(node,k);
  */
 ```
+
+#### Go
 
 ```go
 type TreeAncestor struct {
@@ -223,6 +252,8 @@ func (this *TreeAncestor) GetKthAncestor(node int, k int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class TreeAncestor {
     private p: number[][];
@@ -263,6 +294,58 @@ class TreeAncestor {
  */
 ```
 
+#### C#
+
+```cs
+public class TreeAncestor {
+    private int[][] p;
+
+    public TreeAncestor(int n, int[] parent) {
+        p = new int[n][];
+        for (int i = 0; i < n; i++) {
+            p[i] = new int[18];
+            for (int j = 0; j < 18; j++) {
+                p[i][j] = -1;
+            }
+        }
+
+        for (int i = 0; i < n; ++i) {
+            p[i][0] = parent[i];
+        }
+
+        for (int j = 1; j < 18; ++j) {
+            for (int i = 0; i < n; ++i) {
+                if (p[i][j - 1] == -1) {
+                    continue;
+                }
+                p[i][j] = p[p[i][j - 1]][j - 1];
+            }
+        }
+    }
+
+    public int GetKthAncestor(int node, int k) {
+        for (int i = 17; i >= 0; --i) {
+            if (((k >> i) & 1) == 1) {
+                node = p[node][i];
+                if (node == -1) {
+                    break;
+                }
+            }
+        }
+        return node;
+    }
+}
+
+
+/**
+ * Your TreeAncestor object will be instantiated and called as such:
+ * TreeAncestor obj = new TreeAncestor(n, parent);
+ * int param_1 = obj.GetKthAncestor(node,k);
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README_EN.md
+rating: 1499
+source: Biweekly Contest 31 Q3
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1525. Number of Good Ways to Split a String](https://leetcode.com/problems/number-of-good-ways-to-split-a-string)
 
 [中文文档](/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README.md)
 
-<!-- tags:Bit Manipulation,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code>.</p>
 
@@ -42,11 +57,17 @@
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +83,8 @@ class Solution:
             ans += len(vis) == len(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSplits(s string) (ans int) {
@@ -131,4 +158,6 @@ func numSplits(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

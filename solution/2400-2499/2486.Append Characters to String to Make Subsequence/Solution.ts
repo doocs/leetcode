@@ -1,13 +1,9 @@
 function appendCharacters(s: string, t: string): number {
-    const [m, n] = [s.length, t.length];
-    for (let i = 0, j = 0; j < n; ++j) {
-        while (i < m && s[i] !== t[j]) {
-            ++i;
+    let j = 0;
+    for (const c of s) {
+        if (c === t[j]) {
+            ++j;
         }
-        if (i === m) {
-            return n - j;
-        }
-        ++i;
     }
-    return 0;
+    return t.length - j;
 }

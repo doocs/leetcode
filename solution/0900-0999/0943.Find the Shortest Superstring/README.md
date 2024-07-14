@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README.md
+tags:
+    - 位运算
+    - 数组
+    - 字符串
+    - 动态规划
+    - 状态压缩
+---
+
+<!-- problem:start -->
+
 # [943. 最短超级串](https://leetcode.cn/problems/find-the-shortest-superstring)
 
 [English Version](/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README_EN.md)
 
-<!-- tags:位运算,数组,字符串,动态规划,状态压缩 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串数组 <code>words</code>，找到以 <code>words</code> 中每个字符串作为子字符串的最短字符串。如果有多个有效最短字符串满足题目条件，返回其中 <strong>任意一个</strong> 即可。</p>
 
@@ -38,7 +50,11 @@
 	<li><code>words</code> 中的所有字符串 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 动态规划
 
@@ -57,6 +73,8 @@ $$
 时间复杂度 $O(2^n \times n^2)$，空间复杂度 $O(2^n \times n)$。其中 $n$ 为字符串数组 `words` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +115,8 @@ class Solution:
         ans = [words[arr[0]]] + [words[j][g[i][j] :] for i, j in pairwise(arr)]
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +187,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -234,6 +256,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestSuperstring(words []string) string {
@@ -306,4 +330,6 @@ func shortestSuperstring(words []string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

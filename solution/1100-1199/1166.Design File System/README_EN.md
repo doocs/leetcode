@@ -1,10 +1,25 @@
-# [1166. Design File System](https://leetcode.com/problems/design-file-system)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1166.Design%20File%20System/README_EN.md
+rating: 1479
+source: Biweekly Contest 7 Q2
+tags:
+    - Design
+    - Trie
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [1166. Design File System 🔒](https://leetcode.com/problems/design-file-system)
 
 [中文文档](/solution/1100-1199/1166.Design%20File%20System/README.md)
 
-<!-- tags:Design,Trie,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are asked to design a file system&nbsp;that allows you to create new paths and associate them with different values.</p>
 
@@ -61,7 +76,11 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>createPath</code> and <code>get</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie
 
@@ -80,6 +99,8 @@ The methods of the trie are defined as follows:
 The total time complexity is $O(\sum_{w \in W}|w|)$, and the total space complexity is $O(\sum_{w \in W}|w|)$, where $W$ is the set of all inserted paths.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -124,6 +145,8 @@ class FileSystem:
 # param_1 = obj.createPath(path,value)
 # param_2 = obj.get(path)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -187,6 +210,8 @@ class FileSystem {
  * int param_2 = obj.get(path);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -266,6 +291,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children map[string]*trie
@@ -327,6 +354,8 @@ func (this *FileSystem) Get(path string) int {
  * param_2 := obj.Get(path);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -394,4 +423,6 @@ class FileSystem {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

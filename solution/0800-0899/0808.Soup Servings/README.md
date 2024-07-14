@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0808.Soup%20Servings/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 概率与统计
+---
+
+<!-- problem:start -->
+
 # [808. 分汤](https://leetcode.cn/problems/soup-servings)
 
 [English Version](/solution/0800-0899/0808.Soup%20Servings/README_EN.md)
 
-<!-- tags:数学,动态规划,概率与统计 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有&nbsp;<strong>A&nbsp;和&nbsp;B 两种类型&nbsp;</strong>的汤。一开始每种类型的汤有&nbsp;<code>n</code>&nbsp;毫升。有四种分配操作：</p>
 
@@ -51,7 +61,11 @@
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code>​​​​​​​</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -82,6 +96,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def soupServings(self, n: int) -> float:
@@ -102,6 +118,8 @@ class Solution:
 
         return 1 if n > 4800 else dfs((n + 24) // 25, (n + 24) // 25)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func soupServings(n int) float64 {
@@ -179,6 +201,8 @@ func soupServings(n int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function soupServings(n: number): number {
     const f = new Array(200).fill(0).map(() => new Array(200).fill(-1));
@@ -205,4 +229,6 @@ function soupServings(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

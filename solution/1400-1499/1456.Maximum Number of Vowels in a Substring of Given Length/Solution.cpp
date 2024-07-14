@@ -1,18 +1,15 @@
 class Solution {
 public:
     int maxVowels(string s, int k) {
-        int t = 0, n = s.size();
-        for (int i = 0; i < k; ++i) t += isVowel(s[i]);
-        int ans = t;
-        for (int i = k; i < n; ++i) {
-            t += isVowel(s[i]);
-            t -= isVowel(s[i - k]);
-            ans = max(ans, t);
+        auto isVowel = [](char c) {
+            return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+        };
+        int cnt = count_if(s.begin(), s.begin() + k, isVowel);
+        int ans = cnt;
+        for (int i = k; i < s.size(); ++i) {
+            cnt += isVowel(s[i]) - isVowel(s[i - k]);
+            ans = max(ans, cnt);
         }
         return ans;
-    }
-
-    bool isVowel(char c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 };

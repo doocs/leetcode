@@ -1,12 +1,20 @@
-# [177. 第 N 高的薪水](https://leetcode.cn/problems/nth-highest-salary)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [177. 第N高的薪水](https://leetcode.cn/problems/nth-highest-salary)
 
 [English Version](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Employee</code></p>
 
@@ -68,13 +76,19 @@ n = 2
 | null                   |
 +------------------------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + LIMIT
 
 我们可以先对 `salary` 进行降序排序，然后使用 `LIMIT` 语句获取第 $n$ 高的工资。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -88,6 +102,8 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
         salary = sorted(unique_salaries, reverse=True)[N - 1]
         return pd.DataFrame([salary], columns=[f"getNthHighestSalary({N})"])
 ```
+
+#### MySQL
 
 ```sql
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
@@ -107,4 +123,6 @@ END
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

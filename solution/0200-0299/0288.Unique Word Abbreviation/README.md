@@ -1,12 +1,23 @@
-# [288. 单词的唯一缩写](https://leetcode.cn/problems/unique-word-abbreviation)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [288. 单词的唯一缩写 🔒](https://leetcode.cn/problems/unique-word-abbreviation)
 
 [English Version](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README_EN.md)
 
-<!-- tags:设计,数组,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>单词的 <strong>缩写</strong> 需要遵循 <起始字母><中间字母数><结尾字母> 这样的格式。如果单词只有两个字符，那么它就是它自身的 <strong>缩写</strong> 。</p>
 
@@ -65,7 +76,11 @@ validWordAbbr.isUnique("cake"); // 返回 true，因为 "cake" 已经存在于�
 	<li>最多调用 <code>5000</code> 次 <code>isUnique</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -78,6 +93,8 @@ validWordAbbr.isUnique("cake"); // 返回 true，因为 "cake" 已经存在于�
 时间复杂度方面，初始化哈希表的时间复杂度是 $O(n)$，其中 $n$ 是单词字典的长度；判断单词是否满足题目要求的时间复杂度是 $O(1)$。空间复杂度方面，哈希表的空间复杂度是 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ValidWordAbbr:
@@ -98,6 +115,8 @@ class ValidWordAbbr:
 # obj = ValidWordAbbr(dictionary)
 # param_1 = obj.isUnique(word)
 ```
+
+#### Java
 
 ```java
 class ValidWordAbbr {
@@ -126,6 +145,8 @@ class ValidWordAbbr {
  * boolean param_1 = obj.isUnique(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class ValidWordAbbr {
@@ -156,6 +177,8 @@ private:
  * bool param_1 = obj->isUnique(word);
  */
 ```
+
+#### Go
 
 ```go
 type ValidWordAbbr struct {
@@ -194,6 +217,8 @@ func abbr(s string) string {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class ValidWordAbbr {
     private d: Map<string, Set<string>> = new Map();
@@ -228,4 +253,6 @@ class ValidWordAbbr {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

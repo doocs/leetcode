@@ -1,10 +1,23 @@
-# [2313. Minimum Flips in Binary Tree to Get Result](https://leetcode.com/problems/minimum-flips-in-binary-tree-to-get-result)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Dynamic Programming
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
+# [2313. Minimum Flips in Binary Tree to Get Result 🔒](https://leetcode.com/problems/minimum-flips-in-binary-tree-to-get-result)
 
 [中文文档](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README.md)
 
-<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a <strong>binary tree</strong> with the following properties:</p>
 
@@ -62,11 +75,17 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 	<li>Non-leaf nodes have a value of <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -94,6 +113,8 @@ class Solution:
 
         return dfs(root)[int(result)]
 ```
+
+#### Java
 
 ```java
 /**
@@ -145,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -192,6 +215,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -237,6 +262,8 @@ func minimumFlips(root *TreeNode, result bool) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -280,4 +307,6 @@ function minimumFlips(root: TreeNode | null, result: boolean): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

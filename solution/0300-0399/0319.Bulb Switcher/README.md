@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0319.Bulb%20Switcher/README.md
+tags:
+    - 脑筋急转弯
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [319. 灯泡开关](https://leetcode.cn/problems/bulb-switcher)
 
 [English Version](/solution/0300-0399/0319.Bulb%20Switcher/README_EN.md)
 
-<!-- tags:脑筋急转弯,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>初始时有&nbsp;<code>n</code><em> </em>个灯泡处于关闭状态。第一轮，你将会打开所有灯泡。接下来的第二轮，你将会每两个灯泡关闭第二个。</p>
 
@@ -54,17 +63,39 @@
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：数学
+
+我们不妨将 $n$ 个灯泡编号为 $1, 2, 3, \cdots, n$，那么对于第 $i$ 个灯泡，它会在第 $d$ 轮被操作，当且仅当 $d$ 是 $i$ 的因子。
+
+对于一个数 $i$，它的因子个数是有限的，且因子个数为奇数时，最后的状态是开启的，否则是关闭的。
+
+因此，我们只需要找到 $1$ 到 $n$ 中因子个数为奇数的数的个数即可。
+
+对于一个数 $i$，如果它有因子 $d$，那么它一定有因子 $i/d$，因此因子个数为奇数的数一定是平方数。
+
+举个例子，数字 $12$ 的因子有 $1, 2, 3, 4, 6, 12$，因子个数为 $6$，是偶数；而对于数字 $16$ 这个平方数，因子有 $1, 2, 4, 8, 16$，因子个数为 $5$，是奇数。
+
+因此，我们只需要找到 $1$ 到 $n$ 中有多少个平方数即可，即 $\lfloor \sqrt{n} \rfloor$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def bulbSwitch(self, n: int) -> int:
-        return int(n ** (1 / 2))
+        return int(sqrt(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +105,35 @@ class Solution {
 }
 ```
 
+#### C++
+
+```cpp
+class Solution {
+public:
+    int bulbSwitch(int n) {
+        return (int) sqrt(n);
+    }
+};
+```
+
+#### Go
+
+```go
+func bulbSwitch(n int) int {
+	return int(math.Sqrt(float64(n)))
+}
+```
+
+#### TypeScript
+
+```ts
+function bulbSwitch(n: number): number {
+    return Math.floor(Math.sqrt(n));
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

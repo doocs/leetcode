@@ -8,7 +8,9 @@ public:
             ++cnt[x];
             while (cnt.size() > 2) {
                 int y = fruits[j++];
-                if (--cnt[y] == 0) cnt.erase(y);
+                if (--cnt[y] == 0) {
+                    cnt.erase(y);
+                }
             }
             ans = max(ans, i - j + 1);
         }

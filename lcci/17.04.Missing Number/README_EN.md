@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [17.04. Missing Number](https://leetcode.cn/problems/missing-number-lcci)
 
 [中文文档](/lcci/17.04.Missing%20Number/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An array&nbsp;contains all the integers from 0 to n, except for one number which is missing.&nbsp; Write code to find the missing integer. Can you do it in O(n) time?</p>
 
@@ -28,11 +38,17 @@
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -43,6 +59,8 @@ class Solution:
                 return i
         return len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -58,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -75,6 +95,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) int {
 	sort.Ints(nums)
@@ -86,6 +108,8 @@ func missingNumber(nums []int) int {
 	return len(nums)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -101,6 +125,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -119,17 +145,41 @@ var missingNumber = function (nums) {
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let nums = nums.sorted()
+        for (i, x) in nums.enumerated() {
+            if i != x {
+                return i
+            }
+        }
+        return nums.count
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         return sum(range(len(nums) + 1)) - sum(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +193,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -158,6 +210,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	ans = len(nums)
@@ -167,6 +221,8 @@ func missingNumber(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,6 +243,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -202,11 +260,28 @@ var missingNumber = function (nums) {
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let n = nums.count
+        return n * (n + 1) / 2 - nums.reduce(0, +)
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -216,6 +291,8 @@ class Solution:
             ans ^= i ^ x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -228,6 +305,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -242,6 +321,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	for i, x := range nums {
@@ -250,6 +331,8 @@ func missingNumber(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -263,6 +346,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -280,4 +365,6 @@ var missingNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

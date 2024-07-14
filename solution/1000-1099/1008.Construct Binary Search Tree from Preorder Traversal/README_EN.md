@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README_EN.md
+rating: 1562
+source: Weekly Contest 127 Q4
+tags:
+    - Stack
+    - Tree
+    - Binary Search Tree
+    - Array
+    - Binary Tree
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [1008. Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal)
 
 [中文文档](/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README.md)
 
-<!-- tags:Stack,Tree,Binary Search Tree,Array,Binary Tree,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers preorder, which represents the <strong>preorder traversal</strong> of a BST (i.e., <strong>binary search tree</strong>), construct the tree and return <em>its root</em>.</p>
 
@@ -38,11 +55,17 @@
 	<li>All the values of <code>preorder</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -70,6 +93,8 @@ class Solution:
 
         return dfs(preorder)
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -150,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -182,6 +211,8 @@ func bstFromPreorder(preorder []int) *TreeNode {
 	return dfs(0, len(preorder)-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -220,6 +251,8 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -239,27 +272,23 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(
         preorder: &Vec<i32>,
         next: &Vec<usize>,
         left: usize,
-        right: usize
+        right: usize,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if left >= right {
             return None;
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: preorder[left],
-                    left: Self::dfs(preorder, next, left + 1, next[left]),
-                    right: Self::dfs(preorder, next, next[left], right),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: preorder[left],
+            left: Self::dfs(preorder, next, left + 1, next[left]),
+            right: Self::dfs(preorder, next, next[left], right),
+        })))
     }
 
     pub fn bst_from_preorder(preorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -282,4 +311,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

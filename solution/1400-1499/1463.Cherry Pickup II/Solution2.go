@@ -1,4 +1,4 @@
-func cherryPickup(grid [][]int) int {
+func cherryPickup(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
 	f := make([][]int, n)
 	g := make([][]int, n)
@@ -29,11 +29,8 @@ func cherryPickup(grid [][]int) int {
 		}
 		f, g = g, f
 	}
-	ans := 0
 	for j1 := 0; j1 < n; j1++ {
-		for j2 := 0; j2 < n; j2++ {
-			ans = max(ans, f[j1][j2])
-		}
+		ans = max(ans, slices.Max(f[j1]))
 	}
-	return ans
+	return
 }

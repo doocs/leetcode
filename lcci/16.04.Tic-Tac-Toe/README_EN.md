@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.04.Tic-Tac-Toe/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.04. Tic-Tac-Toe](https://leetcode.cn/problems/tic-tac-toe-lcci)
 
 [中文文档](/lcci/16.04.Tic-Tac-Toe/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design an algorithm to figure out if someone has won a game of tic-tac-toe.&nbsp;Input is a string array&nbsp;of size N x N, including characters &quot; &quot;, &quot;X&quot; and &quot;O&quot;, where &quot; &quot; represents a empty grid.</p>
 <p>The rules of tic-tac-toe are as follows:</p>
@@ -49,7 +59,11 @@
 	<li>Input follows the rules.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -62,6 +76,8 @@ Finally, we traverse the entire board. If there is a character ` `, it means tha
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the side length of the board.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +108,8 @@ class Solution:
                     return c
         return 'Pending' if has_empty_grid else 'Draw'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tictactoe(board []string) string {
@@ -206,6 +228,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tictactoe(board: string[]): string {
     const n = board.length;
@@ -243,6 +267,46 @@ function tictactoe(board: string[]): string {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func tictactoe(_ board: [String]) -> String {
+        let n = board.count
+        var rows = Array(repeating: 0, count: n)
+        var cols = Array(repeating: 0, count: n)
+        var diagonal = 0, antiDiagonal = 0
+        var hasEmptyGrid = false
+
+        for i in 0..<n {
+            for j in 0..<n {
+                let c = Array(board[i])[j]
+                if c == " " {
+                    hasEmptyGrid = true
+                    continue
+                }
+                let value = c == "X" ? 1 : -1
+                rows[i] += value
+                cols[j] += value
+                if i == j {
+                    diagonal += value
+                }
+                if i + j == n - 1 {
+                    antiDiagonal += value
+                }
+                if abs(rows[i]) == n || abs(cols[j]) == n || abs(diagonal) == n || abs(antiDiagonal) == n {
+                    return String(c)
+                }
+            }
+        }
+
+        return hasEmptyGrid ? "Pending" : "Draw"
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

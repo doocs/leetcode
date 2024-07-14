@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README_EN.md
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+    - Sliding Window
+    - Hash Function
+    - Rolling Hash
+---
+
+<!-- problem:start -->
+
 # [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences)
 
 [中文文档](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README.md)
 
-<!-- tags:Bit Manipulation,Hash Table,String,Sliding Window,Hash Function,Rolling Hash -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>DNA sequence</strong> is composed of a series of nucleotides abbreviated as <code>&#39;A&#39;</code>, <code>&#39;C&#39;</code>, <code>&#39;G&#39;</code>, and <code>&#39;T&#39;</code>.</p>
 
@@ -32,7 +47,11 @@
 	<li><code>s[i]</code> is either <code>&#39;A&#39;</code>, <code>&#39;C&#39;</code>, <code>&#39;G&#39;</code>, or <code>&#39;T&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -46,6 +65,8 @@ The time complexity is $O(n \times 10)$, and the space complexity is $O(n \times
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
@@ -58,6 +79,8 @@ class Solution:
                 ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findRepeatedDnaSequences(s string) (ans []string) {
 	cnt := map[string]int{}
@@ -105,6 +132,8 @@ func findRepeatedDnaSequences(s string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findRepeatedDnaSequences(s: string): string[] {
@@ -121,6 +150,8 @@ function findRepeatedDnaSequences(s: string): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -145,6 +176,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -163,6 +196,8 @@ var findRepeatedDnaSequences = function (s) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -185,6 +220,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Rabin-Karp String Matching Algorithm
 
 This method essentially combines sliding window and hash. Similar to 0028. Find the Index of the First Occurrence in a String, this problem can use a hash function to reduce the time complexity of counting subsequences to $O(1)$.
@@ -192,6 +231,8 @@ This method essentially combines sliding window and hash. Similar to 0028. Find 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func findRepeatedDnaSequences(s string) []string {
@@ -216,4 +257,6 @@ func findRepeatedDnaSequences(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

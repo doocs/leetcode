@@ -1,21 +1,21 @@
 function takeCharacters(s: string, k: number): number {
-    const getIndex = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
-    const count = [0, 0, 0];
+    const idx = (c: string) => c.charCodeAt(0) - 97;
+    const cnt: number[] = Array(3).fill(0);
     for (const c of s) {
-        count[getIndex(c)]++;
+        ++cnt[idx(c)];
     }
-    if (count.some(v => v < k)) {
+    if (cnt.some(v => v < k)) {
         return -1;
     }
     const n = s.length;
-    let ans = 0;
-    for (let i = 0, j = 0; j < n; j++) {
-        count[getIndex(s[j])]--;
-        while (count[getIndex(s[j])] < k) {
-            count[getIndex(s[i])]++;
-            i++;
+    let [mx, j] = [0, 0];
+    for (let i = 0; i < n; ++i) {
+        const c = idx(s[i]);
+        --cnt[c];
+        while (cnt[c] < k) {
+            ++cnt[idx(s[j++])];
         }
-        ans = Math.max(ans, j - i + 1);
+        mx = Math.max(mx, i - j + 1);
     }
-    return n - ans;
+    return n - mx;
 }

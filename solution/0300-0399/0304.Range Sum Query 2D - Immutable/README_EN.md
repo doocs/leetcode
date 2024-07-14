@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md
+tags:
+    - Design
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [304. Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable)
 
 [中文文档](/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README.md)
 
-<!-- tags:Design,Array,Matrix,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following type:</p>
 
@@ -52,7 +65,11 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRegion</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two-dimensional Prefix Sum
 
@@ -73,6 +90,8 @@ In the initialization method, we preprocess the prefix sum array $s$, and in the
 The time complexity for initializing is $O(m \times n)$, and the time complexity for querying is $O(1)$. The space complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class NumMatrix:
@@ -98,6 +117,8 @@ class NumMatrix:
 # obj = NumMatrix(matrix)
 # param_1 = obj.sumRegion(row1,col1,row2,col2)
 ```
+
+#### Java
 
 ```java
 class NumMatrix {
@@ -125,6 +146,8 @@ class NumMatrix {
  */
 ```
 
+#### C++
+
 ```cpp
 class NumMatrix {
 public:
@@ -151,6 +174,8 @@ public:
  * int param_1 = obj->sumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### Go
 
 ```go
 type NumMatrix struct {
@@ -181,6 +206,8 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
  * param_1 := obj.SumRegion(row1,col1,row2,col2);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class NumMatrix {
@@ -215,8 +242,9 @@ class NumMatrix {
  */
 ```
 
-```rust
+#### Rust
 
+```rust
 /**
  * Your NumMatrix object will be instantiated and called as such:
  * let obj = NumMatrix::new(matrix);
@@ -257,10 +285,10 @@ impl NumMatrix {
         let row2: usize = row2 as usize;
         let col2: usize = col2 as usize;
         // Return the value in O(1)
-        self.prefix_vec[row2 + 1][col2 + 1] -
-            self.prefix_vec[row2 + 1][col1] -
-            self.prefix_vec[row1][col2 + 1] +
-            self.prefix_vec[row1][col1]
+        self.prefix_vec[row2 + 1][col2 + 1]
+            - self.prefix_vec[row2 + 1][col1]
+            - self.prefix_vec[row1][col2 + 1]
+            + self.prefix_vec[row1][col1]
     }
 
     fn initialize_prefix_vec(&mut self) {
@@ -268,16 +296,16 @@ impl NumMatrix {
         for i in 0..self.n {
             for j in 0..self.m {
                 self.prefix_vec[i + 1][j + 1] =
-                    self.prefix_vec[i][j + 1] +
-                    self.prefix_vec[i + 1][j] -
-                    self.prefix_vec[i][j] +
-                    self.ref_vec[i][j];
+                    self.prefix_vec[i][j + 1] + self.prefix_vec[i + 1][j] - self.prefix_vec[i][j]
+                        + self.ref_vec[i][j];
             }
         }
         self.is_initialized = true;
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -320,4 +348,6 @@ NumMatrix.prototype.sumRegion = function (row1, col1, row2, col2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

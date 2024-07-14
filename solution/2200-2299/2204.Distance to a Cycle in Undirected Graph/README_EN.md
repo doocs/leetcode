@@ -1,10 +1,23 @@
-# [2204. Distance to a Cycle in Undirected Graph](https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
+<!-- problem:start -->
+
+# [2204. Distance to a Cycle in Undirected Graph 🔒](https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph)
 
 [中文文档](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code> representing the number of nodes in a <strong>connected undirected graph</strong> containing <strong>exactly one</strong> cycle. The nodes are numbered from <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>).</p>
 
@@ -63,7 +76,11 @@ The distance from 8 to 2 is 2.
 	<li>There is at most one edge between any pair of vertices.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -84,6 +101,8 @@ Similar problems:
 -   [2603. Collect Coins in a Tree](https://github.com/doocs/leetcode/blob/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -109,6 +128,8 @@ class Solution:
             ans[i] = ans[f[i]] + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +169,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -191,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distanceToCycle(n int, edges [][]int) []int {
 	g := make([]map[int]bool, n)
@@ -232,6 +257,8 @@ func distanceToCycle(n int, edges [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distanceToCycle(n: number, edges: number[][]): number[] {
     const g: Set<number>[] = new Array(n).fill(0).map(() => new Set<number>());
@@ -270,4 +297,6 @@ function distanceToCycle(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

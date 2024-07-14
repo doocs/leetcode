@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [740. Delete and Earn](https://leetcode.com/problems/delete-and-earn)
 
 [中文文档](/solution/0700-0799/0740.Delete%20and%20Earn/README.md)
 
-<!-- tags:Array,Hash Table,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. You want to maximize the number of points you get by performing the following operation any number of times:</p>
 
@@ -45,11 +57,17 @@ You earn a total of 9 points.</pre>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +86,8 @@ class Solution:
             second = cur
         return second
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func deleteAndEarn(nums []int) int {
@@ -149,4 +173,6 @@ func deleteAndEarn(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

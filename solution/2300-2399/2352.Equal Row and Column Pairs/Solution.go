@@ -1,17 +1,9 @@
 func equalPairs(grid [][]int) (ans int) {
-	n := len(grid)
-	g := make([][]int, n)
-	for i := range g {
-		g[i] = make([]int, n)
-		for j := 0; j < n; j++ {
-			g[i][j] = grid[j][i]
-		}
-	}
-	for _, row := range grid {
-		for _, col := range g {
+	for i := range grid {
+		for j := range grid {
 			ok := 1
-			for i, v := range row {
-				if v != col[i] {
+			for k := range grid {
+				if grid[i][k] != grid[k][j] {
 					ok = 0
 					break
 				}

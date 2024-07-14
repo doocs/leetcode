@@ -1,12 +1,24 @@
-# [2436. 使子数组最大公约数大于一的最小分割数](https://leetcode.cn/problems/minimum-split-into-subarrays-with-gcd-greater-than-one)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README.md
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 动态规划
+    - 数论
+---
+
+<!-- problem:start -->
+
+# [2436. 使子数组最大公约数大于一的最小分割数 🔒](https://leetcode.cn/problems/minimum-split-into-subarrays-with-gcd-greater-than-one)
 
 [English Version](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README_EN.md)
 
-<!-- tags:贪心,数组,数学,动态规划,数论 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个由正整数组成的数组 <code>nums</code>。</p>
 
@@ -58,7 +70,11 @@
 	<li><code>2 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 数学
 
@@ -72,6 +88,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSplits(self, nums: List[int]) -> int:
@@ -83,6 +101,8 @@ class Solution:
                 g = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSplits(nums []int) int {
@@ -142,6 +166,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSplits(nums: number[]): number {
     let ans = 1;
@@ -163,4 +189,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

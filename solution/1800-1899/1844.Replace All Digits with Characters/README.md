@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md
+rating: 1300
+source: 第 51 场双周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1844. 将所有数字用字符替换](https://leetcode.cn/problems/replace-all-digits-with-characters)
 
 [English Version](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串 <code>s</code> ，它的 <strong>偶数</strong> 下标处为小写英文字母，<strong>奇数</strong> 下标处为数字。</p>
 
@@ -51,7 +61,11 @@
 	<li>对所有 <strong>奇数</strong> 下标处的 <code>i</code> ，满足 <code>shift(s[i-1], s[i]) &lt;= 'z'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -63,6 +77,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def replaceDigits(self, s: str) -> str:
@@ -71,6 +87,8 @@ class Solution:
             s[i] = chr(ord(s[i - 1]) + int(s[i]))
         return ''.join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func replaceDigits(s string) string {
 	cs := []byte(s)
@@ -106,6 +128,8 @@ func replaceDigits(s string) string {
 	return string(cs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function replaceDigits(s: string): string {
@@ -117,6 +141,8 @@ function replaceDigits(s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -133,6 +159,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 char* replaceDigits(char* s) {
     int n = strlen(s);
@@ -145,4 +173,6 @@ char* replaceDigits(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

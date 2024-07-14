@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README_EN.md
+rating: 1301
+source: Biweekly Contest 95 Q1
+tags:
+    - Math
+---
+
+<!-- problem:start -->
+
 # [2525. Categorize Box According to Criteria](https://leetcode.com/problems/categorize-box-according-to-criteria)
 
 [中文文档](/solution/2500-2599/2525.Categorize%20Box%20According%20to%20Criteria/README.md)
 
-<!-- tags:Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given four integers <code>length</code>, <code>width</code>, <code>height</code>, and <code>mass</code>, representing the dimensions and mass of a box, respectively, return <em>a string representing the <strong>category</strong> of the box</em>.</p>
 
@@ -57,7 +69,11 @@ Since its neither of the two above categories, we return &quot;Neither&quot;.</p
 	<li><code>1 &lt;= mass &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -66,6 +82,8 @@ We can simulate according to the problem description.
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +95,8 @@ class Solution:
         d = ['Neither', 'Bulky', 'Heavy', 'Both']
         return d[i]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func categorizeBox(length int, width int, height int, mass int) string {
@@ -120,6 +144,8 @@ func categorizeBox(length int, width int, height int, mass int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function categorizeBox(length: number, width: number, height: number, mass: number): string {
     const v = length * width * height;
@@ -133,6 +159,8 @@ function categorizeBox(length: number, width: number, height: number, mass: numb
     return ['Neither', 'Bulky', 'Heavy', 'Both'][i];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -156,9 +184,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -176,6 +210,8 @@ class Solution:
 
         return "Neither"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +234,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -222,6 +260,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func categorizeBox(length int, width int, height int, mass int) string {
 	v := length * width * height
@@ -239,6 +279,8 @@ func categorizeBox(length int, width int, height int, mass int) string {
 	return "Neither"
 }
 ```
+
+#### TypeScript
 
 ```ts
 function categorizeBox(length: number, width: number, height: number, mass: number): string {
@@ -258,15 +300,16 @@ function categorizeBox(length: number, width: number, height: number, mass: numb
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn categorize_box(length: i32, width: i32, height: i32, mass: i32) -> String {
         let v = length * width * height;
-        let bulky =
-            length >= 10000 ||
-            width >= 10000 ||
-            height >= 10000 ||
-            (length as i64) * (width as i64) * (height as i64) >= 1000000000;
+        let bulky = length >= 10000
+            || width >= 10000
+            || height >= 10000
+            || (length as i64) * (width as i64) * (height as i64) >= 1000000000;
 
         let heavy = mass >= 100;
 
@@ -287,4 +330,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

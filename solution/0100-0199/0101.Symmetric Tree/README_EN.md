@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree)
 
 [中文文档](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, <em>check whether it is a mirror of itself</em> (i.e., symmetric around its center).</p>
 
@@ -34,7 +47,11 @@
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it both recursively and iteratively?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -49,6 +66,8 @@ The logic of the function $dfs(root1, root2)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -68,6 +87,8 @@ class Solution:
 
         return dfs(root, root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -102,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -127,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -150,6 +175,8 @@ func isSymmetric(root *TreeNode) bool {
 	return dfs(root, root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -181,6 +208,8 @@ function isSymmetric(root: TreeNode | null): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -200,8 +229,8 @@ function isSymmetric(root: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root1: &Option<Rc<RefCell<TreeNode>>>, root2: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if root1.is_none() && root2.is_none() {
@@ -212,9 +241,9 @@ impl Solution {
         }
         let node1 = root1.as_ref().unwrap().borrow();
         let node2 = root2.as_ref().unwrap().borrow();
-        node1.val == node2.val &&
-            Self::dfs(&node1.left, &node2.right) &&
-            Self::dfs(&node1.right, &node2.left)
+        node1.val == node2.val
+            && Self::dfs(&node1.left, &node2.right)
+            && Self::dfs(&node1.right, &node2.left)
     }
 
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
@@ -223,6 +252,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -249,9 +280,15 @@ var isSymmetric = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -272,9 +309,9 @@ var isSymmetric = function (root) {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         let root = root.unwrap();
@@ -305,4 +342,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

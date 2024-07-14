@@ -1,12 +1,24 @@
-# [1256. 加密数字](https://leetcode.cn/problems/encode-number)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1256.Encode%20Number/README.md
+rating: 1561
+source: 第 13 场双周赛 Q1
+tags:
+    - 位运算
+    - 数学
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [1256. 加密数字 🔒](https://leetcode.cn/problems/encode-number)
 
 [English Version](/solution/1200-1299/1256.Encode%20Number/README_EN.md)
 
-<!-- tags:位运算,数学,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数 <code>num</code> ，返回它的「加密字符串」。</p>
 
@@ -36,7 +48,11 @@
 	<li><code>0 &lt;= num &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -46,11 +62,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def encode(self, num: int) -> str:
         return bin(num + 1)[3:]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -59,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -75,6 +97,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func encode(num int) string {
 	num++
@@ -82,6 +106,8 @@ func encode(num int) string {
 	return s[1:]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function encode(num: number): string {
@@ -93,4 +119,6 @@ function encode(num: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

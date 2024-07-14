@@ -1,10 +1,23 @@
-# [1088. Confusing Number II](https://leetcode.com/problems/confusing-number-ii)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1088.Confusing%20Number%20II/README_EN.md
+rating: 2076
+source: Biweekly Contest 2 Q4
+tags:
+    - Math
+    - Backtracking
+---
+
+<!-- problem:start -->
+
+# [1088. Confusing Number II 🔒](https://leetcode.com/problems/confusing-number-ii)
 
 [中文文档](/solution/1000-1099/1088.Confusing%20Number%20II/README.md)
 
-<!-- tags:Math,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
 
@@ -53,11 +66,17 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +102,8 @@ class Solution:
         s = str(n)
         return dfs(0, True, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func confusingNumberII(n int) int {
@@ -186,6 +211,8 @@ func confusingNumberII(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function confusingNumberII(n: number): number {
     const s = n.toString();
@@ -217,4 +244,6 @@ function confusingNumberII(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

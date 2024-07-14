@@ -1,10 +1,22 @@
-# [2046. Sort Linked List Already Sorted Using Absolute Values](https://leetcode.com/problems/sort-linked-list-already-sorted-using-absolute-values)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README_EN.md
+tags:
+    - Linked List
+    - Two Pointers
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [2046. Sort Linked List Already Sorted Using Absolute Values 🔒](https://leetcode.com/problems/sort-linked-list-already-sorted-using-absolute-values)
 
 [中文文档](/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README.md)
 
-<!-- tags:Linked List,Two Pointers,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 Given the <code>head</code> of a singly linked list that is sorted in <strong>non-decreasing</strong> order using the <strong>absolute values</strong> of its nodes, return <em>the list sorted in <strong>non-decreasing</strong> order using the <strong>actual values</strong> of its nodes</em>.
 
@@ -52,11 +64,21 @@ The linked list is already sorted in non-decreasing order.
 	<li>Can you think of a solution with <code>O(n)</code> time complexity?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Head Insertion Method
+
+We first assume that the first node is already sorted. Starting from the second node, when we encounter a node with a negative value, we use the head insertion method. For non-negative values, we continue to traverse down.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -78,6 +100,8 @@ class Solution:
                 prev, curr = curr, curr.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -109,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -143,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -168,6 +196,40 @@ func sortLinkedList(head *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function sortLinkedList(head: ListNode | null): ListNode | null {
+    let [prev, curr] = [head, head.next];
+    while (curr !== null) {
+        if (curr.val < 0) {
+            const t = curr.next;
+            prev.next = t;
+            curr.next = head;
+            head = curr;
+            curr = t;
+        } else {
+            [prev, curr] = [curr, curr.next];
+        }
+    }
+    return head;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

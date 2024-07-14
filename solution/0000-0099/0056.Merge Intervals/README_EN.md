@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0056.Merge%20Intervals/README_EN.md
+tags:
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [56. Merge Intervals](https://leetcode.com/problems/merge-intervals)
 
 [中文文档](/solution/0000-0099/0056.Merge%20Intervals/README.md)
 
-<!-- tags:Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array&nbsp;of <code>intervals</code>&nbsp;where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, merge all overlapping intervals, and return <em>an array of the non-overlapping intervals that cover all the intervals in the input</em>.</p>
 
@@ -34,7 +45,11 @@
 	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + One-pass Traversal
 
@@ -53,6 +68,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -68,6 +85,8 @@ class Solution:
         ans.append([st, ed])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(intervals [][]int) (ans [][]int) {
 	sort.Slice(intervals, func(i, j int) bool {
@@ -132,6 +155,8 @@ func merge(intervals [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -149,6 +174,8 @@ function merge(intervals: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,6 +198,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -195,9 +224,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -211,6 +246,8 @@ class Solution:
                 ans[-1][1] = max(ans[-1][1], e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -231,6 +268,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -250,6 +289,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func merge(intervals [][]int) (ans [][]int) {
 	sort.Slice(intervals, func(i, j int) bool { return intervals[i][0] < intervals[j][0] })
@@ -265,6 +306,8 @@ func merge(intervals [][]int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function merge(intervals: number[][]): number[][] {
     intervals.sort((a, b) => a[0] - b[0]);
@@ -279,6 +322,8 @@ function merge(intervals: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -300,9 +345,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function merge(intervals: number[][]): number[][] {
@@ -325,4 +376,6 @@ function merge(intervals: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

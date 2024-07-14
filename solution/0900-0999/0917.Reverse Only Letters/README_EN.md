@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0917.Reverse%20Only%20Letters/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
 # [917. Reverse Only Letters](https://leetcode.com/problems/reverse-only-letters)
 
 [中文文档](/solution/0900-0999/0917.Reverse%20Only%20Letters/README.md)
 
-<!-- tags:Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, reverse the string according to the following rules:</p>
 
@@ -35,52 +46,66 @@
 	<li><code>s</code> does not contain <code>&#39;\&quot;&#39;</code> or <code>&#39;\\&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two Pointers
+
+We use two pointers $i$ and $j$ to point to the head and tail of the string respectively. When $i < j$, we continuously move $i$ and $j$ until $i$ points to an English letter and $j$ points to an English letter, then we swap $s[i]$ and $s[j]$. Finally, we return the string.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
-        s = list(s)
-        i, j = 0, len(s) - 1
+        cs = list(s)
+        i, j = 0, len(cs) - 1
         while i < j:
-            while i < j and not s[i].isalpha():
+            while i < j and not cs[i].isalpha():
                 i += 1
-            while i < j and not s[j].isalpha():
+            while i < j and not cs[j].isalpha():
                 j -= 1
             if i < j:
-                s[i], s[j] = s[j], s[i]
+                cs[i], cs[j] = cs[j], cs[i]
                 i, j = i + 1, j - 1
-        return ''.join(s)
+        return "".join(cs)
 ```
+
+#### Java
 
 ```java
 class Solution {
     public String reverseOnlyLetters(String s) {
-        char[] chars = s.toCharArray();
-        int i = 0, j = s.length() - 1;
+        char[] cs = s.toCharArray();
+        int i = 0, j = cs.length - 1;
         while (i < j) {
-            while (i < j && !Character.isLetter(chars[i])) {
+            while (i < j && !Character.isLetter(cs[i])) {
                 ++i;
             }
-            while (i < j && !Character.isLetter(chars[j])) {
+            while (i < j && !Character.isLetter(cs[j])) {
                 --j;
             }
             if (i < j) {
-                char t = chars[i];
-                chars[i] = chars[j];
-                chars[j] = t;
+                char t = cs[i];
+                cs[i] = cs[j];
+                cs[j] = t;
                 ++i;
                 --j;
             }
         }
-        return new String(chars);
+        return new String(cs);
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -88,12 +113,14 @@ public:
     string reverseOnlyLetters(string s) {
         int i = 0, j = s.size() - 1;
         while (i < j) {
-            while (i < j && !isalpha(s[i])) ++i;
-            while (i < j && !isalpha(s[j])) --j;
-            if (i < j) {
-                swap(s[i], s[j]);
+            while (i < j && !isalpha(s[i])) {
                 ++i;
+            }
+            while (i < j && !isalpha(s[j])) {
                 --j;
+            }
+            if (i < j) {
+                swap(s[i++], s[j--]);
             }
         }
         return s;
@@ -101,43 +128,51 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseOnlyLetters(s string) string {
-	ans := []rune(s)
+	cs := []rune(s)
 	i, j := 0, len(s)-1
 	for i < j {
-		for i < j && !unicode.IsLetter(ans[i]) {
+		for i < j && !unicode.IsLetter(cs[i]) {
 			i++
 		}
-		for i < j && !unicode.IsLetter(ans[j]) {
+		for i < j && !unicode.IsLetter(cs[j]) {
 			j--
 		}
 		if i < j {
-			ans[i], ans[j] = ans[j], ans[i]
+			cs[i], cs[j] = cs[j], cs[i]
 			i++
 			j--
 		}
 	}
-	return string(ans)
+	return string(cs)
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reverseOnlyLetters(s: string): string {
-    const n = s.length;
-    let i = 0,
-        j = n - 1;
-    let ans = [...s];
+    const cs = [...s];
+    let [i, j] = [0, cs.length - 1];
     while (i < j) {
-        while (!/[a-zA-Z]/.test(ans[i]) && i < j) i++;
-        while (!/[a-zA-Z]/.test(ans[j]) && i < j) j--;
-        [ans[i], ans[j]] = [ans[j], ans[i]];
+        while (!/[a-zA-Z]/.test(cs[i]) && i < j) {
+            i++;
+        }
+        while (!/[a-zA-Z]/.test(cs[j]) && i < j) {
+            j--;
+        }
+        [cs[i], cs[j]] = [cs[j], cs[i]];
         i++;
         j--;
     }
-    return ans.join('');
+    return cs.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -164,4 +199,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

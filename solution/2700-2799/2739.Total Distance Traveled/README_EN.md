@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2739.Total%20Distance%20Traveled/README_EN.md
+rating: 1262
+source: Weekly Contest 350 Q1
+tags:
+    - Math
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2739. Total Distance Traveled](https://leetcode.com/problems/total-distance-traveled)
 
 [中文文档](/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md)
 
-<!-- tags:Math,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A truck has two fuel tanks. You are given two integers, <code>mainTank</code> representing the fuel present in the main tank in liters and <code>additionalTank</code> representing the fuel present in the additional tank in liters.</p>
 
@@ -44,11 +57,21 @@ Total distance traveled is 10km.
 	<li><code>1 &lt;= mainTank, additionalTank &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Simulation
+
+We can simulate the process of the truck's movement. Each time, it consumes 1 liter of fuel from the main fuel tank and travels 10 kilometers. Whenever the fuel in the main fuel tank is consumed by 5 liters, if there is fuel in the auxiliary fuel tank, 1 liter of fuel is transferred from the auxiliary fuel tank to the main fuel tank. The simulation continues until the fuel in the main fuel tank is exhausted.
+
+The time complexity is $O(n + m)$, where $n$ and $m$ are the amounts of fuel in the main and auxiliary fuel tanks, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +86,8 @@ class Solution:
                 mainTank += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	cur := 0
@@ -116,6 +145,8 @@ func distanceTraveled(mainTank int, additionalTank int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +170,27 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
+```js
+var distanceTraveled = function (mainTank, additionalTank) {
+    let ans = 0,
+        cur = 0;
+    while (mainTank) {
+        cur++;
+        ans += 10;
+        mainTank--;
+        if (cur % 5 === 0 && additionalTank) {
+            additionalTank--;
+            mainTank++;
+        }
+    }
+    return ans;
+};
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

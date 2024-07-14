@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README.md
+rating: 2308
+source: 第 210 场周赛 Q4
+tags:
+    - 位运算
+    - 树
+    - 动态规划
+    - 状态压缩
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [1617. 统计子树中城市之间最大距离](https://leetcode.cn/problems/count-subtrees-with-max-distance-between-cities)
 
 [English Version](/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README_EN.md)
 
-<!-- tags:位运算,树,动态规划,状态压缩,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你 <code>n</code> 个城市，编号为从 <code>1</code> 到 <code>n</code> 。同时给你一个大小为 <code>n-1</code> 的数组 <code>edges</code> ，其中 <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> 表示城市 <code>u<sub>i</sub></code> 和 <code>v<sub>i</sub></code><sub> </sub>之间有一条双向边。题目保证任意城市之间只有唯一的一条路径。换句话说，所有城市形成了一棵 <strong>树</strong> 。</p>
 
@@ -59,7 +73,11 @@
 	<li>题目保证 <code>(u<sub>i</sub>, v<sub>i</sub>)</code> 所表示的边互不相同。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二进制枚举 + BFS 或 DFS
 
@@ -84,6 +102,8 @@
 时间复杂度 $O(2^n \times n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -118,6 +138,8 @@ class Solution:
                 ans[mx - 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +190,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +236,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	g := make([][]int, n)
@@ -250,6 +276,8 @@ func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubgraphsForEachDiameter(n: number, edges: number[][]): number[] {
@@ -316,9 +344,15 @@ function numberOfLeadingZeros(i: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -359,6 +393,8 @@ class Solution:
                 ans[mx - 1] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -414,6 +450,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -464,6 +502,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	g := make([][]int, n)
@@ -510,6 +550,8 @@ func countSubgraphsForEachDiameter(n int, edges [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubgraphsForEachDiameter(n: number, edges: number[][]): number[] {
@@ -581,4 +623,6 @@ function numberOfLeadingZeros(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

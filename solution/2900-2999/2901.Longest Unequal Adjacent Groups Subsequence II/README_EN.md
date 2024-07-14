@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README_EN.md
+rating: 1898
+source: Biweekly Contest 115 Q3
+tags:
+    - Array
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2901. Longest Unequal Adjacent Groups Subsequence II](https://leetcode.com/problems/longest-unequal-adjacent-groups-subsequence-ii)
 
 [中文文档](/solution/2900-2999/2901.Longest%20Unequal%20Adjacent%20Groups%20Subsequence%20II/README.md)
 
-<!-- tags:Array,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string array <code>words</code>, and an array <code>groups</code>, both arrays having length <code>n</code>.</p>
 
@@ -79,7 +93,11 @@
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -93,11 +111,9 @@ Finally, we find the index $i$ corresponding to the maximum value in the $f$ arr
 
 The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. Here, $L$ represents the maximum length of a word.
 
-**Optimization: Space for Time**
-
-In **Solution 1**, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.
-
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -126,6 +142,8 @@ class Solution:
                 break
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +190,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -212,6 +232,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getWordsInLongestSubsequence(n int, words []string, groups []int) []string {
@@ -261,6 +283,8 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
     const f: number[] = Array(n).fill(1);
@@ -300,20 +324,17 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn get_words_in_longest_subsequence(
         n: i32,
         words: Vec<String>,
-        groups: Vec<i32>
+        groups: Vec<i32>,
     ) -> Vec<String> {
         fn check(s: &str, t: &str) -> bool {
-            s.len() == t.len() &&
-                s
-                    .chars()
-                    .zip(t.chars())
-                    .filter(|(a, b)| a != b)
-                    .count() == 1
+            s.len() == t.len() && s.chars().zip(t.chars()).filter(|(a, b)| a != b).count() == 1
         }
 
         let n = n as usize;
@@ -356,9 +377,17 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming + Hash Table
+
+In Solution 1, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -410,4 +439,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

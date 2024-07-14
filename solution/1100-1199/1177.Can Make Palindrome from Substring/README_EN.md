@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README_EN.md
+rating: 1848
+source: Weekly Contest 152 Q3
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - String
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [1177. Can Make Palindrome from Substring](https://leetcode.com/problems/can-make-palindrome-from-substring)
 
 [中文文档](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md)
 
-<!-- tags:Bit Manipulation,Array,Hash Table,String,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and array <code>queries</code> where <code>queries[i] = [left<sub>i</sub>, right<sub>i</sub>, k<sub>i</sub>]</code>. We may rearrange the substring <code>s[left<sub>i</sub>...right<sub>i</sub>]</code> for each query and then choose up to <code>k<sub>i</sub></code> of them to replace with any lowercase English letter.</p>
 
@@ -45,7 +61,11 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum
 
@@ -56,6 +76,8 @@ Therefore, we define a prefix sum array $ss$, where $ss[i][j]$ represents the nu
 The time complexity is $O((n + m) \times C)$, and the space complexity is $O(n \times C)$. Here, $n$ and $m$ are the lengths of the string $s$ and the query array respectively; and $C$ is the size of the character set. In this problem, the character set is lowercase English letters, so $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +93,8 @@ class Solution:
             ans.append(cnt // 2 <= k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	n := len(s)
@@ -145,6 +173,8 @@ func canMakePaliQueries(s string, queries [][]int) (ans []bool) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
@@ -170,4 +200,6 @@ function canMakePaliQueries(s: string, queries: number[][]): boolean[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

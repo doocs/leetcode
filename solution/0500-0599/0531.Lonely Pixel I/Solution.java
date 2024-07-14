@@ -11,17 +11,14 @@ class Solution {
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
-            if (rows[i] == 1) {
-                for (int j = 0; j < n; ++j) {
-                    if (picture[i][j] == 'B' && cols[j] == 1) {
-                        ++res;
-                        break;
-                    }
+            for (int j = 0; j < n; ++j) {
+                if (picture[i][j] == 'B' && rows[i] == 1 && cols[j] == 1) {
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }

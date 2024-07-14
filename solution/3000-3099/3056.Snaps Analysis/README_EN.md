@@ -1,10 +1,20 @@
-# [3056. Snaps Analysis](https://leetcode.com/problems/snaps-analysis)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3056.Snaps%20Analysis/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [3056. Snaps Analysis 🔒](https://leetcode.com/problems/snaps-analysis)
 
 [中文文档](/solution/3000-3099/3056.Snaps%20Analysis/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Activities</code></p>
 
@@ -94,13 +104,19 @@ For age group 21-25:
 All percentages in output table rounded to the two decimal places.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + Group By Summation
 
 We can perform an equi-join to connect the `Activities` table and the `Age` table based on `user_id`. Then, group by `age_bucket` and finally calculate the percentage of sends and opens for each age group.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -113,6 +129,8 @@ FROM
     JOIN Age USING (user_id)
 GROUP BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -140,4 +158,6 @@ def snap_analysis(activities: pd.DataFrame, age: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

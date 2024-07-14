@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - String Matching
+---
+
+<!-- problem:start -->
+
 # [28. Find the Index of the First Occurrence in a String](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string)
 
 [中文文档](/solution/0000-0099/0028.Find%20the%20Index%20of%20the%20First%20Occurrence%20in%20a%20String/README.md)
 
-<!-- tags:Two Pointers,String,String Matching -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>needle</code> and <code>haystack</code>, return the index of the first occurrence of <code>needle</code> in <code>haystack</code>, or <code>-1</code> if <code>needle</code> is not part of <code>haystack</code>.</p>
 
@@ -34,7 +46,11 @@ The first occurrence is at index 0, so we return 0.
 	<li><code>haystack</code> and <code>needle</code> consist of only lowercase English characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traversal
 
@@ -43,6 +59,8 @@ We compare the string `needle` with each character of the string `haystack` as t
 Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O((n-m) \times m)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -53,6 +71,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func strStr(haystack string, needle string) int {
 	n, m := len(haystack), len(needle)
@@ -148,6 +172,8 @@ func strStr(haystack string, needle string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function strStr(haystack: string, needle: string): number {
@@ -168,6 +194,8 @@ function strStr(haystack: string, needle: string): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -204,6 +232,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} haystack
@@ -229,6 +259,8 @@ var strStr = function (haystack, needle) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int StrStr(string haystack, string needle) {
@@ -245,6 +277,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -271,6 +305,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Rabin-Karp String Matching Algorithm
 
 The [Rabin-Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) essentially uses a sliding window combined with a hash function to compare the hashes of fixed-length strings, which can reduce the time complexity of comparing whether two strings are the same to $O(1)$.
@@ -278,6 +316,8 @@ The [Rabin-Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algo
 Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O(n+m)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func strStr(haystack string, needle string) int {
@@ -308,6 +348,8 @@ func strStr(haystack string, needle string) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function strStr(haystack: string, needle: string): number {
@@ -342,8 +384,14 @@ function strStr(haystack: string, needle: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: KMP String Matching Algorithm
 
 Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O(n+m)$, and the space complexity is $O(m)$.
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

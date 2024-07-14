@@ -1,10 +1,26 @@
-# [1066. Campus Bikes II](https://leetcode.com/problems/campus-bikes-ii)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1066.Campus%20Bikes%20II/README_EN.md
+rating: 1885
+source: Biweekly Contest 1 Q3
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
+<!-- problem:start -->
+
+# [1066. Campus Bikes II 🔒](https://leetcode.com/problems/campus-bikes-ii)
 
 [中文文档](/solution/1000-1099/1066.Campus%20Bikes%20II/README.md)
 
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>On a campus represented as a 2D grid, there are <code>n</code> workers and <code>m</code> bikes, with <code>n &lt;= m</code>. Each worker and bike is a 2D coordinate on this grid.</p>
 
@@ -53,11 +69,17 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 	<li>All the workers and the bikes locations are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +97,8 @@ class Solution:
                         )
         return min(f[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func assignBikes(workers [][]int, bikes [][]int) int {
@@ -158,6 +186,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function assignBikes(workers: number[][], bikes: number[][]): number {
     const n = workers.length;
@@ -183,4 +213,6 @@ function assignBikes(workers: number[][], bikes: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

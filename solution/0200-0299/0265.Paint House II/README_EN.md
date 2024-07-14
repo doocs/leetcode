@@ -1,10 +1,21 @@
-# [265. Paint House II](https://leetcode.com/problems/paint-house-ii)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0265.Paint%20House%20II/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [265. Paint House II 🔒](https://leetcode.com/problems/paint-house-ii)
 
 [中文文档](/solution/0200-0299/0265.Paint%20House%20II/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are a row of <code>n</code> houses, each house can be painted with one of the <code>k</code> colors. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.</p>
 
@@ -48,11 +59,17 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it in <code>O(nk)</code> runtime?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +84,8 @@ class Solution:
             f = g
         return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostII(costs [][]int) int {
@@ -144,4 +167,6 @@ func cp(arr []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

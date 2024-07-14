@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 字符串
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [522. 最长特殊序列 II](https://leetcode.cn/problems/longest-uncommon-subsequence-ii)
 
 [English Version](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README_EN.md)
 
-<!-- tags:数组,哈希表,双指针,字符串,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定字符串列表&nbsp;<code>strs</code> ，返回其中 <strong>最长的特殊序列</strong>&nbsp;的长度。如果最长特殊序列不存在，返回 <code>-1</code> 。</p>
 
@@ -44,128 +56,172 @@
 	<li><code>strs[i]</code>&nbsp;只包含小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：判断子序列
 
-判断是否独有，只需要取字符串 $s$ 本身，与其他字符串比较即可。题目可以转化为：获取**非其他字符串子序列**的字符串的最大长度。若不存在，返回 -1。
+我们定义一个函数 $check(s, t)$，用于判断字符串 $s$ 是否是字符串 $t$ 的子序列。我们可以使用双指针的方法，初始化两个指针 $i$ 和 $j$ 分别指向字符串 $s$ 和字符串 $t$ 的开头，然后不断移动指针 $j$，如果 $s[i]$ 和 $t[j]$ 相等，则移动指针 $i$，最后判断 $i$ 是否等于 $s$ 的长度即可。若 $i$ 等于 $s$ 的长度，则说明 $s$ 是 $t$ 的子序列。
 
-其中，$check(a,b)$ 用于判断字符串 $b$ 是否为字符串 $a$ 的子序列。
+判断字符串 $s$ 是否独有，只需要取字符串 $s$ 本身，与字符串列表的其他字符串比较即可。如果存在 $s$ 是其他字符串的子序列，则 $s$ 不是独有的。否则，字符串 $s$ 是独有的。我们取所有独有字符串中长度最长的字符串即可。
+
+时间复杂度 $O(n^2 \times m)$，其中 $n$ 是字符串列表的长度，而 $m$ 是字符串的平均长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findLUSlength(self, strs: List[str]) -> int:
-        def check(a, b):
+        def check(s: str, t: str):
             i = j = 0
-            while i < len(a) and j < len(b):
-                if a[i] == b[j]:
-                    j += 1
-                i += 1
-            return j == len(b)
+            while i < len(s) and j < len(t):
+                if s[i] == t[j]:
+                    i += 1
+                j += 1
+            return i == len(s)
 
-        n = len(strs)
         ans = -1
-
-        for i in range(n):
-            j = 0
-            while j < n:
-                if i == j or not check(strs[j], strs[i]):
-                    j += 1
-                else:
+        for i, s in enumerate(strs):
+            for j, t in enumerate(strs):
+                if i != j and check(s, t):
                     break
-            if j == n:
-                ans = max(ans, len(strs[i]))
+            else:
+                ans = max(ans, len(s))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int findLUSlength(String[] strs) {
         int ans = -1;
-        for (int i = 0, j = 0, n = strs.length; i < n; ++i) {
+        int n = strs.length;
+        for (int i = 0, j; i < n; ++i) {
+            int x = strs[i].length();
             for (j = 0; j < n; ++j) {
-                if (i == j) {
-                    continue;
-                }
-                if (check(strs[j], strs[i])) {
+                if (i != j && check(strs[i], strs[j])) {
+                    x = -1;
                     break;
                 }
             }
-            if (j == n) {
-                ans = Math.max(ans, strs[i].length());
-            }
+            ans = Math.max(ans, x);
         }
         return ans;
     }
 
-    private boolean check(String a, String b) {
-        int j = 0;
-        for (int i = 0; i < a.length() && j < b.length(); ++i) {
-            if (a.charAt(i) == b.charAt(j)) {
-                ++j;
+    private boolean check(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i = 0;
+        for (int j = 0; i < m && j < n; ++j) {
+            if (s.charAt(i) == t.charAt(j)) {
+                ++i;
             }
         }
-        return j == b.length();
+        return i == m;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int findLUSlength(vector<string>& strs) {
         int ans = -1;
-        for (int i = 0, j = 0, n = strs.size(); i < n; ++i) {
-            for (j = 0; j < n; ++j) {
-                if (i == j) continue;
-                if (check(strs[j], strs[i])) break;
+        int n = strs.size();
+        auto check = [&](const string& s, const string& t) {
+            int m = s.size(), n = t.size();
+            int i = 0;
+            for (int j = 0; i < m && j < n; ++j) {
+                if (s[i] == t[j]) {
+                    ++i;
+                }
             }
-            if (j == n) ans = max(ans, (int) strs[i].size());
+            return i == m;
+        };
+        for (int i = 0, j; i < n; ++i) {
+            int x = strs[i].size();
+            for (j = 0; j < n; ++j) {
+                if (i != j && check(strs[i], strs[j])) {
+                    x = -1;
+                    break;
+                }
+            }
+            ans = max(ans, x);
         }
         return ans;
-    }
-
-    bool check(string a, string b) {
-        int j = 0;
-        for (int i = 0; i < a.size() && j < b.size(); ++i)
-            if (a[i] == b[j]) ++j;
-        return j == b.size();
     }
 };
 ```
 
+#### Go
+
 ```go
 func findLUSlength(strs []string) int {
-	check := func(a, b string) bool {
-		j := 0
-		for i := 0; i < len(a) && j < len(b); i++ {
-			if a[i] == b[j] {
-				j++
+	ans := -1
+	check := func(s, t string) bool {
+		m, n := len(s), len(t)
+		i := 0
+		for j := 0; i < m && j < n; j++ {
+			if s[i] == t[j] {
+				i++
 			}
 		}
-		return j == len(b)
+		return i == m
 	}
-
-	ans := -1
-	for i, j, n := 0, 0, len(strs); i < n; i++ {
-		for j = 0; j < n; j++ {
-			if i == j {
-				continue
-			}
-			if check(strs[j], strs[i]) {
+	for i, s := range strs {
+		x := len(s)
+		for j, t := range strs {
+			if i != j && check(s, t) {
+				x = -1
 				break
 			}
 		}
-		if j == n && ans < len(strs[i]) {
-			ans = len(strs[i])
-		}
+		ans = max(ans, x)
 	}
 	return ans
 }
 ```
 
+#### TypeScript
+
+```ts
+function findLUSlength(strs: string[]): number {
+    const n = strs.length;
+    let ans = -1;
+    const check = (s: string, t: string): boolean => {
+        const [m, n] = [s.length, t.length];
+        let i = 0;
+        for (let j = 0; i < m && j < n; ++j) {
+            if (s[i] === t[j]) {
+                ++i;
+            }
+        }
+        return i === m;
+    };
+    for (let i = 0; i < n; ++i) {
+        let x = strs[i].length;
+        for (let j = 0; j < n; ++j) {
+            if (i !== j && check(strs[i], strs[j])) {
+                x = -1;
+                break;
+            }
+        }
+        ans = Math.max(ans, x);
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
+<!-- problem:start -->
+
 # [526. Beautiful Arrangement](https://leetcode.com/problems/beautiful-arrangement)
 
 [中文文档](/solution/0500-0599/0526.Beautiful%20Arrangement/README.md)
 
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Backtracking,Bitmask -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose you have <code>n</code> integers labeled <code>1</code> through <code>n</code>. A permutation of those <code>n</code> integers <code>perm</code> (<strong>1-indexed</strong>) is considered a <strong>beautiful arrangement</strong> if for every <code>i</code> (<code>1 &lt;= i &lt;= n</code>), <strong>either</strong> of the following is true:</p>
 
@@ -44,11 +58,17 @@ The second beautiful arrangement is [2,1]:
 	<li><code>1 &lt;= n &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +95,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countArrangement(n int) int {
 	ans := 0
@@ -187,6 +213,8 @@ func countArrangement(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countArrangement(n: number): number {
     const vis = new Array(n + 1).fill(0);
@@ -217,6 +245,8 @@ function countArrangement(n: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -255,9 +285,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -283,4 +319,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

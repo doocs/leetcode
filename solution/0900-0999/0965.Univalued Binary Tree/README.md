@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [965. 单值二叉树](https://leetcode.cn/problems/univalued-binary-tree)
 
 [English Version](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果二叉树每个节点都具有相同的值，那么该二叉树就是<em>单值</em>二叉树。</p>
 
@@ -39,11 +50,17 @@
 	<li>每个节点的值都是整数，范围为&nbsp;<code>[0, 99]</code>&nbsp;。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -61,6 +78,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -92,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -117,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -137,6 +160,8 @@ func isUnivalTree(root *TreeNode) bool {
 	return dfs(root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -165,6 +190,8 @@ function isUnivalTree(root: TreeNode | null): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -184,8 +211,8 @@ function isUnivalTree(root: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(val: i32, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if root.is_none() {
@@ -203,4 +230,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

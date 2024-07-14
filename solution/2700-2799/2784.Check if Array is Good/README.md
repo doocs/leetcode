@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README.md
+rating: 1376
+source: 第 109 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2784. 检查数组是否是好的](https://leetcode.cn/problems/check-if-array-is-good)
 
 [English Version](/solution/2700-2799/2784.Check%20if%20Array%20is%20Good/README_EN.md)
 
-<!-- tags:数组,哈希表,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;，如果它是数组&nbsp;<code>base[n]</code>&nbsp;的一个排列，我们称它是个&nbsp;<strong>好</strong>&nbsp;数组。</p>
 
@@ -53,22 +65,36 @@
 	<li><code>1 &lt;= num[i] &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：计数
+
+我们可以用一个哈希表或数组 $cnt$ 记录数组 $nums$ 中每个元素出现的次数。然后我们判断是否满足以下条件：
+
+1. $cnt[n] = 2$，即数组中最大的元素出现了两次；
+2. 对于 $1 \leq i \leq n-1$，均满足 $cnt[i] = 1$，即数组中除了最大的元素外，其他元素都只出现了一次。
+
+如果满足以上两个条件，那么数组 $nums$ 是一个好数组，否则不是。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def isGood(self, nums: List[int]) -> bool:
-        n = len(nums) - 1
         cnt = Counter(nums)
-        cnt[n] -= 2
-        for i in range(1, n):
-            cnt[i] -= 1
-        return all(v == 0 for v in cnt.values())
+        n = len(nums) - 1
+        return cnt[n] == 2 and all(cnt[i] for i in range(1, n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,12 +104,11 @@ class Solution {
         for (int x : nums) {
             ++cnt[x];
         }
-        cnt[n] -= 2;
-        for (int i = 1; i < n; ++i) {
-            cnt[i] -= 1;
+        if (cnt[n] != 2) {
+            return false;
         }
-        for (int x : cnt) {
-            if (x != 0) {
+        for (int i = 1; i < n; ++i) {
+            if (cnt[i] != 1) {
                 return false;
             }
         }
@@ -92,21 +117,22 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool isGood(vector<int>& nums) {
         int n = nums.size() - 1;
-        vector<int> cnt(201);
+        int cnt[201]{};
         for (int x : nums) {
             ++cnt[x];
         }
-        cnt[n] -= 2;
-        for (int i = 1; i < n; ++i) {
-            --cnt[i];
+        if (cnt[n] != 2) {
+            return false;
         }
-        for (int x : cnt) {
-            if (x) {
+        for (int i = 1; i < n; ++i) {
+            if (cnt[i] != 1) {
                 return false;
             }
         }
@@ -115,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isGood(nums []int) bool {
 	n := len(nums) - 1
@@ -122,12 +150,11 @@ func isGood(nums []int) bool {
 	for _, x := range nums {
 		cnt[x]++
 	}
-	cnt[n] -= 2
-	for i := 1; i < n; i++ {
-		cnt[i]--
+	if cnt[n] != 2 {
+		return false
 	}
-	for _, x := range cnt {
-		if x != 0 {
+	for i := 1; i < n; i++ {
+		if cnt[i] != 1 {
 			return false
 		}
 	}
@@ -135,21 +162,52 @@ func isGood(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isGood(nums: number[]): boolean {
     const n = nums.length - 1;
-    const cnt: number[] = new Array(201).fill(0);
+    const cnt: number[] = Array(201).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
-    cnt[n] -= 2;
-    for (let i = 1; i < n; ++i) {
-        cnt[i]--;
+    if (cnt[n] !== 2) {
+        return false;
     }
-    return cnt.every(x => x >= 0);
+    for (let i = 1; i < n; ++i) {
+        if (cnt[i] !== 1) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool IsGood(int[] nums) {
+        int n = nums.Length - 1;
+        int[] cnt = new int[201];
+        foreach (int x in nums) {
+            ++cnt[x];
+        }
+        if (cnt[n] != 2) {
+            return false;
+        }
+        for (int i = 1; i < n; ++i) {
+            if (cnt[i] != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

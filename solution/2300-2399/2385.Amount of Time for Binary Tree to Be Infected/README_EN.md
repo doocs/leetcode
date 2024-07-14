@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README_EN.md
+rating: 1711
+source: Weekly Contest 307 Q3
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Hash Table
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [2385. Amount of Time for Binary Tree to Be Infected](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected)
 
 [中文文档](/solution/2300-2399/2385.Amount%20of%20Time%20for%20Binary%20Tree%20to%20Be%20Infected/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary tree with <strong>unique</strong> values, and an integer <code>start</code>. At minute <code>0</code>, an <strong>infection</strong> starts from the node with value <code>start</code>.</p>
 
@@ -50,11 +66,23 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 	<li>A node with a value of <code>start</code> exists in the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two DFS
+
+First, we build a graph through one DFS, and get an adjacency list $g$, where $g[node]$ represents all nodes connected to the node $node$.
+
+Then, we use $start$ as the starting point, and search the entire tree through DFS to find the farthest distance, which is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -65,33 +93,28 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 #         self.right = right
 class Solution:
     def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
-        def dfs(root):
-            if root is None:
+        def dfs(node: Optional[TreeNode], fa: Optional[TreeNode]):
+            if node is None:
                 return
-            if root.left:
-                g[root.val].append(root.left.val)
-                g[root.left.val].append(root.val)
-            if root.right:
-                g[root.val].append(root.right.val)
-                g[root.right.val].append(root.val)
-            dfs(root.left)
-            dfs(root.right)
+            if fa:
+                g[node.val].append(fa.val)
+                g[fa.val].append(node.val)
+            dfs(node.left, node)
+            dfs(node.right, node)
+
+        def dfs2(node: int, fa: int) -> int:
+            ans = 0
+            for nxt in g[node]:
+                if nxt != fa:
+                    ans = max(ans, 1 + dfs2(nxt, node))
+            return ans
 
         g = defaultdict(list)
-        dfs(root)
-        vis = set()
-        q = deque([start])
-        ans = -1
-        while q:
-            ans += 1
-            for _ in range(len(q)):
-                i = q.popleft()
-                vis.add(i)
-                for j in g[i]:
-                    if j not in vis:
-                        q.append(j)
-        return ans
+        dfs(root, None)
+        return dfs2(start, -1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -113,45 +136,35 @@ class Solution {
     private Map<Integer, List<Integer>> g = new HashMap<>();
 
     public int amountOfTime(TreeNode root, int start) {
-        dfs(root);
-        Deque<Integer> q = new ArrayDeque<>();
-        Set<Integer> vis = new HashSet<>();
-        q.offer(start);
-        int ans = -1;
-        while (!q.isEmpty()) {
-            ++ans;
-            for (int n = q.size(); n > 0; --n) {
-                int i = q.pollFirst();
-                vis.add(i);
-                if (g.containsKey(i)) {
-                    for (int j : g.get(i)) {
-                        if (!vis.contains(j)) {
-                            q.offer(j);
-                        }
-                    }
-                }
+        dfs(root, null);
+        return dfs2(start, -1);
+    }
+
+    private void dfs(TreeNode node, TreeNode fa) {
+        if (node == null) {
+            return;
+        }
+        if (fa != null) {
+            g.computeIfAbsent(node.val, k -> new ArrayList<>()).add(fa.val);
+            g.computeIfAbsent(fa.val, k -> new ArrayList<>()).add(node.val);
+        }
+        dfs(node.left, node);
+        dfs(node.right, node);
+    }
+
+    private int dfs2(int node, int fa) {
+        int ans = 0;
+        for (int nxt : g.getOrDefault(node, List.of())) {
+            if (nxt != fa) {
+                ans = Math.max(ans, 1 + dfs2(nxt, node));
             }
         }
         return ans;
     }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        if (root.left != null) {
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.left.val);
-            g.computeIfAbsent(root.left.val, k -> new ArrayList<>()).add(root.val);
-        }
-        if (root.right != null) {
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.right.val);
-            g.computeIfAbsent(root.right.val, k -> new ArrayList<>()).add(root.val);
-        }
-        dfs(root.left);
-        dfs(root.right);
-    }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -167,44 +180,35 @@ class Solution {
  */
 class Solution {
 public:
-    unordered_map<int, vector<int>> g;
-
     int amountOfTime(TreeNode* root, int start) {
-        dfs(root);
-        queue<int> q{{start}};
-        unordered_set<int> vis;
-        int ans = -1;
-        while (q.size()) {
-            ++ans;
-            for (int n = q.size(); n; --n) {
-                int i = q.front();
-                q.pop();
-                vis.insert(i);
-                for (int j : g[i]) {
-                    if (!vis.count(j)) {
-                        q.push(j);
-                    }
+        unordered_map<int, vector<int>> g;
+        function<void(TreeNode*, TreeNode*)> dfs = [&](TreeNode* node, TreeNode* fa) {
+            if (!node) {
+                return;
+            }
+            if (fa) {
+                g[node->val].push_back(fa->val);
+                g[fa->val].push_back(node->val);
+            }
+            dfs(node->left, node);
+            dfs(node->right, node);
+        };
+        function<int(int, int)> dfs2 = [&](int node, int fa) -> int {
+            int ans = 0;
+            for (int nxt : g[node]) {
+                if (nxt != fa) {
+                    ans = max(ans, 1 + dfs2(nxt, node));
                 }
             }
-        }
-        return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        if (root->left) {
-            g[root->val].push_back(root->left->val);
-            g[root->left->val].push_back(root->val);
-        }
-        if (root->right) {
-            g[root->val].push_back(root->right->val);
-            g[root->right->val].push_back(root->val);
-        }
-        dfs(root->left);
-        dfs(root->right);
+            return ans;
+        };
+        dfs(root, nullptr);
+        return dfs2(start, -1);
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -217,43 +221,33 @@ public:
  */
 func amountOfTime(root *TreeNode, start int) int {
 	g := map[int][]int{}
-	var dfs func(*TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
+	var dfs func(*TreeNode, *TreeNode)
+	dfs = func(node, fa *TreeNode) {
+		if node == nil {
 			return
 		}
-		if root.Left != nil {
-			g[root.Val] = append(g[root.Val], root.Left.Val)
-			g[root.Left.Val] = append(g[root.Left.Val], root.Val)
+		if fa != nil {
+			g[node.Val] = append(g[node.Val], fa.Val)
+			g[fa.Val] = append(g[fa.Val], node.Val)
 		}
-		if root.Right != nil {
-			g[root.Val] = append(g[root.Val], root.Right.Val)
-			g[root.Right.Val] = append(g[root.Right.Val], root.Val)
-		}
-		dfs(root.Left)
-		dfs(root.Right)
+		dfs(node.Left, node)
+		dfs(node.Right, node)
 	}
-
-	dfs(root)
-	q := []int{start}
-	ans := -1
-	vis := map[int]bool{}
-	for len(q) > 0 {
-		ans++
-		for n := len(q); n > 0; n-- {
-			i := q[0]
-			q = q[1:]
-			vis[i] = true
-			for _, j := range g[i] {
-				if !vis[j] {
-					q = append(q, j)
-				}
+	var dfs2 func(int, int) int
+	dfs2 = func(node, fa int) (ans int) {
+		for _, nxt := range g[node] {
+			if nxt != fa {
+				ans = max(ans, 1+dfs2(nxt, node))
 			}
 		}
+		return
 	}
-	return ans
+	dfs(root, nil)
+	return dfs2(start, -1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -271,215 +265,40 @@ func amountOfTime(root *TreeNode, start int) int {
  */
 
 function amountOfTime(root: TreeNode | null, start: number): number {
-    const map = new Map<number, number[]>();
-    const create = ({ val, left, right }: TreeNode) => {
-        if (left != null) {
-            map.set(val, [...(map.get(val) ?? []), left.val]);
-            map.set(left.val, [...(map.get(left.val) ?? []), val]);
-            create(left);
-        }
-        if (right != null) {
-            map.set(val, [...(map.get(val) ?? []), right.val]);
-            map.set(right.val, [...(map.get(right.val) ?? []), val]);
-            create(right);
-        }
-    };
-    create(root);
-    const dfs = (st: number, fa: number) => {
-        let res = 0;
-        for (const v of map.get(st) ?? []) {
-            if (v !== fa) {
-                res = Math.max(res, dfs(v, st) + 1);
-            }
-        }
-        return res;
-    };
-    return dfs(start, -1);
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
-        def dfs(root):
-            if root is None:
-                return
-            if root.left:
-                g[root.val].append(root.left.val)
-                g[root.left.val].append(root.val)
-            if root.right:
-                g[root.val].append(root.right.val)
-                g[root.right.val].append(root.val)
-            dfs(root.left)
-            dfs(root.right)
-
-        def dfs2(i, fa):
-            ans = 0
-            for j in g[i]:
-                if j != fa:
-                    ans = max(ans, 1 + dfs2(j, i))
-            return ans
-
-        g = defaultdict(list)
-        dfs(root)
-        return dfs2(start, -1)
-```
-
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    private Map<Integer, List<Integer>> g = new HashMap<>();
-
-    public int amountOfTime(TreeNode root, int start) {
-        dfs(root);
-        return dfs(start, -1);
-    }
-
-    private int dfs(int i, int fa) {
-        int ans = 0;
-        for (int j : g.getOrDefault(i, Collections.emptyList())) {
-            if (j != fa) {
-                ans = Math.max(ans, 1 + dfs(j, i));
-            }
-        }
-        return ans;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
+    const g: Map<number, number[]> = new Map();
+    const dfs = (node: TreeNode | null, fa: TreeNode | null) => {
+        if (!node) {
             return;
         }
-        if (root.left != null) {
-            g.computeIfAbsent(root.left.val, k -> new ArrayList<>()).add(root.val);
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.left.val);
+        if (fa) {
+            if (!g.has(node.val)) {
+                g.set(node.val, []);
+            }
+            g.get(node.val)!.push(fa.val);
+            if (!g.has(fa.val)) {
+                g.set(fa.val, []);
+            }
+            g.get(fa.val)!.push(node.val);
         }
-        if (root.right != null) {
-            g.computeIfAbsent(root.right.val, k -> new ArrayList<>()).add(root.val);
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.right.val);
-        }
-        dfs(root.left);
-        dfs(root.right);
-    }
-}
-```
-
-```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    unordered_map<int, vector<int>> g;
-
-    int amountOfTime(TreeNode* root, int start) {
-        dfs(root);
-        return dfs(start, -1);
-    }
-
-    int dfs(int i, int fa) {
-        int ans = 0;
-        for (int& j : g[i]) {
-            if (j != fa) {
-                ans = max(ans, 1 + dfs(j, i));
+        dfs(node.left, node);
+        dfs(node.right, node);
+    };
+    const dfs2 = (node: number, fa: number): number => {
+        let ans = 0;
+        for (const nxt of g.get(node) || []) {
+            if (nxt !== fa) {
+                ans = Math.max(ans, 1 + dfs2(nxt, node));
             }
         }
         return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        if (root->left) {
-            g[root->val].push_back(root->left->val);
-            g[root->left->val].push_back(root->val);
-        }
-        if (root->right) {
-            g[root->val].push_back(root->right->val);
-            g[root->right->val].push_back(root->val);
-        }
-        dfs(root->left);
-        dfs(root->right);
-    }
-};
-```
-
-```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-func amountOfTime(root *TreeNode, start int) int {
-	g := map[int][]int{}
-	var dfs func(*TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		if root.Left != nil {
-			g[root.Val] = append(g[root.Val], root.Left.Val)
-			g[root.Left.Val] = append(g[root.Left.Val], root.Val)
-		}
-		if root.Right != nil {
-			g[root.Val] = append(g[root.Val], root.Right.Val)
-			g[root.Right.Val] = append(g[root.Right.Val], root.Val)
-		}
-		dfs(root.Left)
-		dfs(root.Right)
-	}
-
-	var dfs2 func(int, int) int
-	dfs2 = func(i, fa int) int {
-		ans := 0
-		for _, j := range g[i] {
-			if j != fa {
-				ans = max(ans, 1+dfs2(j, i))
-			}
-		}
-		return ans
-	}
-
-	dfs(root)
-	return dfs2(start, -1)
+    };
+    dfs(root, null);
+    return dfs2(start, -1);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

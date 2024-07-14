@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README.md
+rating: 1434
+source: 第 338 场周赛 Q1
+tags:
+    - 贪心
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2600. K 件物品的最大和](https://leetcode.cn/problems/k-items-with-the-maximum-sum)
 
 [English Version](/solution/2600-2699/2600.K%20Items%20With%20the%20Maximum%20Sum/README_EN.md)
 
-<!-- tags:贪心,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>袋子中装有一些物品，每个物品上都标记着数字 <code>1</code> 、<code>0</code> 或 <code>-1</code> 。</p>
 
@@ -50,7 +61,11 @@
 	<li><code>0 &lt;= k &lt;= numOnes + numZeros + numNegOnes</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -66,6 +81,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def kItemsWithMaximumSum(
@@ -77,6 +94,8 @@ class Solution:
             return numOnes
         return numOnes - (k - numOnes - numZeros)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int {
 	if numOnes >= k {
@@ -118,6 +141,8 @@ func kItemsWithMaximumSum(numOnes int, numZeros int, numNegOnes int, k int) int 
 	return numOnes - (k - numOnes - numZeros)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function kItemsWithMaximumSum(
@@ -136,13 +161,15 @@ function kItemsWithMaximumSum(
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn k_items_with_maximum_sum(
         num_ones: i32,
         num_zeros: i32,
         num_neg_ones: i32,
-        k: i32
+        k: i32,
     ) -> i32 {
         if num_ones > k {
             return k;
@@ -156,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -173,4 +202,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md
+rating: 2227
+source: 第 117 场双周赛 Q3
+tags:
+    - 数学
+    - 动态规划
+    - 组合数学
+---
+
+<!-- problem:start -->
+
 # [2930. 重新排列后包含指定子字符串的字符串数目](https://leetcode.cn/problems/number-of-strings-which-can-be-rearranged-to-contain-substring)
 
 [English Version](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README_EN.md)
 
-<!-- tags:数学,动态规划,组合数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;。</p>
 
@@ -51,7 +63,11 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -71,6 +87,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringCount(self, n: int) -> int:
@@ -87,6 +105,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(n, 0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stringCount(n int) int {
@@ -174,6 +198,8 @@ func stringCount(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stringCount(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -201,6 +227,10 @@ function stringCount(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：逆向思维 + 容斥原理
 
 我们可以考虑逆向思维，即计算不包含子字符串 `"leet"` 的字符串数目，然后用总数减去该数目即可。
@@ -223,6 +253,8 @@ function stringCount(n: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringCount(self, n: int) -> int:
@@ -235,6 +267,8 @@ class Solution:
         tot = pow(26, n, mod)
         return (tot - (a + b + c - ab - ac - bc + abc)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +299,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -294,6 +330,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stringCount(n int) int {
 	const mod int = 1e9 + 7
@@ -318,6 +356,8 @@ func stringCount(n int) int {
 	return ((tot-(a+b+c-ab-ac-bc+abc))%mod + mod) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stringCount(n: number): number {
@@ -346,4 +386,6 @@ function stringCount(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

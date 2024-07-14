@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md
+rating: 1768
+source: Weekly Contest 348 Q3
+tags:
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [2718. Sum of Matrix After Queries](https://leetcode.com/problems/sum-of-matrix-after-queries)
 
 [中文文档](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md)
 
-<!-- tags:Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> and a <strong>0-indexed</strong>&nbsp;<strong>2D array</strong> <code>queries</code> where <code>queries[i] = [type<sub>i</sub>, index<sub>i</sub>, val<sub>i</sub>]</code>.</p>
 
@@ -46,7 +59,11 @@
 	<li><code>0 &lt;= val<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -62,6 +79,8 @@ Finally, return the answer.
 The time complexity is $O(m)$, and the space complexity is $O(n)$. Here, $m$ represents the number of queries.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +99,8 @@ class Solution:
                     col.add(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	row, col := map[int]bool{}, map[int]bool{}
@@ -153,6 +178,8 @@ func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function matrixSumQueries(n: number, queries: number[][]): number {
@@ -179,4 +206,6 @@ function matrixSumQueries(n: number, queries: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

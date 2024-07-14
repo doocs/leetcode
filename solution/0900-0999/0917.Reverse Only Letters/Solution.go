@@ -1,18 +1,18 @@
 func reverseOnlyLetters(s string) string {
-	ans := []rune(s)
+	cs := []rune(s)
 	i, j := 0, len(s)-1
 	for i < j {
-		for i < j && !unicode.IsLetter(ans[i]) {
+		for i < j && !unicode.IsLetter(cs[i]) {
 			i++
 		}
-		for i < j && !unicode.IsLetter(ans[j]) {
+		for i < j && !unicode.IsLetter(cs[j]) {
 			j--
 		}
 		if i < j {
-			ans[i], ans[j] = ans[j], ans[i]
+			cs[i], cs[j] = cs[j], cs[i]
 			i++
 			j--
 		}
 	}
-	return string(ans)
+	return string(cs)
 }

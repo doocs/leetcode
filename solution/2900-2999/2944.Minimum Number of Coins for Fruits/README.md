@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README.md
+rating: 1708
+source: 第 118 场双周赛 Q3
+tags:
+    - 队列
+    - 数组
+    - 动态规划
+    - 单调队列
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2944. 购买水果需要的最少金币数](https://leetcode.cn/problems/minimum-number-of-coins-for-fruits)
 
 [English Version](/solution/2900-2999/2944.Minimum%20Number%20of%20Coins%20for%20Fruits/README_EN.md)
 
-<!-- tags:队列,数组,动态规划,单调队列,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你在一个水果超市里，货架上摆满了玲琅满目的奇珍异果。</p>
 
@@ -15,10 +29,10 @@
 <p>水果超市有如下促销活动：</p>
 
 <ul>
-	<li>如果你花费 <code>price[i]</code>&nbsp;购买了水果&nbsp;<code>i</code>&nbsp;，那么接下来的 <code>i</code>&nbsp;个水果你都可以免费获得。</li>
+	<li>如果你花费 <code>price[i]</code>&nbsp;购买了下标为&nbsp;<code>i</code>&nbsp;的水果，那么你可以免费获得下标范围在&nbsp;<code>[i + 1, i + i]</code>&nbsp;的水果。</li>
 </ul>
 
-<p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以便能免费获得接下来的 <code>j</code>&nbsp;个水果。</p>
+<p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以获得它的奖励。</p>
 
 <p>请你返回获得所有水果所需要的 <strong>最少</strong>&nbsp;金币数。</p>
 
@@ -26,29 +40,61 @@
 
 <p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>prices = [3,1,2]
-<b>输出：</b>4
-<b>解释</b><strong>：</strong>你可以按如下方法获得所有水果：
-- 花 3 个金币购买水果 1 ，然后免费获得水果 2 。
-- 花 1 个金币购买水果 2 ，然后免费获得水果 3 。
-- 免费获得水果 3 。
-注意，虽然你可以免费获得水果 2 ，但你还是花 1 个金币去购买它，因为这样的总花费最少。
-购买所有水果需要最少花费 4 个金币。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">prices = [3,1,2]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>用&nbsp;<code>prices[0] = 3</code>&nbsp;个金币购买第 1 个水果，你可以免费获得第 2 个水果。</li>
+	<li>用&nbsp;<code>prices[1] = 1</code>&nbsp;个金币购买第 2 个水果，你可以免费获得第 3 个水果。</li>
+	<li>免费获得第 3 个水果。</li>
+</ul>
+
+<p>请注意，即使您可以免费获得第 2 个水果作为购买第 1 个水果的奖励，但您购买它是为了获得其奖励，这是更优化的。</p>
+</div>
 
 <p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<b>输入：</b>prices = [1,10,1,1]
-<b>输出：</b>2
-<b>解释：</b>你可以按如下方法获得所有水果：
-- 花 1 个金币购买水果 1 ，然后免费获得水果 2 。
-- 免费获得水果 2 。
-- 花 1 个金币购买水果 3 ，然后免费获得水果 4 。
-- 免费获得水果 4 。
-购买所有水果需要最少花费 2 个金币。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">prices = [1,10,1,1]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>用&nbsp;<code>prices[0] = 1</code> 个金币购买第 1 个水果，你可以免费获得第 2 个水果。</li>
+	<li>免费获得第 2 个水果。</li>
+	<li>用&nbsp;<code>prices[2] = 1</code> 个金币购买第 3 个水果，你可以免费获得第 4 个水果。</li>
+	<li>免费获得第 4 个水果。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">prices = [26,18,6,12,49,7,45,45]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">39</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>用&nbsp;<code>prices[0] = 26</code> 个金币购买第 1 个水果，你可以免费获得第 2 个水果。</li>
+	<li>免费获得第 2 个水果。</li>
+	<li>用&nbsp;<code>prices[2] = 6</code> 个金币购买第 3 个水果，你可以免费获得第 4，5，6（接下来的三个）水果。</li>
+	<li>免费获得第 4 个水果。</li>
+	<li>免费获得第 5&nbsp;个水果。</li>
+	<li>用&nbsp;<code>prices[5] = 7</code>&nbsp;个金币购买第 6 个水果，你可以免费获得第 7 和 第 8 个水果。</li>
+	<li>免费获得第 7&nbsp;个水果。</li>
+	<li>免费获得第 8&nbsp;个水果。</li>
+</ul>
+
+<p>请注意，即使您可以免费获得第 6 个水果作为购买第 3 个水果的奖励，但您购买它是为了获得其奖励，这是更优化的。</p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -59,7 +105,11 @@
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -76,6 +126,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -87,6 +139,8 @@ class Solution:
 
         return dfs(1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCoins(prices []int) int {
 	n := len(prices)
@@ -159,6 +217,8 @@ func minimumCoins(prices []int) int {
 	return dfs(1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -182,6 +242,10 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索改写成动态规划的形式。
@@ -196,6 +260,8 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -204,6 +270,8 @@ class Solution:
             prices[i - 1] += min(prices[i : i * 2 + 1])
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -221,6 +289,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -234,6 +304,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCoins(prices []int) int {
 	for i := (len(prices) - 1) / 2; i > 0; i-- {
@@ -242,6 +314,8 @@ func minimumCoins(prices []int) int {
 	return prices[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -254,6 +328,10 @@ function minimumCoins(prices: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：动态规划 + 单调队列优化
 
 我们观察方法二中的状态转移方程，可以发现，对于每个 $i$，我们需要求出 $f[i + 1], f[i + 2], \cdots, f[2i + 1]$ 的最小值，并且随着 $i$ 的减小，这些值的范围也在减小。这实际上是求一个单调收窄的滑动窗口的最小值，我们可以使用单调队列来优化。
@@ -263,6 +341,8 @@ function minimumCoins(prices: number[]): number {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -279,6 +359,8 @@ class Solution:
             q.append(i)
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -302,6 +384,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -324,6 +408,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCoins(prices []int) int {
@@ -402,6 +488,8 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -521,4 +609,6 @@ class Deque<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

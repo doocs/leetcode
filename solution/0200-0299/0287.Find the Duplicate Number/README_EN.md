@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Two Pointers
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number)
 
 [中文文档](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md)
 
-<!-- tags:Bit Manipulation,Array,Two Pointers,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code> containing&nbsp;<code>n + 1</code> integers where each integer is in the range <code>[1, n]</code> inclusive.</p>
 
@@ -27,6 +40,12 @@
 <strong>Output:</strong> 3
 </pre>
 
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,3,3,3,3]
+<strong>Output:</strong> 3</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -45,7 +64,11 @@
 	<li>Can you solve the problem in linear runtime complexity?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -57,6 +80,8 @@ The time complexity is $O(n \times \log n)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
@@ -65,6 +90,8 @@ class Solution:
 
         return bisect_left(range(len(nums)), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicate(nums []int) int {
 	return sort.Search(len(nums), func(x int) bool {
@@ -124,6 +155,8 @@ func findDuplicate(nums []int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDuplicate(nums: number[]): number {
@@ -147,6 +180,8 @@ function findDuplicate(nums: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -156,10 +191,7 @@ impl Solution {
 
         while left < right {
             let mid = (left + right) >> 1;
-            let cnt = nums
-                .iter()
-                .filter(|x| **x <= (mid as i32))
-                .count();
+            let cnt = nums.iter().filter(|x| **x <= (mid as i32)).count();
             if cnt > mid {
                 right = mid;
             } else {
@@ -171,6 +203,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -200,4 +234,6 @@ var findDuplicate = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

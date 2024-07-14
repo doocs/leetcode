@@ -1,20 +1,20 @@
 class Solution {
     public int maxVowels(String s, int k) {
-        int t = 0, n = s.length();
+        int cnt = 0;
         for (int i = 0; i < k; ++i) {
             if (isVowel(s.charAt(i))) {
-                ++t;
+                ++cnt;
             }
         }
-        int ans = t;
-        for (int i = k; i < n; ++i) {
+        int ans = cnt;
+        for (int i = k; i < s.length(); ++i) {
             if (isVowel(s.charAt(i))) {
-                ++t;
+                ++cnt;
             }
             if (isVowel(s.charAt(i - k))) {
-                --t;
+                --cnt;
             }
-            ans = Math.max(ans, t);
+            ans = Math.max(ans, cnt);
         }
         return ans;
     }

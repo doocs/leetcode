@@ -1,19 +1,20 @@
 class Solution {
     public int findMinDifference(List<String> timePoints) {
-        if (timePoints.size() > 24 * 60) {
+        if (timePoints.size() > 1440) {
             return 0;
         }
-        List<Integer> mins = new ArrayList<>();
-        for (String t : timePoints) {
-            String[] time = t.split(":");
-            mins.add(Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]));
+        int n = timePoints.size();
+        int[] nums = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            String[] t = timePoints.get(i).split(":");
+            nums[i] = Integer.parseInt(t[0]) * 60 + Integer.parseInt(t[1]);
         }
-        Collections.sort(mins);
-        mins.add(mins.get(0) + 24 * 60);
-        int res = 24 * 60;
-        for (int i = 1; i < mins.size(); ++i) {
-            res = Math.min(res, mins.get(i) - mins.get(i - 1));
+        Arrays.sort(nums, 0, n);
+        nums[n] = nums[0] + 1440;
+        int ans = 1 << 30;
+        for (int i = 1; i <= n; ++i) {
+            ans = Math.min(ans, nums[i] - nums[i - 1]);
         }
-        return res;
+        return ans;
     }
 }

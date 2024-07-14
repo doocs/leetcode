@@ -1,12 +1,24 @@
-# [465. 最优账单平衡](https://leetcode.cn/problems/optimal-account-balancing)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0465.Optimal%20Account%20Balancing/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
+<!-- problem:start -->
+
+# [465. 最优账单平衡 🔒](https://leetcode.cn/problems/optimal-account-balancing)
 
 [English Version](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README_EN.md)
 
-<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个表示交易的数组 <code>transactions</code> ，其中 <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> 表示 <code>ID = from<sub>i</sub></code> 的人给&nbsp;<code>ID = to<sub>i</sub></code> 的人共计 <code>amount<sub>i</sub> $</code> 。</p>
 
@@ -49,7 +61,11 @@
 	<li><code>1 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划 + 子集枚举
 
@@ -76,6 +92,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTransfers(self, transactions: List[List[int]]) -> int:
@@ -100,6 +118,8 @@ class Solution:
                     j = (j - 1) & i
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +157,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -176,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minTransfers(transactions [][]int) int {
 	g := [12]int{}
@@ -209,6 +233,8 @@ func minTransfers(transactions [][]int) int {
 	return f[1<<m-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minTransfers(transactions: number[][]): number {
@@ -250,4 +276,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

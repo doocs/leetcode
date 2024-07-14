@@ -1,12 +1,23 @@
-# [1243. 数组变换](https://leetcode.cn/problems/array-transformation)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1243.Array%20Transformation/README.md
+rating: 1558
+source: 第 12 场双周赛 Q2
+tags:
+    - 数组
+    - 模拟
+---
+
+<!-- problem:start -->
+
+# [1243. 数组变换 🔒](https://leetcode.cn/problems/array-transformation)
 
 [English Version](/solution/1200-1299/1243.Array%20Transformation/README_EN.md)
 
-<!-- tags:数组,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>首先，给你一个初始数组 <code>arr</code>。然后，每天你都要根据前一天的数组生成一个新的数组。</p>
 
@@ -50,7 +61,11 @@
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -59,6 +74,8 @@
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组长度和数组元素的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +93,8 @@ class Solution:
                     f = True
         return arr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func transformArray(arr []int) []int {
@@ -152,4 +175,6 @@ func transformArray(arr []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

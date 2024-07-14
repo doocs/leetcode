@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2166.Design%20Bitset/README.md
+rating: 1751
+source: 第 279 场周赛 Q3
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2166. 设计位集](https://leetcode.cn/problems/design-bitset)
 
 [English Version](/solution/2100-2199/2166.Design%20Bitset/README_EN.md)
 
-<!-- tags:设计,数组,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>位集 Bitset</strong> 是一种能以紧凑形式存储位的数据结构。</p>
 
@@ -60,11 +73,17 @@ bs.toString(); // 返回 "01010" ，即 bitset 的当前组成情况。
 	<li>至多调用&nbsp;<code>toString</code> 方法 <code>5</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Bitset:
@@ -112,6 +131,8 @@ class Bitset:
 # param_6 = obj.count()
 # param_7 = obj.toString()
 ```
+
+#### Java
 
 ```java
 class Bitset {
@@ -179,6 +200,8 @@ class Bitset {
  */
 ```
 
+#### C++
+
 ```cpp
 class Bitset {
 public:
@@ -234,6 +257,8 @@ public:
  * string param_7 = obj->toString();
  */
 ```
+
+#### Go
 
 ```go
 type Bitset struct {
@@ -300,4 +325,6 @@ func (this *Bitset) ToString() string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

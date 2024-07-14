@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0780.Reaching%20Points/README.md
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [780. 到达终点](https://leetcode.cn/problems/reaching-points)
 
 [English Version](/solution/0700-0799/0780.Reaching%20Points/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定四个整数&nbsp;<code>sx</code>&nbsp;,&nbsp;<code>sy</code>&nbsp;，<code>tx</code>&nbsp;和&nbsp;<code>ty</code>，如果通过一系列的<strong>转换</strong>可以从起点&nbsp;<code>(sx, sy)</code>&nbsp;到达终点&nbsp;<code>(tx, ty)</code>，则返回 <code>true</code>，否则返回&nbsp;<code>false</code>。</p>
 
@@ -48,7 +56,11 @@
 	<li><code>1 &lt;= sx, sy, tx, ty &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向计算
 
@@ -62,6 +74,8 @@
 -   如果 `tx ≠ sx && ty ≠ sy`，则不可以从起点转换到终点。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +93,8 @@ class Solution:
             return tx > sx and (tx - sx) % ty == 0
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reachingPoints(sx int, sy int, tx int, ty int) bool {
@@ -146,4 +166,6 @@ func reachingPoints(sx int, sy int, tx int, ty int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

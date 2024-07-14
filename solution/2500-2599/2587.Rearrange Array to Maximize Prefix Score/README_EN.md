@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README_EN.md
+rating: 1336
+source: Weekly Contest 336 Q2
+tags:
+    - Greedy
+    - Array
+    - Prefix Sum
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [2587. Rearrange Array to Maximize Prefix Score](https://leetcode.com/problems/rearrange-array-to-maximize-prefix-score)
 
 [中文文档](/solution/2500-2599/2587.Rearrange%20Array%20to%20Maximize%20Prefix%20Score/README.md)
 
-<!-- tags:Greedy,Array,Prefix Sum,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. You can rearrange the elements of <code>nums</code> to <strong>any order</strong> (including the given order).</p>
 
@@ -39,7 +54,11 @@ It can be shown that 6 is the maximum score we can obtain.
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -50,6 +69,8 @@ Otherwise, after the traversal, we return the length of the array.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +83,8 @@ class Solution:
                 return i
         return len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScore(nums []int) int {
 	sort.Ints(nums)
@@ -113,6 +140,8 @@ func maxScore(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxScore(nums: number[]): number {
     nums.sort((a, b) => a - b);
@@ -127,6 +156,8 @@ function maxScore(nums: number[]): number {
     return n;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -146,4 +177,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

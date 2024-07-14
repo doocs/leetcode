@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0125.Valid%20Palindrome/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [125. 验证回文串](https://leetcode.cn/problems/valid-palindrome)
 
 [English Version](/solution/0100-0199/0125.Valid%20Palindrome/README_EN.md)
 
-<!-- tags:双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 <strong>回文串</strong> 。</p>
 
@@ -50,7 +59,11 @@
 	<li><code>s</code> 仅由可打印的 ASCII 字符组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -67,6 +80,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPalindrome(self, s: str) -> bool:
@@ -82,6 +97,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPalindrome(s string) bool {
@@ -155,6 +176,8 @@ func tolower(ch byte) byte {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPalindrome(s: string): boolean {
     let i = 0;
@@ -174,6 +197,8 @@ function isPalindrome(s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -202,6 +227,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -226,6 +253,8 @@ var isPalindrome = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsPalindrome(string s) {
@@ -243,6 +272,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -270,4 +301,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

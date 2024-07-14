@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0134.Gas%20Station/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [134. 加油站](https://leetcode.cn/problems/gas-station)
 
 [English Version](/solution/0100-0199/0134.Gas%20Station/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一条环路上有 <code>n</code>&nbsp;个加油站，其中第 <code>i</code>&nbsp;个加油站有汽油&nbsp;<code>gas[i]</code><em>&nbsp;</em>升。</p>
 
@@ -54,7 +63,11 @@
 	<li><code>0 &lt;= gas[i], cost[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：从任意起点开始遍历
 
@@ -67,6 +80,8 @@
 时间复杂度 $O(n)$，其中 $n$ 表示加油站的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +99,8 @@ class Solution:
                 cnt += 1
         return -1 if s < 0 else i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canCompleteCircuit(gas []int, cost []int) int {
 	n := len(gas)
@@ -150,6 +171,8 @@ func canCompleteCircuit(gas []int, cost []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCompleteCircuit(gas: number[], cost: number[]): number {
     const n = gas.length;
@@ -170,6 +193,8 @@ function canCompleteCircuit(gas: number[], cost: number[]): number {
     return s < 0 ? -1 : i;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -194,4 +219,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

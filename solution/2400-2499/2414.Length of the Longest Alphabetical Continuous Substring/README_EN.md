@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2414.Length%20of%20the%20Longest%20Alphabetical%20Continuous%20Substring/README_EN.md
+rating: 1221
+source: Weekly Contest 311 Q2
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [2414. Length of the Longest Alphabetical Continuous Substring](https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring)
 
 [中文文档](/solution/2400-2499/2414.Length%20of%20the%20Longest%20Alphabetical%20Continuous%20Substring/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>An <strong>alphabetical continuous string</strong> is a string consisting of consecutive letters in the alphabet. In other words, it is any substring of the string <code>&quot;abcdefghijklmnopqrstuvwxyz&quot;</code>.</p>
 
@@ -40,7 +52,11 @@
 	<li><code>s</code> consists of only English lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -49,6 +65,8 @@ We use two pointers $i$ and $j$ to point to the start and end of the current con
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +81,8 @@ class Solution:
         ans = max(ans, j - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestContinuousSubstring(s string) int {
 	ans := 0
@@ -114,6 +138,8 @@ func longestContinuousSubstring(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestContinuousSubstring(s: string): number {
     const n = s.length;
@@ -128,6 +154,8 @@ function longestContinuousSubstring(s: string): number {
     return Math.max(res, n - i);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -146,6 +174,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -166,4 +196,6 @@ int longestContinuousSubstring(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

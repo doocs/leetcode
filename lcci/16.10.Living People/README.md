@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.10.Living%20People/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 16.10. 生存人数](https://leetcode.cn/problems/living-people-lcci)
 
 [English Version](/lcci/16.10.Living%20People/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定N个人的出生年份和死亡年份，第<code>i</code>个人的出生年份为<code>birth[i]</code>，死亡年份为<code>death[i]</code>，实现一个方法以计算生存人数最多的年份。</p>
 <p>你可以假设所有人都出生于1900年至2000年（含1900和2000）之间。如果一个人在某一年的任意时期都处于生存状态，那么他们应该被纳入那一年的统计中。例如，生于1908年、死于1909年的人应当被列入1908年和1909年的计数。</p>
@@ -21,7 +29,11 @@ death = {1948, 1951, 2000}
 <li><code>birth[i] <= death[i]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -34,6 +46,8 @@ death = {1948, 1951, 2000}
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是出生年份和死亡年份的长度，而 $C$ 是年份的范围。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -52,6 +66,8 @@ class Solution:
                 ans = base + i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAliveYear(birth []int, death []int) (ans int) {
 	base := 1900
@@ -126,6 +146,8 @@ func maxAliveYear(birth []int, death []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxAliveYear(birth: number[], death: number[]): number {
     const base = 1900;
@@ -147,6 +169,8 @@ function maxAliveYear(birth: number[], death: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +197,39 @@ impl Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func maxAliveYear(_ birth: [Int], _ death: [Int]) -> Int {
+        let base = 1900
+        var delta = Array(repeating: 0, count: 102) // Array to hold the changes
+
+        for i in 0..<birth.count {
+            let start = birth[i] - base
+            let end = death[i] - base
+            delta[start] += 1
+            if end + 1 < delta.count {
+                delta[end + 1] -= 1
+            }
+        }
+
+        var maxAlive = 0, currentAlive = 0, maxYear = 0
+        for year in 0..<delta.count {
+            currentAlive += delta[year]
+            if currentAlive > maxAlive {
+                maxAlive = currentAlive
+                maxYear = year + base
+            }
+        }
+
+        return maxYear
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

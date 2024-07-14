@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 16.15. 珠玑妙算](https://leetcode.cn/problems/master-mind-lcci)
 
 [English Version](/lcci/16.15.Master%20Mind/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>珠玑妙算游戏（the game of master mind）的玩法如下。</p>
 <p>计算机有4个槽，每个槽放一个球，颜色可能是红色（R）、黄色（Y）、绿色（G）或蓝色（B）。例如，计算机可能有RGGB 4种（槽1为红色，槽2、3为绿色，槽4为蓝色）。作为用户，你试图猜出颜色组合。打个比方，你可能会猜YRGB。要是猜对某个槽的颜色，则算一次“猜中”；要是只猜对颜色但槽位猜错了，则算一次“伪猜中”。注意，“猜中”不能算入“伪猜中”。</p>
 <p>给定一种颜色组合<code>solution</code>和一个猜测<code>guess</code>，编写一个方法，返回猜中和伪猜中的次数<code>answer</code>，其中<code>answer[0]</code>为猜中的次数，<code>answer[1]</code>为伪猜中的次数。</p>
@@ -19,17 +28,23 @@
 <li><code>solution</code>和<code>guess</code>仅包含<code>"R"</code>,<code>"G"</code>,<code>"B"</code>,<code>"Y"</code>这4种字符</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
-同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 $cnt1$ 和 $cnt2$ 中。
+我们同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 $cnt1$ 和 $cnt2$ 中。
 
 接着遍历两个哈希表，算出有多少共同出现的字符，累加到 $y$ 中。那么答案就是 $[x, y - x]$。
 
 时间复杂度 $O(C)$，空间复杂度 $O(C)$。本题中 $C=4$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -38,6 +53,8 @@ class Solution:
         y = sum((Counter(solution) & Counter(guess)).values())
         return [x, y - x]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -59,6 +76,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -76,6 +95,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func masterMind(solution string, guess string) []int {
@@ -97,6 +118,8 @@ func masterMind(solution string, guess string) []int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} solution
@@ -108,20 +131,53 @@ var masterMind = function (solution, guess) {
     let counts2 = { R: 0, G: 0, B: 0, Y: 0 };
     let res1 = 0;
     for (let i = 0; i < solution.length; i++) {
-        let s1 = solution.charAt(i),
-            s2 = guess.charAt(i);
-        if (s1 == s2) {
+        let s1 = solution[i],
+            s2 = guess[i];
+        if (s1 === s2) {
             res1++;
         } else {
             counts1[s1] += 1;
             counts2[s2] += 1;
         }
     }
-    let res2 = ['R', 'G', 'B', 'Y'].reduce((a, c) => a + Math.min(counts1[c], counts2[c]), 0);
+    let res2 = Object.keys(counts1).reduce((a, c) => a + Math.min(counts1[c], counts2[c]), 0);
     return [res1, res2];
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func masterMind(_ solution: String, _ guess: String) -> [Int] {
+        var x = 0
+        var y = 0
+        var cnt1: [Character: Int] = [:]
+        var cnt2: [Character: Int] = [:]
+
+        for i in solution.indices {
+            let a = solution[i]
+            let b = guess[i]
+            if a == b {
+                x += 1
+            }
+            cnt1[a, default: 0] += 1
+            cnt2[b, default: 0] += 1
+        }
+
+        let colors = "RYGB"
+        for c in colors {
+            let minCount = min(cnt1[c, default: 0], cnt2[c, default: 0])
+            y += minCount
+        }
+
+        return [x, y - x]
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

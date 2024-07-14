@@ -1,10 +1,20 @@
-# [163. Missing Ranges](https://leetcode.com/problems/missing-ranges)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0163.Missing%20Ranges/README_EN.md
+tags:
+    - Array
+---
+
+<!-- problem:start -->
+
+# [163. Missing Ranges 🔒](https://leetcode.com/problems/missing-ranges)
 
 [中文文档](/solution/0100-0199/0163.Missing%20Ranges/README.md)
 
-<!-- tags:Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an inclusive range <code>[lower, upper]</code> and a <strong>sorted unique</strong> integer array <code>nums</code>, where all elements are within the inclusive range.</p>
 
@@ -45,7 +55,11 @@
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -54,6 +68,8 @@ We can simulate the problem directly according to the requirements.
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +89,8 @@ class Solution:
             ans.append([nums[-1] + 1, upper])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	n := len(nums)
@@ -143,6 +165,8 @@ func findMissingRanges(nums []int, lower int, upper int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMissingRanges(nums: number[], lower: number, upper: number): number[][] {
@@ -168,4 +192,6 @@ function findMissingRanges(nums: number[], lower: number, upper: number): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

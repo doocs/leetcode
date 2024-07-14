@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [1. Two Sum](https://leetcode.com/problems/two-sum)
 
 [中文文档](/solution/0000-0099/0001.Two%20Sum/README.md)
 
-<!-- tags:Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code>&nbsp;and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.</p>
 
@@ -48,7 +59,11 @@
 <p>&nbsp;</p>
 <strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -60,6 +75,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$. Where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -70,6 +87,8 @@ class Solution:
                 return [m[y], i]
             m[x] = i
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoSum(nums []int, target int) []int {
 	m := map[int]int{}
@@ -117,6 +140,8 @@ func twoSum(nums []int, target int) []int {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function twoSum(nums: number[], target: number): number[] {
@@ -135,24 +160,27 @@ function twoSum(nums: number[], target: number): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut map = HashMap::new();
-        for (i, item) in nums.iter().enumerate() {
-            if map.contains_key(item) {
-                return vec![i as i32, map[item]];
-            } else {
-                let x = target - nums[i];
-                map.insert(x, i as i32);
+        let mut m = HashMap::new();
+        for (i, &x) in nums.iter().enumerate() {
+            let y = target - x;
+            if let Some(&j) = m.get(&y) {
+                return vec![j as i32, i as i32];
             }
+            m.insert(x, i as i32);
         }
         unreachable!()
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -173,6 +201,8 @@ var twoSum = function (nums, target) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
@@ -191,6 +221,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -199,16 +231,19 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-        foreach ($nums as $key => $x) {
+        $m = [];
+        foreach ($nums as $i => $x) {
             $y = $target - $x;
-            if (isset($hashtable[$y])) {
-                return [$hashtable[$y], $key];
+            if (isset($m[$y])) {
+                return [$m[$y], $i];
             }
-            $hashtable[$x] = $key;
+            $m[$x] = $i;
         }
     }
 }
 ```
+
+#### Scala
 
 ```scala
 import scala.collection.mutable
@@ -228,6 +263,8 @@ object Solution {
 }
 ```
 
+#### Swift
+
 ```swift
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
@@ -246,6 +283,8 @@ class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # @param {Integer[]} nums
 # @param {Integer} target
@@ -259,6 +298,8 @@ def two_sum(nums, target)
   end
 end
 ```
+
+#### Nim
 
 ```nim
 import std/enumerate
@@ -277,4 +318,6 @@ proc twoSum(nums: seq[int], target: int): seq[int] =
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

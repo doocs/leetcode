@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md
+rating: 1221
+source: Weekly Contest 218 Q1
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [1678. Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation)
 
 [中文文档](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You own a <strong>Goal Parser</strong> that can interpret a string <code>command</code>. The <code>command</code> consists of an alphabet of <code>&quot;G&quot;</code>, <code>&quot;()&quot;</code> and/or <code>&quot;(al)&quot;</code> in some order. The Goal Parser will interpret <code>&quot;G&quot;</code> as the string <code>&quot;G&quot;</code>, <code>&quot;()&quot;</code> as the string <code>&quot;o&quot;</code>, and <code>&quot;(al)&quot;</code> as the string <code>&quot;al&quot;</code>. The interpreted strings are then concatenated in the original order.</p>
 
@@ -45,7 +57,11 @@ The final concatenated result is &quot;Goal&quot;.
 	<li><code>command</code> consists of <code>&quot;G&quot;</code>, <code>&quot;()&quot;</code>, and/or <code>&quot;(al)&quot;</code> in some order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: String Replacement
 
@@ -53,11 +69,15 @@ According to the problem, we only need to replace `"()"` with `'o'` and `"(al)"`
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
         return command.replace('()', 'o').replace('(al)', 'al')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -66,6 +86,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -78,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func interpret(command string) string {
 	command = strings.ReplaceAll(command, "()", "o")
@@ -86,11 +110,15 @@ func interpret(command string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function interpret(command: string): string {
     return command.replace(/\(\)/g, 'o').replace(/\(al\)/g, 'al');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -99,6 +127,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* interpret(char* command) {
@@ -125,6 +155,10 @@ char* interpret(char* command) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: String Iteration
 
 We can also iterate over the string `command`. For each character $c$:
@@ -138,6 +172,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
@@ -149,6 +185,8 @@ class Solution:
                 ans.append('o' if command[i + 1] == ')' else 'al')
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -167,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -183,6 +223,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func interpret(command string) string {
@@ -202,6 +244,8 @@ func interpret(command string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function interpret(command: string): string {
     const n = command.length;
@@ -218,6 +262,8 @@ function interpret(command: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn interpret(command: String) -> String {
@@ -229,7 +275,11 @@ impl Solution {
             }
             if bs[i] == b'(' {
                 ans.push_str({
-                    if bs[i + 1] == b')' { "o" } else { "al" }
+                    if bs[i + 1] == b')' {
+                        "o"
+                    } else {
+                        "al"
+                    }
                 });
             }
         }
@@ -240,4 +290,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

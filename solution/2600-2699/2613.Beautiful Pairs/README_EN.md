@@ -1,10 +1,25 @@
-# [2613. Beautiful Pairs](https://leetcode.com/problems/beautiful-pairs)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2613.Beautiful%20Pairs/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Divide and Conquer
+    - Ordered Set
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [2613. Beautiful Pairs 🔒](https://leetcode.com/problems/beautiful-pairs)
 
 [中文文档](/solution/2600-2699/2613.Beautiful%20Pairs/README.md)
 
-<!-- tags:Geometry,Array,Math,Divide and Conquer,Ordered Set,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of the same length. A pair of indices <code>(i,j)</code> is called <strong>beautiful</strong> if<code>|nums1[i] - nums1[j]| + |nums2[i] - nums2[j]|</code> is the smallest amongst all possible indices pairs where <code>i &lt; j</code>.</p>
 
@@ -44,7 +59,11 @@
 	<li><code>0 &lt;= nums2<sub>i</sub>&nbsp;&lt;= nums2.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Divide and Conquer
 
@@ -65,6 +84,8 @@ Time complexity: $O(n \times \log n)$, where $n$ is the length of the array.
 Space complexity: $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +126,8 @@ class Solution:
         _, pi, pj = dfs(0, len(points) - 1)
         return [pi, pj]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -173,6 +196,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -243,6 +268,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautifulPair(nums1 []int, nums2 []int) []int {
 	n := len(nums1)
@@ -310,6 +337,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 function beautifulPair(nums1: number[], nums2: number[]): number[] {
@@ -382,4 +411,6 @@ function f(x: number, y: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

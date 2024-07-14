@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1995.Count%20Special%20Quadruplets/README_EN.md
+rating: 1352
+source: Weekly Contest 257 Q1
+tags:
+    - Array
+    - Hash Table
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [1995. Count Special Quadruplets](https://leetcode.com/problems/count-special-quadruplets)
 
 [中文文档](/solution/1900-1999/1995.Count%20Special%20Quadruplets/README.md)
 
-<!-- tags:Array,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, return <em>the number of <strong>distinct</strong> quadruplets</em> <code>(a, b, c, d)</code> <em>such that:</em></p>
 
@@ -50,11 +64,17 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +88,8 @@ class Solution:
                             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countQuadruplets(nums []int) int {
@@ -124,9 +150,15 @@ func countQuadruplets(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -140,6 +172,8 @@ class Solution:
                     ans += counter[nums[a] + nums[b] + nums[c]]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -159,6 +193,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +213,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countQuadruplets(nums []int) int {
@@ -196,9 +234,15 @@ func countQuadruplets(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -213,6 +257,8 @@ class Solution:
                 ans += counter[nums[a] + nums[b]]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +281,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -256,6 +304,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countQuadruplets(nums []int) int {
@@ -278,4 +328,6 @@ func countQuadruplets(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

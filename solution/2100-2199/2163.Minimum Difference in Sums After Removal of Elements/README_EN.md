@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README_EN.md
+rating: 2225
+source: Biweekly Contest 71 Q4
+tags:
+    - Array
+    - Dynamic Programming
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2163. Minimum Difference in Sums After Removal of Elements](https://leetcode.com/problems/minimum-difference-in-sums-after-removal-of-elements)
 
 [中文文档](/solution/2100-2199/2163.Minimum%20Difference%20in%20Sums%20After%20Removal%20of%20Elements/README.md)
 
-<!-- tags:Array,Dynamic Programming,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> consisting of <code>3 * n</code> elements.</p>
 
@@ -58,11 +72,25 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Priority Queue (Max and Min Heap) + Prefix and Suffix Sum + Enumeration of Split Points
+
+The problem is essentially equivalent to finding a split point in $nums$, dividing the array into two parts. In the first part, select the smallest $n$ elements, and in the second part, select the largest $n$ elements, so that the difference between the sums of the two parts is minimized.
+
+We can use a max heap to maintain the smallest $n$ elements in the prefix, and a min heap to maintain the largest $n$ elements in the suffix. We define $pre[i]$ as the sum of the smallest $n$ elements among the first $i$ elements of the array $nums$, and $suf[i]$ as the sum of the largest $n$ elements from the $i$-th element to the last element of the array. During the process of maintaining the max and min heaps, update the values of $pre[i]$ and $suf[i]$.
+
+Finally, we enumerate the split points in the range of $i \in [n, 2n]$, calculate the value of $pre[i] - suf[i + 1]$, and take the minimum value.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +121,8 @@ class Solution:
 
         return min(pre[i] - suf[i + 1] for i in range(n, n * 2 + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +161,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -174,6 +206,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDifference(nums []int) int64 {
@@ -222,6 +256,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumDifference(nums: number[]): number {
     const m = nums.length;
@@ -260,4 +296,6 @@ function minimumDifference(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

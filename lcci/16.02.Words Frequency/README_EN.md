@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.02.Words%20Frequency/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.02. Words Frequency](https://leetcode.cn/problems/words-frequency-lcci)
 
 [中文文档](/lcci/16.02.Words%20Frequency/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Design a method to find the frequency of occurrences of any given word in a book. What if we were running this algorithm multiple times?</p>
 
@@ -40,7 +50,11 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
     <li><code>get</code>&nbsp;function will not be called more than&nbsp;100000 times.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -51,6 +65,8 @@ When calling the `get` function, we only need to return the number of occurrence
 In terms of time complexity, the time complexity of initializing the hash table $cnt$ is $O(n)$, where $n$ is the length of $book$. The time complexity of the `get` function is $O(1)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class WordsFrequency:
@@ -65,6 +81,8 @@ class WordsFrequency:
 # obj = WordsFrequency(book)
 # param_1 = obj.get(word)
 ```
+
+#### Java
 
 ```java
 class WordsFrequency {
@@ -87,6 +105,8 @@ class WordsFrequency {
  * int param_1 = obj.get(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class WordsFrequency {
@@ -112,6 +132,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type WordsFrequency struct {
 	cnt map[string]int
@@ -135,6 +157,8 @@ func (this *WordsFrequency) Get(word string) int {
  * param_1 := obj.Get(word);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class WordsFrequency {
@@ -160,6 +184,8 @@ class WordsFrequency {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 struct WordsFrequency {
@@ -182,12 +208,10 @@ impl WordsFrequency {
     fn get(&self, word: String) -> i32 {
         *self.cnt.get(&word).unwrap_or(&0)
     }
-}/**
- * Your WordsFrequency object will be instantiated and called as such:
- * let obj = WordsFrequency::new(book);
- * let ret_1: i32 = obj.get(word);
- */
+}
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -215,6 +239,26 @@ WordsFrequency.prototype.get = function (word) {
  */
 ```
 
+#### Swift
+
+```swift
+class WordsFrequency {
+    private var cnt: [String: Int] = [:]
+
+    init(_ book: [String]) {
+        for word in book {
+            cnt[word, default: 0] += 1
+        }
+    }
+
+    func get(_ word: String) -> Int {
+        return cnt[word, default: 0]
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README_EN.md
+tags:
+    - Tree
+    - Design
+    - Binary Search Tree
+    - Binary Tree
+    - Data Stream
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream)
 
 [中文文档](/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README.md)
 
-<!-- tags:Tree,Design,Binary Search Tree,Binary Tree,Data Stream,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a class to find the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
 
@@ -46,25 +61,42 @@ kthLargest.add(4);   // return 8
 	<li>It is guaranteed that there will be at least <code>k</code> elements in the array when you search for the <code>k<sup>th</sup></code> element.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Priority Queue (Min Heap)
+
+We maintain a priority queue (min heap) $\textit{minQ}$.
+
+Initially, we add the elements of the array $\textit{nums}$ to $\textit{minQ}$ one by one, ensuring that the size of $\textit{minQ}$ does not exceed $k$. The time complexity is $O(n \times \log k)$.
+
+Each time a new element is added, if the size of $\textit{minQ}$ exceeds $k$, we pop the top element of the heap to ensure that the size of $\textit{minQ}$ is $k$. The time complexity is $O(\log k)$.
+
+In this way, the elements in $\textit{minQ}$ are the largest $k$ elements in the array $\textit{nums}$, and the top element of the heap is the $k^{th}$ largest element.
+
+The space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class KthLargest:
+
     def __init__(self, k: int, nums: List[int]):
-        self.q = []
-        self.size = k
-        for num in nums:
-            self.add(num)
+        self.k = k
+        self.min_q = []
+        for x in nums:
+            self.add(x)
 
     def add(self, val: int) -> int:
-        heappush(self.q, val)
-        if len(self.q) > self.size:
-            heappop(self.q)
-        return self.q[0]
+        heappush(self.min_q, val)
+        if len(self.min_q) > self.k:
+            heappop(self.min_q)
+        return self.min_q[0]
 
 
 # Your KthLargest object will be instantiated and called as such:
@@ -72,25 +104,27 @@ class KthLargest:
 # param_1 = obj.add(val)
 ```
 
+#### Java
+
 ```java
 class KthLargest {
-    private PriorityQueue<Integer> q;
-    private int size;
+    private PriorityQueue<Integer> minQ;
+    private int k;
 
     public KthLargest(int k, int[] nums) {
-        q = new PriorityQueue<>(k);
-        size = k;
-        for (int num : nums) {
-            add(num);
+        this.k = k;
+        minQ = new PriorityQueue<>(k);
+        for (int x : nums) {
+            add(x);
         }
     }
 
     public int add(int val) {
-        q.offer(val);
-        if (q.size() > size) {
-            q.poll();
+        minQ.offer(val);
+        if (minQ.size() > k) {
+            minQ.poll();
         }
-        return q.peek();
+        return minQ.peek();
     }
 }
 
@@ -101,22 +135,29 @@ class KthLargest {
  */
 ```
 
+#### C++
+
 ```cpp
 class KthLargest {
 public:
-    priority_queue<int, vector<int>, greater<int>> q;
-    int size;
-
     KthLargest(int k, vector<int>& nums) {
-        size = k;
-        for (int num : nums) add(num);
+        this->k = k;
+        for (int x : nums) {
+            add(x);
+        }
     }
 
     int add(int val) {
-        q.push(val);
-        if (q.size() > size) q.pop();
-        return q.top();
+        minQ.push(val);
+        if (minQ.size() > k) {
+            minQ.pop();
+        }
+        return minQ.top();
     }
+
+private:
+    int k;
+    priority_queue<int, vector<int>, greater<int>> minQ;
 };
 
 /**
@@ -126,73 +167,43 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type KthLargest struct {
-	h *IntHeap
-	k int
+	k    int
+	minQ hp
 }
 
 func Constructor(k int, nums []int) KthLargest {
-	h := &IntHeap{}
-	heap.Init(h)
-	for _, v := range nums {
-		heap.Push(h, v)
+	minQ := hp{}
+	this := KthLargest{k, minQ}
+	for _, x := range nums {
+		this.Add(x)
 	}
-
-	for h.Len() > k {
-		heap.Pop(h)
-	}
-
-	return KthLargest{
-		h: h,
-		k: k,
-	}
+	return this
 }
 
 func (this *KthLargest) Add(val int) int {
-	heap.Push(this.h, val)
-	for this.h.Len() > this.k {
-		heap.Pop(this.h)
+	heap.Push(&this.minQ, val)
+	if this.minQ.Len() > this.k {
+		heap.Pop(&this.minQ)
 	}
-
-	return this.h.Top()
+	return this.minQ.IntSlice[0]
 }
 
-func connectSticks(sticks []int) int {
-	h := IntHeap(sticks)
-	heap.Init(&h)
-	res := 0
-	for h.Len() > 1 {
-		val := heap.Pop(&h).(int)
-		val += heap.Pop(&h).(int)
-		res += val
-		heap.Push(&h, val)
-	}
-	return res
-}
+type hp struct{ sort.IntSlice }
 
-type IntHeap []int
-
-func (h IntHeap) Len() int           { return len(h) }
-func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
-func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *IntHeap) Push(x any) {
-	*h = append(*h, x.(int))
-}
-func (h *IntHeap) Pop() any {
-	old := *h
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Pop() interface{} {
+	old := h.IntSlice
 	n := len(old)
 	x := old[n-1]
-	*h = old[0 : n-1]
+	h.IntSlice = old[0 : n-1]
 	return x
 }
-
-func (h *IntHeap) Top() int {
-	if (*h).Len() == 0 {
-		return 0
-	}
-
-	return (*h)[0]
+func (h *hp) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
 }
 
 /**
@@ -202,113 +213,26 @@ func (h *IntHeap) Top() int {
  */
 ```
 
-```js
-/**
- * @param {number} k
- * @param {number[]} nums
- */
-var KthLargest = function (k, nums) {
-    this.k = k;
-    this.heap = new MinHeap();
-    for (let num of nums) {
-        this.add(num);
-    }
-};
+#### TypeScript
 
-/**
- * @param {number} val
- * @return {number}
- */
-KthLargest.prototype.add = function (val) {
-    this.heap.offer(val);
-    if (this.heap.size() > this.k) {
-        this.heap.poll();
-    }
-    return this.heap.peek();
-};
+```ts
+class KthLargest {
+    #k: number = 0;
+    #minQ = new MinPriorityQueue();
 
-class MinHeap {
-    constructor(data = []) {
-        this.data = data;
-        this.comparator = (a, b) => a - b;
-        this.heapify();
-    }
-
-    heapify() {
-        if (this.size() < 2) return;
-        for (let i = 1; i < this.size(); i++) {
-            this.bubbleUp(i);
+    constructor(k: number, nums: number[]) {
+        this.#k = k;
+        for (const x of nums) {
+            this.add(x);
         }
     }
 
-    peek() {
-        if (this.size() === 0) return null;
-        return this.data[0];
-    }
-
-    offer(value) {
-        this.data.push(value);
-        this.bubbleUp(this.size() - 1);
-    }
-
-    poll() {
-        if (this.size() === 0) {
-            return null;
+    add(val: number): number {
+        this.#minQ.enqueue(val);
+        if (this.#minQ.size() > this.#k) {
+            this.#minQ.dequeue();
         }
-        const result = this.data[0];
-        const last = this.data.pop();
-        if (this.size() !== 0) {
-            this.data[0] = last;
-            this.bubbleDown(0);
-        }
-        return result;
-    }
-
-    bubbleUp(index) {
-        while (index > 0) {
-            const parentIndex = (index - 1) >> 1;
-            if (this.comparator(this.data[index], this.data[parentIndex]) < 0) {
-                this.swap(index, parentIndex);
-                index = parentIndex;
-            } else {
-                break;
-            }
-        }
-    }
-
-    bubbleDown(index) {
-        const lastIndex = this.size() - 1;
-        while (true) {
-            const leftIndex = index * 2 + 1;
-            const rightIndex = index * 2 + 2;
-            let findIndex = index;
-            if (
-                leftIndex <= lastIndex &&
-                this.comparator(this.data[leftIndex], this.data[findIndex]) < 0
-            ) {
-                findIndex = leftIndex;
-            }
-            if (
-                rightIndex <= lastIndex &&
-                this.comparator(this.data[rightIndex], this.data[findIndex]) < 0
-            ) {
-                findIndex = rightIndex;
-            }
-            if (index !== findIndex) {
-                this.swap(index, findIndex);
-                index = findIndex;
-            } else {
-                break;
-            }
-        }
-    }
-
-    swap(index1, index2) {
-        [this.data[index1], this.data[index2]] = [this.data[index2], this.data[index1]];
-    }
-
-    size() {
-        return this.data.length;
+        return this.#minQ.front().element;
     }
 }
 
@@ -319,6 +243,42 @@ class MinHeap {
  */
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number} k
+ * @param {number[]} nums
+ */
+var KthLargest = function (k, nums) {
+    this.k = k;
+    this.minQ = new MinPriorityQueue();
+    for (const x of nums) {
+        this.add(x);
+    }
+};
+
+/**
+ * @param {number} val
+ * @return {number}
+ */
+KthLargest.prototype.add = function (val) {
+    this.minQ.enqueue(val);
+    if (this.minQ.size() > this.k) {
+        this.minQ.dequeue();
+    }
+    return this.minQ.front().element;
+};
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * var obj = new KthLargest(k, nums)
+ * var param_1 = obj.add(val)
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.20.T9/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.20. T9](https://leetcode.cn/problems/t9-lcci)
 
 [中文文档](/lcci/16.20.T9/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>On old cell phones, users typed on a numeric keypad and the phone would provide a list of words that matched these numbers. Each digit mapped to a set of 0&nbsp;- 4 letters. Implement an algo&shy;rithm to return a list of matching words, given a sequence of digits. You are provided a list of valid words. The mapping is shown in the diagram below:</p>
 ![](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/16.20.T9/images/17_telephone_keypad.png)
@@ -29,7 +39,11 @@
 	<li><code>There are no number 0 and 1 in num</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Thinking
 
@@ -41,6 +55,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(C)$. Here
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
@@ -50,6 +66,17 @@ class Solution:
         d = {c: d for c, d in zip(ascii_lowercase, "22233344455566677778889999")}
         return [w for w in words if check(w)]
 ```
+
+#### Python3
+
+```python
+class Solution:
+    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
+        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
+        return [w for w in words if w.translate(trans) == num]
+```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getValidT9Words(num string, words []string) (ans []string) {
 	s := "22233344455566677778889999"
@@ -127,6 +158,8 @@ func getValidT9Words(num string, words []string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getValidT9Words(num: string, words: string[]): string[] {
@@ -153,19 +186,38 @@ function getValidT9Words(num: string, words: string[]): string[] {
 }
 ```
 
-<!-- tabs:end -->
+#### Swift
 
-### Solution 2
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def getValidT9Words(self, num: str, words: List[str]) -> List[str]:
-        trans = str.maketrans(ascii_lowercase, "22233344455566677778889999")
-        return [w for w in words if w.translate(trans) == num]
+```swift
+class Solution {
+    func getValidT9Words(_ num: String, _ words: [String]) -> [String] {
+        let s = "22233344455566677778889999"
+        var d = Array(repeating: 0, count: 26)
+        for i in 0..<26 {
+            d[i] = Int(s[s.index(s.startIndex, offsetBy: i)].asciiValue! - Character("0").asciiValue!)
+        }
+        var ans: [String] = []
+        let n = num.count
+        for w in words {
+            var ok = true
+            for i in 0..<n {
+                let numChar = Int(num[num.index(num.startIndex, offsetBy: i)].asciiValue! - Character("0").asciiValue!)
+                if d[Int(w[w.index(w.startIndex, offsetBy: i)].asciiValue! - Character("a").asciiValue!)] != numChar {
+                    ok = false
+                    break
+                }
+            }
+            if ok {
+                ans.append(w)
+            }
+        }
+        return ans
+    }
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

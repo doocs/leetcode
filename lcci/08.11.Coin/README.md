@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.11.Coin/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 08.11. 硬币](https://leetcode.cn/problems/coin-lcci)
 
 [English Version](/lcci/08.11.Coin/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>硬币。给定数量不限的硬币，币值为25分、10分、5分和1分，编写代码计算n分有几种表示法。(结果可能会很大，你需要将结果模上1000000007)</p>
 <p> <strong>示例1:</strong></p>
 <pre>
@@ -31,7 +40,11 @@
     <li>0 &lt;= n (总金额) &lt;= 1000000</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -63,9 +76,9 @@ $$
 
 时间复杂度 $O(C \times n)$，空间复杂度 $O(C \times n)$，其中 $C$ 为硬币的种类数。
 
-我们注意到，$f[i][j]$ 的计算只与 $f[i−1][..]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(n)$。
-
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +94,8 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i][j - c]) % mod
         return f[-1][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -145,13 +164,13 @@ func waysToChange(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function waysToChange(n: number): number {
     const mod = 10 ** 9 + 7;
     const coins: number[] = [25, 10, 5, 1];
-    const f: number[][] = Array(5)
-        .fill(0)
-        .map(() => Array(n + 1).fill(0));
+    const f: number[][] = Array.from({ length: 5 }, () => Array(n + 1).fill(0));
     f[0][0] = 1;
     for (let i = 1; i <= 4; ++i) {
         for (let j = 0; j <= n; ++j) {
@@ -165,11 +184,42 @@ function waysToChange(n: number): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func waysToChange(_ n: Int) -> Int {
+        let mod = Int(1e9 + 7)
+        let coins = [25, 10, 5, 1]
+        var f = Array(repeating: Array(repeating: 0, count: n + 1), count: 5)
+        f[0][0] = 1
+
+        for i in 1...4 {
+            for j in 0...n {
+                f[i][j] = f[i - 1][j]
+                if j >= coins[i - 1] {
+                    f[i][j] = (f[i][j] + f[i][j - coins[i - 1]]) % mod
+                }
+            }
+        }
+        return f[4][n]
+    }
+}
+```
+
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
+
+<!-- solution:start-->
+
+### 方法二：动态规划（空间优化）
+
+我们注意到，$f[i][j]$ 的计算只与 $f[i−1][..]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -182,6 +232,8 @@ class Solution:
                 f[j] = (f[j] + f[j - c]) % mod
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +251,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -219,6 +273,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToChange(n int) int {
 	const mod int = 1e9 + 7
@@ -233,6 +289,8 @@ func waysToChange(n int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function waysToChange(n: number): number {
@@ -251,4 +309,6 @@ function waysToChange(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README.md
+tags:
+    - 贪心
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [984. 不含 AAA 或 BBB 的字符串](https://leetcode.cn/problems/string-without-aaa-or-bbb)
 
 [English Version](/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README_EN.md)
 
-<!-- tags:贪心,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个整数 <code>a</code>&nbsp;和 <code>b</code>&nbsp;，返回&nbsp;<strong>任意</strong>&nbsp;字符串 <code>s</code>&nbsp;，要求满足：</p>
 
@@ -42,7 +51,11 @@
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute">​​​</span></span></span>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 构造
 
@@ -57,6 +70,8 @@
 时间复杂度 $O(a+b)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +93,8 @@ class Solution:
             ans.append('b' * b)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func strWithout3a3b(a int, b int) string {
@@ -166,4 +187,6 @@ func strWithout3a3b(a int, b int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

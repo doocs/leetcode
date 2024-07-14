@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0278.First%20Bad%20Version/README_EN.md
+tags:
+    - Binary Search
+    - Interactive
+---
+
+<!-- problem:start -->
+
 # [278. First Bad Version](https://leetcode.com/problems/first-bad-version)
 
 [中文文档](/solution/0200-0299/0278.First%20Bad%20Version/README.md)
 
-<!-- tags:Binary Search,Interactive -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
 
@@ -39,11 +50,17 @@ Then 4 is the first bad version.
 	<li><code>1 &lt;= bad &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # The isBadVersion API is already defined for you.
@@ -68,6 +85,8 @@ class Solution:
         return left
 ```
 
+#### Java
+
 ```java
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
@@ -87,6 +106,8 @@ public class Solution extends VersionControl {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 // The API isBadVersion is defined for you.
@@ -108,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -132,6 +155,8 @@ func firstBadVersion(n int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 // The API isBadVersion is defined for you.
 // isBadVersion(version:i32)-> bool;
@@ -153,6 +178,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -192,4 +219,6 @@ var solution = function (isBadVersion) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

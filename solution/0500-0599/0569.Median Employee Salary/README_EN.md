@@ -1,10 +1,20 @@
-# [569. Median Employee Salary](https://leetcode.com/problems/median-employee-salary)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0569.Median%20Employee%20Salary/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [569. Median Employee Salary 🔒](https://leetcode.com/problems/median-employee-salary)
 
 [中文文档](/solution/0500-0599/0569.Median%20Employee%20Salary/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -103,11 +113,17 @@ For company C, the rows sorted are as follows:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without using any built-in or window functions?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -132,4 +148,6 @@ WHERE rk >= n / 2 AND rk <= n / 2 + 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

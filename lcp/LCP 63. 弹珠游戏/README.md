@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 63. 弹珠游戏](https://leetcode.cn/problems/EXvqDp)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位来到「力扣嘉年华」，接下来将为各位介绍在活动中广受好评的弹珠游戏。
 
@@ -28,7 +36,7 @@
 >
 > 解释：
 > 在 `[2,1]` 处打入弹珠，弹珠前进 1 步后遇到转向器，前进方向顺时针旋转 90 度，再前进 1 步进入洞中。
-> ![b054955158a99167b8d51da0e22a54da.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/images/1630392649-BoQncz-b054955158a99167b8d51da0e22a54da.gif)
+> ![b054955158a99167b8d51da0e22a54da.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/images/1630392649-BoQncz-b054955158a99167b8d51da0e22a54da.gif){:width="300px"}
 
 **示例 2：**
 
@@ -42,7 +50,7 @@
 > 在 `[1,0]` 处打入弹珠，弹珠前进 2 步，遇到转向器后前进方向顺时针旋转 90 度，再前进 1 步进入洞中。
 > 在 `[2,4]` 处打入弹珠，弹珠前进 2 步后进入洞中。
 > 在 `[3,2]` 处打入弹珠，弹珠前进 1 步后进入洞中。
-> ![b44e9963239ae368badf3d00b7563087.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/images/1630392625-rckbdy-b44e9963239ae368badf3d00b7563087.gif)
+> ![b44e9963239ae368badf3d00b7563087.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2063.%20%E5%BC%B9%E7%8F%A0%E6%B8%B8%E6%88%8F/images/1630392625-rckbdy-b44e9963239ae368badf3d00b7563087.gif){:width="350px"}
 
 **示例 3：**
 
@@ -60,7 +68,11 @@
 -   `1 <= plate.length, plate[i].length <= 1000`
 -   `plate[i][j]` 仅包含 `"O"`、`"W"`、`"E"`、`"."`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -71,6 +83,8 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为弹珠盘的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +119,8 @@ class Solution:
                 ans.append([m - 1, j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -162,6 +178,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -210,6 +228,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func ballGame(num int, plate []string) (ans [][]int) {
 	dirs := [5]int{0, 1, 0, -1, 0}
@@ -256,4 +276,6 @@ func ballGame(num int, plate []string) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

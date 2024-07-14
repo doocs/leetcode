@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README_EN.md
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [792. Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences)
 
 [中文文档](/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README.md)
 
-<!-- tags:Trie,Array,Hash Table,String,Binary Search,Dynamic Programming,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> and an array of strings <code>words</code>, return <em>the number of</em> <code>words[i]</code> <em>that is a subsequence of</em> <code>s</code>.</p>
 
@@ -40,11 +56,17 @@
 	<li><code>s</code> and <code>words[i]</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +84,8 @@ class Solution:
                     d[t[1]].append(t[1:])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numMatchingSubseq(s string, words []string) (ans int) {
@@ -134,9 +162,15 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -155,6 +189,8 @@ class Solution:
                     d[words[i][j]].append((i, j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +218,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -204,6 +242,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numMatchingSubseq(s string, words []string) (ans int) {
@@ -230,9 +270,15 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -251,6 +297,8 @@ class Solution:
             d[c].append(i)
         return sum(check(w) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -298,6 +346,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -320,6 +370,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numMatchingSubseq(s string, words []string) (ans int) {
@@ -350,4 +402,6 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

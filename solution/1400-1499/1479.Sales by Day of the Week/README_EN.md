@@ -1,10 +1,20 @@
-# [1479. Sales by Day of the Week](https://leetcode.com/problems/sales-by-day-of-the-week)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1479. Sales by Day of the Week 🔒](https://leetcode.com/problems/sales-by-day-of-the-week)
 
 [中文文档](/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Orders</code></p>
 
@@ -100,11 +110,17 @@ On Sunday (2020-06-14, 2020-06-21) were sold a total of 10 units (5 +5) in the c
 There are no sales of T-shirts.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -126,4 +142,6 @@ ORDER BY category;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

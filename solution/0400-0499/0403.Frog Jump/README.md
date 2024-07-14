@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0403.Frog%20Jump/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [403. 青蛙过河](https://leetcode.cn/problems/frog-jump)
 
 [English Version](/solution/0400-0499/0403.Frog%20Jump/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一只青蛙想要过河。 假定河流被等分为若干个单元格，并且在每一个单元格内都有可能放有一块石子（也有可能没有）。 青蛙可以跳上石子，但是不可以跳入水中。</p>
 
@@ -41,7 +50,11 @@
 	<li><code>stones</code>&nbsp;按严格升序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 记忆化搜索
 
@@ -61,6 +74,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
@@ -77,6 +92,8 @@ class Solution:
         pos = {s: i for i, s in enumerate(stones)}
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +163,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canCross(stones []int) bool {
@@ -182,6 +203,8 @@ func canCross(stones []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
@@ -212,6 +235,8 @@ function canCross(stones: number[]): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 
@@ -235,7 +260,7 @@ impl Solution {
         k: usize,
         n: usize,
         pos: &HashMap<i32, usize>,
-        stones: &Vec<i32>
+        stones: &Vec<i32>,
     ) -> bool {
         if i == n - 1 {
             return true;
@@ -247,10 +272,9 @@ impl Solution {
 
         let k = k as i32;
         for j in k - 1..=k + 1 {
-            if
-                j > 0 &&
-                pos.contains_key(&(stones[i] + j)) &&
-                Self::dfs(record, pos[&(stones[i] + j)], j as usize, n, pos, stones)
+            if j > 0
+                && pos.contains_key(&(stones[i] + j))
+                && Self::dfs(record, pos[&(stones[i] + j)], j as usize, n, pos, stones)
             {
                 record[i][k as usize] = 1;
                 return true;
@@ -265,6 +289,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们定义 $f[i][k]$ 表示青蛙能否达到「现在所处的石子编号」为 $i$，「上一次跳跃距离」为 $k$ 的状态。初始时 $f[0][0] = true$，其余均为 `false`。
@@ -276,6 +304,8 @@ impl Solution {
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石子的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -293,6 +323,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -316,6 +348,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -342,6 +376,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canCross(stones []int) bool {
 	n := len(stones)
@@ -366,6 +402,8 @@ func canCross(stones []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canCross(stones: number[]): boolean {
     const n = stones.length;
@@ -386,6 +424,8 @@ function canCross(stones: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -418,4 +458,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

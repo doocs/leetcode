@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2293.Min%20Max%20Game/README.md
+rating: 1241
+source: 第 296 场周赛 Q1
+tags:
+    - 数组
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2293. 极大极小游戏](https://leetcode.cn/problems/min-max-game)
 
 [English Version](/solution/2200-2299/2293.Min%20Max%20Game/README_EN.md)
 
-<!-- tags:数组,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，其长度是 <code>2</code> 的幂。</p>
 
@@ -56,7 +67,11 @@
 	<li><code>nums.length</code> 是 <code>2</code> 的幂</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -65,6 +80,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +94,8 @@ class Solution:
                 nums[i] = min(a, b) if i % 2 == 0 else max(a, b)
         return nums[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minMaxGame(nums []int) int {
@@ -126,6 +149,8 @@ func minMaxGame(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMaxGame(nums: number[]): number {
     for (let n = nums.length; n > 1; ) {
@@ -140,6 +165,8 @@ function minMaxGame(nums: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_max_game(mut nums: Vec<i32>) -> i32 {
@@ -149,7 +176,7 @@ impl Solution {
             for i in 0..n {
                 nums[i] = (if (i & 1) == 1 { i32::max } else { i32::min })(
                     nums[i << 1],
-                    nums[(i << 1) | 1]
+                    nums[(i << 1) | 1],
                 );
             }
         }
@@ -157,6 +184,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -177,4 +206,6 @@ int minMaxGame(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

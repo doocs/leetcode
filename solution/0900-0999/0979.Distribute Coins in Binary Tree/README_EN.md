@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0979.Distribute%20Coins%20in%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [979. Distribute Coins in Binary Tree](https://leetcode.com/problems/distribute-coins-in-binary-tree)
 
 [中文文档](/solution/0900-0999/0979.Distribute%20Coins%20in%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary tree with <code>n</code> nodes where each <code>node</code> in the tree has <code>node.val</code> coins. There are <code>n</code> coins in total throughout the whole tree.</p>
 
@@ -39,11 +51,25 @@
 	<li>The sum of all <code>Node.val</code> is <code>n</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: DFS
+
+We define a function $\text{dfs(node)}$, which represents the coin overload in the subtree rooted at $\text{node}$, i.e., the number of coins minus the number of nodes. If $\text{dfs(node)}$ is positive, it means the subtree has more coins than nodes, and the excess coins need to be moved out of the subtree; if $\text{dfs(node)}$ is negative, it means the subtree has fewer coins than nodes, and the shortfall needs to be moved into the subtree.
+
+In the function $\text{dfs(node)}$, we first traverse the left and right subtrees to obtain the coin overload $\text{left}$ and $\text{right}$ of the left and right subtrees, respectively. Then, the current number of moves needs to be increased by $|\text{left}| + |\text{right}|$, which means moving the coins from the left and right subtrees to the current node. After that, we return the coin overload of the entire subtree, which is $\text{left} + \text{right} + \text{node.val} - 1$.
+
+Finally, we return the number of moves.
+
+The time complexity is $O(n)$, and the space complexity is $O(h)$. Here, $n$ and $h$ respectively represent the number of nodes and the height of the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -66,6 +92,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -134,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -164,6 +196,8 @@ func abs(x int) int {
 	return x
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -198,4 +232,6 @@ function distributeCoins(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

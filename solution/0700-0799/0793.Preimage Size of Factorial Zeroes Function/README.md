@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0793.Preimage%20Size%20of%20Factorial%20Zeroes%20Function/README.md
+tags:
+    - 数学
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [793. 阶乘函数后 K 个零](https://leetcode.cn/problems/preimage-size-of-factorial-zeroes-function)
 
 [English Version](/solution/0700-0799/0793.Preimage%20Size%20of%20Factorial%20Zeroes%20Function/README_EN.md)
 
-<!-- tags:数学,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>&nbsp;<code>f(x)</code>&nbsp;是&nbsp;<code>x!</code>&nbsp;末尾是 0 的数量。回想一下&nbsp;<code>x! = 1 * 2 * 3 * ... * x</code>，且 <code>0! = 1</code>&nbsp;。</p>
 
@@ -48,7 +57,11 @@
 	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -72,6 +85,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def preimageSizeFZF(self, k: int) -> int:
@@ -85,6 +100,8 @@ class Solution:
 
         return g(k + 1) - g(k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func preimageSizeFZF(k int) int {
 	f := func(x int) int {
@@ -175,4 +196,6 @@ func preimageSizeFZF(k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

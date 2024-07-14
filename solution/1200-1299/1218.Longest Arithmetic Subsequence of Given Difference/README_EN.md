@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README_EN.md
+rating: 1597
+source: Weekly Contest 157 Q2
+tags:
+    - Array
+    - Hash Table
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1218. Longest Arithmetic Subsequence of Given Difference](https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference)
 
 [中文文档](/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README.md)
 
-<!-- tags:Array,Hash Table,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code> and an integer <code>difference</code>, return the length of the longest subsequence in <code>arr</code> which is an arithmetic sequence such that the difference between adjacent elements in the subsequence equals <code>difference</code>.</p>
 
@@ -42,11 +56,17 @@
 	<li><code>-10<sup>4</sup> &lt;= arr[i], difference &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +76,8 @@ class Solution:
             f[x] = f[x - difference] + 1
         return max(f.values())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -86,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubsequence(arr []int, difference int) (ans int) {
 	f := map[int]int{}
@@ -97,6 +123,8 @@ func longestSubsequence(arr []int, difference int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestSubsequence(arr: number[], difference: number): number {
     const f: Map<number, number> = new Map();
@@ -106,6 +134,8 @@ function longestSubsequence(arr: number[], difference: number): number {
     return Math.max(...f.values());
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -124,4 +154,6 @@ var longestSubsequence = function (arr, difference) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

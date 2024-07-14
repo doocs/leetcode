@@ -1,5 +1,5 @@
 class Solution:
     def maximumCount(self, nums: List[int]) -> int:
-        a = sum(v > 0 for v in nums)
-        b = sum(v < 0 for v in nums)
+        a = sum(x > 0 for x in nums)
+        b = sum(x < 0 for x in nums)
         return max(a, b)

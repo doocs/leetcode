@@ -1,10 +1,22 @@
-# [2495. Number of Subarrays Having Even Product](https://leetcode.com/problems/number-of-subarrays-having-even-product)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [2495. Number of Subarrays Having Even Product 🔒](https://leetcode.com/problems/number-of-subarrays-having-even-product)
 
 [中文文档](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README.md)
 
-<!-- tags:Array,Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, return <em>the number of <span data-keyword="subarray-nonempty">subarrays</span> of </em><code>nums</code><em> having an even product</em>.</p>
 
@@ -39,7 +51,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -51,6 +67,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `nums`. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def evenProduct(self, nums: List[int]) -> int:
@@ -61,6 +79,8 @@ class Solution:
             ans += last + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func evenProduct(nums []int) int64 {
 	ans, last := 0, -1
@@ -110,4 +134,6 @@ func evenProduct(nums []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

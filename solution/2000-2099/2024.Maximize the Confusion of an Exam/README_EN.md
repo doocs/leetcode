@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md
+rating: 1643
+source: Biweekly Contest 62 Q3
+tags:
+    - String
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [2024. Maximize the Confusion of an Exam](https://leetcode.com/problems/maximize-the-confusion-of-an-exam)
 
 [中文文档](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md)
 
-<!-- tags:String,Binary Search,Prefix Sum,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A teacher is writing a test with <code>n</code> true/false questions, with <code>&#39;T&#39;</code> denoting true and <code>&#39;F&#39;</code> denoting false. He wants to confuse the students by <strong>maximizing</strong> the number of <strong>consecutive</strong> questions with the <strong>same</strong> answer (multiple trues or multiple falses in a row).</p>
 
@@ -56,137 +71,163 @@ In both cases, there are five consecutive &#39;T&#39;s.
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Sliding Window
+
+We design a function $\textit{f}(c)$, which represents the longest length of consecutive characters under the condition that at most $k$ characters $c$ can be replaced, where $c$ can be 'T' or 'F'. The answer is $\max(\textit{f}('T'), \textit{f}('F'))$.
+
+We iterate through the string $\textit{answerKey}$, using a variable $\textit{cnt}$ to record the number of characters $c$ within the current window. When $\textit{cnt} > k$, we move the left pointer of the window one position to the right. After the iteration ends, the length of the window is the maximum length of consecutive characters.
+
+Time complexity is $O(n)$, where $n$ is the length of the string. Space complexity is $O(1)$.
+
+Similar problems:
+
+-   [487. Max Consecutive Ones II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)
+-   [1004. Max Consecutive Ones III](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        def get(c, k):
-            l = r = -1
-            while r < len(answerKey) - 1:
-                r += 1
-                if answerKey[r] == c:
-                    k -= 1
-                if k < 0:
+        def f(c: str) -> int:
+            cnt = l = 0
+            for ch in answerKey:
+                cnt += ch == c
+                if cnt > k:
+                    cnt -= answerKey[l] == c
                     l += 1
-                    if answerKey[l] == c:
-                        k += 1
-            return r - l
+            return len(answerKey) - l
 
-        return max(get('T', k), get('F', k))
+        return max(f("T"), f("F"))
 ```
+
+#### Java
 
 ```java
 class Solution {
+    private char[] s;
+    private int k;
+
     public int maxConsecutiveAnswers(String answerKey, int k) {
-        return Math.max(get('T', k, answerKey), get('F', k, answerKey));
+        s = answerKey.toCharArray();
+        this.k = k;
+        return Math.max(f('T'), f('F'));
     }
 
-    public int get(char c, int k, String answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.length()) {
-            if (answerKey.charAt(r++) == c) {
-                --k;
-            }
-            if (k < 0 && answerKey.charAt(l++) == c) {
-                ++k;
+    private int f(char c) {
+        int l = 0, cnt = 0;
+        for (char ch : s) {
+            cnt += ch == c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= s[l++] == c ? 1 : 0;
             }
         }
-        return r - l;
+        return s.length - l;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int maxConsecutiveAnswers(string answerKey, int k) {
-        return max(get('T', k, answerKey), get('F', k, answerKey));
-    }
-
-    int get(char c, int k, string& answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.size()) {
-            if (answerKey[r++] == c) --k;
-            if (k < 0 && answerKey[l++] == c) ++k;
-        }
-        return r - l;
+        int n = answerKey.size();
+        auto f = [&](char c) {
+            int l = 0, cnt = 0;
+            for (char& ch : answerKey) {
+                cnt += ch == c;
+                if (cnt > k) {
+                    cnt -= answerKey[l++] == c;
+                }
+            }
+            return n - l;
+        };
+        return max(f('T'), f('F'));
     }
 };
 ```
 
+#### Go
+
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
-	get := func(c byte, k int) int {
-		l, r := -1, -1
-		for r < len(answerKey)-1 {
-			r++
-			if answerKey[r] == c {
-				k--
+	f := func(c byte) int {
+		l, cnt := 0, 0
+		for _, ch := range answerKey {
+			if byte(ch) == c {
+				cnt++
 			}
-			if k < 0 {
-				l++
+			if cnt > k {
 				if answerKey[l] == c {
-					k++
+					cnt--
 				}
+				l++
 			}
 		}
-		return r - l
+		return len(answerKey) - l
 	}
-	return max(get('T', k), get('F', k))
+	return max(f('T'), f('F'))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
-    const getMaxCount = (target: 'T' | 'F'): number => {
-        let l = 0;
-        let u = k;
-        for (const c of answerKey) {
-            if (c !== target) {
-                u--;
-            }
-            if (u < 0 && answerKey[l++] !== target) {
-                u++;
+    const f = (c: string): number => {
+        let [l, cnt] = [0, 0];
+        for (const ch of answerKey) {
+            cnt += ch === c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= answerKey[l++] === c ? 1 : 0;
             }
         }
         return n - l;
     };
-    return Math.max(getMaxCount('T'), getMaxCount('F'));
+    return Math.max(f('T'), f('F'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn max_consecutive_answers(answer_key: String, k: i32) -> i32 {
-        let bs = answer_key.as_bytes();
-        let n = bs.len();
-        let get_max_count = |target| {
+        let n = answer_key.len();
+        let k = k as usize;
+        let s: Vec<char> = answer_key.chars().collect();
+
+        let f = |c: char| -> usize {
             let mut l = 0;
-            let mut u = k;
-            for b in bs.iter() {
-                if b != &target {
-                    u -= 1;
-                }
-                if u < 0 {
-                    if bs[l] != target {
-                        u += 1;
-                    }
+            let mut cnt = 0;
+            for &ch in &s {
+                cnt += if ch == c { 1 } else { 0 };
+                if cnt > k {
+                    cnt -= if s[l] == c { 1 } else { 0 };
                     l += 1;
                 }
             }
             n - l
         };
-        get_max_count(b'T').max(get_max_count(b'F')) as i32
+
+        std::cmp::max(f('T'), f('F')) as i32
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

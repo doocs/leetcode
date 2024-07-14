@@ -1,91 +1,93 @@
-# [3062. Winner of the Linked List Game](https://leetcode.cn/problems/winner-of-the-linked-list-game)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md
+tags:
+    - 链表
+---
+
+<!-- problem:start -->
+
+# [3062. 链表游戏的获胜者 🔒](https://leetcode.cn/problems/winner-of-the-linked-list-game)
 
 [English Version](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>You are given the <code>head</code> of a linked list of <strong>even</strong> length containing integers.</p>
+<p>给定长度为 <strong>偶数</strong>&nbsp;，包含整数的链表的&nbsp;<code>head</code>&nbsp;节点。</p>
 
-<p>Each <strong>odd-indexed</strong> node contains an odd integer and each <strong>even-indexed</strong> node contains an even integer.</p>
+<p>每个 <strong>奇数编号</strong> 的节点包含一个奇数，并且每个 <strong>偶数编号</strong> 的节点包含一个偶数。</p>
 
-<p>We call each even-indexed node and its next node a <strong>pair</strong>, e.g., the nodes with indices <code>0</code> and <code>1</code> are a pair, the nodes with indices <code>2</code> and <code>3</code> are a pair, and so on.</p>
+<p>我们把每个偶数编号的节点和它的下一个节点叫做一个 <strong>对</strong>，例如编号为&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;的节点是一对，编号为 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size: 12.6px; background-color: rgb(249, 242, 244);">2</span></font>&nbsp;和 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size: 12.6px; background-color: rgb(249, 242, 244);">3</span></font>&nbsp;的节点是一对，以此类推。</p>
 
-<p>For every <strong>pair</strong>, we compare the values of the nodes in the pair:</p>
+<p>对于每个 <strong>对</strong>，我们比较对中节点的值：</p>
 
 <ul>
-	<li>If the odd-indexed node is higher, the <code>&quot;Odd&quot;</code> team gets a point.</li>
-	<li>If the even-indexed node is higher, the <code>&quot;Even&quot;</code> team gets a point.</li>
+	<li>如果奇数节点更大，<code>"Odd"</code>&nbsp;队得一分。</li>
+	<li>如果偶数节点更大，<font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size: 12.6px; background-color: rgb(249, 242, 244);">"Even"</span></font>&nbsp;队得一分。</li>
 </ul>
 
-<p>Return <em>the name of the team with the <strong>higher</strong> points, if the points are equal, return</em> <code>&quot;Tie&quot;</code>.</p>
+<p>返回分数更 <strong>高</strong> 的队名，如果分数相同，返回&nbsp;<code>"Tie"</code>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1: </strong></p>
 
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [2,1] </span></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> &quot;Even&quot; </span></p>
-
-<p><strong>Explanation: </strong> There is only one pair in this linked list and that is <code>(2,1)</code>. Since <code>2 &gt; 1</code>, the Even team gets the point.</p>
-
-<p>Hence, the answer would be <code>&quot;Even&quot;</code>.</p>
-</div>
-
-<p><strong class="example">Example 2: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [2,5,4,7,20,5] </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> &quot;Odd&quot; </span></p>
-
-<p><strong>Explanation: </strong> There are <code>3</code> pairs in this linked list. Let&#39;s investigate each pair individually:</p>
-
-<p><code>(2,5)</code> -&gt; Since <code>2 &lt; 5</code>, The Odd team gets the point.</p>
-
-<p><code>(4,7)</code> -&gt; Since <code>4 &lt; 7</code>, The Odd team gets the point.</p>
-
-<p><code>(20,5)</code> -&gt; Since <code>20 &gt; 5</code>, The Even team gets the point.</p>
-
-<p>The Odd team earned <code>2</code> points while the Even team got <code>1</code> point and the Odd team has the higher points.</p>
-
-<p>Hence, the answer would be <code>&quot;Odd&quot;</code>.</p>
-</div>
-
-<p><strong class="example">Example 3: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [4,5,2,1] </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> &quot;Tie&quot; </span></p>
-
-<p><strong>Explanation: </strong> There are <code>2</code> pairs in this linked list. Let&#39;s investigate each pair individually:</p>
-
-<p><code>(4,5)</code> -&gt; Since <code>4 &lt; 5</code>, the Odd team gets the point.</p>
-
-<p><code>(2,1)</code> -&gt; Since <code>2 &gt; 1</code>, the Even team gets the point.</p>
-
-<p>Both teams earned <code>1</code> point.</p>
-
-<p>Hence, the answer would be <code>&quot;Tie&quot;</code>.</p>
-</div>
+<pre>
+<strong>输入：</strong>head = [2,1]
+<strong>输出：</strong>"Even"
+<strong>解释：</strong>链表中只有一个对 (2,1)。因为 2 &gt; 1，偶数队得分。
+因此，答案是 "Even"。
+</pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>head = [2,5,4,7,20,5] 
+<strong>输出：</strong>"Odd" 
+<strong>解释：</strong>此链表中有 3 对。让我们分别对每一对进行分析： 
+(2,5) -&gt; 因为 2 &lt; 5，奇数队得分。
+(4,7) -&gt; 因为 4 &lt; 7，奇数队得分。 
+(20,5) -&gt; 因为 20 &gt; 5，偶数队得分。 
+奇数队得 2 分，偶数队得 1 分，奇数队得分更高。 
+因此，答案是 "Odd"。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>head = [4,5,2,1]
+<strong>输出：</strong>"Tie"
+<strong>解释：</strong>此链表中有 2 对。让我们分别对每一对进行分析：
+(4,5) -&gt; 因为 4 &lt; 5，奇数队得分。
+(2,1) -&gt; 因为 2 &gt; 1，偶数队得分。
+每队得 1 分。
+因此，答案是 "Tie"。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is in the range <code>[2, 100]</code>.</li>
-	<li>The number of nodes in the list is even.</li>
+	<li>链表中节点的数字在范围&nbsp;<code>[2, 100]</code>&nbsp;内。</li>
+	<li>链表中的节点数为偶数。</li>
 	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
-	<li>The value of each odd-indexed node is odd.</li>
-	<li>The value of each even-indexed node is even.</li>
+	<li>每个奇数编号节点的值都是奇数。</li>
+	<li>每个偶数编号节点的值都是偶数。</li>
 </ul>
+
+<!-- description:end -->
 
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -94,6 +96,8 @@
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -116,6 +120,8 @@ class Solution:
             return "Even"
         return "Tie"
 ```
+
+#### Java
 
 ```java
 /**
@@ -147,6 +153,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -180,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -208,6 +218,8 @@ func gameResult(head *ListNode) string {
 	return "Tie"
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -241,4 +253,6 @@ function gameResult(head: ListNode | null): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

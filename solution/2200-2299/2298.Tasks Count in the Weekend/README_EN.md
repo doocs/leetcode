@@ -1,10 +1,20 @@
-# [2298. Tasks Count in the Weekend](https://leetcode.com/problems/tasks-count-in-the-weekend)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2298. Tasks Count in the Weekend 🔒](https://leetcode.com/problems/tasks-count-in-the-weekend)
 
 [中文文档](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Tasks</code></p>
 
@@ -66,11 +76,17 @@ Task 6 was submitted on Sunday.
 3 tasks were submitted during the working days.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -82,4 +98,6 @@ FROM Tasks;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
-# [1602. 找到二叉树中最近的右侧节点](https://leetcode.cn/problems/find-nearest-right-node-in-binary-tree)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1602.Find%20Nearest%20Right%20Node%20in%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
+# [1602. 找到二叉树中最近的右侧节点 🔒](https://leetcode.cn/problems/find-nearest-right-node-in-binary-tree)
 
 [English Version](/solution/1600-1699/1602.Find%20Nearest%20Right%20Node%20in%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵二叉树的根节点 <code>root</code> 和树中的一个节点 <code>u</code> ，返回与 <code>u</code> <strong>所在层</strong>中<strong>距离最近</strong>的<strong>右侧</strong>节点，当 <code>u</code> 是所在层中最右侧的节点，返回 <code>null</code> 。</p>
 
@@ -57,15 +67,21 @@
 	<li><code>u</code> 是以 <code>root</code> 为根的二叉树的一个节点。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
-BFS 层序遍历，找到 $u$ 所在层的右侧相邻节点。
+我们可以使用广度优先搜索，从根节点开始搜索，当搜索到节点 $u$ 时，返回队列中的下一个节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -87,6 +103,8 @@ class Solution:
                 if root.right:
                     q.append(root.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -127,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -147,15 +167,23 @@ public:
             for (int i = q.size(); i; --i) {
                 root = q.front();
                 q.pop();
-                if (root == u) return i > 1 ? q.front() : nullptr;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root == u) {
+                    return i > 1 ? q.front() : nullptr;
+                }
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
         }
         return nullptr;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -189,6 +217,8 @@ func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
 	return nil
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -226,6 +256,10 @@ var findNearestRightNode = function (root, u) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 DFS 先序遍历二叉树，首次搜索到 $u$ 时，标记目前层数 $d$，下次遇到同一层的节点时，即为目标节点。
@@ -233,6 +267,8 @@ DFS 先序遍历二叉树，首次搜索到 $u$ 时，标记目前层数 $d$，�
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -261,6 +297,8 @@ class Solution:
         dfs(root, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -307,6 +345,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -321,31 +361,31 @@ class Solution {
  */
 class Solution {
 public:
-    TreeNode* u;
-    TreeNode* ans;
-    int d = 0;
-
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
-        this->u = u;
+        TreeNode* ans;
+        int d = 0;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int i) {
+            if (!root || ans) {
+                return;
+            }
+            if (d == i) {
+                ans = root;
+                return;
+            }
+            if (root == u) {
+                d = i;
+                return;
+            }
+            dfs(root->left, i + 1);
+            dfs(root->right, i + 1);
+        };
         dfs(root, 1);
         return ans;
     }
-
-    void dfs(TreeNode* root, int i) {
-        if (!root || ans) return;
-        if (d == i) {
-            ans = root;
-            return;
-        }
-        if (root == u) {
-            d = i;
-            return;
-        }
-        dfs(root->left, i + 1);
-        dfs(root->right, i + 1);
-    }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -379,6 +419,8 @@ func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -419,4 +461,6 @@ var findNearestRightNode = function (root, u) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

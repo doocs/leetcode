@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0997.Find%20the%20Town%20Judge/README.md
+tags:
+    - 图
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [997. 找到小镇的法官](https://leetcode.cn/problems/find-the-town-judge)
 
 [English Version](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README_EN.md)
 
-<!-- tags:图,数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>小镇里有 <code>n</code> 个人，按从 <code>1</code> 到 <code>n</code> 的顺序编号。传言称，这些人中有一个暗地里是小镇法官。</p>
 
@@ -58,7 +68,11 @@
 	<li><code>1 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -71,6 +85,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $trust$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +101,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findJudge(n int, trust [][]int) int {
 	cnt1 := make([]int, n+1)
@@ -145,6 +167,8 @@ func findJudge(n int, trust [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findJudge(n: number, trust: number[][]): number {
     const cnt1: number[] = new Array(n + 1).fill(0);
@@ -161,6 +185,8 @@ function findJudge(n: number, trust: number[][]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -188,4 +214,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

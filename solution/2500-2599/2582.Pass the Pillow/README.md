@@ -1,16 +1,25 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2582.Pass%20the%20Pillow/README.md
+rating: 1278
+source: 第 335 场周赛 Q1
+tags:
+    - 数学
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2582. 递枕头](https://leetcode.cn/problems/pass-the-pillow)
 
 [English Version](/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md)
 
-<!-- tags:数学,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p><code>n</code> 个人站成一排，按从 <code>1</code> 到 <code>n</code> 编号。</p>
-
-<p>最初，排在队首的第一个人拿着一个枕头。每秒钟，拿着枕头的人会将枕头传递给队伍中的下一个人。一旦枕头到达队首或队尾，传递方向就会改变，队伍会继续沿相反方向传递枕头。</p>
+<p><code>n</code> 个人站成一排，按从 <code>1</code> 到 <code>n</code> 编号。最初，排在队首的第一个人拿着一个枕头。每秒钟，拿着枕头的人会将枕头传递给队伍中的下一个人。一旦枕头到达队首或队尾，传递方向就会改变，队伍会继续沿相反方向传递枕头。</p>
 
 <ul>
 	<li>例如，当枕头到达第 <code>n</code> 个人时，TA 会将枕头传递给第 <code>n - 1</code> 个人，然后传递给第 <code>n - 2</code> 个人，依此类推。</li>
@@ -47,7 +56,11 @@
 	<li><code>1 &lt;= time &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -56,6 +69,8 @@
 时间复杂度 $O(time)$，空间复杂度 $O(1)$。其中 $time$ 为给定的时间。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +82,8 @@ class Solution:
                 k *= -1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func passThePillow(n int, time int) int {
 	ans, k := 1, 1
@@ -111,6 +132,8 @@ func passThePillow(n int, time int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function passThePillow(n: number, time: number): number {
@@ -125,6 +148,8 @@ function passThePillow(n: number, time: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -147,6 +172,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：数学
 
 我们注意到，每一轮有 $n - 1$ 次传递，因此我们可以将 $time$ 除以 $n - 1$ 得到枕头传递的轮数 $k$，然后再将 $time$ 对 $n - 1$ 取余得到枕头在当前轮的剩余传递次数 $mod$。
@@ -160,12 +189,16 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def passThePillow(self, n: int, time: int) -> int:
         k, mod = divmod(time, n - 1)
         return n - mod if k & 1 else mod + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +209,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +223,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func passThePillow(n int, time int) int {
 	k, mod := time/(n-1), time%(n-1)
@@ -198,6 +235,8 @@ func passThePillow(n int, time int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function passThePillow(n: number, time: number): number {
     const k = time / (n - 1);
@@ -205,6 +244,8 @@ function passThePillow(n: number, time: number): number {
     return (k & 1) == 1 ? n - mod : mod + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -223,4 +264,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0120.Triangle/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [120. 三角形最小路径和](https://leetcode.cn/problems/triangle)
 
 [English Version](/solution/0100-0199/0120.Triangle/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个三角形 <code>triangle</code> ，找出自顶向下的最小路径和。</p>
 
@@ -53,7 +62,11 @@
 	<li>你可以只使用 <code>O(n)</code> 的额外空间（<code>n</code> 为三角形的总行数）来解决这个问题吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -73,6 +86,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
@@ -83,6 +98,8 @@ class Solution:
                 f[i][j] = min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j]
         return f[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotal(triangle [][]int) int {
 	n := len(triangle)
@@ -129,6 +150,8 @@ func minimumTotal(triangle [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumTotal(triangle: number[][]): number {
     const n = triangle.length;
@@ -141,6 +164,8 @@ function minimumTotal(triangle: number[][]): number {
     return f[0];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -159,9 +184,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -173,6 +204,8 @@ class Solution:
                 f[j] = min(f[j], f[j + 1]) + triangle[i][j]
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -189,6 +222,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +238,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumTotal(triangle [][]int) int {
 	for i := len(triangle) - 2; i >= 0; i-- {
@@ -214,6 +251,8 @@ func minimumTotal(triangle [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumTotal(triangle: number[][]): number {
     for (let i = triangle.length - 2; ~i; --i) {
@@ -224,6 +263,8 @@ function minimumTotal(triangle: number[][]): number {
     return triangle[0][0];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -241,9 +282,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -259,4 +306,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

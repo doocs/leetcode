@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md
+rating: 2055
+source: Biweekly Contest 34 Q4
+tags:
+    - Memoization
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1575. Count All Possible Routes](https://leetcode.com/problems/count-all-possible-routes)
 
 [中文文档](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md)
 
-<!-- tags:Memoization,Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <strong>distinct</strong> positive integers locations where <code>locations[i]</code> represents the position of city <code>i</code>. You are also given integers <code>start</code>, <code>finish</code> and <code>fuel</code> representing the starting city, ending city, and the initial amount of fuel you have, respectively.</p>
 
@@ -59,7 +73,11 @@
 	<li><code>1 &lt;= fuel &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization
 
@@ -77,6 +95,8 @@ To avoid repeated calculations, we can use memoization.
 The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +116,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(start, fuel)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +153,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countRoutes(locations []int, start int, finish int, fuel int) int {
@@ -200,6 +226,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
     const n = locations.length;
@@ -227,6 +255,10 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can also convert the memoization of solution 1 into dynamic programming.
@@ -240,6 +272,8 @@ Finally, we return the number of paths to the answer $f[start][fuel]$.
 The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n \times m)$. Where $n$ and $m$ are the size of the array $locations$ and $fuel$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -260,6 +294,8 @@ class Solution:
                         ) % mod
         return f[start][fuel]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -283,6 +319,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -308,6 +346,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countRoutes(locations []int, start int, finish int, fuel int) int {
@@ -340,6 +380,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countRoutes(locations: number[], start: number, finish: number, fuel: number): number {
     const n = locations.length;
@@ -363,4 +405,6 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

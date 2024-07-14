@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1411.Number%20of%20Ways%20to%20Paint%20N%20%C3%97%203%20Grid/README.md
+rating: 1844
+source: 第 184 场周赛 Q4
+tags:
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1411. 给 N x 3 网格图涂色的方案数](https://leetcode.cn/problems/number-of-ways-to-paint-n-3-grid)
 
 [English Version](/solution/1400-1499/1411.Number%20of%20Ways%20to%20Paint%20N%20%C3%97%203%20Grid/README_EN.md)
 
-<!-- tags:动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个 <code>n x 3</code>&nbsp;的网格图 <code>grid</code>&nbsp;，你需要用 <strong>红，黄，绿</strong>&nbsp;三种颜色之一给每一个格子上色，且确保相邻格子颜色不同（也就是有相同水平边或者垂直边的格子颜色不同）。</p>
 
@@ -58,7 +68,11 @@
 	<li><code>1 &lt;= n &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递推
 
@@ -73,6 +87,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfWays(self, n: int) -> int:
@@ -84,6 +100,8 @@ class Solution:
             f0, f1 = g0, g1
         return (f0 + f1) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 using ll = long long;
@@ -120,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(n int) int {
 	mod := int(1e9) + 7
@@ -133,6 +155,8 @@ func numOfWays(n int) int {
 	return (f0 + f1) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(n: number): number {
@@ -153,6 +177,10 @@ function numOfWays(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：状态压缩 + 动态规划
 
 我们注意到，网格只有 $3$ 列，那么一行中最多有 $3^3=27$ 种不同的涂色方案。
@@ -172,6 +200,8 @@ $$
 时间复杂度 $O((m + n) \times 3^{2m})$，空间复杂度 $O(3^m)$。其中 $n$ 和 $m$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -210,6 +240,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -272,6 +304,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -336,6 +370,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfWays(n int) (ans int) {
 	f1 := func(x int) bool {
@@ -392,6 +428,8 @@ func numOfWays(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numOfWays(n: number): number {
@@ -453,4 +491,6 @@ function numOfWays(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

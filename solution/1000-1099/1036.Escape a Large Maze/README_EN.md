@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md
+rating: 2164
+source: Weekly Contest 134 Q4
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [1036. Escape a Large Maze](https://leetcode.com/problems/escape-a-large-maze)
 
 [中文文档](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a 1 million by 1 million grid on an XY-plane, and the coordinates of each grid square are <code>(x, y)</code>.</p>
 
@@ -46,11 +61,17 @@ We cannot move south or west because we cannot go outside of the grid.
 	<li>It is guaranteed that <code>source</code> and <code>target</code> are not blocked.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +98,8 @@ class Solution:
         blocked = set((x, y) for x, y in blocked)
         return dfs(source, target, set()) and dfs(target, source, set())
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef unsigned long long ULL;
 
@@ -144,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isEscapePossible(blocked [][]int, source []int, target []int) bool {
@@ -177,8 +204,10 @@ func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 }
 ```
 
+#### Rust
+
 ```rust
-use std::collections::{ HashSet, VecDeque };
+use std::collections::{HashSet, VecDeque};
 
 const BOUNDARY: i32 = 1_000_000;
 const MAX: usize = 20000;
@@ -208,13 +237,12 @@ fn bfs(block: &HashSet<(i32, i32)>, source: &Vec<i32>, target: &Vec<i32>) -> boo
         }
         for (dx, dy) in dir.iter() {
             let (nx, ny) = (x + dx, y + dy);
-            if
-                nx < 0 ||
-                nx >= BOUNDARY ||
-                ny < 0 ||
-                ny >= BOUNDARY ||
-                vis.contains(&(nx, ny)) ||
-                block.contains(&(nx, ny))
+            if nx < 0
+                || nx >= BOUNDARY
+                || ny < 0
+                || ny >= BOUNDARY
+                || vis.contains(&(nx, ny))
+                || block.contains(&(nx, ny))
             {
                 continue;
             }
@@ -229,4 +257,6 @@ fn bfs(block: &HashSet<(i32, i32)>, source: &Vec<i32>, target: &Vec<i32>) -> boo
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

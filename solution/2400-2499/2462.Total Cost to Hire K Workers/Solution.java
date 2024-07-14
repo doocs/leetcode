@@ -1,35 +1,31 @@
 class Solution {
     public long totalCost(int[] costs, int k, int candidates) {
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> {
-            if (a[0] == b[0]) {
-                return a[1] - b[1];
-            }
-            return a[0] - b[0];
-        });
         int n = costs.length;
-        int i = candidates - 1, j = n - candidates;
-        for (int h = 0; h < candidates; ++h) {
-            q.offer(new int[] {costs[h], h});
-        }
-        for (int h = n - candidates; h < n; ++h) {
-            if (h > i) {
-                q.offer(new int[] {costs[h], h});
-            }
-        }
         long ans = 0;
-        while (k-- > 0) {
-            var e = q.poll();
-            int c = e[0], x = e[1];
-            ans += c;
-            if (x <= i) {
-                if (++i < j) {
-                    q.offer(new int[] {costs[i], i});
-                }
+        if (candidates * 2 >= n) {
+            Arrays.sort(costs);
+            for (int i = 0; i < k; ++i) {
+                ans += costs[i];
             }
-            if (x >= j) {
-                if (--j > i) {
-                    q.offer(new int[] {costs[j], j});
-                }
+            return ans;
+        }
+        PriorityQueue<int[]> pq
+            = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        for (int i = 0; i < candidates; ++i) {
+            pq.offer(new int[] {costs[i], i});
+            pq.offer(new int[] {costs[n - i - 1], n - i - 1});
+        }
+        int l = candidates, r = n - candidates - 1;
+        while (k-- > 0) {
+            var p = pq.poll();
+            ans += p[0];
+            if (l > r) {
+                continue;
+            }
+            if (p[1] < l) {
+                pq.offer(new int[] {costs[l], l++});
+            } else {
+                pq.offer(new int[] {costs[r], r--});
             }
         }
         return ans;

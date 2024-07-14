@@ -1,10 +1,20 @@
-# [1454. Active Users](https://leetcode.com/problems/active-users)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1454.Active%20Users/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1454. Active Users 🔒](https://leetcode.com/problems/active-users)
 
 [中文文档](/solution/1400-1499/1454.Active%20Users/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Accounts</code></p>
 
@@ -84,11 +94,17 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a general solution if the active users are those who logged in to their accounts for <code>n</code> or more consecutive days?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -108,4 +124,6 @@ WHERE cnt=5;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

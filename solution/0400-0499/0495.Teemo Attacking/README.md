@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0495.Teemo%20Attacking/README.md
+tags:
+    - 数组
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [495. 提莫攻击](https://leetcode.cn/problems/teemo-attacking)
 
 [English Version](/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md)
 
-<!-- tags:数组,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在《英雄联盟》的世界中，有一个叫 “提莫” 的英雄。他的攻击可以让敌方英雄艾希（编者注：寒冰射手）进入中毒状态。</p>
 
@@ -50,7 +59,11 @@
 	<li><code>timeSeries</code> 按 <strong>非递减</strong> 顺序排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -62,6 +75,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
@@ -70,6 +85,8 @@ class Solution:
             ans += min(duration, b - a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 	ans = duration
@@ -107,6 +128,8 @@ func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPoisonedDuration(timeSeries: number[], duration: number): number {
@@ -118,6 +141,8 @@ function findPoisonedDuration(timeSeries: number[], duration: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -134,4 +159,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

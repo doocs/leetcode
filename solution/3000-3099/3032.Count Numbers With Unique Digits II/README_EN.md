@@ -1,10 +1,22 @@
-# [3032. Count Numbers With Unique Digits II](https://leetcode.com/problems/count-numbers-with-unique-digits-ii)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [3032. Count Numbers With Unique Digits II 🔒](https://leetcode.com/problems/count-numbers-with-unique-digits-ii)
 
 [中文文档](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README.md)
 
-<!-- tags:Hash Table,Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, return <em>the count of numbers having&nbsp;<strong>unique</strong> digits in the range</em> <code>[a, b]</code> <em>(<strong>inclusive</strong>).</em>
 
@@ -40,7 +52,11 @@ Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, 
 	<li><code>1 &lt;= a &lt;= b &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Digit DP
 
@@ -62,6 +78,8 @@ The answer is $dfs(0, 0, true)$.
 The time complexity is $O(m \times 2^{10} \times 10)$, and the space complexity is $O(m \times 2^{10})$. Where $m$ is the number of digits in $b$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +104,8 @@ class Solution:
         y = dfs(0, 0, True)
         return y - x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberCount(a int, b int) int {
@@ -216,6 +240,8 @@ func numberCount(a int, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberCount(a: number, b: number): number {
     let num: string = b.toString();
@@ -257,15 +283,23 @@ function numberCount(a: number, b: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def numberCount(self, a: int, b: int) -> int:
         return sum(len(set(str(num))) == len(str(num)) for num in range(a, b + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -294,6 +328,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -320,6 +356,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberCount(a int, b int) int {
 	count := 0
@@ -343,6 +381,8 @@ func hasUniqueDigits(num int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberCount(a: number, b: number): number {
     let count: number = 0;
@@ -361,4 +401,6 @@ function hasUniqueDigits(num: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

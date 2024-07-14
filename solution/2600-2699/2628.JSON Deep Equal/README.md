@@ -1,12 +1,18 @@
-# [2628. 完全相等的 JSON 字符串](https://leetcode.cn/problems/json-deep-equal)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md
+---
+
+<!-- problem:start -->
+
+# [2628. 完全相等的 JSON 字符串 🔒](https://leetcode.cn/problems/json-deep-equal)
 
 [English Version](/solution/2600-2699/2628.JSON%20Deep%20Equal/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个对象 <code>o1</code> 和 <code>o2</code> ，请你检查它们是否 <strong>完全相等</strong> 。</p>
 
@@ -65,7 +71,11 @@
 	<li><code>maxNestingDepth &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -82,6 +92,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `o1` 和 `o2` 的长度。
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function areDeeplyEqual(o1: any, o2: any): boolean {
@@ -122,4 +134,6 @@ function areDeeplyEqual(o1: any, o2: any): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

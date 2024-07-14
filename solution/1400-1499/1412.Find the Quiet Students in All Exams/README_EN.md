@@ -1,10 +1,20 @@
-# [1412. Find the Quiet Students in All Exams](https://leetcode.com/problems/find-the-quiet-students-in-all-exams)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1412.Find%20the%20Quiet%20Students%20in%20All%20Exams/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1412. Find the Quiet Students in All Exams 🔒](https://leetcode.com/problems/find-the-quiet-students-in-all-exams)
 
 [中文文档](/solution/1400-1499/1412.Find%20the%20Quiet%20Students%20in%20All%20Exams/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Student</code></p>
 
@@ -89,7 +99,11 @@ Since student 5 is not taking any exam, he is excluded from the result.
 So, we only return the information of Student 2.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using RANK() Window Function + Group By
 
@@ -98,6 +112,8 @@ We can use the `RANK()` window function to calculate the ascending rank $rk1$ an
 Next, we can perform an inner join between the table $T$ and the table $Student$, and then group by student ID to obtain the number of times each student has a rank of $1$ in ascending order $cnt1$ and descending order $cnt2$ in all exams. If both $cnt1$ and $cnt2$ are $0$, it means that the student is in the middle of the pack in all exams.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -126,4 +142,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

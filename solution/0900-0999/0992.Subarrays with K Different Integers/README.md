@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [992. K 个不同整数的子数组](https://leetcode.cn/problems/subarrays-with-k-different-integers)
 
 [English Version](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README_EN.md)
 
-<!-- tags:数组,哈希表,计数,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数数组 <code>nums</code>和一个整数 <code>k</code>，返回 <code>nums</code> 中 「<strong>好子数组」</strong><em>&nbsp;</em>的数目。</p>
 
@@ -45,7 +56,11 @@
 	<li><code>1 &lt;= nums[i], k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -58,6 +73,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +95,8 @@ class Solution:
 
         return sum(a - b for a, b in zip(f(k - 1), f(k)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subarraysWithKDistinct(nums []int, k int) (ans int) {
 	f := func(k int) []int {
@@ -179,4 +202,6 @@ func subarraysWithKDistinct(nums []int, k int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

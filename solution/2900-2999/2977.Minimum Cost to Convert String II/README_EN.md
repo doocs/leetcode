@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README_EN.md
+rating: 2695
+source: Weekly Contest 377 Q4
+tags:
+    - Graph
+    - Trie
+    - Array
+    - String
+    - Dynamic Programming
+    - Shortest Path
+---
+
+<!-- problem:start -->
+
 # [2977. Minimum Cost to Convert String II](https://leetcode.com/problems/minimum-cost-to-convert-string-ii)
 
 [中文文档](/solution/2900-2999/2977.Minimum%20Cost%20to%20Convert%20String%20II/README.md)
 
-<!-- tags:Graph,Trie,Array,String,Dynamic Programming,Shortest Path -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> strings <code>source</code> and <code>target</code>, both of length <code>n</code> and consisting of <strong>lowercase</strong> English characters. You are also given two <strong>0-indexed</strong> string arrays <code>original</code> and <code>changed</code>, and an integer array <code>cost</code>, where <code>cost[i]</code> represents the cost of converting the string <code>original[i]</code> to the string <code>changed[i]</code>.</p>
 
@@ -70,7 +87,11 @@ If you select substring source[3..7] as the first operation to change &quot;abcd
 	<li><code>1 &lt;= cost[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie + Floyd Algorithm + Memoization Search
 
@@ -102,6 +123,8 @@ To avoid repeated calculations, we can use memoization search.
 The time complexity is $O(m^3 + n^2 + m \times n)$, and the space complexity is $O(m^2 + m \times n + n)$. Where $m$ and $n$ are the lengths of the arrays `original` and `source`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -173,6 +196,8 @@ class Solution:
         ans = dfs(0)
         return -1 if ans >= inf else ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -262,6 +287,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -362,6 +389,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children [26]*Node
@@ -454,6 +483,8 @@ func minimumCost(source string, target string, original []string, changed []stri
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Node {
     children: (Node | null)[] = Array(26).fill(null);
@@ -536,4 +567,6 @@ function minimumCost(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

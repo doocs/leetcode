@@ -1,12 +1,22 @@
-# [298. 二叉树最长连续序列](https://leetcode.cn/problems/binary-tree-longest-consecutive-sequence)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
+# [298. 二叉树最长连续序列 🔒](https://leetcode.cn/problems/binary-tree-longest-consecutive-sequence)
 
 [English Version](/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵指定的二叉树的根节点 <code>root</code> ，请你计算其中 <strong>最长连续序列路径</strong> 的长度。</p>
 
@@ -38,7 +48,11 @@
 	<li><code>-3 * 10<sup>4</sup> &lt;= Node.val &lt;= 3 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -57,6 +71,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -85,6 +101,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -129,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -167,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -198,6 +220,8 @@ func longestConsecutive(root *TreeNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -239,4 +263,6 @@ function longestConsecutive(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

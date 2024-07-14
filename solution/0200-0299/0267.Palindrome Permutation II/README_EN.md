@@ -1,10 +1,22 @@
-# [267. Palindrome Permutation II](https://leetcode.com/problems/palindrome-permutation-ii)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0267.Palindrome%20Permutation%20II/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Backtracking
+---
+
+<!-- problem:start -->
+
+# [267. Palindrome Permutation II 🔒](https://leetcode.com/problems/palindrome-permutation-ii)
 
 [中文文档](/solution/0200-0299/0267.Palindrome%20Permutation%20II/README.md)
 
-<!-- tags:Hash Table,String,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string s, return <em>all the palindromic permutations (without duplicates) of it</em>.</p>
 
@@ -26,11 +38,17 @@
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +75,8 @@ class Solution:
         dfs(mid)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generatePalindromes(s string) []string {
 	cnt := map[byte]int{}
@@ -176,4 +200,6 @@ func generatePalindromes(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

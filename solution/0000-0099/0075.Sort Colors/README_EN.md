@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0075.Sort%20Colors/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [75. Sort Colors](https://leetcode.com/problems/sort-colors)
 
 [中文文档](/solution/0000-0099/0075.Sort%20Colors/README.md)
 
-<!-- tags:Array,Two Pointers,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> with <code>n</code> objects colored red, white, or blue, sort them <strong><a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a> </strong>so that objects of the same color are adjacent, with the colors in the order red, white, and blue.</p>
 
@@ -39,7 +51,11 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Could you come up with a one-pass algorithm using only&nbsp;constant extra space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Three Pointers
 
@@ -57,6 +73,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. Only one tr
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
@@ -72,6 +90,8 @@ class Solution:
             else:
                 k += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortColors(nums []int) {
 	i, j, k := -1, len(nums), 0
@@ -131,6 +155,8 @@ func sortColors(nums []int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -155,6 +181,8 @@ function sortColors(nums: number[]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {
@@ -176,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -202,4 +232,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

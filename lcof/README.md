@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof/README.md
+---
+
 # 《剑指 Offer（第 2 版）》系列
 
 ![](./lcof.png)

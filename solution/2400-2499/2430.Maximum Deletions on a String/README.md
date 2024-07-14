@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md
+rating: 2101
+source: 第 313 场周赛 Q4
+tags:
+    - 字符串
+    - 动态规划
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
+<!-- problem:start -->
+
 # [2430. 对字母串可执行的最大删除数](https://leetcode.cn/problems/maximum-deletions-on-a-string)
 
 [English Version](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md)
 
-<!-- tags:字符串,动态规划,字符串匹配,哈希函数,滚动哈希 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由小写英文字母组成的字符串 <code>s</code> 。在一步操作中，你可以：</p>
 
@@ -63,7 +77,11 @@
 	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -82,6 +100,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deleteString(self, s: str) -> int:
@@ -98,6 +118,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +197,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -208,6 +234,8 @@ func deleteString(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function deleteString(s: string): number {
     const n = s.length;
@@ -233,6 +261,10 @@ function deleteString(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一的记忆化搜索改为动态规划，定义 $f[i]$ 表示删除 $s[i..]$ 所有字符所需的最大操作数，初始时 $f[i]=1$，答案为 $f[0]$。
@@ -242,6 +274,8 @@ function deleteString(s: string): number {
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -260,6 +294,8 @@ class Solution:
                     f[i] = max(f[i], f[i + j] + 1)
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -286,6 +322,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -315,6 +353,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -342,6 +382,8 @@ func deleteString(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function deleteString(s: string): number {
     const n = s.length;
@@ -359,4 +401,6 @@ function deleteString(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

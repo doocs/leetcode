@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [410. 分割数组的最大值](https://leetcode.cn/problems/split-array-largest-sum)
 
 [English Version](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README_EN.md)
 
-<!-- tags:贪心,数组,二分查找,动态规划,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，你需要将这个数组分成&nbsp;<code>k</code><em>&nbsp;</em>个非空的连续子数组。</p>
 
@@ -48,7 +60,11 @@
 	<li><code>1 &lt;= k &lt;= min(50, nums.length)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -61,6 +77,8 @@
 时间复杂度 $O(n \times \log m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组的长度和数组所有元素的和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +95,8 @@ class Solution:
         left, right = max(nums), sum(nums)
         return left + bisect_left(range(left, right + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitArray(nums []int, k int) int {
 	left, right := 0, 0
@@ -166,38 +190,75 @@ func splitArray(nums []int, k int) int {
 }
 ```
 
-```ts
-function splitArray(nums: number[], k: number): number {
-    let left = 0;
-    let right = 0;
-    for (const x of nums) {
-        left = Math.max(left, x);
-        right += x;
-    }
-    const check = (mx: number) => {
-        let s = 1 << 30;
-        let cnt = 0;
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var splitArray = function (nums, k) {
+    let l = Math.max(...nums);
+    let r = nums.reduce((a, b) => a + b);
+
+    const check = mx => {
+        let [s, cnt] = [0, 0];
         for (const x of nums) {
             s += x;
             if (s > mx) {
                 s = x;
-                ++cnt;
+                if (++cnt === k) return false;
             }
         }
-        return cnt <= k;
+        return true;
     };
-    while (left < right) {
-        const mid = (left + right) >> 1;
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (check(mid)) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
+};
+```
+
+#### TypeScript
+
+```ts
+function splitArray(nums: number[], k: number): number {
+    let l = Math.max(...nums);
+    let r = nums.reduce((a, b) => a + b);
+
+    const check = (mx: number) => {
+        let [s, cnt] = [0, 0];
+        for (const x of nums) {
+            s += x;
+            if (s > mx) {
+                s = x;
+                if (++cnt === k) return false;
+            }
+        }
+        return true;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

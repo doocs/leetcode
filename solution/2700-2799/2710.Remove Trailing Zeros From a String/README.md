@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README.md
+rating: 1164
+source: 第 347 场周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2710. 移除字符串中的尾随零](https://leetcode.cn/problems/remove-trailing-zeros-from-a-string)
 
 [English Version](/solution/2700-2799/2710.Remove%20Trailing%20Zeros%20From%20a%20String/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个用字符串表示的正整数 <code>num</code> ，请你以字符串形式返回不含尾随零的整数<em> </em><code>num</code><em> </em>。</p>
 
@@ -36,7 +46,11 @@
 	<li><code>num</code> 不含前导零</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
@@ -46,11 +60,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeTrailingZeros(self, num: str) -> str:
         return num.rstrip("0")
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -76,6 +96,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeTrailingZeros(num string) string {
 	i := len(num) - 1
@@ -86,6 +108,8 @@ func removeTrailingZeros(num string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeTrailingZeros(num: string): string {
     let i = num.length - 1;
@@ -95,6 +119,8 @@ function removeTrailingZeros(num: string): string {
     return num.substring(0, i + 1);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -112,24 +138,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```rust
-impl Solution {
-    pub fn remove_trailing_zeros(num: String) -> String {
-        num.chars()
-            .rev()
-            .skip_while(|&c| c == '0')
-            .collect::<String>()
-            .chars()
-            .rev()
-            .collect::<String>()
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

@@ -1,12 +1,21 @@
-# [755. 倒水](https://leetcode.cn/problems/pour-water)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0755.Pour%20Water/README.md
+tags:
+    - 数组
+    - 模拟
+---
+
+<!-- problem:start -->
+
+# [755. 倒水 🔒](https://leetcode.cn/problems/pour-water)
 
 [English Version](/solution/0700-0799/0755.Pour%20Water/README_EN.md)
 
-<!-- tags:数组,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一个地形高度图， <code>heights[i]</code> 表示该索引处的高度。每个索引的宽度为 1。在 <code>V</code> 个单位的水落在索引 <code>K</code> 处以后，每个索引位置有多少水？</p>
 
@@ -141,7 +150,11 @@
 	<li><code>K</code> 的范围 <code>[0, heights.length - 1]</code>。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -150,6 +163,8 @@
 时间复杂度 $O(v \times n)，空间复杂度 O(1)$。其中 $v$ 和 $n$ 分别是水滴的数量和高度数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -168,6 +183,8 @@ class Solution:
                 heights[k] += 1
         return heights
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +212,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -224,6 +243,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pourWater(heights []int, volume int, k int) []int {
 	for ; volume > 0; volume-- {
@@ -252,4 +273,6 @@ func pourWater(heights []int, volume int, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20065.%20%E6%9C%80%E7%9F%AD%E7%9A%84%E5%8D%95%E8%AF%8D%E7%BC%96%E7%A0%81/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 065. 最短的单词编码](https://leetcode.cn/problems/iSwD2y)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>单词数组&nbsp;<code>words</code> 的 <strong>有效编码</strong> 由任意助记字符串 <code>s</code> 和下标数组 <code>indices</code> 组成，且满足：</p>
 
@@ -49,7 +56,11 @@ words[2] = &quot;bell&quot; ，s 开始于 indices[2] = 5 到下一个 &#39;#&#3
 
 <p><meta charset="UTF-8" />注意：本题与主站 820&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/short-encoding-of-words/">https://leetcode.cn/problems/short-encoding-of-words/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树
 
@@ -58,6 +69,8 @@ words[2] = &quot;bell&quot; ，s 开始于 indices[2] = 5 到下一个 &#39;#&#3
 判断当前单词是否是其他单词的后缀，若是，就不用写入助记字符串中，否则需要写入并且加上一个 # 后缀。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -87,6 +100,8 @@ class Solution:
             ans += l
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -125,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 struct Trie {
@@ -165,6 +182,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children [26]*trie
@@ -199,11 +218,62 @@ func dfs(cur *trie, l int) int {
 }
 ```
 
+#### Swift
+
+```swift
+class Trie {
+    var children = [Trie?](repeating: nil, count: 26)
+}
+
+class Solution {
+    func minimumLengthEncoding(_ words: [String]) -> Int {
+        let root = Trie()
+
+        for word in words {
+            var current = root
+            for char in word.reversed() {
+                let index = Int(char.asciiValue! - Character("a").asciiValue!)
+                if current.children[index] == nil {
+                    current.children[index] = Trie()
+                }
+                current = current.children[index]!
+            }
+        }
+
+        return dfs(root, 1)
+    }
+
+    private func dfs(_ current: Trie, _ length: Int) -> Int {
+        var isLeaf = true
+        var result = 0
+
+        for child in current.children {
+            if let child = child {
+                isLeaf = false
+                result += dfs(child, length + 1)
+            }
+        }
+
+        if isLeaf {
+            result += length
+        }
+
+        return result
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -228,6 +298,8 @@ class Solution:
         trie = Trie()
         return sum(trie.insert(w[::-1]) for w in words)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -260,6 +332,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -297,6 +371,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -337,4 +413,6 @@ func minimumLengthEncoding(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

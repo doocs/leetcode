@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0645.Set%20Mismatch/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [645. Set Mismatch](https://leetcode.com/problems/set-mismatch)
 
 [中文文档](/solution/0600-0699/0645.Set%20Mismatch/README.md)
 
-<!-- tags:Bit Manipulation,Array,Hash Table,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have a set of integers <code>s</code>, which originally contains all the numbers from <code>1</code> to <code>n</code>. Unfortunately, due to some error, one of the numbers in <code>s</code> got duplicated to another number in the set, which results in <strong>repetition of one</strong> number and <strong>loss of another</strong> number.</p>
 
@@ -28,7 +41,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -40,6 +57,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
@@ -49,6 +68,8 @@ class Solution:
         s = sum(nums)
         return [s - s2, s1 - s2]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -85,6 +108,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findErrorNums(nums []int) []int {
@@ -103,6 +128,8 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
@@ -113,13 +140,20 @@ function findErrorNums(nums: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashSet;
 impl Solution {
     pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len() as i32;
         let s1 = ((1 + n) * n) / 2;
-        let s2 = nums.iter().cloned().collect::<HashSet<i32>>().iter().sum::<i32>();
+        let s2 = nums
+            .iter()
+            .cloned()
+            .collect::<HashSet<i32>>()
+            .iter()
+            .sum::<i32>();
         let s: i32 = nums.iter().sum();
         vec![s - s2, s1 - s2]
     }
@@ -127,6 +161,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Hash Table
 
@@ -137,6 +175,8 @@ Next, iterate through $x \in [1, n]$, if $cnt[x] = 2$, then $x$ is the duplicate
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -151,6 +191,8 @@ class Solution:
                 ans[1] = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -174,6 +216,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +240,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findErrorNums(nums []int) []int {
 	n := len(nums)
@@ -214,6 +260,8 @@ func findErrorNums(nums []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findErrorNums(nums: number[]): number[] {
@@ -234,6 +282,8 @@ function findErrorNums(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -265,6 +315,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3: Bit Operation
 
 According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $xs = a \oplus b$.
@@ -276,6 +330,8 @@ Next, we only need to determine which of $a$ and $b$ is the duplicate number and
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$, only using a constant size of extra space.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -296,6 +352,8 @@ class Solution:
                 return [a, b]
         return [b, a]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -325,6 +383,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -356,6 +416,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findErrorNums(nums []int) []int {
 	xs := 0
@@ -382,6 +444,8 @@ func findErrorNums(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findErrorNums(nums: number[]): number[] {
     const n = nums.length;
@@ -406,4 +470,6 @@ function findErrorNums(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

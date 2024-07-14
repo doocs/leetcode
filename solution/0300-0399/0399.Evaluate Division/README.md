@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0399.Evaluate%20Division/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+    - 数组
+    - 字符串
+    - 最短路
+---
+
+<!-- problem:start -->
+
 # [399. 除法求值](https://leetcode.cn/problems/evaluate-division)
 
 [English Version](/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图,数组,最短路 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个变量对数组 <code>equations</code> 和一个实数值数组 <code>values</code> 作为已知条件，其中 <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code> 和 <code>values[i]</code> 共同表示等式 <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code> 。每个 <code>A<sub>i</sub></code> 或 <code>B<sub>i</sub></code> 是一个表示单个变量的字符串。</p>
 
@@ -61,11 +75,17 @@
 	<li><code>A<sub>i</sub>, B<sub>i</sub>, C<sub>j</sub>, D<sub>j</sub></code> 由小写英文字母与数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +115,8 @@ class Solution:
             for c, d in queries
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -144,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -185,6 +209,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
@@ -228,6 +254,8 @@ func calcEquation(equations [][]string, values []float64, queries [][]string) []
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 
@@ -246,10 +274,13 @@ impl DisjointSetUnion {
         let mut nodes = HashMap::new();
         for equation in equations.iter() {
             for iter in equation.iter() {
-                nodes.insert(iter.clone(), DSUNode {
-                    parent: iter.clone(),
-                    weight: 1.0,
-                });
+                nodes.insert(
+                    iter.clone(),
+                    DSUNode {
+                        parent: iter.clone(),
+                        weight: 1.0,
+                    },
+                );
             }
         }
         DisjointSetUnion { nodes }
@@ -297,7 +328,7 @@ impl Solution {
     pub fn calc_equation(
         equations: Vec<Vec<String>>,
         values: Vec<f64>,
-        queries: Vec<Vec<String>>
+        queries: Vec<Vec<String>>,
     ) -> Vec<f64> {
         let mut dsu = DisjointSetUnion::new(&equations);
         for (i, &v) in values.iter().enumerate() {
@@ -315,6 +346,55 @@ impl Solution {
 }
 ```
 
+#### TypeScript
+
+```ts
+function calcEquation(equations: string[][], values: number[], queries: string[][]): number[] {
+    const g: Record<string, [string, number][]> = {};
+    const ans = Array.from({ length: queries.length }, () => -1);
+
+    for (let i = 0; i < equations.length; i++) {
+        const [a, b] = equations[i];
+        (g[a] ??= []).push([b, values[i]]);
+        (g[b] ??= []).push([a, 1 / values[i]]);
+    }
+
+    for (let i = 0; i < queries.length; i++) {
+        const [c, d] = queries[i];
+        const vis = new Set<string>();
+        const q: [string, number][] = [[c, 1]];
+
+        if (!g[c] || !g[d]) continue;
+        if (c === d) {
+            ans[i] = 1;
+            continue;
+        }
+
+        for (const [current, v] of q) {
+            if (vis.has(current)) continue;
+            vis.add(current);
+
+            for (const [intermediate, multiplier] of g[current]) {
+                if (vis.has(intermediate)) continue;
+
+                if (intermediate === d) {
+                    ans[i] = v * multiplier;
+                    break;
+                }
+
+                q.push([intermediate, v * multiplier]);
+            }
+
+            if (ans[i] !== -1) break;
+        }
+    }
+
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

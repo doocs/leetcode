@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2033.%20%E8%93%84%E6%B0%B4/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 33. 蓄水](https://leetcode.cn/problems/o8SXZn)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给定 N 个无限容量且初始均空的水缸，每个水缸配有一个水桶用来打水，第 `i` 个水缸配备的水桶容量记作 `bucket[i]`。小扣有以下两种操作：
 
@@ -22,7 +30,7 @@
 > 解释：
 > 第 1 次操作升级 bucket[0]；
 > 第 2 ~ 4 次操作均选择蓄水，即可完成蓄水要求。
-> ![vat1.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2033.%20蓄水/images/1616122992-RkDxoL-vat1.gif)
+> ![vat1.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2033.%20%E8%93%84%E6%B0%B4/images/1616122992-RkDxoL-vat1.gif)
 
 **示例 2：**
 
@@ -39,7 +47,11 @@
 -   `1 <= bucket.length == vat.length <= 100`
 -   `0 <= bucket[i], vat[i] <= 10^4`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 枚举
 
@@ -53,6 +65,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def storeWater(self, bucket: List[int], vat: List[int]) -> int:
@@ -65,6 +79,8 @@ class Solution:
             ans = min(ans, x + y)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func storeWater(bucket []int, vat []int) int {
 	mx := slices.Max(vat)
@@ -126,6 +146,8 @@ func storeWater(bucket []int, vat []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function storeWater(bucket: number[], vat: number[]): number {
@@ -148,4 +170,6 @@ function storeWater(bucket: number[], vat: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

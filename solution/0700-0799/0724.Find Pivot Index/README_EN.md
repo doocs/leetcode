@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md
+tags:
+    - Array
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [724. Find Pivot Index](https://leetcode.com/problems/find-pivot-index)
 
 [中文文档](/solution/0700-0799/0724.Find%20Pivot%20Index/README.md)
 
-<!-- tags:Array,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.</p>
 
@@ -56,11 +67,30 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as&nbsp;1991:&nbsp;<a href="https://leetcode.com/problems/find-the-middle-index-in-array/" target="_blank">https://leetcode.com/problems/find-the-middle-index-in-array/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Prefix Sum
+
+We define a variable $left$ to represent the sum of elements to the left of index $i$ in the array $\textit{nums}$, and a variable $right$ to represent the sum of elements to the right of index $i$ in the array $\textit{nums}$. Initially, $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$.
+
+We traverse the array $\textit{nums}$. For the current number $x$ being traversed, we update $right = right - x$. At this point, if $left = right$, it indicates that the current index $i$ is the middle position, and we can return it directly. Otherwise, we update $left = left + x$ and continue to traverse the next number.
+
+If the middle position is not found by the end of the traversal, return $-1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $\textit{nums}$.
+
+Similar Problems:
+
+-   [1991. Find the Middle Index in Array](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)
+-   [2574. Left and Right Sum Differences](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +103,8 @@ class Solution:
             left += x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pivotIndex(nums []int) int {
 	var left, right int
@@ -124,6 +160,8 @@ func pivotIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pivotIndex(nums: number[]): number {
     let left = 0,
@@ -138,6 +176,8 @@ function pivotIndex(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +194,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -176,4 +218,6 @@ var pivotIndex = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

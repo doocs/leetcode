@@ -1,12 +1,24 @@
-# [1087. 花括号展开](https://leetcode.cn/problems/brace-expansion)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1087.Brace%20Expansion/README.md
+rating: 1480
+source: 第 2 场双周赛 Q3
+tags:
+    - 广度优先搜索
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
+# [1087. 花括号展开 🔒](https://leetcode.cn/problems/brace-expansion)
 
 [English Version](/solution/1000-1099/1087.Brace%20Expansion/README_EN.md)
 
-<!-- tags:广度优先搜索,字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个表示单词列表的字符串&nbsp;<code>s</code>&nbsp;。单词中的每个字母都有一个或多个选项。</p>
 
@@ -47,11 +59,17 @@
 	<li>在一对连续的左括号和右括号内的所有字符都是不同的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +105,8 @@ class Solution:
         ans.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,4 +157,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

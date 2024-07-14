@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README_EN.md
+tags:
+    - Graph
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [882. Reachable Nodes In Subdivided Graph](https://leetcode.com/problems/reachable-nodes-in-subdivided-graph)
 
 [中文文档](/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md)
 
-<!-- tags:Graph,Shortest Path,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an undirected graph (the <strong>&quot;original graph&quot;</strong>) with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You decide to <strong>subdivide</strong> each edge in the graph into a chain of nodes, with the number of new nodes varying between each edge.</p>
 
@@ -54,11 +66,17 @@ The nodes that are reachable are highlighted in yellow.
 	<li><code>1 &lt;= n &lt;= 3000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +100,8 @@ class Solution:
             ans += min(cnt, a + b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +146,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reachableNodes(edges [][]int, maxMoves int, n int) (ans int) {
@@ -216,4 +240,6 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

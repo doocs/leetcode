@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README.md
+tags:
+    - 数组
+    - 数学
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [891. 子序列宽度之和](https://leetcode.cn/problems/sum-of-subsequence-widths)
 
 [English Version](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README_EN.md)
 
-<!-- tags:数组,数学,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个序列的 <strong>宽度</strong> 定义为该序列中最大元素和最小元素的差值。</p>
 
@@ -42,7 +52,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 枚举元素计算贡献
 
@@ -96,6 +110,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumSubseqWidths(self, nums: List[int]) -> int:
@@ -107,6 +123,8 @@ class Solution:
             p = (p << 1) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumSubseqWidths(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -158,4 +180,6 @@ func sumSubseqWidths(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

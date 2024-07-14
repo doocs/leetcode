@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1034.Coloring%20A%20Border/README_EN.md
+rating: 1578
+source: Weekly Contest 134 Q2
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [1034. Coloring A Border](https://leetcode.com/problems/coloring-a-border)
 
 [中文文档](/solution/1000-1099/1034.Coloring%20A%20Border/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code>, and three integers <code>row</code>, <code>col</code>, and <code>color</code>. Each value in the grid represents the color of the grid square at that location.</p>
 
@@ -41,11 +56,17 @@
 	<li><code>0 &lt;= col &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +91,8 @@ class Solution:
         dfs(row, col, grid[row][col])
         return grid
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -173,6 +200,8 @@ func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	return grid
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorBorder(grid: number[][], row: number, col: number, color: number): number[][] {
@@ -205,4 +234,6 @@ function colorBorder(grid: number[][], row: number, col: number, color: number):
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

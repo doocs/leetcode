@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README_EN.md
+rating: 1530
+source: Biweekly Contest 23 Q2
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [1400. Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings)
 
 [中文文档](/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README.md)
 
-<!-- tags:Greedy,Hash Table,String,Counting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> and an integer <code>k</code>, return <code>true</code> <em>if you can use all the characters in </em><code>s</code><em> to construct </em><code>k</code><em> palindrome strings or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -43,7 +58,11 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -55,6 +74,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
@@ -63,6 +84,8 @@ class Solution:
         cnt = Counter(s)
         return sum(v & 1 for v in cnt.values()) <= k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canConstruct(s string, k int) bool {
 	if len(s) < k {
@@ -120,6 +147,8 @@ func canConstruct(s string, k int) bool {
 	return x <= k
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canConstruct(s: string, k: number): boolean {
@@ -140,4 +169,6 @@ function canConstruct(s: string, k: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

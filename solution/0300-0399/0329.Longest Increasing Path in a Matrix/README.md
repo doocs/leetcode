@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [329. 矩阵中的最长递增路径](https://leetcode.cn/problems/longest-increasing-path-in-a-matrix)
 
 [English Version](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序,记忆化搜索,数组,动态规划,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <code>m x n</code> 整数矩阵 <code>matrix</code> ，找出其中 <strong>最长递增路径</strong> 的长度。</p>
 
@@ -47,7 +62,11 @@
 	<li><code>0 <= matrix[i][j] <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -66,6 +85,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
@@ -81,6 +102,8 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestIncreasingPath(matrix [][]int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -183,6 +210,8 @@ func longestIncreasingPath(matrix [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestIncreasingPath(matrix: number[][]): number {
@@ -217,4 +246,6 @@ function longestIncreasingPath(matrix: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

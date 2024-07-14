@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2735.Collecting%20Chocolates/README.md
+rating: 2043
+source: 第 349 场周赛 Q3
+tags:
+    - 数组
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [2735. 收集巧克力](https://leetcode.cn/problems/collecting-chocolates)
 
 [English Version](/solution/2700-2799/2735.Collecting%20Chocolates/README_EN.md)
 
-<!-- tags:数组,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>、下标从 <strong>0</strong> 开始的整数数组 <code>nums</code>，<code>nums[i]</code> 表示收集位于下标 <code>i</code> 处的巧克力成本。每个巧克力都对应一个不同的类型，最初，位于下标 <code>i</code> 的巧克力就对应第 <code>i</code> 个类型。</p>
 
@@ -49,7 +60,11 @@
 	<li><code>1 &lt;= x &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -77,6 +92,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, nums: List[int], x: int) -> int:
@@ -88,6 +105,8 @@ class Solution:
                 f[i][j] = min(f[i][j - 1], nums[(i - j) % n])
         return min(sum(f[i][j] for i in range(n)) + x * j for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, x int) int64 {
 	n := len(nums)
@@ -161,6 +184,8 @@ func minCost(nums []int, x int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCost(nums: number[], x: number): number {
     const n = nums.length;
@@ -182,6 +207,8 @@ function minCost(nums: number[], x: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -209,4 +236,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

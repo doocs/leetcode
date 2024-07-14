@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md
+rating: 2405
+source: 第 107 场双周赛 Q4
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [2747. 统计没有收到请求的服务器数目](https://leetcode.cn/problems/count-zero-request-servers)
 
 [English Version](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md)
 
-<!-- tags:数组,哈希表,排序,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，表示服务器的总数目，再给你一个下标从 <strong>0</strong>&nbsp;开始的 <strong>二维</strong>&nbsp;整数数组&nbsp;<code>logs</code>&nbsp;，其中&nbsp;<code>logs[i] = [server_id, time]</code>&nbsp;表示 id 为&nbsp;<code>server_id</code>&nbsp;的服务器在&nbsp;<code>time</code>&nbsp;时收到了一个请求。</p>
 
@@ -53,7 +66,11 @@
 	<li><code>x &lt;&nbsp;queries[i]&nbsp;&lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：离线查询 + 排序 + 双指针
 
@@ -61,9 +78,11 @@
 
 对于每个查询 $q = (r, i)$，其窗口左边界为 $l = r - x$，我们需要统计在窗口 $[l, r]$ 内有多少个服务器收到了请求。我们用双指针 $j$ 和 $k$ 分别维护窗口的左右边界，初始时 $j = k = 0$。每一次，如果 $k$ 指向的日志的时间小于等于 $r$，我们就将其加入到窗口中，然后将 $k$ 向右移动一位。如果 $j$ 指向的日志的时间小于 $l$，我们就将其从窗口中移除，然后将 $j$ 向右移动一位。在移动的过程中，我们需要统计窗口中有多少个不同的服务器，这可以使用哈希表来实现。移动结束后，当前时间区间中没有收到请求的服务器数目就是 $n$ 减去哈希表中不同的服务器数目。
 
-时间复杂度 $O(l \times \log l + m \times \log m + n)$，空间复杂度 $O(l + m)$。其中 $l$ 和 $n$ 分别是数组 $logs$ 的长度和服务器的数量，而 $m$ 是数组 $queries$ 的长度。
+时间复杂度 $O(l \times \log l + m \times \log m + n)$，空间复杂度 $O(l + m)$。其中 $l$ 和 $n$ 分别是数组 $\text{logs}$ 的长度和服务器的数量，而 $m$ 是数组 $\text{queries}$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +106,8 @@ class Solution:
             ans[i] = n - len(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -154,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countServers(n int, logs [][]int, x int, queries []int) []int {
 	sort.Slice(logs, func(i, j int) bool { return logs[i][1] < logs[j][1] })
@@ -185,6 +210,8 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countServers(n: number, logs: number[][], x: number, queries: number[]): number[] {
@@ -220,4 +247,6 @@ function countServers(n: number, logs: number[][], x: number, queries: number[])
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

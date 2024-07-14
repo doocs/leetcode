@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README_EN.md
+tags:
+    - Array
+    - Math
+    - Binary Search
+    - Prefix Sum
+    - Randomized
+---
+
+<!-- problem:start -->
+
 # [528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight)
 
 [中文文档](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README.md)
 
-<!-- tags:Array,Math,Binary Search,Prefix Sum,Randomized -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>w</code> where <code>w[i]</code> describes the <strong>weight</strong> of the <code>i<sup>th</sup></code> index.</p>
 
@@ -66,11 +80,17 @@ and so on.
 	<li><code>pickIndex</code> will be called at most <code>10<sup>4</sup></code> times.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +115,8 @@ class Solution:
 # obj = Solution(w)
 # param_1 = obj.pickIndex()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +153,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +187,8 @@ public:
  * int param_1 = obj->pickIndex();
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {
@@ -200,8 +226,10 @@ func (this *Solution) PickIndex() int {
  */
 ```
 
+#### Rust
+
 ```rust
-use rand::{ thread_rng, Rng };
+use rand::{thread_rng, Rng};
 
 struct Solution {
     sum: Vec<i32>,
@@ -234,12 +262,10 @@ impl Solution {
         }
         (left - 1) as i32
     }
-}/**
- * Your Solution object will be instantiated and called as such:
- * let obj = Solution::new(w);
- * let ret_1: i32 = obj.pick_index();
- */
+}
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -281,4 +307,6 @@ Solution.prototype.pickIndex = function () {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

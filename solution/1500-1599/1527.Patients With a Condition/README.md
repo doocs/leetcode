@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1527. 患某种疾病的患者](https://leetcode.cn/problems/patients-with-a-condition)
 
 [English Version](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>患者信息表：&nbsp;<code>Patients</code></p>
 
@@ -55,11 +63,17 @@
 +------------+--------------+--------------+
 <strong>解释：</strong>Bob 和 George 都患有代码以 DIAB1 开头的疾病。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -72,4 +86,6 @@ WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

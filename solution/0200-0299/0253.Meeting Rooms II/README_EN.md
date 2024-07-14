@@ -1,10 +1,25 @@
-# [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0253.Meeting%20Rooms%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Prefix Sum
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
+# [253. Meeting Rooms II 🔒](https://leetcode.com/problems/meeting-rooms-ii)
 
 [中文文档](/solution/0200-0299/0253.Meeting%20Rooms%20II/README.md)
 
-<!-- tags:Greedy,Array,Two Pointers,Prefix Sum,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of meeting time intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, return <em>the minimum number of conference rooms required</em>.</p>
 
@@ -24,11 +39,17 @@
 	<li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -39,6 +60,8 @@ class Solution:
             delta[end] -= 1
         return max(accumulate(delta))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -59,6 +82,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -77,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMeetingRooms(intervals [][]int) int {
 	n := 1000010
@@ -92,8 +119,10 @@ func minMeetingRooms(intervals [][]int) int {
 }
 ```
 
+#### Rust
+
 ```rust
-use std::{ collections::BinaryHeap, cmp::Reverse };
+use std::{cmp::Reverse, collections::BinaryHeap};
 
 impl Solution {
     #[allow(dead_code)]
@@ -104,7 +133,7 @@ impl Solution {
         let n = intervals.len();
 
         // Let's first sort the intervals vector
-        intervals.sort_by(|lhs, rhs| { lhs[0].cmp(&rhs[0]) });
+        intervals.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
 
         // Push the first end time to the heap
         pq.push(Reverse(intervals[0][1]));
@@ -132,4 +161,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - String
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [316. Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters)
 
 [中文文档](/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README.md)
 
-<!-- tags:Stack,Greedy,String,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, remove duplicate letters so that every letter appears once and only once. You must make sure your result is <span data-keyword="lexicographically-smaller-string"><strong>the smallest in lexicographical order</strong></span> among all possible results.</p>
 
@@ -34,7 +47,11 @@
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 1081: <a href="https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/" target="_blank">https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -47,6 +64,8 @@ Finally, concatenate the elements in the stack into a string and return it as th
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +82,8 @@ class Solution:
             vis.add(c)
         return ''.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicateLetters(s string) string {
 	last := make([]int, 26)
@@ -147,9 +172,15 @@ func removeDuplicateLetters(s string) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +203,8 @@ class Solution:
             in_stack[ord(c)] = True
         return ''.join(stack)
 ```
+
+#### Go
 
 ```go
 func removeDuplicateLetters(s string) string {
@@ -199,4 +232,6 @@ func removeDuplicateLetters(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

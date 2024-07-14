@@ -1,12 +1,21 @@
-# [2674. 拆分循环链表](https://leetcode.cn/problems/split-a-circular-linked-list)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README.md
+tags:
+    - 链表
+    - 双指针
+---
+
+<!-- problem:start -->
+
+# [2674. 拆分循环链表 🔒](https://leetcode.cn/problems/split-a-circular-linked-list)
 
 [English Version](/solution/2600-2699/2674.Split%20a%20Circular%20Linked%20List/README_EN.md)
 
-<!-- tags:链表,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个由正整数组成的 <strong>循环链表</strong> <code>list</code> ，你的任务是将其拆分为 2 个 <strong>循环链表</strong> ，使得第一个链表包含 <code>list</code> <strong>前半部分&nbsp;</strong>的节点（即 <code>ceil(list.length / 2)</code> 个节点），顺序与 list 中的顺序相同，而第二个链表包含 <code>list</code> 中 <strong>剩余</strong> 的节点，顺序也与 <code>list</code> 中的顺序相同。</p>
 
@@ -42,15 +51,21 @@
 	<li><code>LastNode.next = FirstNode</code> ，其中 <code>LastNode</code> 是链表的最后一个节点，<code>FirstNode</code> 是第一个节点。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针
 
-我们定义两个指针 $a$ 和 $b$，初始时都指向链表的头节点。每次迭代时，$a$ 指针向前移动一步，$b$ 指针向前移动两步，直到 $b$ 指针到达链表的末尾。此时，$a$ 指针指向链表节点数的一半，我们将链表从 $a$ 指针处断开，即可得到两个链表的头节点。
+我们定义两个指针 $a$ 和 $b$，初始时都指向链表的头节点。每次迭代时，指针 $a$ 向前移动一步，指针 $b$ 向前移动两步，直到指针 $b$ 到达链表的末尾。此时，指针 $a$ 指向链表节点数的一半，我们将链表从指针 $a$ 处断开，即可得到两个链表的头节点。
 
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。需要遍历链表一次。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -73,6 +88,8 @@ class Solution:
         a.next = list
         return [list, list2]
 ```
+
+#### Java
 
 ```java
 /**
@@ -102,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -134,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -157,6 +178,8 @@ func splitCircularLinkedList(list *ListNode) []*ListNode {
 	return []*ListNode{list, list2}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -190,4 +213,6 @@ function splitCircularLinkedList(list: ListNode | null): Array<ListNode | null> 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

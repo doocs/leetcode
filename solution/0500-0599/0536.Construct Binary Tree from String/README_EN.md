@@ -1,10 +1,24 @@
-# [536. Construct Binary Tree from String](https://leetcode.com/problems/construct-binary-tree-from-string)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - String
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
+# [536. Construct Binary Tree from String 🔒](https://leetcode.com/problems/construct-binary-tree-from-string)
 
 [中文文档](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README.md)
 
-<!-- tags:Tree,Depth-First Search,String,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You need to construct a binary tree from a string consisting of parenthesis and integers.</p>
 
@@ -42,11 +56,17 @@
 	<li><code>s</code> consists of digits, <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, and <code>&#39;-&#39;</code> only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -81,6 +101,8 @@ class Solution:
 
         return dfs(s)
 ```
+
+#### Java
 
 ```java
 /**
@@ -134,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -176,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -224,4 +250,6 @@ func str2tree(s string) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

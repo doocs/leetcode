@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+---
+
+<!-- problem:start -->
+
 # [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal)
 
 [中文文档](/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README.md)
 
-<!-- tags:Stack,Tree,Depth-First Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of an n-ary tree, return <em>the preorder traversal of its nodes&#39; values</em>.</p>
 
@@ -41,7 +53,11 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -50,6 +66,8 @@ We can recursively traverse the entire tree. For each node, we first add the nod
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -74,6 +92,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -115,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -155,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -179,6 +203,8 @@ func preorder(root *Node) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -208,6 +234,8 @@ function preorder(root: Node | null): number[] {
     return ans;
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -243,6 +271,10 @@ int* preorder(struct Node* root, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Iteration (Stack Implementation)
 
 We can also solve this problem iteratively.
@@ -252,6 +284,8 @@ We use a stack to help us get the pre-order traversal. We first push the root no
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -276,6 +310,8 @@ class Solution:
                 stk.append(child)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -318,6 +354,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -358,6 +396,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -384,6 +424,8 @@ func preorder(root *Node) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -417,4 +459,6 @@ function preorder(root: Node | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

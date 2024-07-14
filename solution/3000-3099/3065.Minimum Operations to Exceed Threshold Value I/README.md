@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README.md
+rating: 1149
+source: 第 125 场双周赛 Q1
+tags:
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [3065. 超过阈值的最少操作数 I](https://leetcode.cn/problems/minimum-operations-to-exceed-threshold-value-i)
 
 [English Version](/solution/3000-3099/3065.Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <b>0</b>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -54,7 +64,11 @@
 	<li>输入保证至少有一个满足&nbsp;<code>nums[i] &gt;= k</code>&nbsp;的下标&nbsp;<code>i</code>&nbsp;存在。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历计数
 
@@ -64,11 +78,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
         return sum(x < k for x in nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums []int, k int) (ans int) {
 	for _, x := range nums {
@@ -110,6 +132,8 @@ func minOperations(nums []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums: number[], k: number): number {
     return nums.filter(x => x < k).length;
@@ -118,4 +142,6 @@ function minOperations(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

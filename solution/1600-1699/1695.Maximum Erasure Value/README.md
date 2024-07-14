@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1695.Maximum%20Erasure%20Value/README.md
+rating: 1528
+source: 第 220 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [1695. 删除子数组的最大得分](https://leetcode.cn/problems/maximum-erasure-value)
 
 [English Version](/solution/1600-1699/1695.Maximum%20Erasure%20Value/README_EN.md)
 
-<!-- tags:数组,哈希表,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>nums</code> ，请你从中删除一个含有 <strong>若干不同元素</strong> 的子数组<strong>。</strong>删除子数组的 <strong>得分</strong> 就是子数组各元素之 <strong>和</strong> 。</p>
 
@@ -41,7 +53,11 @@
 	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表 + 前缀和
 
@@ -52,6 +68,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +83,8 @@ class Solution:
             d[v] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -110,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUniqueSubarray(nums []int) (ans int) {
 	d := [10001]int{}
@@ -127,6 +151,8 @@ func maximumUniqueSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUniqueSubarray(nums: number[]): number {
@@ -149,4 +175,125 @@ function maximumUniqueSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：双指针
+
+题目实际上是让我们找出一个最长的子数组，该子数组中所有元素都不相同。我们可以用两个指针 $i$ 和 $j$ 分别指向子数组的左右边界，初始时 $i = 0$, $j = 0$。另外，我们用一个哈希表 $vis$ 记录子数组中的元素。
+
+遍历数组，对于每个数字 $x$，如果 $x$ 在 $vis$ 中，那么我们不断地将 $nums[i]$ 从 $vis$ 中移除，直到 $x$ 不在 $vis$ 中为止。这样我们就找到了一个不包含重复元素的子数组。我们将 $x$ 加入 $vis$，并更新子数组的和 $s$，然后更新答案 $ans = \max(ans, s)$。
+
+遍历结束后，我们就可以得到最大的子数组和。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+        vis = set()
+        ans = s = i = 0
+        for x in nums:
+            while x in vis:
+                y = nums[i]
+                s -= y
+                vis.remove(y)
+                i += 1
+            vis.add(x)
+            s += x
+            ans = max(ans, s)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maximumUniqueSubarray(int[] nums) {
+        Set<Integer> vis = new HashSet<>();
+        int ans = 0, s = 0, i = 0;
+        for (int x : nums) {
+            while (vis.contains(x)) {
+                s -= nums[i];
+                vis.remove(nums[i++]);
+            }
+            vis.add(x);
+            s += x;
+            ans = Math.max(ans, s);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumUniqueSubarray(vector<int>& nums) {
+        unordered_set<int> vis;
+        int ans = 0, s = 0, i = 0;
+        for (int x : nums) {
+            while (vis.contains(x)) {
+                s -= nums[i];
+                vis.erase(nums[i++]);
+            }
+            vis.insert(x);
+            s += x;
+            ans = max(ans, s);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumUniqueSubarray(nums []int) (ans int) {
+	vis := map[int]bool{}
+	var s, i int
+	for _, x := range nums {
+		for vis[x] {
+			s -= nums[i]
+			vis[nums[i]] = false
+			i++
+		}
+		vis[x] = true
+		s += x
+		ans = max(ans, s)
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumUniqueSubarray(nums: number[]): number {
+    const vis: Set<number> = new Set();
+    let [ans, s, i] = [0, 0, 0];
+    for (const x of nums) {
+        while (vis.has(x)) {
+            s -= nums[i];
+            vis.delete(nums[i++]);
+        }
+        vis.add(x);
+        s += x;
+        ans = Math.max(ans, s);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

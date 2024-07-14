@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0129.Sum%20Root%20to%20Leaf%20Numbers/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [129. 求根节点到叶节点数字之和](https://leetcode.cn/problems/sum-root-to-leaf-numbers)
 
 [English Version](/solution/0100-0199/0129.Sum%20Root%20to%20Leaf%20Numbers/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个二叉树的根节点 <code>root</code> ，树中每个节点都存放有一个 <code>0</code> 到 <code>9</code> 之间的数字。
 
@@ -58,7 +68,11 @@
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -74,6 +88,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -94,6 +110,8 @@ class Solution:
 
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -129,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -155,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -179,6 +201,8 @@ func sumNumbers(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -206,6 +230,8 @@ function sumNumbers(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -225,8 +251,8 @@ function sumNumbers(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(node: &Option<Rc<RefCell<TreeNode>>>, mut num: i32) -> i32 {
         if node.is_none() {
@@ -245,6 +271,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -269,6 +297,8 @@ var sumNumbers = function (root) {
     return dfs(root, 0);
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -298,4 +328,6 @@ int sumNumbers(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

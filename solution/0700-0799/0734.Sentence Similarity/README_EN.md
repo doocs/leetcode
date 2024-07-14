@@ -1,10 +1,22 @@
-# [734. Sentence Similarity](https://leetcode.com/problems/sentence-similarity)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [734. Sentence Similarity 🔒](https://leetcode.com/problems/sentence-similarity)
 
 [中文文档](/solution/0700-0799/0734.Sentence%20Similarity/README.md)
 
-<!-- tags:Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>We can represent a sentence as an array of words, for example, the sentence <code>&quot;I am happy with leetcode&quot;</code> can be represented as <code>arr = [&quot;I&quot;,&quot;am&quot;,happy&quot;,&quot;with&quot;,&quot;leetcode&quot;]</code>.</p>
 
@@ -60,11 +72,17 @@
 	<li>All the pairs <code>(x<sub>i</sub>,<sub> </sub>y<sub>i</sub>)</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +96,8 @@ class Solution:
             a == b or (a, b) in s or (b, a) in s for a, b in zip(sentence1, sentence2)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +139,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func areSentencesSimilar(sentence1 []string, sentence2 []string, similarPairs [][]string) bool {
@@ -139,4 +163,6 @@ func areSentencesSimilar(sentence1 []string, sentence2 []string, similarPairs []
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

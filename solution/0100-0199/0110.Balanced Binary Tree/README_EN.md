@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0110.Balanced%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree)
 
 [中文文档](/solution/0100-0199/0110.Balanced%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary tree, determine if it is <span data-keyword="height-balanced"><strong>height-balanced</strong></span>.</p>
 
@@ -38,7 +50,11 @@
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bottom-Up Recursion
 
@@ -52,6 +68,8 @@ Therefore, if the function $height(root)$ returns $-1$, it means the binary tree
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -72,6 +90,8 @@ class Solution:
 
         return height(root) >= 0
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -138,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -174,6 +198,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -205,6 +231,8 @@ function isBalanced(root: TreeNode | null): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -224,8 +252,8 @@ function isBalanced(root: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn is_balanced(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         Self::dfs(&root) > -1
@@ -245,6 +273,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -277,4 +307,6 @@ var isBalanced = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

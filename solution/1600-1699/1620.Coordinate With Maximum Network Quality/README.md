@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README.md
+rating: 1665
+source: 第 37 场双周赛 Q2
+tags:
+    - 数组
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [1620. 网络信号最好的坐标](https://leetcode.cn/problems/coordinate-with-maximum-network-quality)
 
 [English Version](/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README_EN.md)
 
-<!-- tags:数组,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>towers</code>&nbsp;和一个整数 <code>radius</code> 。</p>
 
@@ -34,7 +45,7 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/images/untitled-diagram.png" style="width: 176px; height: 176px;" />
 <pre>
 <b>输入：</b>towers = [[1,2,5],[2,1,7],[3,1,9]], radius = 2
@@ -46,14 +57,14 @@
 - 塔 (3, 1) 强度参数为 9 ，在该点强度为 ⌊9 / (1 + sqrt(1)⌋ = ⌊4.5⌋ = 4
 没有别的坐标有更大的信号强度。</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <b>输入：</b>towers = [[23,11,21]], radius = 9
 <b>输出：</b>[23,11]
 <strong>解释：</strong>由于仅存在一座信号塔，所以塔的位置信号强度最大。</pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <b>输入：</b>towers = [[1,2,13],[2,1,7],[0,1,9]], radius = 2
@@ -71,7 +82,11 @@
 	<li><code>1 &lt;= radius &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -80,6 +95,8 @@
 时间复杂度 $O(n \times C^2)$，其中 $n$ 是信号塔的数量，而 $C$ 是坐标点的范围大小。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +115,8 @@ class Solution:
                     ans = [i, j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +171,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestCoordinate(towers [][]int, radius int) []int {
 	ans := []int{0, 0}
@@ -175,4 +198,6 @@ func bestCoordinate(towers [][]int, radius int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

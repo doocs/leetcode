@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0763.Partition%20Labels/README.md
+tags:
+    - 贪心
+    - 哈希表
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [763. 划分字母区间](https://leetcode.cn/problems/partition-labels)
 
 [English Version](/solution/0700-0799/0763.Partition%20Labels/README_EN.md)
 
-<!-- tags:贪心,哈希表,双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。</p>
 
@@ -41,7 +52,11 @@
 	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -61,6 +76,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
@@ -74,6 +91,8 @@ class Solution:
                 j = i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func partitionLabels(s string) (ans []int) {
 	last := [26]int{}
@@ -137,6 +160,8 @@ func partitionLabels(s string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function partitionLabels(s: string): number[] {
@@ -157,6 +182,8 @@ function partitionLabels(s: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -182,6 +209,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -206,6 +235,8 @@ var partitionLabels = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<int> PartitionLabels(string s) {
@@ -229,4 +260,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

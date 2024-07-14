@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0850.Rectangle%20Area%20II/README.md
+tags:
+    - 线段树
+    - 数组
+    - 有序集合
+    - 扫描线
+---
+
+<!-- problem:start -->
+
 # [850. 矩形面积 II](https://leetcode.cn/problems/rectangle-area-ii)
 
 [English Version](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md)
 
-<!-- tags:线段树,数组,有序集合,扫描线 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个轴对齐的二维数组&nbsp;<code>rectangles</code>&nbsp;。 对于&nbsp;<code>rectangle[i] = [x1, y1, x2, y2]</code>，其中（x1，y1）是矩形&nbsp;<code>i</code>&nbsp;左下角的坐标，<meta charset="UTF-8" />&nbsp;<code>(x<sub>i1</sub>, y<sub>i1</sub>)</code>&nbsp;是该矩形 <strong>左下角</strong> 的坐标，<meta charset="UTF-8" />&nbsp;<code>(x<sub>i2</sub>, y<sub>i2</sub>)</code>&nbsp;是该矩形&nbsp;<strong>右上角</strong> 的坐标。</p>
 
@@ -46,7 +57,11 @@
 	<li><code>0 &lt;= x<sub>i1</sub>, y<sub>i1</sub>, x<sub>i2</sub>, y<sub>i2</sub>&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：离散化 + 线段树 + 扫描线
 
@@ -65,6 +80,8 @@
 另外，由于本题利用了扫描线本身的特性，因此，区间修改时，不需要懒标记，也无须进行 pushdown 操作。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -132,6 +149,8 @@ class Solution:
         ans %= int(1e9 + 7)
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -232,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -320,6 +341,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rectangleArea(rectangles [][]int) int {
@@ -421,4 +444,6 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

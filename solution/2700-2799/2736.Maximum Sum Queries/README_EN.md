@@ -1,10 +1,28 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md
+rating: 2533
+source: Weekly Contest 349 Q4
+tags:
+    - Stack
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Sorting
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [2736. Maximum Sum Queries](https://leetcode.com/problems/maximum-sum-queries)
 
 [中文文档](/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
 
-<!-- tags:Stack,Binary Indexed Tree,Segment Tree,Array,Binary Search,Sorting,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, each of length <code>n</code>, and a <strong>1-indexed 2D array</strong> <code>queries</code> where <code>queries[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
@@ -59,7 +77,11 @@ Therefore, we return&nbsp;<code node="[object Object]">[6,10,7]</code>.
 	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -84,6 +106,8 @@ Similar problems:
 -   [2940. Find Building Where Alice and Bob Can Meet](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -126,6 +150,8 @@ class Solution:
             ans[i] = tree.query(k)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -188,6 +214,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -247,6 +275,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -305,6 +335,8 @@ func maximumSumQueries(nums1 []int, nums2 []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -376,55 +408,6 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] q) {
-        int n = nums1.length, m = q.length;
-        int[][] a = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            a[i][0] = nums1[i];
-            a[i][1] = nums2[i];
-        }
-        int[][] b = new int[m][3];
-        for (int i = 0; i < m; i++) {
-            b[i][0] = q[i][0];
-            b[i][1] = q[i][1];
-            b[i][2] = i;
-        }
-        Arrays.sort(a, (o1, o2) -> o1[0] - o2[0]);
-        Arrays.sort(b, (o1, o2) -> o1[0] - o2[0]);
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        int[] res = new int[m];
-        int max = -1;
-        for (int i = m - 1, j = n - 1; i >= 0; i--) {
-            int x = b[i][0], y = b[i][1], idx = b[i][2];
-            while (j >= 0 && a[j][0] >= x) {
-                if (max < a[j][1]) {
-                    max = a[j][1];
-                    Integer key = map.floorKey(a[j][1]);
-                    while (key != null && map.get(key) <= a[j][0] + a[j][1]) {
-                        map.remove(key);
-                        key = map.floorKey(key);
-                    }
-                    map.put(max, a[j][0] + a[j][1]);
-                }
-                j--;
-            }
-            Integer key = map.ceilingKey(y);
-            if (key == null)
-                res[idx] = -1;
-            else
-                res[idx] = map.get(key);
-        }
-        return res;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

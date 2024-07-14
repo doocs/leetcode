@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1695.Maximum%20Erasure%20Value/README_EN.md
+rating: 1528
+source: Weekly Contest 220 Q2
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [1695. Maximum Erasure Value](https://leetcode.com/problems/maximum-erasure-value)
 
 [中文文档](/solution/1600-1699/1695.Maximum%20Erasure%20Value/README.md)
 
-<!-- tags:Array,Hash Table,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of positive integers <code>nums</code> and want to erase a subarray containing&nbsp;<strong>unique elements</strong>. The <strong>score</strong> you get by erasing the subarray is equal to the <strong>sum</strong> of its elements.</p>
 
@@ -37,7 +51,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array or Hash Table + Prefix Sum
 
@@ -48,6 +66,8 @@ We traverse the array, for each number $v$, if $d[v]$ exists, then we update $j$
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +81,8 @@ class Solution:
             d[v] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumUniqueSubarray(nums []int) (ans int) {
 	d := [10001]int{}
@@ -123,6 +149,8 @@ func maximumUniqueSubarray(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumUniqueSubarray(nums: number[]): number {
@@ -145,4 +173,125 @@ function maximumUniqueSubarray(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Two Pointers
+
+The problem is actually asking us to find the longest subarray in which all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$, $j = 0$. In addition, we use a hash table $vis$ to record the elements in the subarray.
+
+We traverse the array, for each number $x$, if $x$ is in $vis$, then we continuously remove $nums[i]$ from $vis$, until $x$ is not in $vis$. In this way, we find a subarray without duplicate elements. We add $x$ to $vis$, update the sum of the subarray $s$, and then update the answer $ans = \max(ans, s)$.
+
+After the traversal, we can get the maximum sum of the subarray.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+        vis = set()
+        ans = s = i = 0
+        for x in nums:
+            while x in vis:
+                y = nums[i]
+                s -= y
+                vis.remove(y)
+                i += 1
+            vis.add(x)
+            s += x
+            ans = max(ans, s)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maximumUniqueSubarray(int[] nums) {
+        Set<Integer> vis = new HashSet<>();
+        int ans = 0, s = 0, i = 0;
+        for (int x : nums) {
+            while (vis.contains(x)) {
+                s -= nums[i];
+                vis.remove(nums[i++]);
+            }
+            vis.add(x);
+            s += x;
+            ans = Math.max(ans, s);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumUniqueSubarray(vector<int>& nums) {
+        unordered_set<int> vis;
+        int ans = 0, s = 0, i = 0;
+        for (int x : nums) {
+            while (vis.contains(x)) {
+                s -= nums[i];
+                vis.erase(nums[i++]);
+            }
+            vis.insert(x);
+            s += x;
+            ans = max(ans, s);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumUniqueSubarray(nums []int) (ans int) {
+	vis := map[int]bool{}
+	var s, i int
+	for _, x := range nums {
+		for vis[x] {
+			s -= nums[i]
+			vis[nums[i]] = false
+			i++
+		}
+		vis[x] = true
+		s += x
+		ans = max(ans, s)
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumUniqueSubarray(nums: number[]): number {
+    const vis: Set<number> = new Set();
+    let [ans, s, i] = [0, 0, 0];
+    for (const x of nums) {
+        while (vis.has(x)) {
+            s -= nums[i];
+            vis.delete(nums[i++]);
+        }
+        vis.add(x);
+        s += x;
+        ans = Math.max(ans, s);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

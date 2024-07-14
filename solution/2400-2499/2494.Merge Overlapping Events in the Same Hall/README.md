@@ -1,12 +1,20 @@
-# [2494. 合并在同一个大厅重叠的活动](https://leetcode.cn/problems/merge-overlapping-events-in-the-same-hall)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2494. 合并在同一个大厅重叠的活动 🔒](https://leetcode.cn/problems/merge-overlapping-events-in-the-same-hall)
 
 [English Version](/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>HallEvents</code></p>
 
@@ -64,11 +72,17 @@ HallEvents 表:
 大厅 3:
 - 大厅只有一个活动，所以我们返回它。请注意，我们只分别考虑每个大厅的活动。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -113,4 +127,6 @@ GROUP BY hall_id, gid;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

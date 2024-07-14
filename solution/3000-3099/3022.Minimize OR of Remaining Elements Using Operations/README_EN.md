@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README_EN.md
+rating: 2917
+source: Weekly Contest 382 Q4
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+---
+
+<!-- problem:start -->
+
 # [3022. Minimize OR of Remaining Elements Using Operations](https://leetcode.com/problems/minimize-or-of-remaining-elements-using-operations)
 
 [中文文档](/solution/3000-3099/3022.Minimize%20OR%20of%20Remaining%20Elements%20Using%20Operations/README.md)
 
-<!-- tags:Greedy,Bit Manipulation,Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -56,11 +70,17 @@ It can be shown that 15 is the minimum possible value of the bitwise OR of the r
 	<li><code>0 &lt;= k &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +104,8 @@ class Solution:
                 ans += 1 << i
         return rans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -144,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOrAfterOperations(nums []int, k int) int {
     ans := 0
@@ -174,4 +200,6 @@ func minOrAfterOperations(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

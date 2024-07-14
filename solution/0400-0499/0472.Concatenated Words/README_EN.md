@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0472.Concatenated%20Words/README_EN.md
+tags:
+    - Depth-First Search
+    - Trie
+    - Array
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [472. Concatenated Words](https://leetcode.com/problems/concatenated-words)
 
 [中文文档](/solution/0400-0499/0472.Concatenated%20Words/README.md)
 
-<!-- tags:Depth-First Search,Trie,Array,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code> (<strong>without duplicates</strong>), return <em>all the <strong>concatenated words</strong> in the given list of</em> <code>words</code>.</p>
 
@@ -38,11 +52,17 @@
 	<li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -85,6 +105,8 @@ class Solution:
                 trie.insert(w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -140,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -191,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -247,4 +273,6 @@ func findAllConcatenatedWordsInADict(words []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

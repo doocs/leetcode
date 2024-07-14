@@ -1,10 +1,23 @@
-# [351. Android Unlock Patterns](https://leetcode.com/problems/android-unlock-patterns)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0351.Android%20Unlock%20Patterns/README_EN.md
+tags:
+    - Bit Manipulation
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
+<!-- problem:start -->
+
+# [351. Android Unlock Patterns 🔒](https://leetcode.com/problems/android-unlock-patterns)
 
 [中文文档](/solution/0300-0399/0351.Android%20Unlock%20Patterns/README.md)
 
-<!-- tags:Dynamic Programming,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Android devices have a special lock screen with a <code>3 x 3</code> grid of dots. Users can set an &quot;unlock pattern&quot; by connecting the dots in a specific sequence, forming a series of joined line segments where each segment&#39;s endpoints are two consecutive dots in the sequence. A sequence of <code>k</code> dots is a <strong>valid</strong> unlock pattern if both of the following are true:</p>
 
@@ -55,11 +68,17 @@
 	<li><code>1 &lt;= m, n &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +107,8 @@ class Solution:
         vis = [False] * 10
         return dfs(1) * 4 + dfs(2) * 4 + dfs(5)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPatterns(m int, n int) int {
@@ -209,6 +234,8 @@ func numberOfPatterns(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPatterns(m: number, n: number): number {
     const cross: number[][] = Array(10)
@@ -247,4 +274,6 @@ function numberOfPatterns(m: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

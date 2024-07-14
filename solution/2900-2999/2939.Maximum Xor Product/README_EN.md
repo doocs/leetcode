@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2939.Maximum%20Xor%20Product/README_EN.md
+rating: 2127
+source: Weekly Contest 372 Q3
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Math
+---
+
+<!-- problem:start -->
+
 # [2939. Maximum Xor Product](https://leetcode.com/problems/maximum-xor-product)
 
 [中文文档](/solution/2900-2999/2939.Maximum%20Xor%20Product/README.md)
 
-<!-- tags:Greedy,Bit Manipulation,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given three integers <code>a</code>, <code>b</code>, and <code>n</code>, return <em>the <strong>maximum value</strong> of</em> <code>(a XOR x) * (b XOR x)</code> <em>where</em> <code>0 &lt;= x &lt; 2<sup>n</sup></code>.</p>
 
@@ -47,7 +61,11 @@ It can be shown that 12 is the maximum value of (a XOR x) * (b XOR x) for all 0 
 	<li><code>0 &lt;= n &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bitwise Operation
 
@@ -64,6 +82,8 @@ Finally, we return $ax \times bx \bmod (10^9 + 7)$ as the answer.
 The time complexity is $O(n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +102,8 @@ class Solution:
                 ax |= 1 << i
         return ax * bx % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumXorProduct(a int64, b int64, n int) int {
 	const mod int64 = 1e9 + 7
@@ -153,6 +179,8 @@ func maximumXorProduct(a int64, b int64, n int) int {
 	return int(ax * bx % mod)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumXorProduct(a: number, b: number, n: number): number {
@@ -179,4 +207,6 @@ function maximumXorProduct(a: number, b: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

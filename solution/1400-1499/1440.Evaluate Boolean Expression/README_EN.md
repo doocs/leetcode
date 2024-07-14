@@ -1,10 +1,20 @@
-# [1440. Evaluate Boolean Expression](https://leetcode.com/problems/evaluate-boolean-expression)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1440. Evaluate Boolean Expression 🔒](https://leetcode.com/problems/evaluate-boolean-expression)
 
 [中文文档](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table <code>Variables</code>:</p>
 
@@ -83,13 +93,19 @@ Expressions table:
 As shown, you need to find the value of each boolean expression in the table using the variables table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Equi-Join + CASE Expression
 
 We can associate each row in the `Expressions` table with two rows in the `Variables` table using an equi-join, where the conditions for the association are `left_operand = name` and `right_operand = name`. Then, we can use a `CASE` expression to determine the value of the boolean expression. If the `operator` is `=`, we check if the two values are equal. If the `operator` is `>`, we check if the left value is greater than the right value. If the `operator` is `<`, we check if the left value is less than the right value. If the condition is true, the boolean expression evaluates to `true`, otherwise it evaluates to `false`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -113,4 +129,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

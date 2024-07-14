@@ -1,12 +1,22 @@
-# [2664. 巡逻的骑士](https://leetcode.cn/problems/the-knights-tour)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md
+tags:
+    - 数组
+    - 回溯
+    - 矩阵
+---
+
+<!-- problem:start -->
+
+# [2664. 巡逻的骑士 🔒](https://leetcode.cn/problems/the-knights-tour)
 
 [English Version](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md)
 
-<!-- tags:数组,回溯,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个正整数 <code>m</code> 和 <code>n</code>&nbsp;，它们是一个 <strong>下标从 0 开始</strong> 的二维数组 <code>board</code> 的高度和宽度。还有一对正整数 <code>(r, c)</code> ，它们是骑士在棋盘上的起始位置。</p>
 
@@ -45,7 +55,11 @@
 	<li>输入的数据保证在给定条件下至少存在一种访问所有单元格的移动顺序。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -58,6 +72,8 @@
 时间复杂度 $O(8^{m \times n})$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 为题目给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +98,8 @@ class Solution:
         dfs(r, c)
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +173,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tourOfKnight(m int, n int, r int, c int) [][]int {
@@ -189,6 +211,8 @@ func tourOfKnight(m int, n int, r int, c int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     const g: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
@@ -217,6 +241,8 @@ function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn tour_of_knight(m: i32, n: i32, r: i32, c: i32) -> Vec<Vec<i32>> {
@@ -232,7 +258,7 @@ impl Solution {
             m: i32,
             n: i32,
             dirs: &[i32; 9],
-            ok: &mut bool
+            ok: &mut bool,
         ) {
             if g[i][j] == m * n - 1 {
                 *ok = true;
@@ -260,4 +286,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

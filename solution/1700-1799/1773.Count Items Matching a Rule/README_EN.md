@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README_EN.md
+rating: 1174
+source: Weekly Contest 230 Q1
+tags:
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
 # [1773. Count Items Matching a Rule](https://leetcode.com/problems/count-items-matching-a-rule)
 
 [中文文档](/solution/1700-1799/1773.Count%20Items%20Matching%20a%20Rule/README.md)
 
-<!-- tags:Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>items</code>, where each <code>items[i] = [type<sub>i</sub>, color<sub>i</sub>, name<sub>i</sub>]</code> describes the type, color, and name of the <code>i<sup>th</sup></code> item. You are also given a rule represented by two strings, <code>ruleKey</code> and <code>ruleValue</code>.</p>
 
@@ -44,11 +57,17 @@
 	<li>All strings consist only of lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +75,8 @@ class Solution:
         i = 0 if ruleKey[0] == 't' else (1 if ruleKey[0] == 'c' else 2)
         return sum(v[i] == ruleValue for v in items)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +93,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -81,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) {
@@ -94,6 +119,8 @@ func countMatches(items [][]string, ruleKey string, ruleValue string) (ans int) 
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
     const key = ruleKey === 'type' ? 0 : ruleKey === 'color' ? 1 : 2;
@@ -101,17 +128,24 @@ function countMatches(items: string[][], ruleKey: string, ruleValue: string): nu
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn count_matches(items: Vec<Vec<String>>, rule_key: String, rule_value: String) -> i32 {
-        let key = if rule_key == "type" { 0 } else if rule_key == "color" { 1 } else { 2 };
-        items
-            .iter()
-            .filter(|v| v[key] == rule_value)
-            .count() as i32
+        let key = if rule_key == "type" {
+            0
+        } else if rule_key == "color" {
+            1
+        } else {
+            2
+        };
+        items.iter().filter(|v| v[key] == rule_value).count() as i32
     }
 }
 ```
+
+#### C
 
 ```c
 int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey, char* ruleValue) {
@@ -129,4 +163,6 @@ int countMatches(char*** items, int itemsSize, int* itemsColSize, char* ruleKey,
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

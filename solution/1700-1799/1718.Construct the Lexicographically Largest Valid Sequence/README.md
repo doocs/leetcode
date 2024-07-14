@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README.md
+rating: 2080
+source: 第 43 场双周赛 Q3
+tags:
+    - 数组
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [1718. 构建字典序最大的可行序列](https://leetcode.cn/problems/construct-the-lexicographically-largest-valid-sequence)
 
 [English Version](/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README_EN.md)
 
-<!-- tags:数组,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，请你找到满足下面条件的一个序列：</p>
 
@@ -45,11 +56,17 @@
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +97,8 @@ class Solution:
         dfs(1)
         return path[1:]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func constructDistancedSequence(n int) []int {
@@ -221,4 +244,6 @@ func constructDistancedSequence(n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

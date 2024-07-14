@@ -7,10 +7,7 @@ class Solution {
             cnt.merge(nums.get(i), 1, Integer::sum);
             s += nums.get(i);
         }
-        long ans = 0;
-        if (cnt.size() >= m) {
-            ans = s;
-        }
+        long ans = cnt.size() >= m ? s : 0;
         for (int i = k; i < n; ++i) {
             cnt.merge(nums.get(i), 1, Integer::sum);
             if (cnt.merge(nums.get(i - k), -1, Integer::sum) == 0) {

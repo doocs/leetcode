@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0900.RLE%20Iterator/README_EN.md
+tags:
+    - Design
+    - Array
+    - Counting
+    - Iterator
+---
+
+<!-- problem:start -->
+
 # [900. RLE Iterator](https://leetcode.com/problems/rle-iterator)
 
 [中文文档](/solution/0900-0999/0900.RLE%20Iterator/README.md)
 
-<!-- tags:Design,Array,Counting,Iterator -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>We can use run-length encoding (i.e., <strong>RLE</strong>) to encode a sequence of integers. In a run-length encoded array of even length <code>encoding</code> (<strong>0-indexed</strong>), for all even <code>i</code>, <code>encoding[i]</code> tells us the number of times that the non-negative integer value <code>encoding[i + 1]</code> is repeated in the sequence.</p>
 
@@ -51,7 +64,11 @@ but the second term did not exist. Since the last term exhausted does not exist,
 	<li>At most <code>1000</code> calls will be made to <code>next</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Maintain Two Pointers
 
@@ -64,6 +81,8 @@ If $i$ exceeds the length of the run-length encoding and there is still no retur
 The time complexity is $O(n + q)$, and the space complexity is $O(n)$. Here, $n$ is the length of the run-length encoding, and $q$ is the number of times `next(n)` is called.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class RLEIterator:
@@ -88,6 +107,8 @@ class RLEIterator:
 # obj = RLEIterator(encoding)
 # param_1 = obj.next(n)
 ```
+
+#### Java
 
 ```java
 class RLEIterator {
@@ -120,6 +141,8 @@ class RLEIterator {
  * int param_1 = obj.next(n);
  */
 ```
+
+#### C++
 
 ```cpp
 class RLEIterator {
@@ -155,6 +178,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type RLEIterator struct {
 	encoding []int
@@ -185,6 +210,8 @@ func (this *RLEIterator) Next(n int) int {
  * param_1 := obj.Next(n);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class RLEIterator {
@@ -222,4 +249,6 @@ class RLEIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

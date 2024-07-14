@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 动态规划
+    - 回溯
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [95. 不同的二叉搜索树 II](https://leetcode.cn/problems/unique-binary-search-trees-ii)
 
 [English Version](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README_EN.md)
 
-<!-- tags:树,二叉搜索树,动态规划,回溯,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，请你生成并返回所有由 <code>n</code> 个节点组成且节点值从 <code>1</code> 到 <code>n</code> 互不相同的不同 <strong>二叉搜索树</strong><em> </em>。可以按 <strong>任意顺序</strong> 返回答案。</p>
 
@@ -38,7 +50,11 @@
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -52,6 +68,8 @@
 时间复杂度 $O(n \times G(n))$，空间复杂度 $O(n \times G(n))$。其中 $G(n)$ 是卡特兰数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -76,6 +94,8 @@ class Solution:
 
         return dfs(1, n)
 ```
+
+#### Java
 
 ```java
 /**
@@ -118,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -154,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -184,6 +208,8 @@ func generateTrees(n int) []*TreeNode {
 	return dfs(1, n)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -221,6 +247,8 @@ function generateTrees(n: number): Array<TreeNode | null> {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -240,8 +268,8 @@ function generateTrees(n: number): Array<TreeNode | null> {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn generate_trees(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         Self::dfs(1, n)
@@ -258,17 +286,11 @@ impl Solution {
             let right = Self::dfs(v + 1, j);
             for l in &left {
                 for r in &right {
-                    ans.push(
-                        Some(
-                            Rc::new(
-                                RefCell::new(TreeNode {
-                                    val: v,
-                                    left: l.clone(),
-                                    right: r.clone(),
-                                })
-                            )
-                        )
-                    );
+                    ans.push(Some(Rc::new(RefCell::new(TreeNode {
+                        val: v,
+                        left: l.clone(),
+                        right: r.clone(),
+                    }))));
                 }
             }
         }
@@ -279,4 +301,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

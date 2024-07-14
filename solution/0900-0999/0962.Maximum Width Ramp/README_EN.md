@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [962. Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp)
 
 [中文文档](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md)
 
-<!-- tags:Stack,Array,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>ramp</strong> in an integer array <code>nums</code> is a pair <code>(i, j)</code> for which <code>i &lt; j</code> and <code>nums[i] &lt;= nums[j]</code>. The <strong>width</strong> of such a ramp is <code>j - i</code>.</p>
 
@@ -35,11 +47,17 @@
 	<li><code>0 &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +74,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxWidthRamp(nums []int) int {
@@ -128,4 +152,6 @@ func maxWidthRamp(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

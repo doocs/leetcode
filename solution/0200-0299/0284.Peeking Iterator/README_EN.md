@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0284.Peeking%20Iterator/README_EN.md
+tags:
+    - Design
+    - Array
+    - Iterator
+---
+
+<!-- problem:start -->
+
 # [284. Peeking Iterator](https://leetcode.com/problems/peeking-iterator)
 
 [中文文档](/solution/0200-0299/0284.Peeking%20Iterator/README.md)
 
-<!-- tags:Design,Array,Iterator -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design an iterator that supports the <code>peek</code> operation on an existing iterator in addition to the <code>hasNext</code> and the <code>next</code> operations.</p>
 
@@ -51,11 +63,17 @@ peekingIterator.hasNext(); // return False
 <p>&nbsp;</p>
 <strong>Follow up:</strong> How would you extend your design to be generic and work with all types, not just integer?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Below is the interface for Iterator, which is already defined for you.
@@ -125,6 +143,8 @@ class PeekingIterator:
 #     iter.next()         # Should return the same value as [val].
 ```
 
+#### Java
+
 ```java
 // Java Iterator interface reference:
 // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
@@ -167,6 +187,8 @@ class PeekingIterator implements Iterator<Integer> {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -225,6 +247,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 /*   Below is the interface for Iterator, which is already defined for you.
  *
@@ -274,4 +298,6 @@ func (this *PeekingIterator) peek() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

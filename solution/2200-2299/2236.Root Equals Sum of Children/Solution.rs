@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn check_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         let node = root.as_ref().unwrap().borrow();

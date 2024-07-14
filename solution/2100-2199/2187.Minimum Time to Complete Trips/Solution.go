@@ -1,16 +1,10 @@
 func minimumTime(time []int, totalTrips int) int64 {
-	left, right := 1, slices.Min(time)*totalTrips
-	for left < right {
-		mid := (left + right) >> 1
+	mx := slices.Min(time) * totalTrips
+	return int64(sort.Search(mx, func(x int) bool {
 		cnt := 0
 		for _, v := range time {
-			cnt += mid / v
+			cnt += x / v
 		}
-		if cnt >= totalTrips {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return int64(left)
+		return cnt >= totalTrips
+	}))
 }

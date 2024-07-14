@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0085.Maximal%20Rectangle/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Dynamic Programming
+    - Matrix
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle)
 
 [中文文档](/solution/0000-0099/0085.Maximal%20Rectangle/README.md)
 
-<!-- tags:Stack,Array,Dynamic Programming,Matrix,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>rows x cols</code>&nbsp;binary <code>matrix</code> filled with <code>0</code>&#39;s and <code>1</code>&#39;s, find the largest rectangle containing only <code>1</code>&#39;s and return <em>its area</em>.</p>
 
@@ -41,7 +55,11 @@
 	<li><code>matrix[i][j]</code> is <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack
 
@@ -50,6 +68,8 @@ We treat each row as the base of the histogram, and calculate the maximum area o
 The time complexity is $O(m \times n)$, where $m$ represents the number of rows in $matrix$, and $n$ represents the number of columns in $matrix$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +106,8 @@ class Solution:
             stk.append(i)
         return max(h * (right[i] - left[i] - 1) for i, h in enumerate(heights))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximalRectangle(matrix [][]byte) int {
@@ -209,6 +235,8 @@ func largestRectangleArea(heights []int) int {
 	return res
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -288,6 +316,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 using System;
 using System.Collections.Generic;
@@ -343,4 +373,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

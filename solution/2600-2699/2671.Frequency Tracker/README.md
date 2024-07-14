@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2671.Frequency%20Tracker/README.md
+rating: 1509
+source: 第 344 场周赛 Q2
+tags:
+    - 设计
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [2671. 频率跟踪器](https://leetcode.cn/problems/frequency-tracker)
 
 [English Version](/solution/2600-2699/2671.Frequency%20Tracker/README_EN.md)
 
-<!-- tags:设计,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计并实现一个能够对其中的值进行跟踪的数据结构，并支持对频率相关查询进行应答。</p>
 
@@ -79,7 +90,11 @@ frequencyTracker.hasFrequency(1); // 返回 true ，因为 3 出现 1 次
 	<li>最多调用 <code>add</code>、<code>deleteOne</code> 和 <code>hasFrequency</code> <strong>共计</strong> <code>2 *&nbsp;10<sup>5</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -94,6 +109,8 @@ frequencyTracker.hasFrequency(1); // 返回 true ，因为 3 出现 1 次
 时间复杂度方面，由于我们使用了哈希表，因此每个操作的时间复杂度均为 $O(1)$。空间复杂度 $O(n)$，其中 $n$ 为不同的数字的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FrequencyTracker:
@@ -122,6 +139,8 @@ class FrequencyTracker:
 # obj.deleteOne(number)
 # param_3 = obj.hasFrequency(frequency)
 ```
+
+#### Java
 
 ```java
 class FrequencyTracker {
@@ -158,6 +177,8 @@ class FrequencyTracker {
  * boolean param_3 = obj.hasFrequency(frequency);
  */
 ```
+
+#### C++
 
 ```cpp
 class FrequencyTracker {
@@ -197,6 +218,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type FrequencyTracker struct {
 	cnt  map[int]int
@@ -233,6 +256,8 @@ func (this *FrequencyTracker) HasFrequency(frequency int) bool {
  * param_3 := obj.HasFrequency(frequency);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class FrequencyTracker {
@@ -274,6 +299,59 @@ class FrequencyTracker {
  */
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+struct FrequencyTracker {
+    cnt: HashMap<i32, i32>,
+    freq: HashMap<i32, i32>,
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl FrequencyTracker {
+    fn new() -> Self {
+        FrequencyTracker {
+            cnt: HashMap::new(),
+            freq: HashMap::new(),
+        }
+    }
+
+    fn add(&mut self, number: i32) {
+        let count = self.cnt.entry(number).or_insert(0);
+        let prev_freq = self.freq.entry(*count).or_insert(0);
+        *prev_freq -= 1;
+        *count += 1;
+        let new_freq = self.freq.entry(*count).or_insert(0);
+        *new_freq += 1;
+    }
+
+    fn delete_one(&mut self, number: i32) {
+        if let Some(count) = self.cnt.get_mut(&number) {
+            if *count > 0 {
+                if let Some(prev_freq) = self.freq.get_mut(count) {
+                    *prev_freq -= 1;
+                }
+                *count -= 1;
+                if let Some(new_freq) = self.freq.get_mut(count) {
+                    *new_freq += 1;
+                }
+            }
+        }
+    }
+
+    fn has_frequency(&self, frequency: i32) -> bool {
+        self.freq.get(&frequency).map_or(false, |&freq| freq > 0)
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

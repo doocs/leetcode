@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README.md
+rating: 1151
+source: 第 27 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1460. 通过翻转子数组使两个数组相等](https://leetcode.cn/problems/make-two-arrays-equal-by-reversing-subarrays)
 
 [English Version](/solution/1400-1499/1460.Make%20Two%20Arrays%20Equal%20by%20Reversing%20Subarrays/README_EN.md)
 
-<!-- tags:数组,哈希表,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度相同的整数数组&nbsp;<code>target</code>&nbsp;和&nbsp;<code>arr</code>&nbsp;。每一步中，你可以选择&nbsp;<code>arr</code>&nbsp;的任意 <strong>非空子数组</strong>&nbsp;并将它翻转。你可以执行此过程任意次。</p>
 
@@ -53,23 +65,31 @@
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
-分别对数组 $arr$ 和 $target$ 排序，然后比较两数组对应位置的元素是否相等。相等则满足条件。
+如果两个数组排序后相等，那么它们可以通过翻转子数组变成相等的数组。
 
-时间复杂度 $O(nlogn)$，空间复杂度 $O(logn)$。其中 $n$ 是数组 $arr$ 的长度，快排的平均递归深度为 $O(logn)$。
+因此，我们只需要对两个数组进行排序，然后判断排序后的数组是否相等即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        target.sort()
-        arr.sort()
-        return target == arr
+        return sorted(target) == sorted(arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,32 +114,27 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canBeEqual(target []int, arr []int) bool {
 	sort.Ints(target)
 	sort.Ints(arr)
-	for i, v := range target {
-		if v != arr[i] {
-			return false
-		}
-	}
-	return true
+	return reflect.DeepEqual(target, arr)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
     target.sort((a, b) => a - b);
     arr.sort((a, b) => a - b);
-    const n = arr.length;
-    for (let i = 0; i < n; i++) {
-        if (target[i] !== arr[i]) {
-            return false;
-        }
-    }
-    return true;
+    return target.join() === arr.join();
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -128,6 +145,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -144,15 +163,18 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
+int compare(const void* a, const void* b) {
+    return (*(int*) a - *(int*) b);
+}
+
 bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
-    int count[1001] = {0};
-    for (int i = 0; i < targetSize; i++) {
-        count[target[i]]++;
-        count[arr[i]]--;
-    }
-    for (int i = 0; i < 1001; i++) {
-        if (count[i] != 0) {
+    qsort(target, targetSize, sizeof(int), compare);
+    qsort(arr, arrSize, sizeof(int), compare);
+    for (int i = 0; i < targetSize; ++i) {
+        if (target[i] != arr[i]) {
             return false;
         }
     }
@@ -162,19 +184,29 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
-### 方法二：数组/哈希表
+<!-- solution:end -->
 
-由于两数组的数据范围都是 $1 \leq x \leq 1000$，因此我们可以使用数组或哈希表来记录每个数字出现的次数。
+<!-- solution:start -->
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是数组 $arr$ 的长度，而 $C$ 是数组 $arr$ 元素的值域大小。
+### 方法二：计数
+
+我们注意到，题目中给出的数组元素的范围是 $1 \sim 1000$，因此我们可以使用两个长度为 $1001$ 的数组 `cnt1` 和 `cnt2` 分别记录数组 `target` 和 `arr` 中每个元素出现的次数。最后判断两个数组是否相等即可。
+
+我们也可以只用一个数组 `cnt`，遍历数组 `target` 和 `arr`，对于 `target[i]`，我们将 `cnt[target[i]]` 加一，对于 `arr[i]`，我们将 `cnt[arr[i]]` 减一。最后判断数组 `cnt` 中的所有元素是否都为 $0$。
+
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $arr$ 的长度，而 $M$ 是数组元素的范围，本题中 $M = 1001$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
         return Counter(target) == Counter(arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,18 +224,26 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool canBeEqual(vector<int>& target, vector<int>& arr) {
         vector<int> cnt1(1001);
         vector<int> cnt2(1001);
-        for (int& v : target) ++cnt1[v];
-        for (int& v : arr) ++cnt2[v];
+        for (int& v : target) {
+            ++cnt1[v];
+        }
+        for (int& v : arr) {
+            ++cnt2[v];
+        }
         return cnt1 == cnt2;
     }
 };
 ```
+
+#### Go
 
 ```go
 func canBeEqual(target []int, arr []int) bool {
@@ -215,103 +255,42 @@ func canBeEqual(target []int, arr []int) bool {
 	for _, v := range arr {
 		cnt2[v]++
 	}
-	for i, v := range cnt1 {
-		if v != cnt2[i] {
-			return false
-		}
-	}
-	return true
+	return reflect.DeepEqual(cnt1, cnt2)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
     const n = target.length;
-    const count = new Array(1001).fill(0);
+    const cnt = Array(1001).fill(0);
     for (let i = 0; i < n; i++) {
-        count[target[i]]++;
-        count[arr[i]]--;
+        cnt[target[i]]++;
+        cnt[arr[i]]--;
     }
-    return count.every(v => v === 0);
+    return cnt.every(v => !v);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn can_be_equal(mut target: Vec<i32>, mut arr: Vec<i32>) -> bool {
         let n = target.len();
-        let mut count = [0; 1001];
+        let mut cnt = [0; 1001];
         for i in 0..n {
-            count[target[i] as usize] += 1;
-            count[arr[i] as usize] -= 1;
+            cnt[target[i] as usize] += 1;
+            cnt[arr[i] as usize] -= 1;
         }
-        count.iter().all(|v| *v == 0)
+        cnt.iter().all(|v| *v == 0)
     }
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法三
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        cnt = [0] * 1001
-        for a, b in zip(target, arr):
-            cnt[a] += 1
-            cnt[b] -= 1
-        return all(v == 0 for v in cnt)
-```
-
-```java
-class Solution {
-    public boolean canBeEqual(int[] target, int[] arr) {
-        int[] cnt = new int[1001];
-        for (int v : target) {
-            ++cnt[v];
-        }
-        for (int v : arr) {
-            if (--cnt[v] < 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    bool canBeEqual(vector<int>& target, vector<int>& arr) {
-        vector<int> cnt(1001);
-        for (int& v : target) ++cnt[v];
-        for (int& v : arr)
-            if (--cnt[v] < 0) return false;
-        return true;
-    }
-};
-```
-
-```go
-func canBeEqual(target []int, arr []int) bool {
-	cnt := make([]int, 1001)
-	for _, v := range target {
-		cnt[v]++
-	}
-	for _, v := range arr {
-		cnt[v]--
-		if cnt[v] < 0 {
-			return false
-		}
-	}
-	return true
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

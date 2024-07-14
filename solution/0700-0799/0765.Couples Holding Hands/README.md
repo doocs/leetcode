@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0765.Couples%20Holding%20Hands/README.md
+tags:
+    - 贪心
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
+<!-- problem:start -->
+
 # [765. 情侣牵手](https://leetcode.cn/problems/couples-holding-hands)
 
 [English Version](/solution/0700-0799/0765.Couples%20Holding%20Hands/README_EN.md)
 
-<!-- tags:贪心,深度优先搜索,广度优先搜索,并查集,图 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>n</code> 对情侣坐在连续排列的 <code>2n</code>&nbsp;个座位上，想要牵到对方的手。</p>
 
@@ -44,7 +56,11 @@
 	<li><code>row</code>&nbsp;中所有元素均<strong>无重复</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -59,6 +75,8 @@
 时间复杂度 $O(n \times \alpha(n))$，空间复杂度 $O(n)$。其中 $\alpha(n)$ 为阿克曼函数的反函数，可以认为是一个很小的常数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +93,8 @@ class Solution:
             p[find(a)] = find(b)
         return n - sum(i == find(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSwapsCouples(row []int) int {
@@ -162,6 +186,8 @@ func minSwapsCouples(row []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSwapsCouples(row: number[]): number {
     const n = row.length >> 1;
@@ -188,6 +214,8 @@ function minSwapsCouples(row: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -224,4 +252,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

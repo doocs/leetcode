@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md
+tags:
+    - Array
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [238. Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self)
 
 [中文文档](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README.md)
 
-<!-- tags:Array,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is equal to the product of all the elements of</em> <code>nums</code> <em>except</em> <code>nums[i]</code>.</p>
 
@@ -32,7 +43,11 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Can you solve the problem in <code>O(1)</code>&nbsp;extra&nbsp;space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Passes
 
@@ -48,6 +63,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array `nums`. Igno
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
@@ -62,6 +79,8 @@ class Solution:
             right *= nums[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func productExceptSelf(nums []int) []int {
 	n := len(nums)
@@ -117,6 +140,8 @@ func productExceptSelf(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function productExceptSelf(nums: number[]): number[] {
     const n = nums.length;
@@ -132,6 +157,8 @@ function productExceptSelf(nums: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +177,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -171,6 +200,8 @@ var productExceptSelf = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] ProductExceptSelf(int[] nums) {
@@ -188,6 +219,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -213,9 +246,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function productExceptSelf(nums: number[]): number[] {
@@ -225,4 +264,6 @@ function productExceptSelf(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

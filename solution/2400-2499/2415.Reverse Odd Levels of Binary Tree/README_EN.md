@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README_EN.md
+rating: 1431
+source: Weekly Contest 311 Q3
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [2415. Reverse Odd Levels of Binary Tree](https://leetcode.com/problems/reverse-odd-levels-of-binary-tree)
 
 [中文文档](/solution/2400-2499/2415.Reverse%20Odd%20Levels%20of%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a <strong>perfect</strong> binary tree, reverse the node values at each <strong>odd</strong> level of the tree.</p>
 
@@ -58,7 +73,11 @@ The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1
 	<li><code>root</code> is a <strong>perfect</strong> binary tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -67,6 +86,8 @@ We can use the Breadth-First Search (BFS) method, using a queue $q$ to store the
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -93,6 +114,8 @@ class Solution:
             i += 1
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -137,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -175,6 +200,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -206,6 +233,8 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -243,6 +272,8 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -262,27 +293,23 @@ function reverseOddLevels(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     fn create_tree(vals: &Vec<Vec<i32>>, i: usize, j: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if i == vals.len() {
             return None;
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: vals[i][j],
-                    left: Self::create_tree(vals, i + 1, j * 2),
-                    right: Self::create_tree(vals, i + 1, j * 2 + 1),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: vals[i][j],
+            left: Self::create_tree(vals, i + 1, j * 2),
+            right: Self::create_tree(vals, i + 1, j * 2 + 1),
+        })))
     }
 
     pub fn reverse_odd_levels(
-        root: Option<Rc<RefCell<TreeNode>>>
+        root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         let mut queue = VecDeque::new();
         queue.push_back(root);
@@ -314,4 +341,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

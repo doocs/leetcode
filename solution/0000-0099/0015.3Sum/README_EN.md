@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0015.3Sum/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [15. 3Sum](https://leetcode.com/problems/3sum)
 
 [中文文档](/solution/0000-0099/0015.3Sum/README.md)
 
-<!-- tags:Array,Two Pointers,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
 
@@ -48,7 +60,11 @@ Notice that the order of the output and the order of the triplets does not matte
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sort + Two Pointers
 
@@ -73,6 +89,8 @@ After the enumeration is over, we can get the answer to the triplet.
 The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. The $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +119,8 @@ class Solution:
                         k -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func threeSum(nums []int) (ans [][]int) {
 	sort.Ints(nums)
@@ -199,6 +223,8 @@ func threeSum(nums []int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function threeSum(nums: number[]): number[][] {
@@ -231,6 +257,8 @@ function threeSum(nums: number[]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -275,6 +303,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -311,6 +341,8 @@ var threeSum = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<IList<int>> ThreeSum(int[] nums) {
@@ -344,6 +376,8 @@ public class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # @param {Integer[]} nums
 # @return {Integer[][]}
@@ -375,56 +409,48 @@ def three_sum(nums)
 end
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
-     * @param int[] $nums
-     * @return int[][];
+     * @param Integer[] $nums
+     * @return Integer[][]
      */
-
     function threeSum($nums) {
-        $result = [];
-        $n = count($nums);
-
         sort($nums);
-        for ($i = 0; $i < $n - 2; $i++) {
-            if ($i > 0 && $nums[$i] === $nums[$i - 1]) {
+        $ans = [];
+        $n = count($nums);
+        for ($i = 0; $i < $n - 2 && $nums[$i] <= 0; ++$i) {
+            if ($i > 0 && $nums[$i] == $nums[$i - 1]) {
                 continue;
             }
-
-            $left = $i + 1;
-            $right = $n - 1;
-
-            while ($left < $right) {
-                $sum = $nums[$i] + $nums[$left] + $nums[$right];
-
-                if ($sum === 0) {
-                    $triplet = [$nums[$i], $nums[$left], $nums[$right]];
-                    $result[] = $triplet;
-
-                    while ($left < $right && $nums[$left] === $nums[$left + 1]) {
-                        $left++;
-                    }
-
-                    while ($left < $right && $nums[$right] === $nums[$right - 1]) {
-                        $right--;
-                    }
-
-                    $left++;
-                    $right--;
-                } elseif ($sum < 0) {
-                    $left++;
+            $j = $i + 1;
+            $k = $n - 1;
+            while ($j < $k) {
+                $x = $nums[$i] + $nums[$j] + $nums[$k];
+                if ($x < 0) {
+                    ++$j;
+                } elseif ($x > 0) {
+                    --$k;
                 } else {
-                    $right--;
+                    $ans[] = [$nums[$i], $nums[$j++], $nums[$k--]];
+                    while ($j < $k && $nums[$j] == $nums[$j - 1]) {
+                        ++$j;
+                    }
+                    while ($j < $k && $nums[$k] == $nums[$k + 1]) {
+                        --$k;
+                    }
                 }
             }
         }
-
-        return $result;
+        return $ans;
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

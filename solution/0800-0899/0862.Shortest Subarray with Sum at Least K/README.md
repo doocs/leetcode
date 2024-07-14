@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README.md
+tags:
+    - 队列
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [862. 和至少为 K 的最短子数组](https://leetcode.cn/problems/shortest-subarray-with-sum-at-least-k)
 
 [English Version](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md)
 
-<!-- tags:队列,数组,二分查找,前缀和,滑动窗口,单调队列,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，找出 <code>nums</code> 中和至少为 <code>k</code> 的 <strong>最短非空子数组</strong> ，并返回该子数组的长度。如果不存在这样的 <strong>子数组</strong> ，返回 <code>-1</code> 。</p>
 
@@ -48,7 +62,11 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 单调队列
 
@@ -72,6 +90,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
@@ -86,6 +106,8 @@ class Solution:
             q.append(i)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestSubarray(nums []int, k int) int {
@@ -161,4 +187,6 @@ func shortestSubarray(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,21 @@
-# [1714. 数组中特殊等间距元素的和](https://leetcode.cn/problems/sum-of-special-evenly-spaced-elements-in-array)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
+# [1714. 数组中特殊等间距元素的和 🔒](https://leetcode.cn/problems/sum-of-special-evenly-spaced-elements-in-array)
 
 [English Version](/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个<strong>索引从 0 开始</strong>的整数类型数组 <code>nums</code> ，包含 <code>n</code> 个非负整数。</p>
 
@@ -45,7 +54,11 @@
 	<li><code>1 &lt;= y<sub>i</sub> &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分块
 
@@ -61,6 +74,8 @@
 时间复杂度 $O((n +  m) \times \sqrt{n})$，空间复杂度 $O(n \times \sqrt{n})$。其中 $n$ 是数组的长度，而 $m$ 是查询的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +95,8 @@ class Solution:
                 ans.append(sum(nums[x::y]) % mod)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solve(nums []int, queries [][]int) (ans []int) {
 	n := len(nums)
@@ -172,6 +193,8 @@ func solve(nums []int, queries [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(nums: number[], queries: number[][]): number[] {
@@ -204,4 +227,6 @@ function solve(nums: number[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

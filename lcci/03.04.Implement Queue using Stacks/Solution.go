@@ -1,47 +1,38 @@
 type MyQueue struct {
-	s1, s2 []int
+	stk1 []int
+	stk2 []int
 }
 
-/** Initialize your data structure here. */
 func Constructor() MyQueue {
-	return MyQueue{
-		s1: make([]int, 0),
-		s2: make([]int, 0),
-	}
+	return MyQueue{[]int{}, []int{}}
 }
 
-/** Push element x to the back of queue. */
 func (this *MyQueue) Push(x int) {
-	this.s1 = append(this.s1, x)
+	this.stk1 = append(this.stk1, x)
 }
 
-/** Removes the element from in front of queue and returns that element. */
 func (this *MyQueue) Pop() int {
-	if len(this.s2) == 0 {
-		this.transfer()
-	}
-	v := this.s2[len(this.s2)-1]
-	this.s2 = this.s2[:len(this.s2)-1]
-	return v
+	this.move()
+	ans := this.stk2[len(this.stk2)-1]
+	this.stk2 = this.stk2[:len(this.stk2)-1]
+	return ans
 }
 
-/** Get the front element. */
 func (this *MyQueue) Peek() int {
-	if len(this.s2) == 0 {
-		this.transfer()
-	}
-	return this.s2[len(this.s2)-1]
+	this.move()
+	return this.stk2[len(this.stk2)-1]
 }
 
-/** Returns whether the queue is empty. */
 func (this *MyQueue) Empty() bool {
-	return len(this.s1) == 0 && len(this.s2) == 0
+	return len(this.stk1) == 0 && len(this.stk2) == 0
 }
 
-func (this *MyQueue) transfer() {
-	for len(this.s1) > 0 {
-		this.s2 = append(this.s2, this.s1[len(this.s1)-1])
-		this.s1 = this.s1[:len(this.s1)-1]
+func (this *MyQueue) move() {
+	if len(this.stk2) == 0 {
+		for len(this.stk1) > 0 {
+			this.stk2 = append(this.stk2, this.stk1[len(this.stk1)-1])
+			this.stk1 = this.stk1[:len(this.stk1)-1]
+		}
 	}
 }
 

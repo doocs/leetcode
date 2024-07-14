@@ -1,27 +1,25 @@
-func minStickers(stickers []string, target string) int {
-	q := []int{0}
+func minStickers(stickers []string, target string) (ans int) {
 	n := len(target)
+	q := []int{0}
 	vis := make([]bool, 1<<n)
 	vis[0] = true
-	ans := 0
-	for len(q) > 0 {
-		for t := len(q); t > 0; t-- {
-			state := q[0]
-			if state == (1<<n)-1 {
-				return ans
-			}
+	for ; len(q) > 0; ans++ {
+		for m := len(q); m > 0; m-- {
+			cur := q[0]
 			q = q[1:]
+			if cur == 1<<n-1 {
+				return
+			}
 			for _, s := range stickers {
-				nxt := state
-				cnt := make([]int, 26)
+				cnt := [26]int{}
 				for _, c := range s {
 					cnt[c-'a']++
 				}
+				nxt := cur
 				for i, c := range target {
-					idx := c - 'a'
-					if (nxt&(1<<i)) == 0 && cnt[idx] > 0 {
+					if cur>>i&1 == 0 && cnt[c-'a'] > 0 {
 						nxt |= 1 << i
-						cnt[idx]--
+						cnt[c-'a']--
 					}
 				}
 				if !vis[nxt] {
@@ -30,7 +28,6 @@ func minStickers(stickers []string, target string) int {
 				}
 			}
 		}
-		ans++
 	}
 	return -1
 }

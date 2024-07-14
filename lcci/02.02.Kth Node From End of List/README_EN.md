@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [02.02. Kth Node From End of List](https://leetcode.cn/problems/kth-node-from-end-of-list-lcci)
 
 [中文文档](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement an algorithm to find the kth to last element of a singly linked list.&nbsp;Return the value of the element.</p>
 
@@ -20,7 +30,11 @@
 
 <p>k is always valid.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -29,6 +43,8 @@ We define two pointers `slow` and `fast`, both initially pointing to the head no
 The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -48,6 +64,8 @@ class Solution:
             fast = fast.next
         return slow.val
 ```
+
+#### Java
 
 ```java
 /**
@@ -72,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -99,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -119,6 +141,8 @@ func kthToLast(head *ListNode, k int) int {
 	return slow.Val
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -145,6 +169,8 @@ function kthToLast(head: ListNode | null, k: number): number {
     return slow.val;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -179,6 +205,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -205,6 +233,44 @@ var kthToLast = function (head, k) {
 };
 ```
 
+#### Swift
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     var val: Int
+ *     var next: ListNode?
+ *     init(_ x: Int, _ next: ListNode? = nil) {
+ *         self.val = x
+ *         self.next = next
+ *     }
+ * }
+ */
+
+class Solution {
+    func kthToLast(_ head: ListNode?, _ k: Int) -> Int {
+        var slow = head
+        var fast = head
+        var k = k
+
+        while k > 0 {
+            fast = fast?.next
+            k -= 1
+        }
+
+        while fast != nil {
+            slow = slow?.next
+            fast = fast?.next
+        }
+
+        return slow?.val ?? 0
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

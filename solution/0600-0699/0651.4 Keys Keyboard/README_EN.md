@@ -1,10 +1,21 @@
-# [651. 4 Keys Keyboard](https://leetcode.com/problems/4-keys-keyboard)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0651.4%20Keys%20Keyboard/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [651. 4 Keys Keyboard 🔒](https://leetcode.com/problems/4-keys-keyboard)
 
 [中文文档](/solution/0600-0699/0651.4%20Keys%20Keyboard/README.md)
 
-<!-- tags:Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Imagine you have a special keyboard with the following keys:</p>
 
@@ -43,11 +54,17 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 	<li><code>1 &lt;= n &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +75,8 @@ class Solution:
                 dp[i] = max(dp[i], dp[j - 1] * (i - j))
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -91,6 +112,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxA(n int) int {
@@ -109,4 +132,6 @@ func maxA(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

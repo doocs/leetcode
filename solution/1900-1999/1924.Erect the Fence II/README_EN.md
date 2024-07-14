@@ -1,10 +1,22 @@
-# [1924. Erect the Fence II](https://leetcode.com/problems/erect-the-fence-ii)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
+<!-- problem:start -->
+
+# [1924. Erect the Fence II 🔒](https://leetcode.com/problems/erect-the-fence-ii)
 
 [中文文档](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README.md)
 
-<!-- tags:Geometry,Array,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>trees</code> where <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of the <code>i<sup>th</sup></code> tree in the garden.</p>
 
@@ -44,6 +56,42 @@
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 3000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README_EN.md
+tags:
+    - Concurrency
+---
+
+<!-- problem:start -->
+
 # [1195. Fizz Buzz Multithreaded](https://leetcode.com/problems/fizz-buzz-multithreaded)
 
 [中文文档](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README.md)
 
-<!-- tags:Concurrency -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have the four functions:</p>
 
@@ -58,11 +68,17 @@
 	<li><code>1 &lt;= n &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class FizzBuzz {
@@ -127,6 +143,8 @@ class FizzBuzz {
 }
 ```
 
+#### C++
+
 ```cpp
 class FizzBuzz {
 private:
@@ -186,4 +204,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

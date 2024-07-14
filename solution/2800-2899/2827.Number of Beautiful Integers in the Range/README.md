@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README.md
+rating: 2324
+source: 第 111 场双周赛 Q4
+tags:
+    - 数学
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2827. 范围中美丽整数的数目](https://leetcode.cn/problems/number-of-beautiful-integers-in-the-range)
 
 [English Version](/solution/2800-2899/2827.Number%20of%20Beautiful%20Integers%20in%20the%20Range/README_EN.md)
 
-<!-- tags:数学,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你正整数&nbsp;<code>low</code>&nbsp;，<code>high</code>&nbsp;和&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -63,7 +74,11 @@
 	<li><code>0 &lt; k &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数位 DP
 
@@ -92,6 +107,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfBeautifulIntegers(self, low: int, high: int, k: int) -> int:
@@ -116,6 +133,8 @@ class Solution:
         b = dfs(0, 0, 10, 1, 1)
         return a - b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +218,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfBeautifulIntegers(low int, high int, k int) int {
@@ -258,6 +281,8 @@ func g(m, n, k int) [][][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfBeautifulIntegers(low: number, high: number, k: number): number {
     let s = String(high);
@@ -306,4 +331,6 @@ function numberOfBeautifulIntegers(low: number, high: number, k: number): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

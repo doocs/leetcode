@@ -5,7 +5,7 @@ class Solution:
         ans = s = 0
         for i, x in enumerate(nums):
             s += d[i]
-            if x % 2 == s % 2:
+            if s % 2 == x:
                 if i + k > n:
                     return -1
                 d[i] += 1

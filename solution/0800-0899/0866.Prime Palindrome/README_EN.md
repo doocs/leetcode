@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md
+tags:
+    - Math
+    - Number Theory
+---
+
+<!-- problem:start -->
+
 # [866. Prime Palindrome](https://leetcode.com/problems/prime-palindrome)
 
 [中文文档](/solution/0800-0899/0866.Prime%20Palindrome/README.md)
 
-<!-- tags:Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer n, return <em>the smallest <strong>prime palindrome</strong> greater than or equal to </em><code>n</code>.</p>
 
@@ -40,11 +51,17 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +90,8 @@ class Solution:
                 n = 10**8
             n += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func primePalindrome(n int) int {
@@ -177,4 +200,6 @@ func primePalindrome(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README_EN.md
+rating: 1405
+source: Biweekly Contest 107 Q1
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2744. Find Maximum Number of String Pairs](https://leetcode.com/problems/find-maximum-number-of-string-pairs)
 
 [中文文档](/solution/2700-2799/2744.Find%20Maximum%20Number%20of%20String%20Pairs/README.md)
 
-<!-- tags:Array,Hash Table,String,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>words</code> consisting of <strong>distinct</strong> strings.</p>
 
@@ -58,7 +73,11 @@ It can be proven that 1 is the maximum number of pairs that can be formed.
 	<li><code>words[i]</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -72,6 +91,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumNumberOfStringPairs(self, words: List[str]) -> int:
@@ -82,6 +103,8 @@ class Solution:
             cnt[w] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumNumberOfStringPairs(words []string) (ans int) {
 	cnt := map[int]int{}
@@ -125,6 +152,8 @@ func maximumNumberOfStringPairs(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumNumberOfStringPairs(words: string[]): number {
@@ -141,4 +170,6 @@ function maximumNumberOfStringPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

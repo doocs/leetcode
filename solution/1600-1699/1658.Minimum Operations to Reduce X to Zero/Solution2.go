@@ -1,23 +1,20 @@
 func minOperations(nums []int, x int) int {
-	x = -x
+	s := -x
 	for _, v := range nums {
-		x += v
-	}
-	ans := 1 << 30
-	s, n := 0, len(nums)
-	j := 0
-	for i, v := range nums {
 		s += v
-		for j <= i && s > x {
-			s -= nums[j]
-			j++
+	}
+	mx, t, j := -1, 0, 0
+	for i, v := range nums {
+		t += v
+		for ; j <= i && t > s; j++ {
+			t -= nums[j]
 		}
-		if s == x {
-			ans = min(ans, n-(i-j+1))
+		if t == s {
+			mx = max(mx, i-j+1)
 		}
 	}
-	if ans == 1<<30 {
+	if mx == -1 {
 		return -1
 	}
-	return ans
+	return len(nums) - mx
 }

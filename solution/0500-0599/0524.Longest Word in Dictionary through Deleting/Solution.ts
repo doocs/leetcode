@@ -1,27 +1,20 @@
 function findLongestWord(s: string, dictionary: string[]): string {
-    dictionary.sort((a, b) => {
-        if (a.length === b.length) {
-            return b < a ? 1 : -1;
-        }
-        return b.length - a.length;
-    });
-    const n = s.length;
-    for (const target of dictionary) {
-        const m = target.length;
-        if (m > n) {
-            continue;
-        }
+    const check = (s: string, t: string): boolean => {
+        const [m, n] = [s.length, t.length];
         let i = 0;
-        let j = 0;
-        while (i < n && j < m) {
-            if (s[i] === target[j]) {
-                j++;
+        for (let j = 0; i < m && j < n; ++j) {
+            if (s[i] === t[j]) {
+                ++i;
             }
-            i++;
         }
-        if (j === m) {
-            return target;
+        return i === m;
+    };
+    let ans: string = '';
+    for (const t of dictionary) {
+        const [a, b] = [ans.length, t.length];
+        if (check(t, s) && (a < b || (a === b && ans > t))) {
+            ans = t;
         }
     }
-    return '';
+    return ans;
 }

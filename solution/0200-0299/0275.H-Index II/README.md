@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0275.H-Index%20II/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [275. H 指数 II](https://leetcode.cn/problems/h-index-ii)
 
 [English Version](/solution/0200-0299/0275.H-Index%20II/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>citations</code> ，其中 <code>citations[i]</code> 表示研究者的第 <code>i</code> 篇论文被引用的次数，<code>citations</code> 已经按照&nbsp;<strong>升序排列&nbsp;</strong>。计算并返回该研究者的 h<strong><em>&nbsp;</em></strong>指数。</p>
 
@@ -42,7 +51,11 @@
 	<li><code>citations</code> 按 <strong>升序排列</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -53,6 +66,8 @@
 时间复杂度 $O(\log n)$，其中 $n$ 是数组 $citations$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +82,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hIndex(citations []int) int {
 	n := len(citations)
@@ -119,6 +140,8 @@ func hIndex(citations []int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hIndex(citations: number[]): number {
@@ -137,6 +160,8 @@ function hIndex(citations: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn h_index(citations: Vec<i32>) -> i32 {
@@ -154,6 +179,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -175,4 +202,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

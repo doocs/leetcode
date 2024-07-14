@@ -4,4 +4,4 @@ SELECT
     SUM(IFNULL(b.orange_count, 0) + IFNULL(c.orange_count, 0)) AS orange_count
 FROM
     Boxes AS b
-    LEFT JOIN Chests AS c ON b.chest_id = c.chest_id;
+    LEFT JOIN Chests AS c USING (chest_id);

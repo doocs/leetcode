@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md
+rating: 1151
+source: 第 359 场周赛 Q1
+tags:
+    - 数组
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2828. 判别首字母缩略词](https://leetcode.cn/problems/check-if-a-string-is-an-acronym-of-words)
 
 [English Version](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README_EN.md)
 
-<!-- tags:数组,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组&nbsp;<code>words</code> 和一个字符串 <code>s</code> ，请你判断 <code>s</code> 是不是 <code>words</code> 的 <strong>首字母缩略词</strong> 。</p>
 
@@ -54,7 +65,11 @@
 	<li><code>words[i]</code> 和 <code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -64,11 +79,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return "".join(w[0] for w in words) == s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAcronym(words []string, s string) bool {
 	t := []byte{}
@@ -105,11 +128,15 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     return words.map(w => w[0]).join('') === s;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -117,12 +144,17 @@ impl Solution {
         words
             .iter()
             .map(|w| w.chars().next().unwrap_or_default())
-            .collect::<String>() == s
+            .collect::<String>()
+            == s
     }
 }
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：模拟（空间优化）
 
@@ -136,11 +168,15 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +193,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -175,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAcronym(words []string, s string) bool {
 	if len(words) != len(s) {
@@ -189,6 +229,8 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     if (words.length !== s.length) {
@@ -202,6 +244,8 @@ function isAcronym(words: string[], s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -221,4 +265,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
-# [1322. 广告效果](https://leetcode.cn/problems/ads-performance)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1322.Ads%20Performance/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1322. 广告效果 🔒](https://leetcode.cn/problems/ads-performance)
 
 [English Version](/solution/1300-1399/1322.Ads%20Performance/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Ads</code></p>
 
@@ -75,11 +83,17 @@ Ads 表:
 注意我们不关心 action 为 Ingnored 的广告
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -92,4 +106,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

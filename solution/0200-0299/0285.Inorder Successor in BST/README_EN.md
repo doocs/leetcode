@@ -1,10 +1,23 @@
-# [285. Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
+# [285. Inorder Successor in BST 🔒](https://leetcode.com/problems/inorder-successor-in-bst)
 
 [中文文档](/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree and a node <code>p</code> in it, return <em>the in-order successor of that node in the BST</em>. If the given node has no in-order successor in the tree, return <code>null</code>.</p>
 
@@ -36,11 +49,28 @@
 	<li>All Nodes will have unique values.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Binary Search
+
+The in-order traversal of a binary search tree is an ascending sequence, so we can use the binary search method.
+
+The in-order successor node of a binary search tree node $p$ satisfies:
+
+1. The value of the in-order successor node is greater than the value of node $p$.
+2. The in-order successor is the node with the smallest value among all nodes greater than $p$.
+
+Therefore, for the current node $root$, if $root.val > p.val$, then $root$ could be the in-order successor of $p$. We record $root$ as $ans$ and then search the left subtree, i.e., $root = root.left$. If $root.val \leq p.val$, then $root$ cannot be the in-order successor of $p$, and we search the right subtree, i.e., $root = root.right$.
+
+The time complexity is $O(h)$, where $h$ is the height of the binary search tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -62,6 +92,8 @@ class Solution:
                 root = root.right
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -88,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -116,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -137,6 +173,8 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -167,6 +205,8 @@ function inorderSuccessor(root: TreeNode | null, p: TreeNode | null): TreeNode |
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -196,4 +236,6 @@ var inorderSuccessor = function (root, p) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

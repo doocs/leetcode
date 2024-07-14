@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README.md
+tags:
+    - 树
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [107. 二叉树的层序遍历 II](https://leetcode.cn/problems/binary-tree-level-order-traversal-ii)
 
 [English Version](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
 
-<!-- tags:树,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根节点 <code>root</code> ，返回其节点值 <strong>自底向上的层序遍历</strong> 。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）</p>
 
@@ -42,7 +52,11 @@
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -56,6 +70,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -82,6 +98,8 @@ class Solution:
             ans.append(t)
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -126,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -167,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -202,6 +224,8 @@ func levelOrderBottom(root *TreeNode) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -239,6 +263,8 @@ function levelOrderBottom(root: TreeNode | null): number[][] {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -258,7 +284,7 @@ function levelOrderBottom(root: TreeNode | null): number[][] {
 //     }
 //   }
 // }
-use std::{ rc::Rc, cell::RefCell, collections::VecDeque };
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 impl Solution {
     pub fn level_order_bottom(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
         let mut ans = Vec::new();
@@ -287,6 +313,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -324,4 +352,6 @@ var levelOrderBottom = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
-# [2868. The Wording Game](https://leetcode.com/problems/the-wording-game)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md
+tags:
+    - Array
+    - Math
+    - Two Pointers
+    - String
+    - Game Theory
+---
+
+<!-- problem:start -->
+
+# [2868. The Wording Game 🔒](https://leetcode.com/problems/the-wording-game)
 
 [中文文档](/solution/2800-2899/2868.The%20Wording%20Game/README.md)
 
-<!-- tags:Array,Math,Two Pointers,String,Game Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob each have a <strong>lexicographically sorted</strong> array of strings named <code>a</code> and <code>b</code> respectively.</p>
 
@@ -69,7 +83,11 @@ So Alice wins, and the game ends.
 	<li>The sum of the lengths of all the words in <code>a</code> and <code>b</code> combined does not exceed <code>10<sup>6</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -84,6 +102,8 @@ If $k=0$, we check if $i$ is equal to the length of $a$. If it is, then Bob wins
 The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of arrays $a$ and $b$, respectively. We only need to traverse the arrays once. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +126,8 @@ class Solution:
                     k ^= 1
                 i += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canAliceWin(a []string, b []string) bool {
 	i, j, k := 1, 0, 1
@@ -198,6 +224,8 @@ func canAliceWin(a []string, b []string) bool {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canAliceWin(a: string[], b: string[]): boolean {
@@ -229,4 +257,6 @@ function canAliceWin(a: string[], b: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

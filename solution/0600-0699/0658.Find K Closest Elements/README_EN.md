@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements)
 
 [中文文档](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README.md)
 
-<!-- tags:Array,Two Pointers,Binary Search,Sorting,Sliding Window,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>sorted</strong> integer array <code>arr</code>, two integers <code>k</code> and <code>x</code>, return the <code>k</code> closest integers to <code>x</code> in the array. The result should also be sorted in ascending order.</p>
 
@@ -33,11 +48,17 @@
 	<li><code>-10<sup>4</sup> &lt;= arr[i], x &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sort
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -45,6 +66,8 @@ class Solution:
         arr.sort(key=lambda v: abs(v - x))
         return sorted(arr[:k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -62,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int target;
@@ -82,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
@@ -105,6 +132,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
     let l = 0;
@@ -119,6 +148,8 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
     return arr.slice(l, r);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -140,9 +171,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary search
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -155,6 +192,8 @@ class Solution:
                 l += 1
         return arr[l:r]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -176,6 +215,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -193,6 +234,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
 	l, r := 0, len(arr)
@@ -206,6 +249,8 @@ func findClosestElements(arr []int, k int, x int) []int {
 	return arr[l:r]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
@@ -222,6 +267,8 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
     return arr.slice(left, left + k);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -245,9 +292,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -261,6 +314,8 @@ class Solution:
                 left = mid + 1
         return arr[left : left + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -284,6 +339,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -300,6 +357,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
@@ -318,4 +377,6 @@ func findClosestElements(arr []int, k int, x int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
-# [1924. 安装栅栏 II](https://leetcode.cn/problems/erect-the-fence-ii)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1924.Erect%20the%20Fence%20II/README.md
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
+# [1924. 安装栅栏 II 🔒](https://leetcode.cn/problems/erect-the-fence-ii)
 
 [English Version](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md)
 
-<!-- tags:几何,数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组&nbsp;<code>trees</code>，其中 <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示花园中第 <code>i</code> 棵树的坐标。</p>
 
@@ -46,6 +56,42 @@
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 3000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

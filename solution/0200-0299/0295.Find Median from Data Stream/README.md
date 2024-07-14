@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README.md
+tags:
+    - 设计
+    - 双指针
+    - 数据流
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream)
 
 [English Version](/solution/0200-0299/0295.Find%20Median%20from%20Data%20Stream/README_EN.md)
 
-<!-- tags:设计,双指针,数据流,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>中位数</strong>是有序整数列表中的中间值。如果列表的大小是偶数，则没有中间值，中位数是两个中间值的平均值。</p>
 
@@ -54,41 +66,42 @@ medianFinder.findMedian(); // return 2.0</pre>
 	<li>最多&nbsp;<code>5 * 10<sup>4</sup></code>&nbsp;次调用&nbsp;<code>addNum</code>&nbsp;和&nbsp;<code>findMedian</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一：优先队列（双堆）
+<!-- solution:start -->
 
-创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
+### 方法一：大小根堆（优先队列）
 
-添加元素时，先放入小根堆，然后将小根堆对顶元素弹出并放入大根堆（使得大根堆个数多 $1$）；若大小根堆元素个数差超过 $1$，则将大根堆元素弹出放入小根堆。
+我们可以使用两个堆来维护所有的元素，一个小根堆 $\text{minQ}$ 和一个大根堆 $\text{maxQ}$，其中小根堆 $\text{minQ}$ 存储较大的一半，大根堆 $\text{maxQ}$ 存储较小的一半。
 
-取中位数时，若大根堆元素较多，取大根堆堆顶，否则取两堆顶元素和的平均值。
+调用 `addNum` 方法时，我们首先将元素加入到大根堆 $\text{maxQ}$，然后将 $\text{maxQ}$ 的堆顶元素弹出并加入到小根堆 $\text{minQ}$。如果此时 $\text{minQ}$ 的大小与 $\text{maxQ}$ 的大小差值大于 $1$，我们就将 $\text{minQ}$ 的堆顶元素弹出并加入到 $\text{maxQ}$。时间复杂度为 $O(\log n)$。
 
-**时间复杂度分析：**
+调用 `findMedian` 方法时，如果 $\text{minQ}$ 的大小等于 $\text{maxQ}$ 的大小，说明元素的总数为偶数，我们就可以返回 $\text{minQ}$ 的堆顶元素与 $\text{maxQ}$ 的堆顶元素的平均值；否则，我们返回 $\text{minQ}$ 的堆顶元素。时间复杂度为 $O(1)$。
 
-每次添加元素的时间复杂度为 $O(\log n)$，取中位数的时间复杂度为 $O(1)$。
+空间复杂度为 $O(n)$。其中 $n$ 为元素的个数。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class MedianFinder:
+
     def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.h1 = []
-        self.h2 = []
+        self.minq = []
+        self.maxq = []
 
     def addNum(self, num: int) -> None:
-        heappush(self.h1, num)
-        heappush(self.h2, -heappop(self.h1))
-        if len(self.h2) - len(self.h1) > 1:
-            heappush(self.h1, -heappop(self.h2))
+        heappush(self.minq, -heappushpop(self.maxq, -num))
+        if len(self.minq) - len(self.maxq) > 1:
+            heappush(self.maxq, -heappop(self.minq))
 
     def findMedian(self) -> float:
-        if len(self.h2) > len(self.h1):
-            return -self.h2[0]
-        return (self.h1[0] - self.h2[0]) / 2
+        if len(self.minq) == len(self.maxq):
+            return (self.minq[0] - self.maxq[0]) / 2
+        return self.minq[0]
 
 
 # Your MedianFinder object will be instantiated and called as such:
@@ -97,28 +110,26 @@ class MedianFinder:
 # param_2 = obj.findMedian()
 ```
 
+#### Java
+
 ```java
 class MedianFinder {
-    private PriorityQueue<Integer> q1 = new PriorityQueue<>();
-    private PriorityQueue<Integer> q2 = new PriorityQueue<>(Collections.reverseOrder());
+    private PriorityQueue<Integer> minQ = new PriorityQueue<>();
+    private PriorityQueue<Integer> maxQ = new PriorityQueue<>(Collections.reverseOrder());
 
-    /** initialize your data structure here. */
     public MedianFinder() {
     }
 
     public void addNum(int num) {
-        q1.offer(num);
-        q2.offer(q1.poll());
-        if (q2.size() - q1.size() > 1) {
-            q1.offer(q2.poll());
+        maxQ.offer(num);
+        minQ.offer(maxQ.poll());
+        if (minQ.size() - maxQ.size() > 1) {
+            maxQ.offer(minQ.poll());
         }
     }
 
     public double findMedian() {
-        if (q2.size() > q1.size()) {
-            return q2.peek();
-        }
-        return (q1.peek() + q2.peek()) * 1.0 / 2;
+        return minQ.size() == maxQ.size() ? (minQ.peek() + maxQ.peek()) / 2.0 : minQ.peek();
     }
 }
 
@@ -130,33 +141,32 @@ class MedianFinder {
  */
 ```
 
+#### C++
+
 ```cpp
 class MedianFinder {
 public:
-    /** initialize your data structure here. */
     MedianFinder() {
     }
 
     void addNum(int num) {
-        q1.push(num);
-        q2.push(q1.top());
-        q1.pop();
-        if (q2.size() - q1.size() > 1) {
-            q1.push(q2.top());
-            q2.pop();
+        maxQ.push(num);
+        minQ.push(maxQ.top());
+        maxQ.pop();
+
+        if (minQ.size() > maxQ.size() + 1) {
+            maxQ.push(minQ.top());
+            minQ.pop();
         }
     }
 
     double findMedian() {
-        if (q2.size() > q1.size()) {
-            return q2.top();
-        }
-        return (double) (q1.top() + q2.top()) / 2;
+        return minQ.size() == maxQ.size() ? (minQ.top() + maxQ.top()) / 2.0 : minQ.top();
     }
 
 private:
-    priority_queue<int, vector<int>, greater<int>> q1;
-    priority_queue<int> q2;
+    priority_queue<int> maxQ;
+    priority_queue<int, vector<int>, greater<int>> minQ;
 };
 
 /**
@@ -167,38 +177,34 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MedianFinder struct {
-	q1 hp
-	q2 hp
+	minq hp
+	maxq hp
 }
 
-/** initialize your data structure here. */
 func Constructor() MedianFinder {
 	return MedianFinder{hp{}, hp{}}
 }
 
 func (this *MedianFinder) AddNum(num int) {
-	heap.Push(&this.q1, num)
-	heap.Push(&this.q2, -heap.Pop(&this.q1).(int))
-	if this.q2.Len()-this.q1.Len() > 1 {
-		heap.Push(&this.q1, -heap.Pop(&this.q2).(int))
+	minq, maxq := &this.minq, &this.maxq
+	heap.Push(maxq, -num)
+	heap.Push(minq, -heap.Pop(maxq).(int))
+	if minq.Len()-maxq.Len() > 1 {
+		heap.Push(maxq, -heap.Pop(minq).(int))
 	}
 }
 
 func (this *MedianFinder) FindMedian() float64 {
-	if this.q2.Len() > this.q1.Len() {
-		return -float64(this.q2.IntSlice[0])
+	minq, maxq := this.minq, this.maxq
+	if minq.Len() == maxq.Len() {
+		return float64(minq.IntSlice[0]-maxq.IntSlice[0]) / 2
 	}
-	return float64(this.q1.IntSlice[0]-this.q2.IntSlice[0]) / 2.0
+	return float64(minq.IntSlice[0])
 }
-
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * obj := Constructor();
- * obj.AddNum(num);
- * param_2 := obj.FindMedian();
- */
 
 type hp struct{ sort.IntSlice }
 
@@ -210,38 +216,37 @@ func (h *hp) Pop() any {
 	h.IntSlice = a[:len(a)-1]
 	return v
 }
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.AddNum(num);
+ * param_2 := obj.FindMedian();
+ */
 ```
+
+#### TypeScript
 
 ```ts
 class MedianFinder {
-    private nums: number[];
-
-    constructor() {
-        this.nums = [];
-    }
+    #minQ = new MinPriorityQueue();
+    #maxQ = new MaxPriorityQueue();
 
     addNum(num: number): void {
-        const { nums } = this;
-        let l = 0;
-        let r = nums.length;
-        while (l < r) {
-            const mid = (l + r) >>> 1;
-            if (nums[mid] < num) {
-                l = mid + 1;
-            } else {
-                r = mid;
-            }
+        const [minQ, maxQ] = [this.#minQ, this.#maxQ];
+        maxQ.enqueue(num);
+        minQ.enqueue(maxQ.dequeue().element);
+        if (minQ.size() - maxQ.size() > 1) {
+            maxQ.enqueue(minQ.dequeue().element);
         }
-        nums.splice(l, 0, num);
     }
 
     findMedian(): number {
-        const { nums } = this;
-        const n = nums.length;
-        if ((n & 1) === 1) {
-            return nums[n >> 1];
+        const [minQ, maxQ] = [this.#minQ, this.#maxQ];
+        if (minQ.size() === maxQ.size()) {
+            return (minQ.front().element + maxQ.front().element) / 2;
         }
-        return (nums[n >> 1] + nums[(n >> 1) - 1]) / 2;
+        return minQ.front().element;
     }
 }
 
@@ -253,56 +258,52 @@ class MedianFinder {
  */
 ```
 
+#### Rust
+
 ```rust
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
+
 struct MedianFinder {
-    nums: Vec<i32>,
+    minQ: BinaryHeap<Reverse<i32>>,
+    maxQ: BinaryHeap<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MedianFinder {
-    /** initialize your data structure here. */
     fn new() -> Self {
-        Self { nums: Vec::new() }
+        MedianFinder {
+            minQ: BinaryHeap::new(),
+            maxQ: BinaryHeap::new(),
+        }
     }
 
     fn add_num(&mut self, num: i32) {
-        let mut l = 0;
-        let mut r = self.nums.len();
-        while l < r {
-            let mid = (l + r) >> 1;
-            if self.nums[mid] < num {
-                l = mid + 1;
-            } else {
-                r = mid;
-            }
+        self.maxQ.push(num);
+        self.minQ.push(Reverse(self.maxQ.pop().unwrap()));
+
+        if self.minQ.len() > self.maxQ.len() + 1 {
+            self.maxQ.push(self.minQ.pop().unwrap().0);
         }
-        self.nums.insert(l, num);
     }
 
     fn find_median(&self) -> f64 {
-        let n = self.nums.len();
-        if (n & 1) == 1 {
-            return f64::from(self.nums[n >> 1]);
+        if self.minQ.len() == self.maxQ.len() {
+            let min_top = self.minQ.peek().unwrap().0;
+            let max_top = *self.maxQ.peek().unwrap();
+            (min_top + max_top) as f64 / 2.0
+        } else {
+            self.minQ.peek().unwrap().0 as f64
         }
-        f64::from(self.nums[n >> 1] + self.nums[(n >> 1) - 1]) / 2.0
     }
-}/**
- * Your MedianFinder object will be instantiated and called as such:
- * let obj = MedianFinder::new();
- * obj.add_num(num);
- * let ret_2: f64 = obj.find_median();
- */
+}
 ```
 
+#### JavaScript
+
 ```js
-/**
- * initialize your data structure here.
- */
 var MedianFinder = function () {
-    this.val = [];
+    this.minQ = new MinPriorityQueue();
+    this.maxQ = new MaxPriorityQueue();
 };
 
 /**
@@ -310,76 +311,52 @@ var MedianFinder = function () {
  * @return {void}
  */
 MedianFinder.prototype.addNum = function (num) {
-    let left = 0;
-    let right = this.val.length;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (num > this.val[mid]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
+    this.maxQ.enqueue(num);
+    this.minQ.enqueue(this.maxQ.dequeue().element);
+    if (this.minQ.size() - this.maxQ.size() > 1) {
+        this.maxQ.enqueue(this.minQ.dequeue().element);
     }
-    this.val.splice(left, 0, num);
 };
 
 /**
  * @return {number}
  */
 MedianFinder.prototype.findMedian = function () {
-    let mid = ~~(this.val.length / 2);
-    return this.val.length % 2 ? this.val[mid] : (this.val[mid - 1] + this.val[mid]) / 2;
+    if (this.minQ.size() === this.maxQ.size()) {
+        return (this.minQ.front().element + this.maxQ.front().element) / 2;
+    }
+    return this.minQ.front().element;
 };
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * var obj = new MedianFinder()
+ * obj.addNum(num)
+ * var param_2 = obj.findMedian()
+ */
 ```
+
+#### C#
 
 ```cs
 public class MedianFinder {
-    private List<int> nums;
-    private int curIndex;
+    private PriorityQueue<int, int> minQ = new PriorityQueue<int, int>();
+    private PriorityQueue<int, int> maxQ = new PriorityQueue<int, int>(Comparer<int>.Create((a, b) => b.CompareTo(a)));
 
-    /** initialize your data structure here. */
     public MedianFinder() {
-        nums = new List<int>();
-    }
 
-    private int FindIndex(int val) {
-        int left = 0;
-        int right = nums.Count - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (val > nums[mid]) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left;
     }
 
     public void AddNum(int num) {
-        if (nums.Count == 0) {
-            nums.Add(num);
-            curIndex = 0;
-        } else {
-            curIndex = FindIndex(num);
-            if (curIndex == nums.Count) {
-                nums.Add(num);
-            } else {
-                nums.Insert(curIndex, num);
-            }
+        maxQ.Enqueue(num, num);
+        minQ.Enqueue(maxQ.Peek(), maxQ.Dequeue());
+        if (minQ.Count > maxQ.Count + 1) {
+            maxQ.Enqueue(minQ.Peek(), minQ.Dequeue());
         }
     }
 
     public double FindMedian() {
-        if (nums.Count % 2 == 1) {
-            return (double)nums[nums.Count / 2];
-        } else {
-            if (nums.Count == 0) {
-                return 0;
-            } else {
-                return (double) (nums[nums.Count / 2 - 1] + nums[nums.Count / 2]) / 2;
-            }
-        }
+        return minQ.Count == maxQ.Count ? (minQ.Peek() + maxQ.Peek()) / 2.0 : minQ.Peek();
     }
 }
 
@@ -391,6 +368,124 @@ public class MedianFinder {
  */
 ```
 
+#### Swift
+
+```swift
+class MedianFinder {
+    private var minQ = Heap<Int>(sort: <)
+    private var maxQ = Heap<Int>(sort: >)
+
+    init() {
+    }
+
+    func addNum(_ num: Int) {
+        maxQ.insert(num)
+        minQ.insert(maxQ.remove()!)
+        if maxQ.count < minQ.count {
+            maxQ.insert(minQ.remove()!)
+        }
+    }
+
+    func findMedian() -> Double {
+        if maxQ.count > minQ.count {
+            return Double(maxQ.peek()!)
+        }
+        return (Double(maxQ.peek()!) + Double(minQ.peek()!)) / 2.0
+    }
+}
+
+struct Heap<T> {
+    var elements: [T]
+    let sort: (T, T) -> Bool
+
+    init(sort: @escaping (T, T) -> Bool, elements: [T] = []) {
+        self.sort = sort
+        self.elements = elements
+        if !elements.isEmpty {
+            for i in stride(from: elements.count / 2 - 1, through: 0, by: -1) {
+                siftDown(from: i)
+            }
+        }
+    }
+
+    var isEmpty: Bool {
+        return elements.isEmpty
+    }
+
+    var count: Int {
+        return elements.count
+    }
+
+    func peek() -> T? {
+        return elements.first
+    }
+
+    mutating func insert(_ value: T) {
+        elements.append(value)
+        siftUp(from: elements.count - 1)
+    }
+
+    mutating func remove() -> T? {
+        guard !elements.isEmpty else { return nil }
+        elements.swapAt(0, elements.count - 1)
+        let removedValue = elements.removeLast()
+        siftDown(from: 0)
+        return removedValue
+    }
+
+    private mutating func siftUp(from index: Int) {
+        var child = index
+        var parent = parentIndex(ofChildAt: child)
+        while child > 0 && sort(elements[child], elements[parent]) {
+            elements.swapAt(child, parent)
+            child = parent
+            parent = parentIndex(ofChildAt: child)
+        }
+    }
+
+    private mutating func siftDown(from index: Int) {
+        var parent = index
+        while true {
+            let left = leftChildIndex(ofParentAt: parent)
+            let right = rightChildIndex(ofParentAt: parent)
+            var candidate = parent
+            if left < count && sort(elements[left], elements[candidate]) {
+                candidate = left
+            }
+            if right < count && sort(elements[right], elements[candidate]) {
+                candidate = right
+            }
+            if candidate == parent {
+                return
+            }
+            elements.swapAt(parent, candidate)
+            parent = candidate
+        }
+    }
+
+    private func parentIndex(ofChildAt index: Int) -> Int {
+        return (index - 1) / 2
+    }
+
+    private func leftChildIndex(ofParentAt index: Int) -> Int {
+        return 2 * index + 1
+    }
+
+    private func rightChildIndex(ofParentAt index: Int) -> Int {
+        return 2 * index + 2
+    }
+}
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * let obj = MedianFinder()
+ * obj.addNum(num)
+ * let ret_2: Double = obj.findMedian()
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

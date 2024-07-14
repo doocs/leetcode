@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0456.132%20Pattern/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Binary Search
+    - Ordered Set
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [456. 132 Pattern](https://leetcode.com/problems/132-pattern)
 
 [中文文档](/solution/0400-0499/0456.132%20Pattern/README.md)
 
-<!-- tags:Stack,Array,Binary Search,Ordered Set,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <code>n</code> integers <code>nums</code>, a <strong>132 pattern</strong> is a subsequence of three integers <code>nums[i]</code>, <code>nums[j]</code> and <code>nums[k]</code> such that <code>i &lt; j &lt; k</code> and <code>nums[i] &lt; nums[k] &lt; nums[j]</code>.</p>
 
@@ -44,11 +58,17 @@
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +83,8 @@ class Solution:
             stk.append(x)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func find132pattern(nums []int) bool {
 	vk := -(1 << 30)
@@ -122,6 +148,8 @@ func find132pattern(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function find132pattern(nums: number[]): boolean {
     let vk = -Infinity;
@@ -138,6 +166,8 @@ function find132pattern(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -161,9 +191,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -200,6 +236,8 @@ class Solution:
             tree.update(x, 1)
         return False
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -269,6 +307,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -323,6 +363,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -379,6 +421,8 @@ func find132pattern(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndextedTree {
@@ -449,4 +493,6 @@ function search(nums: number[], x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

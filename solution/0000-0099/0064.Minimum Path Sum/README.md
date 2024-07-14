@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum)
 
 [English Version](/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 
-<!-- tags:数组,动态规划,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含非负整数的 <code><em>m</em>&nbsp;x&nbsp;<em>n</em></code>&nbsp;网格&nbsp;<code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
 
@@ -40,7 +50,11 @@
 	<li><code>0 &lt;= grid[i][j] &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -58,6 +72,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
@@ -73,6 +89,8 @@ class Solution:
                 f[i][j] = min(f[i - 1][j], f[i][j - 1]) + grid[i][j]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPathSum(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -141,6 +163,8 @@ func minPathSum(grid [][]int) int {
 	return f[m-1][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPathSum(grid: number[][]): number {
@@ -165,6 +189,8 @@ function minPathSum(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_path_sum(mut grid: Vec<Vec<i32>>) -> i32 {
@@ -185,6 +211,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -213,6 +241,8 @@ var minPathSum = function (grid) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MinPathSum(int[][] grid) {
@@ -237,4 +267,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

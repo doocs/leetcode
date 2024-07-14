@@ -1,9 +1,8 @@
 class Graph {
     private g: number[][] = [];
-    private inf: number = 1 << 29;
 
     constructor(n: number, edges: number[][]) {
-        this.g = Array.from({ length: n }, () => Array(n).fill(this.inf));
+        this.g = Array.from({ length: n }, () => Array(n).fill(Infinity));
         for (const [f, t, c] of edges) {
             this.g[f][t] = c;
         }
@@ -16,9 +15,9 @@ class Graph {
 
     shortestPath(node1: number, node2: number): number {
         const n = this.g.length;
-        const dist: number[] = new Array(n).fill(this.inf);
+        const dist: number[] = Array(n).fill(Infinity);
         dist[node1] = 0;
-        const vis: boolean[] = new Array(n).fill(false);
+        const vis: boolean[] = Array(n).fill(false);
         for (let i = 0; i < n; ++i) {
             let t = -1;
             for (let j = 0; j < n; ++j) {
@@ -31,7 +30,7 @@ class Graph {
                 dist[j] = Math.min(dist[j], dist[t] + this.g[t][j]);
             }
         }
-        return dist[node2] >= this.inf ? -1 : dist[node2];
+        return dist[node2] >= Infinity ? -1 : dist[node2];
     }
 }
 

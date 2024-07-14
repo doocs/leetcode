@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md
+rating: 1412
+source: 第 236 场周赛 Q2
+tags:
+    - 递归
+    - 队列
+    - 数组
+    - 数学
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [1823. 找出游戏的获胜者](https://leetcode.cn/problems/find-the-winner-of-the-circular-game)
 
 [English Version](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README_EN.md)
 
-<!-- tags:递归,队列,数组,数学,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>共有 <code>n</code> 名小伙伴一起做游戏。小伙伴们围成一圈，按 <strong>顺时针顺序</strong> 从 <code>1</code> 到 <code>n</code> 编号。确切地说，从第 <code>i</code> 名小伙伴顺时针移动一位会到达第 <code>(i+1)</code> 名小伙伴的位置，其中 <code>1 &lt;= i &lt; n</code> ，从第 <code>n</code> 名小伙伴顺时针移动一位会回到第 <code>1</code> 名小伙伴的位置。</p>
 
@@ -60,11 +74,17 @@
 
 <p><strong>进阶：</strong>你能否使用线性时间复杂度和常数空间复杂度解决此问题？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +94,8 @@ class Solution:
         ans = (k + self.findTheWinner(n - 1, k)) % n
         return n if ans == 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +121,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTheWinner(n int, k int) int {
@@ -111,44 +137,93 @@ func findTheWinner(n int, k int) int {
 }
 ```
 
-```ts
-class LinkNode {
-    public val: number;
-    public next: LinkNode;
+#### TypeScript
 
-    constructor(val: number = 0, next?: LinkNode) {
-        this.val = val;
-        this.next = next;
+```ts
+function findTheWinner(n: number, k: number): number {
+    if (n === 1) {
+        return 1;
+    }
+    const ans = (k + findTheWinner(n - 1, k)) % n;
+    return ans ? ans : n;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_the_winner(n: i32, k: i32) -> i32 {
+        if n == 1 {
+            return 1;
+        }
+        let mut ans = (k + Solution::find_the_winner(n - 1, k)) % n;
+        return if ans == 0 { n } else { ans };
     }
 }
+```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var findTheWinner = function (n, k) {
+    if (n === 1) {
+        return 1;
+    }
+    const ans = (k + findTheWinner(n - 1, k)) % n;
+    return ans ? ans : n;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：模拟
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
 function findTheWinner(n: number, k: number): number {
-    if (k === 1) {
-        return n;
-    }
-    const dummy = new LinkNode(0);
-    let cur = dummy;
-    for (let i = 1; i <= n; i++) {
-        cur.next = new LinkNode(i);
-        cur = cur.next;
-    }
-    cur.next = dummy.next;
+    const arr = Array.from({ length: n }, (_, i) => i + 1);
+    let i = 0;
 
-    cur = dummy;
-    let count = 0;
-    while (cur.next != cur) {
-        count++;
-        if (count === k) {
-            cur.next = cur.next.next;
-            count = 0;
-        } else {
-            cur = cur.next;
-        }
+    while (arr.length > 1) {
+        i = (i + k - 1) % arr.length;
+        arr.splice(i, 1);
     }
-    return cur.val;
+
+    return arr[0];
+}
+```
+
+#### JavaScript
+
+```js
+function findTheWinner(n, k) {
+    const arr = Array.from({ length: n }, (_, i) => i + 1);
+    let i = 0;
+
+    while (arr.length > 1) {
+        i = (i + k - 1) % arr.length;
+        arr.splice(i, 1);
+    }
+
+    return arr[0];
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

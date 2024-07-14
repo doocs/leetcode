@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0872.Leaf-Similar%20Trees/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [872. 叶子相似的树](https://leetcode.cn/problems/leaf-similar-trees)
 
 [English Version](/solution/0800-0899/0872.Leaf-Similar%20Trees/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请考虑一棵二叉树上所有的叶子，这些叶子的值按从左到右的顺序排列形成一个&nbsp;<strong>叶值序列 </strong>。</p>
 
@@ -47,13 +57,19 @@
 	<li>给定的两棵树上的值在&nbsp;<code>[0, 200]</code> 范围内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
 后序遍历。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -72,6 +88,8 @@ class Solution:
 
         return dfs(root1) == dfs(root2)
 ```
+
+#### Java
 
 ```java
 /**
@@ -110,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -139,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -165,6 +187,8 @@ func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -184,13 +208,13 @@ func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     #[allow(dead_code)]
     pub fn leaf_similar(
         root1: Option<Rc<RefCell<TreeNode>>>,
-        root2: Option<Rc<RefCell<TreeNode>>>
+        root2: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
         let mut one_vec: Vec<i32> = Vec::new();
         let mut two_vec: Vec<i32> = Vec::new();
@@ -218,12 +242,34 @@ impl Solution {
 
     #[allow(dead_code)]
     fn is_leaf_node(node: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        node.as_ref().unwrap().borrow().left.is_none() &&
-            node.as_ref().unwrap().borrow().right.is_none()
+        node.as_ref().unwrap().borrow().left.is_none()
+            && node.as_ref().unwrap().borrow().right.is_none()
     }
 }
 ```
 
+#### JavaScript
+
+```js
+var leafSimilar = function (root1, root2) {
+    const dfs = root => {
+        if (!root) {
+            return [];
+        }
+        let ans = [...dfs(root.left), ...dfs(root.right)];
+        if (!ans.length) {
+            ans = [root.val];
+        }
+        return ans;
+    };
+    const l1 = dfs(root1);
+    const l2 = dfs(root2);
+    return l1.toString() === l2.toString();
+};
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

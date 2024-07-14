@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0480.Sliding%20Window%20Median/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [480. Sliding Window Median](https://leetcode.com/problems/sliding-window-median)
 
 [中文文档](/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
 
-<!-- tags:Array,Hash Table,Sliding Window,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>median</strong> is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle values.</p>
 
@@ -49,11 +62,17 @@ Window position                Median
 	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MedianFinder:
@@ -122,6 +141,8 @@ class Solution:
             ans.append(finder.find_median())
         return ans
 ```
+
+#### Java
 
 ```java
 class MedianFinder {
@@ -209,6 +230,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class MedianFinder {
@@ -300,6 +323,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type MedianFinder struct {
@@ -404,4 +429,6 @@ func (h *hp) Pop() any {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

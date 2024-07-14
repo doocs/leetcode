@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README_EN.md
+rating: 2009
+source: Weekly Contest 255 Q3
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [1981. Minimize the Difference Between Target and Chosen Elements](https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements)
 
 [中文文档](/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README.md)
 
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer matrix <code>mat</code> and an integer <code>target</code>.</p>
 
@@ -59,11 +73,31 @@ The absolute difference is 1.
 	<li><code>1 &lt;= target &lt;= 800</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Dynamic Programming (Grouped Knapsack)
+
+Let $f[i][j]$ represent whether it is possible to select elements from the first $i$ rows with a sum of $j$. Then we have the state transition equation:
+
+$$
+f[i][j] = \begin{cases} 1 & \text{if there exists } x \in row[i] \text{ such that } f[i - 1][j - x] = 1 \\ 0 & \text{otherwise} \end{cases}
+$$
+
+where $row[i]$ represents the set of elements in the $i$-th row.
+
+Since $f[i][j]$ is only related to $f[i - 1][j]$, we can use a rolling array to optimize the space complexity.
+
+Finally, we traverse the $f$ array to find the smallest absolute difference.
+
+The time complexity is $O(m^2 \times n \times C)$ and the space complexity is $O(m \times C)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively, and $C$ is the maximum value of the matrix elements.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +107,38 @@ class Solution:
             f = set(a + b for a in f for b in row)
         return min(abs(v - target) for v in f)
 ```
+
+#### Java
+
+```java
+class Solution {
+    public int minimizeTheDifference(int[][] mat, int target) {
+        boolean[] f = {true};
+        for (var row : mat) {
+            int mx = 0;
+            for (int x : row) {
+                mx = Math.max(mx, x);
+            }
+            boolean[] g = new boolean[f.length + mx];
+            for (int x : row) {
+                for (int j = x; j < f.length + x; ++j) {
+                    g[j] |= f[j - x];
+                }
+            }
+            f = g;
+        }
+        int ans = 1 << 30;
+        for (int j = 0; j < f.length; ++j) {
+            if (f[j]) {
+                ans = Math.min(ans, Math.abs(j - target));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +162,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimizeTheDifference(mat [][]int, target int) int {
@@ -155,38 +225,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public int minimizeTheDifference(int[][] mat, int target) {
-        boolean[] f = {true};
-        for (var row : mat) {
-            int mx = 0;
-            for (int x : row) {
-                mx = Math.max(mx, x);
-            }
-            boolean[] g = new boolean[f.length + mx];
-            for (int x : row) {
-                for (int j = x; j < f.length + x; ++j) {
-                    g[j] |= f[j - x];
-                }
-            }
-            f = g;
-        }
-        int ans = 1 << 30;
-        for (int j = 0; j < f.length; ++j) {
-            if (f[j]) {
-                ans = Math.min(ans, Math.abs(j - target));
-            }
-        }
-        return ans;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

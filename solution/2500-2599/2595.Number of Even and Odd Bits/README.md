@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README.md
+rating: 1206
+source: 第 337 场周赛 Q1
+tags:
+    - 位运算
+---
+
+<!-- problem:start -->
+
 # [2595. 奇偶位数](https://leetcode.cn/problems/number-of-even-and-odd-bits)
 
 [English Version](/solution/2500-2599/2595.Number%20of%20Even%20and%20Odd%20Bits/README_EN.md)
 
-<!-- tags:位运算 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>正</strong> 整数 <code>n</code> 。</p>
 
@@ -44,7 +54,11 @@
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -53,6 +67,8 @@
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为给定的整数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +82,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int[] evenOddBit(int n) {
@@ -77,6 +95,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func evenOddBit(n int) []int {
 	ans := make([]int, 2)
@@ -101,6 +123,8 @@ func evenOddBit(n int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function evenOddBit(n: number): number[] {
     const ans = new Array(2).fill(0);
@@ -110,6 +134,8 @@ function evenOddBit(n: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -131,9 +157,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -143,6 +175,8 @@ class Solution:
         odd = (n & ~mask).bit_count()
         return [even, odd]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +188,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -167,6 +203,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func evenOddBit(n int) []int {
 	mask := 0x5555
@@ -175,6 +213,8 @@ func evenOddBit(n int) []int {
 	return []int{even, odd}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function evenOddBit(n: number): number[] {
@@ -194,6 +234,8 @@ function bitCount(i: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn even_odd_bit(n: i32) -> Vec<i32> {
@@ -207,4 +249,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

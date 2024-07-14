@@ -1,10 +1,20 @@
-# [1715. Count Apples and Oranges](https://leetcode.com/problems/count-apples-and-oranges)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1715. Count Apples and Oranges 🔒](https://leetcode.com/problems/count-apples-and-oranges)
 
 [中文文档](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Boxes</code></p>
 
@@ -89,11 +99,19 @@ Total number of apples = 6 + 24 + 27 + 27 + 17 + 14 + 36 = 151
 Total number of oranges = 15 + 25 + 8 + 28 + 15 + 15 + 17 = 123
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Left Join + Summation
+
+We can perform a left join on the `Boxes` table and the `Chests` table based on `chest_id`, and then calculate the total number of apples and oranges respectively. Note that if a box does not contain any small boxes, then the corresponding `chest_id` will be `null`. In this case, we need to consider the number of apples and oranges in the small boxes within that box to be 0.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -102,9 +120,32 @@ SELECT
     SUM(IFNULL(b.orange_count, 0) + IFNULL(c.orange_count, 0)) AS orange_count
 FROM
     Boxes AS b
-    LEFT JOIN Chests AS c ON b.chest_id = c.chest_id;
+    LEFT JOIN Chests AS c USING (chest_id);
+```
+
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def count_apples_and_oranges(boxes: pd.DataFrame, chests: pd.DataFrame) -> pd.DataFrame:
+    merged_df = boxes.merge(
+        chests, on="chest_id", how="left", suffixes=("_box", "_chest")
+    )
+    apple_count = (
+        merged_df["apple_count_box"].fillna(0)
+        + merged_df["apple_count_chest"].fillna(0)
+    ).sum()
+    orange_count = (
+        merged_df["orange_count_box"].fillna(0)
+        + merged_df["orange_count_chest"].fillna(0)
+    ).sum()
+    return pd.DataFrame({"apple_count": [apple_count], "orange_count": [orange_count]})
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

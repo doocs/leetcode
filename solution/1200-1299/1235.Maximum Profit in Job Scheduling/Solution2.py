@@ -2,13 +2,10 @@ class Solution:
     def jobScheduling(
         self, startTime: List[int], endTime: List[int], profit: List[int]
     ) -> int:
-        @cache
-        def dfs(i: int) -> int:
-            if i >= n:
-                return 0
-            j = bisect_left(idx, endTime[idx[i]], key=lambda i: startTime[i])
-            return max(dfs(i + 1), profit[idx[i]] + dfs(j))
-
-        n = len(startTime)
-        idx = sorted(range(n), key=lambda i: startTime[i])
-        return dfs(0)
+        jobs = sorted(zip(endTime, startTime, profit))
+        n = len(profit)
+        dp = [0] * (n + 1)
+        for i, (_, s, p) in enumerate(jobs):
+            j = bisect_right(jobs, s, hi=i, key=lambda x: x[0])
+            dp[i + 1] = max(dp[i], dp[j] + p)
+        return dp[n]

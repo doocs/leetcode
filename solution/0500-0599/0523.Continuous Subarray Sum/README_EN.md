@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [523. Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum)
 
 [中文文档](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README.md)
 
-<!-- tags:Array,Hash Table,Math,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array nums and an integer k, return <code>true</code> <em>if </em><code>nums</code><em> has a <strong>good subarray</strong> or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -57,41 +70,56 @@
 	<li><code>1 &lt;= k &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Prefix Sum + Hash Table
+
+According to the problem description, if there exist two positions $i$ and $j$ ($j < i$) where the remainders of the prefix sums modulo $k$ are the same, then the sum of the subarray $\text{nums}[j+1..i]$ is a multiple of $k$.
+
+Therefore, we can use a hash table to store the first occurrence of each remainder of the prefix sum modulo $k$. Initially, we store a key-value pair $(0, -1)$ in the hash table, indicating that the remainder $0$ of the prefix sum $0$ appears at position $-1$.
+
+As we iterate through the array, we calculate the current prefix sum's remainder modulo $k$. If the current prefix sum's remainder modulo $k$ has not appeared in the hash table, we store the current prefix sum's remainder modulo $k$ and its corresponding position in the hash table. Otherwise, if the current prefix sum's remainder modulo $k$ has already appeared in the hash table at position $j$, then we have found a subarray $\text{nums}[j+1..i]$ that meets the conditions, and thus return $\text{True}$.
+
+After completing the iteration, if no subarray meeting the conditions is found, we return $\text{False}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
+        d = {0: -1}
         s = 0
-        mp = {0: -1}
-        for i, v in enumerate(nums):
-            s += v
-            r = s % k
-            if r in mp and i - mp[r] >= 2:
+        for i, x in enumerate(nums):
+            s = (s + x) % k
+            if s not in d:
+                d[s] = i
+            elif i - d[s] > 1:
                 return True
-            if r not in mp:
-                mp[r] = i
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
-        Map<Integer, Integer> mp = new HashMap<>();
-        mp.put(0, -1);
+        Map<Integer, Integer> d = new HashMap<>();
+        d.put(0, -1);
         int s = 0;
         for (int i = 0; i < nums.length; ++i) {
-            s += nums[i];
-            int r = s % k;
-            if (mp.containsKey(r) && i - mp.get(r) >= 2) {
+            s = (s + nums[i]) % k;
+            if (!d.containsKey(s)) {
+                d.put(s, i);
+            } else if (i - d.get(s) > 1) {
                 return true;
-            }
-            if (!mp.containsKey(r)) {
-                mp.put(r, i);
             }
         }
         return false;
@@ -99,42 +127,65 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool checkSubarraySum(vector<int>& nums, int k) {
-        unordered_map<int, int> mp;
-        mp[0] = -1;
+        unordered_map<int, int> d{{0, -1}};
         int s = 0;
         for (int i = 0; i < nums.size(); ++i) {
-            s += nums[i];
-            int r = s % k;
-            if (mp.count(r) && i - mp[r] >= 2) return true;
-            if (!mp.count(r)) mp[r] = i;
+            s = (s + nums[i]) % k;
+            if (!d.contains(s)) {
+                d[s] = i;
+            } else if (i - d[s] > 1) {
+                return true;
+            }
         }
         return false;
     }
 };
 ```
 
+#### Go
+
 ```go
 func checkSubarraySum(nums []int, k int) bool {
-	mp := map[int]int{0: -1}
+	d := map[int]int{0: -1}
 	s := 0
-	for i, v := range nums {
-		s += v
-		r := s % k
-		if j, ok := mp[r]; ok && i-j >= 2 {
+	for i, x := range nums {
+		s = (s + x) % k
+		if _, ok := d[s]; !ok {
+			d[s] = i
+		} else if i-d[s] > 1 {
 			return true
-		}
-		if _, ok := mp[r]; !ok {
-			mp[r] = i
 		}
 	}
 	return false
 }
 ```
 
+#### TypeScript
+
+```ts
+function checkSubarraySum(nums: number[], k: number): boolean {
+    const d: Record<number, number> = { 0: -1 };
+    let s = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        s = (s + nums[i]) % k;
+        if (!d.hasOwnProperty(s)) {
+            d[s] = i;
+        } else if (i - d[s] > 1) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

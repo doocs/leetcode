@@ -1,16 +1,16 @@
 class TripleInOne {
-    private int[] s;
-    private int capacity;
+    private int cap;
+    private int[] stk;
 
     public TripleInOne(int stackSize) {
-        s = new int[stackSize * 3 + 3];
-        capacity = stackSize;
+        cap = stackSize;
+        stk = new int[cap * 3 + 3];
     }
 
     public void push(int stackNum, int value) {
-        if (s[stackNum + 3 * capacity] < capacity) {
-            s[s[stackNum + 3 * capacity] * 3 + stackNum] = value;
-            ++s[stackNum + 3 * capacity];
+        if (stk[cap * 3 + stackNum] < cap) {
+            stk[cap * stackNum + stk[cap * 3 + stackNum]] = value;
+            ++stk[cap * 3 + stackNum];
         }
     }
 
@@ -18,16 +18,16 @@ class TripleInOne {
         if (isEmpty(stackNum)) {
             return -1;
         }
-        --s[stackNum + 3 * capacity];
-        return s[s[stackNum + 3 * capacity] * 3 + stackNum];
+        --stk[cap * 3 + stackNum];
+        return stk[cap * stackNum + stk[cap * 3 + stackNum]];
     }
 
     public int peek(int stackNum) {
-        return isEmpty(stackNum) ? -1 : s[(s[stackNum + 3 * capacity] - 1) * 3 + stackNum];
+        return isEmpty(stackNum) ? -1 : stk[cap * stackNum + stk[cap * 3 + stackNum] - 1];
     }
 
     public boolean isEmpty(int stackNum) {
-        return s[stackNum + 3 * capacity] == 0;
+        return stk[cap * 3 + stackNum] == 0;
     }
 }
 

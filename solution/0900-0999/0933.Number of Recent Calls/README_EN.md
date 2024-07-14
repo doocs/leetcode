@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Data Stream
+---
+
+<!-- problem:start -->
+
 # [933. Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls)
 
 [中文文档](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
 
-<!-- tags:Design,Queue,Data Stream -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have a <code>RecentCounter</code> class which counts the number of recent requests within a certain time frame.</p>
 
@@ -44,11 +56,17 @@ recentCounter.ping(3002);  // requests = [1, <u>100</u>, <u>3001</u>, <u>3002</u
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>ping</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class RecentCounter:
@@ -66,6 +84,8 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
+
+#### Java
 
 ```java
 class RecentCounter {
@@ -101,6 +121,8 @@ class RecentCounter {
  */
 ```
 
+#### C++
+
 ```cpp
 class RecentCounter {
 public:
@@ -122,6 +144,8 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
+
+#### Go
 
 ```go
 type RecentCounter struct {
@@ -147,6 +171,8 @@ func (this *RecentCounter) Ping(t int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class RecentCounter {
     private queue: number[];
@@ -170,6 +196,8 @@ class RecentCounter {
  * var param_1 = obj.ping(t)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -198,12 +226,10 @@ impl RecentCounter {
         }
         self.queue.len() as i32
     }
-}/**
- * Your RecentCounter object will be instantiated and called as such:
- * let obj = RecentCounter::new();
- * let ret_1: i32 = obj.ping(t);
- */
+}
 ```
+
+#### JavaScript
 
 ```js
 var RecentCounter = function () {
@@ -228,6 +254,8 @@ RecentCounter.prototype.ping = function (t) {
  * var param_1 = obj.ping(t)
  */
 ```
+
+#### C#
 
 ```cs
 public class RecentCounter {
@@ -256,9 +284,15 @@ public class RecentCounter {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class RecentCounter:
@@ -274,6 +308,8 @@ class RecentCounter:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)
 ```
+
+#### C++
 
 ```cpp
 class RecentCounter {
@@ -295,6 +331,8 @@ public:
  * int param_1 = obj->ping(t);
  */
 ```
+
+#### Go
 
 ```go
 type RecentCounter struct {
@@ -331,4 +369,6 @@ func (this *RecentCounter) Ping(t int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

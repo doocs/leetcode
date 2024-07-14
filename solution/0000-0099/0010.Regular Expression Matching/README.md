@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0010.Regular%20Expression%20Matching/README.md
+tags:
+    - 递归
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [10. 正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching)
 
 [English Version](/solution/0000-0099/0010.Regular%20Expression%20Matching/README_EN.md)
 
-<!-- tags:递归,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
 
@@ -54,7 +64,11 @@
 	<li>保证每次出现字符&nbsp;<code>*</code> 时，前面都匹配到有效的字符</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -72,6 +86,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -88,6 +104,8 @@ class Solution:
         m, n = len(s), len(p)
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -154,6 +174,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isMatch(s string, p string) bool {
@@ -185,46 +207,57 @@ func isMatch(s string, p string) bool {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn is_match(s: String, p: String) -> bool {
-        let n = s.len();
-        let m = p.len();
-        let s = s.chars().collect::<Vec<char>>();
-        let p = p.chars().collect::<Vec<char>>();
+        let (m, n) = (s.len(), p.len());
+        let mut f = vec![vec![0; n + 1]; m + 1];
 
-        let mut dp = vec![vec![false; m + 1]; n + 1];
-
-        // Initialize the dp vector
-        dp[0][0] = true;
-
-        for i in 1..=m {
-            if p[i - 1] == '*' {
-                dp[0][i] = dp[0][i - 2];
+        fn dfs(
+            s: &Vec<char>,
+            p: &Vec<char>,
+            f: &mut Vec<Vec<i32>>,
+            i: usize,
+            j: usize,
+            m: usize,
+            n: usize,
+        ) -> bool {
+            if j >= n {
+                return i == m;
             }
+            if f[i][j] != 0 {
+                return f[i][j] == 1;
+            }
+            let mut res = -1;
+            if j + 1 < n && p[j + 1] == '*' {
+                if dfs(s, p, f, i, j + 2, m, n)
+                    || (i < m && (s[i] == p[j] || p[j] == '.') && dfs(s, p, f, i + 1, j, m, n))
+                {
+                    res = 1;
+                }
+            } else if i < m && (s[i] == p[j] || p[j] == '.') && dfs(s, p, f, i + 1, j + 1, m, n) {
+                res = 1;
+            }
+            f[i][j] = res;
+            res == 1
         }
 
-        // Begin the actual dp process
-        for i in 1..=n {
-            for j in 1..=m {
-                if s[i - 1] == p[j - 1] || p[j - 1] == '.' {
-                    dp[i][j] = dp[i - 1][j - 1];
-                }
-                if p[j - 1] == '*' {
-                    if j >= 2 && (s[i - 1] == p[j - 2] || p[j - 2] == '.') {
-                        dp[i][j] = dp[i - 1][j] || dp[i][j - 2];
-                    } else if j >= 2 && s[i - 1] != p[j - 2] {
-                        dp[i][j] = dp[i][j - 2];
-                    }
-                }
-            }
-        }
-
-        dp[n][m]
+        dfs(
+            &s.chars().collect(),
+            &p.chars().collect(),
+            &mut f,
+            0,
+            0,
+            m,
+            n,
+        )
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -257,6 +290,8 @@ var isMatch = function (s, p) {
     return dfs(0, 0);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -298,6 +333,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们可以将方法一中的记忆化搜索转换为动态规划。
@@ -312,6 +351,8 @@ public class Solution {
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $s$ 和 $p$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -329,6 +370,8 @@ class Solution:
                     f[i][j] = f[i - 1][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -353,6 +396,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -379,6 +424,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isMatch(s string, p string) bool {
 	m, n := len(s), len(p)
@@ -402,6 +449,40 @@ func isMatch(s string, p string) bool {
 	return f[m][n]
 }
 ```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_match(s: String, p: String) -> bool {
+        let m = s.len();
+        let n = p.len();
+        let mut f = vec![vec![false; n + 1]; m + 1];
+
+        f[0][0] = true;
+
+        let s: Vec<char> = s.chars().collect();
+        let p: Vec<char> = p.chars().collect();
+
+        for i in 0..=m {
+            for j in 1..=n {
+                if p[j - 1] == '*' {
+                    f[i][j] = f[i][j - 2];
+                    if i > 0 && (p[j - 2] == '.' || p[j - 2] == s[i - 1]) {
+                        f[i][j] = f[i][j] || f[i - 1][j];
+                    }
+                } else if i > 0 && (p[j - 1] == '.' || p[j - 1] == s[i - 1]) {
+                    f[i][j] = f[i - 1][j - 1];
+                }
+            }
+        }
+
+        f[m][n]
+    }
+}
+```
+
+#### JavaScript
 
 ```js
 /**
@@ -430,6 +511,8 @@ var isMatch = function (s, p) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsMatch(string s, string p) {
@@ -452,6 +535,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -496,4 +581,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

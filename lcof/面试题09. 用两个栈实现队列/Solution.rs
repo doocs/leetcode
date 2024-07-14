@@ -30,9 +30,4 @@ impl CQueue {
             }
         }
     }
-}/**
- * Your CQueue object will be instantiated and called as such:
- * let obj = CQueue::new();
- * obj.append_tail(value);
- * let ret_2: i32 = obj.delete_head();
- */
+}

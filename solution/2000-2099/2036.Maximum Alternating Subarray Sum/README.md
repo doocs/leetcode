@@ -1,12 +1,21 @@
-# [2036. 最大交替子数组和](https://leetcode.cn/problems/maximum-alternating-subarray-sum)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
+# [2036. 最大交替子数组和 🔒](https://leetcode.cn/problems/maximum-alternating-subarray-sum)
 
 [English Version](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>子数组</strong>是以<strong>0</strong>下标开始的数组的连续非空子序列，从 <code>i</code> 到 <code>j</code>（<code>0 &lt;= i &lt;= j &lt; nums.length</code>）的 <strong>子数组交替和</strong> 被定义为 <code>nums[i] - nums[i+1] + nums[i+2] - ... +/- nums[j]</code> 。</p>
 
@@ -53,7 +62,11 @@
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -65,6 +78,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumAlternatingSubarraySum(self, nums: List[int]) -> int:
@@ -74,6 +89,8 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumAlternatingSubarraySum(nums []int) int64 {
 	const inf = 1 << 60
@@ -120,6 +141,8 @@ func maximumAlternatingSubarraySum(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumAlternatingSubarraySum(nums: number[]): number {
@@ -134,4 +157,6 @@ function maximumAlternatingSubarraySum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

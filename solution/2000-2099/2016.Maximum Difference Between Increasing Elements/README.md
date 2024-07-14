@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2016.Maximum%20Difference%20Between%20Increasing%20Elements/README.md
+rating: 1246
+source: 第 260 场周赛 Q1
+tags:
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [2016. 增量元素之间的最大差值](https://leetcode.cn/problems/maximum-difference-between-increasing-elements)
 
 [English Version](/solution/2000-2099/2016.Maximum%20Difference%20Between%20Increasing%20Elements/README_EN.md)
 
-<!-- tags:数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，该数组的大小为 <code>n</code> ，请你计算 <code>nums[j] - nums[i]</code> 能求得的 <strong>最大差值 </strong>，其中 <code>0 &lt;= i &lt; j &lt; n</code> 且 <code>nums[i] &lt; nums[j]</code> 。</p>
 
@@ -49,7 +59,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：维护前缀最小值
 
@@ -63,6 +77,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumDifference(self, nums: List[int]) -> int:
@@ -75,6 +91,8 @@ class Solution:
                 mi = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumDifference(nums []int) int {
 	mi := 1 << 30
@@ -126,6 +148,8 @@ func maximumDifference(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumDifference(nums: number[]): number {
     const n = nums.length;
@@ -138,6 +162,8 @@ function maximumDifference(nums: number[]): number {
     return res === 0 ? -1 : res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,6 +181,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -177,4 +205,6 @@ var maximumDifference = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,16 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0109.Convert%20Sorted%20List%20to%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 二叉搜索树
+    - 链表
+    - 分治
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [109. 有序链表转换二叉搜索树](https://leetcode.cn/problems/convert-sorted-list-to-binary-search-tree)
 
 [English Version](/solution/0100-0199/0109.Convert%20Sorted%20List%20to%20Binary%20Search%20Tree/README_EN.md)
 
-<!-- tags:树,二叉搜索树,链表,分治,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给定一个单链表的头节点 &nbsp;<code>head</code>&nbsp;，其中的元素 <strong>按升序排序</strong> ，将其转换为高度平衡的二叉搜索树。</p>
-
-<p>本题中，一个高度平衡二叉树是指一个二叉树<em>每个节点&nbsp;</em>的左右两个子树的高度差不超过 1。</p>
+<p>给定一个单链表的头节点 &nbsp;<code>head</code>&nbsp;，其中的元素 <strong>按升序排序</strong> ，将其转换为 <span data-keyword="height-balanced">平衡</span> 二叉搜索树。</p>
 
 <p>&nbsp;</p>
 
@@ -40,11 +50,17 @@
 	<li><code>-10<sup>5</sup>&nbsp;&lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -74,6 +90,8 @@ class Solution:
             head = head.next
         return buildBST(nums, 0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -123,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -169,6 +189,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -206,6 +228,8 @@ func buildBST(nums []int, start, end int) *TreeNode {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -257,6 +281,8 @@ function sortedListToBST(head: ListNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -292,23 +318,19 @@ function sortedListToBST(head: ListNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn build(vals: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if start == end {
             return None;
         }
         let mid = (start + end) >> 1;
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: vals[mid],
-                    left: Self::build(vals, start, mid),
-                    right: Self::build(vals, mid + 1, end),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: vals[mid],
+            left: Self::build(vals, start, mid),
+            right: Self::build(vals, mid + 1, end),
+        })))
     }
 
     pub fn sorted_list_to_bst(head: Option<Box<ListNode>>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -322,6 +344,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -362,6 +386,8 @@ var sortedListToBST = function (head) {
     return buildBST(nums, 0, nums.length - 1);
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -408,4 +434,6 @@ struct TreeNode* sortedListToBST(struct ListNode* head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

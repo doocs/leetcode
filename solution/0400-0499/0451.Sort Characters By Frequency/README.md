@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 桶排序
+    - 计数
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [451. 根据字符出现频率排序](https://leetcode.cn/problems/sort-characters-by-frequency)
 
 [English Version](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README_EN.md)
 
-<!-- tags:哈希表,字符串,桶排序,计数,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code> ，根据字符出现的 <strong>频率</strong> 对其进行 <strong>降序排序</strong> 。一个字符出现的 <strong>频率</strong> 是它出现在字符串中的次数。</p>
 
@@ -50,7 +63,11 @@
 	<li><code>s</code>&nbsp;由大小写英文字母和数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -60,12 +77,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def frequencySort(self, s: str) -> str:
         cnt = Counter(s)
         return ''.join(c * v for c, v in sorted(cnt.items(), key=lambda x: -x[1]))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func frequencySort(s string) string {
 	cnt := map[byte]int{}
@@ -130,6 +155,8 @@ func frequencySort(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function frequencySort(s: string): string {
     const cnt: Map<string, number> = new Map();
@@ -144,6 +171,8 @@ function frequencySort(s: string): string {
     return ans.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -161,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -184,4 +215,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

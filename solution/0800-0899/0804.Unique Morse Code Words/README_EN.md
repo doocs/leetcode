@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [804. Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words)
 
 [中文文档](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README.md)
 
-<!-- tags:Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:</p>
 
@@ -57,11 +69,17 @@ There are 2 different transformations: &quot;--...-.&quot; and &quot;--...--.&qu
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +116,8 @@ class Solution:
         return len(s)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
@@ -117,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniqueMorseRepresentations(words []string) int {
 	codes := []string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
@@ -149,6 +173,8 @@ func uniqueMorseRepresentations(words []string) int {
 	return len(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 const codes = [
@@ -192,37 +218,16 @@ function uniqueMorseRepresentations(words: string[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashSet;
 impl Solution {
     pub fn unique_morse_representations(words: Vec<String>) -> i32 {
         const codes: [&str; 26] = [
-            ".-",
-            "-...",
-            "-.-.",
-            "-..",
-            ".",
-            "..-.",
-            "--.",
-            "....",
-            "..",
-            ".---",
-            "-.-",
-            ".-..",
-            "--",
-            "-.",
-            "---",
-            ".--.",
-            "--.-",
-            ".-.",
-            "...",
-            "-",
-            "..-",
-            "...-",
-            ".--",
-            "-..-",
-            "-.--",
-            "--..",
+            ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",
+            "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-",
+            "-.--", "--..",
         ];
         words
             .iter()
@@ -240,4 +245,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

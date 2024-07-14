@@ -1,19 +1,21 @@
 impl Solution {
     pub fn count_hill_valley(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut res = 0;
-        let mut prev = nums[0];
-        for i in 1..n - 1 {
-            let num = nums[i];
-            let next = nums[i + 1];
-            if num == next {
+        let mut ans = 0;
+        let mut j = 0;
+
+        for i in 1..nums.len() - 1 {
+            if nums[i] == nums[i + 1] {
                 continue;
             }
-            if (num > prev && num > next) || (num < prev && num < next) {
-                res += 1;
+            if nums[i] > nums[j] && nums[i] > nums[i + 1] {
+                ans += 1;
             }
-            prev = num;
+            if nums[i] < nums[j] && nums[i] < nums[i + 1] {
+                ans += 1;
+            }
+            j = i;
         }
-        res
+
+        ans
     }
 }

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [797. 所有可能的路径](https://leetcode.cn/problems/all-paths-from-source-to-target)
 
 [English Version](/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个有&nbsp;<code>n</code>&nbsp;个节点的 <strong>有向无环图（DAG）</strong>，请你找出所有从节点 <code>0</code>&nbsp;到节点 <code>n-1</code>&nbsp;的路径并输出（<strong>不要求按特定顺序</strong>）</p>
 
@@ -48,11 +59,17 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +87,8 @@ class Solution:
                 q.append(path + [v])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func allPathsSourceTarget(graph [][]int) [][]int {
 	var path []int
@@ -148,6 +171,8 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     fn dfs(i: usize, path: &mut Vec<i32>, res: &mut Vec<Vec<i32>>, graph: &Vec<Vec<i32>>) {
@@ -168,6 +193,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -196,11 +223,43 @@ var allPathsSourceTarget = function (graph) {
 };
 ```
 
+#### TypeScript
+
+```ts
+function allPathsSourceTarget(graph: number[][]): number[][] {
+    const ans: number[][] = [];
+
+    const dfs = (path: number[]) => {
+        const curr = path.at(-1)!;
+        if (curr === graph.length - 1) {
+            ans.push([...path]);
+            return;
+        }
+
+        for (const v of graph[curr]) {
+            path.push(v);
+            dfs(path);
+            path.pop();
+        }
+    };
+
+    dfs([0]);
+
+    return ans;
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -218,6 +277,8 @@ class Solution:
         dfs([0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -250,4 +311,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

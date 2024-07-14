@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1417.Reformat%20The%20String/README_EN.md
+rating: 1241
+source: Weekly Contest 185 Q1
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [1417. Reformat The String](https://leetcode.com/problems/reformat-the-string)
 
 [中文文档](/solution/1400-1499/1417.Reformat%20The%20String/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an alphanumeric string <code>s</code>. (<strong>Alphanumeric string</strong> is a string consisting of lowercase English letters and digits).</p>
 
@@ -45,11 +57,17 @@
 	<li><code>s</code> consists of only lowercase English letters and/or digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +85,8 @@ class Solution:
             ans.append(a[-1])
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func reformat(s string) string {
@@ -166,4 +190,6 @@ func reformat(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

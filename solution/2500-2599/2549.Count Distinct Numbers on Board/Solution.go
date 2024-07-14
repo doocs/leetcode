@@ -1,6 +1,3 @@
 func distinctIntegers(n int) int {
-	if n == 1 {
-		return 1
-	}
-	return n - 1
+	return max(1, n-1)
 }

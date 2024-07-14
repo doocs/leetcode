@@ -1,41 +1,83 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README_EN.md
+rating: 2153
+source: Weekly Contest 343 Q3
+tags:
+    - Graph
+    - Array
+    - Shortest Path
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2662. Minimum Cost of a Path With Special Roads](https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads)
 
 [中文文档](/solution/2600-2699/2662.Minimum%20Cost%20of%20a%20Path%20With%20Special%20Roads/README.md)
 
-<!-- tags:Graph,Array,Shortest Path,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>start</code> where <code>start = [startX, startY]</code> represents your initial position <code>(startX, startY)</code> in a 2D space. You are also given the array <code>target</code> where <code>target = [targetX, targetY]</code> represents your target position <code>(targetX, targetY)</code>.</p>
 
-<p>The cost of going from a position <code>(x1, y1)</code> to any other position in the space <code>(x2, y2)</code> is <code>|x2 - x1| + |y2 - y1|</code>.</p>
+<p>The <strong>cost</strong> of going from a position <code>(x1, y1)</code> to any other position in the space <code>(x2, y2)</code> is <code>|x2 - x1| + |y2 - y1|</code>.</p>
 
-<p>There are also some special roads. You are given a 2D array <code>specialRoads</code> where <code>specialRoads[i] = [x1<sub>i</sub>, y1<sub>i</sub>, x2<sub>i</sub>, y2<sub>i</sub>, cost<sub>i</sub>]</code> indicates that the <code>i<sup>th</sup></code> special road can take you from <code>(x1<sub>i</sub>, y1<sub>i</sub>)</code> to <code>(x2<sub>i</sub>, y2<sub>i</sub>)</code> with a cost equal to <code>cost<sub>i</sub></code>. You can use each special road any number of times.</p>
+<p>There are also some <strong>special roads</strong>. You are given a 2D array <code>specialRoads</code> where <code>specialRoads[i] = [x1<sub>i</sub>, y1<sub>i</sub>, x2<sub>i</sub>, y2<sub>i</sub>, cost<sub>i</sub>]</code> indicates that the <code>i<sup>th</sup></code> special road goes in <strong>one direction</strong> from <code>(x1<sub>i</sub>, y1<sub>i</sub>)</code> to <code>(x2<sub>i</sub>, y2<sub>i</sub>)</code> with a cost equal to <code>cost<sub>i</sub></code>. You can use each special road any number of times.</p>
 
-<p>Return <em>the minimum cost required to go from</em> <code>(startX, startY)</code> to <code>(targetX, targetY)</code>.</p>
+<p>Return the <strong>minimum</strong> cost required to go from <code>(startX, startY)</code> to <code>(targetX, targetY)</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> start = [1,1], target = [4,5], specialRoads = [[1,2,3,3,2],[3,4,4,5,1]]
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> The optimal path from (1,1) to (4,5) is the following:
-- (1,1) -&gt; (1,2). This move has a cost of |1 - 1| + |2 - 1| = 1.
-- (1,2) -&gt; (3,3). This move uses the first special edge, the cost is 2.
-- (3,3) -&gt; (3,4). This move has a cost of |3 - 3| + |4 - 3| = 1.
-- (3,4) -&gt; (4,5). This move uses the second special edge, the cost is 1.
-So the total cost is 1 + 2 + 1 + 1 = 5.
-It can be shown that we cannot achieve a smaller total cost than 5.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">start = [1,1], target = [4,5], specialRoads = [[1,2,3,3,2],[3,4,4,5,1]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">5</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ol>
+	<li>(1,1) to (1,2) with a cost of |1 - 1| + |2 - 1| = 1.</li>
+	<li>(1,2) to (3,3). Use <code><span class="example-io">specialRoads[0]</span></code><span class="example-io"> with</span><span class="example-io"> the cost 2.</span></li>
+	<li><span class="example-io">(3,3) to (3,4) with a cost of |3 - 3| + |4 - 3| = 1.</span></li>
+	<li><span class="example-io">(3,4) to (4,5). Use </span><code><span class="example-io">specialRoads[1]</span></code><span class="example-io"> with the cost</span><span class="example-io"> 1.</span></li>
+</ol>
+
+<p><span class="example-io">So the total cost is 1 + 2 + 1 + 1 = 5.</span></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> start = [3,2], target = [5,7], specialRoads = [[3,2,3,4,4],[3,3,5,5,5],[3,4,5,6,6]]
-<strong>Output:</strong> 7
-<strong>Explanation:</strong> It is optimal to not use any special edges and go directly from the starting to the ending position with a cost |5 - 3| + |7 - 2| = 7.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">start = [3,2], target = [5,7], specialRoads = [[5,7,3,2,1],[3,2,3,4,4],[3,3,5,5,5],[3,4,5,6,6]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">7</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>It is optimal not to use any special edges and go directly from the starting to the ending position with a cost |5 - 3| + |7 - 2| = 7.</p>
+
+<p>Note that the <span class="example-io"><code>specialRoads[0]</code> is directed from (5,7) to (3,2).</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">start = [1,1], target = [10,4], specialRoads = [[4,2,1,1,3],[1,2,7,4,4],[10,3,6,1,2],[6,1,1,2,3]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">8</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ol>
+	<li>(1,1) to (1,2) with a cost of |1 - 1| + |2 - 1| = 1.</li>
+	<li>(1,2) to (7,4). Use <code><span class="example-io">specialRoads[1]</span></code><span class="example-io"> with the cost</span><span class="example-io"> 4.</span></li>
+	<li>(7,4) to (10,4) with a cost of |10 - 7| + |4 - 4| = 3.</li>
+</ol>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -51,7 +93,11 @@ It can be shown that we cannot achieve a smaller total cost than 5.
 	<li><code>1 &lt;= cost<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dijkstra
 
@@ -68,6 +114,8 @@ Finally, when the queue is empty, we can get the answer.
 The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Where $n$ is the number of special paths.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +138,8 @@ class Solution:
                 heappush(q, (d + dist(x, y, x1, y1) + cost, x2, y2))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCost(start []int, target []int, specialRoads [][]int) int {
@@ -199,6 +253,8 @@ func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(start: number[], target: number[], specialRoads: number[][]): number {
@@ -294,4 +350,6 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

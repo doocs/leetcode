@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.07.Baby%20Names/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [17.07. Baby Names](https://leetcode.cn/problems/baby-names-lcci)
 
 [中文文档](/lcci/17.07.Baby%20Names/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Each year, the government releases a list of the 10000 most common baby names and their frequencies (the number of babies with that name). The only problem with this is that some names have multiple spellings. For example,&quot;John&quot; and &#39;&#39;Jon&quot; are essentially the same name but would be listed separately in the list. Given two lists, one of names/frequencies and the other of pairs of equivalent names, write an algorithm to print a new list of the true frequency of each name. Note that if John and Jon are synonyms, and Jon and Johnny are synonyms, then John and Johnny are synonyms. (It is both transitive and symmetric.) In the final list, choose the name that are <strong>lexicographically smallest</strong> as the &quot;real&quot; name.</p>
 
@@ -20,11 +30,25 @@
 	<li><code>names.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Hash Table + DFS
+
+For each pair of synonyms, we establish bidirectional edges between the two names and store them in the adjacency list $g$. Then, we traverse all names, store them in the set $s$, and store their frequencies in the hash table $cnt$.
+
+Next, we traverse each name in the set $s$. If the name has not been visited, we perform a depth-first search to find all names in the connected component where the name is located. We use the name with the smallest lexicographic order as the real name, and the sum of their frequencies is the frequency of the real name. Then, we store this name and its frequency in the answer array.
+
+After traversing all names, the answer array is what we seek.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the name array and the synonym array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +83,8 @@ class Solution:
                 ans.append(f"{name}({freq})")
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +188,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 	g := map[string][]string{}
@@ -206,6 +236,8 @@ func trulyMostPopular(names []string, synonyms []string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function trulyMostPopular(names: string[], synonyms: string[]): string[] {
     const map = new Map<string, string>();
@@ -237,6 +269,64 @@ function trulyMostPopular(names: string[], synonyms: string[]): string[] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var graph = [String: [String]]()
+    private var count = [String: Int]()
+    private var visited = Set<String>()
+    private var freq: Int = 0
+
+    func trulyMostPopular(_ names: [String], _ synonyms: [String]) -> [String] {
+        for pair in synonyms {
+            let cleanPair = pair.dropFirst().dropLast()
+            let parts = cleanPair.split(separator: ",").map(String.init)
+            let a = parts[0], b = parts[1]
+            graph[a, default: []].append(b)
+            graph[b, default: []].append(a)
+        }
+
+        var namesSet = Set<String>()
+        for name in names {
+            let index = name.firstIndex(of: "(")!
+            let realName = String(name[..<index])
+            namesSet.insert(realName)
+            let num = Int(name[name.index(after: index)..<name.index(before: name.endIndex)])!
+            count[realName] = num
+        }
+
+        var result = [String]()
+        for name in namesSet {
+            if !visited.contains(name) {
+                freq = 0
+                let representative = dfs(name)
+                result.append("\(representative)(\(freq))")
+            }
+        }
+
+        return result
+    }
+
+    private func dfs(_ name: String) -> String {
+        var minName = name
+        visited.insert(name)
+        freq += count[name, default: 0]
+        for neighbor in graph[name, default: []] {
+            if !visited.contains(neighbor) {
+                let temp = dfs(neighbor)
+                if temp < minName {
+                    minName = temp
+                }
+            }
+        }
+        return minName
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

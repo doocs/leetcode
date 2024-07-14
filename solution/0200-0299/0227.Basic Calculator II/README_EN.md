@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0227.Basic%20Calculator%20II/README_EN.md
+tags:
+    - Stack
+    - Math
+    - String
+---
+
+<!-- problem:start -->
+
 # [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii)
 
 [中文文档](/solution/0200-0299/0227.Basic%20Calculator%20II/README.md)
 
-<!-- tags:Stack,Math,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> which represents an expression, <em>evaluate this expression and return its value</em>.&nbsp;</p>
 
@@ -36,7 +48,11 @@
 	<li>The answer is <strong>guaranteed</strong> to fit in a <strong>32-bit integer</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -51,6 +67,8 @@ After the traversal ends, the sum of the elements in the stack is the answer.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +93,8 @@ class Solution:
                 v = 0
         return sum(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculate(s string) int {
 	sign := '+'
@@ -180,6 +204,8 @@ func calculate(s string) int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -270,4 +296,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

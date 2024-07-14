@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README_EN.md
+rating: 1569
+source: Weekly Contest 144 Q2
+tags:
+    - Array
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings)
 
 [中文文档](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md)
 
-<!-- tags:Array,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> flights that are labeled from <code>1</code> to <code>n</code>.</p>
 
@@ -52,7 +65,11 @@ Hence, answer = [10,25]
 	<li><code>1 &lt;= seats<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -61,6 +78,8 @@ We notice that each booking is for `seats` seats on all flights within a certain
 The time complexity is $O(n)$, where $n$ is the number of flights. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +91,8 @@ class Solution:
                 ans[last] -= seats
         return list(accumulate(ans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func corpFlightBookings(bookings [][]int, n int) []int {
 	ans := make([]int, n)
@@ -128,6 +153,8 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +181,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} bookings
@@ -177,6 +206,10 @@ var corpFlightBookings = function (bookings, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Indexed Tree + Difference Idea
 
 We can also use a binary indexed tree, combined with the idea of difference, to implement the above operations. We can consider each booking as booking `seats` seats on all flights within a certain interval `[first, last]`. Therefore, for each booking, we add `seats` to the `first` position of the binary indexed tree and subtract `seats` from the `last + 1` position of the binary indexed tree. Finally, we calculate the prefix sum for each position in the binary indexed tree to get the total number of seats booked for each flight.
@@ -193,6 +226,8 @@ A binary indexed tree, also known as a "Binary Indexed Tree" or Fenwick tree. It
 The time complexity of these two operations is $O(\log n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -221,6 +256,8 @@ class Solution:
             tree.update(last + 1, -seats)
         return [tree.query(i + 1) for i in range(n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +302,8 @@ class BinaryIndexedTree {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -312,6 +351,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -356,4 +397,6 @@ func corpFlightBookings(bookings [][]int, n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

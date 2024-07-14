@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2498.Frog%20Jump%20II/README_EN.md
+rating: 1759
+source: Biweekly Contest 93 Q3
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [2498. Frog Jump II](https://leetcode.com/problems/frog-jump-ii)
 
 [中文文档](/solution/2400-2499/2498.Frog%20Jump%20II/README.md)
 
-<!-- tags:Greedy,Array,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>stones</code> sorted in <strong>strictly increasing order</strong> representing the positions of stones in a river.</p>
 
@@ -52,11 +66,17 @@ It can be shown that this is the minimum achievable cost.
 	<li><code>stones</code> is sorted in a strictly increasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +86,8 @@ class Solution:
             ans = max(ans, stones[i] - stones[i - 2])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxJump(stones []int) int {
@@ -102,4 +128,6 @@ func maxJump(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

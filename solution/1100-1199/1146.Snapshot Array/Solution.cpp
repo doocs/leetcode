@@ -1,35 +1,25 @@
 class SnapshotArray {
 public:
     SnapshotArray(int length) {
-        idx = 0;
-        arr = vector<vector<pair<int, int>>>(length);
+        arr.resize(length);
     }
 
     void set(int index, int val) {
-        arr[index].push_back({idx, val});
+        arr[index].emplace_back(i, val);
     }
 
     int snap() {
-        return idx++;
+        return i++;
     }
 
     int get(int index, int snap_id) {
-        auto& vals = arr[index];
-        int left = 0, right = vals.size();
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (vals[mid].first > snap_id) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left == 0 ? 0 : vals[left - 1].second;
+        auto it = upper_bound(arr[index].begin(), arr[index].end(), make_pair(snap_id, INT_MAX));
+        return it == arr[index].begin() ? 0 : prev(it)->second;
     }
 
 private:
     vector<vector<pair<int, int>>> arr;
-    int idx;
+    int i = 0;
 };
 
 /**

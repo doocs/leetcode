@@ -1,10 +1,21 @@
-# [2340. Minimum Adjacent Swaps to Make a Valid Array](https://leetcode.com/problems/minimum-adjacent-swaps-to-make-a-valid-array)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
+<!-- problem:start -->
+
+# [2340. Minimum Adjacent Swaps to Make a Valid Array 🔒](https://leetcode.com/problems/minimum-adjacent-swaps-to-make-a-valid-array)
 
 [中文文档](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README.md)
 
-<!-- tags:Greedy,Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>
 
@@ -51,11 +62,17 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +85,8 @@ class Solution:
                 j = k
         return 0 if i == j else i + len(nums) - 1 - j - (i > j)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSwaps(nums []int) int {
 	var i, j int
@@ -133,6 +156,8 @@ func minimumSwaps(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSwaps(nums: number[]): number {
     let i = 0;
@@ -152,4 +177,6 @@ function minimumSwaps(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

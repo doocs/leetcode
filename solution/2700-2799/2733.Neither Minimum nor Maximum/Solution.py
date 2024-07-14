@@ -1,3 +1,4 @@
 class Solution:
     def findNonMinOrMax(self, nums: List[int]) -> int:
-        return -1 if len(nums) < 3 else sorted(nums)[1]
+        mi, mx = min(nums), max(nums)
+        return next((x for x in nums if x != mi and x != mx), -1)

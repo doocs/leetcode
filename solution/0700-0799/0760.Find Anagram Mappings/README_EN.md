@@ -1,10 +1,21 @@
-# [760. Find Anagram Mappings](https://leetcode.com/problems/find-anagram-mappings)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0760.Find%20Anagram%20Mappings/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
+# [760. Find Anagram Mappings 🔒](https://leetcode.com/problems/find-anagram-mappings)
 
 [中文文档](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README.md)
 
-<!-- tags:Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> where <code>nums2</code> is <strong>an anagram</strong> of <code>nums1</code>. Both arrays may contain duplicates.</p>
 
@@ -38,11 +49,17 @@
 	<li><code>nums2</code> is an anagram of <code>nums1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -52,6 +69,8 @@ class Solution:
             mapper[num].add(i)
         return [mapper[num].pop() for num in nums1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,4 +92,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

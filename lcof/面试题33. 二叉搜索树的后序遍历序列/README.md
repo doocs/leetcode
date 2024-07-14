@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9833.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 33. 二叉搜索树的后序遍历序列](https://leetcode.cn/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回&nbsp;<code>true</code>，否则返回&nbsp;<code>false</code>。假设输入的数组的任意两个数字都互不相同。</p>
 
@@ -34,7 +42,11 @@
 	<li><code>数组长度 &lt;= 1000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -43,6 +55,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +74,8 @@ class Solution:
 
         return dfs(0, len(postorder) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func verifyPostorder(postorder []int) bool {
 	var dfs func(l, r int) bool
@@ -137,6 +157,8 @@ func verifyPostorder(postorder []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function verifyPostorder(postorder: number[]): boolean {
     const dfs = (l: number, r: number): boolean => {
@@ -159,6 +181,8 @@ function verifyPostorder(postorder: number[]): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     fn dfs(start: usize, end: usize, max_val: i32, postorder: &Vec<i32>) -> bool {
@@ -172,10 +196,8 @@ impl Solution {
                 return false;
             }
             if val < root_val {
-                return (
-                    Self::dfs(start, i, root_val, postorder) &&
-                    Self::dfs(i + 1, end - 1, max_val, postorder)
-                );
+                return (Self::dfs(start, i, root_val, postorder)
+                    && Self::dfs(i + 1, end - 1, max_val, postorder));
             }
         }
         Self::dfs(start, end - 1, max_val, postorder)
@@ -186,6 +208,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -212,6 +236,8 @@ var verifyPostorder = function (postorder) {
     return dfs(0, postorder.length - 1);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -241,7 +267,41 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var postorder: [Int] = []
+
+    func verifyPostorder(_ postorder: [Int]) -> Bool {
+        self.postorder = postorder
+        return dfs(0, postorder.count - 1)
+    }
+
+    private func dfs(_ l: Int, _ r: Int) -> Bool {
+        if l >= r {
+            return true
+        }
+        let rootValue = postorder[r]
+        var i = l
+        while i < r && postorder[i] < rootValue {
+            i += 1
+        }
+        for j in i..<r {
+            if postorder[j] < rootValue {
+                return false
+            }
+        }
+        return dfs(l, i - 1) && dfs(i, r - 1)
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：单调栈
 
@@ -264,6 +324,8 @@ public class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
@@ -277,6 +339,8 @@ class Solution:
             stk.append(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -297,6 +361,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -320,6 +386,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func verifyPostorder(postorder []int) bool {
 	mx := 1 << 30
@@ -339,6 +407,8 @@ func verifyPostorder(postorder []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function verifyPostorder(postorder: number[]): boolean {
     let mx = 1 << 30;
@@ -356,6 +426,8 @@ function verifyPostorder(postorder: number[]): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -381,4 +453,6 @@ var verifyPostorder = function (postorder) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

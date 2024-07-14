@@ -1,12 +1,22 @@
-# [1272. 删除区间](https://leetcode.cn/problems/remove-interval)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1272.Remove%20Interval/README.md
+rating: 1524
+source: 第 14 场双周赛 Q2
+tags:
+    - 数组
+---
+
+<!-- problem:start -->
+
+# [1272. 删除区间 🔒](https://leetcode.cn/problems/remove-interval)
 
 [English Version](/solution/1200-1299/1272.Remove%20Interval/README_EN.md)
 
-<!-- tags:数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实数集合可以表示为若干不相交区间的并集，其中每个区间的形式为 <code>[a, b)</code>（左闭右开），表示满足&nbsp;<code>a &lt;= x &lt; b</code> 的所有实数&nbsp; <code>x</code>&nbsp;的集合。如果某个区间&nbsp;<code>[a, b)</code> 中包含实数 <code>x</code> ，则称实数 <code>x</code> 在集合中。</p>
 
@@ -48,7 +58,11 @@
 	<li><code>-10<sup>9</sup> &lt;= a<sub>i</sub> &lt; b<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -61,6 +75,8 @@
 时间复杂度 $O(n)$，其中 $n$ 为区间列表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +95,8 @@ class Solution:
                     ans.append([y, b])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeInterval(intervals [][]int, toBeRemoved []int) (ans [][]int) {
 	x, y := toBeRemoved[0], toBeRemoved[1]
@@ -149,4 +171,6 @@ func removeInterval(intervals [][]int, toBeRemoved []int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,50 +1,36 @@
 type TripleInOne struct {
-	data      []int
-	offset    [3]int
-	stackSize int
+	cap int
+	stk []int
 }
 
 func Constructor(stackSize int) TripleInOne {
-	total := stackSize * 3
-	data := make([]int, total)
-	offset := [3]int{}
-	for i := 0; i < 3; i++ {
-		offset[i] = i * stackSize
-	}
-	return TripleInOne{
-		data:      data,
-		offset:    offset,
-		stackSize: stackSize,
-	}
+	return TripleInOne{stackSize, make([]int, stackSize*3+3)}
 }
 
 func (this *TripleInOne) Push(stackNum int, value int) {
-	i := this.offset[stackNum]
-	if i < (stackNum+1)*this.stackSize {
-		this.data[i] = value
-		this.offset[stackNum]++
+	if this.stk[this.cap*3+stackNum] < this.cap {
+		this.stk[this.cap*stackNum+this.stk[this.cap*3+stackNum]] = value
+		this.stk[this.cap*3+stackNum]++
 	}
 }
 
 func (this *TripleInOne) Pop(stackNum int) int {
-	i := this.offset[stackNum]
-	if i == stackNum*this.stackSize {
+	if this.IsEmpty(stackNum) {
 		return -1
 	}
-	this.offset[stackNum]--
-	return this.data[i-1]
+	this.stk[this.cap*3+stackNum]--
+	return this.stk[this.cap*stackNum+this.stk[this.cap*3+stackNum]]
 }
 
 func (this *TripleInOne) Peek(stackNum int) int {
-	i := this.offset[stackNum]
-	if i == stackNum*this.stackSize {
+	if this.IsEmpty(stackNum) {
 		return -1
 	}
-	return this.data[i-1]
+	return this.stk[this.cap*stackNum+this.stk[this.cap*3+stackNum]-1]
 }
 
 func (this *TripleInOne) IsEmpty(stackNum int) bool {
-	return this.offset[stackNum] == stackNum*this.stackSize
+	return this.stk[this.cap*3+stackNum] == 0
 }
 
 /**

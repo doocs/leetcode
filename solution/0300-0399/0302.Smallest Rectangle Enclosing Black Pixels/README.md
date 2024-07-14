@@ -1,12 +1,24 @@
-# [302. 包含全部黑色像素的最小矩形](https://leetcode.cn/problems/smallest-rectangle-enclosing-black-pixels)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 二分查找
+    - 矩阵
+---
+
+<!-- problem:start -->
+
+# [302. 包含全部黑色像素的最小矩形 🔒](https://leetcode.cn/problems/smallest-rectangle-enclosing-black-pixels)
 
 [English Version](/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,数组,二分查找,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>图片在计算机处理中往往是使用二维矩阵来表示的。</p>
 
@@ -49,11 +61,17 @@
 	<li><code>image</code> 中的黑色像素仅形成一个 <strong>组件</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +123,8 @@ class Solution:
         r = left
         return (d - u + 1) * (r - l + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -175,6 +195,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -231,6 +253,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minArea(image [][]byte, x int, y int) int {
@@ -297,4 +321,6 @@ func minArea(image [][]byte, x int, y int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

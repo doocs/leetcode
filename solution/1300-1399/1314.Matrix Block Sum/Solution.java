@@ -1,31 +1,24 @@
 class Solution {
-    private int[][] pre;
-    private int m;
-    private int n;
     public int[][] matrixBlockSum(int[][] mat, int k) {
-        int m = mat.length, n = mat[0].length;
-        int[][] pre = new int[m + 1][n + 1];
-        for (int i = 1; i < m + 1; ++i) {
-            for (int j = 1; j < n + 1; ++j) {
-                pre[i][j] = pre[i - 1][j] + pre[i][j - 1] + -pre[i - 1][j - 1] + mat[i - 1][j - 1];
+        int m = mat.length;
+        int n = mat[0].length;
+        int[][] s = new int[m + 1][n + 1];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                s[i + 1][j + 1] = s[i][j + 1] + s[i + 1][j] - s[i][j] + mat[i][j];
             }
         }
-        this.pre = pre;
-        this.m = m;
-        this.n = n;
+
         int[][] ans = new int[m][n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans[i][j] = get(i + k + 1, j + k + 1) - get(i + k + 1, j - k)
-                    - get(i - k, j + k + 1) + get(i - k, j - k);
+                int x1 = Math.max(i - k, 0);
+                int y1 = Math.max(j - k, 0);
+                int x2 = Math.min(m - 1, i + k);
+                int y2 = Math.min(n - 1, j + k);
+                ans[i][j] = s[x2 + 1][y2 + 1] - s[x1][y2 + 1] - s[x2 + 1][y1] + s[x1][y1];
             }
         }
         return ans;
-    }
-
-    private int get(int i, int j) {
-        i = Math.max(Math.min(m, i), 0);
-        j = Math.max(Math.min(n, j), 0);
-        return pre[i][j];
     }
 }

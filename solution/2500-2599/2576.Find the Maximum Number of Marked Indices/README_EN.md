@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README_EN.md
+rating: 1843
+source: Weekly Contest 334 Q3
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [2576. Find the Maximum Number of Marked Indices](https://leetcode.com/problems/find-the-maximum-number-of-marked-indices)
 
 [中文文档](/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README.md)
 
-<!-- tags:Greedy,Array,Two Pointers,Binary Search,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>.</p>
 
@@ -62,7 +78,11 @@ Since there is no other operation, the answer is 4.
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
 
@@ -71,6 +91,8 @@ In order to mark as many indices as possible, we can sort the array `nums`, and 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `nums`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +109,8 @@ class Solution:
             i, j = i + 1, j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumOfMarkedIndices(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -142,6 +170,8 @@ func maxNumOfMarkedIndices(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumOfMarkedIndices(nums: number[]): number {
@@ -162,4 +192,6 @@ function maxNumOfMarkedIndices(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

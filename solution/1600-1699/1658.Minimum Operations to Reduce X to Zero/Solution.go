@@ -1,22 +1,21 @@
 func minOperations(nums []int, x int) int {
-	x = -x
+	s := -x
 	for _, v := range nums {
-		x += v
+		s += v
 	}
 	vis := map[int]int{0: -1}
-	ans := 1 << 30
-	s, n := 0, len(nums)
+	mx, t := -1, 0
 	for i, v := range nums {
-		s += v
-		if _, ok := vis[s]; !ok {
-			vis[s] = i
+		t += v
+		if _, ok := vis[t]; !ok {
+			vis[t] = i
 		}
-		if j, ok := vis[s-x]; ok {
-			ans = min(ans, n-(i-j))
+		if j, ok := vis[t-s]; ok {
+			mx = max(mx, i-j)
 		}
 	}
-	if ans == 1<<30 {
+	if mx == -1 {
 		return -1
 	}
-	return ans
+	return len(nums) - mx
 }

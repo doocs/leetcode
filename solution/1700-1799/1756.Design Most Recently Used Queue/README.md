@@ -1,12 +1,25 @@
-# [1756. 设计最近使用（MRU）队列](https://leetcode.cn/problems/design-most-recently-used-queue)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README.md
+tags:
+    - 栈
+    - 设计
+    - 树状数组
+    - 数组
+    - 哈希表
+    - 有序集合
+---
+
+<!-- problem:start -->
+
+# [1756. 设计最近使用（MRU）队列 🔒](https://leetcode.cn/problems/design-most-recently-used-queue)
 
 [English Version](/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README_EN.md)
 
-<!-- tags:栈,设计,树状数组,数组,哈希表,有序集合 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一种类似队列的数据结构，该数据结构将最近使用的元素移到队列尾部。</p>
 
@@ -49,7 +62,11 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 <p> </p>
 <b>进阶：</b>找到每次 <code>fetch</code> 的复杂度为 <code>O(n)</code> 的算法比较简单。你可以找到每次 <code>fetch</code> 的复杂度更佳的算法吗？
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组 + 二分查找
 
@@ -60,6 +77,8 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 时间复杂度 $(\log ^2 n)$，空间复杂度 $O(n)$。其中 $n$ 为队列的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MRUQueue:
@@ -77,6 +96,8 @@ class MRUQueue:
 # obj = MRUQueue(n)
 # param_1 = obj.fetch(k)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -143,6 +164,8 @@ class MRUQueue {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -207,6 +230,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -269,6 +294,8 @@ func (this *MRUQueue) Fetch(k int) int {
  * param_1 := obj.Fetch(k);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -336,9 +363,15 @@ class MRUQueue {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -385,4 +418,6 @@ class MRUQueue:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

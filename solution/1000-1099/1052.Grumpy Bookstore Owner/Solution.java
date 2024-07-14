@@ -1,20 +1,19 @@
 class Solution {
     public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
-        int s = 0, cs = 0;
+        int cnt = 0;
+        int tot = 0;
+        for (int i = 0; i < minutes; ++i) {
+            cnt += customers[i] * grumpy[i];
+            tot += customers[i] * (grumpy[i] ^ 1);
+        }
+        int mx = cnt;
         int n = customers.length;
-        for (int i = 0; i < n; ++i) {
-            s += customers[i] * grumpy[i];
-            cs += customers[i];
+        for (int i = minutes; i < n; ++i) {
+            cnt += customers[i] * grumpy[i];
+            cnt -= customers[i - minutes] * grumpy[i - minutes];
+            mx = Math.max(mx, cnt);
+            tot += customers[i] * (grumpy[i] ^ 1);
         }
-        int t = 0, ans = 0;
-        for (int i = 0; i < n; ++i) {
-            t += customers[i] * grumpy[i];
-            int j = i - minutes + 1;
-            if (j >= 0) {
-                ans = Math.max(ans, cs - (s - t));
-                t -= customers[j] * grumpy[j];
-            }
-        }
-        return ans;
+        return tot + mx;
     }
 }

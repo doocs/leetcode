@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0363.Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Matrix
+    - Ordered Set
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [363. Max Sum of Rectangle No Larger Than K](https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k)
 
 [中文文档](/solution/0300-0399/0363.Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K/README.md)
 
-<!-- tags:Array,Binary Search,Matrix,Ordered Set,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> matrix <code>matrix</code> and an integer <code>k</code>, return <em>the max sum of a rectangle in the matrix such that its sum is no larger than</em> <code>k</code>.</p>
 
@@ -40,11 +54,23 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if the number of rows is much larger than the number of columns?</p>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Enumerate Boundaries + Ordered Set
+
+We can enumerate the upper and lower boundaries $i$ and $j$ of the rectangle, then calculate the sum of the elements in each column within this boundary, and record it in the array $nums$. The problem is transformed into how to find the maximum subarray sum not exceeding $k$ in the array $nums$.
+
+We can use an ordered set to quickly find the maximum value less than or equal to $x$, thereby obtaining a subarray with the maximum subarray sum not exceeding $k$.
+
+The time complexity is $O(m^2 \times n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -69,6 +95,8 @@ class Solution:
                     ts.add(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumSubmatrix(matrix [][]int, k int) int {
 	m, n := len(matrix), len(matrix[0])
@@ -159,6 +191,8 @@ func maxSumSubmatrix(matrix [][]int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumSubmatrix(matrix: number[][], k: number): number {
@@ -830,4 +864,6 @@ class TreeMultiSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

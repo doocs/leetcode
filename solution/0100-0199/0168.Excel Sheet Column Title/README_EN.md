@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0168.Excel%20Sheet%20Column%20Title/README_EN.md
+tags:
+    - Math
+    - String
+---
+
+<!-- problem:start -->
+
 # [168. Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title)
 
 [中文文档](/solution/0100-0199/0168.Excel%20Sheet%20Column%20Title/README.md)
 
-<!-- tags:Math,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>columnNumber</code>, return <em>its corresponding column title as it appears in an Excel sheet</em>.</p>
 
@@ -50,11 +61,17 @@ AB -&gt; 28
 	<li><code>1 &lt;= columnNumber &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +83,8 @@ class Solution:
             columnNumber //= 26
         return ''.join(res[::-1])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +100,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func convertToTitle(columnNumber int) string {
 	res := []rune{}
@@ -92,6 +113,8 @@ func convertToTitle(columnNumber int) string {
 	return string(res)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convertToTitle(columnNumber: number): string {
@@ -105,6 +128,8 @@ function convertToTitle(columnNumber: number): string {
     return res.join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -130,6 +155,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string ConvertToTitle(int columnNumber) {
@@ -146,4 +173,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

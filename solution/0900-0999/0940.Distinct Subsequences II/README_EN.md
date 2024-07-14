@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0940.Distinct%20Subsequences%20II/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [940. Distinct Subsequences II](https://leetcode.com/problems/distinct-subsequences-ii)
 
 [中文文档](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
 
-<!-- tags:String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string s, return <em>the number of <strong>distinct non-empty subsequences</strong> of</em> <code>s</code>. Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;<u>a</u>b<u>c</u>d<u>e</u>&quot;</code> while <code>&quot;aec&quot;</code> is not.
@@ -41,11 +52,17 @@ A <strong>subsequence</strong> of a string is a new string that is formed from t
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +79,8 @@ class Solution:
                     dp[i][j] = dp[i - 1][j]
         return sum(dp[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +122,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distinctSubseqII(s string) int {
@@ -122,6 +145,8 @@ func distinctSubseqII(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctSubseqII(s: string): number {
     const mod = 1e9 + 7;
@@ -133,6 +158,8 @@ function distinctSubseqII(s: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn distinct_subseq_ii(s: String) -> i32 {
@@ -140,14 +167,13 @@ impl Solution {
         let mut dp = [0; 26];
         for u in s.as_bytes() {
             let i = (u - &b'a') as usize;
-            dp[i] =
-                ({
-                    let mut sum = 0;
-                    dp.iter().for_each(|&v| {
-                        sum = (sum + v) % MOD;
-                    });
-                    sum
-                }) + 1;
+            dp[i] = ({
+                let mut sum = 0;
+                dp.iter().for_each(|&v| {
+                    sum = (sum + v) % MOD;
+                });
+                sum
+            }) + 1;
         }
         let mut res = 0;
         dp.iter().for_each(|&v| {
@@ -157,6 +183,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int distinctSubseqII(char* s) {
@@ -180,9 +208,15 @@ int distinctSubseqII(char* s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -194,6 +228,8 @@ class Solution:
             dp[i] = sum(dp) % mod + 1
         return sum(dp) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -212,6 +248,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -232,6 +270,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctSubseqII(s string) int {
 	const mod int = 1e9 + 7
@@ -249,9 +289,15 @@ func distinctSubseqII(s string) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -269,4 +315,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

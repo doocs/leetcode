@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README.md
+rating: 1361
+source: 第 255 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [1980. 找出不同的二进制字符串](https://leetcode.cn/problems/find-unique-binary-string)
 
 [English Version](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md)
 
-<!-- tags:数组,哈希表,字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>nums</code> ，该数组由 <code>n</code> 个 <strong>互不相同</strong> 的二进制字符串组成，且每个字符串长度都是 <code>n</code> 。请你找出并返回一个长度为&nbsp;<code>n</code>&nbsp;且&nbsp;<strong>没有出现</strong> 在 <code>nums</code> 中的二进制字符串<em>。</em>如果存在多种答案，只需返回 <strong>任意一个</strong> 即可。</p>
 
@@ -47,7 +60,11 @@
 	<li><code>nums</code> 中的所有字符串 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 枚举
 
@@ -57,9 +74,11 @@
 
 然后我们从 $0$ 开始枚举长度为 $n$ 的二进制字符串中 `'1'` 出现的次数 $i$，如果 $mask$ 的第 $i$ 位为 $0$，则说明长度为 $n$ 的二进制字符串中 `'1'` 出现次数为 $i$ 的字符串不存在，我们可以将这个字符串作为答案返回。
 
-时间复杂度 $O(L)$，空间复杂度 $O(1)$。其中 $L$ 为 `nums` 中字符串的总长度。
+时间复杂度 $O(L)$，其中 $L$ 为 `nums` 中字符串的总长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +91,8 @@ class Solution:
             if mask >> i & 1 ^ 1:
                 return "1" * i + "0" * (n - i)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDifferentBinaryString(nums []string) string {
 	mask := 0
@@ -126,6 +151,25 @@ func findDifferentBinaryString(nums []string) string {
 	}
 }
 ```
+
+#### TypeScript
+
+```ts
+function findDifferentBinaryString(nums: string[]): string {
+    let mask = 0;
+    for (let x of nums) {
+        const cnt = x.split('').filter(c => c === '1').length;
+        mask |= 1 << cnt;
+    }
+    for (let i = 0; ; ++i) {
+        if (((mask >> i) & 1) === 0) {
+            return '1'.repeat(i) + '0'.repeat(nums.length - i);
+        }
+    }
+}
+```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -146,4 +190,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

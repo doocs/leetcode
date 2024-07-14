@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0514.Freedom%20Trail/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [514. Freedom Trail](https://leetcode.com/problems/freedom-trail)
 
 [中文文档](/solution/0500-0599/0514.Freedom%20Trail/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>In the video game Fallout 4, the quest <strong>&quot;Road to Freedom&quot;</strong> requires players to reach a metal dial called the <strong>&quot;Freedom Trail Ring&quot;</strong> and use the dial to spell a specific keyword to open the door.</p>
 
@@ -48,7 +61,11 @@ So the final output is 4.
 	<li>It is guaranteed that <code>key</code> could always be spelled by rotating <code>ring</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -65,6 +82,8 @@ Finally, we return $\min_{0 \leq j \lt n} f[m - 1][j]$.
 The time complexity is $O(m \times n^2)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of the strings $key$ and $ring$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +103,8 @@ class Solution:
                     )
         return min(f[-1][j] for j in pos[key[-1]])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -148,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRotateSteps(ring string, key string) int {
@@ -188,6 +213,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findRotateSteps(ring: string, key: string): number {
     const m: number = key.length;
@@ -224,4 +251,6 @@ function findRotateSteps(ring: string, key: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

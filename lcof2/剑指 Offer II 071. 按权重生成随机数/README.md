@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20071.%20%E6%8C%89%E6%9D%83%E9%87%8D%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 071. 按权重生成随机数](https://leetcode.cn/problems/cuyjEf)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数数组&nbsp;<code>w</code> ，其中&nbsp;<code>w[i]</code>&nbsp;代表下标 <code>i</code>&nbsp;的权重（下标从 <code>0</code> 开始），请写一个函数&nbsp;<code>pickIndex</code>&nbsp;，它可以随机地获取下标 <code>i</code>，选取下标 <code>i</code>&nbsp;的概率与&nbsp;<code>w[i]</code>&nbsp;成正比。</p>
 
@@ -67,11 +74,17 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 
 <p><meta charset="UTF-8" />注意：本题与主站 528&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/random-pick-with-weight/">https://leetcode.cn/problems/random-pick-with-weight/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +111,8 @@ class Solution:
 # obj = Solution(w)
 # param_1 = obj.pickIndex()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +149,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +183,8 @@ public:
  * int param_1 = obj->pickIndex();
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {
@@ -203,6 +222,46 @@ func (this *Solution) PickIndex() int {
  */
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var presum: [Int]
+
+    init(_ w: [Int]) {
+        let n = w.count
+        presum = [Int](repeating: 0, count: n + 1)
+        for i in 0..<n {
+            presum[i + 1] = presum[i] + w[i]
+        }
+    }
+
+    func pickIndex() -> Int {
+        let n = presum.count
+        let x = Int.random(in: 1...presum[n - 1])
+        var left = 0
+        var right = n - 2
+        while left < right {
+            let mid = (left + right) >> 1
+            if presum[mid + 1] >= x {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+        return left
+    }
+}
+/**
+ * Your Solution object will be instantiated and called as such:
+ * let w = [1]
+ * let solution = Solution(w)
+ * solution.pickIndex()
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

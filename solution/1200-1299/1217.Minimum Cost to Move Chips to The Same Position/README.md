@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README.md
+rating: 1407
+source: 第 157 场周赛 Q1
+tags:
+    - 贪心
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [1217. 玩筹码](https://leetcode.cn/problems/minimum-cost-to-move-chips-to-the-same-position)
 
 [English Version](/solution/1200-1299/1217.Minimum%20Cost%20to%20Move%20Chips%20to%20The%20Same%20Position/README_EN.md)
 
-<!-- tags:贪心,数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有&nbsp;<code>n</code>&nbsp;个筹码。第 <code>i</code> 个筹码的位置是<meta charset="UTF-8" />&nbsp;<code>position[i]</code>&nbsp;。</p>
 
@@ -61,7 +73,11 @@
 	<li><code>1 &lt;= position[i] &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -71,6 +87,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCostToMoveChips(self, position: List[int]) -> int:
@@ -78,6 +96,8 @@ class Solution:
         b = len(position) - a
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCostToMoveChips(position []int) int {
@@ -117,6 +141,8 @@ func minCostToMoveChips(position []int) int {
 	return b
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -135,4 +161,6 @@ var minCostToMoveChips = function (position) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

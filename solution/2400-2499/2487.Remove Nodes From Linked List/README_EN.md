@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README_EN.md
+rating: 1454
+source: Weekly Contest 321 Q3
+tags:
+    - Stack
+    - Recursion
+    - Linked List
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [2487. Remove Nodes From Linked List](https://leetcode.com/problems/remove-nodes-from-linked-list)
 
 [中文文档](/solution/2400-2499/2487.Remove%20Nodes%20From%20Linked%20List/README.md)
 
-<!-- tags:Stack,Recursion,Linked List,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>head</code> of a linked list.</p>
 
@@ -40,7 +55,11 @@
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack Simulation
 
@@ -57,6 +76,8 @@ After the traversal, we return the $next$ pointer of the dummy head node as the 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -82,6 +103,8 @@ class Solution:
             head = head.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -118,6 +141,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -156,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -186,6 +213,8 @@ func removeNodes(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -224,9 +253,15 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -247,6 +282,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -275,6 +312,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -305,6 +344,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -326,6 +367,8 @@ func removeNodes(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -356,4 +399,6 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

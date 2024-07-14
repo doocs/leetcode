@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README_EN.md
+rating: 1151
+source: Weekly Contest 359 Q1
+tags:
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
 # [2828. Check if a String Is an Acronym of Words](https://leetcode.com/problems/check-if-a-string-is-an-acronym-of-words)
 
 [中文文档](/solution/2800-2899/2828.Check%20if%20a%20String%20Is%20an%20Acronym%20of%20Words/README.md)
 
-<!-- tags:Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>words</code> and a string <code>s</code>, determine if <code>s</code> is an <strong>acronym</strong> of words.</p>
 
@@ -50,7 +63,11 @@ Hence, s = &quot;ngguoy&quot; is the acronym.
 	<li><code>words[i]</code> and <code>s</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -60,11 +77,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return "".join(w[0] for w in words) == s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAcronym(words []string, s string) bool {
 	t := []byte{}
@@ -101,11 +126,15 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     return words.map(w => w[0]).join('') === s;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -113,12 +142,17 @@ impl Solution {
         words
             .iter()
             .map(|w| w.chars().next().unwrap_or_default())
-            .collect::<String>() == s
+            .collect::<String>()
+            == s
     }
 }
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
 
@@ -132,11 +166,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array $words$. The
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isAcronym(self, words: List[str], s: str) -> bool:
         return len(words) == len(s) and all(w[0] == c for w, c in zip(words, s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +191,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -171,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isAcronym(words []string, s string) bool {
 	if len(words) != len(s) {
@@ -185,6 +227,8 @@ func isAcronym(words []string, s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAcronym(words: string[], s: string): boolean {
     if (words.length !== s.length) {
@@ -198,6 +242,8 @@ function isAcronym(words: string[], s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -217,4 +263,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0509.Fibonacci%20Number/README_EN.md
+tags:
+    - Recursion
+    - Memoization
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number)
 
 [中文文档](/solution/0500-0599/0509.Fibonacci%20Number/README.md)
 
-<!-- tags:Recursion,Memoization,Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <b>Fibonacci numbers</b>, commonly denoted <code>F(n)</code> form a sequence, called the <b>Fibonacci sequence</b>, such that each number is the sum of the two preceding ones, starting from <code>0</code> and <code>1</code>. That is,</p>
 
@@ -47,11 +60,17 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 	<li><code>0 &lt;= n &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +80,8 @@ class Solution:
             a, b = b, a + b
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -91,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fib(n int) int {
 	a, b := 0, 1
@@ -100,6 +125,8 @@ func fib(n int) int {
 	return a
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fib(n: number): number {
@@ -111,6 +138,8 @@ function fib(n: number): number {
     return a;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -126,6 +155,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -143,6 +174,8 @@ var fib = function (n) {
     return a;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -165,9 +198,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function fib(n: number): number {
@@ -177,6 +216,8 @@ function fib(n: number): number {
     return fib(n - 1) + fib(n - 2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -191,4 +232,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

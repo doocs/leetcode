@@ -1,8 +1,8 @@
 class Solution:
     def minGroups(self, intervals: List[List[int]]) -> int:
-        h = []
-        for a, b in sorted(intervals):
-            if h and h[0] < a:
-                heappop(h)
-            heappush(h, b)
-        return len(h)
+        q = []
+        for left, right in sorted(intervals):
+            if q and q[0] < left:
+                heappop(q)
+            heappush(q, right)
+        return len(q)

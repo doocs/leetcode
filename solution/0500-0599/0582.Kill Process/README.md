@@ -1,12 +1,24 @@
-# [582. 杀掉进程](https://leetcode.cn/problems/kill-process)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0582.Kill%20Process/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
+# [582. 杀掉进程 🔒](https://leetcode.cn/problems/kill-process)
 
 [English Version](/solution/0500-0599/0582.Kill%20Process/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>系统中存在 <code>n</code>&nbsp;个进程，形成一个有根树结构。给你两个整数数组&nbsp;<code>pid</code> 和 <code>ppid</code> ，其中 <code>pid[i]</code> 是第 <code>i</code> 个进程的 ID ，<code>ppid[i]</code> 是第 <code>i</code> 个进程的父进程 ID 。</p>
 
@@ -47,7 +59,11 @@
 	<li>题目数据保证 <code>kill</code> 在 <code>pid</code> 中</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -56,6 +72,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是进程的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +90,8 @@ class Solution:
         dfs(kill)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	g := map[int][]int{}
@@ -135,6 +159,8 @@ func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function killProcess(pid: number[], ppid: number[], kill: number): number[] {
@@ -156,6 +182,8 @@ function killProcess(pid: number[], ppid: number[], kill: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -187,4 +215,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README.md
+rating: 1228
+source: 第 45 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+---
+
+<!-- problem:start -->
+
 # [1748. 唯一元素的和](https://leetcode.cn/problems/sum-of-unique-elements)
 
 [English Version](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README_EN.md)
 
-<!-- tags:数组,哈希表,计数 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 。数组中唯一元素是那些只出现 <strong>恰好一次</strong> 的元素。</p>
 
@@ -44,7 +56,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数
 
@@ -56,12 +72,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
         cnt = Counter(nums)
         return sum(x for x, v in cnt.items() if v == 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfUnique(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -114,6 +138,8 @@ func sumOfUnique(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfUnique(nums: number[]): number {
@@ -130,6 +156,8 @@ function sumOfUnique(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -148,6 +176,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -173,9 +203,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -193,6 +229,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -212,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfUnique(nums []int) (ans int) {
 	cnt := [101]int{}
@@ -227,6 +267,8 @@ func sumOfUnique(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sumOfUnique(nums: number[]): number {
     let ans = 0;
@@ -241,6 +283,8 @@ function sumOfUnique(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -267,4 +311,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

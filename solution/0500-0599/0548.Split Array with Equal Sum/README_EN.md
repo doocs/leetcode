@@ -1,10 +1,22 @@
-# [548. Split Array with Equal Sum](https://leetcode.com/problems/split-array-with-equal-sum)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
+# [548. Split Array with Equal Sum 🔒](https://leetcode.com/problems/split-array-with-equal-sum)
 
 [中文文档](/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README.md)
 
-<!-- tags:Array,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> of length <code>n</code>, return <code>true</code> if there is a triplet <code>(i, j, k)</code> which satisfies the following conditions:</p>
 
@@ -43,11 +55,17 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +84,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func splitArray(nums []int) bool {
@@ -140,4 +164,6 @@ func splitArray(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

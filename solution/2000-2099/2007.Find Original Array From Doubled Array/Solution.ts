@@ -1,24 +1,21 @@
 function findOriginalArray(changed: number[]): number[] {
-    const n = changed.length;
-    if (n & 1) {
-        return [];
-    }
-    const cnt = new Map<number, number>();
-    for (const x of changed) {
-        cnt.set(x, (cnt.get(x) || 0) + 1);
-    }
     changed.sort((a, b) => a - b);
+    const cnt: number[] = Array(changed.at(-1)! + 1).fill(0);
+    for (const x of changed) {
+        ++cnt[x];
+    }
     const ans: number[] = [];
     for (const x of changed) {
-        if (cnt.get(x) == 0) {
+        if (cnt[x] === 0) {
             continue;
         }
-        if ((cnt.get(x * 2) || 0) <= 0) {
+        cnt[x]--;
+        const y = x << 1;
+        if (y >= cnt.length || cnt[y] <= 0) {
             return [];
         }
+        cnt[y]--;
         ans.push(x);
-        cnt.set(x, (cnt.get(x) || 0) - 1);
-        cnt.set(x * 2, (cnt.get(x * 2) || 0) - 1);
     }
-    return ans.length == n / 2 ? ans : [];
+    return ans;
 }

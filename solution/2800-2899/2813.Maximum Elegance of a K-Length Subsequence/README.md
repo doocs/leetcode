@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README.md
+rating: 2582
+source: 第 357 场周赛 Q4
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 哈希表
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2813. 子序列最大优雅度](https://leetcode.cn/problems/maximum-elegance-of-a-k-length-subsequence)
 
 [English Version](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README_EN.md)
 
-<!-- tags:贪心,数组,哈希表,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的二维整数数组 <code>items</code> 和一个整数 <code>k</code> 。</p>
 
@@ -70,7 +85,11 @@
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -83,6 +102,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为项目数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +127,8 @@ class Solution:
             ans = max(ans, tot + len(vis) ** 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -136,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -173,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaximumElegance(items [][]int, k int) int64 {
 	sort.Slice(items, func(i, j int) bool { return items[i][0] > items[j][0] })
@@ -203,6 +230,8 @@ func findMaximumElegance(items [][]int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaximumElegance(items: number[][], k: number): number {
     items.sort((a, b) => b[0] - a[0]);
@@ -232,4 +261,6 @@ function findMaximumElegance(items: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

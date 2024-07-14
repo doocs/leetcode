@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README.md
+rating: 1216
+source: 第 97 场双周赛 Q1
+tags:
+    - 数组
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2553. 分割数组中数字的数位](https://leetcode.cn/problems/separate-the-digits-in-an-array)
 
 [English Version](/solution/2500-2599/2553.Separate%20the%20Digits%20in%20an%20Array/README_EN.md)
 
-<!-- tags:数组,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组&nbsp;<code>nums</code>&nbsp;，请你返回一个数组<em>&nbsp;</em><code>answer</code> ，你需要将&nbsp;<code>nums</code>&nbsp;中每个整数进行数位分割后，按照&nbsp;<code>nums</code>&nbsp;中出现的&nbsp;<strong>相同顺序</strong>&nbsp;放入答案数组中。</p>
 
@@ -47,7 +58,11 @@ answer = [7,1,3,9] 。
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -56,6 +71,8 @@ answer = [7,1,3,9] 。
 时间复杂度 $O(n \times \log_{10} M)$，空间复杂度 $O(n \times \log_{10} M)$，其中 $n$ 为数组 $nums$ 的长度，而 $M$ 为数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +86,8 @@ class Solution:
             ans.extend(t[::-1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func separateDigits(nums []int) (ans []int) {
 	for _, x := range nums {
@@ -127,6 +150,8 @@ func separateDigits(nums []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function separateDigits(nums: number[]): number[] {
     const ans: number[] = [];
@@ -142,6 +167,8 @@ function separateDigits(nums: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn separate_digits(nums: Vec<i32>) -> Vec<i32> {
@@ -153,14 +180,14 @@ impl Solution {
                 t.push(num % 10);
                 num /= 10;
             }
-            t.into_iter()
-                .rev()
-                .for_each(|v| ans.push(v));
+            t.into_iter().rev().for_each(|v| ans.push(v));
         }
         ans
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -190,9 +217,15 @@ int* separateDigits(int* nums, int numsSize, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -220,4 +253,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0162.Find%20Peak%20Element/README_EN.md
+tags:
+    - Array
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [162. Find Peak Element](https://leetcode.com/problems/find-peak-element)
 
 [中文文档](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)
 
-<!-- tags:Array,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A peak element is an element that is strictly greater than its neighbors.</p>
 
@@ -38,7 +49,11 @@
 	<li><code>nums[i] != nums[i + 1]</code> for all valid <code>i</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -52,6 +67,8 @@ The time complexity is $O(\log n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
@@ -64,6 +81,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPeakElement(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -114,6 +137,8 @@ func findPeakElement(nums []int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPeakElement(nums: number[]): number {
@@ -132,4 +157,6 @@ function findPeakElement(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

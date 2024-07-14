@@ -1,26 +1,23 @@
 function findKthLargest(nums: number[], k: number): number {
     const n = nums.length;
-    const swap = (i: number, j: number) => {
-        [nums[i], nums[j]] = [nums[j], nums[i]];
-    };
-    const sort = (l: number, r: number) => {
-        if (l + 1 > k || l >= r) {
-            return;
+    k = n - k;
+    const quickSort = (l: number, r: number): number => {
+        if (l === r) {
+            return nums[l];
         }
-        swap(l, l + Math.floor(Math.random() * (r - l)));
-        const num = nums[l];
-        let mark = l;
-        for (let i = l + 1; i < r; i++) {
-            if (nums[i] > num) {
-                mark++;
-                swap(i, mark);
+        let [i, j] = [l - 1, r + 1];
+        const x = nums[(l + r) >> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                [nums[i], nums[j]] = [nums[j], nums[i]];
             }
         }
-        swap(l, mark);
-
-        sort(l, mark);
-        sort(mark + 1, r);
+        if (j < k) {
+            return quickSort(j + 1, r);
+        }
+        return quickSort(l, j);
     };
-    sort(0, n);
-    return nums[k - 1];
+    return quickSort(0, n - 1);
 }

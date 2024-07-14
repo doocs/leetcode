@@ -1,10 +1,21 @@
-# [2964. Number of Divisible Triplet Sums](https://leetcode.com/problems/number-of-divisible-triplet-sums)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README_EN.md
+tags:
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
+# [2964. Number of Divisible Triplet Sums 🔒](https://leetcode.com/problems/number-of-divisible-triplet-sums)
 
 [中文文档](/solution/2900-2999/2964.Number%20of%20Divisible%20Triplet%20Sums/README.md)
 
-<!-- tags:Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 Given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>d</code>, return <em>the number of triplets</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>(nums[i] + nums[j] + nums[k]) % d == 0</code>.
 
@@ -43,7 +54,11 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
 	<li><code>1 &lt;= d &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Enumeration
 
@@ -52,6 +67,8 @@ We can use a hash table $cnt$ to record the occurrence times of $nums[i] \bmod d
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +82,8 @@ class Solution:
             cnt[nums[j] % d] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func divisibleTripletCount(nums []int, d int) (ans int) {
 	n := len(nums)
@@ -115,6 +138,8 @@ func divisibleTripletCount(nums []int, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function divisibleTripletCount(nums: number[], d: number): number {
@@ -134,4 +159,6 @@ function divisibleTripletCount(nums: number[], d: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

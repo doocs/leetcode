@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md
+rating: 1418
+source: 第 215 场周赛 Q1
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 数据流
+---
+
+<!-- problem:start -->
+
 # [1656. 设计有序流](https://leetcode.cn/problems/design-an-ordered-stream)
 
 [English Version](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md)
 
-<!-- tags:设计,数组,哈希表,数据流 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 个 <code>(id, value)</code> 对，其中 <code>id</code> 是 <code>1</code> 到 <code>n</code> 之间的一个整数，<code>value</code> 是一个字符串。不存在 <code>id</code> 相同的两个 <code>(id, value)</code> 对。</p>
 
@@ -61,11 +74,17 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 	<li>恰好调用 <code>n</code> 次 <code>insert</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class OrderedStream:
@@ -86,6 +105,8 @@ class OrderedStream:
 # obj = OrderedStream(n)
 # param_1 = obj.insert(idKey,value)
 ```
+
+#### Java
 
 ```java
 class OrderedStream {
@@ -114,6 +135,8 @@ class OrderedStream {
  */
 ```
 
+#### C++
+
 ```cpp
 class OrderedStream {
 public:
@@ -138,6 +161,8 @@ public:
  * vector<string> param_1 = obj->insert(idKey,value);
  */
 ```
+
+#### Go
 
 ```go
 type OrderedStream struct {
@@ -167,6 +192,8 @@ func (this *OrderedStream) Insert(idKey int, value string) []string {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class OrderedStream {
     private ptr: number;
@@ -195,6 +222,8 @@ class OrderedStream {
  */
 ```
 
+#### Rust
+
 ```rust
 struct OrderedStream {
     ptr: usize,
@@ -207,7 +236,10 @@ struct OrderedStream {
  */
 impl OrderedStream {
     fn new(n: i32) -> Self {
-        Self { ptr: 0, vals: vec![None; n as usize] }
+        Self {
+            ptr: 0,
+            vals: vec![None; n as usize],
+        }
     }
 
     fn insert(&mut self, id_key: i32, value: String) -> Vec<String> {
@@ -223,13 +255,11 @@ impl OrderedStream {
         }
         res
     }
-}/**
- * Your OrderedStream object will be instantiated and called as such:
- * let obj = OrderedStream::new(n);
- * let ret_1: Vec<String> = obj.insert(idKey, value);
- */
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

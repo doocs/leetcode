@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README.md
+rating: 1658
+source: 第 58 场双周赛 Q2
+tags:
+    - 数组
+    - 枚举
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [1958. 检查操作是否合法](https://leetcode.cn/problems/check-if-move-is-legal)
 
 [English Version](/solution/1900-1999/1958.Check%20if%20Move%20is%20Legal/README_EN.md)
 
-<!-- tags:数组,枚举,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从&nbsp;<strong>0</strong>&nbsp;开始的&nbsp;<code>8 x 8</code> 网格&nbsp;<code>board</code>&nbsp;，其中&nbsp;<code>board[r][c]</code>&nbsp;表示游戏棋盘上的格子&nbsp;<code>(r, c)</code>&nbsp;。棋盘上空格用&nbsp;<code>'.'</code>&nbsp;表示，白色格子用&nbsp;<code>'W'</code>&nbsp;表示，黑色格子用&nbsp;<code>'B'</code>&nbsp;表示。</p>
 
@@ -50,53 +62,67 @@
 	<li><code>color</code>&nbsp;要么是&nbsp;<code>'B'</code> 要么是&nbsp;<code>'W'</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：枚举
+
+我们枚举所有可能的方向，对于每个方向 $(a, b)$，我们从 $(\textit{rMove}, \textit{cMove})$ 出发，用一个变量 $\textit{cnt}$ 记录我们走过的格子数，如果我们在走的过程中遇到了颜色为 $\textit{color}$ 的格子，且 $\textit{cnt} > 1$，那么我们就找到了一个好线段，返回 $\text{true}$。
+
+枚举结束后，如果我们没有找到任何好线段，那么返回 $\text{false}$。
+
+时间复杂度 $O(m + n)$，其中 $m$ 为 $\textit{board}$ 的行数，而 $n$ 为 $\textit{board}$ 的列数，本题中 $m = n = 8$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def checkMove(
         self, board: List[List[str]], rMove: int, cMove: int, color: str
     ) -> bool:
-        dirs = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)]
-        n = 8
-        for a, b in dirs:
-            i, j = rMove, cMove
-            t = 0
-            while 0 <= i + a < n and 0 <= j + b < n:
-                t += 1
-                i, j = i + a, j + b
-                if board[i][j] in ['.', color]:
-                    break
-            if board[i][j] == color and t > 1:
-                return True
+        for a in range(-1, 2):
+            for b in range(-1, 2):
+                if a == 0 and b == 0:
+                    continue
+                i, j = rMove, cMove
+                cnt = 0
+                while 0 <= i + a < 8 and 0 <= j + b < 8:
+                    cnt += 1
+                    i, j = i + a, j + b
+                    if cnt > 1 and board[i][j] == color:
+                        return True
+                    if board[i][j] in (color, "."):
+                        break
         return False
 ```
 
+#### Java
+
 ```java
 class Solution {
-    private static final int[][] DIRS
-        = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-    private static final int N = 8;
-
     public boolean checkMove(char[][] board, int rMove, int cMove, char color) {
-        for (int[] d : DIRS) {
-            int i = rMove, j = cMove;
-            int t = 0;
-            int a = d[0], b = d[1];
-            while (0 <= i + a && i + a < N && 0 <= j + b && j + b < N) {
-                ++t;
-                i += a;
-                j += b;
-                if (board[i][j] == '.' || board[i][j] == color) {
-                    break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a == 0 && b == 0) {
+                    continue;
                 }
-            }
-            if (board[i][j] == color && t > 1) {
-                return true;
+                int i = rMove, j = cMove;
+                int cnt = 0;
+                while (0 <= i + a && i + a < 8 && 0 <= j + b && j + b < 8) {
+                    i += a;
+                    j += b;
+                    if (++cnt > 1 && board[i][j] == color) {
+                        return true;
+                    }
+                    if (board[i][j] == color || board[i][j] == '.') {
+                        break;
+                    }
+                }
             }
         }
         return false;
@@ -104,54 +130,93 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
-    vector<vector<int>> dirs = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
-    int n = 8;
-
     bool checkMove(vector<vector<char>>& board, int rMove, int cMove, char color) {
-        for (auto& d : dirs) {
-            int a = d[0], b = d[1];
-            int i = rMove, j = cMove;
-            int t = 0;
-            while (0 <= i + a && i + a < n && 0 <= j + b && j + b < n) {
-                ++t;
-                i += a;
-                j += b;
-                if (board[i][j] == '.' || board[i][j] == color) break;
+        for (int a = -1; a <= 1; ++a) {
+            for (int b = -1; b <= 1; ++b) {
+                if (a == 0 && b == 0) {
+                    continue;
+                }
+                int i = rMove, j = cMove;
+                int cnt = 0;
+                while (0 <= i + a && i + a < 8 && 0 <= j + b && j + b < 8) {
+                    i += a;
+                    j += b;
+                    if (++cnt > 1 && board[i][j] == color) {
+                        return true;
+                    }
+                    if (board[i][j] == color || board[i][j] == '.') {
+                        break;
+                    }
+                }
             }
-            if (board[i][j] == color && t > 1) return true;
         }
         return false;
     }
 };
 ```
 
+#### Go
+
 ```go
 func checkMove(board [][]byte, rMove int, cMove int, color byte) bool {
-	dirs := [8][2]int{{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
-	n := 8
-	for _, d := range dirs {
-		a, b := d[0], d[1]
-		i, j := rMove, cMove
-		t := 0
-		for 0 <= i+a && i+a < n && 0 <= j+b && j+b < n {
-			t++
-			i += a
-			j += b
-			if board[i][j] == '.' || board[i][j] == color {
-				break
+	for a := -1; a <= 1; a++ {
+		for b := -1; b <= 1; b++ {
+			if a == 0 && b == 0 {
+				continue
 			}
-		}
-		if board[i][j] == color && t > 1 {
-			return true
+			i, j := rMove, cMove
+			cnt := 0
+			for 0 <= i+a && i+a < 8 && 0 <= j+b && j+b < 8 {
+				i += a
+				j += b
+				cnt++
+				if cnt > 1 && board[i][j] == color {
+					return true
+				}
+				if board[i][j] == color || board[i][j] == '.' {
+					break
+				}
+			}
 		}
 	}
 	return false
 }
 ```
 
+#### TypeScript
+
+```ts
+function checkMove(board: string[][], rMove: number, cMove: number, color: string): boolean {
+    for (let a = -1; a <= 1; ++a) {
+        for (let b = -1; b <= 1; ++b) {
+            if (a === 0 && b === 0) {
+                continue;
+            }
+            let [i, j] = [rMove, cMove];
+            let cnt = 0;
+            while (0 <= i + a && i + a < 8 && 0 <= j + b && j + b < 8) {
+                i += a;
+                j += b;
+                if (++cnt > 1 && board[i][j] === color) {
+                    return true;
+                }
+                if (board[i][j] === color || board[i][j] === '.') {
+                    break;
+                }
+            }
+        }
+    }
+    return false;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

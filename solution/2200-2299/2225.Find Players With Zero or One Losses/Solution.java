@@ -1,19 +1,14 @@
 class Solution {
     public List<List<Integer>> findWinners(int[][] matches) {
         Map<Integer, Integer> cnt = new HashMap<>();
-        for (int[] m : matches) {
-            int a = m[0], b = m[1];
-            cnt.putIfAbsent(a, 0);
-            cnt.put(b, cnt.getOrDefault(b, 0) + 1);
+        for (var e : matches) {
+            cnt.putIfAbsent(e[0], 0);
+            cnt.merge(e[1], 1, Integer::sum);
         }
-        List<List<Integer>> ans = new ArrayList<>();
-        ans.add(new ArrayList<>());
-        ans.add(new ArrayList<>());
-        for (Map.Entry<Integer, Integer> entry : cnt.entrySet()) {
-            int u = entry.getKey();
-            int v = entry.getValue();
-            if (v < 2) {
-                ans.get(v).add(u);
+        List<List<Integer>> ans = List.of(new ArrayList<>(), new ArrayList<>());
+        for (var e : cnt.entrySet()) {
+            if (e.getValue() < 2) {
+                ans.get(e.getValue()).add(e.getKey());
             }
         }
         Collections.sort(ans.get(0));

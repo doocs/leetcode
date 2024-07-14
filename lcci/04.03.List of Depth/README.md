@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Depth/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 04.03. 特定深度节点链表](https://leetcode.cn/problems/list-of-depth-lcci)
 
 [English Version](/lcci/04.03.List%20of%20Depth/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一棵二叉树，设计一个算法，创建含有某一深度上所有节点的链表（比如，若一棵树的深度为 <code>D</code>，则会创建出 <code>D</code> 个链表）。返回一个包含所有深度的链表的数组。</p>
 
 <p>&nbsp;</p>
@@ -24,7 +33,11 @@
 <strong>输出：</strong>[[1],[2,3],[4,5,7],[8]]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS 层序遍历
 
@@ -33,6 +46,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -66,6 +81,8 @@ class Solution:
             ans.append(dummy.next)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -110,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -156,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -194,6 +215,8 @@ func listOfDepth(tree *TreeNode) (ans []*ListNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -241,6 +264,8 @@ function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -276,9 +301,9 @@ function listOfDepth(tree: TreeNode | null): Array<ListNode | null> {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn list_of_depth(tree: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<Box<ListNode>>> {
         let mut res = vec![];
@@ -311,6 +336,66 @@ impl Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/* class TreeNode {
+*    var val: Int
+*    var left: TreeNode?
+*    var right: TreeNode?
+*
+*    init(_ val: Int) {
+*        self.val = val
+*        self.left = nil
+*        self.right = nil
+*    }
+*  }
+*/
+
+/* class ListNode {
+*    var val: Int
+*    var next: ListNode?
+*
+*    init(_ val: Int) {
+*        self.val = val
+*        self.next = nil
+*    }
+*  }
+*/
+
+class Solution {
+    func listOfDepth(_ tree: TreeNode?) -> [ListNode?] {
+        var ans = [ListNode?]()
+        guard let tree = tree else { return ans }
+
+        var q = [TreeNode]()
+        q.append(tree)
+
+        while !q.isEmpty {
+            let dummy = ListNode(0)
+            var cur = dummy
+            for _ in 0..<q.count {
+                let node = q.removeFirst()
+                cur.next = ListNode(node.val)
+                cur = cur.next!
+
+                if let left = node.left {
+                    q.append(left)
+                }
+                if let right = node.right {
+                    q.append(right)
+                }
+            }
+            ans.append(dummy.next)
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

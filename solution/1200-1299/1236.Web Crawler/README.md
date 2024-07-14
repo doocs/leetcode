@@ -1,14 +1,27 @@
-# [1236. 网络爬虫](https://leetcode.cn/problems/web-crawler)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1236.Web%20Crawler/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 字符串
+    - 交互
+---
+
+<!-- problem:start -->
+
+# [1236. 网络爬虫 🔒](https://leetcode.cn/problems/web-crawler)
 
 [English Version](/solution/1200-1299/1236.Web%20Crawler/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,字符串,交互 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给定一个链接&nbsp;<code>startUrl</code> 和一个接口&nbsp;<code>HtmlParser</code>&nbsp;，请你实现一个网络爬虫，以实现爬取同&nbsp;<code>startUrl</code>&nbsp;拥有相同&nbsp;<strong>域名标签&nbsp;</strong>的全部链接。该爬虫得到的全部链接可以&nbsp;<strong>任何顺序&nbsp;</strong>返回结果。</p>
+<p>给定一个链接&nbsp;<code>startUrl</code> 和一个接口&nbsp;<code>HtmlParser</code>&nbsp;，请你实现一个网络爬虫，以实现爬取同&nbsp;<code>startUrl</code>&nbsp;拥有相同&nbsp;<strong>主机名&nbsp;</strong>的全部链接。</p>
+
+<p>该爬虫得到的全部链接可以&nbsp;<strong>任何顺序&nbsp;</strong>返回结果。</p>
 
 <p>你的网络爬虫应当按照如下模式工作：</p>
 
@@ -21,7 +34,7 @@
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1236.Web%20Crawler/images/urlhostname.png" style="height: 164px; width: 600px;" /></p>
 
-<p>如上所示的一个链接，其域名为&nbsp;<code>example.org</code>。简单起见，你可以假设所有的链接都采用&nbsp;<strong>http协议&nbsp;</strong>并没有指定&nbsp;<strong>端口</strong>。例如，链接&nbsp;<code>http://leetcode.com/problems</code>&nbsp;和&nbsp;<code>http://leetcode.com/contest</code>&nbsp;是同一个域名下的，而链接<code>http://example.org/test</code>&nbsp;和&nbsp;<code>http://example.com/abc</code> 是不在同一域名下的。</p>
+<p>如上所示的一个链接，其域名为&nbsp;<code>example.org</code>。简单起见，你可以假设所有的链接都采用&nbsp;<strong>http协议&nbsp;</strong>并没有指定&nbsp;<strong>端口</strong>。例如，链接&nbsp;<code>http://leetcode.com/problems</code>&nbsp;和&nbsp;<code>http://leetcode.com/contest</code>&nbsp;是同一个域名下的，而链接&nbsp;<code>http://example.org/test</code>&nbsp;和&nbsp;<code>http://example.com/abc</code> 是不在同一域名下的。</p>
 
 <p><code>HtmlParser</code> 接口定义如下：&nbsp;</p>
 
@@ -32,6 +45,8 @@ interface HtmlParser {
 }</pre>
 
 <p>下面是两个实例，用以解释该问题的设计功能，对于自定义测试，你可以使用三个变量&nbsp;&nbsp;<code>urls</code>,&nbsp;<code>edges</code>&nbsp;和&nbsp;<code>startUrl</code>。注意在代码实现中，你只可以访问&nbsp;<code>startUrl</code>&nbsp;，而&nbsp;<code>urls</code>&nbsp;和&nbsp;<code>edges</code>&nbsp;不可以在你的代码中被直接访问。</p>
+
+<p>注意：将尾随斜线“/”的相同 URL 视为不同的 URL。例如，“http://news.yahoo.com” 和 “http://news.yahoo.com/” 是不同的域名。</p>
 
 <p>&nbsp;</p>
 
@@ -83,17 +98,23 @@ startUrl = "http://news.google.com"
 	<li><code>1 &lt;= urls.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= urls[i].length &lt;= 300</code></li>
 	<li><code>startUrl</code>&nbsp;为&nbsp;<code>urls</code>&nbsp;中的一个。</li>
-	<li>域名标签的长为1到63个字符（包括点），只能包含从‘a’到‘z’的ASCII字母、‘0’到‘9’的数字以及连字符即减号（‘-’）。</li>
-	<li>域名标签不会以连字符即减号（‘-’）开头或结尾。</li>
+	<li>主机名的长为1到63个字符（包括点），只能包含从‘a’到‘z’的ASCII字母、‘0’到‘9’的数字以及连字符即减号（‘-’）。</li>
+	<li>主机名不会以连字符即减号（‘-’）开头或结尾。</li>
 	<li>关于域名有效性的约束可参考:&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames">https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames</a></li>
 	<li>你可以假定url库中不包含重复项。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -126,6 +147,8 @@ class Solution:
         dfs(startUrl)
         return list(ans)
 ```
+
+#### Java
 
 ```java
 /**
@@ -163,6 +186,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -205,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * // This is HtmlParser's API interface.
@@ -240,4 +267,6 @@ func crawl(startUrl string, htmlParser HtmlParser) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

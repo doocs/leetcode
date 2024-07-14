@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1957.Delete%20Characters%20to%20Make%20Fancy%20String/README_EN.md
+rating: 1357
+source: Biweekly Contest 58 Q1
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [1957. Delete Characters to Make Fancy String](https://leetcode.com/problems/delete-characters-to-make-fancy-string)
 
 [中文文档](/solution/1900-1999/1957.Delete%20Characters%20to%20Make%20Fancy%20String/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>fancy string</strong> is a string where no <strong>three</strong> <strong>consecutive</strong> characters are equal.</p>
 
@@ -50,11 +62,17 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +84,8 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeFancyString(s string) string {
 	ans := []rune{}
@@ -111,6 +135,8 @@ func makeFancyString(s string) string {
 	return string(ans)
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -134,4 +160,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

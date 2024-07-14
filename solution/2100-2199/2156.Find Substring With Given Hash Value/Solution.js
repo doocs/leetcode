@@ -7,31 +7,25 @@
  * @return {string}
  */
 var subStrHash = function (s, power, modulo, k, hashValue) {
-    power = BigInt(power);
-    modulo = BigInt(modulo);
-    hashValue = BigInt(hashValue);
+    let h = BigInt(0),
+        p = BigInt(1);
     const n = s.length;
-    let pk = 1n;
-    let ac = 0n;
-    // 倒序滑动窗口
-    for (let i = n - 1; i > n - 1 - k; i--) {
-        ac = (ac * power + getCode(s, i)) % modulo;
-        pk = (pk * power) % modulo;
-    }
-    let ans = -1;
-    if (ac == hashValue) {
-        ans = n - k;
-    }
-    for (let i = n - 1 - k; i >= 0; i--) {
-        let pre = (getCode(s, i + k) * pk) % modulo;
-        ac = (ac * power + getCode(s, i) - pre + modulo) % modulo;
-        if (ac == hashValue) {
-            ans = i;
+    const mod = BigInt(modulo);
+    for (let i = n - 1; i >= n - k; --i) {
+        const val = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = (((h * BigInt(power)) % mod) + val) % mod;
+        if (i !== n - k) {
+            p = (p * BigInt(power)) % mod;
         }
     }
-    return ans == -1 ? '' : s.substring(ans, ans + k);
+    let j = n - k;
+    for (let i = n - k - 1; i >= 0; --i) {
+        const pre = BigInt(s.charCodeAt(i + k) - 'a'.charCodeAt(0) + 1);
+        const cur = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = ((((h - ((pre * p) % mod) + mod) * BigInt(power)) % mod) + cur) % mod;
+        if (Number(h) === hashValue) {
+            j = i;
+        }
+    }
+    return s.substring(j, j + k);
 };
-
-function getCode(str, index) {
-    return BigInt(str.charCodeAt(index) - 'a'.charCodeAt(0) + 1);
-}

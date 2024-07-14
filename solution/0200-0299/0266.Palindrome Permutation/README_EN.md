@@ -1,10 +1,22 @@
-# [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0266.Palindrome%20Permutation/README_EN.md
+tags:
+    - Bit Manipulation
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [266. Palindrome Permutation 🔒](https://leetcode.com/problems/palindrome-permutation)
 
 [中文文档](/solution/0200-0299/0266.Palindrome%20Permutation/README.md)
 
-<!-- tags:Bit Manipulation,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <code>true</code> <em>if a permutation of the string could form a </em><span data-keyword="palindrome-string"><em><strong>palindrome</strong></em></span><em> and </em><code>false</code><em> otherwise</em>.</p>
 
@@ -38,17 +50,25 @@
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         return sum(v & 1 for v in Counter(s).values()) < 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -65,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -83,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canPermutePalindrome(s string) bool {
 	cnt := [26]int{}
@@ -97,6 +121,8 @@ func canPermutePalindrome(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPermutePalindrome(s: string): boolean {
     const cnt: number[] = new Array(26).fill(0);
@@ -106,6 +132,8 @@ function canPermutePalindrome(s: string): boolean {
     return cnt.filter(c => c % 2 === 1).length < 2;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -123,4 +151,6 @@ var canPermutePalindrome = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

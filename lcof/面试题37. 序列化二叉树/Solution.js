@@ -13,20 +13,23 @@
  * @return {string}
  */
 var serialize = function (root) {
-    if (!root) return '[]';
-    let queue = [root];
-    let res = '';
-    while (queue.length) {
-        let node = queue.shift();
-        if (node) {
-            res += node.val + ',';
-            queue.push(node.left);
-            queue.push(node.right);
+    if (root === null) {
+        return null;
+    }
+    const ans = [];
+    const q = [root];
+    let index = 0;
+    while (index < q.length) {
+        const node = q[index++];
+        if (node !== null) {
+            ans.push(node.val.toString());
+            q.push(node.left);
+            q.push(node.right);
         } else {
-            res += 'null' + ',';
+            ans.push('#');
         }
     }
-    return `[${res.substring(0, res.length - 1)}]`;
+    return ans.join(',');
 };
 
 /**
@@ -36,22 +39,26 @@ var serialize = function (root) {
  * @return {TreeNode}
  */
 var deserialize = function (data) {
-    if (!data || data.length <= 2) return null;
-    let arr = data.substring(1, data.length - 1).split(',');
-    let root = new TreeNode(arr.shift());
-    let queue = [root];
-    while (queue.length) {
-        let node = queue.shift();
-        let leftVal = arr.shift();
-        if (leftVal !== 'null') {
-            node.left = new TreeNode(leftVal);
-            queue.push(node.left);
+    if (data === null) {
+        return null;
+    }
+    const vals = data.split(',');
+    let i = 0;
+    const root = new TreeNode(parseInt(vals[i++]));
+    const q = [root];
+    let index = 0;
+    while (index < q.length) {
+        const node = q[index++];
+        if (vals[i] !== '#') {
+            node.left = new TreeNode(+vals[i]);
+            q.push(node.left);
         }
-        let rightVal = arr.shift();
-        if (rightVal !== 'null') {
-            node.right = new TreeNode(rightVal);
-            queue.push(node.right);
+        i++;
+        if (vals[i] !== '#') {
+            node.right = new TreeNode(+vals[i]);
+            q.push(node.right);
         }
+        i++;
     }
     return root;
 };

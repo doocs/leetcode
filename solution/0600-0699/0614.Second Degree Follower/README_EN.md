@@ -1,10 +1,20 @@
-# [614. Second Degree Follower](https://leetcode.com/problems/second-degree-follower)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0614.Second%20Degree%20Follower/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [614. Second Degree Follower 🔒](https://leetcode.com/problems/second-degree-follower)
 
 [中文文档](/solution/0600-0699/0614.Second%20Degree%20Follower/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Follow</code></p>
 
@@ -62,11 +72,17 @@ User Donald has 1 follower. Donald is a second-degree follower because he follow
 User Alice has 1 follower. Alice is not a second-degree follower because she does not follow anyone, so we don not include her in the result table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -85,4 +101,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

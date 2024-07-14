@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md
+rating: 2351
+source: Biweekly Contest 121 Q4
+tags:
+    - Math
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2999. Count the Number of Powerful Integers](https://leetcode.com/problems/count-the-number-of-powerful-integers)
 
 [中文文档](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md)
 
-<!-- tags:Math,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given three integers <code>start</code>, <code>finish</code>, and <code>limit</code>. You are also given a <strong>0-indexed</strong> string <code>s</code> representing a <strong>positive</strong> integer.</p>
 
@@ -52,11 +66,17 @@ It can be shown that there are only 2 powerful integers in this range.
 	<li><code>s</code> does not have leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +101,8 @@ class Solution:
         b = dfs(0, True)
         return b - a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
@@ -214,6 +240,8 @@ func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPowerfulInt(start: number, finish: number, limit: number, s: string): number {
     let t: string = (start - 1).toString();
@@ -256,4 +284,6 @@ function numberOfPowerfulInt(start: number, finish: number, limit: number, s: st
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

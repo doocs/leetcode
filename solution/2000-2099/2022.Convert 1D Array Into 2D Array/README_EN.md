@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README_EN.md
+rating: 1307
+source: Biweekly Contest 62 Q1
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2022. Convert 1D Array Into 2D Array](https://leetcode.com/problems/convert-1d-array-into-2d-array)
 
 [中文文档](/solution/2000-2099/2022.Convert%201D%20Array%20Into%202D%20Array/README.md)
 
-<!-- tags:Array,Matrix,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 1-dimensional (1D) integer array <code>original</code>, and two integers, <code>m</code> and <code>n</code>. You are tasked with creating a 2-dimensional (2D) array with <code> m</code> rows and <code>n</code> columns using <strong>all</strong> the elements from <code>original</code>.</p>
 
@@ -50,7 +64,11 @@ It is impossible to fit 2 elements in a 1x1 2D array, so return an empty 2D arra
 	<li><code>1 &lt;= m, n &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -62,6 +80,8 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
@@ -69,6 +89,8 @@ class Solution:
             return []
         return [original[i : i + n] for i in range(0, m * n, n)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	if m*n != len(original) {
@@ -116,6 +142,8 @@ func construct2DArray(original []int, m int, n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function construct2DArray(original: number[], m: number, n: number): number[][] {
@@ -129,6 +157,8 @@ function construct2DArray(original: number[], m: number, n: number): number[][] 
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -151,4 +181,6 @@ var construct2DArray = function (original, m, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0587.Erect%20the%20Fence/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
+<!-- problem:start -->
+
 # [587. Erect the Fence](https://leetcode.com/problems/erect-the-fence)
 
 [中文文档](/solution/0500-0599/0587.Erect%20the%20Fence/README.md)
 
-<!-- tags:Geometry,Array,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>trees</code> where <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of a tree in the garden.</p>
 
@@ -39,11 +51,17 @@
 	<li>All the given positions are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +91,8 @@ class Solution:
         stk.pop()
         return [trees[i] for i in stk]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func outerTrees(trees [][]int) [][]int {
@@ -193,4 +217,6 @@ func outerTrees(trees [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

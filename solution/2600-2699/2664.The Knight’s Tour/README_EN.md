@@ -1,10 +1,22 @@
-# [2664. The Knight’s Tour](https://leetcode.com/problems/the-knights-tour)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README_EN.md
+tags:
+    - Array
+    - Backtracking
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [2664. The Knight’s Tour 🔒](https://leetcode.com/problems/the-knights-tour)
 
 [中文文档](/solution/2600-2699/2664.The%20Knight%E2%80%99s%20Tour/README.md)
 
-<!-- tags:Array,Backtracking,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two positive integers <code>m</code> and <code>n</code> which are the height and width of a <strong>0-indexed</strong> 2D-array <code>board</code>, a pair of positive integers <code>(r, c)</code> which is the starting position of the knight on the board.</p>
 
@@ -41,11 +53,25 @@
 	<li>The inputs will be generated such that there exists at least one&nbsp;possible order of movements with the given condition</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Backtracking
+
+We create a two-dimensional array $g$, used to record the knight's movement order, initially $g[r][c] = -1$, and all other positions are set to $-1$ as well. Additionally, we need a variable $ok$ to record whether a solution has been found.
+
+Next, we start depth-first search from $(r, c)$. Each time we search position $(i, j)$, we first check if $g[i][j]$ equals $m \times n - 1$. If so, it means we have found a solution, then we set $ok$ to `true` and return. Otherwise, we enumerate the knight's eight possible movement directions to position $(x, y)$. If $0 \leq x < m$, $0 \leq y < n$, and $g[x][y]=-1$, then we update $g[x][y]$ to $g[i][j]+1$, and recursively search position $(x, y)$. If after the search, the variable $ok$ is `true`, we return directly. Otherwise, we reset $g[x][y]$ to $-1$ and continue searching in other directions.
+
+Finally, return the two-dimensional array $g$.
+
+The time complexity is $O(8^{m \times n})$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the integers given in the problem.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +96,8 @@ class Solution:
         dfs(r, c)
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +171,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func tourOfKnight(m int, n int, r int, c int) [][]int {
@@ -177,6 +209,8 @@ func tourOfKnight(m int, n int, r int, c int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
     const g: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
@@ -205,6 +239,8 @@ function tourOfKnight(m: number, n: number, r: number, c: number): number[][] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn tour_of_knight(m: i32, n: i32, r: i32, c: i32) -> Vec<Vec<i32>> {
@@ -220,7 +256,7 @@ impl Solution {
             m: i32,
             n: i32,
             dirs: &[i32; 9],
-            ok: &mut bool
+            ok: &mut bool,
         ) {
             if g[i][j] == m * n - 1 {
                 *ok = true;
@@ -248,4 +284,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

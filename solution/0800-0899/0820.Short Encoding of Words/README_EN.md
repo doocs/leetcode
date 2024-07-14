@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README_EN.md
+tags:
+    - Trie
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [820. Short Encoding of Words](https://leetcode.com/problems/short-encoding-of-words)
 
 [中文文档](/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README.md)
 
-<!-- tags:Trie,Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>valid encoding</strong> of an array of <code>words</code> is any reference string <code>s</code> and array of indices <code>indices</code> such that:</p>
 
@@ -45,11 +58,17 @@ words[2] = &quot;bell&quot;, the substring of s starting from indices[2] = 5 to 
 	<li><code>words[i]</code> consists of only lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -79,6 +98,8 @@ class Solution:
             ans += l
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -117,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 struct Trie {
@@ -157,6 +180,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children [26]*trie
@@ -193,9 +218,15 @@ func dfs(cur *trie, l int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -220,6 +251,8 @@ class Solution:
         trie = Trie()
         return sum(trie.insert(w[::-1]) for w in words)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -252,6 +285,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -289,6 +324,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -329,4 +366,6 @@ func minimumLengthEncoding(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

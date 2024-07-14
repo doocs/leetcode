@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README.md
+rating: 1286
+source: 第 303 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2352. 相等行列对](https://leetcode.cn/problems/equal-row-and-column-pairs)
 
 [English Version](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md)
 
-<!-- tags:数组,哈希表,矩阵,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、大小为 <code>n x n</code> 的整数矩阵 <code>grid</code> ，返回满足 <code>R<sub>i</sub></code><em> </em>行和<em> </em><code>C<sub>j</sub></code><em> </em>列相等的行列对<em> </em><code>(R<sub>i</sub>, C<sub>j</sub>)</code><em> </em>的数目<em>。</em></p>
 
@@ -48,123 +61,21 @@
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
 我们直接将矩阵 $grid$ 的每一行和每一列进行比较，如果相等，那么就是一对相等行列对，答案加一。
 
-时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 为矩阵 $grid$ 的行数或列数。
+时间复杂度 $O(n^3)$，其中 $n$ 为矩阵 $grid$ 的行数或列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
-```python
-class Solution:
-    def equalPairs(self, grid: List[List[int]]) -> int:
-        g = [list(col) for col in zip(*grid)]
-        return sum(row == col for row in grid for col in g)
-```
-
-```java
-class Solution {
-    public int equalPairs(int[][] grid) {
-        int n = grid.length;
-        int[][] g = new int[n][n];
-        for (int j = 0; j < n; ++j) {
-            for (int i = 0; i < n; ++i) {
-                g[i][j] = grid[j][i];
-            }
-        }
-        int ans = 0;
-        for (var row : grid) {
-            for (var col : g) {
-                int ok = 1;
-                for (int i = 0; i < n; ++i) {
-                    if (row[i] != col[i]) {
-                        ok = 0;
-                        break;
-                    }
-                }
-                ans += ok;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-```cpp
-class Solution {
-public:
-    int equalPairs(vector<vector<int>>& grid) {
-        int n = grid.size();
-        vector<vector<int>> g(n, vector<int>(n));
-        for (int j = 0; j < n; ++j) {
-            for (int i = 0; i < n; ++i) {
-                g[i][j] = grid[j][i];
-            }
-        }
-        int ans = 0;
-        for (auto& row : grid) {
-            for (auto& col : g) {
-                ans += row == col;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-```go
-func equalPairs(grid [][]int) (ans int) {
-	n := len(grid)
-	g := make([][]int, n)
-	for i := range g {
-		g[i] = make([]int, n)
-		for j := 0; j < n; j++ {
-			g[i][j] = grid[j][i]
-		}
-	}
-	for _, row := range grid {
-		for _, col := range g {
-			ok := 1
-			for i, v := range row {
-				if v != col[i] {
-					ok = 0
-					break
-				}
-			}
-			ans += ok
-		}
-	}
-	return
-}
-```
-
-```ts
-function equalPairs(grid: number[][]): number {
-    const n = grid.length;
-    const g = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
-    for (let j = 0; j < n; ++j) {
-        for (let i = 0; i < n; ++i) {
-            g[i][j] = grid[j][i];
-        }
-    }
-    let ans = 0;
-    for (const row of grid) {
-        for (const col of g) {
-            ans += Number(row.toString() === col.toString());
-        }
-    }
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-### 方法二
-
-<!-- tabs:start -->
+#### Python3
 
 ```python
 class Solution:
@@ -177,6 +88,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int equalPairs(int[][] grid) {
@@ -198,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -221,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func equalPairs(grid [][]int) (ans int) {
@@ -239,6 +156,8 @@ func equalPairs(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function equalPairs(grid: number[][]): number {
@@ -262,4 +181,6 @@ function equalPairs(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

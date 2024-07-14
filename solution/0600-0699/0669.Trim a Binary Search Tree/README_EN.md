@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [669. Trim a Binary Search Tree](https://leetcode.com/problems/trim-a-binary-search-tree)
 
 [中文文档](/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree and the lowest and highest boundaries as <code>low</code> and <code>high</code>, trim the tree so that all its elements lies in <code>[low, high]</code>. Trimming the tree should <strong>not</strong> change the relative structure of the elements that will remain in the tree (i.e., any node&#39;s descendant should remain a descendant). It can be proven that there is a <strong>unique answer</strong>.</p>
 
@@ -36,11 +49,17 @@
 	<li><code>0 &lt;= low &lt;= high &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -66,6 +85,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -101,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -126,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -150,6 +175,8 @@ func trimBST(root *TreeNode, low int, high int) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -183,6 +210,8 @@ function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | n
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -202,13 +231,13 @@ function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | n
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     pub fn trim_bst(
         mut root: Option<Rc<RefCell<TreeNode>>>,
         low: i32,
-        high: i32
+        high: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if root.is_none() {
             return root;
@@ -228,6 +257,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -263,6 +294,8 @@ var trimBST = function (root, low, high) {
 };
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -291,9 +324,15 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -324,6 +363,8 @@ class Solution:
                 node = node.right
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -370,6 +411,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -412,6 +455,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -451,6 +496,8 @@ func trimBST(root *TreeNode, low int, high int) *TreeNode {
 	return root
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -496,4 +543,6 @@ var trimBST = function (root, low, high) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

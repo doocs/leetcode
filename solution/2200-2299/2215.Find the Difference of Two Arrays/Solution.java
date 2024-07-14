@@ -2,8 +2,6 @@ class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         Set<Integer> s1 = convert(nums1);
         Set<Integer> s2 = convert(nums2);
-
-        List<List<Integer>> ans = new ArrayList<>();
         List<Integer> l1 = new ArrayList<>();
         List<Integer> l2 = new ArrayList<>();
         for (int v : s1) {
@@ -16,9 +14,7 @@ class Solution {
                 l2.add(v);
             }
         }
-        ans.add(l1);
-        ans.add(l2);
-        return ans;
+        return List.of(l1, l2);
     }
 
     private Set<Integer> convert(int[] nums) {

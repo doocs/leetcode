@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplicate%20Node/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [02.01. Remove Duplicate Node](https://leetcode.cn/problems/remove-duplicate-node-lcci)
 
 [中文文档](/lcci/02.01.Remove%20Duplicate%20Node/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write code to remove duplicates from an unsorted linked list.</p>
 
@@ -37,7 +47,11 @@
 
 <p>How would you solve this problem if a temporary buffer is not allowed?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -52,6 +66,8 @@ After the traversal, we return the head of the linked list.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -73,6 +89,8 @@ class Solution:
                 pre = pre.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -98,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -126,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -148,6 +170,8 @@ func removeDuplicateNodes(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -176,6 +200,8 @@ function removeDuplicateNodes(head: ListNode | null): ListNode | null {
     return head;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -216,6 +242,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -243,6 +271,42 @@ var removeDuplicateNodes = function (head) {
 };
 ```
 
+#### Swift
+
+```swift
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *   var val: Int
+ *   var next: ListNode?
+ *   init(_ x: Int, _ next: ListNode? = nil) {
+ *       self.val = x
+ *       self.next = next
+ *   }
+ * }
+*/
+
+class Solution {
+    func removeDuplicateNodes(_ head: ListNode?) -> ListNode? {
+        var vis = Set<Int>()
+        let pre = ListNode(0, head)
+        var current: ListNode? = pre
+
+        while current?.next != nil {
+            if vis.insert(current!.next!.val).inserted {
+                current = current?.next
+            } else {
+                current?.next = current?.next?.next
+            }
+        }
+
+        return head
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

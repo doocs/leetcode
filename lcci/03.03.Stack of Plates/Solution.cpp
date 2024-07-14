@@ -5,9 +5,13 @@ public:
     }
 
     void push(int val) {
-        if (!cap) return;
-        if (stk.empty() || stk[stk.size() - 1].size() >= cap) stk.emplace_back(stack<int>());
-        stk[stk.size() - 1].push(val);
+        if (!cap) {
+            return;
+        }
+        if (stk.empty() || stk.back().size() >= cap) {
+            stk.emplace_back(stack<int>());
+        }
+        stk.back().push(val);
     }
 
     int pop() {
@@ -27,8 +31,8 @@ public:
     }
 
 private:
-    vector<stack<int>> stk;
     int cap;
+    vector<stack<int>> stk;
 };
 
 /**

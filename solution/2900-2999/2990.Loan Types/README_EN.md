@@ -1,10 +1,20 @@
-# [2990. Loan Types](https://leetcode.com/problems/loan-types)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2990.Loan%20Types/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2990. Loan Types 🔒](https://leetcode.com/problems/loan-types)
 
 [中文文档](/solution/2900-2999/2990.Loan%20Types/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Loans</code></p>
 
@@ -58,13 +68,19 @@ Loans table:
 Output table is ordered by user_id in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Summation
 
 We can group the `Loans` table by `user_id` to find users who have both `Refinance` and `Mortgage`. Then, sort the results by `user_id`.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -77,4 +93,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

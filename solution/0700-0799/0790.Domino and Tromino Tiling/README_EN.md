@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [790. Domino and Tromino Tiling](https://leetcode.com/problems/domino-and-tromino-tiling)
 
 [中文文档](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README.md)
 
-<!-- tags:Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have two types of tiles: a <code>2 x 1</code> domino shape and a tromino shape. You may rotate these shapes.</p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/images/lc-domino.jpg" style="width: 362px; height: 195px;" />
@@ -35,11 +45,17 @@
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +84,8 @@ class Solution:
         return dfs(0, 0)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int numTilings(int n) {
@@ -85,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTilings(n int) int {
 	f := [4]int{}
@@ -125,9 +147,15 @@ func numTilings(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -146,4 +174,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

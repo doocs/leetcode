@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README.md
+rating: 1302
+source: 第 60 场双周赛 Q1
+tags:
+    - 数组
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [1991. 找到数组的中间位置](https://leetcode.cn/problems/find-the-middle-index-in-array)
 
 [English Version](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)
 
-<!-- tags:数组,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，请你找到 <strong>最左边</strong>&nbsp;的中间位置&nbsp;<code>middleIndex</code>&nbsp;（也就是所有可能中间位置下标最小的一个）。</p>
 
@@ -70,7 +81,11 @@
 
 <p><strong>注意：</strong>本题与主站 724 题相同：<a href="https://leetcode.cn/problems/find-pivot-index/" target="_blank">https://leetcode.cn/problems/find-pivot-index/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -89,6 +104,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMiddleIndex(self, nums: List[int]) -> int:
@@ -100,6 +117,8 @@ class Solution:
             left += x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMiddleIndex(nums []int) int {
 	s := 0
@@ -151,6 +174,8 @@ func findMiddleIndex(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMiddleIndex(nums: number[]): number {
     let left = 0,
@@ -165,6 +190,8 @@ function findMiddleIndex(nums: number[]): number {
     return -1;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -187,4 +214,6 @@ var findMiddleIndex = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

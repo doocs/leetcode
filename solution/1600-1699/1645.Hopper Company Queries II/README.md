@@ -1,12 +1,20 @@
-# [1645. Hopper 公司查询 II](https://leetcode.cn/problems/hopper-company-queries-ii)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1645. Hopper 公司查询 II 🔒](https://leetcode.cn/problems/hopper-company-queries-ii)
 
 [English Version](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Drivers</code></p>
 
@@ -155,7 +163,11 @@ ride_id 是该表具有唯一值的列。
 截至 12 月底 --&gt; 6 个活跃的驾驶员 (10, 8, 5, 7, 4, 1)，1 个被接受的行程 (4)。百分比是 (1 / 6) * 100 = 16.67%。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归 + 左连接 + 分组
 
@@ -168,6 +180,8 @@ ride_id 是该表具有唯一值的列。
 最后，我们将上面两个表进行左连接，连接的条件是 `month` 相等、`driver_id` 相等，并且 `join_date` 小于等于 `requested_at`，这样就可以得到每个月被接受的行程数，按月份进行分组，就可以得到每个月的活跃司机数和被接受的行程数，从而计算出每个月的接单率。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -211,4 +225,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

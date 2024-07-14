@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md
+rating: 1315
+source: Weekly Contest 272 Q2
+tags:
+    - Array
+    - Two Pointers
+    - String
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2109. Adding Spaces to a String](https://leetcode.com/problems/adding-spaces-to-a-string)
 
 [中文文档](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md)
 
-<!-- tags:Array,Two Pointers,String,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and a <strong>0-indexed</strong> integer array <code>spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index.</p>
 
@@ -55,11 +70,21 @@ We are also able to place spaces before the first character of the string.
 	<li>All the values of <code>spaces</code> are <strong>strictly increasing</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two Pointers
+
+We can use two pointers $i$ and $j$ to point to the beginning of the string $s$ and the array $\text{spaces}$, respectively. Then, we iterate through the string $s$ from the beginning to the end. When $i$ equals $\text{spaces}[j]$, we add a space to the result string, and then increment $j$ by $1$. Next, we add $s[i]$ to the result string, and then increment $i$ by $1$. We continue this process until we have iterated through the entire string $s$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the string $s$ and the array $spaces$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +98,8 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addSpaces(s string, spaces []int) string {
 	var ans []byte
@@ -121,40 +152,24 @@ func addSpaces(s string, spaces []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addSpaces(s: string, spaces: number[]): string {
-    let ans = '';
+    const ans: string[] = [];
     for (let i = 0, j = 0; i < s.length; i++) {
-        if (j < spaces.length && i === spaces[j]) {
-            ans += ' ';
-            ++j;
+        if (i === spaces[j]) {
+            ans.push(' ');
+            j++;
         }
-        ans += s[i];
+        ans.push(s[i]);
     }
-    return ans;
+    return ans.join('');
 }
 ```
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
-        ans = []
-        i, j = len(s) - 1, len(spaces) - 1
-        while i >= 0:
-            ans.append(s[i])
-            if j >= 0 and i == spaces[j]:
-                ans.append(' ')
-                j -= 1
-            i -= 1
-        return ''.join(ans[::-1])
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

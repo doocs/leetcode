@@ -1,16 +1,15 @@
 func findWinners(matches [][]int) [][]int {
 	cnt := map[int]int{}
-	for _, m := range matches {
-		a, b := m[0], m[1]
-		if _, ok := cnt[a]; !ok {
-			cnt[a] = 0
+	for _, e := range matches {
+		if _, ok := cnt[e[0]]; !ok {
+			cnt[e[0]] = 0
 		}
-		cnt[b]++
+		cnt[e[1]]++
 	}
 	ans := make([][]int, 2)
-	for u, v := range cnt {
+	for x, v := range cnt {
 		if v < 2 {
-			ans[v] = append(ans[v], u)
+			ans[v] = append(ans[v], x)
 		}
 	}
 	sort.Ints(ans[0])

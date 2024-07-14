@@ -1,12 +1,25 @@
-# [1181. 前后拼接](https://leetcode.cn/problems/before-and-after-puzzle)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README.md
+rating: 1558
+source: 第 8 场双周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [1181. 前后拼接 🔒](https://leetcode.cn/problems/before-and-after-puzzle)
 
 [English Version](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README_EN.md)
 
-<!-- tags:数组,哈希表,字符串,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个「短语」列表&nbsp;<code>phrases</code>，请你帮忙按规则生成拼接后的「新短语」列表。</p>
 
@@ -61,7 +74,11 @@
 	<li><code>1 &lt;= phrases[i].length &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -74,6 +91,8 @@
 时间复杂度 $O(n^2 \times m \times (\log n + \log m))$，空间复杂度 $O(n^2 \times m)$。其中 $n$ 和 $m$ 分别表示数组 $phrases$ 的长度和每个短语的平均长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +109,8 @@ class Solution:
                     ans.append(phrases[i] + phrases[j][len(ps[j][0]) :])
         return sorted(set(ans))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beforeAndAfterPuzzles(phrases []string) []string {
 	n := len(phrases)
@@ -170,6 +195,8 @@ func beforeAndAfterPuzzles(phrases []string) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function beforeAndAfterPuzzles(phrases: string[]): string[] {
     const ps: string[][] = [];
@@ -192,4 +219,6 @@ function beforeAndAfterPuzzles(phrases: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

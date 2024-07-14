@@ -1,14 +1,26 @@
 function maxFrequency(nums: number[], k: number): number {
-    nums.sort((a, b) => a - b);
-    let ans = 1;
-    let window = 0;
     const n = nums.length;
-    for (let l = 0, r = 1; r < n; ++r) {
-        window += (nums[r] - nums[r - 1]) * (r - l);
-        while (window > k) {
-            window -= nums[r] - nums[l++];
-        }
-        ans = Math.max(ans, r - l + 1);
+    nums.sort((a, b) => a - b);
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 1; i <= n; ++i) {
+        s[i] = s[i - 1] + nums[i - 1];
     }
-    return ans;
+    let [l, r] = [1, n];
+    const check = (m: number): boolean => {
+        for (let i = m; i <= n; ++i) {
+            if (nums[i - 1] * m - (s[i] - s[i - m]) <= k) {
+                return true;
+            }
+        }
+        return false;
+    };
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
 }

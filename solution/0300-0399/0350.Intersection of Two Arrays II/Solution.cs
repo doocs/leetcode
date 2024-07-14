@@ -1,28 +1,20 @@
 public class Solution {
     public int[] Intersect(int[] nums1, int[] nums2) {
-        HashSet<int> hs1 = new HashSet<int>(nums1.Concat(nums2).ToArray());
-        Dictionary<int, int> dict = new Dictionary<int, int>();
-        List<int> result = new List<int>();
-
-        foreach (int x in hs1) {
-            dict[x] = 0;
-        }
-
+        Dictionary<int, int> cnt = new Dictionary<int, int>();
         foreach (int x in nums1) {
-            if (dict.ContainsKey(x)) {
-                dict[x] += 1;
+            if (cnt.ContainsKey(x)) {
+                cnt[x]++;
             } else {
-                dict[x] = 1;
+                cnt[x] = 1;
             }
         }
-
+        List<int> ans = new List<int>();
         foreach (int x in nums2) {
-            if (dict[x] > 0) {
-                result.Add(x);
-                dict[x] -=1;
+            if (cnt.ContainsKey(x) && cnt[x] > 0) {
+                ans.Add(x);
+                cnt[x]--;
             }
         }
-
-        return result.ToArray();
+        return ans.ToArray();
     }
 }

@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md
+rating: 1697
+source: 第 130 场周赛 Q2
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [1017. 负二进制转换](https://leetcode.cn/problems/convert-to-base-2)
 
 [English Version](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，以二进制字符串的形式返回该整数的 <strong>负二进制（<code>base -2</code>）</strong>表示。</p>
 
@@ -46,7 +56,11 @@
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -61,6 +75,8 @@
 -   [1073. 负二进制数相加](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +93,8 @@ class Solution:
             k *= -1
         return ''.join(ans[::-1]) or '0'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func baseNeg2(n int) string {
 	if n == 0 {
@@ -150,6 +172,8 @@ func baseNeg2(n int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function baseNeg2(n: number): string {
     if (n === 0) {
@@ -171,6 +195,62 @@ function baseNeg2(n: number): string {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn base_neg2(n: i32) -> String {
+        if n == 0 {
+            return "0".to_string();
+        }
+        let mut k = 1;
+        let mut ans = String::new();
+        let mut num = n;
+        while num != 0 {
+            if num % 2 != 0 {
+                ans.push('1');
+                num -= k;
+            } else {
+                ans.push('0');
+            }
+            k *= -1;
+            num /= 2;
+        }
+        ans.chars().rev().collect::<String>()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string BaseNeg2(int n) {
+        if (n == 0) {
+            return "0";
+        }
+        int k = 1;
+        StringBuilder ans = new StringBuilder();
+        int num = n;
+        while (num != 0) {
+            if (num % 2 != 0) {
+                ans.Append('1');
+                num -= k;
+            } else {
+                ans.Append('0');
+            }
+            k *= -1;
+            num /= 2;
+        }
+        char[] cs = ans.ToString().ToCharArray();
+        Array.Reverse(cs);
+        return new string(cs);
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

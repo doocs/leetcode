@@ -1,33 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2826.Sorting%20Three%20Groups/README.md
+rating: 1721
+source: 第 111 场双周赛 Q3
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2826. 将三个组排序](https://leetcode.cn/problems/sorting-three-groups)
 
 [English Version](/solution/2800-2899/2826.Sorting%20Three%20Groups/README_EN.md)
 
-<!-- tags:数组,二分查找,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给你一个下标从 <strong>0</strong>&nbsp;开始长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;。<br />
-<br />
-从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;的数字被分为编号从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>3</code>&nbsp;的三个组，数字&nbsp;<code>i</code>&nbsp;属于组&nbsp;<code>nums[i]</code>&nbsp;。注意，有的组可能是&nbsp;<strong>空的</strong>&nbsp;。<br />
-<br />
-你可以执行以下操作任意次：</p>
-
-<ul>
-	<li>选择数字&nbsp;<code>x</code>&nbsp;并改变它的组。更正式的，你可以将&nbsp;<code>nums[x]</code>&nbsp;改为数字&nbsp;<code>1</code>&nbsp;到&nbsp;<code>3</code>&nbsp;中的任意一个。</li>
-</ul>
-
-<p>你将按照以下过程构建一个新的数组&nbsp;<code>res</code>&nbsp;：</p>
-
-<ol>
-	<li>将每个组中的数字分别排序。</li>
-	<li>将组&nbsp;<code>1</code>&nbsp;，<code>2</code>&nbsp;和&nbsp;<code>3</code>&nbsp;中的元素&nbsp;<strong>依次</strong>&nbsp;连接以得到&nbsp;<code>res</code>&nbsp;。</li>
-</ol>
-
-<p>如果得到的&nbsp;<code>res</code>&nbsp;是 <strong>非递减</strong>顺序的，那么我们称数组&nbsp;<code>nums</code>&nbsp;是 <strong>美丽数组</strong>&nbsp;。</p>
-
-<p>请你返回将<em>&nbsp;</em><code>nums</code>&nbsp;变为&nbsp;<strong>美丽数组</strong>&nbsp;需要的最少步数。</p>
+<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。<code>nums</code>&nbsp;的每个元素是 1，2 或 3。在每次操作中，你可以删除&nbsp;<code>nums</code>&nbsp;中的一个元素。返回使 nums 成为 <strong>非递减</strong>&nbsp;顺序所需操作数的 <strong>最小值</strong>。</p>
 
 <p>&nbsp;</p>
 
@@ -36,12 +29,8 @@
 <pre>
 <b>输入：</b>nums = [2,1,3,2,1]
 <b>输出：</b>3
-<b>解释：</b>以下三步操作是最优方案：
-1. 将 nums[0] 变为 1 。
-2. 将 nums[2] 变为 1 。
-3. 将 nums[3] 变为 1 。
-执行以上操作后，将每组中的数字排序，组 1 为 [0,1,2,3,4] ，组 2 和组 3 都为空。所以 res 等于 [0,1,2,3,4] ，它是非递减顺序的。
-三步操作是最少需要的步数。
+<b>解释：</b>
+其中一个最优方案是删除 nums[0]，nums[2] 和 nums[3]。
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -49,11 +38,8 @@
 <pre>
 <b>输入：</b>nums = [1,3,2,1,3,3]
 <b>输出：</b>2
-<b>解释：</b>以下两步操作是最优方案：
-1. 将 nums[1] 变为 1 。
-2. 将 nums[2] 变为 1 。
-执行以上操作后，将每组中的数字排序，组 1 为 [0,1,2,3] ，组 2 为空，组 3 为 [4,5] 。所以 res 等于 [0,1,2,3,4,5] ，它是非递减顺序的。
-两步操作是最少需要的步数。
+<b>解释：</b>
+其中一个最优方案是删除 nums[1] 和 nums[2]。
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -61,8 +47,8 @@
 <pre>
 <b>输入：</b>nums = [2,2,2,2,3,3]
 <b>输出：</b>0
-<b>解释：</b>不需要执行任何操作。
-组 1 为空，组 2 为 [0,1,2,3] ，组 3 为 [4,5] 。所以 res 等于 [0,1,2,3,4,5] ，它是非递减顺序的。
+<b>解释：</b>
+nums 已是非递减顺序的。
 </pre>
 
 <p>&nbsp;</p>
@@ -74,7 +60,13 @@
 	<li><code>1 &lt;= nums[i] &lt;= 3</code></li>
 </ul>
 
+<p><strong>进阶：</strong>你可以使用&nbsp;<code>O(n)</code>&nbsp;时间复杂度以内的算法解决吗？</p>
+
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -86,27 +78,31 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        f = g = h = 0
+        f = [0] * 3
         for x in nums:
-            ff = gg = hh = 0
+            g = [0] * 3
             if x == 1:
-                ff = f
-                gg = min(f, g) + 1
-                hh = min(f, g, h) + 1
+                g[0] = f[0]
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f) + 1
             elif x == 2:
-                ff = f + 1
-                gg = min(f, g)
-                hh = min(f, g, h) + 1
+                g[0] = f[0] + 1
+                g[1] = min(f[:2])
+                g[2] = min(f) + 1
             else:
-                ff = f + 1
-                gg = min(f, g) + 1
-                hh = min(f, g, h)
-            f, g, h = ff, gg, hh
-        return min(f, g, h)
+                g[0] = f[0] + 1
+                g[1] = min(f[:2]) + 1
+                g[2] = min(f)
+            f = g
+        return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -161,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int) int {
 	f := make([]int, 3)
@@ -184,6 +184,8 @@ func minimumOperations(nums []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(nums: number[]): number {
@@ -211,32 +213,6 @@ function minimumOperations(nums: number[]): number {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def minimumOperations(self, nums: List[int]) -> int:
-        f = [0] * 3
-        for x in nums:
-            g = [0] * 3
-            if x == 1:
-                g[0] = f[0]
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f) + 1
-            elif x == 2:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2])
-                g[2] = min(f) + 1
-            else:
-                g[0] = f[0] + 1
-                g[1] = min(f[:2]) + 1
-                g[2] = min(f)
-            f = g
-        return min(f)
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

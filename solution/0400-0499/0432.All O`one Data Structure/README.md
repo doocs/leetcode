@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 双向链表
+---
+
+<!-- problem:start -->
+
 # [432. 全 O(1) 的数据结构](https://leetcode.cn/problems/all-oone-data-structure)
 
 [English Version](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README_EN.md)
 
-<!-- tags:设计,哈希表,链表,双向链表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个用于存储字符串计数的数据结构，并能够返回计数最小和最大的字符串。</p>
 
@@ -55,11 +66,17 @@ allOne.getMinKey(); // 返回 "leet"
 	<li>最多调用 <code>inc</code>、<code>dec</code>、<code>getMaxKey</code> 和 <code>getMinKey</code> 方法 <code>5 * 10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -138,6 +155,8 @@ class AllOne:
 # param_3 = obj.getMaxKey()
 # param_4 = obj.getMinKey()
 ```
+
+#### Java
 
 ```java
 class AllOne {
@@ -243,4 +262,6 @@ class Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

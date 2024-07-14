@@ -1,12 +1,24 @@
-# [1167. 连接木棍的最低费用](https://leetcode.cn/problems/minimum-cost-to-connect-sticks)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README.md
+rating: 1481
+source: 第 7 场双周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
+# [1167. 连接木棍的最低费用 🔒](https://leetcode.cn/problems/minimum-cost-to-connect-sticks)
 
 [English Version](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README_EN.md)
 
-<!-- tags:贪心,数组,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一些长度为正整数的木棍。这些长度以数组<meta charset="UTF-8" />&nbsp;<code>sticks</code>&nbsp;的形式给出，<meta charset="UTF-8" />&nbsp;<code>sticks[i]</code>&nbsp;是第 <code>i</code> 个木棍的长度。</p>
 
@@ -56,7 +68,11 @@
 	<li><code>1 &lt;= sticks[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 优先队列（小根堆）
 
@@ -67,6 +83,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `sticks` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +97,8 @@ class Solution:
             heappush(sticks, z)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func connectSticks(sticks []int) (ans int) {
 	hp := &hp{sticks}
@@ -144,6 +168,8 @@ func (h *hp) Pop() any {
 	return v
 }
 ```
+
+#### TypeScript
 
 ```ts
 function connectSticks(sticks: number[]): number {
@@ -227,4 +253,6 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

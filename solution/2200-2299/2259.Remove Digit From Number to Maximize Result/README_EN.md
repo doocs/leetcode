@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README_EN.md
+rating: 1331
+source: Weekly Contest 291 Q1
+tags:
+    - Greedy
+    - String
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [2259. Remove Digit From Number to Maximize Result](https://leetcode.com/problems/remove-digit-from-number-to-maximize-result)
 
 [中文文档](/solution/2200-2299/2259.Remove%20Digit%20From%20Number%20to%20Maximize%20Result/README.md)
 
-<!-- tags:Greedy,String,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>number</code> representing a <strong>positive integer</strong> and a character <code>digit</code>.</p>
 
@@ -47,11 +61,17 @@ Both result in the string &quot;51&quot;.
 	<li><code>digit</code> occurs at least once in <code>number</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +80,8 @@ class Solution:
             number[:i] + number[i + 1 :] for i, d in enumerate(number) if d == digit
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -98,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDigit(number string, digit byte) string {
 	ans := "0"
@@ -112,6 +138,8 @@ func removeDigit(number string, digit byte) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeDigit(number: string, digit: string): string {
@@ -128,6 +156,8 @@ function removeDigit(number: string, digit: string): string {
     return number.substring(0, last) + number.substring(last + 1);
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -153,9 +183,15 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -169,6 +205,8 @@ class Solution:
                     break
         return number[:last] + number[last + 1 :]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -188,6 +226,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -209,6 +249,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDigit(number string, digit byte) string {
 	last := -1
@@ -227,4 +269,6 @@ func removeDigit(number string, digit byte) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

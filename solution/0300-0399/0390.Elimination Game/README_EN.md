@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0390.Elimination%20Game/README_EN.md
+tags:
+    - Recursion
+    - Math
+---
+
+<!-- problem:start -->
+
 # [390. Elimination Game](https://leetcode.com/problems/elimination-game)
 
 [中文文档](/solution/0300-0399/0390.Elimination%20Game/README.md)
 
-<!-- tags:Recursion,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have a list <code>arr</code> of all integers in the range <code>[1, n]</code> sorted in a strictly increasing order. Apply the following algorithm on <code>arr</code>:</p>
 
@@ -43,11 +54,17 @@ arr = [6]
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +85,8 @@ class Solution:
             i += 1
         return a1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastRemaining(n int) int {
@@ -132,4 +155,6 @@ func lastRemaining(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

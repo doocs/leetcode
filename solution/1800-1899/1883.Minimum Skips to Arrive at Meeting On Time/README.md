@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README.md
+rating: 2587
+source: 第 243 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1883. 准时抵达会议现场的最小跳过休息次数](https://leetcode.cn/problems/minimum-skips-to-arrive-at-meeting-on-time)
 
 [English Version](/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>hoursBefore</code> ，表示你要前往会议所剩下的可用小时数。要想成功抵达会议现场，你必须途经 <code>n</code> 条道路。道路的长度用一个长度为 <code>n</code> 的整数数组 <code>dist</code> 表示，其中 <code>dist[i]</code> 表示第 <code>i</code> 条道路的长度（单位：<strong>千米</strong>）。另给你一个整数 <code>speed</code> ，表示你在道路上前进的速度（单位：<strong>千米每小时</strong>）。</p>
 
@@ -67,7 +78,11 @@
 	<li><code>1 <= hoursBefore <= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -87,6 +102,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
@@ -105,6 +122,28 @@ class Solution:
                 return j
         return -1
 ```
+
+#### Python3
+
+```python
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        f = [[inf] * (n + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(dist, 1):
+            for j in range(i + 1):
+                if j < i:
+                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
+                if j:
+                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
+        for j in range(n + 1):
+            if f[n][j] <= hoursBefore * speed:
+                return j
+        return -1
+```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +176,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +205,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minSkips(dist []int, speed int, hoursBefore int) int {
@@ -196,6 +239,8 @@ func minSkips(dist []int, speed int, hoursBefore int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSkips(dist: number[], speed: number, hoursBefore: number): number {
     const n = dist.length;
@@ -223,28 +268,6 @@ function minSkips(dist: number[], speed: number, hoursBefore: number): number {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
-        n = len(dist)
-        f = [[inf] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        for i, x in enumerate(dist, 1):
-            for j in range(i + 1):
-                if j < i:
-                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
-                if j:
-                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
-        for j in range(n + 1):
-            if f[n][j] <= hoursBefore * speed:
-                return j
-        return -1
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

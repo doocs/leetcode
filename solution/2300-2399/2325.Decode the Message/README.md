@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2325.Decode%20the%20Message/README.md
+rating: 1268
+source: 第 300 场周赛 Q1
+tags:
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2325. 解密消息](https://leetcode.cn/problems/decode-the-message)
 
 [English Version](/solution/2300-2399/2325.Decode%20the%20Message/README_EN.md)
 
-<!-- tags:哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你字符串 <code>key</code> 和 <code>message</code> ，分别表示一个加密密钥和一段加密消息。解密 <code>message</code> 的步骤如下：</p>
 
@@ -59,7 +70,11 @@
 	<li><code>message</code> 由小写英文字母和 <code>' '</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -68,6 +83,8 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别为 `key` 和 `message` 的长度；而 $C$ 为字符集大小。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +97,8 @@ class Solution:
                 i += 1
         return "".join(d[c] for c in message)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func decodeMessage(key string, message string) string {
 	d := [128]byte{}
@@ -139,6 +162,8 @@ func decodeMessage(key string, message string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function decodeMessage(key: string, message: string): string {
     const d = new Map<string, string>();
@@ -152,6 +177,8 @@ function decodeMessage(key: string, message: string): string {
     return [...message].map(v => d.get(v)).join('');
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -172,6 +199,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* decodeMessage(char* key, char* message) {
@@ -196,4 +225,6 @@ char* decodeMessage(char* key, char* message) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

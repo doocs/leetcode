@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README_EN.md
+tags:
+    - Tree
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal)
 
 [中文文档](/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README.md)
 
-<!-- tags:Tree,Array,Hash Table,Divide and Conquer,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>inorder</code> and <code>postorder</code> where <code>inorder</code> is the inorder traversal of a binary tree and <code>postorder</code> is the postorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>
 
@@ -36,7 +50,11 @@
 	<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Recursion
 
@@ -51,6 +69,8 @@ Specifically, we first use a hash table $d$ to store the position of each node i
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -73,6 +93,8 @@ class Solution:
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(inorder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -116,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -151,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -179,6 +205,8 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 	return dfs(0, 0, len(inorder))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -215,6 +243,8 @@ function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -234,9 +264,9 @@ function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     pub fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         let n = inorder.len();
@@ -249,7 +279,7 @@ impl Solution {
             d: &HashMap<i32, usize>,
             i: usize,
             j: usize,
-            n: usize
+            n: usize,
         ) -> Option<Rc<RefCell<TreeNode>>> {
             if n <= 0 {
                 return None;
@@ -267,4 +297,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

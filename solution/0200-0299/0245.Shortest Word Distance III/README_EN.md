@@ -1,10 +1,21 @@
-# [245. Shortest Word Distance III](https://leetcode.com/problems/shortest-word-distance-iii)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0245.Shortest%20Word%20Distance%20III/README_EN.md
+tags:
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
+# [245. Shortest Word Distance III 🔒](https://leetcode.com/problems/shortest-word-distance-iii)
 
 [中文文档](/solution/0200-0299/0245.Shortest%20Word%20Distance%20III/README.md)
 
-<!-- tags:Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>wordsDict</code> and two strings that already exist in the array <code>word1</code> and <code>word2</code>, return <em>the shortest distance between the occurrence of these two words in the list</em>.</p>
 
@@ -28,11 +39,17 @@
 	<li><code>word1</code> and <code>word2</code> are in <code>wordsDict</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +73,8 @@ class Solution:
                     ans = min(ans, abs(i - j))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestWordDistance(wordsDict []string, word1 string, word2 string) int {
@@ -161,4 +184,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

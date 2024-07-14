@@ -1,16 +1,12 @@
 function findClosest(words: string[], word1: string, word2: string): number {
-    let index1 = 100000;
-    let index2 = -100000;
-    let res = 100000;
-    const n = words.length;
-    for (let i = 0; i < n; i++) {
-        const word = words[i];
-        if (word === word1) {
-            index1 = i;
-        } else if (word === word2) {
-            index2 = i;
+    let [i, j, ans] = [Infinity, -Infinity, Infinity];
+    for (let k = 0; k < words.length; ++k) {
+        if (words[k] === word1) {
+            i = k;
+        } else if (words[k] === word2) {
+            j = k;
         }
-        res = Math.min(res, Math.abs(index1 - index2));
+        ans = Math.min(ans, Math.abs(i - j));
     }
-    return res;
+    return ans;
 }

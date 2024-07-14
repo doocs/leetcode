@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README.md
+rating: 2231
+source: 第 124 场双周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [3041. 修改数组后最大化数组中的连续元素数目](https://leetcode.cn/problems/maximize-consecutive-elements-in-an-array-after-modification)
 
 [English Version](/solution/3000-3099/3041.Maximize%20Consecutive%20Elements%20in%20an%20Array%20After%20Modification/README_EN.md)
 
-<!-- tags:数组,动态规划,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始只包含 <strong>正</strong>&nbsp;整数的数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -44,23 +56,35 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -68,4 +92,6 @@
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

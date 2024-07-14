@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README.md
+rating: 2464
+source: 第 60 场双周赛 Q4
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 状态压缩
+---
+
+<!-- problem:start -->
+
 # [1994. 好子集的数目](https://leetcode.cn/problems/the-number-of-good-subsets)
 
 [English Version](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
 
-<!-- tags:位运算,数组,数学,动态规划,状态压缩 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。如果&nbsp;<code>nums</code>&nbsp;的一个子集中，所有元素的乘积可以表示为一个或多个 <strong>互不相同的质数</strong> 的乘积，那么我们称它为&nbsp;<strong>好子集</strong>&nbsp;。</p>
 
@@ -63,7 +77,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划
 
@@ -84,6 +102,8 @@
 -   [2572. 无平方子集计数](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +126,8 @@ class Solution:
                     f[state] = (f[state] + cnt[x] * f[state ^ mask]) % mod
         return sum(f[i] for i in range(1, 1 << n)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +168,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -188,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfGoodSubsets(nums []int) (ans int) {
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
@@ -227,4 +253,6 @@ func numberOfGoodSubsets(nums []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

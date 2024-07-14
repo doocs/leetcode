@@ -1,16 +1,10 @@
 class Solution {
     public int longestSemiRepetitiveSubstring(String s) {
-        int n = s.length();
-        int ans = 0;
-        for (int i = 0, j = 0, cnt = 0; i < n; ++i) {
-            if (i > 0 && s.charAt(i) == s.charAt(i - 1)) {
-                ++cnt;
-            }
-            while (cnt > 1) {
-                if (s.charAt(j) == s.charAt(j + 1)) {
-                    --cnt;
-                }
-                ++j;
+        int ans = 1, n = s.length();
+        for (int i = 1, j = 0, cnt = 0; i < n; ++i) {
+            cnt += s.charAt(i) == s.charAt(i - 1) ? 1 : 0;
+            for (; cnt > 1; ++j) {
+                cnt -= s.charAt(j) == s.charAt(j + 1) ? 1 : 0;
             }
             ans = Math.max(ans, i - j + 1);
         }

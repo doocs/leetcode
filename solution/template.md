@@ -124,6 +124,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 <!-- 这里是contest_readme_template开始位置 -->
 
+{}
+
 # 力扣竞赛
 
 [English Version](/solution/CONTEST_README_EN.md)
@@ -136,15 +138,15 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 | 段位 | 比例 | 段位名   | 国服分数线  | 勋章                                                                                                                    |
 | ---- | ---- | -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3  | 5%   | Guardian | &ge;2254.76 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2  | 20%  | Knight   | &ge;1882.78 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3  | 5%   | Guardian | &ge;2278.34 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2  | 20%  | Knight   | &ge;1889.36 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1  | 75%  | -        | -           | -                                                                                                                       |
 
 力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
 
 ## 赛后估分网站
 
--   https://lccn.lbao.site
+如果你想在比赛结束后估算自己的积分变化，可以访问网站 [LeetCode Contest Rating Predictor](https://lccn.lbao.site/)。
 
 ## 往期竞赛
 
@@ -155,6 +157,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ---
 
 <!-- 这里是contest_readme_template_en开始位置 -->
+
+{}
 
 # LeetCode Contest
 
@@ -179,7 +183,7 @@ For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange
 
 ## Rating Predictor
 
-Get your rating changes right after the completion of LeetCode contests, https://lccn.lbao.site
+If you want to estimate your score changes after the contest ends, you can visit the website [LeetCode Contest Rating Predictor](https://lccn.lbao.site/).
 
 ## Past Contests
 
@@ -191,35 +195,49 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是bash_problem_readme_template开始位置 -->
 
+<!-- problem:start -->
+
+{}
+
 # [{}. {}]({})
 
 [English Version]({})
 
-<!-- tags:{} -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -227,7 +245,9 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是bash_problem_readme_template结束位置 -->
 
@@ -235,33 +255,49 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是bash_problem_readme_template_en开始位置 -->
 
+{}
+
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
-<!-- tags:{} -->
-
 ## Description
+
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -269,7 +305,9 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是bash_problem_readme_template_en结束位置 -->
 
@@ -277,35 +315,49 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是problem_readme_template开始位置 -->
 
+{}
+
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [English Version]({})
 
-<!-- tags:{} -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -313,7 +365,9 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是problem_readme_template结束位置 -->
 
@@ -321,33 +375,49 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是problem_readme_template_en开始位置 -->
 
+{}
+
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
-<!-- tags:{} -->
-
 ## Description
+
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -355,7 +425,9 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是problem_readme_template_en结束位置 -->
 
@@ -363,23 +435,31 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是sql_problem_readme_template开始位置 -->
 
+{}
+
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [English Version]({})
 
-<!-- tags:{} -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 
@@ -387,7 +467,9 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是sql_problem_readme_template结束位置 -->
 
@@ -395,21 +477,31 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是sql_problem_readme_template_en开始位置 -->
 
+{}
+
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
-<!-- tags:{} -->
-
 ## Description
+
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 
@@ -417,7 +509,9 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是sql_problem_readme_template_en结束位置 -->
 
@@ -425,23 +519,31 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是ts_problem_readme_template开始位置 -->
 
+{}
+
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [English Version]({})
 
-<!-- tags:{} -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 
@@ -449,7 +551,9 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是ts_problem_readme_template结束位置 -->
 
@@ -457,21 +561,31 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- 这里是ts_problem_readme_template_en开始位置 -->
 
+{}
+
+<!-- problem:start -->
+
 # [{}. {}]({})
 
 [中文文档]({})
 
-<!-- tags:{} -->
-
 ## Description
+
+<!-- description:start -->
 
 {}
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 
@@ -479,6 +593,8 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 <!-- 这里是ts_problem_readme_template_en结束位置 -->

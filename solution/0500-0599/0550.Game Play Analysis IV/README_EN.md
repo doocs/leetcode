@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0550.Game%20Play%20Analysis%20IV/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
 # [550. Game Play Analysis IV](https://leetcode.com/problems/game-play-analysis-iv)
 
 [中文文档](/solution/0500-0599/0550.Game%20Play%20Analysis%20IV/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Activity</code></p>
 
@@ -53,13 +63,19 @@ Activity table:
 Only the player with id 1 logged back in after the first day he had logged in so the answer is 1/3 = 0.33
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping and Minimum Value + Left Join
 
 We can first find the first login date of each player, and then perform a left join with the original table, with the join condition being that the player ID is the same and the date difference is $-1$, which means the player logged in on the second day. Then, we only need to calculate the ratio of non-null players among the players who logged in on the second day.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -76,6 +92,8 @@ def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
     )
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT ROUND(AVG(b.event_date IS NOT NULL), 2) AS fraction
@@ -91,11 +109,17 @@ FROM
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Window Function
 
 We can use the `LEAD` window function to get the next login date of each player. If the next login date is one day after the current login date, it means that the player logged in on the second day, and we use a field $st$ to record this information. Then, we use the `RANK` window function to rank the player IDs in ascending order by date, and get the login ranking of each player. Finally, we only need to calculate the ratio of non-null $st$ values among the players with a ranking of $1$.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -123,4 +147,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,32 +1,27 @@
 class AnimalShelf {
-    Queue<Integer> cats;
-    Queue<Integer> dogs;
+    private Deque<Integer>[] q = new Deque[2];
+
     public AnimalShelf() {
-        cats = new LinkedList<>();
-        dogs = new LinkedList<>();
+        Arrays.setAll(q, k -> new ArrayDeque<>());
     }
 
     public void enqueue(int[] animal) {
-        if (animal[1] == 0) {
-            cats.offer(animal[0]);
-        } else {
-            dogs.offer(animal[0]);
-        }
+        q[animal[1]].offer(animal[0]);
     }
 
     public int[] dequeueAny() {
-        return dogs.isEmpty()
-            ? dequeueCat()
-            : (cats.isEmpty() ? dequeueDog()
-                              : (dogs.peek() < cats.peek() ? dequeueDog() : dequeueCat()));
+        if (q[0].isEmpty() || (!q[1].isEmpty() && q[1].peek() < q[0].peek())) {
+            return dequeueDog();
+        }
+        return dequeueCat();
     }
 
     public int[] dequeueDog() {
-        return dogs.isEmpty() ? new int[] {-1, -1} : new int[] {dogs.poll(), 1};
+        return q[1].isEmpty() ? new int[] {-1, -1} : new int[] {q[1].poll(), 1};
     }
 
     public int[] dequeueCat() {
-        return cats.isEmpty() ? new int[] {-1, -1} : new int[] {cats.poll(), 0};
+        return q[0].isEmpty() ? new int[] {-1, -1} : new int[] {q[0].poll(), 0};
     }
 }
 

@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.26.Calculator/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 16.26. 计算器](https://leetcode.cn/problems/calculator-lcci)
 
 [English Version](/lcci/16.26.Calculator/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含正整数、加(+)、减(-)、乘(*)、除(/)的算数表达式(括号除外)，计算其结果。</p>
 <p>表达式仅包含非负整数，<code>+</code>， <code>-</code> ，<code>*</code>，<code>/</code> 四种运算符和空格&nbsp;<code>&nbsp;</code>。 整数除法仅保留整数部分。</p>
@@ -25,7 +33,11 @@
 	<li>请<strong>不要</strong>使用内置的库函数 <code>eval</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -36,6 +48,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +75,8 @@ class Solution:
                 sign = c
         return sum(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculate(s string) (ans int) {
 	n := len(s)
@@ -166,6 +186,8 @@ func calculate(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function calculate(s: string): number {
@@ -199,6 +221,51 @@ function calculate(s: string): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func calculate(_ s: String) -> Int {
+        let n = s.count
+        var x = 0
+        var sign: Character = "+"
+        var stk = [Int]()
+        let sArray = Array(s)
+
+        for i in 0..<n {
+            let c = sArray[i]
+            if c.isNumber {
+                x = x * 10 + Int(String(c))!
+            }
+            if i == n - 1 || (!c.isNumber && c != " ") {
+                switch sign {
+                case "+":
+                    stk.append(x)
+                case "-":
+                    stk.append(-x)
+                case "*":
+                    if let last = stk.popLast() {
+                        stk.append(last * x)
+                    }
+                case "/":
+                    if let last = stk.popLast() {
+                        stk.append(last / x)
+                    }
+                default:
+                    break
+                }
+                x = 0
+                sign = c
+            }
+        }
+
+        return stk.reduce(0, +)
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

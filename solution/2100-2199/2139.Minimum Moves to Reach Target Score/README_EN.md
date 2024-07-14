@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2139.Minimum%20Moves%20to%20Reach%20Target%20Score/README_EN.md
+rating: 1417
+source: Weekly Contest 276 Q2
+tags:
+    - Greedy
+    - Math
+---
+
+<!-- problem:start -->
+
 # [2139. Minimum Moves to Reach Target Score](https://leetcode.com/problems/minimum-moves-to-reach-target-score)
 
 [中文文档](/solution/2100-2199/2139.Minimum%20Moves%20to%20Reach%20Target%20Score/README.md)
 
-<!-- tags:Greedy,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing a game with integers. You start with the integer <code>1</code> and you want to reach the integer <code>target</code>.</p>
 
@@ -61,7 +74,11 @@ Double again so x = 10
 	<li><code>0 &lt;= maxDoubles &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking + Greedy
 
@@ -81,6 +98,8 @@ We can also change the above process to an iterative way to avoid the space over
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMoves(self, target: int, maxDoubles: int) -> int:
@@ -92,6 +111,8 @@ class Solution:
             return 1 + self.minMoves(target >> 1, maxDoubles - 1)
         return 1 + self.minMoves(target - 1, maxDoubles)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(target int, maxDoubles int) int {
 	if target == 1 {
@@ -142,6 +167,8 @@ func minMoves(target int, maxDoubles int) int {
 	return 1 + minMoves(target-1, maxDoubles)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(target: number, maxDoubles: number): number {
@@ -160,9 +187,15 @@ function minMoves(target: number, maxDoubles: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -178,6 +211,8 @@ class Solution:
         ans += target - 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +232,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -218,6 +255,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMoves(target int, maxDoubles int) (ans int) {
 	for maxDoubles > 0 && target > 1 {
@@ -233,6 +272,8 @@ func minMoves(target int, maxDoubles int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minMoves(target: number, maxDoubles: number): number {
@@ -253,4 +294,6 @@ function minMoves(target: number, maxDoubles: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

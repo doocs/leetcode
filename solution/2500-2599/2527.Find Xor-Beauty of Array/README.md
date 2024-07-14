@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README.md
+rating: 1549
+source: 第 95 场双周赛 Q3
+tags:
+    - 位运算
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2527. 查询数组异或美丽值](https://leetcode.cn/problems/find-xor-beauty-of-array)
 
 [English Version](/solution/2500-2599/2527.Find%20Xor-Beauty%20of%20Array/README_EN.md)
 
-<!-- tags:位运算,数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -59,7 +71,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -73,11 +89,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorBeauty(self, nums: List[int]) -> int:
         return reduce(xor, nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorBeauty(nums []int) (ans int) {
 	for _, x := range nums {
@@ -113,6 +137,8 @@ func xorBeauty(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function xorBeauty(nums: number[]): number {
     return nums.reduce((acc, cur) => acc ^ cur, 0);
@@ -121,4 +147,6 @@ function xorBeauty(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

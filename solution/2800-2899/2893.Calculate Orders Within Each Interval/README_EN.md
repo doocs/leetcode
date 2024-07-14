@@ -1,10 +1,20 @@
-# [2893. Calculate Orders Within Each Interval](https://leetcode.com/problems/calculate-orders-within-each-interval)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2893. Calculate Orders Within Each Interval 🔒](https://leetcode.com/problems/calculate-orders-within-each-interval)
 
 [中文文档](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Orders</font></code></p>
 
@@ -63,11 +73,17 @@ Orders table:
 - Interval number 2 comprises minutes from 7 to 12. The total orders in these six minutes are (1 + 2 + 4 + 1 + 4 + 6) = 18.
 Returning table orderd by interval_no in ascending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -88,9 +104,15 @@ WHERE minute % 6 = 0;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -103,4 +125,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

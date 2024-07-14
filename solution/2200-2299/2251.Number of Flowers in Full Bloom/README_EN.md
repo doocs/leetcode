@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md
+rating: 2022
+source: Weekly Contest 290 Q4
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Ordered Set
+    - Prefix Sum
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [2251. Number of Flowers in Full Bloom](https://leetcode.com/problems/number-of-flowers-in-full-bloom)
 
 [中文文档](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README.md)
 
-<!-- tags:Array,Hash Table,Binary Search,Ordered Set,Prefix Sum,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>flowers</code>, where <code>flowers[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> means the <code>i<sup>th</sup></code> flower will be in <strong>full bloom</strong> from <code>start<sub>i</sub></code> to <code>end<sub>i</sub></code> (<strong>inclusive</strong>). You are also given a <strong>0-indexed</strong> integer array <code>people</code> of size <code>n</code>, where <code>people[i]</code> is the time that the <code>i<sup>th</sup></code> person will arrive to see the flowers.</p>
 
@@ -40,11 +57,17 @@ For each person, we return the number of flowers in full bloom during their arri
 	<li><code>1 &lt;= people[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +77,8 @@ class Solution:
         start, end = sorted(a for a, _ in flowers), sorted(b for _, b in flowers)
         return [bisect_right(start, p) - bisect_left(end, p) for p in people]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fullBloomFlowers(flowers [][]int, people []int) (ans []int) {
 	n := len(flowers)
@@ -133,6 +162,8 @@ func fullBloomFlowers(flowers [][]int, people []int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
@@ -169,6 +200,8 @@ function search(nums: number[], x: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::BTreeMap;
 
@@ -178,13 +211,9 @@ impl Solution {
         let n = people.len();
 
         // First sort the people vector based on the first item
-        let mut people: Vec<(usize, i32)> = people
-            .into_iter()
-            .enumerate()
-            .map(|x| x)
-            .collect();
+        let mut people: Vec<(usize, i32)> = people.into_iter().enumerate().map(|x| x).collect();
 
-        people.sort_by(|lhs, rhs| { lhs.1.cmp(&rhs.1) });
+        people.sort_by(|lhs, rhs| lhs.1.cmp(&rhs.1));
 
         // Initialize the difference vector
         let mut diff = BTreeMap::new();
@@ -222,9 +251,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -246,6 +281,8 @@ class Solution:
             ans[j] = s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -274,6 +311,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -304,6 +343,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func fullBloomFlowers(flowers [][]int, people []int) []int {
@@ -337,6 +378,8 @@ func fullBloomFlowers(flowers [][]int, people []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
     const d: Map<number, number> = new Map();
@@ -364,4 +407,6 @@ function fullBloomFlowers(flowers: number[][], people: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

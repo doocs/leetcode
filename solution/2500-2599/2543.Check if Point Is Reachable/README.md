@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README.md
+rating: 2220
+source: 第 96 场双周赛 Q4
+tags:
+    - 数学
+    - 数论
+---
+
+<!-- problem:start -->
+
 # [2543. 判断一个点是否可以到达](https://leetcode.cn/problems/check-if-point-is-reachable)
 
 [English Version](/solution/2500-2599/2543.Check%20if%20Point%20Is%20Reachable/README_EN.md)
 
-<!-- tags:数学,数论 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个无穷大的网格图。一开始你在&nbsp;<code>(1, 1)</code>&nbsp;，你需要通过有限步移动到达点&nbsp;<code>(targetX, targetY)</code>&nbsp;。</p>
 
@@ -45,7 +56,11 @@
 	<li><code>1 &lt;= targetX, targetY&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -61,12 +76,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isReachable(self, targetX: int, targetY: int) -> bool:
         x = gcd(targetX, targetY)
         return x & (x - 1) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -90,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isReachable(targetX int, targetY int) bool {
@@ -105,6 +128,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isReachable(targetX: number, targetY: number): boolean {
     const x = gcd(targetX, targetY);
@@ -118,4 +143,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

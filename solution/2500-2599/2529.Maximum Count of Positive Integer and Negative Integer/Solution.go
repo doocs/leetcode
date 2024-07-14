@@ -1,10 +1,9 @@
 func maximumCount(nums []int) int {
-	a, b := 0, 0
-	for _, v := range nums {
-		if v > 0 {
+	var a, b int
+	for _, x := range nums {
+		if x > 0 {
 			a++
-		}
-		if v < 0 {
+		} else if x < 0 {
 			b++
 		}
 	}

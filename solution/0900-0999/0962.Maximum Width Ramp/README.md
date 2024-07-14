@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [962. 最大宽度坡](https://leetcode.cn/problems/maximum-width-ramp)
 
 [English Version](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md)
 
-<!-- tags:栈,数组,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>A</code>，<em>坡</em>是元组&nbsp;<code>(i, j)</code>，其中&nbsp;&nbsp;<code>i &lt; j</code>&nbsp;且&nbsp;<code>A[i] &lt;= A[j]</code>。这样的坡的宽度为&nbsp;<code>j - i</code>。</p>
 
@@ -41,7 +51,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -54,6 +68,8 @@
 时间复杂度 $O(n)$，其中 $n$ 表示 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +86,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxWidthRamp(nums []int) int {
@@ -142,4 +164,6 @@ func maxWidthRamp(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

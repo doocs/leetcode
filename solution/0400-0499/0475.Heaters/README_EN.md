@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0475.Heaters/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [475. Heaters](https://leetcode.com/problems/heaters)
 
 [中文文档](/solution/0400-0499/0475.Heaters/README.md)
 
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>
 
@@ -46,11 +59,17 @@
 	<li><code>1 &lt;= houses[i], heaters[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +103,8 @@ class Solution:
         return left
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int findRadius(int[] houses, int[] heaters) {
@@ -102,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -137,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRadius(houses []int, heaters []int) int {
@@ -175,6 +200,8 @@ func findRadius(houses []int, heaters []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findRadius(houses: number[], heaters: number[]): number {
     houses.sort((a, b) => a - b);
@@ -198,4 +225,6 @@ function findRadius(houses: number[], heaters: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

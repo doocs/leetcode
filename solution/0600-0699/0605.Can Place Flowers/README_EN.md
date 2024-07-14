@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0605.Can%20Place%20Flowers/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
+<!-- problem:start -->
+
 # [605. Can Place Flowers](https://leetcode.com/problems/can-place-flowers)
 
 [中文文档](/solution/0600-0699/0605.Can%20Place%20Flowers/README.md)
 
-<!-- tags:Greedy,Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in <strong>adjacent</strong> plots.</p>
 
@@ -28,7 +39,11 @@
 	<li><code>0 &lt;= n &lt;= flowerbed.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -37,6 +52,8 @@ We directly traverse the array $flowerbed$. For each position $i$, if $flowerbed
 The time complexity is $O(n)$, where $n$ is the length of the array $flowerbed$. We only need to traverse the array once. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -48,6 +65,8 @@ class Solution:
                 n -= 1
         return n <= 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -66,6 +85,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canPlaceFlowers(flowerbed []int, n int) bool {
@@ -104,6 +127,8 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     const m = flowerbed.length;
@@ -118,6 +143,8 @@ function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     return n <= 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -137,6 +164,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -163,4 +192,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

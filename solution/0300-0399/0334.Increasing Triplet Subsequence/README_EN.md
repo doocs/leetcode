@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README_EN.md
+tags:
+    - Greedy
+    - Array
+---
+
+<!-- problem:start -->
+
 # [334. Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence)
 
 [中文文档](/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README.md)
 
-<!-- tags:Greedy,Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <code>true</code><em> if there exists a triple of indices </em><code>(i, j, k)</code><em> such that </em><code>i &lt; j &lt; k</code><em> and </em><code>nums[i] &lt; nums[j] &lt; nums[k]</code>. If no such indices exists, return <code>false</code>.</p>
 
@@ -44,11 +55,17 @@
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you implement a solution that runs in <code>O(n)</code> time complexity and <code>O(1)</code> space complexity?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +80,8 @@ class Solution:
                 mid = num
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func increasingTriplet(nums []int) bool {
 	min, mid := math.MaxInt32, math.MaxInt32
@@ -121,6 +144,8 @@ func increasingTriplet(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function increasingTriplet(nums: number[]): boolean {
@@ -140,6 +165,8 @@ function increasingTriplet(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,9 +193,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -191,4 +224,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

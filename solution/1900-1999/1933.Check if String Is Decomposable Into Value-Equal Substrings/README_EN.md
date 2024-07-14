@@ -1,10 +1,20 @@
-# [1933. Check if String Is Decomposable Into Value-Equal Substrings](https://leetcode.com/problems/check-if-string-is-decomposable-into-value-equal-substrings)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README_EN.md
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
+# [1933. Check if String Is Decomposable Into Value-Equal Substrings 🔒](https://leetcode.com/problems/check-if-string-is-decomposable-into-value-equal-substrings)
 
 [中文文档](/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>value-equal</strong> string is a string where <strong>all</strong> characters are the same.</p>
 
@@ -52,7 +62,11 @@
 	<li><code>s</code> consists of only digits <code>&#39;0&#39;</code> through <code>&#39;9&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -63,6 +77,8 @@ After the traversal, check whether a substring of length $2$ has appeared. If no
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +97,8 @@ class Solution:
             i = j
         return cnt2 == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isDecomposable(s string) bool {
 	i, n := 0, len(s)
@@ -153,6 +175,8 @@ func isDecomposable(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isDecomposable(s: string): boolean {
     const n = s.length;
@@ -176,9 +200,15 @@ function isDecomposable(s: string): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -196,4 +226,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

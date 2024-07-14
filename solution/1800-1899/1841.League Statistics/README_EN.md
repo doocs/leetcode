@@ -1,10 +1,20 @@
-# [1841. League Statistics](https://leetcode.com/problems/league-statistics)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1841.League%20Statistics/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1841. League Statistics 🔒](https://leetcode.com/problems/league-statistics)
 
 [中文文档](/solution/1800-1899/1841.League%20Statistics/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Teams</code></p>
 
@@ -95,11 +105,17 @@ Arsenal (team_id=6) played 2 matches: 2 draws. Total points = 1 + 1 = 2.
 Dortmund is the first team in the table. Ajax and Arsenal have the same points, but since Arsenal has a higher goal_diff than Ajax, Arsenal comes before Ajax in the table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -143,4 +159,6 @@ ORDER BY points DESC, goal_diff DESC, team_name;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

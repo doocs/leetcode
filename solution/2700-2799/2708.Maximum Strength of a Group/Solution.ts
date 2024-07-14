@@ -1,20 +1,14 @@
 function maxStrength(nums: number[]): number {
-    nums.sort((a, b) => a - b);
+    let ans = -Infinity;
     const n = nums.length;
-    if (n === 1) {
-        return nums[0];
-    }
-    if (nums[1] === 0 && nums[n - 1] === 0) {
-        return 0;
-    }
-    let ans = 1;
-    for (let i = 0; i < n; ++i) {
-        if (nums[i] < 0 && i + 1 < n && nums[i + 1] < 0) {
-            ans *= nums[i] * nums[i + 1];
-            ++i;
-        } else if (nums[i] > 0) {
-            ans *= nums[i];
+    for (let i = 1; i < 1 << n; ++i) {
+        let t = 1;
+        for (let j = 0; j < n; ++j) {
+            if ((i >> j) & 1) {
+                t *= nums[j];
+            }
         }
+        ans = Math.max(ans, t);
     }
     return ans;
 }

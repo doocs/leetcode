@@ -1,12 +1,26 @@
-# [505. 迷宫 II](https://leetcode.cn/problems/the-maze-ii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0505.The%20Maze%20II/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 数组
+    - 矩阵
+    - 最短路
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
+# [505. 迷宫 II 🔒](https://leetcode.cn/problems/the-maze-ii)
 
 [English Version](/solution/0500-0599/0505.The%20Maze%20II/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,数组,矩阵,最短路,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>迷宫</strong>中有一个球，它有空地 (表示为 <code>0</code>) 和墙 (表示为 <code>1</code>)。球可以<strong>向上</strong>、<strong>向下</strong>、<strong>向左</strong>或<strong>向右</strong>滚过空地，但直到撞上墙之前它都不会停止滚动。当球停止时，它才可以选择下一个滚动方向。</p>
 
@@ -66,7 +80,11 @@
 	</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -79,6 +97,8 @@
 时间复杂度 $O(m \times n \times \max(m, n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是迷宫的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -103,6 +123,8 @@ class Solution:
                     q.append((x, y))
         return -1 if dist[di][dj] == inf else dist[di][dj]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestDistance(maze [][]int, start []int, destination []int) int {
@@ -215,6 +241,8 @@ func shortestDistance(maze [][]int, start []int, destination []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestDistance(maze: number[][], start: number[], destination: number[]): number {
     const m = maze.length;
@@ -249,4 +277,6 @@ function shortestDistance(maze: number[][], start: number[], destination: number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

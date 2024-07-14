@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README.md
+rating: 1207
+source: 第 180 场周赛 Q1
+tags:
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [1380. 矩阵中的幸运数](https://leetcode.cn/problems/lucky-numbers-in-a-matrix)
 
 [English Version](/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README_EN.md)
 
-<!-- tags:数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m * n</code> 的矩阵，矩阵中的数字 <strong>各不相同</strong> 。请你按 <strong>任意</strong> 顺序返回矩阵中的所有幸运数。</p>
 
@@ -55,7 +66,11 @@
 	<li>矩阵中的所有元素都是不同的</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：维护行最小值和列最大值
 
@@ -67,6 +82,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
@@ -74,6 +91,8 @@ class Solution:
         cols = {max(col) for col in zip(*matrix)}
         return list(rows & cols)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func luckyNumbers(matrix [][]int) (ans []int) {
 	m, n := len(matrix), len(matrix[0])
@@ -153,6 +176,8 @@ func luckyNumbers(matrix [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function luckyNumbers(matrix: number[][]): number[] {
     const m = matrix.length;
@@ -176,6 +201,8 @@ function luckyNumbers(matrix: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,4 +234,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

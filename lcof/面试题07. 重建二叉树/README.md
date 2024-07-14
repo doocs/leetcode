@@ -1,6 +1,16 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9807.%20%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 07. 重建二叉树](https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/)
 
 ## 题目描述
+
+<!-- description:start -->
 
 <p>输入某二叉树的前序遍历和中序遍历的结果，请构建该二叉树并返回其根节点。</p>
 
@@ -32,7 +42,11 @@
 
 <p><strong>注意</strong>：本题与主站 105 题重复：<a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 递归
 
@@ -49,6 +63,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -74,6 +90,8 @@ class Solution:
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(preorder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -148,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -177,6 +199,8 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return dfs(0, 0, len(inorder))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -214,6 +238,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -233,27 +259,20 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn help(preorder: &[i32], inorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
         if inorder.is_empty() {
             return None;
         }
         let val = preorder[0];
-        let i = inorder
-            .iter()
-            .position(|num| *num == val)
-            .unwrap();
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val,
-                    left: Self::help(&preorder[1..i + 1], &inorder[..i]),
-                    right: Self::help(&preorder[i + 1..], &inorder[i + 1..]),
-                })
-            )
-        )
+        let i = inorder.iter().position(|num| *num == val).unwrap();
+        Some(Rc::new(RefCell::new(TreeNode {
+            val,
+            left: Self::help(&preorder[1..i + 1], &inorder[..i]),
+            right: Self::help(&preorder[i + 1..], &inorder[i + 1..]),
+        })))
     }
 
     pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -261,6 +280,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -296,6 +317,8 @@ var buildTree = function (preorder, inorder) {
 };
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for a binary tree node.
@@ -320,11 +343,61 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/* public class TreeNode {
+*     public var val: Int
+*     public var left: TreeNode?
+*     public var right: TreeNode?
+*     public init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+*  }
+*/
+
+class Solution {
+    private var d = [Int: Int]()
+    private var preorder: [Int] = []
+    private var inorder: [Int] = []
+
+    func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
+        let n = inorder.count
+        for i in 0..<n {
+            d[inorder[i]] = i
+        }
+        self.preorder = preorder
+        self.inorder = inorder
+        return dfs(0, 0, n)
+    }
+
+    private func dfs(_ i: Int, _ j: Int, _ n: Int) -> TreeNode? {
+        if n < 1 {
+            return nil
+        }
+        let k = d[preorder[i]]!
+        let l = k - j
+        let root = TreeNode(preorder[i])
+        root.left = dfs(i + 1, j, l)
+        root.right = dfs(i + 1 + l, k + 1, n - l - 1)
+        return root
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 /**
@@ -357,4 +430,6 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

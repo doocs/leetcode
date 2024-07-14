@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [828. Count Unique Characters of All Substrings of a Given String](https://leetcode.com/problems/count-unique-characters-of-all-substrings-of-a-given-string)
 
 [中文文档](/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README.md)
 
-<!-- tags:Hash Table,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Let&#39;s define a function <code>countUniqueChars(s)</code> that returns the number of unique characters in&nbsp;<code>s</code>.</p>
 
@@ -50,7 +62,11 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 	<li><code>s</code> consists of uppercase English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Calculate the Contribution of Each Character
 
@@ -66,6 +82,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniqueLetterString(self, s: str) -> int:
@@ -79,6 +97,8 @@ class Solution:
                 ans += (v[i] - v[i - 1]) * (v[i + 1] - v[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniqueLetterString(s string) (ans int) {
 	d := make([][]int, 26)
@@ -142,6 +166,8 @@ func uniqueLetterString(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniqueLetterString(s: string): number {
     const d: number[][] = Array.from({ length: 26 }, () => [-1]);
@@ -159,6 +185,8 @@ function uniqueLetterString(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -181,4 +209,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

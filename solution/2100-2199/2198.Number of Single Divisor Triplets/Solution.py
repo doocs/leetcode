@@ -1,21 +1,18 @@
 class Solution:
     def singleDivisorTriplet(self, nums: List[int]) -> int:
-        def check(a, b, c):
-            s = a + b + c
-            return sum(s % x == 0 for x in [a, b, c]) == 1
-
-        counter = Counter(nums)
+        cnt = Counter(nums)
         ans = 0
-        for a, cnt1 in counter.items():
-            for b, cnt2 in counter.items():
-                for c, cnt3 in counter.items():
-                    if check(a, b, c):
+        for a, x in cnt.items():
+            for b, y in cnt.items():
+                for c, z in cnt.items():
+                    s = a + b + c
+                    if sum(s % v == 0 for v in (a, b, c)) == 1:
                         if a == b:
-                            ans += cnt1 * (cnt1 - 1) * cnt3
+                            ans += x * (x - 1) * z
                         elif a == c:
-                            ans += cnt1 * (cnt1 - 1) * cnt2
+                            ans += x * (x - 1) * y
                         elif b == c:
-                            ans += cnt1 * cnt2 * (cnt2 - 1)
+                            ans += x * y * (y - 1)
                         else:
-                            ans += cnt1 * cnt2 * cnt3
+                            ans += x * y * z
         return ans

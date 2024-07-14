@@ -1,10 +1,20 @@
-# [276. Paint Fence](https://leetcode.com/problems/paint-fence)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0276.Paint%20Fence/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [276. Paint Fence 🔒](https://leetcode.com/problems/paint-fence)
 
 [中文文档](/solution/0200-0299/0276.Paint%20Fence/README.md)
 
-<!-- tags:Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are painting a fence of <code>n</code> posts with <code>k</code> different colors. You must paint the posts following these rules:</p>
 
@@ -48,67 +58,196 @@ Note that painting all the posts red or all the posts green is invalid because t
 	<li>The testcases are generated such that the answer is in the range <code>[0, 2<sup>31</sup> - 1]</code> for the given <code>n</code> and <code>k</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ to represent the number of ways to paint the fence posts from $[0..i]$ such that the last two posts have different colors, and $g[i]$ to represent the number of ways to paint the fence posts from $[0..i]$ such that the last two posts have the same color. Initially, $f[0] = k$ and $g[0] = 0$.
+
+When $i > 0$, we have the following state transition equations:
+
+$$
+\begin{aligned}
+f[i] & = (f[i - 1] + g[i - 1]) \times (k - 1) \\
+g[i] & = f[i - 1]
+\end{aligned}
+$$
+
+The final answer is $f[n - 1] + g[n - 1]$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of fence posts.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def numWays(self, n: int, k: int) -> int:
-        dp = [[0] * 2 for _ in range(n)]
-        dp[0][0] = k
+        f = [0] * n
+        g = [0] * n
+        f[0] = k
         for i in range(1, n):
-            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1)
-            dp[i][1] = dp[i - 1][0]
-        return sum(dp[-1])
+            f[i] = (f[i - 1] + g[i - 1]) * (k - 1)
+            g[i] = f[i - 1]
+        return f[-1] + g[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int numWays(int n, int k) {
-        int[][] dp = new int[n][2];
-        dp[0][0] = k;
+        int[] f = new int[n];
+        int[] g = new int[n];
+        f[0] = k;
         for (int i = 1; i < n; ++i) {
-            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1);
-            dp[i][1] = dp[i - 1][0];
+            f[i] = (f[i - 1] + g[i - 1]) * (k - 1);
+            g[i] = f[i - 1];
         }
-        return dp[n - 1][0] + dp[n - 1][1];
+        return f[n - 1] + g[n - 1];
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int numWays(int n, int k) {
-        vector<vector<int>> dp(n, vector<int>(2));
-        dp[0][0] = k;
+        vector<int> f(n);
+        vector<int> g(n);
+        f[0] = k;
         for (int i = 1; i < n; ++i) {
-            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1);
-            dp[i][1] = dp[i - 1][0];
+            f[i] = (f[i - 1] + g[i - 1]) * (k - 1);
+            g[i] = f[i - 1];
         }
-        return dp[n - 1][0] + dp[n - 1][1];
+        return f[n - 1] + g[n - 1];
     }
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int, k int) int {
-	dp := make([][]int, n)
-	for i := range dp {
-		dp[i] = make([]int, 2)
-	}
-	dp[0][0] = k
+	f := make([]int, n)
+	g := make([]int, n)
+	f[0] = k
 	for i := 1; i < n; i++ {
-		dp[i][0] = (dp[i-1][0] + dp[i-1][1]) * (k - 1)
-		dp[i][1] = dp[i-1][0]
+		f[i] = (f[i-1] + g[i-1]) * (k - 1)
+		g[i] = f[i-1]
 	}
-	return dp[n-1][0] + dp[n-1][1]
+	return f[n-1] + g[n-1]
+}
+```
+
+#### TypeScript
+
+```ts
+function numWays(n: number, k: number): number {
+    const f: number[] = Array(n).fill(0);
+    const g: number[] = Array(n).fill(0);
+    f[0] = k;
+    for (let i = 1; i < n; ++i) {
+        f[i] = (f[i - 1] + g[i - 1]) * (k - 1);
+        g[i] = f[i - 1];
+    }
+    return f[n - 1] + g[n - 1];
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that $f[i]$ and $g[i]$ are only related to $f[i - 1]$ and $g[i - 1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i - 1]$ and $g[i - 1]$ respectively, thus optimizing the space complexity to $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numWays(self, n: int, k: int) -> int:
+        f, g = k, 0
+        for _ in range(n - 1):
+            ff = (f + g) * (k - 1)
+            g = f
+            f = ff
+        return f + g
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numWays(int n, int k) {
+        int f = k, g = 0;
+        for (int i = 1; i < n; ++i) {
+            int ff = (f + g) * (k - 1);
+            g = f;
+            f = ff;
+        }
+        return f + g;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numWays(int n, int k) {
+        int f = k, g = 0;
+        for (int i = 1; i < n; ++i) {
+            int ff = (f + g) * (k - 1);
+            g = f;
+            f = ff;
+        }
+        return f + g;
+    }
+};
+```
+
+#### Go
+
+```go
+func numWays(n int, k int) int {
+	f, g := k, 0
+	for i := 1; i < n; i++ {
+		f, g = (f+g)*(k-1), f
+	}
+	return f + g
+}
+```
+
+#### TypeScript
+
+```ts
+function numWays(n: number, k: number): number {
+    let [f, g] = [k, 0];
+    for (let i = 1; i < n; ++i) {
+        const ff = (f + g) * (k - 1);
+        g = f;
+        f = ff;
+    }
+    return f + g;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

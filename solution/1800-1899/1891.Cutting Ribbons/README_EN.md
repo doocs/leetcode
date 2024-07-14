@@ -1,10 +1,21 @@
-# [1891. Cutting Ribbons](https://leetcode.com/problems/cutting-ribbons)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md
+tags:
+    - Array
+    - Binary Search
+---
+
+<!-- problem:start -->
+
+# [1891. Cutting Ribbons 🔒](https://leetcode.com/problems/cutting-ribbons)
 
 [中文文档](/solution/1800-1899/1891.Cutting%20Ribbons/README.md)
 
-<!-- tags:Array,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>ribbons</code>, where <code>ribbons[i]</code> represents the length of the <code>i<sup>th</sup></code> ribbon, and an integer <code>k</code>. You may cut any of the ribbons into any number of segments of <strong>positive integer</strong> lengths, or perform no cuts at all.</p>
 
@@ -67,7 +78,11 @@ Now you have 4 ribbons of length 4.
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -80,6 +95,8 @@ Finally, we return $left$ as the maximum length of the ropes we can obtain.
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the number of ropes and the maximum length of the ropes, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +111,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxLength(ribbons []int, k int) int {
 	left, right := 0, slices.Max(ribbons)
@@ -159,6 +182,8 @@ func maxLength(ribbons []int, k int) int {
 	return left
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxLength(ribbons: number[], k: number): number {
@@ -179,6 +204,8 @@ function maxLength(ribbons: number[], k: number): number {
     return left;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -204,6 +231,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -232,4 +261,6 @@ var maxLength = function (ribbons, k) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

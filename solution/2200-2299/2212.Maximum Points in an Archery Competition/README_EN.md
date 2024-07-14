@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README_EN.md
+rating: 1868
+source: Weekly Contest 285 Q3
+tags:
+    - Bit Manipulation
+    - Array
+    - Backtracking
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [2212. Maximum Points in an Archery Competition](https://leetcode.com/problems/maximum-points-in-an-archery-competition)
 
 [中文文档](/solution/2200-2299/2212.Maximum%20Points%20in%20an%20Archery%20Competition/README.md)
 
-<!-- tags:Bit Manipulation,Array,Backtracking,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob are opponents in an archery competition. The competition has set the following rules:</p>
 
@@ -62,11 +77,17 @@ It can be shown that Bob cannot obtain a score higher than 27 points.
 	<li><code>sum(aliceArrows[i]) == numArrows</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +112,8 @@ class Solution:
         ans[0] = numArrows
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 	n := len(aliceArrows)
@@ -185,6 +212,8 @@ func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     const dfs = (arr: number[], i: number, c: number): number[] => {
@@ -209,6 +238,8 @@ function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     fn dfs(alice_arrows: &Vec<i32>, mut res: Vec<i32>, count: i32, i: usize) -> Vec<i32> {
@@ -220,14 +251,12 @@ impl Solution {
         if count > alice_arrows[i] {
             res[i] = alice_arrows[i] + 1;
             let r2 = Self::dfs(alice_arrows, res, count - alice_arrows[i] - 1, i - 1);
-            if
-                r2
-                    .iter()
-                    .enumerate()
-                    .map(|(i, v)| if v > &0 { i } else { 0 })
-                    .sum::<usize>() >
-                r1
-                    .iter()
+            if r2
+                .iter()
+                .enumerate()
+                .map(|(i, v)| if v > &0 { i } else { 0 })
+                .sum::<usize>()
+                > r1.iter()
                     .enumerate()
                     .map(|(i, v)| if v > &0 { i } else { 0 })
                     .sum::<usize>()
@@ -246,4 +275,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

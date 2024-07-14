@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0749.Contain%20Virus/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [749. 隔离病毒](https://leetcode.cn/problems/contain-virus)
 
 [English Version](/solution/0700-0799/0749.Contain%20Virus/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>病毒扩散得很快，现在你的任务是尽可能地通过安装防火墙来隔离病毒。</p>
 
@@ -65,7 +77,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS 暴力模拟
 
@@ -76,6 +92,8 @@ DFS 找到每个病毒区域 `areas[i]`，同时记录每个区域边界节点 `
 剩余的病毒区域向外感染一个区域。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -122,6 +140,8 @@ class Solution:
                                 isInfected[x][y] = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -216,6 +236,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -304,6 +326,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func containVirus(isInfected [][]int) int {
 	m, n := len(isInfected), len(isInfected[0])
@@ -390,4 +414,6 @@ func containVirus(isInfected [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

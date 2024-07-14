@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0146.LRU%20Cache/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - Linked List
+    - Doubly-Linked List
+---
+
+<!-- problem:start -->
+
 # [146. LRU Cache](https://leetcode.com/problems/lru-cache)
 
 [中文文档](/solution/0100-0199/0146.LRU%20Cache/README.md)
 
-<!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU" target="_blank">Least Recently Used (LRU) cache</a></strong>.</p>
 
@@ -51,11 +64,28 @@ lRUCache.get(4);    // return 4
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Hash Table + Doubly Linked List
+
+We can implement an LRU (Least Recently Used) cache using a "hash table" and a "doubly linked list".
+
+-   Hash Table: Used to store the key and its corresponding node location.
+-   Doubly Linked List: Used to store node data, sorted by access time.
+
+When accessing a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. This ensures that the node stored at the tail of the list is the least recently used node. When the number of nodes exceeds the maximum cache space, we eliminate the node at the tail of the list.
+
+When inserting a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. If it does not exist, we first check if the cache is full. If it is full, we delete the node at the tail of the list and insert the new node at the head of the list.
+
+The time complexity is $O(1)$, and the space complexity is $O(\text{capacity})$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -123,6 +153,8 @@ class LRUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -211,6 +243,8 @@ class LRUCache {
  * obj.put(key,value);
  */
 ```
+
+#### C++
 
 ```cpp
 struct Node {
@@ -306,6 +340,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type node struct {
 	key, val   int
@@ -377,6 +413,8 @@ func (this *LRUCache) pushFront(n *node) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class LRUCache {
     capacity: number;
@@ -412,6 +450,8 @@ class LRUCache {
  * obj.put(key,value)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -536,13 +576,10 @@ impl LRUCache {
             None => None,
         }
     }
-}/**
- * Your LRUCache object will be instantiated and called as such:
- * let obj = LRUCache::new(capacity);
- * let ret_1: i32 = obj.get(key);
- * obj.put(key, value);
- */
+}
 ```
+
+#### C#
 
 ```cs
 public class LRUCache {
@@ -625,4 +662,6 @@ public class LRUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

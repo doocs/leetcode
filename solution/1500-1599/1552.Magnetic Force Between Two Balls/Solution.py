@@ -1,21 +1,14 @@
 class Solution:
     def maxDistance(self, position: List[int], m: int) -> int:
-        def check(f):
-            prev = position[0]
-            cnt = 1
-            for curr in position[1:]:
+        def check(f: int) -> bool:
+            prev = -inf
+            cnt = 0
+            for curr in position:
                 if curr - prev >= f:
                     prev = curr
                     cnt += 1
-            return cnt >= m
+            return cnt < m
 
         position.sort()
-        left, right = 1, position[-1]
-        while left < right:
-            mid = (left + right + 1) >> 1
-
-            if check(mid):
-                left = mid
-            else:
-                right = mid - 1
-        return left
+        l, r = 1, position[-1]
+        return bisect_left(range(l, r + 1), True, key=check)

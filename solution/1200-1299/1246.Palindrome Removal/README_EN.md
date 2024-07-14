@@ -1,10 +1,23 @@
-# [1246. Palindrome Removal](https://leetcode.com/problems/palindrome-removal)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1246.Palindrome%20Removal/README_EN.md
+rating: 2203
+source: Biweekly Contest 12 Q4
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [1246. Palindrome Removal 🔒](https://leetcode.com/problems/palindrome-removal)
 
 [中文文档](/solution/1200-1299/1246.Palindrome%20Removal/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>arr</code>.</p>
 
@@ -36,7 +49,11 @@
 	<li><code>1 &lt;= arr[i] &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming (Interval DP)
 
@@ -51,6 +68,8 @@ The answer is $f[0][n - 1]$.
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +89,8 @@ class Solution:
                     f[i][j] = t
         return f[0][n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumMoves(arr []int) int {
@@ -158,4 +183,6 @@ func minimumMoves(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

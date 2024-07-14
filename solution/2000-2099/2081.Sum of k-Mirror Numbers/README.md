@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md
+rating: 2209
+source: 第 268 场周赛 Q4
+tags:
+    - 数学
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [2081. k 镜像数字的和](https://leetcode.cn/problems/sum-of-k-mirror-numbers)
 
 [English Version](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md)
 
-<!-- tags:数学,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个 <strong>k 镜像数字</strong>&nbsp;指的是一个在十进制和 k 进制下从前往后读和从后往前读都一样的&nbsp;<strong>没有前导 0</strong>&nbsp;的&nbsp;<strong>正</strong>&nbsp;整数。</p>
 
@@ -68,11 +79,17 @@
 	<li><code>1 &lt;= n &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -110,4 +127,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

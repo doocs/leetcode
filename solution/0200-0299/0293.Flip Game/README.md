@@ -1,12 +1,20 @@
-# [293. 翻转游戏](https://leetcode.cn/problems/flip-game)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0293.Flip%20Game/README.md
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [293. 翻转游戏 🔒](https://leetcode.cn/problems/flip-game)
 
 [English Version](/solution/0200-0299/0293.Flip%20Game/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你和朋友玩一个叫做「翻转游戏」的游戏。游戏规则如下：</p>
 
@@ -39,7 +47,11 @@
 	<li><code>currentState[i]</code> 不是 <code>'+'</code> 就是 <code>'-'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历 + 模拟
 
@@ -50,6 +62,8 @@
 时间复杂度 $O(n^2)$，其中 $n$ 是字符串长度。忽略答案数组的空间复杂度，空间复杂度 $O(n)$ 或 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +77,8 @@ class Solution:
                 s[i] = s[i + 1] = "+"
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generatePossibleNextMoves(currentState string) (ans []string) {
 	s := []byte(currentState)
@@ -113,6 +133,8 @@ func generatePossibleNextMoves(currentState string) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function generatePossibleNextMoves(currentState: string): string[] {
@@ -131,4 +153,6 @@ function generatePossibleNextMoves(currentState: string): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

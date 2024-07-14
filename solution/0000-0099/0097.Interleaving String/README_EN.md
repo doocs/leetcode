@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0097.Interleaving%20String/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [97. Interleaving String](https://leetcode.com/problems/interleaving-string)
 
 [中文文档](/solution/0000-0099/0097.Interleaving%20String/README.md)
 
-<!-- tags:String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given strings <code>s1</code>, <code>s2</code>, and <code>s3</code>, find whether <code>s3</code> is formed by an <strong>interleaving</strong> of <code>s1</code> and <code>s2</code>.</p>
 
@@ -58,7 +69,11 @@ Since s3 can be obtained by interleaving s1 and s2, we return true.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it using only <code>O(s2.length)</code> additional memory space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -82,6 +97,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -101,6 +118,8 @@ class Solution:
             return False
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +197,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -199,6 +222,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	return dfs(0, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
@@ -228,6 +253,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -249,7 +276,7 @@ impl Solution {
             0,
             &s1.chars().collect(),
             &s2.chars().collect(),
-            &s3.chars().collect()
+            &s3.chars().collect(),
         )
     }
 
@@ -262,7 +289,7 @@ impl Solution {
         j: usize,
         s1: &Vec<char>,
         s2: &Vec<char>,
-        s3: &Vec<char>
+        s3: &Vec<char>,
     ) -> bool {
         if i >= n && j >= m {
             return true;
@@ -282,11 +309,10 @@ impl Solution {
         }
 
         // If the first approach does not succeed, let's then try `s2`
-        if
-            record[i][j] == 0 &&
-            j < m &&
-            s2[j] == s3[k] &&
-            Self::dfs(record, n, m, i, j + 1, s1, s2, s3)
+        if record[i][j] == 0
+            && j < m
+            && s2[j] == s3[k]
+            && Self::dfs(record, n, m, i, j + 1, s1, s2, s3)
         {
             record[i][j] = 1;
         }
@@ -295,6 +321,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -339,6 +367,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can convert the memoization search in Solution 1 into dynamic programming.
@@ -361,6 +393,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -378,6 +412,8 @@ class Solution:
                     f[i][j] |= f[i][j - 1]
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -403,6 +439,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -431,6 +469,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -457,6 +497,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
     const m = s1.length;
@@ -480,6 +522,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return f[m][n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -512,6 +556,8 @@ We notice that the state $f[i][j]$ is only related to the states $f[i - 1][j]$, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -528,6 +574,8 @@ class Solution:
                     f[j] |= f[j - 1] and s2[j - 1] == s3[k]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -553,6 +601,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -581,6 +631,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
@@ -603,6 +655,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isInterleave(s1: string, s2: string, s3: string): boolean {
@@ -627,6 +681,8 @@ function isInterleave(s1: string, s2: string, s3: string): boolean {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -655,4 +711,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

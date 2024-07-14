@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0986.Interval%20List%20Intersections/README.md
+tags:
+    - 数组
+    - 双指针
+---
+
+<!-- problem:start -->
+
 # [986. 区间列表的交集](https://leetcode.cn/problems/interval-list-intersections)
 
 [English Version](/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md)
 
-<!-- tags:数组,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个由一些<strong> 闭区间 </strong>组成的列表，<code>firstList</code> 和 <code>secondList</code> ，其中 <code>firstList[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> 而 <code>secondList[j] = [start<sub>j</sub>, end<sub>j</sub>]</code> 。每个区间列表都是成对 <strong>不相交</strong> 的，并且 <strong>已经排序</strong> 。</p>
 
@@ -59,11 +68,17 @@
 	<li><code>end<sub>j</sub> < start<sub>j+1</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +98,8 @@ class Solution:
                 j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 	m, n := len(firstList), len(secondList)
@@ -145,6 +166,8 @@ func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function intervalIntersection(firstList: number[][], secondList: number[][]): number[][] {
@@ -169,11 +192,13 @@ function intervalIntersection(firstList: number[][], secondList: number[][]): nu
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn interval_intersection(
         first_list: Vec<Vec<i32>>,
-        second_list: Vec<Vec<i32>>
+        second_list: Vec<Vec<i32>>,
     ) -> Vec<Vec<i32>> {
         let n = first_list.len();
         let m = second_list.len();
@@ -198,4 +223,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

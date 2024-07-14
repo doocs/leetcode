@@ -1,12 +1,20 @@
-# [2987. 寻找房价最贵的城市](https://leetcode.cn/problems/find-expensive-cities)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2987. 寻找房价最贵的城市 🔒](https://leetcode.cn/problems/find-expensive-cities)
 
 [English Version](/solution/2900-2999/2987.Find%20Expensive%20Cities/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Listings</code></p>
 
@@ -59,20 +67,26 @@ Listings table:
 +------------+
 <b>解释</b>
 全国平均房价为 $6,122,059.45。在列出的城市中：
-- Chicago 的平均价格为 $7,043,706.75
+- Chicago 的平均价格为 $7,048,706.75
 - Los Angeles 的平均价格为 $6,277,754.5
 - San Francisco 的平均价格为 $3,900,513.33
 - New York 的平均价格为 $4,422,739
 只有 Chicago 和 Los Angeles 的平均房价超过了全国平均水平。因此，这两个城市包含在输出表中。输出表按城市名称升序排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组聚合 + 子查询
 
 我们将 `Listings` 表按照 `city` 分组，然后计算每个城市的平均房价，最后筛选出平均房价大于全国平均房价的城市即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -85,4 +99,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

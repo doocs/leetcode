@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.14.Boolean%20Evaluation/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 08.14. 布尔运算](https://leetcode.cn/problems/boolean-evaluation-lcci)
 
 [English Version](/lcci/08.14.Boolean%20Evaluation/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一个布尔表达式和一个期望的布尔结果 result，布尔表达式由 <code>0</code> (false)、<code>1</code> (true)、<code>&amp;</code> (AND)、 <code>|</code> (OR) 和 <code>^</code> (XOR) 符号组成。实现一个函数，算出有几种可使该表达式得出 result 值的括号方法。</p>
 
 <p><strong>示例 1:</strong></p>
@@ -29,11 +38,17 @@
 	<li>运算符的数量不超过 19 个</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +76,8 @@ class Solution:
         ans = dfs(s)
         return ans[result] if 0 <= result < 2 else 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +165,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countEval(s string, result int) int {
@@ -190,6 +211,61 @@ func countEval(s string, result int) int {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var memo = [String: [Int]]()
+
+    func countEval(_ s: String, _ result: Int) -> Int {
+        memo = [:]
+        let ans = dfs(s)
+        return result == 0 || result == 1 ? ans[result] : 0
+    }
+
+    private func dfs(_ s: String) -> [Int] {
+        if let res = memo[s] {
+            return res
+        }
+
+        var res = [0, 0]
+        if s.count == 1 {
+            res[Int(String(s))!] = 1
+            return res
+        }
+
+        for k in 0..<s.count {
+            let index = s.index(s.startIndex, offsetBy: k)
+            let op = String(s[index])
+
+            if op == "&" || op == "|" || op == "^" {
+                let left = dfs(String(s[s.startIndex..<index]))
+                let right = dfs(String(s[s.index(after: index)...]))
+
+                for i in 0...1 {
+                    for j in 0...1 {
+                        var v = 0
+                        if op == "&" {
+                            v = i & j
+                        } else if op == "|" {
+                            v = i | j
+                        } else if op == "^" {
+                            v = i ^ j
+                        }
+                        res[v] += left[i] * right[j]
+                    }
+                }
+            }
+        }
+
+        memo[s] = res
+        return res
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

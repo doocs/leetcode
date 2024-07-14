@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.12.Paths%20with%20Sum/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [04.12. Paths with Sum](https://leetcode.cn/problems/paths-with-sum-lcci)
 
 [中文文档](/lcci/04.12.Paths%20with%20Sum/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary tree in which each node contains an integer value (which might be positive or negative). Design an algorithm to count the number of paths that sum to a given value. The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).</p>
 
@@ -42,7 +52,11 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 	<li><code>node number &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Prefix Sum + Recursion
 
@@ -63,6 +77,8 @@ The recursive process of the function $dfs(node, s)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -89,6 +105,8 @@ class Solution:
         cnt = Counter({0: 1})
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -125,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -184,6 +206,8 @@ func pathSum(root *TreeNode, sum int) int {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -219,6 +243,8 @@ function pathSum(root: TreeNode | null, sum: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -238,9 +264,9 @@ function pathSum(root: TreeNode | null, sum: number): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> i32 {
         let mut cnt = HashMap::new();
@@ -252,7 +278,7 @@ impl Solution {
         root: Option<Rc<RefCell<TreeNode>>>,
         sum: i32,
         s: i32,
-        cnt: &mut HashMap<i32, i32>
+        cnt: &mut HashMap<i32, i32>,
     ) -> i32 {
         if let Some(node) = root {
             let node = node.borrow();
@@ -269,6 +295,51 @@ impl Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/* class TreeNode {
+*    var val: Int
+*    var left: TreeNode?
+*    var right: TreeNode?
+*
+*    init(_ val: Int, _ left: TreeNode? = nil, _ right: TreeNode? = nil) {
+*        self.val = val
+*        self.left = left
+*        self.right = right
+*    }
+* }
+*/
+
+class Solution {
+    private var cnt: [Int: Int] = [:]
+    private var target: Int = 0
+
+    func pathSum(_ root: TreeNode?, _ sum: Int) -> Int {
+        cnt[0] = 1
+        target = sum
+        return dfs(root, 0)
+    }
+
+    private func dfs(_ root: TreeNode?, _ s: Int) -> Int {
+        guard let root = root else {
+            return 0
+        }
+        let newSum = s + root.val
+        let ans = cnt[newSum - target, default: 0]
+
+        cnt[newSum, default: 0] += 1
+        let leftPaths = dfs(root.left, newSum)
+        let rightPaths = dfs(root.right, newSum)
+        cnt[newSum, default: 0] -= 1
+
+        return ans + leftPaths + rightPaths
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2132.Stamping%20the%20Grid/README.md
+rating: 2364
+source: 第 69 场双周赛 Q4
+tags:
+    - 贪心
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [2132. 用邮票贴满网格图](https://leetcode.cn/problems/stamping-the-grid)
 
 [English Version](/solution/2100-2199/2132.Stamping%20the%20Grid/README_EN.md)
 
-<!-- tags:贪心,数组,矩阵,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>m x n</code>&nbsp;的二进制矩阵&nbsp;<code>grid</code>&nbsp;，每个格子要么为&nbsp;<code>0</code>&nbsp;（空）要么为&nbsp;<code>1</code>&nbsp;（被占据）。</p>
 
@@ -56,7 +69,11 @@
 	<li><code>1 &lt;= stampHeight, stampWidth &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二维前缀和 + 二维差分
 
@@ -80,6 +97,8 @@ $$
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是二维矩阵的高度和宽度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +126,8 @@ class Solution:
                     return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -142,6 +163,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -180,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
@@ -223,6 +248,8 @@ func possibleToStamp(grid [][]int, stampHeight int, stampWidth int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: number): boolean {
     const m = grid.length;
@@ -259,6 +286,8 @@ function possibleToStamp(grid: number[][], stampHeight: number, stampWidth: numb
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn possible_to_stamp(grid: Vec<Vec<i32>>, stamp_height: i32, stamp_width: i32) -> bool {
@@ -290,9 +319,8 @@ impl Solution {
                 // Check the bound
                 if x <= n && y <= m {
                     // If the region can be sticked (All cells are empty, which means the sum will be zero)
-                    if
-                        prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j] ==
-                        0
+                    if prefix_vec[x][y] - prefix_vec[x][j] - prefix_vec[i][y] + prefix_vec[i][j]
+                        == 0
                     {
                         // Update the difference vector
                         diff_vec[i][j] += 1;
@@ -327,6 +355,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -372,4 +402,6 @@ var possibleToStamp = function (grid, stampHeight, stampWidth) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

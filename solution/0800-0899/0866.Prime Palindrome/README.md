@@ -1,14 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0866.Prime%20Palindrome/README.md
+tags:
+    - 数学
+    - 数论
+---
+
+<!-- problem:start -->
+
 # [866. 回文质数](https://leetcode.cn/problems/prime-palindrome)
 
 [English Version](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给你一个整数 <code>n</code> ，返回大于或等于 <code>n</code> 的最小<stron>回文质数</stron>。</p>
+<p>给你一个整数 <code>n</code> ，返回大于或等于 <code>n</code> 的最小&nbsp;<stron><strong>回文质数</strong></stron>。</p>
 <!-- 一个整数是素数的定义，以及1不是素数的说明 -->
 
 <p>一个整数如果恰好有两个除数：<code>1</code> 和它本身，那么它是 <strong>质数</strong> 。注意，<code>1</code> 不是质数。</p>
@@ -56,11 +65,17 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +104,8 @@ class Solution:
                 n = 10**8
             n += 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +175,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func primePalindrome(n int) int {
@@ -193,4 +214,6 @@ func primePalindrome(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

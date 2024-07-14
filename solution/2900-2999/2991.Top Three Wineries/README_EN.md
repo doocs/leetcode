@@ -1,10 +1,20 @@
-# [2991. Top Three Wineries](https://leetcode.com/problems/top-three-wineries)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2991. Top Three Wineries 🔒](https://leetcode.com/problems/top-three-wineries)
 
 [中文文档](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Wineries</code></p>
 
@@ -71,7 +81,11 @@ For the USA
 Output table is ordered by country in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping + Window Function + Left Join
 
@@ -91,6 +105,8 @@ We can first group the `Wineries` table by `country` and `winery`, calculate the
 Next, we just need to filter out the data where `rk = 1`, then join table `T` to itself twice, connecting the data where `rk = 2` and `rk = 3` respectively, to get the final result.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -120,4 +136,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

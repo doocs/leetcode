@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README.md
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [921. 使括号有效的最少添加](https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid)
 
 [English Version](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README_EN.md)
 
-<!-- tags:栈,贪心,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>只有满足下面几点之一，括号字符串才是有效的：</p>
 
@@ -49,7 +59,11 @@
 	<li><code>s</code> 只包含&nbsp;<code>'('</code> 和&nbsp;<code>')'</code>&nbsp;字符。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 栈
 
@@ -66,6 +80,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
@@ -77,6 +93,8 @@ class Solution:
                 stk.append(c)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	stk := []rune{}
@@ -124,7 +146,27 @@ func minAddToMakeValid(s string) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function minAddToMakeValid(s: string): number {
+    const stk: string[] = [];
+    for (const c of s) {
+        if (c === ')' && stk.length > 0 && stk.at(-1)! === '(') {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.length;
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：贪心 + 计数
 
@@ -139,9 +181,11 @@ func minAddToMakeValid(s string) int {
 
 遍历结束后，将 `cnt` 的值加到 `ans` 中，即为答案。
 
-时间复杂度为 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度为 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -157,6 +201,8 @@ class Solution:
         ans += cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -177,6 +223,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +244,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minAddToMakeValid(s string) int {
 	ans, cnt := 0, 0
@@ -213,6 +263,27 @@ func minAddToMakeValid(s string) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function minAddToMakeValid(s: string): number {
+    let [ans, cnt] = [0, 0];
+    for (const c of s) {
+        if (c === '(') {
+            ++cnt;
+        } else if (cnt) {
+            --cnt;
+        } else {
+            ++ans;
+        }
+    }
+    ans += cnt;
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

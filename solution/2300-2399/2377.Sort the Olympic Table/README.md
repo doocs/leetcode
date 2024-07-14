@@ -1,12 +1,20 @@
-# [2377. 整理奥运表](https://leetcode.cn/problems/sort-the-olympic-table)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2377. 整理奥运表 🔒](https://leetcode.cn/problems/sort-the-olympic-table)
 
 [English Version](/solution/2300-2399/2377.Sort%20the%20Olympic%20Table/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Olympic</code></p>
 
@@ -68,11 +76,17 @@ Olympic 表:
 中国和美国之间的联系被它们的字典名称打破了。因为 "China" 在字典上比 "USA" 小，所以它排在第一位。
 以色列排在埃及之前，因为它的铜牌更多。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -83,4 +97,6 @@ ORDER BY 2 DESC, 3 DESC, 4 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
-# [585. 2016 年的投资](https://leetcode.cn/problems/investments-in-2016)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0585.Investments%20in%202016/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [585. 2016年的投资](https://leetcode.cn/problems/investments-in-2016)
 
 [English Version](/solution/0500-0599/0585.Investments%20in%202016/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Insurance</code> 表：</p>
 
@@ -72,11 +80,17 @@ tiv_2015 值为 10 与第三条和第四条记录相同，且其位置是唯一�
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -95,4 +109,6 @@ WHERE cnt1 > 1 AND cnt2 = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0306.Additive%20Number/README.md
+tags:
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [306. 累加数](https://leetcode.cn/problems/additive-number)
 
 [English Version](/solution/0300-0399/0306.Additive%20Number/README_EN.md)
 
-<!-- tags:字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>累加数</strong> 是一个字符串，组成它的数字可以形成累加序列。</p>
 
@@ -46,11 +55,17 @@
 
 <p><strong>进阶：</strong>你计划如何处理由过大的整数输入导致的溢出?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +92,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isAdditiveNumber(num string) bool {
@@ -190,4 +211,6 @@ func isAdditiveNumber(num string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0547.Number%20of%20Provinces/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
+<!-- problem:start -->
+
 # [547. 省份数量](https://leetcode.cn/problems/number-of-provinces)
 
 [English Version](/solution/0500-0599/0547.Number%20of%20Provinces/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <div class="original__bRMd">
 <div>
@@ -49,7 +60,11 @@
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -62,6 +77,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是城市的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +98,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
@@ -162,6 +185,8 @@ func findCircleNum(isConnected [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findCircleNum(isConnected: number[][]): number {
     const n = isConnected.length;
@@ -184,6 +209,8 @@ function findCircleNum(isConnected: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -215,6 +242,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：并查集
 
 我们也可以用并查集维护每个连通分量，初始时，每个城市都属于不同的连通分量，所以省份数量为 $n$。
@@ -226,6 +257,8 @@ impl Solution {
 时间复杂度 $O(n^2 \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 是城市的数量，而 $\alpha$ 是阿克曼函数的反函数，在渐进意义下 $\alpha(n)$ 可以认为是一个很小的常数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -247,6 +280,8 @@ class Solution:
                         ans -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +317,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -312,6 +349,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
@@ -341,6 +380,8 @@ func findCircleNum(isConnected [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findCircleNum(isConnected: number[][]): number {
@@ -374,4 +415,6 @@ function findCircleNum(isConnected: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

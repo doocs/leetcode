@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 65. 舒适的湿度](https://leetcode.cn/problems/3aqs1c)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 力扣嘉年华为了确保更舒适的游览环境条件，在会场的各处设置了湿度调节装置，这些调节装置受控于总控室中的一台控制器。
 控制器中已经预设了一些调节指令，整数数组`operate[i]` 表示第 `i` 条指令增加空气湿度的大小。现在你可以将任意数量的指令修改为降低湿度（变化的数值不变），以确保湿度尽可能的适宜：
@@ -24,7 +32,7 @@
 > 操作指令 `[5,3],[3,-7]` 的「不适宜度」分别为 `8,4`
 > 操作指令 `[5,3,-7]` 的「不适宜度」为 `1`，
 > 因此对于方案 `[5,3,-7]`的「整体不适宜度」为 `8`，其余方案的「整体不适宜度」均不小于 `8`，如下表所示：
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/images/1663902759-dgDCxn-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2065.%20%E8%88%92%E9%80%82%E7%9A%84%E6%B9%BF%E5%BA%A6/images/1663902759-dgDCxn-image.png){:width=650px}
 
 **示例 2：**
 
@@ -37,6 +45,10 @@
 -   `1 <= operate.length <= 1000`
 -   `1 <= operate[i] <= 1000`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

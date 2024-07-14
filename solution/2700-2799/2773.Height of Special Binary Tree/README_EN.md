@@ -1,10 +1,23 @@
-# [2773. Height of Special Binary Tree](https://leetcode.com/problems/height-of-special-binary-tree)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2773.Height%20of%20Special%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
+# [2773. Height of Special Binary Tree 🔒](https://leetcode.com/problems/height-of-special-binary-tree)
 
 [中文文档](/solution/2700-2799/2773.Height%20of%20Special%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <code>root</code>, which is the root of a <strong>special</strong> binary tree with <code>n</code> nodes. The nodes of the special binary tree are numbered from <code>1</code> to <code>n</code>. Suppose the tree has <code>k</code> leaves in the following order: <code>b<sub>1 </sub>&lt;<sub> </sub>b<sub>2 </sub>&lt; ... &lt; b<sub>k</sub></code>.</p>
 
@@ -60,11 +73,21 @@
 	<li>The input is generated such that each <code>node.val</code> is unique.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: DFS
+
+The key to the problem is how to determine whether a node is a leaf node. We design a function $dfs(root, d)$, where $root$ represents the current node, and $d$ represents the depth of the current node. Each time we search, we update the answer $ans = \max(ans, d)$, and then determine whether the current node is a leaf node. If the current node has a left child, and the right child of the left child is not the current node, then we recursively call $dfs(root.left, d + 1)$. If the current node has a right child, and the left child of the right child is not the current node, then we recursively call $dfs(root.right, d + 1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -87,6 +110,8 @@ class Solution:
         dfs(root, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -124,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -155,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -182,6 +211,8 @@ func heightOfTree(root *TreeNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -216,4 +247,6 @@ function heightOfTree(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

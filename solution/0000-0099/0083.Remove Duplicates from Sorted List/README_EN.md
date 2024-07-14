@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README_EN.md
+tags:
+    - Linked List
+---
+
+<!-- problem:start -->
+
 # [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list)
 
 [中文文档](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README.md)
 
-<!-- tags:Linked List -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a sorted linked list, <em>delete all duplicates such that each element appears only once</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
 
@@ -32,7 +42,11 @@
 	<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Single Pass
 
@@ -43,6 +57,8 @@ After the traversal ends, return the head node of the linked list.
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -60,6 +76,8 @@ class Solution:
                 cur = cur.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -86,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -114,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -134,6 +156,8 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -170,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -194,6 +220,8 @@ var deleteDuplicates = function (head) {
     return head;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -224,4 +252,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
-# [418. Sentence Screen Fitting](https://leetcode.com/problems/sentence-screen-fitting)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README_EN.md
+tags:
+    - Array
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [418. Sentence Screen Fitting 🔒](https://leetcode.com/problems/sentence-screen-fitting)
 
 [中文文档](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README.md)
 
-<!-- tags:String,Dynamic Programming,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a&nbsp;<code>rows x cols</code> screen and a <code>sentence</code> represented as a list of strings, return <em>the number of&nbsp;times the given sentence can be fitted on the screen</em>.</p>
 
@@ -57,11 +69,17 @@ The character &#39;-&#39; signifies an empty space on the screen.
 	<li><code>1 &lt;= rows, cols &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +95,8 @@ class Solution:
                 cur -= 1
         return cur // m
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func wordsTyping(sentence []string, rows int, cols int) int {
 	s := strings.Join(sentence, " ") + " "
@@ -143,6 +167,8 @@ func wordsTyping(sentence []string, rows int, cols int) int {
 	return cur / m
 }
 ```
+
+#### TypeScript
 
 ```ts
 function wordsTyping(sentence: string[], rows: number, cols: number): number {
@@ -165,4 +191,6 @@ function wordsTyping(sentence: string[], rows: number, cols: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

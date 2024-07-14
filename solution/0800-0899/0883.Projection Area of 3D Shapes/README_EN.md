@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [883. Projection Area of 3D Shapes](https://leetcode.com/problems/projection-area-of-3d-shapes)
 
 [中文文档](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README.md)
 
-<!-- tags:Geometry,Array,Math,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> <code>grid</code> where we place some <code>1 x 1 x 1</code> cubes that are axis-aligned with the <code>x</code>, <code>y</code>, and <code>z</code> axes.</p>
 
@@ -48,7 +61,11 @@
 	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -64,6 +81,8 @@ The time complexity is $O(n^2)$, where $n$ is the side length of the grid `grid`
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def projectionArea(self, grid: List[List[int]]) -> int:
@@ -72,6 +91,8 @@ class Solution:
         zx = sum(max(col) for col in zip(*grid))
         return xy + yz + zx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func projectionArea(grid [][]int) int {
 	xy, yz, zx := 0, 0, 0
@@ -134,6 +159,8 @@ func projectionArea(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function projectionArea(grid: number[][]): number {
     const xy: number = grid.flat().filter(v => v > 0).length;
@@ -145,31 +172,18 @@ function projectionArea(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn projection_area(grid: Vec<Vec<i32>>) -> i32 {
         let xy: i32 = grid
             .iter()
-            .map(
-                |row|
-                    row
-                        .iter()
-                        .filter(|&&v| v > 0)
-                        .count() as i32
-            )
+            .map(|row| row.iter().filter(|&&v| v > 0).count() as i32)
             .sum();
-        let yz: i32 = grid
-            .iter()
-            .map(|row| *row.iter().max().unwrap_or(&0))
-            .sum();
+        let yz: i32 = grid.iter().map(|row| *row.iter().max().unwrap_or(&0)).sum();
         let zx: i32 = (0..grid[0].len())
-            .map(|i|
-                grid
-                    .iter()
-                    .map(|row| row[i])
-                    .max()
-                    .unwrap_or(0)
-            )
+            .map(|i| grid.iter().map(|row| row[i]).max().unwrap_or(0))
             .sum();
         xy + yz + zx
     }
@@ -178,4 +192,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

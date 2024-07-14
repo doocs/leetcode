@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README_EN.md
+rating: 1393
+source: Biweekly Contest 117 Q1
+tags:
+    - Math
+    - Combinatorics
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [2928. Distribute Candies Among Children I](https://leetcode.com/problems/distribute-candies-among-children-i)
 
 [中文文档](/solution/2900-2999/2928.Distribute%20Candies%20Among%20Children%20I/README.md)
 
-<!-- tags:Math,Combinatorics,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two positive integers <code>n</code> and <code>limit</code>.</p>
 
@@ -35,7 +49,11 @@
 	<li><code>1 &lt;= limit &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
 
@@ -49,6 +67,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def distributeCandies(self, n: int, limit: int) -> int:
@@ -61,6 +81,8 @@ class Solution:
             ans += 3 * comb(n - 2 * limit, 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distributeCandies(n int, limit int) int {
 	comb2 := func(n int) int {
@@ -124,6 +150,8 @@ func distributeCandies(n int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distributeCandies(n: number, limit: number): number {
@@ -144,4 +172,6 @@ function distributeCandies(n: number, limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

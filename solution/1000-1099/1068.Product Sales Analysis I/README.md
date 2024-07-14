@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1068.Product%20Sales%20Analysis%20I/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1068. 产品销售分析 I](https://leetcode.cn/problems/product-sales-analysis-i)
 
 [English Version](/solution/1000-1099/1068.Product%20Sales%20Analysis%20I/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>销售表&nbsp;<code>Sales</code>：</p>
 
@@ -79,13 +87,19 @@ Product 表：
 +--------------+-------+-------+
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用 `JOIN` 内连接
 
 我们直接使用 `JOIN` 连接 `Sales` 和 `Product` 两张表，连接字段为 `product_id`，然后选择需要的字段即可。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -97,4 +111,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

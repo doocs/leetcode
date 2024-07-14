@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0815.Bus%20Routes/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [815. 公交路线](https://leetcode.cn/problems/bus-routes)
 
 [English Version](/solution/0800-0899/0815.Bus%20Routes/README_EN.md)
 
-<!-- tags:广度优先搜索,数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>routes</code> ，表示一系列公交线路，其中每个 <code>routes[i]</code> 表示一条公交线路，第 <code>i</code> 辆公交车将会在上面循环行驶。</p>
 
@@ -48,7 +58,11 @@
 	<li><code>0 <= source, target < 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：建图 + BFS
 
@@ -63,6 +77,8 @@
 时间复杂度 $O(n\times m + n^2)$。其中 $n$, $m$ 分别表示公交线路的数量和公交站的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +120,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -160,6 +178,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -215,6 +235,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numBusesToDestination(routes [][]int, source int, target int) int {
 	if source == target {
@@ -268,6 +290,8 @@ func numBusesToDestination(routes [][]int, source int, target int) int {
 	return -1
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -328,4 +352,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

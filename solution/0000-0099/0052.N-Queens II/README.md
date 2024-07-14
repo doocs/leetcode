@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0052.N-Queens%20II/README.md
+tags:
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [52. N 皇后 II](https://leetcode.cn/problems/n-queens-ii)
 
 [English Version](/solution/0000-0099/0052.N-Queens%20II/README_EN.md)
 
-<!-- tags:回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>n&nbsp;皇后问题</strong> 研究的是如何将 <code>n</code>&nbsp;个皇后放置在 <code>n × n</code> 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
 
@@ -41,7 +49,11 @@
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -58,6 +70,8 @@
 时间复杂度 $O(n!)$，空间复杂度 $O(n)$。其中 $n$ 是皇后的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +96,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalNQueens(n int) (ans int) {
 	cols := [10]bool{}
@@ -171,6 +191,8 @@ func totalNQueens(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function totalNQueens(n: number): number {
@@ -198,6 +220,68 @@ function totalNQueens(n: number): number {
 }
 ```
 
+#### JavaScript
+
+```js
+function totalNQueens(n) {
+    const cols = Array(10).fill(false);
+    const dg = Array(20).fill(false);
+    const udg = Array(20).fill(false);
+    let ans = 0;
+    const dfs = i => {
+        if (i === n) {
+            ++ans;
+            return;
+        }
+        for (let j = 0; j < n; ++j) {
+            let [a, b] = [i + j, i - j + n];
+            if (cols[j] || dg[a] || udg[b]) {
+                continue;
+            }
+            cols[j] = dg[a] = udg[b] = true;
+            dfs(i + 1);
+            cols[j] = dg[a] = udg[b] = false;
+        }
+    };
+    dfs(0);
+    return ans;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int TotalNQueens(int n) {
+        bool[] cols = new bool[10];
+        bool[] dg = new bool[20];
+        bool[] udg = new bool[20];
+        int ans = 0;
+
+        void dfs(int i) {
+            if (i == n) {
+                ans++;
+                return;
+            }
+            for (int j = 0; j < n; j++) {
+                int a = i + j, b = i - j + n;
+                if (cols[j] || dg[a] || udg[b]) {
+                    continue;
+                }
+                cols[j] = dg[a] = udg[b] = true;
+                dfs(i + 1);
+                cols[j] = dg[a] = udg[b] = false;
+            }
+        }
+
+        dfs(0);
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README.md
+rating: 1823
+source: 第 190 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1458. 两个子序列的最大点积](https://leetcode.cn/problems/max-dot-product-of-two-subsequences)
 
 [English Version](/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code>&nbsp;。</p>
 
@@ -61,7 +72,11 @@
 这里的 <strong>Σ</strong> 指示总和符号。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -79,6 +94,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
@@ -90,6 +107,8 @@ class Solution:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1], max(dp[i - 1][j - 1], 0) + v)
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDotProduct(nums1 []int, nums2 []int) int {
@@ -150,6 +173,8 @@ func maxDotProduct(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -163,7 +188,7 @@ impl Solution {
             for j in 1..=m {
                 dp[i][j] = std::cmp::max(
                     std::cmp::max(dp[i - 1][j], dp[i][j - 1]),
-                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1]
+                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1],
                 );
             }
         }
@@ -175,4 +200,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
-# [2436. Minimum Split Into Subarrays With GCD Greater Than One](https://leetcode.com/problems/minimum-split-into-subarrays-with-gcd-greater-than-one)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Dynamic Programming
+    - Number Theory
+---
+
+<!-- problem:start -->
+
+# [2436. Minimum Split Into Subarrays With GCD Greater Than One 🔒](https://leetcode.com/problems/minimum-split-into-subarrays-with-gcd-greater-than-one)
 
 [中文文档](/solution/2400-2499/2436.Minimum%20Split%20Into%20Subarrays%20With%20GCD%20Greater%20Than%20One/README.md)
 
-<!-- tags:Greedy,Array,Math,Dynamic Programming,Number Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> consisting of positive integers.</p>
 
@@ -52,7 +66,11 @@ It can be shown that splitting the array into one subarray will make the GCD = 1
 	<li><code>2 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Mathematics
 
@@ -66,6 +84,8 @@ The time complexity is $O(n \times \log m)$, where $n$ and $m$ are the length of
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSplits(self, nums: List[int]) -> int:
@@ -77,6 +97,8 @@ class Solution:
                 g = x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSplits(nums []int) int {
@@ -136,6 +162,8 @@ func gcd(a, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSplits(nums: number[]): number {
     let ans = 1;
@@ -157,4 +185,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
-# [246. 中心对称数](https://leetcode.cn/problems/strobogrammatic-number)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0246.Strobogrammatic%20Number/README.md
+tags:
+    - 哈希表
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [246. 中心对称数 🔒](https://leetcode.cn/problems/strobogrammatic-number)
 
 [English Version](/solution/0200-0299/0246.Strobogrammatic%20Number/README_EN.md)
 
-<!-- tags:哈希表,双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>中心对称数是指一个数字在旋转了&nbsp;180 度之后看起来依旧相同的数字（或者上下颠倒地看）。</p>
 
@@ -36,7 +46,11 @@
 <strong>输出：</strong>true
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针模拟
 
@@ -44,9 +58,11 @@
 
 定义两个指针 $i$ 和 $j$，分别指向字符串的左右两端，然后不断向中间移动指针，判断 $d[num[i]]$ 和 $num[j]$ 是否相等，如果不相等，说明该字符串不是中心对称数，直接返回 $false$ 即可。如果 $i \gt j$，说明遍历完了字符串，返回 $true$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +76,8 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isStrobogrammatic(num string) bool {
 	d := []int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
@@ -107,4 +129,6 @@ func isStrobogrammatic(num string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

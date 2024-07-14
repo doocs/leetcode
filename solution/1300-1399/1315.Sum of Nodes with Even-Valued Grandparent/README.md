@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1315.Sum%20of%20Nodes%20with%20Even-Valued%20Grandparent/README.md
+rating: 1426
+source: 第 17 场双周赛 Q3
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [1315. 祖父节点值为偶数的节点和](https://leetcode.cn/problems/sum-of-nodes-with-even-valued-grandparent)
 
 [English Version](/solution/1300-1399/1315.Sum%20of%20Nodes%20with%20Even-Valued%20Grandparent/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树，请你返回满足以下条件的所有节点的值之和：</p>
 
@@ -36,11 +49,27 @@
 	<li>每个节点的值在&nbsp;<code>1</code> 到&nbsp;<code>100</code> 之间。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：DFS
+
+我们设计一个函数 $dfs(root, x)$，表示以 $root$ 为根节点，并且 $root$ 的父节点的值为 $x$ 的子树中，满足条件的节点的值之和。那么答案就是 $dfs(root, 1)$。
+
+函数 $dfs(root, x)$ 的执行过程如下：
+
+-   如果 $root$ 为空，返回 $0$。
+-   否则，我们递归计算 $root$ 的左子树和右子树的答案，即 $dfs(root.left, root.val)$ 和 $dfs(root.right, root.val)$，累加到答案中。如果 $x$ 为偶数，此时我们判断 $root$ 的左孩子和右孩子是否存在，如果存在，我们将它们的值累加到答案中。
+-   最后返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -51,23 +80,21 @@
 #         self.right = right
 class Solution:
     def sumEvenGrandparent(self, root: TreeNode) -> int:
-        self.res = 0
+        def dfs(root: TreeNode, x: int) -> int:
+            if root is None:
+                return 0
+            ans = dfs(root.left, root.val) + dfs(root.right, root.val)
+            if x % 2 == 0:
+                if root.left:
+                    ans += root.left.val
+                if root.right:
+                    ans += root.right.val
+            return ans
 
-        def dfs(g, p):
-            if p is None:
-                return
-            if g.val % 2 == 0:
-                if p.left:
-                    self.res += p.left.val
-                if p.right:
-                    self.res += p.right.val
-            dfs(p, p.left)
-            dfs(p, p.right)
-
-        dfs(root, root.left)
-        dfs(root, root.right)
-        return self.res
+        return dfs(root, 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -86,32 +113,29 @@ class Solution:
  * }
  */
 class Solution {
-    private int res;
-
     public int sumEvenGrandparent(TreeNode root) {
-        res = 0;
-        dfs(root, root.left);
-        dfs(root, root.right);
-        return res;
+        return dfs(root, 1);
     }
 
-    private void dfs(TreeNode g, TreeNode p) {
-        if (p == null) {
-            return;
+    private int dfs(TreeNode root, int x) {
+        if (root == null) {
+            return 0;
         }
-        if (g.val % 2 == 0) {
-            if (p.left != null) {
-                res += p.left.val;
+        int ans = dfs(root.left, root.val) + dfs(root.right, root.val);
+        if (x % 2 == 0) {
+            if (root.left != null) {
+                ans += root.left.val;
             }
-            if (p.right != null) {
-                res += p.right.val;
+            if (root.right != null) {
+                ans += root.right.val;
             }
         }
-        dfs(p, p.left);
-        dfs(p, p.right);
+        return ans;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -127,26 +151,28 @@ class Solution {
  */
 class Solution {
 public:
-    int res;
-
     int sumEvenGrandparent(TreeNode* root) {
-        res = 0;
-        dfs(root, root->left);
-        dfs(root, root->right);
-        return res;
-    }
-
-    void dfs(TreeNode* g, TreeNode* p) {
-        if (!p) return;
-        if (g->val % 2 == 0) {
-            if (p->left) res += p->left->val;
-            if (p->right) res += p->right->val;
-        }
-        dfs(p, p->left);
-        dfs(p, p->right);
+        function<int(TreeNode*, int)> dfs = [&](TreeNode* root, int x) {
+            if (!root) {
+                return 0;
+            }
+            int ans = dfs(root->left, root->val) + dfs(root->right, root->val);
+            if (x % 2 == 0) {
+                if (root->left) {
+                    ans += root->left->val;
+                }
+                if (root->right) {
+                    ans += root->right->val;
+                }
+            }
+            return ans;
+        };
+        return dfs(root, 1);
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -157,33 +183,63 @@ public:
  *     Right *TreeNode
  * }
  */
-
-var res int
-
 func sumEvenGrandparent(root *TreeNode) int {
-	res = 0
-	dfs(root, root.Left)
-	dfs(root, root.Right)
-	return res
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, x int) int {
+		if root == nil {
+			return 0
+		}
+		ans := dfs(root.Left, root.Val) + dfs(root.Right, root.Val)
+		if x%2 == 0 {
+			if root.Left != nil {
+				ans += root.Left.Val
+			}
+			if root.Right != nil {
+				ans += root.Right.Val
+			}
+		}
+		return ans
+	}
+	return dfs(root, 1)
 }
+```
 
-func dfs(g, p *TreeNode) {
-	if p == nil {
-		return
-	}
-	if g.Val%2 == 0 {
-		if p.Left != nil {
-			res += p.Left.Val
-		}
-		if p.Right != nil {
-			res += p.Right.Val
-		}
-	}
-	dfs(p, p.Left)
-	dfs(p, p.Right)
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function sumEvenGrandparent(root: TreeNode | null): number {
+    const dfs = (root: TreeNode | null, x: number): number => {
+        if (!root) {
+            return 0;
+        }
+        const { val, left, right } = root;
+        let ans = dfs(left, val) + dfs(right, val);
+        if (x % 2 === 0) {
+            ans += left?.val ?? 0;
+            ans += right?.val ?? 0;
+        }
+        return ans;
+    };
+    return dfs(root, 1);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

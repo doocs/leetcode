@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0537.Complex%20Number%20Multiplication/README.md
+tags:
+    - 数学
+    - 字符串
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [537. 复数乘法](https://leetcode.cn/problems/complex-number-multiplication)
 
 [English Version](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README_EN.md)
 
-<!-- tags:数学,字符串,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><a href="https://baike.baidu.com/item/%E5%A4%8D%E6%95%B0/254365?fr=aladdin" target="_blank">复数</a> 可以用字符串表示，遵循 <code>"<strong>实部</strong>+<strong>虚部</strong>i"</code> 的形式，并满足下述条件：</p>
 
@@ -44,11 +54,17 @@
 	<li><code>num1</code> 和 <code>num2</code> 都是有效的复数表示。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +73,8 @@ class Solution:
         c, d = map(int, num2[:-1].split('+'))
         return f'{a * c - b * d}+{a * d + c * b}i'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +103,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func complexNumberMultiply(num1, num2 string) string {
@@ -97,6 +119,8 @@ func complexNumberMultiply(num1, num2 string) string {
 	return fmt.Sprintf("%d+%di", a*c-b*d, a*d+b*c)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function complexNumberMultiply(num1: string, num2: string): string {
@@ -114,4 +138,6 @@ function complexNumberMultiply(num1: string, num2: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

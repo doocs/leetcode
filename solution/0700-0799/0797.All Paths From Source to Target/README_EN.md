@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Backtracking
+---
+
+<!-- problem:start -->
+
 # [797. All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target)
 
 [中文文档](/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a directed acyclic graph (<strong>DAG</strong>) of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, find all possible paths from node <code>0</code> to node <code>n - 1</code> and return them in <strong>any order</strong>.</p>
 
@@ -38,11 +51,17 @@
 	<li>The input graph is <strong>guaranteed</strong> to be a <strong>DAG</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +79,8 @@ class Solution:
                 q.append(path + [v])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func allPathsSourceTarget(graph [][]int) [][]int {
 	var path []int
@@ -138,6 +163,8 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     fn dfs(i: usize, path: &mut Vec<i32>, res: &mut Vec<Vec<i32>>, graph: &Vec<Vec<i32>>) {
@@ -158,6 +185,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -186,11 +215,43 @@ var allPathsSourceTarget = function (graph) {
 };
 ```
 
+#### TypeScript
+
+```ts
+function allPathsSourceTarget(graph: number[][]): number[][] {
+    const ans: number[][] = [];
+
+    const dfs = (path: number[]) => {
+        const curr = path.at(-1)!;
+        if (curr === graph.length - 1) {
+            ans.push([...path]);
+            return;
+        }
+
+        for (const v of graph[curr]) {
+            path.push(v);
+            dfs(path);
+            path.pop();
+        }
+    };
+
+    dfs([0]);
+
+    return ans;
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -208,6 +269,8 @@ class Solution:
         dfs([0])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -240,4 +303,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

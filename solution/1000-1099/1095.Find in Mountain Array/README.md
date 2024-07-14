@@ -1,48 +1,49 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md
+rating: 1827
+source: 第 142 场周赛 Q3
+tags:
+    - 数组
+    - 二分查找
+    - 交互
+---
+
+<!-- problem:start -->
+
 # [1095. 山脉数组中查找目标值](https://leetcode.cn/problems/find-in-mountain-array)
 
 [English Version](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md)
 
-<!-- tags:数组,二分查找,交互 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>（这是一个 <strong>交互式问题&nbsp;</strong>）</p>
 
-<p>给你一个 <strong>山脉数组</strong>&nbsp;<code>mountainArr</code>，请你返回能够使得&nbsp;<code>mountainArr.get(index)</code>&nbsp;<strong>等于</strong>&nbsp;<code>target</code>&nbsp;<strong>最小</strong>&nbsp;的下标 <code>index</code>&nbsp;值。</p>
-
-<p>如果不存在这样的下标 <code>index</code>，就请返回&nbsp;<code>-1</code>。</p>
-
-<p>&nbsp;</p>
-
-<p>何为山脉数组？如果数组&nbsp;<code>A</code> 是一个山脉数组的话，那它满足如下条件：</p>
-
-<p><strong>首先</strong>，<code>A.length &gt;= 3</code></p>
-
-<p><strong>其次</strong>，在&nbsp;<code>0 &lt; i&nbsp;&lt; A.length - 1</code>&nbsp;条件下，存在 <code>i</code> 使得：</p>
+<p>你可以将一个数组&nbsp;<code>arr</code>&nbsp;称为&nbsp;<strong>山脉数组&nbsp;</strong>当且仅当：</p>
 
 <ul>
-	<li><code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i]</code></li>
-	<li><code>A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code></li>
+	<li><code>arr.length &gt;= 3</code></li>
+	<li>存在一些&nbsp;<code>0 &lt; i &lt; arr.length - 1</code>&nbsp;的&nbsp;<code>i</code>&nbsp;使得：
+	<ul>
+		<li><code>arr[0] &lt; arr[1] &lt; ... &lt; arr[i - 1] &lt; arr[i]</code></li>
+		<li><code>arr[i] &gt; arr[i + 1] &gt; ... &gt; arr[arr.length - 1]</code></li>
+	</ul>
+	</li>
 </ul>
 
-<p>&nbsp;</p>
+<p>给定一个山脉数组&nbsp;<code>mountainArr</code>&nbsp;，返回&nbsp;<strong>最小</strong> 的&nbsp;<code>index</code>&nbsp;使得&nbsp;<code>mountainArr.get(index) == target</code>。如果不存在这样的&nbsp;<code>index</code>，返回&nbsp;<code>-1</code>&nbsp;。</p>
 
-<p>你将&nbsp;<strong>不能直接访问该山脉数组</strong>，必须通过&nbsp;<code>MountainArray</code>&nbsp;接口来获取数据：</p>
+<p><strong>你无法直接访问山脉数组</strong>。你只能使用&nbsp;<code>MountainArray</code>&nbsp;接口来访问数组：</p>
 
 <ul>
-	<li><code>MountainArray.get(k)</code>&nbsp;- 会返回数组中索引为<code>k</code>&nbsp;的元素（下标从 0 开始）</li>
-	<li><code>MountainArray.length()</code>&nbsp;- 会返回该数组的长度</li>
+	<li><code>MountainArray.get(k)</code>&nbsp;返回数组中下标为&nbsp;<code>k</code>&nbsp;的元素（从 0 开始）。</li>
+	<li><code>MountainArray.length()</code>&nbsp;返回数组的长度。</li>
 </ul>
 
-<p>&nbsp;</p>
-
-<p><strong>注意：</strong></p>
-
-<p>对&nbsp;<code>MountainArray.get</code>&nbsp;发起超过 <code>100</code> 次调用的提交将被视为错误答案。此外，任何试图规避判题系统的解决方案都将会导致比赛资格被取消。</p>
-
-<p>为了帮助大家更好地理解交互式问题，我们准备了一个样例 &ldquo;<strong>答案</strong>&rdquo;：<a href="https://leetcode.cn/playground/RKhe3ave" target="_blank">https://leetcode.cn/playground/RKhe3ave</a>，请注意这 <strong>不是一个正确答案</strong>。</p>
+<p>调用&nbsp;<code>MountainArray.get</code>&nbsp;超过&nbsp;<code>100</code>&nbsp;次的提交会被判定为错误答案。此外，任何试图绕过在线评测的解决方案都将导致取消资格。</p>
 
 <ol>
 </ol>
@@ -51,13 +52,15 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>array = [1,2,3,4,5,3,1], target = 3
+<pre>
+<strong>输入：</strong>array = [1,2,3,4,5,3,1], target = 3
 <strong>输出：</strong>2
 <strong>解释：</strong>3 在数组中出现了两次，下标分别为 2 和 5，我们返回最小的下标 2。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>array = [0,1,2,4,2,1], target = 3
+<pre>
+<strong>输入：</strong>array = [0,1,2,4,2,1], target = 3
 <strong>输出：</strong>-1
 <strong>解释：</strong>3 在数组中没有出现，返回 -1。
 </pre>
@@ -67,12 +70,16 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>3 &lt;= mountain_arr.length() &lt;= 10000</code></li>
-	<li><code>0 &lt;= target &lt;= 10^9</code></li>
-	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
+	<li><code>3 &lt;= mountain_arr.length() &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= target &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -83,6 +90,8 @@
 时间复杂度 $O(\log n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -116,6 +125,8 @@ class Solution:
         ans = search(0, l, 1)
         return search(l + 1, n - 1, -1) if ans == -1 else ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -162,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * // This is the MountainArray's API interface.
@@ -202,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -247,6 +262,8 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the MountainArray's API interface.
@@ -285,6 +302,8 @@ function findInMountainArray(target: number, mountainArr: MountainArray) {
     return ans === -1 ? search(l + 1, n - 1, -1) : ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -338,4 +357,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

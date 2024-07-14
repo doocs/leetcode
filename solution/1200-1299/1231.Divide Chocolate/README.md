@@ -1,12 +1,23 @@
-# [1231. 分享巧克力](https://leetcode.cn/problems/divide-chocolate)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1231.Divide%20Chocolate/README.md
+rating: 2029
+source: 第 11 场双周赛 Q4
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
+# [1231. 分享巧克力 🔒](https://leetcode.cn/problems/divide-chocolate)
 
 [English Version](/solution/1200-1299/1231.Divide%20Chocolate/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一大块巧克力，它由一些甜度不完全相同的小块组成。我们用数组&nbsp;<code>sweetness</code>&nbsp;来表示每一小块的甜度。</p>
 
@@ -48,7 +59,11 @@
 	<li><code>1 &lt;= sweetness[i] &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找 + 贪心
 
@@ -61,6 +76,8 @@
 时间复杂度 $O(n \times \log \sum_{i=0}^{n-1} sweetness[i])$，空间复杂度 $O(1)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +100,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -145,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSweetness(sweetness []int, k int) int {
 	l, r := 0, 0
@@ -173,6 +196,8 @@ func maximizeSweetness(sweetness []int, k int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximizeSweetness(sweetness: number[], k: number): number {
@@ -204,4 +229,6 @@ function maximizeSweetness(sweetness: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

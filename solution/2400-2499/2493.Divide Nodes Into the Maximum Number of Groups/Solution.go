@@ -1,72 +1,37 @@
-func magnificentSets(n int, edges [][]int) int {
-	g := make([][]int, n+1)
+func magnificentSets(n int, edges [][]int) (ans int) {
+	g := make([][]int, n)
 	for _, e := range edges {
-		a, b := e[0], e[1]
+		a, b := e[0]-1, e[1]-1
 		g[a] = append(g[a], b)
 		g[b] = append(g[b], a)
 	}
-	arr := []int{}
-	vis := make([]bool, n+1)
-	ans := 0
-	var dfs func(int)
-	dfs = func(i int) {
-		arr = append(arr, i)
-		vis[i] = true
-		for _, j := range g[i] {
-			if !vis[j] {
-				dfs(j)
-			}
-		}
-	}
-	bfs := func(k int) int {
-		ans := 1
-		dist := make([]int, n+1)
-		for i := range dist {
-			dist[i] = 1 << 30
-		}
-		q := []int{k}
-		dist[k] = 1
+	d := make([]int, n)
+	for i := range d {
+		q := []int{i}
+		dist := make([]int, n)
+		dist[i] = 1
+		mx := 1
+		root := i
 		for len(q) > 0 {
-			i := q[0]
+			a := q[0]
 			q = q[1:]
-			for _, j := range g[i] {
-				if dist[j] == 1<<30 {
-					dist[j] = dist[i] + 1
-					ans = dist[j]
-					q = append(q, j)
-				}
-			}
-		}
-		for _, i := range arr {
-			if dist[i] == 1<<30 {
-				ans++
-				dist[i] = ans
-			}
-		}
-		for _, i := range arr {
-			for _, j := range g[i] {
-				if abs(dist[i]-dist[j]) != 1 {
+			root = min(root, a)
+			for _, b := range g[a] {
+				if dist[b] == 0 {
+					dist[b] = dist[a] + 1
+					mx = max(mx, dist[b])
+					q = append(q, b)
+				} else if abs(dist[b]-dist[a]) != 1 {
 					return -1
 				}
 			}
 		}
-		return ans
+		d[root] = max(d[root], mx)
 	}
-	for i := 1; i <= n; i++ {
-		if !vis[i] {
-			dfs(i)
-			t := -1
-			for _, v := range arr {
-				t = max(t, bfs(v))
-			}
-			if t == -1 {
-				return -1
-			}
-			ans += t
-			arr = []int{}
-		}
+	for _, x := range d {
+		ans += x
 	}
-	return ans
+	return
 }
 
 func abs(x int) int {

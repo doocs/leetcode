@@ -1,12 +1,22 @@
-# [2123. 使矩阵中的 1 互不相邻的最小操作数](https://leetcode.cn/problems/minimum-operations-to-remove-adjacent-ones-in-matrix)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/README.md
+tags:
+    - 图
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
+# [2123. 使矩阵中的 1 互不相邻的最小操作数 🔒](https://leetcode.cn/problems/minimum-operations-to-remove-adjacent-ones-in-matrix)
 
 [English Version](/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/README_EN.md)
 
-<!-- tags:图,数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>下标从 0 开始&nbsp;</strong>的矩阵 <code>grid</code>。每次操作，你可以把 <code>grid</code>&nbsp;中的 一个&nbsp;<code>1</code> 变成&nbsp;<code>0</code> 。</p>
 
@@ -49,7 +59,11 @@
 	<li><code>grid[i][j]</code> 是&nbsp;<code>0</code>&nbsp;或者&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：匈牙利算法
 
@@ -62,6 +76,8 @@
 时间复杂度 $O(m \times n)$，其中 $n$ 和 $m$ 分别是矩阵中 $1$ 的数目以及边的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +113,8 @@ class Solution:
             ans += find(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -246,6 +268,8 @@ func minimumOperations(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumOperations(grid: number[][]): number {
@@ -297,4 +321,6 @@ function minimumOperations(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2717.Semi-Ordered%20Permutation/README_EN.md
+rating: 1295
+source: Weekly Contest 348 Q2
+tags:
+    - Array
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2717. Semi-Ordered Permutation](https://leetcode.com/problems/semi-ordered-permutation)
 
 [中文文档](/solution/2700-2799/2717.Semi-Ordered%20Permutation/README.md)
 
-<!-- tags:Array,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> permutation of <code>n</code> integers <code>nums</code>.</p>
 
@@ -59,7 +72,11 @@ It can be proved that there is no sequence of less than three operations that ma
 	<li><code>nums is a permutation.</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Positions of 1 and n
 
@@ -71,6 +88,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def semiOrderedPermutation(self, nums: List[int]) -> int:
@@ -80,6 +99,8 @@ class Solution:
         k = 1 if i < j else 2
         return i + n - j - k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func semiOrderedPermutation(nums []int) int {
@@ -133,6 +158,8 @@ func semiOrderedPermutation(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function semiOrderedPermutation(nums: number[]): number {
     const n = nums.length;
@@ -143,65 +170,31 @@ function semiOrderedPermutation(nums: number[]): number {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn semi_ordered_permutation(nums: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = 0;
-        let mut n = nums.len();
-
-        for idx in 0..n {
-            if nums[idx] == 1 {
-                i = idx;
-            }
-            if nums[idx] == (n as i32) {
-                j = idx;
-            }
-        }
-
-        let mut ans = i - 1 + n - j;
-        if i > j {
-            ans = i - 1 + n - j - 1;
-        }
-
-        ans as i32
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### Solution 2
-
-<!-- tabs:start -->
+#### Rust
 
 ```rust
 impl Solution {
     pub fn semi_ordered_permutation(nums: Vec<i32>) -> i32 {
         let n = nums.len();
-        let i = nums
-            .iter()
-            .enumerate()
-            .find(|&(_, &v)| v == 1)
-            .map(|(i, _)| i)
-            .unwrap();
-        let j = nums
-            .iter()
-            .enumerate()
-            .find(|&(_, &v)| v == (n as i32))
-            .map(|(i, _)| i)
-            .unwrap();
+        let (mut i, mut j) = (0, 0);
 
-        let mut ans = i - 1 + n - j;
-        if i > j {
-            ans = i - 1 + n - j - 1;
+        for k in 0..n {
+            if nums[k] == 1 {
+                i = k;
+            }
+            if nums[k] == (n as i32) {
+                j = k;
+            }
         }
 
-        ans as i32
+        let k = if i < j { 1 } else { 2 };
+        (i + n - j - k) as i32
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

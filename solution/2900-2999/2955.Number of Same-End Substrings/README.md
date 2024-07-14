@@ -1,12 +1,24 @@
-# [2955. 同端子串的数量](https://leetcode.cn/problems/number-of-same-end-substrings)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+    - 前缀和
+---
+
+<!-- problem:start -->
+
+# [2955. 同端子串的数量 🔒](https://leetcode.cn/problems/number-of-same-end-substrings)
 
 [English Version](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README_EN.md)
 
-<!-- tags:数组,哈希表,字符串,计数,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>下标从0开始</strong>&nbsp;的字符串 <code>s</code>，以及一个二维整数数组 <code>queries</code>，其中 <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> 表示 <code>s</code> 中从索引 <code>l<sub>i</sub></code> 开始到索引 <code>r<sub>i</sub></code> 结束的子串（<strong>包括两端</strong>），即 <code>s[l<sub>i</sub>..r<sub>i</sub>]</code>。</p>
 
@@ -49,7 +61,11 @@
 	<li><code>0 &lt;= l<sub>i</sub> &lt;= r<sub>i</sub> &lt; s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 枚举
 
@@ -58,6 +74,8 @@
 时间复杂度 $O((n + m) \times |\Sigma|)$，空间复杂度 $O(n \times |\Sigma|)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 的长度和查询数，而 $\Sigma$ 表示字符串 $s$ 中出现的字母集合，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +96,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +153,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sameEndSubstringCount(s string, queries [][]int) []int {
@@ -161,6 +185,8 @@ func sameEndSubstringCount(s string, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     const n: number = s.length;
@@ -182,6 +208,8 @@ function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -212,4 +240,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
-# [2184. 建造坚实的砖墙的方法数](https://leetcode.cn/problems/number-of-ways-to-build-sturdy-brick-wall)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+---
+
+<!-- problem:start -->
+
+# [2184. 建造坚实的砖墙的方法数 🔒](https://leetcode.cn/problems/number-of-ways-to-build-sturdy-brick-wall)
 
 [English Version](/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/README_EN.md)
 
-<!-- tags:位运算,数组,动态规划,状态压缩 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数&nbsp;<code>height</code>&nbsp;与<code>width</code>&nbsp;，表示你要建造的砖墙的高和宽。再给你一个下标从 <strong>0</strong> 开始的数组 <code>bricks</code> ，其中第 <code>i</code> 块砖的高度是 <code>1</code> ，宽度为 <code>bricks[i]</code> 。每种砖的数量都是 <strong>无限 </strong>的，并且砖 <strong>不可以</strong> 进行旋转。</p>
 
@@ -44,7 +55,11 @@
 	<li><code>bricks</code>&nbsp;中所有数字<strong> 互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 动态规划
 
@@ -59,6 +74,8 @@
 答案为最后一排的方案数之和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +128,8 @@ class Solution:
                     dp[i][j] %= mod
         return sum(dp[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +209,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -262,6 +283,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func buildWall(height int, width int, bricks []int) int {
@@ -340,4 +363,6 @@ func buildWall(height int, width int, bricks []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

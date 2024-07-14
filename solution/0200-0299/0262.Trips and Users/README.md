@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0262.Trips%20and%20Users/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [262. 行程和用户](https://leetcode.cn/problems/trips-and-users)
 
 [English Version](/solution/0200-0299/0262.Trips%20and%20Users/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 表：<code>Trips</code>
 
@@ -21,7 +29,7 @@
 | driver_id   | int      |
 | city_id     | int      |
 | status      | enum     |
-| request_at  | date     |     
+| request_at  | varchar  |     
 +-------------+----------+
 id 是这张表的主键（具有唯一值的列）。
 这张表中存所有出租车的行程信息。每段行程有唯一 id ，其中 client_id 和 driver_id 是 Users 表中 users_id 的外键。
@@ -121,11 +129,17 @@ Users 表：
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -173,6 +187,8 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
     return df[["Day", "Cancellation Rate"]]
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT
@@ -188,4 +204,6 @@ GROUP BY request_at;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

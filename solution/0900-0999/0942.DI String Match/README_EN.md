@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0942.DI%20String%20Match/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
 # [942. DI String Match](https://leetcode.com/problems/di-string-match)
 
 [中文文档](/solution/0900-0999/0942.DI%20String%20Match/README.md)
 
-<!-- tags:Greedy,Array,Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A permutation <code>perm</code> of <code>n + 1</code> integers of all the integers in the range <code>[0, n]</code> can be represented as a string <code>s</code> of length <code>n</code> where:</p>
 
@@ -34,20 +47,31 @@
 	<li><code>s[i]</code> is either <code>&#39;I&#39;</code> or <code>&#39;D&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Greedy Algorithm
+
+We can use two pointers `low` and `high` to represent the current minimum and maximum values, respectively. Then, we traverse the string `s`. If the current character is `I`, we add `low` to the result array, and increment `low` by 1; if the current character is `D`, we add `high` to the result array, and decrement `high` by 1.
+
+Finally, we add `low` to the result array and return the result array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string `s`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def diStringMatch(self, s: str) -> List[int]:
-        n = len(s)
-        low, high = 0, n
+        low, high = 0, len(s)
         ans = []
-        for i in range(n):
-            if s[i] == 'I':
+        for c in s:
+            if c == "I":
                 ans.append(low)
                 low += 1
             else:
@@ -56,6 +80,8 @@ class Solution:
         ans.append(low)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,13 +124,13 @@ public:
 };
 ```
 
+#### Go
+
 ```go
-func diStringMatch(s string) []int {
-	n := len(s)
-	low, high := 0, n
-	var ans []int
-	for i := 0; i < n; i++ {
-		if s[i] == 'I' {
+func diStringMatch(s string) (ans []int) {
+	low, high := 0, len(s)
+	for _, c := range s {
+		if c == 'I' {
 			ans = append(ans, low)
 			low++
 		} else {
@@ -111,52 +139,55 @@ func diStringMatch(s string) []int {
 		}
 	}
 	ans = append(ans, low)
-	return ans
+	return
 }
 ```
 
+#### TypeScript
+
 ```ts
 function diStringMatch(s: string): number[] {
-    const n = s.length;
-    const res = new Array(n + 1);
-    let low = 0;
-    let high = n;
-    for (let i = 0; i < n; i++) {
-        if (s[i] === 'I') {
-            res[i] = low++;
+    const ans: number[] = [];
+    let [low, high] = [0, s.length];
+    for (const c of s) {
+        if (c === 'I') {
+            ans.push(low++);
         } else {
-            res[i] = high--;
+            ans.push(high--);
         }
     }
-    res[n] = low;
-    return res;
+    ans.push(low);
+    return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn di_string_match(s: String) -> Vec<i32> {
-        let s = s.as_bytes();
-        let n = s.len();
-        let mut res = Vec::with_capacity(n + 1);
-        let (mut low, mut high) = (-1, (n + 1) as i32);
-        for i in 0..n {
-            res.push(
-                if s[i] == b'I' {
-                    low += 1;
-                    low
-                } else {
-                    high -= 1;
-                    high
-                }
-            );
+        let mut low = 0;
+        let mut high = s.len() as i32;
+        let mut ans = Vec::with_capacity(s.len() + 1);
+
+        for c in s.chars() {
+            if c == 'I' {
+                ans.push(low);
+                low += 1;
+            } else {
+                ans.push(high);
+                high -= 1;
+            }
         }
-        res.push(low + 1);
-        res
+
+        ans.push(low);
+        ans
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

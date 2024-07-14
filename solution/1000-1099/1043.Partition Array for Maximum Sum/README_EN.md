@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README_EN.md
+rating: 1916
+source: Weekly Contest 136 Q3
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1043. Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum)
 
 [中文文档](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code>, partition the array into (contiguous) subarrays of length <strong>at most</strong> <code>k</code>. After partitioning, each subarray has their values changed to become the maximum value of that subarray.</p>
 
@@ -42,7 +55,11 @@
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -62,6 +79,8 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n)$, wher
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumAfterPartitioning(self, arr: List[int], k: int) -> int:
@@ -74,6 +93,8 @@ class Solution:
                 f[i] = max(f[i], f[j - 1] + mx * (i - j + 1))
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumAfterPartitioning(arr []int, k int) int {
 	n := len(arr)
@@ -125,6 +150,8 @@ func maxSumAfterPartitioning(arr []int, k int) int {
 	return f[n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumAfterPartitioning(arr: number[], k: number): number {
@@ -143,4 +170,6 @@ function maxSumAfterPartitioning(arr: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

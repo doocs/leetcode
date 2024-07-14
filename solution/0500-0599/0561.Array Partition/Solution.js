@@ -4,9 +4,5 @@
  */
 var arrayPairSum = function (nums) {
     nums.sort((a, b) => a - b);
-    let ans = 0;
-    for (let i = 0; i < nums.length; i += 2) {
-        ans += nums[i];
-    }
-    return ans;
+    return nums.reduce((acc, cur, i) => (i % 2 === 0 ? acc + cur : acc), 0);
 };

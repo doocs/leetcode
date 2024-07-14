@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1017.Convert%20to%20Base%20-2/README_EN.md
+rating: 1697
+source: Weekly Contest 130 Q2
+tags:
+    - Math
+---
+
+<!-- problem:start -->
+
 # [1017. Convert to Base -2](https://leetcode.com/problems/convert-to-base-2)
 
 [中文文档](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
 
-<!-- tags:Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>a binary string representing its representation in base</em> <code>-2</code>.</p>
 
@@ -42,11 +54,17 @@
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +81,8 @@ class Solution:
             k *= -1
         return ''.join(ans[::-1]) or '0'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func baseNeg2(n int) string {
 	if n == 0 {
@@ -136,6 +160,8 @@ func baseNeg2(n int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function baseNeg2(n: number): string {
     if (n === 0) {
@@ -157,6 +183,62 @@ function baseNeg2(n: number): string {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn base_neg2(n: i32) -> String {
+        if n == 0 {
+            return "0".to_string();
+        }
+        let mut k = 1;
+        let mut ans = String::new();
+        let mut num = n;
+        while num != 0 {
+            if num % 2 != 0 {
+                ans.push('1');
+                num -= k;
+            } else {
+                ans.push('0');
+            }
+            k *= -1;
+            num /= 2;
+        }
+        ans.chars().rev().collect::<String>()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string BaseNeg2(int n) {
+        if (n == 0) {
+            return "0";
+        }
+        int k = 1;
+        StringBuilder ans = new StringBuilder();
+        int num = n;
+        while (num != 0) {
+            if (num % 2 != 0) {
+                ans.Append('1');
+                num -= k;
+            } else {
+                ans.Append('0');
+            }
+            k *= -1;
+            num /= 2;
+        }
+        char[] cs = ans.ToString().ToCharArray();
+        Array.Reverse(cs);
+        return new string(cs);
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

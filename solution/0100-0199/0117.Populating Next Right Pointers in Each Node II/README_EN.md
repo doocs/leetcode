@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Linked List
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii)
 
 [中文文档](/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Linked List,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary tree</p>
 
@@ -53,7 +67,11 @@ struct Node {
 	<li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -62,6 +80,8 @@ We use a queue $q$ for level order traversal. Each time we traverse a level, we 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -93,6 +113,8 @@ class Solution:
                     q.append(node.right)
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -146,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -194,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -230,6 +256,8 @@ func connect(root *Node) *Node {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -270,6 +298,8 @@ function connect(root: Node | null): Node | null {
     return root;
 }
 ```
+
+#### C#
 
 ```cs
 /*
@@ -325,6 +355,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Space Optimization
 
 The space complexity of Solution 1 is relatively high because it requires a queue to store the nodes of each level. We can implement it with constant space.
@@ -334,6 +368,8 @@ We define two pointers $prev$ and $next$, which point to the previous node and t
 The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -368,6 +404,8 @@ class Solution:
             node = next
         return root
 ```
+
+#### Java
 
 ```java
 /*
@@ -426,6 +464,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -477,6 +517,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -515,6 +557,8 @@ func connect(root *Node) *Node {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -558,6 +602,8 @@ function connect(root: Node | null): Node | null {
     return root;
 }
 ```
+
+#### C#
 
 ```cs
 /*
@@ -618,4 +664,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

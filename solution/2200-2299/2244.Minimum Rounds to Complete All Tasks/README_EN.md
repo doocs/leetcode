@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README_EN.md
+rating: 1371
+source: Weekly Contest 289 Q2
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [2244. Minimum Rounds to Complete All Tasks](https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks)
 
 [中文文档](/solution/2200-2299/2244.Minimum%20Rounds%20to%20Complete%20All%20Tasks/README.md)
 
-<!-- tags:Greedy,Array,Hash Table,Counting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>tasks</code>, where <code>tasks[i]</code> represents the difficulty level of a task. In each round, you can complete either 2 or 3 tasks of the <strong>same difficulty level</strong>.</p>
 
@@ -40,11 +55,23 @@ It can be shown that all the tasks cannot be completed in fewer than 4 rounds, s
 	<li><code>1 &lt;= tasks[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Hash Table
+
+We use a hash table to count the number of tasks for each difficulty level. Then we traverse the hash table. For each difficulty level, if the number of tasks is $1$, then it is impossible to complete all tasks, so we return $-1$. Otherwise, we calculate the number of rounds needed to complete tasks of this difficulty level and add it to the answer.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the `tasks` array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +84,8 @@ class Solution:
             ans += v // 3 + (v % 3 != 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumRounds(tasks []int) int {
 	cnt := map[int]int{}
@@ -117,6 +150,8 @@ func minimumRounds(tasks []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumRounds(tasks: number[]): number {
     const cnt = new Map();
@@ -134,6 +169,32 @@ function minimumRounds(tasks: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn minimum_rounds(tasks: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        for &t in tasks.iter() {
+            let count = cnt.entry(t).or_insert(0);
+            *count += 1;
+        }
+        let mut ans = 0;
+        for &v in cnt.values() {
+            if v == 1 {
+                return -1;
+            }
+            ans += v / 3 + (if v % 3 == 0 { 0 } else { 1 });
+        }
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

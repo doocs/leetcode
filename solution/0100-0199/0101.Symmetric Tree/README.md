@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0101.Symmetric%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree)
 
 [English Version](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二叉树的根节点 <code>root</code> ， 检查它是否轴对称。</p>
 
@@ -39,7 +50,11 @@
 
 <p><strong>进阶：</strong>你可以运用递归和迭代两种方法解决这个问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -54,6 +69,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -73,6 +90,8 @@ class Solution:
 
         return dfs(root, root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -107,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -132,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -155,6 +178,8 @@ func isSymmetric(root *TreeNode) bool {
 	return dfs(root, root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -186,6 +211,8 @@ function isSymmetric(root: TreeNode | null): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -205,8 +232,8 @@ function isSymmetric(root: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root1: &Option<Rc<RefCell<TreeNode>>>, root2: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if root1.is_none() && root2.is_none() {
@@ -217,9 +244,9 @@ impl Solution {
         }
         let node1 = root1.as_ref().unwrap().borrow();
         let node2 = root2.as_ref().unwrap().borrow();
-        node1.val == node2.val &&
-            Self::dfs(&node1.left, &node2.right) &&
-            Self::dfs(&node1.right, &node2.left)
+        node1.val == node2.val
+            && Self::dfs(&node1.left, &node2.right)
+            && Self::dfs(&node1.right, &node2.left)
     }
 
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
@@ -228,6 +255,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -254,9 +283,15 @@ var isSymmetric = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 // Definition for a binary tree node.
@@ -277,9 +312,9 @@ var isSymmetric = function (root) {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         let root = root.unwrap();
@@ -310,4 +345,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

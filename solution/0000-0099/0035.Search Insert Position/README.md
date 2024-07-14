@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0035.Search%20Insert%20Position/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position)
 
 [English Version](/solution/0000-0099/0035.Search%20Insert%20Position/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
 
@@ -46,7 +55,11 @@
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -56,92 +69,115 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        left, right = 0, len(nums)
-        while left < right:
-            mid = (left + right) >> 1
+        l, r = 0, len(nums)
+        while l < r:
+            mid = (l + r) >> 1
             if nums[mid] >= target:
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        return left
+                l = mid + 1
+        return l
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int left = 0, right = nums.length;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
             if (nums[mid] >= target) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        int left = 0, right = nums.size();
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (nums[mid] >= target)
-                right = mid;
-            else
-                left = mid + 1;
+        int l = 0, r = nums.size();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= target) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return left;
+        return l;
     }
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
-	left, right := 0, len(nums)
-	for left < right {
-		mid := (left + right) >> 1
+	l, r := 0, len(nums)
+	for l < r {
+		mid := (l + r) >> 1
 		if nums[mid] >= target {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	return left
+	return l
 }
 ```
 
+#### TypeScript
+
+```ts
+function searchInsert(nums: number[], target: number): number {
+    let [l, r] = [0, nums.length];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] >= target) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
+
+#### Rust
+
 ```rust
-use std::cmp::Ordering;
 impl Solution {
     pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
-        let mut left = 0;
-        let mut right = nums.len();
-        while left < right {
-            let mid = left + (right - left) / 2;
-            match nums[mid].cmp(&target) {
-                Ordering::Less => {
-                    left = mid + 1;
-                }
-                Ordering::Greater => {
-                    right = mid;
-                }
-                Ordering::Equal => {
-                    return mid as i32;
-                }
+        let mut l: usize = 0;
+        let mut r: usize = nums.len();
+        while l < r {
+            let mid = (l + r) >> 1;
+            if nums[mid] >= target {
+                r = mid;
+            } else {
+                l = mid + 1;
             }
         }
-        left as i32
+        l as i32
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -150,31 +186,78 @@ impl Solution {
  * @return {number}
  */
 var searchInsert = function (nums, target) {
-    let left = 0;
-    let right = nums.length;
-    while (left < right) {
-        const mid = (left + right) >> 1;
+    let [l, r] = [0, nums.length];
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (nums[mid] >= target) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 };
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer
+     */
+    function searchInsert($nums, $target) {
+        $l = 0;
+        $r = count($nums);
+        while ($l < $r) {
+            $mid = $l + $r >> 1;
+            if ($nums[$mid] >= $target) {
+                $r = $mid;
+            } else {
+                $l = $mid + 1;
+            }
+        }
+        return $l;
+    }
+}
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：二分查找（内置函数）
+
+我们也可以直接使用内置函数进行二分查找。
+
+时间复杂度 $O(\log n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         return bisect_left(nums, target)
 ```
+
+#### Java
+
+```java
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int i = Arrays.binarySearch(nums, target);
+        return i < 0 ? -i - 1 : i;
+    }
+}
+```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -185,6 +268,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	return sort.SearchInts(nums, target)
@@ -193,4 +278,6 @@ func searchInsert(nums []int, target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

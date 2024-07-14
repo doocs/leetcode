@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md
+tags:
+    - Hash Table
+    - Linked List
+    - Two Pointers
+---
+
+<!-- problem:start -->
+
 # [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists)
 
 [中文文档](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README.md)
 
-<!-- tags:Hash Table,Linked List,Two Pointers -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the heads of two singly linked-lists <code>headA</code> and <code>headB</code>, return <em>the node at which the two lists intersect</em>. If the two linked lists have no intersection at all, return <code>null</code>.</p>
 
@@ -74,11 +86,25 @@ Explanation: The two lists do not intersect, so return null.
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you write a solution that runs in <code>O(m + n)</code> time and use only <code>O(1)</code> memory?
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two Pointers
+
+We use two pointers $a$ and $b$ to point to two linked lists $headA$ and $headB$ respectively.
+
+We traverse the linked lists simultaneously. When $a$ reaches the end of the linked list $headA$, it is repositioned to the head node of the linked list $headB$. When $b$ reaches the end of the linked list $headB$, it is repositioned to the head node of the linked list $headA$.
+
+If the two pointers meet, the node they point to is the first common node. If they don't meet, it means that the two linked lists have no common nodes. At this time, both pointers point to `null`, and we can return either one.
+
+The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the linked lists $headA$ and $headB$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -96,6 +122,8 @@ class Solution:
             b = b.next if b else headA
         return a
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +149,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -142,6 +172,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -169,6 +201,8 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -192,6 +226,8 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
     return a;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -217,6 +253,8 @@ var getIntersectionNode = function (headA, headB) {
     return a;
 };
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -246,4 +284,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0077.Combinations/README.md
+tags:
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [77. 组合](https://leetcode.cn/problems/combinations)
 
 [English Version](/solution/0000-0099/0077.Combinations/README_EN.md)
 
-<!-- tags:回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。</p>
 
@@ -43,7 +51,11 @@
 	<li><code>1 <= k <= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯（两种方式）
 
@@ -69,6 +81,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -88,6 +102,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combine(n int, k int) (ans [][]int) {
 	t := []int{}
@@ -166,6 +186,8 @@ func combine(n int, k int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combine(n: number, k: number): number[][] {
     const ans: number[][] = [];
@@ -187,6 +209,8 @@ function combine(n: number, k: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -211,6 +235,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -244,9 +270,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -267,6 +299,8 @@ class Solution:
         dfs(1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -299,6 +333,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -325,6 +361,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combine(n int, k int) (ans [][]int) {
 	t := []int{}
@@ -348,6 +386,8 @@ func combine(n int, k int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combine(n: number, k: number): number[][] {
     const ans: number[][] = [];
@@ -370,6 +410,8 @@ function combine(n: number, k: number): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -395,6 +437,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -429,4 +473,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

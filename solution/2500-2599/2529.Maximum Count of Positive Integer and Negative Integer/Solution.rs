@@ -1,13 +1,16 @@
 impl Solution {
     pub fn maximum_count(nums: Vec<i32>) -> i32 {
-        let mut count = [0, 0];
-        for &num in nums.iter() {
-            if num < 0 {
-                count[0] += 1;
-            } else if num > 0 {
-                count[1] += 1;
+        let mut a = 0;
+        let mut b = 0;
+
+        for x in nums {
+            if x > 0 {
+                a += 1;
+            } else if x < 0 {
+                b += 1;
             }
         }
-        *count.iter().max().unwrap()
+
+        std::cmp::max(a, b)
     }
 }

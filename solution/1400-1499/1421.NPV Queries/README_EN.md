@@ -1,10 +1,20 @@
-# [1421. NPV Queries](https://leetcode.com/problems/npv-queries)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1421.NPV%20Queries/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1421. NPV Queries 🔒](https://leetcode.com/problems/npv-queries)
 
 [中文文档](/solution/1400-1499/1421.NPV%20Queries/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>NPV</code></p>
 
@@ -90,11 +100,17 @@ The npv value of (7, 2018) is not present in the NPV table, we consider it 0.
 The npv values of all other queries can be found in the NPV table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -106,4 +122,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

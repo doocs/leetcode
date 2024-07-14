@@ -1,12 +1,26 @@
-# [2031. 1 比 0 多的子数组个数](https://leetcode.cn/problems/count-subarrays-with-more-ones-than-zeros)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2031.Count%20Subarrays%20With%20More%20Ones%20Than%20Zeros/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
+    - 分治
+    - 有序集合
+    - 归并排序
+---
+
+<!-- problem:start -->
+
+# [2031. 1 比 0 多的子数组个数 🔒](https://leetcode.cn/problems/count-subarrays-with-more-ones-than-zeros)
 
 [English Version](/solution/2000-2099/2031.Count%20Subarrays%20With%20More%20Ones%20Than%20Zeros/README_EN.md)
 
-<!-- tags:树状数组,线段树,数组,二分查找,分治,有序集合,归并排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个只包含 <code>0</code> 和 <code>1</code> 的数组 <code>nums</code>，请返回 <code>1</code> 的数量 <strong>大于 </strong><code>0</code> 的数量的子数组的个数。由于答案可能很大，请返回答案对&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;<strong>取余</strong>&nbsp;的结果。</p>
 
@@ -51,7 +65,11 @@
 	<li><code>0 &lt;= nums[i] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 树状数组
 
@@ -66,6 +84,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -103,6 +123,8 @@ class Solution:
             tree.update(s + base, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -147,6 +169,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -194,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -237,6 +263,8 @@ func subarraysWithMoreZerosThanOnes(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -283,9 +311,15 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -306,4 +340,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

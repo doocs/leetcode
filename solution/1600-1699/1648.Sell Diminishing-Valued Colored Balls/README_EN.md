@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/README_EN.md
+rating: 2050
+source: Weekly Contest 214 Q3
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Binary Search
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [1648. Sell Diminishing-Valued Colored Balls](https://leetcode.com/problems/sell-diminishing-valued-colored-balls)
 
 [中文文档](/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/README.md)
 
-<!-- tags:Greedy,Array,Math,Binary Search,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have an <code>inventory</code> of different colored balls, and there is a customer that wants <code>orders</code> balls of <strong>any</strong> color.</p>
 
@@ -42,11 +59,17 @@ The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 	<li><code>1 &lt;= orders &lt;= min(sum(inventory[i]), 10<sup>9</sup>)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +100,8 @@ class Solution:
             ans %= mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(inventory []int, orders int) int {
@@ -189,4 +218,6 @@ func maxProfit(inventory []int, orders int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

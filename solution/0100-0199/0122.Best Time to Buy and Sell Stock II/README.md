@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README.md
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii)
 
 [English Version](/solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README_EN.md)
 
-<!-- tags:贪心,数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>prices</code> ，其中&nbsp;<code>prices[i]</code> 表示某支股票第 <code>i</code> 天的价格。</p>
 
@@ -21,24 +31,24 @@
 <pre>
 <strong>输入：</strong>prices = [7,1,5,3,6,4]
 <strong>输出：</strong>7
-<strong>解释：</strong>在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
-&nbsp;    随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3 。
-     总利润为 4 + 3 = 7 。</pre>
+<strong>解释：</strong>在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4。
+随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3。
+最大总利润为 4 + 3 = 7 。</pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>prices = [1,2,3,4,5]
 <strong>输出：</strong>4
-<strong>解释：</strong>在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
-&nbsp;    总利润为 4 。</pre>
+<strong>解释：</strong>在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4。
+最大总利润为 4 。</pre>
 
 <p><strong>示例&nbsp;3：</strong></p>
 
 <pre>
 <strong>输入：</strong>prices = [7,6,4,3,1]
 <strong>输出：</strong>0
-<strong>解释：</strong>在这种情况下, 交易无法获得正利润，所以不参与交易可以获得最大利润，最大利润为 0 。</pre>
+<strong>解释：</strong>在这种情况下, 交易无法获得正利润，所以不参与交易可以获得最大利润，最大利润为 0。</pre>
 
 <p>&nbsp;</p>
 
@@ -49,7 +59,11 @@
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -59,11 +73,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         return sum(max(0, b - a) for a, b in pairwise(prices))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int) (ans int) {
@@ -100,6 +122,8 @@ func maxProfit(prices []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[]): number {
     let ans = 0;
@@ -109,6 +133,8 @@ function maxProfit(prices: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -121,6 +147,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -136,6 +164,8 @@ var maxProfit = function (prices) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -149,6 +179,10 @@ public class Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：动态规划
 
@@ -173,6 +207,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -184,6 +220,8 @@ class Solution:
             f[i][1] = max(f[i - 1][1], f[i - 1][0] + prices[i])
         return f[n - 1][1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +237,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -217,6 +257,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	n := len(prices)
@@ -229,6 +271,8 @@ func maxProfit(prices []int) int {
 	return f[n-1][1]
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -246,6 +290,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：动态规划（空间优化）
 
 我们可以发现，在方法二中，第 $i$ 天的状态，只与第 $i-1$ 天的状态有关，因此我们可以只用两个变量来维护第 $i-1$ 天的状态，从而将空间复杂度优化到 $O(1)$。
@@ -253,6 +301,8 @@ public class Solution {
 时间复杂度 $O(n)$，其中 $n$ 为数组 `prices` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -266,6 +316,8 @@ class Solution:
             f = g
         return f[1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +334,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -300,6 +354,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	n := len(prices)
@@ -316,4 +372,6 @@ func maxProfit(prices []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

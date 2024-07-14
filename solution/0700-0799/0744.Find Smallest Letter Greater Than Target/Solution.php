@@ -5,20 +5,16 @@ class Solution {
      * @return String
      */
     function nextGreatestLetter($letters, $target) {
-        $left = 0;
-        $right = count($letters);
-        while ($left <= $right) {
-            $mid = floor($left + ($right - $left) / 2);
+        $l = 0;
+        $r = count($letters);
+        while ($l < $r) {
+            $mid = $l + $r >> 1;
             if ($letters[$mid] > $target) {
-                $right = $mid - 1;
+                $r = $mid;
             } else {
-                $left = $mid + 1;
+                $l = $mid + 1;
             }
         }
-        if ($left >= count($letters)) {
-            return $letters[0];
-        } else {
-            return $letters[$left];
-        }
+        return $letters[$l % count($letters)];
     }
 }

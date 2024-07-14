@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [953. Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary)
 
 [中文文档](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README.md)
 
-<!-- tags:Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>In an alien language, surprisingly, they also use English lowercase letters, but possibly in a different <code>order</code>. The <code>order</code> of the alphabet is some permutation of lowercase letters.</p>
 
@@ -45,11 +57,17 @@
 	<li>All characters in <code>words[i]</code> and <code>order</code> are English lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +87,8 @@ class Solution:
                 return True
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isAlienSorted(words []string, order string) bool {
@@ -151,6 +175,8 @@ func isAlienSorted(words []string, order string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isAlienSorted(words: string[], order: string): boolean {
     const map = new Map();
@@ -180,19 +206,17 @@ function isAlienSorted(words: string[], order: string): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 impl Solution {
     pub fn is_alien_sorted(words: Vec<String>, order: String) -> bool {
         let n = words.len();
         let mut map = HashMap::new();
-        order
-            .as_bytes()
-            .iter()
-            .enumerate()
-            .for_each(|(i, &v)| {
-                map.insert(v, i);
-            });
+        order.as_bytes().iter().enumerate().for_each(|(i, &v)| {
+            map.insert(v, i);
+        });
         for i in 1..n {
             let s1 = words[i - 1].as_bytes();
             let s2 = words[i].as_bytes();
@@ -214,6 +238,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -249,4 +275,6 @@ bool isAlienSorted(char** words, int wordsSize, char* order) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

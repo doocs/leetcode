@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0486.Predict%20the%20Winner/README.md
+tags:
+    - 递归
+    - 数组
+    - 数学
+    - 动态规划
+    - 博弈
+---
+
+<!-- problem:start -->
+
 # [486. 预测赢家](https://leetcode.cn/problems/predict-the-winner)
 
 [English Version](/solution/0400-0499/0486.Predict%20the%20Winner/README_EN.md)
 
-<!-- tags:递归,数组,数学,动态规划,博弈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 。玩家 1 和玩家 2 基于这个数组设计了一个游戏。</p>
 
@@ -43,7 +55,11 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -62,6 +78,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
@@ -73,6 +91,8 @@ class Solution:
 
         return dfs(0, len(nums) - 1) >= 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func PredictTheWinner(nums []int) bool {
@@ -140,6 +164,8 @@ func PredictTheWinner(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function PredictTheWinner(nums: number[]): boolean {
     const n = nums.length;
@@ -156,6 +182,8 @@ function PredictTheWinner(nums: number[]): boolean {
     return dfs(0, n - 1) >= 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -176,7 +204,7 @@ impl Solution {
                     // Take i-th num
                     nums[i] - dp[i + 1][j],
                     // Take j-th num
-                    nums[j] - dp[i][j - 1]
+                    nums[j] - dp[i][j - 1],
                 );
             }
         }
@@ -187,6 +215,10 @@ impl Solution {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：动态规划
 
@@ -211,6 +243,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
@@ -223,6 +257,8 @@ class Solution:
                 f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1])
         return f[0][n - 1] >= 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -241,6 +277,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -262,6 +300,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func PredictTheWinner(nums []int) bool {
 	n := len(nums)
@@ -278,6 +318,8 @@ func PredictTheWinner(nums []int) bool {
 	return f[0][n-1] >= 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function PredictTheWinner(nums: number[]): boolean {
@@ -297,4 +339,6 @@ function PredictTheWinner(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

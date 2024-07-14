@@ -1,12 +1,23 @@
-# [2355. 你能拿走的最大图书数量](https://leetcode.cn/problems/maximum-number-of-books-you-can-take)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README.md
+tags:
+    - 栈
+    - 数组
+    - 动态规划
+    - 单调栈
+---
+
+<!-- problem:start -->
+
+# [2355. 你能拿走的最大图书数量 🔒](https://leetcode.cn/problems/maximum-number-of-books-you-can-take)
 
 [English Version](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README_EN.md)
 
-<!-- tags:栈,数组,动态规划,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的<b>&nbsp;下标从 0 开始&nbsp;</b>的整数数组 <code>books</code>，其中 <code>books[i]</code> 表示书架的第 <code>i</code> 个书架上的书的数量。</p>
 
@@ -66,21 +77,27 @@
 	<li><code>0 &lt;= books[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈 + 动态规划
 
-设 $dp[i]$ 表示以 $books[i]$ 结尾时能取走的书的最大数量。
+我们定义 $dp[i]$ 表示以 $books[i]$ 结尾时能取走的书的最大数量。
 
 若从 $i$ 到 $0$ 可以取成一个公差为 $1$ 的等差数列，那么 $dp[i]$ 可以直接通过等差数列求和算出。
 
 若从 $i$ 到 $0$ 不能取成一个公差为 $-1$ 的等差数列，即这个规律在某个 $j$ 处断掉了（$0 \le j \lt i$），那么一定有 $books[j] \lt books[i] - (i-j)$，也即 $books[j] - j \lt books[i] - i$，利用单调栈在新数组 $books[i] - i$ 的每个位置，找到左边第一个比它严格小的数的位置，可以求出符合题意的 $j$，此时 $dp[i]=dp[j] + \sum_{k=j+1}^{i} (books[k]-k)$。
 
-答案为 $max(dp[i])$。
+答案为 $\max_{i=0}^{n-1} dp[i]$。
 
-时间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -107,6 +124,8 @@ class Solution:
             ans = max(ans, dp[i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 
@@ -177,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumBooks(books []int) int64 {
@@ -217,4 +240,6 @@ func maximumBooks(books []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

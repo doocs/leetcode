@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0855.Exam%20Room/README_EN.md
+tags:
+    - Design
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [855. Exam Room](https://leetcode.com/problems/exam-room)
 
 [中文文档](/solution/0800-0899/0855.Exam%20Room/README.md)
 
-<!-- tags:Design,Ordered Set,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is an exam room with <code>n</code> seats in a single row labeled from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -50,11 +62,17 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>seat</code> and <code>leave</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -106,6 +124,8 @@ class ExamRoom:
 # param_1 = obj.seat()
 # obj.leave(p)
 ```
+
+#### Java
 
 ```java
 class ExamRoom {
@@ -168,6 +188,8 @@ class ExamRoom {
  * obj.leave(p);
  */
 ```
+
+#### C++
 
 ```cpp
 int N;
@@ -241,6 +263,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type ExamRoom struct {
 	rbt   *redblacktree.Tree
@@ -313,4 +337,6 @@ func (this *ExamRoom) del(s []int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

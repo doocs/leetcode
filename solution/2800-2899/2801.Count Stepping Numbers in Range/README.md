@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md
+rating: 2367
+source: 第 356 场周赛 Q4
+tags:
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2801. 统计范围内的步进数字数目](https://leetcode.cn/problems/count-stepping-numbers-in-range)
 
 [English Version](/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README_EN.md)
 
-<!-- tags:字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数&nbsp;<code>low</code> 和&nbsp;<code>high</code>&nbsp;，都用字符串表示，请你统计闭区间 <code>[low, high]</code>&nbsp;内的 <strong>步进数字</strong>&nbsp;数目。</p>
 
@@ -43,7 +54,11 @@
 	<li><code>low</code> 和&nbsp;<code>high</code>&nbsp;都不含前导 0 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数位 DP
 
@@ -72,6 +87,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSteppingNumbers(self, low: str, high: str) -> int:
@@ -96,6 +113,8 @@ class Solution:
         b = dfs(0, -1, True, True)
         return (a - b) % mod
 ```
+
+#### Java
 
 ```java
 import java.math.BigInteger;
@@ -139,6 +158,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -189,6 +210,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSteppingNumbers(low string, high string) int {
@@ -257,6 +280,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countSteppingNumbers(low: string, high: string): number {
     const mod = 1e9 + 7;
@@ -299,4 +324,6 @@ function countSteppingNumbers(low: string, high: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

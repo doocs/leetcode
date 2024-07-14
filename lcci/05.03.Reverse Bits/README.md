@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.03.Reverse%20Bits/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 05.03. 翻转数位](https://leetcode.cn/problems/reverse-bits-lcci)
 
 [English Version](/lcci/05.03.Reverse%20Bits/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个32位整数 <code>num</code>，你可以将一个数位从0变为1。请编写一个程序，找出你能够获得的最长的一串1的长度。</p>
 <p><strong>示例 1：</strong></p>
@@ -16,7 +24,11 @@
 <strong>输出:</strong> 4
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -27,6 +39,8 @@
 时间复杂度 $O(\log M)$，空间复杂度 $O(1)$。其中 $M$ 为 $32$ 位整数的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -40,6 +54,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -57,6 +73,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -76,6 +94,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseBits(num int) (ans int) {
 	var cnt, j int
@@ -91,6 +111,48 @@ func reverseBits(num int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function reverseBits(num: number): number {
+    let ans = 0;
+    let cnt = 0;
+    for (let i = 0, j = 0; i < 32; ++i) {
+        cnt += ((num >> i) & 1) ^ 1;
+        for (; cnt > 1; ++j) {
+            cnt -= ((num >> j) & 1) ^ 1;
+        }
+        ans = Math.max(ans, i - j + 1);
+    }
+    return ans;
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func reverseBits(_ num: Int) -> Int {
+        var ans = 0
+        var countZeros = 0
+        var j = 0
+
+        for i in 0..<32 {
+            countZeros += (num >> i & 1 ^ 1)
+            while countZeros > 1 {
+                countZeros -= (num >> j & 1 ^ 1)
+                j += 1
+            }
+            ans = max(ans, i - j + 1)
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

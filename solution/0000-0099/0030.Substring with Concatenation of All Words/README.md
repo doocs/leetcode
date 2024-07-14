@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [30. 串联所有单词的子串](https://leetcode.cn/problems/substring-with-concatenation-of-all-words)
 
 [English Version](/solution/0000-0099/0030.Substring%20with%20Concatenation%20of%20All%20Words/README_EN.md)
 
-<!-- tags:哈希表,字符串,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串&nbsp;<code>s</code><strong>&nbsp;</strong>和一个字符串数组&nbsp;<code>words</code><strong>。</strong>&nbsp;<code>words</code>&nbsp;中所有字符串 <strong>长度相同</strong>。</p>
 
@@ -62,7 +72,11 @@ s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接�
 	<li><code>words[i]</code>&nbsp;和&nbsp;<code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 滑动窗口
 
@@ -75,6 +89,8 @@ s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接�
 时间复杂度 $O(m \times k)$，空间复杂度 $O(n \times k)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和字符串数组 $words$ 的长度，而 $k$ 是字符串数组 $words$ 中单词的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +122,8 @@ class Solution:
                     ans.append(l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +166,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +209,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSubstring(s string, words []string) (ans []int) {
 	cnt := map[string]int{}
@@ -222,6 +244,8 @@ func findSubstring(s string, words []string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findSubstring(s: string, words: string[]): number[] {
@@ -263,6 +287,8 @@ function findSubstring(s: string, words: string[]): number[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -308,11 +334,75 @@ public class Solution {
 }
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param String $s
+     * @param String[] $words
+     * @return Integer[]
+     */
+    function findSubstring($s, $words) {
+        $cnt = [];
+        foreach ($words as $w) {
+            if (!isset($cnt[$w])) {
+                $cnt[$w] = 1;
+            } else {
+                $cnt[$w]++;
+            }
+        }
+        $m = strlen($s);
+        $n = count($words);
+        $k = strlen($words[0]);
+        $ans = [];
+        for ($i = 0; $i < $k; ++$i) {
+            $cnt1 = [];
+            $l = $i;
+            $r = $i;
+            $t = 0;
+            while ($r + $k <= $m) {
+                $w = substr($s, $r, $k);
+                $r += $k;
+                if (!array_key_exists($w, $cnt)) {
+                    $cnt1 = [];
+                    $l = $r;
+                    $t = 0;
+                    continue;
+                }
+                if (!isset($cnt1[$w])) {
+                    $cnt1[$w] = 1;
+                } else {
+                    $cnt1[$w]++;
+                }
+                ++$t;
+                while ($cnt1[$w] > $cnt[$w]) {
+                    $remove = substr($s, $l, $k);
+                    $l += $k;
+                    $cnt1[$remove]--;
+                    $t--;
+                }
+                if ($t == $n) {
+                    $ans[] = $l;
+                }
+            }
+        }
+        return $ans;
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二
 
 <!-- tabs:start -->
+
+#### C++
 
 ```cpp
 class Solution {
@@ -344,4 +434,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README_EN.md
+rating: 1658
+source: Weekly Contest 162 Q3
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [1254. Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands)
 
 [中文文档](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D&nbsp;<code>grid</code> consists of <code>0s</code> (land)&nbsp;and <code>1s</code> (water).&nbsp; An <em>island</em> is a maximal 4-directionally connected group of <code><font face="monospace">0</font>s</code> and a <em>closed island</em>&nbsp;is an island <strong>totally</strong>&nbsp;(all left, top, right, bottom) surrounded by <code>1s.</code></p>
 
@@ -51,7 +67,11 @@ Islands in gray are closed because they are completely surrounded by water (grou
 	<li><code>0 &lt;= grid[i][j] &lt;=1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -62,6 +82,8 @@ Finally, we return the answer.
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +101,8 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return sum(grid[i][j] == 0 and dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +169,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func closedIsland(grid [][]int) (ans int) {
@@ -174,6 +202,8 @@ func closedIsland(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closedIsland(grid: number[][]): number {
     const m = grid.length;
@@ -201,6 +231,8 @@ function closedIsland(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -240,6 +272,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Union-Find
 
 We can use a union-find set to maintain each piece of connected land.
@@ -253,6 +289,8 @@ Finally, we return the answer.
 The time complexity is $O(m \times n \times \alpha(m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -295,6 +333,8 @@ class Solution:
                 ans += grid[i][j] == 0 and uf.find(i * n + j) == i * n + j
         return ans
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -363,6 +403,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -426,6 +468,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -491,6 +535,8 @@ func closedIsland(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function closedIsland(grid: number[][]): number {
     const m = grid.length;
@@ -555,6 +601,8 @@ class UnionFind {
     }
 }
 ```
+
+#### C#
 
 ```cs
 class UnionFind {
@@ -625,4 +673,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

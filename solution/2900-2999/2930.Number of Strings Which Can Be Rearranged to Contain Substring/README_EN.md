@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README_EN.md
+rating: 2227
+source: Biweekly Contest 117 Q3
+tags:
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+---
+
+<!-- problem:start -->
+
 # [2930. Number of Strings Which Can Be Rearranged to Contain Substring](https://leetcode.com/problems/number-of-strings-which-can-be-rearranged-to-contain-substring)
 
 [中文文档](/solution/2900-2999/2930.Number%20of%20Strings%20Which%20Can%20Be%20Rearranged%20to%20Contain%20Substring/README.md)
 
-<!-- tags:Math,Dynamic Programming,Combinatorics -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>.</p>
 
@@ -49,7 +63,11 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memorization Search
 
@@ -69,6 +87,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringCount(self, n: int) -> int:
@@ -85,6 +105,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(n, 0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func stringCount(n int) int {
@@ -172,6 +198,8 @@ func stringCount(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function stringCount(n: number): number {
     const mod = 10 ** 9 + 7;
@@ -199,6 +227,10 @@ function stringCount(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Reverse Thinking + Inclusion-Exclusion Principle
 
 We can consider reverse thinking, that is, calculate the number of strings that do not contain the substring "leet", and then subtract this number from the total.
@@ -221,6 +253,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def stringCount(self, n: int) -> int:
@@ -233,6 +267,8 @@ class Solution:
         tot = pow(26, n, mod)
         return (tot - (a + b + c - ab - ac - bc + abc)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -263,6 +299,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -292,6 +330,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func stringCount(n int) int {
 	const mod int = 1e9 + 7
@@ -316,6 +356,8 @@ func stringCount(n int) int {
 	return ((tot-(a+b+c-ab-ac-bc+abc))%mod + mod) % mod
 }
 ```
+
+#### TypeScript
 
 ```ts
 function stringCount(n: number): number {
@@ -344,4 +386,6 @@ function stringCount(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

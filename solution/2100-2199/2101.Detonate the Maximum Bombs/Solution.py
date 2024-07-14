@@ -1,30 +1,26 @@
 class Solution:
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
-        def check(i, j):
-            if i == j:
-                return False
-            x, y = bombs[i][0] - bombs[j][0], bombs[i][1] - bombs[j][1]
-            r = bombs[i][2]
-            return r * r >= x * x + y * y
-
-        g = defaultdict(list)
         n = len(bombs)
-        for i in range(n):
-            for j in range(n):
-                if check(i, j):
+        g = [[] for _ in range(n)]
+        for i in range(n - 1):
+            x1, y1, r1 = bombs[i]
+            for j in range(i + 1, n):
+                x2, y2, r2 = bombs[j]
+                dist = hypot(x1 - x2, y1 - y2)
+                if dist <= r1:
                     g[i].append(j)
+                if dist <= r2:
+                    g[j].append(i)
         ans = 0
         for k in range(n):
-            q = deque([k])
-            vis = [False] * n
-            vis[k] = True
-            cnt = 0
-            while q:
-                i = q.popleft()
-                cnt += 1
+            vis = {k}
+            q = [k]
+            for i in q:
                 for j in g[i]:
-                    if not vis[j]:
-                        vis[j] = True
+                    if j not in vis:
+                        vis.add(j)
                         q.append(j)
-            ans = max(ans, cnt)
+            if len(vis) == n:
+                return n
+            ans = max(ans, len(vis))
         return ans

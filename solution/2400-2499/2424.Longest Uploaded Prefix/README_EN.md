@@ -1,10 +1,28 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md
+rating: 1604
+source: Biweekly Contest 88 Q2
+tags:
+    - Union Find
+    - Design
+    - Binary Indexed Tree
+    - Segment Tree
+    - Binary Search
+    - Ordered Set
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2424. Longest Uploaded Prefix](https://leetcode.com/problems/longest-uploaded-prefix)
 
 [中文文档](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README.md)
 
-<!-- tags:Union Find,Design,Binary Indexed Tree,Segment Tree,Binary Search,Ordered Set,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a stream of <code>n</code> videos, each represented by a <strong>distinct</strong> number from <code>1</code> to <code>n</code> that you need to &quot;upload&quot; to a server. You need to implement a data structure that calculates the length of the <strong>longest uploaded prefix</strong> at various points in the upload process.</p>
 
@@ -50,7 +68,11 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 	<li>At least one call will be made to <code>longest</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -61,6 +83,8 @@ Each time a video is uploaded, we set `s[video]` to `true`, then loop to check w
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of videos.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class LUPrefix:
@@ -82,6 +106,8 @@ class LUPrefix:
 # obj.upload(video)
 # param_2 = obj.longest()
 ```
+
+#### Java
 
 ```java
 class LUPrefix {
@@ -110,6 +136,8 @@ class LUPrefix {
  * int param_2 = obj.longest();
  */
 ```
+
+#### C++
 
 ```cpp
 class LUPrefix {
@@ -140,6 +168,8 @@ private:
  * int param_2 = obj->longest();
  */
 ```
+
+#### Go
 
 ```go
 type LUPrefix struct {
@@ -172,4 +202,6 @@ func (this *LUPrefix) Longest() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

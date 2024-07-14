@@ -1,10 +1,25 @@
-# [1756. Design Most Recently Used Queue](https://leetcode.com/problems/design-most-recently-used-queue)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README_EN.md
+tags:
+    - Stack
+    - Design
+    - Binary Indexed Tree
+    - Array
+    - Hash Table
+    - Ordered Set
+---
+
+<!-- problem:start -->
+
+# [1756. Design Most Recently Used Queue 🔒](https://leetcode.com/problems/design-most-recently-used-queue)
 
 [中文文档](/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README.md)
 
-<!-- tags:Stack,Design,Binary Indexed Tree,Array,Hash Table,Ordered Set -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a queue-like data structure that moves the most recently used element to the end of the queue.</p>
 
@@ -45,11 +60,17 @@ mRUQueue.fetch(8); // The 8<sup>th</sup> element (2) is already at the end of th
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Finding an <code>O(n)</code> algorithm per <code>fetch</code> is a bit easy. Can you find an algorithm with a better complexity for each <code>fetch</code> call?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MRUQueue:
@@ -67,6 +88,8 @@ class MRUQueue:
 # obj = MRUQueue(n)
 # param_1 = obj.fetch(k)
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -133,6 +156,8 @@ class MRUQueue {
  */
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -197,6 +222,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -259,6 +286,8 @@ func (this *MRUQueue) Fetch(k int) int {
  * param_1 := obj.Fetch(k);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -326,9 +355,15 @@ class MRUQueue {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -375,4 +410,6 @@ class MRUQueue:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

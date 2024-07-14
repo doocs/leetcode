@@ -1,10 +1,23 @@
-# [2408. Design SQL](https://leetcode.com/problems/design-sql)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2408.Design%20SQL/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [2408. Design SQL 🔒](https://leetcode.com/problems/design-sql)
 
 [中文文档](/solution/2400-2499/2408.Design%20SQL/README.md)
 
-<!-- tags:Design,Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>n</code> tables represented with two arrays <code>names</code> and <code>columns</code>, where <code>names[i]</code> is the name of the <code>i<sup>th</sup></code> table and <code>columns[i]</code> is the number of columns of the <code>i<sup>th</sup></code> table.</p>
 
@@ -61,7 +74,11 @@ sql.selectCell(&quot;two&quot;, 2, 2); // return &quot;fifth&quot;, finds the va
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>selectCell</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -70,6 +87,8 @@ Create a hash table `tables` to store the mapping of table names to table data r
 The time complexity of each operation is $O(1)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class SQL:
@@ -92,6 +111,8 @@ class SQL:
 # obj.deleteRow(name,rowId)
 # param_3 = obj.selectCell(name,rowId,columnId)
 ```
+
+#### Java
 
 ```java
 class SQL {
@@ -122,6 +143,8 @@ class SQL {
  */
 ```
 
+#### C++
+
 ```cpp
 class SQL {
 public:
@@ -149,6 +172,8 @@ public:
  * string param_3 = obj->selectCell(name,rowId,columnId);
  */
 ```
+
+#### Go
 
 ```go
 type SQL struct {
@@ -182,4 +207,6 @@ func (this *SQL) SelectCell(name string, rowId int, columnId int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

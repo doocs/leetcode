@@ -1,12 +1,20 @@
-# [2720. 受欢迎度百分比](https://leetcode.cn/problems/popularity-percentage)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2720.Popularity%20Percentage/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2720. 受欢迎度百分比 🔒](https://leetcode.cn/problems/popularity-percentage)
 
 [English Version](/solution/2700-2799/2720.Popularity%20Percentage/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Friends</code></p>
 
@@ -74,11 +82,17 @@ Friends 表:
 - 用户 "9" 与 3 是朋友。因此，用户 9 的受欢迎度百分比计算为（1/9）* 100 = 11.11。 
 user1 按升序排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -101,4 +115,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

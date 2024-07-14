@@ -1,12 +1,28 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README.md
+rating: 2489
+source: 第 262 场周赛 Q4
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 二分查找
+    - 动态规划
+    - 状态压缩
+    - 有序集合
+---
+
+<!-- problem:start -->
+
 # [2035. 将数组分成两个数组并最小化数组和的差](https://leetcode.cn/problems/partition-array-into-two-arrays-to-minimize-sum-difference)
 
 [English Version](/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README_EN.md)
 
-<!-- tags:位运算,数组,双指针,二分查找,动态规划,状态压缩,有序集合 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>2 * n</code>&nbsp;的整数数组。你需要将&nbsp;<code>nums</code>&nbsp;分成&nbsp;<strong>两个</strong>&nbsp;长度为&nbsp;<code>n</code>&nbsp;的数组，分别求出两个数组的和，并 <strong>最小化</strong>&nbsp;两个数组和之&nbsp;<b>差的绝对值</b>&nbsp;。<code>nums</code>&nbsp;中每个元素都需要放入两个数组之一。</p>
 
@@ -52,11 +68,17 @@
 	<li><code>-10<sup>7</sup> &lt;= nums[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +119,8 @@ class Solution:
                     ans = min(ans, abs(a + gi[left - 1]))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -149,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -196,6 +222,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumDifference(nums []int) int {
@@ -256,4 +284,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

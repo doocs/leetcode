@@ -1,14 +1,26 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [349. 两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays)
 
 [English Version](/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README_EN.md)
 
-<!-- tags:数组,哈希表,双指针,二分查找,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给定两个数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code> ，返回 <em>它们的交集</em>&nbsp;。输出结果中的每个元素一定是 <strong>唯一</strong> 的。我们可以 <strong>不考虑输出结果的顺序</strong> 。</p>
+<p>给定两个数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code> ，返回 <em>它们的 <span data-keyword="array-intersection">交集</span></em>&nbsp;。输出结果中的每个元素一定是 <strong>唯一</strong> 的。我们可以 <strong>不考虑输出结果的顺序</strong> 。</p>
 
 <p>&nbsp;</p>
 
@@ -36,7 +48,11 @@
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -48,11 +64,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         return list(set(nums1) & set(nums2))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func intersection(nums1 []int, nums2 []int) (ans []int) {
 	s := [1001]bool{}
@@ -110,6 +134,17 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function intersection(nums1: number[], nums2: number[]): number[] {
+    const s = new Set(nums1);
+    return [...new Set(nums2.filter(x => s.has(x)))];
+}
+```
+
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums1
@@ -117,36 +152,27 @@ func intersection(nums1 []int, nums2 []int) (ans []int) {
  * @return {number[]}
  */
 var intersection = function (nums1, nums2) {
-    const s = Array(1001).fill(false);
-    for (const x of nums1) {
-        s[x] = true;
-    }
-    const ans = [];
-    for (const x of nums2) {
-        if (s[x]) {
-            ans.push(x);
-            s[x] = false;
-        }
-    }
-    return ans;
+    const s = new Set(nums1);
+    return [...new Set(nums2.filter(x => s.has(x)))];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
     public int[] Intersection(int[] nums1, int[] nums2) {
-        List<int> result = new List<int>();
-        HashSet<int> arr1 = new(nums1);
-        HashSet<int> arr2 = new(nums2);
-        foreach (int x in arr1) {
-            if (arr2.Contains(x)) {
-                result.Add(x);
-            }
-        }
-        return result.ToArray();
+        HashSet<int> s1 = new HashSet<int>(nums1);
+        HashSet<int> s2 = new HashSet<int>(nums2);
+        s1.IntersectWith(s2);
+        int[] ans = new int[s1.Count];
+        s1.CopyTo(ans);
+        return ans;
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -156,39 +182,16 @@ class Solution {
      * @return Integer[]
      */
     function intersection($nums1, $nums2) {
-        $rs = [];
-        $set1 = array_values(array_unique($nums1));
-        $set2 = array_values(array_unique($nums2));
-        for ($i = 0; $i < count($set1); $i++) {
-            $hashmap[$set1[$i]] = 1;
-        }
-        for ($j = 0; $j < count($set2); $j++) {
-            if ($hashmap[$set2[$j]]) {
-                array_push($rs, $set2[$j]);
-            }
-        }
-        return $rs;
+        $s1 = array_unique($nums1);
+        $s2 = array_unique($nums2);
+        $ans = array_intersect($s1, $s2);
+        return array_values($ans);
     }
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```js
-/**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number[]}
- */
-var intersection = function (nums1, nums2) {
-    return Array.from(new Set(nums1)).filter(num => new Set(nums2).has(num));
-};
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

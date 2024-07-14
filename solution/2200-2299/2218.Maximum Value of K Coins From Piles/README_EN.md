@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README_EN.md
+rating: 2157
+source: Weekly Contest 286 Q4
+tags:
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [2218. Maximum Value of K Coins From Piles](https://leetcode.com/problems/maximum-value-of-k-coins-from-piles)
 
 [中文文档](/solution/2200-2299/2218.Maximum%20Value%20of%20K%20Coins%20From%20Piles/README.md)
 
-<!-- tags:Array,Dynamic Programming,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> <strong>piles</strong> of coins on a table. Each pile consists of a <strong>positive number</strong> of coins of assorted denominations.</p>
 
@@ -42,11 +56,17 @@ The maximum total we can obtain is 101.
 	<li><code>1 &lt;= k &lt;= sum(piles[i].length) &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +81,8 @@ class Solution:
                         dp[i][j] = max(dp[i][j], dp[i - 1][j - idx] + v)
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxValueOfCoins(piles [][]int, k int) int {
@@ -141,9 +167,15 @@ func maxValueOfCoins(piles [][]int, k int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -160,4 +192,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

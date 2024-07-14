@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README.md
+rating: 2607
+source: 第 368 场周赛 Q4
+tags:
+    - 双指针
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2911. 得到 K 个半回文串的最少修改次数](https://leetcode.cn/problems/minimum-changes-to-make-k-semi-palindromes)
 
 [English Version](/solution/2900-2999/2911.Minimum%20Changes%20to%20Make%20K%20Semi-palindromes/README_EN.md)
 
-<!-- tags:双指针,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;，请你将&nbsp;<code>s</code> 分成&nbsp;<code>k</code>&nbsp;个<strong>&nbsp;子字符串</strong>&nbsp;，使得每个 <strong>子字符串</strong>&nbsp;变成&nbsp;<strong>半回文串</strong>&nbsp;需要修改的字符数目最少。</p>
 
@@ -57,11 +69,17 @@
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +108,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[h][j - 1] + g[h + 1][i])
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumChanges(s string, k int) int {
@@ -225,6 +249,8 @@ func minimumChanges(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumChanges(s: string, k: number): number {
     const n = s.length;
@@ -264,9 +290,15 @@ function minimumChanges(s: string, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -353,4 +385,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

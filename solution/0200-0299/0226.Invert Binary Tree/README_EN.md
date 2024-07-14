@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [226. Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree)
 
 [中文文档](/solution/0200-0299/0226.Invert%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, invert the tree, and return <em>its root</em>.</p>
 
@@ -38,7 +51,11 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -47,6 +64,8 @@ The idea of recursion is very simple, which is to swap the left and right subtre
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -67,6 +86,8 @@ class Solution:
         dfs(root)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -132,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -155,6 +180,8 @@ func invertTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -185,6 +212,8 @@ function invertTree(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -204,8 +233,8 @@ function invertTree(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     #[allow(dead_code)]
     pub fn invert_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -225,6 +254,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -255,9 +286,15 @@ var invertTree = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -274,6 +311,8 @@ class Solution:
         root.left, root.right = r, l
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -305,6 +344,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -332,6 +373,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -350,6 +393,8 @@ func invertTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -378,6 +423,8 @@ function invertTree(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -405,4 +452,6 @@ var invertTree = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

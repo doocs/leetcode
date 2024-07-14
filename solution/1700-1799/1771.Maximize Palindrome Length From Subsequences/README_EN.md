@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1771.Maximize%20Palindrome%20Length%20From%20Subsequences/README_EN.md
+rating: 2182
+source: Weekly Contest 229 Q4
+tags:
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1771. Maximize Palindrome Length From Subsequences](https://leetcode.com/problems/maximize-palindrome-length-from-subsequences)
 
 [中文文档](/solution/1700-1799/1771.Maximize%20Palindrome%20Length%20From%20Subsequences/README.md)
 
-<!-- tags:String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings, <code>word1</code> and <code>word2</code>. You want to construct a string in the following manner:</p>
 
@@ -50,7 +63,11 @@
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -67,6 +84,8 @@ Finally, we return the answer.
 The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +106,8 @@ class Solution:
                     f[i][j] = max(f[i + 1][j], f[i][j - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -142,6 +165,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestPalindrome(word1 string, word2 string) (ans int) {
 	s := word1 + word2
@@ -167,6 +192,8 @@ func longestPalindrome(word1 string, word2 string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestPalindrome(word1: string, word2: string): number {
     const s = word1 + word2;
@@ -191,6 +218,8 @@ function longestPalindrome(word1: string, word2: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -221,4 +250,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

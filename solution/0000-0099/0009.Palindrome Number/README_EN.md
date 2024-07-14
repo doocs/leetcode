@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0009.Palindrome%20Number/README_EN.md
+tags:
+    - Math
+---
+
+<!-- problem:start -->
+
 # [9. Palindrome Number](https://leetcode.com/problems/palindrome-number)
 
 [中文文档](/solution/0000-0099/0009.Palindrome%20Number/README.md)
 
-<!-- tags:Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>x</code>, return <code>true</code><em> if </em><code>x</code><em> is a </em><span data-keyword="palindrome-integer"><em><strong>palindrome</strong></em></span><em>, and </em><code>false</code><em> otherwise</em>.</p>
 
@@ -43,7 +53,11 @@
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it without converting the integer to a string?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Half of the Number
 
@@ -71,6 +85,8 @@ The time complexity is $O(\log_{10}(n))$, where $n$ is $x$. For each iteration, 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPalindrome(self, x: int) -> bool:
@@ -82,6 +98,8 @@ class Solution:
             x //= 10
         return x in (y, y // 10)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPalindrome(x int) bool {
 	if x < 0 || (x > 0 && x%10 == 0) {
@@ -126,6 +148,8 @@ func isPalindrome(x int) bool {
 	return x == y || x == y/10
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPalindrome(x: number): boolean {
@@ -140,28 +164,7 @@ function isPalindrome(x: number): boolean {
 }
 ```
 
-```rust
-impl Solution {
-    pub fn is_palindrome(x: i32) -> bool {
-        if x < 0 {
-            return false;
-        }
-        let s = x.to_string();
-        let bs = s.as_bytes();
-        let n = bs.len();
-        let mut l = 0;
-        let mut r = n - 1;
-        while l < r {
-            if bs[l] != bs[r] {
-                return false;
-            }
-            l += 1;
-            r -= 1;
-        }
-        true
-    }
-}
-```
+#### Rust
 
 ```rust
 impl Solution {
@@ -180,6 +183,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} x
@@ -196,6 +201,8 @@ var isPalindrome = function (x) {
     return x === y || x === ~~(y / 10);
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -214,4 +221,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

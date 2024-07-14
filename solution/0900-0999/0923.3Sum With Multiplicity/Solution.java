@@ -1,23 +1,21 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int threeSumMulti(int[] arr, int target) {
+        final int mod = (int) 1e9 + 7;
         int[] cnt = new int[101];
-        for (int v : arr) {
-            ++cnt[v];
+        for (int x : arr) {
+            ++cnt[x];
         }
-        long ans = 0;
-        for (int j = 0; j < arr.length; ++j) {
-            int b = arr[j];
-            --cnt[b];
+        int n = arr.length;
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            --cnt[arr[j]];
             for (int i = 0; i < j; ++i) {
-                int a = arr[i];
-                int c = target - a - b;
-                if (c >= 0 && c <= 100) {
-                    ans = (ans + cnt[c]) % MOD;
+                int c = target - arr[i] - arr[j];
+                if (c >= 0 && c < cnt.length) {
+                    ans = (ans + cnt[c]) % mod;
                 }
             }
         }
-        return (int) ans;
+        return ans;
     }
 }

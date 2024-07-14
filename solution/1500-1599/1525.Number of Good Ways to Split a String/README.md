@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README.md
+rating: 1499
+source: 第 31 场双周赛 Q3
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1525. 字符串的好分割数目](https://leetcode.cn/problems/number-of-good-ways-to-split-a-string)
 
 [English Version](/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README_EN.md)
 
-<!-- tags:位运算,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，一个分割被称为 「好分割」&nbsp;当它满足：将&nbsp;<code>s</code>&nbsp;分割成 2 个字符串&nbsp;<code>p</code> 和&nbsp;<code>q</code>&nbsp;，它们连接起来等于&nbsp;<code>s</code>&nbsp;且 <code>p</code>&nbsp;和 <code>q</code>&nbsp;中不同字符的数目相同。</p>
 
@@ -54,7 +67,11 @@
 	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -67,6 +84,8 @@
 时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +101,8 @@ class Solution:
             ans += len(vis) == len(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSplits(s string) (ans int) {
@@ -151,4 +176,6 @@ func numSplits(s string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

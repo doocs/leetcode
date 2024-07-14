@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md
+tags:
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [697. 数组的度](https://leetcode.cn/problems/degree-of-an-array)
 
 [English Version](/solution/0600-0699/0697.Degree%20of%20an%20Array/README_EN.md)
 
-<!-- tags:数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非空且只包含非负数的整数数组&nbsp;<code>nums</code>，数组的 <strong>度</strong> 的定义是指数组里任一元素出现频数的最大值。</p>
 
@@ -45,7 +54,11 @@
 	<li><code>nums[i]</code>&nbsp;是一个在 <code>0</code> 到 <code>49,999</code> 范围内的整数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -54,6 +67,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +88,8 @@ class Solution:
                     ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findShortestSubArray(nums []int) int {
@@ -165,9 +186,15 @@ func findShortestSubArray(nums []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func findShortestSubArray(nums []int) (ans int) {
@@ -227,4 +254,6 @@ func getMaxDegreeElem(maxDegree int, numsMap map[int]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

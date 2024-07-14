@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
+<!-- problem:start -->
+
 # [785. Is Graph Bipartite](https://leetcode.com/problems/is-graph-bipartite)
 
 [中文文档](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, where each node is numbered between <code>0</code> and <code>n - 1</code>. You are given a 2D array <code>graph</code>, where <code>graph[u]</code> is an array of nodes that node <code>u</code> is adjacent to. More formally, for each <code>v</code> in <code>graph[u]</code>, there is an undirected edge between node <code>u</code> and node <code>v</code>. The graph has the following properties:</p>
 
@@ -47,11 +60,17 @@
 	<li>If <code>graph[u]</code> contains <code>v</code>, then <code>graph[v]</code> contains <code>u</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +92,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -158,6 +183,8 @@ func isBipartite(graph [][]int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isBipartite(graph: number[][]): boolean {
@@ -188,6 +215,8 @@ function isBipartite(graph: number[][]): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -208,7 +237,7 @@ impl Solution {
         v: usize,
         color: usize,
         color_vec: &mut Vec<usize>,
-        graph: &mut Vec<Vec<i32>>
+        graph: &mut Vec<Vec<i32>>,
     ) -> bool {
         color_vec[v] = color;
         for n in graph[v].clone() {
@@ -229,9 +258,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -249,6 +284,8 @@ class Solution:
                 p[find(v)] = find(g[0])
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -281,6 +318,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -306,6 +345,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isBipartite(graph [][]int) bool {
@@ -333,6 +374,8 @@ func isBipartite(graph [][]int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
@@ -357,6 +400,8 @@ function isBipartite(graph: number[][]): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -409,4 +454,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

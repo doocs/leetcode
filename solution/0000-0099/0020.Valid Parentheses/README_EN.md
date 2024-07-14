@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md
+tags:
+    - Stack
+    - String
+---
+
+<!-- problem:start -->
+
 # [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 
 [中文文档](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
 
-<!-- tags:Stack,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>
 
@@ -46,7 +57,11 @@
 	<li><code>s</code> consists of parentheses only <code>&#39;()[]{}&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -62,6 +77,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
@@ -74,6 +91,8 @@ class Solution:
                 return False
         return not stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValid(s string) bool {
 	stk := []rune{}
@@ -137,6 +160,8 @@ func match(l, r rune) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const map = new Map([
     ['(', ')'],
@@ -156,6 +181,8 @@ function isValid(s: string): boolean {
     return stack.length === 0;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -178,6 +205,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -203,6 +232,8 @@ function match(l, r) {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsValid(string s) {
@@ -222,6 +253,8 @@ public class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String} s
@@ -247,6 +280,8 @@ def is_valid(s)
   stack == ''
 end
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -281,4 +316,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

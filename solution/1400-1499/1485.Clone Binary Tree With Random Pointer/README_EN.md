@@ -1,10 +1,24 @@
-# [1485. Clone Binary Tree With Random Pointer](https://leetcode.com/problems/clone-binary-tree-with-random-pointer)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Hash Table
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
+# [1485. Clone Binary Tree With Random Pointer 🔒](https://leetcode.com/problems/clone-binary-tree-with-random-pointer)
 
 [中文文档](/solution/1400-1499/1485.Clone%20Binary%20Tree%20With%20Random%20Pointer/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A binary tree is given such that each node contains an additional random pointer which could point to any node in the tree or null.</p>
 
@@ -54,11 +68,17 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for Node.
@@ -87,6 +107,8 @@ class Solution:
         mp = {}
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -132,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a Node.
@@ -165,6 +189,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -200,4 +226,6 @@ func copyRandomBinaryTree(root *Node) *NodeCopy {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,3 +1,8 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/README.md
+---
+
 # [《剑指 Offer（专项突击版）》系列](https://leetcode.cn/problem-list/e8X3pBZi)
 
 ![](./lcof2.jpg)

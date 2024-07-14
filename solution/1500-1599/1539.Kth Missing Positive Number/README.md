@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README.md
+rating: 1295
+source: 第 32 场双周赛 Q1
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [1539. 第 k 个缺失的正整数](https://leetcode.cn/problems/kth-missing-positive-number)
 
 [English Version](/solution/1500-1599/1539.Kth%20Missing%20Positive%20Number/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>严格升序排列</strong>&nbsp;的正整数数组 <code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -47,11 +58,17 @@
 
 <p>你可以设计一个时间复杂度小于 O(n) 的算法解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +84,8 @@ class Solution:
                 left = mid + 1
         return arr[left - 1] + k - (arr[left - 1] - (left - 1) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKthPositive(arr []int, k int) int {
@@ -126,4 +149,6 @@ func findKthPositive(arr []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

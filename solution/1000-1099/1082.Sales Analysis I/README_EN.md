@@ -1,10 +1,20 @@
-# [1082. Sales Analysis I](https://leetcode.com/problems/sales-analysis-i)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1082.Sales%20Analysis%20I/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1082. Sales Analysis I 🔒](https://leetcode.com/problems/sales-analysis-i)
 
 [中文文档](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Product</code></p>
 
@@ -78,11 +88,17 @@ Sales table:
 <strong>Explanation:</strong> Both sellers with id 1 and 3 sold products with the most total price of 2800.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -99,9 +115,15 @@ HAVING
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -121,4 +143,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

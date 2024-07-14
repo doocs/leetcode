@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         if (n == 1) {
-            return Collections.singletonList(0);
+            return List.of(0);
         }
         List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
@@ -13,7 +13,7 @@ class Solution {
             ++degree[a];
             ++degree[b];
         }
-        Queue<Integer> q = new LinkedList<>();
+        Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
             if (degree[i] == 1) {
                 q.offer(i);

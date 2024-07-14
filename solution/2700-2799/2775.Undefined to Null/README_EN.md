@@ -1,12 +1,20 @@
-# [2775. Undefined to Null](https://leetcode.com/problems/undefined-to-null)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2775.Undefined%20to%20Null/README_EN.md
+---
+
+<!-- problem:start -->
+
+# [2775. Undefined to Null 🔒](https://leetcode.com/problems/undefined-to-null)
 
 [中文文档](/solution/2700-2799/2775.Undefined%20to%20Null/README.md)
 
-<!-- tags: -->
-
 ## Description
 
-<p>Write a function called <code>undefinedToNull</code> that takes a&nbsp;deeply nested object or array&nbsp;<code>obj</code>, and then creates a copy of that object with any <code>undefined</code> values replaced by <code>null</code>.</p>
+<!-- description:start -->
+
+<p>Given a deeply nested object or array <code>obj</code>, return the object <code>obj</code> with any <code>undefined</code> values replaced by <code>null</code>.</p>
 
 <p><code>undefined</code> values are handled differently than <code>null</code> values when objects are converted to a JSON string using <code>JSON.stringify()</code>. This function helps ensure serialized data is free of unexpected errors.</p>
 
@@ -35,11 +43,17 @@
 	<li><code>2 &lt;= JSON.stringify(obj).length &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function undefinedToNull(obj: Record<any, any>): Record<any, any> {
@@ -62,4 +76,6 @@ function undefinedToNull(obj: Record<any, any>): Record<any, any> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

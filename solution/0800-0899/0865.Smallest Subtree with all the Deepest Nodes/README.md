@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 哈希表
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [865. 具有所有最深节点的最小子树](https://leetcode.cn/problems/smallest-subtree-with-all-the-deepest-nodes)
 
 [English Version](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个根为&nbsp;<code>root</code>&nbsp;的二叉树，每个节点的深度是 <strong>该节点到根的最短距离</strong> 。</p>
 
@@ -59,11 +71,17 @@
 
 <p><strong>注意：</strong>本题与力扣 1123 重复：<a href="https://leetcode.cn/problems/lowest-common-ancestor-of-deepest-leaves/" target="_blank">https://leetcode.cn/problems/lowest-common-ancestor-of-deepest-leaves</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -87,6 +105,8 @@ class Solution:
 
         return dfs(root)[0]
 ```
+
+#### Java
 
 ```java
 /**
@@ -127,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -194,4 +218,6 @@ func subtreeWithAllDeepest(root *TreeNode) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

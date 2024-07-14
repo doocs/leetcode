@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README.md
+tags:
+    - 字符串
+    - 动态规划
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [903. DI 序列的有效排列](https://leetcode.cn/problems/valid-permutations-for-di-sequence)
 
 [English Version](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)
 
-<!-- tags:字符串,动态规划,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的字符串 <code>s</code> ，其中 <code>s[i]</code> 是:</p>
 
@@ -57,7 +67,11 @@
 	<li><code>s[i]</code>&nbsp;不是&nbsp;<code>'I'</code>&nbsp;就是&nbsp;<code>'D'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -73,9 +87,9 @@
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是字符串的长度。
 
-我们可以用前缀和优化时间复杂度，使得时间复杂度降低到 $O(n^2)$。另外，我们也可以用滚动数组优化空间复杂度，使得空间复杂度降低到 $O(n)$。
-
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +109,8 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][k]) % mod
         return sum(f[n][j] for j in range(n + 1)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPermsDISequence(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -190,6 +210,8 @@ func numPermsDISequence(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPermsDISequence(s: string): number {
@@ -224,9 +246,11 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### 方法二
+我们可以用前缀和优化时间复杂度，使得时间复杂度降低到 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -247,6 +271,8 @@ class Solution:
                     pre = (pre + f[i - 1][j]) % mod
         return sum(f[n][j] for j in range(n + 1)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -277,6 +303,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -310,6 +338,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPermsDISequence(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -339,6 +369,8 @@ func numPermsDISequence(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPermsDISequence(s: string): number {
@@ -372,9 +404,11 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-### 方法三
+另外，我们也可以用滚动数组优化空间复杂度，使得空间复杂度降低到 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -396,6 +430,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -428,6 +464,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -462,6 +500,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numPermsDISequence(s string) (ans int) {
 	const mod = 1e9 + 7
@@ -490,6 +530,8 @@ func numPermsDISequence(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numPermsDISequence(s: string): number {
@@ -523,4 +565,6 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README_EN.md
+rating: 1762
+source: Weekly Contest 163 Q3
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1262. Greatest Sum Divisible by Three](https://leetcode.com/problems/greatest-sum-divisible-by-three)
 
 [中文文档](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README.md)
 
-<!-- tags:Greedy,Array,Dynamic Programming,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <em>the <strong>maximum possible sum </strong>of elements of the array such that it is divisible by three</em>.</p>
 
@@ -40,7 +55,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -65,6 +84,8 @@ Note that the value of $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][(j-x
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSumDivThree(self, nums: List[int]) -> int:
@@ -76,6 +97,8 @@ class Solution:
                 f[i][j] = max(f[i - 1][j], f[i - 1][(j - x) % 3] + x)
         return f[n][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumDivThree(nums []int) int {
 	n := len(nums)
@@ -130,6 +157,8 @@ func maxSumDivThree(nums []int) int {
 	return f[n][0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumDivThree(nums: number[]): number {
@@ -151,9 +180,15 @@ function maxSumDivThree(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -166,6 +201,8 @@ class Solution:
             f = g
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -183,6 +220,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -202,6 +241,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSumDivThree(nums []int) int {
 	const inf = 1 << 30
@@ -216,6 +257,8 @@ func maxSumDivThree(nums []int) int {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxSumDivThree(nums: number[]): number {
@@ -233,4 +276,6 @@ function maxSumDivThree(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

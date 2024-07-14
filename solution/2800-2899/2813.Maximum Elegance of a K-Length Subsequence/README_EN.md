@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README_EN.md
+rating: 2582
+source: Weekly Contest 357 Q4
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Hash Table
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2813. Maximum Elegance of a K-Length Subsequence](https://leetcode.com/problems/maximum-elegance-of-a-k-length-subsequence)
 
 [中文文档](/solution/2800-2899/2813.Maximum%20Elegance%20of%20a%20K-Length%20Subsequence/README.md)
 
-<!-- tags:Greedy,Array,Hash Table,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>items</code> of length <code>n</code> and an integer <code>k</code>.</p>
 
@@ -63,7 +80,11 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy
 
@@ -76,6 +97,8 @@ Finally, we return $ans$.
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of items.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +122,8 @@ class Solution:
             ans = max(ans, tot + len(vis) ** 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +154,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -166,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaximumElegance(items [][]int, k int) int64 {
 	sort.Slice(items, func(i, j int) bool { return items[i][0] > items[j][0] })
@@ -196,6 +225,8 @@ func findMaximumElegance(items [][]int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaximumElegance(items: number[][], k: number): number {
     items.sort((a, b) => b[0] - a[0]);
@@ -225,4 +256,6 @@ function findMaximumElegance(items: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

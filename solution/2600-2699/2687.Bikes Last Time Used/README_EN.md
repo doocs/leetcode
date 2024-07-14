@@ -1,10 +1,20 @@
-# [2687. Bikes Last Time Used](https://leetcode.com/problems/bikes-last-time-used)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2687. Bikes Last Time Used 🔒](https://leetcode.com/problems/bikes-last-time-used)
 
 [中文文档](/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code><font face="monospace">Bikes</font></code></p>
 
@@ -61,11 +71,17 @@ Returning output in order by the bike that were most recently used.
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -79,4 +95,6 @@ ORDER BY end_time DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

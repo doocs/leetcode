@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.13.Bisect%20Squares/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.13. Bisect Squares](https://leetcode.cn/problems/bisect-squares-lcci)
 
 [中文文档](/lcci/16.13.Bisect%20Squares/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given two squares on a two-dimensional plane, find a line that would cut these two squares in half. Assume that the top and the bottom sides of the square run parallel to the x-axis.</p>
 <p>Each square consists of three values,&nbsp;the coordinate of bottom left corner&nbsp;<code>[X,Y] = [square[0],square[1]]</code>, and the side length&nbsp;of the square <code>square[2]</code>. The line will intersect to the two squares in four points. Return the coordinates of two intersection points <code>[X<sub>1</sub>,Y<sub>1</sub>]</code>&nbsp;and&nbsp;<code>[X<sub>2</sub>,Y<sub>2</sub>]</code>&nbsp;that the forming segment covers the other two intersection points in format of <code>{X<sub>1</sub>,Y<sub>1</sub>,X<sub>2</sub>,Y<sub>2</sub>}</code>. If <code>X<sub>1</sub> != X<sub>2</sub></code>, there should be&nbsp;<code>X<sub>1</sub> &lt; X<sub>2</sub></code>, otherwise there should be&nbsp;<code>Y<sub>1</sub> &lt;= Y<sub>2</sub></code>.</p>
@@ -27,7 +37,11 @@ square2 = {0, -1, 2}
 	<li><code>square[2] &gt; 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Geometric Mathematics
 
@@ -43,6 +57,8 @@ Otherwise, we can calculate the slope $k$ and the intercept $b$ of the line pass
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +85,8 @@ class Solution:
             y4 = k * x4 + b
         return [x3, y3, x4, y4]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cutSquares(square1 []int, square2 []int) []float64 {
 	x1, y1 := float64(square1[0])+float64(square1[2])/2, float64(square1[1])+float64(square1[2])/2
@@ -168,6 +190,8 @@ func cutSquares(square1 []int, square2 []int) []float64 {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cutSquares(square1: number[], square2: number[]): number[] {
@@ -201,6 +225,47 @@ function cutSquares(square1: number[], square2: number[]): number[] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func cutSquares(_ square1: [Int], _ square2: [Int]) -> [Double] {
+        let x1 = Double(square1[0]) + Double(square1[2]) / 2.0
+        let y1 = Double(square1[1]) + Double(square1[2]) / 2.0
+        let x2 = Double(square2[0]) + Double(square2[2]) / 2.0
+        let y2 = Double(square2[1]) + Double(square2[2]) / 2.0
+
+        if x1 == x2 {
+            let y3 = min(Double(square1[1]), Double(square2[1]))
+            let y4 = max(Double(square1[1]) + Double(square1[2]), Double(square2[1]) + Double(square2[2]))
+            return [x1, y3, x2, y4]
+        }
+
+        let k = (y2 - y1) / (x2 - x1)
+        let b = y1 - k * x1
+
+        if abs(k) > 1 {
+            let y3 = min(Double(square1[1]), Double(square2[1]))
+            let x3 = (y3 - b) / k
+            let y4 = max(Double(square1[1]) + Double(square1[2]), Double(square2[1]) + Double(square2[2]))
+            let x4 = (y4 - b) / k
+            if x3 > x4 || (x3 == x4 && y3 > y4) {
+                return [x4, y4, x3, y3]
+            }
+            return [x3, y3, x4, y4]
+        } else {
+            let x3 = min(Double(square1[0]), Double(square2[0]))
+            let y3 = k * x3 + b
+            let x4 = max(Double(square1[0]) + Double(square1[2]), Double(square2[0]) + Double(square2[2]))
+            let y4 = k * x4 + b
+            return [x3, y3, x4, y4]
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

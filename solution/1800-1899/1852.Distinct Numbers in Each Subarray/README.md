@@ -1,12 +1,22 @@
-# [1852. 每个子数组的数字种类数](https://leetcode.cn/problems/distinct-numbers-in-each-subarray)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
+# [1852. 每个子数组的数字种类数 🔒](https://leetcode.cn/problems/distinct-numbers-in-each-subarray)
 
 [English Version](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README_EN.md)
 
-<!-- tags:数组,哈希表,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>与一个整数 <code>k</code>，请你构造一个长度 <code>n-k+1</code> 的数组 <code>ans</code>，这个数组第<code>i</code>个元素 <code>ans[i]</code> 是每个长度为k的子数组 <code>nums[i:i+k-1] = [nums[i], nums[i+1], ..., nums[i+k-1]]</code>中数字的种类数。</p>
 
@@ -48,21 +58,27 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一：滑动窗口 + 哈希表或数组
+<!-- solution:start -->
 
-我们用一个哈希表或数组 $cnt$ 用户记录每个长度为 $k$ 的子数组中数字的出现次数。
+### 方法一：滑动窗口 + 哈希表
 
-接下来，我们首先遍历数组前 $k$ 个元素，记录每个元素出现的次数，并且更新数字种类数 $v$，遍历后，我们首先将 $v$ 加入答案数组。
+我们用一个哈希表 $cnt$ 记录每个长度为 $k$ 的子数组中数字的出现次数。
 
-然后，我们从下标 $k$ 继续遍历数组，每次遍历时，我们将当前元素的出现次数加一，并且将当前元素左边的元素的出现次数减一，如果减一后的出现次数为 $0$，则将其从哈希表或数组中删除，然后更新数字种类数 $v$，将其加入答案数组。
+接下来，我们首先遍历数组前 $k$ 个元素，记录每个元素出现的次数，遍历后，我们将哈希表的大小作为答案数组的第一个元素。
+
+然后，我们从下标 $k$ 继续遍历数组，每次遍历时，我们将当前元素的出现次数加一，并且将当前元素左边的元素的出现次数减一，如果减一后的出现次数为 $0$，则将其从哈希表中删除，然后将哈希表的大小作为答案数组的下一个元素，继续遍历。
 
 遍历结束后，我们返回答案数组。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$ 或 $O(M)$。其中 $n$ 是数组 $nums$ 的长度；而 $M$ 是数组 $nums$ 中的最大值，本题中 $M \le 10^5$。
+时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $nums$ 的长度，而 $k$ 为题目给定的参数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +93,8 @@ class Solution:
             ans.append(len(cnt))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctNumbers(nums []int, k int) []int {
 	cnt := map[int]int{}
@@ -141,6 +163,8 @@ func distinctNumbers(nums []int, k int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function distinctNumbers(nums: number[], k: number): number[] {
@@ -163,9 +187,19 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：滑动窗口 + 数组
+
+我们也可以用数组来代替哈希表，这样可以提升一定的性能。
+
+时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 为数组 $nums$ 的长度，而 $M$ 为数组 $nums$ 中的最大值，本题中 $M \leq 10^5$。
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -228,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distinctNumbers(nums []int, k int) (ans []int) {
 	m := slices.Max(nums)
@@ -255,6 +293,8 @@ func distinctNumbers(nums []int, k int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distinctNumbers(nums: number[], k: number): number[] {
     const m = Math.max(...nums);
@@ -281,4 +321,6 @@ function distinctNumbers(nums: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

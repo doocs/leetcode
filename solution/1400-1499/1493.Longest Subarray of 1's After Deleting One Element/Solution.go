@@ -1,20 +1,19 @@
-func longestSubarray(nums []int) int {
+func longestSubarray(nums []int) (ans int) {
 	n := len(nums)
-	left := make([]int, n)
-	right := make([]int, n)
-	for i := 1; i < n; i++ {
+	left := make([]int, n+1)
+	right := make([]int, n+1)
+	for i := 1; i <= n; i++ {
 		if nums[i-1] == 1 {
 			left[i] = left[i-1] + 1
 		}
 	}
-	for i := n - 2; i >= 0; i-- {
-		if nums[i+1] == 1 {
+	for i := n - 1; i >= 0; i-- {
+		if nums[i] == 1 {
 			right[i] = right[i+1] + 1
 		}
 	}
-	ans := 0
 	for i := 0; i < n; i++ {
-		ans = max(ans, left[i]+right[i])
+		ans = max(ans, left[i]+right[i+1])
 	}
-	return ans
+	return
 }

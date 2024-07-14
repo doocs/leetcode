@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0204.Count%20Primes/README.md
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 数论
+---
+
+<!-- problem:start -->
+
 # [204. 计数质数](https://leetcode.cn/problems/count-primes)
 
 [English Version](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
 
-<!-- tags:数组,数学,枚举,数论 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定整数 <code>n</code> ，返回 <em>所有小于非负整数&nbsp;<code>n</code>&nbsp;的质数的数量</em> 。</p>
 
@@ -42,7 +53,11 @@
 	<li><code>0 &lt;= n &lt;= 5 * 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：埃氏筛
 
@@ -56,6 +71,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPrimes(self, n: int) -> int:
@@ -68,6 +85,8 @@ class Solution:
                     primes[j] = False
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPrimes(n int) int {
@@ -124,6 +147,8 @@ func countPrimes(n int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -143,6 +168,8 @@ var countPrimes = function (n) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -167,4 +194,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

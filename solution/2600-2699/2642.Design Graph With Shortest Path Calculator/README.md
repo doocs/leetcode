@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README.md
+rating: 1810
+source: 第 102 场双周赛 Q4
+tags:
+    - 图
+    - 设计
+    - 最短路
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2642. 设计可以求最短路径的图类](https://leetcode.cn/problems/design-graph-with-shortest-path-calculator)
 
 [English Version](/solution/2600-2699/2642.Design%20Graph%20With%20Shortest%20Path%20Calculator/README_EN.md)
 
-<!-- tags:图,设计,最短路,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个有&nbsp;<code>n</code>&nbsp;个节点的&nbsp;<strong>有向带权</strong>&nbsp;图，节点编号为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;。图中的初始边用数组&nbsp;<code>edges</code>&nbsp;表示，其中&nbsp;<code>edges[i] = [from<sub>i</sub>, to<sub>i</sub>, edgeCost<sub>i</sub>]</code>&nbsp;表示从&nbsp;<code>from<sub>i</sub></code>&nbsp;到&nbsp;<code>to<sub>i</sub></code>&nbsp;有一条代价为&nbsp;<code>edgeCost<sub>i</sub></code>&nbsp;的边。</p>
 
@@ -53,7 +66,11 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 	<li>调用 <code>shortestPath</code>&nbsp;至多&nbsp;<code>100</code>&nbsp;次。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Dijsktra 算法
 
@@ -66,6 +83,8 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 时间复杂度 $O(n^2 \times q)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数，而 $q$ 为 `shortestPath` 函数的调用次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Graph:
@@ -99,6 +118,8 @@ class Graph:
 # obj.addEdge(edge)
 # param_2 = obj.shortestPath(node1,node2)
 ```
+
+#### Java
 
 ```java
 class Graph {
@@ -152,6 +173,8 @@ class Graph {
  */
 ```
 
+#### C++
+
 ```cpp
 class Graph {
 public:
@@ -201,6 +224,8 @@ private:
  * int param_2 = obj->shortestPath(node1,node2);
  */
 ```
+
+#### Go
 
 ```go
 const inf = 1 << 29
@@ -263,6 +288,8 @@ func (this *Graph) ShortestPath(node1 int, node2 int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Graph {
     private g: number[][] = [];
@@ -309,31 +336,31 @@ class Graph {
  */
 ```
 
+#### C#
+
 ```cs
 public class Graph {
     private int n;
-    private int[][] g;
+    private int[,] g;
     private readonly int inf = 1 << 29;
 
     public Graph(int n, int[][] edges) {
         this.n = n;
-        g = new int[n][];
-        for (int i = 0; i < n; i++)
-        {
-            g[i] = new int[n];
-            for (int j = 0; j < n; j++)
-            {
-                g[i][j] = inf;
+        g = new int[n, n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                g[i, j] = inf;
             }
         }
-        foreach (int[] e in edges)
-        {
-            g[e[0]][e[1]] = e[2];
+        foreach (var e in edges) {
+            int f = e[0], t = e[1], c = e[2];
+            g[f, t] = c;
         }
     }
 
     public void AddEdge(int[] edge) {
-        g[edge[0]][edge[1]] = edge[2];
+        int f = edge[0], t = edge[1], c = edge[2];
+        g[f, t] = c;
     }
 
     public int ShortestPath(int node1, int node2) {
@@ -341,19 +368,16 @@ public class Graph {
         bool[] vis = new bool[n];
         Array.Fill(dist, inf);
         dist[node1] = 0;
-
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; ++i) {
             int t = -1;
-            for (int j = 0; j < n; j++)
-            {
-                if (!vis[j] && (t == -1 || dist[t] > dist[j]))
+            for (int j = 0; j < n; ++j) {
+                if (!vis[j] && (t == -1 || dist[t] > dist[j])) {
                     t = j;
+                }
             }
             vis[t] = true;
-            for (int j = 0; j < n; j++)
-            {
-                dist[j] = Math.Min(dist[j], dist[t] + g[t][j]);
+            for (int j = 0; j < n; ++j) {
+                dist[j] = Math.Min(dist[j], dist[t] + g[t, j]);
             }
         }
         return dist[node2] >= inf ? -1 : dist[node2];
@@ -370,4 +394,6 @@ public class Graph {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

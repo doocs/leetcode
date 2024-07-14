@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [144. 二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal)
 
 [English Version](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md)
 
-<!-- tags:栈,树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根节点 <code>root</code> ，返回它节点值的 <strong>前序</strong><em> </em>遍历。</p>
 
@@ -60,7 +71,11 @@
 
 <p><strong>进阶：</strong>递归算法很简单，你可以通过迭代算法完成吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归遍历
 
@@ -69,6 +84,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数，空间复杂度主要取决于递归调用的栈空间。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -90,6 +107,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -126,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -179,6 +202,8 @@ func preorderTraversal(root *TreeNode) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -210,6 +235,8 @@ function preorderTraversal(root: TreeNode | null): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -229,8 +256,8 @@ function preorderTraversal(root: TreeNode | null): number[] {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, ans: &mut Vec<i32>) {
         if root.is_none() {
@@ -252,6 +279,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：栈实现非递归遍历
 
 栈实现非递归遍历的思路如下：
@@ -266,6 +297,8 @@ impl Solution {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数，空间复杂度主要取决于栈空间。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -289,6 +322,8 @@ class Solution:
                 stk.append(node.left)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -329,6 +364,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -366,6 +403,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -394,6 +433,8 @@ func preorderTraversal(root *TreeNode) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -428,6 +469,10 @@ function preorderTraversal(root: TreeNode | null): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：Morris 实现前序遍历
 
 Morris 遍历无需使用栈，空间复杂度为 $O(1)$。核心思想是：
@@ -443,6 +488,8 @@ Morris 遍历无需使用栈，空间复杂度为 $O(1)$。核心思想是：
 时间复杂度 $O(n)$，其中 $n$ 是二叉树的节点数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -471,6 +518,8 @@ class Solution:
                     root = root.right
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -515,6 +564,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -555,6 +606,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -587,6 +640,8 @@ func preorderTraversal(root *TreeNode) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -631,4 +686,6 @@ function preorderTraversal(root: TreeNode | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

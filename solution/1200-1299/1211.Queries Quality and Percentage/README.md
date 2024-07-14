@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1211.Queries%20Quality%20and%20Percentage/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1211. 查询结果的质量和占比](https://leetcode.cn/problems/queries-quality-and-percentage)
 
 [English Version](/solution/1200-1299/1211.Queries%20Quality%20and%20Percentage/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Queries</code>&nbsp;表：&nbsp;</p>
 
@@ -79,13 +87,19 @@ Cat 查询结果的质量为 ((2 / 5) + (3 / 3) + (4 / 7)) / 3 = 0.66
 Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计
 
 我们将查询结果按照 `query_name` 进行分组，然后利用 `AVG` 和 `ROUND` 函数计算 `quality` 和 `poor_query_percentage`。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -94,9 +108,35 @@ SELECT
     ROUND(AVG(rating / position), 2) AS quality,
     ROUND(AVG(rating < 3) * 100, 2) AS poor_query_percentage
 FROM Queries
+WHERE query_name IS NOT NULL
 GROUP BY 1;
+```
+
+#### MySQL
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    IFNULL(query_name, 'null') AS query_name,
+    ROUND(AVG(CAST(rating AS DECIMAL) / position), 2) AS quality,
+    ROUND(
+        (
+            SUM(
+                CASE
+                    WHEN rating < 3 THEN 1
+                    ELSE 0
+                END
+            ) / NULLIF(COUNT(*), 0)
+        ) * 100,
+        2
+    ) AS poor_query_percentage
+FROM Queries
+GROUP BY query_name WITH ROLLUP
+HAVING query_name IS NOT NULL;
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

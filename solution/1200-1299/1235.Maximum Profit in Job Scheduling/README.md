@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md
+rating: 2022
+source: 第 159 场周赛 Q4
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling)
 
 [English Version](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
 
-<!-- tags:数组,二分查找,动态规划,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你打算利用空闲时间来做兼职工作赚些零花钱。</p>
 
@@ -20,33 +33,36 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample1_1584.png" style="width: 300px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample1_1584.png" style="width: 300px;" /></strong></p>
 
-<pre><strong>输入：</strong>startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
+<pre>
+<strong>输入：</strong>startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
 <strong>输出：</strong>120
 <strong>解释：
 </strong>我们选出第 1 份和第 4 份工作， 
 时间范围是 [1-3]+[3-6]，共获得报酬 120 = 50 + 70。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample22_1584.png" style="height: 112px; width: 600px;"> </strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample22_1584.png" style="height: 112px; width: 600px;" /> </strong></p>
 
-<pre><strong>输入：</strong>startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]
+<pre>
+<strong>输入：</strong>startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]
 <strong>输出：</strong>150
 <strong>解释：
 </strong>我们选择第 1，4，5 份工作。 
 共获得报酬 150 = 20 + 70 + 60。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample3_1584.png" style="height: 112px; width: 400px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample3_1584.png" style="height: 112px; width: 400px;" /></strong></p>
 
-<pre><strong>输入：</strong>startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]
+<pre>
+<strong>输入：</strong>startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]
 <strong>输出：</strong>6
 </pre>
 
@@ -60,7 +76,11 @@
 	<li><code>1 &lt;=&nbsp;profit[i] &lt;= 10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 二分查找
 
@@ -82,6 +102,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jobScheduling(
@@ -99,6 +121,8 @@ class Solution:
         n = len(profit)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -146,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +195,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func jobScheduling(startTime []int, endTime []int, profit []int) int {
@@ -196,6 +224,8 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
@@ -232,6 +262,10 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 二分查找
 
 我们还可以将方法一中的记忆化搜索改为动态规划。
@@ -255,22 +289,23 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jobScheduling(
         self, startTime: List[int], endTime: List[int], profit: List[int]
     ) -> int:
-        @cache
-        def dfs(i: int) -> int:
-            if i >= n:
-                return 0
-            j = bisect_left(idx, endTime[idx[i]], key=lambda i: startTime[i])
-            return max(dfs(i + 1), profit[idx[i]] + dfs(j))
-
-        n = len(startTime)
-        idx = sorted(range(n), key=lambda i: startTime[i])
-        return dfs(0)
+        jobs = sorted(zip(endTime, startTime, profit))
+        n = len(profit)
+        dp = [0] * (n + 1)
+        for i, (_, s, p) in enumerate(jobs):
+            j = bisect_right(jobs, s, hi=i, key=lambda x: x[0])
+            dp[i + 1] = max(dp[i], dp[j] + p)
+        return dp[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -304,6 +339,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -323,6 +360,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func jobScheduling(startTime []int, endTime []int, profit []int) int {
 	n := len(profit)
@@ -341,26 +380,88 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-### 方法三
+```ts
+function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
+    const n = profit.length;
+    const jobs: [number, number, number][] = Array.from({ length: n }, (_, i) => [
+        startTime[i],
+        endTime[i],
+        profit[i],
+    ]);
+    jobs.sort((a, b) => a[1] - b[1]);
+    const dp: number[] = Array.from({ length: n + 1 }, () => 0);
+    const search = (x: number, right: number): number => {
+        let left = 0;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (jobs[mid][1] > x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    for (let i = 0; i < n; ++i) {
+        const j = search(jobs[i][0], i);
+        dp[i + 1] = Math.max(dp[i], dp[j] + jobs[i][2]);
+    }
+    return dp[n];
+}
+```
 
-<!-- tabs:start -->
+#### Swift
 
-```python
-class Solution:
-    def jobScheduling(
-        self, startTime: List[int], endTime: List[int], profit: List[int]
-    ) -> int:
-        jobs = sorted(zip(endTime, startTime, profit))
-        n = len(profit)
-        dp = [0] * (n + 1)
-        for i, (_, s, p) in enumerate(jobs):
-            j = bisect_right(jobs, s, hi=i, key=lambda x: x[0])
-            dp[i + 1] = max(dp[i], dp[j] + p)
-        return dp[n]
+```swift
+class Solution {
+
+    func binarySearch<T: Comparable>(inputArr: [T], searchItem: T) -> Int? {
+        var lowerIndex = 0
+        var upperIndex = inputArr.count - 1
+
+        while lowerIndex < upperIndex {
+            let currentIndex = (lowerIndex + upperIndex) / 2
+            if inputArr[currentIndex] <= searchItem {
+                lowerIndex = currentIndex + 1
+            } else {
+                upperIndex = currentIndex
+            }
+        }
+
+        if inputArr[upperIndex] <= searchItem {
+            return upperIndex + 1
+        }
+        return lowerIndex
+    }
+
+    func jobScheduling(_ startTime: [Int], _ endTime: [Int], _ profit: [Int]) -> Int {
+        let zipList = zip(zip(startTime, endTime), profit)
+        var table: [(startTime: Int, endTime: Int, profit: Int, cumsum: Int)] = []
+
+        for ((x, y), z) in zipList {
+            table.append((x, y, z, 0))
+        }
+        table.sort(by: { $0.endTime < $1.endTime })
+        let sortedEndTime = endTime.sorted()
+
+        var profits: [Int] = [0]
+        for iJob in table {
+            let index: Int! = binarySearch(inputArr: sortedEndTime, searchItem: iJob.startTime)
+            if profits.last! < profits[index] + iJob.profit {
+                profits.append(profits[index] + iJob.profit)
+            } else {
+                profits.append(profits.last!)
+            }
+        }
+        return profits.last!
+    }
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

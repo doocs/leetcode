@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0932.Beautiful%20Array/README.md
+tags:
+    - 数组
+    - 数学
+    - 分治
+---
+
+<!-- problem:start -->
+
 # [932. 漂亮数组](https://leetcode.cn/problems/beautiful-array)
 
 [English Version](/solution/0900-0999/0932.Beautiful%20Array/README_EN.md)
 
-<!-- tags:数组,数学,分治 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果长度为 <code>n</code> 的数组 <code>nums</code> 满足下述条件，则认为该数组是一个 <strong>漂亮数组</strong> ：</p>
 
@@ -43,7 +53,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分治
 
@@ -61,6 +75,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def beautifulArray(self, n: int) -> List[int]:
@@ -72,6 +88,8 @@ class Solution:
         right = [x * 2 for x in right]
         return left + right
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulArray(n int) []int {
@@ -130,4 +152,6 @@ func beautifulArray(n int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

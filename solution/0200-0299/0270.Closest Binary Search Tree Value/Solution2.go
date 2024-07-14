@@ -8,11 +8,11 @@
  */
 func closestValue(root *TreeNode, target float64) int {
 	ans := root.Val
-	mi := math.MaxFloat64
+	diff := math.MaxFloat64
 	for root != nil {
-		t := math.Abs(float64(root.Val) - target)
-		if t < mi || (t == mi && root.Val < ans) {
-			mi = t
+		nxt := math.Abs(float64(root.Val) - target)
+		if nxt < diff || (nxt == diff && root.Val < ans) {
+			diff = nxt
 			ans = root.Val
 		}
 		if float64(root.Val) > target {

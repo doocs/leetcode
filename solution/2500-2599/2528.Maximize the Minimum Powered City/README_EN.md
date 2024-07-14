@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README_EN.md
+rating: 2235
+source: Biweekly Contest 95 Q4
+tags:
+    - Greedy
+    - Queue
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [2528. Maximize the Minimum Powered City](https://leetcode.com/problems/maximize-the-minimum-powered-city)
 
 [中文文档](/solution/2500-2599/2528.Maximize%20the%20Minimum%20Powered%20City/README.md)
 
-<!-- tags:Greedy,Queue,Array,Binary Search,Prefix Sum,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>stations</code> of length <code>n</code>, where <code>stations[i]</code> represents the number of power stations in the <code>i<sup>th</sup></code> city.</p>
 
@@ -60,11 +77,17 @@ It can be proved that we cannot make the minimum power of a city greater than 4.
 	<li><code>0 &lt;= k&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +125,8 @@ class Solution:
                 right = mid - 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +235,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPower(stations []int, r int, k int) int64 {
 	n := len(stations)
@@ -255,6 +284,63 @@ func maxPower(stations []int, r int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
+```ts
+function maxPower(stations: number[], r: number, k: number): number {
+    function check(x: bigint, k: bigint): boolean {
+        d.fill(0n);
+        let t = 0n;
+        for (let i = 0; i < n; ++i) {
+            t += d[i];
+            const dist = x - (s[i] + t);
+            if (dist > 0) {
+                if (k < dist) {
+                    return false;
+                }
+                k -= dist;
+                const j = Math.min(i + r, n - 1);
+                const left = Math.max(0, j - r);
+                const right = Math.min(j + r, n - 1);
+                d[left] += dist;
+                d[right + 1] -= dist;
+                t += dist;
+            }
+        }
+        return true;
+    }
+    const n = stations.length;
+    const d: bigint[] = new Array(n + 1).fill(0n);
+    const s: bigint[] = new Array(n + 1).fill(0n);
+
+    for (let i = 0; i < n; ++i) {
+        const left = Math.max(0, i - r);
+        const right = Math.min(i + r, n - 1);
+        d[left] += BigInt(stations[i]);
+        d[right + 1] -= BigInt(stations[i]);
+    }
+
+    s[0] = d[0];
+    for (let i = 1; i < n + 1; ++i) {
+        s[i] = s[i - 1] + d[i];
+    }
+
+    let left = 0n,
+        right = 1n << 40n;
+    while (left < right) {
+        const mid = (left + right + 1n) >> 1n;
+        if (check(mid, BigInt(k))) {
+            left = mid;
+        } else {
+            right = mid - 1n;
+        }
+    }
+    return Number(left);
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

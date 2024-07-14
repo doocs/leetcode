@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README.md
+rating: 2300
+source: 第 220 场周赛 Q4
+tags:
+    - 并查集
+    - 图
+    - 数组
+    - 双指针
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1697. 检查边长度限制的路径是否存在](https://leetcode.cn/problems/checking-existence-of-edge-length-limited-paths)
 
 [English Version](/solution/1600-1699/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README_EN.md)
 
-<!-- tags:并查集,图,数组,双指针,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n</code> 个点组成的无向图边集 <code>edgeList</code> ，其中 <code>edgeList[i] = [u<sub>i</sub>, v<sub>i</sub>, dis<sub>i</sub>]</code> 表示点 <code>u<sub>i</sub></code> 和点 <code>v<sub>i</sub></code> 之间有一条长度为 <code>dis<sub>i</sub></code> 的边。请注意，两个点之间可能有 <strong>超过一条边 </strong>。</p>
 
@@ -50,7 +64,11 @@
 	<li>两个点之间可能有 <strong>多条</strong> 边。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：离线查询 + 并查集
 
@@ -63,6 +81,8 @@
 时间复杂度 $O(m \times \log m + q \times \log q)$，其中 $m$ 和 $q$ 分别为边数和查询数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +106,8 @@ class Solution:
             ans[i] = find(a) == find(b)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +180,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
@@ -192,13 +218,15 @@ func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool 
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
     pub fn distance_limited_paths_exist(
         n: i32,
         edge_list: Vec<Vec<i32>>,
-        queries: Vec<Vec<i32>>
+        queries: Vec<Vec<i32>>,
     ) -> Vec<bool> {
         let mut disjoint_set: Vec<usize> = vec![0; n as usize];
         let mut ans_vec: Vec<bool> = vec![false; queries.len()];
@@ -231,7 +259,7 @@ impl Solution {
                 Solution::union(
                     edge_list[edge_idx][0] as usize,
                     edge_list[edge_idx][1] as usize,
-                    &mut disjoint_set
+                    &mut disjoint_set,
                 );
                 edge_idx += 1;
             }
@@ -288,6 +316,8 @@ impl Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 p = list(range(n))
 size = [1] * n
@@ -306,6 +336,8 @@ def union(a, b):
     p[pa] = pb
     size[pb] += size[pa]
 ```
+
+#### Java
 
 ```java
 int[] p = new int[n];
@@ -333,6 +365,8 @@ void union(int a, int b) {
 }
 ```
 
+#### C++
+
 ```cpp
 vector<int> p(n);
 iota(p.begin(), p.end(), 0);
@@ -353,6 +387,8 @@ void unite(int a, int b) {
     size[pb] += size[pa];
 }
 ```
+
+#### Go
 
 ```go
 p := make([]int, n)
@@ -382,4 +418,6 @@ func union(a, b int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,20 @@
-# [2504. Concatenate the Name and the Profession](https://leetcode.com/problems/concatenate-the-name-and-the-profession)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2504.Concatenate%20the%20Name%20and%20the%20Profession/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2504. Concatenate the Name and the Profession 🔒](https://leetcode.com/problems/concatenate-the-name-and-the-profession)
 
 [中文文档](/solution/2500-2599/2504.Concatenate%20the%20Name%20and%20the%20Profession/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Person</code></p>
 
@@ -59,11 +69,17 @@ Person table:
 <strong>Explanation:</strong> Note that there should not be any white space between the name and the first letter of the profession.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -74,4 +90,6 @@ ORDER BY person_id DESC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

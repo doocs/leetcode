@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0125.Valid%20Palindrome/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
 # [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome)
 
 [中文文档](/solution/0100-0199/0125.Valid%20Palindrome/README.md)
 
-<!-- tags:Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A phrase is a <strong>palindrome</strong> if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.</p>
 
@@ -44,7 +55,11 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 	<li><code>s</code> consists only of printable ASCII characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -61,6 +76,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPalindrome(self, s: str) -> bool:
@@ -76,6 +93,8 @@ class Solution:
                 i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isPalindrome(s string) bool {
@@ -149,6 +172,8 @@ func tolower(ch byte) byte {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isPalindrome(s: string): boolean {
     let i = 0;
@@ -168,6 +193,8 @@ function isPalindrome(s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -196,6 +223,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -220,6 +249,8 @@ var isPalindrome = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsPalindrome(string s) {
@@ -237,6 +268,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -264,4 +297,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README.md
+rating: 1333
+source: 第 104 场双周赛 Q2
+tags:
+    - 数组
+    - 矩阵
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2679. 矩阵中的和](https://leetcode.cn/problems/sum-in-a-matrix)
 
 [English Version](/solution/2600-2699/2679.Sum%20in%20a%20Matrix/README_EN.md)
 
-<!-- tags:数组,矩阵,排序,模拟,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的二维整数数组&nbsp;<code>nums</code>&nbsp;。一开始你的分数为&nbsp;<code>0</code>&nbsp;。你需要执行以下操作直到矩阵变为空：</p>
 
@@ -44,7 +58,11 @@
 	<li><code>0 &lt;= nums[i][j] &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -56,6 +74,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def matrixSum(self, nums: List[List[int]]) -> int:
@@ -63,6 +83,8 @@ class Solution:
             row.sort()
         return sum(map(max, zip(*nums)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixSum(nums [][]int) (ans int) {
 	for _, row := range nums {
@@ -118,6 +144,8 @@ func matrixSum(nums [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function matrixSum(nums: number[][]): number {
@@ -136,24 +164,16 @@ function matrixSum(nums: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
-    pub fn matrix_sum(nums: Vec<Vec<i32>>) -> i32 {
-        let mut nums = nums;
-        for row in nums.iter_mut() {
+    pub fn matrix_sum(mut nums: Vec<Vec<i32>>) -> i32 {
+        for row in &mut nums {
             row.sort();
         }
-        let transposed: Vec<Vec<i32>> = (0..nums[0].len())
-            .map(|i| {
-                nums.iter()
-                    .map(|row| row[i])
-                    .collect()
-            })
-            .collect();
-
-        transposed
-            .iter()
-            .map(|row| row.iter().max().unwrap())
+        (0..nums[0].len())
+            .map(|col| nums.iter().map(|row| row[col]).max().unwrap())
             .sum()
     }
 }
@@ -161,32 +181,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```rust
-impl Solution {
-    pub fn matrix_sum(nums: Vec<Vec<i32>>) -> i32 {
-        let mut nums = nums.clone();
-        for row in nums.iter_mut() {
-            row.sort();
-        }
-
-        let mut ans = 0;
-        for j in 0..nums[0].len() {
-            let mut mx = 0;
-            for row in &nums {
-                mx = mx.max(row[j]);
-            }
-            ans += mx;
-        }
-
-        ans
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

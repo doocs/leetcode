@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README.md
+rating: 1843
+source: 第 334 场周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2576. 求出最多标记下标](https://leetcode.cn/problems/find-the-maximum-number-of-marked-indices)
 
 [English Version](/solution/2500-2599/2576.Find%20the%20Maximum%20Number%20of%20Marked%20Indices/README_EN.md)
 
-<!-- tags:贪心,数组,双指针,二分查找,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -56,7 +70,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 双指针
 
@@ -65,6 +83,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +101,8 @@ class Solution:
             i, j = i + 1, j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumOfMarkedIndices(nums []int) (ans int) {
 	sort.Ints(nums)
@@ -136,6 +162,8 @@ func maxNumOfMarkedIndices(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumOfMarkedIndices(nums: number[]): number {
@@ -156,4 +184,6 @@ function maxNumOfMarkedIndices(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

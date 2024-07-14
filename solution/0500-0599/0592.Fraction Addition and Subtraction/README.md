@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md
+tags:
+    - 数学
+    - 字符串
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [592. 分数加减运算](https://leetcode.cn/problems/fraction-addition-and-subtraction)
 
 [English Version](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README_EN.md)
 
-<!-- tags:数学,字符串,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个表示分数加减运算的字符串&nbsp;<code>expression</code>&nbsp;，你需要返回一个字符串形式的计算结果。&nbsp;</p>
 
@@ -47,11 +57,17 @@
 	<li><strong>最终结果</strong>的分子与分母保证是 32 位整数范围内的有效整数。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +91,8 @@ class Solution:
         y //= z
         return f'{x}/{y}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 func fractionAddition(expression string) string {
@@ -156,4 +176,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

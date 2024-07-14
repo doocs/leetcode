@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md
+tags:
+    - Array
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking)
 
 [中文文档](/solution/0400-0499/0495.Teemo%20Attacking/README.md)
 
-<!-- tags:Array,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Our hero Teemo is attacking an enemy Ashe with poison attacks! When Teemo attacks Ashe, Ashe gets poisoned for a exactly <code>duration</code> seconds. More formally, an attack at second <code>t</code> will mean Ashe is poisoned during the <strong>inclusive</strong> time interval <code>[t, t + duration - 1]</code>. If Teemo attacks again <strong>before</strong> the poison effect ends, the timer for it is <strong>reset</strong>, and the poison effect will end <code>duration</code> seconds after the new attack.</p>
 
@@ -43,11 +54,17 @@ Ashe is poisoned for seconds 1, 2, and 3, which is 3 seconds in total.</pre>
 	<li><code>timeSeries</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +74,8 @@ class Solution:
             ans += min(duration, b - a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -85,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 	ans = duration
@@ -94,6 +117,8 @@ func findPoisonedDuration(timeSeries []int, duration int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findPoisonedDuration(timeSeries: number[], duration: number): number {
@@ -105,6 +130,8 @@ function findPoisonedDuration(timeSeries: number[], duration: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -121,4 +148,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

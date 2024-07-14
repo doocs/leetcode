@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0801.Minimum%20Swaps%20To%20Make%20Sequences%20Increasing/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [801. 使序列递增的最小交换次数](https://leetcode.cn/problems/minimum-swaps-to-make-sequences-increasing)
 
 [English Version](/solution/0800-0899/0801.Minimum%20Swaps%20To%20Make%20Sequences%20Increasing/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们有两个长度相等且不为空的整型数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code>&nbsp;。在一次操作中，我们可以交换&nbsp;<code>nums1[i]</code>&nbsp;和&nbsp;<code>nums2[i]</code>的元素。</p>
 
@@ -53,7 +62,11 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 2 * 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -73,6 +86,8 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwap(self, nums1: List[int], nums2: List[int]) -> int:
@@ -87,6 +102,8 @@ class Solution:
                     a, b = min(a, y), min(b, x + 1)
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSwap(nums1 []int, nums2 []int) int {
 	a, b, n := 0, 1, len(nums1)
@@ -153,4 +174,6 @@ func minSwap(nums1 []int, nums2 []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

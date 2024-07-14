@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0848.Shifting%20Letters/README_EN.md
+tags:
+    - Array
+    - String
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [848. Shifting Letters](https://leetcode.com/problems/shifting-letters)
 
 [中文文档](/solution/0800-0899/0848.Shifting%20Letters/README.md)
 
-<!-- tags:Array,String,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> of lowercase English letters and an integer array <code>shifts</code> of the same length.</p>
 
@@ -47,11 +59,17 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 	<li><code>0 &lt;= shifts[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +82,8 @@ class Solution:
             s[i] = ascii_lowercase[j]
         return ''.join(s)
 ```
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +106,8 @@ class Solution:
         return ''.join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String shiftingLetters(String s, int[] shifts) {
@@ -101,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shiftingLetters(s string, shifts []int) string {
 	t := 0
@@ -134,4 +160,6 @@ func shiftingLetters(s string, shifts []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

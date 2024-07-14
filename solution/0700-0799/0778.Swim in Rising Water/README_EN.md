@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Binary Search
+    - Matrix
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [778. Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water)
 
 [中文文档](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Binary Search,Matrix,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> integer matrix <code>grid</code> where each value <code>grid[i][j]</code> represents the elevation at that point <code>(i, j)</code>.</p>
 
@@ -45,11 +61,17 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 	<li>Each value <code>grid[i][j]</code> is <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +97,8 @@ class Solution:
                     return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func swimInWater(grid [][]int) int {
@@ -189,6 +217,8 @@ func swimInWater(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function swimInWater(grid: number[][]): number {
     const m = grid.length,
@@ -221,13 +251,10 @@ function swimInWater(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
-const DIR: [(i32, i32); 4] = [
-    (-1, 0),
-    (1, 0),
-    (0, -1),
-    (0, 1),
-];
+const DIR: [(i32, i32); 4] = [(-1, 0), (1, 0), (0, -1), (0, 1)];
 
 impl Solution {
     #[allow(dead_code)]
@@ -267,9 +294,8 @@ impl Solution {
                 for (dx, dy) in DIR {
                     let x = dx + (i as i32);
                     let y = dy + (j as i32);
-                    if
-                        Self::check_bounds(x, y, n as i32, m as i32) &&
-                        grid[x as usize][y as usize] <= cur_time
+                    if Self::check_bounds(x, y, n as i32, m as i32)
+                        && grid[x as usize][y as usize] <= cur_time
                     {
                         Self::union(i * m + j, (x as usize) * m + (y as usize), d_set);
                     }
@@ -304,4 +330,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,8 +1,8 @@
 class ThroneInheritance {
-    private Map<String, List<String>> g = new HashMap<>();
-    private Set<String> dead = new HashSet<>();
-    private List<String> ans;
     private String king;
+    private Set<String> dead = new HashSet<>();
+    private Map<String, List<String>> g = new HashMap<>();
+    private List<String> ans = new ArrayList<>();
 
     public ThroneInheritance(String kingName) {
         king = kingName;
@@ -17,7 +17,7 @@ class ThroneInheritance {
     }
 
     public List<String> getInheritanceOrder() {
-        ans = new ArrayList<>();
+        ans.clear();
         dfs(king);
         return ans;
     }
@@ -26,7 +26,7 @@ class ThroneInheritance {
         if (!dead.contains(x)) {
             ans.add(x);
         }
-        for (String y : g.getOrDefault(x, Collections.emptyList())) {
+        for (String y : g.getOrDefault(x, List.of())) {
             dfs(y);
         }
     }

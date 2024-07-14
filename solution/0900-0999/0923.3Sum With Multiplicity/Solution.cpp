@@ -1,22 +1,19 @@
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int threeSumMulti(vector<int>& arr, int target) {
-        int cnt[101] = {0};
-        for (int& v : arr) {
-            ++cnt[v];
+        const int mod = 1e9 + 7;
+        int cnt[101]{};
+        for (int x : arr) {
+            ++cnt[x];
         }
-        long ans = 0;
-        for (int j = 0; j < arr.size(); ++j) {
-            int b = arr[j];
-            --cnt[b];
+        int n = arr.size();
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            --cnt[arr[j]];
             for (int i = 0; i < j; ++i) {
-                int a = arr[i];
-                int c = target - a - b;
+                int c = target - arr[i] - arr[j];
                 if (c >= 0 && c <= 100) {
-                    ans += cnt[c];
-                    ans %= mod;
+                    ans = (ans + cnt[c]) % mod;
                 }
             }
         }

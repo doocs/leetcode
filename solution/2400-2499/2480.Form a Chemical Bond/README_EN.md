@@ -1,10 +1,20 @@
-# [2480. Form a Chemical Bond](https://leetcode.com/problems/form-a-chemical-bond)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2480. Form a Chemical Bond 🔒](https://leetcode.com/problems/form-a-chemical-bond)
 
 [中文文档](/solution/2400-2499/2480.Form%20a%20Chemical%20Bond/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Elements</code></p>
 
@@ -71,11 +81,17 @@ Nonmeal elements are Cl, O, and N.
 Each Metal element pairs with a Nonmetal element in the output table.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -88,4 +104,6 @@ WHERE a.type = 'Metal' AND b.type = 'Nonmetal';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

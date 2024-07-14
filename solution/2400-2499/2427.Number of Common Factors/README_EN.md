@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md
+rating: 1172
+source: Weekly Contest 313 Q1
+tags:
+    - Math
+    - Enumeration
+    - Number Theory
+---
+
+<!-- problem:start -->
+
 # [2427. Number of Common Factors](https://leetcode.com/problems/number-of-common-factors)
 
 [中文文档](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README.md)
 
-<!-- tags:Math,Enumeration,Number Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two positive integers <code>a</code> and <code>b</code>, return <em>the number of <strong>common</strong> factors of </em><code>a</code><em> and </em><code>b</code>.</p>
 
@@ -34,7 +48,11 @@
 	<li><code>1 &lt;= a, b &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -44,12 +62,16 @@ The time complexity is $O(\min(a, b))$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
         g = gcd(a, b)
         return sum(g % x == 0 for x in range(1, g + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +92,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func commonFactors(a int, b int) (ans int) {
@@ -103,6 +129,8 @@ func gcd(a int, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function commonFactors(a: number, b: number): number {
     const g = gcd(a, b);
@@ -122,6 +150,10 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Optimized Enumeration
 
 Similar to Solution 1, we can first calculate the greatest common divisor $g$ of $a$ and $b$, then enumerate all factors of the greatest common divisor $g$, and accumulate the answer.
@@ -129,6 +161,8 @@ Similar to Solution 1, we can first calculate the greatest common divisor $g$ of
 The time complexity is $O(\sqrt{\min(a, b)})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -142,6 +176,8 @@ class Solution:
             x += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +201,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +219,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func commonFactors(a int, b int) (ans int) {
@@ -204,6 +244,8 @@ func gcd(a int, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function commonFactors(a: number, b: number): number {
     const g = gcd(a, b);
@@ -226,4 +268,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

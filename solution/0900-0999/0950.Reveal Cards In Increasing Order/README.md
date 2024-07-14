@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README.md
+tags:
+    - 队列
+    - 数组
+    - 排序
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [950. 按递增顺序显示卡牌](https://leetcode.cn/problems/reveal-cards-in-increasing-order)
 
 [English Version](/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README_EN.md)
 
-<!-- tags:队列,数组,排序,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>牌组中的每张卡牌都对应有一个唯一的整数。你可以按你想要的顺序对这套卡片进行排序。</p>
 
@@ -53,7 +64,11 @@
 	<li>对于所有的&nbsp;<code>i != j</code>，<code>A[i] != A[j]</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：队列模拟
 
@@ -67,6 +82,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
@@ -77,6 +94,8 @@ class Solution:
             q.appendleft(v)
         return list(q)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func deckRevealedIncreasing(deck []int) []int {
 	sort.Sort(sort.Reverse(sort.IntSlice(deck)))
@@ -133,4 +156,6 @@ func deckRevealedIncreasing(deck []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

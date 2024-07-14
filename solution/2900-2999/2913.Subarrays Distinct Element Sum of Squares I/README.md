@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2913.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20I/README.md
+rating: 1297
+source: 第 116 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [2913. 子数组不同元素数目的平方和 I](https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-i)
 
 [English Version](/solution/2900-2999/2913.Subarrays%20Distinct%20Element%20Sum%20of%20Squares%20I/README_EN.md)
 
-<!-- tags:数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -60,7 +71,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -71,6 +86,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +100,8 @@ class Solution:
                 ans += len(s) * len(s)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumCounts(nums []int) (ans int) {
 	for i := range nums {
@@ -141,6 +164,8 @@ func sumCounts(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumCounts(nums: number[]): number {
@@ -162,4 +187,6 @@ function sumCounts(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

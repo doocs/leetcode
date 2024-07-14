@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README_EN.md
+rating: 2346
+source: Biweekly Contest 77 Q4
+tags:
+    - Breadth-First Search
+    - Array
+    - Binary Search
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [2258. Escape the Spreading Fire](https://leetcode.com/problems/escape-the-spreading-fire)
 
 [中文文档](/solution/2200-2299/2258.Escape%20the%20Spreading%20Fire/README.md)
 
-<!-- tags:Breadth-First Search,Array,Binary Search,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code> which represents a field. Each cell has one of three values:</p>
 
@@ -64,7 +79,11 @@ Thus, 10<sup>9</sup> is returned.
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search + BFS
 
@@ -77,6 +96,8 @@ The key problem is how to determine whether a stay time $t$ satisfies the condit
 The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -143,6 +164,8 @@ class Solution:
                 r = mid - 1
         return int(1e9) if l == m * n else l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +256,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -311,6 +336,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumMinutes(grid [][]int) int {
@@ -394,6 +421,8 @@ func maximumMinutes(grid [][]int) int {
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumMinutes(grid: number[][]): number {
@@ -481,4 +510,6 @@ function maximumMinutes(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

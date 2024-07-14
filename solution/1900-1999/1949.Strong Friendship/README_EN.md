@@ -1,10 +1,20 @@
-# [1949. Strong Friendship](https://leetcode.com/problems/strong-friendship)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1949.Strong%20Friendship/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1949. Strong Friendship 🔒](https://leetcode.com/problems/strong-friendship)
 
 [中文文档](/solution/1900-1999/1949.Strong%20Friendship/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Friendship</code></p>
 
@@ -67,11 +77,17 @@ Users 1 and 3 have 3 common friends (2, 6, and 7).
 We did not include the friendship of users 2 and 3 because they only have two common friends (1 and 6).
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -101,4 +117,6 @@ HAVING COUNT(1) >= 3;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

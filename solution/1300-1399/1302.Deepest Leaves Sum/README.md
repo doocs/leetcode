@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md
+rating: 1387
+source: 第 16 场双周赛 Q3
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [1302. 层数最深叶子节点的和](https://leetcode.cn/problems/deepest-leaves-sum)
 
 [English Version](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点 <code>root</code> ，请你返回 <strong>层数最深的叶子节点的和</strong> 。</p>
 
@@ -37,7 +50,11 @@
 	<li><code>1 <= Node.val <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -46,6 +63,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -68,6 +87,8 @@ class Solution:
                     q.append(root.right)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -140,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -169,6 +194,8 @@ func deepestLeavesSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -203,6 +230,8 @@ function deepestLeavesSum(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -222,8 +251,8 @@ function deepestLeavesSum(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, depth: i32, max_depth: &mut i32, res: &mut i32) {
         if let Some(node) = root {
@@ -250,6 +279,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -289,11 +320,17 @@ int deepestLeavesSum(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -320,6 +357,8 @@ class Solution:
         dfs(root, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -362,6 +401,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -398,6 +439,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -427,6 +470,8 @@ func deepestLeavesSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -466,4 +511,6 @@ function deepestLeavesSum(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

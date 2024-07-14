@@ -1,10 +1,22 @@
-# [2510. Check if There is a Path With Equal Number of 0's And 1's](https://leetcode.com/problems/check-if-there-is-a-path-with-equal-number-of-0s-and-1s)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [2510. Check if There is a Path With Equal Number of 0's And 1's 🔒](https://leetcode.com/problems/check-if-there-is-a-path-with-equal-number-of-0s-and-1s)
 
 [中文文档](/solution/2500-2599/2510.Check%20if%20There%20is%20a%20Path%20With%20Equal%20Number%20of%200%27s%20And%201%27s/README.md)
 
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> <strong>binary</strong> matrix <code>grid</code>. You can move from a cell <code>(row, col)</code> to any of the cells <code>(row + 1, col)</code> or <code>(row, col + 1)</code>.</p>
 
@@ -37,11 +49,17 @@
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +82,8 @@ class Solution:
         s >>= 1
         return dfs(0, 0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isThereAPath(grid [][]int) bool {
@@ -167,4 +191,6 @@ func isThereAPath(grid [][]int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

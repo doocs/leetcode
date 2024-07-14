@@ -1,10 +1,27 @@
-# [2152. Minimum Number of Lines to Cover Points](https://leetcode.com/problems/minimum-number-of-lines-to-cover-points)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README_EN.md
+tags:
+    - Bit Manipulation
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
+    - Dynamic Programming
+    - Backtracking
+    - Bitmask
+---
+
+<!-- problem:start -->
+
+# [2152. Minimum Number of Lines to Cover Points 🔒](https://leetcode.com/problems/minimum-number-of-lines-to-cover-points)
 
 [中文文档](/solution/2100-2199/2152.Minimum%20Number%20of%20Lines%20to%20Cover%20Points/README.md)
 
-<!-- tags:Bit Manipulation,Geometry,Array,Hash Table,Math,Dynamic Programming,Backtracking,Bitmask -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on an <strong>X-Y </strong>plane.</p>
 
@@ -42,11 +59,17 @@
 	<li>All the <code>points</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +100,8 @@ class Solution:
         n = len(points)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumLines(points [][]int) int {
@@ -211,4 +240,6 @@ func minimumLines(points [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

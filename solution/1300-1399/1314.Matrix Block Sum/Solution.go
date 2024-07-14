@@ -1,27 +1,29 @@
 func matrixBlockSum(mat [][]int, k int) [][]int {
 	m, n := len(mat), len(mat[0])
-	pre := make([][]int, m+1)
-	for i := 0; i < m+1; i++ {
-		pre[i] = make([]int, n+1)
+	s := make([][]int, m+1)
+	for i := range s {
+		s[i] = make([]int, n+1)
 	}
-	for i := 1; i < m+1; i++ {
-		for j := 1; j < n+1; j++ {
-			pre[i][j] = pre[i-1][j] + pre[i][j-1] + -pre[i-1][j-1] + mat[i-1][j-1]
+	for i, row := range mat {
+		for j, x := range row {
+			s[i+1][j+1] = s[i][j+1] + s[i+1][j] - s[i][j] + x
 		}
-	}
-
-	get := func(i, j int) int {
-		i = max(min(m, i), 0)
-		j = max(min(n, j), 0)
-		return pre[i][j]
 	}
 
 	ans := make([][]int, m)
-	for i := 0; i < m; i++ {
+	for i := range ans {
 		ans[i] = make([]int, n)
+	}
+
+	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			ans[i][j] = get(i+k+1, j+k+1) - get(i+k+1, j-k) - get(i-k, j+k+1) + get(i-k, j-k)
+			x1 := max(i-k, 0)
+			y1 := max(j-k, 0)
+			x2 := min(m-1, i+k)
+			y2 := min(n-1, j+k)
+			ans[i][j] = s[x2+1][y2+1] - s[x1][y2+1] - s[x2+1][y1] + s[x1][y1]
 		}
 	}
+
 	return ans
 }

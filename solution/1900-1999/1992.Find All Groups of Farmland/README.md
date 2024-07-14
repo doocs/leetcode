@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README.md
+rating: 1539
+source: 第 60 场双周赛 Q2
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [1992. 找到所有的农场组](https://leetcode.cn/problems/find-all-groups-of-farmland)
 
 [English Version](/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始，大小为&nbsp;<code>m x n</code>&nbsp;的二进制矩阵&nbsp;<code>land</code>&nbsp;，其中 <code>0</code>&nbsp;表示一单位的森林土地，<code>1</code>&nbsp;表示一单位的农场土地。</p>
 
@@ -59,11 +72,17 @@
 	<li>农场组都是 <strong>矩形</strong>&nbsp;的形状。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +105,8 @@ class Solution:
                 ans.append([i, j, x, y])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -137,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findFarmland(land [][]int) [][]int {
 	m, n := len(land), len(land[0])
@@ -160,4 +185,6 @@ func findFarmland(land [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md
+rating: 1418
+source: Weekly Contest 215 Q1
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Data Stream
+---
+
+<!-- problem:start -->
+
 # [1656. Design an Ordered Stream](https://leetcode.com/problems/design-an-ordered-stream)
 
 [中文文档](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md)
 
-<!-- tags:Design,Array,Hash Table,Data Stream -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a stream of <code>n</code> <code>(idKey, value)</code> pairs arriving in an <strong>arbitrary</strong> order, where <code>idKey</code> is an integer between <code>1</code> and <code>n</code> and <code>value</code> is a string. No two pairs have the same <code>id</code>.</p>
 
@@ -54,11 +69,17 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 	<li>Exactly <code>n</code> calls will be made to <code>insert</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class OrderedStream:
@@ -79,6 +100,8 @@ class OrderedStream:
 # obj = OrderedStream(n)
 # param_1 = obj.insert(idKey,value)
 ```
+
+#### Java
 
 ```java
 class OrderedStream {
@@ -107,6 +130,8 @@ class OrderedStream {
  */
 ```
 
+#### C++
+
 ```cpp
 class OrderedStream {
 public:
@@ -131,6 +156,8 @@ public:
  * vector<string> param_1 = obj->insert(idKey,value);
  */
 ```
+
+#### Go
 
 ```go
 type OrderedStream struct {
@@ -160,6 +187,8 @@ func (this *OrderedStream) Insert(idKey int, value string) []string {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class OrderedStream {
     private ptr: number;
@@ -188,6 +217,8 @@ class OrderedStream {
  */
 ```
 
+#### Rust
+
 ```rust
 struct OrderedStream {
     ptr: usize,
@@ -200,7 +231,10 @@ struct OrderedStream {
  */
 impl OrderedStream {
     fn new(n: i32) -> Self {
-        Self { ptr: 0, vals: vec![None; n as usize] }
+        Self {
+            ptr: 0,
+            vals: vec![None; n as usize],
+        }
     }
 
     fn insert(&mut self, id_key: i32, value: String) -> Vec<String> {
@@ -216,13 +250,11 @@ impl OrderedStream {
         }
         res
     }
-}/**
- * Your OrderedStream object will be instantiated and called as such:
- * let obj = OrderedStream::new(n);
- * let ret_1: Vec<String> = obj.insert(idKey, value);
- */
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

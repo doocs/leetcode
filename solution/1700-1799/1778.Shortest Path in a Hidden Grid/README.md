@@ -1,12 +1,23 @@
-# [1778. 未知网格中的最短路径](https://leetcode.cn/problems/shortest-path-in-a-hidden-grid)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 交互
+---
+
+<!-- problem:start -->
+
+# [1778. 未知网格中的最短路径 🔒](https://leetcode.cn/problems/shortest-path-in-a-hidden-grid)
 
 [English Version](/solution/1700-1799/1778.Shortest%20Path%20in%20a%20Hidden%20Grid/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,交互 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>这是一个<strong>交互式的问题。</strong></p>
 
@@ -88,7 +99,11 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 	<li><code>grid</code> 中<strong> 有且只有一个</strong> <code>2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS 建图 + BFS 求最短路
 
@@ -103,6 +118,8 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 -   [1810. 隐藏网格下的最小消耗路径](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -159,6 +176,8 @@ class Solution(object):
                         q.append((x, y))
         return -1
 ```
+
+#### Java
 
 ```java
 /**
@@ -221,6 +240,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -291,4 +312,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

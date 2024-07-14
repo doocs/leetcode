@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0020.Valid%20Parentheses/README.md
+tags:
+    - 栈
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses)
 
 [English Version](/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md)
 
-<!-- tags:栈,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个只包括 <code>'('</code>，<code>')'</code>，<code>'{'</code>，<code>'}'</code>，<code>'['</code>，<code>']'</code>&nbsp;的字符串 <code>s</code> ，判断字符串是否有效。</p>
 
@@ -50,7 +59,11 @@
 	<li><code>s</code> 仅由括号 <code>'()[]{}'</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -66,6 +79,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
@@ -78,6 +93,8 @@ class Solution:
                 return False
         return not stk
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValid(s string) bool {
 	stk := []rune{}
@@ -141,6 +162,8 @@ func match(l, r rune) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 const map = new Map([
     ['(', ')'],
@@ -160,6 +183,8 @@ function isValid(s: string): boolean {
     return stack.length === 0;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -182,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -207,6 +234,8 @@ function match(l, r) {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool IsValid(string s) {
@@ -226,6 +255,8 @@ public class Solution {
     }
 }
 ```
+
+#### Ruby
 
 ```rb
 # @param {String} s
@@ -251,6 +282,8 @@ def is_valid(s)
   stack == ''
 end
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -285,4 +318,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,16 +1,29 @@
-# [269. 火星词典](https://leetcode.cn/problems/alien-dictionary)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0269.Alien%20Dictionary/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+    - 数组
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [269. 火星词典 🔒](https://leetcode.cn/problems/alien-dictionary)
 
 [English Version](/solution/0200-0299/0269.Alien%20Dictionary/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序,数组,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一种使用英语字母的火星语言，这门语言的字母顺序对你来说是未知的。</p>
 
-<p>给你一个来自这种外星语言字典的字符串列表 <code>words</code> ，<code>words</code> 中的字符串已经 <strong>按这门新语言的字母顺序进行了排序</strong> 。</p>
+<p>给你一个来自这种外星语言字典的字符串列表 <code>words</code> ，<code>words</code> 中的字符串已经 <strong>按这门新语言的<span data-keyword="lexicographically-smaller-string-alien">字典序</span>进行了排序</strong> 。</p>
 
 <p>如果这种说法是错误的，并且给出的 <code>words</code> 不能对应任何字母的顺序，则返回 <code>""</code> 。</p>
 
@@ -50,7 +63,11 @@
 	<li><code>words[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序 + BFS
 
@@ -72,6 +89,8 @@
 -   得到的便是字母的拓扑序，也就是火星字典的字母顺序。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -128,6 +147,8 @@ class Solution:
                         q.append(i)
         return '' if len(ans) < cnt else ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +227,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -267,4 +290,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

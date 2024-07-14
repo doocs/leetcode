@@ -1,24 +1,20 @@
 class Solution {
-    public int clumsy(int N) {
-        Deque<Integer> s = new ArrayDeque<>();
-        s.offerLast(N);
-        int op = 0;
-        for (int i = N - 1; i > 0; --i) {
-            if (op == 0) {
-                s.offerLast(s.pollLast() * i);
-            } else if (op == 1) {
-                s.offerLast(s.pollLast() / i);
-            } else if (op == 2) {
-                s.offerLast(i);
+    public int clumsy(int n) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(n);
+        int k = 0;
+        for (int x = n - 1; x > 0; --x) {
+            if (k == 0) {
+                stk.push(stk.pop() * x);
+            } else if (k == 1) {
+                stk.push(stk.pop() / x);
+            } else if (k == 2) {
+                stk.push(x);
             } else {
-                s.offerLast(-i);
+                stk.push(-x);
             }
-            op = (op + 1) % 4;
+            k = (k + 1) % 4;
         }
-        int res = 0;
-        while (!s.isEmpty()) {
-            res += s.pollLast();
-        }
-        return res;
+        return stk.stream().mapToInt(Integer::intValue).sum();
     }
 }

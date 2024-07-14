@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README_EN.md
+rating: 1678
+source: Biweekly Contest 68 Q2
+tags:
+    - Graph
+    - Topological Sort
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [2115. Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies)
 
 [中文文档](/solution/2100-2199/2115.Find%20All%20Possible%20Recipes%20from%20Given%20Supplies/README.md)
 
-<!-- tags:Graph,Topological Sort,Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have information about <code>n</code> different recipes. You are given a string array <code>recipes</code> and a 2D string array <code>ingredients</code>. The <code>i<sup>th</sup></code> recipe has the name <code>recipes[i]</code>, and you can <strong>create</strong> it if you have <strong>all</strong> the needed ingredients from <code>ingredients[i]</code>. Ingredients to a recipe may need to be created from <strong>other </strong>recipes, i.e., <code>ingredients[i]</code> may contain a string that is in <code>recipes</code>.</p>
 
@@ -58,11 +74,17 @@ We can create &quot;burger&quot; since we have the ingredient &quot;meat&quot; a
 	<li>Each <code>ingredients[i]</code> does not contain any duplicate values.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,18 +97,18 @@ class Solution:
             for v in b:
                 g[v].append(a)
             indeg[a] += len(b)
-        q = deque(supplies)
+        q = supplies
         ans = []
-        while q:
-            for _ in range(len(q)):
-                i = q.popleft()
-                for j in g[i]:
-                    indeg[j] -= 1
-                    if indeg[j] == 0:
-                        ans.append(j)
-                        q.append(j)
+        for i in q:
+            for j in g[i]:
+                indeg[j] -= 1
+                if indeg[j] == 0:
+                    ans.append(j)
+                    q.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +179,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findAllRecipes(recipes []string, ingredients [][]string, supplies []string) []string {
@@ -190,4 +216,6 @@ func findAllRecipes(recipes []string, ingredients [][]string, supplies []string)
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

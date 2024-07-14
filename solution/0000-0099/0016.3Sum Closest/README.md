@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0016.3Sum%20Closest/README.md
+tags:
+    - 数组
+    - 双指针
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [16. 最接近的三数之和](https://leetcode.cn/problems/3sum-closest)
 
 [English Version](/solution/0000-0099/0016.3Sum%20Closest/README_EN.md)
 
-<!-- tags:数组,双指针,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的整数数组&nbsp;<code>nums</code><em>&nbsp;</em>和 一个目标值&nbsp;<code>target</code>。请你从 <code>nums</code><em> </em>中选出三个整数，使它们的和与&nbsp;<code>target</code>&nbsp;最接近。</p>
 
@@ -41,7 +51,11 @@
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 双指针
 
@@ -50,6 +64,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +87,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func threeSumClosest(nums []int, target int) int {
@@ -157,6 +179,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function threeSumClosest(nums: number[], target: number): number {
     nums.sort((a, b) => a - b);
@@ -183,6 +207,8 @@ function threeSumClosest(nums: number[], target: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -215,6 +241,8 @@ var threeSumClosest = function (nums, target) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -259,4 +287,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

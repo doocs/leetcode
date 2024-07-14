@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0680.Valid%20Palindrome%20II/README.md
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [680. 验证回文串 II](https://leetcode.cn/problems/valid-palindrome-ii)
 
 [English Version](/solution/0600-0699/0680.Valid%20Palindrome%20II/README_EN.md)
 
-<!-- tags:贪心,双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>，<strong>最多</strong> 可以从中删除一个字符。</p>
 
@@ -44,7 +54,11 @@
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -55,6 +69,8 @@
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +89,8 @@ class Solution:
             i, j = i + 1, j - 1
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validPalindrome(s string) bool {
 	check := func(i, j int) bool {
@@ -137,6 +159,8 @@ func validPalindrome(s string) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function validPalindrome(s: string): boolean {
@@ -157,6 +181,8 @@ function isPalinddrome(s: string): boolean {
     return true;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -180,6 +206,8 @@ var validPalindrome = function (s) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -210,4 +238,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

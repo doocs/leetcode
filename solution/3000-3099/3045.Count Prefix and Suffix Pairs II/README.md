@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README.md
+rating: 2327
+source: 第 385 场周赛 Q4
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
+<!-- problem:start -->
+
 # [3045. 统计前后缀下标对 II](https://leetcode.cn/problems/count-prefix-and-suffix-pairs-ii)
 
 [English Version](/solution/3000-3099/3045.Count%20Prefix%20and%20Suffix%20Pairs%20II/README_EN.md)
 
-<!-- tags:字典树,数组,字符串,字符串匹配,哈希函数,滚动哈希 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> 。</p>
 
@@ -63,7 +78,11 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 	<li>所有 <code>words[i]</code> 的长度之和不超过 <code>5 * 10<sup>5</sup></code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字典树
 
@@ -74,6 +93,8 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -98,6 +119,8 @@ class Solution:
             node.cnt += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -124,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -158,6 +183,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Node struct {
 	children map[int]*Node
@@ -182,6 +209,8 @@ func countPrefixSuffixPairs(words []string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Node {
@@ -211,4 +240,6 @@ function countPrefixSuffixPairs(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

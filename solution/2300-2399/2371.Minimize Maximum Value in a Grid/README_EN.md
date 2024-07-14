@@ -1,10 +1,25 @@
-# [2371. Minimize Maximum Value in a Grid](https://leetcode.com/problems/minimize-maximum-value-in-a-grid)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README_EN.md
+tags:
+    - Union Find
+    - Graph
+    - Topological Sort
+    - Array
+    - Matrix
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [2371. Minimize Maximum Value in a Grid 🔒](https://leetcode.com/problems/minimize-maximum-value-in-a-grid)
 
 [中文文档](/solution/2300-2399/2371.Minimize%20Maximum%20Value%20in%20a%20Grid/README.md)
 
-<!-- tags:Union Find,Graph,Topological Sort,Array,Matrix,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> integer matrix <code>grid</code> containing <strong>distinct</strong> positive integers.</p>
 
@@ -51,11 +66,17 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 	<li><code>grid</code> consists of distinct integers.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +92,8 @@ class Solution:
             row_max[i] = col_max[j] = ans[i][j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minScore(grid [][]int) [][]int {
@@ -147,6 +174,8 @@ func minScore(grid [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minScore(grid: number[][]): number[][] {
     const m = grid.length;
@@ -171,4 +200,6 @@ function minScore(grid: number[][]): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

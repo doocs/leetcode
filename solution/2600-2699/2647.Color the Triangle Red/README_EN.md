@@ -1,10 +1,21 @@
-# [2647. Color the Triangle Red](https://leetcode.com/problems/color-the-triangle-red)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README_EN.md
+tags:
+    - Array
+    - Math
+---
+
+<!-- problem:start -->
+
+# [2647. Color the Triangle Red 🔒](https://leetcode.com/problems/color-the-triangle-red)
 
 [中文文档](/solution/2600-2699/2647.Color%20the%20Triangle%20Red/README.md)
 
-<!-- tags:Array,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>. Consider an equilateral triangle of side length <code>n</code>, broken up into <code>n<sup>2</sup></code> unit equilateral triangles. The triangle has <code>n</code> <strong>1-indexed</strong> rows where the <code>i<sup>th</sup></code> row has <code>2i - 1</code> unit equilateral triangles.</p>
 
@@ -67,7 +78,11 @@ It can be shown that choosing any 2 triangles and running the algorithm will not
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Find the Pattern
 
@@ -88,6 +103,8 @@ The time complexity is $(n^2)$, where $n$ is the parameter given in the problem.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def colorRed(self, n: int) -> List[List[int]]:
@@ -107,6 +124,8 @@ class Solution:
             k = (k + 1) % 4
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +151,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorRed(n int) (ans [][]int) {
 	ans = append(ans, []int{1, 1})
@@ -180,6 +203,8 @@ func colorRed(n int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorRed(n: number): number[][] {
@@ -205,4 +230,6 @@ function colorRed(n: number): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

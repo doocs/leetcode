@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README.md
+rating: 1167
+source: 第 282 场周赛 Q1
+tags:
+    - 数组
+    - 字符串
+    - 字符串匹配
+---
+
+<!-- problem:start -->
+
 # [2185. 统计包含给定前缀的字符串](https://leetcode.cn/problems/counting-words-with-a-given-prefix)
 
 [English Version](/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README_EN.md)
 
-<!-- tags:数组,字符串,字符串匹配 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code> 和一个字符串 <code>pref</code> 。</p>
 
@@ -40,7 +52,11 @@
 	<li><code>words[i]</code> 和 <code>pref</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -50,11 +66,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def prefixCount(self, words: List[str], pref: str) -> int:
         return sum(w.startswith(pref) for w in words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -80,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func prefixCount(words []string, pref string) (ans int) {
@@ -92,22 +116,25 @@ func prefixCount(words []string, pref string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function prefixCount(words: string[], pref: string): number {
     return words.reduce((r, s) => (r += s.startsWith(pref) ? 1 : 0), 0);
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn prefix_count(words: Vec<String>, pref: String) -> i32 {
-        words
-            .iter()
-            .filter(|s| s.starts_with(&pref))
-            .count() as i32
+        words.iter().filter(|s| s.starts_with(&pref)).count() as i32
     }
 }
 ```
+
+#### C
 
 ```c
 int prefixCount(char** words, int wordsSize, char* pref) {
@@ -123,6 +150,10 @@ int prefixCount(char** words, int wordsSize, char* pref) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：前缀树
 
@@ -145,6 +176,8 @@ int prefixCount(char** words, int wordsSize, char* pref) {
 时间复杂度 $O(L)$，空间复杂度 $O(L)$。其中 $L$ 是字符串数组 `words` 中所有字符串的长度之和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -178,6 +211,8 @@ class Solution:
             tree.insert(w)
         return tree.search(pref)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -219,6 +254,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -268,6 +305,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -313,4 +352,6 @@ func prefixCount(words []string, pref string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

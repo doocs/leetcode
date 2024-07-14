@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2061.%20%E6%B0%94%E6%B8%A9%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 61. 气温变化趋势](https://leetcode.cn/problems/6CE719)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 力扣城计划在两地设立「力扣嘉年华」的分会场，气象小组正在分析两地区的气温变化趋势，对于第 `i ~ (i+1)` 天的气温变化趋势，将根据以下规则判断：
 
@@ -22,7 +30,7 @@
 >
 > 输出：`2`
 >
-> 解释：如下表所示， 第 `2～4` 天两地气温变化趋势相同，且持续时间最长，因此返回 `4-2=2` > ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2061.%20%E6%B0%94%E6%B8%A9%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/images/1663902654-hlrSvs-image.png)
+> 解释：如下表所示， 第 `2～4` 天两地气温变化趋势相同，且持续时间最长，因此返回 `4-2=2` > ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2061.%20%E6%B0%94%E6%B8%A9%E5%8F%98%E5%8C%96%E8%B6%8B%E5%8A%BF/images/1663902654-hlrSvs-image.png){:width=1000px}
 
 **示例 2：**
 
@@ -36,9 +44,13 @@
 -   `2 <= temperatureA.length == temperatureB.length <= 1000`
 -   `-20 <= temperatureA[i], temperatureB[i] <= 40`
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一：动态规划
+<!-- solution:start -->
+
+### 方法一：一次遍历
 
 我们用变量 $f$ 维护当前趋势相同的连续天数，用变量 $ans$ 维护最大的连续天数。
 
@@ -46,18 +58,18 @@
 
 最终返回 $ans$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def temperatureTrend(self, temperatureA: List[int], temperatureB: List[int]) -> int:
         ans = f = 0
-        n = len(temperatureA)
-        for i in range(n - 1):
-            x = temperatureA[i + 1] - temperatureA[i]
-            y = temperatureB[i + 1] - temperatureB[i]
+        for (a1, b1), (a2, b2) in pairwise(zip(temperatureA, temperatureB)):
+            x, y = a2 - a1, b2 - b1
             if x == y == 0 or x * y > 0:
                 f += 1
                 ans = max(ans, f)
@@ -65,6 +77,8 @@ class Solution:
                 f = 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func temperatureTrend(temperatureA []int, temperatureB []int) int {
 	ans, f := 0, 0
@@ -120,6 +138,53 @@ func temperatureTrend(temperatureA []int, temperatureB []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function temperatureTrend(temperatureA: number[], temperatureB: number[]): number {
+    let [ans, f] = [0, 0];
+    for (let i = 0; i < temperatureA.length - 1; ++i) {
+        let x = temperatureA[i + 1] - temperatureA[i];
+        let y = temperatureB[i + 1] - temperatureB[i];
+        if ((x === 0 && y === 0) || x * y > 0) {
+            ans = Math.max(ans, ++f);
+        } else {
+            f = 0;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn temperature_trend(temperature_a: Vec<i32>, temperature_b: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut f = 0;
+
+        for i in 0..temperature_a.len() - 1 {
+            let x = temperature_a[i + 1] - temperature_a[i];
+            let y = temperature_b[i + 1] - temperature_b[i];
+
+            if (x == 0 && y == 0) || (x > 0 && y > 0) || (x < 0 && y < 0) {
+                f += 1;
+                if f > ans {
+                    ans = f;
+                }
+            } else {
+                f = 0;
+            }
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

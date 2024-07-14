@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1283.Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold/README_EN.md
+rating: 1541
+source: Weekly Contest 166 Q3
+tags:
+    - Array
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [1283. Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold)
 
 [中文文档](/solution/1200-1299/1283.Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold/README.md)
 
-<!-- tags:Array,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>nums</code> and an integer <code>threshold</code>, we will choose a positive integer <code>divisor</code>, divide all the array by it, and sum the division&#39;s result. Find the <strong>smallest</strong> <code>divisor</code> such that the result mentioned above is less than or equal to <code>threshold</code>.</p>
 
@@ -38,7 +51,11 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 	<li><code>nums.length &lt;= threshold &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -52,18 +69,19 @@ The time complexity is $O(n \times \log M)$, where $n$ is the length of the arra
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        l, r = 1, max(nums)
-        while l < r:
-            mid = (l + r) >> 1
-            if sum((x + mid - 1) // mid for x in nums) <= threshold:
-                r = mid
-            else:
-                l = mid + 1
-        return l
+        def f(v: int) -> bool:
+            v += 1
+            return sum((x + v - 1) // v for x in nums) <= threshold
+
+        return bisect_left(range(max(nums)), True, key=f) + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,9 +129,11 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestDivisor(nums []int, threshold int) int {
-	return sort.Search(1000000, func(v int) bool {
+	return sort.Search(slices.Max(nums), func(v int) bool {
 		v++
 		s := 0
 		for _, x := range nums {
@@ -122,16 +144,15 @@ func smallestDivisor(nums []int, threshold int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function smallestDivisor(nums: number[], threshold: number): number {
     let l = 1;
     let r = Math.max(...nums);
     while (l < r) {
         const mid = (l + r) >> 1;
-        let s = 0;
-        for (const x of nums) {
-            s += Math.ceil(x / mid);
-        }
+        const s = nums.reduce((acc, x) => acc + Math.ceil(x / mid), 0);
         if (s <= threshold) {
             r = mid;
         } else {
@@ -141,6 +162,29 @@ function smallestDivisor(nums: number[], threshold: number): number {
     return l;
 }
 ```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_divisor(nums: Vec<i32>, threshold: i32) -> i32 {
+        let mut l = 1;
+        let mut r = *nums.iter().max().unwrap();
+        while l < r {
+            let mid = (l + r) / 2;
+            let s: i32 = nums.iter().map(|&x| (x + mid - 1) / mid).sum();
+            if s <= threshold {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
+}
+```
+
+#### JavaScript
 
 ```js
 /**
@@ -153,10 +197,7 @@ var smallestDivisor = function (nums, threshold) {
     let r = Math.max(...nums);
     while (l < r) {
         const mid = (l + r) >> 1;
-        let s = 0;
-        for (const x of nums) {
-            s += Math.ceil(x / mid);
-        }
+        const s = nums.reduce((acc, x) => acc + Math.ceil(x / mid), 0);
         if (s <= threshold) {
             r = mid;
         } else {
@@ -166,6 +207,8 @@ var smallestDivisor = function (nums, threshold) {
     return l;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -191,20 +234,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        def f(v: int) -> bool:
-            v += 1
-            return sum((x + v - 1) // v for x in nums) <= threshold
-
-        return bisect_left(range(max(nums)), True, key=f) + 1
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

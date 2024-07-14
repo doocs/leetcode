@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README_EN.md
+tags:
+    - Stack
+    - Linked List
+    - Math
+---
+
+<!-- problem:start -->
+
 # [445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii)
 
 [中文文档](/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README.md)
 
-<!-- tags:Stack,Linked List,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>
 
@@ -44,11 +56,17 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Could you solve it without reversing the input lists?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -77,6 +95,8 @@ class Solution:
             dummy.next = ListNode(val, dummy.next)
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -112,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -153,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -191,6 +215,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -226,6 +252,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -257,7 +285,7 @@ impl Solution {
 
     pub fn add_two_numbers(
         mut l1: Option<Box<ListNode>>,
-        mut l2: Option<Box<ListNode>>
+        mut l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         l1 = Self::reverse(l1);
         l2 = Self::reverse(l2);
@@ -284,9 +312,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -317,7 +351,7 @@ impl Solution {
 
     pub fn add_two_numbers(
         l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>
+        l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         let mut s1 = Self::create_stack(l1);
         let mut s2 = Self::create_stack(l2);
@@ -331,12 +365,10 @@ impl Solution {
             if let Some(val) = s2.pop() {
                 carry += val;
             }
-            dummy.next = Some(
-                Box::new(ListNode {
-                    val: carry % 10,
-                    next: dummy.next.take(),
-                })
-            );
+            dummy.next = Some(Box::new(ListNode {
+                val: carry % 10,
+                next: dummy.next.take(),
+            }));
             carry /= 10;
         }
         dummy.next.take()
@@ -346,4 +378,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

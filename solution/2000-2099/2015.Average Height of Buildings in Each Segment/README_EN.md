@@ -1,10 +1,23 @@
-# [2015. Average Height of Buildings in Each Segment](https://leetcode.com/problems/average-height-of-buildings-in-each-segment)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
+# [2015. Average Height of Buildings in Each Segment 🔒](https://leetcode.com/problems/average-height-of-buildings-in-each-segment)
 
 [中文文档](/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README.md)
 
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A perfectly straight street is represented by a number line. The street has building(s) on it and is represented by a 2D integer array <code>buildings</code>, where <code>buildings[i] = [start<sub>i</sub>, end<sub>i</sub>, height<sub>i</sub>]</code>. This means that there is a building with <code>height<sub>i</sub></code> in the <strong>half-closed segment</strong> <code>[start<sub>i</sub>, end<sub>i</sub>)</code>.</p>
 
@@ -76,7 +89,11 @@ We cannot group the segments together because an empty space with no buildings s
 	<li><code>1 &lt;= height<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Differential Ordered Hash Table
 
@@ -87,6 +104,8 @@ Finally, we traverse the ordered hash table. For each position, if both the heig
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of buildings.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +131,8 @@ class Solution:
             n += cnt[j]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -179,6 +202,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func averageHeightOfBuildings(buildings [][]int) [][]int {
@@ -217,4 +242,6 @@ func averageHeightOfBuildings(buildings [][]int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

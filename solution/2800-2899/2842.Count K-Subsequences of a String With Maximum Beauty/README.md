@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README.md
+rating: 2091
+source: 第 112 场双周赛 Q4
+tags:
+    - 贪心
+    - 哈希表
+    - 数学
+    - 字符串
+    - 组合数学
+---
+
+<!-- problem:start -->
+
 # [2842. 统计一个字符串的 k 子序列美丽值最大的数目](https://leetcode.cn/problems/count-k-subsequences-of-a-string-with-maximum-beauty)
 
 [English Version](/solution/2800-2899/2842.Count%20K-Subsequences%20of%20a%20String%20With%20Maximum%20Beauty/README_EN.md)
 
-<!-- tags:贪心,哈希表,数学,字符串,组合数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -81,7 +95,11 @@ s 的 k 子序列为：
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 组合数学
 
@@ -100,6 +118,8 @@ s 的 k 子序列为：
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $\Sigma$ 是字符集。本题中字符集为小写字母，因此 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -120,6 +140,8 @@ class Solution:
         ans = ans * comb(x, k) * pow(val, k, mod) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -183,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -241,6 +265,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countKSubsequencesWithMaxBeauty(s string, k int) int {
@@ -303,6 +329,8 @@ func countKSubsequencesWithMaxBeauty(s string, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
     const f: number[] = new Array(26).fill(0);
@@ -352,4 +380,6 @@ function countKSubsequencesWithMaxBeauty(s: string, k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

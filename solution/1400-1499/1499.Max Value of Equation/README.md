@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md
+rating: 2456
+source: 第 195 场周赛 Q4
+tags:
+    - 队列
+    - 数组
+    - 滑动窗口
+    - 单调队列
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [1499. 满足不等式的最大值](https://leetcode.cn/problems/max-value-of-equation)
 
 [English Version](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md)
 
-<!-- tags:队列,数组,滑动窗口,单调队列,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>points</code> 和一个整数 <code>k</code> 。数组中每个元素都表示二维平面上的点的坐标，并按照横坐标 x 的值从小到大排序。也就是说 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> ，并且在 <code>1 &lt;= i &lt; j &lt;= points.length</code> 的前提下， <code>x<sub>i</sub> &lt; x<sub>j</sub></code> 总成立。</p>
 
@@ -42,7 +56,11 @@
 	<li>对于所有的<code>1 &lt;= i &lt; j &lt;= points.length</code> ，<code>points[i][0] &lt; points[j][0]</code> 都成立。也就是说，<code>x<sub>i</sub></code> 是严格递增的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（大根堆）
 
@@ -67,6 +85,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findMaxValueOfEquation(self, points: List[List[int]], k: int) -> int:
@@ -80,6 +100,8 @@ class Solution:
             heappush(pq, (x - y, x))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +145,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findMaxValueOfEquation(points [][]int, k int) int {
@@ -152,6 +178,8 @@ func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxValueOfEquation(points: number[][], k: number): number {
@@ -238,6 +266,10 @@ class Heap<T = number> {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：单调队列
 
 这道题实际上需要我们维护的是一个长度为 $k$ 的窗口中 $y-x$ 的最大值，单调队列可以很好地解决这个问题。
@@ -251,6 +283,8 @@ class Heap<T = number> {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $points$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -267,6 +301,8 @@ class Solution:
             q.append((x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -290,6 +326,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -315,6 +353,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxValueOfEquation(points [][]int, k int) int {
 	ans := -(1 << 30)
@@ -335,6 +375,8 @@ func findMaxValueOfEquation(points [][]int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findMaxValueOfEquation(points: number[][], k: number): number {
@@ -358,4 +400,6 @@ function findMaxValueOfEquation(points: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

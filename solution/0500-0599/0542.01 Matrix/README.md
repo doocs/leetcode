@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0542.01%20Matrix/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 动态规划
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [542. 01 矩阵](https://leetcode.cn/problems/01-matrix)
 
 [English Version](/solution/0500-0599/0542.01%20Matrix/README_EN.md)
 
-<!-- tags:广度优先搜索,数组,动态规划,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个由 <code>0</code> 和 <code>1</code> 组成的矩阵 <code>mat</code> ，请输出一个大小相同的矩阵，其中每一个格子是 <code>mat</code> 中对应位置元素到最近的 <code>0</code> 的距离。</p>
 
@@ -45,7 +56,11 @@
 	<li><code>mat</code> 中至少有一个 <code>0 </code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多源 BFS
 
@@ -54,6 +69,8 @@
 循环弹出队列 q 的元素 `p(i, j)`，检查邻居四个点。对于邻居 `(x, y)`，如果 `ans[x][y] = -1`，则更新 `ans[x][y] = ans[i][j] + 1`。同时将 `(x, y)` 入队。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +93,8 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +164,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func updateMatrix(mat [][]int) [][]int {
@@ -180,6 +203,8 @@ func updateMatrix(mat [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function updateMatrix(mat: number[][]): number[][] {
     const [m, n] = [mat.length, mat[0].length];
@@ -207,6 +232,8 @@ function updateMatrix(mat: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -239,9 +266,8 @@ impl Solution {
             for pair in &traverse_vec {
                 let cur_x = pair.0 + (x as i32);
                 let cur_y = pair.1 + (y as i32);
-                if
-                    Solution::check_bounds(cur_x, cur_y, n as i32, m as i32) &&
-                    ret_vec[cur_x as usize][cur_y as usize] == -1
+                if Solution::check_bounds(cur_x, cur_y, n as i32, m as i32)
+                    && ret_vec[cur_x as usize][cur_y as usize] == -1
                 {
                     // The current cell has not be updated yet, and is also in bound
                     ret_vec[cur_x as usize][cur_y as usize] = ret_vec[x][y] + 1;
@@ -262,4 +288,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

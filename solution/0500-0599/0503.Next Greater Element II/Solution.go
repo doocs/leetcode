@@ -4,13 +4,16 @@ func nextGreaterElements(nums []int) []int {
 	for i := range ans {
 		ans[i] = -1
 	}
-	var stk []int
-	for i := 0; i < (n << 1); i++ {
-		for len(stk) > 0 && nums[stk[len(stk)-1]] < nums[i%n] {
-			ans[stk[len(stk)-1]] = nums[i%n]
+	stk := []int{}
+	for i := n*2 - 1; i >= 0; i-- {
+		j := i % n
+		for len(stk) > 0 && stk[len(stk)-1] <= nums[j] {
 			stk = stk[:len(stk)-1]
 		}
-		stk = append(stk, i%n)
+		if len(stk) > 0 {
+			ans[j] = stk[len(stk)-1]
+		}
+		stk = append(stk, nums[j])
 	}
 	return ans
 }

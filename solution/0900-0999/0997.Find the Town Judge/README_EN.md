@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0997.Find%20the%20Town%20Judge/README_EN.md
+tags:
+    - Graph
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [997. Find the Town Judge](https://leetcode.com/problems/find-the-town-judge)
 
 [中文文档](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README.md)
 
-<!-- tags:Graph,Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>In a town, there are <code>n</code> people labeled from <code>1</code> to <code>n</code>. There is a rumor that one of these people is secretly the town judge.</p>
 
@@ -54,7 +66,11 @@
 	<li><code>1 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -67,6 +83,8 @@ Finally, we enumerate each person $i$ in the range $[1,..n]$. If $cnt1[i] = 0$ a
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $trust$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +99,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findJudge(n int, trust [][]int) int {
 	cnt1 := make([]int, n+1)
@@ -141,6 +165,8 @@ func findJudge(n int, trust [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findJudge(n: number, trust: number[][]): number {
     const cnt1: number[] = new Array(n + 1).fill(0);
@@ -157,6 +183,8 @@ function findJudge(n: number, trust: number[][]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,4 +212,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

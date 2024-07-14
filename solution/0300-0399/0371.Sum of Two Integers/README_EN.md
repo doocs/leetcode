@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+---
+
+<!-- problem:start -->
+
 # [371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers)
 
 [中文文档](/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README.md)
 
-<!-- tags:Bit Manipulation,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>a</code> and <code>b</code>, return <em>the sum of the two integers without using the operators</em> <code>+</code> <em>and</em> <code>-</code>.</p>
 
@@ -23,11 +34,17 @@
 	<li><code>-1000 &lt;= a, b &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -39,6 +56,8 @@ class Solution:
         return a if a < 0x80000000 else ~(a ^ 0xFFFFFFFF)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int getSum(int a, int b) {
@@ -46,6 +65,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -61,6 +82,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getSum(a int, b int) int {
 	for b != 0 {
@@ -74,4 +97,6 @@ func getSum(a int, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

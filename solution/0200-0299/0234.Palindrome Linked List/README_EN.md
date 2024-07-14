@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - Linked List
+    - Two Pointers
+---
+
+<!-- problem:start -->
+
 # [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list)
 
 [中文文档](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)
 
-<!-- tags:Stack,Recursion,Linked List,Two Pointers -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a singly linked list, return <code>true</code><em> if it is a </em><span data-keyword="palindrome-sequence"><em>palindrome</em></span><em> or </em><code>false</code><em> otherwise</em>.</p>
 
@@ -34,11 +47,17 @@
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you do it in <code>O(n)</code> time and <code>O(1)</code> space?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -62,6 +81,8 @@ class Solution:
             pre, head = pre.next, head.next
         return True
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -141,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -171,6 +196,8 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -210,6 +237,8 @@ function isPalindrome(head: ListNode | null): boolean {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -248,6 +277,8 @@ var isPalindrome = function (head) {
     return true;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -292,4 +323,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

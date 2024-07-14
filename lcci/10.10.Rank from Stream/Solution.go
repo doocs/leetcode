@@ -3,27 +3,20 @@ type BinaryIndexedTree struct {
 	c []int
 }
 
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+func NewBinaryIndexedTree(n int) *BinaryIndexedTree {
+	return &BinaryIndexedTree{n: n, c: make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, delta int) {
+	for ; x <= bit.n; x += x & -x {
+		bit.c[x] += delta
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
+func (bit *BinaryIndexedTree) query(x int) int {
 	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+	for ; x > 0; x -= x & -x {
+		s += bit.c[x]
 	}
 	return s
 }
@@ -33,8 +26,7 @@ type StreamRank struct {
 }
 
 func Constructor() StreamRank {
-	tree := newBinaryIndexedTree(50010)
-	return StreamRank{tree}
+	return StreamRank{NewBinaryIndexedTree(50010)}
 }
 
 func (this *StreamRank) Track(x int) {

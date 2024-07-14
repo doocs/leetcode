@@ -11,22 +11,22 @@
  */
 class Solution {
 public:
-    int res;
-
     int sumEvenGrandparent(TreeNode* root) {
-        res = 0;
-        dfs(root, root->left);
-        dfs(root, root->right);
-        return res;
-    }
-
-    void dfs(TreeNode* g, TreeNode* p) {
-        if (!p) return;
-        if (g->val % 2 == 0) {
-            if (p->left) res += p->left->val;
-            if (p->right) res += p->right->val;
-        }
-        dfs(p, p->left);
-        dfs(p, p->right);
+        function<int(TreeNode*, int)> dfs = [&](TreeNode* root, int x) {
+            if (!root) {
+                return 0;
+            }
+            int ans = dfs(root->left, root->val) + dfs(root->right, root->val);
+            if (x % 2 == 0) {
+                if (root->left) {
+                    ans += root->left->val;
+                }
+                if (root->right) {
+                    ans += root->right->val;
+                }
+            }
+            return ans;
+        };
+        return dfs(root, 1);
     }
 };

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README.md
+tags:
+    - 栈
+    - 树
+    - 字符串
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [331. 验证二叉树的前序序列化](https://leetcode.cn/problems/verify-preorder-serialization-of-a-binary-tree)
 
 [English Version](/solution/0300-0399/0331.Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/README_EN.md)
 
-<!-- tags:栈,树,字符串,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>序列化二叉树的一种方法是使用 <strong>前序遍历 </strong>。当我们遇到一个非空节点时，我们可以记录下这个节点的值。如果它是一个空节点，我们可以使用一个标记值记录，例如 <code>#</code>。</p>
 
@@ -57,7 +68,11 @@
 	<li><code>preorder</code>&nbsp;由以逗号&nbsp;<code>“，”</code> 分隔的 <code>[0,100]</code> 范围内的整数和 <code>“#”</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -68,6 +83,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `preorder` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,23 +98,28 @@ class Solution:
         return len(stk) == 1 and stk[0] == "#"
 ```
 
+#### Java
+
 ```java
 class Solution {
     public boolean isValidSerialization(String preorder) {
-        String[] strs = preorder.split(",");
-        int diff = 1;
-        for (String s : strs) {
-            if (--diff < 0) {
-                return false;
-            }
-            if (!s.equals("#")) {
-                diff += 2;
+        List<String> stk = new ArrayList<>();
+        for (String s : preorder.split(",")) {
+            stk.add(s);
+            while (stk.size() >= 3 && stk.get(stk.size() - 1).equals("#")
+                && stk.get(stk.size() - 2).equals("#") && !stk.get(stk.size() - 3).equals("#")) {
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.remove(stk.size() - 1);
+                stk.add("#");
             }
         }
-        return diff == 0;
+        return stk.size() == 1 && stk.get(0).equals("#");
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isValidSerialization(preorder string) bool {
 	stk := []string{}
@@ -134,31 +158,23 @@ func isValidSerialization(preorder string) bool {
 }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-### 方法二
-
-<!-- tabs:start -->
-
-```java
-class Solution {
-    public boolean isValidSerialization(String preorder) {
-        List<String> stk = new ArrayList<>();
-        for (String s : preorder.split(",")) {
-            stk.add(s);
-            while (stk.size() >= 3 && stk.get(stk.size() - 1).equals("#")
-                && stk.get(stk.size() - 2).equals("#") && !stk.get(stk.size() - 3).equals("#")) {
-                stk.remove(stk.size() - 1);
-                stk.remove(stk.size() - 1);
-                stk.remove(stk.size() - 1);
-                stk.add("#");
-            }
+```ts
+function isValidSerialization(preorder: string): boolean {
+    const stk: string[] = [];
+    for (const s of preorder.split(',')) {
+        stk.push(s);
+        while (stk.length >= 3 && stk.at(-1) === '#' && stk.at(-2) === '#' && stk.at(-3) !== '#') {
+            stk.splice(-3, 3, '#');
         }
-        return stk.size() == 1 && stk.get(0).equals("#");
     }
+    return stk.length === 1 && stk[0] === '#';
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

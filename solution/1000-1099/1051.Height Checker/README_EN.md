@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1051.Height%20Checker/README_EN.md
+rating: 1303
+source: Weekly Contest 138 Q1
+tags:
+    - Array
+    - Counting Sort
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1051. Height Checker](https://leetcode.com/problems/height-checker)
 
 [中文文档](/solution/1000-1099/1051.Height%20Checker/README.md)
 
-<!-- tags:Array,Counting Sort,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in <strong>non-decreasing order</strong> by height. Let this ordering be represented by the integer array <code>expected</code> where <code>expected[i]</code> is the expected height of the <code>i<sup>th</sup></code> student in line.</p>
 
@@ -54,11 +68,21 @@ All indices match.
 	<li><code>1 &lt;= heights[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Sorting
+
+We can first sort the heights of the students, then compare the sorted heights with the original heights, and count the positions that are different.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of students.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +90,8 @@ class Solution:
         expected = sorted(heights)
         return sum(a != b for a, b in zip(heights, expected))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +109,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -90,32 +118,53 @@ public:
         vector<int> expected = heights;
         sort(expected.begin(), expected.end());
         int ans = 0;
-        for (int i = 0; i < heights.size(); ++i) ans += heights[i] != expected[i];
+        for (int i = 0; i < heights.size(); ++i) {
+            ans += heights[i] != expected[i];
+        }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
-func heightChecker(heights []int) int {
-	expected := make([]int, len(heights))
-	copy(expected, heights)
+func heightChecker(heights []int) (ans int) {
+	expected := slices.Clone(heights)
 	sort.Ints(expected)
-	ans := 0
 	for i, v := range heights {
 		if v != expected[i] {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function heightChecker(heights: number[]): number {
+    const expected = [...heights].sort((a, b) => a - b);
+    return heights.reduce((acc, cur, i) => acc + (cur !== expected[i] ? 1 : 0), 0);
 }
 ```
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Counting Sort
+
+Since the height of the students in the problem does not exceed $100$, we can use counting sort. Here we use an array $cnt$ of length $101$ to count the number of times each height $h_i$ appears.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Where $n$ is the number of students, and $M$ is the maximum height of the students. In this problem, $M = 101$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -132,6 +181,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +205,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func heightChecker(heights []int) int {
@@ -192,6 +247,28 @@ func heightChecker(heights []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function heightChecker(heights: number[]): number {
+    const cnt = Array(101).fill(0);
+    for (const i of heights) {
+        cnt[i]++;
+    }
+    let ans = 0;
+    for (let j = 1, i = 0; j < 101; j++) {
+        while (cnt[j]--) {
+            if (heights[i++] !== j) {
+                ans++;
+            }
+        }
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

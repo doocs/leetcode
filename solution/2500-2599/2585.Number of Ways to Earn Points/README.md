@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README.md
+rating: 1909
+source: 第 335 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2585. 获得分数的方法数](https://leetcode.cn/problems/number-of-ways-to-earn-points)
 
 [English Version](/solution/2500-2599/2585.Number%20of%20Ways%20to%20Earn%20Points/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>考试中有 <code>n</code> 种类型的题目。给你一个整数 <code>target</code> 和一个下标从 <strong>0</strong> 开始的二维整数数组 <code>types</code> ，其中 <code>types[i] = [count<sub>i</sub>, marks<sub>i</sub>] </code>表示第 <code>i</code> 种类型的题目有 <code>count<sub>i</sub></code> 道，每道题目对应 <code>marks<sub>i</sub></code> 分。</p>
 
@@ -64,7 +75,11 @@
 	<li><code>1 &lt;= count<sub>i</sub>, marks<sub>i</sub> &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -84,6 +99,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToReachTarget(self, target: int, types: List[List[int]]) -> int:
@@ -99,6 +116,8 @@ class Solution:
                         f[i][j] = (f[i][j] + f[i - 1][j - k * marks]) % mod
         return f[n][target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToReachTarget(target int, types [][]int) int {
 	n := len(types)
@@ -169,6 +192,8 @@ func waysToReachTarget(target int, types [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function waysToReachTarget(target: number, types: number[][]): number {
     const n = types.length;
@@ -191,4 +216,6 @@ function waysToReachTarget(target: number, types: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

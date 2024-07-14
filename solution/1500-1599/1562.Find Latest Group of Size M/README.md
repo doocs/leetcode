@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md
+rating: 1928
+source: 第 203 场周赛 Q3
+tags:
+    - 数组
+    - 二分查找
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [1562. 查找大小为 M 的最新分组](https://leetcode.cn/problems/find-latest-group-of-size-m)
 
 [English Version](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README_EN.md)
 
-<!-- tags:数组,二分查找,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组 <code>arr</code> ，该数组表示一个从 <code>1</code> 到 <code>n</code> 的数字排列。有一个长度为 <code>n</code> 的二进制字符串，该字符串上的所有位最初都设置为 <code>0</code> 。</p>
 
@@ -67,7 +79,11 @@
 	<li><code>1 &lt;= m&nbsp;&lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：并查集
 
@@ -80,6 +96,8 @@
 -   [2334. 元素值大于变化阈值的子数组](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +134,8 @@ class Solution:
             vis[v] = True
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -172,6 +192,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +236,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -265,7 +289,60 @@ func findLatestStep(arr []int, m int) int {
 }
 ```
 
+#### JavaScript
+
+```js
+const findLatestStep = function (arr, m) {
+    function find(x) {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    function union(a, b) {
+        const pa = find(a);
+        const pb = find(b);
+        if (pa === pb) {
+            return;
+        }
+        p[pa] = pb;
+        size[pb] += size[pa];
+    }
+
+    const n = arr.length;
+    if (m === n) {
+        return n;
+    }
+    const vis = Array(n).fill(false);
+    const p = Array.from({ length: n }, (_, i) => i);
+    const size = Array(n).fill(1);
+    let ans = -1;
+    for (let i = 0; i < n; ++i) {
+        const v = arr[i] - 1;
+        if (v > 0 && vis[v - 1]) {
+            if (size[find(v - 1)] === m) {
+                ans = i;
+            }
+            union(v, v - 1);
+        }
+        if (v < n - 1 && vis[v + 1]) {
+            if (size[find(v + 1)] === m) {
+                ans = i;
+            }
+            union(v, v + 1);
+        }
+        vis[v] = true;
+    }
+    return ans;
+};
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：动态维护区间端点的长度
 
@@ -274,6 +351,8 @@ func findLatestStep(arr []int, m int) int {
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -291,6 +370,8 @@ class Solution:
             cnt[v - l] = cnt[v + r] = l + r + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -315,6 +396,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -333,6 +416,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLatestStep(arr []int, m int) int {
@@ -355,4 +440,6 @@ func findLatestStep(arr []int, m int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

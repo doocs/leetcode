@@ -1,10 +1,23 @@
-# [2819. Minimum Relative Loss After Buying Chocolates](https://leetcode.com/problems/minimum-relative-loss-after-buying-chocolates)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [2819. Minimum Relative Loss After Buying Chocolates 🔒](https://leetcode.com/problems/minimum-relative-loss-after-buying-chocolates)
 
 [中文文档](/solution/2800-2899/2819.Minimum%20Relative%20Loss%20After%20Buying%20Chocolates/README.md)
 
-<!-- tags:Array,Binary Search,Prefix Sum,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>prices</code>, which shows the chocolate prices and a 2D integer array <code>queries</code>, where <code>queries[i] = [k<sub>i</sub>, m<sub>i</sub>]</code>.</p>
 
@@ -66,7 +79,11 @@ It can be shown that these are the minimum possible relative losses.
 	<li><code>1 &lt;= m<sub>i</sub> &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search + Prefix Sum
 
@@ -85,6 +102,8 @@ In the second binary search process mentioned above, we need to judge whether $p
 The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of the arrays $prices$ and $queries$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +132,8 @@ class Solution:
             ans.append(loss)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	n := len(prices)
@@ -229,6 +254,8 @@ func minimumRelativeLosses(prices []int, queries [][]int) []int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumRelativeLosses(prices: number[], queries: number[][]): number[] {
@@ -279,4 +306,6 @@ function minimumRelativeLosses(prices: number[], queries: number[][]): number[] 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

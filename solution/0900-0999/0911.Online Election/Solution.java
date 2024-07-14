@@ -1,33 +1,27 @@
 class TopVotedCandidate {
     private int[] times;
-    private int[] winPersons;
+    private int[] wins;
 
     public TopVotedCandidate(int[] persons, int[] times) {
-        this.times = times;
-        int mx = -1, curWin = -1;
         int n = persons.length;
-        int[] counter = new int[n + 1];
-        winPersons = new int[n];
+        wins = new int[n];
+        this.times = times;
+        int[] cnt = new int[n];
+        int cur = 0;
         for (int i = 0; i < n; ++i) {
-            if (++counter[persons[i]] >= mx) {
-                mx = counter[persons[i]];
-                curWin = persons[i];
+            int p = persons[i];
+            ++cnt[p];
+            if (cnt[cur] <= cnt[p]) {
+                cur = p;
             }
-            winPersons[i] = curWin;
+            wins[i] = cur;
         }
     }
 
     public int q(int t) {
-        int left = 0, right = winPersons.length - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (times[mid] <= t) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return winPersons[left];
+        int i = Arrays.binarySearch(times, t + 1);
+        i = i < 0 ? -i - 2 : i - 1;
+        return wins[i];
     }
 }
 

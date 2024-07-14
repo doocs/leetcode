@@ -1,52 +1,81 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README_EN.md
+rating: 1257
+source: Weekly Contest 341 Q2
+tags:
+    - Array
+---
+
+<!-- problem:start -->
+
 # [2644. Find the Maximum Divisibility Score](https://leetcode.com/problems/find-the-maximum-divisibility-score)
 
 [中文文档](/solution/2600-2699/2644.Find%20the%20Maximum%20Divisibility%20Score/README.md)
 
-<!-- tags:Array -->
-
 ## Description
 
-<p>You are given two <strong>0-indexed</strong> integer arrays <code>nums</code> and <code>divisors</code>.</p>
+<!-- description:start -->
+
+<p>You are given two integer arrays <code>nums</code> and <code>divisors</code>.</p>
 
 <p>The <strong>divisibility score</strong> of <code>divisors[i]</code> is the number of indices <code>j</code> such that <code>nums[j]</code> is divisible by <code>divisors[i]</code>.</p>
 
-<p>Return <em>the integer</em> <code>divisors[i]</code> <em>with the maximum divisibility score</em>. If there is more than one integer with the maximum score, return the minimum of them.</p>
+<p>Return the integer <code>divisors[i]</code> with the <strong>maximum</strong> divisibility score. If multiple integers have the maximum score, return the smallest one.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [4,7,9,3,9], divisors = [5,2,3]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> The divisibility score for every element in divisors is:
-The divisibility score of divisors[0] is 0 since no number in nums is divisible by 5.
-The divisibility score of divisors[1] is 1 since nums[0] is divisible by 2.
-The divisibility score of divisors[2] is 3 since nums[2], nums[3], and nums[4] are divisible by 3.
-Since divisors[2] has the maximum divisibility score, we return it.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [2,9,15,50], divisors = [5,3,7,2]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The divisibility score of <code>divisors[0]</code> is 2 since <code>nums[2]</code> and <code>nums[3]</code> are divisible by 5.</p>
+
+<p>The divisibility score of <code>divisors[1]</code> is 2 since <code>nums[1]</code> and <code>nums[2]</code> are divisible by 3.</p>
+
+<p>The divisibility score of <code>divisors[2]</code> is 0 since none of the numbers in <code>nums</code> is divisible by 7.</p>
+
+<p>The divisibility score of <code>divisors[3]</code> is 2 since <code>nums[0]</code> and <code>nums[3]</code> are divisible by 2.</p>
+
+<p>As <code>divisors[0]</code>,&nbsp;<code>divisors[1]</code>, and <code>divisors[3]</code> have the same divisibility score, we return the smaller one which is <code>divisors[3]</code>.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [20,14,21,10], divisors = [5,7,5]
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> The divisibility score for every element in divisors is:
-The divisibility score of divisors[0] is 2 since nums[0] and nums[3] are divisible by 5.
-The divisibility score of divisors[1] is 2 since nums[1] and nums[2] are divisible by 7.
-The divisibility score of divisors[2] is 2 since nums[0] and nums[3] are divisible by 5.
-Since divisors[0], divisors[1], and divisors[2] all have the maximum divisibility score, we return the minimum of them (i.e., divisors[2]).
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [4,7,9,3,9], divisors = [5,2,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">3</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The divisibility score of <code>divisors[0]</code> is 0 since none of numbers in <code>nums</code> is divisible by 5.</p>
+
+<p>The divisibility score of <code>divisors[1]</code> is 1 since only <code>nums[0]</code> is divisible by 2.</p>
+
+<p>The divisibility score of <code>divisors[2]</code> is 3 since <code>nums[2]</code>, <code>nums[3]</code> and <code>nums[4]</code> are divisible by 3.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [12], divisors = [10,16]
-<strong>Output:</strong> 10
-<strong>Explanation:</strong> The divisibility score for every element in divisors is:
-The divisibility score of divisors[0] is 0 since no number in nums is divisible by 10.
-The divisibility score of divisors[1] is 0 since no number in nums is divisible by 16.
-Since divisors[0] and divisors[1] both have the maximum divisibility score, we return the minimum of them (i.e., divisors[0]).
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [20,14,21,10], divisors = [10,16,20]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">10</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The divisibility score of <code>divisors[0]</code> is 2 since <code>nums[0]</code> and <code>nums[3]</code> are divisible by 10.</p>
+
+<p>The divisibility score of <code>divisors[1]</code> is 0 since none of the numbers in <code>nums</code> is divisible by 16.</p>
+
+<p>The divisibility score of <code>divisors[2]</code> is 1 since <code>nums[0]</code> is divisible by 20.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -56,11 +85,26 @@ Since divisors[0] and divisors[1] both have the maximum divisibility score, we r
 	<li><code>1 &lt;= nums[i], divisors[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Enumeration
+
+We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
+
+-   If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
+-   If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
+
+Finally, return $ans$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of $nums$ and $divisors$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +118,8 @@ class Solution:
                 ans = div
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxDivScore(nums []int, divisors []int) int {
 	ans, mx := divisors[0], 0
@@ -142,6 +192,8 @@ func maxDivScore(nums []int, divisors []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxDivScore(nums: number[], divisors: number[]): number {
     let ans: number = divisors[0];
@@ -158,6 +210,8 @@ function maxDivScore(nums: number[], divisors: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -187,4 +241,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

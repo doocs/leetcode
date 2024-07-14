@@ -1,10 +1,20 @@
-# [1384. Total Sales Amount by Year](https://leetcode.com/problems/total-sales-amount-by-year)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1384. Total Sales Amount by Year 🔒](https://leetcode.com/problems/total-sales-amount-by-year)
 
 [中文文档](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Product</code></p>
 
@@ -84,11 +94,17 @@ LC T-shirt was sold for the period of 2018-12-01 to 2020-01-01, and there are 31
 LC Keychain was sold for the period of 2019-12-01 to 2020-01-31, and there are 31, 31 days for years 2019 and 2020 respectively.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -133,4 +149,6 @@ ORDER BY
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

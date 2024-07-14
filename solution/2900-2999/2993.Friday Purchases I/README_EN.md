@@ -1,10 +1,20 @@
-# [2993. Friday Purchases I](https://leetcode.com/problems/friday-purchases-i)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2993.Friday%20Purchases%20I/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2993. Friday Purchases I 🔒](https://leetcode.com/problems/friday-purchases-i)
 
 [中文文档](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -59,7 +69,11 @@ Purchases table:
 - In the fourth week of November 2023, two transactions took place on Friday, 2023-11-24, amounting to $12,000 and $9,692 respectively, summing up to a total of $21,692.
 Output table is ordered by week_of_month in ascending order.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Date Functions
 
@@ -72,6 +86,8 @@ The date functions we use include:
 First, we use the `DATE_FORMAT` function to format the date in the form of `YYYYMM`, then filter out the records of November 2023 that fall on a Friday. Next, we group the records by `purchase_date` and calculate the total consumption amount for each Friday.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -87,4 +103,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

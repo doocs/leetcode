@@ -1,10 +1,22 @@
-# [2912. Number of Ways to Reach Destination in the Grid](https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2912.Number%20of%20Ways%20to%20Reach%20Destination%20in%20the%20Grid/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+---
+
+<!-- problem:start -->
+
+# [2912. Number of Ways to Reach Destination in the Grid 🔒](https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid)
 
 [中文文档](/solution/2900-2999/2912.Number%20of%20Ways%20to%20Reach%20Destination%20in%20the%20Grid/README.md)
 
-<!-- tags:Math,Dynamic Programming,Combinatorics -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>n</code> and <code>m</code> which represent the size of a <strong>1-indexed </strong>grid. You are also given an integer <code>k</code>, a <strong>1-indexed</strong> integer array <code>source</code> and a <strong>1-indexed</strong> integer array <code>dest</code>, where <code>source</code> and <code>dest</code> are in the form <code>[x, y]</code> representing a cell on the given grid.</p>
 
@@ -58,7 +70,11 @@
 	<li><code>1 &lt;= source[2], dest[2] &lt;= m</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -88,6 +104,8 @@ The time complexity is $O(k)$, where $k$ is the number of moves. The space compl
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfWays(
@@ -105,6 +123,29 @@ class Solution:
             return a if source[1] == dest[1] else c
         return b if source[1] == dest[1] else d
 ```
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfWays(
+        self, n: int, m: int, k: int, source: List[int], dest: List[int]
+    ) -> int:
+        mod = 10**9 + 7
+        f = [1, 0, 0, 0]
+        for _ in range(k):
+            g = [0] * 4
+            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod
+            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod
+            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod
+            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod
+            f = g
+        if source[0] == dest[0]:
+            return f[0] if source[1] == dest[1] else f[2]
+        return f[1] if source[1] == dest[1] else f[3]
+```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +169,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfWays(n int, m int, k int, source []int, dest []int) int {
@@ -180,29 +225,6 @@ func numberOfWays(n int, m int, k int, source []int, dest []int) int {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def numberOfWays(
-        self, n: int, m: int, k: int, source: List[int], dest: List[int]
-    ) -> int:
-        mod = 10**9 + 7
-        f = [1, 0, 0, 0]
-        for _ in range(k):
-            g = [0] * 4
-            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod
-            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod
-            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod
-            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod
-            f = g
-        if source[0] == dest[0]:
-            return f[0] if source[1] == dest[1] else f[2]
-        return f[1] if source[1] == dest[1] else f[3]
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

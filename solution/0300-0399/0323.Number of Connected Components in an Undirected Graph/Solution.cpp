@@ -1,19 +1,27 @@
 class Solution {
 public:
     int countComponents(int n, vector<vector<int>>& edges) {
-        vector<int> p(n);
-        iota(p.begin(), p.end(), 0);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        function<int(int)> find = [&](int x) -> int {
-            if (p[x] != x) p[x] = find(p[x]);
-            return p[x];
-        };
+        vector<int> g[n];
         for (auto& e : edges) {
             int a = e[0], b = e[1];
-            p[find(a)] = find(b);
+            g[a].push_back(b);
+            g[b].push_back(a);
         }
+        vector<bool> vis(n);
+        function<int(int)> dfs = [&](int i) {
+            if (vis[i]) {
+                return 0;
+            }
+            vis[i] = true;
+            for (int j : g[i]) {
+                dfs(j);
+            }
+            return 1;
+        };
         int ans = 0;
-        for (int i = 0; i < n; ++i) ans += i == find(i);
+        for (int i = 0; i < n; ++i) {
+            ans += dfs(i);
+        }
         return ans;
     }
 };

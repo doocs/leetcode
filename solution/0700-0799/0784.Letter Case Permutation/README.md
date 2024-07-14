@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0784.Letter%20Case%20Permutation/README.md
+tags:
+    - 位运算
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [784. 字母大小写全排列](https://leetcode.cn/problems/letter-case-permutation)
 
 [English Version](/solution/0700-0799/0784.Letter%20Case%20Permutation/README_EN.md)
 
-<!-- tags:位运算,字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串&nbsp;<code>s</code>&nbsp;，通过将字符串&nbsp;<code>s</code>&nbsp;中的每个字母转变大小写，我们可以获得一个新的字符串。</p>
 
@@ -37,7 +47,11 @@
 	<li><code>s</code>&nbsp;由小写英文字母、大写英文字母和数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -50,6 +64,8 @@
 时间复杂度 $O(n\times 2^n)$，其中 $n$ 是字符串 $s$ 的长度。对于每个字母，我们可以选择将其转换为大写或小写，因此一共有 $2^n$ 种转换方案。对于每种转换方案，我们需要 $O(n)$ 的时间生成一个新的字符串。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +84,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func letterCasePermutation(s string) (ans []string) {
 	t := []byte(s)
@@ -137,6 +159,8 @@ func letterCasePermutation(s string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function letterCasePermutation(s: string): string[] {
     const n = s.length;
@@ -157,6 +181,8 @@ function letterCasePermutation(s: string): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -183,6 +209,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二进制枚举
 
 对于一个字母，我们可以将其转换为大写或小写，因此对于每个字母，我们可以使用一个二进制位表示其转换的方案，其中 $1$ 表示小写，而 $0$ 表示大写。
@@ -194,6 +224,8 @@ impl Solution {
 时间复杂度 $O(n\times 2^n)$，其中 $n$ 是字符串 $s$ 的长度。对于每个字母，我们可以选择将其转换为大写或小写，因此一共有 $2^n$ 种转换方案。对于每种转换方案，我们需要 $O(n)$ 的时间生成一个新的字符串。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -210,6 +242,8 @@ class Solution:
             ans.append(''.join(t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -239,6 +273,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -263,6 +299,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func letterCasePermutation(s string) (ans []string) {
@@ -294,4 +332,6 @@ func letterCasePermutation(s string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

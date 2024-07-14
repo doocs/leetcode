@@ -1,12 +1,20 @@
-# [660. 移除 9](https://leetcode.cn/problems/remove-9)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0660.Remove%209/README.md
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
+# [660. 移除 9 🔒](https://leetcode.cn/problems/remove-9)
 
 [English Version](/solution/0600-0699/0660.Remove%209/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>从 <code>1</code> 开始，移除包含数字 <code>9</code> 的所有整数，例如 <code>9</code>，<code>19</code>，<code>29</code>，……</p>
 
@@ -38,6 +46,42 @@
 	<li><code>1 &lt;= n &lt;= 8 * 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,20 @@
-# [2688. Find Active Users](https://leetcode.com/problems/find-active-users)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2688.Find%20Active%20Users/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2688. Find Active Users 🔒](https://leetcode.com/problems/find-active-users)
 
 [中文文档](/solution/2600-2699/2688.Find%20Active%20Users/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table:<font face="monospace">&nbsp;<code>Users</code></font></p>
 
@@ -58,11 +68,17 @@ Each row includes the user ID, the purchased item, the date of purchase, and the
 - User with user_id 4 has two transaction his first transaction was on 2021-09-02 and second transation was on 2021-09-13. The distance between the first and second transactions date is &gt; 7 days. So he is not an active user. 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement
@@ -90,4 +106,6 @@ WHERE
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

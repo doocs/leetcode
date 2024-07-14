@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0076.Minimum%20Window%20Substring/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring)
 
 [English Version](/solution/0000-0099/0076.Minimum%20Window%20Substring/README_EN.md)
 
-<!-- tags:哈希表,字符串,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 、一个字符串 <code>t</code> 。返回 <code>s</code> 中涵盖 <code>t</code> 所有字符的最小子串。如果 <code>s</code> 中不存在涵盖 <code>t</code> 所有字符的子串，则返回空字符串 <code>""</code> 。</p>
 
@@ -59,7 +69,11 @@
 <p>&nbsp;</p>
 <strong>进阶：</strong>你能设计一个在 <code>o(m+n)</code> 时间内解决此问题的算法吗？
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 双指针
 
@@ -74,6 +88,8 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $t$ 的长度；而 $C$ 是字符集的大小，本题中 $C = 128$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +111,8 @@ class Solution:
                 j += 1
         return '' if k < 0 else s[k : k + mi]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -126,6 +144,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -159,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minWindow(s string, t string) string {
 	need := [128]int{}
@@ -191,6 +213,8 @@ func minWindow(s string, t string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minWindow(s: string, t: string): string {
     const need: number[] = new Array(128).fill(0);
@@ -221,6 +245,8 @@ function minWindow(s: string, t: string): string {
     return k < 0 ? '' : s.slice(k, k + mi);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -258,6 +284,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string MinWindow(string s, string t) {
@@ -290,4 +318,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

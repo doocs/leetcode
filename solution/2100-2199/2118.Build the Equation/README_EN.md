@@ -1,10 +1,20 @@
-# [2118. Build the Equation](https://leetcode.com/problems/build-the-equation)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2118.Build%20the%20Equation/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2118. Build the Equation 🔒](https://leetcode.com/problems/build-the-equation)
 
 [中文文档](/solution/2100-2199/2118.Build%20the%20Equation/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Terms</code></p>
 
@@ -96,11 +106,17 @@ Terms table:
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What will be changed in your solution if the power is not a primary key but each power should be unique in the answer?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -129,4 +145,6 @@ FROM T;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

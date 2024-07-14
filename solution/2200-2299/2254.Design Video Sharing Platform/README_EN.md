@@ -1,10 +1,23 @@
-# [2254. Design Video Sharing Platform](https://leetcode.com/problems/design-video-sharing-platform)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README_EN.md
+tags:
+    - Stack
+    - Design
+    - Hash Table
+    - Ordered Set
+---
+
+<!-- problem:start -->
+
+# [2254. Design Video Sharing Platform 🔒](https://leetcode.com/problems/design-video-sharing-platform)
 
 [中文文档](/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README.md)
 
-<!-- tags:Stack,Design,Hash Table,Ordered Set -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have a video sharing platform where users can upload and delete videos. Each <code>video</code> is a <strong>string</strong> of digits, where the <code>i<sup>th</sup></code> digit of the string represents the content of the video at minute <code>i</code>. For example, the first digit represents the content at minute <code>0</code> in the video, the second digit represents the content at minute <code>1</code> in the video, and so on. Viewers of videos can also like and dislike videos. Internally, the platform keeps track of the <strong>number of views, likes, and dislikes</strong> on each video.</p>
 
@@ -85,6 +98,42 @@ videoSharingPlatform.getViews(0);            // There is no video associated wit
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to all functions.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

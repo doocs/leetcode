@@ -1,10 +1,21 @@
-# [2219. Maximum Sum Score of Array](https://leetcode.com/problems/maximum-sum-score-of-array)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README_EN.md
+tags:
+    - Array
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
+# [2219. Maximum Sum Score of Array 🔒](https://leetcode.com/problems/maximum-sum-score-of-array)
 
 [中文文档](/solution/2200-2299/2219.Maximum%20Sum%20Score%20of%20Array/README.md)
 
-<!-- tags:Array,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code>.</p>
 
@@ -51,11 +62,17 @@ The maximum sum score of nums is -3.
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +80,8 @@ class Solution:
         s = [0] + list(accumulate(nums))
         return max(max(s[i + 1], s[-1] - s[i]) for i in range(len(nums)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +100,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +115,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumSumScore(nums []int) int64 {
@@ -110,6 +133,8 @@ func maximumSumScore(nums []int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSumScore(nums: number[]): number {
     const n = nums.length;
@@ -124,6 +149,8 @@ function maximumSumScore(nums: number[]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -146,4 +173,6 @@ var maximumSumScore = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

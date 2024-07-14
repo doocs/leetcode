@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README.md
+rating: 1346
+source: 第 261 场周赛 Q1
+tags:
+    - 贪心
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2027. 转换字符串的最少操作次数](https://leetcode.cn/problems/minimum-moves-to-convert-string)
 
 [English Version](/solution/2000-2099/2027.Minimum%20Moves%20to%20Convert%20String/README_EN.md)
 
-<!-- tags:贪心,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，由 <code>n</code> 个字符组成，每个字符不是 <code>'X'</code> 就是 <code>'O'</code> 。</p>
 
@@ -51,7 +62,11 @@
 	<li><code>s[i]</code> 为 <code>'X'</code> 或 <code>'O'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -60,6 +75,8 @@
 时间复杂度 $O(n)$。其中 $n$ 表示字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +90,8 @@ class Solution:
                 i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumMoves(s string) (ans int) {
 	for i := 0; i < len(s); i++ {
@@ -116,6 +139,8 @@ func minimumMoves(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumMoves(s: string): number {
@@ -133,6 +158,8 @@ function minimumMoves(s: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +181,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int minimumMoves(char* s) {
     int n = strlen(s);
@@ -173,4 +202,6 @@ int minimumMoves(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0258.Add%20Digits/README_EN.md
+tags:
+    - Math
+    - Number Theory
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [258. Add Digits](https://leetcode.com/problems/add-digits)
 
 [中文文档](/solution/0200-0299/0258.Add%20Digits/README.md)
 
-<!-- tags:Math,Number Theory,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>num</code>, repeatedly add all its digits until the result has only one digit, and return it.</p>
 
@@ -37,17 +49,25 @@ Since 2 has only one digit, return it.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do it without any loop/recursion in <code>O(1)</code> runtime?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def addDigits(self, num: int) -> int:
         return 0 if num == 0 else (num - 1) % 9 + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -56,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -66,6 +88,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addDigits(num int) int {
 	if num == 0 {
@@ -75,6 +99,8 @@ func addDigits(num int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn add_digits(num: i32) -> i32 {
@@ -82,11 +108,10 @@ impl Solution {
             return num;
         }
         Self::add_digits(
-            num
-                .to_string()
+            num.to_string()
                 .chars()
                 .map(|c| c.to_string().parse::<i32>().unwrap())
-                .sum::<i32>()
+                .sum::<i32>(),
         )
     }
 }
@@ -94,9 +119,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -108,4 +139,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

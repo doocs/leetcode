@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.14. Best Line](https://leetcode.cn/problems/best-line-lcci)
 
 [中文文档](/lcci/16.14.Best%20Line/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a two-dimensional graph with points on it, find a line which passes the most number of points.</p>
 <p>Assume all the points that passed by the line are stored in list <code>S</code>&nbsp;sorted by their number. You need to return <code>[S[0], S[1]]</code>, that is , two points that have smallest number. If there are more than one line that passes the most number of points, choose the one that has the smallest <code>S[0].</code>&nbsp;If there are more that one line that has the same <code>S[0]</code>, choose the one that has smallest <code>S[1]</code>.</p>
@@ -22,7 +32,11 @@
 	<li><code>len(Points[i]) = 2</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Brute Force
 
@@ -31,6 +45,8 @@ We can enumerate any two points $(x_1, y_1), (x_2, y_2)$, connect these two poin
 The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `points`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -52,6 +68,8 @@ class Solution:
                     x, y = i, j
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -114,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
@@ -142,7 +164,46 @@ func bestLine(points [][]int) []int {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func bestLine(_ points: [[Int]]) -> [Int] {
+        let n = points.count
+        var maxCount = 0
+        var answer = [Int](repeating: 0, count: 2)
+
+        for i in 0..<n {
+            let x1 = points[i][0], y1 = points[i][1]
+            for j in i + 1..<n {
+                let x2 = points[j][0], y2 = points[j][1]
+                var count = 2
+
+                for k in j + 1..<n {
+                    let x3 = points[k][0], y3 = points[k][1]
+                    let a = (y2 - y1) * (x3 - x1)
+                    let b = (y3 - y1) * (x2 - x1)
+                    if a == b {
+                        count += 1
+                    }
+                }
+
+                if maxCount < count {
+                    maxCount = count
+                    answer = [i, j]
+                }
+            }
+        }
+        return answer
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Enumeration + Hash Table
 
@@ -151,6 +212,8 @@ We can enumerate a point $(x_1, y_1)$, store the slope of the line connecting $(
 The time complexity is $O(n^2 \times \log m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the length of the array `points` and the maximum difference between all horizontal and vertical coordinates in the array `points`, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -174,6 +237,8 @@ class Solution:
                     x, y = cnt[k][0]
         return [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -209,6 +274,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -239,6 +306,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func bestLine(points [][]int) []int {
@@ -274,4 +343,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

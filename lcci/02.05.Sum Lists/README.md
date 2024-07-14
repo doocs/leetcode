@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 02.05. 链表求和](https://leetcode.cn/problems/sum-lists-lcci)
 
 [English Version](/lcci/02.05.Sum%20Lists/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定两个用链表表示的整数，每个节点包含一个数位。</p>
 <p>这些数位是反向存放的，也就是个位排在链表首部。</p>
 <p>编写函数对这两个整数求和，并用链表形式返回结果。</p>
@@ -27,7 +36,11 @@
 <strong>输出：</strong>9 -&gt; 1 -&gt; 2，即912
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -40,6 +53,8 @@
 时间复杂度 $O(\max(m, n))$，其中 $m$ 和 $n$ 分别为两个链表的长度。我们需要遍历两个链表的全部位置，而处理每个位置只需要 $O(1)$ 的时间。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -62,6 +77,8 @@ class Solution:
             l2 = l2.next if l2 else None
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -89,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -118,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -146,6 +167,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -191,11 +214,13 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn add_two_numbers(
         mut l1: Option<Box<ListNode>>,
-        mut l2: Option<Box<ListNode>>
+        mut l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         let mut dummy = Some(Box::new(ListNode::new(0)));
         let mut cur = dummy.as_mut();
@@ -229,6 +254,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -258,6 +285,44 @@ var addTwoNumbers = function (l1, l2) {
 };
 ```
 
+#### Swift
+
+```swift
+/**
+* Definition for singly-linked list.
+*    class ListNode {
+*        var val: Int
+*        var next: ListNode?
+*        init(_ val: Int) {
+*            self.val = val
+*            self.next = nil
+*        }
+*    }
+*/
+
+class Solution {
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var carry = 0
+        let dummy = ListNode(0)
+        var current: ListNode? = dummy
+        var l1 = l1, l2 = l2
+
+        while l1 != nil || l2 != nil || carry != 0 {
+            let sum = (l1?.val ?? 0) + (l2?.val ?? 0) + carry
+            carry = sum / 10
+            current?.next = ListNode(sum % 10)
+            current = current?.next
+            l1 = l1?.next
+            l2 = l2?.next
+        }
+
+        return dummy.next
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

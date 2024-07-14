@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/README_EN.md
+rating: 1374
+source: Weekly Contest 135 Q2
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [1038. Binary Search Tree to Greater Sum Tree](https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree)
 
 [中文文档](/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Search Tree,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a Binary Search Tree (BST), convert it to a Greater Tree such that every key of the original BST is changed to the original key plus the sum of all keys greater than the original key in BST.</p>
 
@@ -43,11 +58,17 @@
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 538: <a href="https://leetcode.com/problems/convert-bst-to-greater-tree/" target="_blank">https://leetcode.com/problems/convert-bst-to-greater-tree/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -71,6 +92,8 @@ class Solution:
         dfs(root)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -139,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -164,6 +191,8 @@ func bstToGst(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -196,6 +225,8 @@ function bstToGst(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -215,8 +246,8 @@ function bstToGst(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &mut Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
         if let Some(node) = root {
@@ -234,6 +265,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -264,6 +297,8 @@ var bstToGst = function (root) {
 };
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -291,9 +326,15 @@ struct TreeNode* bstToGst(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -325,6 +366,8 @@ class Solution:
                     root = root.left
         return node
 ```
+
+#### Java
 
 ```java
 /**
@@ -372,6 +415,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -415,6 +460,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -451,6 +498,8 @@ func bstToGst(root *TreeNode) *TreeNode {
 	return node
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -496,6 +545,8 @@ function bstToGst(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for a binary tree node.
@@ -536,4 +587,6 @@ struct TreeNode* bstToGst(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

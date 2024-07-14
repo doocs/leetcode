@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README_EN.md
+rating: 2084
+source: Biweekly Contest 61 Q4
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [2009. Minimum Number of Operations to Make Array Continuous](https://leetcode.com/problems/minimum-number-of-operations-to-make-array-continuous)
 
 [中文文档](/solution/2000-2099/2009.Minimum%20Number%20of%20Operations%20to%20Make%20Array%20Continuous/README.md)
 
-<!-- tags:Array,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. In one operation, you can replace <strong>any</strong> element in <code>nums</code> with <strong>any</strong> integer.</p>
 
@@ -57,7 +72,11 @@ The resulting array is [1,2,3,4], which is continuous.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Deduplication + Binary Search
 
@@ -71,6 +90,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -81,6 +102,8 @@ class Solution:
             ans = min(ans, n - (j - i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int) int {
@@ -151,6 +178,8 @@ func minOperations(nums []int) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::BTreeSet;
@@ -181,6 +210,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Sorting + Deduplication + Two Pointers
 
 Similar to Solution 1, we first sort the array and remove duplicates.
@@ -192,6 +225,8 @@ Finally, we return $ans$.
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -205,6 +240,8 @@ class Solution:
             ans = min(ans, n - (j - i))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -229,6 +266,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -247,6 +286,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int) int {
@@ -272,4 +313,6 @@ func minOperations(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

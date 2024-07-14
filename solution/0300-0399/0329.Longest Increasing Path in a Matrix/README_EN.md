@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+    - Memoization
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [329. Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix)
 
 [中文文档](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort,Memoization,Array,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> integers <code>matrix</code>, return <em>the length of the longest increasing path in </em><code>matrix</code>.</p>
 
@@ -44,7 +61,11 @@
 	<li><code>0 &lt;= matrix[i][j] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -63,6 +84,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
@@ -78,6 +101,8 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestIncreasingPath(matrix [][]int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
@@ -180,6 +209,8 @@ func longestIncreasingPath(matrix [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestIncreasingPath(matrix: number[][]): number {
@@ -214,4 +245,6 @@ function longestIncreasingPath(matrix: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

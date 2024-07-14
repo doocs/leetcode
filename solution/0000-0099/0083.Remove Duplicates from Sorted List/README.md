@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README.md
+tags:
+    - 链表
+---
+
+<!-- problem:start -->
+
 # [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list)
 
 [English Version](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README_EN.md)
 
-<!-- tags:链表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个已排序的链表的头<meta charset="UTF-8" />&nbsp;<code>head</code>&nbsp;，&nbsp;<em>删除所有重复的元素，使每个元素只出现一次</em>&nbsp;。返回 <em>已排序的链表</em>&nbsp;。</p>
 
@@ -36,7 +44,11 @@
 	<li>题目数据保证链表已经按升序 <strong>排列</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -47,6 +59,8 @@
 时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -64,6 +78,8 @@ class Solution:
                 cur = cur.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -90,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -118,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -138,6 +158,8 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -174,6 +196,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -198,6 +222,8 @@ var deleteDuplicates = function (head) {
     return head;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -228,4 +254,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

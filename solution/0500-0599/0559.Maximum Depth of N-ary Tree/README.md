@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+---
+
+<!-- problem:start -->
+
 # [559. N 叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-n-ary-tree)
 
 [English Version](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 N 叉树，找到其最大深度。</p>
 
@@ -43,11 +53,17 @@
 	<li>树的节点数目位于 <code>[0, 10<sup>4</sup>]</code> 之间。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -65,6 +81,8 @@ class Solution:
             return 0
         return 1 + max([self.maxDepth(child) for child in root.children], default=0)
 ```
+
+#### Java
 
 ```java
 /*
@@ -100,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -132,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -155,4 +177,6 @@ func maxDepth(root *Node) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
-# [296. 最佳的碰头地点](https://leetcode.cn/problems/best-meeting-point)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0296.Best%20Meeting%20Point/README.md
+tags:
+    - 数组
+    - 数学
+    - 矩阵
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [296. 最佳的碰头地点 🔒](https://leetcode.cn/problems/best-meeting-point)
 
 [English Version](/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
 
-<!-- tags:数组,数学,矩阵,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>m x n</code>&nbsp;&nbsp;的二进制网格&nbsp;<code>grid</code>&nbsp;，其中 <code>1</code> 表示某个朋友的家所处的位置。返回 <em>最小的 <strong>总行走距离</strong></em> 。</p>
 
@@ -44,7 +55,11 @@
 	<li><code>grid</code>&nbsp;中 <strong>至少</strong> 有两个朋友</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 中位数
 
@@ -63,6 +78,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTotalDistance(self, grid: List[List[int]]) -> int:
@@ -80,6 +97,8 @@ class Solution:
         j = cols[len(cols) >> 1]
         return f(rows, i) + f(cols, j)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTotalDistance(grid [][]int) int {
@@ -173,6 +196,8 @@ func abs(x int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -196,8 +221,8 @@ impl Solution {
         // Since the row vector is originally sorted, we only need to sort the col vector here
         col_vec.sort();
 
-        Self::compute_manhattan_dis(&row_vec, row_vec[row_vec.len() / 2]) +
-            Self::compute_manhattan_dis(&col_vec, col_vec[col_vec.len() / 2])
+        Self::compute_manhattan_dis(&row_vec, row_vec[row_vec.len() / 2])
+            + Self::compute_manhattan_dis(&col_vec, col_vec[col_vec.len() / 2])
     }
 
     #[allow(dead_code)]
@@ -215,4 +240,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

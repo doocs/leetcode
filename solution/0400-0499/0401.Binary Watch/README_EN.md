@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0401.Binary%20Watch/README_EN.md
+tags:
+    - Bit Manipulation
+    - Backtracking
+---
+
+<!-- problem:start -->
+
 # [401. Binary Watch](https://leetcode.com/problems/binary-watch)
 
 [中文文档](/solution/0400-0499/0401.Binary%20Watch/README.md)
 
-<!-- tags:Bit Manipulation,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent&nbsp;the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.</p>
 
@@ -43,11 +54,17 @@
 	<li><code>0 &lt;= turnedOn &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +76,8 @@ class Solution:
             if (bin(i) + bin(j)).count('1') == turnedOn
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func readBinaryWatch(turnedOn int) []string {
 	var ans []string
@@ -106,6 +129,8 @@ func readBinaryWatch(turnedOn int) []string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function readBinaryWatch(turnedOn: number): string[] {
@@ -140,6 +165,8 @@ function readBinaryWatch(turnedOn: number): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -192,9 +219,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -206,6 +239,8 @@ class Solution:
                 ans.append('{:d}:{:02d}'.format(h, m))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -221,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -238,6 +275,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func readBinaryWatch(turnedOn int) []string {
 	var ans []string
@@ -253,4 +292,6 @@ func readBinaryWatch(turnedOn int) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

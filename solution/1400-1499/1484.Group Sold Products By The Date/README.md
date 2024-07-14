@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1484. 按日期分组销售产品](https://leetcode.cn/problems/group-sold-products-by-the-date)
 
 [English Version](/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表&nbsp;<code>Activities</code>：</p>
 
@@ -60,11 +68,17 @@ Activities</code> 表：
 对于2020-06-02，出售的物品是 (Mask)，只需返回该物品名。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT
@@ -78,4 +92,6 @@ ORDER BY sell_date;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

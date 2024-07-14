@@ -1,12 +1,20 @@
-# [1364. 顾客的可信联系人数量](https://leetcode.cn/problems/number-of-trusted-contacts-of-a-customer)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1364.Number%20of%20Trusted%20Contacts%20of%20a%20Customer/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1364. 顾客的可信联系人数量 🔒](https://leetcode.cn/problems/number-of-trusted-contacts-of-a-customer)
 
 [English Version](/solution/1300-1399/1364.Number%20of%20Trusted%20Contacts%20of%20a%20Customer/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>顾客表：<code>Customers</code></p>
 
@@ -125,11 +133,17 @@ Alex 只有一位联系人(Alice)，并是一位可信联系人。
 John 没有任何联系人。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -150,4 +164,6 @@ ORDER BY invoice_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

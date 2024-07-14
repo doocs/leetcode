@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0815.Bus%20Routes/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [815. Bus Routes](https://leetcode.com/problems/bus-routes)
 
 [中文文档](/solution/0800-0899/0815.Bus%20Routes/README.md)
 
-<!-- tags:Breadth-First Search,Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>routes</code> representing bus routes where <code>routes[i]</code> is a bus route that the <code>i<sup>th</sup></code> bus repeats forever.</p>
 
@@ -46,11 +58,17 @@
 	<li><code>0 &lt;= source, target &lt; 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +110,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -148,6 +168,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +225,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numBusesToDestination(routes [][]int, source int, target int) int {
 	if source == target {
@@ -256,6 +280,8 @@ func numBusesToDestination(routes [][]int, source int, target int) int {
 	return -1
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -316,4 +342,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

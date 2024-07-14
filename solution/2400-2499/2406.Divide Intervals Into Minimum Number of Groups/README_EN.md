@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README_EN.md
+rating: 1713
+source: Weekly Contest 310 Q3
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Prefix Sum
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2406. Divide Intervals Into Minimum Number of Groups](https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups)
 
 [中文文档](/solution/2400-2499/2406.Divide%20Intervals%20Into%20Minimum%20Number%20of%20Groups/README.md)
 
-<!-- tags:Greedy,Array,Two Pointers,Prefix Sum,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>intervals</code> where <code>intervals[i] = [left<sub>i</sub>, right<sub>i</sub>]</code> represents the <strong>inclusive</strong> interval <code>[left<sub>i</sub>, right<sub>i</sub>]</code>.</p>
 
@@ -44,7 +61,11 @@ It can be proven that it is not possible to divide the intervals into fewer than
 	<li><code>1 &lt;= left<sub>i</sub> &lt;= right<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
@@ -59,16 +80,20 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minGroups(self, intervals: List[List[int]]) -> int:
-        h = []
-        for a, b in sorted(intervals):
-            if h and h[0] < a:
-                heappop(h)
-            heappush(h, b)
-        return len(h)
+        q = []
+        for left, right in sorted(intervals):
+            if q and q[0] < left:
+                heappop(q)
+            heappush(q, right)
+        return len(q)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minGroups(intervals [][]int) int {
@@ -127,6 +156,24 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
+```ts
+function minGroups(intervals: number[][]): number {
+    intervals.sort((a, b) => a[0] - b[0]);
+    const q = new PriorityQueue({ compare: (a, b) => a - b });
+    for (const [left, right] of intervals) {
+        if (!q.isEmpty() && q.front() < left) {
+            q.dequeue();
+        }
+        q.enqueue(right);
+    }
+    return q.size();
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

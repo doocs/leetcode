@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md
+tags:
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [552. 学生出勤记录 II](https://leetcode.cn/problems/student-attendance-record-ii)
 
 [English Version](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README_EN.md)
 
-<!-- tags:动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 可以用字符串表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：
 
@@ -60,7 +68,11 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -80,6 +92,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为出勤记录的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +115,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +148,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int f[100010][2][3];
@@ -166,6 +184,8 @@ private:
     int n;
 };
 ```
+
+#### Go
 
 ```go
 func checkRecord(n int) int {
@@ -204,6 +224,10 @@ func checkRecord(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 动态规划，定义 `dp[i][j][k]` 表示前 `i` 天，缺勤 `j` 次，连续迟到 `k` 次时，可获得出勤奖励的情况数量
@@ -215,6 +239,8 @@ func checkRecord(n int) int {
 -   到场：无限制
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -245,6 +271,8 @@ class Solution:
                 ans = (ans + dp[n - 1][j][k]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +310,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 constexpr int MOD = 1e9 + 7;
 
@@ -317,6 +347,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 const _mod int = 1e9 + 7
@@ -360,4 +392,6 @@ func checkRecord(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

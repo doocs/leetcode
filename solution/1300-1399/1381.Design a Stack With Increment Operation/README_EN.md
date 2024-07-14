@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README_EN.md
+rating: 1285
+source: Weekly Contest 180 Q2
+tags:
+    - Stack
+    - Design
+    - Array
+---
+
+<!-- problem:start -->
+
 # [1381. Design a Stack With Increment Operation](https://leetcode.com/problems/design-a-stack-with-increment-operation)
 
 [中文文档](/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README.md)
 
-<!-- tags:Stack,Design,Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a stack that supports increment operations on its elements.</p>
 
@@ -51,7 +65,11 @@ stk.pop();                            // return -1 --&gt; Stack is empty return 
 	<li>At most <code>1000</code> calls will be made to each method of <code>increment</code>, <code>push</code> and <code>pop</code> each separately.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Array Simulation
 
@@ -66,6 +84,8 @@ When calling $increment(k, val)$, if $i > 0$, we add $val$ to $add[\min(i, k) - 
 The time complexity is $O(1)$, and the space complexity is $O(n)$. Where $n$ is the maximum capacity of the stack.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class CustomStack:
@@ -101,6 +121,8 @@ class CustomStack:
 # param_2 = obj.pop()
 # obj.increment(k,val)
 ```
+
+#### Java
 
 ```java
 class CustomStack {
@@ -146,6 +168,8 @@ class CustomStack {
  * obj.increment(k,val);
  */
 ```
+
+#### C++
 
 ```cpp
 class CustomStack {
@@ -195,6 +219,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type CustomStack struct {
 	stk []int
@@ -240,6 +266,8 @@ func (this *CustomStack) Increment(k int, val int) {
  * obj.Increment(k,val);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class CustomStack {
@@ -289,4 +317,6 @@ class CustomStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

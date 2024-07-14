@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0661.Image%20Smoother/README.md
+tags:
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [661. 图片平滑器](https://leetcode.cn/problems/image-smoother)
 
 [English Version](/solution/0600-0699/0661.Image%20Smoother/README_EN.md)
 
-<!-- tags:数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>图像平滑器</strong> 是大小为&nbsp;<code>3 x 3</code> 的过滤器，用于对图像的每个单元格平滑处理，平滑处理后单元格的值为该单元格的平均灰度。</p>
 
@@ -55,11 +64,17 @@
 	<li><code>0 &lt;= img[i][j] &lt;= 255</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +92,8 @@ class Solution:
                 ans[i][j] = s // cnt
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +121,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func imageSmoother(img [][]int) [][]int {
 	m, n := len(img), len(img[0])
@@ -150,6 +171,8 @@ func imageSmoother(img [][]int) [][]int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function imageSmoother(img: number[][]): number[][] {
@@ -185,6 +208,8 @@ function imageSmoother(img: number[][]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -228,4 +253,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

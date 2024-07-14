@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0817.Linked%20List%20Components/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Linked List
+---
+
+<!-- problem:start -->
+
 # [817. Linked List Components](https://leetcode.com/problems/linked-list-components)
 
 [中文文档](/solution/0800-0899/0817.Linked%20List%20Components/README.md)
 
-<!-- tags:Array,Hash Table,Linked List -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>head</code> of a linked list containing unique integer values and an integer array <code>nums</code> that is a subset of the linked list values.</p>
 
@@ -40,11 +52,17 @@
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -64,6 +82,8 @@ class Solution:
                 head = head.next
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -97,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -122,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -151,6 +175,8 @@ func numComponents(head *ListNode, nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -184,6 +210,8 @@ function numComponents(head: ListNode | null, nums: number[]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -225,6 +253,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -256,4 +286,6 @@ var numComponents = function (head, nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

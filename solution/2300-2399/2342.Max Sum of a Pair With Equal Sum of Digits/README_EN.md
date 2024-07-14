@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README_EN.md
+rating: 1308
+source: Weekly Contest 302 Q2
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2342. Max Sum of a Pair With Equal Sum of Digits](https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits)
 
 [中文文档](/solution/2300-2399/2342.Max%20Sum%20of%20a%20Pair%20With%20Equal%20Sum%20of%20Digits/README.md)
 
-<!-- tags:Array,Hash Table,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <strong>positive</strong> integers. You can choose two indices <code>i</code> and <code>j</code>, such that <code>i != j</code>, and the sum of digits of the number <code>nums[i]</code> is equal to that of <code>nums[j]</code>.</p>
 
@@ -38,7 +53,11 @@ So the maximum sum that we can obtain is 54.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -53,6 +72,8 @@ Since the maximum element in $nums$ is $10^9$, the maximum digit sum is $9 \time
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(D)$. Here, $n$ is the length of the array $nums$, and $M$ and $D$ are the maximum value of the elements in the array $nums$ and the maximum value of the digit sum, respectively. In this problem, $M \leq 10^9$, $D \leq 81$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +90,8 @@ class Solution:
             d[x] = max(d[x], v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSum(nums []int) int {
 	d := [100]int{}
@@ -129,6 +156,8 @@ func maximumSum(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSum(nums: number[]): number {
     const d: number[] = Array(100).fill(0);
@@ -146,6 +175,8 @@ function maximumSum(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,4 +204,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

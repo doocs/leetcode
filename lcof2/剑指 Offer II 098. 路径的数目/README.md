@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20098.%20%E8%B7%AF%E5%BE%84%E7%9A%84%E6%95%B0%E7%9B%AE/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 098. 路径的数目](https://leetcode.cn/problems/2AoeFn)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个机器人位于一个 <code>m x n</code><em>&nbsp;</em>网格的左上角 （起始点在下图中标记为 &ldquo;Start&rdquo; ）。</p>
 
@@ -58,7 +65,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 62&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/unique-paths/">https://leetcode.cn/problems/unique-paths/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -86,6 +97,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
@@ -99,6 +112,8 @@ class Solution:
                     f[i][j] += f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePaths(m int, n int) int {
 	f := make([][]int, m)
@@ -162,6 +181,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[][] = Array(m)
@@ -182,6 +203,8 @@ function uniquePaths(m: number, n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn unique_paths(m: i32, n: i32) -> i32 {
@@ -196,6 +219,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -224,9 +249,15 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -237,6 +268,8 @@ class Solution:
                 f[i][j] = f[i - 1][j] + f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -255,6 +288,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -269,6 +304,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePaths(m int, n int) int {
@@ -288,6 +325,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[][] = Array(m)
@@ -301,6 +340,8 @@ function uniquePaths(m: number, n: number): number {
     return f[m - 1][n - 1];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -323,9 +364,15 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -336,6 +383,8 @@ class Solution:
                 f[j] += f[j - 1]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -352,6 +401,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -366,6 +417,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePaths(m int, n int) int {
@@ -382,6 +435,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[] = Array(n).fill(1);
@@ -393,6 +448,8 @@ function uniquePaths(m: number, n: number): number {
     return f[n - 1];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -413,4 +470,6 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

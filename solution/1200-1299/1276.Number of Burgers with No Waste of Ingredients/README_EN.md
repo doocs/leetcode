@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1276.Number%20of%20Burgers%20with%20No%20Waste%20of%20Ingredients/README_EN.md
+rating: 1386
+source: Weekly Contest 165 Q2
+tags:
+    - Math
+---
+
+<!-- problem:start -->
+
 # [1276. Number of Burgers with No Waste of Ingredients](https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients)
 
 [中文文档](/solution/1200-1299/1276.Number%20of%20Burgers%20with%20No%20Waste%20of%20Ingredients/README.md)
 
-<!-- tags:Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>tomatoSlices</code> and <code>cheeseSlices</code>. The ingredients of different burgers are as follows:</p>
 
@@ -48,7 +60,11 @@ There will be no remaining ingredients.
 	<li><code>0 &lt;= tomatoSlices, cheeseSlices &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -76,6 +92,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numOfBurgers(self, tomatoSlices: int, cheeseSlices: int) -> List[int]:
@@ -84,6 +102,8 @@ class Solution:
         x = cheeseSlices - y
         return [] if k % 2 or y < 0 or x < 0 else [x, y]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -108,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 	k := 4*cheeseSlices - tomatoSlices
@@ -120,6 +144,8 @@ func numOfBurgers(tomatoSlices int, cheeseSlices int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
     const k = 4 * cheeseSlices - tomatoSlices;
@@ -128,6 +154,8 @@ function numOfBurgers(tomatoSlices: number, cheeseSlices: number): number[] {
     return k % 2 || y < 0 || x < 0 ? [] : [x, y];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -146,4 +174,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

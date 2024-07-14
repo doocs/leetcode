@@ -1,10 +1,20 @@
-# [1056. Confusing Number](https://leetcode.com/problems/confusing-number)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1056.Confusing%20Number/README_EN.md
+tags:
+    - Math
+---
+
+<!-- problem:start -->
+
+# [1056. Confusing Number 🔒](https://leetcode.com/problems/confusing-number)
 
 [中文文档](/solution/1000-1099/1056.Confusing%20Number/README.md)
 
-<!-- tags:Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
 
@@ -55,11 +65,17 @@
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +89,8 @@ class Solution:
             y = y * 10 + d[v]
         return y != n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func confusingNumber(n int) bool {
 	d := []int{0, 1, -1, -1, -1, -1, 9, -1, 8, 6}
@@ -126,6 +148,8 @@ func confusingNumber(n int) bool {
 	return y != n
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -152,4 +176,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

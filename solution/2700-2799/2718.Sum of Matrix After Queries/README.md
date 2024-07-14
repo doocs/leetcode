@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README.md
+rating: 1768
+source: 第 348 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [2718. 查询后矩阵的和](https://leetcode.cn/problems/sum-of-matrix-after-queries)
 
 [English Version](/solution/2700-2799/2718.Sum%20of%20Matrix%20After%20Queries/README_EN.md)
 
-<!-- tags:数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个下标从 <strong>0</strong>&nbsp;开始的 <strong>二维数组</strong>&nbsp;<code>queries</code>&nbsp;，其中&nbsp;<code>queries[i] = [type<sub>i</sub>, index<sub>i</sub>, val<sub>i</sub>]</code>&nbsp;。</p>
 
@@ -52,7 +63,11 @@
 	<li><code>0 &lt;= val<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -68,6 +83,8 @@
 时间复杂度 $O(m)$，空间复杂度 $O(n)$。其中 $m$ 表示查询的次数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +103,8 @@ class Solution:
                     col.add(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	row, col := map[int]bool{}, map[int]bool{}
@@ -159,6 +182,8 @@ func matrixSumQueries(n int, queries [][]int) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function matrixSumQueries(n: number, queries: number[][]): number {
@@ -185,4 +210,6 @@ function matrixSumQueries(n: number, queries: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

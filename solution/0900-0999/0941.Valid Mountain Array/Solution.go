@@ -3,12 +3,12 @@ func validMountainArray(arr []int) bool {
 	if n < 3 {
 		return false
 	}
-	l, r := 0, n-1
-	for l+1 < n-1 && arr[l] < arr[l+1] {
-		l++
+	i, j := 0, n-1
+	for i+1 < n-1 && arr[i] < arr[i+1] {
+		i++
 	}
-	for r-1 > 0 && arr[r] < arr[r-1] {
-		r--
+	for j-1 > 0 && arr[j-1] > arr[j] {
+		j--
 	}
-	return l == r
+	return i == j
 }

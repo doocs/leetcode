@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2582.Pass%20the%20Pillow/README_EN.md
+rating: 1278
+source: Weekly Contest 335 Q1
+tags:
+    - Math
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2582. Pass the Pillow](https://leetcode.com/problems/pass-the-pillow)
 
 [中文文档](/solution/2500-2599/2582.Pass%20the%20Pillow/README.md)
 
-<!-- tags:Math,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> people standing in a line labeled from <code>1</code> to <code>n</code>. The first person in the line is holding a pillow initially. Every second, the person holding the pillow passes it to the next person standing in the line. Once the pillow reaches the end of the line, the direction changes, and people continue passing the pillow in the opposite direction.</p>
 
@@ -20,7 +33,7 @@
 <strong>Input:</strong> n = 4, time = 5
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> People pass the pillow in the following way: 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 3 -&gt; 2.
-Afer five seconds, the pillow is given to the 2<sup>nd</sup> person.
+After five seconds, the 2<sup>nd</sup> person is holding the pillow.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -29,7 +42,7 @@ Afer five seconds, the pillow is given to the 2<sup>nd</sup> person.
 <strong>Input:</strong> n = 3, time = 2
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> People pass the pillow in the following way: 1 -&gt; 2 -&gt; 3.
-Afer two seconds, the pillow is given to the 3<sup>r</sup><sup>d</sup> person.
+After two seconds, the 3<sup>r</sup><sup>d</sup> person is holding the pillow.
 </pre>
 
 <p>&nbsp;</p>
@@ -40,7 +53,11 @@ Afer two seconds, the pillow is given to the 3<sup>r</sup><sup>d</sup> person.
 	<li><code>1 &lt;= time &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -49,6 +66,8 @@ We can simulate the process of passing the pillow, and each time the pillow is p
 The time complexity is $O(time)$ and the space complexity is $O(1)$, where $time$ is the given time.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +79,8 @@ class Solution:
                 k *= -1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func passThePillow(n int, time int) int {
 	ans, k := 1, 1
@@ -104,6 +129,8 @@ func passThePillow(n int, time int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function passThePillow(n: number, time: number): number {
@@ -118,6 +145,8 @@ function passThePillow(n: number, time: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -140,6 +169,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Math
 
 We notice that there are $n - 1$ passes in each round. Therefore, we can divide $time$ by $n - 1$ to get the number of rounds $k$ that the pillow is passed, and then take the remainder of $time$ modulo $n - 1$ to get the remaining passes $mod$ in the current round.
@@ -153,12 +186,16 @@ The time complexity is $O(1)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def passThePillow(self, n: int, time: int) -> int:
         k, mod = divmod(time, n - 1)
         return n - mod if k & 1 else mod + 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +206,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -181,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func passThePillow(n int, time int) int {
 	k, mod := time/(n-1), time%(n-1)
@@ -191,6 +232,8 @@ func passThePillow(n int, time int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function passThePillow(n: number, time: number): number {
     const k = time / (n - 1);
@@ -198,6 +241,8 @@ function passThePillow(n: number, time: number): number {
     return (k & 1) == 1 ? n - mod : mod + 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -216,4 +261,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

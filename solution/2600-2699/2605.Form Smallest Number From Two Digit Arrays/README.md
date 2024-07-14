@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README.md
+rating: 1241
+source: 第 101 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [2605. 从两个数字数组里生成最小数字](https://leetcode.cn/problems/form-smallest-number-from-two-digit-arrays)
 
 [English Version](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md)
 
-<!-- tags:数组,哈希表,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你两个只包含 1 到 9 之间数字的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，每个数组中的元素 <strong>互不相同</strong>&nbsp;，请你返回 <strong>最小</strong> 的数字，两个数组都 <strong>至少</strong> 包含这个数字的某个数位。
 
@@ -36,7 +48,11 @@
 	<li>每个数组中，元素 <strong>互不相同</strong>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -45,6 +61,8 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是数组 $nums1$ 和 $nums2$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +76,8 @@ class Solution:
                     ans = min(ans, 10 * a + b, 10 * b + a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	ans := 100
@@ -112,6 +136,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
     let ans = 100;
@@ -127,6 +153,8 @@ function minNumber(nums1: number[], nums2: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -150,6 +178,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表或数组 + 枚举
 
 我们可以用哈希表或数组记录数组 $nums1$ 和 $nums2$ 中的数字，然后枚举 $1 \sim 9$，如果 $i$ 在两个数组中都出现了，那么 $i$ 就是最小的数字。否则我们取 $nums1$ 中的数字 $a$ 和 $nums2$ 中的数字 $b$，将 $a$ 和 $b$ 拼接成两个数字，取其中较小的数字即可。
@@ -157,6 +189,8 @@ impl Solution {
 时间复杂度 $(m + n)$，空间复杂度 $O(C)$。其中 $m$ 和 $n$ 分别是数组 $nums1$ 和 $nums2$ 的长度；而 $C$ 是数组 $nums1$ 和 $nums2$ 中数字的范围，本题中 $C = 10$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -167,6 +201,8 @@ class Solution:
         a, b = min(nums1), min(nums2)
         return min(a * 10 + b, b * 10 + a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -195,6 +231,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -225,6 +263,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	s1 := [10]bool{}
@@ -250,6 +290,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 	return min(a*10+b, b*10+a)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
@@ -277,6 +319,8 @@ function minNumber(nums1: number[], nums2: number[]): number {
     return Math.min(a * 10 + b, b * 10 + a);
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -317,6 +361,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：位运算
 
 由于数字的范围是 $1 \sim 9$，我们可以用一个长度为 $10$ 的二进制数来表示数组 $nums1$ 和 $nums2$ 中的数字。我们用 $mask1$ 表示数组 $nums1$ 中的数字，用 $mask2$ 表示数组 $nums2$ 中的数字。
@@ -328,6 +376,8 @@ impl Solution {
 时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别是数组 $nums1$ 和 $nums2$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -344,6 +394,8 @@ class Solution:
         b = (mask2 & -mask2).bit_length() - 1
         return min(a * 10 + b, b * 10 + a)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -365,6 +417,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -388,6 +442,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minNumber(nums1 []int, nums2 []int) int {
 	var mask1, mask2 uint
@@ -404,6 +460,8 @@ func minNumber(nums1 []int, nums2 []int) int {
 	return min(a*10+b, b*10+a)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minNumber(nums1: number[], nums2: number[]): number {
@@ -456,4 +514,6 @@ function numberOfTrailingZeros(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

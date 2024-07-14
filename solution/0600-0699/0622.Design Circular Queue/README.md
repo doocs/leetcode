@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0622.Design%20Circular%20Queue/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 链表
+---
+
+<!-- problem:start -->
+
 # [622. 设计循环队列](https://leetcode.cn/problems/design-circular-queue)
 
 [English Version](/solution/0600-0699/0622.Design%20Circular%20Queue/README_EN.md)
 
-<!-- tags:设计,队列,数组,链表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为&ldquo;环形缓冲器&rdquo;。</p>
 
@@ -49,11 +60,17 @@ circularQueue.Rear(); &nbsp;// 返回 4</pre>
 	<li>请不要使用内置的队列库。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyCircularQueue:
@@ -103,6 +120,8 @@ class MyCircularQueue:
 # param_5 = obj.isEmpty()
 # param_6 = obj.isFull()
 ```
+
+#### Java
 
 ```java
 class MyCircularQueue {
@@ -171,6 +190,8 @@ class MyCircularQueue {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyCircularQueue {
 private:
@@ -232,6 +253,8 @@ public:
  * bool param_6 = obj->isFull();
  */
 ```
+
+#### Go
 
 ```go
 type MyCircularQueue struct {
@@ -300,6 +323,8 @@ func (this *MyCircularQueue) IsFull() bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyCircularQueue {
     private queue: number[];
@@ -366,6 +391,8 @@ class MyCircularQueue {
  */
 ```
 
+#### Rust
+
 ```rust
 struct MyCircularQueue {
     queue: Vec<i32>,
@@ -427,18 +454,11 @@ impl MyCircularQueue {
     fn is_full(&self) -> bool {
         self.right - self.left == self.capacity
     }
-}/**
- * Your MyCircularQueue object will be instantiated and called as such:
- * let obj = MyCircularQueue::new(k);
- * let ret_1: bool = obj.en_queue(value);
- * let ret_2: bool = obj.de_queue();
- * let ret_3: i32 = obj.front();
- * let ret_4: i32 = obj.rear();
- * let ret_5: bool = obj.is_empty();
- * let ret_6: bool = obj.is_full();
- */
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,19 +1,28 @@
 public class Solution {
     public double[] DicesProbability(int n) {
-        var bp = new double[6];
-        for (int i = 0; i < 6; i++) {
-            bp[i] = 1 / 6.0;
+        int[,] f = new int[n + 1, 6 * n + 1];
+        
+        for (int j = 1; j <= 6; ++j) {
+            f[1, j] = 1;
         }
-        double[] ans = new double[]{1};
-        for (int i = 1; i <= n; i++) {
-            var tmp = ans;
-            ans = new double[tmp.Length + 5];
-            for (int i1 = 0; i1 < tmp.Length; i1++) {
-                for (int i2 = 0; i2 < bp.Length; i2++) {
-                    ans[i1+i2] += tmp[i1] * bp[i2];
+        
+        for (int i = 2; i <= n; ++i) {
+            for (int j = i; j <= 6 * i; ++j) {
+                for (int k = 1; k <= 6; ++k) {
+                    if (j >= k) {
+                        f[i, j] += f[i - 1, j - k];
+                    }
                 }
             }
         }
+        
+        double m = Math.Pow(6, n);
+        double[] ans = new double[5 * n + 1];
+        
+        for (int j = n; j <= 6 * n; ++j) {
+            ans[j - n] = f[n, j] / m;
+        }
+        
         return ans;
     }
 }

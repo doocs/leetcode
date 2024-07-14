@@ -1,16 +1,30 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [720. 词典中最长的单词](https://leetcode.cn/problems/longest-word-in-dictionary)
 
 [English Version](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README_EN.md)
 
-<!-- tags:字典树,数组,哈希表,字符串,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一个字符串数组&nbsp;<code>words</code> 组成的一本英语词典。返回&nbsp;<code>words</code> 中最长的一个单词，该单词是由&nbsp;<code>words</code>&nbsp;词典中其他单词逐步添加一个字母组成。</p>
 
 <p>若其中有多个可行的答案，则返回答案中字典序最小的单词。若无答案，则返回空字符串。</p>
+
+<p>请注意，单词应该从左到右构建，每个额外的字符都添加到前一个单词的结尾。</p>
 
 <p>&nbsp;</p>
 
@@ -40,13 +54,19 @@
 	<li>所有输入的字符串&nbsp;<code>words[i]</code>&nbsp;都只包含小写字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 用哈希表存放所有单词。遍历这些单词，找出**长度最长且字典序最小**的单词。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +82,8 @@ class Solution:
                     ans = w
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestWord(words []string) string {
@@ -155,6 +181,8 @@ func longestWord(words []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestWord(words: string[]): string {
     words.sort((a, b) => {
@@ -181,6 +209,8 @@ function longestWord(words: string[]): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn longest_word(mut words: Vec<String>) -> String {
@@ -204,8 +234,14 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序
 
 优先返回符合条件、**长度最长且字典序最小**的单词，那么可以进行依照该规则，先对 `words` 进行排序，免去多个结果之间的比较。
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README.md
+rating: 2170
+source: 第 52 场双周赛 Q4
+tags:
+    - 数组
+    - 数学
+    - 二分查找
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [1862. 向下取整数对和](https://leetcode.cn/problems/sum-of-floored-pairs)
 
 [English Version](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README_EN.md)
 
-<!-- tags:数组,数学,二分查找,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，请你返回所有下标对 <code>0 &lt;= i, j &lt; nums.length</code> 的 <code>floor(nums[i] / nums[j])</code> 结果之和。由于答案可能会很大，请你返回答案对<code>10<sup>9</sup> + 7</code> <strong>取余</strong> 的结果。</p>
 
@@ -42,7 +55,11 @@ floor(9 / 5) = 1
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：值域前缀和 + 优化枚举
 
@@ -53,6 +70,8 @@ floor(9 / 5) = 1
 时间复杂度 $O(M \times \log M)$，空间复杂度 $O(M)$，其中 $M$ 表示数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +92,8 @@ class Solution:
                     d += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfFlooredPairs(nums []int) (ans int) {
 	mx := slices.Max(nums)
@@ -155,6 +180,8 @@ func sumOfFlooredPairs(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfFlooredPairs(nums: number[]): number {
@@ -181,6 +208,8 @@ function sumOfFlooredPairs(nums: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sum_of_floored_pairs(nums: Vec<i32>) -> i32 {
@@ -206,11 +235,10 @@ impl Solution {
             if cnt[y] > 0 {
                 let mut d = 1;
                 while d * y <= (mx as usize) {
-                    ans +=
-                        ((cnt[y] as i64) *
-                            (d as i64) *
-                            (s[std::cmp::min(mx as usize, d * y + y - 1)] - s[d * y - 1])) %
-                        (MOD as i64);
+                    ans += ((cnt[y] as i64)
+                        * (d as i64)
+                        * (s[std::cmp::min(mx as usize, d * y + y - 1)] - s[d * y - 1]))
+                        % (MOD as i64);
                     ans %= MOD as i64;
                     d += 1;
                 }
@@ -224,4 +252,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word)
 
 [中文文档](/solution/0000-0099/0058.Length%20of%20Last%20Word/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code> consisting of words and spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
 
@@ -44,7 +54,11 @@
 	<li>There will be at least one word in <code>s</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Reverse Traversal + Two Pointers
 
@@ -53,6 +67,8 @@ We start traversing from the end of the string $s$, find the first character tha
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +81,8 @@ class Solution:
             j -= 1
         return i - j
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +99,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthOfLastWord(s string) int {
 	i := len(s) - 1
@@ -112,6 +134,8 @@ func lengthOfLastWord(s string) int {
 	return i - j
 }
 ```
+
+#### TypeScript
 
 ```ts
 function lengthOfLastWord(s: string): number {
@@ -127,6 +151,8 @@ function lengthOfLastWord(s: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
@@ -141,6 +167,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -160,6 +188,8 @@ var lengthOfLastWord = function (s) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LengthOfLastWord(string s) {
@@ -175,6 +205,8 @@ public class Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -198,4 +230,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

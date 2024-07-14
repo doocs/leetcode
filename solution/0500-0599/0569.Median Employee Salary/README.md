@@ -1,12 +1,20 @@
-# [569. 员工薪水中位数](https://leetcode.cn/problems/median-employee-salary)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0569.Median%20Employee%20Salary/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [569. 员工薪水中位数 🔒](https://leetcode.cn/problems/median-employee-salary)
 
 [English Version](/solution/0500-0599/0569.Median%20Employee%20Salary/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Employee</code></p>
 
@@ -74,11 +82,17 @@ Employee 表:
 
 <p><strong>进阶:&nbsp;</strong>你能在不使用任何内置函数或窗口函数的情况下解决它吗?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -103,4 +117,6 @@ WHERE rk >= n / 2 AND rk <= n / 2 + 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

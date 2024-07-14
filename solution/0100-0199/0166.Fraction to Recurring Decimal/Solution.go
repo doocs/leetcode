@@ -2,37 +2,35 @@ func fractionToDecimal(numerator int, denominator int) string {
 	if numerator == 0 {
 		return "0"
 	}
-	res := []byte{}
-	neg := numerator*denominator < 0
-	if neg {
-		res = append(res, '-')
+	ans := ""
+	if (numerator > 0) != (denominator > 0) {
+		ans += "-"
 	}
-	num := abs(numerator)
-	d := abs(denominator)
-	res = append(res, strconv.Itoa(num/d)...)
-	num %= d
-	if num == 0 {
-		return string(res)
+	a := int64(numerator)
+	b := int64(denominator)
+	a = abs(a)
+	b = abs(b)
+	ans += strconv.FormatInt(a/b, 10)
+	a %= b
+	if a == 0 {
+		return ans
 	}
-	mp := make(map[int]int)
-	res = append(res, '.')
-	for num != 0 {
-		mp[num] = len(res)
-		num *= 10
-		res = append(res, strconv.Itoa(num/d)...)
-		num %= d
-		if mp[num] > 0 {
-			idx := mp[num]
-			res = append(res[:idx], append([]byte{'('}, res[idx:]...)...)
-			res = append(res, ')')
+	ans += "."
+	d := make(map[int64]int)
+	for a != 0 {
+		if pos, ok := d[a]; ok {
+			ans = ans[:pos] + "(" + ans[pos:] + ")"
 			break
 		}
+		d[a] = len(ans)
+		a *= 10
+		ans += strconv.FormatInt(a/b, 10)
+		a %= b
 	}
-
-	return string(res)
+	return ans
 }
 
-func abs(x int) int {
+func abs(x int64) int64 {
 	if x < 0 {
 		return -x
 	}

@@ -1,12 +1,23 @@
-# [2464. 有效分割中的最少子数组数目](https://leetcode.cn/problems/minimum-subarrays-in-a-valid-split)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 数论
+---
+
+<!-- problem:start -->
+
+# [2464. 有效分割中的最少子数组数目 🔒](https://leetcode.cn/problems/minimum-subarrays-in-a-valid-split)
 
 [English Version](/solution/2400-2499/2464.Minimum%20Subarrays%20in%20a%20Valid%20Split/README_EN.md)
 
-<!-- tags:数组,数学,动态规划,数论 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code>。</p>
 
@@ -66,7 +77,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -75,6 +90,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +111,8 @@ class Solution:
         dfs.cache_clear()
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validSubarraySplit(nums []int) int {
@@ -197,4 +220,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

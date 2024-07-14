@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0695.Max%20Area%20of%20Island/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [695. Max Area of Island](https://leetcode.com/problems/max-area-of-island)
 
 [中文文档](/solution/0600-0699/0695.Max%20Area%20of%20Island/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code>. An island is a group of <code>1</code>&#39;s (representing land) connected <strong>4-directionally</strong> (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
 
@@ -38,11 +52,17 @@
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +82,8 @@ class Solution:
         m, n = len(grid), len(grid[0])
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAreaOfIsland(grid [][]int) (ans int) {
 	m, n := len(grid), len(grid[0])
@@ -158,6 +184,8 @@ func maxAreaOfIsland(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAreaOfIsland(grid: number[][]): number {
@@ -187,6 +215,8 @@ function maxAreaOfIsland(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -221,4 +251,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0899.Orderly%20Queue/README_EN.md
+tags:
+    - Math
+    - String
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [899. Orderly Queue](https://leetcode.com/problems/orderly-queue)
 
 [中文文档](/solution/0800-0899/0899.Orderly%20Queue/README.md)
 
-<!-- tags:Math,String,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and an integer <code>k</code>. You can choose one of the first <code>k</code> letters of <code>s</code> and append it at the end of the string.</p>
 
@@ -39,7 +51,11 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 	<li><code>s</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Case-by-case Judgment
 
@@ -53,6 +69,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ i
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def orderlyQueue(self, s: str, k: int) -> str:
@@ -64,6 +82,8 @@ class Solution:
             return ans
         return "".join(sorted(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func orderlyQueue(s string, k int) string {
 	if k == 1 {
@@ -121,6 +145,8 @@ func orderlyQueue(s string, k int) string {
 	return string(t)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function orderlyQueue(s: string, k: number): string {
@@ -141,4 +167,6 @@ function orderlyQueue(s: string, k: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

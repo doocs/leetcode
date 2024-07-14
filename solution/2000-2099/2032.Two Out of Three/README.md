@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2032.Two%20Out%20of%20Three/README.md
+rating: 1269
+source: 第 262 场周赛 Q1
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [2032. 至少在两个数组中出现的值](https://leetcode.cn/problems/two-out-of-three)
 
 [English Version](/solution/2000-2099/2032.Two%20Out%20of%20Three/README_EN.md)
 
-<!-- tags:位运算,数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你三个整数数组 <code>nums1</code>、<code>nums2</code> 和 <code>nums3</code> ，请你构造并返回一个 <strong>元素各不相同的</strong> 数组，且由 <strong>至少</strong> 在 <strong>两个</strong> 数组中出现的所有值组成<em>。</em>数组中的元素可以按 <strong>任意</strong> 顺序排列。
 
@@ -50,7 +62,11 @@
 	<li><code>1 &lt;= nums1[i], nums2[j], nums3[k] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组 + 枚举
 
@@ -60,6 +76,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def twoOutOfThree(
@@ -68,6 +86,8 @@ class Solution:
         s1, s2, s3 = set(nums1), set(nums2), set(nums3)
         return [i for i in range(1, 101) if (i in s1) + (i in s2) + (i in s3) > 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
 	get := func(nums []int) (s [101]int) {
@@ -131,6 +155,8 @@ func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): number[] {
     const count = new Array(101).fill(0);
@@ -146,6 +172,8 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -174,14 +202,11 @@ impl Solution {
                 count[v as usize] += 1;
             });
         let mut ans = Vec::new();
-        count
-            .iter()
-            .enumerate()
-            .for_each(|(i, v)| {
-                if *v >= 2 {
-                    ans.push(i as i32);
-                }
-            });
+        count.iter().enumerate().for_each(|(i, v)| {
+            if *v >= 2 {
+                ans.push(i as i32);
+            }
+        });
         ans
     }
 }
@@ -189,4 +214,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

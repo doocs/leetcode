@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree)
 
 [English Version](/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点，返回该树的 <strong>直径</strong> 。</p>
 
@@ -40,11 +50,17 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -67,6 +83,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -105,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -137,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -161,6 +183,8 @@ func diameterOfBinaryTree(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -194,6 +218,8 @@ function diameterOfBinaryTree(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -213,8 +239,8 @@ function diameterOfBinaryTree(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut i32) -> i32 {
         if root.is_none() {
@@ -234,6 +260,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -266,9 +294,15 @@ int diameterOfBinaryTree(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -316,4 +350,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

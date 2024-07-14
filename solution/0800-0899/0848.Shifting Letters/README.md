@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0848.Shifting%20Letters/README.md
+tags:
+    - 数组
+    - 字符串
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [848. 字母移位](https://leetcode.cn/problems/shifting-letters)
 
 [English Version](/solution/0800-0899/0848.Shifting%20Letters/README_EN.md)
 
-<!-- tags:数组,字符串,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个由小写字母组成的字符串 <code>s</code>，和一个长度相同的整数数组 <code>shifts</code>。</p>
 
@@ -53,7 +63,11 @@
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute">​​​​​​</span></span></span>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：后缀和
 
@@ -62,6 +76,8 @@
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +90,8 @@ class Solution:
             s[i] = ascii_lowercase[j]
         return ''.join(s)
 ```
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +114,8 @@ class Solution:
         return ''.join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String shiftingLetters(String s, int[] shifts) {
@@ -111,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -128,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shiftingLetters(s string, shifts []int) string {
 	t := 0
@@ -144,4 +168,6 @@ func shiftingLetters(s string, shifts []int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

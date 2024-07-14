@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README.md
+rating: 1730
+source: 第 129 场周赛 Q3
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1014. 最佳观光组合](https://leetcode.cn/problems/best-sightseeing-pair)
 
 [English Version](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>values</code>，其中 <code>values[i]</code> 表示第 <code>i</code> 个观光景点的评分，并且两个景点 <code>i</code> 和 <code>j</code> 之间的 <strong>距离</strong> 为 <code>j - i</code>。</p>
 
@@ -40,7 +51,11 @@
 	<li><code>1 <= values[i] <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 维护前缀最大值
 
@@ -49,6 +64,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +76,8 @@ class Solution:
             mx = max(mx, values[j] + j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,6 +108,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxScoreSightseeingPair(values []int) (ans int) {
 	for j, mx := 1, values[0]; j < len(values); j++ {
@@ -96,6 +119,8 @@ func maxScoreSightseeingPair(values []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxScoreSightseeingPair(values: number[]): number {
@@ -111,4 +136,6 @@ function maxScoreSightseeingPair(values: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

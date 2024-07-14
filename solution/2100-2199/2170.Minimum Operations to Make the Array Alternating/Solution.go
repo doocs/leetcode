@@ -1,27 +1,26 @@
 func minimumOperations(nums []int) int {
+	f := func(i int) [4]int {
+		cnt := make(map[int]int)
+		for ; i < len(nums); i += 2 {
+			cnt[nums[i]]++
+		}
+
+		k1, k2 := 0, 0
+		for k, v := range cnt {
+			if cnt[k1] < v {
+				k2, k1 = k1, k
+			} else if cnt[k2] < v {
+				k2 = k
+			}
+		}
+		return [4]int{k1, cnt[k1], k2, cnt[k2]}
+	}
+
+	a := f(0)
+	b := f(1)
 	n := len(nums)
-	get := func(i int) [][]int {
-		freq := make(map[int]int)
-		for ; i < n; i += 2 {
-			freq[nums[i]]++
-		}
-		a, n1, b, n2 := 0, 0, 0, 0
-		for k, v := range freq {
-			if v > n1 {
-				b, n2, a, n1 = a, n1, k, v
-			} else if v > n2 {
-				b, n2 = k, v
-			}
-		}
-		return [][]int{{a, n1}, {b, n2}}
+	if a[0] != b[0] {
+		return n - (a[1] + b[1])
 	}
-	ans := 100000
-	for _, e1 := range get(0) {
-		for _, e2 := range get(1) {
-			if e1[0] != e2[0] && ans > (n-(e1[1]+e2[1])) {
-				ans = n - (e1[1] + e2[1])
-			}
-		}
-	}
-	return ans
+	return n - max(a[1]+b[3], a[3]+b[1])
 }

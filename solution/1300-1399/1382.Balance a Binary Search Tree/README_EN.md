@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README_EN.md
+rating: 1540
+source: Weekly Contest 180 Q3
+tags:
+    - Greedy
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Divide and Conquer
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
 
 [中文文档](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README.md)
 
-<!-- tags:Greedy,Tree,Depth-First Search,Binary Search Tree,Divide and Conquer,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree, return <em>a <strong>balanced</strong> binary search tree with the same node values</em>. If there is more than one answer, return <strong>any of them</strong>.</p>
 
@@ -34,7 +51,11 @@
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-order Traversal + Construct Balanced Binary Search Tree
 
@@ -48,6 +69,8 @@ The execution logic of the function $build(i, j)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -77,6 +100,8 @@ class Solution:
         dfs(root)
         return build(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -123,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -166,6 +193,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -200,6 +229,8 @@ func balanceBST(root *TreeNode) *TreeNode {
 	return build(0, len(ans)-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -242,4 +273,6 @@ function balanceBST(root: TreeNode | null): TreeNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0771.Jewels%20and%20Stones/README_EN.md
+tags:
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)
 
 [中文文档](/solution/0700-0799/0771.Jewels%20and%20Stones/README.md)
 
-<!-- tags:Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You&#39;re given strings <code>jewels</code> representing the types of stones that are jewels, and <code>stones</code> representing the stones you have. Each character in <code>stones</code> is a type of stone you have. You want to know how many of the stones you have are also jewels.</p>
 
@@ -27,11 +38,17 @@
 	<li>All the characters of&nbsp;<code>jewels</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -39,6 +56,8 @@ class Solution:
         s = set(jewels)
         return sum(c in s for c in stones)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -56,6 +75,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -68,6 +89,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numJewelsInStones(jewels string, stones string) (ans int) {
@@ -82,6 +105,8 @@ func numJewelsInStones(jewels string, stones string) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numJewelsInStones(jewels: string, stones: string): number {
     const s = new Set([...jewels]);
@@ -92,6 +117,8 @@ function numJewelsInStones(jewels: string, stones: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -109,6 +136,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} jewels
@@ -120,6 +149,8 @@ var numJewelsInStones = function (jewels, stones) {
     return stones.split('').reduce((prev, val) => prev + s.has(val), 0);
 };
 ```
+
+#### C
 
 ```c
 int numJewelsInStones(char* jewels, char* stones) {
@@ -137,4 +168,6 @@ int numJewelsInStones(char* jewels, char* stones) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md
+rating: 2092
+source: Weekly Contest 315 Q4
+tags:
+    - Queue
+    - Array
+    - Sliding Window
+    - Monotonic Queue
+---
+
+<!-- problem:start -->
+
 # [2444. Count Subarrays With Fixed Bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds)
 
 [中文文档](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README.md)
 
-<!-- tags:Queue,Array,Sliding Window,Monotonic Queue -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and two integers <code>minK</code> and <code>maxK</code>.</p>
 
@@ -44,7 +59,11 @@
 	<li><code>1 &lt;= nums[i], minK, maxK &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration of Right Endpoint
 
@@ -62,6 +81,8 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int], minK: int, maxK: int) -> int:
@@ -77,6 +98,8 @@ class Solution:
             ans += max(0, min(j1, j2) - k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubarrays(nums []int, minK int, maxK int) int64 {
@@ -136,6 +163,8 @@ func countSubarrays(nums []int, minK int, maxK int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubarrays(nums: number[], minK: number, maxK: number): number {
@@ -158,6 +187,8 @@ function countSubarrays(nums: number[], minK: number, maxK: number): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +215,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -213,4 +246,6 @@ long long countSubarrays(int* nums, int numsSize, int minK, int maxK) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

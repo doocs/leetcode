@@ -1,6 +1,6 @@
 function numKLenSubstrNoRepeats(s: string, k: number): number {
     const n = s.length;
-    if (k > n) {
+    if (n < k) {
         return 0;
     }
     const cnt: Map<string, number> = new Map();

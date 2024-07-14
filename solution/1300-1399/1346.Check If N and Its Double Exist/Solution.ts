@@ -1,10 +1,10 @@
 function checkIfExist(arr: number[]): boolean {
-    const s = new Set();
-    for (const v of arr) {
-        if (s.has(v << 1) || s.has(v / 2)) {
+    const s: Set<number> = new Set();
+    for (const x of arr) {
+        if (s.has(x * 2) || (x % 2 === 0 && s.has((x / 2) | 0))) {
             return true;
         }
-        s.add(v);
+        s.add(x);
     }
     return false;
 }

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [893. 特殊等价字符串组](https://leetcode.cn/problems/groups-of-special-equivalent-strings)
 
 [English Version](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README_EN.md)
 
-<!-- tags:数组,哈希表,字符串,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code>。</p>
 
@@ -61,11 +72,17 @@
 	<li>所有 <code>words[i]</code>&nbsp;都具有相同的长度。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +90,8 @@ class Solution:
         s = {''.join(sorted(word[::2]) + sorted(word[1::2])) for word in words}
         return len(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numSpecialEquivGroups(words []string) int {
@@ -157,4 +180,6 @@ func numSpecialEquivGroups(words []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

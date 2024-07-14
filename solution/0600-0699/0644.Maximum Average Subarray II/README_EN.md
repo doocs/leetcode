@@ -1,10 +1,22 @@
-# [644. Maximum Average Subarray II](https://leetcode.com/problems/maximum-average-subarray-ii)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
+# [644. Maximum Average Subarray II 🔒](https://leetcode.com/problems/maximum-average-subarray-ii)
 
 [中文文档](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README.md)
 
-<!-- tags:Array,Binary Search,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.</p>
 
@@ -40,11 +52,51 @@ Note that we do not consider the subarrays of length &lt; 4.
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Binary Search
+
+We note that if the average value of a subarray with length greater than or equal to $k$ is $v$, then the maximum average number must be greater than or equal to $v$, otherwise the maximum average number must be less than $v$. Therefore, we can use binary search to find the maximum average number.
+
+What are the left and right boundaries of binary search? The left boundary $l$ must be the minimum value in the array, and the right boundary $r$ is the maximum value in the array. Next, we binary search the midpoint $mid$, and judge whether there exists a subarray with length greater than or equal to $k$ whose average value is greater than or equal to $mid$. If it exists, then we update the left boundary $l$ to $mid$, otherwise we update the right boundary $r$ to $mid$. When the difference between the left and right boundaries is less than a very small non-negative number, i.e., $r - l < \epsilon$, we can get the maximum average number, where $\epsilon$ represents a very small positive number, which can be $10^{-5}$.
+
+The key to the problem is how to judge whether the average value of a subarray with length greater than or equal to $k$ is greater than or equal to $v$.
+
+We assume that in the array $nums$, there is a subarray with length $j$, the elements are $a_1, a_2, \cdots, a_j$, and its average value is greater than or equal to $v$, i.e.,
+
+$$
+\frac{a_1 + a_2 + \cdots + a_j}{j} \geq v
+$$
+
+Then,
+
+$$
+a_1 + a_2 + \cdots + a_j \geq v \times j
+$$
+
+That is,
+
+$$
+(a_1 - v) + (a_2 - v) + \cdots + (a_j - v) \geq 0
+$$
+
+We can find that if we subtract $v$ from each element in the array $nums$, the original problem is transformed into a problem of whether the sum of the elements of a subarray with length greater than or equal to $k$ is greater than or equal to $0$. We can use a sliding window to solve this problem.
+
+First, we calculate the sum $s$ of the differences between the first $k$ elements and $v$. If $s \geq 0$, it means that there exists a subarray with length greater than or equal to $k$ whose element sum is greater than or equal to $0$.
+
+Otherwise, we continue to traverse the element $nums[j]$. Suppose the current sum of the differences between the first $j$ elements and $v$ is $s_j$. Then we can maintain the minimum value $mi$ of the sum of the differences between the prefix sum and $v$ in the range $[0,..j-k]$. If $s_j \geq mi$ exists, it means that there exists a subarray with length greater than or equal to $k$ whose element sum is greater than or equal to $0$, and we return $true$.
+
+Otherwise, we continue to traverse the element $nums[j]$ until the entire array is traversed.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +124,8 @@ class Solution:
                 r = mid
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +212,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaxAverage(nums []int, k int) float64 {
 	eps := 1e-5
@@ -193,6 +251,8 @@ func findMaxAverage(nums []int, k int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findMaxAverage(nums: number[], k: number): number {
     const eps = 1e-5;
@@ -229,4 +289,6 @@ function findMaxAverage(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

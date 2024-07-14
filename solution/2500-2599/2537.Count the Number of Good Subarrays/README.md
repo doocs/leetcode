@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README.md
+rating: 1891
+source: 第 328 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [2537. 统计好子数组的数目](https://leetcode.cn/problems/count-the-number-of-good-subarrays)
 
 [English Version](/solution/2500-2599/2537.Count%20the%20Number%20of%20Good%20Subarrays/README_EN.md)
 
-<!-- tags:数组,哈希表,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code>&nbsp;和一个整数 <code>k</code>&nbsp;，请你返回 <code>nums</code>&nbsp;中 <strong>好</strong>&nbsp;子数组的数目。</p>
 
@@ -43,7 +55,11 @@
 	<li><code>1 &lt;= nums[i], k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双指针
 
@@ -58,6 +74,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +94,8 @@ class Solution:
                 ans += i + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countGood(nums []int, k int) int64 {
@@ -143,4 +167,6 @@ func countGood(nums []int, k int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

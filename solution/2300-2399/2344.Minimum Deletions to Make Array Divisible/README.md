@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README.md
+rating: 1640
+source: 第 302 场周赛 Q4
+tags:
+    - 数组
+    - 数学
+    - 数论
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2344. 使数组可以被整除的最少删除次数](https://leetcode.cn/problems/minimum-deletions-to-make-array-divisible)
 
 [English Version](/solution/2300-2399/2344.Minimum%20Deletions%20to%20Make%20Array%20Divisible/README_EN.md)
 
-<!-- tags:数组,数学,数论,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数数组&nbsp;<code>nums</code> 和&nbsp;<code>numsDivide</code>&nbsp;。你可以从&nbsp;<code>nums</code>&nbsp;中删除任意数目的元素。</p>
 
@@ -44,7 +58,11 @@
 	<li><code>1 &lt;= nums[i], numsDivide[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学 + 排序
 
@@ -60,6 +78,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
@@ -72,6 +92,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, numsDivide []int) int {
@@ -139,9 +165,15 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -150,6 +182,8 @@ class Solution:
         nums.sort()
         return next((i for i, v in enumerate(nums) if x % v == 0), -1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,6 +216,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -207,6 +243,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums []int, numsDivide []int) int {
@@ -242,9 +280,15 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -256,4 +300,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

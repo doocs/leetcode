@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README_EN.md
+rating: 1856
+source: Weekly Contest 384 Q3
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - String
+    - Counting
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [3035. Maximum Palindromes After Operations](https://leetcode.com/problems/maximum-palindromes-after-operations)
 
 [中文文档](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md)
 
-<!-- tags:Greedy,Array,Hash Table,String,Counting,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code> having length <code>n</code> and containing <strong>0-indexed</strong> strings.</p>
 
@@ -60,11 +77,17 @@ Hence, the answer is 1.</pre>
 	<li><code>words[i]</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +107,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPalindromesAfterOperations(words []string) (ans int) {
 	var s, mask int
@@ -159,6 +188,8 @@ func maxPalindromesAfterOperations(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPalindromesAfterOperations(words: string[]): number {
@@ -186,4 +217,6 @@ function maxPalindromesAfterOperations(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.10.Color%20Fill/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [08.10. Color Fill](https://leetcode.cn/problems/color-fill-lcci)
 
 [中文文档](/lcci/08.10.Color%20Fill/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Implement the &quot;paint fill&quot; function that one might see on many image editing programs. That is, given a screen (represented by a two-dimensional array of colors), a point, and a new color, fill in the surrounding area until the color changes from the original color.</p>
 
@@ -36,17 +46,21 @@ to the starting pixel.</pre>
 	<li>The value of each color in&nbsp;<code>image[i][j]</code>&nbsp;and&nbsp;<code>newColor</code>&nbsp;will be an integer in&nbsp;<code>[0, 65535]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1: Flood Fill Algorithm
+<!-- solution:start -->
 
-The Flood Fill algorithm is a classic algorithm used to extract several connected points from a region and distinguish them from other adjacent regions (or color them differently). It is named for its strategy, which is similar to a flood spreading from one area to all reachable areas.
+### Solution 1: DFS
 
-The simplest implementation method is to use the recursive method of DFS, or it can be implemented iteratively using BFS.
+We design a function $dfs(i, j)$ to start filling color from $(i, j)$. If $(i, j)$ is not within the image range, or the color of $(i, j)$ is not the original color, or the color of $(i, j)$ has been filled with the new color, then return. Otherwise, fill the color of $(i, j)$ with the new color, and then recursively search the four directions: up, down, left, and right of $(i, j)$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the image, respectively.
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the image, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +85,8 @@ class Solution:
         dfs(sr, sc)
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	oc := image[sr][sc]
@@ -141,6 +161,36 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	return image
 }
 ```
+
+#### TypeScript
+
+```ts
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
+    const dfs = (i: number, j: number): void => {
+        if (i < 0 || i >= m) {
+            return;
+        }
+        if (j < 0 || j >= n) {
+            return;
+        }
+        if (image[i][j] !== oc || image[i][j] === nc) {
+            return;
+        }
+        image[i][j] = nc;
+        for (let k = 0; k < 4; ++k) {
+            dfs(i + dirs[k], j + dirs[k + 1]);
+        }
+    };
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    const [m, n] = [image.length, image[0].length];
+    const oc = image[sr][sc];
+    const nc = newColor;
+    dfs(sr, sc);
+    return image;
+}
+```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -175,11 +225,50 @@ impl Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var dirs = [-1, 0, 1, 0, -1]
+    private var image: [[Int]] = []
+    private var nc: Int = 0
+    private var oc: Int = 0
+
+    func floodFill(_ image: inout [[Int]], _ sr: Int, _ sc: Int, _ newColor: Int) -> [[Int]] {
+        self.nc = newColor
+        self.oc = image[sr][sc]
+        self.image = image
+        dfs(sr, sc)
+        return self.image
+    }
+
+    private func dfs(_ i: Int, _ j: Int) {
+        if i < 0 || i >= image.count || j < 0 || j >= image[0].count || image[i][j] != oc || image[i][j] == nc {
+            return
+        }
+        image[i][j] = nc
+        for k in 0..<4 {
+            dfs(i + dirs[k], j + dirs[k + 1])
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: BFS
+
+We can use the method of breadth-first search. Starting from the initial point, fill the color of the initial point with the new color, and then add the initial point to the queue. Each time a point is taken from the queue, the points in the four directions: up, down, left, and right are added to the queue, until the queue is empty.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the image, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -201,6 +290,8 @@ class Solution:
                     image[x][y] = newColor
         return image
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -230,6 +321,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -257,6 +350,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	if image[sr][sc] == newColor {
@@ -281,6 +376,33 @@ func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
+    if (image[sr][sc] === newColor) {
+        return image;
+    }
+    const q: number[][] = [[sr, sc]];
+    const oc = image[sr][sc];
+    image[sr][sc] = newColor;
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    while (q.length) {
+        const [i, j] = q.pop()!;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < image.length && y >= 0 && y < image[0].length && image[x][y] === oc) {
+                q.push([x, y]);
+                image[x][y] = newColor;
+            }
+        }
+    }
+    return image;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

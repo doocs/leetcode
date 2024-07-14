@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.13.Pile%20Box/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [08.13. Pile Box](https://leetcode.cn/problems/pile-box-lcci)
 
 [中文文档](/lcci/08.13.Pile%20Box/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You have a stack of n boxes, with widths wi, heights hi, and depths di. The boxes cannot be rotated and can only be stacked on top of one another if each box in the stack is strictly larger than the box above it in width, height, and depth. Implement a method to compute the height of the tallest possible stack. The height of a stack is the sum of the heights of each box.</p>
 <p>The input use <code>[wi, di, hi]</code>&nbsp;to represents each box.</p>
@@ -27,7 +37,11 @@
 	<li><code>box.length &lt;= 3000</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Dynamic Programming
 
@@ -40,6 +54,8 @@ The answer is the maximum value in $f$.
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of boxes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +70,8 @@ class Solution:
             f[i] += box[i][2]
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pileBox(box [][]int) int {
 	sort.Slice(box, func(i, j int) bool {
@@ -119,6 +141,8 @@ func pileBox(box [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pileBox(box: number[][]): number {
     box.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
@@ -138,6 +162,40 @@ function pileBox(box: number[][]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func pileBox(_ box: [[Int]]) -> Int {
+        let boxes = box.sorted {
+            if $0[0] == $1[0] {
+                return $0[1] > $1[1]
+            } else {
+                return $0[0] < $1[0]
+            }
+        }
+
+        let n = boxes.count
+        var f = Array(repeating: 0, count: n)
+        var ans = 0
+
+        for i in 0..<n {
+            f[i] = boxes[i][2]
+            for j in 0..<i {
+                if boxes[j][1] < boxes[i][1] && boxes[j][2] < boxes[i][2] {
+                    f[i] = max(f[i], f[j] + boxes[i][2])
+                }
+            }
+            ans = max(ans, f[i])
+        }
+
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

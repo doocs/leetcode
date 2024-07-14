@@ -1,18 +1,16 @@
-func maxIncreaseKeepingSkyline(grid [][]int) int {
-	m, n := len(grid), len(grid[0])
-	rmx := make([]int, m)
-	cmx := make([]int, n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			rmx[i] = max(rmx[i], grid[i][j])
-			cmx[j] = max(cmx[j], grid[i][j])
+func maxIncreaseKeepingSkyline(grid [][]int) (ans int) {
+	rowMax := make([]int, len(grid))
+	colMax := make([]int, len(grid[0]))
+	for i, row := range grid {
+		for j, x := range row {
+			rowMax[i] = max(rowMax[i], x)
+			colMax[j] = max(colMax[j], x)
 		}
 	}
-	ans := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			ans += min(rmx[i], cmx[j]) - grid[i][j]
+	for i, row := range grid {
+		for j, x := range row {
+			ans += min(rowMax[i], colMax[j]) - x
 		}
 	}
-	return ans
+	return
 }

@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0966.Vowel%20Spellchecker/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [966. Vowel Spellchecker](https://leetcode.com/problems/vowel-spellchecker)
 
 [中文文档](/solution/0900-0999/0966.Vowel%20Spellchecker/README.md)
 
-<!-- tags:Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>wordlist</code>, we want to implement a spellchecker that converts a query word into a correct word.</p>
 
@@ -57,11 +69,17 @@
 	<li><code>wordlist[i]</code> and <code>queries[i]</code> consist only of only English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +113,8 @@ class Solution:
             ans.append("")
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +163,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -196,6 +218,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func spellchecker(wordlist []string, queries []string) (ans []string) {
 	s := map[string]bool{}
@@ -243,4 +267,6 @@ func spellchecker(wordlist []string, queries []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

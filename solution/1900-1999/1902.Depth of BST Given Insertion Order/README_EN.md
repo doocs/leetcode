@@ -1,10 +1,23 @@
-# [1902. Depth of BST Given Insertion Order](https://leetcode.com/problems/depth-of-bst-given-insertion-order)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Binary Tree
+    - Ordered Set
+---
+
+<!-- problem:start -->
+
+# [1902. Depth of BST Given Insertion Order 🔒](https://leetcode.com/problems/depth-of-bst-given-insertion-order)
 
 [中文文档](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README.md)
 
-<!-- tags:Tree,Binary Search Tree,Binary Tree,Ordered Set -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>order</code> of length <code>n</code>, a <strong>permutation</strong> of integers from <code>1</code> to <code>n</code> representing the <strong>order</strong> of insertion into a <strong>binary search tree</strong>.</p>
 
@@ -61,11 +74,17 @@
 	<li><code>order</code> is a permutation of integers between <code>1</code> and <code>n</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -83,6 +102,8 @@ class Solution:
             sd[v] = depth
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,4 +128,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

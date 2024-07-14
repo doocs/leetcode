@@ -1,10 +1,20 @@
-# [254. Factor Combinations](https://leetcode.com/problems/factor-combinations)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0254.Factor%20Combinations/README_EN.md
+tags:
+    - Backtracking
+---
+
+<!-- problem:start -->
+
+# [254. Factor Combinations 🔒](https://leetcode.com/problems/factor-combinations)
 
 [中文文档](/solution/0200-0299/0254.Factor%20Combinations/README.md)
 
-<!-- tags:Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Numbers can be regarded as the product of their factors.</p>
 
@@ -45,11 +55,17 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +86,8 @@ class Solution:
         dfs(n, 2)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getFactors(n int) [][]int {
 	t := []int{}
@@ -148,4 +170,6 @@ func getFactors(n int) [][]int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

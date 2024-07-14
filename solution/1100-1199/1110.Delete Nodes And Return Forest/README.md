@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md
+rating: 1511
+source: 第 144 场周赛 Q3
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 哈希表
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [1110. 删点成林](https://leetcode.cn/problems/delete-nodes-and-return-forest)
 
 [English Version](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README_EN.md)
 
-<!-- tags:树,深度优先搜索,数组,哈希表,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出二叉树的根节点&nbsp;<code>root</code>，树上每个节点都有一个不同的值。</p>
 
@@ -43,7 +57,11 @@
 	<li><code>to_delete</code> 包含一些从&nbsp;<code>1</code> 到&nbsp;<code>1000</code>、各不相同的值。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -59,6 +77,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -89,6 +109,8 @@ class Solution:
             ans.append(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -140,6 +162,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -186,6 +210,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -224,6 +250,8 @@ func delNodes(root *TreeNode, to_delete []int) (ans []*TreeNode) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -272,4 +300,6 @@ function delNodes(root: TreeNode | null, to_delete: number[]): Array<TreeNode | 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [354. Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes)
 
 [中文文档](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
 
-<!-- tags:Array,Binary Search,Dynamic Programming,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D array of integers <code>envelopes</code> where <code>envelopes[i] = [w<sub>i</sub>, h<sub>i</sub>]</code> represents the width and the height of an envelope.</p>
 
@@ -39,11 +52,17 @@
 	<li><code>1 &lt;= w<sub>i</sub>, h<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +79,8 @@ class Solution:
                 d[idx] = h
         return len(d)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxEnvelopes(envelopes [][]int) int {
@@ -155,4 +180,6 @@ func maxEnvelopes(envelopes [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
-# [2638. Count the Number of K-Free Subsets](https://leetcode.com/problems/count-the-number-of-k-free-subsets)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [2638. Count the Number of K-Free Subsets 🔒](https://leetcode.com/problems/count-the-number-of-k-free-subsets)
 
 [中文文档](/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README.md)
 
-<!-- tags:Array,Dynamic Programming,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>,&nbsp;which contains <strong>distinct</strong> elements and an integer <code>k</code>.</p>
 
@@ -48,7 +60,11 @@
 	<li><code>1 &lt;= k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping + Dynamic Programming
 
@@ -61,6 +77,8 @@ Finally, we multiply the number of subsets of each group to obtain the answer.
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +101,8 @@ class Solution:
             ans *= f[m]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +163,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	sort.Ints(nums)
@@ -166,6 +190,8 @@ func countTheNumOfKFreeSubsets(nums []int, k int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countTheNumOfKFreeSubsets(nums: number[], k: number): number {
@@ -198,4 +224,6 @@ function countTheNumOfKFreeSubsets(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

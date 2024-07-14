@@ -1,10 +1,21 @@
-# [2330. Valid Palindrome IV](https://leetcode.com/problems/valid-palindrome-iv)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2330.Valid%20Palindrome%20IV/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
+# [2330. Valid Palindrome IV 🔒](https://leetcode.com/problems/valid-palindrome-iv)
 
 [中文文档](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README.md)
 
-<!-- tags:Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> consisting of only lowercase English letters. In one operation, you can change <strong>any</strong> character of <code>s</code> to any <strong>other</strong> character.</p>
 
@@ -48,11 +59,17 @@ Two operations could be performed to make s a palindrome so return true.
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +81,8 @@ class Solution:
             i, j = i + 1, j - 1
         return cnt <= 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makePalindrome(s string) bool {
 	cnt := 0
@@ -106,6 +129,8 @@ func makePalindrome(s string) bool {
 	return cnt <= 2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function makePalindrome(s: string): boolean {
@@ -123,4 +148,6 @@ function makePalindrome(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

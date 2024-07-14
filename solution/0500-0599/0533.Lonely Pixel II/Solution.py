@@ -1,25 +1,17 @@
 class Solution:
     def findBlackPixel(self, picture: List[List[str]], target: int) -> int:
-        m, n = len(picture), len(picture[0])
-        rows = [0] * m
-        cols = defaultdict(list)
-        for i in range(m):
-            for j in range(n):
-                if picture[i][j] == 'B':
+        rows = [0] * len(picture)
+        g = defaultdict(list)
+        for i, row in enumerate(picture):
+            for j, x in enumerate(row):
+                if x == "B":
                     rows[i] += 1
-                    cols[j].append(i)
-        t = [[False] * m for _ in range(m)]
-        for i in range(m):
-            for k in range(i, m):
-                if i == k:
-                    t[i][k] = True
-                else:
-                    t[i][k] = all([picture[i][j] == picture[k][j] for j in range(n)])
-                t[k][i] = t[i][k]
-        res = 0
-        for i in range(m):
-            if rows[i] == target:
-                for j in range(n):
-                    if len(cols[j]) == target and all([t[i][k] for k in cols[j]]):
-                        res += 1
-        return res
+                    g[j].append(i)
+        ans = 0
+        for j in g:
+            i1 = g[j][0]
+            if rows[i1] != target:
+                continue
+            if len(g[j]) == rows[i1] and all(picture[i2] == picture[i1] for i2 in g[j]):
+                ans += target
+        return ans

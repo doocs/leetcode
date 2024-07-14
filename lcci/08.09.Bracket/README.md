@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 08.09. 括号](https://leetcode.cn/problems/bracket-lcci)
 
 [English Version](/lcci/08.09.Bracket/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>括号。设计一种算法，打印n对括号的所有合法的（例如，开闭一一对应）组合。</p>
 
 <p>说明：解集不能包含重复的子集。</p>
@@ -21,7 +30,11 @@
 ]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS + 剪枝
 
@@ -37,6 +50,8 @@
 时间复杂度 $O(2^{n\times 2} \times n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +69,8 @@ class Solution:
         dfs(0, 0, '')
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -101,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateParenthesis(n int) []string {
 	ans := []string{}
@@ -121,6 +142,8 @@ func generateParenthesis(n int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generateParenthesis(n: number): string[] {
     function dfs(l, r, t) {
@@ -139,6 +162,8 @@ function generateParenthesis(n: number): string[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +192,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -190,6 +217,35 @@ var generateParenthesis = function (n) {
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var ans: [String] = []
+    private var n: Int = 0
+
+    func generateParenthesis(_ n: Int) -> [String] {
+        self.n = n
+        dfs(l: 0, r: 0, t: "")
+        return ans
+    }
+
+    private func dfs(l: Int, r: Int, t: String) {
+        if l > n || r > n || l < r {
+            return
+        }
+        if l == n && r == n {
+            ans.append(t)
+            return
+        }
+        dfs(l: l + 1, r: r, t: t + "(")
+        dfs(l: l, r: r + 1, t: t + ")")
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

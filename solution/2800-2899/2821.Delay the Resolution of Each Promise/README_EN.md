@@ -1,19 +1,29 @@
-# [2821. Delay the Resolution of Each Promise](https://leetcode.com/problems/delay-the-resolution-of-each-promise)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README_EN.md
+---
+
+<!-- problem:start -->
+
+# [2821. Delay the Resolution of Each Promise 🔒](https://leetcode.com/problems/delay-the-resolution-of-each-promise)
 
 [中文文档](/solution/2800-2899/2821.Delay%20the%20Resolution%20of%20Each%20Promise/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array&nbsp;<code>functions</code>&nbsp;and a number <code>ms</code>, return a new&nbsp;array of functions.</p>
 
 <ul>
 	<li><code>functions</code>&nbsp;is an array of functions that return promises.</li>
-	<li><code>ms</code>&nbsp;represents the delay duration in milliseconds. It determines the amount of time to wait before resolving each promise in the new array.</li>
+	<li><code>ms</code>&nbsp;represents the delay duration in milliseconds. It determines the amount of time to wait before resolving or rejecting each promise in the new array.</li>
 </ul>
 
-<p>Each function in the new array should return a promise that resolves after a delay of <code>ms</code>&nbsp;milliseconds, preserving the order of the original <code>functions</code>&nbsp;array. The <code>delayAll</code> function should ensure&nbsp;that each promise from <code>functions</code> is executed with a delay, forming the new array of functions returning delayed promises.</p>
+<p>Each function in the new array should return a promise that resolves or rejects after an additional delay of <code>ms</code>&nbsp;milliseconds, preserving the order of the original <code>functions</code>&nbsp;array.</p>
+
+<p>The&nbsp;<code>delayAll</code>&nbsp;function should ensure&nbsp;that each promise from&nbsp;<code>functions</code>&nbsp;is executed with a delay, forming the new array of functions returning delayed promises.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -41,6 +51,18 @@ ms = 70
 <strong>Explanation:</strong> The promises from the array would have resolved after 50 ms and 80 ms, but they were delayed by 70 ms, thus 50 ms + 70 ms = 120 ms and 80 ms + 70 ms = 150 ms.
 </pre>
 
+<p><strong class="example">Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> 
+functions = [
+&nbsp;   () =&gt; new Promise((resolve, reject) =&gt; setTimeout(reject, 20)), 
+&nbsp;   () =&gt; new Promise((resolve, reject) =&gt; setTimeout(reject, 100))
+], 
+ms = 30
+<strong>Output: </strong>[50,130]
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -50,11 +72,17 @@ ms = 70
 	<li><code>1 &lt;= functions.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function delayAll(functions: Function[], ms: number): Function[] {
@@ -69,4 +97,6 @@ function delayAll(functions: Function[], ms: number): Function[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

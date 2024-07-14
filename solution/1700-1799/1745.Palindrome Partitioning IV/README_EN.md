@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README_EN.md
+rating: 1924
+source: Weekly Contest 226 Q4
+tags:
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1745. Palindrome Partitioning IV](https://leetcode.com/problems/palindrome-partitioning-iv)
 
 [中文文档](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md)
 
-<!-- tags:String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <code>true</code> <em>if it is possible to split the string</em> <code>s</code> <em>into three <strong>non-empty</strong> palindromic substrings. Otherwise, return </em><code>false</code>.​​​​​</p>
 
@@ -35,11 +48,17 @@
 	<li><code>s</code>​​​​​​ consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -55,6 +74,8 @@ class Solution:
                     return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkPartitioning(s string) bool {
@@ -132,4 +157,6 @@ func checkPartitioning(s string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

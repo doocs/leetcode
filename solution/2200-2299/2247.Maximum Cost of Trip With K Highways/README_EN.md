@@ -1,10 +1,23 @@
-# [2247. Maximum Cost of Trip With K Highways](https://leetcode.com/problems/maximum-cost-of-trip-with-k-highways)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README_EN.md
+tags:
+    - Bit Manipulation
+    - Graph
+    - Dynamic Programming
+    - Bitmask
+---
+
+<!-- problem:start -->
+
+# [2247. Maximum Cost of Trip With K Highways 🔒](https://leetcode.com/problems/maximum-cost-of-trip-with-k-highways)
 
 [中文文档](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README.md)
 
-<!-- tags:Bit Manipulation,Graph,Dynamic Programming,Bitmask -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A series of highways connect <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code>. You are given a 2D integer array <code>highways</code> where <code>highways[i] = [city1<sub>i</sub>, city2<sub>i</sub>, toll<sub>i</sub>]</code> indicates that there is a highway that connects <code>city1<sub>i</sub></code> and <code>city2<sub>i</sub></code>, allowing a car to go from <code>city1<sub>i</sub></code> to <code>city2<sub>i</sub></code> and <strong>vice versa</strong> for a cost of <code>toll<sub>i</sub></code>.</p>
 
@@ -49,11 +62,35 @@ Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit th
 	<li>There are no duplicate highways.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: State Compression Dynamic Programming
+
+We notice that the problem requires exactly $k$ roads to be passed, and each city can only be visited once. The number of cities is $n$, so we can pass at most $n - 1$ roads. Therefore, if $k \ge n$, we cannot meet the requirements of the problem, and we can directly return $-1$.
+
+In addition, we can also find that the number of cities $n$ does not exceed $15$, which suggests that we can consider using the method of state compression dynamic programming to solve this problem. We use a binary number of length $n$ to represent the cities that have been passed, where the $i$-th bit is $1$ indicates that the $i$-th city has been passed, and $0$ indicates that the $i$-th city has not been passed yet.
+
+We use $f[i][j]$ to represent the maximum travel cost when the cities that have been passed are $i$ and the last city passed is $j$. Initially, $f[2^i][i]=0$, and the rest $f[i][j]=-\infty$.
+
+Consider how $f[i][j]$ transitions. For $f[i]$, we enumerate all cities $j$. If the $j$-th bit of $i$ is $1$, then we can reach city $j$ from other city $h$ through the road, at this time the value of $f[i][j]$ is the maximum value of $f[i][h]+cost(h, j)$, where $cost(h, j)$ represents the travel cost from city $h$ to city $j$. Therefore, we can get the state transition equation:
+
+$$
+f[i][j]=\max_{h \in \text{city}}\{f[i \backslash j][h]+cost(h, j)\}
+$$
+
+where $i \backslash j$ represents changing the $j$-th bit of $i$ to $0$.
+
+After calculating $f[i][j]$, we judge whether the number of cities passed is $k+1$, that is, whether the number of $1$s in the binary representation of $i$ is $k+1$. If so, we update the answer as $ans = \max(ans, f[i][j])$.
+
+The time complexity is $O(2^n \times n^2)$, and the space complexity is $O(2^n \times n)$, where $n$ represents the number of cities.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +115,8 @@ class Solution:
                     ans = max(ans, f[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +198,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumCost(n int, highways [][]int, k int) int {
@@ -198,6 +241,8 @@ func maximumCost(n int, highways [][]int, k int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumCost(n: number, highways: number[][], k: number): number {
@@ -245,4 +290,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

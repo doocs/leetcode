@@ -1,5 +1,5 @@
-use std::collections::BinaryHeap;
 use std::cmp::Reverse;
+use std::collections::BinaryHeap;
 
 impl Solution {
     pub fn number_game(nums: Vec<i32>) -> Vec<i32> {

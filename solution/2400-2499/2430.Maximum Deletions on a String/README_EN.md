@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README_EN.md
+rating: 2101
+source: Weekly Contest 313 Q4
+tags:
+    - String
+    - Dynamic Programming
+    - String Matching
+    - Hash Function
+    - Rolling Hash
+---
+
+<!-- problem:start -->
+
 # [2430. Maximum Deletions on a String](https://leetcode.com/problems/maximum-deletions-on-a-string)
 
 [中文文档](/solution/2400-2499/2430.Maximum%20Deletions%20on%20a%20String/README.md)
 
-<!-- tags:String,Dynamic Programming,String Matching,Hash Function,Rolling Hash -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can:</p>
 
@@ -59,7 +75,11 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -78,6 +98,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def deleteString(self, s: str) -> int:
@@ -94,6 +116,8 @@ class Solution:
         n = len(s)
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -169,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -204,6 +232,8 @@ func deleteString(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function deleteString(s: string): number {
     const n = s.length;
@@ -229,6 +259,10 @@ function deleteString(s: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Dynamic Programming
 
 We can change the memoization search in Solution 1 to dynamic programming. Define $f[i]$ to represent the maximum number of operations needed to delete all characters from $s[i..]$. Initially, $f[i]=1$, and the answer is $f[0]$.
@@ -238,6 +272,8 @@ We can enumerate $i$ from back to front. For each $i$, we enumerate the length o
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -256,6 +292,8 @@ class Solution:
                     f[i] = max(f[i], f[i + j] + 1)
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -282,6 +320,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -311,6 +351,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func deleteString(s string) int {
 	n := len(s)
@@ -338,6 +380,8 @@ func deleteString(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function deleteString(s: string): number {
     const n = s.length;
@@ -355,4 +399,6 @@ function deleteString(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

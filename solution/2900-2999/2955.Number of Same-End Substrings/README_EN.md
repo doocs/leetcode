@@ -1,10 +1,24 @@
-# [2955. Number of Same-End Substrings](https://leetcode.com/problems/number-of-same-end-substrings)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Counting
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
+# [2955. Number of Same-End Substrings 🔒](https://leetcode.com/problems/number-of-same-end-substrings)
 
 [中文文档](/solution/2900-2999/2955.Number%20of%20Same-End%20Substrings/README.md)
 
-<!-- tags:Array,Hash Table,String,Counting,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>, and a 2D array of integers <code>queries</code>, where <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> indicates a substring of <code>s</code> starting from the index <code>l<sub>i</sub></code> and ending at the index <code>r<sub>i</sub></code> (both <strong>inclusive</strong>), i.e. <code>s[l<sub>i</sub>..r<sub>i</sub>]</code>.</p>
 
@@ -46,7 +60,11 @@
 	<li><code>0 &lt;= l<sub>i</sub> &lt;= r<sub>i</sub> &lt; s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Enumeration
 
@@ -55,6 +73,8 @@ We can preprocess the prefix sum for each letter and record it in the array $cnt
 The time complexity is $O((n + m) \times |\Sigma|)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ and $m$ are the lengths of the string $s$ and the number of queries, respectively, and $\Sigma$ represents the set of letters appearing in the string $s$, in this problem $|\Sigma|=26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +95,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sameEndSubstringCount(s string, queries [][]int) []int {
@@ -158,6 +184,8 @@ func sameEndSubstringCount(s string, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     const n: number = s.length;
@@ -179,6 +207,8 @@ function sameEndSubstringCount(s: string, queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -209,4 +239,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

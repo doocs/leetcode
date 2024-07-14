@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0819.Most%20Common%20Word/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [819. Most Common Word](https://leetcode.com/problems/most-common-word)
 
 [中文文档](/solution/0800-0899/0819.Most%20Common%20Word/README.md)
 
-<!-- tags:Array,Hash Table,String,Counting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>paragraph</code> and a string array of the banned words <code>banned</code>, return <em>the most frequent word that is not banned</em>. It is <strong>guaranteed</strong> there is <strong>at least one word</strong> that is not banned, and that the answer is <strong>unique</strong>.</p>
 
@@ -42,11 +55,17 @@ and that &quot;hit&quot; isn&#39;t the answer even though it occurs more because
 	<li><code>banned[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -55,6 +74,8 @@ class Solution:
         p = Counter(re.findall('[a-z]+', paragraph.lower()))
         return next(word for word, _ in p.most_common() if word not in s)
 ```
+
+#### Java
 
 ```java
 import java.util.regex.Matcher;
@@ -90,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mostCommonWord(paragraph string, banned []string) string {
@@ -152,6 +177,8 @@ func mostCommonWord(paragraph string, banned []string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function mostCommonWord(paragraph: string, banned: string[]): string {
     const s = paragraph.toLocaleLowerCase();
@@ -167,8 +194,10 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
 }
 ```
 
+#### Rust
+
 ```rust
-use std::collections::{ HashMap, HashSet };
+use std::collections::{HashMap, HashSet};
 impl Solution {
     pub fn most_common_word(mut paragraph: String, banned: Vec<String>) -> String {
         paragraph.make_ascii_lowercase();
@@ -184,11 +213,14 @@ impl Solution {
         map.into_iter()
             .max_by_key(|&(_, v)| v)
             .unwrap()
-            .0.to_string()
+            .0
+            .to_string()
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

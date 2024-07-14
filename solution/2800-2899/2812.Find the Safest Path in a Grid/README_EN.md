@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README_EN.md
+rating: 2153
+source: Weekly Contest 357 Q3
+tags:
+    - Breadth-First Search
+    - Union Find
+    - Array
+    - Binary Search
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [2812. Find the Safest Path in a Grid](https://leetcode.com/problems/find-the-safest-path-in-a-grid)
 
 [中文文档](/solution/2800-2899/2812.Find%20the%20Safest%20Path%20in%20a%20Grid/README.md)
 
-<!-- tags:Breadth-First Search,Union Find,Array,Binary Search,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> 2D matrix <code>grid</code> of size <code>n x n</code>, where <code>(r, c)</code> represents:</p>
 
@@ -63,7 +79,11 @@ It can be shown that there are no other paths with a higher safeness factor.
 	<li>There is at least one thief in the <code>grid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS + Sorting + Union-Find
 
@@ -72,6 +92,8 @@ We can first find out the positions of all thieves, and then start multi-source 
 The time complexity is $O(n^2 \times \log n)$, and the space complexity $O(n^2)$. Where $n$ is the size of the grid.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -130,6 +152,8 @@ class Solution:
                 return int(d)
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -220,6 +244,8 @@ class UnionFind {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -300,6 +326,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type unionFind struct {
@@ -392,6 +420,8 @@ func maximumSafenessFactor(grid [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class UnionFind {
     private p: number[];
@@ -475,6 +505,8 @@ function maximumSafenessFactor(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::VecDeque;
 impl Solution {
@@ -484,11 +516,11 @@ impl Solution {
         }
         vis[i][j] = true;
         let n = g.len();
-        (i == n - 1 && j == n - 1) ||
-            (i != 0 && Self::dfs(i - 1, j, v, g, vis)) ||
-            (i != n - 1 && Self::dfs(i + 1, j, v, g, vis)) ||
-            (j != 0 && Self::dfs(i, j - 1, v, g, vis)) ||
-            (j != n - 1 && Self::dfs(i, j + 1, v, g, vis))
+        (i == n - 1 && j == n - 1)
+            || (i != 0 && Self::dfs(i - 1, j, v, g, vis))
+            || (i != n - 1 && Self::dfs(i + 1, j, v, g, vis))
+            || (j != 0 && Self::dfs(i, j - 1, v, g, vis))
+            || (j != n - 1 && Self::dfs(i, j + 1, v, g, vis))
     }
 
     pub fn maximum_safeness_factor(grid: Vec<Vec<i32>>) -> i32 {
@@ -543,9 +575,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function maximumSafenessFactor(grid: number[][]): number {
@@ -607,4 +645,6 @@ function maximumSafenessFactor(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

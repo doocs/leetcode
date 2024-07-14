@@ -5,16 +5,23 @@ class Solution {
      * @return Integer[]
      */
     function intersect($nums1, $nums2) {
-        $rs = [];
-        for ($i = 0; $i < count($nums1); $i++) {
-            $hashtable[$nums1[$i]] += 1;
-        }
-        for ($j = 0; $j < count($nums2); $j++) {
-            if (isset($hashtable[$nums2[$j]]) && $hashtable[$nums2[$j]] > 0) {
-                array_push($rs, $nums2[$j]);
-                $hashtable[$nums2[$j]] -= 1;
+        $cnt = [];
+        foreach ($nums1 as $x) {
+            if (isset($cnt[$x])) {
+                $cnt[$x]++;
+            } else {
+                $cnt[$x] = 1;
             }
         }
-        return $rs;
+
+        $ans = [];
+        foreach ($nums2 as $x) {
+            if (isset($cnt[$x]) && $cnt[$x] > 0) {
+                $ans[] = $x;
+                $cnt[$x]--;
+            }
+        }
+
+        return $ans;
     }
 }

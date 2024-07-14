@@ -1,10 +1,26 @@
-# [255. Verify Preorder Sequence in Binary Search Tree](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Binary Search Tree
+    - Recursion
+    - Array
+    - Binary Tree
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
+# [255. Verify Preorder Sequence in Binary Search Tree 🔒](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree)
 
 [中文文档](/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README.md)
 
-<!-- tags:Stack,Tree,Binary Search Tree,Recursion,Array,Binary Tree,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>unique</strong> integers <code>preorder</code>, return <code>true</code> <em>if it is the correct preorder traversal sequence of a binary search tree</em>.</p>
 
@@ -35,11 +51,17 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do it using only constant space complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +76,8 @@ class Solution:
             stk.append(x)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +98,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -92,6 +118,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func verifyPreorder(preorder []int) bool {
@@ -113,4 +141,6 @@ func verifyPreorder(preorder []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

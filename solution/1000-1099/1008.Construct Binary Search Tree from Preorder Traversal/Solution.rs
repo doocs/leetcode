@@ -16,27 +16,23 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(
         preorder: &Vec<i32>,
         next: &Vec<usize>,
         left: usize,
-        right: usize
+        right: usize,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if left >= right {
             return None;
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: preorder[left],
-                    left: Self::dfs(preorder, next, left + 1, next[left]),
-                    right: Self::dfs(preorder, next, next[left], right),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: preorder[left],
+            left: Self::dfs(preorder, next, left + 1, next[left]),
+            right: Self::dfs(preorder, next, next[left], right),
+        })))
     }
 
     pub fn bst_from_preorder(preorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

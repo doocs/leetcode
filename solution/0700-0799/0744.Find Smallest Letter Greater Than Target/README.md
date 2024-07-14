@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0744.Find%20Smallest%20Letter%20Greater%20Than%20Target/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [744. 寻找比目标字母大的最小字母](https://leetcode.cn/problems/find-smallest-letter-greater-than-target)
 
 [English Version](/solution/0700-0799/0744.Find%20Smallest%20Letter%20Greater%20Than%20Target/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符数组 <code>letters</code>，该数组按<strong>非递减顺序</strong>排序，以及一个字符 <code>target</code>。<code>letters</code>&nbsp;里<strong>至少有两个不同</strong>的字符。</p>
 
@@ -47,108 +56,104 @@
 	<li><code>target</code> 是一个小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一：遍历
+<!-- solution:start -->
 
-遍历 `letters`，返回第一个满足 `letters[i] > target` 条件的元素。若是遍历结束还未找到，则返回 `letters[0]`。
+### 方法一：二分查找
 
-> 至少存在两个不同的字母，所以不会返回 `target`。
+由于 $\text{letters}$ 是按照非递减顺序排序的，所以我们可以使用二分查找来找到大于 `target` 的最小字符。
 
-时间复杂度：$O(N)$。
+我们定义二分查找的左边界 $l = 0$，右边界 $r = n$。对于每一次二分查找，我们计算中间位置 $mid = (l + r) / 2$，如果 $letters[mid] > \text{target}$，则说明我们需要在左半部分继续查找，即 $r = mid$；否则我们需要在右半部分继续查找，即 $l = mid + 1$。
+
+最后我们返回 $letters[l \mod n]$ 即可。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是 $\text{letters}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
-        left, right = 0, len(letters)
-        while left < right:
-            mid = (left + right) >> 1
-            if ord(letters[mid]) > ord(target):
-                right = mid
-            else:
-                left = mid + 1
-        return letters[left % len(letters)]
+        i = bisect_right(letters, ord(target), key=lambda c: ord(c))
+        return letters[i % len(letters)]
 ```
+
+#### Java
 
 ```java
 class Solution {
     public char nextGreatestLetter(char[] letters, char target) {
-        int left = 0, right = letters.length;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (letters[mid] > target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return letters[left % letters.length];
+        int i = Arrays.binarySearch(letters, (char) (target + 1));
+        i = i < 0 ? -i - 1 : i;
+        return letters[i % letters.length];
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
-        int left = 0, right = letters.size();
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (letters[mid] > target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return letters[left % letters.size()];
+        int i = upper_bound(letters.begin(), letters.end(), target) - letters.begin();
+        return letters[i % letters.size()];
     }
 };
 ```
 
+#### Go
+
 ```go
 func nextGreatestLetter(letters []byte, target byte) byte {
-	left, right := 0, len(letters)
-	for left < right {
-		mid := (left + right) >> 1
-		if letters[mid] > target {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return letters[left%len(letters)]
+	i := sort.Search(len(letters), func(i int) bool { return letters[i] > target })
+	return letters[i%len(letters)]
 }
 ```
 
+#### TypeScript
+
 ```ts
 function nextGreatestLetter(letters: string[], target: string): string {
-    const n = letters.length;
-    let left = 0;
-    let right = letters.length;
-    while (left < right) {
-        let mid = (left + right) >>> 1;
+    let [l, r] = [0, letters.length];
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (letters[mid] > target) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return letters[left % n];
+    return letters[l % letters.length];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        *letters
-            .iter()
-            .find(|&&c| c > target)
-            .unwrap_or(&letters[0])
+        let mut l = 0;
+        let mut r = letters.len();
+        while l < r {
+            let mid = l + (r - l) / 2;
+            if letters[mid] > target {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        letters[l % letters.len()]
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -158,67 +163,23 @@ class Solution {
      * @return String
      */
     function nextGreatestLetter($letters, $target) {
-        $left = 0;
-        $right = count($letters);
-        while ($left <= $right) {
-            $mid = floor($left + ($right - $left) / 2);
+        $l = 0;
+        $r = count($letters);
+        while ($l < $r) {
+            $mid = $l + $r >> 1;
             if ($letters[$mid] > $target) {
-                $right = $mid - 1;
+                $r = $mid;
             } else {
-                $left = $mid + 1;
+                $l = $mid + 1;
             }
         }
-        if ($left >= count($letters)) {
-            return $letters[0];
-        } else {
-            return $letters[$left];
-        }
+        return $letters[$l % count($letters)];
     }
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二：二分
+<!-- solution:end -->
 
-利用 `letters` 有序的特点，可以使用二分来快速查找。
-
-在返回值方面相比传统二分不一样，需要对结果进行取余操作：`letters[l % n]`。
-
-为什么？如题描述，字母是重复出现的，当索引过界时，不是没有结果，而是需要返回前面的元素。
-
-一个容易理解的版本，使用减法：
-
-```c
-if (l < n) {
-    return letters[l];
-}
-return letters[l - n];
-```
-
-时间复杂度：$O(logN)$。
-
-<!-- tabs:start -->
-
-```rust
-impl Solution {
-    pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
-        let n = letters.len();
-        let mut left = 0;
-        let mut right = n;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if letters[mid] > target {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        letters[left % n]
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

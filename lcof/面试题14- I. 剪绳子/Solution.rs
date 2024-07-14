@@ -1,9 +1,13 @@
 impl Solution {
     pub fn cutting_rope(n: i32) -> i32 {
-        if n < 4 {
-            return n - 1;
+        let n = n as usize;
+        let mut f = vec![0; n + 1];
+        f[1] = 1;
+        for i in 2..=n {
+            for j in 1..i {
+                f[i] = f[i].max(f[i - j] * j).max((i - j) * j);
+            }
         }
-        let count = (n - 2) / 3;
-        (3i32).pow(count as u32) * (n - count * 3)
+        f[n] as i32
     }
 }

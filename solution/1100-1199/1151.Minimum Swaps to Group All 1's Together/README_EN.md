@@ -1,10 +1,23 @@
-# [1151. Minimum Swaps to Group All 1's Together](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README_EN.md
+rating: 1508
+source: Biweekly Contest 6 Q2
+tags:
+    - Array
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
+# [1151. Minimum Swaps to Group All 1's Together 🔒](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together)
 
 [中文文档](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README.md)
 
-<!-- tags:Array,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a&nbsp;binary array <code>data</code>, return&nbsp;the minimum number of swaps required to group all <code>1</code>&rsquo;s present in the array together in <strong>any place</strong> in the array.</p>
 
@@ -45,7 +58,11 @@ The minimum is 1.
 	<li><code>data[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window
 
@@ -55,18 +72,21 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minSwaps(self, data: List[int]) -> int:
         k = data.count(1)
-        t = sum(data[:k])
-        mx = t
+        mx = t = sum(data[:k])
         for i in range(k, len(data)):
             t += data[i]
             t -= data[i - k]
             mx = max(mx, t)
         return k - mx
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSwaps(data []int) int {
 	k := 0
@@ -133,6 +157,8 @@ func minSwaps(data []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minSwaps(data: number[]): number {
     const k = data.reduce((acc, cur) => acc + cur, 0);
@@ -146,6 +172,26 @@ function minSwaps(data: number[]): number {
 }
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public int MinSwaps(int[] data) {
+        int k = data.Count(x => x == 1);
+        int t = data.Take(k).Sum();
+        int mx = t;
+        for (int i = k; i < data.Length; ++i) {
+            t += data[i];
+            t -= data[i - k];
+            mx = Math.Max(mx, t);
+        }
+        return k - mx;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

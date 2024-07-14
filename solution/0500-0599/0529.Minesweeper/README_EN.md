@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0529.Minesweeper/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [529. Minesweeper](https://leetcode.com/problems/minesweeper)
 
 [中文文档](/solution/0500-0599/0529.Minesweeper/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Let&#39;s play the minesweeper game (<a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)" target="_blank">Wikipedia</a>, <a href="http://minesweeperonline.com" target="_blank">online game</a>)!</p>
 
@@ -58,11 +71,17 @@
 	<li><code>board[click<sub>r</sub>][click<sub>c</sub>]</code> is either <code>&#39;M&#39;</code> or <code>&#39;E&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +109,8 @@ class Solution:
             dfs(i, j)
         return board
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +156,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -175,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func updateBoard(board [][]byte, click []int) [][]byte {
 	m, n := len(board), len(board[0])
@@ -212,6 +237,8 @@ func updateBoard(board [][]byte, click []int) [][]byte {
 	return board
 }
 ```
+
+#### TypeScript
 
 ```ts
 function updateBoard(board: string[][], click: number[]): string[][] {
@@ -253,4 +280,6 @@ function updateBoard(board: string[][], click: number[]): string[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

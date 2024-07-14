@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README_EN.md
+rating: 1850
+source: Biweekly Contest 28 Q3
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Dynamic Programming
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [1477. Find Two Non-overlapping Sub-arrays Each With Target Sum](https://leetcode.com/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum)
 
 [中文文档](/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README.md)
 
-<!-- tags:Array,Hash Table,Binary Search,Dynamic Programming,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>arr</code> and an integer <code>target</code>.</p>
 
@@ -46,11 +62,17 @@
 	<li><code>1 &lt;= target &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +91,8 @@ class Solution:
             d[s] = i
         return -1 if ans > n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSumOfLengths(arr []int, target int) int {
 	d := map[int]int{0: 0}
@@ -150,4 +178,6 @@ func minSumOfLengths(arr []int, target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README.md
+tags:
+    - 栈
+    - 链表
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [445. 两数相加 II](https://leetcode.cn/problems/add-two-numbers-ii)
 
 [English Version](/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README_EN.md)
 
-<!-- tags:栈,链表,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>非空 </strong>链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储一位数字。将这两数相加会返回一个新的链表。</p>
 
@@ -51,13 +61,19 @@
 
 <p><strong>进阶：</strong>如果输入链表不能翻转该如何解决？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：翻转
 
 手动翻转链表 `l1` 与 `l2`，将此题转换为 [2. 两数相加](https://leetcode.cn/problems/add-two-numbers/)，相加过程一致。对于最后返回的结果链表也需要进行翻转，共计三次。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -86,6 +102,8 @@ class Solution:
             dummy.next = ListNode(val, dummy.next)
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -162,6 +182,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -200,6 +222,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -235,6 +259,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -266,7 +292,7 @@ impl Solution {
 
     pub fn add_two_numbers(
         mut l1: Option<Box<ListNode>>,
-        mut l2: Option<Box<ListNode>>
+        mut l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         l1 = Self::reverse(l1);
         l2 = Self::reverse(l2);
@@ -293,6 +319,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：栈
 
 我们可以使用两个栈 $s1$ 和 $s2$ 分别存储两个链表元素，然后同时遍历两个栈，并使用变量 $carry$ 表示当前是否有进位。
@@ -304,6 +334,8 @@ impl Solution {
 时间复杂度 $O(\max(m, n))$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两个链表的长度。
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -334,7 +366,7 @@ impl Solution {
 
     pub fn add_two_numbers(
         l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>
+        l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         let mut s1 = Self::create_stack(l1);
         let mut s2 = Self::create_stack(l2);
@@ -348,12 +380,10 @@ impl Solution {
             if let Some(val) = s2.pop() {
                 carry += val;
             }
-            dummy.next = Some(
-                Box::new(ListNode {
-                    val: carry % 10,
-                    next: dummy.next.take(),
-                })
-            );
+            dummy.next = Some(Box::new(ListNode {
+                val: carry % 10,
+                next: dummy.next.take(),
+            }));
             carry /= 10;
         }
         dummy.next.take()
@@ -363,4 +393,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

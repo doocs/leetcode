@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README_EN.md
+rating: 1314
+source: Biweekly Contest 102 Q2
+tags:
+    - Array
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [2640. Find the Score of All Prefixes of an Array](https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array)
 
 [中文文档](/solution/2600-2699/2640.Find%20the%20Score%20of%20All%20Prefixes%20of%20an%20Array/README.md)
 
-<!-- tags:Array,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>We define the <strong>conversion array</strong> <code>conver</code> of an array <code>arr</code> as follows:</p>
 
@@ -52,11 +65,23 @@ For the prefix [1, 1, 2, 4, 8, 16], the conversion array is [2, 2, 4, 8, 16, 32]
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Prefix Sum
+
+We use a variable $mx$ to record the maximum value of the first $i$ elements in the array $nums$, and use an array $ans[i]$ to record the score of the first $i$ elements in the array $nums$.
+
+Next, we traverse the array $nums$. For each element $nums[i]$, we update $mx$, i.e., $mx = \max(mx, nums[i])$, and then update $ans[i]$. If $i = 0$, then $ans[i] = nums[i] + mx$, otherwise $ans[i] = nums[i] + mx + ans[i - 1]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +94,8 @@ class Solution:
             ans[i] = x + mx + (0 if i == 0 else ans[i - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findPrefixScore(nums []int) []int64 {
 	n := len(nums)
@@ -117,6 +148,8 @@ func findPrefixScore(nums []int) []int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findPrefixScore(nums: number[]): number[] {
     const n = nums.length;
@@ -132,4 +165,6 @@ function findPrefixScore(nums: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

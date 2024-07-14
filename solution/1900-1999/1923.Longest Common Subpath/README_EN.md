@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md
+rating: 2661
+source: Weekly Contest 248 Q4
+tags:
+    - Array
+    - Binary Search
+    - Suffix Array
+    - Hash Function
+    - Rolling Hash
+---
+
+<!-- problem:start -->
+
 # [1923. Longest Common Subpath](https://leetcode.com/problems/longest-common-subpath)
 
 [中文文档](/solution/1900-1999/1923.Longest%20Common%20Subpath/README.md)
 
-<!-- tags:Array,Binary Search,Suffix Array,Hash Function,Rolling Hash -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a country of <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code>. In this country, there is a road connecting <b>every pair</b> of cities.</p>
 
@@ -53,11 +69,17 @@
 	<li>The same city is not listed multiple times consecutively in <code>paths[i]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +120,8 @@ class Solution:
                 r = mid - 1
         return l
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,4 +182,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

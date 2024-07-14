@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README.md
+rating: 1237
+source: 第 364 场周赛 Q1
+tags:
+    - 贪心
+    - 数学
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2864. 最大二进制奇数](https://leetcode.cn/problems/maximum-odd-binary-number)
 
 [English Version](/solution/2800-2899/2864.Maximum%20Odd%20Binary%20Number/README_EN.md)
 
-<!-- tags:贪心,数学,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>二进制</strong> 字符串 <code>s</code> ，其中至少包含一个 <code>'1'</code> 。</p>
 
@@ -44,7 +56,11 @@
 	<li><code>s</code> 中至少包含一个 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -54,6 +70,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumOddBinaryNumber(self, s: str) -> str:
@@ -61,37 +79,30 @@ class Solution:
         return "1" * (cnt - 1) + (len(s) - cnt) * "0" + "1"
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String maximumOddBinaryNumber(String s) {
-        int cnt = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '1') {
-                ++cnt;
-            }
-        }
+        int cnt = s.length() - s.replace("1", "").length();
         return "1".repeat(cnt - 1) + "0".repeat(s.length() - cnt) + "1";
     }
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     string maximumOddBinaryNumber(string s) {
-        int cnt = count_if(s.begin(), s.end(), [](char c) { return c == '1'; });
-        string ans;
-        for (int i = 1; i < cnt; ++i) {
-            ans.push_back('1');
-        }
-        for (int i = 0; i < s.size() - cnt; ++i) {
-            ans.push_back('0');
-        }
-        ans.push_back('1');
-        return ans;
+        int cnt = count(s.begin(), s.end(), '1');
+        return string(cnt - 1, '1') + string(s.size() - cnt, '0') + '1';
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumOddBinaryNumber(s string) string {
@@ -100,16 +111,28 @@ func maximumOddBinaryNumber(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumOddBinaryNumber(s: string): string {
-    let cnt = 0;
-    for (const c of s) {
-        cnt += c === '1' ? 1 : 0;
-    }
+    const cnt = s.length - s.replace(/1/g, '').length;
     return '1'.repeat(cnt - 1) + '0'.repeat(s.length - cnt) + '1';
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_odd_binary_number(s: String) -> String {
+        let cnt = s.chars().filter(|&c| c == '1').count();
+        "1".repeat(cnt - 1) + &"0".repeat(s.len() - cnt) + "1"
+    }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

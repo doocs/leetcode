@@ -14,24 +14,25 @@ func Constructor(root *TreeNode) CBTInserter {
 	q := []*TreeNode{root}
 	tree := []*TreeNode{}
 	for len(q) > 0 {
-		node := q[0]
-		tree = append(tree, node)
-		q = q[1:]
-		if node.Left != nil {
-			q = append(q, node.Left)
-		}
-		if node.Right != nil {
-			q = append(q, node.Right)
+		for i := len(q); i > 0; i-- {
+			node := q[0]
+			q = q[1:]
+			tree = append(tree, node)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
 		}
 	}
 	return CBTInserter{tree}
 }
 
 func (this *CBTInserter) Insert(val int) int {
-	pid := (len(this.tree) - 1) >> 1
-	node := &TreeNode{Val: val}
+	p := this.tree[(len(this.tree)-1)/2]
+	node := &TreeNode{val, nil, nil}
 	this.tree = append(this.tree, node)
-	p := this.tree[pid]
 	if p.Left == nil {
 		p.Left = node
 	} else {

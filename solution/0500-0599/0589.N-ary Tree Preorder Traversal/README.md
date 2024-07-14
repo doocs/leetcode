@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+---
+
+<!-- problem:start -->
+
 # [589. N 叉树的前序遍历](https://leetcode.cn/problems/n-ary-tree-preorder-traversal)
 
 [English Version](/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/README_EN.md)
 
-<!-- tags:栈,树,深度优先搜索 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 n&nbsp;叉树的根节点 <meta charset="UTF-8" />&nbsp;<code>root</code>&nbsp;，返回 <em>其节点值的<strong> 前序遍历</strong></em> 。</p>
 
@@ -45,7 +55,11 @@
 
 <p><strong>进阶：</strong>递归法很简单，你可以使用迭代法完成此题吗?</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -54,6 +68,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -78,6 +94,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -119,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -159,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -183,6 +205,8 @@ func preorder(root *Node) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -212,6 +236,8 @@ function preorder(root: Node | null): number[] {
     return ans;
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -247,6 +273,10 @@ int* preorder(struct Node* root, int* returnSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：迭代（栈实现）
 
 我们也可以用迭代的方法来解决这个问题。
@@ -256,6 +286,8 @@ int* preorder(struct Node* root, int* returnSize) {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -280,6 +312,8 @@ class Solution:
                 stk.append(child)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -322,6 +356,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -362,6 +398,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -388,6 +426,8 @@ func preorder(root *Node) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -421,4 +461,6 @@ function preorder(root: Node | null): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

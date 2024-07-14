@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree)
 
 [中文文档](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a binary tree, find its minimum depth.</p>
 
@@ -35,7 +48,11 @@
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -44,6 +61,8 @@ The termination condition for recursion is when the current node is null, at whi
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -62,6 +81,8 @@ class Solution:
             return 1 + self.minDepth(root.left)
         return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
 ```
+
+#### Java
 
 ```java
 /**
@@ -95,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -124,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -146,6 +171,8 @@ func minDepth(root *TreeNode) int {
 	return 1 + min(minDepth(root.Left), minDepth(root.Right))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -177,6 +204,8 @@ function minDepth(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -196,8 +225,8 @@ function minDepth(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if root.is_none() {
@@ -218,6 +247,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -245,6 +276,8 @@ var minDepth = function (root) {
     return 1 + Math.min(minDepth(root.left), minDepth(root.right));
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -276,6 +309,10 @@ int minDepth(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: BFS
 
 Use a queue to implement breadth-first search, initially adding the root node to the queue. Each time, take a node from the queue. If this node is a leaf node, directly return the current depth. If this node is not a leaf node, add all non-null child nodes of this node to the queue. Continue to search the next layer of nodes until a leaf node is found.
@@ -283,6 +320,8 @@ Use a queue to implement breadth-first search, initially adding the root node to
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -308,6 +347,8 @@ class Solution:
                 if node.right:
                     q.append(node.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -352,6 +393,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -392,6 +435,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -424,6 +469,8 @@ func minDepth(root *TreeNode) (ans int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -464,6 +511,8 @@ function minDepth(root: TreeNode | null): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -503,4 +552,6 @@ var minDepth = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

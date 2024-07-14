@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
+---
+
+<!-- problem:start -->
+
 # [149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line)
 
 [中文文档](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
 
-<!-- tags:Geometry,Array,Hash Table,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a point on the <strong>X-Y</strong> plane, return <em>the maximum number of points that lie on the same straight line</em>.</p>
 
@@ -33,11 +46,17 @@
 	<li>All the <code>points</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +76,8 @@ class Solution:
                 ans = max(ans, cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +105,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -108,6 +131,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPoints(points [][]int) int {
@@ -134,6 +159,8 @@ func maxPoints(points [][]int) int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -165,9 +192,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -189,6 +222,8 @@ class Solution:
                 ans = max(ans, cnt[k] + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -216,6 +251,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -241,6 +278,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxPoints(points [][]int) int {
@@ -274,4 +313,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

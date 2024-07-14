@@ -1,11 +1,11 @@
 class Solution {
     public int findClosest(String[] words, String word1, String word2) {
-        int i = 100000, j = -100000, ans = 100000;
+        final int inf = 1 << 29;
+        int i = inf, j = -inf, ans = inf;
         for (int k = 0; k < words.length; ++k) {
-            String word = words[k];
-            if (word.equals(word1)) {
+            if (words[k].equals(word1)) {
                 i = k;
-            } else if (word.equals(word2)) {
+            } else if (words[k].equals(word2)) {
                 j = k;
             }
             ans = Math.min(ans, Math.abs(i - j));

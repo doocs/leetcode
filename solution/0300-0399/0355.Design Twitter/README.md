@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0355.Design%20Twitter/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [355. 设计推特](https://leetcode.cn/problems/design-twitter)
 
 [English Version](/solution/0300-0399/0355.Design%20Twitter/README_EN.md)
 
-<!-- tags:设计,哈希表,链表,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近 <code>10</code> 条推文。</p>
 
@@ -52,11 +63,17 @@ twitter.getNewsFeed(1);  // 用户 1 获取推文应当返回一个列表，其�
 	<li><code>postTweet</code>、<code>getNewsFeed</code>、<code>follow</code> 和 <code>unfollow</code> 方法最多调用 <code>3 * 10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Twitter:
@@ -110,6 +127,8 @@ class Twitter:
 # obj.follow(followerId,followeeId)
 # obj.unfollow(followerId,followeeId)
 ```
+
+#### Java
 
 ```java
 class Twitter {
@@ -181,4 +200,6 @@ class Twitter {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

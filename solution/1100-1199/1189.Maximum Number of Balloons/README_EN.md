@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md
+rating: 1181
+source: Weekly Contest 154 Q1
+tags:
+    - Hash Table
+    - String
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [1189. Maximum Number of Balloons](https://leetcode.com/problems/maximum-number-of-balloons)
 
 [中文文档](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md)
 
-<!-- tags:Hash Table,String,Counting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>text</code>, you want to use the characters of <code>text</code> to form as many instances of the word <strong>&quot;balloon&quot;</strong> as possible.</p>
 
@@ -44,7 +58,11 @@
 	<li><code>text</code> consists of lower case English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -56,6 +74,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
@@ -64,6 +84,8 @@ class Solution:
         cnt['l'] >>= 1
         return min(cnt[c] for c in 'balon')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfBalloons(text string) int {
 	cnt := [26]int{}
@@ -121,6 +147,8 @@ func maxNumberOfBalloons(text string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxNumberOfBalloons(text: string): number {
     const cnt = new Array(26).fill(0);
@@ -130,6 +158,8 @@ function maxNumberOfBalloons(text: string): number {
     return Math.min(cnt[0], cnt[1], cnt[11] >> 1, cnt[14] >> 1, cnt[13]);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +196,8 @@ impl Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -196,4 +228,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

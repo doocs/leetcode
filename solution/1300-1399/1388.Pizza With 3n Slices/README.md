@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README.md
+rating: 2409
+source: 第 22 场双周赛 Q4
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [1388. 3n 块披萨](https://leetcode.cn/problems/pizza-with-3n-slices)
 
 [English Version](/solution/1300-1399/1388.Pizza%20With%203n%20Slices/README_EN.md)
 
-<!-- tags:贪心,数组,动态规划,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个披萨，它由 3n 块不同大小的部分组成，现在你和你的朋友们需要按照如下规则来分披萨：</p>
 
@@ -53,7 +66,11 @@
 	<li><code>1 &lt;= slices[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -86,6 +103,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSizeSlices(self, slices: List[int]) -> int:
@@ -103,6 +122,8 @@ class Solution:
         a, b = g(slices[:-1]), g(slices[1:])
         return max(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSizeSlices(slices []int) int {
 	n := len(slices) / 3
@@ -180,6 +205,8 @@ func maxSizeSlices(slices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSizeSlices(slices: number[]): number {
     const n = Math.floor(slices.length / 3);
@@ -203,4 +230,6 @@ function maxSizeSlices(slices: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

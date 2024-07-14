@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum)
 
 [中文文档](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md)
 
-<!-- tags:Greedy,Array,Binary Search,Dynamic Programming,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, split <code>nums</code> into <code>k</code> non-empty subarrays such that the largest sum of any subarray is <strong>minimized</strong>.</p>
 
@@ -40,7 +54,11 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 	<li><code>1 &lt;= k &lt;= min(50, nums.length)</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Search
 
@@ -53,6 +71,8 @@ How do we determine whether there is a way to split the array so that the maximu
 The time complexity is $O(n \times \log m)$, and the space complexity is $O(1)$. Here, $n$ and $m$ are the length of the array and the sum of all elements in the array, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +89,8 @@ class Solution:
         left, right = max(nums), sum(nums)
         return left + bisect_left(range(left, right + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func splitArray(nums []int, k int) int {
 	left, right := 0, 0
@@ -158,38 +184,75 @@ func splitArray(nums []int, k int) int {
 }
 ```
 
-```ts
-function splitArray(nums: number[], k: number): number {
-    let left = 0;
-    let right = 0;
-    for (const x of nums) {
-        left = Math.max(left, x);
-        right += x;
-    }
-    const check = (mx: number) => {
-        let s = 1 << 30;
-        let cnt = 0;
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var splitArray = function (nums, k) {
+    let l = Math.max(...nums);
+    let r = nums.reduce((a, b) => a + b);
+
+    const check = mx => {
+        let [s, cnt] = [0, 0];
         for (const x of nums) {
             s += x;
             if (s > mx) {
                 s = x;
-                ++cnt;
+                if (++cnt === k) return false;
             }
         }
-        return cnt <= k;
+        return true;
     };
-    while (left < right) {
-        const mid = (left + right) >> 1;
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
         if (check(mid)) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
+};
+```
+
+#### TypeScript
+
+```ts
+function splitArray(nums: number[], k: number): number {
+    let l = Math.max(...nums);
+    let r = nums.reduce((a, b) => a + b);
+
+    const check = (mx: number) => {
+        let [s, cnt] = [0, 0];
+        for (const x of nums) {
+            s += x;
+            if (s > mx) {
+                s = x;
+                if (++cnt === k) return false;
+            }
+        }
+        return true;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

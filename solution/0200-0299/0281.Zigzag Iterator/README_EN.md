@@ -1,10 +1,23 @@
-# [281. Zigzag Iterator](https://leetcode.com/problems/zigzag-iterator)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0281.Zigzag%20Iterator/README_EN.md
+tags:
+    - Design
+    - Queue
+    - Array
+    - Iterator
+---
+
+<!-- problem:start -->
+
+# [281. Zigzag Iterator 🔒](https://leetcode.com/problems/zigzag-iterator)
 
 [中文文档](/solution/0200-0299/0281.Zigzag%20Iterator/README.md)
 
-<!-- tags:Design,Queue,Array,Iterator -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two vectors of integers <code>v1</code> and <code>v2</code>, implement an iterator to return their elements alternately.</p>
 
@@ -62,11 +75,17 @@
 <strong>Output:</strong> [1,4,8,2,5,9,3,6,7]
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ZigzagIterator:
@@ -97,6 +116,8 @@ class ZigzagIterator:
 # i, v = ZigzagIterator(v1, v2), []
 # while i.hasNext(): v.append(i.next())
 ```
+
+#### Java
 
 ```java
 public class ZigzagIterator {
@@ -141,6 +162,8 @@ public class ZigzagIterator {
  * while (i.hasNext()) v[f()] = i.next();
  */
 ```
+
+#### Rust
 
 ```rust
 struct ZigzagIterator {
@@ -200,4 +223,6 @@ impl ZigzagIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

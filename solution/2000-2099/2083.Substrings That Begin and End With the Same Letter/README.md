@@ -1,12 +1,24 @@
-# [2083. 求以相同字母开头和结尾的子串总数](https://leetcode.cn/problems/substrings-that-begin-and-end-with-the-same-letter)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 计数
+    - 前缀和
+---
+
+<!-- problem:start -->
+
+# [2083. 求以相同字母开头和结尾的子串总数 🔒](https://leetcode.cn/problems/substrings-that-begin-and-end-with-the-same-letter)
 
 [English Version](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README_EN.md)
 
-<!-- tags:哈希表,数学,字符串,计数,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个仅由小写英文字母组成的，&nbsp; 下标从 <code>0</code> 开始的字符串 <code>s</code> 。返回 <code>s</code> 中以相同字符开头和结尾的子字符串总数。</p>
 
@@ -54,7 +66,11 @@
 	<li><code>s</code> 仅包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组或哈希表
 
@@ -63,6 +79,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串的长度，而 $C$ 为字符集的大小。本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +92,8 @@ class Solution:
             ans += cnt[c]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +125,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfSubstrings(s string) (ans int64) {
@@ -118,4 +142,6 @@ func numberOfSubstrings(s string) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,11 +1,12 @@
 class Solution {
     public int numWays(int n, int k) {
-        int[][] dp = new int[n][2];
-        dp[0][0] = k;
+        int[] f = new int[n];
+        int[] g = new int[n];
+        f[0] = k;
         for (int i = 1; i < n; ++i) {
-            dp[i][0] = (dp[i - 1][0] + dp[i - 1][1]) * (k - 1);
-            dp[i][1] = dp[i - 1][0];
+            f[i] = (f[i - 1] + g[i - 1]) * (k - 1);
+            g[i] = f[i - 1];
         }
-        return dp[n - 1][0] + dp[n - 1][1];
+        return f[n - 1] + g[n - 1];
     }
 }

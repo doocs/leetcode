@@ -1,10 +1,20 @@
-# [2985. Calculate Compressed Mean](https://leetcode.com/problems/calculate-compressed-mean)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2985. Calculate Compressed Mean 🔒](https://leetcode.com/problems/calculate-compressed-mean)
 
 [中文文档](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Orders</code></p>
 
@@ -52,13 +62,19 @@ The calculation is as follows:
  - Total orders: 500 + 1000 + 800 + 1000 = 3300 
  - Therefore, the average items per order is 8900 / 3300 = 2.70</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Summation
 
 We use the `SUM` function to calculate the total quantity of products and the total number of orders, then divide the total quantity by the total number of orders to get the average. Finally, we use the `ROUND` function to round the result to two decimal places.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -72,4 +88,6 @@ FROM Orders;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

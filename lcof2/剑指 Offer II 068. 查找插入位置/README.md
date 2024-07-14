@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20068.%20%E6%9F%A5%E6%89%BE%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 068. 查找插入位置](https://leetcode.cn/problems/N6YdxV)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个排序的整数数组 <code>nums</code>&nbsp;和一个整数目标值<code> target</code> ，请在数组中找到&nbsp;<code>target&nbsp;</code>，并返回其下标。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>
 
@@ -60,11 +67,17 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 35&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/search-insert-position/">https://leetcode.cn/problems/search-insert-position/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +91,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchInsert(nums []int, target int) int {
 	left, right := 0, len(nums)
@@ -127,6 +146,8 @@ func searchInsert(nums []int, target int) int {
 	return left
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -149,6 +170,28 @@ var searchInsert = function (nums, target) {
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func searchInsert(_ nums: [Int], _ target: Int) -> Int {
+        var left = 0
+        var right = nums.count
+        while left < right {
+            let mid = (left + right) / 2
+            if nums[mid] >= target {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+        return left
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

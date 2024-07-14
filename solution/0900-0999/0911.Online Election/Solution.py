@@ -1,24 +1,19 @@
 class TopVotedCandidate:
+
     def __init__(self, persons: List[int], times: List[int]):
-        mx = cur = 0
-        counter = Counter()
+        cnt = Counter()
         self.times = times
         self.wins = []
-        for i, p in enumerate(persons):
-            counter[p] += 1
-            if counter[p] >= mx:
-                mx, cur = counter[p], p
+        cur = 0
+        for p in persons:
+            cnt[p] += 1
+            if cnt[cur] <= cnt[p]:
+                cur = p
             self.wins.append(cur)
 
     def q(self, t: int) -> int:
-        left, right = 0, len(self.wins) - 1
-        while left < right:
-            mid = (left + right + 1) >> 1
-            if self.times[mid] <= t:
-                left = mid
-            else:
-                right = mid - 1
-        return self.wins[left]
+        i = bisect_right(self.times, t) - 1
+        return self.wins[i]
 
 
 # Your TopVotedCandidate object will be instantiated and called as such:

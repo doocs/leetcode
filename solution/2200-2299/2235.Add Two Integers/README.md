@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2235.Add%20Two%20Integers/README.md
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2235. 两整数相加](https://leetcode.cn/problems/add-two-integers)
 
 [English Version](/solution/2200-2299/2235.Add%20Two%20Integers/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你两个整数&nbsp;<code>num1</code> 和 <code>num2</code>，返回这两个整数的和。
 
@@ -36,7 +44,11 @@
 	<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用加法运算符
 
@@ -46,11 +58,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sum(self, num1: int, num2: int) -> int:
         return num1 + num2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -59,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -69,17 +87,23 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sum(num1 int, num2 int) int {
 	return num1 + num2
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sum(num1: number, num2: number): number {
     return num1 + num2;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -89,6 +113,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int sum(int num1, int num2) {
     return num1 + num2;
@@ -96,6 +122,10 @@ int sum(int num1, int num2) {
 ```
 
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### 方法二：位运算（不使用加法运算符）
 
@@ -123,6 +153,8 @@ int sum(int num1, int num2) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sum(self, num1: int, num2: int) -> int:
@@ -132,6 +164,8 @@ class Solution:
             num1, num2 = num1 ^ num2, carry
         return num1 if num1 < 0x80000000 else ~(num1 ^ 0xFFFFFFFF)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +179,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -160,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sum(num1 int, num2 int) int {
 	for num2 != 0 {
@@ -171,6 +209,8 @@ func sum(num1 int, num2 int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sum(num1: number, num2: number): number {
     while (num2) {
@@ -181,6 +221,8 @@ function sum(num1: number, num2: number): number {
     return num1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,4 +241,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

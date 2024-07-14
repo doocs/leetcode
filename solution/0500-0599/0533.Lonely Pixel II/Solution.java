@@ -1,50 +1,36 @@
 class Solution {
     public int findBlackPixel(char[][] picture, int target) {
-        int m = picture.length, n = picture[0].length;
+        int m = picture.length;
+        int n = picture[0].length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
         int[] rows = new int[m];
-        Map<Integer, List<Integer>> cols = new HashMap<>();
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (picture[i][j] == 'B') {
                     ++rows[i];
-                    cols.computeIfAbsent(j, k -> new ArrayList<>()).add(i);
+                    g[j].add(i);
                 }
             }
         }
-        boolean[][] t = new boolean[m][m];
-        for (int i = 0; i < m; ++i) {
-            for (int k = i; k < m; ++k) {
-                t[i][k] = i == k || all(picture[i], picture[k]);
-                t[k][i] = t[i][k];
+        int ans = 0;
+        for (int j = 0; j < n; ++j) {
+            if (g[j].isEmpty() || (rows[g[j].get(0)] != target)) {
+                continue;
             }
-        }
-        int res = 0;
-        for (int i = 0; i < m; ++i) {
-            if (rows[i] == target) {
-                for (int j = 0; j < n; ++j) {
-                    List<Integer> col = cols.get(j);
-                    if (col != null && col.size() == target) {
-                        boolean check = true;
-                        for (int k : col) {
-                            check = check && t[i][k];
-                        }
-                        if (check) {
-                            ++res;
-                        }
+            int i1 = g[j].get(0);
+            int ok = 0;
+            if (g[j].size() == rows[i1]) {
+                ok = target;
+                for (int i2 : g[j]) {
+                    if (!Arrays.equals(picture[i1], picture[i2])) {
+                        ok = 0;
+                        break;
                     }
                 }
             }
+            ans += ok;
         }
-        return res;
-    }
-
-    private boolean all(char[] row1, char[] row2) {
-        int n = row1.length;
-        for (int j = 0; j < n; ++j) {
-            if (row1[j] != row2[j]) {
-                return false;
-            }
-        }
-        return true;
+        return ans;
     }
 }

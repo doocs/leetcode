@@ -1,12 +1,28 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README.md
+rating: 2280
+source: 第 310 场周赛 Q4
+tags:
+    - 树状数组
+    - 线段树
+    - 队列
+    - 数组
+    - 分治
+    - 动态规划
+    - 单调队列
+---
+
+<!-- problem:start -->
+
 # [2407. 最长递增子序列 II](https://leetcode.cn/problems/longest-increasing-subsequence-ii)
 
 [English Version](/solution/2400-2499/2407.Longest%20Increasing%20Subsequence%20II/README_EN.md)
 
-<!-- tags:树状数组,线段树,队列,数组,分治,动态规划,单调队列 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -60,7 +76,11 @@
 	<li><code>1 &lt;= nums[i], k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：线段树
 
@@ -82,6 +102,8 @@
 时间复杂度 $O(n \times \log n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -141,6 +163,8 @@ class Solution:
             tree.modify(1, v, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +247,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class Node {
 public:
@@ -291,6 +317,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lengthOfLIS(nums []int, k int) int {
@@ -372,4 +400,6 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

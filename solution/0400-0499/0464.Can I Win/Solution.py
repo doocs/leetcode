@@ -1,15 +1,13 @@
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
         @cache
-        def dfs(state, t):
+        def dfs(mask: int, s: int) -> bool:
             for i in range(1, maxChoosableInteger + 1):
-                if (state >> i) & 1:
-                    continue
-                if t + i >= desiredTotal or not dfs(state | 1 << i, t + i):
-                    return True
+                if mask >> i & 1 ^ 1:
+                    if s + i >= desiredTotal or not dfs(mask | 1 << i, s + i):
+                        return True
             return False
 
-        s = (1 + maxChoosableInteger) * maxChoosableInteger // 2
-        if s < desiredTotal:
+        if (1 + maxChoosableInteger) * maxChoosableInteger // 2 < desiredTotal:
             return False
         return dfs(0, 0)

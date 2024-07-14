@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README.md
+rating: 2062
+source: 第 278 场周赛 Q3
+tags:
+    - 字符串
+    - 滑动窗口
+    - 哈希函数
+    - 滚动哈希
+---
+
+<!-- problem:start -->
+
 # [2156. 查找给定哈希值的子串](https://leetcode.cn/problems/find-substring-with-given-hash-value)
 
 [English Version](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README_EN.md)
 
-<!-- tags:字符串,滑动窗口,哈希函数,滚动哈希 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定整数 <code>p</code>&nbsp;和 <code>m</code>&nbsp;，一个长度为 <code>k</code>&nbsp;且下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;的哈希值按照如下函数计算：</p>
 
@@ -54,11 +67,166 @@
 	<li>测试数据保证一定 <strong>存在</strong>&nbsp;满足条件的子串。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：滑动窗口 + 倒序遍历
+
+我们可以维护一个长度为 $k$ 的滑动窗口，用来计算子串的哈希值。考虑到如果正序遍历字符串，在哈希值的计算中，涉及到除法取模的操作，处理起来比较麻烦。因此我们可以倒序遍历字符串，这样在计算哈希值的时候，只需要乘法和取模操作。
+
+我们首先计算字符串末尾的 $k$ 个字符的哈希值，然后从字符串末尾开始倒序遍历，每次计算当前窗口的哈希值，如果等于给定的哈希值，我们就找到了一个满足条件的子串，更新答案字符串的起始位置。
+
+最后返回答案字符串即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def subStrHash(
+        self, s: str, power: int, modulo: int, k: int, hashValue: int
+    ) -> str:
+        h, n = 0, len(s)
+        p = 1
+        for i in range(n - 1, n - 1 - k, -1):
+            val = ord(s[i]) - ord("a") + 1
+            h = ((h * power) + val) % modulo
+            if i != n - k:
+                p = p * power % modulo
+        j = n - k
+        for i in range(n - 1 - k, -1, -1):
+            pre = ord(s[i + k]) - ord("a") + 1
+            cur = ord(s[i]) - ord("a") + 1
+            h = ((h - pre * p) * power + cur) % modulo
+            if h == hashValue:
+                j = i
+        return s[j : j + k]
+```
+
+#### Java
+
+```java
+class Solution {
+    public String subStrHash(String s, int power, int modulo, int k, int hashValue) {
+        long h = 0, p = 1;
+        int n = s.length();
+        for (int i = n - 1; i >= n - k; --i) {
+            int val = s.charAt(i) - 'a' + 1;
+            h = ((h * power % modulo) + val) % modulo;
+            if (i != n - k) {
+                p = p * power % modulo;
+            }
+        }
+        int j = n - k;
+        for (int i = n - k - 1; i >= 0; --i) {
+            int pre = s.charAt(i + k) - 'a' + 1;
+            int cur = s.charAt(i) - 'a' + 1;
+            h = ((h - pre * p % modulo + modulo) * power % modulo + cur) % modulo;
+            if (h == hashValue) {
+                j = i;
+            }
+        }
+        return s.substring(j, j + k);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string subStrHash(string s, int power, int modulo, int k, int hashValue) {
+        long long h = 0, p = 1;
+        int n = s.size();
+        for (int i = n - 1; i >= n - k; --i) {
+            int val = s[i] - 'a' + 1;
+            h = ((h * power % modulo) + val) % modulo;
+            if (i != n - k) {
+                p = p * power % modulo;
+            }
+        }
+        int j = n - k;
+        for (int i = n - k - 1; i >= 0; --i) {
+            int pre = s[i + k] - 'a' + 1;
+            int cur = s[i] - 'a' + 1;
+            h = ((h - pre * p % modulo + modulo) * power % modulo + cur) % modulo;
+            if (h == hashValue) {
+                j = i;
+            }
+        }
+        return s.substr(j, k);
+    }
+};
+```
+
+#### Go
+
+```go
+func subStrHash(s string, power int, modulo int, k int, hashValue int) string {
+	h, p := 0, 1
+	n := len(s)
+	for i := n - 1; i >= n-k; i-- {
+		val := int(s[i] - 'a' + 1)
+		h = (h*power%modulo + val) % modulo
+		if i != n-k {
+			p = p * power % modulo
+		}
+	}
+	j := n - k
+	for i := n - k - 1; i >= 0; i-- {
+		pre := int(s[i+k] - 'a' + 1)
+		cur := int(s[i] - 'a' + 1)
+		h = ((h-pre*p%modulo+modulo)*power%modulo + cur) % modulo
+		if h == hashValue {
+			j = i
+		}
+	}
+	return s[j : j+k]
+}
+```
+
+#### TypeScript
+
+```ts
+function subStrHash(
+    s: string,
+    power: number,
+    modulo: number,
+    k: number,
+    hashValue: number,
+): string {
+    let h: bigint = BigInt(0),
+        p: bigint = BigInt(1);
+    const n: number = s.length;
+    const mod = BigInt(modulo);
+    for (let i: number = n - 1; i >= n - k; --i) {
+        const val: bigint = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = (((h * BigInt(power)) % mod) + val) % mod;
+        if (i !== n - k) {
+            p = (p * BigInt(power)) % mod;
+        }
+    }
+    let j: number = n - k;
+    for (let i: number = n - k - 1; i >= 0; --i) {
+        const pre: bigint = BigInt(s.charCodeAt(i + k) - 'a'.charCodeAt(0) + 1);
+        const cur: bigint = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = ((((h - ((pre * p) % mod) + mod) * BigInt(power)) % mod) + cur) % mod;
+        if (Number(h) === hashValue) {
+            j = i;
+        }
+    }
+    return s.substring(j, j + k);
+}
+```
+
+#### JavaScript
 
 ```js
 /**
@@ -70,36 +238,32 @@
  * @return {string}
  */
 var subStrHash = function (s, power, modulo, k, hashValue) {
-    power = BigInt(power);
-    modulo = BigInt(modulo);
-    hashValue = BigInt(hashValue);
+    let h = BigInt(0),
+        p = BigInt(1);
     const n = s.length;
-    let pk = 1n;
-    let ac = 0n;
-    // 倒序滑动窗口
-    for (let i = n - 1; i > n - 1 - k; i--) {
-        ac = (ac * power + getCode(s, i)) % modulo;
-        pk = (pk * power) % modulo;
-    }
-    let ans = -1;
-    if (ac == hashValue) {
-        ans = n - k;
-    }
-    for (let i = n - 1 - k; i >= 0; i--) {
-        let pre = (getCode(s, i + k) * pk) % modulo;
-        ac = (ac * power + getCode(s, i) - pre + modulo) % modulo;
-        if (ac == hashValue) {
-            ans = i;
+    const mod = BigInt(modulo);
+    for (let i = n - 1; i >= n - k; --i) {
+        const val = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = (((h * BigInt(power)) % mod) + val) % mod;
+        if (i !== n - k) {
+            p = (p * BigInt(power)) % mod;
         }
     }
-    return ans == -1 ? '' : s.substring(ans, ans + k);
+    let j = n - k;
+    for (let i = n - k - 1; i >= 0; --i) {
+        const pre = BigInt(s.charCodeAt(i + k) - 'a'.charCodeAt(0) + 1);
+        const cur = BigInt(s.charCodeAt(i) - 'a'.charCodeAt(0) + 1);
+        h = ((((h - ((pre * p) % mod) + mod) * BigInt(power)) % mod) + cur) % mod;
+        if (Number(h) === hashValue) {
+            j = i;
+        }
+    }
+    return s.substring(j, j + k);
 };
-
-function getCode(str, index) {
-    return BigInt(str.charCodeAt(index) - 'a'.charCodeAt(0) + 1);
-}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

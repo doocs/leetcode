@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md
+rating: 1778
+source: 第 236 场周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1824. 最少侧跳次数](https://leetcode.cn/problems/minimum-sideway-jumps)
 
 [English Version](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README_EN.md)
 
-<!-- tags:贪心,数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的 <strong>3 跑道道路</strong> ，它总共包含 <code>n + 1</code> 个 <strong>点</strong> ，编号为 <code>0</code> 到 <code>n</code> 。一只青蛙从 <code>0</code> 号点第二条跑道 <strong>出发</strong> ，它想要跳到点 <code>n</code> 处。然而道路上可能有一些障碍。</p>
 
@@ -64,7 +76,11 @@
 	<li><code>obstacles[0] == obstacles[n] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -79,6 +95,8 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 $obstacles$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +113,8 @@ class Solution:
                     f[j] = min(f[j], x)
         return min(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSideJumps(obstacles []int) int {
 	f := [3]int{1, 0, 1}
@@ -166,6 +190,8 @@ func minSideJumps(obstacles []int) int {
 	return min(f[0], min(f[1], f[2]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minSideJumps(obstacles: number[]): number {
@@ -191,4 +217,6 @@ function minSideJumps(obstacles: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

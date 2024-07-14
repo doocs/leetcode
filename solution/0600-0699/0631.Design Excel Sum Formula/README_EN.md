@@ -1,10 +1,24 @@
-# [631. Design Excel Sum Formula](https://leetcode.com/problems/design-excel-sum-formula)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README_EN.md
+tags:
+    - Graph
+    - Design
+    - Topological Sort
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [631. Design Excel Sum Formula 🔒](https://leetcode.com/problems/design-excel-sum-formula)
 
 [中文文档](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README.md)
 
-<!-- tags:Graph,Design,Topological Sort,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design the basic function of <strong>Excel</strong> and implement the function of the sum formula.</p>
 
@@ -88,6 +102,42 @@ excel.get(3, &quot;C&quot;); // return 6
 	<li>At most <code>100</code> calls will be made to <code>set</code>, <code>get</code>, and <code>sum</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
-# [2204. 无向图中到环的距离](https://leetcode.cn/problems/distance-to-a-cycle-in-undirected-graph)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
+<!-- problem:start -->
+
+# [2204. 无向图中到环的距离 🔒](https://leetcode.cn/problems/distance-to-a-cycle-in-undirected-graph)
 
 [English Version](/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个正整数 <code>n</code>，表示一个 <strong>连通无向图</strong> 中的节点数，该图&nbsp;<strong>只包含一个&nbsp;</strong>环。节点编号为 <code>0</code> ~ <code>n - 1</code>(<strong>含</strong>)。</p>
 
@@ -65,7 +76,11 @@
 	<li>任何顶点对之间最多只有一条边。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -86,6 +101,8 @@
 -   [2603. 收集树中金币](https://github.com/doocs/leetcode/blob/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +128,8 @@ class Solution:
             ans[i] = ans[f[i]] + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +169,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -193,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func distanceToCycle(n int, edges [][]int) []int {
 	g := make([]map[int]bool, n)
@@ -234,6 +257,8 @@ func distanceToCycle(n int, edges [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function distanceToCycle(n: number, edges: number[][]): number[] {
     const g: Set<number>[] = new Array(n).fill(0).map(() => new Set<number>());
@@ -272,4 +297,6 @@ function distanceToCycle(n: number, edges: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

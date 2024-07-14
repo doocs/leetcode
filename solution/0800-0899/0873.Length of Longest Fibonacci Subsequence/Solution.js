@@ -3,25 +3,23 @@
  * @return {number}
  */
 var lenLongestFibSubseq = function (arr) {
-    const mp = new Map();
     const n = arr.length;
-    const dp = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const f = Array.from({ length: n }, () => Array(n).fill(0));
+    const d = new Map();
     for (let i = 0; i < n; ++i) {
-        mp.set(arr[i], i);
+        d.set(arr[i], i);
         for (let j = 0; j < i; ++j) {
-            dp[j][i] = 2;
+            f[i][j] = 2;
         }
     }
     let ans = 0;
-    for (let i = 0; i < n; ++i) {
-        for (let j = 0; j < i; ++j) {
-            const d = arr[i] - arr[j];
-            if (mp.has(d)) {
-                const k = mp.get(d);
-                if (k < j) {
-                    dp[j][i] = Math.max(dp[j][i], dp[k][j] + 1);
-                    ans = Math.max(ans, dp[j][i]);
-                }
+    for (let i = 2; i < n; ++i) {
+        for (let j = 1; j < i; ++j) {
+            const t = arr[i] - arr[j];
+            const k = d.get(t);
+            if (k !== undefined && k < j) {
+                f[i][j] = Math.max(f[i][j], f[j][k] + 1);
+                ans = Math.max(ans, f[i][j]);
             }
         }
     }

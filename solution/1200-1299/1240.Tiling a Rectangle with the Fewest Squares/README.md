@@ -1,46 +1,53 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README.md
+rating: 2241
+source: 第 160 场周赛 Q4
+tags:
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [1240. 铺瓷砖](https://leetcode.cn/problems/tiling-a-rectangle-with-the-fewest-squares)
 
 [English Version](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README_EN.md)
 
-<!-- tags:回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。</p>
-
-<p>房子的客厅大小为&nbsp;<code>n</code>&nbsp;x <code>m</code>，为保持极简的风格，需要使用尽可能少的 <strong>正方形</strong> 瓷砖来铺盖地面。</p>
-
-<p>假设正方形瓷砖的规格不限，边长都是整数。</p>
-
-<p>请你帮设计师计算一下，最少需要用到多少块方形瓷砖？</p>
+<p>给定一个大小为&nbsp;<code>n</code>&nbsp;x&nbsp;<code>m</code>&nbsp;的长方形，返回贴满矩形所需的整数边正方形的最小数量。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_11_1592.png" style="height: 106px; width: 154px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_11_1592.png" style="height: 106px; width: 154px;" /></p>
 
-<pre><strong>输入：</strong>n = 2, m = 3
+<pre>
+<strong>输入：</strong>n = 2, m = 3
 <strong>输出：</strong>3
-<code><strong>解释：</strong>3</code> 块地砖就可以铺满卧室。
-<code>     2</code> 块 <code>1x1 地砖</code>
-<code>     1</code> 块 <code>2x2 地砖</code></pre>
+<code><strong>解释：</strong>需要<strong> </strong>3</code> 个正方形来覆盖长方形。
+<code>     2</code> 个 <code>1x1 的正方形</code>
+<code>     1</code> 个 <code>2x2 的正方形</code></pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_22_1592.png" style="height: 126px; width: 224px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_22_1592.png" style="height: 126px; width: 224px;" /></p>
 
-<pre><strong>输入：</strong>n = 5, m = 8
+<pre>
+<strong>输入：</strong>n = 5, m = 8
 <strong>输出：</strong>5
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_33_1592.png" style="height: 189px; width: 224px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_33_1592.png" style="height: 189px; width: 224px;" /></p>
 
-<pre><strong>输入：</strong>n = 11, m = 13
+<pre>
+<strong>输入：</strong>n = 11, m = 13
 <strong>输出：</strong>6
 </pre>
 
@@ -49,11 +56,14 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 13</code></li>
-	<li><code>1 &lt;= m&nbsp;&lt;=&nbsp;13</code></li>
+	<li><code>1 &lt;= n, m &lt;= 13</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归回溯 + 状态压缩
 
@@ -67,6 +77,8 @@
 由于每个位置只有两种状态：填充或者未填充，因此我们可以使用一个整数来表示当前位置的状态。我们使用一个长度为 $n$ 的整数数组 $filled$，其中 $filled[i]$ 表示第 $i$ 行的状态。如果 $filled[i]$ 的第 $j$ 位为 $1$，则表示第 $i$ 行第 $j$ 列已经被填充，否则表示未填充。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +118,8 @@ class Solution:
         dfs(0, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -165,6 +179,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -226,6 +242,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func tilingRectangle(n int, m int) int {
 	ans := n * m
@@ -275,6 +293,8 @@ func tilingRectangle(n int, m int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function tilingRectangle(n: number, m: number): number {
@@ -327,9 +347,15 @@ function tilingRectangle(n: number, m: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -370,6 +396,8 @@ class Solution:
         dfs(0, 0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -431,6 +459,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -494,6 +524,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 func tilingRectangle(n int, m int) int {
 	ans := n * m
@@ -545,6 +577,8 @@ func tilingRectangle(n int, m int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function tilingRectangle(n: number, m: number): number {
@@ -599,4 +633,6 @@ function tilingRectangle(n: number, m: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

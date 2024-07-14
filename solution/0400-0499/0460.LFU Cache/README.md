@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0460.LFU%20Cache/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 双向链表
+---
+
+<!-- problem:start -->
+
 # [460. LFU 缓存](https://leetcode.cn/problems/lfu-cache)
 
 [English Version](/solution/0400-0499/0460.LFU%20Cache/README_EN.md)
 
-<!-- tags:设计,哈希表,链表,双向链表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你为 <a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95">最不经常使用（LFU）</a>缓存算法设计并实现数据结构。</p>
 
@@ -67,7 +78,11 @@ lfu.get(4);      // 返回 4
 	<li>最多调用 <code>2 * 10<sup>5</sup></code> 次 <code>get</code> 和 <code>put</code> 方法</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双哈希表 + 双向链表
 
@@ -93,6 +108,8 @@ lfu.get(4);      // 返回 4
 时间复杂度方面，操作 $get$ 和 $put$ 的时间复杂度都是 $O(1)$。空间复杂度 $O(n)$，其中 $n$ 为缓存的容量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -184,6 +201,8 @@ class LFUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+#### Java
 
 ```java
 class LFUCache {
@@ -303,6 +322,8 @@ class LFUCache {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -428,6 +449,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type LFUCache struct {
 	cache    map[int]*node
@@ -550,6 +573,8 @@ func (l *list) empty() bool {
 	return l.head.next == l.tail
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -730,14 +755,11 @@ impl LFUCache {
             }
         };
     }
-}/**
- * Your LFUCache object will be instantiated and called as such:
- * let obj = LFUCache::new(capacity);
- * let ret_1: i32 = obj.get(key);
- * obj.put(key, value);
- */
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

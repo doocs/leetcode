@@ -1,25 +1,38 @@
 class Solution {
 public:
     int shoppingOffers(vector<int>& price, vector<vector<int>>& special, vector<int>& needs) {
-        int ans = total(price, needs);
-        vector<int> t;
-        for (auto& offer : special) {
-            t.clear();
-            for (int j = 0; j < needs.size(); ++j) {
-                if (offer[j] > needs[j]) {
-                    t.clear();
-                    break;
-                }
-                t.push_back(needs[j] - offer[j]);
-            }
-            if (!t.empty()) ans = min(ans, offer[offer.size() - 1] + shoppingOffers(price, special, t));
+        const int bits = 4;
+        int n = needs.size();
+        unordered_map<int, int> f;
+        int mask = 0;
+        for (int i = 0; i < n; ++i) {
+            mask |= needs[i] << (i * bits);
         }
-        return ans;
-    }
-
-    int total(vector<int>& price, vector<int>& needs) {
-        int s = 0;
-        for (int i = 0; i < price.size(); ++i) s += price[i] * needs[i];
-        return s;
+        function<int(int)> dfs = [&](int cur) {
+            if (f.contains(cur)) {
+                return f[cur];
+            }
+            int ans = 0;
+            for (int i = 0; i < n; ++i) {
+                ans += price[i] * ((cur >> (i * bits)) & 0xf);
+            }
+            for (const auto& offer : special) {
+                int nxt = cur;
+                bool ok = true;
+                for (int j = 0; j < n; ++j) {
+                    if (((cur >> (j * bits)) & 0xf) < offer[j]) {
+                        ok = false;
+                        break;
+                    }
+                    nxt -= offer[j] << (j * bits);
+                }
+                if (ok) {
+                    ans = min(ans, offer[n] + dfs(nxt));
+                }
+            }
+            f[cur] = ans;
+            return ans;
+        };
+        return dfs(mask);
     }
 };

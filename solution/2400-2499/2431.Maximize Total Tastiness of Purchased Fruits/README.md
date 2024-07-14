@@ -1,12 +1,21 @@
-# [2431. 最大限度地提高购买水果的口味](https://leetcode.cn/problems/maximize-total-tastiness-of-purchased-fruits)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
+# [2431. 最大限度地提高购买水果的口味 🔒](https://leetcode.cn/problems/maximize-total-tastiness-of-purchased-fruits)
 
 [English Version](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有两个非负整数数组 <code>price</code> 和 <code>tastiness</code>，两个数组的长度都是 <code>n</code>。同时给你两个非负整数 <code>maxAmount</code> 和 <code>maxCoupons</code>。</p>
 
@@ -69,7 +78,11 @@
 	<li><code>0 &lt;= maxCoupons &lt;= 5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -86,6 +99,8 @@
 时间复杂度 $O(n \times maxAmount \times maxCoupons)$。其中 $n$ 是水果的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -105,6 +120,8 @@ class Solution:
 
         return dfs(0, maxAmount, maxCoupons)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +183,8 @@ private:
     int f[101][1001][6];
 };
 ```
+
+#### Go
 
 ```go
 func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) int {
@@ -199,4 +220,6 @@ func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) i
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

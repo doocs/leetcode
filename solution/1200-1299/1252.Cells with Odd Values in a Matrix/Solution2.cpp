@@ -9,8 +9,11 @@ public:
             col[c]++;
         }
         int ans = 0;
-        for (int i : row)
-            for (int j : col) ans += (i + j) % 2;
+        for (int i : row) {
+            for (int j : col) {
+                ans += (i + j) % 2;
+            }
+        }
         return ans;
     }
 };

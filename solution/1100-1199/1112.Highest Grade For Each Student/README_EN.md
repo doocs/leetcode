@@ -1,10 +1,20 @@
-# [1112. Highest Grade For Each Student](https://leetcode.com/problems/highest-grade-for-each-student)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1112. Highest Grade For Each Student 🔒](https://leetcode.com/problems/highest-grade-for-each-student)
 
 [中文文档](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Enrollments</code></p>
 
@@ -55,13 +65,19 @@ Enrollments table:
 +------------+-----------+-------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: RANK() OVER() Window Function
 
 We can use the `RANK() OVER()` window function to sort the grades of each student in descending order. If the grades are the same, we sort them in ascending order by course number, and then select the record with a rank of $1$ for each student.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -83,11 +99,17 @@ ORDER BY student_id;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Subquery
 
 We can first query the highest grade of each student, and then query the minimum course number corresponding to the highest grade of each student.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -105,4 +127,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

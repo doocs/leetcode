@@ -1,12 +1,21 @@
-# [2655. 寻找最大长度的未覆盖区间](https://leetcode.cn/problems/find-maximal-uncovered-ranges)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README.md
+tags:
+    - 数组
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [2655. 寻找最大长度的未覆盖区间 🔒](https://leetcode.cn/problems/find-maximal-uncovered-ranges)
 
 [English Version](/solution/2600-2699/2655.Find%20Maximal%20Uncovered%20Ranges/README_EN.md)
 
-<!-- tags:数组,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给你一个长度为 n 的 <strong>索引从 0 开始的</strong>&nbsp;数组 <code>nums</code> 和一个 <strong>索引从 0 开始的</strong> 2 维数组 <code>ranges</code> ，<strong>ranges</strong> 是 <strong>nums</strong> 的子区间列表（子区间可能 <strong>重叠</strong> ）。</p>
 
@@ -65,7 +74,11 @@
 	<li><code>ranges[i][0] &lt;=&nbsp;ranges[i][1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -76,6 +89,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $ranges$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +108,8 @@ class Solution:
             ans.append([last + 1, n - 1])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 	sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] })
@@ -158,4 +179,6 @@ func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

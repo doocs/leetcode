@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1407.Top%20Travellers/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1407. 排名靠前的旅行者](https://leetcode.cn/problems/top-travellers)
 
 [English Version](/solution/1400-1499/1407.Top%20Travellers/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Users</code></p>
 
@@ -95,13 +103,19 @@ Bob, Jonathan, Alex 和 Alice 只有一次行程，我们只按此次行程的�
 Donald 没有任何行程, 他的旅行距离为 0。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接 + 分组统计
 
 我们可以使用左连接，将 `Users` 表与 `Rides` 表按照用户 id 连接，然后按照用户 id 分组，统计每个用户的旅行距离。注意，如果用户没有旅行记录，那么旅行距离为 $0$。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -115,4 +129,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

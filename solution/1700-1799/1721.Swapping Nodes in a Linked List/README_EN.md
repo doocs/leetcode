@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README_EN.md
+rating: 1386
+source: Weekly Contest 223 Q2
+tags:
+    - Linked List
+    - Two Pointers
+---
+
+<!-- problem:start -->
+
 # [1721. Swapping Nodes in a Linked List](https://leetcode.com/problems/swapping-nodes-in-a-linked-list)
 
 [中文文档](/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README.md)
 
-<!-- tags:Linked List,Two Pointers -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>head</code> of a linked list, and an integer <code>k</code>.</p>
 
@@ -34,7 +47,11 @@
 	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -43,6 +60,8 @@ We can first use a fast pointer `fast` to find the $k$th node of the linked list
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -62,6 +81,8 @@ class Solution:
         p.val, q.val = q.val, p.val
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -95,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -126,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -149,6 +174,8 @@ func swapNodes(head *ListNode, k int) *ListNode {
 	return head
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -178,6 +205,8 @@ function swapNodes(head: ListNode | null, k: number): ListNode | null {
     return head;
 }
 ```
+
+#### C#
 
 ```cs
 /**
@@ -214,4 +243,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

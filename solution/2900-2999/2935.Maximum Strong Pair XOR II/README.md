@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README.md
+rating: 2348
+source: 第 371 场周赛 Q4
+tags:
+    - 位运算
+    - 字典树
+    - 数组
+    - 哈希表
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [2935. 找出强数对的最大异或值 II](https://leetcode.cn/problems/maximum-strong-pair-xor-ii)
 
 [English Version](/solution/2900-2999/2935.Maximum%20Strong%20Pair%20XOR%20II/README_EN.md)
 
-<!-- tags:位运算,字典树,数组,哈希表,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。如果一对整数 <code>x</code> 和 <code>y</code> 满足以下条件，则称其为 <strong>强数对</strong> ：</p>
 
@@ -58,7 +72,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>20</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 0-1 字典树
 
@@ -69,6 +87,8 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值，本题中 $M = 2^{20}$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -120,6 +140,8 @@ class Solution:
             ans = max(ans, tree.search(y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -182,6 +204,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -250,6 +274,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [2]*Trie
@@ -310,6 +336,8 @@ func maximumStrongPairXor(nums []int) (ans int) {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -380,4 +408,6 @@ function maximumStrongPairXor(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2766.Relocate%20Marbles/README.md
+rating: 1613
+source: 第 108 场双周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2766. 重新放置石块](https://leetcode.cn/problems/relocate-marbles)
 
 [English Version](/solution/2700-2799/2766.Relocate%20Marbles/README_EN.md)
 
-<!-- tags:数组,哈希表,排序,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，表示一些石块的初始位置。再给你两个长度<strong>&nbsp;相等</strong>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>moveFrom</code> 和&nbsp;<code>moveTo</code>&nbsp;。</p>
 
@@ -57,7 +70,11 @@
 	<li>测试数据保证在进行第&nbsp;<code>i</code>&nbsp;步操作时，<code>moveFrom[i]</code>&nbsp;处至少有一个石块。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -66,6 +83,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +97,8 @@ class Solution:
             pos.add(t)
         return sorted(pos)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +135,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
@@ -134,6 +159,8 @@ func relocateMarbles(nums []int, moveFrom []int, moveTo []int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): number[] {
     const pos: Set<number> = new Set(nums);
@@ -149,4 +176,6 @@ function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

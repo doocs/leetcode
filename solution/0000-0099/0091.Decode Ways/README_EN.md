@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0091.Decode%20Ways/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [91. Decode Ways](https://leetcode.com/problems/decode-ways)
 
 [中文文档](/solution/0000-0099/0091.Decode%20Ways/README.md)
 
-<!-- tags:String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A message containing letters from <code>A-Z</code> can be <strong>encoded</strong> into numbers using the following mapping:</p>
 
@@ -61,7 +72,11 @@
 	<li><code>s</code> contains only digits and may contain leading zero(s).</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -76,6 +91,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -88,6 +105,8 @@ class Solution:
                 f[i] += f[i - 2]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +126,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDecodings(s string) int {
 	n := len(s)
@@ -146,6 +169,8 @@ func numDecodings(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDecodings(s: string): number {
     const n = s.length;
@@ -162,6 +187,8 @@ function numDecodings(s: string): number {
     return f[n];
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -188,6 +215,8 @@ We notice that the state $f[i]$ is only related to the states $f[i-1]$ and $f[i-
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -199,6 +228,8 @@ class Solution:
             f, g = g, h
         return g
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -217,6 +248,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -237,6 +270,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numDecodings(s string) int {
 	n := len(s)
@@ -255,6 +290,8 @@ func numDecodings(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDecodings(s: string): number {
     const n = s.length;
@@ -269,6 +306,8 @@ function numDecodings(s: string): number {
     return g;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -290,4 +329,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

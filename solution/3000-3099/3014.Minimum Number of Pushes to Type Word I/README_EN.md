@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README_EN.md
+rating: 1324
+source: Weekly Contest 381 Q1
+tags:
+    - Greedy
+    - Math
+    - String
+---
+
+<!-- problem:start -->
+
 # [3014. Minimum Number of Pushes to Type Word I](https://leetcode.com/problems/minimum-number-of-pushes-to-type-word-i)
 
 [中文文档](/solution/3000-3099/3014.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20I/README.md)
 
-<!-- tags:Greedy,Math,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>word</code> containing <strong>distinct</strong> lowercase English letters.</p>
 
@@ -61,7 +75,11 @@ It can be shown that no other mapping can provide a lower cost.
 	<li>All letters in <code>word</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -70,6 +88,8 @@ We notice that all the letters in the string $word$ are different. Therefore, we
 The time complexity is $O(n / 8)$, where $n$ is the length of the string $word$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +102,8 @@ class Solution:
         ans += k * (n % 8)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumPushes(word string) (ans int) {
 	n := len(word)
@@ -126,6 +152,8 @@ func minimumPushes(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumPushes(word: string): number {
@@ -143,4 +171,6 @@ function minimumPushes(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
-# [2837. 总旅行距离](https://leetcode.cn/problems/total-traveled-distance)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2837. 总旅行距离 🔒](https://leetcode.cn/problems/total-traveled-distance)
 
 [English Version](/solution/2800-2899/2837.Total%20Traveled%20Distance/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code><font face="monospace">Users</font></code></p>
 
@@ -87,13 +95,19 @@ Rides table:
 -  User id 为 10 的用户没有完成任何旅行，因此总旅行距离为 0。
 按升序排序的 <code>user_id</code> 返回结果表</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：左连接 + 分组求和
 
 我们可以使用左连接将两张表连接起来，然后使用分组求和的方式计算每个用户的总距离。注意，如果用户没有完成任何骑行，那么他的距离应该被视为 $0$。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -107,4 +121,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

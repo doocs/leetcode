@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0400.Nth%20Digit/README.md
+tags:
+    - 数学
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [400. 第 N 位数字](https://leetcode.cn/problems/nth-digit)
 
 [English Version](/solution/0400-0499/0400.Nth%20Digit/README_EN.md)
 
-<!-- tags:数学,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，请你在无限的整数序列&nbsp;<code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...]</code> 中找出并返回第&nbsp;<code>n</code><em> </em>位上的数字。</p>
 
@@ -35,7 +44,11 @@
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -51,6 +64,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findNthDigit(self, n: int) -> int:
@@ -63,6 +78,8 @@ class Solution:
         idx = (n - 1) % k
         return int(str(num)[idx])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findNthDigit(n int) int {
 	k, cnt := 1, 9
@@ -110,6 +131,8 @@ func findNthDigit(n int) int {
 	return int(strconv.Itoa(num)[idx] - '0')
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -130,6 +153,8 @@ var findNthDigit = function (n) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int FindNthDigit(int n) {
@@ -148,4 +173,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

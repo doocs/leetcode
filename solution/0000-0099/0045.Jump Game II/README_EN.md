@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [45. Jump Game II](https://leetcode.com/problems/jump-game-ii)
 
 [中文文档](/solution/0000-0099/0045.Jump%20Game%20II/README.md)
 
-<!-- tags:Greedy,Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>. You are initially positioned at <code>nums[0]</code>.</p>
 
@@ -42,7 +54,11 @@
 	<li>It&#39;s guaranteed that you can reach <code>nums[n - 1]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -62,6 +78,8 @@ Similar problems:
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -73,6 +91,8 @@ class Solution:
                 last = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func jump(nums []int) (ans int) {
 	mx, last := 0, 0
@@ -121,6 +145,8 @@ func jump(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function jump(nums: number[]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -134,6 +160,8 @@ function jump(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -154,6 +182,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Jump(int[] nums) {
@@ -169,6 +199,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) a < b ? a : b
@@ -187,6 +219,34 @@ int jump(int* nums, int numsSize) {
 }
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @return integer
+     */
+
+    function jump($nums) {
+        $maxReach = 0;
+        $steps = 0;
+        $lastJump = 0;
+        for ($i = 0; $i <= count($nums) - 2; $i++) {
+            $maxReach = max($maxReach, $i + $nums[$i]);
+            if ($i == $lastJump) {
+                $lastJump = $maxReach;
+                $steps++;
+            }
+        }
+
+        return $steps;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

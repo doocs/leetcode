@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README_EN.md
+tags:
+    - Depth-First Search
+    - Design
+    - Trie
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [676. Implement Magic Dictionary](https://leetcode.com/problems/implement-magic-dictionary)
 
 [中文文档](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README.md)
 
-<!-- tags:Depth-First Search,Design,Trie,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a data structure that is initialized with a list of <strong>different</strong> words. Provided a string, you should determine if you can change exactly one character in this string to match any word in the data structure.</p>
 
@@ -49,7 +63,11 @@ magicDictionary.search(&quot;leetcoded&quot;); // return False
 	<li>At most <code>100</code> calls will be made to <code>search</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Trie + DFS
 
@@ -58,6 +76,8 @@ We can use a trie to store all the words in the dictionary. For each word we sea
 The time complexity is $O(n \times l + q \times l \times |\Sigma|)$, and the space complexity is $O(n \times l)$, where $n$ and $l$ are the number of words in the dictionary and the average length of the words, respectively, and $q$ is the number of words searched. In addition, $|\Sigma|$ represents the size of the character set. Here, the character set is lowercase English letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -105,6 +125,8 @@ class MagicDictionary:
 # obj.buildDict(dictionary)
 # param_2 = obj.search(searchWord)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -174,6 +196,8 @@ class MagicDictionary {
  * boolean param_2 = obj.search(searchWord);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -250,6 +274,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -320,6 +346,8 @@ func (md *MagicDictionary) Search(searchWord string) bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: Trie[] = Array(26).fill(null);
@@ -387,6 +415,8 @@ class MagicDictionary {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::HashMap;
 
@@ -428,12 +458,7 @@ impl Trie {
         if diff == 0 {
             for (i, child) in self.children.iter().enumerate() {
                 if i != index && child.is_some() {
-                    if
-                        child
-                            .as_ref()
-                            .unwrap()
-                            .search(&word[1..], 1)
-                    {
+                    if child.as_ref().unwrap().search(&word[1..], 1) {
                         return true;
                     }
                 }
@@ -466,19 +491,20 @@ impl MagicDictionary {
     fn search(&self, search_word: String) -> bool {
         self.trie.search(&search_word, 0)
     }
-}/**
- * Your MagicDictionary object will be instantiated and called as such:
- * let obj = MagicDictionary::new();
- * obj.build_dict(dictionary);
- * let ret_2: bool = obj.search(searchWord);
- */
+}
 ```
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -533,4 +559,6 @@ class MagicDictionary:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

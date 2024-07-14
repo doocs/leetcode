@@ -1,10 +1,24 @@
-# [302. Smallest Rectangle Enclosing Black Pixels](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Binary Search
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [302. Smallest Rectangle Enclosing Black Pixels 🔒](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels)
 
 [中文文档](/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Binary Search,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> binary matrix <code>image</code> where <code>0</code> represents a white pixel and <code>1</code> represents a black pixel.</p>
 
@@ -43,11 +57,17 @@
 	<li>The black pixels in the <code>image</code> only form <strong>one component</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +119,8 @@ class Solution:
         r = left
         return (d - u + 1) * (r - l + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +191,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -225,6 +249,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minArea(image [][]byte, x int, y int) int {
@@ -291,4 +317,6 @@ func minArea(image [][]byte, x int, y int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

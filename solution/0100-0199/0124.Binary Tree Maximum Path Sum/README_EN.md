@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Dynamic Programming
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum)
 
 [中文文档](/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README.md)
 
-<!-- tags:Tree,Depth-First Search,Dynamic Programming,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>path</strong> in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence <strong>at most once</strong>. Note that the path does not need to pass through the root.</p>
 
@@ -37,7 +50,11 @@
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -63,6 +80,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -85,6 +104,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -122,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -153,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -178,6 +203,8 @@ func maxPathSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -210,6 +237,8 @@ function maxPathSum(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -229,8 +258,8 @@ function maxPathSum(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut i32) -> i32 {
         if root.is_none() {
@@ -250,6 +279,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -279,6 +310,8 @@ var maxPathSum = function (root) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -316,4 +349,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
-# [663. Equal Tree Partition](https://leetcode.com/problems/equal-tree-partition)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0663.Equal%20Tree%20Partition/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
+# [663. Equal Tree Partition 🔒](https://leetcode.com/problems/equal-tree-partition)
 
 [中文文档](/solution/0600-0699/0663.Equal%20Tree%20Partition/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, return <code>true</code><em> if you can partition the tree into two trees with equal sums of values after removing exactly one edge on the original tree</em>.</p>
 
@@ -32,11 +44,17 @@
 	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -61,6 +79,8 @@ class Solution:
         seen.pop()
         return s // 2 in seen
 ```
+
+#### Java
 
 ```java
 /**
@@ -104,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -136,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -175,4 +199,6 @@ func checkEqualTree(root *TreeNode) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

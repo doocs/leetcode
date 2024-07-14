@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0397.Integer%20Replacement/README_EN.md
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Memoization
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [397. Integer Replacement](https://leetcode.com/problems/integer-replacement)
 
 [中文文档](/solution/0300-0399/0397.Integer%20Replacement/README.md)
 
-<!-- tags:Greedy,Bit Manipulation,Memoization,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer <code>n</code>,&nbsp;you can apply one of the following&nbsp;operations:</p>
 
@@ -47,11 +60,17 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +86,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func integerReplacement(n int) int {
 	ans := 0
@@ -126,4 +151,6 @@ func integerReplacement(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md
+rating: 1638
+source: 第 354 场周赛 Q2
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [2779. 数组的最大美丽值](https://leetcode.cn/problems/maximum-beauty-of-an-array-after-applying-operation)
 
 [English Version](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md)
 
-<!-- tags:数组,二分查找,排序,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个 <strong>非负</strong> 整数 <code>k</code> 。</p>
 
@@ -57,19 +70,25 @@
 	<li><code>0 &lt;= nums[i], k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
 我们注意到，对于每一次操作，区间 $[nums[i]-k, nums[i]+k]$ 内的所有元素都会增加 $1$，因此我们可以使用差分数组来记录这些操作对美丽值的贡献。
 
-题目中 $nums[i]-k$ 可能为负数，我们统一将所有元素加上 $k$，保证结果为非负数。因此，我们需要创建一个长度为 $\max(nums) + k \times 2 + 2$ 的差分数组 $d$。
+题目中 $nums[i]-k$ 可能为负数，我们统一将所有元素加上 $k$，保证结果为非负数。因此，我们可以创建一个长度为 $\max(nums) + k \times 2 + 2$ 的差分数组 $d$。
 
 接下来，遍历数组 $nums$，对于当前遍历到的元素 $x$，我们将 $d[x]$ 增加 $1$，将 $d[x+k\times2+1]$ 减少 $1$。这样，我们就可以通过 $d$ 数组计算出每个位置的前缀和，即为每个位置的美丽值。找到最大的美丽值即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(M + 2 \times k)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
+时间复杂度 $O(M + 2 \times k + n)$，空间复杂度 $O(M + 2 \times k)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组 $nums$ 中的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,12 +98,10 @@ class Solution:
         for x in nums:
             d[x] += 1
             d[x + k * 2 + 1] -= 1
-        ans = s = 0
-        for x in d:
-            s += x
-            ans = max(ans, s)
-        return ans
+        return max(accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +121,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(nums []int, k int) (ans int) {
 	m := slices.Max(nums)
@@ -145,10 +166,12 @@ func maximumBeauty(nums []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBeauty(nums: number[], k: number): number {
     const m = Math.max(...nums) + k * 2 + 2;
-    const d: number[] = new Array(m).fill(0);
+    const d: number[] = Array(m).fill(0);
     for (const x of nums) {
         d[x]++;
         d[x + k * 2 + 1]--;
@@ -165,4 +188,6 @@ function maximumBeauty(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

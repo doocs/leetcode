@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1720.Decode%20XORed%20Array/README.md
+rating: 1284
+source: 第 223 场周赛 Q1
+tags:
+    - 位运算
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [1720. 解码异或后的数组](https://leetcode.cn/problems/decode-xored-array)
 
 [English Version](/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md)
 
-<!-- tags:位运算,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>未知</strong> 整数数组 <code>arr</code> 由 <code>n</code> 个非负整数组成。</p>
 
@@ -44,11 +55,39 @@
 	<li><code>0 <= first <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：位运算
+
+根据题目描述，有：
+
+$$
+\text{encoded}[i] = \text{arr}[i] \oplus \text{arr}[i + 1]
+$$
+
+如果我们将等式两边同时异或上 $\text{arr}[i]$，那么就会得到：
+
+$$
+\text{arr}[i] \oplus \text{arr}[i] \oplus \text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+即：
+
+$$
+\text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+根据上述推导，我们可以从 $\text{first}$ 开始，依次计算出数组 $\text{arr}$ 的每一个元素。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +97,8 @@ class Solution:
             ans.append(ans[-1] ^ e)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,28 +114,47 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     vector<int> decode(vector<int>& encoded, int first) {
-        vector<int> ans{{first}};
-        for (int i = 0; i < encoded.size(); ++i)
-            ans.push_back(ans[i] ^ encoded[i]);
+        vector<int> ans = {{first}};
+        for (int x : encoded) {
+            ans.push_back(ans.back() ^ x);
+        }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
 func decode(encoded []int, first int) []int {
 	ans := []int{first}
-	for i, e := range encoded {
-		ans = append(ans, ans[i]^e)
+	for i, x := range encoded {
+		ans = append(ans, ans[i]^x)
 	}
 	return ans
 }
 ```
 
+#### TypeScript
+
+```ts
+function decode(encoded: number[], first: number): number[] {
+    const ans: number[] = [first];
+    for (const x of encoded) {
+        ans.push(ans.at(-1)! ^ x);
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

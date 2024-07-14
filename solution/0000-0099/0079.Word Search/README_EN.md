@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0079.Word%20Search/README_EN.md
+tags:
+    - Array
+    - String
+    - Backtracking
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [79. Word Search](https://leetcode.com/problems/word-search)
 
 [中文文档](/solution/0000-0099/0079.Word%20Search/README.md)
 
-<!-- tags:Array,Backtracking,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> grid of characters <code>board</code> and a string <code>word</code>, return <code>true</code> <em>if</em> <code>word</code> <em>exists in the grid</em>.</p>
 
@@ -46,7 +59,11 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you use search pruning to make your solution faster with a larger <code>board</code>?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS (Backtracking)
 
@@ -63,6 +80,8 @@ In the main function, we enumerate each position $(i, j)$ in the grid as the sta
 The time complexity is $O(m \times n \times 3^k)$, and the space complexity is $O(\min(m \times n, k))$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively; and $k$ is the length of the string $word$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +104,8 @@ class Solution:
         m, n = len(board), len(board[0])
         return any(dfs(i, j, 0) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func exist(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
@@ -199,6 +224,8 @@ func exist(board [][]byte, word string) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function exist(board: string[][], word: string): boolean {
@@ -234,6 +261,44 @@ function exist(board: string[][], word: string): boolean {
 }
 ```
 
+#### JavaScript
+
+```js
+function exist(board, word) {
+    const [m, n] = [board.length, board[0].length];
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i, j, k) => {
+        if (k === word.length - 1) {
+            return board[i][j] === word[k];
+        }
+        if (board[i][j] !== word[k]) {
+            return false;
+        }
+        const c = board[i][j];
+        board[i][j] = '0';
+        for (let u = 0; u < 4; ++u) {
+            const [x, y] = [i + dirs[u], j + dirs[u + 1]];
+            const ok = x >= 0 && x < m && y >= 0 && y < n;
+            if (ok && board[x][y] !== '0' && dfs(x, y, k + 1)) {
+                return true;
+            }
+        }
+        board[i][j] = c;
+        return false;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (dfs(i, j, 0)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+```
+
+#### Rust
+
 ```rust
 impl Solution {
     fn dfs(
@@ -242,7 +307,7 @@ impl Solution {
         c: usize,
         word: &[u8],
         board: &Vec<Vec<char>>,
-        vis: &mut Vec<Vec<bool>>
+        vis: &mut Vec<Vec<bool>>,
     ) -> bool {
         if (board[i][j] as u8) != word[c] {
             return false;
@@ -251,12 +316,7 @@ impl Solution {
             return true;
         }
         vis[i][j] = true;
-        let dirs = [
-            [-1, 0],
-            [0, -1],
-            [1, 0],
-            [0, 1],
-        ];
+        let dirs = [[-1, 0], [0, -1], [1, 0], [0, 1]];
         for [x, y] in dirs.into_iter() {
             let i = x + (i as i32);
             let j = y + (j as i32);
@@ -288,6 +348,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -336,4 +398,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README.md
+tags:
+    - 哈希表
+    - 链表
+    - 双指针
+---
+
+<!-- problem:start -->
+
 # [160. 相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists)
 
 [English Version](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md)
 
-<!-- tags:哈希表,链表,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个单链表的头节点&nbsp;<code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
 
@@ -92,19 +102,25 @@
 
 <p><strong>进阶：</strong>你能否设计一个时间复杂度 <code>O(m + n)</code> 、仅用 <code>O(1)</code> 内存的解决方案？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
-使用两个指针 $a$, $b$ 分别指向两个链表 $headA$, $headB$。
+我们使用两个指针 $a$, $b$ 分别指向两个链表 $headA$, $headB$。
 
 同时遍历链表，当 $a$ 到达链表 $headA$ 的末尾时，重新定位到链表 $headB$ 的头节点；当 $b$ 到达链表 $headB$ 的末尾时，重新定位到链表 $headA$ 的头节点。
 
-若两指针相遇，所指向的结点就是第一个公共节点。若没相遇，说明两链表无公共节点，此时两个指针都指向 $null$。
+若两指针相遇，所指向的结点就是第一个公共节点。若没相遇，说明两链表无公共节点，此时两个指针都指向 `null`，返回其中一个即可。
 
-时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别是链表 $headA$ 和 $headB$ 的长度。
+时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别是链表 $headA$ 和 $headB$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -122,6 +138,8 @@ class Solution:
             b = b.next if b else headA
         return a
 ```
+
+#### Java
 
 ```java
 /**
@@ -147,6 +165,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -168,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -195,6 +217,8 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -218,6 +242,8 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
     return a;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -243,6 +269,8 @@ var getIntersectionNode = function (headA, headB) {
     return a;
 };
 ```
+
+#### Swift
 
 ```swift
 /**
@@ -272,4 +300,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

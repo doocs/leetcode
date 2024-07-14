@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0684.Redundant%20Connection/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+---
+
+<!-- problem:start -->
+
 # [684. 冗余连接](https://leetcode.cn/problems/redundant-connection)
 
 [English Version](/solution/0600-0699/0684.Redundant%20Connection/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,并查集,图 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>树可以看成是一个连通且 <strong>无环&nbsp;</strong>的&nbsp;<strong>无向&nbsp;</strong>图。</p>
 
@@ -48,11 +59,17 @@
 	<li>给定的图是连通的&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +86,8 @@ class Solution:
             p[find(a)] = find(b)
         return []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findRedundantConnection(edges [][]int) []int {
@@ -144,6 +167,8 @@ func findRedundantConnection(edges [][]int) []int {
 	return []int{}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -170,4 +195,6 @@ var findRedundantConnection = function (edges) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

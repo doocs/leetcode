@@ -1,17 +1,14 @@
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
-    const getMaxCount = (target: 'T' | 'F'): number => {
-        let l = 0;
-        let u = k;
-        for (const c of answerKey) {
-            if (c !== target) {
-                u--;
-            }
-            if (u < 0 && answerKey[l++] !== target) {
-                u++;
+    const f = (c: string): number => {
+        let [l, cnt] = [0, 0];
+        for (const ch of answerKey) {
+            cnt += ch === c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= answerKey[l++] === c ? 1 : 0;
             }
         }
         return n - l;
     };
-    return Math.max(getMaxCount('T'), getMaxCount('F'));
+    return Math.max(f('T'), f('F'));
 }

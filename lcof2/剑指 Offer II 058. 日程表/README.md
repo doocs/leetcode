@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20058.%20%E6%97%A5%E7%A8%8B%E8%A1%A8/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 058. 日程表](https://leetcode.cn/problems/fi9suh)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请实现一个 <code>MyCalendar</code> 类来存放你的日程安排。如果要添加的时间内没有其他安排，则可以存储这个新的日程安排。</p>
 
@@ -45,11 +52,17 @@ MyCalendar.book(20, 30); // returns true ，第三个日程安排可以添加到
 
 <p><meta charset="UTF-8" />注意：本题与主站 729&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/my-calendar-i/">https://leetcode.cn/problems/my-calendar-i/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -72,6 +85,8 @@ class MyCalendar:
 # obj = MyCalendar()
 # param_1 = obj.book(start,end)
 ```
+
+#### Java
 
 ```java
 import java.util.Map;
@@ -104,6 +119,8 @@ class MyCalendar {
  */
 ```
 
+#### Go
+
 ```go
 type MyCalendar struct {
 	rbt *redblacktree.Tree
@@ -133,6 +150,39 @@ func (this *MyCalendar) Book(start int, end int) bool {
  */
 ```
 
+#### Swift
+
+```swift
+class MyCalendar {
+
+    private var calendar: [(Int, Int)]
+
+    init() {
+        self.calendar = []
+    }
+
+    func book(_ start: Int, _ end: Int) -> Bool {
+        let newEvent = (start, end)
+        let index = calendar.firstIndex { $0.0 >= newEvent.1 } ?? calendar.count
+
+        if index > 0 && calendar[index - 1].1 > newEvent.0 {
+            return false
+        }
+
+        calendar.insert(newEvent, at: index)
+        return true
+    }
+}
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * let obj = MyCalendar()
+ * let ret = obj.book(start, end)
+ */
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README_EN.md
+rating: 1408
+source: Biweekly Contest 35 Q1
+tags:
+    - Array
+    - Math
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [1588. Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays)
 
 [中文文档](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README.md)
 
-<!-- tags:Array,Math,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of positive integers <code>arr</code>, return <em>the sum of all possible <strong>odd-length subarrays</strong> of </em><code>arr</code>.</p>
 
@@ -55,11 +69,17 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 
 <p>Could you solve this problem in O(n) time complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +93,8 @@ class Solution:
                     ans += s
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOddLengthSubarrays(arr []int) (ans int) {
 	n := len(arr)
@@ -128,6 +154,8 @@ func sumOddLengthSubarrays(arr []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOddLengthSubarrays(arr: number[]): number {
@@ -145,6 +173,8 @@ function sumOddLengthSubarrays(arr: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -165,6 +195,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int sumOddLengthSubarrays(int* arr, int arrSize) {
     int ans = 0;
@@ -183,4 +215,6 @@ int sumOddLengthSubarrays(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

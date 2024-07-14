@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README.md
+rating: 1524
+source: 第 188 场周赛 Q2
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 数学
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [1442. 形成两个异或相等数组的三元组数目](https://leetcode.cn/problems/count-triplets-that-can-form-two-arrays-of-equal-xor)
 
 [English Version](/solution/1400-1499/1442.Count%20Triplets%20That%20Can%20Form%20Two%20Arrays%20of%20Equal%20XOR/README_EN.md)
 
-<!-- tags:位运算,数组,哈希表,数学,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>arr</code> 。</p>
 
@@ -65,11 +79,17 @@
 	<li><code>1 &lt;= arr[i] &lt;= 10^8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -87,6 +107,8 @@ class Solution:
                         ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countTriplets(arr []int) int {
@@ -158,4 +184,6 @@ func countTriplets(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

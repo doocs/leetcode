@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README.md
+rating: 1180
+source: 第 194 场周赛 Q1
+tags:
+    - 位运算
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [1486. 数组异或操作](https://leetcode.cn/problems/xor-operation-in-an-array)
 
 [English Version](/solution/1400-1499/1486.XOR%20Operation%20in%20an%20Array/README_EN.md)
 
-<!-- tags:位运算,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数，<code>n</code> 和 <code>start</code> 。</p>
 
@@ -52,24 +63,29 @@
 	<li><code>n == nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
 我们可以直接模拟算出数组中所有元素的异或结果。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def xorOperation(self, n: int, start: int) -> int:
-        ans = 0
-        for i in range(n):
-            ans ^= start + 2 * i
-        return ans
+        return reduce(xor, ((start + 2 * i) for i in range(n)))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -96,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorOperation(n int, start int) (ans int) {
 	for i := 0; i < n; i++ {
@@ -105,18 +125,20 @@ func xorOperation(n int, start int) (ans int) {
 }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-### 方法二
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def xorOperation(self, n: int, start: int) -> int:
-        return reduce(xor, ((start + 2 * i) for i in range(n)))
+```ts
+function xorOperation(n: number, start: number): number {
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        ans ^= start + 2 * i;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -2,24 +2,20 @@ func maximumBeauty(items [][]int, queries []int) []int {
 	sort.Slice(items, func(i, j int) bool {
 		return items[i][0] < items[j][0]
 	})
-	for i := 1; i < len(items); i++ {
-		items[i][1] = max(items[i-1][1], items[i][1])
+	n, m := len(items), len(queries)
+	idx := make([]int, m)
+	for i := range idx {
+		idx[i] = i
 	}
-	n := len(queries)
-	ans := make([]int, n)
-	for i, v := range queries {
-		left, right := 0, len(items)
-		for left < right {
-			mid := (left + right) >> 1
-			if items[mid][0] > v {
-				right = mid
-			} else {
-				left = mid + 1
-			}
+	sort.Slice(idx, func(i, j int) bool { return queries[idx[i]] < queries[idx[j]] })
+	ans := make([]int, m)
+	i, mx := 0, 0
+	for _, j := range idx {
+		for i < n && items[i][0] <= queries[j] {
+			mx = max(mx, items[i][1])
+			i++
 		}
-		if left > 0 {
-			ans[i] = items[left-1][1]
-		}
+		ans[j] = mx
 	}
 	return ans
 }

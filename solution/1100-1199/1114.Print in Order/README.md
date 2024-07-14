@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1114.Print%20in%20Order/README.md
+tags:
+    - 多线程
+---
+
+<!-- problem:start -->
+
 # [1114. 按序打印](https://leetcode.cn/problems/print-in-order)
 
 [English Version](/solution/1100-1199/1114.Print%20in%20Order/README_EN.md)
 
-<!-- tags:多线程 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个类：</p>
 
@@ -63,7 +71,11 @@ public class Foo {
 	<li><code>nums</code> 是 <code>[1, 2, 3]</code> 的一组排列</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多线程 + 锁或信号量
 
@@ -78,6 +90,8 @@ public class Foo {
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Foo:
@@ -100,6 +114,8 @@ class Foo:
         self.l3.acquire()
         printThird()
 ```
+
+#### Java
 
 ```java
 class Foo {
@@ -133,6 +149,8 @@ class Foo {
 }
 ```
 
+#### C++
+
 ```cpp
 class Foo {
 private:
@@ -164,9 +182,15 @@ public:
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from threading import Semaphore
@@ -196,6 +220,8 @@ class Foo:
         printThird()
         self.a.release()
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>
@@ -236,4 +262,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

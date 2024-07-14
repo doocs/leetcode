@@ -1,29 +1,12 @@
 function missingRolls(rolls: number[], mean: number, n: number): number[] {
-    const len = rolls.length + n;
-    const sum = rolls.reduce((p, v) => p + v);
-    const max = n * 6;
-    const min = n;
-    if ((sum + max) / len < mean || (sum + min) / len > mean) {
+    const m = rolls.length;
+    const s = (n + m) * mean - rolls.reduce((a, b) => a + b, 0);
+    if (s > n * 6 || s < n) {
         return [];
     }
-
-    const res = new Array(n);
-    for (let i = min; i <= max; i++) {
-        if ((sum + i) / len === mean) {
-            const num = Math.floor(i / n);
-            res.fill(num);
-            let count = i - n * num;
-            let j = 0;
-            while (count != 0) {
-                if (res[j] === 6) {
-                    j++;
-                } else {
-                    res[j]++;
-                    count--;
-                }
-            }
-            break;
-        }
+    const ans: number[] = Array(n).fill((s / n) | 0);
+    for (let i = 0; i < s % n; ++i) {
+        ans[i]++;
     }
-    return res;
+    return ans;
 }

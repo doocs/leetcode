@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md
+rating: 1284
+source: Weekly Contest 223 Q1
+tags:
+    - Bit Manipulation
+    - Array
+---
+
+<!-- problem:start -->
+
 # [1720. Decode XORed Array](https://leetcode.com/problems/decode-xored-array)
 
 [中文文档](/solution/1700-1799/1720.Decode%20XORed%20Array/README.md)
 
-<!-- tags:Bit Manipulation,Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a <strong>hidden</strong> integer array <code>arr</code> that consists of <code>n</code> non-negative integers.</p>
 
@@ -40,20 +53,50 @@
 	<li><code>0 &lt;= first &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Bit Manipulation
+
+Based on the problem description, we have:
+
+$$
+\text{encoded}[i] = \text{arr}[i] \oplus \text{arr}[i + 1]
+$$
+
+If we XOR both sides of the equation with $\text{arr}[i]$, we get:
+
+$$
+\text{arr}[i] \oplus \text{arr}[i] \oplus \text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+Which simplifies to:
+
+$$
+\text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+$$
+
+Following the derivation above, we can start with $\text{first}$ and sequentially calculate every element of the array $\text{arr}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def decode(self, encoded: List[int], first: int) -> List[int]:
         ans = [first]
-        for e in encoded:
-            ans.append(ans[-1] ^ e)
+        for x in encoded:
+            ans.append(ans[-1] ^ x)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,28 +112,47 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     vector<int> decode(vector<int>& encoded, int first) {
-        vector<int> ans{{first}};
-        for (int i = 0; i < encoded.size(); ++i)
-            ans.push_back(ans[i] ^ encoded[i]);
+        vector<int> ans = {{first}};
+        for (int x : encoded) {
+            ans.push_back(ans.back() ^ x);
+        }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
 func decode(encoded []int, first int) []int {
 	ans := []int{first}
-	for i, e := range encoded {
-		ans = append(ans, ans[i]^e)
+	for i, x := range encoded {
+		ans = append(ans, ans[i]^x)
 	}
 	return ans
 }
 ```
 
+#### TypeScript
+
+```ts
+function decode(encoded: number[], first: number): number[] {
+    const ans: number[] = [first];
+    for (const x of encoded) {
+        ans.push(ans.at(-1)! ^ x);
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

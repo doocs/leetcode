@@ -13,14 +13,23 @@
  */
 
 function checkSubTree(t1: TreeNode | null, t2: TreeNode | null): boolean {
-    if (t1 == null && t2 == null) {
+    const dfs = (t1: TreeNode | null, t2: TreeNode | null): boolean => {
+        if (!t2) {
+            return !t1;
+        }
+        if (!t1 || t1.val !== t2.val) {
+            return false;
+        }
+        return dfs(t1.left, t2.left) && dfs(t1.right, t2.right);
+    };
+    if (!t2) {
         return true;
     }
-    if (t1 == null || t2 == null) {
+    if (!t1) {
         return false;
     }
-    if (t1.val === t2.val) {
-        return checkSubTree(t1.left, t2.left) && checkSubTree(t1.right, t2.right);
+    if (dfs(t1, t2)) {
+        return true;
     }
     return checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
 }

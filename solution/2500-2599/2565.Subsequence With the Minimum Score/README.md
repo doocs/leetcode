@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README.md
+rating: 2432
+source: 第 332 场周赛 Q4
+tags:
+    - 双指针
+    - 字符串
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [2565. 最少得分子序列](https://leetcode.cn/problems/subsequence-with-the-minimum-score)
 
 [English Version](/solution/2500-2599/2565.Subsequence%20With%20the%20Minimum%20Score/README_EN.md)
 
-<!-- tags:双指针,字符串,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串&nbsp;<code>s</code> 和&nbsp;<code>t</code>&nbsp;。</p>
 
@@ -58,7 +70,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前后缀预处理 + 二分查找
 
@@ -71,6 +87,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $t$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +120,8 @@ class Solution:
 
         return bisect_left(range(n + 1), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -203,6 +225,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumScore(s string, t string) int {
 	m, n := len(s), len(t)
@@ -245,4 +269,6 @@ func minimumScore(s string, t string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0201.Bitwise%20AND%20of%20Numbers%20Range/README.md
+tags:
+    - 位运算
+---
+
+<!-- problem:start -->
+
 # [201. 数字范围按位与](https://leetcode.cn/problems/bitwise-and-of-numbers-range)
 
 [English Version](/solution/0200-0299/0201.Bitwise%20AND%20of%20Numbers%20Range/README_EN.md)
 
-<!-- tags:位运算 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>left</code> 和 <code>right</code> ，表示区间 <code>[left, right]</code> ，返回此区间内所有数字 <strong>按位与</strong> 的结果（包含 <code>left</code> 、<code>right</code> 端点）。</p>
 
@@ -41,7 +49,11 @@
 	<li><code>0 <= left <= right <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -53,6 +65,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rangeBitwiseAnd(self, left: int, right: int) -> int:
@@ -60,6 +74,8 @@ class Solution:
             right &= right - 1
         return right
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -84,6 +102,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rangeBitwiseAnd(left int, right int) int {
 	for left < right {
@@ -92,6 +112,8 @@ func rangeBitwiseAnd(left int, right int) int {
 	return right
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -107,6 +129,8 @@ var rangeBitwiseAnd = function (left, right) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int RangeBitwiseAnd(int left, int right) {
@@ -120,4 +144,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

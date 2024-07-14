@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.22.Langtons%20Ant/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 16.22. 兰顿蚂蚁](https://leetcode.cn/problems/langtons-ant-lcci)
 
 [English Version](/lcci/16.22.Langtons%20Ant/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一只蚂蚁坐在由白色和黑色方格构成的无限网格上。开始时，网格全白，蚂蚁面向右侧。每行走一步，蚂蚁执行以下操作。</p>
 <p>(1) 如果在白色方格上，则翻转方格的颜色，向右(顺时针)转 90 度，并向前移动一个单位。<br>
@@ -37,19 +45,25 @@
 	<li><code>K &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 模拟
 
-我们使用哈希表 $black$ 来记录所有黑色方格的位置，哈希表 $dirs$ 来记录蚂蚁的四个方向。我们使用变量 $x, y$ 来记录蚂蚁的位置，使用变量 $p$ 来记录蚂蚁的方向。我们使用变量 $x1, y1, x2, y2$ 来记录所有黑色方格的最小横坐标、最小纵坐标、最大横坐标、最大纵坐标。
+我们使用哈希表 $\textit{black}$ 来记录所有黑色方格的位置，哈希表 $\textit{dirs}$ 来记录蚂蚁的四个方向。我们使用变量 $x$, $y$ 来记录蚂蚁的位置，使用变量 $p$ 来记录蚂蚁的方向。我们使用变量 $x_1$, $y_1$, $x_2$, $y_2$ 来记录所有黑色方格的最小横坐标、最小纵坐标、最大横坐标、最大纵坐标。
 
-我们模拟蚂蚁的行走过程。如果蚂蚁所在的方格是白色的，那么蚂蚁向右转 $90$ 度，将方格涂黑，向前移动一个单位。如果蚂蚁所在的方格是黑色的，那么蚂蚁向左转 $90$ 度，将方格涂白，向前移动一个单位。在模拟的过程中，我们不断更新 $x1, y1, x2, y2$ 的值，使得它们能够包含蚂蚁走过的所有方格。
+我们模拟蚂蚁的行走过程。如果蚂蚁所在的方格是白色的，那么蚂蚁向右转 $90$ 度，将方格涂黑，向前移动一个单位。如果蚂蚁所在的方格是黑色的，那么蚂蚁向左转 $90$ 度，将方格涂白，向前移动一个单位。在模拟的过程中，我们不断更新 $x_1$, $y_1$, $x_2$, $y_2$ 的值，使得它们能够包含蚂蚁走过的所有方格。
 
-模拟结束后，我们根据 $x1, y1, x2, y2$ 的值，构造出答案矩阵 $g$。然后，我们将蚂蚁所在的位置涂上蚂蚁的方向，同时将所有黑色方格涂上 $X$，最后返回答案矩阵。
+模拟结束后，我们根据 $x_1$, $y_1$, $x_2$, $y_2$ 的值，构造出答案矩阵 $g$。然后，我们将蚂蚁所在的位置涂上蚂蚁的方向，同时将所有黑色方格涂上 $X$，最后返回答案矩阵。
 
 时间复杂度 $O(K)$，空间复杂度 $O(K)$。其中 $K$ 是蚂蚁行走的步数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +94,8 @@ class Solution:
         g[x - x1][y - y1] = d[p]
         return ["".join(row) for row in g]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -125,6 +141,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func printKMoves(K int) []string {
@@ -206,6 +226,54 @@ func printKMoves(K int) []string {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func printKMoves(_ K: Int) -> [String] {
+        var x1 = 0, y1 = 0, x2 = 0, y2 = 0
+        let dirs = [0, 1, 0, -1, 0]
+        let d = "RDLU"
+        var x = 0, y = 0, p = 0
+        var black = Set<[Int]>()
+        var K = K
+
+        while K > 0 {
+            let t = [x, y]
+            if black.insert(t).inserted {
+                p = (p + 1) % 4
+            } else {
+                black.remove(t)
+                p = (p + 3) % 4
+            }
+            x += dirs[p]
+            y += dirs[p + 1]
+            x1 = min(x1, x)
+            y1 = min(y1, y)
+            x2 = max(x2, x)
+            y2 = max(y2, y)
+            K -= 1
+        }
+
+        let m = x2 - x1 + 1
+        let n = y2 - y1 + 1
+        var g = Array(repeating: Array(repeating: "_", count: n), count: m)
+
+        for t in black {
+            let i = t[0] - x1
+            let j = t[1] - y1
+            g[i][j] = "X"
+        }
+
+        g[x - x1][y - y1] = String(d[d.index(d.startIndex, offsetBy: p)])
+
+        return g.map { $0.joined() }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

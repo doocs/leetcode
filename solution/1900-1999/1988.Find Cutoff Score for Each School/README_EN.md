@@ -1,10 +1,20 @@
-# [1988. Find Cutoff Score for Each School](https://leetcode.com/problems/find-cutoff-score-for-each-school)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1988. Find Cutoff Score for Each School 🔒](https://leetcode.com/problems/find-cutoff-score-for-each-school)
 
 [中文文档](/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Schools</code></p>
 
@@ -91,11 +101,17 @@ Exam table:
 - School 9: The data given is not enough to determine the min score requirement. Choosing 975 as the min score, the school may get 10 requests while its capacity is 9. We do not have information about higher scores, hence we report -1.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -108,4 +124,6 @@ GROUP BY school_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

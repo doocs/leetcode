@@ -1,12 +1,21 @@
-# [369. 给单链表加一](https://leetcode.cn/problems/plus-one-linked-list)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0369.Plus%20One%20Linked%20List/README.md
+tags:
+    - 链表
+    - 数学
+---
+
+<!-- problem:start -->
+
+# [369. 给单链表加一 🔒](https://leetcode.cn/problems/plus-one-linked-list)
 
 [English Version](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README_EN.md)
 
-<!-- tags:链表,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个用<strong>链表</strong>表示的非负整数， 然后将这个整数&nbsp;<em>再加上 1</em> 。</p>
 
@@ -40,7 +49,11 @@
 	<li>由链表表示的数字不包含前导零，除了零本身。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：链表遍历
 
@@ -53,6 +66,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -75,6 +90,8 @@ class Solution:
             target = target.next
         return dummy if dummy.val else dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -138,6 +157,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -171,4 +192,6 @@ func plusOne(head *ListNode) *ListNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

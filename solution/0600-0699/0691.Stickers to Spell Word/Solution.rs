@@ -1,4 +1,4 @@
-use std::collections::{ HashSet, VecDeque };
+use std::collections::{HashSet, VecDeque};
 
 impl Solution {
     pub fn min_stickers(stickers: Vec<String>, target: String) -> i32 {

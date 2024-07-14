@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2055.%20%E9%87%87%E9%9B%86%E6%9E%9C%E5%AE%9E/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 55. 采集果实](https://leetcode.cn/problems/PTXy4P)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣新手村，本次训练内容为「采集果实」。
 
@@ -50,7 +58,11 @@
 -   `1 <= fruits[i][1] < 10^3`
 -   `1 <= limit <= 100`
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -60,6 +72,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getMinimumTime(
@@ -67,6 +81,8 @@ class Solution:
     ) -> int:
         return sum((num + limit - 1) // limit * time[i] for i, num in fruits)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -95,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getMinimumTime(time []int, fruits [][]int, limit int) (ans int) {
 	for _, f := range fruits {
@@ -104,6 +124,8 @@ func getMinimumTime(time []int, fruits [][]int, limit int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function getMinimumTime(time: number[], fruits: number[][], limit: number): number {
@@ -117,4 +139,6 @@ function getMinimumTime(time: number[], fruits: number[][], limit: number): numb
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

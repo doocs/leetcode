@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0647.Palindromic%20Substrings/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [647. Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings)
 
 [中文文档](/solution/0600-0699/0647.Palindromic%20Substrings/README.md)
 
-<!-- tags:String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, return <em>the number of <strong>palindromic substrings</strong> in it</em>.</p>
 
@@ -37,11 +49,17 @@
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +72,8 @@ class Solution:
                 i, j = i - 1, j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubstrings(s string) int {
 	ans, n := 0, len(s)
@@ -105,6 +129,8 @@ func countSubstrings(s string) int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -129,9 +155,15 @@ var countSubstrings = function (s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -151,6 +183,8 @@ class Solution:
             ans += p[i] // 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -182,4 +216,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

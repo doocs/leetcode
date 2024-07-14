@@ -1,12 +1,20 @@
-# [1479. 周内每天的销售情况](https://leetcode.cn/problems/sales-by-day-of-the-week)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1479. 周内每天的销售情况 🔒](https://leetcode.cn/problems/sales-by-day-of-the-week)
 
 [English Version](/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Orders</code></p>
 
@@ -100,11 +108,17 @@ Orders</code> 表：
 在周天(2020-06-14, 2020-06-21)，Phone分类(ids: 3, 4)下，总共销售了10个单位(5 + 5)
 没有销售 T-Shirt 类别的商品</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -126,4 +140,6 @@ ORDER BY category;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

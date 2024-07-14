@@ -1,12 +1,24 @@
-# [1660. 纠正二叉树](https://leetcode.cn/problems/correct-a-binary-tree)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 哈希表
+    - 二叉树
+---
+
+<!-- problem:start -->
+
+# [1660. 纠正二叉树 🔒](https://leetcode.cn/problems/correct-a-binary-tree)
 
 [English Version](/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,哈希表,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一棵二叉树，这棵二叉树有个小问题，其中<strong>有且只有一个</strong>无效节点，它的右子节点错误地指向了与其在<strong>同一层</strong>且在其<strong>右侧</strong>的一个其他节点。</p>
 
@@ -60,7 +72,11 @@
 	<li><code>fromNode.right</code> 在测试用例的树中建立后为 <code>null</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -71,6 +87,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -92,6 +110,8 @@ class Solution:
         vis = set()
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -157,6 +179,8 @@ public:
     }
 };
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -190,4 +214,6 @@ var correctBinaryTree = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

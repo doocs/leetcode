@@ -1,10 +1,20 @@
-# [2199. Finding the Topic of Each Post](https://leetcode.com/problems/finding-the-topic-of-each-post)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2199. Finding the Topic of Each Post 🔒](https://leetcode.com/problems/finding-the-topic-of-each-post)
 
 [中文文档](/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Keywords</code></p>
 
@@ -102,11 +112,17 @@ This post is ambiguous.
 Note that it is okay to have one word that expresses more than one topic.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -121,4 +137,6 @@ GROUP BY post_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

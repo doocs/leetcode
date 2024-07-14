@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md
+tags:
+    - Hash Table
+    - Linked List
+    - Two Pointers
+---
+
+<!-- problem:start -->
+
 # [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii)
 
 [中文文档](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
 
-<!-- tags:Hash Table,Linked List,Two Pointers -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a linked list, return <em>the node where the cycle begins. If there is no cycle, return </em><code>null</code>.</p>
 
@@ -49,7 +61,11 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
@@ -73,6 +89,8 @@ The time complexity is $O(n)$, where $n$ is the number of nodes in the linked li
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -94,6 +112,8 @@ class Solution:
                     slow = slow.next
                 return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -127,6 +147,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -158,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -183,6 +207,8 @@ func detectCycle(head *ListNode) *ListNode {
 	return nil
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -214,6 +240,8 @@ function detectCycle(head: ListNode | null): ListNode | null {
     return null;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -248,4 +276,6 @@ var detectCycle = function (head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

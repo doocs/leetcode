@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%25%20In%20Sorted%20Array/README_EN.md
+rating: 1179
+source: Biweekly Contest 15 Q1
+tags:
+    - Array
+---
+
+<!-- problem:start -->
+
 # [1287. Element Appearing More Than 25% In Sorted Array](https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array)
 
 [中文文档](/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%25%20In%20Sorted%20Array/README.md)
 
-<!-- tags:Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.</p>
 
@@ -31,11 +43,17 @@
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -46,6 +64,8 @@ class Solution:
                 return val
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -61,6 +81,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -73,6 +95,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSpecialInteger(arr []int) int {
 	n := len(arr)
@@ -84,6 +108,8 @@ func findSpecialInteger(arr []int) int {
 	return 0
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -100,6 +126,8 @@ var findSpecialInteger = function (arr) {
     return 0;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -121,4 +149,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

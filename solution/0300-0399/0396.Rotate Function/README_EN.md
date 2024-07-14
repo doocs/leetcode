@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0396.Rotate%20Function/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [396. Rotate Function](https://leetcode.com/problems/rotate-function)
 
 [中文文档](/solution/0300-0399/0396.Rotate%20Function/README.md)
 
-<!-- tags:Array,Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of length <code>n</code>.</p>
 
@@ -48,11 +60,17 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +83,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRotateFunction(nums []int) int {
 	f, s, n := 0, 0, len(nums)
@@ -123,6 +147,8 @@ func maxRotateFunction(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxRotateFunction(nums: number[]): number {
     const n = nums.length;
@@ -137,16 +163,14 @@ function maxRotateFunction(nums: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_rotate_function(nums: Vec<i32>) -> i32 {
         let n = nums.len();
         let sum: i32 = nums.iter().sum();
-        let mut pre: i32 = nums
-            .iter()
-            .enumerate()
-            .map(|(i, &v)| (i as i32) * v)
-            .sum();
+        let mut pre: i32 = nums.iter().enumerate().map(|(i, &v)| (i as i32) * v).sum();
         (0..n)
             .map(|i| {
                 let res = pre;
@@ -161,4 +185,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

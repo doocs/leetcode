@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2194.Cells%20in%20a%20Range%20on%20an%20Excel%20Sheet/README.md
+rating: 1253
+source: 第 283 场周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2194. Excel 表中某个范围内的单元格](https://leetcode.cn/problems/cells-in-a-range-on-an-excel-sheet)
 
 [English Version](/solution/2100-2199/2194.Cells%20in%20a%20Range%20on%20an%20Excel%20Sheet/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Excel 表中的一个单元格 <code>(r, c)</code> 会以字符串 <code>"&lt;col&gt;&lt;row&gt;"</code> 的形式进行表示，其中：</p>
 
@@ -62,11 +72,21 @@
 	<li><code>s</code> 由大写英文字母、数字、和 <code>':'</code> 组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：模拟
+
+我们直接遍历范围内的所有单元格，将其添加到答案数组中。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为行数和列数的取值范围。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +97,8 @@ class Solution:
             for j in range(int(s[1]), int(s[-1]) + 1)
         ]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,31 +114,52 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     vector<string> cellsInRange(string s) {
         vector<string> ans;
-        for (char i = s[0]; i <= s[3]; ++i)
-            for (char j = s[1]; j <= s[4]; ++j)
+        for (char i = s[0]; i <= s[3]; ++i) {
+            for (char j = s[1]; j <= s[4]; ++j) {
                 ans.push_back({i, j});
+            }
+        }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
-func cellsInRange(s string) []string {
-	var ans []string
+func cellsInRange(s string) (ans []string) {
 	for i := s[0]; i <= s[3]; i++ {
 		for j := s[1]; j <= s[4]; j++ {
 			ans = append(ans, string(i)+string(j))
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function cellsInRange(s: string): string[] {
+    const ans: string[] = [];
+    for (let i = s.charCodeAt(0); i <= s.charCodeAt(3); ++i) {
+        for (let j = s.charCodeAt(1); j <= s.charCodeAt(4); ++j) {
+            ans.push(String.fromCharCode(i) + String.fromCharCode(j));
+        }
+    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

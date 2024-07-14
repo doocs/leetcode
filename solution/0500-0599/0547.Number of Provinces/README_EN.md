@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0547.Number%20of%20Provinces/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
+<!-- problem:start -->
+
 # [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces)
 
 [中文文档](/solution/0500-0599/0547.Number%20of%20Provinces/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> cities. Some of them are connected, while some are not. If city <code>a</code> is connected directly with city <code>b</code>, and city <code>b</code> is connected directly with city <code>c</code>, then city <code>a</code> is connected indirectly with city <code>c</code>.</p>
 
@@ -41,11 +54,17 @@
 	<li><code>isConnected[i][j] == isConnected[j][i]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +84,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
@@ -146,6 +171,8 @@ func findCircleNum(isConnected [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findCircleNum(isConnected: number[][]): number {
     const n = isConnected.length;
@@ -168,6 +195,8 @@ function findCircleNum(isConnected: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -199,9 +228,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -223,6 +258,8 @@ class Solution:
                         ans -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -258,6 +295,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -288,6 +327,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findCircleNum(isConnected [][]int) (ans int) {
 	n := len(isConnected)
@@ -317,6 +358,8 @@ func findCircleNum(isConnected [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findCircleNum(isConnected: number[][]): number {
@@ -350,4 +393,6 @@ function findCircleNum(isConnected: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

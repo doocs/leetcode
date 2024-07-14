@@ -1,20 +1,17 @@
 function findMagicIndex(nums: number[]): number {
-    const n = nums.length;
-    const find = (l: number, r: number): number => {
-        if (l > r || nums[r] < 0) {
+    const dfs = (i: number, j: number): number => {
+        if (i > j) {
             return -1;
         }
-        const mid = l + Math.floor((r - l) / 2);
-        if (nums[mid] >= l) {
-            const res = find(l, mid - 1);
-            if (res !== -1) {
-                return res;
-            }
+        const mid = (i + j) >> 1;
+        const l = dfs(i, mid - 1);
+        if (l !== -1) {
+            return l;
         }
         if (nums[mid] === mid) {
             return mid;
         }
-        return find(mid + 1, r);
+        return dfs(mid + 1, j);
     };
-    return find(0, n - 1);
+    return dfs(0, nums.length - 1);
 }

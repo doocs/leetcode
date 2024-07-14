@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1518.Water%20Bottles/README_EN.md
+rating: 1245
+source: Weekly Contest 198 Q1
+tags:
+    - Math
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [1518. Water Bottles](https://leetcode.com/problems/water-bottles)
 
 [中文文档](/solution/1500-1599/1518.Water%20Bottles/README.md)
 
-<!-- tags:Math,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>numBottles</code> water bottles that are initially full of water. You can exchange <code>numExchange</code> empty water bottles from the market with one full water bottle.</p>
 
@@ -39,11 +52,17 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 	<li><code>2 &lt;= numExchange &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -54,6 +73,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -66,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -80,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWaterBottles(numBottles int, numExchange int) int {
 	ans := numBottles
@@ -90,6 +115,8 @@ func numWaterBottles(numBottles int, numExchange int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numWaterBottles(numBottles: number, numExchange: number): number {
     let ans = numBottles;
@@ -99,6 +126,8 @@ function numWaterBottles(numBottles: number, numExchange: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -114,6 +143,8 @@ var numWaterBottles = function (numBottles, numExchange) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -135,4 +166,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

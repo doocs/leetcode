@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md
+rating: 1816
+source: Biweekly Contest 123 Q3
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [3026. Maximum Good Subarray Sum](https://leetcode.com/problems/maximum-good-subarray-sum)
 
 [中文文档](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md)
 
-<!-- tags:Array,Hash Table,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> of length <code>n</code> and a <strong>positive</strong> integer <code>k</code>.</p>
 
@@ -46,7 +60,11 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -59,6 +77,8 @@ Finally, if $ans = -\infty$, then we return $0$, otherwise return $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +96,8 @@ class Solution:
                 p[nums[i + 1]] = s
         return 0 if ans == -inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSubarraySum(nums []int, k int) int64 {
 	p := map[int]int64{nums[0]: 0}
@@ -162,6 +188,8 @@ func maximumSubarraySum(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSubarraySum(nums: number[], k: number): number {
     const p: Map<number, number> = new Map();
@@ -184,6 +212,8 @@ function maximumSubarraySum(nums: number[], k: number): number {
     return ans === -Infinity ? 0 : ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -212,4 +242,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

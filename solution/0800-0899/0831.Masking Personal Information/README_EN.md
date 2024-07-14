@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0831.Masking%20Personal%20Information/README_EN.md
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [831. Masking Personal Information](https://leetcode.com/problems/masking-personal-information)
 
 [中文文档](/solution/0800-0899/0831.Masking%20Personal%20Information/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a personal information string <code>s</code>, representing either an <strong>email address</strong> or a <strong>phone number</strong>. Return <em>the <strong>masked</strong> personal information using the below rules</em>.</p>
 
@@ -100,11 +110,17 @@ Thus, the resulting masked number is &quot;***-***-7890&quot;.
 	</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -117,6 +133,8 @@ class Solution:
         suf = '***-***-' + s[-4:]
         return suf if cnt == 0 else f'+{"*" * cnt}-{suf}'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +159,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -169,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maskPII(s string) string {
 	i := strings.Index(s, "@")
@@ -191,6 +213,8 @@ func maskPII(s string) string {
 	return "+" + strings.Repeat("*", cnt) + "-" + suf
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maskPII(s: string): string {
@@ -216,4 +240,6 @@ function maskPII(s: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

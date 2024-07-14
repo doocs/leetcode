@@ -9,8 +9,12 @@ public:
             col[c]++;
         }
         int cnt1 = 0, cnt2 = 0;
-        for (int v : row) cnt1 += v % 2;
-        for (int v : col) cnt2 += v % 2;
+        for (int v : row) {
+            cnt1 += v % 2;
+        }
+        for (int v : col) {
+            cnt2 += v % 2;
+        }
         return cnt1 * (n - cnt2) + cnt2 * (m - cnt1);
     }
 };

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README.md
+rating: 1495
+source: 第 312 场周赛 Q2
+tags:
+    - 位运算
+    - 脑筋急转弯
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [2419. 按位与最大的最长子数组](https://leetcode.cn/problems/longest-subarray-with-maximum-bitwise-and)
 
 [English Version](/solution/2400-2499/2419.Longest%20Subarray%20With%20Maximum%20Bitwise%20AND/README_EN.md)
 
-<!-- tags:位运算,脑筋急转弯,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> 。</p>
 
@@ -53,7 +65,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：脑筋急转弯
 
@@ -66,6 +82,8 @@
 时间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +98,8 @@ class Solution:
                 cnt = 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubarray(nums []int) int {
 	mx := slices.Max(nums)
@@ -139,4 +163,6 @@ func longestSubarray(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

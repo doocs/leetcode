@@ -1,16 +1,28 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2627.Debounce/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [2627. Debounce](https://leetcode.com/problems/debounce)
 
 [中文文档](/solution/2600-2699/2627.Debounce/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a function&nbsp;<code>fn</code> and a time in milliseconds&nbsp;<code>t</code>, return&nbsp;a&nbsp;<strong>debounced</strong>&nbsp;version of that function.</p>
 
 <p>A&nbsp;<strong>debounced</strong>&nbsp;function is a function whose execution is delayed by&nbsp;<code>t</code>&nbsp;milliseconds and whose&nbsp;execution is cancelled if it is called again within that window of time. The debounced function should also receive the passed parameters.</p>
 
-<p>For example, let&#39;s say&nbsp;<code>t = 50ms</code>, and the function was called at&nbsp;<code>30ms</code>,&nbsp;<code>60ms</code>, and <code>100ms</code>. The first 2 function calls would be cancelled, and the 3rd function call would be executed at&nbsp;<code>150ms</code>. If instead&nbsp;<code>t = 35ms</code>, The 1st call would be cancelled, the 2nd would be executed at&nbsp;<code>95ms</code>, and the 3rd would be executed at&nbsp;<code>135ms</code>.</p>
+<p>For example, let&#39;s say&nbsp;<code>t = 50ms</code>, and the function was called at&nbsp;<code>30ms</code>,&nbsp;<code>60ms</code>, and <code>100ms</code>.</p>
+
+<p>The first 2 function calls would be cancelled, and the 3rd function call would be executed at&nbsp;<code>150ms</code>.</p>
+
+<p>If instead&nbsp;<code>t = 35ms</code>, The 1st call would be cancelled, the 2nd would be executed at&nbsp;<code>95ms</code>, and the 3rd would be executed at&nbsp;<code>135ms</code>.</p>
 
 <p><img alt="Debounce Schematic" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2627.Debounce/images/screen-shot-2023-04-08-at-11048-pm.png" style="width: 800px; height: 242px;" /></p>
 
@@ -84,11 +96,17 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
 	<li><code>0 &lt;= calls[i].inputs.length &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type F = (...p: any[]) => any;
@@ -116,4 +134,6 @@ function debounce(fn: F, t: number): F {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

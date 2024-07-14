@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2741.Special%20Permutations/README_EN.md
+rating: 2020
+source: Weekly Contest 350 Q3
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Bitmask
+---
+
+<!-- problem:start -->
+
 # [2741. Special Permutations](https://leetcode.com/problems/special-permutations)
 
 [中文文档](/solution/2700-2799/2741.Special%20Permutations/README.md)
 
-<!-- tags:Bit Manipulation,Array,Bitmask -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a&nbsp;<strong>0-indexed</strong>&nbsp;integer array&nbsp;<code>nums</code>&nbsp;containing&nbsp;<code>n</code>&nbsp;<strong>distinct</strong> positive integers. A permutation of&nbsp;<code>nums</code>&nbsp;is called special if:</p>
 
@@ -39,11 +54,35 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: State Compression Dynamic Programming
+
+We notice that the maximum length of the array in the problem does not exceed $14$. Therefore, we can use an integer to represent the current state, where the $i$-th bit is $1$ if the $i$-th number in the array has been selected, and $0$ if it has not been selected.
+
+We define $f[i][j]$ as the number of schemes where the current selected integer state is $i$, and the index of the last selected integer is $j$. Initially, $f[0][0]=0$, and the answer is $\sum_{j=0}^{n-1}f[2^n-1][j]$.
+
+Considering $f[i][j]$, if only one number is currently selected, then $f[i][j]=1$. Otherwise, we can enumerate the index $k$ of the last selected number. If the numbers corresponding to $k$ and $j$ meet the requirements of the problem, then $f[i][j]$ can be transferred from $f[i \oplus 2^j][k]$. That is:
+
+$$
+f[i][j]=
+\begin{cases}
+1, & i=2^j\\
+\sum_{k=0}^{n-1}f[i \oplus 2^j][k], & i \neq 2^j \text{ and nums}[j] \text{ and nums}[k] \text{ meet the requirements of the problem}\\
+\end{cases}
+$$
+
+The final answer is $\sum_{j=0}^{n-1}f[2^n-1][j]$. Note that the answer may be very large, so we need to take the modulus of $10^9+7$.
+
+The time complexity is $O(n^2 \times 2^n)$, and the space complexity is $O(n \times 2^n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +103,8 @@ class Solution:
                             f[i][j] = (f[i][j] + f[ii][k]) % mod
         return sum(f[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func specialPerm(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -163,6 +208,75 @@ func specialPerm(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function specialPerm(nums: number[]): number {
+    const mod = 1e9 + 7;
+    const n = nums.length;
+    const m = 1 << n;
+    const f = Array.from({ length: m }, () => Array(n).fill(0));
+
+    for (let i = 1; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (((i >> j) & 1) === 1) {
+                const ii = i ^ (1 << j);
+                if (ii === 0) {
+                    f[i][j] = 1;
+                    continue;
+                }
+                for (let k = 0; k < n; ++k) {
+                    if (nums[j] % nums[k] === 0 || nums[k] % nums[j] === 0) {
+                        f[i][j] = (f[i][j] + f[ii][k]) % mod;
+                    }
+                }
+            }
+        }
+    }
+
+    return f[m - 1].reduce((acc, x) => (acc + x) % mod);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn special_perm(nums: Vec<i32>) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let n = nums.len();
+        let m = 1 << n;
+        let mut f = vec![vec![0; n]; m];
+
+        for i in 1..m {
+            for j in 0..n {
+                if (i >> j) & 1 == 1 {
+                    let ii = i ^ (1 << j);
+                    if ii == 0 {
+                        f[i][j] = 1;
+                        continue;
+                    }
+                    for k in 0..n {
+                        if nums[j] % nums[k] == 0 || nums[k] % nums[j] == 0 {
+                            f[i][j] = (f[i][j] + f[ii][k]) % MOD;
+                        }
+                    }
+                }
+            }
+        }
+
+        let mut ans = 0;
+        for &x in &f[m - 1] {
+            ans = (ans + x) % MOD;
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

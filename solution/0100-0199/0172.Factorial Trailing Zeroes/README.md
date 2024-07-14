@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README.md
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [172. 阶乘后的零](https://leetcode.cn/problems/factorial-trailing-zeroes)
 
 [English Version](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数 <code>n</code> ，返回 <code>n!</code> 结果中尾随零的数量。</p>
 
@@ -49,7 +57,11 @@
 
 <p><b>进阶：</b>你可以设计并实现对数时间复杂度的算法来解决此问题吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -66,6 +78,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trailingZeroes(self, n: int) -> int:
@@ -75,6 +89,8 @@ class Solution:
             ans += n
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trailingZeroes(n int) int {
 	ans := 0
@@ -113,6 +133,8 @@ func trailingZeroes(n int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function trailingZeroes(n: number): number {
@@ -127,4 +149,6 @@ function trailingZeroes(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

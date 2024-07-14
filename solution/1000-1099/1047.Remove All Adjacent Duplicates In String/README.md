@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README.md
+rating: 1286
+source: 第 137 场周赛 Q2
+tags:
+    - 栈
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1047. 删除字符串中的所有相邻重复项](https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string)
 
 [English Version](/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README_EN.md)
 
-<!-- tags:栈,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出由小写字母组成的字符串&nbsp;<code>S</code>，<strong>重复项删除操作</strong>会选择两个相邻且相同的字母，并删除它们。</p>
 
@@ -33,7 +44,11 @@
 	<li><code>S</code> 仅由小写英文字母组成。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -44,6 +59,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +73,8 @@ class Solution:
                 stk.append(c)
         return ''.join(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +91,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeDuplicates(s string) string {
 	stk := []rune{}
@@ -103,6 +126,8 @@ func removeDuplicates(s string) string {
 	return string(stk)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -119,6 +144,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -137,6 +164,8 @@ var removeDuplicates = function (s) {
     return stk.join('');
 };
 ```
+
+#### C
 
 ```c
 char* removeDuplicates(char* s) {
@@ -158,4 +187,6 @@ char* removeDuplicates(char* s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

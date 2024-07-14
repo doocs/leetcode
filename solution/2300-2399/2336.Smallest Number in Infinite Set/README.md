@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README.md
+rating: 1375
+source: 第 301 场周赛 Q2
+tags:
+    - 设计
+    - 哈希表
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2336. 无限集中的最小数字](https://leetcode.cn/problems/smallest-number-in-infinite-set)
 
 [English Version](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README_EN.md)
 
-<!-- tags:设计,哈希表,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一个包含所有正整数的集合 <code>[1, 2, 3, 4, 5, ...]</code> 。</p>
 
@@ -50,7 +62,11 @@ smallestInfiniteSet.popSmallest(); // 返回 5 ，并将其从集合中移除。
 	<li>最多调用 <code>popSmallest</code> 和 <code>addBack</code> 方法 <strong>共计</strong> <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：有序集合 + 模拟
 
@@ -70,6 +86,8 @@ smallestInfiniteSet.popSmallest(); // 返回 5 ，并将其从集合中移除。
 空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -93,6 +111,8 @@ class SmallestInfiniteSet:
 # param_1 = obj.popSmallest()
 # obj.addBack(num)
 ```
+
+#### Java
 
 ```java
 class SmallestInfiniteSet {
@@ -120,6 +140,8 @@ class SmallestInfiniteSet {
  * obj.addBack(num);
  */
 ```
+
+#### C++
 
 ```cpp
 class SmallestInfiniteSet {
@@ -152,6 +174,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type SmallestInfiniteSet struct {
 	s *treemap.Map
@@ -182,6 +206,8 @@ func (this *SmallestInfiniteSet) AddBack(num int) {
  * obj.AddBack(num);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SmallestInfiniteSet {
@@ -851,6 +877,8 @@ class TreeMultiSet<T = number> {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::BTreeSet;
 
@@ -876,19 +904,20 @@ impl SmallestInfiniteSet {
     fn add_back(&mut self, num: i32) {
         self.s.insert(num);
     }
-}/**
- * Your SmallestInfiniteSet object will be instantiated and called as such:
- * let obj = SmallestInfiniteSet::new();
- * let ret_1: i32 = obj.pop_smallest();
- * obj.add_back(num);
- */
+}
 ```
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 class SmallestInfiniteSet {
@@ -928,4 +957,6 @@ class SmallestInfiniteSet {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

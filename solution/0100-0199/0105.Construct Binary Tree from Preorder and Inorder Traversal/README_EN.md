@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md
+tags:
+    - Tree
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
 
 [中文文档](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)
 
-<!-- tags:Tree,Array,Hash Table,Divide and Conquer,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>preorder</code> and <code>inorder</code> where <code>preorder</code> is the preorder traversal of a binary tree and <code>inorder</code> is the inorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>
 
@@ -36,7 +50,11 @@
 	<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Recursion
 
@@ -56,6 +74,8 @@ The execution process of the function $dfs(i, j, n)$ is as follows:
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -78,6 +98,8 @@ class Solution:
         d = {v: i for i, v in enumerate(inorder)}
         return dfs(0, 0, len(preorder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -121,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,6 +180,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -184,6 +210,8 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return dfs(0, 0, len(preorder))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -220,6 +248,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -239,9 +269,9 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         let mut d = HashMap::new();
@@ -256,7 +286,7 @@ impl Solution {
         d: &HashMap<i32, usize>,
         i: usize,
         j: usize,
-        n: usize
+        n: usize,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if n <= 0 {
             return None;
@@ -270,6 +300,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -311,6 +343,8 @@ If the node values given in the problem have duplicates, then we only need to re
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getBinaryTrees(self, preOrder: List[int], inOrder: List[int]) -> List[TreeNode]:
@@ -331,6 +365,8 @@ class Solution:
             d[x].append(i)
         return dfs(0, 0, len(preOrder))
 ```
+
+#### Java
 
 ```java
 /**
@@ -373,6 +409,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -419,6 +457,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getBinaryTrees(preOrder []int, inOrder []int) []*TreeNode {
 	n := len(preOrder)
@@ -453,4 +493,6 @@ func getBinaryTrees(preOrder []int, inOrder []int) []*TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

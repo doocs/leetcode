@@ -1,31 +1,28 @@
 type SnapshotArray struct {
-	idx int
-	arr [][]pair
+	arr [][][2]int
+	i   int
 }
 
 func Constructor(length int) SnapshotArray {
-	return SnapshotArray{0, make([][]pair, length)}
+	return SnapshotArray{make([][][2]int, length), 0}
 }
 
 func (this *SnapshotArray) Set(index int, val int) {
-	this.arr[index] = append(this.arr[index], pair{this.idx, val})
+	this.arr[index] = append(this.arr[index], [2]int{this.i, val})
 }
 
 func (this *SnapshotArray) Snap() int {
-	this.idx++
-	return this.idx - 1
+	this.i++
+	return this.i - 1
 }
 
 func (this *SnapshotArray) Get(index int, snap_id int) int {
-	vals := this.arr[index]
-	i := sort.Search(len(vals), func(i int) bool { return vals[i].i > snap_id })
-	if i == 0 {
+	i := sort.Search(len(this.arr[index]), func(i int) bool { return this.arr[index][i][0] > snap_id }) - 1
+	if i < 0 {
 		return 0
 	}
-	return vals[i-1].v
+	return this.arr[index][i][1]
 }
-
-type pair struct{ i, v int }
 
 /**
  * Your SnapshotArray object will be instantiated and called as such:

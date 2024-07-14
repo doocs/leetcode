@@ -1,12 +1,21 @@
-# [2340. 生成有效数组的最少交换次数](https://leetcode.cn/problems/minimum-adjacent-swaps-to-make-a-valid-array)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
+# [2340. 生成有效数组的最少交换次数 🔒](https://leetcode.cn/problems/minimum-adjacent-swaps-to-make-a-valid-array)
 
 [English Version](/solution/2300-2399/2340.Minimum%20Adjacent%20Swaps%20to%20Make%20a%20Valid%20Array/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个<strong>&nbsp;下标从 0 开始</strong>&nbsp;的整数数组 <code>nums</code>。</p>
 
@@ -54,7 +63,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：维护最值下标 + 分类讨论
 
@@ -70,6 +83,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumSwaps(self, nums: List[int]) -> int:
@@ -81,6 +96,8 @@ class Solution:
                 j = k
         return 0 if i == j else i + len(nums) - 1 - j - (i > j)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSwaps(nums []int) int {
 	var i, j int
@@ -146,6 +167,8 @@ func minimumSwaps(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSwaps(nums: number[]): number {
     let i = 0;
@@ -165,4 +188,6 @@ function minimumSwaps(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

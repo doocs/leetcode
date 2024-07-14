@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README.md
+tags:
+    - 位运算
+    - 脑筋急转弯
+    - 数组
+    - 数学
+    - 博弈
+---
+
+<!-- problem:start -->
+
 # [810. 黑板异或游戏](https://leetcode.cn/problems/chalkboard-xor-game)
 
 [English Version](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)
 
-<!-- tags:位运算,脑筋急转弯,数组,数学,博弈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>黑板上写着一个非负整数数组 <code>nums[i]</code> 。</p>
 
@@ -52,7 +64,11 @@ Alice 有两个选择: 擦掉数字 1 或 2。
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>16</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -102,11 +118,15 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorGame(self, nums: List[int]) -> bool:
         return len(nums) % 2 == 0 or reduce(xor, nums) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +149,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func xorGame(nums []int) bool {
@@ -143,4 +167,6 @@ func xorGame(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0402.Remove%20K%20Digits/README.md
+tags:
+    - 栈
+    - 贪心
+    - 字符串
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [402. 移掉 K 位数字](https://leetcode.cn/problems/remove-k-digits)
 
 [English Version](/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md)
 
-<!-- tags:栈,贪心,字符串,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个以字符串表示的非负整数 <code>num</code> 和一个整数 <code>k</code> ，移除这个数中的 <code>k</code><em> </em>位数字，使得剩下的数字最小。请你以字符串形式返回这个最小的数字。</p>
  
@@ -45,7 +56,11 @@
 	<li>除了 <strong>0</strong> 本身之外，<code>num</code> 不含任何前导零</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心算法
 
@@ -62,6 +77,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
@@ -74,6 +91,8 @@ class Solution:
             stk.append(c)
         return ''.join(stk[:remain]).lstrip('0') or '0'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -122,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeKdigits(num string, k int) string {
 	stk, remain := make([]byte, 0), len(num)-k
@@ -143,21 +166,27 @@ func removeKdigits(num string, k int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function removeKdigits(num: string, k: number): string {
-    let nums = [...num];
-    while (k > 0) {
-        let idx = 0;
-        while (idx < nums.length - 1 && nums[idx + 1] >= nums[idx]) {
-            idx++;
+    const stk: string[] = [];
+    for (const c of num) {
+        while (k && stk.length > 0 && stk[stk.length - 1] > c) {
+            stk.pop();
+            k--;
         }
-        nums.splice(idx, 1);
-        k--;
+        stk.push(c);
     }
-    return nums.join('').replace(/^0*/g, '') || '0';
+    while (k--) {
+        stk.pop();
+    }
+    return stk.join('').replace(/^0*/g, '') || '0';
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

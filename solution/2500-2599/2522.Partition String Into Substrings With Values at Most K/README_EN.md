@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README_EN.md
+rating: 1604
+source: Weekly Contest 326 Q3
+tags:
+    - Greedy
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2522. Partition String Into Substrings With Values at Most K](https://leetcode.com/problems/partition-string-into-substrings-with-values-at-most-k)
 
 [中文文档](/solution/2500-2599/2522.Partition%20String%20Into%20Substrings%20With%20Values%20at%20Most%20K/README.md)
 
-<!-- tags:Greedy,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting of digits from <code>1</code> to <code>9</code> and an integer <code>k</code>.</p>
 
@@ -60,11 +74,30 @@ It can be shown that we cannot partition the string into less than 4 substrings.
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Memoization Search
+
+We design a function $dfs(i)$ to represent the minimum number of partitions starting from index $i$ of string $s$. The answer is $dfs(0)$.
+
+The calculation process of the function $dfs(i)$ is as follows:
+
+-   If $i \geq n$, it means that it has reached the end of the string, return $0$.
+-   Otherwise, we enumerate all substrings starting from $i$. If the value of the substring is less than or equal to $k$, then we can take the substring as a partition. Then we can get $dfs(j + 1)$, where $j$ is the end index of the substring. We take the minimum value among all possible partitions, add $1$, and that is the value of $dfs(i)$.
+
+Finally, if $dfs(0) = \infty$, it means there is no good partition, return $-1$. Otherwise, return $dfs(0)$.
+
+To avoid repeated calculations, we can use memoization search.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +118,8 @@ class Solution:
         ans = dfs(0)
         return ans if ans < inf else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +159,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +186,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumPartition(s string, k int) int {
@@ -184,4 +223,6 @@ func minimumPartition(s string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2059.%20%E6%90%AD%E6%A1%A5%E8%BF%87%E6%B2%B3/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 59. 搭桥过河](https://leetcode.cn/problems/NfY1m5)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 欢迎各位勇者来到力扣城，本次试炼主题为「搭桥过河」。
 
@@ -22,7 +30,7 @@
 > 将 [8,9] 浮木移动至 [7,8]，花费 1「自然之力」，
 > 此时勇者可以顺着 [3,4]->[4,7]->[7,8] 跨越河流，
 > 因此，勇者最少需要花费 3 点「自然之力」跨越这条河流
-> ![wood (2).gif](<https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2059.%20%E6%90%AD%E6%A1%A5%E8%BF%87%E6%B2%B3/images/1648196478-ophADL-wood%20(2).gif>)
+> ![wood (2).gif](<https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2059.%20%E6%90%AD%E6%A1%A5%E8%BF%87%E6%B2%B3/images/1648196478-ophADL-wood%20(2).gif>){:width=650px}
 
 **示例 2：**
 
@@ -48,6 +56,10 @@
 -   `wood[i].length == 2`
 -   `1 <= wood[i][0] <= wood[i][1] <= num`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

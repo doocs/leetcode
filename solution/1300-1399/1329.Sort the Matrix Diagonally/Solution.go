@@ -1,12 +1,19 @@
 func diagonalSort(mat [][]int) [][]int {
 	m, n := len(mat), len(mat[0])
-	for k := 0; k < m-1 && k < n-1; k++ {
-		for i := 0; i < m-1; i++ {
-			for j := 0; j < n-1; j++ {
-				if mat[i][j] > mat[i+1][j+1] {
-					mat[i][j], mat[i+1][j+1] = mat[i+1][j+1], mat[i][j]
-				}
-			}
+	g := make([][]int, m+n)
+	for i, row := range mat {
+		for j, x := range row {
+			g[m-i+j] = append(g[m-i+j], x)
+		}
+	}
+	for _, e := range g {
+		sort.Sort(sort.Reverse(sort.IntSlice(e)))
+	}
+	for i, row := range mat {
+		for j := range row {
+			k := len(g[m-i+j])
+			mat[i][j] = g[m-i+j][k-1]
+			g[m-i+j] = g[m-i+j][:k-1]
 		}
 	}
 	return mat

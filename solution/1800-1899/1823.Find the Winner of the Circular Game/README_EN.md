@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README_EN.md
+rating: 1412
+source: Weekly Contest 236 Q2
+tags:
+    - Recursion
+    - Queue
+    - Array
+    - Math
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [1823. Find the Winner of the Circular Game](https://leetcode.com/problems/find-the-winner-of-the-circular-game)
 
 [中文文档](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md)
 
-<!-- tags:Recursion,Queue,Array,Math,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> friends that are playing a game. The friends are sitting in a circle and are numbered from <code>1</code> to <code>n</code> in <strong>clockwise order</strong>. More formally, moving clockwise from the <code>i<sup>th</sup></code> friend brings you to the <code>(i+1)<sup>th</sup></code> friend for <code>1 &lt;= i &lt; n</code>, and moving clockwise from the <code>n<sup>th</sup></code> friend brings you to the <code>1<sup>st</sup></code> friend.</p>
 
@@ -57,11 +73,17 @@
 
 <p>Could you solve this problem in linear time with constant space?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +93,8 @@ class Solution:
         ans = (k + self.findTheWinner(n - 1, k)) % n
         return n if ans == 0 else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -84,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findTheWinner(n int, k int) int {
@@ -108,44 +136,93 @@ func findTheWinner(n int, k int) int {
 }
 ```
 
-```ts
-class LinkNode {
-    public val: number;
-    public next: LinkNode;
+#### TypeScript
 
-    constructor(val: number = 0, next?: LinkNode) {
-        this.val = val;
-        this.next = next;
+```ts
+function findTheWinner(n: number, k: number): number {
+    if (n === 1) {
+        return 1;
+    }
+    const ans = (k + findTheWinner(n - 1, k)) % n;
+    return ans ? ans : n;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_the_winner(n: i32, k: i32) -> i32 {
+        if n == 1 {
+            return 1;
+        }
+        let mut ans = (k + Solution::find_the_winner(n - 1, k)) % n;
+        return if ans == 0 { n } else { ans };
     }
 }
+```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var findTheWinner = function (n, k) {
+    if (n === 1) {
+        return 1;
+    }
+    const ans = (k + findTheWinner(n - 1, k)) % n;
+    return ans ? ans : n;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Simulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
 function findTheWinner(n: number, k: number): number {
-    if (k === 1) {
-        return n;
-    }
-    const dummy = new LinkNode(0);
-    let cur = dummy;
-    for (let i = 1; i <= n; i++) {
-        cur.next = new LinkNode(i);
-        cur = cur.next;
-    }
-    cur.next = dummy.next;
+    const arr = Array.from({ length: n }, (_, i) => i + 1);
+    let i = 0;
 
-    cur = dummy;
-    let count = 0;
-    while (cur.next != cur) {
-        count++;
-        if (count === k) {
-            cur.next = cur.next.next;
-            count = 0;
-        } else {
-            cur = cur.next;
-        }
+    while (arr.length > 1) {
+        i = (i + k - 1) % arr.length;
+        arr.splice(i, 1);
     }
-    return cur.val;
+
+    return arr[0];
+}
+```
+
+#### JavaScript
+
+```js
+function findTheWinner(n, k) {
+    const arr = Array.from({ length: n }, (_, i) => i + 1);
+    let i = 0;
+
+    while (arr.length > 1) {
+        i = (i + k - 1) % arr.length;
+        arr.splice(i, 1);
+    }
+
+    return arr[0];
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

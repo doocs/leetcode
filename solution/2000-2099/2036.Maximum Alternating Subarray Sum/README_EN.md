@@ -1,10 +1,21 @@
-# [2036. Maximum Alternating Subarray Sum](https://leetcode.com/problems/maximum-alternating-subarray-sum)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [2036. Maximum Alternating Subarray Sum 🔒](https://leetcode.com/problems/maximum-alternating-subarray-sum)
 
 [中文文档](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <strong>subarray</strong> of a <strong>0-indexed</strong> integer array is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 
@@ -53,7 +64,11 @@ The alternating subarray sum is 1.
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -65,6 +80,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximumAlternatingSubarraySum(self, nums: List[int]) -> int:
@@ -74,6 +91,8 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumAlternatingSubarraySum(nums []int) int64 {
 	const inf = 1 << 60
@@ -120,6 +143,8 @@ func maximumAlternatingSubarraySum(nums []int) int64 {
 	return int64(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumAlternatingSubarraySum(nums: number[]): number {
@@ -134,4 +159,6 @@ function maximumAlternatingSubarraySum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

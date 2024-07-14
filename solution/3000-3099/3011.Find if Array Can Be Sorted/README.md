@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md
+rating: 1496
+source: 第 122 场双周赛 Q2
+tags:
+    - 位运算
+    - 数组
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [3011. 判断一个数组是否可以变为有序](https://leetcode.cn/problems/find-if-array-can-be-sorted)
 
 [English Version](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md)
 
-<!-- tags:位运算,数组,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始且全是 <strong>正</strong>&nbsp;整数的数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -56,24 +68,30 @@
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
-我们可以使用双指针，将数组 $nums$ 分成若干个子数组，每个子数组中的元素的二进制表示中 $1$ 的个数相同。对于每个子数组，我们只需要关注它的最大值和最小值，如果最小值比上一个子数组的最大值小，那么就无法通过交换使得数组有序。
+我们可以使用双指针，将数组 $\textit{nums}$ 分成若干个子数组，每个子数组中的元素的二进制表示中 $1$ 的个数相同。对于每个子数组，我们只需要关注它的最大值和最小值，如果最小值比上一个子数组的最大值小，那么就无法通过交换使得数组有序。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def canSortArray(self, nums: List[int]) -> bool:
-        pre_mx = -inf
+        pre_mx = 0
         i, n = 0, len(nums)
         while i < n:
-            j = i + 1
             cnt = nums[i].bit_count()
+            j = i + 1
             mi = mx = nums[i]
             while j < n and nums[j].bit_count() == cnt:
                 mi = min(mi, nums[j])
@@ -86,14 +104,16 @@ class Solution:
         return True
 ```
 
+#### Java
+
 ```java
 class Solution {
     public boolean canSortArray(int[] nums) {
-        int preMx = -300;
+        int preMx = 0;
         int i = 0, n = nums.length;
         while (i < n) {
-            int j = i + 1;
             int cnt = Integer.bitCount(nums[i]);
+            int j = i + 1;
             int mi = nums[i], mx = nums[i];
             while (j < n && Integer.bitCount(nums[j]) == cnt) {
                 mi = Math.min(mi, nums[j]);
@@ -111,15 +131,17 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool canSortArray(vector<int>& nums) {
-        int preMx = -300;
+        int preMx = 0;
         int i = 0, n = nums.size();
         while (i < n) {
-            int j = i + 1;
             int cnt = __builtin_popcount(nums[i]);
+            int j = i + 1;
             int mi = nums[i], mx = nums[i];
             while (j < n && __builtin_popcount(nums[j]) == cnt) {
                 mi = min(mi, nums[j]);
@@ -137,13 +159,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canSortArray(nums []int) bool {
-	preMx := -300
+	preMx := 0
 	i, n := 0, len(nums)
 	for i < n {
-		j := i + 1
 		cnt := bits.OnesCount(uint(nums[i]))
+		j := i + 1
 		mi, mx := nums[i], nums[i]
 		for j < n && bits.OnesCount(uint(nums[j])) == cnt {
 			mi = min(mi, nums[j])
@@ -160,13 +184,15 @@ func canSortArray(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canSortArray(nums: number[]): boolean {
-    let preMx = -300;
+    let preMx = 0;
     const n = nums.length;
     for (let i = 0; i < n; ) {
-        let j = i + 1;
         const cnt = bitCount(nums[i]);
+        let j = i + 1;
         let [mi, mx] = [nums[i], nums[i]];
         while (j < n && bitCount(nums[j]) === cnt) {
             mi = Math.min(mi, nums[j]);
@@ -194,4 +220,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

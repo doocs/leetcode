@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [609. 在系统中查找重复文件](https://leetcode.cn/problems/find-duplicate-file-in-system)
 
 [English Version](/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README_EN.md)
 
-<!-- tags:数组,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个目录信息列表&nbsp;<code>paths</code> ，包括目录路径，以及该目录中的所有文件及其内容，请你按路径返回文件系统中的所有重复文件。答案可按 <strong>任意顺序</strong> 返回。</p>
 
@@ -67,7 +77,11 @@
 	<li>如何确保您发现的重复文件不是误报？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -81,6 +95,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDuplicate(self, paths: List[str]) -> List[List[str]]:
@@ -93,6 +109,8 @@ class Solution:
                 d[content].append(ps[0] + '/' + name)
         return [v for v in d.values() if len(v) > 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -153,6 +173,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicate(paths []string) [][]string {
 	d := map[string][]string{}
@@ -175,6 +197,8 @@ func findDuplicate(paths []string) [][]string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findDuplicate(paths: string[]): string[][] {
     const d = new Map<string, string[]>();
@@ -193,4 +217,6 @@ function findDuplicate(paths: string[]): string[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

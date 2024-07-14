@@ -1,32 +1,32 @@
 class SortedStack {
-    private Stack<Integer> s;
+    private Deque<Integer> stk = new ArrayDeque<>();
+
     public SortedStack() {
-        s = new Stack<>();
     }
 
     public void push(int val) {
-        Stack<Integer> t = new Stack<>();
-        while (!isEmpty() && s.peek() < val) {
-            t.push(s.pop());
+        Deque<Integer> t = new ArrayDeque<>();
+        while (!stk.isEmpty() && stk.peek() < val) {
+            t.push(stk.pop());
         }
-        s.push(val);
+        stk.push(val);
         while (!t.isEmpty()) {
-            s.push(t.pop());
+            stk.push(t.pop());
         }
     }
 
     public void pop() {
         if (!isEmpty()) {
-            s.pop();
+            stk.pop();
         }
     }
 
     public int peek() {
-        return isEmpty() ? -1 : s.peek();
+        return isEmpty() ? -1 : stk.peek();
     }
 
     public boolean isEmpty() {
-        return s.isEmpty();
+        return stk.isEmpty();
     }
 }
 

@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2035.%20%E7%94%B5%E5%8A%A8%E8%BD%A6%E6%B8%B8%E5%9F%8E%E5%B8%82/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 35. 电动车游城市](https://leetcode.cn/problems/DFPeFJ)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 小明的电动车电量充满时可行驶距离为 `cnt`，每行驶 1 单位距离消耗 1 单位电量，且花费 1 单位时间。小明想选择电动车作为代步工具。地图上共有 N 个景点，景点编号为 0 ~ N-1。他将地图信息以 `[城市 A 编号,城市 B 编号,两城市间距离]` 格式整理在在二维数组 `paths`，表示城市 A、B 间存在双向通路。初始状态，电动车电量为 0。每个城市都设有充电桩，`charge[i]` 表示第 i 个城市每充 1 单位电量需要花费的单位时间。请返回小明最少需要花费多少单位时间从起点城市 `start` 抵达终点城市 `end`。
 
@@ -16,7 +24,7 @@
 > 在城市 1 仅充 3 单位电至城市 3，然后在城市 3 充 5 单位电，行驶至城市 5。
 > 充电用时共 3\*10 + 5\*1= 35
 > 行驶用时 3 + 5 = 8，此时总用时最短 43。
-> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2035.%20电动车游城市/images/1616125304-mzVxIV-image.png)
+> ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2035.%20%E7%94%B5%E5%8A%A8%E8%BD%A6%E6%B8%B8%E5%9F%8E%E5%B8%82/images/1616125304-mzVxIV-image.png)
 
 **示例 2：**
 
@@ -40,6 +48,10 @@
 -   `1 <= charge[i] <= 100`
 -   题目保证所有城市相互可以到达
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

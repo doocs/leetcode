@@ -1,10 +1,23 @@
-# [1804. Implement Trie II (Prefix Tree)](https://leetcode.com/problems/implement-trie-ii-prefix-tree)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README_EN.md
+tags:
+    - Design
+    - Trie
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [1804. Implement Trie II (Prefix Tree) 🔒](https://leetcode.com/problems/implement-trie-ii-prefix-tree)
 
 [中文文档](/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README.md)
 
-<!-- tags:Design,Trie,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A <a href="https://en.wikipedia.org/wiki/Trie" target="_blank"><strong>trie</strong></a> (pronounced as &quot;try&quot;) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>
 
@@ -51,7 +64,11 @@ trie.countWordsStartingWith(&quot;app&quot;); // return 0
 	<li>It is guaranteed that for any function call to <code>erase</code>, the string <code>word</code> will exist in the trie.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Implement Trie with Array
 
@@ -90,6 +107,8 @@ We start from the root node of the Trie, and sequentially reduce the `pv` value 
 The time complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -140,6 +159,8 @@ class Trie:
 # param_3 = obj.countWordsStartingWith(prefix)
 # obj.erase(word)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -205,6 +226,8 @@ class Trie {
  * obj.erase(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -274,6 +297,8 @@ private:
  * obj->erase(word);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -347,4 +372,6 @@ func (this *Trie) search(word string) *Trie {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

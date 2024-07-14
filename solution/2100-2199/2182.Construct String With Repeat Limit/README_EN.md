@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README_EN.md
+rating: 1680
+source: Weekly Contest 281 Q3
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Counting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2182. Construct String With Repeat Limit](https://leetcode.com/problems/construct-string-with-repeat-limit)
 
 [中文文档](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md)
 
-<!-- tags:Greedy,String,Counting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> and an integer <code>repeatLimit</code>. Construct a new string <code>repeatLimitedString</code> using the characters of <code>s</code> such that no letter appears <strong>more than</strong> <code>repeatLimit</code> times <strong>in a row</strong>. You do <strong>not</strong> have to use all characters from <code>s</code>.</p>
 
@@ -48,7 +64,11 @@ Note that the string &quot;bbabaaa&quot; is lexicographically larger but the let
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -57,6 +77,8 @@ First, we use an array $cnt$ of length $26$ to count the number of occurrences o
 The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of string $s$, and $\Sigma$ is the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +104,8 @@ class Solution:
                 ans.append(ascii_lowercase[j])
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -150,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func repeatLimitedString(s string, repeatLimit int) string {
 	cnt := [26]int{}
@@ -180,6 +208,8 @@ func repeatLimitedString(s string, repeatLimit int) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function repeatLimitedString(s: string, repeatLimit: number): string {
@@ -214,4 +244,6 @@ function repeatLimitedString(s: string, repeatLimit: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

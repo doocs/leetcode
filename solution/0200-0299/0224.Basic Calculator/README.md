@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0224.Basic%20Calculator/README.md
+tags:
+    - 栈
+    - 递归
+    - 数学
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [224. 基本计算器](https://leetcode.cn/problems/basic-calculator)
 
 [English Version](/solution/0200-0299/0224.Basic%20Calculator/README_EN.md)
 
-<!-- tags:栈,递归,数学,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串表达式 <code>s</code> ，请你实现一个基本计算器来计算并返回它的值。</p>
 
@@ -49,7 +60,11 @@
 	<li>每个数字和运行的计算将适合于一个有符号的 32位 整数</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：栈
 
@@ -68,6 +83,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -97,6 +114,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +152,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -172,6 +193,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func calculate(s string) (ans int) {
 	stk := []int{}
@@ -206,6 +229,8 @@ func calculate(s string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function calculate(s: string): number {
@@ -242,6 +267,8 @@ function calculate(s: string): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -283,4 +310,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,20 @@
-# [2113. Elements in Array After Removing and Replacing Elements](https://leetcode.com/problems/elements-in-array-after-removing-and-replacing-elements)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2113.Elements%20in%20Array%20After%20Removing%20and%20Replacing%20Elements/README_EN.md
+tags:
+    - Array
+---
+
+<!-- problem:start -->
+
+# [2113. Elements in Array After Removing and Replacing Elements 🔒](https://leetcode.com/problems/elements-in-array-after-removing-and-replacing-elements)
 
 [中文文档](/solution/2100-2199/2113.Elements%20in%20Array%20After%20Removing%20and%20Replacing%20Elements/README.md)
 
-<!-- tags:Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. Initially on minute <code>0</code>, the array is unchanged. Every minute, the <strong>leftmost</strong> element in <code>nums</code> is removed until no elements remain. Then, every minute, one element is appended to the <strong>end</strong> of <code>nums</code>, in the order they were removed in, until the original array is restored. This process repeats indefinitely.</p>
 
@@ -70,11 +80,28 @@ At minute 3, nums[0] does not exist.
 	<li><code>0 &lt;= index<sub>j</sub> &lt; nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Direct Calculation
+
+First, we initialize an array $ans$ with length $m$ to store the answers, initializing all elements to $-1$.
+
+Next, we iterate through the array $queries$. For each query, we first obtain the current query time $t$ and index $i$. We then take $t$ modulo $2n$ and compare $t$ with $n$:
+
+-   If $t < n$, then the number of array elements at time $t$ is $n - t$, and the array elements are the result of the original array elements shifted left by $t$ positions. Therefore, if $i < n - t$, the answer is $nums[i + t]$;
+-   If $t > n$, then the number of array elements at time $t$ is $t - n$, and the array elements are the first $t - n$ elements of the original array. Therefore, if $i < t - n$, the answer is $nums[i]$.
+
+Finally, return the array $ans$.
+
+The time complexity is $O(m)$, where $m$ is the length of the array $queries$. Ignoring the space consumed by the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +116,8 @@ class Solution:
                 ans[j] = nums[i]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func elementInNums(nums []int, queries [][]int) []int {
 	n, m := len(nums), len(queries)
@@ -148,6 +181,28 @@ func elementInNums(nums []int, queries [][]int) []int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function elementInNums(nums: number[], queries: number[][]): number[] {
+    const n = nums.length;
+    const m = queries.length;
+    const ans: number[] = Array(m).fill(-1);
+    for (let j = 0; j < m; ++j) {
+        let [t, i] = queries[j];
+        t %= 2 * n;
+        if (t < n && i < n - t) {
+            ans[j] = nums[i + t];
+        } else if (t >= n && i < t - n) {
+            ans[j] = nums[i];
+        }
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

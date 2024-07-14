@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2006.%20%E6%8B%BF%E7%A1%AC%E5%B8%81/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 06. 拿硬币](https://leetcode.cn/problems/na-ying-bi)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>桌上有 <code>n</code> 堆力扣币，每堆的数量保存在数组 <code>coins</code> 中。我们每次可以选择任意一堆，拿走其中的一枚或者两枚，求拿完所有力扣币的最少次数。</p>
 
@@ -31,7 +38,11 @@
 	<li><code>1 &lt;= coins[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -43,11 +54,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCount(self, coins: List[int]) -> int:
         return sum((x + 1) >> 1 for x in coins)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -60,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -74,6 +91,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCount(coins []int) (ans int) {
 	for _, x := range coins {
@@ -82,6 +101,8 @@ func minCount(coins []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCount(coins: number[]): number {
@@ -93,16 +114,17 @@ function minCount(coins: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_count(coins: Vec<i32>) -> i32 {
-        coins
-            .iter()
-            .map(|&x| (x + 1) >> 1)
-            .sum::<i32>()
+        coins.iter().map(|&x| (x + 1) >> 1).sum::<i32>()
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -120,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 int minCount(int* coins, int coinsSize) {
     int ans = 0;
@@ -132,4 +156,6 @@ int minCount(int* coins, int coinsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

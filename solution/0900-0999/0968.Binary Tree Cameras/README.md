@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0968.Binary%20Tree%20Cameras/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 动态规划
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [968. 监控二叉树](https://leetcode.cn/problems/binary-tree-cameras)
 
 [English Version](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README_EN.md)
 
-<!-- tags:树,深度优先搜索,动态规划,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树，我们在树的节点上安装摄像头。</p>
 
@@ -42,7 +53,11 @@
 	<li>每个节点的值都是 0。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（树形 DP）
 
@@ -70,6 +85,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -92,6 +109,8 @@ class Solution:
         a, b, _ = dfs(root)
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -166,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -192,6 +215,8 @@ func minCameraCover(root *TreeNode) int {
 	return min(a, b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -227,4 +252,6 @@ function minCameraCover(root: TreeNode | null): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

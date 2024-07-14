@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [377. Combination Sum IV](https://leetcode.com/problems/combination-sum-iv)
 
 [中文文档](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of <strong>distinct</strong> integers <code>nums</code> and a target integer <code>target</code>, return <em>the number of possible combinations that add up to</em>&nbsp;<code>target</code>.</p>
 
@@ -48,11 +59,25 @@ Note that different sequences are counted as different combinations.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if negative numbers are allowed in the given array? How does it change the problem? What limitation we need to add to the question to allow negative numbers?</p>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the number of combinations that sum up to $i$. Initially, $f[0] = 1$, and the rest $f[i] = 0$. The final answer is $f[target]$.
+
+For $f[i]$, we can enumerate each element $x$ in the array. If $i \ge x$, then $f[i] = f[i] + f[i - x]$.
+
+Finally, return $f[target]$.
+
+The time complexity is $O(n \times target)$, and the space complexity is $O(target)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +89,8 @@ class Solution:
                     f[i] += f[i - x]
         return f[target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func combinationSum4(nums []int, target int) int {
 	f := make([]int, target+1)
@@ -116,9 +147,11 @@ func combinationSum4(nums []int, target int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function combinationSum4(nums: number[], target: number): number {
-    const f: number[] = new Array(target + 1).fill(0);
+    const f: number[] = Array(target + 1).fill(0);
     f[0] = 1;
     for (let i = 1; i <= target; ++i) {
         for (const x of nums) {
@@ -131,6 +164,8 @@ function combinationSum4(nums: number[], target: number): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -138,7 +173,7 @@ function combinationSum4(nums: number[], target: number): number {
  * @return {number}
  */
 var combinationSum4 = function (nums, target) {
-    const f = new Array(target + 1).fill(0);
+    const f = Array(target + 1).fill(0);
     f[0] = 1;
     for (let i = 1; i <= target; ++i) {
         for (const x of nums) {
@@ -150,6 +185,8 @@ var combinationSum4 = function (nums, target) {
     return f[target];
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -170,4 +207,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

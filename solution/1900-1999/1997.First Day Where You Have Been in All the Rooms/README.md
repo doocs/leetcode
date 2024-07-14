@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README.md
+rating: 2260
+source: 第 257 场周赛 Q3
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1997. 访问完所有房间的第一天](https://leetcode.cn/problems/first-day-where-you-have-been-in-all-the-rooms)
 
 [English Version](/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你需要访问&nbsp;<code>n</code> 个房间，房间从 <code>0</code> 到 <code>n - 1</code> 编号。同时，每一天都有一个日期编号，从 <code>0</code> 开始，依天数递增。你每天都会访问一个房间。</p>
 
@@ -65,7 +76,11 @@
 	<li><code>0 &lt;= nextVisit[i] &lt;= i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -81,6 +96,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def firstDayBeenInAllRooms(self, nextVisit: List[int]) -> int:
@@ -91,6 +108,8 @@ class Solution:
             f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1) % mod
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func firstDayBeenInAllRooms(nextVisit []int) int {
 	n := len(nextVisit)
@@ -133,6 +156,38 @@ func firstDayBeenInAllRooms(nextVisit []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function firstDayBeenInAllRooms(nextVisit: number[]): number {
+    const n = nextVisit.length;
+    const mod = 1e9 + 7;
+    const f: number[] = new Array<number>(n).fill(0);
+    for (let i = 1; i < n; ++i) {
+        f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+    }
+    return f[n - 1];
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int FirstDayBeenInAllRooms(int[] nextVisit) {
+        int n = nextVisit.Length;
+        long[] f = new long[n];
+        int mod = (int)1e9 + 7;
+        for (int i = 1; i < n; ++i) {
+            f[i] = (f[i - 1] + 1 + f[i - 1] - f[nextVisit[i - 1]] + 1 + mod) % mod;
+        }
+        return (int)f[n - 1];
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

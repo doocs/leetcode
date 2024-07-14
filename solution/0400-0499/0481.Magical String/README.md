@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0481.Magical%20String/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [481. 神奇字符串](https://leetcode.cn/problems/magical-string)
 
 [English Version](/solution/0400-0499/0481.Magical%20String/README_EN.md)
 
-<!-- tags:双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>神奇字符串 <code>s</code> 仅由 <code>'1'</code> 和 <code>'2'</code> 组成，并需要遵守下面的规则：</p>
 
@@ -43,7 +52,11 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟构造过程
 
@@ -81,6 +94,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def magicalString(self, n: int) -> int:
@@ -95,10 +110,12 @@ class Solution:
         return s[:n].count(1)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int magicalString(int n) {
-        List<Integer> s = new ArrayList<>(Arrays.asList(1, 2, 2));
+        List<Integer> s = new ArrayList<>(List.of(1, 2, 2));
         for (int i = 2; s.size() < n; ++i) {
             int pre = s.get(s.size() - 1);
             int cur = 3 - pre;
@@ -117,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func magicalString(n int) (ans int) {
@@ -153,45 +174,46 @@ func magicalString(n int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function magicalString(n: number): number {
-    const cs = [...'1221121'];
-    let i = 5;
-    while (cs.length < n) {
-        const c = cs[cs.length - 1];
-        cs.push(c === '1' ? '2' : '1');
-        if (cs[i] !== '1') {
-            cs.push(c === '1' ? '2' : '1');
+    const s: number[] = [1, 2, 2];
+    for (let i = 2; s.length < n; ++i) {
+        let pre = s[s.length - 1];
+        let cur = 3 - pre;
+        for (let j = 0; j < s[i]; ++j) {
+            s.push(cur);
         }
-        i++;
     }
-    return cs.slice(0, n).reduce((r, c) => r + (c === '1' ? 1 : 0), 0);
+    return s.slice(0, n).filter(x => x === 1).length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn magical_string(n: i32) -> i32 {
-        let n = n as usize;
-        let mut s = String::from("1221121");
-        let mut i = 5;
-        while s.len() < n {
-            let c = s.as_bytes()[s.len() - 1];
-            s.push(if c == b'1' { '2' } else { '1' });
-            if s.as_bytes()[i] != b'1' {
-                s.push(if c == b'1' { '2' } else { '1' });
+        let mut s = vec![1, 2, 2];
+        let mut i = 2;
+
+        while s.len() < n as usize {
+            let pre = s[s.len() - 1];
+            let cur = 3 - pre;
+            for _ in 0..s[i] {
+                s.push(cur);
             }
             i += 1;
         }
-        s
-            .as_bytes()
-            [0..n].iter()
-            .filter(|&v| v == &b'1')
-            .count() as i32
+
+        s.iter().take(n as usize).filter(|&&x| x == 1).count() as i32
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

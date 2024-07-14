@@ -1,37 +1,35 @@
 class MyQueue {
-    private inStack: number[];
-    private outStack: number[];
+    stk1: number[];
+    stk2: number[];
 
     constructor() {
-        this.inStack = [];
-        this.outStack = [];
+        this.stk1 = [];
+        this.stk2 = [];
     }
 
     push(x: number): void {
-        this.inStack.push(x);
+        this.stk1.push(x);
     }
 
     pop(): number {
-        if (this.outStack.length === 0) {
-            this.inToOut();
-        }
-        return this.outStack.pop() ?? -1;
+        this.move();
+        return this.stk2.pop();
     }
 
     peek(): number {
-        if (this.outStack.length === 0) {
-            this.inToOut();
-        }
-        return this.outStack[this.outStack.length - 1] ?? -1;
+        this.move();
+        return this.stk2.at(-1);
     }
 
     empty(): boolean {
-        return this.inStack.length === 0 && this.outStack.length === 0;
+        return !this.stk1.length && !this.stk2.length;
     }
 
-    inToOut() {
-        while (this.inStack.length !== 0) {
-            this.outStack.push(this.inStack.pop());
+    move(): void {
+        if (!this.stk2.length) {
+            while (this.stk1.length) {
+                this.stk2.push(this.stk1.pop()!);
+            }
         }
     }
 }

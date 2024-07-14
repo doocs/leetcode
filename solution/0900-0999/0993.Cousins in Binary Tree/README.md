@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [993. 二叉树的堂兄弟节点](https://leetcode.cn/problems/cousins-in-binary-tree)
 
 [English Version](/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在二叉树中，根节点位于深度 <code>0</code> 处，每个深度为 <code>k</code> 的节点的子节点位于深度 <code>k+1</code> 处。</p>
 
@@ -53,7 +64,11 @@
 
 <p> </p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -66,6 +81,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -94,6 +111,8 @@ class Solution:
             depth += 1
         return p1 != p2 and d1 == d2
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -184,6 +205,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -218,6 +241,8 @@ func isCousins(root *TreeNode, x int, y int) bool {
 	return d1 == d2 && p1 != p2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -261,6 +286,10 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：DFS
 
 我们设计一个函数 $dfs(root, parent, depth)$，表示从根节点 $root$ 出发，其父节点为 $parent$，深度为 $depth$，进行深度优先搜索。
@@ -272,6 +301,8 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -296,6 +327,8 @@ class Solution:
         dfs(root, None, 0)
         return st[0][0] != st[1][0] and st[0][1] == st[1][1]
 ```
+
+#### Java
 
 ```java
 /**
@@ -342,6 +375,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -380,6 +415,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -409,6 +446,8 @@ func isCousins(root *TreeNode, x int, y int) bool {
 	return d1 == d2 && p1 != p2
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -446,4 +485,6 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1507.Reformat%20Date/README.md
+rating: 1283
+source: 第 30 场双周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1507. 转变日期格式](https://leetcode.cn/problems/reformat-date)
 
 [English Version](/solution/1500-1599/1507.Reformat%20Date/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>date</code>&nbsp;，它的格式为&nbsp;<code>Day Month Year</code>&nbsp;，其中：</p>
 
@@ -52,7 +62,11 @@
 	<li>给定日期保证是合法的，所以不需要处理异常输入。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -61,6 +75,8 @@
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +89,8 @@ class Solution:
         return "-".join(s)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String reformatDate(String date) {
@@ -84,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +120,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reformatDate(date string) string {
 	s := strings.Split(date, " ")
@@ -111,6 +133,8 @@ func reformatDate(date string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function reformatDate(date: string): string {
     const s = date.split(' ');
@@ -120,6 +144,8 @@ function reformatDate(date: string): string {
     return `${s[2]}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -156,4 +182,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

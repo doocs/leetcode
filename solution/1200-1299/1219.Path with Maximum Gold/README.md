@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README.md
+rating: 1663
+source: 第 157 场周赛 Q3
+tags:
+    - 数组
+    - 回溯
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [1219. 黄金矿工](https://leetcode.cn/problems/path-with-maximum-gold)
 
 [English Version](/solution/1200-1299/1219.Path%20with%20Maximum%20Gold/README_EN.md)
 
-<!-- tags:数组,回溯,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你要开发一座金矿，地质勘测学家已经探明了这座金矿中的资源分布，并用大小为&nbsp;<code>m * n</code> 的网格 <code>grid</code> 进行了标注。每个单元格中的整数就表示这一单元格中的黄金数量；如果该单元格是空的，那么就是 <code>0</code>。</p>
 
@@ -56,7 +68,11 @@
 	<li>最多 <strong>25 </strong>个单元格中有黄金。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -65,6 +81,8 @@
 时间复杂度 $O(m \times n \times 3^k)$，其中 $k$ 是每条路径的最大长度。由于每个格子最多只能被访问一次，因此时间复杂度不会超过 $O(m \times n \times 3^k)$。空间复杂度 $O(m \times n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +100,8 @@ class Solution:
         dirs = (-1, 0, 1, 0, -1)
         return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,6 +166,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMaximumGold(grid [][]int) (ans int) {
@@ -172,6 +196,8 @@ func getMaximumGold(grid [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMaximumGold(grid: number[][]): number {
     const m = grid.length;
@@ -195,6 +221,8 @@ function getMaximumGold(grid: number[][]): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -226,4 +254,6 @@ var getMaximumGold = function (grid) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,20 +1,23 @@
 use std::collections::HashMap;
+
 impl Solution {
     pub fn total_fruit(fruits: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        let mut j = 0;
         let n = fruits.len();
-        let mut map = HashMap::new();
-        let mut i = 0;
-        for &fruit in fruits.iter() {
-            *map.entry(fruit).or_insert(0) += 1;
-            if map.len() > 2 {
-                let k = fruits[i];
-                map.insert(k, map[&k] - 1);
-                if map[&k] == 0 {
-                    map.remove(&k);
+
+        for &x in &fruits {
+            *cnt.entry(x).or_insert(0) += 1;
+            if cnt.len() > 2 {
+                let y = fruits[j];
+                j += 1;
+                *cnt.get_mut(&y).unwrap() -= 1;
+                if cnt[&y] == 0 {
+                    cnt.remove(&y);
                 }
-                i += 1;
             }
         }
-        (n - i) as i32
+
+        (n - j) as i32
     }
 }

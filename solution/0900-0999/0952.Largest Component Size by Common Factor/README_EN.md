@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README_EN.md
+tags:
+    - Union Find
+    - Array
+    - Hash Table
+    - Math
+    - Number Theory
+---
+
+<!-- problem:start -->
+
 # [952. Largest Component Size by Common Factor](https://leetcode.com/problems/largest-component-size-by-common-factor)
 
 [中文文档](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README.md)
 
-<!-- tags:Union Find,Array,Hash Table,Math,Number Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array of unique positive integers <code>nums</code>. Consider the following graph:</p>
 
@@ -46,11 +60,17 @@
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class UnionFind:
@@ -80,6 +100,8 @@ class Solution:
                 i += 1
         return max(Counter(uf.find(v) for v in nums).values())
 ```
+
+#### Java
 
 ```java
 class UnionFind {
@@ -136,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class UnionFind {
 public:
@@ -186,6 +210,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestComponentSize(nums []int) int {
 	m := slices.Max(nums)
@@ -227,4 +253,6 @@ func largestComponentSize(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

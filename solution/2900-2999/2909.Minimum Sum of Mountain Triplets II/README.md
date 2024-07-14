@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README.md
+rating: 1478
+source: 第 368 场周赛 Q2
+tags:
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [2909. 元素和最小的山形三元组 II](https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-ii)
 
 [English Version](/solution/2900-2999/2909.Minimum%20Sum%20of%20Mountain%20Triplets%20II/README_EN.md)
 
-<!-- tags:数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。</p>
 
@@ -60,7 +70,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 枚举
 
@@ -73,6 +87,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +104,8 @@ class Solution:
             left = min(left, x)
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -134,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSum(nums []int) int {
 	n := len(nums)
@@ -157,6 +179,8 @@ func minimumSum(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSum(nums: number[]): number {
     const n = nums.length;
@@ -177,4 +201,6 @@ function minimumSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

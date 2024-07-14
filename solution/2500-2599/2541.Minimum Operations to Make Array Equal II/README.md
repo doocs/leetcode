@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README.md
+rating: 1619
+source: 第 96 场双周赛 Q2
+tags:
+    - 贪心
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2541. 使数组中所有元素相等的最小操作数 II](https://leetcode.cn/problems/minimum-operations-to-make-array-equal-ii)
 
 [English Version](/solution/2500-2599/2541.Minimum%20Operations%20to%20Make%20Array%20Equal%20II/README_EN.md)
 
-<!-- tags:贪心,数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，两个数组长度都是&nbsp;<code>n</code>&nbsp;，再给你一个整数&nbsp;<code>k</code>&nbsp;。你可以对数组&nbsp;<code>nums1</code>&nbsp;进行以下操作：</p>
 
@@ -47,7 +59,11 @@
 	<li><code>0 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：一次遍历
 
@@ -60,6 +76,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +95,8 @@ class Solution:
             x += y
         return -1 if x else ans // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -126,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(nums1 []int, nums2 []int, k int) int64 {
@@ -159,6 +183,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(nums1: number[], nums2: number[], k: number): number {
     const n = nums1.length;
@@ -182,18 +208,15 @@ function minOperations(nums1: number[], nums2: number[], k: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_operations(nums1: Vec<i32>, nums2: Vec<i32>, k: i32) -> i64 {
         let k = k as i64;
         let n = nums1.len();
         if k == 0 {
-            return if
-                nums1
-                    .iter()
-                    .enumerate()
-                    .all(|(i, &v)| v == nums2[i])
-            {
+            return if nums1.iter().enumerate().all(|(i, &v)| v == nums2[i]) {
                 0
             } else {
                 -1
@@ -216,6 +239,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 long long minOperations(int* nums1, int nums1Size, int* nums2, int nums2Size, int k) {
@@ -246,4 +271,6 @@ long long minOperations(int* nums1, int nums1Size, int* nums2, int nums2Size, in
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

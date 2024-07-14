@@ -1,12 +1,22 @@
-# [2814. 避免淹死并到达目的地的最短时间](https://leetcode.cn/problems/minimum-time-takes-to-reach-destination-without-drowning)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
+# [2814. 避免淹死并到达目的地的最短时间 🔒](https://leetcode.cn/problems/minimum-time-takes-to-reach-destination-without-drowning)
 
 [English Version](/solution/2800-2899/2814.Minimum%20Time%20Takes%20to%20Reach%20Destination%20Without%20Drowning/README_EN.md)
 
-<!-- tags:广度优先搜索,数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个 <code>n * m</code> 的索引从 <strong>0</strong> 开始的二维字符串网格 <code>land</code>，目前你站在为&nbsp;<code>"S"</code> 的单元格上，你需要到达为&nbsp;<code>"D"</code> 的单元格。在这片区域上还有另外三种类型的单元格：</p>
 
@@ -74,7 +84,11 @@
 	<li><strong>恰好</strong>有一个单元格等于 <code>"D"</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次 BFS
 
@@ -83,6 +97,8 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是数组 $land$ 的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -139,6 +155,8 @@ class Solution:
             t += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +224,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -275,6 +295,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumSeconds(land [][]string) int {
@@ -348,6 +370,8 @@ func minimumSeconds(land [][]string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSeconds(land: string[][]): number {
     const m = land.length;
@@ -419,4 +443,6 @@ function minimumSeconds(land: string[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

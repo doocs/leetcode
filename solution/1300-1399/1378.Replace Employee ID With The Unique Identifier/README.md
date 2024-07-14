@@ -1,12 +1,20 @@
-# [1378. 使用唯一标识码替换员工 ID](https://leetcode.cn/problems/replace-employee-id-with-the-unique-identifier)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1378. 使用唯一标识码替换员工ID](https://leetcode.cn/problems/replace-employee-id-with-the-unique-identifier)
 
 [English Version](/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Employees</code> 表：</p>
 
@@ -84,13 +92,19 @@ Meir 的唯一标识码是 2 。
 Winston 的唯一标识码是 3 。
 Jonathan 唯一标识码是 1 。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：LEFT JOIN
 
 我们可以使用 `LEFT JOIN` 来连接 `Employees` 和 `EmployeeUNI` 表，然后使用 `SELECT` 语句来选择 `unique_id` 和 `name` 列。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -102,4 +116,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

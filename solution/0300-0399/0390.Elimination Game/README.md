@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0390.Elimination%20Game/README.md
+tags:
+    - 递归
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [390. 消除游戏](https://leetcode.cn/problems/elimination-game)
 
 [English Version](/solution/0300-0399/0390.Elimination%20Game/README_EN.md)
 
-<!-- tags:递归,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>列表 <code>arr</code> 由在范围 <code>[1, n]</code> 中的所有整数组成，并按严格递增排序。请你对 <code>arr</code> 应用下述算法：</p>
 
@@ -51,11 +60,17 @@ arr = [6]
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +91,8 @@ class Solution:
             i += 1
         return a1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastRemaining(n int) int {
@@ -140,4 +161,6 @@ func lastRemaining(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

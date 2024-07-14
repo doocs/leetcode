@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1333.Filter%20Restaurants%20by%20Vegan-Friendly%2C%20Price%20and%20Distance/README_EN.md
+rating: 1423
+source: Weekly Contest 173 Q2
+tags:
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1333. Filter Restaurants by Vegan-Friendly, Price and Distance](https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance)
 
 [中文文档](/solution/1300-1399/1333.Filter%20Restaurants%20by%20Vegan-Friendly%2C%20Price%20and%20Distance/README.md)
 
-<!-- tags:Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the array <code>restaurants</code> where &nbsp;<code>restaurants[i] = [id<sub>i</sub>, rating<sub>i</sub>, veganFriendly<sub>i</sub>, price<sub>i</sub>, distance<sub>i</sub>]</code>. You have to filter the restaurants using three filters.</p>
 
@@ -55,11 +68,17 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 	<li>All <code>id<sub>i</sub></code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +97,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public List<Integer> filterRestaurants(
@@ -93,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func filterRestaurants(restaurants [][]int, veganFriendly int, maxPrice int, maxDistance int) (ans []int) {
 	sort.Slice(restaurants, func(i, j int) bool {
@@ -132,6 +157,8 @@ func filterRestaurants(restaurants [][]int, veganFriendly int, maxPrice int, max
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function filterRestaurants(
@@ -153,4 +180,6 @@ function filterRestaurants(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

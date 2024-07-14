@@ -1,8 +1,16 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2031.%20%E5%8F%98%E6%8D%A2%E7%9A%84%E8%BF%B7%E5%AE%AB/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 31. 变换的迷宫](https://leetcode.cn/problems/Db3wC1)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 某解密游戏中，有一个 N\*M 的迷宫，迷宫地形会随时间变化而改变，迷宫出口一直位于 `(n-1,m-1)` 位置。迷宫变化规律记录于 `maze` 中，`maze[i]` 表示 `i` 时刻迷宫的地形状态，`"."` 表示可通行空地，`"#"` 表示陷阱。
 
@@ -24,7 +32,7 @@
 > 输出：`true`
 >
 > 解释：
-> ![maze.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2031.%20变换的迷宫/images/1615892239-SCIjyf-maze.gif)
+> ![maze.gif](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2031.%20%E5%8F%98%E6%8D%A2%E7%9A%84%E8%BF%B7%E5%AE%AB/images/1615892239-SCIjyf-maze.gif)
 
 **示例 2：**
 
@@ -48,6 +56,10 @@
 -   `1 <= maze[i].length, maze[i][j].length <= 50`
 -   `maze[i][j]` 仅包含 `"."`、`"#"`
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+<!-- problem:end -->

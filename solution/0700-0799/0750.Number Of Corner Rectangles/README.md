@@ -1,12 +1,23 @@
-# [750. 角矩形的数量](https://leetcode.cn/problems/number-of-corner-rectangles)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 矩阵
+---
+
+<!-- problem:start -->
+
+# [750. 角矩形的数量 🔒](https://leetcode.cn/problems/number-of-corner-rectangles)
 
 [English Version](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README_EN.md)
 
-<!-- tags:数组,数学,动态规划,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个只包含 <code>0</code> 和 <code>1</code> 的&nbsp;<code>m x n</code>&nbsp;整数矩阵&nbsp;<code>grid</code>&nbsp;，返回 <em>其中 「<strong>角矩形 」</strong>的数量</em> 。</p>
 
@@ -58,7 +69,11 @@
 	<li>网格中&nbsp;<code>1</code>&nbsp;的个数在&nbsp;<code>[1, 6000]</code> 范围内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 枚举
 
@@ -67,6 +82,8 @@
 时间复杂度 $O(m \times n^2)$，空间复杂度 $O(n^2)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +100,8 @@ class Solution:
                             cnt[(i, j)] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countCornerRectangles(grid [][]int) (ans int) {
 	n := len(grid[0])
@@ -153,6 +176,8 @@ func countCornerRectangles(grid [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countCornerRectangles(grid: number[][]): number {
@@ -178,4 +203,6 @@ function countCornerRectangles(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

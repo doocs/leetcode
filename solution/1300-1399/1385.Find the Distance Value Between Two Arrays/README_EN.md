@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1385.Find%20the%20Distance%20Value%20Between%20Two%20Arrays/README_EN.md
+rating: 1234
+source: Biweekly Contest 22 Q1
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1385. Find the Distance Value Between Two Arrays](https://leetcode.com/problems/find-the-distance-value-between-two-arrays)
 
 [中文文档](/solution/1300-1399/1385.Find%20the%20Distance%20Value%20Between%20Two%20Arrays/README.md)
 
-<!-- tags:Array,Two Pointers,Binary Search,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>arr1</code> and <code>arr2</code>, and the integer <code>d</code>, <em>return the distance value between the two arrays</em>.</p>
 
@@ -57,7 +72,11 @@ For arr1[2]=8 we have:
 	<li><code>0 &lt;= d &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -66,6 +85,8 @@ We can first sort the array $arr2$, then for each element $a$ in array $arr1$, u
 The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(\log n)$. Where $m$ and $n$ are the lengths of arrays $arr1$ and $arr2$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +98,8 @@ class Solution:
         arr2.sort()
         return sum(check(a) for a in arr1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 	sort.Ints(arr2)
@@ -136,6 +163,8 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number {
@@ -163,6 +192,8 @@ function findTheDistanceValue(arr1: number[], arr2: number[], d: number): number
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn find_the_distance_value(arr1: Vec<i32>, mut arr2: Vec<i32>, d: i32) -> i32 {
@@ -180,9 +211,7 @@ impl Solution {
                     right = mid;
                 }
             }
-            if
-                i32::abs(num - arr2[left]) <= d ||
-                (left != 0 && i32::abs(num - arr2[left - 1]) <= d)
+            if i32::abs(num - arr2[left]) <= d || (left != 0 && i32::abs(num - arr2[left - 1]) <= d)
             {
                 continue;
             }
@@ -195,4 +224,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

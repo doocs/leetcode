@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0837.New%2021%20Game/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Sliding Window
+    - Probability and Statistics
+---
+
+<!-- problem:start -->
+
 # [837. New 21 Game](https://leetcode.com/problems/new-21-game)
 
 [中文文档](/solution/0800-0899/0837.New%2021%20Game/README.md)
 
-<!-- tags:Math,Dynamic Programming,Sliding Window,Probability and Statistics -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Alice plays the following game, loosely based on the card game <strong>&quot;21&quot;</strong>.</p>
 
@@ -49,11 +62,17 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 	<li><code>1 &lt;= maxPts &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +87,8 @@ class Solution:
 
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func new21Game(n int, k int, maxPts int) float64 {
@@ -143,6 +168,8 @@ func new21Game(n int, k int, maxPts int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function new21Game(n: number, k: number, maxPts: number): number {
     const f = new Array(k).fill(0);
@@ -164,9 +191,15 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -179,6 +212,8 @@ class Solution:
             f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts
         return f[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +233,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -220,6 +257,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func new21Game(n int, k int, maxPts int) float64 {
 	if k == 0 {
@@ -236,6 +275,8 @@ func new21Game(n int, k int, maxPts int) float64 {
 	return f[0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function new21Game(n: number, k: number, maxPts: number): number {
@@ -256,4 +297,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

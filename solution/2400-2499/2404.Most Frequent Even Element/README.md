@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README.md
+rating: 1259
+source: 第 310 场周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+---
+
+<!-- problem:start -->
+
 # [2404. 出现最频繁的偶数元素](https://leetcode.cn/problems/most-frequent-even-element)
 
 [English Version](/solution/2400-2499/2404.Most%20Frequent%20Even%20Element/README_EN.md)
 
-<!-- tags:数组,哈希表,计数 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，返回出现最频繁的偶数元素。</p>
 
@@ -45,7 +57,11 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -54,6 +70,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +83,8 @@ class Solution:
                 ans, mx = x, v
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostFrequentEven(nums []int) int {
 	cnt := map[int]int{}
@@ -127,6 +151,8 @@ func mostFrequentEven(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function mostFrequentEven(nums: number[]): number {
@@ -147,6 +173,8 @@ function mostFrequentEven(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -170,6 +198,8 @@ impl Solution {
     }
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -198,4 +228,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

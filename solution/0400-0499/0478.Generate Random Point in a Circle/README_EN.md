@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0478.Generate%20Random%20Point%20in%20a%20Circle/README_EN.md
+tags:
+    - Geometry
+    - Math
+    - Rejection Sampling
+    - Randomized
+---
+
+<!-- problem:start -->
+
 # [478. Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle)
 
 [中文文档](/solution/0400-0499/0478.Generate%20Random%20Point%20in%20a%20Circle/README.md)
 
-<!-- tags:Geometry,Math,Rejection Sampling,Randomized -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the radius and the position of the center of a circle, implement the function <code>randPoint</code> which generates a uniform random point inside the circle.</p>
 
@@ -41,11 +54,17 @@ solution.randPoint(); // return [0.36572, 0.17248]
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>randPoint</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,4 +83,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,11 +9,11 @@
 class Solution {
 public:
     vector<int> reversePrint(ListNode* head) {
-        vector<int> ans;
-        for (; head; head = head->next) {
-            ans.push_back(head->val);
+        if (!head) {
+            return {};
         }
-        reverse(ans.begin(), ans.end());
+        vector<int> ans = reversePrint(head->next);
+        ans.push_back(head->val);
         return ans;
     }
 };

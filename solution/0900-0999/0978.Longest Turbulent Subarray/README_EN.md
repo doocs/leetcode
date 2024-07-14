@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [978. Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray)
 
 [中文文档](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README.md)
 
-<!-- tags:Array,Dynamic Programming,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code>, return <em>the length of a maximum size turbulent subarray of</em> <code>arr</code>.</p>
 
@@ -60,11 +72,17 @@
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +95,8 @@ class Solution:
             ans = max(ans, f, g)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +132,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxTurbulenceSize(arr []int) int {
@@ -129,6 +153,8 @@ func maxTurbulenceSize(arr []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxTurbulenceSize(arr: number[]): number {
     let f = 1;
@@ -147,4 +173,6 @@ function maxTurbulenceSize(arr: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

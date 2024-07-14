@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 17.11. 单词距离](https://leetcode.cn/problems/find-closest-lcci)
 
 [English Version](/lcci/17.11.Find%20Closest/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>有个内含单词的超大文本文件，给定任意两个单词，找出在这个文件中这两个单词的最短距离(相隔单词数)。如果寻找过程在这个文件中会重复多次，而每次寻找的单词不同，你能对此优化吗?</p>
 
 <p><strong>示例：</strong></p>
@@ -18,34 +27,51 @@
 	<li><code>words.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：一次遍历
+
+我们用两个指针 $i$ 和 $j$ 分别记录两个单词 $\textit{word1}$ 和 $\textit{word2}$ 最近出现的位置，初始时 $i = \infty$, $j = -\infty$。
+
+接下来我们遍历整个文本文件，对于每个单词 $w$，如果 $w$ 等于 $\textit{word1}$，我们更新 $i = k$，其中 $k$ 是当前单词的下标；如果 $w$ 等于 $\textit{word2}$，我们更新 $j = k$。然后我们更新答案 $ans = \min(ans, |i - j|)$。
+
+遍历结束后，我们返回答案 $ans$。
+
+时间复杂度 $O(n)$，其中 $n$ 是文本文件中的单词数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findClosest(self, words: List[str], word1: str, word2: str) -> int:
-        i, j, ans = 1e5, -1e5, 1e5
-        for k, word in enumerate(words):
-            if word == word1:
+        i, j = inf, -inf
+        ans = inf
+        for k, w in enumerate(words):
+            if w == word1:
                 i = k
-            elif word == word2:
+            elif w == word2:
                 j = k
             ans = min(ans, abs(i - j))
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int findClosest(String[] words, String word1, String word2) {
-        int i = 100000, j = -100000, ans = 100000;
+        final int inf = 1 << 29;
+        int i = inf, j = -inf, ans = inf;
         for (int k = 0; k < words.length; ++k) {
-            String word = words[k];
-            if (word.equals(word1)) {
+            if (words[k].equals(word1)) {
                 i = k;
-            } else if (word.equals(word2)) {
+            } else if (words[k].equals(word2)) {
                 j = k;
             }
             ans = Math.min(ans, Math.abs(i - j));
@@ -55,17 +81,21 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     int findClosest(vector<string>& words, string word1, string word2) {
-        int i = 1e5, j = -1e5, ans = 1e5;
+        const int inf = 1 << 29;
+        int i = inf, j = -inf;
+        int ans = inf;
         for (int k = 0; k < words.size(); ++k) {
-            string word = words[k];
-            if (word == word1)
+            if (words[k] == word1) {
                 i = k;
-            else if (word == word2)
+            } else if (words[k] == word2) {
                 j = k;
+            }
             ans = min(ans, abs(i - j));
         }
         return ans;
@@ -73,74 +103,110 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
-	i, j, ans := 100000, -100000, 100000
-	for k, word := range words {
-		if word == word1 {
+	const inf int = 1 << 29
+	i, j, ans := inf, -inf, inf
+	for k, w := range words {
+		if w == word1 {
 			i = k
-		} else if word == word2 {
+		} else if w == word2 {
 			j = k
 		}
-		ans = min(ans, abs(i-j))
+		ans = min(ans, max(i-j, j-i))
 	}
 	return ans
 }
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
 ```
+
+#### TypeScript
 
 ```ts
 function findClosest(words: string[], word1: string, word2: string): number {
-    let index1 = 100000;
-    let index2 = -100000;
-    let res = 100000;
-    const n = words.length;
-    for (let i = 0; i < n; i++) {
-        const word = words[i];
-        if (word === word1) {
-            index1 = i;
-        } else if (word === word2) {
-            index2 = i;
+    let [i, j, ans] = [Infinity, -Infinity, Infinity];
+    for (let k = 0; k < words.length; ++k) {
+        if (words[k] === word1) {
+            i = k;
+        } else if (words[k] === word2) {
+            j = k;
         }
-        res = Math.min(res, Math.abs(index1 - index2));
+        ans = Math.min(ans, Math.abs(i - j));
     }
-    return res;
+    return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn find_closest(words: Vec<String>, word1: String, word2: String) -> i32 {
-        let mut res = i32::MAX;
-        let mut index1 = -1;
-        let mut index2 = -1;
-        for (i, word) in words.iter().enumerate() {
-            let i = i as i32;
-            if word.eq(&word1) {
-                index1 = i;
-            } else if word.eq(&word2) {
-                index2 = i;
+        let mut ans = i32::MAX;
+        let mut i = -1;
+        let mut j = -1;
+        for (k, w) in words.iter().enumerate() {
+            let k = k as i32;
+            if w.eq(&word1) {
+                i = k;
+            } else if w.eq(&word2) {
+                j = k;
             }
-            if index1 != -1 && index2 != -1 {
-                res = res.min((index1 - index2).abs());
+            if i != -1 && j != -1 {
+                ans = ans.min((i - j).abs());
             }
         }
-        res
+        ans
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func findClosest(_ words: [String], _ word1: String, _ word2: String) -> Int {
+        let inf = Int.max / 2
+        var i = inf
+        var j = -inf
+        var ans = inf
+
+        for (k, word) in words.enumerated() {
+            if word == word1 {
+                i = k
+            } else if word == word2 {
+                j = k
+            }
+            ans = min(ans, abs(i - j))
+        }
+
+        return ans
     }
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
+
+<!-- solution:start-->
+
+### 方法二：哈希表 + 双指针
+
+我们可以用哈希表 $d$ 记录每个单词出现的位置，然后对于每一对 $\textit{word1}$ 和 $\textit{word2}$，我们可以通过双指针的方法找到它们的最短距离。
+
+我们遍历整个文本文件，对于每个单词 $w$，我们将 $w$ 的下标加入到 $d[w]$ 中。
+
+接下来我们找到 $\textit{word1}$ 和 $\textit{word2}$ 在文本文件中出现的位置，分别用 $idx1$ 和 $idx2$ 表示。然后我们用两个指针 $i$ 和 $j$ 分别指向 $idx1$ 和 $idx2$，初始时 $i = 0$, $j = 0$。
+
+接下来我们遍历 $idx1$ 和 $idx2$，每次我们更新答案 $ans = \min(ans, |idx1[i] - idx2[j]|)$，然后我们将 $i$ 和 $j$ 中较小的那个指针向后移动一位。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是文本文件中的单词数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -148,7 +214,7 @@ class Solution:
         d = defaultdict(list)
         for i, w in enumerate(words):
             d[w].append(i)
-        ans = 1e5
+        ans = inf
         idx1, idx2 = d[word1], d[word2]
         i, j, m, n = 0, 0, len(idx1), len(idx2)
         while i < m and j < n:
@@ -160,6 +226,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int findClosest(String[] words, String word1, String word2) {
@@ -169,7 +237,7 @@ class Solution {
         }
         List<Integer> idx1 = d.get(word1), idx2 = d.get(word2);
         int i = 0, j = 0, m = idx1.size(), n = idx2.size();
-        int ans = 100000;
+        int ans = 1 << 29;
         while (i < m && j < n) {
             int t = Math.abs(idx1.get(i) - idx2.get(j));
             ans = Math.min(ans, t);
@@ -184,27 +252,34 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     int findClosest(vector<string>& words, string word1, string word2) {
         unordered_map<string, vector<int>> d;
-        for (int i = 0; i < words.size(); ++i) d[words[i]].push_back(i);
+        for (int i = 0; i < words.size(); ++i) {
+            d[words[i]].push_back(i);
+        }
         vector<int> idx1 = d[word1], idx2 = d[word2];
         int i = 0, j = 0, m = idx1.size(), n = idx2.size();
         int ans = 1e5;
         while (i < m && j < n) {
             int t = abs(idx1[i] - idx2[j]);
             ans = min(ans, t);
-            if (idx1[i] < idx2[j])
+            if (idx1[i] < idx2[j]) {
                 ++i;
-            else
+            } else {
                 ++j;
+            }
         }
         return ans;
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosest(words []string, word1 string, word2 string) int {
@@ -214,9 +289,9 @@ func findClosest(words []string, word1 string, word2 string) int {
 	}
 	idx1, idx2 := d[word1], d[word2]
 	i, j, m, n := 0, 0, len(idx1), len(idx2)
-	ans := 100000
+	ans := 1 << 30
 	for i < m && j < n {
-		t := abs(idx1[i] - idx2[j])
+		t := max(idx1[i]-idx2[j], idx2[j]-idx1[i])
 		if t < ans {
 			ans = t
 		}
@@ -228,15 +303,35 @@ func findClosest(words []string, word1 string, word2 string) int {
 	}
 	return ans
 }
+```
 
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+#### TypeScript
+
+```ts
+function findClosest(words: string[], word1: string, word2: string): number {
+    const d: Map<string, number[]> = new Map();
+    for (let i = 0; i < words.length; ++i) {
+        if (!d.has(words[i])) {
+            d.set(words[i], []);
+        }
+        d.get(words[i])!.push(i);
+    }
+    let [i, j] = [0, 0];
+    let ans = Infinity;
+    while (i < d.get(word1)!.length && j < d.get(word2)!.length) {
+        ans = Math.min(ans, Math.abs(d.get(word1)![i] - d.get(word2)![j]));
+        if (d.get(word1)![i] < d.get(word2)![j]) {
+            ++i;
+        } else {
+            ++j;
+        }
+    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

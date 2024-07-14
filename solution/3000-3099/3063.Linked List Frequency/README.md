@@ -1,57 +1,73 @@
-# [3063. Linked List Frequency](https://leetcode.cn/problems/linked-list-frequency)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3063.Linked%20List%20Frequency/README.md
+tags:
+    - 哈希表
+    - 链表
+    - 计数
+---
+
+<!-- problem:start -->
+
+# [3063. 链表频率 🔒](https://leetcode.cn/problems/linked-list-frequency)
 
 [English Version](/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>Given the <code>head</code> of a linked list containing <code>k</code> <strong>distinct</strong> elements, return <em>a linked list of length </em><code>k</code><em> containing the <span data-keyword="frequency-linkedlist">frequency</span> of each <strong>distinct</strong> element in the given linked list in <strong>any order</strong>.</em></p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [1,1,1,2,2,3] </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> [3,2,1] </span></p>
-
-<p><strong>Explanation: </strong> There are <code>3</code> distinct elements in the list. The frequency of <code>1</code> is <code>3</code>, the frequency of <code>2</code> is <code>2</code> and the frequency of <code>3</code> is <code>1</code>. Hence, we return <code>3 -&gt; 2 -&gt; 1</code>.</p>
-
-<p>Note that <code>1 -&gt; 2 -&gt; 3</code>, <code>1 -&gt; 3 -&gt; 2</code>, <code>2 -&gt; 1 -&gt; 3</code>, <code>2 -&gt; 3 -&gt; 1</code>, and <code>3 -&gt; 1 -&gt; 2</code> are also valid answers.</p>
-</div>
-
-<p><strong class="example">Example 2: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [1,1,2,2,2] </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> [2,3] </span></p>
-
-<p><strong>Explanation: </strong> There are <code>2</code> distinct elements in the list. The frequency of <code>1</code> is <code>2</code> and the frequency of <code>2</code> is <code>3</code>. Hence, we return <code>2 -&gt; 3</code>.</p>
-</div>
-
-<p><strong class="example">Example 3: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [6,5,4,3,2,1] </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> [1,1,1,1,1,1] </span></p>
-
-<p><strong>Explanation: </strong> There are <code>6</code> distinct elements in the list. The frequency of each of them is <code>1</code>. Hence, we return <code>1 -&gt; 1 -&gt; 1 -&gt; 1 -&gt; 1 -&gt; 1</code>.</p>
-</div>
+<p>给定包含 <code>k</code> 个&nbsp;<strong>不同&nbsp;</strong>元素的链表的&nbsp;<code>head</code>&nbsp;节点，创建一个长度为&nbsp;<code>k</code>&nbsp;的链表，以 <strong>任何顺序</strong> 返回链表中所有 <strong>不同元素</strong> 出现的 <strong>频率</strong>。返回这个链表的头节点。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1: </strong></p>
+
+<pre>
+输入：head = [1,1,2,1,2,3]
+
+输出：[3,2,1]
+
+解释：列表中有 3 个不同的元素。1 的频率是 3，2 的频率是 2，3 的频率是 1。因此，我们返回 3 -&gt; 2 -&gt; 1。
+
+注意 1 -&gt; 2 -&gt; 3，1 -&gt; 3 -&gt; 2，2 -&gt; 1 -&gt; 3，2 -&gt; 3 -&gt; 1，和 3 -&gt; 1 -&gt; 2 都是合法的答案。
+</pre>
+
+<p><strong class="example">示例 2: </strong></p>
+
+<pre>
+输入：head = [1,1,2,2,2]
+
+输出：[2,3]
+
+解释：列表中有 2 个不同的元素。1 和 2 出现的频率是 2 和 3。因此，我们返回 2 -&gt; 3。
+</pre>
+
+<p><strong class="example">示例 3: </strong></p>
+
+<pre>
+输入：head = [6,5,4,3,2,1]
+
+输出：[1,1,1,1,1,1]
+
+解释：列表中有 6 个不同的元素。每个元素的频率是 1。因此，我们返回 1 -&gt; 1 -&gt; 1 -&gt; 1 -&gt; 1 -&gt; 1。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+	<li>链表中的节点数字范围在&nbsp;<code>[1, 10<sup>5</sup>]</code>之间。</li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -60,6 +76,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -78,6 +96,8 @@ class Solution:
             dummy.next = ListNode(val, dummy.next)
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -104,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -132,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -152,6 +176,8 @@ func frequenciesOfElements(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -181,4 +207,6 @@ function frequenciesOfElements(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

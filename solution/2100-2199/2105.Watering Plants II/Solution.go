@@ -1,27 +1,20 @@
-func minimumRefill(plants []int, capacityA int, capacityB int) int {
+func minimumRefill(plants []int, capacityA int, capacityB int) (ans int) {
+	a, b := capacityA, capacityB
 	i, j := 0, len(plants)-1
-	ans, a, b := 0, capacityA, capacityB
-	for i <= j {
-		if i == j {
-			if max(capacityA, capacityB) < plants[i] {
-				ans++
-			}
-			break
-		}
-		if capacityA < plants[i] {
-			capacityA = a - plants[i]
+	for ; i < j; i, j = i+1, j-1 {
+		if a < plants[i] {
 			ans++
-		} else {
-			capacityA -= plants[i]
+			a = capacityA
 		}
-		if capacityB < plants[j] {
-			capacityB = b - plants[j]
+		a -= plants[i]
+		if b < plants[j] {
 			ans++
-		} else {
-			capacityB -= plants[j]
+			b = capacityB
 		}
-		i++
-		j--
+		b -= plants[j]
 	}
-	return ans
+	if i == j && max(a, b) < plants[i] {
+		ans++
+	}
+	return
 }

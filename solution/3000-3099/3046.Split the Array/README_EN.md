@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3046.Split%20the%20Array/README_EN.md
+rating: 1212
+source: Weekly Contest 386 Q1
+tags:
+    - Array
+    - Hash Table
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [3046. Split the Array](https://leetcode.com/problems/split-the-array)
 
 [中文文档](/solution/3000-3099/3046.Split%20the%20Array/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> of <strong>even</strong> length. You have to split the array into two parts <code>nums1</code> and <code>nums2</code> such that:</p>
 
@@ -42,7 +56,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Counting
 
@@ -52,11 +70,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def isPossibleToSplit(self, nums: List[int]) -> bool:
         return max(Counter(nums).values()) < 3
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPossibleToSplit(nums []int) bool {
 	cnt := [101]int{}
@@ -99,6 +125,8 @@ func isPossibleToSplit(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPossibleToSplit(nums: number[]): boolean {
@@ -114,4 +142,6 @@ function isPossibleToSplit(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

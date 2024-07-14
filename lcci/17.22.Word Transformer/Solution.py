@@ -2,25 +2,21 @@ class Solution:
     def findLadders(
         self, beginWord: str, endWord: str, wordList: List[str]
     ) -> List[str]:
-        def check(a, b):
-            return sum(a[i] != b[i] for i in range(len(a))) == 1
+        def check(s: str, t: str) -> bool:
+            return len(s) == len(t) and sum(a != b for a, b in zip(s, t)) == 1
 
-        def dfs(begin, end, t):
-            nonlocal ans
-            if ans:
-                return
-            if begin == end:
-                ans = t.copy()
-                return
-            for word in wordList:
-                if word in visited or not check(begin, word):
-                    continue
-                visited.add(word)
-                t.append(word)
-                dfs(word, end, t)
-                t.pop()
+        def dfs(s: str) -> bool:
+            if s == endWord:
+                return True
+            for i, t in enumerate(wordList):
+                if not vis[i] and check(s, t):
+                    vis[i] = True
+                    ans.append(t)
+                    if dfs(t):
+                        return True
+                    ans.pop()
+            return False
 
-        ans = []
-        visited = set()
-        dfs(beginWord, endWord, [beginWord])
-        return ans
+        ans = [beginWord]
+        vis = [False] * len(wordList)
+        return ans if dfs(beginWord) else []

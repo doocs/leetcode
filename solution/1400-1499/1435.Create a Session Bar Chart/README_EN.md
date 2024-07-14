@@ -1,10 +1,20 @@
-# [1435. Create a Session Bar Chart](https://leetcode.com/problems/create-a-session-bar-chart)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1435. Create a Session Bar Chart 🔒](https://leetcode.com/problems/create-a-session-bar-chart)
 
 [中文文档](/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Sessions</code></p>
 
@@ -60,11 +70,17 @@ There is no session with a duration greater than or equal to 10 minutes and less
 For session_id 5 has a duration greater than or equal to 15 minutes.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 SELECT '[0-5>' AS bin, COUNT(1) AS total FROM Sessions WHERE duration < 300
@@ -78,4 +94,6 @@ SELECT '15 or more' AS bin, COUNT(1) AS total FROM Sessions WHERE 900 <= duratio
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

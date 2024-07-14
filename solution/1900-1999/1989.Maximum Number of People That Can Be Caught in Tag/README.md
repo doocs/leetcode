@@ -1,12 +1,21 @@
-# [1989. 捉迷藏中可捕获的最大人数](https://leetcode.cn/problems/maximum-number-of-people-that-can-be-caught-in-tag)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
+# [1989. 捉迷藏中可捕获的最大人数 🔒](https://leetcode.cn/problems/maximum-number-of-people-that-can-be-caught-in-tag)
 
 [English Version](/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在和你的朋友玩捉迷藏游戏。在捉迷藏比赛中，人们被分成两组：是 “鬼” 的人，和不是 “鬼” 的人。是 “鬼” 的人想要抓住尽可能多的不是 “鬼” 的人。</p>
 
@@ -56,7 +65,11 @@
 	<li><code>1 &lt;= dist &lt;= team.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -69,6 +82,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +99,8 @@ class Solution:
                     j += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -127,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func catchMaximumAmountofPeople(team []int, dist int) (ans int) {
@@ -155,4 +176,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

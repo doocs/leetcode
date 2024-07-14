@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0200.Number%20of%20Islands/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands)
 
 [English Version](/solution/0200-0299/0200.Number%20of%20Islands/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <code>'1'</code>（陆地）和 <code>'0'</code>（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
 
@@ -51,7 +63,11 @@
 	<li><code>grid[i][j]</code> 的值为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：Flood fill 算法
 
@@ -62,6 +78,8 @@ Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻
 时间复杂度 $O(m\times n)$，空间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +101,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIslands(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -177,25 +201,26 @@ func numIslands(grid [][]byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
     let ans = 0;
-    function dfs(i, j) {
-        grid[i][j] = '0';
-        const dirs = [-1, 0, 1, 0, -1];
-        for (let k = 0; k < 4; ++k) {
-            const x = i + dirs[k];
-            const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
-                dfs(x, y);
-            }
+    const dfs = (i: number, j: number) => {
+        if (grid[i]?.[j] !== '1') {
+            return;
         }
-    }
+        grid[i][j] = '0';
+        dfs(i + 1, j);
+        dfs(i - 1, j);
+        dfs(i, j + 1);
+        dfs(i, j - 1);
+    };
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == '1') {
+            if (grid[i][j] === '1') {
                 dfs(i, j);
                 ++ans;
             }
@@ -204,6 +229,8 @@ function numIslands(grid: string[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 const DIRS: [i32; 5] = [-1, 0, 1, 0, -1];
@@ -215,12 +242,11 @@ impl Solution {
             for k in 0..4 {
                 let x = (i as i32) + DIRS[k];
                 let y = (j as i32) + DIRS[k + 1];
-                if
-                    x >= 0 &&
-                    (x as usize) < grid.len() &&
-                    y >= 0 &&
-                    (y as usize) < grid[0].len() &&
-                    grid[x as usize][y as usize] == '1'
+                if x >= 0
+                    && (x as usize) < grid.len()
+                    && y >= 0
+                    && (y as usize) < grid[0].len()
+                    && grid[x as usize][y as usize] == '1'
                 {
                     dfs(grid, x as usize, y as usize);
                 }
@@ -241,6 +267,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 using System;
@@ -287,6 +315,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：并查集
 
 并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
@@ -328,6 +360,8 @@ def union(a, b):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -352,6 +386,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -395,6 +431,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -434,6 +472,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numIslands(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
@@ -465,6 +505,8 @@ func numIslands(grid [][]byte) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numIslands(grid: string[][]): number {
@@ -499,6 +541,8 @@ function numIslands(grid: string[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::collections::VecDeque;
 
@@ -514,12 +558,11 @@ impl Solution {
                 for k in 0..4 {
                     let x = (i as i32) + DIRS[k];
                     let y = (j as i32) + DIRS[k + 1];
-                    if
-                        x >= 0 &&
-                        (x as usize) < grid.len() &&
-                        y >= 0 &&
-                        (y as usize) < grid[0].len() &&
-                        grid[x as usize][y as usize] == '1'
+                    if x >= 0
+                        && (x as usize) < grid.len()
+                        && y >= 0
+                        && (y as usize) < grid[0].len()
+                        && grid[x as usize][y as usize] == '1'
                     {
                         grid[x as usize][y as usize] = '0';
                         queue.push_back((x as usize, y as usize));
@@ -545,9 +588,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -573,6 +622,8 @@ class Solution:
             for j in range(n)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -619,6 +670,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -657,6 +710,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numIslands(grid [][]byte) int {
@@ -697,6 +752,8 @@ func numIslands(grid [][]byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numIslands(grid: string[][]): number {
     const m = grid.length;
@@ -736,6 +793,8 @@ function numIslands(grid: string[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 const DIRS: [usize; 3] = [1, 0, 1];
@@ -784,4 +843,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

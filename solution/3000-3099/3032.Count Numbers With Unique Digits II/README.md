@@ -1,12 +1,22 @@
-# [3032. 统计各位数字都不同的数字个数 II](https://leetcode.cn/problems/count-numbers-with-unique-digits-ii)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 动态规划
+---
+
+<!-- problem:start -->
+
+# [3032. 统计各位数字都不同的数字个数 II 🔒](https://leetcode.cn/problems/count-numbers-with-unique-digits-ii)
 
 [English Version](/solution/3000-3099/3032.Count%20Numbers%20With%20Unique%20Digits%20II/README_EN.md)
 
-<!-- tags:哈希表,数学,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你两个 <strong>正整数</strong> <code>a</code> 和 <code>b</code> ，返回 <strong>闭区间</strong> <code>[a, b]</code> 内各位数字都不同的数字个数。
 
@@ -44,7 +54,11 @@
 	<li><code>1 &lt;= a &lt;= b &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩 + 数位 DP
 
@@ -66,6 +80,8 @@
 时间复杂度 $O(m \times 2^{10} \times 10)$，空间复杂度 $O(m \times 2^{10})$。其中 $m$ 为 $b$ 的位数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +106,8 @@ class Solution:
         y = dfs(0, 0, True)
         return y - x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +187,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberCount(a int, b int) int {
@@ -220,6 +242,8 @@ func numberCount(a int, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberCount(a: number, b: number): number {
     let num: string = b.toString();
@@ -261,15 +285,23 @@ function numberCount(a: number, b: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def numberCount(self, a: int, b: int) -> int:
         return sum(len(set(str(num))) == len(str(num)) for num in range(a, b + 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -298,6 +330,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -324,6 +358,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberCount(a int, b int) int {
 	count := 0
@@ -347,6 +383,8 @@ func hasUniqueDigits(num int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberCount(a: number, b: number): number {
     let count: number = 0;
@@ -365,4 +403,6 @@ function hasUniqueDigits(num: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
-# [1956. Minimum Time For K Virus Variants to Spread](https://leetcode.com/problems/minimum-time-for-k-virus-variants-to-spread)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Binary Search
+    - Enumeration
+---
+
+<!-- problem:start -->
+
+# [1956. Minimum Time For K Virus Variants to Spread 🔒](https://leetcode.com/problems/minimum-time-for-k-virus-variants-to-spread)
 
 [中文文档](/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README.md)
 
-<!-- tags:Geometry,Array,Math,Binary Search,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> <strong>unique</strong> virus variants in an infinite 2D grid. You are given a 2D array <code>points</code>, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a virus originating at <code>(x<sub>i</sub>, y<sub>i</sub>)</code> on day <code>0</code>. Note that it is possible for <strong>multiple </strong>virus variants to originate at the <strong>same</strong> point.</p>
 
@@ -48,6 +62,42 @@
 	<li><code>2 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

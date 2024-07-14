@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.13.Re-Space/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [17.13. Re-Space](https://leetcode.cn/problems/re-space-lcci)
 
 [中文文档](/lcci/17.13.Re-Space/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Oh, no! You have accidentally removed all spaces, punctuation, and capitalization in a lengthy document. A sentence like &quot;I reset the computer. It still didn&#39;t boot!&quot; became &quot;iresetthecomputeritstilldidntboot&#39;&#39;. You&#39;ll deal with the punctuation and capi&shy;talization later; right now you need to re-insert the spaces. Most of the words are in a dictionary but a few are not. Given a dictionary (a list of strings) and the document (a string), design an algorithm to unconcatenate the document in a way that minimizes the number of unrecognized characters. Return the number of unrecognized characters.</p>
 
@@ -34,11 +44,17 @@ sentence = &quot;jesslookedjustliketimherbrother&quot;
 	<li>There are only lowercase letters in&nbsp;<code>dictionary</code>&nbsp;and&nbsp;<code>sentence</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -53,6 +69,8 @@ class Solution:
                     dp[i] = min(dp[i], dp[j])
         return dp[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func respace(dictionary []string, sentence string) int {
 	s := map[string]bool{}
@@ -113,6 +135,66 @@ func respace(dictionary []string, sentence string) int {
 }
 ```
 
+#### Swift
+
+```swift
+class TrieNode {
+    var children: [TrieNode?] = Array(repeating: nil, count: 26)
+    var isEndOfWord = false
+}
+
+class Trie {
+    private let root = TrieNode()
+
+    func insert(_ word: String) {
+        var node = root
+        for char in word {
+            let index = Int(char.asciiValue! - Character("a").asciiValue!)
+            if node.children[index] == nil {
+                node.children[index] = TrieNode()
+            }
+            node = node.children[index]!
+        }
+        node.isEndOfWord = true
+    }
+
+    func search(_ sentence: Array<Character>, start: Int, end: Int) -> Bool {
+        var node = root
+        for i in start...end {
+            let index = Int(sentence[i].asciiValue! - Character("a").asciiValue!)
+            guard let nextNode = node.children[index] else {
+                return false
+            }
+            node = nextNode
+        }
+        return node.isEndOfWord
+    }
+}
+
+class Solution {
+    func respace(_ dictionary: [String], _ sentence: String) -> Int {
+        let n = sentence.count
+        guard n > 0 else { return 0 }
+        let trie = Trie()
+        dictionary.forEach { trie.insert($0) }
+        let chars = Array(sentence)
+        var dp = Array(repeating: Int.max, count: n + 1)
+        dp[0] = 0
+        for i in 1...n {
+            dp[i] = dp[i - 1] + 1
+            for j in 0..<i {
+                if trie.search(chars, start: j, end: i - 1) {
+                    dp[i] = min(dp[i], dp[j])
+                }
+            }
+        }
+        return dp[n]
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

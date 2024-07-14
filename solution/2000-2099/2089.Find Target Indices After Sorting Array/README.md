@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README.md
+rating: 1152
+source: 第 269 场周赛 Q1
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2089. 找出数组排序后的目标下标](https://leetcode.cn/problems/find-target-indices-after-sorting-array)
 
 [English Version](/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README_EN.md)
 
-<!-- tags:数组,二分查找,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 以及一个目标元素 <code>target</code> 。</p>
 
@@ -56,7 +68,11 @@
 	<li><code>1 &lt;= nums[i], target &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -66,12 +82,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         nums.sort()
         return [i for i, v in enumerate(nums) if v == target]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func targetIndices(nums []int, target int) (ans []int) {
 	sort.Ints(nums)
@@ -115,6 +139,8 @@ func targetIndices(nums []int, target int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function targetIndices(nums: number[], target: number): number[] {
@@ -131,4 +157,6 @@ function targetIndices(nums: number[], target: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

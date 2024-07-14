@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md
+rating: 1747
+source: 第 154 场周赛 Q3
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1191. K 次串联后最大子数组之和](https://leetcode.cn/problems/k-concatenation-maximum-sum)
 
 [English Version](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;，通过重复&nbsp;<code>k</code>&nbsp;次来修改数组。</p>
 
@@ -50,7 +61,11 @@
 	<li><code>-10<sup>4</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 分类讨论
 
@@ -69,6 +84,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +106,8 @@ class Solution:
             ans = max(ans, (k - 2) * s + mx_pre + mx_suf)
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kConcatenationMaxSum(arr []int, k int) int {
 	var s, mxPre, miPre, mxSub int
@@ -166,4 +189,6 @@ func kConcatenationMaxSum(arr []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,14 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README.md
+---
+
+<!-- problem:start -->
+
 # [2722. 根据 ID 合并两个数组](https://leetcode.cn/problems/join-two-arrays-by-id)
 
 [English Version](/solution/2700-2799/2722.Join%20Two%20Arrays%20by%20ID/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>现给定两个数组 <code>arr1</code> 和 <code>arr2</code> ，返回一个新的数组 <code>joinedArray</code> 。两个输入数组中的每个对象都包含一个 <code>id</code> 字段。<code>joinedArray</code> 是一个通过 <code>id</code> 将 <code>arr1</code> 和 <code>arr2</code> 连接而成的数组。<code>joinedArray</code> 的长度应为唯一值 <code>id</code> 的长度。返回的数组应按 <code>id</code> <strong>升序</strong> 排序。</p>
+<p>现给定两个数组 <code>arr1</code> 和 <code>arr2</code> ，返回一个新的数组 <code>joinedArray</code> 。两个输入数组中的每个对象都包含一个 <code>id</code> 字段。</p>
+
+<p><code>joinedArray</code> 是一个通过 <code>id</code> 将 <code>arr1</code> 和 <code>arr2</code> 连接而成的数组。<code>joinedArray</code> 的长度应为唯一值 <code>id</code> 的长度。返回的数组应按 <code>id</code> <strong>升序</strong> 排序。</p>
 
 <p>如果一个 <code>id</code> 存在于一个数组中但不存在于另一个数组中，则该对象应包含在结果数组中且不进行修改。</p>
 
@@ -88,26 +96,41 @@ arr2 = [
 	<li><code>2 &lt;= JSON.stringify(arr2).length &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
 
+#### TypeScript
+
 ```ts
-function join(arr1: any[], arr2: any[]): any[] {
-    const d = new Map(arr1.map(x => [x.id, x]));
+function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
+    const r = (acc: Obj, x: ArrayType): Obj => ((acc[x.id] = x), acc);
+    const d = arr1.reduce(r, {});
+
     arr2.forEach(x => {
-        if (d.has(x.id)) {
-            d.set(x.id, { ...d.get(x.id), ...x });
+        if (d[x.id]) {
+            Object.assign(d[x.id], x);
         } else {
-            d.set(x.id, x);
+            d[x.id] = x;
         }
     });
-    return [...d.values()].sort((a, b) => a.id - b.id);
+    return Object.values(d);
 }
+
+type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type ArrayType = { id: number } & Record<string, JSONValue>;
+
+type Obj = Record<number, ArrayType>;
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

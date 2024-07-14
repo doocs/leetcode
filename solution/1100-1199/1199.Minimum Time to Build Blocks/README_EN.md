@@ -1,10 +1,25 @@
-# [1199. Minimum Time to Build Blocks](https://leetcode.com/problems/minimum-time-to-build-blocks)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md
+rating: 2250
+source: Biweekly Contest 9 Q4
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
+# [1199. Minimum Time to Build Blocks 🔒](https://leetcode.com/problems/minimum-time-to-build-blocks)
 
 [中文文档](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md)
 
-<!-- tags:Greedy,Array,Math,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a list of blocks, where <code>blocks[i] = t</code> means that the&nbsp;<code>i</code>-th block needs&nbsp;<code>t</code>&nbsp;units of time to be built. A block can only be built by exactly one worker.</p>
 
@@ -52,7 +67,11 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 	<li><code>1 &lt;= split &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
@@ -70,6 +89,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minBuildTime(self, blocks: List[int], split: int) -> int:
@@ -79,6 +100,8 @@ class Solution:
             heappush(blocks, heappop(blocks) + split)
         return blocks[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minBuildTime(blocks []int, split int) int {
@@ -137,6 +164,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minBuildTime(blocks: number[], split: number): number {
     const pq = new MinPriorityQueue();
@@ -151,9 +180,11 @@ function minBuildTime(blocks: number[], split: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
-use std::collections::BinaryHeap;
 use std::cmp::Reverse;
+use std::collections::BinaryHeap;
 
 impl Solution {
     pub fn min_build_time(blocks: Vec<i32>, split: i32) -> i32 {
@@ -176,4 +207,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [714. 买卖股票的最佳时机含手续费](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee)
 
 [English Version](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)
 
-<!-- tags:贪心,数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>prices</code>，其中 <code>prices[i]</code>表示第&nbsp;<code>i</code>&nbsp;天的股票价格 ；整数&nbsp;<code>fee</code> 代表了交易股票的手续费用。</p>
 
@@ -47,7 +57,11 @@
 	<li><code>0 &lt;= fee &lt; 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -67,6 +81,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -83,6 +99,8 @@ class Solution:
 
         return dfs(0, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxProfit(prices []int, fee int) int {
@@ -170,6 +192,8 @@ func maxProfit(prices []int, fee int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[], fee: number): number {
     const n = prices.length;
@@ -195,6 +219,10 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划
 
 我们定义 $f[i][j]$ 表示到第 $i$ 天，且状态为 $j$ 时，能够获得的最大利润。其中 $j$ 的取值为 $0, 1$，分别表示当前不持有股票和持有股票。初始时 $f[0][0] = 0$, $f[0][1] = -prices[0]$。
@@ -207,6 +235,8 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
@@ -218,6 +248,8 @@ class Solution:
             f[i][1] = max(f[i - 1][1], f[i - 1][0] - prices[i])
         return f[n - 1][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +265,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -251,6 +285,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, fee int) int {
 	n := len(prices)
@@ -263,6 +299,8 @@ func maxProfit(prices []int, fee int) int {
 	return f[n-1][0]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[], fee: number): number {
@@ -279,9 +317,15 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -291,6 +335,8 @@ class Solution:
             f0, f1 = max(f0, f1 + x - fee), max(f1, f0 - x)
         return f0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -305,6 +351,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -321,6 +369,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int, fee int) int {
 	f0, f1 := 0, -prices[0]
@@ -330,6 +380,8 @@ func maxProfit(prices []int, fee int) int {
 	return f0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[], fee: number): number {
@@ -344,4 +396,6 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

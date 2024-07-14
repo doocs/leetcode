@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README.md
+rating: 1640
+source: 第 282 场周赛 Q3
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [2187. 完成旅途的最少时间](https://leetcode.cn/problems/minimum-time-to-complete-trips)
 
 [English Version](/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组&nbsp;<code>time</code>&nbsp;，其中&nbsp;<code>time[i]</code>&nbsp;表示第 <code>i</code>&nbsp;辆公交车完成 <strong>一趟</strong><strong>旅途</strong>&nbsp;所需要花费的时间。</p>
 
@@ -48,11 +59,25 @@
 	<li><code>1 &lt;= time[i], totalTrips &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：二分查找
+
+我们注意到，如果我们能在 $t$ 时间内至少完成 $totalTrips$ 趟旅途，那么在 $t' > t$ 时间内也能至少完成 $totalTrips$ 趟旅途。因此我们可以使用二分查找的方法来找到最小的 $t$。
+
+我们定义二分查找的左边界 $l = 1$，右边界 $r = \min(time) \times \text{totalTrips}$。每一次二分查找，我们计算中间值 $\text{mid} = \frac{l + r}{2}$，然后计算在 $\text{mid}$ 时间内能完成的旅途数目。如果这个数目大于等于 $\text{totalTrips}$，那么我们将右边界缩小到 $\text{mid}$，否则我们将左边界扩大到 $\text{mid} + 1$。
+
+最后返回左边界即可。
+
+时间复杂度 $O(n \times \log(m \times k))$，其中 $n$ 和 $k$ 分别是数组 $time$ 的长度和 $totalTrips$，而 $m$ 是数组 $time$ 中的最小值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +87,8 @@ class Solution:
             range(mx), totalTrips, key=lambda x: sum(x // v for v in time)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,45 +115,67 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     long long minimumTime(vector<int>& time, int totalTrips) {
         int mi = *min_element(time.begin(), time.end());
-        long long left = 1, right = (long long) mi * totalTrips;
+        long long left = 1, right = 1LL * mi * totalTrips;
         while (left < right) {
             long long cnt = 0;
             long long mid = (left + right) >> 1;
-            for (int v : time) cnt += mid / v;
-            if (cnt >= totalTrips)
+            for (int v : time) {
+                cnt += mid / v;
+            }
+            if (cnt >= totalTrips) {
                 right = mid;
-            else
+            } else {
                 left = mid + 1;
+            }
         }
         return left;
     }
 };
 ```
 
+#### Go
+
 ```go
 func minimumTime(time []int, totalTrips int) int64 {
-	left, right := 1, slices.Min(time)*totalTrips
-	for left < right {
-		mid := (left + right) >> 1
+	mx := slices.Min(time) * totalTrips
+	return int64(sort.Search(mx, func(x int) bool {
 		cnt := 0
 		for _, v := range time {
-			cnt += mid / v
+			cnt += x / v
 		}
-		if cnt >= totalTrips {
-			right = mid
-		} else {
-			left = mid + 1
-		}
-	}
-	return int64(left)
+		return cnt >= totalTrips
+	}))
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumTime(time: number[], totalTrips: number): number {
+    let left = 1n;
+    let right = BigInt(Math.min(...time)) * BigInt(totalTrips);
+    while (left < right) {
+        const mid = (left + right) >> 1n;
+        const cnt = time.reduce((acc, v) => acc + mid / BigInt(v), 0n);
+        if (cnt >= BigInt(totalTrips)) {
+            right = mid;
+        } else {
+            left = mid + 1n;
+        }
+    }
+    return Number(left);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

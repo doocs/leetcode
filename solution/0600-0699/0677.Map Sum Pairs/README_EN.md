@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md
+tags:
+    - Design
+    - Trie
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [677. Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs)
 
 [中文文档](/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md)
 
-<!-- tags:Design,Trie,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a map that allows you to do the following:</p>
 
@@ -49,11 +62,17 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 	<li>At most <code>50</code> calls will be made to <code>insert</code> and <code>sum</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -99,6 +118,8 @@ class MapSum:
 # obj.insert(key,val)
 # param_2 = obj.sum(prefix)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -155,6 +176,8 @@ class MapSum {
  * int param_2 = obj.sum(prefix);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -220,6 +243,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children [26]*trie
@@ -274,6 +299,8 @@ func (this *MapSum) Sum(prefix string) int {
  * param_2 := obj.Sum(prefix);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -339,4 +366,6 @@ class MapSum {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

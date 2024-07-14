@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README.md
+rating: 1280
+source: 第 274 场周赛 Q2
+tags:
+    - 数组
+    - 数学
+    - 字符串
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [2125. 银行中的激光束数量](https://leetcode.cn/problems/number-of-laser-beams-in-a-bank)
 
 [English Version](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README_EN.md)
 
-<!-- tags:数组,数学,字符串,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>银行内部的防盗安全装置已经激活。给你一个下标从 <strong>0</strong> 开始的二进制字符串数组 <code>bank</code> ，表示银行的平面图，这是一个大小为 <code>m x n</code> 的二维矩阵。 <code>bank[i]</code> 表示第 <code>i</code> 行的设备分布，由若干 <code>'0'</code> 和若干 <code>'1'</code> 组成。<code>'0'</code> 表示单元格是空的，而 <code>'1'</code> 表示单元格有一个安全设备。</p>
 
@@ -64,38 +77,47 @@
 	<li><code>bank[i][j]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：逐行统计
+
+我们可以逐行统计每行的安全设备数量，如果当前行没有安全设备，直接跳过，否则我们将当前行的安全设备数量乘以前一行的安全设备数量，累加到答案中。然后更新前一行的安全设备数量为当前行的安全设备数量。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def numberOfBeams(self, bank: List[str]) -> int:
-        last = ans = 0
-        for b in bank:
-            if (t := b.count('1')) > 0:
-                ans += last * t
-                last = t
+        ans = pre = 0
+        for row in bank:
+            if (cur := row.count("1")) > 0:
+                ans += pre * cur
+                pre = cur
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int numberOfBeams(String[] bank) {
-        int last = 0;
-        int ans = 0;
-        for (String b : bank) {
-            int t = 0;
-            for (char c : b.toCharArray()) {
-                if (c == '1') {
-                    ++t;
-                }
+        int ans = 0, pre = 0;
+        for (String row : bank) {
+            int cur = 0;
+            for (int i = 0; i < row.length(); ++i) {
+                cur += row.charAt(i) - '0';
             }
-            if (t > 0) {
-                ans += last * t;
-                last = t;
+            if (cur > 0) {
+                ans += pre * cur;
+                pre = cur;
             }
         }
         return ans;
@@ -103,20 +125,18 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     int numberOfBeams(vector<string>& bank) {
-        int ans = 0;
-        int last = 0;
-        for (auto& b : bank) {
-            int t = 0;
-            for (char& c : b)
-                if (c == '1')
-                    ++t;
-            if (t) {
-                ans += last * t;
-                last = t;
+        int ans = 0, pre = 0;
+        for (auto& row : bank) {
+            int cur = count(row.begin(), row.end(), '1');
+            if (cur) {
+                ans += pre * cur;
+                pre = cur;
             }
         }
         return ans;
@@ -124,55 +144,49 @@ public:
 };
 ```
 
+#### Go
+
 ```go
-func numberOfBeams(bank []string) int {
-	ans, last := 0, 0
-	for _, b := range bank {
-		t := strings.Count(b, "1")
-		if t > 0 {
-			ans += t * last
-			last = t
+func numberOfBeams(bank []string) (ans int) {
+	pre := 0
+	for _, row := range bank {
+		if cur := strings.Count(row, "1"); cur > 0 {
+			ans += pre * cur
+			pre = cur
 		}
 	}
-	return ans
+	return
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfBeams(bank: string[]): number {
-    let last = 0;
-    let ans = 0;
-    for (const r of bank) {
-        let t = 0;
-        for (const v of r) {
-            if (v === '1') {
-                t++;
-            }
-        }
-        if (t !== 0) {
-            ans += last * t;
-            last = t;
+    let [ans, pre] = [0, 0];
+    for (const row of bank) {
+        const cur = row.split('1').length - 1;
+        if (cur) {
+            ans += pre * cur;
+            pre = cur;
         }
     }
     return ans;
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn number_of_beams(bank: Vec<String>) -> i32 {
-        let mut last = 0;
         let mut ans = 0;
-        for r in bank.iter() {
-            let mut t = 0;
-            for &v in r.as_bytes() {
-                if v == b'1' {
-                    t += 1;
-                }
-            }
-            if t != 0 {
-                ans += last * t;
-                last = t;
+        let mut pre = 0;
+        for row in bank {
+            let cur = row.chars().filter(|&c| c == '1').count() as i32;
+            if cur > 0 {
+                ans += pre * cur;
+                pre = cur;
             }
         }
         ans
@@ -180,20 +194,21 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int numberOfBeams(char** bank, int bankSize) {
-    int last = 0;
-    int ans = 0;
-    for (int i = 0; i < bankSize; i++) {
-        int t = 0;
-        for (int j = 0; bank[i][j]; j++) {
+    int ans = 0, pre = 0;
+    for (int i = 0; i < bankSize; ++i) {
+        int cur = 0;
+        for (int j = 0; bank[i][j] != '\0'; ++j) {
             if (bank[i][j] == '1') {
-                t++;
+                cur++;
             }
         }
-        if (t != 0) {
-            ans += last * t;
-            last = t;
+        if (cur) {
+            ans += pre * cur;
+            pre = cur;
         }
     }
     return ans;
@@ -202,4 +217,6 @@ int numberOfBeams(char** bank, int bankSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

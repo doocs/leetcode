@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string)
 
 [中文文档](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README.md)
 
-<!-- tags:Hash Table,String,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>p</code>, return <em>an array of all the start indices of </em><code>p</code><em>&#39;s anagrams in </em><code>s</code>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -40,11 +52,17 @@ The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &qu
 	<li><code>s</code> and <code>p</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +80,8 @@ class Solution:
             cnt2[s[i - n + 1]] -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -120,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -144,6 +168,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findAnagrams(s: string, p: string): number[] {
@@ -172,6 +198,8 @@ function findAnagrams(s: string, p: string): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -203,6 +231,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<int> FindAnagrams(string s, string p) {
@@ -233,9 +263,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -256,6 +292,8 @@ class Solution:
                 ans.append(j)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -284,6 +322,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -314,6 +354,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findAnagrams(s string, p string) (ans []int) {
 	m, n := len(s), len(p)
@@ -340,6 +382,8 @@ func findAnagrams(s string, p string) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findAnagrams(s: string, p: string): number[] {
     const m = s.length;
@@ -348,8 +392,8 @@ function findAnagrams(s: string, p: string): number[] {
     if (m < n) {
         return ans;
     }
-    const cnt1: number[] = new Array(26).fill(0);
-    const cnt2: number[] = new Array(26).fill(0);
+    const cnt1: number[] = Array(26).fill(0);
+    const cnt2: number[] = Array(26).fill(0);
     const idx = (c: string) => c.charCodeAt(0) - 'a'.charCodeAt(0);
     for (const c of p) {
         ++cnt1[idx(c)];
@@ -370,4 +414,6 @@ function findAnagrams(s: string, p: string): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

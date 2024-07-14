@@ -17,41 +17,29 @@ class Solution {
     private Map<Integer, List<Integer>> g = new HashMap<>();
 
     public int amountOfTime(TreeNode root, int start) {
-        dfs(root);
-        Deque<Integer> q = new ArrayDeque<>();
-        Set<Integer> vis = new HashSet<>();
-        q.offer(start);
-        int ans = -1;
-        while (!q.isEmpty()) {
-            ++ans;
-            for (int n = q.size(); n > 0; --n) {
-                int i = q.pollFirst();
-                vis.add(i);
-                if (g.containsKey(i)) {
-                    for (int j : g.get(i)) {
-                        if (!vis.contains(j)) {
-                            q.offer(j);
-                        }
-                    }
-                }
+        dfs(root, null);
+        return dfs2(start, -1);
+    }
+
+    private void dfs(TreeNode node, TreeNode fa) {
+        if (node == null) {
+            return;
+        }
+        if (fa != null) {
+            g.computeIfAbsent(node.val, k -> new ArrayList<>()).add(fa.val);
+            g.computeIfAbsent(fa.val, k -> new ArrayList<>()).add(node.val);
+        }
+        dfs(node.left, node);
+        dfs(node.right, node);
+    }
+
+    private int dfs2(int node, int fa) {
+        int ans = 0;
+        for (int nxt : g.getOrDefault(node, List.of())) {
+            if (nxt != fa) {
+                ans = Math.max(ans, 1 + dfs2(nxt, node));
             }
         }
         return ans;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        if (root.left != null) {
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.left.val);
-            g.computeIfAbsent(root.left.val, k -> new ArrayList<>()).add(root.val);
-        }
-        if (root.right != null) {
-            g.computeIfAbsent(root.val, k -> new ArrayList<>()).add(root.right.val);
-            g.computeIfAbsent(root.right.val, k -> new ArrayList<>()).add(root.val);
-        }
-        dfs(root.left);
-        dfs(root.right);
     }
 }

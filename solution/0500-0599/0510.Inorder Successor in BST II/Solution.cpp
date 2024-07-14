@@ -14,10 +14,14 @@ public:
     Node* inorderSuccessor(Node* node) {
         if (node->right) {
             node = node->right;
-            while (node->left) node = node->left;
+            while (node->left) {
+                node = node->left;
+            }
             return node;
         }
-        while (node->parent && node == node->parent->right) node = node->parent;
+        while (node->parent && node->parent->right == node) {
+            node = node->parent;
+        }
         return node->parent;
     }
 };

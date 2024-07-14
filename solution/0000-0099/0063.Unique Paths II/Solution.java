@@ -1,20 +1,27 @@
 class Solution {
+    private Integer[][] f;
+    private int[][] obstacleGrid;
+    private int m;
+    private int n;
+
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int m = obstacleGrid.length, n = obstacleGrid[0].length;
-        int[][] dp = new int[m][n];
-        for (int i = 0; i < m && obstacleGrid[i][0] == 0; ++i) {
-            dp[i][0] = 1;
+        m = obstacleGrid.length;
+        n = obstacleGrid[0].length;
+        this.obstacleGrid = obstacleGrid;
+        f = new Integer[m][n];
+        return dfs(0, 0);
+    }
+
+    private int dfs(int i, int j) {
+        if (i >= m || j >= n || obstacleGrid[i][j] == 1) {
+            return 0;
         }
-        for (int j = 0; j < n && obstacleGrid[0][j] == 0; ++j) {
-            dp[0][j] = 1;
+        if (i == m - 1 && j == n - 1) {
+            return 1;
         }
-        for (int i = 1; i < m; ++i) {
-            for (int j = 1; j < n; ++j) {
-                if (obstacleGrid[i][j] == 0) {
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
-                }
-            }
+        if (f[i][j] == null) {
+            f[i][j] = dfs(i + 1, j) + dfs(i, j + 1);
         }
-        return dp[m - 1][n - 1];
+        return f[i][j];
     }
 }

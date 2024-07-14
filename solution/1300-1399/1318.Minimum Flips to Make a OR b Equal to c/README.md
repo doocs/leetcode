@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/README.md
+rating: 1382
+source: 第 171 场周赛 Q2
+tags:
+    - 位运算
+---
+
+<!-- problem:start -->
+
 # [1318. 或运算的最小翻转次数](https://leetcode.cn/problems/minimum-flips-to-make-a-or-b-equal-to-c)
 
 [English Version](/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/README_EN.md)
 
-<!-- tags:位运算 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你三个正整数&nbsp;<code>a</code>、<code>b</code> 和 <code>c</code>。</p>
 
@@ -46,74 +56,94 @@
 	<li><code>1 &lt;= c&nbsp;&lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
 我们可以枚举 $a$, $b$, $c$ 的二进制表示的每一位，分别记为 $x$, $y$, $z$。如果 $x$ 和 $y$ 的按位或运算结果与 $z$ 不同，此时我们判断 $x$ 和 $y$ 是否都是 $1$，如果是，则需要翻转两次，否则只需要翻转一次。我们将所有需要翻转的次数累加即可。
 
-时间复杂度 $O(\log M)$，空间复杂度 $O(1)$。其中 $M$ 是题目中数字的最大值。
+时间复杂度 $O(\log M)$，其中 $M$ 是题目中数字的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def minFlips(self, a: int, b: int, c: int) -> int:
         ans = 0
-        for i in range(30):
+        for i in range(32):
             x, y, z = a >> i & 1, b >> i & 1, c >> i & 1
-            if x | y != z:
-                ans += 2 if x == 1 and y == 1 else 1
+            ans += x + y if z == 0 else int(x == 0 and y == 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int minFlips(int a, int b, int c) {
         int ans = 0;
-        for (int i = 0; i < 30; ++i) {
+        for (int i = 0; i < 32; ++i) {
             int x = a >> i & 1, y = b >> i & 1, z = c >> i & 1;
-            if ((x | y) != z) {
-                ans += x == 1 && y == 1 ? 2 : 1;
-            }
+            ans += z == 0 ? x + y : (x == 0 && y == 0 ? 1 : 0);
         }
         return ans;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int minFlips(int a, int b, int c) {
         int ans = 0;
-        for (int i = 0; i < 30; ++i) {
+        for (int i = 0; i < 32; ++i) {
             int x = a >> i & 1, y = b >> i & 1, z = c >> i & 1;
-            if ((x | y) != z) {
-                ans += x == 1 && y == 1 ? 2 : 1;
-            }
+            ans += z == 0 ? x + y : (x == 0 && y == 0 ? 1 : 0);
         }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
 func minFlips(a int, b int, c int) (ans int) {
-	for i := 0; i < 30; i++ {
+	for i := 0; i < 32; i++ {
 		x, y, z := a>>i&1, b>>i&1, c>>i&1
-		if (x | y) != z {
-			if x == 1 && y == 1 {
-				ans += 2
-			} else {
-				ans++
-			}
+		if z == 0 {
+			ans += x + y
+		} else if x == 0 && y == 0 {
+			ans++
 		}
 	}
 	return
 }
 ```
 
+#### TypeScript
+
+```ts
+function minFlips(a: number, b: number, c: number): number {
+    let ans = 0;
+    for (let i = 0; i < 32; ++i) {
+        const [x, y, z] = [(a >> i) & 1, (b >> i) & 1, (c >> i) & 1];
+        ans += z === 0 ? x + y : x + y === 0 ? 1 : 0;
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

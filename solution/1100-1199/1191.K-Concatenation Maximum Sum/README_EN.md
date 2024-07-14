@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md
+rating: 1747
+source: Weekly Contest 154 Q3
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1191. K-Concatenation Maximum Sum](https://leetcode.com/problems/k-concatenation-maximum-sum)
 
 [中文文档](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>arr</code> and an integer <code>k</code>, modify the array by repeating it <code>k</code> times.</p>
 
@@ -45,7 +58,11 @@
 	<li><code>-10<sup>4</sup> &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Case Discussion
 
@@ -64,6 +81,8 @@ Finally, we return the result of the answer modulo $10^9 + 7$.
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $arr$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +103,8 @@ class Solution:
             ans = max(ans, (k - 2) * s + mx_pre + mx_suf)
         return ans % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -136,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func kConcatenationMaxSum(arr []int, k int) int {
 	var s, mxPre, miPre, mxSub int
@@ -161,4 +186,6 @@ func kConcatenationMaxSum(arr []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

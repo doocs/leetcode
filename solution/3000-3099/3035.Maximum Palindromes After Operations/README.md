@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README.md
+rating: 1856
+source: 第 384 场周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [3035. 回文字符串的最大数量](https://leetcode.cn/problems/maximum-palindromes-after-operations)
 
 [English Version](/solution/3000-3099/3035.Maximum%20Palindromes%20After%20Operations/README_EN.md)
 
-<!-- tags:贪心,数组,哈希表,字符串,计数,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> ，数组的长度为 <code>n</code> ，且包含下标从 <strong>0</strong> 开始的若干字符串。</p>
 
@@ -16,7 +31,7 @@
 	<li>选择整数<code>i</code>、<code>j</code>、<code>x</code>和<code>y</code>，满足<code>0 &lt;= i, j &lt; n</code>，<code>0 &lt;= x &lt; words[i].length</code>，<code>0 &lt;= y &lt; words[j].length</code>，<strong>交换 </strong>字符 <code>words[i][x]</code> 和 <code>words[j][y]</code> 。</li>
 </ul>
 
-<p>返回一个整数，表示在执行一些操作后，<code>words</code> 中可以包含的回文字符串的 <strong>最大 </strong>数量。</p>
+<p>返回一个整数，表示在执行一些操作后，<code>words</code> 中可以包含的<span data-keyword="palindrome-string">回文串</span>的 <strong>最大 </strong>数量。</p>
 
 <p><strong>注意：</strong>在操作过程中，<code>i</code> 和 <code>j</code> 可以相等。</p>
 
@@ -66,11 +81,17 @@ words 中有一个回文 "a" 。
 	<li><code>words[i]</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +111,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPalindromesAfterOperations(words []string) (ans int) {
 	var s, mask int
@@ -165,6 +192,8 @@ func maxPalindromesAfterOperations(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPalindromesAfterOperations(words: string[]): number {
@@ -192,4 +221,6 @@ function maxPalindromesAfterOperations(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

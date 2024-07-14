@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README.md
+rating: 1279
+source: 第 110 场双周赛 Q2
+tags:
+    - 链表
+    - 数学
+    - 数论
+---
+
+<!-- problem:start -->
+
 # [2807. 在链表中插入最大公约数](https://leetcode.cn/problems/insert-greatest-common-divisors-in-linked-list)
 
 [English Version](/solution/2800-2899/2807.Insert%20Greatest%20Common%20Divisors%20in%20Linked%20List/README_EN.md)
 
-<!-- tags:链表,数学,数论 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个链表的头&nbsp;<code>head</code>&nbsp;，每个结点包含一个整数值。</p>
 
@@ -50,7 +62,11 @@
 	<li><code>1 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -59,6 +75,8 @@
 时间复杂度 $O(n \times \log M)$，其中 $n$ 是链表的长度，而 $M$ 是链表中结点的最大值。忽略结果链表的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -77,6 +95,8 @@ class Solution:
             pre, cur = cur, cur.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -133,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -157,6 +181,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -190,4 +216,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

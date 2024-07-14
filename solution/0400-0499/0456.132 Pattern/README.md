@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0456.132%20Pattern/README.md
+tags:
+    - 栈
+    - 数组
+    - 二分查找
+    - 有序集合
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [456. 132 模式](https://leetcode.cn/problems/132-pattern)
 
 [English Version](/solution/0400-0499/0456.132%20Pattern/README_EN.md)
 
-<!-- tags:栈,数组,二分查找,有序集合,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> ，数组中共有 <code>n</code> 个整数。<strong>132 模式的子序列</strong> 由三个整数 <code>nums[i]</code>、<code>nums[j]</code> 和 <code>nums[k]</code> 组成，并同时满足：<code>i < j < k</code> 和 <code>nums[i] < nums[k] < nums[j]</code> 。</p>
 
@@ -48,7 +60,11 @@
 	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -61,6 +77,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +93,8 @@ class Solution:
             stk.append(x)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -116,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func find132pattern(nums []int) bool {
 	vk := -(1 << 30)
@@ -134,6 +158,8 @@ func find132pattern(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function find132pattern(nums: number[]): boolean {
     let vk = -Infinity;
@@ -150,6 +176,8 @@ function find132pattern(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -173,6 +201,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：离散化 + 树状数组
 
 我们可以用树状数组维护比某个数小的元素的个数，用一个数组 $left$ 记录 $nums[i]$ 左侧的最小值。
@@ -184,6 +216,8 @@ impl Solution {
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -220,6 +254,8 @@ class Solution:
             tree.update(x, 1)
         return False
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -289,6 +325,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -343,6 +381,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -399,6 +439,8 @@ func find132pattern(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndextedTree {
@@ -469,4 +511,6 @@ function search(nums: number[], x: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

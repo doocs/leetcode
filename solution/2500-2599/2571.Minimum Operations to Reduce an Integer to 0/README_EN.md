@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README_EN.md
+rating: 1649
+source: Weekly Contest 333 Q2
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2571. Minimum Operations to Reduce an Integer to 0](https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0)
 
 [中文文档](/solution/2500-2599/2571.Minimum%20Operations%20to%20Reduce%20an%20Integer%20to%200/README.md)
 
-<!-- tags:Greedy,Bit Manipulation,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code>, you can do the following operation <strong>any</strong> number of times:</p>
 
@@ -48,7 +62,11 @@ So the minimum number of operations is 3.
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Bitwise Operation
 
@@ -62,6 +80,8 @@ Finally, we also need to check whether the current number of consecutive 1s is 1
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the given integer in the problem.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +100,8 @@ class Solution:
             ans += 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -119,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperations(n int) (ans int) {
@@ -144,6 +170,8 @@ func minOperations(n int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minOperations(n: number): number {
     let [ans, cnt] = [0, 0];
@@ -166,4 +194,6 @@ function minOperations(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

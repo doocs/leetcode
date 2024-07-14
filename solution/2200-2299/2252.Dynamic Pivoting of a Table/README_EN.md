@@ -1,10 +1,20 @@
-# [2252. Dynamic Pivoting of a Table](https://leetcode.com/problems/dynamic-pivoting-of-a-table)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2252. Dynamic Pivoting of a Table 🔒](https://leetcode.com/problems/dynamic-pivoting-of-a-table)
 
 [中文文档](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Products</code></p>
 
@@ -65,11 +75,17 @@ Similarly, product 2 has a price of 200 in Nozama and 190 in Souq. It is not sol
 For product 3, the price is 1000 in Shop and 1900 in Souq. It is not sold in the other two stores.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 CREATE PROCEDURE PivotProducts()
@@ -93,4 +109,6 @@ END
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md
+rating: 2418
+source: Weekly Contest 155 Q4
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+---
+
+<!-- problem:start -->
+
 # [1203. Sort Items by Groups Respecting Dependencies](https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies)
 
 [中文文档](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are&nbsp;<code>n</code>&nbsp;items each&nbsp;belonging to zero or one of&nbsp;<code>m</code>&nbsp;groups where <code>group[i]</code>&nbsp;is the group that the <code>i</code>-th item belongs to and it&#39;s equal to <code>-1</code>&nbsp;if the <code>i</code>-th item belongs to no group. The items and the groups are zero indexed. A group can have no item belonging to it.</p>
 
@@ -48,7 +63,11 @@
 	<li><code>beforeItems[i]&nbsp;</code>does not contain&nbsp;duplicates elements.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -61,6 +80,8 @@ Next, we perform topological sorting on the group graph to get the sorted group 
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the total number of projects and groups, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +134,8 @@ class Solution:
             ans.extend(item_order)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -185,6 +208,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -251,6 +276,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func sortItems(n int, m int, group []int, beforeItems [][]int) []int {
@@ -321,6 +348,8 @@ func sortItems(n int, m int, group []int, beforeItems [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortItems(n: number, m: number, group: number[], beforeItems: number[][]): number[] {
     let idx = m;
@@ -385,4 +414,6 @@ function sortItems(n: number, m: number, group: number[], beforeItems: number[][
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

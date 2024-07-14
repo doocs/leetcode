@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README.md
+rating: 2351
+source: 第 121 场双周赛 Q4
+tags:
+    - 数学
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2999. 统计强大整数的数目](https://leetcode.cn/problems/count-the-number-of-powerful-integers)
 
 [English Version](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)
 
-<!-- tags:数学,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你三个整数&nbsp;<code>start</code>&nbsp;，<code>finish</code>&nbsp;和&nbsp;<code>limit</code>&nbsp;。同时给你一个下标从&nbsp;<strong>0</strong>&nbsp;开始的字符串&nbsp;<code>s</code>&nbsp;，表示一个 <strong>正</strong>&nbsp;整数。</p>
 
@@ -56,11 +68,17 @@
 	<li><code>s</code>&nbsp;不包含任何前导 0 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +103,8 @@ class Solution:
         b = dfs(0, True)
         return b - a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
@@ -218,6 +242,8 @@ func numberOfPowerfulInt(start, finish int64, limit int, s string) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPowerfulInt(start: number, finish: number, limit: number, s: string): number {
     let t: string = (start - 1).toString();
@@ -260,4 +286,6 @@ function numberOfPowerfulInt(start: number, finish: number, limit: number, s: st
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

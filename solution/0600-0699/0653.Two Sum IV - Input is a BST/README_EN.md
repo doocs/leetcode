@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Search Tree
+    - Hash Table
+    - Two Pointers
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [653. Two Sum IV - Input is a BST](https://leetcode.com/problems/two-sum-iv-input-is-a-bst)
 
 [中文文档](/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Search Tree,Hash Table,Two Pointers,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree and an integer <code>k</code>, return <code>true</code> <em>if there exist two elements in the BST such that their sum is equal to</em> <code>k</code>, <em>or</em> <code>false</code> <em>otherwise</em>.</p>
 
@@ -33,11 +49,17 @@
 	<li><code>-10<sup>5</sup> &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -59,6 +81,8 @@ class Solution:
         vis = set()
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -98,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -130,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -155,6 +183,8 @@ func findTarget(root *TreeNode, k int) bool {
 	return dfs(root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -187,6 +217,8 @@ function findTarget(root: TreeNode | null, k: number): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -206,9 +238,9 @@ function findTarget(root: TreeNode | null, k: number): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
-use std::collections::{ HashSet, VecDeque };
+use std::collections::{HashSet, VecDeque};
+use std::rc::Rc;
 impl Solution {
     pub fn find_target(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> bool {
         let mut set = HashSet::new();
@@ -232,9 +264,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -259,6 +297,8 @@ class Solution:
                     q.append(node.right)
         return False
 ```
+
+#### Java
 
 ```java
 /**
@@ -301,6 +341,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -339,6 +381,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -370,6 +414,8 @@ func findTarget(root *TreeNode, k int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -406,4 +452,6 @@ function findTarget(root: TreeNode | null, k: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

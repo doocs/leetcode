@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README_EN.md
+rating: 2385
+source: Weekly Contest 175 Q4
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Bitmask
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [1349. Maximum Students Taking Exam](https://leetcode.com/problems/maximum-students-taking-exam)
 
 [中文文档](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md)
 
-<!-- tags:Bit Manipulation,Array,Dynamic Programming,Bitmask,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>m&nbsp;* n</code>&nbsp;matrix <code>seats</code>&nbsp;&nbsp;that represent seats distributions&nbsp;in a classroom.&nbsp;If a seat&nbsp;is&nbsp;broken, it is denoted by <code>&#39;#&#39;</code> character otherwise it is denoted by a <code>&#39;.&#39;</code> character.</p>
 
@@ -59,7 +75,11 @@
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Memoization Search
 
@@ -81,6 +101,8 @@ To avoid repeated calculations, we can use memoization search to save the return
 The time complexity is $O(4^n \times n \times m)$, and the space complexity is $O(2^n \times m)$. Where $m$ and $n$ are the number of rows and columns of the seats, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -112,6 +134,8 @@ class Solution:
         ss = [f(s) for s in seats]
         return dfs(ss[0], 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +182,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -198,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxStudents(seats [][]byte) int {
@@ -242,6 +270,8 @@ func maxStudents(seats [][]byte) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxStudents(seats: string[][]): number {
     const m: number = seats.length;
@@ -283,4 +313,6 @@ function maxStudents(seats: string[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

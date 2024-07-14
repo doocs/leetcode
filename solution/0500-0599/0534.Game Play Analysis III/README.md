@@ -1,12 +1,20 @@
-# [534. 游戏玩法分析 III](https://leetcode.cn/problems/game-play-analysis-iii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [534. 游戏玩法分析 III 🔒](https://leetcode.cn/problems/game-play-analysis-iii)
 
 [English Version](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Activity</code></p>
 
@@ -64,13 +72,19 @@ Activity table:
 请注意，对于每个玩家，我们只关心玩家的登录日期。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：使用窗口函数
 
 我们可以使用窗口函数 `SUM() OVER()`，按照 `player_id` 分组，按照 `event_date` 排序，计算每个用户截止到当前日期的游戏总数。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -86,11 +100,17 @@ FROM Activity;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：使用自连接 + 分组
 
 我们也可以使用自连接，将 `Activity` 表自连接，连接条件为 `t1.player_id = t2.player_id AND t1.event_date >= t2.event_date`，然后按照 `t1.player_id` 和 `t1.event_date` 分组，累计 `t2.games_played`，得到每个用户截止到当前日期的游戏总数。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -107,9 +127,15 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -125,4 +151,6 @@ GROUP BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

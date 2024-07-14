@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0118.Pascal%27s%20Triangle/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [118. 杨辉三角](https://leetcode.cn/problems/pascals-triangle)
 
 [English Version](/solution/0100-0199/0118.Pascal%27s%20Triangle/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负整数 <em><code>numRows</code>，</em>生成「杨辉三角」的前 <em><code>numRows</code> </em>行。</p>
 
@@ -38,7 +47,11 @@
 	<li><code>1 <= numRows <= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -47,6 +60,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是行数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +72,8 @@ class Solution:
             f.append(g)
         return f
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generate(numRows int) [][]int {
 	f := [][]int{[]int{1}}
@@ -112,6 +133,8 @@ func generate(numRows int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function generate(numRows: number): number[][] {
     const f: number[][] = [[1]];
@@ -126,6 +149,8 @@ function generate(numRows: number): number[][] {
     return f;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -148,6 +173,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} numRows
@@ -169,4 +196,6 @@ var generate = function (numRows) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

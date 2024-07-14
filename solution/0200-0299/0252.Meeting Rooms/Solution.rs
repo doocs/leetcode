@@ -8,7 +8,7 @@ impl Solution {
         let mut intervals = intervals;
 
         // Sort the intervals vector
-        intervals.sort_by(|lhs, rhs| { lhs[0].cmp(&rhs[0]) });
+        intervals.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
 
         let mut end = -1;
 

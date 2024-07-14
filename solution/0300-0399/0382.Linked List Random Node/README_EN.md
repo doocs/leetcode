@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0382.Linked%20List%20Random%20Node/README_EN.md
+tags:
+    - Reservoir Sampling
+    - Linked List
+    - Math
+    - Randomized
+---
+
+<!-- problem:start -->
+
 # [382. Linked List Random Node](https://leetcode.com/problems/linked-list-random-node)
 
 [中文文档](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README.md)
 
-<!-- tags:Reservoir Sampling,Linked List,Math,Randomized -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a singly linked list, return a random node&#39;s value from the linked list. Each node must have the <strong>same probability</strong> of being chosen.</p>
 
@@ -53,11 +66,17 @@ solution.getRandom(); // return 3
 	<li>Could you solve this efficiently without using extra space?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -85,6 +104,8 @@ class Solution:
 # obj = Solution(head)
 # param_1 = obj.getRandom()
 ```
+
+#### Java
 
 ```java
 /**
@@ -125,6 +146,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -161,6 +184,8 @@ public:
  * int param_1 = obj->getRandom();
  */
 ```
+
+#### Go
 
 ```go
 /**
@@ -199,4 +224,6 @@ func (this *Solution) GetRandom() int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

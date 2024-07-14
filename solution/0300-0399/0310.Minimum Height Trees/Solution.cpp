@@ -1,7 +1,9 @@
 class Solution {
 public:
     vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
-        if (n == 1) return {0};
+        if (n == 1) {
+            return {0};
+        }
         vector<vector<int>> g(n);
         vector<int> degree(n);
         for (auto& e : edges) {
@@ -12,9 +14,11 @@ public:
             ++degree[b];
         }
         queue<int> q;
-        for (int i = 0; i < n; ++i)
-            if (degree[i] == 1)
+        for (int i = 0; i < n; ++i) {
+            if (degree[i] == 1) {
                 q.push(i);
+            }
+        }
         vector<int> ans;
         while (!q.empty()) {
             ans.clear();
@@ -22,9 +26,11 @@ public:
                 int a = q.front();
                 q.pop();
                 ans.push_back(a);
-                for (int b : g[a])
-                    if (--degree[b] == 1)
+                for (int b : g[a]) {
+                    if (--degree[b] == 1) {
                         q.push(b);
+                    }
+                }
             }
         }
         return ans;

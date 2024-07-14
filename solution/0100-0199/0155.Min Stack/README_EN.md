@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0155.Min%20Stack/README_EN.md
+tags:
+    - Stack
+    - Design
+---
+
+<!-- problem:start -->
+
 # [155. Min Stack](https://leetcode.com/problems/min-stack)
 
 [中文文档](/solution/0100-0199/0155.Min%20Stack/README.md)
 
-<!-- tags:Stack,Design -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 
@@ -51,11 +62,17 @@ minStack.getMin(); // return -2
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MinStack:
@@ -85,6 +102,8 @@ class MinStack:
 # param_3 = obj.top()
 # param_4 = obj.getMin()
 ```
+
+#### Java
 
 ```java
 class MinStack {
@@ -123,6 +142,8 @@ class MinStack {
  * int param_4 = obj.getMin();
  */
 ```
+
+#### C++
 
 ```cpp
 class MinStack {
@@ -164,6 +185,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MinStack struct {
 	stk1 []int
@@ -201,6 +224,8 @@ func (this *MinStack) GetMin() int {
  * param_4 := obj.GetMin();
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MinStack {
@@ -241,6 +266,8 @@ class MinStack {
  */
 ```
 
+#### Rust
+
 ```rust
 use std::collections::VecDeque;
 struct MinStack {
@@ -254,7 +281,10 @@ struct MinStack {
  */
 impl MinStack {
     fn new() -> Self {
-        Self { stk1: VecDeque::new(), stk2: VecDeque::new() }
+        Self {
+            stk1: VecDeque::new(),
+            stk2: VecDeque::new(),
+        }
     }
 
     fn push(&mut self, x: i32) {
@@ -278,15 +308,10 @@ impl MinStack {
     fn get_min(&self) -> i32 {
         *self.stk2.back().unwrap()
     }
-}/**
- * Your MinStack object will be instantiated and called as such:
- * let obj = MinStack::new();
- * obj.push(x);
- * obj.pop();
- * let ret_3: i32 = obj.top();
- * let ret_4: i32 = obj.get_min();
- */
+}
 ```
+
+#### JavaScript
 
 ```js
 var MinStack = function () {
@@ -335,6 +360,8 @@ MinStack.prototype.getMin = function () {
  */
 ```
 
+#### C#
+
 ```cs
 public class MinStack {
     private Stack<int> stk1 = new Stack<int>();
@@ -375,4 +402,6 @@ public class MinStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

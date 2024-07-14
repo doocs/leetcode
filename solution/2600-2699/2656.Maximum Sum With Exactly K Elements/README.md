@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README.md
+rating: 1213
+source: 第 103 场双周赛 Q1
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [2656. K 个元素的最大和](https://leetcode.cn/problems/maximum-sum-with-exactly-k-elements)
 
 [English Version](/solution/2600-2699/2656.Maximum%20Sum%20With%20Exactly%20K%20Elements/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code> 和一个整数&nbsp;<code>k</code>&nbsp;。你需要执行以下操作<strong>&nbsp;恰好</strong> <code>k</code>&nbsp;次，最大化你的得分：</p>
 
@@ -56,7 +67,11 @@
 	<li><code>1 &lt;= k &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 数学
 
@@ -66,12 +81,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maximizeSum(self, nums: List[int], k: int) -> int:
         x = max(nums)
         return k * x + k * (k - 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -95,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSum(nums []int, k int) int {
 	x := slices.Max(nums)
@@ -102,12 +125,16 @@ func maximizeSum(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximizeSum(nums: number[], k: number): number {
     const x = Math.max(...nums);
     return k * x + (k * (k - 1)) / 2;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -127,9 +154,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -143,4 +176,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

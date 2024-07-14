@@ -1,7 +1,6 @@
-func titleToNumber(columnTitle string) int {
-	res := 0
+func titleToNumber(columnTitle string) (ans int) {
 	for _, c := range columnTitle {
-		res = res*26 + int(c-'A'+1)
+		ans = ans*26 + int(c-'A'+1)
 	}
-	return res
+	return
 }

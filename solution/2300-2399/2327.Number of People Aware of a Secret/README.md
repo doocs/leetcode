@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README.md
+rating: 1893
+source: 第 300 场周赛 Q3
+tags:
+    - 队列
+    - 动态规划
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2327. 知道秘密的人数](https://leetcode.cn/problems/number-of-people-aware-of-a-secret)
 
 [English Version](/solution/2300-2399/2327.Number%20of%20People%20Aware%20of%20a%20Secret/README_EN.md)
 
-<!-- tags:队列,动态规划,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在第 <code>1</code>&nbsp;天，有一个人发现了一个秘密。</p>
 
@@ -49,7 +61,11 @@
 	<li><code>1 &lt;= delay &lt; forget &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -60,6 +76,8 @@
 时间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +97,8 @@ class Solution:
         mod = 10**9 + 7
         return sum(d[: n + 1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using ll = long long;
 const int mod = 1e9 + 7;
@@ -137,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func peopleAwareOfSecret(n int, delay int, forget int) int {
 	m := (n << 1) + 10
@@ -164,6 +188,8 @@ func peopleAwareOfSecret(n int, delay int, forget int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
     let dp = new Array(n + 1).fill(0n);
@@ -190,4 +216,6 @@ function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

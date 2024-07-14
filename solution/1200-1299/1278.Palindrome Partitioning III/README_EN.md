@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1278.Palindrome%20Partitioning%20III/README_EN.md
+rating: 1979
+source: Weekly Contest 165 Q4
+tags:
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1278. Palindrome Partitioning III](https://leetcode.com/problems/palindrome-partitioning-iii)
 
 [中文文档](/solution/1200-1299/1278.Palindrome%20Partitioning%20III/README.md)
 
-<!-- tags:String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> containing lowercase letters and an integer <code>k</code>. You need to :</p>
 
@@ -46,11 +59,17 @@
 	<li><code>s</code> only contains lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +93,8 @@ class Solution:
                         f[i][j] = min(f[i][j], f[h][j - 1] + g[h][i - 1])
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +127,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func palindromePartition(s string, k int) int {
@@ -175,4 +200,6 @@ func palindromePartition(s string, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

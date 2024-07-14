@@ -1,18 +1,30 @@
-# [3063. Linked List Frequency](https://leetcode.com/problems/linked-list-frequency)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3063.Linked%20List%20Frequency/README_EN.md
+tags:
+    - Hash Table
+    - Linked List
+    - Counting
+---
+
+<!-- problem:start -->
+
+# [3063. Linked List Frequency 🔒](https://leetcode.com/problems/linked-list-frequency)
 
 [中文文档](/solution/3000-3099/3063.Linked%20List%20Frequency/README.md)
 
-<!-- tags: -->
-
 ## Description
 
-<p>Given the <code>head</code> of a linked list containing <code>k</code> <strong>distinct</strong> elements, return <em>a linked list of length </em><code>k</code><em> containing the <span data-keyword="frequency-linkedlist">frequency</span> of each <strong>distinct</strong> element in the given linked list in <strong>any order</strong>.</em></p>
+<!-- description:start -->
+
+<p>Given the <code>head</code> of a linked list containing <code>k</code> <strong>distinct</strong> elements, return <em>the head to a linked list of length </em><code>k</code><em> containing the <span data-keyword="frequency-linkedlist">frequency</span> of each <strong>distinct</strong> element in the given linked list in <strong>any order</strong>.</em></p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1: </strong></p>
 
 <div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [1,1,1,2,2,3] </span></p>
+<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> head = [1,1,2,1,2,3] </span></p>
 
 <p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> [3,2,1] </span></p>
 
@@ -49,7 +61,11 @@
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -58,6 +74,8 @@ We use a hash table `cnt` to record the occurrence times of each element value i
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -76,6 +94,8 @@ class Solution:
             dummy.next = ListNode(val, dummy.next)
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -102,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -130,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -150,6 +174,8 @@ func frequenciesOfElements(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -179,4 +205,6 @@ function frequenciesOfElements(head: ListNode | null): ListNode | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

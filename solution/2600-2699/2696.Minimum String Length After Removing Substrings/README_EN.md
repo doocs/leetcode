@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README_EN.md
+rating: 1282
+source: Weekly Contest 346 Q1
+tags:
+    - Stack
+    - String
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2696. Minimum String Length After Removing Substrings](https://leetcode.com/problems/minimum-string-length-after-removing-substrings)
 
 [中文文档](/solution/2600-2699/2696.Minimum%20String%20Length%20After%20Removing%20Substrings/README.md)
 
-<!-- tags:Stack,String,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> consisting only of <strong>uppercase</strong> English letters.</p>
 
@@ -43,7 +57,11 @@ It can be shown that it is the minimum length that we can obtain.</pre>
 	<li><code>s</code>&nbsp;consists only of uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack
 
@@ -57,6 +75,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minLength(self, s: str) -> int:
@@ -68,6 +88,8 @@ class Solution:
                 stk.append(c)
         return len(stk) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -103,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minLength(s string) int {
 	stk := []byte{' '}
@@ -116,6 +142,8 @@ func minLength(s string) int {
 	return len(stk) - 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minLength(s: string): number {
@@ -132,6 +160,8 @@ function minLength(s: string): number {
     return stk.length - 1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -159,4 +189,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

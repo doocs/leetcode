@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md
+tags:
+    - 栈
+    - 设计
+    - 队列
+---
+
+<!-- problem:start -->
+
 # [225. 用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues)
 
 [English Version](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
 
-<!-- tags:栈,设计,队列 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你仅使用两个队列实现一个后入先出（LIFO）的栈，并支持普通栈的全部四种操作（<code>push</code>、<code>top</code>、<code>pop</code> 和 <code>empty</code>）。</p>
 
@@ -24,7 +34,7 @@
 <p><strong>注意：</strong></p>
 
 <ul>
-	<li>你只能使用队列的基本操作 —— 也就是&nbsp;<code>push to back</code>、<code>peek/pop from front</code>、<code>size</code> 和&nbsp;<code>is empty</code>&nbsp;这些操作。</li>
+	<li>你只能使用队列的标准操作 —— 也就是&nbsp;<code>push to back</code>、<code>peek/pop from front</code>、<code>size</code> 和&nbsp;<code>is empty</code>&nbsp;这些操作。</li>
 	<li>你所使用的语言也许不支持队列。&nbsp;你可以使用 list （列表）或者 deque（双端队列）来模拟一个队列&nbsp;, 只要是标准的队列操作即可。</li>
 </ul>
 
@@ -62,7 +72,11 @@ myStack.empty(); // 返回 False
 
 <p><strong>进阶：</strong>你能否仅用一个队列来实现栈。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两个队列
 
@@ -76,6 +90,8 @@ myStack.empty(); // 返回 False
 空间复杂度 $O(n)$，其中 $n$ 是栈中元素的个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyStack:
@@ -106,6 +122,8 @@ class MyStack:
 # param_3 = obj.top()
 # param_4 = obj.empty()
 ```
+
+#### Java
 
 ```java
 import java.util.Deque;
@@ -149,6 +167,8 @@ class MyStack {
  * boolean param_4 = obj.empty();
  */
 ```
+
+#### C++
 
 ```cpp
 class MyStack {
@@ -194,6 +214,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MyStack struct {
 	q1 []int
@@ -237,6 +259,8 @@ func (this *MyStack) Empty() bool {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyStack {
     q1: number[] = [];
@@ -274,6 +298,8 @@ class MyStack {
  * var param_4 = obj.empty()
  */
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -329,4 +355,6 @@ impl MyStack {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

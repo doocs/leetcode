@@ -1,14 +1,12 @@
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
         cnt = Counter()
-        for a, b in matches:
-            if a not in cnt:
-                cnt[a] = 0
-            cnt[b] += 1
+        for winner, loser in matches:
+            if winner not in cnt:
+                cnt[winner] = 0
+            cnt[loser] += 1
         ans = [[], []]
-        for u, v in cnt.items():
+        for x, v in sorted(cnt.items()):
             if v < 2:
-                ans[v].append(u)
-        ans[0].sort()
-        ans[1].sort()
+                ans[v].append(x)
         return ans

@@ -1,8 +1,17 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number%20to%20String/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [05.02. Binary Number to String](https://leetcode.cn/problems/binary-number-to-string-lcci)
 
 [中文文档](/lcci/05.02.Binary%20Number%20to%20String/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given a real number between O and 1 (e.g., 0.72) that is passed in as a double, print the binary representation. If the number cannot be represented accurately in binary with at most 32 characters, print &quot;ERROR&quot;.</p>
 <p><strong>Example1:</strong></p>
@@ -28,7 +37,11 @@
 	<li>This two characters &quot;0.&quot; should be counted into 32 characters.</li>
 </ol>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Decimal Fraction to Binary Fraction
 
@@ -55,6 +68,8 @@ The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def printBin(self, num: float) -> str:
@@ -66,6 +81,8 @@ class Solution:
             num -= x
         return 'ERROR' if num else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +99,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +116,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func printBin(num float64) string {
@@ -115,6 +136,28 @@ func printBin(num float64) string {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func printBin(_ num: Double) -> String {
+        var num = num
+        var ans = "0."
+
+        while ans.count < 32 && num != 0 {
+            num *= 2
+            let x = Int(num)
+            ans.append("\(x)")
+            num -= Double(x)
+        }
+
+        return num != 0 ? "ERROR" : ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

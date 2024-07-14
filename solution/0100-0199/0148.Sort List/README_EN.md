@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0148.Sort%20List/README_EN.md
+tags:
+    - Linked List
+    - Two Pointers
+    - Divide and Conquer
+    - Sorting
+    - Merge Sort
+---
+
+<!-- problem:start -->
+
 # [148. Sort List](https://leetcode.com/problems/sort-list)
 
 [中文文档](/solution/0100-0199/0148.Sort%20List/README.md)
 
-<!-- tags:Linked List,Two Pointers,Divide and Conquer,Sorting,Merge Sort -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a linked list, return <em>the list after sorting it in <strong>ascending order</strong></em>.</p>
 
@@ -41,11 +55,17 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you sort the linked list in <code>O(n logn)</code> time and <code>O(1)</code> memory (i.e. constant space)?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -76,6 +96,8 @@ class Solution:
         cur.next = l1 or l2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -163,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -202,6 +228,8 @@ func sortList(head *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -246,6 +274,8 @@ function sortList(head: ListNode | null): ListNode | null {
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -306,6 +336,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -348,6 +380,8 @@ var sortList = function (head) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -401,4 +435,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

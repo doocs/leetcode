@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0067.Add%20Binary/README.md
+tags:
+    - 位运算
+    - 数学
+    - 字符串
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [67. 二进制求和](https://leetcode.cn/problems/add-binary)
 
 [English Version](/solution/0000-0099/0067.Add%20Binary/README_EN.md)
 
-<!-- tags:位运算,数学,字符串,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个二进制字符串 <code>a</code> 和 <code>b</code> ，以二进制字符串的形式返回它们的和。</p>
 
@@ -34,7 +45,11 @@
 	<li>字符串如果不是 <code>"0"</code> ，就不含前导零</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -44,11 +59,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
         return bin(int(a, 2) + int(b, 2))[2:]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +83,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -81,6 +102,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addBinary(a string, b string) string {
@@ -103,11 +126,15 @@ func addBinary(a string, b string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addBinary(a: string, b: string): string {
     return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -135,6 +162,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string AddBinary(string a, string b) {
@@ -156,9 +185,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -172,6 +207,8 @@ class Solution:
             i, j = i - 1, j - 1
         return ''.join(ans[::-1])
 ```
+
+#### TypeScript
 
 ```ts
 function addBinary(a: string, b: string): string {
@@ -190,4 +227,6 @@ function addBinary(a: string, b: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README_EN.md
+rating: 1527
+source: Weekly Contest 248 Q2
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1921. Eliminate Maximum Number of Monsters](https://leetcode.com/problems/eliminate-maximum-number-of-monsters)
 
 [中文文档](/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README.md)
 
-<!-- tags:Greedy,Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are playing a video game where you are defending your city from a group of <code>n</code> monsters. You are given a <strong>0-indexed</strong> integer array <code>dist</code> of size <code>n</code>, where <code>dist[i]</code> is the <strong>initial distance</strong> in kilometers of the <code>i<sup>th</sup></code> monster from the city.</p>
 
@@ -59,11 +73,17 @@ You can only eliminate 1 monster.
 	<li><code>1 &lt;= dist[i], speed[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +94,8 @@ class Solution:
                 return i
         return len(times)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +115,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +138,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func eliminateMaximum(dist []int, speed []int) int {
 	n := len(dist)
@@ -131,6 +157,8 @@ func eliminateMaximum(dist []int, speed []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function eliminateMaximum(dist: number[], speed: number[]): number {
     const n = dist.length;
@@ -147,6 +175,8 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
     return n;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -169,6 +199,8 @@ var eliminateMaximum = function (dist, speed) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int EliminateMaximum(int[] dist, int[] speed) {
@@ -190,4 +222,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

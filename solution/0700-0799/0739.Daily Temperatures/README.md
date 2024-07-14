@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0739.Daily%20Temperatures/README.md
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [739. 每日温度](https://leetcode.cn/problems/daily-temperatures)
 
 [English Version](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
 
-<!-- tags:栈,数组,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>temperatures</code>&nbsp;，表示每天的温度，返回一个数组&nbsp;<code>answer</code>&nbsp;，其中&nbsp;<code>answer[i]</code>&nbsp;是指对于第 <code>i</code> 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用&nbsp;<code>0</code> 来代替。</p>
 
@@ -41,7 +51,11 @@
 	<li><code>30 &lt;=&nbsp;temperatures[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
@@ -63,6 +77,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
@@ -75,6 +91,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func dailyTemperatures(temperatures []int) []int {
 	ans := make([]int, len(temperatures))
@@ -128,6 +150,8 @@ func dailyTemperatures(temperatures []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function dailyTemperatures(temperatures: number[]): number[] {
@@ -147,6 +171,8 @@ function dailyTemperatures(temperatures: number[]): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn daily_temperatures(temperatures: Vec<i32>) -> Vec<i32> {
@@ -164,6 +190,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -189,9 +217,15 @@ var dailyTemperatures = function (temperatures) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -207,6 +241,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -228,6 +264,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +282,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func dailyTemperatures(temperatures []int) []int {
@@ -265,4 +305,6 @@ func dailyTemperatures(temperatures []int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

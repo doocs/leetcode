@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md
+tags:
+    - Design
+    - Linked List
+---
+
+<!-- problem:start -->
+
 # [707. Design Linked List](https://leetcode.com/problems/design-linked-list)
 
 [中文文档](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
 
-<!-- tags:Design,Linked List -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design your implementation of the linked list. You can choose to use a singly or doubly linked list.<br />
 A node in a singly linked list should have two attributes: <code>val</code> and <code>next</code>. <code>val</code> is the value of the current node, and <code>next</code> is a pointer/reference to the next node.<br />
@@ -50,11 +61,17 @@ myLinkedList.get(1);              // return 3
 	<li>At most <code>2000</code> calls will be made to <code>get</code>, <code>addAtHead</code>, <code>addAtTail</code>, <code>addAtIndex</code> and <code>deleteAtIndex</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyLinkedList:
@@ -105,6 +122,8 @@ class MyLinkedList:
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
 ```
+
+#### Java
 
 ```java
 class MyLinkedList {
@@ -170,6 +189,8 @@ class MyLinkedList {
  * obj.deleteAtIndex(index);
  */
 ```
+
+#### C++
 
 ```cpp
 class MyLinkedList {
@@ -238,6 +259,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyLinkedList struct {
 	dummy *ListNode
@@ -303,6 +326,8 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
  * obj.DeleteAtIndex(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class LinkNode {
@@ -402,6 +427,8 @@ class MyLinkedList {
  */
 ```
 
+#### Rust
+
 ```rust
 #[derive(Default)]
 struct MyLinkedList {
@@ -437,12 +464,10 @@ impl MyLinkedList {
     }
 
     fn add_at_head(&mut self, val: i32) {
-        self.head = Some(
-            Box::new(ListNode {
-                val,
-                next: self.head.take(),
-            })
-        );
+        self.head = Some(Box::new(ListNode {
+            val,
+            next: self.head.take(),
+        }));
     }
 
     fn add_at_tail(&mut self, val: i32) {
@@ -471,12 +496,10 @@ impl MyLinkedList {
             cur = cur.next.as_mut().unwrap();
             index -= 1;
         }
-        cur.next = Some(
-            Box::new(ListNode {
-                val,
-                next: cur.next.take(),
-            })
-        );
+        cur.next = Some(Box::new(ListNode {
+            val,
+            next: cur.next.take(),
+        }));
         self.head = dummy.next;
     }
 
@@ -495,22 +518,20 @@ impl MyLinkedList {
         cur.next = cur.next.take().and_then(|n| n.next);
         self.head = dummy.next;
     }
-}/**
- * Your MyLinkedList object will be instantiated and called as such:
- * let obj = MyLinkedList::new();
- * let ret_1: i32 = obj.get(index);
- * obj.add_at_head(val);
- * obj.add_at_tail(val);
- * obj.add_at_index(index, val);
- * obj.delete_at_index(index);
- */
+}
 ```
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyLinkedList:
@@ -575,6 +596,8 @@ class MyLinkedList:
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
 ```
+
+#### Java
 
 ```java
 class MyLinkedList {
@@ -655,6 +678,8 @@ class MyLinkedList {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyLinkedList {
 private:
@@ -732,6 +757,8 @@ public:
  * obj->deleteAtIndex(index);
  */
 ```
+
+#### Go
 
 ```go
 type MyLinkedList struct {
@@ -816,6 +843,8 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
  * obj.DeleteAtIndex(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyLinkedList {
@@ -903,4 +932,6 @@ class MyLinkedList {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

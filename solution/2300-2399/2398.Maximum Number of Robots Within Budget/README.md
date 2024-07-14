@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README.md
+rating: 1917
+source: 第 86 场双周赛 Q4
+tags:
+    - 队列
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2398. 预算内的最多机器人数目](https://leetcode.cn/problems/maximum-number-of-robots-within-budget)
 
 [English Version](/solution/2300-2399/2398.Maximum%20Number%20of%20Robots%20Within%20Budget/README_EN.md)
 
-<!-- tags:队列,数组,二分查找,前缀和,滑动窗口,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有&nbsp;<code>n</code>&nbsp;个机器人，给你两个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>chargeTimes</code> 和&nbsp;<code>runningCosts</code>&nbsp;，两者长度都为&nbsp;<code>n</code>&nbsp;。第&nbsp;<code>i</code>&nbsp;个机器人充电时间为&nbsp;<code>chargeTimes[i]</code>&nbsp;单位时间，花费&nbsp;<code>runningCosts[i]</code>&nbsp;单位时间运行。再给你一个整数&nbsp;<code>budget</code>&nbsp;。</p>
 
@@ -46,17 +61,25 @@
 	<li><code>1 &lt;= budget &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针 + 单调队列
 
-问题实际上是求滑动窗口内的最大值，可以用单调队列来求解。只需要二分枚举窗口 $k$ 的大小，找到一个最大的 $k$，使得满足题目要求。
+问题实际上是求滑动窗口内的最大值，可以用单调队列来求解。
+
+我们只需要二分枚举窗口 $k$ 的大小，找到一个最大的 $k$，使得满足题目要求。
 
 实现过程中，实际上不需要进行二分枚举，只需要将固定窗口改为双指针非固定窗口即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是题目中机器人的数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +101,8 @@ class Solution:
             ans = max(ans, i - j + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
@@ -158,4 +187,6 @@ func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

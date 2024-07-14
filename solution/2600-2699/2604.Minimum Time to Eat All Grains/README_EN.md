@@ -1,10 +1,23 @@
-# [2604. Minimum Time to Eat All Grains](https://leetcode.com/problems/minimum-time-to-eat-all-grains)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README_EN.md
+tags:
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [2604. Minimum Time to Eat All Grains 🔒](https://leetcode.com/problems/minimum-time-to-eat-all-grains)
 
 [中文文档](/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README.md)
 
-<!-- tags:Array,Binary Search,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> hens and <code>m</code> grains on a line. You are given the initial positions of the hens and the grains in two integer arrays <code>hens</code> and <code>grains</code> of size <code>n</code> and <code>m</code> respectively.</p>
 
@@ -50,7 +63,11 @@ So, the maximum time needed is 1.
 	<li><code>0 &lt;= hens[i], grains[j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting + Binary Search
 
@@ -66,6 +83,8 @@ If $j=m$, it means that all the grains have been eaten, return `true`, otherwise
 Time complexity $O(n \times \log n + m \times \log m + (m + n) \times \log U)$, space complexity $O(\log m + \log n)$. $n$ and $m$ are the number of chickens and grains respectively, and $U$ is the maximum value of all the chicken and grain positions.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +114,8 @@ class Solution:
         r = abs(hens[0] - grains[0]) + grains[-1] - grains[0] + 1
         return bisect_left(range(r), True, key=check)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +171,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -197,6 +220,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumTime(hens []int, grains []int) int {
@@ -249,6 +274,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumTime(hens: number[], grains: number[]): number {
     hens.sort((a, b) => a - b);
@@ -298,4 +325,6 @@ function minimumTime(hens: number[], grains: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

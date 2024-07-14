@@ -1,12 +1,22 @@
-# [267. 回文排列 II](https://leetcode.cn/problems/palindrome-permutation-ii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0267.Palindrome%20Permutation%20II/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
+# [267. 回文排列 II 🔒](https://leetcode.cn/problems/palindrome-permutation-ii)
 
 [English Version](/solution/0200-0299/0267.Palindrome%20Permutation%20II/README_EN.md)
 
-<!-- tags:哈希表,字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code>&nbsp;，返回 <em>其重新排列组合后可能构成的所有回文字符串，并去除重复的组合</em>&nbsp;。</p>
 
@@ -38,7 +48,11 @@
 	<li><code>s</code>&nbsp;仅由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：回溯
 
@@ -49,6 +63,8 @@
 时间复杂度 $O(n \times \frac{n}{2}!)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +91,8 @@ class Solution:
         dfs(mid)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generatePalindromes(s string) []string {
 	cnt := map[byte]int{}
@@ -194,4 +216,6 @@ func generatePalindromes(s string) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

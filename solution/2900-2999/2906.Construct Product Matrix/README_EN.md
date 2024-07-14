@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2906.Construct%20Product%20Matrix/README_EN.md
+rating: 2074
+source: Weekly Contest 367 Q4
+tags:
+    - Array
+    - Matrix
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [2906. Construct Product Matrix](https://leetcode.com/problems/construct-product-matrix)
 
 [中文文档](/solution/2900-2999/2906.Construct%20Product%20Matrix/README.md)
 
-<!-- tags:Array,Matrix,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> 2D integer matrix <code><font face="monospace">grid</font></code><font face="monospace"> </font>of size <code>n * m</code>, we define a <strong>0-indexed</strong> 2D matrix <code>p</code> of size <code>n * m</code> as the <strong>product</strong> matrix of <code>grid</code> if the following condition is met:</p>
 
@@ -46,7 +60,11 @@ So the answer is [[2],[0],[0]].</pre>
 	<li><code>1 &lt;= grid[i][j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix and Suffix Decomposition
 
@@ -61,6 +79,8 @@ After the traversal, we return the result matrix $p$.
 The time complexity is $O(n \times m)$, where $n$ and $m$ are the number of rows and columns in the matrix, respectively. Ignoring the space occupied by the result matrix, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +100,8 @@ class Solution:
                 pre = pre * grid[i][j] % mod
         return p
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +127,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +156,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func constructProductMatrix(grid [][]int) [][]int {
 	const mod int = 12345
@@ -158,6 +184,8 @@ func constructProductMatrix(grid [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function constructProductMatrix(grid: number[][]): number[][] {
     const mod = 12345;
@@ -180,6 +208,8 @@ function constructProductMatrix(grid: number[][]): number[][] {
     return p;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -213,4 +243,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

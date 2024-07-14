@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1345.Jump%20Game%20IV/README.md
+rating: 1809
+source: 第 19 场双周赛 Q4
+tags:
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [1345. 跳跃游戏 IV](https://leetcode.cn/problems/jump-game-iv)
 
 [English Version](/solution/1300-1399/1345.Jump%20Game%20IV/README_EN.md)
 
-<!-- tags:广度优先搜索,数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;，你一开始在数组的第一个元素处（下标为 0）。</p>
 
@@ -58,11 +70,17 @@
 	<li><code>-10<sup>8</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +108,8 @@ class Solution:
                 vis.add(i - 1)
                 q.append((i - 1, step))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minJumps(arr []int) int {
 	idx := map[int][]int{}
@@ -212,4 +236,6 @@ func minJumps(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

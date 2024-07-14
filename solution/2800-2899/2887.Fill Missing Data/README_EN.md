@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2887.Fill%20Missing%20Data/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [2887. Fill Missing Data](https://leetcode.com/problems/fill-missing-data)
 
 [中文文档](/solution/2800-2899/2887.Fill%20Missing%20Data/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <pre>
 DataFrame <code>products</code>
@@ -44,11 +52,17 @@ DataFrame <code>products</code>
 <strong>Explanation:</strong> 
 The quantity for Wristwatch and WirelessEarbuds are filled by 0.</pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -61,4 +75,6 @@ def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

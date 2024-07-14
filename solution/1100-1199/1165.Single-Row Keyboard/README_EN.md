@@ -1,10 +1,23 @@
-# [1165. Single-Row Keyboard](https://leetcode.com/problems/single-row-keyboard)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1165.Single-Row%20Keyboard/README_EN.md
+rating: 1199
+source: Biweekly Contest 7 Q1
+tags:
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [1165. Single-Row Keyboard 🔒](https://leetcode.com/problems/single-row-keyboard)
 
 [中文文档](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)
 
-<!-- tags:Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a special keyboard with <strong>all keys in a single row</strong>.</p>
 
@@ -39,7 +52,11 @@ Total time = 2 + 1 + 1 = 4.
 	<li><code>word[i]</code> is an English lowercase letter.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table or Array
 
@@ -53,6 +70,8 @@ The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def calculateTime(self, keyboard: str, word: str) -> int:
@@ -63,6 +82,8 @@ class Solution:
             i = pos[c]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func calculateTime(keyboard string, word string) (ans int) {
@@ -124,6 +149,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function calculateTime(keyboard: string, word: string): number {
     const pos: number[] = Array(26).fill(0);
@@ -143,4 +170,6 @@ function calculateTime(keyboard: string, word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

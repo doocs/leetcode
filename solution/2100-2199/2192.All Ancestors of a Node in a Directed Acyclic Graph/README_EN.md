@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README_EN.md
+rating: 1787
+source: Biweekly Contest 73 Q3
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
+---
+
+<!-- problem:start -->
+
 # [2192. All Ancestors of a Node in a Directed Acyclic Graph](https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph)
 
 [中文文档](/solution/2100-2199/2192.All%20Ancestors%20of%20a%20Node%20in%20a%20Directed%20Acyclic%20Graph/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Graph,Topological Sort -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer <code>n</code> representing the number of nodes of a <strong>Directed Acyclic Graph</strong> (DAG). The nodes are numbered from <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>).</p>
 
@@ -57,11 +72,23 @@ The above diagram represents the input graph.
 	<li>The graph is <strong>directed</strong> and <strong>acyclic</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: BFS
+
+First, we construct the adjacency list $g$ based on the two-dimensional array $edges$, where $g[i]$ represents all successor nodes of node $i$.
+
+Then, we enumerate node $i$ as the ancestor node from small to large, use BFS to search all successor nodes of node $i$, and add node $i$ to the ancestor list of these successor nodes.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +112,8 @@ class Solution:
             bfs(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -163,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func getAncestors(n int, edges [][]int) [][]int {
 	g := make([][]int, n)
@@ -193,6 +226,8 @@ func getAncestors(n int, edges [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getAncestors(n: number, edges: number[][]): number[][] {
     const g: number[][] = Array.from({ length: n }, () => []);
@@ -205,7 +240,7 @@ function getAncestors(n: number, edges: number[][]): number[][] {
         const vis: boolean[] = Array.from({ length: n }, () => false);
         vis[s] = true;
         while (q.length) {
-            const i = q.shift()!;
+            const i = q.pop()!;
             for (const j of g[i]) {
                 if (!vis[j]) {
                     vis[j] = true;
@@ -222,6 +257,54 @@ function getAncestors(n: number, edges: number[][]): number[][] {
 }
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    private int n;
+    private List<int>[] g;
+    private IList<IList<int>> ans;
+
+    public IList<IList<int>> GetAncestors(int n, int[][] edges) {
+        g = new List<int>[n];
+        this.n = n;
+        for (int i = 0; i < n; i++) {
+            g[i] = new List<int>();
+        }
+        foreach (var e in edges) {
+            g[e[0]].Add(e[1]);
+        }
+        ans = new List<IList<int>>();
+        for (int i = 0; i < n; ++i) {
+            ans.Add(new List<int>());
+        }
+        for (int i = 0; i < n; ++i) {
+            BFS(i);
+        }
+        return ans;
+    }
+
+    private void BFS(int s) {
+        Queue<int> q = new Queue<int>();
+        q.Enqueue(s);
+        bool[] vis = new bool[n];
+        vis[s] = true;
+        while (q.Count > 0) {
+            int i = q.Dequeue();
+            foreach (int j in g[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    q.Enqueue(j);
+                    ans[j].Add(s);
+                }
+            }
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -5,22 +5,21 @@ class Solution {
      * @return String
      */
     function getHint($secret, $guess) {
-        $cntA = 0;
-        $cntB = 0;
-        $len = strlen($secret);
-        for ($i = 0; $i < $len; $i++) {
-            if ($secret[$i] == $guess[$i]) {
-                $cntA++;
+        $cnt1 = array_fill(0, 10, 0);
+        $cnt2 = array_fill(0, 10, 0);
+        $x = 0;
+        for ($i = 0; $i < strlen($secret); ++$i) {
+            if ($secret[$i] === $guess[$i]) {
+                ++$x;
             } else {
-                $hashtable[$secret[$i]] += 1;
+                ++$cnt1[(int) $secret[$i]];
+                ++$cnt2[(int) $guess[$i]];
             }
         }
-        for ($i = 0; $i < $len; $i++) {
-            if ($secret[$i] != $guess[$i] && $hashtable[$guess[$i]] > 0) {
-                $cntB++;
-                $hashtable[$guess[$i]] -= 1;
-            }
+        $y = 0;
+        for ($i = 0; $i < 10; ++$i) {
+            $y += min($cnt1[$i], $cnt2[$i]);
         }
-        return $cntA . 'A' . $cntB . 'B';
+        return "{$x}A{$y}B";
     }
 }

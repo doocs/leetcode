@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0210.Course%20Schedule%20II/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+---
+
+<!-- problem:start -->
+
 # [210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii)
 
 [English Version](/solution/0200-0299/0210.Course%20Schedule%20II/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,拓扑排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现在你总共有 <code>numCourses</code> 门课需要选，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>numCourses - 1</code>。给你一个数组&nbsp;<code>prerequisites</code> ，其中 <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> ，表示在选修课程 <code>a<sub>i</sub></code> 前 <strong>必须</strong> 先选修&nbsp;<code>b<sub>i</sub></code> 。</p>
 
@@ -53,7 +64,11 @@
 	<li>所有<code>[a<sub>i</sub>, b<sub>i</sub>]</code> <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：拓扑排序
 
@@ -69,6 +84,8 @@
 时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +106,8 @@ class Solution:
                     q.append(j)
         return ans if len(ans) == numCourses else []
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -155,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findOrder(numCourses int, prerequisites [][]int) []int {
@@ -190,6 +213,8 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     const g: number[][] = Array.from({ length: numCourses }, () => []);
@@ -217,6 +242,8 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     return ans.length === numCourses ? ans : [];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -259,6 +286,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int[] FindOrder(int numCourses, int[][] prerequisites) {
@@ -296,4 +325,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

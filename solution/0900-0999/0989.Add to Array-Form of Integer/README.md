@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README.md
+tags:
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [989. 数组形式的整数加法](https://leetcode.cn/problems/add-to-array-form-of-integer)
 
 [English Version](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README_EN.md)
 
-<!-- tags:数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>整数的 <strong>数组形式</strong> &nbsp;<code>num</code>&nbsp;是按照从左到右的顺序表示其数字的数组。</p>
 
@@ -56,11 +65,17 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +90,8 @@ class Solution:
             i -= 1
         return ans[::-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addToArrayForm(num []int, k int) []int {
@@ -130,6 +151,8 @@ func addToArrayForm(num []int, k int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addToArrayForm(num: number[], k: number): number[] {
     let arr2 = [...String(k)].map(Number);
@@ -145,6 +168,8 @@ function addToArrayForm(num: number[], k: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -170,9 +195,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function addToArrayForm(num: number[], k: number): number[] {
@@ -192,4 +223,6 @@ function addToArrayForm(num: number[], k: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

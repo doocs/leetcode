@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2401.Longest%20Nice%20Subarray/README.md
+rating: 1749
+source: 第 309 场周赛 Q3
+tags:
+    - 位运算
+    - 数组
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [2401. 最长优雅子数组](https://leetcode.cn/problems/longest-nice-subarray)
 
 [English Version](/solution/2400-2499/2401.Longest%20Nice%20Subarray/README_EN.md)
 
-<!-- tags:位运算,数组,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由 <strong>正</strong> 整数组成的数组 <code>nums</code> 。</p>
 
@@ -46,7 +58,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -66,6 +82,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
@@ -78,6 +96,8 @@ class Solution:
             mask |= x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestNiceSubarray(nums []int) (ans int) {
 	mask, j := 0, 0
@@ -128,6 +152,8 @@ func longestNiceSubarray(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestNiceSubarray(nums: number[]): number {
     let mask = 0;
@@ -143,6 +169,50 @@ function longestNiceSubarray(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_nice_subarray(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut mask = 0;
+        let mut j = 0;
+
+        for (i, &x) in nums.iter().enumerate() {
+            let mut x = x;
+            while (mask & x) != 0 {
+                mask ^= nums[j];
+                j += 1;
+            }
+            ans = ans.max(i - j + 1);
+            mask |= x;
+        }
+
+        ans as i32
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int LongestNiceSubarray(int[] nums) {
+        int ans = 0, mask = 0;
+        for (int i = 0, j = 0; i < nums.Length; ++i) {
+            while ((mask & nums[i]) != 0) {
+                mask ^= nums[j++];
+            }
+            ans = Math.Max(ans, i - j + 1);
+            mask |= nums[i];
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

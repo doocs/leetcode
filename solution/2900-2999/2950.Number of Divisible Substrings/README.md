@@ -1,12 +1,23 @@
-# [2950. 可整除子串的数量](https://leetcode.cn/problems/number-of-divisible-substrings)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+    - 前缀和
+---
+
+<!-- problem:start -->
+
+# [2950. 可整除子串的数量 🔒](https://leetcode.cn/problems/number-of-divisible-substrings)
 
 [English Version](/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md)
 
-<!-- tags:哈希表,字符串,计数,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>每个英文字母都被映射到一个数字，如下所示。</p>
 
@@ -137,7 +148,11 @@
 	<li><code>word</code> 仅包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -150,6 +165,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $word$ 的长度，而 $C$ 是字符集的大小，本题中 $C=26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -168,6 +185,8 @@ class Solution:
                 ans += s % (j - i + 1) == 0
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -192,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -218,6 +239,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDivisibleSubstrings(word string) (ans int) {
 	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
@@ -240,6 +263,8 @@ func countDivisibleSubstrings(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDivisibleSubstrings(word: string): number {
@@ -264,6 +289,8 @@ function countDivisibleSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -296,6 +323,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：哈希表 + 前缀和 + 枚举
 
 与方法一类似，我们先用一个哈希表或数组 $mp$ 记录每个字母对应的数字。
@@ -307,6 +338,8 @@ impl Solution {
 时间复杂度 $O(10 \times n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $word$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -327,6 +360,8 @@ class Solution:
                 cnt[s] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -355,6 +390,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -380,6 +417,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countDivisibleSubstrings(word string) (ans int) {
 	d := []string{"ab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz"}
@@ -401,6 +440,8 @@ func countDivisibleSubstrings(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countDivisibleSubstrings(word: string): number {
@@ -426,6 +467,8 @@ function countDivisibleSubstrings(word: string): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -457,4 +500,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

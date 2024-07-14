@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1449.Form%20Largest%20Integer%20With%20Digits%20That%20Add%20up%20to%20Target/README_EN.md
+rating: 1927
+source: Biweekly Contest 26 Q4
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1449. Form Largest Integer With Digits That Add up to Target](https://leetcode.com/problems/form-largest-integer-with-digits-that-add-up-to-target)
 
 [中文文档](/solution/1400-1499/1449.Form%20Largest%20Integer%20With%20Digits%20That%20Add%20up%20to%20Target/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers <code>cost</code> and an integer <code>target</code>, return <em>the <strong>maximum</strong> integer you can paint under the following rules</em>:</p>
 
@@ -59,11 +72,17 @@
 	<li><code>1 &lt;= cost[i], target &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +110,8 @@ class Solution:
                 j = g[i][j]
         return "".join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func largestNumber(cost []int, target int) string {
@@ -209,6 +234,8 @@ func largestNumber(cost []int, target int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function largestNumber(cost: number[], target: number): string {
     const inf = 1 << 30;
@@ -249,4 +276,6 @@ function largestNumber(cost: number[], target: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

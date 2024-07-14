@@ -1,4 +1,4 @@
-use std::collections::{ HashMap, HashSet };
+use std::collections::{HashMap, HashSet};
 impl Solution {
     pub fn most_common_word(mut paragraph: String, banned: Vec<String>) -> String {
         paragraph.make_ascii_lowercase();
@@ -14,6 +14,7 @@ impl Solution {
         map.into_iter()
             .max_by_key(|&(_, v)| v)
             .unwrap()
-            .0.to_string()
+            .0
+            .to_string()
     }
 }

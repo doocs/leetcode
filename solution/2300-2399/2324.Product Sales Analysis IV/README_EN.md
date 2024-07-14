@@ -1,10 +1,20 @@
-# [2324. Product Sales Analysis IV](https://leetcode.com/problems/product-sales-analysis-iv)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2324.Product%20Sales%20Analysis%20IV/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2324. Product Sales Analysis IV 🔒](https://leetcode.com/problems/product-sales-analysis-iv)
 
 [中文文档](/solution/2300-2399/2324.Product%20Sales%20Analysis%20IV/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Sales</code></p>
 
@@ -90,11 +100,17 @@ User 102:
 User 102 spent the most money on products 1, 2, and 3.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -119,4 +135,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

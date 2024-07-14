@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1854.Maximum%20Population%20Year/README_EN.md
+rating: 1370
+source: Weekly Contest 240 Q1
+tags:
+    - Array
+    - Counting
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [1854. Maximum Population Year](https://leetcode.com/problems/maximum-population-year)
 
 [中文文档](/solution/1800-1899/1854.Maximum%20Population%20Year/README.md)
 
-<!-- tags:Array,Counting,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>logs</code> where each <code>logs[i] = [birth<sub>i</sub>, death<sub>i</sub>]</code> indicates the birth and death years of the <code>i<sup>th</sup></code> person.</p>
 
@@ -38,7 +52,11 @@ The earlier year between them is 1960.</pre>
 	<li><code>1950 &lt;= birth<sub>i</sub> &lt; death<sub>i</sub> &lt;= 2050</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -49,6 +67,8 @@ Next, we traverse $logs$. For each person, we increment $d[birth_i - 1950]$ by $
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the array $logs$, and $C$ is the range size of the years, i.e., $2050 - 1950 + 1 = 101$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +86,8 @@ class Solution:
                 mx, j = s, i
         return j + offset
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +113,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumPopulation(logs [][]int) int {
 	d := [101]int{}
@@ -139,6 +165,8 @@ func maximumPopulation(logs [][]int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumPopulation(logs: number[][]): number {
     const d: number[] = new Array(101).fill(0);
@@ -158,6 +186,8 @@ function maximumPopulation(logs: number[][]): number {
     return j + offset;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -187,4 +217,6 @@ var maximumPopulation = function (logs) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

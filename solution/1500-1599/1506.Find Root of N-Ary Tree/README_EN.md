@@ -1,10 +1,23 @@
-# [1506. Find Root of N-Ary Tree](https://leetcode.com/problems/find-root-of-n-ary-tree)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1506.Find%20Root%20of%20N-Ary%20Tree/README_EN.md
+tags:
+    - Bit Manipulation
+    - Tree
+    - Depth-First Search
+    - Hash Table
+---
+
+<!-- problem:start -->
+
+# [1506. Find Root of N-Ary Tree 🔒](https://leetcode.com/problems/find-root-of-n-ary-tree)
 
 [中文文档](/solution/1500-1599/1506.Find%20Root%20of%20N-Ary%20Tree/README.md)
 
-<!-- tags:Bit Manipulation,Tree,Depth-First Search,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given all the nodes of an <strong><a href="https://leetcode.com/explore/learn/card/n-ary-tree/">N-ary tree</a></strong> as an array of <code>Node</code> objects, where each node has a <strong>unique value</strong>.</p>
 
@@ -66,11 +79,17 @@ The input data and serialized Node(1) are the same, so the test passes.
 	<li>Could you solve this problem in constant space complexity with a linear time algorithm?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -91,6 +110,8 @@ class Solution:
                 x ^= child.val
         return next(node for node in tree if node.val == x)
 ```
+
+#### Java
 
 ```java
 /*
@@ -134,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -174,6 +197,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -198,6 +223,8 @@ func findRoot(tree []*Node) *Node {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -226,4 +253,6 @@ function findRoot(tree: Node[]): Node | null {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

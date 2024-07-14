@@ -1,10 +1,20 @@
-# [2701. Consecutive Transactions with Increasing Amounts](https://leetcode.com/problems/consecutive-transactions-with-increasing-amounts)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2701. Consecutive Transactions with Increasing Amounts 🔒](https://leetcode.com/problems/consecutive-transactions-with-increasing-amounts)
 
 [中文文档](/solution/2700-2799/2701.Consecutive%20Transactions%20with%20Increasing%20Amounts/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Transactions</code></p>
 
@@ -67,11 +77,17 @@ customer_id is sorted in ascending order.
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -104,4 +120,6 @@ ORDER BY customer_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
-# [1196. How Many Apples Can You Put into the Basket](https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1196.How%20Many%20Apples%20Can%20You%20Put%20into%20the%20Basket/README_EN.md
+rating: 1248
+source: Biweekly Contest 9 Q1
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [1196. How Many Apples Can You Put into the Basket 🔒](https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket)
 
 [中文文档](/solution/1100-1199/1196.How%20Many%20Apples%20Can%20You%20Put%20into%20the%20Basket/README.md)
 
-<!-- tags:Greedy,Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have some apples and a basket that can carry up to <code>5000</code> units of weight.</p>
 
@@ -35,7 +49,11 @@
 	<li><code>1 &lt;= weight[i] &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy Algorithm
 
@@ -46,6 +64,8 @@ If all the apples can be put into the basket, then we return the total number of
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of apples.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +78,8 @@ class Solution:
                 return i
         return len(weight)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +96,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfApples(weight []int) int {
 	sort.Ints(weight)
@@ -105,6 +131,8 @@ func maxNumberOfApples(weight []int) int {
 	return len(weight)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumberOfApples(weight: number[]): number {
@@ -122,4 +150,6 @@ function maxNumberOfApples(weight: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

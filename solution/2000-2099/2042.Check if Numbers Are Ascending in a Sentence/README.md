@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2042.Check%20if%20Numbers%20Are%20Ascending%20in%20a%20Sentence/README.md
+rating: 1257
+source: 第 263 场周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2042. 检查句子中的数字是否递增](https://leetcode.cn/problems/check-if-numbers-are-ascending-in-a-sentence)
 
 [English Version](/solution/2000-2099/2042.Check%20if%20Numbers%20Are%20Ascending%20in%20a%20Sentence/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>句子是由若干 <strong>token</strong> 组成的一个列表，<strong>token</strong> 间用 <strong>单个</strong> 空格分隔，句子没有前导或尾随空格。每个 token 要么是一个由数字 <code>0-9</code> 组成的不含前导零的 <strong>正整数</strong>&nbsp;，要么是一个由小写英文字母组成的 <strong>单词</strong> 。</p>
 
@@ -72,7 +82,11 @@
 	<li><code>s</code> 不含前导或尾随空格</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -83,6 +97,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +111,8 @@ class Solution:
                 pre = cur
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +155,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areNumbersAscending(s string) bool {
 	pre := 0
@@ -151,6 +173,8 @@ func areNumbersAscending(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function areNumbersAscending(s: string): boolean {
     let pre = -1;
@@ -166,6 +190,8 @@ function areNumbersAscending(s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -184,6 +210,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool areNumbersAscending(char* s) {
@@ -211,29 +239,6 @@ bool areNumbersAscending(char* s) {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def areNumbersAscending(self, s: str) -> bool:
-        pre = i = 0
-        n = len(s)
-        while i < n:
-            if s[i].isdigit():
-                cur = 0
-                while i < n and s[i].isdigit():
-                    cur = cur * 10 + int(s[i])
-                    i += 1
-                if pre >= cur:
-                    return False
-                pre = cur
-            else:
-                i += 1
-        return True
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

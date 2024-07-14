@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1094.Car%20Pooling/README_EN.md
+rating: 1441
+source: Weekly Contest 142 Q2
+tags:
+    - Array
+    - Prefix Sum
+    - Sorting
+    - Simulation
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [1094. Car Pooling](https://leetcode.com/problems/car-pooling)
 
 [中文文档](/solution/1000-1099/1094.Car%20Pooling/README.md)
 
-<!-- tags:Array,Prefix Sum,Sorting,Simulation,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a car with <code>capacity</code> empty seats. The vehicle only drives east (i.e., it cannot turn around and drive west).</p>
 
@@ -38,7 +54,11 @@
 	<li><code>1 &lt;= capacity &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Difference Array
 
@@ -47,6 +67,8 @@ We can use the idea of a difference array, adding the number of passengers to th
 The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ is the number of trips, and $M$ is the maximum end point in the trips. In this problem, $M \le 1000$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +80,8 @@ class Solution:
             d[t] -= x
         return all(s <= capacity for s in accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -102,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func carPooling(trips [][]int, capacity int) bool {
 	d := [1001]int{}
@@ -120,6 +148,8 @@ func carPooling(trips [][]int, capacity int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function carPooling(trips: number[][], capacity: number): boolean {
@@ -140,14 +170,12 @@ function carPooling(trips: number[][], capacity: number): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn car_pooling(trips: Vec<Vec<i32>>, capacity: i32) -> bool {
-        let mx = trips
-            .iter()
-            .map(|e| e[2])
-            .max()
-            .unwrap_or(0) as usize;
+        let mx = trips.iter().map(|e| e[2]).max().unwrap_or(0) as usize;
         let mut d = vec![0; mx + 1];
         for trip in &trips {
             let (x, f, t) = (trip[0], trip[1] as usize, trip[2] as usize);
@@ -163,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -188,6 +218,8 @@ var carPooling = function (trips, capacity) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool CarPooling(int[][] trips, int capacity) {
@@ -212,4 +244,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

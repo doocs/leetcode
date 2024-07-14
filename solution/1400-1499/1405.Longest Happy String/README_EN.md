@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1405.Longest%20Happy%20String/README_EN.md
+rating: 1820
+source: Weekly Contest 183 Q3
+tags:
+    - Greedy
+    - String
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [1405. Longest Happy String](https://leetcode.com/problems/longest-happy-string)
 
 [中文文档](/solution/1400-1499/1405.Longest%20Happy%20String/README.md)
 
-<!-- tags:Greedy,String,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A string <code>s</code> is called <strong>happy</strong> if it satisfies the following conditions:</p>
 
@@ -45,13 +59,19 @@
 	<li><code>a + b + c &gt; 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Priority Queue
 
 The greedy strategy is to prioritize the selection of characters with the most remaining occurrences. By using a priority queue or sorting, we ensure that the character selected each time is the one with the most remaining occurrences (to avoid having three consecutive identical characters, in some cases, we need to select the character with the second most remaining occurrences).
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +104,8 @@ class Solution:
 
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +190,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type pair struct {
@@ -220,6 +246,8 @@ func longestDiverseString(a int, b int, c int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestDiverseString(a: number, b: number, c: number): string {
     let ans = [];
@@ -254,4 +282,6 @@ function longestDiverseString(a: number, b: number, c: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

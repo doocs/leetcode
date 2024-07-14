@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0965.Univalued%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [965. Univalued Binary Tree](https://leetcode.com/problems/univalued-binary-tree)
 
 [中文文档](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A binary tree is <strong>uni-valued</strong> if every node in the tree has the same value.</p>
 
@@ -33,11 +46,17 @@
 	<li><code>0 &lt;= Node.val &lt; 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -55,6 +74,8 @@ class Solution:
 
         return dfs(root)
 ```
+
+#### Java
 
 ```java
 /**
@@ -86,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -111,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -131,6 +156,8 @@ func isUnivalTree(root *TreeNode) bool {
 	return dfs(root)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -159,6 +186,8 @@ function isUnivalTree(root: TreeNode | null): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -178,8 +207,8 @@ function isUnivalTree(root: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(val: i32, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if root.is_none() {
@@ -197,4 +226,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

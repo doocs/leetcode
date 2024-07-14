@@ -1,10 +1,24 @@
-# [582. Kill Process](https://leetcode.com/problems/kill-process)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0582.Kill%20Process/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
+# [582. Kill Process 🔒](https://leetcode.com/problems/kill-process)
 
 [中文文档](/solution/0500-0599/0582.Kill%20Process/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have <code>n</code> processes forming a rooted tree structure. You are given two integer arrays <code>pid</code> and <code>ppid</code>, where <code>pid[i]</code> is the ID of the <code>i<sup>th</sup></code> process and <code>ppid[i]</code> is the ID of the <code>i<sup>th</sup></code> process&#39;s parent process.</p>
 
@@ -44,7 +58,11 @@
 	<li><code>kill</code> is <strong>guaranteed</strong> to be in <code>pid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -53,6 +71,8 @@ We first construct a graph $g$ based on $pid$ and $ppid$, where $g[i]$ represent
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of processes.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +89,8 @@ class Solution:
         dfs(kill)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	g := map[int][]int{}
@@ -132,6 +158,8 @@ func killProcess(pid []int, ppid []int, kill int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function killProcess(pid: number[], ppid: number[], kill: number): number[] {
@@ -153,6 +181,8 @@ function killProcess(pid: number[], ppid: number[], kill: number): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -184,4 +214,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

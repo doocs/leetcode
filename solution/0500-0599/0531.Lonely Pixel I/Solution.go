@@ -1,25 +1,20 @@
-func findLonelyPixel(picture [][]byte) int {
-	m, n := len(picture), len(picture[0])
-	rows := make([]int, m)
-	cols := make([]int, n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if picture[i][j] == 'B' {
+func findLonelyPixel(picture [][]byte) (ans int) {
+	rows := make([]int, len(picture))
+	cols := make([]int, len(picture[0]))
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' {
 				rows[i]++
 				cols[j]++
 			}
 		}
 	}
-	res := 0
-	for i := 0; i < m; i++ {
-		if rows[i] == 1 {
-			for j := 0; j < n; j++ {
-				if picture[i][j] == 'B' && cols[j] == 1 {
-					res++
-					break
-				}
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' && rows[i] == 1 && cols[j] == 1 {
+				ans++
 			}
 		}
 	}
-	return res
+	return
 }

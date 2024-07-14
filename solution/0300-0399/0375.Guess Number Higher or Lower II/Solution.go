@@ -1,17 +1,15 @@
 func getMoneyAmount(n int) int {
-	dp := make([][]int, n+10)
-	for i := 0; i < len(dp); i++ {
-		dp[i] = make([]int, n+10)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
 	}
-	for l := 2; l <= n; l++ {
-		for i := 1; i+l-1 <= n; i++ {
-			j := i + l - 1
-			dp[i][j] = math.MaxInt32
-			for k := i; k <= j; k++ {
-				t := max(dp[i][k-1], dp[k+1][j]) + k
-				dp[i][j] = min(dp[i][j], t)
+	for i := n - 1; i > 0; i-- {
+		for j := i + 1; j <= n; j++ {
+			f[i][j] = j + f[i][j-1]
+			for k := i; k < j; k++ {
+				f[i][j] = min(f[i][j], k+max(f[i][k-1], f[k+1][j]))
 			}
 		}
 	}
-	return dp[1][n]
+	return f[1][n]
 }

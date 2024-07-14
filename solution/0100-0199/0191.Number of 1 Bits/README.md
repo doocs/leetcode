@@ -1,55 +1,55 @@
-# [191. 位 1 的个数](https://leetcode.cn/problems/number-of-1-bits)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0191.Number%20of%201%20Bits/README.md
+tags:
+    - 位运算
+    - 分治
+---
+
+<!-- problem:start -->
+
+# [191. 位1的个数](https://leetcode.cn/problems/number-of-1-bits)
 
 [English Version](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)
 
-<!-- tags:位运算,分治 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 '1' 的个数（也被称为<a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E9%87%8D%E9%87%8F" target="_blank">汉明重量</a>）。</p>
-
-<p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
-
-<ul>
-	<li>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。</li>
-	<li>在 Java 中，编译器使用<a href="https://baike.baidu.com/item/二进制补码/5295284" target="_blank">二进制补码</a>记法来表示有符号整数。因此，在&nbsp;<strong>示例 3</strong>&nbsp;中，输入表示有符号整数 <code>-3</code>。</li>
-</ul>
+<p>编写一个函数，获取一个正整数的二进制形式并返回其二进制表达式中 <span data-keyword="set-bit">设置位</span> 的个数（也被称为<a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E9%87%8D%E9%87%8F" target="_blank">汉明重量</a>）。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>n = 00000000000000000000000000001011
+<strong>输入：</strong>n = 11
 <strong>输出：</strong>3
-<strong>解释：</strong>输入的二进制串 <code><strong>00000000000000000000000000001011</strong>&nbsp;中，共有三位为 '1'。</code>
+<strong>解释：</strong>输入的二进制串 <code><strong>1011</strong>&nbsp;中，共有 3 个设置位。</code>
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>n = 00000000000000000000000010000000
+<strong>输入：</strong>n = 128
 <strong>输出：</strong>1
-<strong>解释：</strong>输入的二进制串 <strong>00000000000000000000000010000000</strong>&nbsp;中，共有一位为 '1'。
+<strong>解释：</strong>输入的二进制串 <strong>10000000</strong>&nbsp;中，共有 1 个设置位。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>n = 11111111111111111111111111111101
-<strong>输出：</strong>31
-<strong>解释：</strong>输入的二进制串 <strong>11111111111111111111111111111101</strong> 中，共有 31 位为 '1'。</pre>
+<strong>输入：</strong>n = 2147483645
+<strong>输出：</strong>30
+<strong>解释：</strong>输入的二进制串 <strong>11111111111111111111111111111101</strong> 中，共有 30 个设置位。</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>输入必须是长度为 <code>32</code> 的 <strong>二进制串</strong> 。</li>
+	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
 <ul>
@@ -63,7 +63,11 @@
 	<li>如果多次调用这个函数，你将如何优化你的算法？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：位运算
 
@@ -92,6 +96,8 @@ HAMMING-WEIGHT(n)
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -101,6 +107,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -116,6 +124,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -130,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingWeight(num uint32) int {
 	ans := 0
@@ -140,6 +152,8 @@ func hammingWeight(num uint32) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function hammingWeight(n: number): number {
@@ -152,6 +166,8 @@ function hammingWeight(n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn hammingWeight(n: u32) -> i32 {
@@ -159,6 +175,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -175,6 +193,8 @@ var hammingWeight = function (n) {
 };
 ```
 
+#### C
+
 ```c
 int hammingWeight(uint32_t n) {
     int ans = 0;
@@ -188,6 +208,10 @@ int hammingWeight(uint32_t n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：lowbit
 
 `x -= (x & -x)` 可以消除二进制形式的最后一位 1。
@@ -195,6 +219,8 @@ int hammingWeight(uint32_t n) {
 同 [剑指 Offer 15. 二进制中 1 的个数](https://github.com/doocs/leetcode/blob/main/lcof/面试题15.%20二进制中1的个数/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -205,6 +231,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -220,6 +248,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -234,6 +264,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hammingWeight(num uint32) int {
 	ans := 0
@@ -244,6 +276,8 @@ func hammingWeight(num uint32) int {
 	return ans
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -260,4 +294,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README_EN.md
+rating: 1249
+source: Biweekly Contest 86 Q1
+tags:
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [2395. Find Subarrays With Equal Sum](https://leetcode.com/problems/find-subarrays-with-equal-sum)
 
 [中文文档](/solution/2300-2399/2395.Find%20Subarrays%20With%20Equal%20Sum/README.md)
 
-<!-- tags:Array,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, determine whether there exist <strong>two</strong> subarrays of length <code>2</code> with <strong>equal</strong> sum. Note that the two subarrays must begin at <strong>different</strong> indices.</p>
 
@@ -46,11 +59,23 @@ Note that even though the subarrays have the same content, the two subarrays are
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Hash Table
+
+We can traverse the array $nums$, and use a hash table $vis$ to record the sum of every two adjacent elements in the array. If the sum of the current two elements has already appeared in the hash table, then return `true`. Otherwise, add the sum of the current two elements to the hash table.
+
+If we finish traversing and haven't found two subarrays that meet the condition, return `false`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +87,8 @@ class Solution:
             vis.add(x)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -76,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findSubarrays(nums []int) bool {
 	vis := map[int]bool{}
@@ -108,6 +139,8 @@ func findSubarrays(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findSubarrays(nums: number[]): boolean {
     const vis: Set<number> = new Set<number>();
@@ -121,6 +154,8 @@ function findSubarrays(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -138,6 +173,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 bool findSubarrays(int* nums, int numsSize) {
     for (int i = 1; i < numsSize - 1; i++) {
@@ -153,4 +190,6 @@ bool findSubarrays(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README.md
+rating: 2507
+source: 第 361 场周赛 Q4
+tags:
+    - 树
+    - 图
+    - 数组
+    - 强连通分量
+---
+
+<!-- problem:start -->
+
 # [2846. 边权重均等查询](https://leetcode.cn/problems/minimum-edge-weight-equilibrium-queries-in-a-tree)
 
 [English Version](/solution/2800-2899/2846.Minimum%20Edge%20Weight%20Equilibrium%20Queries%20in%20a%20Tree/README_EN.md)
 
-<!-- tags:树,图,数组,强连通分量 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一棵由 <code>n</code> 个节点组成的无向树，节点按从 <code>0</code> 到 <code>n - 1</code> 编号。给你一个整数 <code>n</code> 和一个长度为 <code>n - 1</code> 的二维整数数组 <code>edges</code> ，其中 <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>]</code> 表示树中存在一条位于节点 <code>u<sub>i</sub></code> 和节点 <code>v<sub>i</sub></code> 之间、权重为 <code>w<sub>i</sub></code> 的边。</p>
 
@@ -63,7 +76,11 @@
 	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：倍增法求 LCA
 
@@ -86,6 +103,8 @@
 时间复杂度 $O((n + q) \times C \times \log n)$，空间复杂度 $O(n \times C \times \log n)$，其中 $C$ 为边权重的最大值。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -132,6 +151,8 @@ class Solution:
             ans.append(depth[u] + depth[v] - 2 * depth[x] - mx)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -203,6 +224,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -272,6 +295,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minOperationsQueries(n int, edges [][]int, queries [][]int) []int {
@@ -344,4 +369,6 @@ func minOperationsQueries(n int, edges [][]int, queries [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

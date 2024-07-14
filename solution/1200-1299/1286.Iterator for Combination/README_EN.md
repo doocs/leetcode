@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1286.Iterator%20for%20Combination/README_EN.md
+rating: 1591
+source: Biweekly Contest 15 Q3
+tags:
+    - Design
+    - String
+    - Backtracking
+    - Iterator
+---
+
+<!-- problem:start -->
+
 # [1286. Iterator for Combination](https://leetcode.com/problems/iterator-for-combination)
 
 [中文文档](/solution/1200-1299/1286.Iterator%20for%20Combination/README.md)
 
-<!-- tags:Design,String,Backtracking,Iterator -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design the <code>CombinationIterator</code> class:</p>
 
@@ -44,11 +59,17 @@ itr.hasNext(); // return False
 	<li>It is guaranteed that all calls of the function <code>next</code> are valid.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class CombinationIterator:
@@ -85,6 +106,8 @@ class CombinationIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 class CombinationIterator {
@@ -133,6 +156,8 @@ class CombinationIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 class CombinationIterator {
 public:
@@ -179,6 +204,8 @@ public:
  * bool param_2 = obj->hasNext();
  */
 ```
+
+#### Go
 
 ```go
 type CombinationIterator struct {
@@ -228,9 +255,15 @@ func (this *CombinationIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class CombinationIterator:
@@ -260,6 +293,8 @@ class CombinationIterator:
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
 ```
+
+#### Java
 
 ```java
 class CombinationIterator {
@@ -307,6 +342,8 @@ class CombinationIterator {
  */
 ```
 
+#### C++
+
 ```cpp
 class CombinationIterator {
 public:
@@ -348,6 +385,8 @@ public:
  * bool param_2 = obj->hasNext();
  */
 ```
+
+#### Go
 
 ```go
 type CombinationIterator struct {
@@ -401,4 +440,6 @@ func (this *CombinationIterator) HasNext() bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

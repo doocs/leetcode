@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 设计
+    - 二叉搜索树
+    - 字符串
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [449. 序列化和反序列化二叉搜索树](https://leetcode.cn/problems/serialize-and-deserialize-bst)
 
 [English Version](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,设计,二叉搜索树,字符串,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>序列化是将数据结构或对象转换为一系列位的过程，以便它可以存储在文件或内存缓冲区中，或通过网络连接链路传输，以便稍后在同一个或另一个计算机环境中重建。</p>
 
@@ -40,7 +54,11 @@
 	<li>题目数据 <strong>保证</strong> 输入的树是一棵二叉搜索树。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：先序遍历
 
@@ -51,6 +69,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -103,6 +123,8 @@ class Codec:
 # ans = deser.deserialize(tree)
 # return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -168,6 +190,8 @@ public class Codec {
 // TreeNode ans = deser.deserialize(tree);
 // return ans;
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -238,6 +262,8 @@ public:
 // TreeNode* ans = deser->deserialize(tree);
 // return ans;
 ```
+
+#### Go
 
 ```go
 /**
@@ -313,4 +339,6 @@ func (this *Codec) deserialize(data string) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

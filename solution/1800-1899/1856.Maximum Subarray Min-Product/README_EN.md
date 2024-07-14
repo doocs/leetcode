@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md
+rating: 2051
+source: Weekly Contest 240 Q3
+tags:
+    - Stack
+    - Array
+    - Prefix Sum
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [1856. Maximum Subarray Min-Product](https://leetcode.com/problems/maximum-subarray-min-product)
 
 [中文文档](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)
 
-<!-- tags:Stack,Array,Prefix Sum,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>min-product</strong> of an array is equal to the <strong>minimum value</strong> in the array <strong>multiplied by</strong> the array&#39;s <strong>sum</strong>.</p>
 
@@ -54,7 +69,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Monotonic Stack + Prefix Sum
 
@@ -67,6 +86,8 @@ Then the minimum product with $nums[i]$ as the minimum value of the subarray is 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -92,6 +113,8 @@ class Solution:
         mod = 10**9 + 7
         return max((s[right[i]] - s[left[i] + 1]) * x for i, x in enumerate(nums)) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +158,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -176,6 +201,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxSumMinProduct(nums []int) int {
@@ -221,32 +248,34 @@ func maxSumMinProduct(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSumMinProduct(nums: number[]): number {
     const n = nums.length;
-    const left: number[] = new Array(n).fill(-1);
-    const right: number[] = new Array(n).fill(n);
-    let stk: number[] = [];
+    const left: number[] = Array(n).fill(-1);
+    const right: number[] = Array(n).fill(n);
+    const stk: number[] = [];
     for (let i = 0; i < n; ++i) {
-        while (stk.length && nums[stk[stk.length - 1]] >= nums[i]) {
+        while (stk.length && nums[stk.at(-1)!] >= nums[i]) {
             stk.pop();
         }
         if (stk.length) {
-            left[i] = stk[stk.length - 1];
+            left[i] = stk.at(-1)!;
         }
         stk.push(i);
     }
-    stk = [];
+    stk.length = 0;
     for (let i = n - 1; i >= 0; --i) {
-        while (stk.length && nums[stk[stk.length - 1]] > nums[i]) {
+        while (stk.length && nums[stk.at(-1)!] > nums[i]) {
             stk.pop();
         }
         if (stk.length) {
-            right[i] = stk[stk.length - 1];
+            right[i] = stk.at(-1)!;
         }
         stk.push(i);
     }
-    const s: number[] = new Array(n + 1).fill(0);
+    const s: number[] = Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
         s[i + 1] = s[i] + nums[i];
     }
@@ -264,4 +293,6 @@ function maxSumMinProduct(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

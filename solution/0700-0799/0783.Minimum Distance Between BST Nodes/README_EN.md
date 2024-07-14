@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Binary Search Tree
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [783. Minimum Distance Between BST Nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes)
 
 [中文文档](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Binary Search Tree,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a Binary Search Tree (BST), return <em>the minimum difference between the values of any two different nodes in the tree</em>.</p>
 
@@ -34,11 +48,17 @@
 <p>&nbsp;</p>
 <p><strong>Note:</strong> This question is the same as 530: <a href="https://leetcode.com/problems/minimum-absolute-difference-in-bst/" target="_blank">https://leetcode.com/problems/minimum-absolute-difference-in-bst/</a></p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -62,6 +82,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -103,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -136,6 +160,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -171,6 +197,28 @@ func abs(x int) int {
 }
 ```
 
+#### JavaScript
+
+```js
+var minDiffInBST = function (root) {
+    let ans = Number.MAX_SAFE_INTEGER,
+        prev = Number.MAX_SAFE_INTEGER;
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        ans = Math.min(ans, Math.abs(root.val - prev));
+        prev = root.val;
+        dfs(root.right);
+    };
+    dfs(root);
+    return ans;
+};
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

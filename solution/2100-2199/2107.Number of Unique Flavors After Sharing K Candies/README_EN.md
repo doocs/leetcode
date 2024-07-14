@@ -1,10 +1,22 @@
-# [2107. Number of Unique Flavors After Sharing K Candies](https://leetcode.com/problems/number-of-unique-flavors-after-sharing-k-candies)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2107.Number%20of%20Unique%20Flavors%20After%20Sharing%20K%20Candies/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
+# [2107. Number of Unique Flavors After Sharing K Candies 🔒](https://leetcode.com/problems/number-of-unique-flavors-after-sharing-k-candies)
 
 [中文文档](/solution/2100-2199/2107.Number%20of%20Unique%20Flavors%20After%20Sharing%20K%20Candies/README.md)
 
-<!-- tags:Array,Hash Table,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>candies</code>, where <code>candies[i]</code> represents the flavor of the <code>i<sup>th</sup></code> candy. Your mom wants you to share these candies with your little sister by giving her <code>k</code> <strong>consecutive</strong> candies, but you want to keep as many flavors of candies as possible.</p>
 
@@ -54,7 +66,11 @@ There are 3 unique flavors, so return 3.
 	<li><code>0 &lt;= k &lt;= candies.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sliding Window + Hash Table
 
@@ -70,6 +86,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def shareCandies(self, candies: List[int], k: int) -> int:
@@ -83,6 +101,8 @@ class Solution:
             ans = max(ans, len(cnt))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shareCandies(candies []int, k int) (ans int) {
 	cnt := map[int]int{}
@@ -146,6 +170,8 @@ func shareCandies(candies []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shareCandies(candies: number[], k: number): number {
     const cnt: Map<number, number> = new Map();
@@ -164,6 +190,8 @@ function shareCandies(candies: number[], k: number): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashMap;
@@ -198,4 +226,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

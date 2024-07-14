@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README_EN.md
+rating: 1638
+source: Weekly Contest 354 Q2
+tags:
+    - Array
+    - Binary Search
+    - Sorting
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [2779. Maximum Beauty of an Array After Applying Operation](https://leetcode.com/problems/maximum-beauty-of-an-array-after-applying-operation)
 
 [中文文档](/solution/2700-2799/2779.Maximum%20Beauty%20of%20an%20Array%20After%20Applying%20Operation/README.md)
 
-<!-- tags:Array,Binary Search,Sorting,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> and a <strong>non-negative</strong> integer <code>k</code>.</p>
 
@@ -53,11 +68,25 @@ The beauty of the array nums is 4 (whole array).
 	<li><code>0 &lt;= nums[i], k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Difference Array
+
+We notice that for each operation, all elements within the interval $[nums[i]-k, nums[i]+k]$ will increase by $1$. Therefore, we can use a difference array to record the contributions of these operations to the beauty value.
+
+In the problem, $nums[i]-k$ might be negative. We add $k$ to all elements to ensure the results are non-negative. Thus, we can create a difference array $d$ with a length of $\max(nums) + k \times 2 + 2$.
+
+Next, we iterate through the array $nums$. For the current element $x$ being iterated, we increase $d[x]$ by $1$ and decrease $d[x+k\times2+1]$ by $1$. In this way, we can calculate the prefix sum for each position using the $d$ array, which represents the beauty value for each position. The maximum beauty value can then be found.
+
+The time complexity is $O(M + 2 \times k + n)$, and the space complexity is $O(M + 2 \times k)$. Here, $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,12 +96,10 @@ class Solution:
         for x in nums:
             d[x] += 1
             d[x + k * 2 + 1] -= 1
-        ans = s = 0
-        for x in d:
-            s += x
-            ans = max(ans, s)
-        return ans
+        return max(accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumBeauty(nums []int, k int) (ans int) {
 	m := slices.Max(nums)
@@ -133,10 +164,12 @@ func maximumBeauty(nums []int, k int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumBeauty(nums: number[], k: number): number {
     const m = Math.max(...nums) + k * 2 + 2;
-    const d: number[] = new Array(m).fill(0);
+    const d: number[] = Array(m).fill(0);
     for (const x of nums) {
         d[x]++;
         d[x + k * 2 + 1]--;
@@ -153,4 +186,6 @@ function maximumBeauty(nums: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

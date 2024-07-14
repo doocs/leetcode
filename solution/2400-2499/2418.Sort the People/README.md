@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2418.Sort%20the%20People/README.md
+rating: 1193
+source: 第 312 场周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2418. 按身高排序](https://leetcode.cn/problems/sort-the-people)
 
 [English Version](/solution/2400-2499/2418.Sort%20the%20People/README_EN.md)
 
-<!-- tags:数组,哈希表,字符串,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>names</code> ，和一个由 <strong>互不相同</strong> 的正整数组成的数组 <code>heights</code> 。两个数组的长度均为 <code>n</code> 。</p>
 
@@ -43,7 +56,11 @@
 	<li><code>heights</code> 中的所有值互不相同</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -55,6 +72,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
@@ -62,6 +81,8 @@ class Solution:
         idx.sort(key=lambda i: -heights[i])
         return [names[i] for i in idx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -98,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortPeople(names []string, heights []int) (ans []string) {
 	n := len(names)
@@ -112,6 +137,8 @@ func sortPeople(names []string, heights []int) (ans []string) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sortPeople(names: string[], heights: number[]): string[] {
@@ -129,30 +156,37 @@ function sortPeople(names: string[], heights: number[]): string[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn sort_people(names: Vec<String>, heights: Vec<i32>) -> Vec<String> {
         let mut combine: Vec<(String, i32)> = names.into_iter().zip(heights.into_iter()).collect();
         combine.sort_by(|a, b| b.1.cmp(&a.1));
-        combine
-            .iter()
-            .map(|s| s.0.clone())
-            .collect()
+        combine.iter().map(|s| s.0.clone()).collect()
     }
 }
 ```
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         return [name for _, name in sorted(zip(heights, names), reverse=True)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +205,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -191,6 +227,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sortPeople(names []string, heights []int) []string {
 	n := len(names)
@@ -207,6 +245,8 @@ func sortPeople(names []string, heights []int) []string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function sortPeople(names: string[], heights: number[]): string[] {
     return names
@@ -218,4 +258,6 @@ function sortPeople(names: string[], heights: number[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

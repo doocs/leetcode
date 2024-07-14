@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README_EN.md
+rating: 1897
+source: Weekly Contest 304 Q4
+tags:
+    - Depth-First Search
+    - Graph
+    - Topological Sort
+---
+
+<!-- problem:start -->
+
 # [2360. Longest Cycle in a Graph](https://leetcode.com/problems/longest-cycle-in-a-graph)
 
 [中文文档](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README.md)
 
-<!-- tags:Depth-First Search,Graph,Topological Sort -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>directed</strong> graph of <code>n</code> nodes numbered from <code>0</code> to <code>n - 1</code>, where each node has <strong>at most one</strong> outgoing edge.</p>
 
@@ -42,7 +56,11 @@ The length of this cycle is 3, so 3 is returned.
 	<li><code>edges[i] != i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Traverse Starting Points
 
@@ -55,6 +73,8 @@ Similar problems:
 -   [2127. Maximum Employees to Be Invited to a Meeting](https://github.com/doocs/leetcode/blob/main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +98,8 @@ class Solution:
             ans = max(ans, m - k)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -142,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestCycle(edges []int) int {
 	vis := make([]bool, len(edges))
@@ -169,6 +195,8 @@ func longestCycle(edges []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestCycle(edges: number[]): number {
@@ -201,4 +229,6 @@ function longestCycle(edges: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

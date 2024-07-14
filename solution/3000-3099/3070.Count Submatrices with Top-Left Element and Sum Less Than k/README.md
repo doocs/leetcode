@@ -1,16 +1,28 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README.md
+rating: 1498
+source: 第 387 场周赛 Q2
+tags:
+    - 数组
+    - 矩阵
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [3070. 元素和小于等于 k 的子矩阵的数目](https://leetcode.cn/problems/count-submatrices-with-top-left-element-and-sum-less-than-k)
 
 [English Version](/solution/3000-3099/3070.Count%20Submatrices%20with%20Top-Left%20Element%20and%20Sum%20Less%20Than%20k/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数矩阵 <code>grid</code> 和一个整数 <code>k</code>。</p>
 
-<p>返回包含 <code>grid</code> 左上角元素、元素和小于或等于 <code>k</code> 的 <strong>子矩阵 </strong>的<span data-keyword="submatrix">数目</span>。</p>
+<p>返回包含 <code>grid</code> 左上角元素、元素和小于或等于 <code>k</code> 的 <strong><span data-keyword="submatrix">子矩阵</span></strong>的数目。</p>
 
 <p>&nbsp;</p>
 
@@ -41,7 +53,11 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二维前缀和
 
@@ -57,6 +73,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countSubmatrices(self, grid: List[List[int]], k: int) -> int:
@@ -68,6 +86,8 @@ class Solution:
                 ans += s[i][j] <= k
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubmatrices(grid [][]int, k int) (ans int) {
 	s := make([][]int, len(grid)+1)
@@ -126,6 +150,8 @@ func countSubmatrices(grid [][]int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countSubmatrices(grid: number[][], k: number): number {
@@ -147,4 +173,6 @@ function countSubmatrices(grid: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

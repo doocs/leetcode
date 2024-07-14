@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2007.%20%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/README.md
+---
+
+<!-- problem:start -->
+
 # [LCP 07. 传递信息](https://leetcode.cn/problems/chuan-di-xin-xi)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>小朋友 A 在和 ta 的小伙伴们玩传信息游戏，游戏规则如下：</p>
 
@@ -43,7 +50,11 @@
 	<li><code>0 &lt;= relation[i][0],relation[i][1] &lt; n 且 relation[i][0] != relation[i][1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -59,6 +70,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numWays(self, n: int, relation: List[List[int]], k: int) -> int:
@@ -69,6 +82,8 @@ class Solution:
                 f[i][b] += f[i - 1][a]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +121,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int, relation [][]int, k int) int {
 	f := make([][]int, k+1)
@@ -121,9 +140,11 @@ func numWays(n int, relation [][]int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numWays(n: number, relation: number[][], k: number): number {
-    const f: number[][] = new Array(k + 1).fill(0).map(() => new Array(n).fill(0));
+    const f: number[][] = Array.from({ length: k + 1 }, () => Array(n).fill(0));
     f[0][0] = 1;
     for (let i = 1; i <= k; ++i) {
         for (const [a, b] of relation) {
@@ -136,9 +157,15 @@ function numWays(n: number, relation: number[][], k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -151,6 +178,8 @@ class Solution:
             f = g
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -169,6 +198,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -189,6 +220,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numWays(n int, relation [][]int, k int) int {
 	f := make([]int, n)
@@ -204,6 +237,8 @@ func numWays(n int, relation [][]int, k int) int {
 	return f[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numWays(n: number, relation: number[][], k: number): number {
@@ -222,4 +257,6 @@ function numWays(n: number, relation: number[][], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -9,21 +9,16 @@
  */
 class Solution {
 public:
-    TreeNode* prev;
-    TreeNode* p;
-    TreeNode* ans;
-
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
-        this->p = p;
-        dfs(root);
+        TreeNode* ans = nullptr;
+        while (root) {
+            if (root->val > p->val) {
+                ans = root;
+                root = root->left;
+            } else {
+                root = root->right;
+            }
+        }
         return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        if (prev == p) ans = root;
-        prev = root;
-        dfs(root->right);
     }
 };

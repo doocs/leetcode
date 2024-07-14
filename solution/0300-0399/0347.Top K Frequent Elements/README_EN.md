@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Bucket Sort
+    - Counting
+    - Quickselect
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements)
 
 [中文文档](/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README.md)
 
-<!-- tags:Array,Hash Table,Divide and Conquer,Bucket Sort,Counting,Quickselect,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k</code> <em>most frequent elements</em>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -29,54 +46,76 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Your algorithm&#39;s time complexity must be better than <code>O(n log n)</code>, where n is the array&#39;s size.</p>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Hash Table + Priority Queue (Min Heap)
+
+We can use a hash table $\text{cnt}$ to count the occurrence of each element, and then use a min heap (priority queue) to store the top $k$ frequent elements.
+
+First, we traverse the array once to count the occurrence of each element. Then, we iterate through the hash table, storing each element and its count into the min heap. If the size of the min heap exceeds $k$, we pop the top element of the heap to ensure the heap size is always $k$.
+
+Finally, we pop the elements from the min heap one by one and place them into the result array.
+
+The time complexity is $O(n \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         cnt = Counter(nums)
-        return [v[0] for v in cnt.most_common(k)]
+        return [x for x, _ in cnt.most_common(k)]
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Long> frequency = Arrays.stream(nums).boxed().collect(
-            Collectors.groupingBy(Function.identity(), Collectors.counting()));
-        Queue<Map.Entry<Integer, Long>> queue = new PriorityQueue<>(Map.Entry.comparingByValue());
-        for (var entry : frequency.entrySet()) {
-            queue.offer(entry);
-            if (queue.size() > k) {
-                queue.poll();
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        PriorityQueue<Map.Entry<Integer, Integer>> pq
+            = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
+        for (var e : cnt.entrySet()) {
+            pq.offer(e);
+            if (pq.size() > k) {
+                pq.poll();
             }
         }
-        return queue.stream().mapToInt(Map.Entry::getKey).toArray();
+        return pq.stream().mapToInt(Map.Entry::getKey).toArray();
     }
 }
 ```
 
-```cpp
-using pii = pair<int, int>;
+#### C++
 
+```cpp
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int, int> cnt;
-        for (int v : nums) ++cnt[v];
+        using pii = pair<int, int>;
+        for (int x : nums) {
+            ++cnt[x];
+        }
         priority_queue<pii, vector<pii>, greater<pii>> pq;
-        for (auto& [num, freq] : cnt) {
-            pq.push({freq, num});
+        for (auto& [x, c] : cnt) {
+            pq.push({c, x});
             if (pq.size() > k) {
                 pq.pop();
             }
         }
-        vector<int> ans(k);
-        for (int i = 0; i < k; ++i) {
-            ans[i] = pq.top().second;
+        vector<int> ans;
+        while (!pq.empty()) {
+            ans.push_back(pq.top().second);
             pq.pop();
         }
         return ans;
@@ -84,22 +123,24 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func topKFrequent(nums []int, k int) []int {
 	cnt := map[int]int{}
-	for _, v := range nums {
-		cnt[v]++
+	for _, x := range nums {
+		cnt[x]++
 	}
-	h := hp{}
-	for v, freq := range cnt {
-		heap.Push(&h, pair{v, freq})
-		if len(h) > k {
-			heap.Pop(&h)
+	pq := hp{}
+	for x, c := range cnt {
+		heap.Push(&pq, pair{x, c})
+		if pq.Len() > k {
+			heap.Pop(&pq)
 		}
 	}
 	ans := make([]int, k)
-	for i := range ans {
-		ans[i] = heap.Pop(&h).(pair).v
+	for i := 0; i < k; i++ {
+		ans[i] = heap.Pop(&pq).(pair).v
 	}
 	return ans
 }
@@ -114,117 +155,51 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 function topKFrequent(nums: number[], k: number): number[] {
-    let hashMap = new Map();
-    for (let num of nums) {
-        hashMap.set(num, (hashMap.get(num) || 0) + 1);
+    const cnt = new Map<number, number>();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
     }
-    let list = [...hashMap];
-    list.sort((a, b) => b[1] - a[1]);
-    let ans = [];
-    for (let i = 0; i < k; i++) {
-        ans.push(list[i][0]);
+    const pq = new MinPriorityQueue();
+    for (const [x, c] of cnt) {
+        pq.enqueue(x, c);
+        if (pq.size() > k) {
+            pq.dequeue();
+        }
     }
-    return ans;
+    return pq.toArray().map(x => x.element);
 }
 ```
+
+#### Rust
 
 ```rust
-use std::collections::HashMap;
+use std::cmp::Reverse;
+use std::collections::{BinaryHeap, HashMap};
+
 impl Solution {
     pub fn top_k_frequent(nums: Vec<i32>, k: i32) -> Vec<i32> {
-        let mut map = HashMap::new();
-        let mut max_count = 0;
-        for &num in nums.iter() {
-            let val = map.get(&num).unwrap_or(&0) + 1;
-            map.insert(num, val);
-            max_count = max_count.max(val);
+        let mut cnt = HashMap::new();
+        for x in nums {
+            *cnt.entry(x).or_insert(0) += 1;
         }
-        let mut k = k as usize;
-        let mut res = vec![0; k];
-        while k > 0 {
-            let mut next = 0;
-            for key in map.keys() {
-                let val = map[key];
-                if val == max_count {
-                    res[k - 1] = *key;
-                    k -= 1;
-                } else if val < max_count {
-                    next = next.max(val);
-                }
+        let mut pq = BinaryHeap::with_capacity(k as usize);
+        for (&x, &c) in cnt.iter() {
+            pq.push(Reverse((c, x)));
+            if pq.len() > k as usize {
+                pq.pop();
             }
-            max_count = next;
         }
-        res
+        pq.into_iter().map(|Reverse((_, x))| x).collect()
     }
 }
 ```
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        cnt = Counter(nums)
-        hp = []
-        for num, freq in cnt.items():
-            heappush(hp, (freq, num))
-            if len(hp) > k:
-                heappop(hp)
-        return [v[1] for v in hp]
-```
-
-```java
-class Solution {
-    public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
-        }
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
-        for (var e : cnt.entrySet()) {
-            pq.offer(new int[] {e.getKey(), e.getValue()});
-            if (pq.size() > k) {
-                pq.poll();
-            }
-        }
-        int[] ans = new int[k];
-        for (int i = 0; i < k; ++i) {
-            ans[i] = pq.poll()[0];
-        }
-        return ans;
-    }
-}
-```
-
-```ts
-function topKFrequent(nums: number[], k: number): number[] {
-    const map = new Map<number, number>();
-    let maxCount = 0;
-    for (const num of nums) {
-        map.set(num, (map.get(num) ?? 0) + 1);
-        maxCount = Math.max(maxCount, map.get(num));
-    }
-
-    const res = [];
-    while (k > 0) {
-        for (const key of map.keys()) {
-            if (map.get(key) === maxCount) {
-                res.push(key);
-                k--;
-            }
-        }
-        maxCount--;
-    }
-    return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

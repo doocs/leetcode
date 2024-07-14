@@ -1,12 +1,20 @@
-# [1285. 找到连续区间的开始和结束数字](https://leetcode.cn/problems/find-the-start-and-end-number-of-continuous-ranges)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1285. 找到连续区间的开始和结束数字 🔒](https://leetcode.cn/problems/find-the-start-and-end-number-of-continuous-ranges)
 
 [English Version](/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Logs</code></p>
 
@@ -61,7 +69,11 @@ Logs 表：
 9 不在表中。
 10 在表中。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组 + 窗口函数
 
@@ -73,6 +85,8 @@ Logs 表：
 2. 通过计算当前行的日志减去当前行的行号，得到的结果就是每一行的分组的标识符。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -96,9 +110,15 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -116,4 +136,6 @@ GROUP BY pid;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

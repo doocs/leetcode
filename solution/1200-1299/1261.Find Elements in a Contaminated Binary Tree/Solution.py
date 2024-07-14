@@ -5,9 +5,10 @@
 #         self.left = left
 #         self.right = right
 class FindElements:
+
     def __init__(self, root: Optional[TreeNode]):
-        def dfs(root):
-            self.vis.add(root.val)
+        def dfs(root: Optional[TreeNode]):
+            self.s.add(root.val)
             if root.left:
                 root.left.val = root.val * 2 + 1
                 dfs(root.left)
@@ -16,11 +17,11 @@ class FindElements:
                 dfs(root.right)
 
         root.val = 0
-        self.vis = set()
+        self.s = set()
         dfs(root)
 
     def find(self, target: int) -> bool:
-        return target in self.vis
+        return target in self.s
 
 
 # Your FindElements object will be instantiated and called as such:

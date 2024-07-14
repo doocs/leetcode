@@ -1,12 +1,22 @@
-# [1983. 范围和相等的最宽索引对](https://leetcode.cn/problems/widest-pair-of-indices-with-equal-range-sum)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
+<!-- problem:start -->
+
+# [1983. 范围和相等的最宽索引对 🔒](https://leetcode.cn/problems/widest-pair-of-indices-with-equal-range-sum)
 
 [English Version](/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README_EN.md)
 
-<!-- tags:数组,哈希表,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个 <strong>以0为索引</strong> 的二进制数组 <code>nums1</code> 和 <code>nums2</code> 。找出 <strong>最宽</strong> 的索引对 <code>(i, j)</code> ，使的&nbsp;<code>i &lt;= j</code>&nbsp;并且&nbsp;<code>nums1[i] + nums1[i+1] + ... + nums1[j] == nums2[i] + nums2[i+1] + ... + nums2[j]</code>。</p>
 
@@ -60,7 +70,11 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 	<li><code>nums2[i]</code>&nbsp;仅为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 哈希表
 
@@ -68,13 +82,15 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 
 我们定义一个变量 $s$ 表示当前 $nums$ 的前缀和，用一个哈希表 $d$ 保存每个前缀和第一次出现的位置。初始时 $s = 0$, $d[0] = -1$。
 
-接下来，我们遍历数组 $nums$ 中的每个元素 $x$，计算 $s$ 的值，然后检查哈希表中是否存在 $s$，如果哈希表存在 $s$，那么说明存在一个子数组 $nums[d[s]+1,..i]$，使得子数组的和为 $0$，我们更新答案为 $max(ans, i - d[s])$。否则，我们将 $s$ 的值加入哈希表中，表示 $s$ 第一次出现的位置为 $i$。
+接下来，我们遍历数组 $nums$ 中的每个元素 $x$，计算 $s$ 的值，然后检查哈希表中是否存在 $s$，如果哈希表存在 $s$，那么说明存在一个子数组 $nums[d[s]+1,..i]$，使得子数组的和为 $0$，我们更新答案为 $\max(ans, i - d[s])$。否则，我们将 $s$ 的值加入哈希表中，表示 $s$ 第一次出现的位置为 $i$。
 
 遍历结束，即可得到最终的答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +105,8 @@ class Solution:
                 d[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 	d := map[int]int{0: -1}
@@ -148,6 +170,29 @@ func widestPairOfIndices(nums1 []int, nums2 []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function widestPairOfIndices(nums1: number[], nums2: number[]): number {
+    const d: Map<number, number> = new Map();
+    d.set(0, -1);
+    const n: number = nums1.length;
+    let s: number = 0;
+    let ans: number = 0;
+    for (let i = 0; i < n; ++i) {
+        s += nums1[i] - nums2[i];
+        if (d.has(s)) {
+            ans = Math.max(ans, i - (d.get(s) as number));
+        } else {
+            d.set(s, i);
+        }
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,26 +1,27 @@
 function minimumOperations(nums: number[]): number {
-    const n = nums.length,
-        m = 10 ** 5;
-    let odd = new Array(m).fill(0);
-    let even = new Array(m).fill(0);
-    for (let i = 0; i < n; i++) {
-        let cur = nums[i];
-        if (i & 1) {
-            odd[cur] = (odd[cur] || 0) + 1;
-        } else {
-            even[cur] = (even[cur] || 0) + 1;
+    const f = (i: number): [number, number, number, number] => {
+        const cnt: Map<number, number> = new Map();
+        for (; i < nums.length; i += 2) {
+            cnt.set(nums[i], (cnt.get(nums[i]) || 0) + 1);
         }
+
+        let [k1, k2] = [0, 0];
+        for (const [k, v] of cnt) {
+            if ((cnt.get(k1) || 0) < v) {
+                k2 = k1;
+                k1 = k;
+            } else if ((cnt.get(k2) || 0) < v) {
+                k2 = k;
+            }
+        }
+        return [k1, cnt.get(k1) || 0, k2, cnt.get(k2) || 0];
+    };
+
+    const a = f(0);
+    const b = f(1);
+    const n = nums.length;
+    if (a[0] !== b[0]) {
+        return n - (a[1] + b[1]);
     }
-    let i1 = odd.indexOf(Math.max(...odd));
-    let i2 = even.indexOf(Math.max(...even));
-    if (i1 != i2) {
-        return n - odd[i1] - even[i2];
-    } else {
-        let l1 = odd[i1],
-            l2 = even[i2];
-        (odd[i1] = 0), (even[i2] = 0);
-        let j1 = odd.indexOf(Math.max(...odd));
-        let j2 = even.indexOf(Math.max(...even));
-        return n - Math.max(l1 + even[j2], l2 + odd[j1]);
-    }
+    return n - Math.max(a[1] + b[3], a[3] + b[1]);
 }

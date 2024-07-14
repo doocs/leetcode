@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md
+rating: 1981
+source: 第 363 场周赛 Q3
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [2861. 最大合金数](https://leetcode.cn/problems/maximum-number-of-alloys)
 
 [English Version](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你是一家合金制造公司的老板，你的公司使用多种金属来制造合金。现在共有 <code>n</code> 种不同类型的金属可以使用，并且你可以使用 <code>k</code> 台机器来制造合金。每台机器都需要特定数量的每种金属来创建合金。</p>
 
@@ -77,7 +88,11 @@
 	<li><code>1 &lt;= cost[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -88,6 +103,8 @@
 时间复杂度 $O(n \times k \times \log M)$，其中 $M$ 是二分查找的上界，本题中 $M \leq 2 \times 10^8$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +130,8 @@ class Solution:
             ans = max(ans, l)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -158,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -190,6 +211,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []int, cost []int) int {
 	isValid := func(target int) bool {
@@ -218,6 +241,8 @@ func maxNumberOfAlloys(n int, k int, budget int, composition [][]int, stock []in
 	return l
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNumberOfAlloys(
@@ -257,4 +282,6 @@ function maxNumberOfAlloys(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

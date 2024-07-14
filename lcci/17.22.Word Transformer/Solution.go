@@ -1,43 +1,37 @@
 func findLadders(beginWord string, endWord string, wordList []string) []string {
-	var ans []string
-	visited := make(map[string]bool)
-
-	check := func(a, b string) bool {
-		if len(a) != len(b) {
+	ans := []string{beginWord}
+	vis := make([]bool, len(wordList))
+	check := func(s, t string) bool {
+		if len(s) != len(t) {
 			return false
 		}
 		cnt := 0
-		for i := 0; i < len(a); i++ {
-			if a[i] != b[i] {
+		for i := range s {
+			if s[i] != t[i] {
 				cnt++
 			}
 		}
 		return cnt == 1
 	}
-
-	var dfs func(begin, end string, t []string)
-	dfs = func(begin, end string, t []string) {
-		if len(ans) > 0 {
-			return
+	var dfs func(s string) bool
+	dfs = func(s string) bool {
+		if s == endWord {
+			return true
 		}
-		if begin == end {
-			ans = make([]string, len(t))
-			copy(ans, t)
-			return
-		}
-		for _, word := range wordList {
-			if visited[word] || !check(begin, word) {
-				continue
+		for i, t := range wordList {
+			if !vis[i] && check(s, t) {
+				vis[i] = true
+				ans = append(ans, t)
+				if dfs(t) {
+					return true
+				}
+				ans = ans[:len(ans)-1]
 			}
-			t = append(t, word)
-			visited[word] = true
-			dfs(word, end, t)
-			t = t[:len(t)-1]
 		}
+		return false
 	}
-
-	var t []string
-	t = append(t, beginWord)
-	dfs(beginWord, endWord, t)
-	return ans
+	if dfs(beginWord) {
+		return ans
+	}
+	return []string{}
 }

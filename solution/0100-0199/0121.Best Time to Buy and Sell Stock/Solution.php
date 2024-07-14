@@ -4,13 +4,12 @@ class Solution {
      * @return Integer
      */
     function maxProfit($prices) {
-        $win = 0;
-        $minPrice = $prices[0];
-        $len = count($prices);
-        for ($i = 1; $i < $len; $i++) {
-            $minPrice = min($minPrice, $prices[$i]);
-            $win = max($win, $prices[$i] - $minPrice);
+        $ans = 0;
+        $mi = $prices[0];
+        foreach ($prices as $v) {
+            $ans = max($ans, $v - $mi);
+            $mi = min($mi, $v);
         }
-        return $win;
+        return $ans;
     }
 }

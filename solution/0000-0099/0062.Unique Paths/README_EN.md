@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0062.Unique%20Paths/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Combinatorics
+---
+
+<!-- problem:start -->
+
 # [62. Unique Paths](https://leetcode.com/problems/unique-paths)
 
 [中文文档](/solution/0000-0099/0062.Unique%20Paths/README.md)
 
-<!-- tags:Math,Dynamic Programming,Combinatorics -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the <strong>top-left corner</strong> (i.e., <code>grid[0][0]</code>). The robot tries to move to the <strong>bottom-right corner</strong> (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
 
@@ -38,7 +50,11 @@
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -66,6 +82,8 @@ We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$, so 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
@@ -79,6 +97,8 @@ class Solution:
                     f[i][j] += f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -121,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniquePaths(m int, n int) int {
 	f := make([][]int, m)
@@ -142,6 +166,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[][] = Array(m)
@@ -162,6 +188,8 @@ function uniquePaths(m: number, n: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn unique_paths(m: i32, n: i32) -> i32 {
@@ -176,6 +204,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -204,9 +234,15 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -217,6 +253,8 @@ class Solution:
                 f[i][j] = f[i - 1][j] + f[i][j - 1]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -235,6 +273,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -249,6 +289,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePaths(m int, n int) int {
@@ -268,6 +310,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[][] = Array(m)
@@ -281,6 +325,8 @@ function uniquePaths(m: number, n: number): number {
     return f[m - 1][n - 1];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -303,9 +349,15 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -316,6 +368,8 @@ class Solution:
                 f[j] += f[j - 1]
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -332,6 +386,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -346,6 +402,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func uniquePaths(m int, n int) int {
@@ -362,6 +420,8 @@ func uniquePaths(m int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniquePaths(m: number, n: number): number {
     const f: number[] = Array(n).fill(1);
@@ -373,6 +433,8 @@ function uniquePaths(m: number, n: number): number {
     return f[n - 1];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -393,4 +455,6 @@ var uniquePaths = function (m, n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

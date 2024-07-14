@@ -1,12 +1,26 @@
-# [692. 前 K 个高频单词](https://leetcode.cn/problems/top-k-frequent-words)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README.md
+tags:
+    - 字典树
+    - 哈希表
+    - 字符串
+    - 桶排序
+    - 计数
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
+# [692. 前K个高频单词](https://leetcode.cn/problems/top-k-frequent-words)
 
 [English Version](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)
 
-<!-- tags:字典树,哈希表,字符串,桶排序,计数,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个单词列表&nbsp;<code>words</code>&nbsp;和一个整数 <code>k</code> ，返回前&nbsp;<code>k</code><em>&nbsp;</em>个出现次数最多的单词。</p>
 
@@ -47,11 +61,17 @@
 
 <p><strong>进阶：</strong>尝试以&nbsp;<code>O(n log k)</code> 时间复杂度和&nbsp;<code>O(n)</code> 空间复杂度解决。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +79,8 @@ class Solution:
         cnt = Counter(words)
         return sorted(cnt, key=lambda x: (-cnt[x], x))[:k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func topKFrequent(words []string, k int) []string {
@@ -123,4 +149,6 @@ func topKFrequent(words []string, k int) []string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

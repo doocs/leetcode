@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README_EN.md
+rating: 1418
+source: Weekly Contest 306 Q2
+tags:
+    - Graph
+    - Hash Table
+---
+
+<!-- problem:start -->
+
 # [2374. Node With Highest Edge Score](https://leetcode.com/problems/node-with-highest-edge-score)
 
 [中文文档](/solution/2300-2399/2374.Node%20With%20Highest%20Edge%20Score/README.md)
 
-<!-- tags:Graph,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a directed graph with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, where each node has <strong>exactly one</strong> outgoing edge.</p>
 
@@ -49,11 +62,17 @@ Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we
 	<li><code>edges[i] != i</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +86,8 @@ class Solution:
                 ans = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func edgeScore(edges []int) int {
 	n := len(edges)
@@ -123,6 +148,8 @@ func edgeScore(edges []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function edgeScore(edges: number[]): number {
@@ -143,4 +170,6 @@ function edgeScore(edges: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

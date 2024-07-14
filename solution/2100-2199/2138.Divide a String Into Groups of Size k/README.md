@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2138.Divide%20a%20String%20Into%20Groups%20of%20Size%20k/README.md
+rating: 1273
+source: 第 276 场周赛 Q1
+tags:
+    - 字符串
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2138. 将字符串拆分为若干长度为 k 的组](https://leetcode.cn/problems/divide-a-string-into-groups-of-size-k)
 
 [English Version](/solution/2100-2199/2138.Divide%20a%20String%20Into%20Groups%20of%20Size%20k/README_EN.md)
 
-<!-- tags:字符串,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>字符串 <code>s</code> 可以按下述步骤划分为若干长度为 <code>k</code> 的组：</p>
 
@@ -54,17 +65,29 @@
 	<li><code>fill</code> 是一个小写英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：模拟
+
+我们可以直接模拟题目描述的过程，将字符串 $s$ 按照长度 $k$ 进行分组，然后对于最后一组不足 $k$ 个字符的情况，使用字符 $\text{fill}$ 进行填充。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def divideString(self, s: str, k: int, fill: str) -> List[str]:
         return [s[i : i + k].ljust(k, fill) for i in range(0, len(s), k)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,34 +105,54 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     vector<string> divideString(string s, int k, char fill) {
         int n = s.size();
-        if (n % k)
-            for (int i = 0; i < k - n % k; ++i) s.push_back(fill);
+        if (n % k) {
+            s += string(k - n % k, fill);
+        }
         vector<string> ans;
-        for (int i = 0; i < s.size() / k; ++i) ans.push_back(s.substr(i * k, k));
+        for (int i = 0; i < s.size() / k; ++i) {
+            ans.push_back(s.substr(i * k, k));
+        }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
-func divideString(s string, k int, fill byte) []string {
+func divideString(s string, k int, fill byte) (ans []string) {
 	n := len(s)
 	if n%k != 0 {
 		s += strings.Repeat(string(fill), k-n%k)
 	}
-	var ans []string
 	for i := 0; i < len(s)/k; i++ {
 		ans = append(ans, s[i*k:(i+1)*k])
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function divideString(s: string, k: number, fill: string): string[] {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; i += k) {
+        ans.push(s.slice(i, i + k).padEnd(k, fill));
+    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -5,23 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findLeaves(self, root: TreeNode) -> List[List[int]]:
-        def dfs(root, prev, t):
+    def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
-                return
-            if root.left is None and root.right is None:
-                t.append(root.val)
-                if prev.left == root:
-                    prev.left = None
-                else:
-                    prev.right = None
-            dfs(root.left, root, t)
-            dfs(root.right, root, t)
+                return 0
+            l, r = dfs(root.left), dfs(root.right)
+            h = max(l, r)
+            if len(ans) == h:
+                ans.append([])
+            ans[h].append(root.val)
+            return h + 1
 
-        res = []
-        prev = TreeNode(left=root)
-        while prev.left:
-            t = []
-            dfs(prev.left, prev, t)
-            res.append(t)
-        return res
+        ans = []
+        dfs(root)
+        return ans

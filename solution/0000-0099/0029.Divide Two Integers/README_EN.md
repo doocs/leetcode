@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+---
+
+<!-- problem:start -->
+
 # [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers)
 
 [中文文档](/solution/0000-0099/0029.Divide%20Two%20Integers/README.md)
 
-<!-- tags:Bit Manipulation,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers <strong>without</strong> using multiplication, division, and mod operator.</p>
 
@@ -39,7 +50,11 @@
 	<li><code>divisor != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Fast Power
 
@@ -50,6 +65,8 @@ It should be noted that since the problem explicitly requires that only 32-bit s
 Assuming the dividend is $a$ and the divisor is $b$, the time complexity is $O(\log a \times \log b)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +89,8 @@ class Solution:
             ans += cnt
         return ans if sign else -ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -129,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func divide(a int, b int) int {
@@ -166,6 +189,8 @@ func divide(a int, b int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function divide(a: number, b: number): number {
     if (b === 1) {
@@ -197,6 +222,8 @@ function divide(a: number, b: number): number {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Divide(int a, int b) {
@@ -225,6 +252,48 @@ public class Solution {
 }
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param integer $a
+     * @param integer $b
+     * @return integer
+     */
+
+    function divide($a, $b) {
+        if ($b == 0) {
+            throw new Exception('Can not divide by 0');
+        } elseif ($a == 0) {
+            return 0;
+        }
+        if ($a == -2147483648 && $b == -1) {
+            return 2147483647;
+        }
+        $sign = $a < 0 != $b < 0;
+
+        $a = abs($a);
+        $b = abs($b);
+        $ans = 0;
+        while ($a >= $b) {
+            $x = $b;
+            $cnt = 1;
+            while ($a >= $x << 1) {
+                $x <<= 1;
+                $cnt <<= 1;
+            }
+            $a -= $x;
+            $ans += $cnt;
+        }
+
+        return $sign ? -$ans : $ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

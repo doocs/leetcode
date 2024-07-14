@@ -1,12 +1,22 @@
-# [157. 用 Read4 读取 N 个字符](https://leetcode.cn/problems/read-n-characters-given-read4)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md
+tags:
+    - 数组
+    - 交互
+    - 模拟
+---
+
+<!-- problem:start -->
+
+# [157. 用 Read4 读取 N 个字符 🔒](https://leetcode.cn/problems/read-n-characters-given-read4)
 
 [English Version](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README_EN.md)
 
-<!-- tags:数组,交互,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个文件，并且该文件只能通过给定的&nbsp;<code>read4</code>&nbsp;方法来读取，请实现一个方法使其能够读取 n 个字符。</p>
 
@@ -89,7 +99,11 @@ read4(buf4); // read4 返回 0。现在 buf = &quot;&quot;，fp 指向文件末�
 	<li>你可以假定目标缓存数组&nbsp;<code>buf</code> 保证有足够的空间存下 n 个字符。&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -98,6 +112,8 @@ read4(buf4); // read4 返回 0。现在 buf = &quot;&quot;，fp 指向文件末�
 时间复杂度 $O(n)$。其中 $n$ 为要读取的字符数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -136,6 +152,8 @@ class Solution:
         return i
 ```
 
+#### Java
+
 ```java
 /**
  * The read4 API is defined in the parent class Reader4.
@@ -164,6 +182,8 @@ public class Solution extends Reader4 {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -194,6 +214,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -231,4 +253,6 @@ var solution = func(read4 func([]byte) int) func([]byte, int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

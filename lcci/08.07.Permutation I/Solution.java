@@ -1,26 +1,29 @@
 class Solution {
+    private char[] s;
+    private boolean[] vis = new boolean['z' + 1];
+    private List<String> ans = new ArrayList<>();
+    private StringBuilder t = new StringBuilder();
+
     public String[] permutation(String S) {
-        Set<Character> vis = new HashSet<>();
-        List<String> ans = new ArrayList<>();
-        StringBuilder t = new StringBuilder();
-        dfs(0, S, t, ans, vis);
+        s = S.toCharArray();
+        dfs(0);
         return ans.toArray(new String[0]);
     }
 
-    private void dfs(int u, String S, StringBuilder t, List<String> ans, Set<Character> vis) {
-        if (u == S.length()) {
+    private void dfs(int i) {
+        if (i == s.length) {
             ans.add(t.toString());
             return;
         }
-        for (char c : S.toCharArray()) {
-            if (vis.contains(c)) {
+        for (char c : s) {
+            if (vis[c]) {
                 continue;
             }
-            vis.add(c);
+            vis[c] = true;
             t.append(c);
-            dfs(u + 1, S, t, ans, vis);
+            dfs(i + 1);
             t.deleteCharAt(t.length() - 1);
-            vis.remove(c);
+            vis[c] = false;
         }
     }
 }

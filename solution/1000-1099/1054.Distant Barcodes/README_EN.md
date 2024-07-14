@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md
+rating: 1701
+source: Weekly Contest 138 Q4
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [1054. Distant Barcodes](https://leetcode.com/problems/distant-barcodes)
 
 [中文文档](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
 
-<!-- tags:Greedy,Array,Hash Table,Counting,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>In a warehouse, there is a row of barcodes, where the <code>i<sup>th</sup></code> barcode is <code>barcodes[i]</code>.</p>
 
@@ -26,11 +43,23 @@
 	<li><code>1 &lt;= barcodes[i] &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Counting + Sorting
+
+First, we use a hash table or array $cnt$ to count the number of occurrences of each number in the array $barcodes$. Then, we sort the numbers in $barcodes$ according to their occurrence times in $cnt$ from large to small. If the occurrence times are the same, we sort them from small to large (to ensure the same numbers are adjacent).
+
+Next, we create an answer array $ans$ of length $n$. We traverse the sorted $barcodes$, and sequentially fill the elements into the even index positions $0, 2, 4, \cdots$ of the answer array. Then, we fill the remaining elements into the odd index positions $1, 3, 5, \cdots$ of the answer array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$. Where $n$ and $M$ are the length of the array $barcodes$ and the maximum value in the array $barcodes$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -43,6 +72,8 @@ class Solution:
         ans[1::2] = barcodes[(n + 1) // 2 :]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +101,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +127,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rearrangeBarcodes(barcodes []int) []int {
@@ -120,6 +155,8 @@ func rearrangeBarcodes(barcodes []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function rearrangeBarcodes(barcodes: number[]): number[] {
     const mx = Math.max(...barcodes);
@@ -141,4 +178,6 @@ function rearrangeBarcodes(barcodes: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

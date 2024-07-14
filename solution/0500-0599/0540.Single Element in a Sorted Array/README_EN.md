@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md
+tags:
+    - Array
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [540. Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array)
 
 [中文文档](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README.md)
 
-<!-- tags:Array,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.</p>
 
@@ -28,11 +39,17 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -47,6 +64,8 @@ class Solution:
                 left = mid + 1
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +86,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -84,6 +105,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -98,6 +121,8 @@ func singleNonDuplicate(nums []int) int {
 	return nums[left]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
@@ -114,6 +139,8 @@ function singleNonDuplicate(nums: number[]): number {
     return nums[left];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -133,6 +160,8 @@ impl Solution {
 }
 ```
 
+#### C
+
 ```c
 int singleNonDuplicate(int* nums, int numsSize) {
     int left = 0;
@@ -151,4 +180,6 @@ int singleNonDuplicate(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0910.Smallest%20Range%20II/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [910. Smallest Range II](https://leetcode.com/problems/smallest-range-ii)
 
 [中文文档](/solution/0900-0999/0910.Smallest%20Range%20II/README.md)
 
-<!-- tags:Greedy,Array,Math,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
@@ -48,11 +61,23 @@
 	<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Greedy + Enumeration
+
+According to the problem requirements, we need to find the minimum difference between the maximum and minimum values in the array. Each element can be increased or decreased by $k$, so we can divide the elements in the array into two parts, one part increased by $k$ and the other part decreased by $k$. Therefore, we should decrease the larger values in the array by $k$ and increase the smaller values by $k$ to ensure the minimum difference between the maximum and minimum values.
+
+Therefore, we can first sort the array, then enumerate each element in the array, divide it into two parts, one part increased by $k$ and the other part decreased by $k$, and calculate the difference between the maximum and minimum values. Finally, take the minimum value among all differences.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +90,8 @@ class Solution:
             ans = min(ans, mx - mi)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -81,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -99,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func smallestRangeII(nums []int, k int) int {
 	sort.Ints(nums)
@@ -113,6 +144,23 @@ func smallestRangeII(nums []int, k int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function smallestRangeII(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    let ans = nums.at(-1)! - nums[0];
+    for (let i = 1; i < nums.length; ++i) {
+        const mi = Math.min(nums[0] + k, nums[i] - k);
+        const mx = Math.max(nums.at(-1)! - k, nums[i - 1] + k);
+        ans = Math.min(ans, mx - mi);
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

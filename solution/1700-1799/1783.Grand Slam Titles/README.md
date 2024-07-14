@@ -1,12 +1,20 @@
-# [1783. 大满贯数量](https://leetcode.cn/problems/grand-slam-titles)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1783.Grand%20Slam%20Titles/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1783. 大满贯数量 🔒](https://leetcode.cn/problems/grand-slam-titles)
 
 [English Version](/solution/1700-1799/1783.Grand%20Slam%20Titles/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Players</code></p>
 
@@ -81,13 +89,19 @@ Player 1 (Nadal) 获得了 7 次大满贯：其中温网 2 次(2018, 2019), 法�
 Player 2 (Federer) 获得了 5 次大满贯：其中温网 1 次 (2020), 美国公开赛 2 次 (2019, 2020) 以及澳网公开赛 2 次 (2019, 2020) 。
 Player 3 (Novak)  没有赢得，因此不包含在结果集中。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：合并 + 等值连接 + 分组
 
 我们可以使用 `UNION ALL`，将所有赢得大满贯比赛的球员 ID 合并到一张表 `T` 中，然后使用等值连接 `JOIN`，将 `T` 表与 `Players` 表按照 `player_id` 进行连接，最后使用 `GROUP BY` 和 `COUNT` 统计每个球员赢得大满贯比赛的次数。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -114,9 +128,15 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -155,4 +175,6 @@ HAVING grand_slams_count > 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

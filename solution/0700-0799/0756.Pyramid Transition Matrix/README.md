@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README.md
+tags:
+    - 位运算
+    - 深度优先搜索
+    - 广度优先搜索
+---
+
+<!-- problem:start -->
+
 # [756. 金字塔转换矩阵](https://leetcode.cn/problems/pyramid-transition-matrix)
 
 [English Version](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README_EN.md)
 
-<!-- tags:位运算,深度优先搜索,广度优先搜索 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你正在把积木堆成金字塔。每个块都有一个颜色，用一个字母表示。每一行的块比它下面的行 <strong>少一个块</strong> ，并且居中。</p>
 
@@ -57,7 +67,11 @@
 	<li>&nbsp;<code>allowed</code>&nbsp;中所有值都是 <strong>唯一的</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -68,6 +82,8 @@
 时间复杂度 $O(C^N)$。其中 $C$ 是字符集的大小，而 $N$ 是 `bottom` 字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +105,8 @@ class Solution:
             d[a, b].append(c)
         return dfs(bottom)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -173,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pyramidTransition(bottom string, allowed []string) bool {
@@ -218,4 +240,6 @@ func pyramidTransition(bottom string, allowed []string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

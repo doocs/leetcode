@@ -1,10 +1,28 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README_EN.md
+rating: 2327
+source: Weekly Contest 372 Q4
+tags:
+    - Stack
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Monotonic Stack
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2940. Find Building Where Alice and Bob Can Meet](https://leetcode.com/problems/find-building-where-alice-and-bob-can-meet)
 
 [中文文档](/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
 
-<!-- tags:Stack,Binary Indexed Tree,Segment Tree,Array,Binary Search,Monotonic Stack,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array <code>heights</code> of positive integers, where <code>heights[i]</code> represents the height of the <code>i<sup>th</sup></code> building.</p>
 
@@ -55,7 +73,11 @@ For ans[i] == -1, It can be shown that there is no building where Alice and Bob 
 	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= heights.length - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -72,6 +94,8 @@ Similar problems:
 -   [2736. Maximum Sum Queries](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -118,6 +142,8 @@ class Solution:
                 ans[i] = tree.query(k)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -185,6 +211,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -255,6 +283,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 const inf int = 1 << 30
 
@@ -324,6 +354,8 @@ func leftmostBuildingQueries(heights []int, queries [][]int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 class BinaryIndexedTree {
@@ -402,4 +434,6 @@ function leftmostBuildingQueries(heights: number[], queries: number[][]): number
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0995.Minimum%20Number%20of%20K%20Consecutive%20Bit%20Flips/README.md
+tags:
+    - 位运算
+    - 队列
+    - 数组
+    - 前缀和
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [995. K 连续位的最小翻转次数](https://leetcode.cn/problems/minimum-number-of-k-consecutive-bit-flips)
 
 [English Version](/solution/0900-0999/0995.Minimum%20Number%20of%20K%20Consecutive%20Bit%20Flips/README_EN.md)
 
-<!-- tags:位运算,队列,数组,前缀和,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -54,7 +66,11 @@
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -70,6 +86,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minKBitFlips(self, nums: List[int], k: int) -> int:
@@ -78,7 +96,7 @@ class Solution:
         ans = s = 0
         for i, x in enumerate(nums):
             s += d[i]
-            if x % 2 == s % 2:
+            if s % 2 == x:
                 if i + k > n:
                     return -1
                 d[i] += 1
@@ -88,6 +106,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int minKBitFlips(int[] nums, int k) {
@@ -96,7 +116,7 @@ class Solution {
         int ans = 0, s = 0;
         for (int i = 0; i < n; ++i) {
             s += d[i];
-            if (nums[i] % 2 == s % 2) {
+            if (s % 2 == nums[i]) {
                 if (i + k > n) {
                     return -1;
                 }
@@ -111,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,7 +143,7 @@ public:
         int ans = 0, s = 0;
         for (int i = 0; i < n; ++i) {
             s += d[i];
-            if (s % 2 == nums[i] % 2) {
+            if (s % 2 == nums[i]) {
                 if (i + k > n) {
                     return -1;
                 }
@@ -136,14 +158,16 @@ public:
 };
 ```
 
+#### Go
+
 ```go
-func minKBitFlips(nums []int, k int) int {
+func minKBitFlips(nums []int, k int) (ans int) {
 	n := len(nums)
 	d := make([]int, n+1)
-	ans, s := 0, 0
+	s := 0
 	for i, x := range nums {
 		s += d[i]
-		if s%2 == x%2 {
+		if s%2 == x {
 			if i+k > n {
 				return -1
 			}
@@ -153,9 +177,11 @@ func minKBitFlips(nums []int, k int) int {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minKBitFlips(nums: number[], k: number): number {
@@ -164,7 +190,7 @@ function minKBitFlips(nums: number[], k: number): number {
     let [ans, s] = [0, 0];
     for (let i = 0; i < n; ++i) {
         s += d[i];
-        if (s % 2 === nums[i] % 2) {
+        if (s % 2 === nums[i]) {
             if (i + k > n) {
                 return -1;
             }
@@ -178,6 +204,8 @@ function minKBitFlips(nums: number[], k: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_k_bit_flips(nums: Vec<i32>, k: i32) -> i32 {
@@ -187,7 +215,7 @@ impl Solution {
         let mut s = 0;
         for i in 0..n {
             s += d[i];
-            if nums[i] % 2 == s % 2 {
+            if s % 2 == nums[i] {
                 if i + (k as usize) > n {
                     return -1;
                 }
@@ -204,4 +232,166 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：滑动窗口
+
+我们可以用一个变量 $\text{flipped}$ 来表示当前位置是否翻转，如果 $\text{flipped}$ 为 $1$，表示当前位置已经翻转，否则表示当前位置未翻转。对于翻转过的位置，我们可以将其值设置为 $-1$，这样我们就可以区分出哪些位置已经翻转过了。
+
+接下来我们从左到右遍历数组，对于每个位置 $i$，如果 $i \geq k$ 且 $i-k$ 位置的元素为 $-1$，那么当前位置的翻转状态应该与前一个位置的翻转状态相反。即 $\text{flipped} = \text{flipped} \oplus 1$。如果当前位置的元素与当前位置的翻转状态相同，那么我们需要翻转当前位置，此时我们判断一下 $i+k$ 是否超出了数组的长度，如果超出了数组的长度，那么就无法完成目标，返回 $-1$。否则我们将当前位置的翻转状态取反，同时将答案增加 $1$，并且将当前位置的元素设置为 $-1$。
+
+这样当我们处理完数组中的所有元素时，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minKBitFlips(self, nums: List[int], k: int) -> int:
+        ans = flipped = 0
+        for i, x in enumerate(nums):
+            if i >= k and nums[i - k] == -1:
+                flipped ^= 1
+            if x == flipped:
+                if i + k > len(nums):
+                    return -1
+                flipped ^= 1
+                ans += 1
+                nums[i] = -1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minKBitFlips(int[] nums, int k) {
+        int n = nums.length;
+        int ans = 0, flipped = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i >= k && nums[i - k] == -1) {
+                flipped ^= 1;
+            }
+            if (flipped == nums[i]) {
+                if (i + k > n) {
+                    return -1;
+                }
+                flipped ^= 1;
+                ++ans;
+                nums[i] = -1;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minKBitFlips(vector<int>& nums, int k) {
+        int n = nums.size();
+        int ans = 0, flipped = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i >= k && nums[i - k] == -1) {
+                flipped ^= 1;
+            }
+            if (flipped == nums[i]) {
+                if (i + k > n) {
+                    return -1;
+                }
+                flipped ^= 1;
+                ++ans;
+                nums[i] = -1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minKBitFlips(nums []int, k int) (ans int) {
+	flipped := 0
+	for i, x := range nums {
+		if i >= k && nums[i-k] == -1 {
+			flipped ^= 1
+		}
+		if flipped == x {
+			if i+k > len(nums) {
+				return -1
+			}
+			flipped ^= 1
+			ans++
+			nums[i] = -1
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minKBitFlips(nums: number[], k: number): number {
+    const n = nums.length;
+    let [ans, flipped] = [0, 0];
+    for (let i = 0; i < n; i++) {
+        if (nums[i - k] === -1) {
+            flipped ^= 1;
+        }
+        if (nums[i] === flipped) {
+            if (i + k > n) {
+                return -1;
+            }
+            flipped ^= 1;
+            ++ans;
+            nums[i] = -1;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_k_bit_flips(mut nums: Vec<i32>, k: i32) -> i32 {
+        let mut ans = 0;
+        let mut flipped = 0;
+        let k = k as usize;
+
+        for i in 0..nums.len() {
+            if i >= k && nums[i - k] == -1 {
+                flipped ^= 1;
+            }
+            if flipped == nums[i] {
+                if i + k > nums.len() {
+                    return -1;
+                }
+                flipped ^= 1;
+                ans += 1;
+                nums[i] = -1;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

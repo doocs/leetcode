@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README_EN.md
+rating: 1444
+source: Biweekly Contest 95 Q2
+tags:
+    - Design
+    - Queue
+    - Hash Table
+    - Counting
+    - Data Stream
+---
+
+<!-- problem:start -->
+
 # [2526. Find Consecutive Integers from a Data Stream](https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream)
 
 [中文文档](/solution/2500-2599/2526.Find%20Consecutive%20Integers%20from%20a%20Data%20Stream/README.md)
 
-<!-- tags:Design,Queue,Hash Table,Counting,Data Stream -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>For a stream of integers, implement a data structure that checks if the last <code>k</code> integers parsed in the stream are <strong>equal</strong> to <code>value</code>.</p>
 
@@ -44,11 +60,17 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>consec</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class DataStream:
@@ -65,6 +87,8 @@ class DataStream:
 # obj = DataStream(value, k)
 # param_1 = obj.consec(num)
 ```
+
+#### Java
 
 ```java
 class DataStream {
@@ -89,6 +113,8 @@ class DataStream {
  * boolean param_1 = obj.consec(num);
  */
 ```
+
+#### C++
 
 ```cpp
 class DataStream {
@@ -115,6 +141,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type DataStream struct {
 	val, k, cnt int
@@ -139,6 +167,8 @@ func (this *DataStream) Consec(num int) bool {
  * param_1 := obj.Consec(num);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class DataStream {
@@ -167,4 +197,6 @@ class DataStream {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

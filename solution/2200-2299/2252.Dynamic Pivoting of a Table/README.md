@@ -1,12 +1,20 @@
-# [2252. 表的动态旋转](https://leetcode.cn/problems/dynamic-pivoting-of-a-table)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2252. 表的动态旋转 🔒](https://leetcode.cn/problems/dynamic-pivoting-of-a-table)
 
 [English Version](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Products</code></p>
 
@@ -67,11 +75,17 @@ Products 表:
 同样, 商品 2 在 Nozama 中的价格是 200，Souq 中的价格是 190。其他两家店都不卖。
 商品 3, Shop 中的价格是 1000,Souq 中的价格是1900。其他两家店都不卖。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 CREATE PROCEDURE PivotProducts()
@@ -95,4 +109,6 @@ END
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

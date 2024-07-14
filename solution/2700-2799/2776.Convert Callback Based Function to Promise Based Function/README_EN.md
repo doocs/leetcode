@@ -1,10 +1,18 @@
-# [2776. Convert Callback Based Function to Promise Based Function](https://leetcode.com/problems/convert-callback-based-function-to-promise-based-function)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README_EN.md
+---
+
+<!-- problem:start -->
+
+# [2776. Convert Callback Based Function to Promise Based Function 🔒](https://leetcode.com/problems/convert-callback-based-function-to-promise-based-function)
 
 [中文文档](/solution/2700-2799/2776.Convert%20Callback%20Based%20Function%20to%20Promise%20Based%20Function/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function that accepts another function <code>fn</code> and converts the callback-based function&nbsp;into a promise-based function.&nbsp;</p>
 
@@ -78,11 +86,17 @@ fn is called with a callback as the first argument and args as the rest. As the 
 	<li><code>0 &lt;= args[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type CallbackFn = (next: (data: number, error: string) => void, ...args: number[]) => void;
@@ -91,13 +105,16 @@ type Promisified = (...args: number[]) => Promise<number>;
 function promisify(fn: CallbackFn): Promisified {
     return async function (...args) {
         return new Promise((resolve, reject) => {
-            fn((data, error) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve(data);
-                }
-            }, ...args);
+            fn(
+                (data, error) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(data);
+                    }
+                },
+                ...args,
+            );
         });
     };
 }
@@ -110,4 +127,6 @@ function promisify(fn: CallbackFn): Promisified {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

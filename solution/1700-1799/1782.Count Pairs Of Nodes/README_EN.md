@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md
+rating: 2457
+source: Biweekly Contest 47 Q4
+tags:
+    - Graph
+    - Array
+    - Two Pointers
+    - Binary Search
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1782. Count Pairs Of Nodes](https://leetcode.com/problems/count-pairs-of-nodes)
 
 [中文文档](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README.md)
 
-<!-- tags:Graph,Array,Two Pointers,Binary Search,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an undirected graph defined by an integer <code>n</code>, the number of nodes, and a 2D integer array <code>edges</code>, the edges in the graph, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that there is an <strong>undirected</strong> edge between <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>. You are also given an integer array <code>queries</code>.</p>
 
@@ -52,11 +68,25 @@ The answers for each of the queries are as follows:
 	<li><code>0 &lt;= queries[j] &lt; edges.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Hash Table + Sorting + Binary Search
+
+From the problem, we know that the number of edges connected to the point pair $(a, b)$ is equal to the "number of edges connected to $a$" plus the "number of edges connected to $b$", minus the number of edges connected to both $a$ and $b$.
+
+Therefore, we can first use the array $cnt$ to count the number of edges connected to each point, and use the hash table $g$ to count the number of each point pair.
+
+Then, for each query $q$, we can enumerate $a$. For each $a$, we can find the first $b$ that satisfies $cnt[a] + cnt[b] > q$ through binary search, add the number to the current query answer, and then subtract some duplicate edges.
+
+The time complexity is $O(q \times (n \times \log n + m))$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of points and edges respectively, and $q$ is the number of queries.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +113,8 @@ class Solution:
                     ans[i] -= 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +164,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +201,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countPairs(n int, edges [][]int, queries []int) []int {
 	cnt := make([]int, n)
@@ -199,6 +235,8 @@ func countPairs(n int, edges [][]int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countPairs(n: number, edges: number[][], queries: number[]): number[] {
@@ -245,4 +283,6 @@ function countPairs(n: number, edges: number[][], queries: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

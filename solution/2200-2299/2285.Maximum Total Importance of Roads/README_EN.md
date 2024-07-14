@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README_EN.md
+rating: 1496
+source: Biweekly Contest 79 Q3
+tags:
+    - Greedy
+    - Graph
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2285. Maximum Total Importance of Roads](https://leetcode.com/problems/maximum-total-importance-of-roads)
 
 [中文文档](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md)
 
-<!-- tags:Greedy,Graph,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> denoting the number of cities in a country. The cities are numbered from <code>0</code> to <code>n - 1</code>.</p>
 
@@ -56,11 +71,21 @@ It can be shown that we cannot obtain a greater total importance than 20.
 	<li>There are no duplicate roads.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Greedy + Sorting
+
+We consider the contribution of each city to the total importance of all roads, recorded in the array $\text{deg}$. Then, we sort $\text{deg}$ by contribution from smallest to largest and allocate $[1, 2, ..., n]$ to the cities in order.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +97,8 @@ class Solution:
         deg.sort()
         return sum(i * v for i, v in enumerate(deg, 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,28 +131,47 @@ public:
         }
         sort(deg.begin(), deg.end());
         long long ans = 0;
-        for (int i = 0; i < n; ++i) ans += 1ll * (i + 1) * deg[i];
+        for (int i = 0; i < n; ++i) {
+            ans += (i + 1LL) * deg[i];
+        }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
-func maximumImportance(n int, roads [][]int) int64 {
+func maximumImportance(n int, roads [][]int) (ans int64) {
 	deg := make([]int, n)
 	for _, r := range roads {
 		deg[r[0]]++
 		deg[r[1]]++
 	}
 	sort.Ints(deg)
-	var ans int64
-	for i := 0; i < n; i++ {
-		ans += int64((i + 1) * deg[i])
+	for i, x := range deg {
+		ans += int64(x) * int64(i+1)
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumImportance(n: number, roads: number[][]): number {
+    const deg: number[] = Array(n).fill(0);
+    for (const [a, b] of roads) {
+        ++deg[a];
+        ++deg[b];
+    }
+    deg.sort((a, b) => a - b);
+    return deg.reduce((acc, cur, idx) => acc + (idx + 1) * cur, 0);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

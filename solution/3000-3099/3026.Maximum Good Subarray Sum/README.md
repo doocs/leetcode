@@ -1,16 +1,28 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README.md
+rating: 1816
+source: 第 123 场双周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [3026. 最大好子数组和](https://leetcode.cn/problems/maximum-good-subarray-sum)
 
 [English Version](/solution/3000-3099/3026.Maximum%20Good%20Subarray%20Sum/README_EN.md)
 
-<!-- tags:数组,哈希表,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>nums</code>&nbsp;和一个 <strong>正</strong>&nbsp;整数&nbsp;<code>k</code>&nbsp;。</p>
 
-<p>如果&nbsp;<code>nums</code>&nbsp;的一个子数组中，第一个元素和最后一个元素 <strong>差的绝对值恰好</strong>&nbsp;为&nbsp;<code>k</code>&nbsp;，我们称这个子数组为&nbsp;<strong>好</strong>&nbsp;的。换句话说，如果子数组&nbsp;<code>nums[i..j]</code>&nbsp;满足&nbsp;<code>|nums[i] - nums[j]| == k</code>&nbsp;，那么它是一个好子数组。</p>
+<p>如果&nbsp;<code>nums</code>&nbsp;的一个<span data-keyword="subarray">子数组</span>中，第一个元素和最后一个元素 <strong>差的绝对值恰好</strong>&nbsp;为&nbsp;<code>k</code>&nbsp;，我们称这个子数组为&nbsp;<strong>好</strong>&nbsp;的。换句话说，如果子数组&nbsp;<code>nums[i..j]</code>&nbsp;满足&nbsp;<code>|nums[i] - nums[j]| == k</code>&nbsp;，那么它是一个好子数组。</p>
 
 <p>请你返回&nbsp;<code>nums</code>&nbsp;中&nbsp;<strong>好</strong>&nbsp;子数组的&nbsp;<strong>最大</strong>&nbsp;和，如果没有好子数组，返回<em>&nbsp;</em><code>0</code>&nbsp;。</p>
 
@@ -50,7 +62,11 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 哈希表
 
@@ -63,6 +79,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +98,8 @@ class Solution:
                 p[nums[i + 1]] = s
         return 0 if ans == -inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumSubarraySum(nums []int, k int) int64 {
 	p := map[int]int64{nums[0]: 0}
@@ -166,6 +190,8 @@ func maximumSubarraySum(nums []int, k int) int64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximumSubarraySum(nums: number[], k: number): number {
     const p: Map<number, number> = new Map();
@@ -188,6 +214,8 @@ function maximumSubarraySum(nums: number[], k: number): number {
     return ans === -Infinity ? 0 : ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -216,4 +244,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

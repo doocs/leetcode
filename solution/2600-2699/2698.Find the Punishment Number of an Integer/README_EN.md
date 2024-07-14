@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README_EN.md
+rating: 1678
+source: Weekly Contest 346 Q3
+tags:
+    - Math
+    - Backtracking
+---
+
+<!-- problem:start -->
+
 # [2698. Find the Punishment Number of an Integer](https://leetcode.com/problems/find-the-punishment-number-of-an-integer)
 
 [中文文档](/solution/2600-2699/2698.Find%20the%20Punishment%20Number%20of%20an%20Integer/README.md)
 
-<!-- tags:Math,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer <code>n</code>, return <em>the <strong>punishment number</strong></em> of <code>n</code>.</p>
 
@@ -48,7 +61,11 @@ Hence, the punishment number of 37 is 1 + 81 + 100 + 1296 = 1478
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + DFS
 
@@ -59,6 +76,8 @@ After the enumeration ends, we return the answer.
 The time complexity is $O(n^{1 + 2 \log_{10}^2})$, and the space complexity is $O(\log n)$, where $n$ is the given positive integer.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +102,8 @@ class Solution:
                 ans += x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -152,6 +175,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func punishmentNumber(n int) (ans int) {
 	var check func(string, int, int) bool
@@ -182,6 +207,8 @@ func punishmentNumber(n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function punishmentNumber(n: number): number {
@@ -216,4 +243,6 @@ function punishmentNumber(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

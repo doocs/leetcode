@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0336.Palindrome%20Pairs/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [336. 回文对](https://leetcode.cn/problems/palindrome-pairs)
 
 [English Version](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md)
 
-<!-- tags:字典树,数组,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个由唯一字符串构成的 <strong>0 索引&nbsp;</strong>数组 <code>words</code>&nbsp;。</p>
 
@@ -15,7 +26,7 @@
 <ul>
 	<li><code>0 &lt;= i, j &lt; words.length</code>，</li>
 	<li><code>i != j</code> ，并且</li>
-	<li><code>words[i] + words[j]</code>（两个字符串的连接）是一个回文。</li>
+	<li><code>words[i] + words[j]</code>（两个字符串的连接）是一个<span data-keyword="palindrome-string">回文串</span>。</li>
 </ul>
 
 <p>返回一个数组，它包含&nbsp;<code>words</code> 中所有满足 <strong>回文对</strong> 条件的字符串。</p>
@@ -56,7 +67,11 @@
 	<li><code>words[i]</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串哈希
 
@@ -69,6 +84,8 @@
 除了在极特殊构造的数据上，上述 $hash$ 算法很难产生冲突，一般情况下上述 $hash$ 算法完全可以出现在题目的标准答案中。我们还可以多取一些恰当的 $BASE$ 和 $MOD$ 的值（例如大质数），多进行几组 $hash$ 运算，当结果都相同时才认为原字符串相等，就更加难以构造出使这个 $hash$ 产生错误的数据。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +102,8 @@ class Solution:
                     ans.append([d[rb], i])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +152,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 func palindromePairs(words []string) [][]int {
 	base := 131
@@ -173,6 +194,8 @@ func palindromePairs(words []string) [][]int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 using System.Collections.Generic;
@@ -229,9 +252,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：前缀树
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Trie {
@@ -316,4 +345,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

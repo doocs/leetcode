@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1446.Consecutive%20Characters/README_EN.md
+rating: 1165
+source: Biweekly Contest 26 Q1
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [1446. Consecutive Characters](https://leetcode.com/problems/consecutive-characters)
 
 [中文文档](/solution/1400-1499/1446.Consecutive%20Characters/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>power</strong> of the string is the maximum length of a non-empty substring that contains only one unique character.</p>
 
@@ -35,11 +47,17 @@
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -53,6 +71,8 @@ class Solution:
                 t = 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxPower(s string) int {
 	ans, t := 1, 1
@@ -101,6 +125,8 @@ func maxPower(s string) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxPower(s: string): number {
@@ -119,4 +145,6 @@ function maxPower(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

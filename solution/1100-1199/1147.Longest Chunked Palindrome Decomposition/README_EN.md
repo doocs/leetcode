@@ -1,10 +1,27 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md
+rating: 1912
+source: Weekly Contest 148 Q4
+tags:
+    - Greedy
+    - Two Pointers
+    - String
+    - Dynamic Programming
+    - Hash Function
+    - Rolling Hash
+---
+
+<!-- problem:start -->
+
 # [1147. Longest Chunked Palindrome Decomposition](https://leetcode.com/problems/longest-chunked-palindrome-decomposition)
 
 [中文文档](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README.md)
 
-<!-- tags:Greedy,Two Pointers,String,Dynamic Programming,Hash Function,Rolling Hash -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>text</code>. You should split it to k substrings <code>(subtext<sub>1</sub>, subtext<sub>2</sub>, ..., subtext<sub>k</sub>)</code> such that:</p>
 
@@ -49,7 +66,11 @@
 	<li><code>text</code> consists only of lowercase English characters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
 
@@ -68,6 +89,8 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$ or $O(1)$. H
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestDecomposition(self, text: str) -> int:
@@ -79,6 +102,8 @@ class Solution:
                 return 2 + self.longestDecomposition(text[i:-i])
         return 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) int {
 	n := len(text)
@@ -127,6 +156,8 @@ func longestDecomposition(text string) int {
 	return 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestDecomposition(text: string): number {
@@ -145,6 +176,10 @@ function longestDecomposition(text: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: String Hash
 
 **String hash** is to map a string of any length to a non-negative integer, and its collision probability is almost $0$. String hash is used to calculate the hash value of a string and quickly determine whether two strings are equal.
@@ -154,6 +189,8 @@ Therefore, based on Solution 1, we can use the method of string hash to compare 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -176,6 +213,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -211,6 +250,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -245,6 +286,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) (ans int) {
 	for i, j := 0, len(text)-1; i <= j; {
@@ -266,6 +309,8 @@ func longestDecomposition(text string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestDecomposition(text: string): number {
@@ -292,9 +337,15 @@ function longestDecomposition(text: string): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -330,6 +381,8 @@ class Solution:
                 break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -373,6 +426,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -415,6 +470,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestDecomposition(text string) (ans int) {
 	n := len(text)
@@ -453,4 +510,6 @@ func longestDecomposition(text string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

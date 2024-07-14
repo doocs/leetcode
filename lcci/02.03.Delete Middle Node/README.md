@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle%20Node/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 02.03. 删除中间节点](https://leetcode.cn/problems/delete-middle-node-lcci)
 
 [English Version](/lcci/02.03.Delete%20Middle%20Node/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>若链表中的某个节点，既不是链表头节点，也不是链表尾节点，则称其为该链表的「中间节点」。</p>
 
@@ -23,7 +31,11 @@
 
 <p> </p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：节点赋值
 
@@ -32,6 +44,8 @@
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -46,6 +60,8 @@ class Solution:
         node.val = node.next.val
         node.next = node.next.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -63,6 +79,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -82,6 +100,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -95,6 +115,8 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -114,6 +136,30 @@ var deleteNode = function (node) {
 };
 ```
 
+#### Swift
+
+```swift
+/**
+*    public class ListNode {
+*        var val: Int
+*        var next: ListNode?
+*        init(_ x: Int) {
+*            self.val = x
+*            self.next = nil
+*        }
+*    }
+*/
+class Solution {
+    func deleteNode(_ node: ListNode?) {
+        guard let node = node, let next = node.next else { return }
+        node.val = next.val
+        node.next = next.next
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README.md
+rating: 1195
+source: 第 156 场周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [1207. 独一无二的出现次数](https://leetcode.cn/problems/unique-number-of-occurrences)
 
 [English Version](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README_EN.md)
 
-<!-- tags:数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code>，请你帮忙统计数组中每个数的出现次数。</p>
 
@@ -41,7 +52,11 @@
 	<li><code>-1000 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -51,12 +66,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
         cnt = Counter(arr)
         return len(set(cnt.values())) == len(cnt)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +111,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func uniqueOccurrences(arr []int) bool {
 	cnt := map[int]int{}
@@ -107,6 +130,8 @@ func uniqueOccurrences(arr []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function uniqueOccurrences(arr: number[]): boolean {
     const cnt: Map<number, number> = new Map();
@@ -119,4 +144,6 @@ function uniqueOccurrences(arr: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
-# [2314. 每个城市最高气温的第一天](https://leetcode.cn/problems/the-first-day-of-the-maximum-recorded-degree-in-each-city)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2314. 每个城市最高气温的第一天 🔒](https://leetcode.cn/problems/the-first-day-of-the-maximum-recorded-degree-in-each-city)
 
 [English Version](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Weather</code></p>
 
@@ -63,11 +71,17 @@ Weather 表:
 城市 3 的最高气温记录在 2022-12-07 年，为-6 度。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -89,4 +103,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

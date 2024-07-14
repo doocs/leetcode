@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0859.Buddy%20Strings/README_EN.md
+tags:
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
 # [859. Buddy Strings](https://leetcode.com/problems/buddy-strings)
 
 [中文文档](/solution/0800-0899/0859.Buddy%20Strings/README.md)
 
-<!-- tags:Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>goal</code>, return <code>true</code><em> if you can swap two letters in </em><code>s</code><em> so the result is equal to </em><code>goal</code><em>, otherwise, return </em><code>false</code><em>.</em></p>
 
@@ -47,11 +58,17 @@
 	<li><code>s</code> and <code>goal</code> consist of lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +82,8 @@ class Solution:
         diff = sum(s[i] != goal[i] for i in range(n))
         return diff == 2 or (diff == 0 and any(v > 1 for v in cnt1.values()))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func buddyStrings(s string, goal string) bool {
@@ -151,6 +174,8 @@ func buddyStrings(s string, goal string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buddyStrings(s: string, goal: string): boolean {
     const m = s.length;
@@ -179,4 +204,6 @@ function buddyStrings(s: string, goal: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

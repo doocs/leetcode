@@ -1,10 +1,11 @@
 class Solution:
     def findClosest(self, words: List[str], word1: str, word2: str) -> int:
-        i, j, ans = 1e5, -1e5, 1e5
-        for k, word in enumerate(words):
-            if word == word1:
+        i, j = inf, -inf
+        ans = inf
+        for k, w in enumerate(words):
+            if w == word1:
                 i = k
-            elif word == word2:
+            elif w == word2:
                 j = k
             ans = min(ans, abs(i - j))
         return ans

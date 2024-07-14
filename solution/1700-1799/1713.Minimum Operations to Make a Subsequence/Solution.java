@@ -7,60 +7,41 @@ class BinaryIndexedTree {
         this.c = new int[n + 1];
     }
 
-    public static int lowbit(int x) {
-        return x & -x;
-    }
-
-    public void update(int x, int val) {
-        while (x <= n) {
-            c[x] = Math.max(c[x], val);
-            x += lowbit(x);
+    public void update(int x, int v) {
+        for (; x <= n; x += x & -x) {
+            c[x] = Math.max(c[x], v);
         }
     }
 
     public int query(int x) {
-        int s = 0;
-        while (x > 0) {
-            s = Math.max(s, c[x]);
-            x -= lowbit(x);
+        int ans = 0;
+        for (; x > 0; x -= x & -x) {
+            ans = Math.max(ans, c[x]);
         }
-        return s;
+        return ans;
     }
 }
 
 class Solution {
     public int minOperations(int[] target, int[] arr) {
-        Map<Integer, Integer> d = new HashMap<>();
-        for (int i = 0; i < target.length; ++i) {
-            d.put(target[i], i);
+        int m = target.length;
+        Map<Integer, Integer> d = new HashMap<>(m);
+        for (int i = 0; i < m; i++) {
+            d.put(target[i], i + 1);
         }
         List<Integer> nums = new ArrayList<>();
-        for (int i = 0; i < arr.length; ++i) {
-            if (d.containsKey(arr[i])) {
-                nums.add(d.get(arr[i]));
+        for (int x : arr) {
+            if (d.containsKey(x)) {
+                nums.add(d.get(x));
             }
         }
-        return target.length - lengthOfLIS(nums);
-    }
-
-    private int lengthOfLIS(List<Integer> nums) {
-        TreeSet<Integer> ts = new TreeSet();
-        for (int v : nums) {
-            ts.add(v);
-        }
-        int idx = 1;
-        Map<Integer, Integer> d = new HashMap<>();
-        for (int v : ts) {
-            d.put(v, idx++);
-        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m);
         int ans = 0;
-        BinaryIndexedTree tree = new BinaryIndexedTree(nums.size());
-        for (int v : nums) {
-            int x = d.get(v);
-            int t = tree.query(x - 1) + 1;
-            ans = Math.max(ans, t);
-            tree.update(x, t);
+        for (int x : nums) {
+            int v = tree.query(x - 1) + 1;
+            ans = Math.max(ans, v);
+            tree.update(x, v);
         }
-        return ans;
+        return m - ans;
     }
 }

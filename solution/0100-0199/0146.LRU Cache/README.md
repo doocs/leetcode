@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0146.LRU%20Cache/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 链表
+    - 双向链表
+---
+
+<!-- problem:start -->
+
 # [146. LRU 缓存](https://leetcode.cn/problems/lru-cache)
 
 [English Version](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)
 
-<!-- tags:设计,哈希表,链表,双向链表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <div class="title__3Vvk">请你设计并实现一个满足&nbsp; <a href="https://baike.baidu.com/item/LRU" target="_blank">LRU (最近最少使用) 缓存</a> 约束的数据结构。</div>
 
@@ -59,7 +70,11 @@ lRUCache.get(4);    // 返回 4
 	<li>最多调用 <code>2 * 10<sup>5</sup></code> 次 <code>get</code> 和 <code>put</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 双向链表
 
@@ -72,9 +87,11 @@ lRUCache.get(4);    // 返回 4
 
 当插入一个节点时，如果节点存在，我们将其从原来的位置删除，并重新插入到链表头部。如果不存在，我们首先检查缓存是否已满，如果已满，则删除链表尾部的节点，将新的节点插入链表头部。
 
-时间复杂度 $O(1)$，空间复杂度 $O(capacity)$。
+时间复杂度 $O(1)$，空间复杂度 $O(\text{capacity})$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -142,6 +159,8 @@ class LRUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -230,6 +249,8 @@ class LRUCache {
  * obj.put(key,value);
  */
 ```
+
+#### C++
 
 ```cpp
 struct Node {
@@ -325,6 +346,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type node struct {
 	key, val   int
@@ -396,6 +419,8 @@ func (this *LRUCache) pushFront(n *node) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class LRUCache {
     capacity: number;
@@ -431,6 +456,8 @@ class LRUCache {
  * obj.put(key,value)
  */
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -555,13 +582,10 @@ impl LRUCache {
             None => None,
         }
     }
-}/**
- * Your LRUCache object will be instantiated and called as such:
- * let obj = LRUCache::new(capacity);
- * let ret_1: i32 = obj.get(key);
- * obj.put(key, value);
- */
+}
 ```
+
+#### C#
 
 ```cs
 public class LRUCache {
@@ -644,4 +668,6 @@ public class LRUCache {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

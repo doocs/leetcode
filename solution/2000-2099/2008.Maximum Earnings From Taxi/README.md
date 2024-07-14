@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md
+rating: 1871
+source: 第 61 场双周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 动态规划
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2008. 出租车的最大盈利](https://leetcode.cn/problems/maximum-earnings-from-taxi)
 
 [English Version](/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README_EN.md)
 
-<!-- tags:数组,哈希表,二分查找,动态规划,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你驾驶出租车行驶在一条有 <code>n</code>&nbsp;个地点的路上。这 <code>n</code>&nbsp;个地点从近到远编号为&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;，你想要从 <code>1</code>&nbsp;开到 <code>n</code>&nbsp;，通过接乘客订单盈利。你只能沿着编号递增的方向前进，不能改变方向。</p>
 
@@ -49,7 +63,11 @@
 	<li><code>1 &lt;= tip<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索 + 二分查找
 
@@ -71,6 +89,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
@@ -85,6 +105,8 @@ class Solution:
         rides.sort()
         return dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -153,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool { return rides[i][0] < rides[j][0] })
@@ -173,6 +199,8 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	return dfs(0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxTaxiEarnings(n: number, rides: number[][]): number {
@@ -208,6 +236,10 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：动态规划 + 二分查找
 
 我们可以将方法一中的记忆化搜索改为动态规划。
@@ -231,6 +263,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxTaxiEarnings(self, n: int, rides: List[List[int]]) -> int:
@@ -241,6 +275,8 @@ class Solution:
             f[i] = max(f[i - 1], f[j] + ed - st + tip)
         return f[-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -272,6 +308,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -291,6 +329,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxTaxiEarnings(n int, rides [][]int) int64 {
 	sort.Slice(rides, func(i, j int) bool { return rides[i][1] < rides[j][1] })
@@ -305,6 +345,8 @@ func maxTaxiEarnings(n int, rides [][]int) int64 {
 	return f[m]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxTaxiEarnings(n: number, rides: number[][]): number {
@@ -334,4 +376,6 @@ function maxTaxiEarnings(n: number, rides: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

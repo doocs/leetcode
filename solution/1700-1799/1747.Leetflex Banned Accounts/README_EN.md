@@ -1,10 +1,20 @@
-# [1747. Leetflex Banned Accounts](https://leetcode.com/problems/leetflex-banned-accounts)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1747. Leetflex Banned Accounts 🔒](https://leetcode.com/problems/leetflex-banned-accounts)
 
 [中文文档](/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>LogInfo</code></p>
 
@@ -62,7 +72,11 @@ Account ID 3 --&gt; The account was active from two different addresses (9, 13) 
 Account ID 4 --&gt; The account was active from &quot;2021-02-01 17:00:00&quot; to &quot;2021-02-01 17:00:00&quot; with two different IP addresses (10 and 11). It should be banned.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Self-Join
 
@@ -73,6 +87,8 @@ We can use a self-join to find out the cases where each account logs in from dif
 -   The login time of one record is within the login-logout time range of another record.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -88,4 +104,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

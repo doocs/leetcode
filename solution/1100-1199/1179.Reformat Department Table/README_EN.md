@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1179.Reformat%20Department%20Table/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
 # [1179. Reformat Department Table](https://leetcode.com/problems/reformat-department-table)
 
 [中文文档](/solution/1100-1199/1179.Reformat%20Department%20Table/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Department</code></p>
 
@@ -56,11 +66,17 @@ Department table:
 Note that the result table has 13 columns (1 for the department id + 12 for the months).
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -132,4 +148,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

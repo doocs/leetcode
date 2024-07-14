@@ -1,12 +1,23 @@
-# [2313. 二叉树中得到结果所需的最少翻转次数](https://leetcode.cn/problems/minimum-flips-in-binary-tree-to-get-result)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 动态规划
+    - 二叉树
+---
+
+<!-- problem:start -->
+
+# [2313. 二叉树中得到结果所需的最少翻转次数 🔒](https://leetcode.cn/problems/minimum-flips-in-binary-tree-to-get-result)
 
 [English Version](/solution/2300-2399/2313.Minimum%20Flips%20in%20Binary%20Tree%20to%20Get%20Result/README_EN.md)
 
-<!-- tags:树,深度优先搜索,动态规划,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定<strong>二叉树</strong>的根 <code>root</code>，具有以下属性:</p>
 
@@ -65,7 +76,11 @@
 	<li>非叶节点的值为<code>2</code>, <code>3</code>, <code>4</code>,&nbsp;<code>5</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树形 DP + 分情况讨论
 
@@ -86,6 +101,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -113,6 +130,8 @@ class Solution:
 
         return dfs(root)[int(result)]
 ```
+
+#### Java
 
 ```java
 /**
@@ -164,6 +183,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -211,6 +232,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -256,6 +279,8 @@ func minimumFlips(root *TreeNode, result bool) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -299,4 +324,6 @@ function minimumFlips(root: TreeNode | null, result: boolean): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

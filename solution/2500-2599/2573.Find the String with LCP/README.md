@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README.md
+rating: 2681
+source: 第 333 场周赛 Q4
+tags:
+    - 贪心
+    - 并查集
+    - 数组
+    - 字符串
+    - 动态规划
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [2573. 找出对应 LCP 矩阵的字符串](https://leetcode.cn/problems/find-the-string-with-lcp)
 
 [English Version](/solution/2500-2599/2573.Find%20the%20String%20with%20LCP/README_EN.md)
 
-<!-- tags:贪心,并查集,数组,字符串,动态规划,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>对任一由 <code>n</code> 个小写英文字母组成的字符串 <code>word</code> ，我们可以定义一个 <code>n x n</code> 的矩阵，并满足：</p>
 
@@ -53,7 +68,11 @@
 	<li><code><font face="monospace">0 &lt;= lcp[i][j] &lt;= n</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 构造
 
@@ -73,6 +92,8 @@
 时间复杂度为 $O(n^2)$，空间复杂度为 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +123,8 @@ class Solution:
                     return ""
         return "".join(s)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +170,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -189,6 +214,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findTheString(lcp [][]int) string {
 	i, n := 0, len(lcp)
@@ -227,6 +254,8 @@ func findTheString(lcp [][]int) string {
 	return string(s)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findTheString(lcp: number[][]): string {
@@ -271,4 +300,6 @@ function findTheString(lcp: number[][]): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

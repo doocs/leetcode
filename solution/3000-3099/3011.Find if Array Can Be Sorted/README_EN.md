@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README_EN.md
+rating: 1496
+source: Biweekly Contest 122 Q2
+tags:
+    - Bit Manipulation
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [3011. Find if Array Can Be Sorted](https://leetcode.com/problems/find-if-array-can-be-sorted)
 
 [中文文档](/solution/3000-3099/3011.Find%20if%20Array%20Can%20Be%20Sorted/README.md)
 
-<!-- tags:Bit Manipulation,Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of <strong>positive</strong> integers <code>nums</code>.</p>
 
@@ -52,24 +66,30 @@ Note that there may be other sequences of operations which also sort the array.
 	<li><code>1 &lt;= nums[i] &lt;= 2<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two Pointers
 
-We can use two pointers to divide the array $nums$ into several subarrays, each with the same number of 1s in the binary representation of its elements. For each subarray, we only need to focus on its maximum and minimum values. If the minimum value is smaller than the maximum value of the previous subarray, then it is impossible to make the array sorted by swapping.
+We can use two pointers to divide the array $\textit{nums}$ into several subarrays, each subarray containing elements with the same number of $1$s in their binary representation. For each subarray, we only need to focus on its maximum and minimum values. If the minimum value is less than the maximum value of the previous subarray, then it is impossible to make the array ordered by swapping.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def canSortArray(self, nums: List[int]) -> bool:
-        pre_mx = -inf
+        pre_mx = 0
         i, n = 0, len(nums)
         while i < n:
-            j = i + 1
             cnt = nums[i].bit_count()
+            j = i + 1
             mi = mx = nums[i]
             while j < n and nums[j].bit_count() == cnt:
                 mi = min(mi, nums[j])
@@ -82,14 +102,16 @@ class Solution:
         return True
 ```
 
+#### Java
+
 ```java
 class Solution {
     public boolean canSortArray(int[] nums) {
-        int preMx = -300;
+        int preMx = 0;
         int i = 0, n = nums.length;
         while (i < n) {
-            int j = i + 1;
             int cnt = Integer.bitCount(nums[i]);
+            int j = i + 1;
             int mi = nums[i], mx = nums[i];
             while (j < n && Integer.bitCount(nums[j]) == cnt) {
                 mi = Math.min(mi, nums[j]);
@@ -107,15 +129,17 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     bool canSortArray(vector<int>& nums) {
-        int preMx = -300;
+        int preMx = 0;
         int i = 0, n = nums.size();
         while (i < n) {
-            int j = i + 1;
             int cnt = __builtin_popcount(nums[i]);
+            int j = i + 1;
             int mi = nums[i], mx = nums[i];
             while (j < n && __builtin_popcount(nums[j]) == cnt) {
                 mi = min(mi, nums[j]);
@@ -133,13 +157,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canSortArray(nums []int) bool {
-	preMx := -300
+	preMx := 0
 	i, n := 0, len(nums)
 	for i < n {
-		j := i + 1
 		cnt := bits.OnesCount(uint(nums[i]))
+		j := i + 1
 		mi, mx := nums[i], nums[i]
 		for j < n && bits.OnesCount(uint(nums[j])) == cnt {
 			mi = min(mi, nums[j])
@@ -156,13 +182,15 @@ func canSortArray(nums []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canSortArray(nums: number[]): boolean {
-    let preMx = -300;
+    let preMx = 0;
     const n = nums.length;
     for (let i = 0; i < n; ) {
-        let j = i + 1;
         const cnt = bitCount(nums[i]);
+        let j = i + 1;
         let [mi, mx] = [nums[i], nums[i]];
         while (j < n && bitCount(nums[j]) === cnt) {
             mi = Math.min(mi, nums[j]);
@@ -190,4 +218,6 @@ function bitCount(i: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

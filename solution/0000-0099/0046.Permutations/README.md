@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0046.Permutations/README.md
+tags:
+    - 数组
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [46. 全排列](https://leetcode.cn/problems/permutations)
 
 [English Version](/solution/0000-0099/0046.Permutations/README_EN.md)
 
-<!-- tags:数组,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个不含重复数字的数组 <code>nums</code> ，返回其 <em>所有可能的全排列</em> 。你可以 <strong>按任意顺序</strong> 返回答案。</p>
 
@@ -43,7 +52,11 @@
 	<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS（回溯）
 
@@ -57,11 +70,39 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         return list(permutations(nums))
 ```
+
+#### Python3
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(i):
+            if i == n:
+                ans.append(t[:])
+                return
+            for j in range(n):
+                if not vis[j]:
+                    vis[j] = True
+                    t[i] = nums[j]
+                    dfs(i + 1)
+                    vis[j] = False
+
+        n = len(nums)
+        vis = [False] * n
+        t = [0] * n
+        ans = []
+        dfs(0)
+        return ans
+```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func permute(nums []int) (ans [][]int) {
 	n := len(nums)
@@ -148,6 +193,8 @@ func permute(nums []int) (ans [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function permute(nums: number[]): number[][] {
     const n = nums.length;
@@ -166,6 +213,8 @@ function permute(nums: number[]): number[][] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -189,6 +238,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -220,6 +271,8 @@ var permute = function (nums) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public IList<IList<int>> Permute(int[] nums) {
@@ -250,101 +303,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        def dfs(i):
-            if i == n:
-                ans.append(t[:])
-                return
-            for j in range(n):
-                if not vis[j]:
-                    vis[j] = True
-                    t[i] = nums[j]
-                    dfs(i + 1)
-                    vis[j] = False
-
-        n = len(nums)
-        vis = [False] * n
-        t = [0] * n
-        ans = []
-        dfs(0)
-        return ans
-```
-
-```rust
-impl Solution {
-    #[allow(dead_code)]
-    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut ret = Vec::new();
-        let mut cur_vec = Vec::new();
-        let mut vis = vec![false; nums.len() + 1];
-        Self::dfs(&nums, &mut vis, 0, &mut cur_vec, &mut ret);
-        ret
-    }
-
-    #[allow(dead_code)]
-    fn dfs(
-        nums: &Vec<i32>,
-        vis: &mut Vec<bool>,
-        index: i32,
-        cur_vec: &mut Vec<i32>,
-        ans: &mut Vec<Vec<i32>>
-    ) {
-        let n = nums.len();
-        if (index as usize) == n {
-            ans.push(cur_vec.clone());
-            return;
-        }
-        // Otherwise, let's iterate the nums vector
-        for i in 0..n {
-            if !vis[i] {
-                // If this number hasn't been visited, then visit it
-                vis[i] = true;
-                cur_vec.push(nums[i]);
-                Self::dfs(nums, vis, index + 1, cur_vec, ans);
-                // Reset the changes
-                cur_vec.pop().unwrap();
-                vis[i] = false;
-            }
-        }
-    }
-}
-```
-
-<!-- tabs:end -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        def dfs(i):
-            nonlocal mask
-            if i == n:
-                ans.append(t[:])
-                return
-            for j in range(n):
-                if (mask >> j & 1) == 0:
-                    mask |= 1 << j
-                    t[i] = nums[j]
-                    dfs(i + 1)
-                    mask ^= 1 << j
-
-        n = len(nums)
-        mask = 0
-        t = [0] * n
-        ans = []
-        dfs(0)
-        return ans
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

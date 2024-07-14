@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README.md
+rating: 1635
+source: 第 319 场周赛 Q3
+tags:
+    - 树
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [2471. 逐层排序二叉树所需的最少操作数目](https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level)
 
 [English Version](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README_EN.md)
 
-<!-- tags:树,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>值互不相同</strong> 的二叉树的根节点 <code>root</code> 。</p>
 
@@ -59,7 +71,11 @@
 	<li>树中的所有值 <strong>互不相同</strong> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS + 离散化 + 元素交换
 
@@ -68,6 +84,8 @@
 时间复杂度 $O(n \times \log n)$。其中 $n$ 为二叉树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -107,6 +125,8 @@ class Solution:
             ans += f(t)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -176,6 +196,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -224,6 +246,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -278,6 +302,8 @@ func minimumOperations(root *TreeNode) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -322,6 +348,8 @@ function minimumOperations(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -341,9 +369,9 @@ function minimumOperations(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::rc::Rc;
 impl Solution {
     pub fn minimum_operations(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut queue = VecDeque::new();
@@ -383,4 +411,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

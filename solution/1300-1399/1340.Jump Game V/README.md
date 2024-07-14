@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1340.Jump%20Game%20V/README.md
+rating: 1866
+source: 第 174 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1340. 跳跃游戏 V](https://leetcode.cn/problems/jump-game-v)
 
 [English Version](/solution/1300-1399/1340.Jump%20Game%20V/README_EN.md)
 
-<!-- tags:数组,动态规划,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code> 和一个整数&nbsp;<code>d</code> 。每一步你可以从下标&nbsp;<code>i</code>&nbsp;跳到：</p>
 
@@ -70,7 +82,11 @@
 	<li><code>1 &lt;= d &lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -81,6 +97,8 @@
 时间复杂度 $O(n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -101,6 +119,8 @@ class Solution:
         n = len(arr)
         return max(dfs(i) for i in range(n))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -143,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +200,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxJumps(arr []int, d int) (ans int) {
 	n := len(arr)
@@ -212,6 +236,10 @@ func maxJumps(arr []int, d int) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 动态规划
 
 我们可以将数组 $arr$ 中的每个元素 $x$ 与其下标 $i$ 组成一个元组 $(x, i)$，并将这些元组按照 $x$ 从小到大排序。
@@ -225,6 +253,8 @@ func maxJumps(arr []int, d int) (ans int) {
 时间复杂度 $O(n \log n + n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -242,6 +272,8 @@ class Solution:
                 f[i] = max(f[i], 1 + f[j])
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -275,6 +307,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -302,6 +336,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxJumps(arr []int, d int) int {
@@ -333,4 +369,6 @@ func maxJumps(arr []int, d int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

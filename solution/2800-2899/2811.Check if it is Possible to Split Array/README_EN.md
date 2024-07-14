@@ -1,46 +1,89 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README_EN.md
+rating: 1543
+source: Weekly Contest 357 Q2
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2811. Check if it is Possible to Split Array](https://leetcode.com/problems/check-if-it-is-possible-to-split-array)
 
 [中文文档](/solution/2800-2899/2811.Check%20if%20it%20is%20Possible%20to%20Split%20Array/README.md)
 
-<!-- tags:Greedy,Array,Dynamic Programming -->
-
 ## Description
 
-<p>You are given an array <code>nums</code> of length <code>n</code> and an integer <code>m</code>. You need to determine if it is possible to split the array into <code>n</code> <strong>non-empty</strong> arrays by performing a series of steps.</p>
+<!-- description:start -->
 
-<p>In each step, you can select an existing array (which may be the result of previous steps) with a length of <strong>at least two</strong> and split it into <strong>two </strong>subarrays, if, <strong>for each </strong>resulting subarray, <strong>at least</strong> one of the following holds:</p>
+<p>You are given an array <code>nums</code> of length <code>n</code> and an integer <code>m</code>. You need to determine if it is possible to split the array into <code>n</code> arrays of size 1 by performing a series of steps.</p>
+
+<p>An array is called <strong>good</strong> if:</p>
 
 <ul>
-	<li>The length of the subarray is one, or</li>
-	<li>The sum of elements of the subarray is <strong>greater than or equal</strong> to <code>m</code>.</li>
+	<li>The length of the array is <strong>one</strong>, or</li>
+	<li>The sum of the elements of the array is <strong>greater than or equal</strong> to <code>m</code>.</li>
 </ul>
 
-<p>Return <code>true</code><em> if you can split the given array into </em><code>n</code><em> arrays, otherwise return</em> <code>false</code>.</p>
+<p>In each step, you can select an existing array (which may be the result of previous steps) with a length of <strong>at least two</strong> and split it into <strong>two </strong>arrays, if both resulting arrays are good.</p>
 
-<p><strong>Note:</strong> A subarray is <em>a contiguous non-empty sequence of elements within an array</em>.</p>
+<p>Return true if you can split the given array into <code>n</code> arrays, otherwise return false.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [2, 2, 1], m = 4
-<strong>Output:</strong> true
-<strong>Explanation:</strong> We can split the array into [2, 2] and [1] in the first step. Then, in the second step, we can split [2, 2] into [2] and [2]. As a result, the answer is true.</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [2, 2, 1], m = 4</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>Split <code>[2, 2, 1]</code> to <code>[2, 2]</code> and <code>[1]</code>. The array <code>[1]</code> has a length of one, and the array <code>[2, 2]</code> has the sum of its elements equal to <code>4 &gt;= m</code>, so both are good arrays.</li>
+	<li>Split <code>[2, 2]</code> to <code>[2]</code> and <code>[2]</code>. both arrays have the length of one, so both are good arrays.</li>
+</ul>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [2, 1, 3], m = 5 
-<strong>Output:</strong> false
-<strong>Explanation: </strong>We can try splitting the array in two different ways: the first way is to have [2, 1] and [3], and the second way is to have [2] and [1, 3]. However, both of these ways are not valid. So, the answer is false.</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [2, 1, 3], m = 5</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">false</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The first move has to be either of the following:</p>
+
+<ul>
+	<li>Split <code>[2, 1, 3]</code> to <code>[2, 1]</code> and <code>[3]</code>. The array <code>[2, 1]</code> has neither length of one nor sum of elements greater than or equal to <code>m</code>.</li>
+	<li>Split <code>[2, 1, 3]</code> to <code>[2]</code> and <code>[1, 3]</code>. The array <code>[1, 3]</code> has neither length of one nor sum of elements greater than or equal to <code>m</code>.</li>
+</ul>
+
+<p>So as both moves are invalid (they do not divide the array into two good arrays), we are unable to split <code>nums</code> into <code>n</code> arrays of size 1.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [2, 3, 3, 2, 3], m = 6
-<strong>Output:</strong> true
-<strong>Explanation:</strong> We can split the array into [2, 3, 3, 2] and [3] in the first step. Then, in the second step, we can split [2, 3, 3, 2] into [2, 3, 3] and [2]. Then, in the third step, we can split [2, 3, 3] into [2] and [3, 3]. And in the last step we can split [3, 3] into [3] and [3]. As a result, the answer is true.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [2, 3, 3, 2, 3], m = 6</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li><span class="example-io">Split <code>[2, 3, 3, 2, 3]</code> to <code>[2]</code> and <code>[3, 3, 2, 3]</code>.</span></li>
+	<li><span class="example-io">Split <code>[3, 3, 2, 3]</code> to <code>[3, 3, 2]</code> and <code>[3]</code>.</span></li>
+	<li><span class="example-io">Split <code>[3, 3, 2]</code> to <code>[3, 3]</code> and <code>[2]</code>.</span></li>
+	<li><span class="example-io">Split <code>[3, 3]</code> to <code>[3]</code> and <code>[3]</code>.</span></li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -51,7 +94,11 @@
 	<li><code>1 &lt;= m &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -75,6 +122,8 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def canSplitArray(self, nums: List[int], m: int) -> bool:
@@ -92,6 +141,8 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         return dfs(0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +180,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +215,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func canSplitArray(nums []int, m int) bool {
@@ -197,6 +252,8 @@ func canSplitArray(nums []int, m int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function canSplitArray(nums: number[], m: number): boolean {
     const n = nums.length;
@@ -229,6 +286,8 @@ function canSplitArray(nums: number[], m: number): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn can_split_array(nums: Vec<i32>, m: i32) -> bool {
@@ -248,6 +307,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Quick Thinking
 
 No matter how you operate, there will always be a `length == 2` subarray left in the end. Since there are no negative numbers in the elements, as the split operation proceeds, the length and sum of the subarray will gradually decrease. The sum of other `length > 2` subarrays must be larger than the sum of this subarray. Therefore, we only need to consider whether there is a `length == 2` subarray with a sum greater than or equal to `m`.
@@ -257,6 +320,8 @@ No matter how you operate, there will always be a `length == 2` subarray left in
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function canSplitArray(nums: number[], m: number): boolean {
@@ -275,4 +340,6 @@ function canSplitArray(nums: number[], m: number): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

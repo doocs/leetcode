@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README.md
+rating: 1459
+source: 第 170 场周赛 Q2
+tags:
+    - 位运算
+    - 数组
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [1310. 子数组异或查询](https://leetcode.cn/problems/xor-queries-of-a-subarray)
 
 [English Version](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README_EN.md)
 
-<!-- tags:位运算,数组,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个正整数数组 <code>arr</code>，现给你一个对应的查询数组 <code>queries</code>，其中 <code>queries[i] = [L<sub>i, </sub>R<sub>i</sub>]</code>。</p>
 
@@ -53,7 +65,11 @@
 	<li><code>0 <= queries[i][0] <= queries[i][1] < arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀异或
 
@@ -72,12 +88,16 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
         s = list(accumulate(arr, xor, initial=0))
         return [s[r + 1] ^ s[l] for l, r in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +117,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func xorQueries(arr []int, queries [][]int) (ans []int) {
 	n := len(arr)
@@ -133,6 +157,8 @@ func xorQueries(arr []int, queries [][]int) (ans []int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function xorQueries(arr: number[], queries: number[][]): number[] {
     const n = arr.length;
@@ -147,6 +173,8 @@ function xorQueries(arr: number[], queries: number[][]): number[] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -170,4 +198,6 @@ var xorQueries = function (arr, queries) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

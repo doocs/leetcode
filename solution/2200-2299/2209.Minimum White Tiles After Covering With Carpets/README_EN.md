@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README_EN.md
+rating: 2105
+source: Biweekly Contest 74 Q4
+tags:
+    - String
+    - Dynamic Programming
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [2209. Minimum White Tiles After Covering With Carpets](https://leetcode.com/problems/minimum-white-tiles-after-covering-with-carpets)
 
 [中文文档](/solution/2200-2299/2209.Minimum%20White%20Tiles%20After%20Covering%20With%20Carpets/README.md)
 
-<!-- tags:String,Dynamic Programming,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed binary</strong> string <code>floor</code>, which represents the colors of tiles on a floor:</p>
 
@@ -47,11 +61,30 @@ Note that the carpets are able to overlap one another.
 	<li><code>1 &lt;= numCarpets &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Memoization Search
+
+Design a function $dfs(i, j)$ to represent the minimum number of white bricks that are not covered starting from index $i$ using $j$ carpets. The answer is $dfs(0, numCarpets)$.
+
+For index $i$, we discuss different cases:
+
+-   If $i \ge n$, it means that all bricks have been covered, return $0$;
+-   If $floor[i] = 0$, there is no need to use a carpet, just skip it, that is, $dfs(i, j) = dfs(i + 1, j)$;
+-   If $j = 0$, we can directly calculate the number of remaining white bricks that have not been covered using the prefix sum array $s$, that is, $dfs(i, j) = s[n] - s[i]$;
+-   If $floor[i] = 1$, we can choose to use a carpet to cover it, or choose not to use a carpet to cover it, and take the minimum of the two, that is, $dfs(i, j) = min(dfs(i + 1, j), dfs(i + carpetLen, j - 1))$.
+
+Use memoization search.
+
+The time complexity is $O(n\times m)$, and the space complexity is $O(n\times m)$. Where $n$ and $m$ are the lengths of the string $floor$ and the value of $numCarpets$ respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +107,8 @@ class Solution:
         dfs.cache_clear()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +177,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
@@ -179,4 +218,6 @@ func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

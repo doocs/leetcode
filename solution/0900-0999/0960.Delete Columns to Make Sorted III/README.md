@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md
+tags:
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [960. 删列造序 III](https://leetcode.cn/problems/delete-columns-to-make-sorted-iii)
 
 [English Version](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md)
 
-<!-- tags:数组,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定由<meta charset="UTF-8" />&nbsp;<code>n</code>&nbsp;个小写字母字符串组成的数组<meta charset="UTF-8" />&nbsp;<code>strs</code>&nbsp;，其中每个字符串长度相等。</p>
 
@@ -59,11 +69,17 @@
 	<li><code>strs[i]</code>&nbsp;由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +92,8 @@ class Solution:
                     dp[i] = max(dp[i], dp[j] + 1)
         return n - max(dp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -132,6 +152,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDeletionSize(strs []string) int {
@@ -162,4 +184,6 @@ func minDeletionSize(strs []string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

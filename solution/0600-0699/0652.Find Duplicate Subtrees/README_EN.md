@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Hash Table
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [652. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees)
 
 [中文文档](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README.md)
 
-<!-- tags:Tree,Depth-First Search,Hash Table,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code>&nbsp;of a binary tree, return all <strong>duplicate subtrees</strong>.</p>
 
@@ -42,11 +55,17 @@
 	<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -73,6 +92,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -115,6 +136,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -147,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -175,6 +200,8 @@ func findDuplicateSubtrees(root *TreeNode) []*TreeNode {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -211,6 +238,8 @@ function findDuplicateSubtrees(root: TreeNode | null): Array<TreeNode | null> {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -230,14 +259,14 @@ function findDuplicateSubtrees(root: TreeNode | null): Array<TreeNode | null> {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     fn dfs(
         root: &Option<Rc<RefCell<TreeNode>>>,
         map: &mut HashMap<String, i32>,
-        res: &mut Vec<Option<Rc<RefCell<TreeNode>>>>
+        res: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
     ) -> String {
         if root.is_none() {
             return String::from('#');
@@ -260,7 +289,7 @@ impl Solution {
     }
 
     pub fn find_duplicate_subtrees(
-        root: Option<Rc<RefCell<TreeNode>>>
+        root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         let mut map = HashMap::new();
         let mut res = Vec::new();
@@ -272,4 +301,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

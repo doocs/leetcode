@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README_EN.md
+rating: 1405
+source: Biweekly Contest 121 Q1
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [2996. Smallest Missing Integer Greater Than Sequential Prefix Sum](https://leetcode.com/problems/smallest-missing-integer-greater-than-sequential-prefix-sum)
 
 [中文文档](/solution/2900-2999/2996.Smallest%20Missing%20Integer%20Greater%20Than%20Sequential%20Prefix%20Sum/README.md)
 
-<!-- tags:Array,Hash Table,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code>.</p>
 
@@ -37,7 +51,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation + Hash Table
 
@@ -46,6 +64,8 @@ First, we calculate the longest prefix sum $s$ of the array $nums$. Then, starti
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +79,8 @@ class Solution:
             if x not in vis:
                 return x
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -79,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +125,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingInteger(nums []int) int {
 	s := nums[0]
@@ -119,6 +145,8 @@ func missingInteger(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function missingInteger(nums: number[]): number {
     let s = nums[0];
@@ -136,4 +164,6 @@ function missingInteger(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

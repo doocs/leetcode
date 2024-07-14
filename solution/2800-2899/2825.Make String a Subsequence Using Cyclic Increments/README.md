@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README.md
+rating: 1414
+source: 第 111 场双周赛 Q2
+tags:
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2825. 循环增长使字符串子序列等于另一个字符串](https://leetcode.cn/problems/make-string-a-subsequence-using-cyclic-increments)
 
 [English Version](/solution/2800-2899/2825.Make%20String%20a%20Subsequence%20Using%20Cyclic%20Increments/README_EN.md)
 
-<!-- tags:双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的字符串&nbsp;<code>str1</code> 和&nbsp;<code>str2</code>&nbsp;。</p>
 
@@ -55,7 +66,11 @@
 	<li><code>str1</code>&nbsp;和&nbsp;<code>str2</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -64,6 +79,8 @@
 时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是字符串 $str1$ 和 $str2$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +92,8 @@ class Solution:
                 i += 1
         return i == len(str2)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -107,6 +128,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func canMakeSubsequence(str1 string, str2 string) bool {
 	i, n := 0, len(str2)
@@ -122,6 +145,8 @@ func canMakeSubsequence(str1 string, str2 string) bool {
 	return i == n
 }
 ```
+
+#### TypeScript
 
 ```ts
 function canMakeSubsequence(str1: string, str2: string): boolean {
@@ -139,4 +164,6 @@ function canMakeSubsequence(str1: string, str2: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0639.Decode%20Ways%20II/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [639. 解码方法 II](https://leetcode.cn/problems/decode-ways-ii)
 
 [English Version](/solution/0600-0699/0639.Decode%20Ways%20II/README_EN.md)
 
-<!-- tags:字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一条包含字母&nbsp;<code>A-Z</code> 的消息通过以下的方式进行了 <strong>编码</strong> ：</p>
 
@@ -72,11 +81,17 @@
 	<li><code>s[i]</code> 是 <code>0 - 9</code> 中的一位数字或字符 <code>'*'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -119,6 +134,8 @@ class Solution:
 
         return c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -171,6 +188,8 @@ class Solution {
 }
 ```
 
+#### Go
+
 ```go
 const mod int = 1e9 + 7
 
@@ -218,4 +237,6 @@ func numDecodings(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

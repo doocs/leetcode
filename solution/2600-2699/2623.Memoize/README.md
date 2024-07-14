@@ -1,21 +1,27 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2623.Memoize/README.md
+---
+
+<!-- problem:start -->
+
 # [2623. 记忆函数](https://leetcode.cn/problems/memoize)
 
 [English Version](/solution/2600-2699/2623.Memoize/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>请你编写一个函数，它接收另一个函数作为输入，并返回该函数的 <strong>记忆化</strong> 后的结果。</p>
+<p>请你编写一个函数 <code>fn</code>，它接收另一个函数作为输入，并返回该函数的 <strong>记忆化</strong> 后的结果。</p>
 
 <p><strong>记忆函数</strong> 是一个对于相同的输入永远不会被调用两次的函数。相反，它将返回一个缓存值。</p>
 
 <p>你可以假设有 <strong>3</strong> 个可能的输入函数：<code>sum</code> 、<code>fib</code> 和 <code>factorial</code> 。</p>
 
 <ul>
-	<li>&nbsp;<code>sum</code> 接收两个整型参数 <code>a</code> 和 <code>b</code> ，并返回 <code>a + b</code> 。</li>
+	<li>&nbsp;<code>sum</code> 接收两个整型参数 <code>a</code> 和 <code>b</code> ，并返回 <code>a + b</code> 。假设如果参数 <code>(b, a)</code> 已经缓存了值，其中 <code>a != b</code>，它不能用于参数 <code>(a, b)</code>。例如，如果参数是 <code>(3, 2)</code> 和 <code>(2, 3)</code>，则应进行两个单独的调用。</li>
 	<li>&nbsp;<code>fib</code> 接收一个整型参数&nbsp;<code>n</code> ，如果 <code>n &lt;= 1</code> 则返回 <code>1</code>，否则返回 <code>fib (n - 1) + fib (n - 2)</code>。</li>
 	<li>&nbsp;<code>factorial</code> 接收一个整型参数 <code>n</code> ，如果 <code>n &lt;= 1</code> 则返回&nbsp;&nbsp;<code>1</code>&nbsp;，否则返回 <code>factorial(n - 1) * n</code> 。</li>
 </ul>
@@ -36,7 +42,7 @@ const memoizedSum = memoize(sum);
 memoizedSum (2, 2);// "call" - 返回 4。sum() 被调用，因为之前没有使用参数 (2, 2) 调用过。
 memoizedSum (2, 2);// "call" - 返回 4。没有调用 sum()，因为前面有相同的输入。
 // "getCallCount" - 总调用数： 1
-memoizedSum(1、2);// "call" - 返回 3。sum() 被调用，因为之前没有使用参数 (1, 2) 调用过。
+memoizedSum(1, 2);// "call" - 返回 3。sum() 被调用，因为之前没有使用参数 (1, 2) 调用过。
 // "getCallCount" - 总调用数： 2
 </pre>
 
@@ -70,7 +76,6 @@ values = [[5],[]]
 <strong>解释：
 </strong>fib(5) = 8 // "call"
 // "getCallCount" -&nbsp;总调用数：1
-
 </pre>
 
 <p>&nbsp;</p>
@@ -85,7 +90,11 @@ values = [[5],[]]
 	<li><code>fnName </code>为 "sum", "factorial" 和 "fib" 中的一个</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -94,6 +103,8 @@ values = [[5],[]]
 时间复杂度 $O(1)$，空间复杂度 $O(n)$。其中 $n$ 为函数的参数个数。
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 type Fn = (...params: any) => any;
@@ -125,4 +136,6 @@ function memoize(fn: Fn): Fn {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

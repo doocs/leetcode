@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [334. 递增的三元子序列](https://leetcode.cn/problems/increasing-triplet-subsequence)
 
 [English Version](/solution/0300-0399/0334.Increasing%20Triplet%20Subsequence/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> ，判断这个数组中是否存在长度为 <code>3</code> 的递增子序列。</p>
 
@@ -50,11 +59,17 @@
 
 <p><strong>进阶：</strong>你能实现时间复杂度为 <code>O(n)</code> ，空间复杂度为 <code>O(1)</code> 的解决方案吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +84,8 @@ class Solution:
                 mid = num
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +111,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func increasingTriplet(nums []int) bool {
 	min, mid := math.MaxInt32, math.MaxInt32
@@ -127,6 +148,8 @@ func increasingTriplet(nums []int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function increasingTriplet(nums: number[]): boolean {
@@ -146,6 +169,8 @@ function increasingTriplet(nums: number[]): boolean {
     return false;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -172,9 +197,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -197,4 +228,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2681.Power%20of%20Heroes/README_EN.md
+rating: 2060
+source: Biweekly Contest 104 Q4
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Prefix Sum
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [2681. Power of Heroes](https://leetcode.com/problems/power-of-heroes)
 
 [中文文档](/solution/2600-2699/2681.Power%20of%20Heroes/README.md)
 
-<!-- tags:Array,Math,Prefix Sum,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> representing the strength of some heroes. The<b> power</b> of a group of heroes is defined as follows:</p>
 
@@ -48,11 +64,33 @@ The sum of powers of all groups is 8 + 1 + 64 + 4 + 32 + 16 + 16 = 141.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Sorting + Mathematics
+
+We notice that the problem involves the maximum and minimum values of a subsequence, and the order of elements in the array does not affect the final result. Therefore, we can sort the array first.
+
+Next, we enumerate each element as the minimum value of the subsequence. Let's denote each element of the array as $a_1, a_2, \cdots, a_n$. The contribution of the subsequence with $a_i$ as the minimum value is:
+
+$$
+a_i \times (a_{i}^{2} + a_{i+1}^2 + 2 \times a_{i+2}^2 + 4 \times a_{i+3}^2 + \cdots + 2^{n-i-1} \times a_n^2)
+$$
+
+We notice that each $a_i$ will be multiplied by $a_i^2$, which we can directly add to the answer. For the remaining part, we can maintain it with a variable $p$, initially set to $0$.
+
+Then, we enumerate $a_i$ from right to left. Each time, we add $a_i \times p$ to the answer, and then set $p = p \times 2 + a_i^2$.
+
+After enumerating all $a_i$, return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +105,8 @@ class Solution:
             p = (p * 2 + x * x) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -85,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -102,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfPower(nums []int) (ans int) {
 	const mod = 1e9 + 7
@@ -116,6 +160,8 @@ func sumOfPower(nums []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumOfPower(nums: number[]): number {
@@ -135,4 +181,6 @@ function sumOfPower(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

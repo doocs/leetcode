@@ -1,10 +1,20 @@
-# [2988. Manager of the Largest Department](https://leetcode.com/problems/manager-of-the-largest-department)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2988. Manager of the Largest Department 🔒](https://leetcode.com/problems/manager-of-the-largest-department)
 
 [中文文档](/solution/2900-2999/2988.Manager%20of%20the%20Largest%20Department/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employees</code></p>
 
@@ -61,13 +71,19 @@ Output table is ordered by dep_id in ascending order.
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Grouping + Equi-Join + Subquery
 
 We can first count the number of employees in each department, denoted as table `T`. Then we join `T` with the `Employees` table, with the join condition being `T.dep_id = Employees.dep_id` and `Employees.position = 'Manager'`. This way, we can get the manager of each department. Finally, we filter out the department with the most employees.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -87,4 +103,6 @@ ORDER BY 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

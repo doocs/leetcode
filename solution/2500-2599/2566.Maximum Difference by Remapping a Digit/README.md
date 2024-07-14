@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README.md
+rating: 1396
+source: 第 98 场双周赛 Q1
+tags:
+    - 贪心
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2566. 替换一个数字后的最大差值](https://leetcode.cn/problems/maximum-difference-by-remapping-a-digit)
 
 [English Version](/solution/2500-2599/2566.Maximum%20Difference%20by%20Remapping%20a%20Digit/README_EN.md)
 
-<!-- tags:贪心,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>num</code>&nbsp;。你知道 Danny Mittal 会偷偷将 <code>0</code>&nbsp;到 <code>9</code>&nbsp;中的一个数字 <strong>替换</strong> 成另一个数字。</p>
 
@@ -52,7 +63,11 @@
 	<li><code>1 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -68,6 +83,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minMaxDifference(self, num: int) -> int:
@@ -78,6 +95,8 @@ class Solution:
                 return int(s.replace(c, '9')) - mi
         return num - mi
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -123,6 +144,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minMaxDifference(num int) int {
 	s := []byte(strconv.Itoa(num))
@@ -150,6 +173,8 @@ func minMaxDifference(num int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minMaxDifference(num: number): number {
     const s = num + '';
@@ -163,11 +188,16 @@ function minMaxDifference(num: number): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_max_difference(num: i32) -> i32 {
         let s = num.to_string();
-        let min = s.replace(char::from(s.as_bytes()[0]), "0").parse::<i32>().unwrap();
+        let min = s
+            .replace(char::from(s.as_bytes()[0]), "0")
+            .parse::<i32>()
+            .unwrap();
         for &c in s.as_bytes() {
             if c != b'9' {
                 return s.replace(c, "9").parse().unwrap() - min;
@@ -177,6 +207,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int getLen(int num) {
@@ -219,9 +251,15 @@ int minMaxDifference(int num) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -258,4 +296,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -6,10 +6,10 @@ class Solution {
             ++diff[l];
             --diff[r + 1];
         }
-        int cur = 0;
+        int s = 0;
         for (int i = 0; i < diff.length; ++i) {
-            cur += diff[i];
-            if (i >= left && i <= right && cur == 0) {
+            s += diff[i];
+            if (s <= 0 && left <= i && i <= right) {
                 return false;
             }
         }

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README.md
+rating: 2073
+source: 第 239 场周赛 Q3
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1850. 邻位交换的最小次数](https://leetcode.cn/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number)
 
 [English Version](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README_EN.md)
 
-<!-- tags:贪心,双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个表示大整数的字符串 <code>num</code> ，和一个整数 <code>k</code> 。</p>
 
@@ -69,7 +81,11 @@
 	<li><code>num</code> 仅由数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：求下一个排列 + 逆序对
 
@@ -98,6 +114,8 @@ $$
 时间复杂度 $O(n \times (k + n))$，空间复杂度 $O(n)$。其中 $n$ 是 $num$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -132,6 +150,8 @@ class Solution:
             idx[j] += 1
         return sum(arr[j] > arr[i] for i in range(n) for j in range(i))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -190,6 +210,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +242,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getMinSwaps(num string, k int) (ans int) {
@@ -271,6 +295,8 @@ func nextPermutation(nums []byte) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getMinSwaps(num: string, k: number): number {
     const n = num.length;
@@ -321,4 +347,6 @@ function nextPermutation(nums: string[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md
+rating: 1680
+source: 第 241 场周赛 Q3
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [1865. 找出和为指定值的下标对](https://leetcode.cn/problems/finding-pairs-with-a-certain-sum)
 
 [English Version](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md)
 
-<!-- tags:设计,数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>nums1</code> 和 <code>nums2</code> ，请你实现一个支持下述两类查询的数据结构：</p>
 
@@ -60,7 +72,11 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 	<li>最多调用 <code>add</code> 和 <code>count</code> 函数各 <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -73,6 +89,8 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 时间复杂度：对于 `add` 操作，时间复杂度为 $O(1)$，对于 `count` 操作，时间复杂度为 $O(n)$，其中 $n$ 为数组 `nums1` 的长度。空间复杂度 $O(m)$，其中 $m$ 为数组 `nums2` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class FindSumPairs:
@@ -96,6 +114,8 @@ class FindSumPairs:
 # obj.add(index,val)
 # param_2 = obj.count(tot)
 ```
+
+#### Java
 
 ```java
 class FindSumPairs {
@@ -134,6 +154,8 @@ class FindSumPairs {
  * int param_2 = obj.count(tot);
  */
 ```
+
+#### C++
 
 ```cpp
 class FindSumPairs {
@@ -175,6 +197,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type FindSumPairs struct {
 	nums1 []int
@@ -214,4 +238,6 @@ func (this *FindSumPairs) Count(tot int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

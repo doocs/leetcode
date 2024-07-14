@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README_EN.md
+tags:
+    - Bit Manipulation
+    - Tree
+    - Binary Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [222. Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes)
 
 [中文文档](/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README.md)
 
-<!-- tags:Bit Manipulation,Tree,Binary Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a <strong>complete</strong> binary tree, return the number of the nodes in the tree.</p>
 
@@ -43,7 +56,11 @@
 	<li>The tree is guaranteed to be <strong>complete</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -52,6 +69,8 @@ We recursively traverse the entire tree and count the number of nodes.
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -66,6 +85,8 @@ class Solution:
             return 0
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -93,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -116,6 +139,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -132,6 +157,8 @@ func countNodes(root *TreeNode) int {
 	return 1 + countNodes(root.Left) + countNodes(root.Right)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -154,10 +181,16 @@ impl Solution {
     }
 
     fn depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if let Some(node) = root { Self::depth(&node.borrow().left) + 1 } else { 0 }
+        if let Some(node) = root {
+            Self::depth(&node.borrow().left) + 1
+        } else {
+            0
+        }
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -179,6 +212,8 @@ var countNodes = function (root) {
     return 1 + countNodes(root.left) + countNodes(root.right);
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -206,6 +241,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Binary Search
 
 For this problem, we can also take advantage of the characteristics of a complete binary tree to design a faster algorithm.
@@ -222,6 +261,8 @@ We first count the heights of the left and right subtrees of $root$, denoted as 
 The time complexity is $O(\log^2 n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -246,6 +287,8 @@ class Solution:
             return (1 << left) + self.countNodes(root.right)
         return (1 << right) + self.countNodes(root.left)
 ```
+
+#### Java
 
 ```java
 /**
@@ -286,6 +329,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -322,6 +367,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -349,6 +396,8 @@ func depth(root *TreeNode) (d int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -382,6 +431,8 @@ var countNodes = function (root) {
     return (1 << right) + countNodes(root.left);
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -422,4 +473,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

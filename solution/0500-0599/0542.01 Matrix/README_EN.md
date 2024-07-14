@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0542.01%20Matrix/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [542. 01 Matrix](https://leetcode.com/problems/01-matrix)
 
 [中文文档](/solution/0500-0599/0542.01%20Matrix/README.md)
 
-<!-- tags:Breadth-First Search,Array,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, return <em>the distance of the nearest </em><code>0</code><em> for each cell</em>.</p>
 
@@ -37,11 +50,17 @@
 	<li>There is at least one <code>0</code> in <code>mat</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +83,8 @@ class Solution:
                     q.append((x, y))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +154,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func updateMatrix(mat [][]int) [][]int {
@@ -168,6 +193,8 @@ func updateMatrix(mat [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function updateMatrix(mat: number[][]): number[][] {
     const [m, n] = [mat.length, mat[0].length];
@@ -195,6 +222,8 @@ function updateMatrix(mat: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -227,9 +256,8 @@ impl Solution {
             for pair in &traverse_vec {
                 let cur_x = pair.0 + (x as i32);
                 let cur_y = pair.1 + (y as i32);
-                if
-                    Solution::check_bounds(cur_x, cur_y, n as i32, m as i32) &&
-                    ret_vec[cur_x as usize][cur_y as usize] == -1
+                if Solution::check_bounds(cur_x, cur_y, n as i32, m as i32)
+                    && ret_vec[cur_x as usize][cur_y as usize] == -1
                 {
                     // The current cell has not be updated yet, and is also in bound
                     ret_vec[cur_x as usize][cur_y as usize] = ret_vec[x][y] + 1;
@@ -250,4 +278,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1341.Movie%20Rating/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
 # [1341. Movie Rating](https://leetcode.com/problems/movie-rating)
 
 [中文文档](/solution/1300-1399/1341.Movie%20Rating/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Movies</code></p>
 
@@ -110,11 +120,17 @@ Daniel and Monica have rated 3 movies (&quot;Avengers&quot;, &quot;Frozen 2&quot
 Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is smaller lexicographically.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -142,4 +158,6 @@ UNION ALL
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

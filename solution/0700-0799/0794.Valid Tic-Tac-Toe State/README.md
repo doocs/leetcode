@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README.md
+tags:
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [794. 有效的井字游戏](https://leetcode.cn/problems/valid-tic-tac-toe-state)
 
 [English Version](/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README_EN.md)
 
-<!-- tags:数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>board</code> 表示井字游戏的棋盘。当且仅当在井字游戏过程中，棋盘有可能达到 <code>board</code> 所显示的状态时，才返回 <code>true</code> 。</p>
 
@@ -58,7 +67,11 @@
 	<li><code>board[i][j]</code> 为 <code>'X'</code>、<code>'O'</code> 或 <code>' '</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -72,6 +85,8 @@
 时间复杂度 $O(C)$，空间复杂度 $O(1)$。其中 $C$ 是棋盘上的格子数。本题中 $C = 9$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +109,8 @@ class Solution:
             return False
         return not (win('O') and x != o)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -140,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +184,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func validTicTacToe(board []string) bool {
@@ -201,6 +222,8 @@ func validTicTacToe(board []string) bool {
 	return !(win('O') && x != o)
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -244,4 +267,6 @@ var validTicTacToe = function (board) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

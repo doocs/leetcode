@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README.md
+rating: 1372
+source: 第 92 场双周赛 Q2
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2482. 行和列中一和零的差值](https://leetcode.cn/problems/difference-between-ones-and-zeros-in-row-and-column)
 
 [English Version](/solution/2400-2499/2482.Difference%20Between%20Ones%20and%20Zeros%20in%20Row%20and%20Column/README_EN.md)
 
-<!-- tags:数组,矩阵,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的&nbsp;<code>m x n</code>&nbsp;二进制矩阵&nbsp;<code>grid</code>&nbsp;。</p>
 
@@ -69,7 +81,11 @@
 	<li><code>grid[i][j]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;，要么是&nbsp;<code>1</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -78,6 +94,8 @@
 时间复杂度 $O(m \times n)$，忽略答案的空间消耗，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -95,6 +113,8 @@ class Solution:
                 diff[i][j] = r + c - (n - r) - (m - c)
         return diff
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +139,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -145,6 +167,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func onesMinusZeros(grid [][]int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -166,6 +190,8 @@ func onesMinusZeros(grid [][]int) [][]int {
 	return diff
 }
 ```
+
+#### TypeScript
 
 ```ts
 function onesMinusZeros(grid: number[][]): number[][] {
@@ -190,6 +216,8 @@ function onesMinusZeros(grid: number[][]): number[][] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -216,6 +244,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -251,4 +281,6 @@ int** onesMinusZeros(int** grid, int gridSize, int* gridColSize, int* returnSize
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

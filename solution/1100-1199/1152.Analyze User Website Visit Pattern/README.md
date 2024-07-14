@@ -1,12 +1,24 @@
-# [1152. 用户网站访问行为分析](https://leetcode.cn/problems/analyze-user-website-visit-pattern)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README.md
+rating: 1850
+source: 第 6 场双周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [1152. 用户网站访问行为分析 🔒](https://leetcode.cn/problems/analyze-user-website-visit-pattern)
 
 [English Version](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md)
 
-<!-- tags:数组,哈希表,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串数组&nbsp;<code>username</code>&nbsp;和&nbsp;<code>website</code>&nbsp;和一个整数数组&nbsp;<code>timestamp</code>&nbsp;。给定的数组长度相同，其中元组&nbsp;<code>[username[i], website[i], timestamp[i]]</code>&nbsp;表示用户&nbsp;<code>username[i]</code>&nbsp;在时间&nbsp;<code>timestamp[i]</code>&nbsp;访问了网站&nbsp;<code>website[i]</code>&nbsp;。</p>
 
@@ -65,7 +77,11 @@
 	<li>所有元组&nbsp;<code>[username[i]， timestamp[i]， website[i]</code>&nbsp;均<strong>&nbsp;不重复</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序
 
@@ -74,6 +90,8 @@
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^3)$。其中 $n$ 是 `username` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +117,8 @@ class Solution:
                 cnt[t] += 1
         return sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[0][0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -155,6 +175,8 @@ class Node {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -208,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func mostVisitedPattern(username []string, timestamp []int, website []string) []string {
 	d := map[string][]pair{}
@@ -252,4 +276,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

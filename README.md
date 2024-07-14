@@ -20,8 +20,7 @@
 
 ## 站点
 
--   GitHub Pages: https://doocs.github.io/leetcode
--   Gitee Pages: https://doocs.gitee.io/leetcode
+https://doocs.github.io/leetcode
 
 ## 算法全解
 

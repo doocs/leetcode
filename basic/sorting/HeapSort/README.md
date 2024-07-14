@@ -71,7 +71,7 @@ for (int i = n / 2; i > 0; --i) {
 
 <!-- tabs:start -->
 
-### **Python3**
+#### Python3
 
 ```python
 n, m = list(map(int, input().split(" ")))
@@ -110,7 +110,7 @@ for i in range(m):
 print(' '.join(list(map(str, res))))
 ```
 
-### **Java**
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -165,7 +165,7 @@ public class Main {
 }
 ```
 
-### **Rust**
+#### Rust
 
 ```rust
 use std::io;
@@ -207,19 +207,13 @@ fn sink(nums: &mut Vec<i32>, mut i: usize, n: usize) {
 fn main() -> io::Result<()> {
     let mut s = String::new();
     io::stdin().read_line(&mut s)?;
-    let s: Vec<usize> = s
-        .split(' ')
-        .map(|s| s.trim().parse().unwrap())
-        .collect();
+    let s: Vec<usize> = s.split(' ').map(|s| s.trim().parse().unwrap()).collect();
     // let n = s[0];
     let m = s[1];
 
     let mut nums = String::new();
     io::stdin().read_line(&mut nums)?;
-    let mut nums: Vec<i32> = nums
-        .split(' ')
-        .map(|s| s.trim().parse().unwrap())
-        .collect();
+    let mut nums: Vec<i32> = nums.split(' ').map(|s| s.trim().parse().unwrap()).collect();
 
     heap_sort(&mut nums);
     for num in nums.iter().take(m) {
@@ -230,7 +224,7 @@ fn main() -> io::Result<()> {
 }
 ```
 
-### **Go**
+#### Go
 
 ```go
 package main
@@ -286,11 +280,15 @@ func main() {
 }
 ```
 
-<!-- tabs:end -->## 解法
+<!-- tabs:end -->
+
+## 解法
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 n, m = list(map(int, input().split(" ")))
@@ -328,6 +326,8 @@ for i in range(m):
 
 print(' '.join(list(map(str, res))))
 ```
+
+#### Java
 
 ```java
 import java.util.Scanner;
@@ -382,6 +382,8 @@ public class Main {
 }
 ```
 
+#### Go
+
 ```go
 package main
 
@@ -436,6 +438,8 @@ func main() {
 }
 ```
 
+#### Rust
+
 ```rust
 use std::io;
 
@@ -476,19 +480,13 @@ fn sink(nums: &mut Vec<i32>, mut i: usize, n: usize) {
 fn main() -> io::Result<()> {
     let mut s = String::new();
     io::stdin().read_line(&mut s)?;
-    let s: Vec<usize> = s
-        .split(' ')
-        .map(|s| s.trim().parse().unwrap())
-        .collect();
+    let s: Vec<usize> = s.split(' ').map(|s| s.trim().parse().unwrap()).collect();
     // let n = s[0];
     let m = s[1];
 
     let mut nums = String::new();
     io::stdin().read_line(&mut nums)?;
-    let mut nums: Vec<i32> = nums
-        .split(' ')
-        .map(|s| s.trim().parse().unwrap())
-        .collect();
+    let mut nums: Vec<i32> = nums.split(' ').map(|s| s.trim().parse().unwrap()).collect();
 
     heap_sort(&mut nums);
     for num in nums.iter().take(m) {
@@ -500,5 +498,3 @@ fn main() -> io::Result<()> {
 ```
 
 <!-- tabs:end -->
-
-<!-- end -->

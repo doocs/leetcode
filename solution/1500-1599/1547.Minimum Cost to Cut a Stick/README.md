@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README.md
+rating: 2116
+source: 第 201 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1547. 切棍子的最小成本](https://leetcode.cn/problems/minimum-cost-to-cut-a-stick)
 
 [English Version](/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/README_EN.md)
 
-<!-- tags:数组,动态规划,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一根长度为 <code>n</code> 个单位的木棍，棍上从 <code>0</code> 到 <code>n</code> 标记了若干位置。例如，长度为 <strong>6</strong> 的棍子可以标记如下：</p>
 
@@ -53,7 +65,11 @@
 	<li><code>cuts</code> 数组中的所有整数都 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（区间 DP）
 
@@ -71,6 +87,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minCost(self, n: int, cuts: List[int]) -> int:
@@ -86,6 +104,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(n int, cuts []int) int {
 	cuts = append(cuts, []int{0, n}...)
@@ -158,6 +182,8 @@ func minCost(n int, cuts []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minCost(n: number, cuts: number[]): number {
     cuts.push(0);
@@ -179,9 +205,15 @@ function minCost(n: number, cuts: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -197,6 +229,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -223,6 +257,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -244,6 +280,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minCost(n int, cuts []int) int {
@@ -268,4 +306,6 @@ func minCost(n int, cuts []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

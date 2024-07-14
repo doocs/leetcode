@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 17.15. 最长单词](https://leetcode.cn/problems/longest-word-lcci)
 
 [English Version](/lcci/17.15.Longest%20Word/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>给定一组单词<code>words</code>，编写一个程序，找出其中的最长单词，且该单词由这组单词中的其他单词组合而成。若有多个长度相同的结果，返回其中字典序最小的一项，若没有符合要求的单词则返回空字符串。</p>
 <p><strong>示例：</strong></p>
 <pre><strong>输入：</strong> ["cat","banana","dog","nana","walk","walker","dogwalker"]
@@ -17,11 +26,17 @@
 <li><code>1 <= len(words[i]) <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + DFS
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -69,6 +84,8 @@ class Solution:
             trie.insert(w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -133,6 +150,8 @@ class Solution {
     }
 }
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -199,6 +218,70 @@ func longestWord(words []string) string {
 }
 ```
 
+#### Swift
+
+```swift
+class Trie {
+    var children = [Trie?](repeating: nil, count: 26)
+    var isEnd = false
+
+    func insert(_ word: String) {
+        var node = self
+        for ch in word {
+            let index = Int(ch.asciiValue! - Character("a").asciiValue!)
+            if node.children[index] == nil {
+                node.children[index] = Trie()
+            }
+            node = node.children[index]!
+        }
+        node.isEnd = true
+    }
+
+    func search(_ word: String) -> Bool {
+        var node = self
+        for ch in word {
+            let index = Int(ch.asciiValue! - Character("a").asciiValue!)
+            if node.children[index] == nil {
+                return false
+            }
+            node = node.children[index]!
+        }
+        return node.isEnd
+    }
+}
+
+class Solution {
+    func longestWord(_ words: [String]) -> String {
+        var words = words.sorted(by: { $0.count < $1.count || ($0.count == $1.count && $0 > $1) })
+        let trie = Trie()
+
+        var dfs: ((String) -> Bool)!
+        dfs = { w in
+            if w.isEmpty {
+                return true
+            }
+            for i in 1...w.count {
+                if trie.search(String(w.prefix(i))) && dfs(String(w.suffix(w.count - i))) {
+                    return true
+                }
+            }
+            return false
+        }
+
+        var ans = ""
+        for w in words {
+            if dfs(w) {
+                ans = w
+            }
+            trie.insert(w)
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

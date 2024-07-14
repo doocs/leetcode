@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.07.Rotate%20Matrix/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [01.07. Rotate Matrix](https://leetcode.cn/problems/rotate-matrix-lcci)
 
 [中文文档](/lcci/01.07.Rotate%20Matrix/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Given an image represented by an N x N matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?</p>
 
@@ -76,7 +86,11 @@ Rotate the matrix <strong>in place. </strong>It becomes:
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: In-place Rotation
 
@@ -87,6 +101,8 @@ We can first flip the matrix upside down, that is, swap $matrix[i][j]$ and $matr
 The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +115,8 @@ class Solution:
             for j in range(i):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -122,6 +140,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -141,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func rotate(matrix [][]int) {
 	n := len(matrix)
@@ -157,6 +179,8 @@ func rotate(matrix [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify matrix in-place instead.
@@ -172,6 +196,8 @@ function rotate(matrix: number[][]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -195,6 +221,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[][]} matrix
@@ -209,6 +237,8 @@ var rotate = function (matrix) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -232,6 +262,34 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func rotate(_ matrix: inout [[Int]]) {
+        let n = matrix.count
+
+        for i in 0..<(n >> 1) {
+            for j in 0..<n {
+                let t = matrix[i][j]
+                matrix[i][j] = matrix[n - i - 1][j]
+                matrix[n - i - 1][j] = t
+            }
+        }
+
+        for i in 0..<n {
+            for j in 0..<i {
+                let t = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = t
+            }
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

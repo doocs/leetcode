@@ -1,12 +1,23 @@
-# [1259. 不相交的握手](https://leetcode.cn/problems/handshakes-that-dont-cross)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README.md
+rating: 1951
+source: 第 13 场双周赛 Q4
+tags:
+    - 数学
+    - 动态规划
+---
+
+<!-- problem:start -->
+
+# [1259. 不相交的握手 🔒](https://leetcode.cn/problems/handshakes-that-dont-cross)
 
 [English Version](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README_EN.md)
 
-<!-- tags:数学,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>偶数</strong>&nbsp;个人站成一个圆，总人数为&nbsp;<code>num_people</code>&nbsp;。每个人与除自己外的一个人握手，所以总共会有&nbsp;<code>num_people / 2</code>&nbsp;次握手。</p>
 
@@ -54,7 +65,11 @@
 	<li><code>num_people % 2 == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：记忆化搜索
 
@@ -70,6 +85,8 @@
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为 $numPeople$ 的大小。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +105,8 @@ class Solution:
         mod = 10**9 + 7
         return dfs(numPeople)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +161,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfWays(numPeople int) int {
 	const mod int = 1e9 + 7
@@ -161,6 +184,8 @@ func numberOfWays(numPeople int) int {
 	return dfs(numPeople)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfWays(numPeople: number): number {
@@ -186,4 +211,6 @@ function numberOfWays(numPeople: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

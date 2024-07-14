@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README.md
+rating: 1221
+source: 第 218 场周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1678. 设计 Goal 解析器](https://leetcode.cn/problems/goal-parser-interpretation)
 
 [English Version](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个可以解释字符串 <code>command</code> 的 <strong>Goal 解析器</strong> 。<code>command</code> 由 <code>"G"</code>、<code>"()"</code> 和/或 <code>"(al)"</code> 按某种顺序组成。Goal 解析器会将 <code>"G"</code> 解释为字符串 <code>"G"</code>、<code>"()"</code> 解释为字符串 <code>"o"</code> ，<code>"(al)"</code> 解释为字符串 <code>"al"</code> 。然后，按原顺序将经解释得到的字符串连接成一个字符串。</p>
 
@@ -46,7 +56,11 @@ G -&gt; G
 	<li><code>command</code> 由 <code>"G"</code>、<code>"()"</code> 和/或 <code>"(al)"</code> 按某种顺序组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符串替换
 
@@ -56,11 +70,15 @@ G -&gt; G
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
         return command.replace('()', 'o').replace('(al)', 'al')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -81,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func interpret(command string) string {
 	command = strings.ReplaceAll(command, "()", "o")
@@ -89,11 +111,15 @@ func interpret(command string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function interpret(command: string): string {
     return command.replace(/\(\)/g, 'o').replace(/\(al\)/g, 'al');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -102,6 +128,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 char* interpret(char* command) {
@@ -128,6 +156,10 @@ char* interpret(char* command) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：字符串遍历
 
 我们也可以遍历字符串 `command`，对于每个字符 $c$：
@@ -141,6 +173,8 @@ char* interpret(char* command) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def interpret(self, command: str) -> str:
@@ -152,6 +186,8 @@ class Solution:
                 ans.append('o' if command[i + 1] == ')' else 'al')
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -170,6 +206,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -186,6 +224,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func interpret(command string) string {
@@ -205,6 +245,8 @@ func interpret(command string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function interpret(command: string): string {
     const n = command.length;
@@ -221,6 +263,8 @@ function interpret(command: string): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn interpret(command: String) -> String {
@@ -232,7 +276,11 @@ impl Solution {
             }
             if bs[i] == b'(' {
                 ans.push_str({
-                    if bs[i + 1] == b')' { "o" } else { "al" }
+                    if bs[i + 1] == b')' {
+                        "o"
+                    } else {
+                        "al"
+                    }
                 });
             }
         }
@@ -243,4 +291,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

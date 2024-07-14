@@ -1,10 +1,20 @@
-# [2238. Number of Times a Driver Was a Passenger](https://leetcode.com/problems/number-of-times-a-driver-was-a-passenger)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2238. Number of Times a Driver Was a Passenger 🔒](https://leetcode.com/problems/number-of-times-a-driver-was-a-passenger)
 
 [中文文档](/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Rides</code></p>
 
@@ -58,11 +68,17 @@ The driver with ID = 7 was a passenger two times.
 The driver with ID = 11 was never a passenger.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -76,4 +92,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%20Problem/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [08.01. Three Steps Problem](https://leetcode.cn/problems/three-steps-problem-lcci)
 
 [中文文档](/lcci/08.01.Three%20Steps%20Problem/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3 steps at a time. Implement a method to count how many possible ways the child can run up the stairs.&nbsp;The result may be large, so return it modulo 1000000007.</p>
 
@@ -30,7 +40,11 @@
 
 1. `1 <= n <= 1000000`
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -44,6 +58,8 @@ The time complexity is $O(n)$, where $n$ is the given integer. The space complex
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToStep(self, n: int) -> int:
@@ -53,6 +69,8 @@ class Solution:
             a, b, c = b, c, (a + b + c) % mod
         return a
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +87,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func waysToStep(n int) int {
 	const mod int = 1e9 + 7
@@ -97,6 +119,8 @@ func waysToStep(n int) int {
 	return a
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -114,6 +138,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number} n
@@ -129,6 +155,8 @@ var waysToStep = function (n) {
 };
 ```
 
+#### C
+
 ```c
 int waysToStep(int n) {
     const int mod = 1e9 + 7;
@@ -143,7 +171,33 @@ int waysToStep(int n) {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func waysToStep(_ n: Int) -> Int {
+        let mod = Int(1e9) + 7
+        var a = 1, b = 2, c = 4
+        if n == 1 { return a }
+        if n == 2 { return b }
+        if n == 3 { return c }
+
+        for _ in 1..<n {
+            let t = a
+            a = b
+            b = c
+            c = ((a + b) % mod + t) % mod
+        }
+        return a
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
 
@@ -173,6 +227,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def waysToStep(self, n: int) -> int:
@@ -201,6 +257,30 @@ class Solution:
         a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
         return sum(pow(a, n - 4)[0]) % mod
 ```
+
+#### Python3
+
+```python
+import numpy as np
+
+
+class Solution:
+    def waysToStep(self, n: int) -> int:
+        if n < 4:
+            return 2 ** (n - 1)
+        mod = 10**9 + 7
+        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
+        res = np.mat([(4, 2, 1)], np.dtype("O"))
+        n -= 4
+        while n:
+            if n & 1:
+                res = res * factor % mod
+            factor = factor * factor % mod
+            n >>= 1
+        return res.sum() % mod
+```
+
+#### Java
 
 ```java
 class Solution {
@@ -245,6 +325,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -292,6 +374,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 const mod = 1e9 + 7
 
@@ -335,6 +419,8 @@ func pow(a [][]int, n int) [][]int {
 	return res
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -390,30 +476,6 @@ function pow(a, n) {
 
 <!-- tabs:end -->
 
-### Solution 3
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-import numpy as np
-
-
-class Solution:
-    def waysToStep(self, n: int) -> int:
-        if n < 4:
-            return 2 ** (n - 1)
-        mod = 10**9 + 7
-        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
-        res = np.mat([(4, 2, 1)], np.dtype("O"))
-        n -= 4
-        while n:
-            if n & 1:
-                res = res * factor % mod
-            factor = factor * factor % mod
-            n >>= 1
-        return res.sum() % mod
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

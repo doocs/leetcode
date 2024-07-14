@@ -1,50 +1,65 @@
-# [3064. Guess the Number Using Bitwise Questions I](https://leetcode.cn/problems/guess-the-number-using-bitwise-questions-i)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README.md
+tags:
+    - 位运算
+    - 交互
+---
+
+<!-- problem:start -->
+
+# [3064. 使用按位查询猜测数字 I 🔒](https://leetcode.cn/problems/guess-the-number-using-bitwise-questions-i)
 
 [English Version](/solution/3000-3099/3064.Guess%20the%20Number%20Using%20Bitwise%20Questions%20I/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>There is a number <code>n</code> that you have to find.</p>
+<p>你需要找到一个数字&nbsp;<code>n</code>。</p>
 
-<p>There is also a pre-defined API <code>int commonSetBits(int num)</code>, which returns the number of bits where both <code>n</code> and <code>num</code> are <code>1</code> in that position of their binary representation. In other words, it returns the number of <span data-keyword="set-bit">set bits</span> in <code>n &amp; num</code>, where <code>&amp;</code> is the bitwise <code>AND</code> operator.</p>
+<p>这里有一个预定义的 API&nbsp;<code>int commonSetBits(int num)</code>，它返回&nbsp;<code>n</code> 和 <code>num</code> 在二进制表示的同一位置上都是 1 的位数。换句话说，它返回&nbsp;<code>n &amp; num</code>&nbsp;的 <span data-keyword="set-bit">设置位</span> 数量，其中&nbsp;<code>&amp;</code>&nbsp;是按位&nbsp;<code>AND</code>&nbsp;运算符。</p>
 
-<p>Return <em>the number</em> <code>n</code>.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> n = 31 </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> 31 </span></p>
-
-<p><strong>Explanation: </strong> It can be proven that it&#39;s possible to find <code>31</code> using the provided API.</p>
-</div>
-
-<p><strong class="example">Example 2: </strong></p>
-
-<div class="example-block" style="border-color: var(--border-tertiary); border-left-width: 2px; color: var(--text-secondary); font-size: .875rem; margin-bottom: 1rem; margin-top: 1rem; overflow: visible; padding-left: 1rem;">
-<p><strong>Input: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> n = 33 </span></p>
-
-<p><strong>Output: </strong> <span class="example-io" style="font-family: Menlo,sans-serif; font-size: 0.85rem;"> 33 </span></p>
-
-<p><strong>Explanation: </strong> It can be proven that it&#39;s possible to find <code>33</code> using the provided API.</p>
-</div>
+<p>返回数字&nbsp;<code>n</code>。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 31
+
+<strong>输出：</strong>31
+
+<strong>解释：</strong>能够证明使用给定的 API 找到 31 是可能的。
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 33
+
+<strong>输出：</strong>33
+
+<strong>解释：</strong>能够证明使用给定的 API 找到 33 是可能的。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 2<sup>30</sup> - 1</code></li>
 	<li><code>0 &lt;= num &lt;= 2<sup>30</sup> - 1</code></li>
-	<li>If you ask for some <code>num</code> out of the given range, the output wouldn&#39;t be reliable.</li>
+	<li>如果你查询的&nbsp;<code>num</code>&nbsp;超出了给定的范围，输出就不可靠。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -53,6 +68,8 @@
 时间复杂度 $O(\log n)$，本题中 $n \le 2^{30}$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition of commonSetBits API.
@@ -63,6 +80,8 @@ class Solution:
     def findNumber(self) -> int:
         return sum(1 << i for i in range(32) if commonSetBits(1 << i))
 ```
+
+#### Java
 
 ```java
 /**
@@ -82,6 +101,8 @@ public class Solution extends Problem {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -103,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition of commonSetBits API.
@@ -118,6 +141,8 @@ func findNumber() (n int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -138,4 +163,6 @@ function findNumber(): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

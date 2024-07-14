@@ -1,12 +1,22 @@
-# [544. 输出比赛匹配对](https://leetcode.cn/problems/output-contest-matches)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0544.Output%20Contest%20Matches/README.md
+tags:
+    - 递归
+    - 字符串
+    - 模拟
+---
+
+<!-- problem:start -->
+
+# [544. 输出比赛匹配对 🔒](https://leetcode.cn/problems/output-contest-matches)
 
 [English Version](/solution/0500-0599/0544.Output%20Contest%20Matches/README_EN.md)
 
-<!-- tags:递归,字符串,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>&nbsp;</p>
 
@@ -51,7 +61,11 @@
 	<li><code>n == 2x</code>，并且 <code>x</code> 在范围 <code>[1,12]</code> 内。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -60,6 +74,8 @@
 每一轮，将第 i 支队伍变成 `"(" + team[i] + "," + team[n-1-i] + ")"`，并且每一轮淘汰一半的队伍。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +87,8 @@ class Solution:
             n >>= 1
         return team[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +124,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findContestMatch(n int) string {
@@ -123,4 +145,6 @@ func findContestMatch(n int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

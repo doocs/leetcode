@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1608.Special%20Array%20With%20X%20Elements%20Greater%20Than%20or%20Equal%20X/README.md
+rating: 1369
+source: 第 209 场周赛 Q1
+tags:
+    - 数组
+    - 二分查找
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1608. 特殊数组的特征值](https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x)
 
 [English Version](/solution/1600-1699/1608.Special%20Array%20With%20X%20Elements%20Greater%20Than%20or%20Equal%20X/README_EN.md)
 
-<!-- tags:数组,二分查找,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数数组 <code>nums</code> 。如果存在一个数 <code>x</code> ，使得 <code>nums</code> 中恰好有 <code>x</code> 个元素 <strong>大于或者等于</strong> <code>x</code> ，那么就称 <code>nums</code> 是一个 <strong>特殊数组</strong> ，而 <code>x</code> 是该数组的 <strong>特征值</strong> 。</p>
 
@@ -55,15 +67,21 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
-在 $[1..n]$ 范围内枚举 $x$，然后统计数组中大于等于 $x$ 的元素个数，记为 $cnt$。若存在 $cnt$ 与 $x$ 相等，直接返回 $x$。
+我们在 $[1..n]$ 范围内枚举 $x$，然后统计数组中大于等于 $x$ 的元素个数，记为 $cnt$。若存在 $cnt$ 与 $x$ 相等，直接返回 $x$。
 
-时间复杂度 $O(n^2)$。
+时间复杂度 $O(n^2)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +92,8 @@ class Solution:
                 return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -107,6 +129,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func specialArray(nums []int) int {
@@ -125,6 +149,8 @@ func specialArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function specialArray(nums: number[]): number {
     const n = nums.length;
@@ -136,6 +162,8 @@ function specialArray(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -159,15 +187,21 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：排序 + 二分查找
 
 我们也可以先对 `nums` 进行排序。
 
 接下来同样枚举 $x$，利用二分查找，找到 `nums` 中第一个大于等于 $x$ 的元素，快速统计出 `nums` 中大于等于 $x$ 的元素个数。
 
-时间复杂度 $O(n\log n)$。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -180,6 +214,8 @@ class Solution:
                 return x
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -206,6 +242,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -220,6 +258,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func specialArray(nums []int) int {
@@ -244,6 +284,8 @@ func specialArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function specialArray(nums: number[]): number {
     const n = nums.length;
@@ -266,6 +308,8 @@ function specialArray(nums: number[]): number {
     return -1;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cmp::Ordering;
@@ -301,4 +345,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

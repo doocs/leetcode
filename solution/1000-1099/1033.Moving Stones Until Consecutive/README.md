@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README.md
+rating: 1421
+source: 第 134 场周赛 Q1
+tags:
+    - 脑筋急转弯
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [1033. 移动石子直到连续](https://leetcode.cn/problems/moving-stones-until-consecutive)
 
 [English Version](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README_EN.md)
 
-<!-- tags:脑筋急转弯,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>三枚石子放置在数轴上，位置分别为 <code>a</code>，<code>b</code>，<code>c</code>。</p>
 
@@ -45,7 +56,11 @@
 	<li><code>a != b, b != c, c != a</code></li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分类讨论
 
@@ -61,6 +76,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numMovesStones(self, a: int, b: int, c: int) -> List[int]:
@@ -72,6 +89,8 @@ class Solution:
             mx = z - x - 2
         return [mi, mx]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +107,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numMovesStones(a int, b int, c int) []int {
 	x := min(a, min(b, c))
@@ -122,6 +145,8 @@ func numMovesStones(a int, b int, c int) []int {
 	return []int{mi, mx}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numMovesStones(a: number, b: number, c: number): number[] {
@@ -140,4 +165,6 @@ function numMovesStones(a: number, b: number, c: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

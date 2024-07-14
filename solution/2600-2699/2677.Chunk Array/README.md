@@ -1,14 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2677.Chunk%20Array/README.md
+---
+
+<!-- problem:start -->
+
 # [2677. 分块数组](https://leetcode.cn/problems/chunk-array)
 
 [English Version](/solution/2600-2699/2677.Chunk%20Array/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给定一个数组&nbsp;<code>arr</code>&nbsp;和一个块大小&nbsp;<code>size</code>&nbsp;，返回一个 <strong>分块</strong>&nbsp;的数组。<strong>分块</strong>&nbsp;的数组包含了&nbsp;<code>arr</code>&nbsp;中的原始元素，但是每个子数组的长度都是&nbsp;<code>size</code>&nbsp;。如果&nbsp;<code>arr.length</code>&nbsp;不能被&nbsp;<code>size</code>&nbsp;整除，那么最后一个子数组的长度可能小于&nbsp;<code>size</code>&nbsp;。</p>
+<p>给定一个数组&nbsp;<code>arr</code>&nbsp;和一个块大小&nbsp;<code>size</code>&nbsp;，返回一个 <strong>分块</strong>&nbsp;的数组。</p>
+
+<p><strong>分块</strong>&nbsp;的数组包含了&nbsp;<code>arr</code>&nbsp;中的原始元素，但是每个子数组的长度都是&nbsp;<code>size</code>&nbsp;。如果&nbsp;<code>arr.length</code>&nbsp;不能被&nbsp;<code>size</code>&nbsp;整除，那么最后一个子数组的长度可能小于&nbsp;<code>size</code>&nbsp;。</p>
 
 <p>你可以假设该数组是&nbsp;<code>JSON.parse</code>&nbsp;的输出结果。换句话说，它是有效的JSON。</p>
 
@@ -57,11 +65,17 @@
 	<li><code>1 &lt;= size &lt;= arr.length + 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### TypeScript
 
 ```ts
 function chunk(arr: any[], size: number): any[][] {
@@ -72,6 +86,8 @@ function chunk(arr: any[], size: number): any[][] {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -90,4 +106,6 @@ var chunk = function (arr, size) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

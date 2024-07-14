@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1061.Lexicographically%20Smallest%20Equivalent%20String/README_EN.md
+tags:
+    - Union Find
+    - String
+---
+
+<!-- problem:start -->
+
 # [1061. Lexicographically Smallest Equivalent String](https://leetcode.com/problems/lexicographically-smallest-equivalent-string)
 
 [中文文档](/solution/1000-1099/1061.Lexicographically%20Smallest%20Equivalent%20String/README.md)
 
-<!-- tags:Union Find,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings of the same length <code>s1</code> and <code>s2</code> and a string <code>baseStr</code>.</p>
 
@@ -63,11 +74,17 @@ So only the second letter &#39;o&#39; in baseStr is changed to &#39;d&#39;, the 
 	<li><code>s1</code>, <code>s2</code>, and <code>baseStr</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +110,8 @@ class Solution:
             res.append(chr(find(a) + ord('a')))
         return ''.join(res)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -161,6 +182,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var p []int
@@ -197,4 +220,6 @@ func find(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README.md
+rating: 2124
+source: 第 39 场双周赛 Q3
+tags:
+    - 广度优先搜索
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1654. 到家的最少跳跃次数](https://leetcode.cn/problems/minimum-jumps-to-reach-home)
 
 [English Version](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md)
 
-<!-- tags:广度优先搜索,数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一只跳蚤的家在数轴上的位置 <code>x</code> 处。请你帮助它从位置 <code>0</code> 出发，到达它的家。</p>
 
@@ -60,7 +72,11 @@
 	<li>位置 <code>x</code> 不在 <code>forbidden</code> 中。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
@@ -85,6 +101,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumJumps(self, forbidden: List[int], a: int, b: int, x: int) -> int:
@@ -107,6 +125,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -181,6 +203,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
@@ -217,6 +241,8 @@ func minimumJumps(forbidden []int, a int, b int, x int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumJumps(forbidden: number[], a: number, b: number, x: number): number {
     const s: Set<number> = new Set(forbidden);
@@ -248,4 +274,6 @@ function minimumJumps(forbidden: number[], a: number, b: number, x: number): num
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

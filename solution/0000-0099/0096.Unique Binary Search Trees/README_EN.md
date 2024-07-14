@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Math
+    - Dynamic Programming
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
 
 [中文文档](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README.md)
 
-<!-- tags:Tree,Binary Search Tree,Math,Dynamic Programming,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>the number of structurally unique <strong>BST&#39;</strong>s (binary search trees) which has exactly </em><code>n</code><em> nodes of unique values from</em> <code>1</code> <em>to</em> <code>n</code>.</p>
 
@@ -30,7 +44,11 @@
 	<li><code>1 &lt;= n &lt;= 19</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -44,6 +62,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numTrees(self, n: int) -> int:
@@ -53,6 +73,8 @@ class Solution:
                 f[i] += f[j] * f[i - j - 1]
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -85,6 +109,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numTrees(n int) int {
 	f := make([]int, n+1)
@@ -98,6 +124,8 @@ func numTrees(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numTrees(n: number): number {
     const f: number[] = Array(n + 1).fill(0);
@@ -110,6 +138,8 @@ function numTrees(n: number): number {
     return f[n];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -126,6 +156,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -144,4 +176,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

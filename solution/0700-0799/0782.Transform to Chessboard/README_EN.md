@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0782.Transform%20to%20Chessboard/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [782. Transform to Chessboard](https://leetcode.com/problems/transform-to-chessboard)
 
 [中文文档](/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md)
 
-<!-- tags:Bit Manipulation,Array,Math,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>n x n</code> binary grid <code>board</code>. In each move, you can swap any two rows with each other, or any two columns with each other.</p>
 
@@ -49,11 +62,17 @@ The second move swaps the second and third row.
 	<li><code>board[i][j]</code> is either&nbsp;<code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -98,6 +117,8 @@ class Solution:
         t2 = f(colMask, sameCol)
         return -1 if t1 == -1 or t2 == -1 else t1 + t2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -156,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +225,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func movesToChessboard(board [][]int) int {
@@ -271,4 +296,6 @@ func abs(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

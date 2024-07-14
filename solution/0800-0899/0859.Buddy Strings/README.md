@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0859.Buddy%20Strings/README.md
+tags:
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [859. 亲密字符串](https://leetcode.cn/problems/buddy-strings)
 
 [English Version](/solution/0800-0899/0859.Buddy%20Strings/README_EN.md)
 
-<!-- tags:哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串 <code>s</code> 和 <code>goal</code> ，只要我们可以通过交换 <code>s</code> 中的两个字母得到与 <code>goal</code> 相等的结果，就返回&nbsp;<code>true</code>&nbsp;；否则返回 <code>false</code> 。</p>
 
@@ -49,7 +58,11 @@
 	<li><code>s</code> 和 <code>goal</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：字符统计
 
@@ -68,6 +81,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def buddyStrings(self, s: str, goal: str) -> bool:
@@ -80,6 +95,8 @@ class Solution:
         diff = sum(s[i] != goal[i] for i in range(n))
         return diff == 2 or (diff == 0 and any(v > 1 for v in cnt1.values()))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -136,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func buddyStrings(s string, goal string) bool {
@@ -166,6 +187,8 @@ func buddyStrings(s string, goal string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function buddyStrings(s: string, goal: string): boolean {
     const m = s.length;
@@ -194,4 +217,6 @@ function buddyStrings(s: string, goal: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0220.Contains%20Duplicate%20III/README.md
+tags:
+    - 数组
+    - 桶排序
+    - 有序集合
+    - 排序
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [220. 存在重复元素 III](https://leetcode.cn/problems/contains-duplicate-iii)
 
 [English Version](/solution/0200-0299/0220.Contains%20Duplicate%20III/README_EN.md)
 
-<!-- tags:数组,桶排序,有序集合,排序,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 和两个整数 <code>indexDiff</code> 和 <code>valueDiff</code> 。</p>
 
@@ -53,7 +65,11 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 	<li><code>0 &lt;= valueDiff &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口 + 有序集合
 
@@ -64,6 +80,8 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 时间复杂度 $O(n \times \log k)$，其中 $n$ 是数组 `nums` 的长度。对于每个元素，我们需要 $O(\log k)$ 的时间来查找有序集合中的元素，一共有 $n$ 个元素，因此总时间复杂度是 $O(n \times \log k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -84,6 +102,8 @@ class Solution:
         return False
 ```
 
+#### Java
+
 ```java
 class Solution {
     public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
@@ -103,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -118,6 +140,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
@@ -142,6 +166,8 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	return false
 }
 ```
+
+#### TypeScript
 
 ```ts
 function containsNearbyAlmostDuplicate(
@@ -804,6 +830,8 @@ class TreeMultiSet<T = number> {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool ContainsNearbyAlmostDuplicate(int[] nums, int k, int t) {
@@ -832,4 +860,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

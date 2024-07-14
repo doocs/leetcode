@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md
+rating: 1504
+source: Weekly Contest 271 Q2
+tags:
+    - Stack
+    - Array
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [2104. Sum of Subarray Ranges](https://leetcode.com/problems/sum-of-subarray-ranges)
 
 [中文文档](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README.md)
 
-<!-- tags:Stack,Array,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code>. The <strong>range</strong> of a subarray of <code>nums</code> is the difference between the largest and smallest element in the subarray.</p>
 
@@ -61,11 +75,17 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Could you find a solution with <code>O(n)</code> time complexity?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +99,8 @@ class Solution:
                 ans += mx - mi
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +141,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func subArrayRanges(nums []int) int64 {
 	var ans int64
@@ -132,6 +158,8 @@ func subArrayRanges(nums []int) int64 {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function subArrayRanges(nums: number[]): number {
@@ -149,6 +177,8 @@ function subArrayRanges(nums: number[]): number {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,9 +201,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -202,6 +238,8 @@ class Solution:
         mi = f([-v for v in nums])
         return mx + mi
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -249,6 +287,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -283,6 +323,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func subArrayRanges(nums []int) int64 {
@@ -331,4 +373,6 @@ func subArrayRanges(nums []int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

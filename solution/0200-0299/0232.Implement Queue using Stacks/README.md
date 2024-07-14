@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md
+tags:
+    - 栈
+    - 设计
+    - 队列
+---
+
+<!-- problem:start -->
+
 # [232. 用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks)
 
 [English Version](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
 
-<!-- tags:栈,设计,队列 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你仅使用两个栈实现先入先出队列。队列应当支持一般队列支持的所有操作（<code>push</code>、<code>pop</code>、<code>peek</code>、<code>empty</code>）：</p>
 
@@ -67,7 +77,11 @@ myQueue.empty(); // return false
 	<li>你能否实现每个操作均摊时间复杂度为 <code>O(1)</code> 的队列？换句话说，执行 <code>n</code> 个操作的总时间复杂度为 <code>O(n)</code> ，即使其中一个操作可能花费较长时间。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双栈
 
@@ -82,6 +96,8 @@ myQueue.empty(); // return false
 判断队列是否为空时，只要判断两个栈是否都为空即可。时间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyQueue:
@@ -116,6 +132,8 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 ```
+
+#### Java
 
 ```java
 class MyQueue {
@@ -161,6 +179,8 @@ class MyQueue {
  * boolean param_4 = obj.empty();
  */
 ```
+
+#### C++
 
 ```cpp
 class MyQueue {
@@ -212,6 +232,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type MyQueue struct {
 	stk1 []int
@@ -261,6 +283,8 @@ func (this *MyQueue) move() {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class MyQueue {
     stk1: number[];
@@ -308,64 +332,54 @@ class MyQueue {
  */
 ```
 
+#### Rust
+
 ```rust
+use std::collections::VecDeque;
+
 struct MyQueue {
-    in_stack: Vec<i32>,
-    out_stack: Vec<i32>,
+    stk1: Vec<i32>,
+    stk2: Vec<i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MyQueue {
     fn new() -> Self {
-        Self {
-            in_stack: vec![],
-            out_stack: vec![],
+        MyQueue {
+            stk1: Vec::new(),
+            stk2: Vec::new(),
         }
     }
 
     fn push(&mut self, x: i32) {
-        self.in_stack.push(x);
+        self.stk1.push(x);
     }
 
     fn pop(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        self.out_stack.pop().unwrap()
+        self.move_elements();
+        self.stk2.pop().unwrap()
     }
 
     fn peek(&mut self) -> i32 {
-        if self.out_stack.is_empty() {
-            self.fill_out();
-        }
-        *self.out_stack.last().unwrap()
+        self.move_elements();
+        *self.stk2.last().unwrap()
     }
 
     fn empty(&self) -> bool {
-        self.in_stack.is_empty() && self.out_stack.is_empty()
+        self.stk1.is_empty() && self.stk2.is_empty()
     }
 
-    fn fill_out(&mut self) {
-        let MyQueue { in_stack, out_stack } = self;
-        if out_stack.is_empty() {
-            while !in_stack.is_empty() {
-                out_stack.push(in_stack.pop().unwrap());
+    fn move_elements(&mut self) {
+        if self.stk2.is_empty() {
+            while let Some(element) = self.stk1.pop() {
+                self.stk2.push(element);
             }
         }
     }
-}/**
- * Your MyQueue object will be instantiated and called as such:
- * let obj = MyQueue::new();
- * obj.push(x);
- * let ret_2: i32 = obj.pop();
- * let ret_3: i32 = obj.peek();
- * let ret_4: bool = obj.empty();
- */
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

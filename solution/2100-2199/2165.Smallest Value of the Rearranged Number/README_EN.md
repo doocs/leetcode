@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README_EN.md
+rating: 1361
+source: Weekly Contest 279 Q2
+tags:
+    - Math
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [2165. Smallest Value of the Rearranged Number](https://leetcode.com/problems/smallest-value-of-the-rearranged-number)
 
 [中文文档](/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README.md)
 
-<!-- tags:Math,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>num.</code> <strong>Rearrange</strong> the digits of <code>num</code> such that its value is <strong>minimized</strong> and it does not contain <strong>any</strong> leading zeros.</p>
 
@@ -38,11 +51,17 @@ The arrangement with the smallest value that does not contain any leading zeros 
 	<li><code>-10<sup>15</sup> &lt;= num &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +91,8 @@ class Solution:
                 ans += str(i) * cnt[i]
         return int(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +135,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -147,6 +170,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestNumber(num int64) int64 {
@@ -191,4 +216,6 @@ func smallestNumber(num int64) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

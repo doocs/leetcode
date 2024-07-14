@@ -5,7 +5,9 @@ public:
         for (auto& s : queries) {
             for (auto& t : dictionary) {
                 int cnt = 0;
-                for (int i = 0; i < s.size(); ++i) cnt += s[i] != t[i];
+                for (int i = 0; i < s.size(); ++i) {
+                    cnt += s[i] != t[i];
+                }
                 if (cnt < 3) {
                     ans.emplace_back(s);
                     break;

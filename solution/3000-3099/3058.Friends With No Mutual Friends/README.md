@@ -1,14 +1,22 @@
-# [3058. Friends With No Mutual Friends](https://leetcode.cn/problems/friends-with-no-mutual-friends)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [3058. 没有共同朋友的朋友 🔒](https://leetcode.cn/problems/friends-with-no-mutual-friends)
 
 [English Version](/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>Table: <code>Friends</code></p>
+<p>表：<code>Friends</code></p>
 
 <pre>
 +-------------+------+
@@ -17,22 +25,23 @@
 | user_id1    | int  |
 | user_id2    | int  |
 +-------------+------+
-(user_id1, user_id2) is the primary key (combination of columns with unique values) for this table.
-Each row contains user id1, user id2, both of whom are friends with each other.
+(user_id1, user_id2) 是这张表的主键（有不同值的列组合）。
+每一行包含 user id1, user id2，两人都是朋友。
 </pre>
 
-<p>Write a solution to find <strong>all</strong> <strong>pairs</strong> of users who are friends with each other and have <strong>no mutual</strong> friends.</p>
+<p>编写一个解决方案来找到彼此是朋友但 <strong>没有共同 </strong>朋友的 <strong>所有用户对</strong>。</p>
 
-<p>Return <em>the result table ordered by </em><code>user_id1,</code> <code>user_id2</code><em> in <strong>ascending</strong></em><em><strong> </strong>order.</em></p>
+<p>以&nbsp;<code>user_id1,</code> <code>user_id2</code><em>&nbsp;<strong>升序</strong> </em>返回结果表。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Friends table:
+<strong>输入：</strong>
+Friends 表：
 +----------+----------+
 | user_id1 | user_id2 | 
 +----------+----------+
@@ -45,30 +54,36 @@ Friends table:
 | 2        | 5        | 
 | 8        | 9        | 
 +----------+----------+
-<strong>Output:</strong> 
+<strong>输出：</strong>
 +----------+----------+
 | user_id1 | user_id2 | 
 +----------+----------+
 | 6        | 7        | 
 | 8        | 9        | 
 +----------+----------+
-<strong>Explanation:</strong> 
-- Users 1 and 2 are friends with each other, but they share a mutual friend with user ID 5, so this pair is not included.
-- Users 2 and 3 are friends, they both share a mutual friend with user ID 4, resulting in exclusion, similarly for users 2 and 4 who share a mutual friend with user ID 3, hence not included.
-- Users 1 and 5 are friends with each other, but they share a mutual friend with user ID 2, so this pair is not included.
-- Users 6 and 7, as well as users 8 and 9, are friends with each other, and they don&#39;t have any mutual friends, hence included.
-- Users 3 and 4 are friends with each other, but their mutual connection with user ID 2 means they are not included, similarly for users 2 and 5 are friends but are excluded due to their mutual connection with user ID 1.
-Output table is ordered by user_id1 in ascending order.</pre>
+<strong>解释：</strong> 
+- 用户 1 和 2 是彼此的好友，但他们有一个用户 ID 为 5 的共同好友，因此结果不包含这一对。
+- 用户 2 和 3 是朋友，他们有一个用户 ID 为 4 的共同好友，因此排除，类似地，对于具有用户 ID 为 3 的共同朋友的用户 2 和 4，也因此不包括在内。
+- 用户 1 和 5 是彼此的好友，但他们有一个用户 ID 为 2 的共同好友，所以结果不包含这一对。
+- 用户 6 和 7，与用户 8 和 9 一样，是彼此的好友，同时他们没有共同的好友，因此包含在结果中。
+- 用户 3 和 4 是彼此的朋友，但他们有用户 ID 为 2 的共同好友，与用户 2 和 5 有用户 ID 为 1 的共同好友一样，因此被排除。
+输出表以 user_id1 升序排列。</pre>
+
+<!-- description:end -->
 
 ## 解法
 
+<!-- solution:start -->
+
 ### 方法一：子查询
 
-我们先把所有的朋友关系都列出来，记录在 `T` 表中。然后再找出没有共同朋友的朋友对。
+我们先把所有的朋友关系都列出来，记录在 `T` 表中。然后再找出 没有共同朋友的朋友 🔒 对。
 
-接下来，我们可以使用子查询来找出没有共同朋友的朋友对，即这个朋友对不属于其他某个人的朋友。
+接下来，我们可以使用子查询来找出没有共同朋友的朋友 🔒 对，即这个朋友对不属于其他某个人的朋友。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -89,6 +104,8 @@ WHERE
     )
 ORDER BY 1, 2;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -118,4 +135,6 @@ def friends_with_no_mutual_friends(friends: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

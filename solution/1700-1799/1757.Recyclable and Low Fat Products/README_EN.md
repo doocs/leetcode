@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
 # [1757. Recyclable and Low Fat Products](https://leetcode.com/problems/recyclable-and-low-fat-products)
 
 [中文文档](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Products</code></p>
 
@@ -53,13 +63,19 @@ Products table:
 <strong>Explanation:</strong> Only products 1 and 3 are both low fat and recyclable.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Conditional Filtering
 
 We can directly filter the product IDs where `low_fats` is `Y` and `recyclable` is `Y`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -71,6 +87,8 @@ def find_products(products: pd.DataFrame) -> pd.DataFrame:
     return rs
 ```
 
+#### MySQL
+
 ```sql
 SELECT
     product_id
@@ -80,4 +98,6 @@ WHERE low_fats = 'Y' AND recyclable = 'Y';
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

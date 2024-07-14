@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README_EN.md
+rating: 1360
+source: Weekly Contest 301 Q1
+tags:
+    - Greedy
+    - Array
+    - Sorting
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2335. Minimum Amount of Time to Fill Cups](https://leetcode.com/problems/minimum-amount-of-time-to-fill-cups)
 
 [中文文档](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README.md)
 
-<!-- tags:Greedy,Array,Sorting,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have a water dispenser that can dispense cold, warm, and hot water. Every second, you can either fill up <code>2</code> cups with <strong>different</strong> types of water, or <code>1</code> cup of any type of water.</p>
 
@@ -55,11 +70,17 @@ Second 7: Fill up a hot cup.
 	<li><code>0 &lt;= amount[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +93,8 @@ class Solution:
             amount[1] = max(0, amount[1] - 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -104,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fillCups(amount []int) int {
 	ans := 0
@@ -119,6 +146,8 @@ func fillCups(amount []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function fillCups(amount: number[]): number {
     amount.sort((a, b) => a - b);
@@ -128,6 +157,8 @@ function fillCups(amount: number[]): number {
     else return Math.floor((diff + 1) / 2) + c;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -144,9 +175,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -156,6 +193,8 @@ class Solution:
             return amount[2]
         return (sum(amount) + 1) // 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -168,6 +207,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -182,6 +223,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func fillCups(amount []int) int {
 	sort.Ints(amount)
@@ -194,4 +237,6 @@ func fillCups(amount []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

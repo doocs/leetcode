@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README.md
+rating: 1496
+source: 第 79 场双周赛 Q3
+tags:
+    - 贪心
+    - 图
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2285. 道路的最大总重要性](https://leetcode.cn/problems/maximum-total-importance-of-roads)
 
 [English Version](/solution/2200-2299/2285.Maximum%20Total%20Importance%20of%20Roads/README_EN.md)
 
-<!-- tags:贪心,图,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，表示一个国家里的城市数目。城市编号为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;。</p>
 
@@ -62,15 +75,21 @@
 	<li>没有重复道路。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 排序
 
-考虑每个城市对所有道路的总重要性的贡献度，按贡献度从小到大排序，为城市依次分配 $[1, 2, ..., n]$。
+我们考虑每个城市对所有道路的总重要性的贡献度，记录在数组 $\text{deg}$ 中。然后将 $\text{deg}$ 按贡献度从小到大排序，为城市依次分配 $[1, 2, ..., n]$。
 
-时间复杂度 $O(n \tiems \log n)$，其中 $n$ 表示城市数目。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +101,8 @@ class Solution:
         deg.sort()
         return sum(i * v for i, v in enumerate(deg, 1))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,28 +135,47 @@ public:
         }
         sort(deg.begin(), deg.end());
         long long ans = 0;
-        for (int i = 0; i < n; ++i) ans += 1ll * (i + 1) * deg[i];
+        for (int i = 0; i < n; ++i) {
+            ans += (i + 1LL) * deg[i];
+        }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
-func maximumImportance(n int, roads [][]int) int64 {
+func maximumImportance(n int, roads [][]int) (ans int64) {
 	deg := make([]int, n)
 	for _, r := range roads {
 		deg[r[0]]++
 		deg[r[1]]++
 	}
 	sort.Ints(deg)
-	var ans int64
-	for i := 0; i < n; i++ {
-		ans += int64((i + 1) * deg[i])
+	for i, x := range deg {
+		ans += int64(x) * int64(i+1)
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumImportance(n: number, roads: number[][]): number {
+    const deg: number[] = Array(n).fill(0);
+    for (const [a, b] of roads) {
+        ++deg[a];
+        ++deg[b];
+    }
+    deg.sort((a, b) => a - b);
+    return deg.reduce((acc, cur, idx) => acc + (idx + 1) * cur, 0);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

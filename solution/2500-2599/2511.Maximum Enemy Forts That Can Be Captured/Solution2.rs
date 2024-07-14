@@ -3,19 +3,12 @@ impl Solution {
         let mut ans = 0;
         let mut i = 0;
 
-        while
-            let Some((idx, &value)) = forts
+        while let Some((idx, &value)) = forts.iter().enumerate().skip(i).find(|&(_, &x)| x != 0) {
+            if let Some((jdx, _)) = forts
                 .iter()
                 .enumerate()
-                .skip(i)
+                .skip(idx + 1)
                 .find(|&(_, &x)| x != 0)
-        {
-            if
-                let Some((jdx, _)) = forts
-                    .iter()
-                    .enumerate()
-                    .skip(idx + 1)
-                    .find(|&(_, &x)| x != 0)
             {
                 if value + forts[jdx] == 0 {
                     ans = ans.max(jdx - idx - 1);

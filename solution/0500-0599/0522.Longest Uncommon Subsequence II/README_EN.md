@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - String
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [522. Longest Uncommon Subsequence II](https://leetcode.com/problems/longest-uncommon-subsequence-ii)
 
 [中文文档](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README.md)
 
-<!-- tags:Array,Hash Table,Two Pointers,String,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of strings <code>strs</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between them</em>. If the longest uncommon subsequence does not exist, return <code>-1</code>.</p>
 
@@ -33,124 +47,172 @@
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Subsequence Judgment
+
+We define a function $check(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
+
+To determine if string $s$ is unique, we only need to take string $s$ itself and compare it with other strings in the list. If there exists a string for which $s$ is a subsequence, then $s$ is not unique. Otherwise, string $s$ is unique. We take the longest string among all unique strings.
+
+The time complexity is $O(n^2 \times m)$, where $n$ is the length of the list of strings, and $m$ is the average length of the strings. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findLUSlength(self, strs: List[str]) -> int:
-        def check(a, b):
+        def check(s: str, t: str):
             i = j = 0
-            while i < len(a) and j < len(b):
-                if a[i] == b[j]:
-                    j += 1
-                i += 1
-            return j == len(b)
+            while i < len(s) and j < len(t):
+                if s[i] == t[j]:
+                    i += 1
+                j += 1
+            return i == len(s)
 
-        n = len(strs)
         ans = -1
-
-        for i in range(n):
-            j = 0
-            while j < n:
-                if i == j or not check(strs[j], strs[i]):
-                    j += 1
-                else:
+        for i, s in enumerate(strs):
+            for j, t in enumerate(strs):
+                if i != j and check(s, t):
                     break
-            if j == n:
-                ans = max(ans, len(strs[i]))
+            else:
+                ans = max(ans, len(s))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int findLUSlength(String[] strs) {
         int ans = -1;
-        for (int i = 0, j = 0, n = strs.length; i < n; ++i) {
+        int n = strs.length;
+        for (int i = 0, j; i < n; ++i) {
+            int x = strs[i].length();
             for (j = 0; j < n; ++j) {
-                if (i == j) {
-                    continue;
-                }
-                if (check(strs[j], strs[i])) {
+                if (i != j && check(strs[i], strs[j])) {
+                    x = -1;
                     break;
                 }
             }
-            if (j == n) {
-                ans = Math.max(ans, strs[i].length());
-            }
+            ans = Math.max(ans, x);
         }
         return ans;
     }
 
-    private boolean check(String a, String b) {
-        int j = 0;
-        for (int i = 0; i < a.length() && j < b.length(); ++i) {
-            if (a.charAt(i) == b.charAt(j)) {
-                ++j;
+    private boolean check(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i = 0;
+        for (int j = 0; i < m && j < n; ++j) {
+            if (s.charAt(i) == t.charAt(j)) {
+                ++i;
             }
         }
-        return j == b.length();
+        return i == m;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int findLUSlength(vector<string>& strs) {
         int ans = -1;
-        for (int i = 0, j = 0, n = strs.size(); i < n; ++i) {
-            for (j = 0; j < n; ++j) {
-                if (i == j) continue;
-                if (check(strs[j], strs[i])) break;
+        int n = strs.size();
+        auto check = [&](const string& s, const string& t) {
+            int m = s.size(), n = t.size();
+            int i = 0;
+            for (int j = 0; i < m && j < n; ++j) {
+                if (s[i] == t[j]) {
+                    ++i;
+                }
             }
-            if (j == n) ans = max(ans, (int) strs[i].size());
+            return i == m;
+        };
+        for (int i = 0, j; i < n; ++i) {
+            int x = strs[i].size();
+            for (j = 0; j < n; ++j) {
+                if (i != j && check(strs[i], strs[j])) {
+                    x = -1;
+                    break;
+                }
+            }
+            ans = max(ans, x);
         }
         return ans;
-    }
-
-    bool check(string a, string b) {
-        int j = 0;
-        for (int i = 0; i < a.size() && j < b.size(); ++i)
-            if (a[i] == b[j]) ++j;
-        return j == b.size();
     }
 };
 ```
 
+#### Go
+
 ```go
 func findLUSlength(strs []string) int {
-	check := func(a, b string) bool {
-		j := 0
-		for i := 0; i < len(a) && j < len(b); i++ {
-			if a[i] == b[j] {
-				j++
+	ans := -1
+	check := func(s, t string) bool {
+		m, n := len(s), len(t)
+		i := 0
+		for j := 0; i < m && j < n; j++ {
+			if s[i] == t[j] {
+				i++
 			}
 		}
-		return j == len(b)
+		return i == m
 	}
-
-	ans := -1
-	for i, j, n := 0, 0, len(strs); i < n; i++ {
-		for j = 0; j < n; j++ {
-			if i == j {
-				continue
-			}
-			if check(strs[j], strs[i]) {
+	for i, s := range strs {
+		x := len(s)
+		for j, t := range strs {
+			if i != j && check(s, t) {
+				x = -1
 				break
 			}
 		}
-		if j == n && ans < len(strs[i]) {
-			ans = len(strs[i])
-		}
+		ans = max(ans, x)
 	}
 	return ans
 }
 ```
 
+#### TypeScript
+
+```ts
+function findLUSlength(strs: string[]): number {
+    const n = strs.length;
+    let ans = -1;
+    const check = (s: string, t: string): boolean => {
+        const [m, n] = [s.length, t.length];
+        let i = 0;
+        for (let j = 0; i < m && j < n; ++j) {
+            if (s[i] === t[j]) {
+                ++i;
+            }
+        }
+        return i === m;
+    };
+    for (let i = 0; i < n; ++i) {
+        let x = strs[i].length;
+        for (let j = 0; j < n; ++j) {
+            if (i !== j && check(strs[i], strs[j])) {
+                x = -1;
+                break;
+            }
+        }
+        ans = Math.max(ans, x);
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

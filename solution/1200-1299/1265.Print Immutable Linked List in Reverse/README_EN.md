@@ -1,10 +1,23 @@
-# [1265. Print Immutable Linked List in Reverse](https://leetcode.com/problems/print-immutable-linked-list-in-reverse)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - Linked List
+    - Two Pointers
+---
+
+<!-- problem:start -->
+
+# [1265. Print Immutable Linked List in Reverse 🔒](https://leetcode.com/problems/print-immutable-linked-list-in-reverse)
 
 [中文文档](/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README.md)
 
-<!-- tags:Stack,Recursion,Linked List,Two Pointers -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an immutable linked list, print out all values of each node in reverse with the help of the following&nbsp;interface:</p>
 
@@ -65,7 +78,11 @@
 	<li>Linear time complexity and less than linear space complexity?</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -74,6 +91,8 @@ We can use recursion to implement reverse printing of a linked list. In the func
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -91,6 +110,8 @@ class Solution:
             self.printLinkedListInReverse(head.getNext())
             head.printValue()
 ```
+
+#### Java
 
 ```java
 /**
@@ -111,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -133,6 +156,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /*   Below is the interface for ImmutableListNode, which is already defined for you.
@@ -158,6 +183,8 @@ func printLinkedListInReverse(head ImmutableListNode) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * // This is the ImmutableListNode's API interface.
@@ -176,6 +203,8 @@ function printLinkedListInReverse(head: ImmutableListNode) {
     }
 }
 ```
+
+#### C#
 
 ```cs
 /**
@@ -199,4 +228,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

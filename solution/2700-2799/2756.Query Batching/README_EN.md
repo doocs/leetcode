@@ -1,10 +1,18 @@
-# [2756. Query Batching](https://leetcode.com/problems/query-batching)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2756.Query%20Batching/README_EN.md
+---
+
+<!-- problem:start -->
+
+# [2756. Query Batching 🔒](https://leetcode.com/problems/query-batching)
 
 [中文文档](/solution/2700-2799/2756.Query%20Batching/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Batching multiple small queries into a single large query can be a useful optimization. Write a class&nbsp;<code>QueryBatcher</code>&nbsp;that implements this functionality.</p>
 
@@ -122,6 +130,24 @@ queryMultiple([&#39;f&#39;]) is called at t=350ms, it is resolved at 450ms
 	<li>All keys are unique</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

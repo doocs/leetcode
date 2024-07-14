@@ -1,44 +1,43 @@
 class Solution {
-    private List<String> words;
-    private List<String> ans;
-    private Set<String> visited;
+    private List<String> ans = new ArrayList<>();
+    private List<String> wordList;
+    private String endWord;
+    private boolean[] vis;
 
     public List<String> findLadders(String beginWord, String endWord, List<String> wordList) {
-        words = wordList;
-        ans = new ArrayList<>();
-        visited = new HashSet<>();
-        List<String> t = new ArrayList<>();
-        t.add(beginWord);
-        dfs(beginWord, endWord, t);
-        return ans;
+        this.wordList = wordList;
+        this.endWord = endWord;
+        ans.add(beginWord);
+        vis = new boolean[wordList.size()];
+        return dfs(beginWord) ? ans : List.of();
     }
 
-    private void dfs(String begin, String end, List<String> t) {
-        if (!ans.isEmpty()) {
-            return;
+    private boolean dfs(String s) {
+        if (s.equals(endWord)) {
+            return true;
         }
-        if (Objects.equals(begin, end)) {
-            ans = new ArrayList<>(t);
-            return;
-        }
-        for (String word : words) {
-            if (visited.contains(word) || !check(begin, word)) {
+        for (int i = 0; i < wordList.size(); ++i) {
+            String t = wordList.get(i);
+            if (vis[i] || !check(s, t)) {
                 continue;
             }
-            t.add(word);
-            visited.add(word);
-            dfs(word, end, t);
-            t.remove(t.size() - 1);
+            vis[i] = true;
+            ans.add(t);
+            if (dfs(t)) {
+                return true;
+            }
+            ans.remove(ans.size() - 1);
         }
+        return false;
     }
 
-    private boolean check(String a, String b) {
-        if (a.length() != b.length()) {
+    private boolean check(String s, String t) {
+        if (s.length() != t.length()) {
             return false;
         }
         int cnt = 0;
-        for (int i = 0; i < a.length(); ++i) {
-            if (a.charAt(i) != b.charAt(i)) {
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) != t.charAt(i)) {
                 ++cnt;
             }
         }

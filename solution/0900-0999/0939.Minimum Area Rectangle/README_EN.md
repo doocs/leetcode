@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [939. Minimum Area Rectangle](https://leetcode.com/problems/minimum-area-rectangle)
 
 [中文文档](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README.md)
 
-<!-- tags:Geometry,Array,Hash Table,Math,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of points in the <strong>X-Y</strong> plane <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
@@ -35,11 +49,17 @@
 	<li>All the given points are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +80,8 @@ class Solution:
                     pos[(y1, y2)] = x
         return 0 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minAreaRect(points [][]int) int {
@@ -161,4 +187,6 @@ func minAreaRect(points [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

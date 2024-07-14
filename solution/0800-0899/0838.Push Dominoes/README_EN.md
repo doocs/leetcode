@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0838.Push%20Dominoes/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [838. Push Dominoes](https://leetcode.com/problems/push-dominoes)
 
 [中文文档](/solution/0800-0899/0838.Push%20Dominoes/README.md)
 
-<!-- tags:Two Pointers,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> dominoes in a line, and we place each domino vertically upright. In the beginning, we simultaneously push some of the dominoes either to the left or to the right.</p>
 
@@ -49,11 +61,17 @@
 	<li><code>dominoes[i]</code> is either <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, or <code>&#39;.&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +101,8 @@ class Solution:
                         force[j].append(f)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -166,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pushDominoes(dominoes string) string {
@@ -211,6 +235,8 @@ func pushDominoes(dominoes string) string {
 	return string(ans)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pushDominoes(dominoes: string): string {
@@ -258,4 +284,6 @@ function pushDominoes(dominoes: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

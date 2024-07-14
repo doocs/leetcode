@@ -11,27 +11,25 @@
  */
 class Solution {
 public:
-    TreeNode* u;
-    TreeNode* ans;
-    int d = 0;
-
     TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
-        this->u = u;
+        TreeNode* ans;
+        int d = 0;
+        function<void(TreeNode*, int)> dfs = [&](TreeNode* root, int i) {
+            if (!root || ans) {
+                return;
+            }
+            if (d == i) {
+                ans = root;
+                return;
+            }
+            if (root == u) {
+                d = i;
+                return;
+            }
+            dfs(root->left, i + 1);
+            dfs(root->right, i + 1);
+        };
         dfs(root, 1);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int i) {
-        if (!root || ans) return;
-        if (d == i) {
-            ans = root;
-            return;
-        }
-        if (root == u) {
-            d = i;
-            return;
-        }
-        dfs(root->left, i + 1);
-        dfs(root->right, i + 1);
     }
 };

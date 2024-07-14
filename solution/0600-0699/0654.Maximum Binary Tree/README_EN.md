@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0654.Maximum%20Binary%20Tree/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Array
+    - Divide and Conquer
+    - Binary Tree
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [654. Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree)
 
 [中文文档](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README.md)
 
-<!-- tags:Stack,Tree,Array,Divide and Conquer,Binary Tree,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>nums</code> with no duplicates. A <strong>maximum binary tree</strong> can be built recursively from <code>nums</code> using the following algorithm:</p>
 
@@ -50,11 +65,17 @@
 	<li>All integers in <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -77,6 +98,8 @@ class Solution:
 
         return dfs(nums)
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +143,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -154,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -184,6 +211,8 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -213,6 +242,8 @@ function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -232,8 +263,8 @@ function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn construct(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if start >= end {
@@ -247,15 +278,11 @@ impl Solution {
                 max_val = nums[i];
             }
         }
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: max_val,
-                    left: Self::construct(nums, start, idx),
-                    right: Self::construct(nums, idx + 1, end),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: max_val,
+            left: Self::construct(nums, start, idx),
+            right: Self::construct(nums, idx + 1, end),
+        })))
     }
 
     pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -263,6 +290,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 /**
@@ -300,9 +329,15 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -365,6 +400,8 @@ class SegmentTree:
     def pushup(self, u):
         self.tr[u].v = max(self.tr[u << 1].v, self.tr[u << 1 | 1].v)
 ```
+
+#### Java
 
 ```java
 /**
@@ -463,6 +500,8 @@ class SegmentTree {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -547,6 +586,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -634,9 +675,15 @@ func (t *segmentTree) pushup(u int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -659,6 +706,8 @@ class Solution:
             stk.append(node)
         return stk[0]
 ```
+
+#### Java
 
 ```java
 /**
@@ -695,6 +744,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -733,6 +784,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -763,4 +816,6 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

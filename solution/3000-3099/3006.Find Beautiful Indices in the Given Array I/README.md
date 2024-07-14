@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README.md
+rating: 1480
+source: 第 380 场周赛 Q2
+tags:
+    - 双指针
+    - 字符串
+    - 二分查找
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
+---
+
+<!-- problem:start -->
+
 # [3006. 找出数组中的美丽下标 I](https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-i)
 
 [English Version](/solution/3000-3099/3006.Find%20Beautiful%20Indices%20in%20the%20Given%20Array%20I/README_EN.md)
 
-<!-- tags:双指针,字符串,二分查找,字符串匹配,哈希函数,滚动哈希 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串 <code>s</code> 、字符串 <code>a</code> 、字符串 <code>b</code> 和一个整数 <code>k</code> 。</p>
 
@@ -59,11 +74,17 @@
 	<li><code>s</code>、<code>a</code>、和 <code>b</code> 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -116,6 +137,8 @@ class Solution:
             i += 1
         return res
 ```
+
+#### Java
 
 ```java
 public class Solution {
@@ -219,6 +242,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -286,6 +311,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func beautifulIndices(s string, a string, b string, k int) []int {
@@ -375,4 +402,6 @@ func beautifulIndices(s string, a string, b string, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

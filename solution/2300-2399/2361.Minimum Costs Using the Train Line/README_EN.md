@@ -1,10 +1,21 @@
-# [2361. Minimum Costs Using the Train Line](https://leetcode.com/problems/minimum-costs-using-the-train-line)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [2361. Minimum Costs Using the Train Line 🔒](https://leetcode.com/problems/minimum-costs-using-the-train-line)
 
 [中文文档](/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A train line going through a city has two routes, the regular route and the express route. Both routes go through the <strong>same</strong> <code>n + 1</code> stops labeled from <code>0</code> to <code>n</code>. Initially, you start on the regular route at stop <code>0</code>.</p>
 
@@ -61,7 +72,11 @@ Note that the expressCost is paid again to transfer back to the express route.
 	<li><code>1 &lt;= regular[i], express[i], expressCost &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -93,6 +108,8 @@ The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is t
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCosts(
@@ -108,6 +125,8 @@ class Solution:
             cost[i - 1] = min(f[i], g[i])
         return cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +147,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	n := len(regular)
@@ -167,6 +190,8 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	return cost
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
@@ -191,6 +216,8 @@ We notice that in the state transition equations of $f[i]$ and $g[i]$, we only n
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCosts(
@@ -206,6 +233,8 @@ class Solution:
             cost[i - 1] = min(f, g)
         return cost
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -227,6 +256,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -250,6 +281,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	f, g := 0, 1<<30
@@ -264,6 +297,8 @@ func minimumCosts(regular []int, express []int, expressCost int) []int64 {
 	return cost
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCosts(regular: number[], express: number[], expressCost: number): number[] {
@@ -284,4 +319,6 @@ function minimumCosts(regular: number[], express: number[], expressCost: number)
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

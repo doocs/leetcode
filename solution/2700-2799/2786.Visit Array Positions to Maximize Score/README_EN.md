@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md
+rating: 1732
+source: Biweekly Contest 109 Q3
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2786. Visit Array Positions to Maximize Score](https://leetcode.com/problems/visit-array-positions-to-maximize-score)
 
 [中文文档](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a positive integer <code>x</code>.</p>
 
@@ -48,11 +61,30 @@ The total score is: 2 + 4 + 6 + 8 = 20.
 	<li><code>1 &lt;= nums[i], x &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Dynamic Programming
+
+Based on the problem description, we can draw the following conclusions:
+
+1. Moving from position $i$ to position $j$, if $nums[i]$ and $nums[j]$ have different parities, then $x$ points will be lost;
+2. Moving from position $i$ to position $j$, if $nums[i]$ and $nums[j]$ have the same parity, then no points will be lost.
+
+Therefore, we can use an array $f$ of length $2$ to represent the maximum score when the current position's parity is $0$ and $1$. Initially, the values of $f$ are $-\infty$, and then we initialize $f[nums[0] \& 1] = nums[0]$, indicating the score at the initial position.
+
+Next, we start traversing the array $nums$ from position $1$. For each position $i$ corresponding to the value $v$, we update the value of $f[v \& 1]$ to be the larger value between $f[v \& 1]$ and $f[v \& 1 \oplus 1] - x$ plus $v$, i.e., $f[v \& 1] = \max(f[v \& 1], f[v \& 1 \oplus 1] - x) + v$.
+
+The answer is the larger value between $f[0]$ and $f[1]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,9 +92,11 @@ class Solution:
         f = [-inf] * 2
         f[nums[0] & 1] = nums[0]
         for v in nums[1:]:
-            f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
+            f[v & 1] = max(f[v & 1], f[v & 1 ^ 1] - x) + v
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -71,12 +105,15 @@ class Solution {
         Arrays.fill(f, -(1L << 60));
         f[nums[0] & 1] = nums[0];
         for (int i = 1; i < nums.length; ++i) {
-            f[nums[i] & 1] = Math.max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+            int v = nums[i];
+            f[v & 1] = Math.max(f[v & 1], f[v & 1 ^ 1] - x) + v;
         }
         return Math.max(f[0], f[1]);
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,12 +124,15 @@ public:
         f[nums[0] & 1] = nums[0];
         int n = nums.size();
         for (int i = 1; i < n; ++i) {
-            f[nums[i] & 1] = max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+            int v = nums[i];
+            f[v & 1] = max(f[v & 1], f[v & 1 ^ 1] - x) + v;
         }
         return max(f[0], f[1]);
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(nums []int, x int) int64 {
@@ -100,24 +140,28 @@ func maxScore(nums []int, x int) int64 {
 	f := [2]int{-inf, -inf}
 	f[nums[0]&1] = nums[0]
 	for _, v := range nums[1:] {
-		f[v&1] = max(f[v&1]+v, f[v&1^1]+v-x)
+		f[v&1] = max(f[v&1], f[v&1^1]-x) + v
 	}
 	return int64(max(f[0], f[1]))
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxScore(nums: number[], x: number): number {
-    const inf = 1 << 30;
-    const f: number[] = Array(2).fill(-inf);
+    const f: number[] = Array(2).fill(-Infinity);
     f[nums[0] & 1] = nums[0];
     for (let i = 1; i < nums.length; ++i) {
-        f[nums[i] & 1] = Math.max(f[nums[i] & 1] + nums[i], f[(nums[i] & 1) ^ 1] + nums[i] - x);
+        const v = nums[i];
+        f[v & 1] = Math.max(f[v & 1], f[(v & 1) ^ 1] - x) + v;
     }
-    return Math.max(f[0], f[1]);
+    return Math.max(...f);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

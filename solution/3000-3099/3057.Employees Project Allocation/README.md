@@ -1,14 +1,22 @@
-# [3057. Employees Project Allocation](https://leetcode.cn/problems/employees-project-allocation)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3057.Employees%20Project%20Allocation/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [3057. 员工项目分配 🔒](https://leetcode.cn/problems/employees-project-allocation)
 
 [English Version](/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>Table: <code>Project</code></p>
+<p>表：<code>Project</code></p>
 
 <pre>
 +-------------+---------+
@@ -18,12 +26,12 @@
 | employee_id | int     |
 | workload    | int     |
 +-------------+---------+
-employee_id is the primary key (column with unique values) of this table.
-employee_id is a foreign key (reference column) to <code>Employee</code> table.
-Each row of this table indicates that the employee with employee_id is working on the project with project_id and the workload of the project.
+employee_id 是这张表的主键（有不同值的列）。
+employee_id 是 Employee 表的外键（引用列）。
+这张表的每一行表示 employee_id 所指的员工正在 project_id 所指的项目上工作，以及项目的工作量。
 </pre>
 
-<p>Table: <code>Employees</code></p>
+<p>表：<code>Employees</code></p>
 
 <pre>
 +------------------+---------+
@@ -33,22 +41,23 @@ Each row of this table indicates that the employee with employee_id is working o
 | name             | varchar |
 | team             | varchar |
 +------------------+---------+
-employee_id is the primary key (column with unique values) of this table.
-Each row of this table contains information about one employee.
+employee_id 是这张表的主键（有不同值的列）。
+这张表的每一行包含一个员工的信息。
 </pre>
 
-<p>Write a solution to find the <strong>employees</strong> who are allocated to projects with a <strong>workload that exceeds the average</strong> workload of all employees for <strong>their respective teams</strong></p>
+<p>编写一个解决方案，找出分配给项目的工作量 <strong>超过各自团队</strong> 所有员工 <strong>平均工作量</strong> 的 <strong>员工</strong>。</p>
 
-<p>Return t<em>he result table ordered by</em> <code>employee_id</code>, <code>project_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>返回结果表，以&nbsp;<code>employee_id</code>，<code>project_id</code>&nbsp;<strong>升序</strong> 排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Project table:
+<strong>输入：</strong> 
+Project 表：
 +-------------+-------------+----------+
 | project_id  | employee_id | workload |
 +-------------+-------------+----------+
@@ -57,7 +66,7 @@ Project table:
 | 2           | 3           |  12      |
 | 2           | 4           |  68      |
 +-------------+-------------+----------+
-Employees table:
+Employees 表：
 +-------------+--------+------+
 | employee_id | name   | team |
 +-------------+--------+------+
@@ -66,22 +75,26 @@ Employees table:
 | 3           | John   | B    |
 | 4           | Doe    | A    |
 +-------------+--------+------+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +-------------+------------+---------------+------------------+
 | employee_id | project_id | employee_name | project_workload |
 +-------------+------------+---------------+------------------+  
 | 2           | 1          | Ali           | 90               | 
 | 4           | 2          | Doe           | 68               | 
 +-------------+------------+---------------+------------------+
-<strong>Explanation:</strong> 
-- Employee with ID 1 has a project workload of 45 and belongs to Team A, where the average workload is 56.50. Since his project workload does not exceed the team&#39;s average workload, he will be excluded.
-- Employee with ID 2 has a project workload of 90 and belongs to Team B, where the average workload is 51.00. Since his project workload does exceed the team&#39;s average workload, he will be included.
-- Employee with ID 3 has a project workload of 12 and belongs to Team B, where the average workload is 51.00. Since his project workload does not exceed the team&#39;s average workload, he will be excluded.
-- Employee with ID 4 has a project workload of 68 and belongs to Team A, where the average workload is 56.50. Since his project workload does exceed the team&#39;s average workload, he will be included.
-Result table orderd by employee_id, project_id in ascending order.
+<strong>解释：</strong> 
+- ID 为 1 的员工项目工作量为 45 并属于 Team A，其中平均工作量为 56.50。因为这个项目工作量没有超过小组的平均工作量，他将被排除。
+- ID 为 2 的员工项目工作量为 90 并属于 Team B，其中平均工作量为 51.00。因为这个项目工作量超过小组的平均工作量，他将包含在结果中。
+- ID 为 3 的员工项目工作量为 12 并属于 Team B，其中平均工作量为 51.00。因为这个项目工作量没有超过小组的平均工作量，他将被排除。
+- ID 为 4 的员工项目工作量为 68 并属于 Team A，其中平均工作量为 56.50。因为这个项目工作量超过小组的平均工作量，他将包含在结果中。
+结果表以 employee_id，project_id 升序排序。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计 + 等值连接
 
@@ -90,6 +103,8 @@ Result table orderd by employee_id, project_id in ascending order.
 然后，我们再次连接 `Project` 表和 `Employees` 表，同时连接 `T` 表，找出工作量大于团队平均工作量的员工，并且按照 `employee_id` 和 `project_id` 排序。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -114,6 +129,8 @@ WHERE workload > avg_workload
 ORDER BY 1, 2;
 ```
 
+#### Python3
+
 ```python
 import pandas as pd
 
@@ -134,4 +151,6 @@ def employees_with_above_avg_workload(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

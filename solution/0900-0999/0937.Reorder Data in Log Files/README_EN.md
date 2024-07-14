@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README_EN.md
+tags:
+    - Array
+    - String
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [937. Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files)
 
 [中文文档](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README.md)
 
-<!-- tags:Array,String,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of <code>logs</code>. Each log is a space-delimited string of words, where the first word is the <strong>identifier</strong>.</p>
 
@@ -53,11 +65,17 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 	<li><code>logs[i]</code> is guaranteed to have an identifier and at least one word after the identifier.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +86,8 @@ class Solution:
 
         return sorted(logs, key=cmp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### TypeScript
 
 ```ts
 function reorderLogFiles(logs: string[]): string[] {
@@ -118,18 +140,18 @@ function reorderLogFiles(logs: string[]): string[] {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn reorder_log_files(mut logs: Vec<String>) -> Vec<String> {
         logs.sort_by(|s1, s2| {
             let (start1, content1) = s1.split_once(' ').unwrap();
             let (start2, content2) = s2.split_once(' ').unwrap();
-            match
-                (
-                    content1.chars().nth(0).unwrap().is_digit(10),
-                    content2.chars().nth(0).unwrap().is_digit(10),
-                )
-            {
+            match (
+                content1.chars().nth(0).unwrap().is_digit(10),
+                content2.chars().nth(0).unwrap().is_digit(10),
+            ) {
                 (true, true) => std::cmp::Ordering::Equal,
                 (true, false) => std::cmp::Ordering::Greater,
                 (false, true) => std::cmp::Ordering::Less,
@@ -143,4 +165,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
-# [1810. 隐藏网格下的最小消耗路径](https://leetcode.cn/problems/minimum-path-cost-in-a-hidden-grid)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 交互
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
+# [1810. 隐藏网格下的最小消耗路径 🔒](https://leetcode.cn/problems/minimum-path-cost-in-a-hidden-grid)
 
 [English Version](/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,图,交互,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>这是一个交互问题。</p>
 
@@ -93,11 +105,17 @@
 	<li><code>0 <= grid[i][j] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS 建图 + 堆优化版 Dijkstra 算法
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # """
@@ -161,6 +179,8 @@ class Solution(object):
                     heappush(q, (dist[x][y], x, y))
         return 0
 ```
+
+#### Java
 
 ```java
 /**
@@ -233,4 +253,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

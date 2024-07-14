@@ -1,20 +1,21 @@
 function garbageCollection(garbage: string[], travel: number[]): number {
-    const n = garbage.length;
-    const m = travel.length;
+    const last: Map<string, number> = new Map();
     let ans = 0;
-    const last = new Array(26).fill(0);
-    for (let i = 0; i < n; ++i) {
-        ans += garbage[i].length;
-        for (const c of garbage[i]) {
-            last[c.charCodeAt(0) - 'A'.charCodeAt(0)] = i;
+    for (let i = 0; i < garbage.length; ++i) {
+        const s = garbage[i];
+        ans += s.length;
+        for (const c of s) {
+            last.set(c, i);
         }
     }
-    const s = new Array(m + 1).fill(0);
-    for (let i = 1; i <= m; ++i) {
-        s[i] = s[i - 1] + travel[i - 1];
-    }
-    for (const i of last) {
-        ans += s[i];
+    let ts = 0;
+    for (let i = 1; i <= travel.length; ++i) {
+        ts += travel[i - 1];
+        for (const [_, j] of last) {
+            if (i === j) {
+                ans += ts;
+            }
+        }
     }
     return ans;
 }

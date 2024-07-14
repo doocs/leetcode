@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.22.Langtons%20Ant/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.22. Langtons Ant](https://leetcode.cn/problems/langtons-ant-lcci)
 
 [中文文档](/lcci/16.22.Langtons%20Ant/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>An ant is sitting on an infinite grid of white and black squares. It initially faces right. All squares are white initially.</p>
 <p>At each step, it does the following:</p>
@@ -57,19 +67,25 @@
 	<li><code>K &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Simulation
 
-We use a hash table $black$ to record the positions of all black squares, and a hash table $dirs$ to record the four directions of the ant. We use variables $x, y$ to record the position of the ant, and variable $p$ to record the direction of the ant. We use variables $x1, y1, x2, y2$ to record the minimum horizontal coordinate, minimum vertical coordinate, maximum horizontal coordinate, and maximum vertical coordinate of all black squares.
+We use a hash table `black` to record the positions of all black squares, and a hash table `dirs` to record the four directions of the ant. We use variables $x$, $y$ to record the position of the ant, and variable $p$ to record the direction of the ant. We use variables $x_1$, $y_1$, $x_2$, $y_2$ to record the minimum x-coordinate, minimum y-coordinate, maximum x-coordinate, and maximum y-coordinate of all black squares, respectively.
 
-We simulate the ant's walking process. If the square where the ant is located is white, the ant turns right by $90$ degrees, paints the square black, and moves forward one unit. If the square where the ant is located is black, the ant turns left by $90$ degrees, paints the square white, and moves forward one unit. During the simulation, we continuously update the values of $x1, y1, x2, y2$ so that they can contain all the squares the ant has walked through.
+We simulate the walking process of the ant. If the square where the ant is located is white, then the ant turns right by $90$ degrees, paints the square black, and moves forward one unit. If the square where the ant is located is black, then the ant turns left by $90$ degrees, paints the square white, and moves forward one unit. During the simulation process, we continuously update the values of $x_1$, $y_1$, $x_2$, $y_2$ so that they can include all the squares that the ant has walked through.
 
-After the simulation is over, we construct the answer matrix $g$ based on the values of $x1, y1, x2, y2$. Then, we paint the direction of the ant on the square where the ant is located, paint all black squares with $X$, and finally return the answer matrix.
+After the simulation, we construct the answer matrix $g$ based on the values of $x_1$, $y_1$, $x_2$, $y_2$. Then, we paint the direction of the ant at the ant's position, and paint all black squares with $X$, and finally return the answer matrix.
 
-The time complexity is $O(K)$, and the space complexity is $O(K)$. Here, $K$ is the number of steps the ant walks.
+The time complexity is $O(K)$, and the space complexity is $O(K)$. Where $K$ is the number of steps the ant walks.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +116,8 @@ class Solution:
         g[x - x1][y - y1] = d[p]
         return ["".join(row) for row in g]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -145,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -180,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func printKMoves(K int) []string {
@@ -226,6 +248,54 @@ func printKMoves(K int) []string {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func printKMoves(_ K: Int) -> [String] {
+        var x1 = 0, y1 = 0, x2 = 0, y2 = 0
+        let dirs = [0, 1, 0, -1, 0]
+        let d = "RDLU"
+        var x = 0, y = 0, p = 0
+        var black = Set<[Int]>()
+        var K = K
+
+        while K > 0 {
+            let t = [x, y]
+            if black.insert(t).inserted {
+                p = (p + 1) % 4
+            } else {
+                black.remove(t)
+                p = (p + 3) % 4
+            }
+            x += dirs[p]
+            y += dirs[p + 1]
+            x1 = min(x1, x)
+            y1 = min(y1, y)
+            x2 = max(x2, x)
+            y2 = max(y2, y)
+            K -= 1
+        }
+
+        let m = x2 - x1 + 1
+        let n = y2 - y1 + 1
+        var g = Array(repeating: Array(repeating: "_", count: n), count: m)
+
+        for t in black {
+            let i = t[0] - x1
+            let j = t[1] - y1
+            g[i][j] = "X"
+        }
+
+        g[x - x1][y - y1] = String(d[d.index(d.startIndex, offsetBy: p)])
+
+        return g.map { $0.joined() }
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

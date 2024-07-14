@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md
+rating: 2422
+source: 第 256 场周赛 Q4
+tags:
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1987. 不同的好子序列数目](https://leetcode.cn/problems/number-of-unique-good-subsequences)
 
 [English Version](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md)
 
-<!-- tags:字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二进制字符串&nbsp;<code>binary</code>&nbsp;。&nbsp;<code>binary</code>&nbsp;的一个 <strong>子序列</strong>&nbsp;如果是 <strong>非空</strong>&nbsp;的且没有 <b>前导</b>&nbsp;<strong>0</strong>&nbsp;（除非数字是 <code>"0"</code>&nbsp;本身），那么它就是一个 <strong>好</strong>&nbsp;的子序列。</p>
 
@@ -54,7 +65,11 @@
 	<li><code>binary</code>&nbsp;只含有&nbsp;<code>'0'</code>&nbsp;和&nbsp;<code>'1'</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -75,6 +90,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfUniqueGoodSubsequences(self, binary: str) -> int:
@@ -90,6 +107,8 @@ class Solution:
         ans = (ans + f + g) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +129,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -132,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	const mod int = 1e9 + 7
@@ -148,6 +171,8 @@ func numberOfUniqueGoodSubsequences(binary string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numberOfUniqueGoodSubsequences(binary: string): number {
@@ -169,4 +194,6 @@ function numberOfUniqueGoodSubsequences(binary: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

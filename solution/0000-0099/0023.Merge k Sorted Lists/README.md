@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md
+tags:
+    - 链表
+    - 分治
+    - 堆（优先队列）
+    - 归并排序
+---
+
+<!-- problem:start -->
+
 # [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists)
 
 [English Version](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
 
-<!-- tags:链表,分治,堆（优先队列）,归并排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个链表数组，每个链表都已经按升序排列。</p>
 
@@ -53,7 +64,11 @@
 	<li><code>lists[i].length</code> 的总和不超过 <code>10^4</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（小根堆）
 
@@ -62,6 +77,8 @@
 时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 是所有链表节点数目的总和，而 $k$ 是题目给定的链表数目。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -83,6 +100,8 @@ class Solution:
             cur = cur.next
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -117,6 +136,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -155,6 +176,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -192,6 +215,8 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(*ListNode)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for singly-linked list.
@@ -225,6 +250,8 @@ function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     return dummy.next;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -275,6 +302,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -307,6 +336,8 @@ var mergeKLists = function (lists) {
     return dummy.next;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -343,13 +374,14 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 # Definition for singly-linked list.
 class ListNode {
     public $val;
     public $next;
-    public function __construct($val = 0, $next = null)
-    {
+    public function __construct($val = 0, $next = null) {
         $this->val = $val;
         $this->next = $next;
     }
@@ -403,4 +435,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

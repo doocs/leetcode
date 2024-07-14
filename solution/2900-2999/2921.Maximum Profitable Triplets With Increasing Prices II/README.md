@@ -1,12 +1,22 @@
-# [2921. 价格递增的最大利润三元组 II](https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-ii)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+---
+
+<!-- problem:start -->
+
+# [2921. 价格递增的最大利润三元组 II 🔒](https://leetcode.cn/problems/maximum-profitable-triplets-with-increasing-prices-ii)
 
 [English Version](/solution/2900-2999/2921.Maximum%20Profitable%20Triplets%20With%20Increasing%20Prices%20II/README_EN.md)
 
-<!-- tags:树状数组,线段树,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定长度为 <code>n</code>&nbsp; 的数组&nbsp;<code>prices</code>&nbsp;和&nbsp;<code>profits</code>&nbsp;（<strong>下标从 0 开始</strong>）。一个商店有&nbsp;<code>n</code>&nbsp;个商品，第&nbsp;<code>i</code>&nbsp;个商品的价格为&nbsp;<code>prices[i]</code>，利润为&nbsp;<code>profits[i]</code>。</p>
 
@@ -58,7 +68,11 @@
 	<li><code>1 &lt;= profits[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：树状数组
 
@@ -67,6 +81,8 @@
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $prices$ 的长度，而 $M$ 是数组 $prices$ 中的最大值，本题中 $M \le 5000$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -109,6 +125,8 @@ class Solution:
             (l + x + r for l, x, r in zip(left, profits, right) if l and r), default=-1
         )
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -169,6 +187,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 private:
@@ -227,6 +247,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -287,6 +309,8 @@ func maxProfit(prices []int, profits []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class BinaryIndexedTree {
     private n: number;
@@ -346,6 +370,8 @@ function maxProfit(prices: number[], profits: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 struct BinaryIndexedTree {
@@ -416,4 +442,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

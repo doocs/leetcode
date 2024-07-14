@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README_EN.md
+rating: 1502
+source: Weekly Contest 304 Q2
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [2358. Maximum Number of Groups Entering a Competition](https://leetcode.com/problems/maximum-number-of-groups-entering-a-competition)
 
 [中文文档](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README.md)
 
-<!-- tags:Greedy,Array,Math,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a positive integer array <code>grades</code> which represents the grades of students in a university. You would like to enter <strong>all</strong> these students into a competition in <strong>ordered</strong> non-empty groups, such that the ordering meets the following conditions:</p>
 
@@ -44,11 +59,17 @@ It can be shown that it is not possible to form more than 3 groups.
 	<li><code>1 &lt;= grades[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +77,8 @@ class Solution:
         n = len(grades)
         return bisect_right(range(n + 1), n * 2, key=lambda x: x * x + x) - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +97,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -94,6 +119,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximumGroups(grades []int) int {
 	n := len(grades)
@@ -103,6 +130,8 @@ func maximumGroups(grades []int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maximumGroups(grades: number[]): number {
@@ -123,4 +152,6 @@ function maximumGroups(grades: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

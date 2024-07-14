@@ -10,10 +10,8 @@ public:
     bool find(int value) {
         for (auto& [x, v] : cnt) {
             long y = (long) value - x;
-            if (cnt.count(y)) {
-                if (x != y || v > 1) {
-                    return true;
-                }
+            if (cnt.contains(y) && (x != y || v > 1)) {
+                return true;
             }
         }
         return false;

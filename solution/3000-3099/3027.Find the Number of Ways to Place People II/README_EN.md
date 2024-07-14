@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README_EN.md
+rating: 2020
+source: Biweekly Contest 123 Q4
+tags:
+    - Geometry
+    - Array
+    - Math
+    - Enumeration
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [3027. Find the Number of Ways to Place People II](https://leetcode.com/problems/find-the-number-of-ways-to-place-people-ii)
 
 [中文文档](/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/README.md)
 
-<!-- tags:Geometry,Array,Math,Enumeration,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D array <code>points</code> of size <code>n x 2</code> representing integer coordinates of some points on a 2D-plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
@@ -63,7 +79,11 @@ Note that it does not matter if the fence encloses any area, the first and secon
 	<li>All <code>points[i]</code> are distinct.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Sorting and Classification
 
@@ -78,6 +98,8 @@ The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def numberOfPairs(self, points: List[List[int]]) -> int:
@@ -91,6 +113,8 @@ class Solution:
                     ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -114,6 +138,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -140,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numberOfPairs(points [][]int) (ans int) {
 	sort.Slice(points, func(i, j int) bool {
@@ -160,6 +188,8 @@ func numberOfPairs(points [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numberOfPairs(points: number[][]): number {
     points.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
@@ -179,6 +209,8 @@ function numberOfPairs(points: number[][]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -205,4 +237,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

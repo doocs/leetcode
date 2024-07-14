@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README_EN.md
+rating: 2368
+source: Biweekly Contest 97 Q4
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [2556. Disconnect Path in a Binary Matrix by at Most One Flip](https://leetcode.com/problems/disconnect-path-in-a-binary-matrix-by-at-most-one-flip)
 
 [中文文档](/solution/2500-2599/2556.Disconnect%20Path%20in%20a%20Binary%20Matrix%20by%20at%20Most%20One%20Flip/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> <strong>binary</strong> matrix <code>grid</code>. You can move from a cell <code>(row, col)</code> to any of the cells <code>(row + 1, col)</code> or <code>(row, col + 1)</code> that has the value <code>1</code>.&nbsp;The matrix is <strong>disconnected</strong> if there is no path from <code>(0, 0)</code> to <code>(m - 1, n - 1)</code>.</p>
 
@@ -43,7 +59,11 @@
 	<li><code>grid[0][0] == grid[m - 1][n - 1] == 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Two DFS Traversals
 
@@ -56,6 +76,8 @@ Finally, if both $a$ and $b$ are `true`, we return `false`, otherwise, we return
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +96,8 @@ class Solution:
         b = dfs(0, 0)
         return not (a and b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isPossibleToCutPath(grid [][]int) bool {
 	m, n := len(grid), len(grid[0])
@@ -148,6 +176,8 @@ func isPossibleToCutPath(grid [][]int) bool {
 	return !(a && b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function isPossibleToCutPath(grid: number[][]): boolean {
@@ -174,4 +204,6 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md
+tags:
+    - Recursion
+    - Linked List
+---
+
+<!-- problem:start -->
+
 # [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
 
 [中文文档](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
 
-<!-- tags:Recursion,Linked List -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.</p>
 
@@ -43,7 +54,11 @@
 	<li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Recursion
 
@@ -55,6 +70,8 @@ First, we judge whether the linked lists $l_1$ and $l_2$ are empty. If one of th
 The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of the two linked lists respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -75,6 +92,8 @@ class Solution:
             list2.next = self.mergeTwoLists(list1, list2.next)
             return list2
 ```
+
+#### Java
 
 ```java
 /**
@@ -106,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -133,6 +154,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -157,6 +180,8 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -185,6 +210,8 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -205,7 +232,7 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 impl Solution {
     pub fn merge_two_lists(
         list1: Option<Box<ListNode>>,
-        list2: Option<Box<ListNode>>
+        list2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         match (list1, list2) {
             (None, None) => None,
@@ -224,6 +251,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -251,6 +280,8 @@ var mergeTwoLists = function (list1, list2) {
     }
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -288,6 +319,8 @@ public class Solution {
 }
 ```
 
+#### Ruby
+
 ```rb
 # Definition for singly-linked list.
 # class ListNode
@@ -320,6 +353,10 @@ end
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Iteration
 
 We can also use iteration to implement the merging of two sorted linked lists.
@@ -331,6 +368,8 @@ Finally, return $dummy.next$.
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two linked lists respectively. Ignoring the space consumption of the answer linked list, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -355,6 +394,8 @@ class Solution:
         curr.next = list1 or list2
         return dummy.next
 ```
+
+#### Java
 
 ```java
 /**
@@ -386,6 +427,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -419,6 +462,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -448,6 +493,8 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	return dummy.Next
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -480,6 +527,8 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -500,7 +549,7 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 impl Solution {
     pub fn merge_two_lists(
         mut list1: Option<Box<ListNode>>,
-        mut list2: Option<Box<ListNode>>
+        mut list2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         let mut new_list = ListNode::new(0);
         let mut cur = &mut new_list;
@@ -522,6 +571,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -553,6 +604,8 @@ var mergeTwoLists = function (list1, list2) {
     return dummy.next;
 };
 ```
+
+#### PHP
 
 ```php
 # Definition for singly-linked list.
@@ -599,4 +652,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

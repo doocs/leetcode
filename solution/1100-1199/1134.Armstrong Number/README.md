@@ -1,12 +1,22 @@
-# [1134. 阿姆斯特朗数](https://leetcode.cn/problems/armstrong-number)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1134.Armstrong%20Number/README.md
+rating: 1231
+source: 第 5 场双周赛 Q2
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
+# [1134. 阿姆斯特朗数 🔒](https://leetcode.cn/problems/armstrong-number)
 
 [English Version](/solution/1100-1199/1134.Armstrong%20Number/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code>&nbsp;，让你来判定他是否是<strong>&nbsp;</strong><strong>阿姆斯特朗数</strong>，是则返回 <code>true</code>，不是则返回 <code>false</code>。</p>
 
@@ -39,7 +49,11 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -48,6 +62,8 @@
 时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为给定的数字。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +75,8 @@ class Solution:
             x //= 10
         return s == n
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +90,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -87,6 +107,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func isArmstrong(n int) bool {
 	k := 0
@@ -101,6 +123,8 @@ func isArmstrong(n int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function isArmstrong(n: number): boolean {
     const k = String(n).length;
@@ -111,6 +135,8 @@ function isArmstrong(n: number): boolean {
     return s == n;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -129,4 +155,6 @@ var isArmstrong = function (n) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

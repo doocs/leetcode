@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md
+tags:
+    - Design
+    - Binary Search
+    - Ordered Set
+---
+
+<!-- problem:start -->
+
 # [352. Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals)
 
 [中文文档](/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README.md)
 
-<!-- tags:Design,Binary Search,Ordered Set -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a data stream input of non-negative integers <code>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></code>, summarize the numbers seen so far as a list of disjoint intervals.</p>
 
@@ -52,11 +64,17 @@ summaryRanges.getIntervals(); // return [[1, 3], [6, 7]]
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if there are lots of merges and the number of disjoint intervals is small compared to the size of the data stream?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedDict
@@ -96,6 +114,8 @@ class SummaryRanges:
 # # obj.addNum(val)
 # # param_2 = obj.getIntervals()
 ```
+
+#### Java
 
 ```java
 class SummaryRanges {
@@ -138,6 +158,8 @@ class SummaryRanges {
  */
 ```
 
+#### C++
+
 ```cpp
 class SummaryRanges {
 private:
@@ -178,4 +200,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

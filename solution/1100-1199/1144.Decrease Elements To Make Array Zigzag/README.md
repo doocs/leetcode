@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1144.Decrease%20Elements%20To%20Make%20Array%20Zigzag/README.md
+rating: 1558
+source: 第 148 场周赛 Q1
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [1144. 递减元素使数组呈锯齿状](https://leetcode.cn/problems/decrease-elements-to-make-array-zigzag)
 
 [English Version](/solution/1100-1199/1144.Decrease%20Elements%20To%20Make%20Array%20Zigzag/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>，每次 <strong>操作</strong>&nbsp;会从中选择一个元素并 <strong>将该元素的值减少&nbsp;1</strong>。</p>
 
@@ -43,7 +54,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 贪心
 
@@ -52,6 +67,8 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -68,6 +85,8 @@ class Solution:
                 ans[i] += d
         return min(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func movesToMakeZigzag(nums []int) int {
@@ -130,6 +153,8 @@ func movesToMakeZigzag(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function movesToMakeZigzag(nums: number[]): number {
     const ans: number[] = Array(2).fill(0);
@@ -149,6 +174,8 @@ function movesToMakeZigzag(nums: number[]): number {
     return Math.min(...ans);
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -174,4 +201,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

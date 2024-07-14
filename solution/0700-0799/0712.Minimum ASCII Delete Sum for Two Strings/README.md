@@ -1,12 +1,21 @@
-# [712. 两个字符串的最小 ASCII 删除和](https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
+# [712. 两个字符串的最小ASCII删除和](https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings)
 
 [English Version](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README_EN.md)
 
-<!-- tags:字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串<code>s1</code>&nbsp;和&nbsp;<code>s2</code>，返回 <em>使两个字符串相等所需删除字符的&nbsp;<strong>ASCII&nbsp;</strong>值的最小和&nbsp;</em>。</p>
 
@@ -42,7 +51,11 @@
 	<li><code>s1</code>&nbsp;和&nbsp;<code>s2</code>&nbsp;由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -70,6 +83,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumDeleteSum(self, s1: str, s2: str) -> int:
@@ -89,6 +104,8 @@ class Solution:
                     )
         return f[m][n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -115,6 +132,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -143,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumDeleteSum(s1 string, s2 string) int {
 	m, n := len(s1), len(s2)
@@ -168,6 +189,8 @@ func minimumDeleteSum(s1 string, s2 string) int {
 	return f[m][n]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumDeleteSum(s1: string, s2: string): number {
@@ -195,6 +218,8 @@ function minimumDeleteSum(s1: string, s2: string): number {
     return f[m][n];
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -230,4 +255,6 @@ var minimumDeleteSum = function (s1, s2) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/README_EN.md
+rating: 1633
+source: Weekly Contest 171 Q3
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+---
+
+<!-- problem:start -->
+
 # [1319. Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected)
 
 [中文文档](/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Union Find,Graph -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There are <code>n</code> computers numbered from <code>0</code> to <code>n - 1</code> connected by ethernet cables <code>connections</code> forming a network where <code>connections[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> represents a connection between computers <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>. Any computer can reach any other computer directly or indirectly through the network.</p>
 
@@ -49,11 +64,17 @@
 	<li>No two computers are connected by more than one cable.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -73,6 +94,8 @@ class Solution:
                 size -= 1
         return -1 if size - 1 > cnt else size - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +158,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func makeConnected(n int, connections [][]int) int {
@@ -166,4 +193,6 @@ func makeConnected(n int, connections [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

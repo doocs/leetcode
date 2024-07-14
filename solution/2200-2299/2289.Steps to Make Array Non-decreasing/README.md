@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README.md
+rating: 2481
+source: 第 295 场周赛 Q3
+tags:
+    - 栈
+    - 数组
+    - 链表
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [2289. 使数组按非递减顺序排列](https://leetcode.cn/problems/steps-to-make-array-non-decreasing)
 
 [English Version](/solution/2200-2299/2289.Steps%20to%20Make%20Array%20Non-decreasing/README_EN.md)
 
-<!-- tags:栈,数组,链表,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。在一步操作中，移除所有满足&nbsp;<code>nums[i - 1] &gt; nums[i]</code> 的 <code>nums[i]</code> ，其中 <code>0 &lt; i &lt; nums.length</code> 。</p>
 
@@ -43,11 +56,17 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +80,8 @@ class Solution:
             stk.append(i)
         return max(dp)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func totalSteps(nums []int) int {
 	stk := []int{}
@@ -117,6 +142,8 @@ func totalSteps(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function totalSteps(nums: number[]): number {
@@ -138,4 +165,6 @@ function totalSteps(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

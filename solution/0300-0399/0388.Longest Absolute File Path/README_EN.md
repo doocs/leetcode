@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README_EN.md
+tags:
+    - Stack
+    - Depth-First Search
+    - String
+---
+
+<!-- problem:start -->
+
 # [388. Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path)
 
 [中文文档](/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README.md)
 
-<!-- tags:Stack,Depth-First Search,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture:</p>
 
@@ -69,11 +81,17 @@ We return 32 since it is the longest absolute path to a file.
 	<li>All file and directory names have <strong>positive</strong> length.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +129,8 @@ class Solution:
 
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -157,6 +177,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -202,6 +224,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func lengthLongestPath(input string) int {
 	i, n := 0, len(input)
@@ -245,4 +269,6 @@ func lengthLongestPath(input string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

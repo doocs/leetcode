@@ -1,10 +1,20 @@
-# [2082. The Number of Rich Customers](https://leetcode.com/problems/the-number-of-rich-customers)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2082. The Number of Rich Customers 🔒](https://leetcode.com/problems/the-number-of-rich-customers)
 
 [中文文档](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Store</code></p>
 
@@ -53,11 +63,17 @@ Customer 2 does not have any bills with an amount strictly greater than 500.
 Customer 3 has one bill with an amount strictly greater than 500.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -69,4 +85,6 @@ WHERE amount > 500;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

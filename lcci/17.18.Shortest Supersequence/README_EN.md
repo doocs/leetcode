@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.18.Shortest%20Supersequence/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [17.18. Shortest Supersequence](https://leetcode.cn/problems/shortest-supersequence-lcci)
 
 [中文文档](/lcci/17.18.Shortest%20Supersequence/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two arrays, one shorter (with all distinct elements) and one longer. Find the shortest subarray in the longer array that contains all the elements in the shorter array. The items can appear in any order.</p>
 <p>Return the indexes of the leftmost and the rightmost elements of the array. If there are more than one answer, return the one that has the smallest left index. If there is no answer, return an empty array.</p>
@@ -34,11 +44,17 @@ small = [4]
 	<li><code>1 &lt;= small.length&nbsp;&lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +76,8 @@ class Solution:
                 j += 1
         return [] if k < 0 else [k, k + mi - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -127,6 +147,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestSeq(big []int, small []int) []int {
 	cnt := len(small)
@@ -160,6 +182,8 @@ func shortestSeq(big []int, small []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function shortestSeq(big: number[], small: number[]): number[] {
     let cnt = small.length;
@@ -191,6 +215,54 @@ function shortestSeq(big: number[], small: number[]): number[] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func shortestSeq(_ big: [Int], _ small: [Int]) -> [Int] {
+        let needCount = small.count
+        var need = [Int: Int]()
+        var window = [Int: Int]()
+        small.forEach { need[$0, default: 0] += 1 }
+
+        var count = needCount
+        var minLength = Int.max
+        var result = (-1, -1)
+
+        var left = 0
+        for right in 0..<big.count {
+            let element = big[right]
+            if need[element] != nil {
+                window[element, default: 0] += 1
+                if window[element]! <= need[element]! {
+                    count -= 1
+                }
+            }
+
+            while count == 0 {
+                if right - left + 1 < minLength {
+                    minLength = right - left + 1
+                    result = (left, right)
+                }
+
+                let leftElement = big[left]
+                if need[leftElement] != nil {
+                    window[leftElement]! -= 1
+                    if window[leftElement]! < need[leftElement]! {
+                        count += 1
+                    }
+                }
+                left += 1
+            }
+        }
+
+        return result.0 == -1 ? [] : [result.0, result.1]
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

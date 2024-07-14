@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 17.04. 消失的数字](https://leetcode.cn/problems/missing-number-lcci)
 
 [English Version](/lcci/17.04.Missing%20Number/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>数组<code>nums</code>包含从<code>0</code>到<code>n</code>的所有整数，但其中缺了一个。请编写代码找出那个缺失的整数。你有办法在O(n)时间内完成吗？</p>
 
 <p><strong>注意：</strong>本题相对书上原题稍作改动</p>
@@ -22,7 +31,11 @@
 <strong>输出：</strong>8
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -34,6 +47,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -43,6 +58,8 @@ class Solution:
                 return i
         return len(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -58,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -75,6 +94,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) int {
 	sort.Ints(nums)
@@ -86,6 +107,8 @@ func missingNumber(nums []int) int {
 	return len(nums)
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -101,6 +124,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -119,7 +144,27 @@ var missingNumber = function (nums) {
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let nums = nums.sorted()
+        for (i, x) in nums.enumerated() {
+            if i != x {
+                return i
+            }
+        }
+        return nums.count
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：求和
 
@@ -129,11 +174,15 @@ var missingNumber = function (nums) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         return sum(range(len(nums) + 1)) - sum(nums)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -147,6 +196,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -162,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	ans = len(nums)
@@ -171,6 +224,8 @@ func missingNumber(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -191,6 +246,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -206,7 +263,22 @@ var missingNumber = function (nums) {
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func missingNumber(_ nums: [Int]) -> Int {
+        let n = nums.count
+        return n * (n + 1) / 2 - nums.reduce(0, +)
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法三：位运算
 
@@ -216,6 +288,8 @@ var missingNumber = function (nums) {
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -224,6 +298,8 @@ class Solution:
             ans ^= i ^ x
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -236,6 +312,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -250,6 +328,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func missingNumber(nums []int) (ans int) {
 	for i, x := range nums {
@@ -258,6 +338,8 @@ func missingNumber(nums []int) (ans int) {
 	return
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -271,6 +353,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -288,4 +372,6 @@ var missingNumber = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

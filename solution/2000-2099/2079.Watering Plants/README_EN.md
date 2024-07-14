@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2079.Watering%20Plants/README_EN.md
+rating: 1320
+source: Weekly Contest 268 Q2
+tags:
+    - Array
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2079. Watering Plants](https://leetcode.com/problems/watering-plants)
 
 [中文文档](/solution/2000-2099/2079.Watering%20Plants/README.md)
 
-<!-- tags:Array,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You want to water <code>n</code> plants in your garden with a watering can. The plants are arranged in a row and are labeled from <code>0</code> to <code>n - 1</code> from left to right where the <code>i<sup>th</sup></code> plant is located at <code>x = i</code>. There is a river at <code>x = -1</code> that you can refill your watering can at.</p>
 
@@ -68,37 +81,56 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 	<li><code>max(plants[i]) &lt;= capacity &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Simulation
+
+We can simulate the process of watering the plants. We use a variable $\text{water}$ to represent the current amount of water in the watering can, initially $\text{water} = \text{capacity}$.
+
+We traverse the plants. For each plant:
+
+-   If the current amount of water in the watering can is enough to water this plant, we move forward one step, water this plant, and update $\text{water} = \text{water} - \text{plants}[i]$.
+-   Otherwise, we need to return to the river to refill the watering can, walk back to the current position, and then move forward one step. The number of steps we need is $i \times 2 + 1$. Then we water this plant and update $\text{water} = \text{capacity} - \text{plants}[i]$.
+
+Finally, return the total number of steps.
+
+The time complexity is $O(n)$, where $n$ is the number of plants. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def wateringPlants(self, plants: List[int], capacity: int) -> int:
-        ans, cap = 0, capacity
-        for i, x in enumerate(plants):
-            if cap >= x:
-                cap -= x
+        ans, water = 0, capacity
+        for i, p in enumerate(plants):
+            if water >= p:
+                water -= p
                 ans += 1
             else:
-                cap = capacity - x
+                water = capacity - p
                 ans += i * 2 + 1
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int wateringPlants(int[] plants, int capacity) {
-        int ans = 0, cap = capacity;
+        int ans = 0, water = capacity;
         for (int i = 0; i < plants.length; ++i) {
-            if (cap >= plants[i]) {
-                cap -= plants[i];
-                ++ans;
+            if (water >= plants[i]) {
+                water -= plants[i];
+                ans += 1;
             } else {
-                ans += (i * 2 + 1);
-                cap = capacity - plants[i];
+                water = capacity - plants[i];
+                ans += i * 2 + 1;
             }
         }
         return ans;
@@ -106,17 +138,19 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     int wateringPlants(vector<int>& plants, int capacity) {
-        int ans = 0, cap = capacity;
+        int ans = 0, water = capacity;
         for (int i = 0; i < plants.size(); ++i) {
-            if (cap >= plants[i]) {
-                cap -= plants[i];
-                ++ans;
+            if (water >= plants[i]) {
+                water -= plants[i];
+                ans += 1;
             } else {
-                cap = capacity - plants[i];
+                water = capacity - plants[i];
                 ans += i * 2 + 1;
             }
         }
@@ -125,71 +159,75 @@ public:
 };
 ```
 
+#### Go
+
 ```go
-func wateringPlants(plants []int, capacity int) int {
-	ans, cap := 0, capacity
-	for i, x := range plants {
-		if cap >= x {
-			cap -= x
+func wateringPlants(plants []int, capacity int) (ans int) {
+	water := capacity
+	for i, p := range plants {
+		if water >= p {
+			water -= p
 			ans++
 		} else {
-			cap = capacity - x
+			water = capacity - p
 			ans += i*2 + 1
 		}
 	}
-	return ans
+	return
 }
 ```
 
+#### TypeScript
+
 ```ts
 function wateringPlants(plants: number[], capacity: number): number {
-    const n = plants.length;
-    let ans = 0;
-    let water = capacity;
-    for (let i = 0; i < n; i++) {
-        if (water < plants[i]) {
-            ans += i * 2 + 1;
-            water = capacity - plants[i];
-        } else {
-            ans++;
+    let [ans, water] = [0, capacity];
+    for (let i = 0; i < plants.length; ++i) {
+        if (water >= plants[i]) {
             water -= plants[i];
+            ++ans;
+        } else {
+            water = capacity - plants[i];
+            ans += i * 2 + 1;
         }
     }
     return ans;
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn watering_plants(plants: Vec<i32>, capacity: i32) -> i32 {
-        let n = plants.len();
         let mut ans = 0;
         let mut water = capacity;
-        for i in 0..n {
-            if water < plants[i] {
-                ans += 2 * i + 1;
-                water = capacity - plants[i];
-            } else {
+        for (i, &p) in plants.iter().enumerate() {
+            if water >= p {
+                water -= p;
                 ans += 1;
-                water -= plants[i];
+            } else {
+                water = capacity - p;
+                ans += (i as i32) * 2 + 1;
             }
         }
-        ans as i32
+        ans
     }
 }
 ```
 
+#### C
+
 ```c
 int wateringPlants(int* plants, int plantsSize, int capacity) {
-    int ans = 0;
-    int water = capacity;
-    for (int i = 0; i < plantsSize; i++) {
-        if (water < plants[i]) {
-            ans += i * 2 + 1;
-            water = capacity - plants[i];
-        } else {
-            ans++;
+    int ans = 0, water = capacity;
+    for (int i = 0; i < plantsSize; ++i) {
+        if (water >= plants[i]) {
             water -= plants[i];
+            ans += 1;
+        } else {
+            water = capacity - plants[i];
+            ans += i * 2 + 1;
         }
     }
     return ans;
@@ -198,4 +236,6 @@ int wateringPlants(int* plants, int plantsSize, int capacity) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

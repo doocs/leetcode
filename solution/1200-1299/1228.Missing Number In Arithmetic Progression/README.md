@@ -1,12 +1,23 @@
-# [1228. 等差数列中缺失的数字](https://leetcode.cn/problems/missing-number-in-arithmetic-progression)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README.md
+rating: 1244
+source: 第 11 场双周赛 Q1
+tags:
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
+# [1228. 等差数列中缺失的数字 🔒](https://leetcode.cn/problems/missing-number-in-arithmetic-progression)
 
 [English Version](/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README_EN.md)
 
-<!-- tags:数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在某个数组&nbsp;<code>arr</code>&nbsp;中，值符合等差数列的数值规律：在&nbsp;<code>0 &lt;= i &lt; arr.length - 1</code>&nbsp;的前提下，<code>arr[i+1] - arr[i]</code>&nbsp;的值都相等。</p>
 
@@ -41,7 +52,11 @@
 	<li>给定的数组 <strong>保证</strong> 是一个有效的数组。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：等差数列求和公式
 
@@ -55,11 +70,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def missingNumber(self, arr: List[int]) -> int:
         return (arr[0] + arr[-1]) * (len(arr) + 1) // 2 - sum(arr)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -72,6 +91,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +104,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func missingNumber(arr []int) int {
@@ -99,9 +122,15 @@ func missingNumber(arr []int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +142,8 @@ class Solution:
                 return arr[i - 1] + d
         return arr[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +160,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -144,4 +177,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

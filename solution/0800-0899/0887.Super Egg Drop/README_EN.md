@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0887.Super%20Egg%20Drop/README_EN.md
+tags:
+    - Math
+    - Binary Search
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [887. Super Egg Drop](https://leetcode.com/problems/super-egg-drop)
 
 [中文文档](/solution/0800-0899/0887.Super%20Egg%20Drop/README.md)
 
-<!-- tags:Math,Binary Search,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>k</code> identical eggs and you have access to a building with <code>n</code> floors labeled from <code>1</code> to <code>n</code>.</p>
 
@@ -49,11 +61,17 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +95,8 @@ class Solution:
 
         return dfs(n, k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -146,6 +168,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func superEggDrop(k int, n int) int {
@@ -181,6 +205,8 @@ func superEggDrop(k int, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function superEggDrop(k: number, n: number): number {
     const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
@@ -214,9 +240,15 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -237,6 +269,8 @@ class Solution:
                 f[i][j] = max(f[l - 1][j - 1], f[i - l][j]) + 1
         return f[n][k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +299,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -296,6 +332,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func superEggDrop(k int, n int) int {
 	f := make([][]int, n+1)
@@ -323,6 +361,8 @@ func superEggDrop(k int, n int) int {
 	return f[n][k]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function superEggDrop(k: number, n: number): number {
@@ -353,4 +393,6 @@ function superEggDrop(k: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

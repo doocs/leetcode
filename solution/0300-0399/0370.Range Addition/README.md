@@ -1,12 +1,21 @@
-# [370. 区间加法](https://leetcode.cn/problems/range-addition)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0370.Range%20Addition/README.md
+tags:
+    - 数组
+    - 前缀和
+---
+
+<!-- problem:start -->
+
+# [370. 区间加法 🔒](https://leetcode.cn/problems/range-addition)
 
 [English Version](/solution/0300-0399/0370.Range%20Addition/README_EN.md)
 
-<!-- tags:数组,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>假设你有一个长度为&nbsp;<em><strong>n</strong></em>&nbsp;的数组，初始情况下所有的数字均为&nbsp;<strong>0</strong>，你将会被给出&nbsp;<em><strong>k</strong></em>​​​​​​<em>​</em> 个更新的操作。</p>
 
@@ -35,7 +44,11 @@
 [-2,0,3,5,3]
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：差分数组
 
@@ -47,6 +60,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
@@ -57,6 +72,8 @@ class Solution:
                 d[r + 1] -= c
         return list(accumulate(d))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -92,6 +111,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getModifiedArray(length int, updates [][]int) []int {
@@ -109,6 +130,8 @@ func getModifiedArray(length int, updates [][]int) []int {
 	return d
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -133,6 +156,10 @@ var getModifiedArray = function (length, updates) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：树状数组 + 差分思想
 
 时间复杂度 $O(n\times \log n)$。
@@ -145,6 +172,8 @@ var getModifiedArray = function (length, updates) {
 这两个操作的时间复杂度均为 $O(\log n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -177,6 +206,8 @@ class Solution:
             tree.update(end + 2, -inc)
         return [tree.query(i + 1) for i in range(length)]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -226,6 +257,8 @@ class BinaryIndexedTree {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -272,6 +305,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -321,4 +356,6 @@ func getModifiedArray(length int, updates [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

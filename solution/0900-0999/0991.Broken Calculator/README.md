@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0991.Broken%20Calculator/README.md
+tags:
+    - 贪心
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [991. 坏了的计算器](https://leetcode.cn/problems/broken-calculator)
 
 [English Version](/solution/0900-0999/0991.Broken%20Calculator/README_EN.md)
 
-<!-- tags:贪心,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在显示着数字&nbsp;<code>startValue</code>&nbsp;的坏计算器上，我们可以执行以下两种操作：</p>
 
@@ -51,7 +60,11 @@
 	<li><code>1 &lt;= startValue, target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向计算
 
@@ -60,6 +73,8 @@
 时间复杂度 $O(\log n)$，其中 $n$ 为 `target`。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +89,8 @@ class Solution:
         ans += startValue - target
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +109,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +131,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func brokenCalc(startValue int, target int) (ans int) {
 	for startValue < target {
@@ -129,4 +150,6 @@ func brokenCalc(startValue int, target int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

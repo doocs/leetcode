@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [668. Kth Smallest Number in Multiplication Table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table)
 
 [中文文档](/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README.md)
 
-<!-- tags:Math,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Nearly everyone has used the <a href="https://en.wikipedia.org/wiki/Multiplication_table" target="_blank">Multiplication Table</a>. The multiplication table of size <code>m x n</code> is an integer matrix <code>mat</code> where <code>mat[i][j] == i * j</code> (<strong>1-indexed</strong>).</p>
 
@@ -35,11 +46,17 @@
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +73,8 @@ class Solution:
                 left = mid + 1
         return left
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -96,6 +117,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findKthNumber(m int, n int, k int) int {
@@ -118,4 +141,6 @@ func findKthNumber(m int, n int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

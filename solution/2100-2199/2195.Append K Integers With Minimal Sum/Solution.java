@@ -1,23 +1,15 @@
 class Solution {
     public long minimalKSum(int[] nums, int k) {
-        int[] arr = new int[nums.length + 2];
-        arr[arr.length - 1] = (int) 2e9;
-        for (int i = 0; i < nums.length; ++i) {
-            arr[i + 1] = nums[i];
-        }
+        int n = nums.length;
+        int[] arr = new int[n + 2];
+        arr[1] = 2 * 1000000000;
+        System.arraycopy(nums, 0, arr, 2, n);
         Arrays.sort(arr);
         long ans = 0;
-        for (int i = 1; i < arr.length; ++i) {
-            int a = arr[i - 1], b = arr[i];
-            int n = Math.min(k, b - a - 1);
-            if (n <= 0) {
-                continue;
-            }
-            k -= n;
-            ans += (long) (a + 1 + a + n) * n / 2;
-            if (k == 0) {
-                break;
-            }
+        for (int i = 0; i < n + 1 && k > 0; ++i) {
+            int m = Math.max(0, Math.min(k, arr[i + 1] - arr[i] - 1));
+            ans += (arr[i] + 1L + arr[i] + m) * m / 2;
+            k -= m;
         }
         return ans;
     }

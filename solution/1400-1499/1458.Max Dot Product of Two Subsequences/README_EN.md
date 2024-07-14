@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README_EN.md
+rating: 1823
+source: Weekly Contest 190 Q4
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1458. Max Dot Product of Two Subsequences](https://leetcode.com/problems/max-dot-product-of-two-subsequences)
 
 [中文文档](/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two arrays <code>nums1</code>&nbsp;and <code><font face="monospace">nums2</font></code><font face="monospace">.</font></p>
 
@@ -45,11 +58,17 @@ Their dot product is -1.</pre>
 	<li><code>-1000 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +81,8 @@ class Solution:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1], max(dp[i - 1][j - 1], 0) + v)
         return dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +104,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -100,6 +123,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxDotProduct(nums1 []int, nums2 []int) int {
@@ -122,6 +147,8 @@ func maxDotProduct(nums1 []int, nums2 []int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -135,7 +162,7 @@ impl Solution {
             for j in 1..=m {
                 dp[i][j] = std::cmp::max(
                     std::cmp::max(dp[i - 1][j], dp[i][j - 1]),
-                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1]
+                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1],
                 );
             }
         }
@@ -147,4 +174,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,20 @@
-# [3062. Winner of the Linked List Game](https://leetcode.com/problems/winner-of-the-linked-list-game)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README_EN.md
+tags:
+    - Linked List
+---
+
+<!-- problem:start -->
+
+# [3062. Winner of the Linked List Game 🔒](https://leetcode.com/problems/winner-of-the-linked-list-game)
 
 [中文文档](/solution/3000-3099/3062.Winner%20of%20the%20Linked%20List%20Game/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>head</code> of a linked list of <strong>even</strong> length containing integers.</p>
 
@@ -83,7 +93,11 @@
 	<li>The value of each even-indexed node is even.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -92,6 +106,8 @@ Traverse the linked list, each time taking out two nodes, compare their values, 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -114,6 +130,8 @@ class Solution:
             return "Even"
         return "Tie"
 ```
+
+#### Java
 
 ```java
 /**
@@ -145,6 +163,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -178,6 +198,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -206,6 +228,8 @@ func gameResult(head *ListNode) string {
 	return "Tie"
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -239,4 +263,6 @@ function gameResult(head: ListNode | null): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README_EN.md
+rating: 1567
+source: Weekly Contest 263 Q3
+tags:
+    - Bit Manipulation
+    - Array
+    - Backtracking
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [2044. Count Number of Maximum Bitwise-OR Subsets](https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets)
 
 [中文文档](/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README.md)
 
-<!-- tags:Bit Manipulation,Array,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, find the <strong>maximum</strong> possible <strong>bitwise OR</strong> of a subset of <code>nums</code> and return <em>the <strong>number of different non-empty subsets</strong> with the maximum bitwise OR</em>.</p>
 
@@ -52,11 +67,17 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +98,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	mx, ans := 0, 0
@@ -158,6 +185,8 @@ func countMaxOrSubsets(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMaxOrSubsets(nums: number[]): number {
     let n = nums.length;
@@ -178,6 +207,8 @@ function countMaxOrSubsets(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -214,9 +245,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -236,6 +273,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +304,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -291,6 +332,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	n := len(nums)
@@ -313,6 +356,8 @@ func countMaxOrSubsets(nums []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countMaxOrSubsets(nums: number[]): number {
@@ -340,9 +385,15 @@ function countMaxOrSubsets(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -362,6 +413,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -388,6 +441,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -413,6 +468,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countMaxOrSubsets(nums []int) int {
 	mx, ans := 0, 0
@@ -436,4 +493,6 @@ func countMaxOrSubsets(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

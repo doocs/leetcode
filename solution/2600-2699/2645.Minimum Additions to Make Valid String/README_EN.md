@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README_EN.md
+rating: 1477
+source: Weekly Contest 341 Q3
+tags:
+    - Stack
+    - Greedy
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2645. Minimum Additions to Make Valid String](https://leetcode.com/problems/minimum-additions-to-make-valid-string)
 
 [中文文档](/solution/2600-2699/2645.Minimum%20Additions%20to%20Make%20Valid%20String/README.md)
 
-<!-- tags:Stack,Greedy,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>word</code> to which you can insert letters &quot;a&quot;, &quot;b&quot; or &quot;c&quot; anywhere and any number of times, return <em>the minimum number of letters that must be inserted so that <code>word</code> becomes <strong>valid</strong>.</em></p>
 
@@ -16,7 +31,7 @@
 <pre>
 <strong>Input:</strong> word = &quot;b&quot;
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> Insert the letter &quot;a&quot; right before &quot;b&quot;, and the letter &quot;c&quot; right next to &quot;a&quot; to obtain the valid string &quot;<strong>a</strong>b<strong>c</strong>&quot;.
+<strong>Explanation:</strong> Insert the letter &quot;a&quot; right before &quot;b&quot;, and the letter &quot;c&quot; right next to &quot;b&quot; to obtain the valid string &quot;<strong>a</strong>b<strong>c</strong>&quot;.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -43,7 +58,11 @@
 	<li><code>word</code> consists of letters &quot;a&quot;, &quot;b&quot;&nbsp;and &quot;c&quot; only.&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
 
@@ -58,6 +77,8 @@ Finally, we check whether the last character of $word$ is `'b'` or `'a'`. If it 
 The time complexity is $O(n)$, where $n$ is the length of the string $word$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +96,8 @@ class Solution:
             ans += 1 if word[-1] == 'b' else 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addMinimum(word string) (ans int) {
 	s := "abc"
@@ -136,6 +163,8 @@ func addMinimum(word string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function addMinimum(word: string): number {
@@ -160,4 +189,6 @@ function addMinimum(word: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

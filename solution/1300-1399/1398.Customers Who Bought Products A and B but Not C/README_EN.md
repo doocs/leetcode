@@ -1,10 +1,20 @@
-# [1398. Customers Who Bought Products A and B but Not C](https://leetcode.com/problems/customers-who-bought-products-a-and-b-but-not-c)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1398.Customers%20Who%20Bought%20Products%20A%20and%20B%20but%20Not%20C/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1398. Customers Who Bought Products A and B but Not C 🔒](https://leetcode.com/problems/customers-who-bought-products-a-and-b-but-not-c)
 
 [中文文档](/solution/1300-1399/1398.Customers%20Who%20Bought%20Products%20A%20and%20B%20but%20Not%20C/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customers</code></p>
 
@@ -79,13 +89,19 @@ Orders table:
 <strong>Explanation:</strong> Only the customer_id with id 3 bought the product A and B but not the product C.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: LEFT JOIN + GROUP BY + HAVING
 
 We can use `LEFT JOIN` to join the `Customers` table and the `Orders` table, then group them by `customer_id`, and finally filter out the customers who have purchased products A and B but not product C.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -100,4 +116,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

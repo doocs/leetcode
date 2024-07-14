@@ -1,12 +1,20 @@
-# [2854. 滚动平均步数](https://leetcode.cn/problems/rolling-average-steps)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2854.Rolling%20Average%20Steps/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [2854. 滚动平均步数 🔒](https://leetcode.cn/problems/rolling-average-steps)
 
 [English Version](/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code><font face="monospace">Steps</font></code></p>
 
@@ -82,13 +90,19 @@ Steps table:
 - 对于 ID 为 3 的用户，截止到 2021-09-10 的三天连续的步数可用。因此，该日期的滚动平均值计算为 (557 + 840 + 627) / 3 = 674.67。
 - 对于 ID 为 4 和 5 的用户，由于连续三天的数据不足，无法计算滚动平均值。结果表按 user_id 和 steps_date 升序排序。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数
 
 我们用窗口函数 `LAG() OVER()` 来计算每个用户当前日期与上上个日期之间的天数差，如果为 $2$，说明这两个日期之间有连续 $3$ 天的数据，我们可以利用窗口函数 `AVG() OVER()` 来计算这 $3$ 个数据的平均值。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -125,4 +139,6 @@ ORDER BY 1, 2;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

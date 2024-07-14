@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md
+tags:
+    - 数组
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array)
 
 [English Version](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README_EN.md)
 
-<!-- tags:数组,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个按照非递减顺序排列的整数数组 <code>nums</code>，和一个目标值 <code>target</code>。请你找出给定目标值在数组中的开始位置和结束位置。</p>
 
@@ -45,7 +54,11 @@
 	<li><code>-10<sup>9</sup>&nbsp;&lt;= target&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -100,11 +113,13 @@ int search(int left, int right) {
 1. 根据具体题目，实现 $check()$ 函数（有时很简单的逻辑，可以不定义 $check$），想一下究竟要用 $right = mid$（模板 $1$） 还是 $left = mid$（模板 $2$）；
        - 如果 $right = mid$，那么写出 else 语句 $left = mid + 1$，并且不需要更改 mid 的计算，即保持 $mid = \lfloor \frac{left + right}{2} \rfloor$；
        - 如果 $left = mid$，那么写出 else 语句 $right = mid - 1$，并且在 $mid$ 计算时补充 +1，即 $mid = \lfloor \frac{left + right + 1}{2} \rfloor$；
-1. 循环结束时，$left$ 与 $right$ 相等。
+1. 循环结束时， $left$ 与 $right$ 相等。
 
 注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 $left$ 或者 $right$ 是否满足题意即可。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -113,6 +128,8 @@ class Solution:
         r = bisect_left(nums, target + 1)
         return [-1, -1] if l == r else [l, r - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -137,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -149,6 +168,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func searchRange(nums []int, target int) []int {
 	l := sort.SearchInts(nums, target)
@@ -159,6 +180,8 @@ func searchRange(nums []int, target int) []int {
 	return []int{l, r - 1}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function searchRange(nums: number[], target: number): number[] {
@@ -179,6 +202,8 @@ function searchRange(nums: number[], target: number): number[] {
     return l === r ? [-1, -1] : [l, r - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -207,6 +232,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -233,6 +260,37 @@ var searchRange = function (nums, target) {
 };
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @param integer $target
+     * @return integer[]
+     */
+
+    function searchRange($nums, $target) {
+        $min = -1;
+        $max = -1;
+        foreach ($nums as $key => $value) {
+            if ($value == $target) {
+                if ($min == -1) {
+                    $min = $key;
+                }
+
+                if ($key > $max) {
+                    $max = $key;
+                }
+            }
+        }
+        return [$min, $max];
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

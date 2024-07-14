@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README.md
+rating: 1873
+source: 第 377 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [2975. 移除栅栏得到的正方形田地的最大面积](https://leetcode.cn/problems/maximum-square-area-by-removing-fences-from-a-field)
 
 [English Version](/solution/2900-2999/2975.Maximum%20Square%20Area%20by%20Removing%20Fences%20From%20a%20Field/README_EN.md)
 
-<!-- tags:数组,哈希表,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个大型的 <code>(m - 1) x (n - 1)</code> 矩形田地，其两个对角分别是 <code>(1, 1)</code> 和 <code>(m, n)</code> ，田地内部有一些水平栅栏和垂直栅栏，分别由数组 <code>hFences</code> 和 <code>vFences</code> 给出。</p>
 
@@ -52,15 +64,21 @@
 	<li><code>hFences</code> 和 <code>vFences</code> 中的元素是唯一的。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
-我们可以枚举 $hFences$ 中的任意两条水平栅栏 $a$ 和 $b$，计算 $a$ 和 $b$ 之间的距离 $d$，记录在哈希表 $hs$ 中，然后枚举 $vFences$ 中的任意两条垂直栅栏 $c$ 和 $d$，计算 $c$ 和 $d$ 之间的距离 $d$，记录在哈希表 $vs$ 中，最后遍历哈希表 $hs$，如果 $hs$ 中的某个距离 $d$ 在哈希表 $vs$ 中也存在，那么说明存在一个正方形田地，其边长为 $d$，面积为 $d^2$，我们只需要取最大的 $d$，求 $d^2 \bmod 10^9 + 7$ 即可。
+我们可以枚举 $\textit{hFences}$ 中的任意两条水平栅栏 $a$ 和 $b$，计算 $a$ 和 $b$ 之间的距离 $d$，记录在哈希表 $hs$ 中，然后枚举 $\textit{vFences}$ 中的任意两条垂直栅栏 $c$ 和 $d$，计算 $c$ 和 $d$ 之间的距离 $d$，记录在哈希表 $vs$ 中，最后遍历哈希表 $hs$，如果 $hs$ 中的某个距离 $d$ 在哈希表 $vs$ 中也存在，那么说明存在一个正方形田地，其边长为 $d$，面积为 $d^2$，我们只需要取最大的 $d$，求 $d^2 \bmod 10^9 + 7$ 即可。
 
-时间复杂度 $O(h^2 + v^2)$，空间复杂度 $O(h^2 + v^2)$。其中 $h$ 和 $v$ 分别是 $hFences$ 和 $vFences$ 的长度。
+时间复杂度 $O(h^2 + v^2)$，空间复杂度 $O(h^2 + v^2)$。其中 $h$ 和 $v$ 分别是 $\textit{hFences}$ 和 $\textit{vFences}$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +96,8 @@ class Solution:
         ans = max(hs & vs, default=0)
         return ans**2 % mod if ans else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 	f := func(nums []int, k int) map[int]bool {
@@ -168,6 +192,8 @@ func maximizeSquareArea(m int, n int, hFences []int, vFences []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: number[]): number {
     const f = (nums: number[], k: number): Set<number> => {
@@ -195,4 +221,6 @@ function maximizeSquareArea(m: number, n: number, hFences: number[], vFences: nu
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

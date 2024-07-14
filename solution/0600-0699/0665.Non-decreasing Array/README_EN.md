@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md
+tags:
+    - Array
+---
+
+<!-- problem:start -->
+
 # [665. Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array)
 
 [中文文档](/solution/0600-0699/0665.Non-decreasing%20Array/README.md)
 
-<!-- tags:Array -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> with <code>n</code> integers, your task is to check if it could become non-decreasing by modifying <strong>at most one element</strong>.</p>
 
@@ -36,11 +46,17 @@
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +75,8 @@ class Solution:
                 return is_sorted(nums)
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -89,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func checkPossibility(nums []int) bool {
@@ -136,6 +158,8 @@ func checkPossibility(nums []int) bool {
 	return true
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkPossibility(nums: number[]): boolean {
@@ -166,4 +190,6 @@ function checkPossibility(nums: number[]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

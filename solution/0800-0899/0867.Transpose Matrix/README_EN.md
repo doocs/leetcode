@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix)
 
 [中文文档](/solution/0800-0899/0867.Transpose%20Matrix/README.md)
 
-<!-- tags:Array,Matrix,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a 2D integer array <code>matrix</code>, return <em>the <strong>transpose</strong> of</em> <code>matrix</code>.</p>
 
@@ -38,17 +50,25 @@
 	<li><code>-10<sup>9</sup> &lt;= matrix[i][j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
         return list(zip(*matrix))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -65,6 +85,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -79,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func transpose(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
@@ -92,6 +116,8 @@ func transpose(matrix [][]int) [][]int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -113,4 +139,6 @@ var transpose = function (matrix) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

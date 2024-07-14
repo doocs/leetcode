@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README_EN.md
+tags:
+    - Stack
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [32. Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses)
 
 [中文文档](/solution/0000-0099/0032.Longest%20Valid%20Parentheses/README.md)
 
-<!-- tags:Stack,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string containing just the characters <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>, return <em>the length of the longest valid (well-formed) parentheses </em><span data-keyword="substring-nonempty"><em>substring</em></span>.</p>
 
@@ -40,7 +52,11 @@
 	<li><code>s[i]</code> is <code>&#39;(&#39;</code>, or <code>&#39;)&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -71,6 +87,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
@@ -86,6 +104,8 @@ class Solution:
                         f[i] = f[i - 1] + 2 + f[j - 1]
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -135,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestValidParentheses(s string) int {
 	n := len(s)
@@ -151,6 +175,8 @@ func longestValidParentheses(s string) int {
 	return slices.Max(f)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestValidParentheses(s: string): number {
@@ -172,31 +198,19 @@ function longestValidParentheses(s: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
         let mut ans = 0;
         let mut f = vec![0; s.len() + 1];
         for i in 2..=s.len() {
-            if
-                s
-                    .chars()
-                    .nth(i - 1)
-                    .unwrap() == ')'
-            {
-                if
-                    s
-                        .chars()
-                        .nth(i - 2)
-                        .unwrap() == '('
-                {
+            if s.chars().nth(i - 1).unwrap() == ')' {
+                if s.chars().nth(i - 2).unwrap() == '(' {
                     f[i] = f[i - 2] + 2;
-                } else if
-                    (i as i32) - f[i - 1] - 1 > 0 &&
-                    s
-                        .chars()
-                        .nth(i - (f[i - 1] as usize) - 2)
-                        .unwrap() == '('
+                } else if (i as i32) - f[i - 1] - 1 > 0
+                    && s.chars().nth(i - (f[i - 1] as usize) - 2).unwrap() == '('
                 {
                     f[i] = f[i - 1] + 2 + f[i - (f[i - 1] as usize) - 2];
                 }
@@ -207,6 +221,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -231,6 +247,8 @@ var longestValidParentheses = function (s) {
     return Math.max(...f);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -258,6 +276,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: Using Stack
 
 -   Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
@@ -275,6 +297,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
@@ -291,6 +315,8 @@ class Solution:
                     ans = max(ans, i - stack[-1])
         return ans
 ```
+
+#### Go
 
 ```go
 func longestValidParentheses(s string) int {
@@ -314,6 +340,8 @@ func longestValidParentheses(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestValidParentheses(s: string): number {
     let max_length: number = 0;
@@ -336,6 +364,8 @@ function longestValidParentheses(s: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
@@ -357,6 +387,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -382,6 +414,41 @@ var longestValidParentheses = function (s) {
 };
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @return integer
+     */
+
+    function longestValidParentheses($s) {
+        $stack = [];
+        $maxLength = 0;
+
+        array_push($stack, -1);
+        for ($i = 0; $i < strlen($s); $i++) {
+            if ($s[$i] === '(') {
+                array_push($stack, $i);
+            } else {
+                array_pop($stack);
+
+                if (empty($stack)) {
+                    array_push($stack, $i);
+                } else {
+                    $length = $i - end($stack);
+                    $maxLength = max($maxLength, $length);
+                }
+            }
+        }
+        return $maxLength;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

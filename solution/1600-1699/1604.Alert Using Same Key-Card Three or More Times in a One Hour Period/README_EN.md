@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README_EN.md
+rating: 1606
+source: Biweekly Contest 36 Q2
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1604. Alert Using Same Key-Card Three or More Times in a One Hour Period](https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period)
 
 [中文文档](/solution/1600-1699/1604.Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period/README.md)
 
-<!-- tags:Array,Hash Table,String,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>LeetCode company workers use key-cards to unlock office doors. Each time a worker uses their key-card, the security system saves the worker&#39;s name and the time when it was used. The system emits an <strong>alert</strong> if any worker uses the key-card <strong>three or more times</strong> in a one-hour period.</p>
 
@@ -45,11 +60,25 @@
 	<li><code>keyName[i] contains only lowercase English letters.</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Hash Table + Sorting
+
+First, we use a hash table $d$ to record all the clock-in times of each employee.
+
+Then we traverse the hash table. For each employee, we first check whether the number of clock-in times is greater than or equal to 3. If not, we skip this employee. Otherwise, we sort all the clock-in times of this employee in chronological order, and then traverse the sorted clock-in times to check whether the two times at a distance of 2 indices are within the same hour. If so, we add this employee to the answer array.
+
+Finally, we sort the answer array in lexicographical order to get the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of clock-in records.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +98,8 @@ class Solution:
         ans.sort()
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func alertNames(keyName []string, keyTime []string) (ans []string) {
 	d := map[string][]int{}
@@ -159,6 +194,42 @@ func alertNames(keyName []string, keyTime []string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function alertNames(keyName: string[], keyTime: string[]): string[] {
+    const d: { [name: string]: number[] } = {};
+    for (let i = 0; i < keyName.length; ++i) {
+        const name = keyName[i];
+        const t = keyTime[i];
+        const minutes = +t.slice(0, 2) * 60 + +t.slice(3);
+        if (d[name] === undefined) {
+            d[name] = [];
+        }
+        d[name].push(minutes);
+    }
+    const ans: string[] = [];
+    for (const name in d) {
+        if (d.hasOwnProperty(name)) {
+            const ts = d[name];
+            if (ts.length > 2) {
+                ts.sort((a, b) => a - b);
+                for (let i = 0; i < ts.length - 2; ++i) {
+                    if (ts[i + 2] - ts[i] <= 60) {
+                        ans.push(name);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    ans.sort();
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

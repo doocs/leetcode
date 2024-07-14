@@ -1,17 +1,13 @@
 function minEatingSpeed(piles: number[], h: number): number {
-    let left = 1;
-    let right = Math.max(...piles);
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let s = 0;
-        for (const x of piles) {
-            s += Math.ceil(x / mid);
-        }
+    let [l, r] = [1, Math.max(...piles)];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        const s = piles.map(x => Math.ceil(x / mid)).reduce((a, b) => a + b);
         if (s <= h) {
-            right = mid;
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 }

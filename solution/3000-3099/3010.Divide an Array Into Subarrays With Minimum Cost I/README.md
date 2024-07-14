@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README.md
+rating: 1291
+source: 第 122 场双周赛 Q1
+tags:
+    - 数组
+    - 枚举
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [3010. 将数组分成最小总代价的子数组 I](https://leetcode.cn/problems/divide-an-array-into-subarrays-with-minimum-cost-i)
 
 [English Version](/solution/3000-3099/3010.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20I/README_EN.md)
 
-<!-- tags:数组,枚举,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
@@ -14,7 +26,7 @@
 
 <p>你需要将&nbsp;<code>nums</code>&nbsp;分成&nbsp;<code>3</code>&nbsp;个&nbsp;<strong>连续且没有交集</strong>&nbsp;的子数组。</p>
 
-<p>请你返回这些子数组的 <strong>最小</strong>&nbsp;代价&nbsp;<b>总和</b>&nbsp;。</p>
+<p>请你返回这些<span data-keyword="subarray">子数组</span>的 <strong>最小</strong>&nbsp;代价&nbsp;<b>总和</b>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
@@ -56,7 +68,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历找最小值和次小值
 
@@ -65,6 +81,8 @@
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +95,8 @@ class Solution:
                 c = x
         return a + b + c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -113,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(nums []int) int {
 	a, b, c := nums[0], 100, 100
@@ -126,6 +150,8 @@ func minimumCost(nums []int) int {
 	return a + b + c
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(nums: number[]): number {
@@ -143,4 +169,6 @@ function minimumCost(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

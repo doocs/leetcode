@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README_EN.md
+rating: 1252
+source: Weekly Contest 237 Q2
+tags:
+    - Greedy
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1833. Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars)
 
 [中文文档](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md)
 
-<!-- tags:Greedy,Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>It is a sweltering summer day, and a boy wants to buy some ice cream bars.</p>
 
@@ -51,7 +65,11 @@
 	<li><code>1 &lt;= coins &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Sorting
 
@@ -63,6 +81,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxIceCream(self, costs: List[int], coins: int) -> int:
@@ -73,6 +93,8 @@ class Solution:
             coins -= c
         return len(costs)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +129,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxIceCream(costs []int, coins int) int {
 	sort.Ints(costs)
@@ -117,6 +143,8 @@ func maxIceCream(costs []int, coins int) int {
 	return len(costs)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxIceCream(costs: number[], coins: number): number {
@@ -131,6 +159,8 @@ function maxIceCream(costs: number[], coins: number): number {
     return n;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -153,4 +183,6 @@ var maxIceCream = function (costs, coins) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

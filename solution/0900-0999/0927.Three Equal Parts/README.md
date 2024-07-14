@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0927.Three%20Equal%20Parts/README.md
+tags:
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [927. 三等分](https://leetcode.cn/problems/three-equal-parts)
 
 [English Version](/solution/0900-0999/0927.Three%20Equal%20Parts/README_EN.md)
 
-<!-- tags:数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个由 <code>0</code> 和 <code>1</code> 组成的数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;，将数组分成 &nbsp;<strong>3&nbsp;个非空的部分</strong> ，使得所有这些部分表示相同的二进制值。</p>
 
@@ -55,7 +64,11 @@
 	<li><code>arr[i]</code>&nbsp;是&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 三指针
 
@@ -81,13 +94,15 @@
 
 遍历结束时，若 $k=n$，说明满足三等分，返回此时的 $[i - 1, j]$ 作为答案，否则返回 $[-1, -1]$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 表示 `arr` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 表示 `arr` 的长度。空间复杂度 $O(1)$。
 
 相似题目：
 
 -   [1573. 分割字符串的方案数](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -111,6 +126,8 @@ class Solution:
             i, j, k = i + 1, j + 1, k + 1
         return [i - 1, j] if k == n else [-1, -1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -150,6 +167,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +193,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func threeEqualParts(arr []int) []int {
@@ -208,6 +229,8 @@ func threeEqualParts(arr []int) []int {
 	return []int{-1, -1}
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -245,4 +268,6 @@ var threeEqualParts = function (arr) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

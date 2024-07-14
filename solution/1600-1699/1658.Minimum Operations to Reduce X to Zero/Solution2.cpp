@@ -1,18 +1,18 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
-        x = accumulate(nums.begin(), nums.end(), 0) - x;
+        int s = accumulate(nums.begin(), nums.end(), 0) - x;
+        int mx = -1, t = 0;
         int n = nums.size();
-        int ans = 1 << 30;
-        for (int i = 0, j = 0, s = 0; i < n; ++i) {
-            s += nums[i];
-            while (j <= i && s > x) {
-                s -= nums[j++];
+        for (int i = 0, j = 0; i < n; ++i) {
+            t += nums[i];
+            while (j <= i && t > s) {
+                t -= nums[j++];
             }
-            if (s == x) {
-                ans = min(ans, n - (i - j + 1));
+            if (t == s) {
+                mx = max(mx, i - j + 1);
             }
         }
-        return ans == 1 << 30 ? -1 : ans;
+        return mx == -1 ? -1 : n - mx;
     }
 };

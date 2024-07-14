@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0801.Minimum%20Swaps%20To%20Make%20Sequences%20Increasing/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [801. Minimum Swaps To Make Sequences Increasing](https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing)
 
 [中文文档](/solution/0800-0899/0801.Minimum%20Swaps%20To%20Make%20Sequences%20Increasing/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integer arrays of the same length <code>nums1</code> and <code>nums2</code>. In one operation, you are allowed to swap <code>nums1[i]</code> with <code>nums2[i]</code>.</p>
 
@@ -44,11 +55,17 @@ which are both strictly increasing.
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 2 * 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +81,8 @@ class Solution:
                     a, b = min(a, y), min(b, x + 1)
         return min(a, b)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +106,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -109,6 +130,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSwap(nums1 []int, nums2 []int) int {
 	a, b, n := 0, 1, len(nums1)
@@ -130,4 +153,6 @@ func minSwap(nums1 []int, nums2 []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

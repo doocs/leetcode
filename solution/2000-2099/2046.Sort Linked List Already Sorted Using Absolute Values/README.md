@@ -1,12 +1,22 @@
-# [2046. 给按照绝对值排序的链表排序](https://leetcode.cn/problems/sort-linked-list-already-sorted-using-absolute-values)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README.md
+tags:
+    - 链表
+    - 双指针
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [2046. 给按照绝对值排序的链表排序 🔒](https://leetcode.cn/problems/sort-linked-list-already-sorted-using-absolute-values)
 
 [English Version](/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README_EN.md)
 
-<!-- tags:链表,双指针,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 给你一个链表的头结点&nbsp;<code>head</code>&nbsp;，这个链表是根据结点的<strong>绝对值</strong>进行<strong>升序</strong>排序, 返回重新根据<strong>节点的值</strong>进行<strong>升序</strong>排序的链表。
 
@@ -54,13 +64,21 @@
 	<li>你可以在<code>O(n)</code>的时间复杂度之内解决这个问题吗?</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：头插法
 
-先默认第一个点已经排序完毕。然后从第二个点开始，遇到值为负数的节点，采用头插法；非负数，则继续往下遍历即可。
+我们先默认第一个点已经排序完毕，然后从第二个点开始，遇到值为负数的节点，采用头插法；非负数，则继续往下遍历即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -82,6 +100,8 @@ class Solution:
                 prev, curr = curr, curr.next
         return head
 ```
+
+#### Java
 
 ```java
 /**
@@ -113,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -147,6 +169,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -172,6 +196,40 @@ func sortLinkedList(head *ListNode) *ListNode {
 }
 ```
 
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function sortLinkedList(head: ListNode | null): ListNode | null {
+    let [prev, curr] = [head, head.next];
+    while (curr !== null) {
+        if (curr.val < 0) {
+            const t = curr.next;
+            prev.next = t;
+            curr.next = head;
+            head = curr;
+            curr = t;
+        } else {
+            [prev, curr] = [curr, curr.next];
+        }
+    }
+    return head;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

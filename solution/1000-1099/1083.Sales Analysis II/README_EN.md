@@ -1,10 +1,20 @@
-# [1083. Sales Analysis II](https://leetcode.com/problems/sales-analysis-ii)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1083.Sales%20Analysis%20II/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1083. Sales Analysis II 🔒](https://leetcode.com/problems/sales-analysis-ii)
 
 [中文文档](/solution/1000-1099/1083.Sales%20Analysis%20II/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Product</code></p>
 
@@ -79,11 +89,17 @@ Sales table:
 <strong>Explanation:</strong> The buyer with id 1 bought an S8 but did not buy an iPhone. The buyer with id 3 bought both.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -97,4 +113,6 @@ HAVING SUM(product_name = 'S8') > 0 AND SUM(product_name = 'iPhone') = 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

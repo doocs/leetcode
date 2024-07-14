@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md
+rating: 1785
+source: 第 55 场双周赛 Q3
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1911. 最大子序列交替和](https://leetcode.cn/problems/maximum-alternating-subsequence-sum)
 
 [English Version](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个下标从 <strong>0</strong> 开始的数组的 <strong>交替和</strong> 定义为 <strong>偶数</strong> 下标处元素之 <strong>和</strong> 减去 <strong>奇数</strong> 下标处元素之 <strong>和</strong> 。</p>
 
@@ -53,7 +64,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -82,6 +97,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxAlternatingSum(self, nums: List[int]) -> int:
@@ -93,6 +110,8 @@ class Solution:
             g[i] = max(f[i - 1] + x, g[i - 1])
         return max(f[n], g[n])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAlternatingSum(nums []int) int64 {
 	n := len(nums)
@@ -137,6 +160,8 @@ func maxAlternatingSum(nums []int) int64 {
 	return int64(max(f[n], g[n]))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAlternatingSum(nums: number[]): number {
@@ -153,9 +178,15 @@ function maxAlternatingSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -165,6 +196,8 @@ class Solution:
             f, g = max(g - x, f), max(f + x, g)
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -181,6 +214,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -195,6 +230,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxAlternatingSum(nums []int) int64 {
 	var f, g int
@@ -204,6 +241,8 @@ func maxAlternatingSum(nums []int) int64 {
 	return int64(max(f, g))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxAlternatingSum(nums: number[]): number {
@@ -217,4 +256,6 @@ function maxAlternatingSum(nums: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

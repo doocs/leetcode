@@ -4,13 +4,13 @@ type TopVotedCandidate struct {
 }
 
 func Constructor(persons []int, times []int) TopVotedCandidate {
-	mx, cur, n := 0, 0, len(persons)
-	counter := make([]int, n)
+	n := len(persons)
 	wins := make([]int, n)
+	cnt := make([]int, n)
+	cur := 0
 	for i, p := range persons {
-		counter[p]++
-		if counter[p] >= mx {
-			mx = counter[p]
+		cnt[p]++
+		if cnt[cur] <= cnt[p] {
 			cur = p
 		}
 		wins[i] = cur
@@ -19,16 +19,8 @@ func Constructor(persons []int, times []int) TopVotedCandidate {
 }
 
 func (this *TopVotedCandidate) Q(t int) int {
-	left, right := 0, len(this.wins)-1
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if this.times[mid] <= t {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return this.wins[left]
+	i := sort.SearchInts(this.times, t+1) - 1
+	return this.wins[i]
 }
 
 /**

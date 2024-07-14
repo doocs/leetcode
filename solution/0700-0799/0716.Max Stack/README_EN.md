@@ -1,10 +1,24 @@
-# [716. Max Stack](https://leetcode.com/problems/max-stack)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0716.Max%20Stack/README_EN.md
+tags:
+    - Stack
+    - Design
+    - Linked List
+    - Doubly-Linked List
+    - Ordered Set
+---
+
+<!-- problem:start -->
+
+# [716. Max Stack 🔒](https://leetcode.com/problems/max-stack)
 
 [中文文档](/solution/0700-0799/0716.Max%20Stack/README.md)
 
-<!-- tags:Stack,Design,Linked List,Doubly-Linked List,Ordered Set -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a max stack data structure that supports the stack operations and supports finding the stack&#39;s maximum element.</p>
 
@@ -53,11 +67,17 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 	<li>There will be <strong>at least one element</strong> in the stack when <code>pop</code>, <code>top</code>, <code>peekMax</code>, or <code>popMax</code> is called.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedList
@@ -132,6 +152,8 @@ class MaxStack:
 # param_4 = obj.peekMax()
 # param_5 = obj.popMax()
 ```
+
+#### Java
 
 ```java
 class Node {
@@ -232,6 +254,8 @@ class MaxStack {
  */
 ```
 
+#### C++
+
 ```cpp
 class MaxStack {
 public:
@@ -287,4 +311,6 @@ private:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

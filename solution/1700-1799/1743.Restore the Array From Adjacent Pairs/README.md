@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md
+rating: 1579
+source: 第 226 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+---
+
+<!-- problem:start -->
+
 # [1743. 从相邻元素对还原数组](https://leetcode.cn/problems/restore-the-array-from-adjacent-pairs)
 
 [English Version](/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README_EN.md)
 
-<!-- tags:数组,哈希表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>存在一个由 <code>n</code> 个不同元素组成的整数数组 <code>nums</code> ，但你已经记不清具体内容。好在你还记得 <code>nums</code> 中的每一对相邻元素。</p>
 
@@ -56,7 +67,11 @@
 	<li>题目数据保证存在一些以 <code>adjacentPairs</code> 作为元素对的数组 <code>nums</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -65,6 +80,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +102,8 @@ class Solution:
             ans[i] = v[0] if v[1] == ans[i - 2] else v[1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -141,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreArray(adjacentPairs [][]int) []int {
 	n := len(adjacentPairs) + 1
@@ -168,6 +191,8 @@ func restoreArray(adjacentPairs [][]int) []int {
 	return ans
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -209,9 +234,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -231,6 +262,8 @@ class Solution:
         dfs(i, 1e6)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +298,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -296,6 +331,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreArray(adjacentPairs [][]int) []int {
 	g := map[int][]int{}
@@ -326,4 +363,6 @@ func restoreArray(adjacentPairs [][]int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

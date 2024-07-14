@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0067.Add%20Binary/README_EN.md
+tags:
+    - Bit Manipulation
+    - Math
+    - String
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [67. Add Binary](https://leetcode.com/problems/add-binary)
 
 [中文文档](/solution/0000-0099/0067.Add%20Binary/README.md)
 
-<!-- tags:Bit Manipulation,Math,String,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two binary strings <code>a</code> and <code>b</code>, return <em>their sum as a binary string</em>.</p>
 
@@ -25,7 +38,11 @@
 	<li>Each string does not contain leading zeros except for the zero itself.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -35,11 +52,15 @@ The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of str
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
         return bin(int(a, 2) + int(b, 2))[2:]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -55,6 +76,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -72,6 +95,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func addBinary(a string, b string) string {
@@ -94,11 +119,15 @@ func addBinary(a string, b string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addBinary(a: string, b: string): string {
     return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -126,6 +155,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public string AddBinary(string a, string b) {
@@ -147,9 +178,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -163,6 +200,8 @@ class Solution:
             i, j = i - 1, j - 1
         return ''.join(ans[::-1])
 ```
+
+#### TypeScript
 
 ```ts
 function addBinary(a: string, b: string): string {
@@ -181,4 +220,6 @@ function addBinary(a: string, b: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

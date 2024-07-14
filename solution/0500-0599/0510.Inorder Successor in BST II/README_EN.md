@@ -1,10 +1,22 @@
-# [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
+# [510. Inorder Successor in BST II 🔒](https://leetcode.com/problems/inorder-successor-in-bst-ii)
 
 [中文文档](/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README.md)
 
-<!-- tags:Tree,Binary Search Tree,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>node</code> in a binary search tree, return <em>the in-order successor of that node in the BST</em>. If that node has no in-order successor, return <code>null</code>.</p>
 
@@ -50,11 +62,23 @@ class Node {
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without looking up any of the node&#39;s values?</p>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Case Discussion
+
+If the `node` has a right subtree, then the in-order successor of `node` is the leftmost node in the right subtree.
+
+If the `node` does not have a right subtree, then if `node` is the right child of its parent, we continue to search upwards until the parent of the node is null, or the node is the left child of its parent. In this case, the parent node is the in-order successor.
+
+The time complexity is $O(h)$, where $h$ is the height of the binary tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -67,7 +91,6 @@ class Node:
         self.parent = None
 """
 
-
 class Solution:
     def inorderSuccessor(self, node: 'Node') -> 'Optional[Node]':
         if node.right:
@@ -75,10 +98,12 @@ class Solution:
             while node.left:
                 node = node.left
             return node
-        while node.parent and node == node.parent.right:
+        while node.parent and node.parent.right is node:
             node = node.parent
         return node.parent
 ```
+
+#### Java
 
 ```java
 /*
@@ -92,7 +117,6 @@ class Node {
 */
 
 class Solution {
-
     public Node inorderSuccessor(Node node) {
         if (node.right != null) {
             node = node.right;
@@ -101,13 +125,15 @@ class Solution {
             }
             return node;
         }
-        while (node.parent != null && node == node.parent.right) {
+        while (node.parent != null && node.parent.right == node) {
             node = node.parent;
         }
         return node.parent;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -126,14 +152,20 @@ public:
     Node* inorderSuccessor(Node* node) {
         if (node->right) {
             node = node->right;
-            while (node->left) node = node->left;
+            while (node->left) {
+                node = node->left;
+            }
             return node;
         }
-        while (node->parent && node == node->parent->right) node = node->parent;
+        while (node->parent && node->parent->right == node) {
+            node = node->parent;
+        }
         return node->parent;
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -161,6 +193,42 @@ func inorderSuccessor(node *Node) *Node {
 }
 ```
 
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class Node {
+ *     val: number
+ *     left: Node | null
+ *     right: Node | null
+ *     parent: Node | null
+ *     constructor(val?: number, left?: Node | null, right?: Node | null, parent?: Node | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *         this.parent = (parent===undefined ? null : parent)
+ *     }
+ * }
+ */
+
+function inorderSuccessor(node: Node | null): Node | null {
+    if (node.right) {
+        node = node.right;
+        while (node.left) {
+            node = node.left;
+        }
+        return node;
+    }
+    while (node.parent && node === node.parent.right) {
+        node = node.parent;
+    }
+    return node.parent;
+}
+```
+
+#### JavaScript
+
 ```js
 /**
  * // Definition for a Node.
@@ -179,14 +247,20 @@ func inorderSuccessor(node *Node) *Node {
 var inorderSuccessor = function (node) {
     if (node.right) {
         node = node.right;
-        while (node.left) node = node.left;
+        while (node.left) {
+            node = node.left;
+        }
         return node;
     }
-    while (node.parent && node == node.parent.right) node = node.parent;
+    while (node.parent && node === node.parent.right) {
+        node = node.parent;
+    }
     return node.parent;
 };
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

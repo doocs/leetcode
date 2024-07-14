@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README_EN.md
+tags:
+    - Tree
+    - Breadth-First Search
+---
+
+<!-- problem:start -->
+
 # [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal)
 
 [中文文档](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README.md)
 
-<!-- tags:Tree,Breadth-First Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an n-ary tree, return the <em>level order</em> traversal of its nodes&#39; values.</p>
 
@@ -37,7 +48,11 @@
 	<li>The total number of nodes is between <code>[0, 10<sup>4</sup>]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -56,6 +71,8 @@ Finally, return the result list $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the N-ary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -82,6 +99,8 @@ class Solution:
             ans.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -124,6 +143,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /*
@@ -171,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -200,6 +223,8 @@ func levelOrder(root *Node) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -236,6 +261,10 @@ function levelOrder(root: Node | null): number[][] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: DFS
 
 We can use the Depth-First Search method to traverse the entire tree.
@@ -253,6 +282,8 @@ In the main function, we call $dfs(root, 0)$ and return $ans$.
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the N-ary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -279,6 +310,8 @@ class Solution:
         dfs(root, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 /*
@@ -323,6 +356,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -366,6 +401,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -393,6 +430,8 @@ func levelOrder(root *Node) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -427,4 +466,6 @@ function levelOrder(root: Node | null): number[][] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

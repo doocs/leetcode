@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1763.Longest%20Nice%20Substring/README.md
+rating: 1521
+source: 第 46 场双周赛 Q1
+tags:
+    - 位运算
+    - 哈希表
+    - 字符串
+    - 分治
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [1763. 最长的美好子字符串](https://leetcode.cn/problems/longest-nice-substring)
 
 [English Version](/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md)
 
-<!-- tags:位运算,哈希表,字符串,分治,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>当一个字符串 <code>s</code> 包含的每一种字母的大写和小写形式 <strong>同时</strong> 出现在 <code>s</code> 中，就称这个字符串 <code>s</code> 是 <strong>美好</strong> 字符串。比方说，<code>"abABB"</code> 是美好字符串，因为 <code>'A'</code> 和 <code>'a'</code> 同时出现了，且 <code>'B'</code> 和 <code>'b'</code> 也同时出现了。然而，<code>"abA"</code> 不是美好字符串因为 <code>'b'</code> 出现了，而 <code>'B'</code> 没有出现。</p>
 
@@ -54,7 +68,11 @@
 	<li><code>s</code> 只包含大写和小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举 + 哈希表
 
@@ -65,6 +83,8 @@
 时间复杂度 $O(n^2 \times C)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集的大小。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -82,6 +102,8 @@ class Solution:
                     ans = s[i : j + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +134,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +164,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestNiceSubstring(s string) string {
@@ -170,6 +196,8 @@ func longestNiceSubstring(s string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function longestNiceSubstring(s: string): string {
     const n = s.length;
@@ -195,6 +223,10 @@ function longestNiceSubstring(s: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举 + 位运算
 
 与方法一类似，我们可以直接枚举所有子串的起点位置 $i$，找到以该位置所在的字符为首字符的所有子串，用两个整数 $lower$ 和 $upper$ 分别记录子串中小写字母和大写字母的出现情况。
@@ -204,6 +236,8 @@ function longestNiceSubstring(s: string): string {
 时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -221,6 +255,8 @@ class Solution:
                     ans = s[i : j + 1]
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -248,6 +284,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -272,6 +310,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestNiceSubstring(s string) string {
@@ -300,4 +340,6 @@ func longestNiceSubstring(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

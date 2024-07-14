@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1034.Coloring%20A%20Border/README.md
+rating: 1578
+source: 第 134 场周赛 Q2
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [1034. 边界着色](https://leetcode.cn/problems/coloring-a-border)
 
 [English Version](/solution/1000-1099/1034.Coloring%20A%20Border/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的整数矩阵 <code>grid</code> ，表示一个网格。另给你三个整数&nbsp;<code>row</code>、<code>col</code> 和 <code>color</code> 。网格中的每个值表示该位置处的网格块的颜色。</p>
 
@@ -58,7 +71,11 @@
 	<li><code>0 &lt;= col &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -67,6 +84,8 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +110,8 @@ class Solution:
         dfs(row, col, grid[row][col])
         return grid
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -131,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -164,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	m, n := len(grid), len(grid[0])
@@ -194,6 +219,8 @@ func colorBorder(grid [][]int, row int, col int, color int) [][]int {
 	return grid
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorBorder(grid: number[][], row: number, col: number, color: number): number[][] {
@@ -226,4 +253,6 @@ function colorBorder(grid: number[][], row: number, col: number, color: number):
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md
+rating: 1315
+source: 第 272 场周赛 Q2
+tags:
+    - 数组
+    - 双指针
+    - 字符串
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [2109. 向字符串添加空格](https://leetcode.cn/problems/adding-spaces-to-a-string)
 
 [English Version](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md)
 
-<!-- tags:数组,双指针,字符串,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串 <code>s</code> ，以及一个下标从 <strong>0</strong> 开始的整数数组 <code>spaces</code> 。</p>
 
@@ -61,15 +74,21 @@
 	<li><code>spaces</code> 中的所有值 <strong>严格递增</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
-我们可以用双指针 $i$ 和 $j$ 分别指向字符串 $s$ 和数组 $spaces$ 的头部，然后从头到尾遍历字符串 $s$，当 $i$ 等于 $spaces[j]$ 时，我们往结果字符串中添加一个空格，然后 $j$ 自增 1。接下来，我们将 $s[i]$ 添加到结果字符串中，然后 $i$ 自增 1。继续这个过程，直到遍历完字符串 $s$。
+我们可以用双指针 $i$ 和 $j$ 分别指向字符串 $s$ 和数组 $\text{spaces}$ 的头部，然后从头到尾遍历字符串 $s$，当 $i$ 等于 $\text{spaces}[j]$ 时，我们往结果字符串中添加一个空格，然后 $j$ 自增 $1$。接下来，我们将 $s[i]$ 添加到结果字符串中，然后 $i$ 自增 $1$。继续这个过程，直到遍历完字符串 $s$。
 
-时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是字符串 $s$ 和数组 $spaces$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是字符串 $s$ 和数组 $spaces$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +102,8 @@ class Solution:
             ans.append(c)
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -117,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func addSpaces(s string, spaces []int) string {
 	var ans []byte
@@ -131,40 +156,24 @@ func addSpaces(s string, spaces []int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function addSpaces(s: string, spaces: number[]): string {
-    let ans = '';
+    const ans: string[] = [];
     for (let i = 0, j = 0; i < s.length; i++) {
-        if (j < spaces.length && i === spaces[j]) {
-            ans += ' ';
-            ++j;
+        if (i === spaces[j]) {
+            ans.push(' ');
+            j++;
         }
-        ans += s[i];
+        ans.push(s[i]);
     }
-    return ans;
+    return ans.join('');
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def addSpaces(self, s: str, spaces: List[int]) -> str:
-        ans = []
-        i, j = len(s) - 1, len(spaces) - 1
-        while i >= 0:
-            ans.append(s[i])
-            if j >= 0 and i == spaces[j]:
-                ans.append(' ')
-                j -= 1
-            i -= 1
-        return ''.join(ans[::-1])
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

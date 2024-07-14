@@ -1,10 +1,21 @@
-# [1714. Sum Of Special Evenly-Spaced Elements In Array](https://leetcode.com/problems/sum-of-special-evenly-spaced-elements-in-array)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [1714. Sum Of Special Evenly-Spaced Elements In Array 🔒](https://leetcode.com/problems/sum-of-special-evenly-spaced-elements-in-array)
 
 [中文文档](/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> consisting of <code>n</code> non-negative integers.</p>
 
@@ -43,7 +54,11 @@
 	<li><code>1 &lt;= y<sub>i</sub> &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Block Decomposition
 
@@ -59,6 +74,8 @@ We define a two-dimensional array $suf$, where $suf[i][j]$ represents the suffix
 The time complexity is $O((n +  m) \times \sqrt{n})$, and the space complexity is $O(n \times \sqrt{n})$. Here, $n$ is the length of the array, and $m$ is the number of queries.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +95,8 @@ class Solution:
                 ans.append(sum(nums[x::y]) % mod)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -143,6 +164,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solve(nums []int, queries [][]int) (ans []int) {
 	n := len(nums)
@@ -170,6 +193,8 @@ func solve(nums []int, queries [][]int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(nums: number[], queries: number[][]): number[] {
@@ -202,4 +227,6 @@ function solve(nums: number[], queries: number[][]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

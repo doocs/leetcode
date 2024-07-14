@@ -1,12 +1,21 @@
-# [1826. 有缺陷的传感器](https://leetcode.cn/problems/faulty-sensor)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1826.Faulty%20Sensor/README.md
+tags:
+    - 数组
+    - 双指针
+---
+
+<!-- problem:start -->
+
+# [1826. 有缺陷的传感器 🔒](https://leetcode.cn/problems/faulty-sensor)
 
 [English Version](/solution/1800-1899/1826.Faulty%20Sensor/README_EN.md)
 
-<!-- tags:数组,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实验室里正在进行一项实验。为了确保数据的准确性，同时使用 <strong>两个</strong> 传感器来采集数据。您将获得2个数组 <code>sensor1</code> and <code>sensor2</code>，其中 <code>sensor1[i]</code>&nbsp;和&nbsp;<code>sensor2[i]</code>&nbsp;分别是两个传感器对<span style="">第 <code>i</code> 个</span>数据点采集到的数据。</p>
 
@@ -58,17 +67,23 @@
 	<li><code>1 &lt;= sensor1[i], sensor2[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：遍历
 
 遍历两个数组，找到第一个不相等的位置 $i$。如果 $i \lt n - 1$，循环比较 $sensor1[i + 1]$ 和 $sensor2[i]$，如果不相等，说明传感器 $1$ 有缺陷，返回 $1$；否则比较 $sensor1[i]$ 和 $sensor2[i + 1]$，如果不相等，说明传感器 $2$ 有缺陷，返回 $2$。
 
-遍历结束，说明无法确定有缺陷的传感器，返回 $-1$。
+遍历结束，说明无法确定有缺陷的传感器 🔒，返回 $-1$。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +101,8 @@ class Solution:
             i += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +124,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -122,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func badSensor(sensor1 []int, sensor2 []int) int {
@@ -139,6 +160,8 @@ func badSensor(sensor1 []int, sensor2 []int) int {
 	return -1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function badSensor(sensor1: number[], sensor2: number[]): number {
@@ -165,4 +188,6 @@ function badSensor(sensor1: number[], sensor2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

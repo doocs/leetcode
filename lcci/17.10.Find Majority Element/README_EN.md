@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority%20Element/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [17.10. Find Majority Element](https://leetcode.cn/problems/find-majority-element-lcci)
 
 [中文文档](/lcci/17.10.Find%20Majority%20Element/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A majority element is an element that makes up more than half of the items in an array. Given a positive integers array, find the majority element. If there is no majority element, return -1. Do this in O(N) time and O(1) space.</p>
 
@@ -36,11 +46,17 @@
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -53,6 +69,8 @@ class Solution:
                 cnt += 1 if m == v else -1
         return m if nums.count(m) > len(nums) // 2 else -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +95,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -94,6 +114,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func majorityElement(nums []int) int {
@@ -122,6 +144,8 @@ func majorityElement(nums []int) int {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -147,6 +171,8 @@ var majorityElement = function (nums) {
     return cnt > nums.length / 2 ? m : -1;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -177,6 +203,44 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func majorityElement(_ nums: [Int]) -> Int {
+        var count = 0
+        var candidate: Int?
+
+        for num in nums {
+            if count == 0 {
+                candidate = num
+                count = 1
+            } else if let candidate = candidate, candidate == num {
+                count += 1
+            } else {
+                count -= 1
+            }
+        }
+
+        count = 0
+        if let candidate = candidate {
+            for num in nums {
+                if num == candidate {
+                    count += 1
+                }
+            }
+            if count > nums.count / 2 {
+                return candidate
+            }
+        }
+
+        return -1
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1593.Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings/README_EN.md
+rating: 1739
+source: Weekly Contest 207 Q2
+tags:
+    - Hash Table
+    - String
+    - Backtracking
+---
+
+<!-- problem:start -->
+
 # [1593. Split a String Into the Max Number of Unique Substrings](https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings)
 
 [中文文档](/solution/1500-1599/1593.Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings/README.md)
 
-<!-- tags:Hash Table,String,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string&nbsp;<code>s</code><var>,</var>&nbsp;return <em>the maximum&nbsp;number of unique substrings that the given string can be split into</em>.</p>
 
@@ -49,11 +63,17 @@
 	</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +94,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +124,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +157,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxUniqueSplit(s string) int {
 	ans := 1
@@ -160,4 +186,6 @@ func maxUniqueSplit(s string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

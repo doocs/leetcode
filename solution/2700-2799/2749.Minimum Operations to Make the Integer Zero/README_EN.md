@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README_EN.md
+rating: 2132
+source: Weekly Contest 351 Q2
+tags:
+    - Bit Manipulation
+    - Brainteaser
+---
+
+<!-- problem:start -->
+
 # [2749. Minimum Operations to Make the Integer Zero](https://leetcode.com/problems/minimum-operations-to-make-the-integer-zero)
 
 [中文文档](/solution/2700-2799/2749.Minimum%20Operations%20to%20Make%20the%20Integer%20Zero/README.md)
 
-<!-- tags:Bit Manipulation,Brainteaser -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>num1</code> and <code>num2</code>.</p>
 
@@ -43,11 +56,29 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= num2 &lt;= 10<sup>9</sup></font></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Enumeration
+
+If we operate $k$ times, then the problem essentially becomes: determining whether $\text{num1} - k \times \text{num2}$ can be split into the sum of $k$ $2^i$s.
+
+Let's assume $x = \text{num1} - k \times \text{num2}$. Next, we discuss in categories:
+
+-   If $x < 0$, then $x$ cannot be split into the sum of $k$ $2^i$s, because $2^i > 0$, which obviously has no solution;
+-   If the number of $1$s in the binary representation of $x$ is greater than $k$, there is also no solution in this case;
+-   Otherwise, for the current $k$, there must exist a splitting scheme.
+
+Therefore, we start enumerating $k$ from $1$. Once we find a $k$ that meets the condition, we can directly return the answer.
+
+The time complexity is $O(\log x)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +91,8 @@ class Solution:
                 return k
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func makeTheIntegerZero(num1 int, num2 int) int {
 	for k := 1; ; k++ {
@@ -114,4 +151,6 @@ func makeTheIntegerZero(num1 int, num2 int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

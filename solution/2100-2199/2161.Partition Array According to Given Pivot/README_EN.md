@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README_EN.md
+rating: 1337
+source: Biweekly Contest 71 Q2
+tags:
+    - Array
+    - Two Pointers
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [2161. Partition Array According to Given Pivot](https://leetcode.com/problems/partition-array-according-to-given-pivot)
 
 [中文文档](/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README.md)
 
-<!-- tags:Array,Two Pointers,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>pivot</code>. Rearrange <code>nums</code> such that the following conditions are satisfied:</p>
 
@@ -52,11 +66,17 @@ The relative ordering of the elements less than and greater than pivot is also m
 	<li><code>pivot</code> equals to an element of <code>nums</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +91,8 @@ class Solution:
                 c.append(x)
         return a + b + c
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -98,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +137,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pivotArray(nums []int, pivot int) []int {
@@ -138,4 +164,6 @@ func pivotArray(nums []int, pivot int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

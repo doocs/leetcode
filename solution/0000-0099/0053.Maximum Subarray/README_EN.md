@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md
+tags:
+    - Array
+    - Divide and Conquer
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray)
 
 [中文文档](/solution/0000-0099/0053.Maximum%20Subarray/README.md)
 
-<!-- tags:Array,Divide and Conquer,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, find the <span data-keyword="subarray-nonempty">subarray</span> with the largest sum, and return <em>its sum</em>.</p>
 
@@ -44,7 +56,11 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If you have figured out the <code>O(n)</code> solution, try coding another solution using the <strong>divide and conquer</strong> approach, which is more subtle.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -68,6 +84,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. We o
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -77,6 +95,8 @@ class Solution:
             ans = max(ans, f)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxSubArray(nums []int) int {
 	ans, f := nums[0], nums[0]
@@ -116,6 +140,8 @@ func maxSubArray(nums []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxSubArray(nums: number[]): number {
     let [ans, f] = [nums[0], nums[0]];
@@ -126,6 +152,8 @@ function maxSubArray(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -142,6 +170,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} nums
@@ -156,6 +186,8 @@ var maxSubArray = function (nums) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -172,9 +204,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -202,6 +240,8 @@ class Solution:
         left, right = 0, len(nums) - 1
         return maxSub(nums, left, right)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -237,4 +277,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

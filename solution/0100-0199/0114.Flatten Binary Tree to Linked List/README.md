@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README.md
+tags:
+    - 栈
+    - 树
+    - 深度优先搜索
+    - 链表
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list)
 
 [English Version](/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README_EN.md)
 
-<!-- tags:栈,树,深度优先搜索,链表,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根结点 <code>root</code> ，请你将它展开为一个单链表：</p>
 
@@ -51,7 +63,11 @@
 
 <p><strong>进阶：</strong>你可以使用原地算法（<code>O(1)</code> 额外空间）展开这棵树吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：寻找前驱节点
 
@@ -62,6 +78,8 @@
 时间复杂度 $O(n)$，其中 $n$ 是树中节点的个数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -85,6 +103,8 @@ class Solution:
                 root.left = None
             root = root.right
 ```
+
+#### Java
 
 ```java
 /**
@@ -125,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -180,6 +204,8 @@ func flatten(root *TreeNode) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -215,6 +241,8 @@ function flatten(root: TreeNode | null): void {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -234,8 +262,8 @@ function flatten(root: TreeNode | null): void {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     #[allow(dead_code)]
     pub fn flatten(root: &mut Option<Rc<RefCell<TreeNode>>>) {
@@ -256,7 +284,7 @@ impl Solution {
     #[allow(dead_code)]
     fn pre_order_traverse(
         v: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
-        root: &Option<Rc<RefCell<TreeNode>>>
+        root: &Option<Rc<RefCell<TreeNode>>>,
     ) {
         if root.is_none() {
             return;
@@ -269,6 +297,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -301,9 +331,15 @@ var flatten = function (root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 /**
@@ -332,4 +368,6 @@ func flatten(root *TreeNode) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

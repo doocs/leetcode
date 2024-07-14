@@ -1,69 +1,37 @@
 type KthLargest struct {
-	h *IntHeap
-	k int
+	k    int
+	minQ hp
 }
 
 func Constructor(k int, nums []int) KthLargest {
-	h := &IntHeap{}
-	heap.Init(h)
-	for _, v := range nums {
-		heap.Push(h, v)
+	minQ := hp{}
+	this := KthLargest{k, minQ}
+	for _, x := range nums {
+		this.Add(x)
 	}
-
-	for h.Len() > k {
-		heap.Pop(h)
-	}
-
-	return KthLargest{
-		h: h,
-		k: k,
-	}
+	return this
 }
 
 func (this *KthLargest) Add(val int) int {
-	heap.Push(this.h, val)
-	for this.h.Len() > this.k {
-		heap.Pop(this.h)
+	heap.Push(&this.minQ, val)
+	if this.minQ.Len() > this.k {
+		heap.Pop(&this.minQ)
 	}
-
-	return this.h.Top()
+	return this.minQ.IntSlice[0]
 }
 
-func connectSticks(sticks []int) int {
-	h := IntHeap(sticks)
-	heap.Init(&h)
-	res := 0
-	for h.Len() > 1 {
-		val := heap.Pop(&h).(int)
-		val += heap.Pop(&h).(int)
-		res += val
-		heap.Push(&h, val)
-	}
-	return res
-}
+type hp struct{ sort.IntSlice }
 
-type IntHeap []int
-
-func (h IntHeap) Len() int           { return len(h) }
-func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
-func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-func (h *IntHeap) Push(x any) {
-	*h = append(*h, x.(int))
-}
-func (h *IntHeap) Pop() any {
-	old := *h
+func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Pop() interface{} {
+	old := h.IntSlice
 	n := len(old)
 	x := old[n-1]
-	*h = old[0 : n-1]
+	h.IntSlice = old[0 : n-1]
 	return x
 }
-
-func (h *IntHeap) Top() int {
-	if (*h).Len() == 0 {
-		return 0
-	}
-
-	return (*h)[0]
+func (h *hp) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
 }
 
 /**

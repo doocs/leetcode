@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README_EN.md
+rating: 1839
+source: Weekly Contest 298 Q3
+tags:
+    - Greedy
+    - Memoization
+    - String
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [2311. Longest Binary Subsequence Less Than or Equal to K](https://leetcode.com/problems/longest-binary-subsequence-less-than-or-equal-to-k)
 
 [中文文档](/solution/2300-2399/2311.Longest%20Binary%20Subsequence%20Less%20Than%20or%20Equal%20to%20K/README.md)
 
-<!-- tags:Greedy,Memoization,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a binary string <code>s</code> and a positive integer <code>k</code>.</p>
 
@@ -47,11 +62,17 @@ The length of this subsequence is 6, so 6 is returned.
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +86,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func longestSubsequence(s string, k int) (ans int) {
 	for i, v := len(s)-1, 0; i >= 0; i-- {
@@ -114,6 +141,8 @@ func longestSubsequence(s string, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function longestSubsequence(s: string, k: number): number {
@@ -129,6 +158,8 @@ function longestSubsequence(s: string, k: number): number {
     return ans;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -150,6 +181,8 @@ var longestSubsequence = function (s, k) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int LongestSubsequence(string s, int k) {
@@ -169,4 +202,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

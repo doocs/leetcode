@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README_EN.md
+tags:
+    - Greedy
+    - Math
+---
+
+<!-- problem:start -->
+
 # [738. Monotone Increasing Digits](https://leetcode.com/problems/monotone-increasing-digits)
 
 [中文文档](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README.md)
 
-<!-- tags:Greedy,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>An integer has <strong>monotone increasing digits</strong> if and only if each pair of adjacent digits <code>x</code> and <code>y</code> satisfy <code>x &lt;= y</code>.</p>
 
@@ -39,11 +50,17 @@
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +79,8 @@ class Solution:
                 i += 1
         return int(''.join(s))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +102,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -106,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func monotoneIncreasingDigits(n int) int {
 	s := []byte(strconv.Itoa(n))
@@ -128,4 +151,6 @@ func monotoneIncreasingDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

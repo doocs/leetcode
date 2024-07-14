@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0189.Rotate%20Array/README.md
+tags:
+    - 数组
+    - 数学
+    - 双指针
+---
+
+<!-- problem:start -->
+
 # [189. 轮转数组](https://leetcode.cn/problems/rotate-array)
 
 [English Version](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 
-<!-- tags:数组,数学,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code>，将数组中的元素向右轮转 <code>k</code><em>&nbsp;</em>个位置，其中&nbsp;<code>k</code><em>&nbsp;</em>是非负数。</p>
 
@@ -51,7 +61,11 @@
 	<li>你可以使用空间复杂度为&nbsp;<code>O(1)</code> 的&nbsp;<strong>原地&nbsp;</strong>算法解决这个问题吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：三次翻转
 
@@ -73,6 +87,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
@@ -87,6 +103,8 @@ class Solution:
         reverse(0, k - 1)
         reverse(k, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +129,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -123,6 +143,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func rotate(nums []int, k int) {
@@ -138,6 +160,8 @@ func rotate(nums []int, k int) {
 	reverse(k, n-1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -159,6 +183,8 @@ function rotate(nums: number[], k: number): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn rotate(nums: &mut Vec<i32>, k: i32) {
@@ -170,6 +196,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -190,6 +218,8 @@ var rotate = function (nums, k) {
     reverse(k, n - 1);
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -216,9 +246,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -229,4 +265,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

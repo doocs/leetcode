@@ -1,14 +1,22 @@
-# [3050. Pizza Toppings Cost Analysis](https://leetcode.cn/problems/pizza-toppings-cost-analysis)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [3050. 披萨配料成本分析 🔒](https://leetcode.cn/problems/pizza-toppings-cost-analysis)
 
 [English Version](/solution/3000-3099/3050.Pizza%20Toppings%20Cost%20Analysis/README_EN.md)
 
-<!-- tags: -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>Table: <code><font face="monospace">Toppings</font></code></p>
+<p>表：<code><font face="monospace">Toppings</font></code></p>
 
 <pre>
 +--------------+---------+ 
@@ -17,29 +25,30 @@
 | topping_name | varchar | 
 | cost         | decimal |
 +--------------+---------+
-topping_name is the primary key for this table.
-Each row of this table contains topping name and the cost of the topping. 
+topping_name 是这张表的主键。
+这张表的每一行包含配料名和配料的花费。
 </pre>
 
-<p>Write a solution to calculate the <strong>total cost</strong> of <strong>all possible <code>3</code>-topping</strong> pizza combinations from a given list of toppings. The total cost of toppings must be <strong>rounded</strong> to <code>2</code> <strong>decimal</strong> places.</p>
+<p>编写一个解决方案根据给定的配料表来计算 <strong>所有可能的&nbsp;<code>3</code>&nbsp;种配料&nbsp;</strong>披萨组合的 <strong>总花费</strong>。总花费必须 <strong>舍入</strong> 到 <code>2</code> 位 <strong>整数</strong>。</p>
 
-<p><strong>Note:</strong></p>
+<p><strong>注意：</strong></p>
 
 <ul>
-	<li><strong>Do not</strong> include the pizzas where a topping is <strong>repeated</strong>. For example, &lsquo;Pepperoni, Pepperoni, Onion Pizza&rsquo;.</li>
-	<li>Toppings <strong>must be</strong> listed in <strong>alphabetical order</strong>. For example, &#39;Chicken, Onions, Sausage&#39;. &#39;Onion, Sausage, Chicken&#39; is not acceptable.</li>
+	<li><strong>不要</strong>&nbsp;包含 <strong>重复</strong> 配料的披萨。例如，‘Pepperoni, Pepperoni, Onion Pizza’。</li>
+	<li>配料 <strong>必须</strong> 以 <strong>字母顺序</strong> 排序。例如，'Chicken, Onions, Sausage'。'Onion, Sausage, Chicken' 不会被通过。</li>
 </ul>
 
-<p>Return<em> the result table ordered by total cost in</em> <em><strong>descending</strong></em> <em>order and combination of toppings in <strong>ascending</strong> order.</em></p>
+<p>返回结果表，以总花费 <strong>降序</strong> 排序，配料的组合 <strong>升序</strong> 排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Toppings table:
+<strong>输入：</strong> 
+Toppings 表：
 +--------------+------+
 | topping_name | cost |
 +--------------+------+
@@ -48,7 +57,7 @@ Toppings table:
 | Chicken      | 0.55 |
 | Extra Cheese | 0.40 |
 +--------------+------+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +--------------------------------+------------+
 | pizza                          | total_cost | 
 +--------------------------------+------------+
@@ -57,15 +66,19 @@ Toppings table:
 | Extra Cheese,Pepperoni,Sausage | 1.60       |
 | Chicken,Extra Cheese,Pepperoni | 1.45       | 
 +--------------------------------+------------+
-<strong>Explanation:</strong> 
-There are only four different combinations possible with the three topings:
-- Chicken, Pepperoni, Sausage: Total cost is $1.75 (Chicken $0.55, Pepperoni $0.50, Sausage $0.70).
-- Chicken, Extra Cheese, Sausage: Total cost is $1.65 (Chicken $0.55, Extra Cheese $0.40, Sausage $0.70).
-- Extra Cheese, Pepperoni, Sausage: Total cost is $1.60 (Extra Cheese $0.40, Pepperoni $0.50, Sausage $0.70).
-- Chicken, Extra Cheese, Pepperoni: Total cost is $1.45 (Chicken $0.55, Extra Cheese $0.40, Pepperoni $0.50).
-Output table is ordered by the total cost in descending order.</pre>
+<strong>解释：</strong> 
+这三种配料只有四种不同的组合：
+- Chicken, Pepperoni, Sausage：总花费是 $1.75 (Chicken $0.55，Pepperoni $0.50，Sausage $0.70)。
+- Chicken, Extra Cheese, Sausage：总花费是 $1.65 (Chicken $0.55，Extra Cheese $0.40，Sausage $0.70)。
+- Extra Cheese, Pepperoni, Sausage：总花费是 $1.60 (Extra Cheese $0.40，Pepperoni $0.50，Sausage $0.70)。
+- Chicken, Extra Cheese, Pepperoni：总花费是 $1.45 (Chicken $0.55，Extra Cheese $0.40，Pepperoni $0.50)。
+输出表根据总花费降序排序。</pre>
+
+<!-- description:end -->
 
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：窗口函数 + 条件连接
 
@@ -74,6 +87,8 @@ Output table is ordered by the total cost in descending order.</pre>
 然后我们使用条件连接，连接三次表 `T`，分别为 `t1`, `t2`, `t3`。连接条件是 `t1.rk < t2.rk` 和 `t2.rk < t3.rk`。然后我们计算三个配料的总价，按照总价降序排序，再按照配料名升序排序。
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -94,4 +109,6 @@ ORDER BY 2 DESC, 1 ASC;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

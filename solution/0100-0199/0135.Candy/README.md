@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0135.Candy/README.md
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [135. 分发糖果](https://leetcode.cn/problems/candy)
 
 [English Version](/solution/0100-0199/0135.Candy/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>n</code> 个孩子站成一排。给你一个整数数组 <code>ratings</code> 表示每个孩子的评分。</p>
 
@@ -47,7 +56,11 @@
 	<li><code>0 &lt;= ratings[i] &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次遍历
 
@@ -60,6 +73,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是评分数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -75,6 +90,8 @@ class Solution:
                 right[i] = right[i + 1] + 1
         return sum(max(a, b) for a, b in zip(left, right))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +120,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +147,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func candy(ratings []int) int {
@@ -157,6 +178,8 @@ func candy(ratings []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function candy(ratings: number[]): number {
     const n = ratings.length;
@@ -179,6 +202,8 @@ function candy(ratings: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -209,9 +234,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Solution {
@@ -245,4 +276,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

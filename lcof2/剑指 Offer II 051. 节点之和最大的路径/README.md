@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20051.%20%E8%8A%82%E7%82%B9%E4%B9%8B%E5%92%8C%E6%9C%80%E5%A4%A7%E7%9A%84%E8%B7%AF%E5%BE%84/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 051. 节点之和最大的路径](https://leetcode.cn/problems/jC7MId)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>路径</strong> 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 <strong>至多出现一次</strong> 。该路径<strong> 至少包含一个 </strong>节点，且不一定经过根节点。</p>
 
@@ -44,7 +51,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 124&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/binary-tree-maximum-path-sum/">https://leetcode.cn/problems/binary-tree-maximum-path-sum/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -70,6 +81,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -92,6 +105,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -129,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -160,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -185,6 +204,8 @@ func maxPathSum(root *TreeNode) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -217,6 +238,8 @@ function maxPathSum(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -236,8 +259,8 @@ function maxPathSum(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut i32) -> i32 {
         if root.is_none() {
@@ -257,6 +280,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -286,6 +311,8 @@ var maxPathSum = function (root) {
     return ans;
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -321,6 +348,53 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+/* class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init() {
+*         self.val = 0
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class Solution {
+    private var ans = Int.min
+
+    func maxPathSum(_ root: TreeNode?) -> Int {
+        _ = dfs(root)
+        return ans
+    }
+
+    private func dfs(_ root: TreeNode?) -> Int {
+        guard let root = root else {
+            return 0
+        }
+        let left = max(0, dfs(root.left))
+        let right = max(0, dfs(root.right))
+        ans = max(ans, root.val + left + right)
+        return root.val + max(left, right)
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

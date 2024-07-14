@@ -1,48 +1,77 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0130.Surrounded%20Regions/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [130. 被围绕的区域](https://leetcode.cn/problems/surrounded-regions)
 
 [English Version](/solution/0100-0199/0130.Surrounded%20Regions/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>'X'</code> 和 <code>'O'</code> ，找到所有被 <code>'X'</code> 围绕的区域，并将这些区域里所有的  <code>'O'</code> 用 <code>'X'</code> 填充。
+<p>给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>'X'</code> 和 <code>'O'</code>&nbsp;组成，<strong>捕获</strong> 所有 <strong>被围绕的区域</strong>：</p>
+
+<ul>
+	<li><strong>连接：</strong>一个单元格与水平或垂直方向上相邻的单元格连接。</li>
+	<li><strong>区域：连接所有&nbsp;</strong><code>'O'</code>&nbsp;的单元格来形成一个区域。</li>
+	<li><strong>围绕：</strong>如果您可以用&nbsp;<code>'X'</code>&nbsp;单元格 <strong>连接这个区域</strong>，并且区域中没有任何单元格位于&nbsp;<code>board</code> 边缘，则该区域被 <code>'X'</code>&nbsp;单元格围绕。</li>
+</ul>
+
+<p>通过将输入矩阵&nbsp;<code>board</code> 中的所有 <code>'O'</code>&nbsp;替换为 <code>'X'</code> 来 <strong>捕获被围绕的区域</strong>。</p>
 
 <div class="original__bRMd">
 <div>
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0130.Surrounded%20Regions/images/xogrid.jpg" style="width: 550px; height: 237px;" />
-<pre>
-<strong>输入：</strong>board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
-<strong>输出：</strong>[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
-<strong>解释：</strong>被围绕的区间不会存在于边界上，换句话说，任何边界上的 <code>'O'</code> 都不会被填充为 <code>'X'</code>。 任何不在边界上，或不与边界上的 <code>'O'</code> 相连的 <code>'O'</code> 最终都会被填充为 <code>'X'</code>。如果两个元素在水平或垂直方向相邻，则称它们是“相连”的。
-</pre>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><strong>示例 2：</strong></p>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]</span></p>
 
-<pre>
-<strong>输入：</strong>board = [["X"]]
-<strong>输出：</strong>[["X"]]
-</pre>
+<p><b>输出：</b><span class="example-io">[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]</span></p>
 
-<p> </p>
+<p><strong>解释：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0130.Surrounded%20Regions/images/1718167191-XNjUTG-image.png" style="width: 367px; height: 158px;" />
+<p>在上图中，底部的区域没有被捕获，因为它在 board 的边缘并且不能被围绕。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">board = [["X"]]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">[["X"]]</span></p>
+</div>
+
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>m == board.length</code></li>
 	<li><code>n == board[i].length</code></li>
-	<li><code>1 <= m, n <= 200</code></li>
+	<li><code>1 &lt;= m, n &lt;= 200</code></li>
 	<li><code>board[i][j]</code> 为 <code>'X'</code> 或 <code>'O'</code></li>
 </ul>
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -56,6 +85,8 @@
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -81,6 +112,8 @@ class Solution:
                 elif board[i][j] == "O":
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -124,6 +157,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +195,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solve(board [][]byte) {
 	m, n := len(board), len(board[0])
@@ -193,6 +230,8 @@ func solve(board [][]byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(board: string[][]): void {
@@ -228,6 +267,8 @@ function solve(board: string[][]): void {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn solve(board: &mut Vec<Vec<char>>) {
@@ -241,7 +282,7 @@ impl Solution {
             j: usize,
             dirs: &Vec<i32>,
             m: usize,
-            n: usize
+            n: usize,
         ) {
             if i >= 0 && i < m && j >= 0 && j < n && board[i][j] == 'O' {
                 board[i][j] = '.';
@@ -252,7 +293,7 @@ impl Solution {
                         ((j as i32) + dirs[k + 1]) as usize,
                         dirs,
                         m,
-                        n
+                        n,
                     );
                 }
             }
@@ -279,6 +320,8 @@ impl Solution {
     }
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -326,6 +369,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：并查集
 
 我们也可以使用并查集，将矩阵边界上的每个 `O` 与一个超级节点 $m \times n$ 相连，将矩阵中的每个 `O` 与其上下左右的 `O` 相连。
@@ -335,6 +382,8 @@ public class Solution {
 时间复杂度 $O(m \times n \times \alpha(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数，$\alpha$ 是阿克曼函数的反函数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -361,6 +410,8 @@ class Solution:
                 if board[i][j] == "O" and find(i * n + j) != find(m * n):
                     board[i][j] = "X"
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -409,6 +460,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -447,6 +500,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func solve(board [][]byte) {
@@ -488,6 +543,8 @@ func solve(board [][]byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 function solve(board: string[][]): void {
@@ -531,4 +588,6 @@ function solve(board: string[][]): void {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

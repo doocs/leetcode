@@ -1,12 +1,20 @@
-# [570. 至少有 5 名直接下属的经理](https://leetcode.cn/problems/managers-with-at-least-5-direct-reports)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0570.Managers%20with%20at%20Least%205%20Direct%20Reports/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [570. 至少有5名直接下属的经理](https://leetcode.cn/problems/managers-with-at-least-5-direct-reports)
 
 [English Version](/solution/0500-0599/0570.Managers%20with%20at%20Least%205%20Direct%20Reports/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表:&nbsp;<code>Employee</code></p>
 
@@ -57,13 +65,19 @@ Employee 表:
 | John |
 +------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组统计 + 连接
 
 我们可以先统计每个经理的直接下属人数，然后再连接 `Employee` 表，找出直接下属人数大于等于 $5$ 的经理。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -89,6 +103,8 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
+#### MySQL
+
 ```sql
 # Write your MySQL query statement below
 SELECT name
@@ -105,4 +121,6 @@ FROM
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

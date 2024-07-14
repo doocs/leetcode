@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20054.%20%E6%89%80%E6%9C%89%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E%E8%8A%82%E7%82%B9%E7%9A%84%E5%80%BC%E4%B9%8B%E5%92%8C/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 054. 所有大于等于节点的值之和](https://leetcode.cn/problems/w6cpku)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:10.5000pt"><span style="font-family:宋体"><font face="宋体">给定一个二叉搜索树，请将它的每个</font></span></span></span></span>节点<span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:10.5000pt"><span style="font-family:宋体"><font face="宋体">的值替换成树中大于或者等于该</font></span></span></span></span>节点<span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:10.5000pt"><span style="font-family:宋体"><font face="宋体">值的所有</font></span></span></span></span>节点<span style="font-size:10.5pt"><span style="font-family:Calibri"><span style="font-size:10.5000pt"><span style="font-family:宋体"><font face="宋体">值之和。</font></span></span></span></span></p>
 
@@ -68,7 +75,11 @@
 	<li>本题与主站 1038&nbsp;题相同：<a href="https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/">https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/</a></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -77,6 +88,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -100,6 +113,8 @@ class Solution:
         dfs(root)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -137,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -168,6 +185,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -193,6 +212,8 @@ func convertBST(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -225,6 +246,8 @@ function convertBST(root: TreeNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -244,8 +267,8 @@ function convertBST(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, sum: &mut i32) {
         if let Some(node) = root {
@@ -262,6 +285,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -292,7 +317,56 @@ var convertBST = function (root) {
 };
 ```
 
+#### Swift
+
+```swift
+/* class TreeNode {
+*     var val: Int
+*     var left: TreeNode?
+*     var right: TreeNode?
+*     init() {
+*         self.val = 0
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int) {
+*         self.val = val
+*         self.left = nil
+*         self.right = nil
+*     }
+*     init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+*         self.val = val
+*         self.left = left
+*         self.right = right
+*     }
+* }
+*/
+
+class Solution {
+    private var s = 0
+
+    func convertBST(_ root: TreeNode?) -> TreeNode? {
+        dfs(root)
+        return root
+    }
+
+    private func dfs(_ root: TreeNode?) {
+        guard let node = root else {
+            return
+        }
+        dfs(node.right)
+        s += node.val
+        node.val = s
+        dfs(node.left)
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：Morris 遍历
 
@@ -310,6 +384,8 @@ Morris 遍历无需使用栈，时间复杂度 $O(n)$，空间复杂度为 $O(1)
 > Morris 反序中序遍历跟 Morris 中序遍历思路一致，只是将中序遍历的“左根右”变为“右根左”。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -341,6 +417,8 @@ class Solution:
                     root = root.left
         return node
 ```
+
+#### Java
 
 ```java
 /**
@@ -388,6 +466,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -431,6 +511,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -470,4 +552,6 @@ func convertBST(root *TreeNode) *TreeNode {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

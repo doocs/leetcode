@@ -1,12 +1,20 @@
-# [1294. 不同国家的天气类型](https://leetcode.cn/problems/weather-type-in-each-country)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1294. 不同国家的天气类型 🔒](https://leetcode.cn/problems/weather-type-in-each-country)
 
 [English Version](/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Countries</code></p>
 
@@ -111,11 +119,17 @@ Morocco 11 月的平均 weather_state 为 (25 + 27 + 31) / 3 = 27.667 所以天�
 我们并不知道 Spain 在 11 月的 weather_state 情况所以无需将他包含在结果中。
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -135,4 +149,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

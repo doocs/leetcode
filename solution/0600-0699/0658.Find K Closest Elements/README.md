@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README.md
+tags:
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
+    - 滑动窗口
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [658. 找到 K 个最接近的元素](https://leetcode.cn/problems/find-k-closest-elements)
 
 [English Version](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README_EN.md)
 
-<!-- tags:数组,双指针,二分查找,排序,滑动窗口,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>排序好</strong> 的数组&nbsp;<code>arr</code> ，两个整数 <code>k</code> 和 <code>x</code> ，从数组中找到最靠近 <code>x</code>（两数之差最小）的 <code>k</code> 个数。返回的结果必须要是按升序排好的。</p>
 
@@ -44,7 +57,11 @@
 	<li><code>-10<sup>4</sup>&nbsp;&lt;= arr[i], x &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -54,12 +71,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
         arr.sort(key=lambda v: abs(v - x))
         return sorted(arr[:k])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -77,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 int target;
@@ -97,6 +120,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
@@ -120,6 +145,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
     let l = 0;
@@ -134,6 +161,8 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
     return arr.slice(l, r);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -155,6 +184,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 直觉上，有序数组 $arr$ 最靠近 $x$ 的 $k$ 个数必然是一段连续的子数组。
@@ -164,6 +197,8 @@ impl Solution {
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -176,6 +211,8 @@ class Solution:
                 l += 1
         return arr[l:r]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -197,6 +234,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -214,6 +253,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
 	l, r := 0, len(arr)
@@ -227,6 +268,8 @@ func findClosestElements(arr []int, k int, x int) []int {
 	return arr[l:r]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findClosestElements(arr: number[], k: number, x: number): number[] {
@@ -243,6 +286,8 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
     return arr.slice(left, left + k);
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -266,6 +311,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三：二分查找
 
 在方法二的基础上，我们更进一步，查找大小为 $k$ 的窗口的左边界。
@@ -273,6 +322,8 @@ impl Solution {
 时间复杂度 $O(logn)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -286,6 +337,8 @@ class Solution:
                 left = mid + 1
         return arr[left : left + k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -309,6 +362,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -325,6 +380,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findClosestElements(arr []int, k int, x int) []int {
@@ -343,4 +400,6 @@ func findClosestElements(arr []int, k int, x int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

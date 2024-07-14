@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README_EN.md
+rating: 1643
+source: Weekly Contest 283 Q3
+tags:
+    - Tree
+    - Array
+    - Hash Table
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [2196. Create Binary Tree From Descriptions](https://leetcode.com/problems/create-binary-tree-from-descriptions)
 
 [中文文档](/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Array,Hash Table,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a 2D integer array <code>descriptions</code> where <code>descriptions[i] = [parent<sub>i</sub>, child<sub>i</sub>, isLeft<sub>i</sub>]</code> indicates that <code>parent<sub>i</sub></code> is the <strong>parent</strong> of <code>child<sub>i</sub></code> in a <strong>binary</strong> tree of <strong>unique</strong> values. Furthermore,</p>
 
@@ -47,11 +62,17 @@ The resulting binary tree is shown in the diagram.
 	<li>The binary tree described by <code>descriptions</code> is valid.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -78,6 +99,8 @@ class Solution:
             if v not in vis:
                 return node
 ```
+
+#### Java
 
 ```java
 /**
@@ -124,6 +147,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -158,6 +183,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -195,6 +222,8 @@ func createBinaryTree(descriptions [][]int) *TreeNode {
 	return nil
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -243,6 +272,8 @@ function createBinaryTree(descriptions: number[][]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -262,9 +293,9 @@ function createBinaryTree(descriptions: number[][]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     fn dfs(val: i32, map: &HashMap<i32, [i32; 2]>) -> Option<Rc<RefCell<TreeNode>>> {
         if val == 0 {
@@ -308,4 +339,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

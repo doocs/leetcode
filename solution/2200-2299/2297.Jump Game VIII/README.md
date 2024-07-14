@@ -1,12 +1,25 @@
-# [2297. 跳跃游戏 VIII](https://leetcode.cn/problems/jump-game-viii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2297.Jump%20Game%20VIII/README.md
+tags:
+    - 栈
+    - 图
+    - 数组
+    - 动态规划
+    - 最短路
+    - 单调栈
+---
+
+<!-- problem:start -->
+
+# [2297. 跳跃游戏 VIII 🔒](https://leetcode.cn/problems/jump-game-viii)
 
 [English Version](/solution/2200-2299/2297.Jump%20Game%20VIII/README_EN.md)
 
-<!-- tags:栈,图,数组,动态规划,最短路,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 n 的下标从 <strong>0</strong>&nbsp;开始的整数数组 <code>nums</code>。初始位置为下标 <code>0</code>。当 <code>i &lt; j</code> 时，你可以从下标 <code>i</code> 跳转到下标 <code>j</code>:</p>
 
@@ -53,7 +66,11 @@
 	<li><code>0 &lt;= nums[i], costs[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：单调栈 + 动态规划
 
@@ -64,6 +81,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +112,8 @@ class Solution:
                 f[j] = min(f[j], f[i] + costs[j])
         return f[n - 1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -133,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -171,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minCost(nums []int, costs []int) int64 {
 	n := len(nums)
@@ -207,6 +232,8 @@ func minCost(nums []int, costs []int) int64 {
 	return f[n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minCost(nums: number[], costs: number[]): number {
@@ -245,4 +272,6 @@ function minCost(nums: number[], costs: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

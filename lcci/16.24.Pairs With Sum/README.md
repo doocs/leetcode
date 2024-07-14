@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.24.Pairs%20With%20Sum/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 16.24. 数对和](https://leetcode.cn/problems/pairs-with-sum-lcci)
 
 [中文文档](/lcci/16.24.Pairs%20With%20Sum/README.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个算法，找出数组中两数之和为指定值的所有整数对。一个数只能属于一个数对。</p>
 <p><strong>示例 1:</strong></p>
@@ -18,7 +26,11 @@
 	<li><code>nums.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -31,6 +43,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -46,6 +60,8 @@ class Solution:
                 cnt[x] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -68,6 +84,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -88,6 +106,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func pairSums(nums []int, target int) (ans [][]int) {
 	cnt := map[int]int{}
@@ -103,6 +123,8 @@ func pairSums(nums []int, target int) (ans [][]int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function pairSums(nums: number[], target: number): number[][] {
@@ -126,6 +148,33 @@ function pairSums(nums: number[], target: number): number[][] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func pairSums(_ nums: [Int], _ target: Int) -> [[Int]] {
+        var countMap = [Int: Int]()
+        var ans = [[Int]]()
+
+        for x in nums {
+            let y = target - x
+            if let yCount = countMap[y], yCount > 0 {
+                ans.append([x, y])
+                countMap[y] = yCount - 1
+                if countMap[y] == 0 {
+                    countMap.removeValue(forKey: y)
+                }
+            } else {
+                countMap[x, default: 0] += 1
+            }
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

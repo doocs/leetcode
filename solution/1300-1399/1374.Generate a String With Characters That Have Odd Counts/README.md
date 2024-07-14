@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1374.Generate%20a%20String%20With%20Characters%20That%20Have%20Odd%20Counts/README.md
+rating: 1164
+source: 第 179 场周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1374. 生成每种字符都是奇数个的字符串](https://leetcode.cn/problems/generate-a-string-with-characters-that-have-odd-counts)
 
 [English Version](/solution/1300-1399/1374.Generate%20a%20String%20With%20Characters%20That%20Have%20Odd%20Counts/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code>，请你返回一个含<em> <code>n</code> </em>个字符的字符串，其中每种字符在该字符串中都恰好出现 <strong>奇数次</strong> <em><strong>。</strong></em></p>
 
@@ -42,7 +52,11 @@
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：构造
 
@@ -54,11 +68,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def generateTheString(self, n: int) -> str:
         return 'a' * n if n & 1 else 'a' * (n - 1) + 'b'
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -81,6 +101,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func generateTheString(n int) string {
 	ans := strings.Repeat("a", n-1)
@@ -92,6 +114,8 @@ func generateTheString(n int) string {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function generateTheString(n: number): string {
@@ -105,4 +129,6 @@ function generateTheString(n: number): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

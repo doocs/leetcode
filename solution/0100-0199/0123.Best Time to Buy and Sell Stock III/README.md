@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0123.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/README.md
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii)
 
 [English Version](/solution/0100-0199/0123.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数组，它的第<em> </em><code>i</code> 个元素是一支给定的股票在第 <code>i</code><em> </em>天的价格。</p>
 
@@ -57,7 +66,11 @@
 	<li><code>0 <= prices[i] <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -76,6 +89,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -88,6 +103,8 @@ class Solution:
             f4 = max(f4, f3 + price)
         return f4
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -121,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) int {
 	f1, f2, f3, f4 := -prices[0], 0, -prices[0], 0
@@ -134,6 +155,8 @@ func maxProfit(prices []int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxProfit(prices: number[]): number {
     let [f1, f2, f3, f4] = [-prices[0], 0, -prices[0], 0];
@@ -146,6 +169,8 @@ function maxProfit(prices: number[]): number {
     return f4;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -169,6 +194,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -186,4 +213,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

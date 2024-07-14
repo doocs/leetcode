@@ -12,10 +12,8 @@ class TwoSum {
         for (var e : cnt.entrySet()) {
             int x = e.getKey(), v = e.getValue();
             int y = value - x;
-            if (cnt.containsKey(y)) {
-                if (x != y || v > 1) {
-                    return true;
-                }
+            if (cnt.containsKey(y) && (x != y || v > 1)) {
+                return true;
             }
         }
         return false;

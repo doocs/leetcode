@@ -1,10 +1,23 @@
-# [288. Unique Word Abbreviation](https://leetcode.com/problems/unique-word-abbreviation)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - String
+---
+
+<!-- problem:start -->
+
+# [288. Unique Word Abbreviation 🔒](https://leetcode.com/problems/unique-word-abbreviation)
 
 [中文文档](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README.md)
 
-<!-- tags:Design,Array,Hash Table,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>abbreviation</strong> of a word is a concatenation of its first letter, the number of characters between the first and last letter, and its last letter. If a word has only two characters, then it is an <strong>abbreviation</strong> of itself.</p>
 
@@ -59,7 +72,11 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 	<li>At most <code>5000</code> calls will be made to <code>isUnique</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table
 
@@ -72,6 +89,8 @@ When judging whether the word $word$ meets the requirements of the problem, we c
 In terms of time complexity, the time complexity of initializing the hash table is $O(n)$, where $n$ is the length of the word dictionary; the time complexity of judging whether a word meets the requirements of the problem is $O(1)$. In terms of space complexity, the space complexity of the hash table is $O(n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ValidWordAbbr:
@@ -92,6 +111,8 @@ class ValidWordAbbr:
 # obj = ValidWordAbbr(dictionary)
 # param_1 = obj.isUnique(word)
 ```
+
+#### Java
 
 ```java
 class ValidWordAbbr {
@@ -120,6 +141,8 @@ class ValidWordAbbr {
  * boolean param_1 = obj.isUnique(word);
  */
 ```
+
+#### C++
 
 ```cpp
 class ValidWordAbbr {
@@ -150,6 +173,8 @@ private:
  * bool param_1 = obj->isUnique(word);
  */
 ```
+
+#### Go
 
 ```go
 type ValidWordAbbr struct {
@@ -188,6 +213,8 @@ func abbr(s string) string {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class ValidWordAbbr {
     private d: Map<string, Set<string>> = new Map();
@@ -222,4 +249,6 @@ class ValidWordAbbr {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

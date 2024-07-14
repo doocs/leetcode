@@ -1,42 +1,76 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README_EN.md
+rating: 1284
+source: Weekly Contest 193 Q2
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1481. Least Number of Unique Integers after K Removals](https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals)
 
 [中文文档](/solution/1400-1499/1481.Least%20Number%20of%20Unique%20Integers%20after%20K%20Removals/README.md)
 
-<!-- tags:Greedy,Array,Hash Table,Counting,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array of integers&nbsp;<code>arr</code>&nbsp;and an integer <code>k</code>.&nbsp;Find the <em>least number of unique integers</em>&nbsp;after removing <strong>exactly</strong> <code>k</code> elements<b>.</b></p>
 
 <ol>
+
 </ol>
 
 <p>&nbsp;</p>
+
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
+
 <strong>Input: </strong>arr = [5,5,4], k = 1
+
 <strong>Output: </strong>1
+
 <strong>Explanation</strong>: Remove the single 4, only 5 is left.
+
 </pre>
 
 <strong class="example">Example 2:</strong>
 
 <pre>
+
 <strong>Input: </strong>arr = [4,3,1,1,3,3,2], k = 3
+
 <strong>Output: </strong>2
+
 <strong>Explanation</strong>: Remove 4, 2 and either one of the two 1s or three 3s. 1 and 3 will be left.</pre>
 
 <p>&nbsp;</p>
+
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= arr.length&nbsp;&lt;= 10^5</code></li>
-	<li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
-	<li><code>0 &lt;= k&nbsp;&lt;= arr.length</code></li>
+
+    <li><code>1 &lt;= arr.length&nbsp;&lt;= 10^5</code></li>
+
+    <li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
+
+    <li><code>0 &lt;= k&nbsp;&lt;= arr.length</code></li>
+
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Hash Table + Sorting
 
@@ -50,6 +84,8 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$,
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
@@ -60,6 +96,8 @@ class Solution:
                 return len(cnt) - i
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +118,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -105,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findLeastNumOfUniqueInts(arr []int, k int) int {
 	cnt := map[int]int{}
@@ -126,17 +168,17 @@ func findLeastNumOfUniqueInts(arr []int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function findLeastNumOfUniqueInts(arr: number[], k: number): number {
     const cnt: Map<number, number> = new Map();
     for (const x of arr) {
-        cnt.set(x, (cnt.get(x) || 0) + 1);
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
     }
-    const nums: number[] = [];
-    for (const [_, v] of cnt) {
-        nums.push(v);
-    }
-    nums.sort((a, b) => a - b);
+
+    const nums = [...cnt.values()].sort((a, b) => a - b);
+
     for (let i = 0; i < nums.length; ++i) {
         k -= nums[i];
         if (k < 0) {
@@ -149,4 +191,6 @@ function findLeastNumOfUniqueInts(arr: number[], k: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

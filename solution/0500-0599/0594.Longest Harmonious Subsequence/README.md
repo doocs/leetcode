@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 排序
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [594. 最长和谐子序列](https://leetcode.cn/problems/longest-harmonious-subsequence)
 
 [English Version](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README_EN.md)
 
-<!-- tags:数组,哈希表,计数,排序,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>和谐数组是指一个数组里元素的最大值和最小值之间的差别 <strong>正好是 <code>1</code></strong> 。</p>
 
@@ -47,34 +59,43 @@
 	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：哈希表
+
+我们可以用一个哈希表 $\text{cnt}$ 记录数组 $\text{nums}$ 中每个元素出现的次数，然后遍历哈希表中的每个键值对 $(x, c)$，如果哈希表中存在键 $x + 1$，那么 $\text{nums}$ 中元素 $x$ 和 $x + 1$ 出现的次数之和 $c + \text{cnt}[x + 1]$ 就是一个和谐子序列，我们只需要在所有和谐子序列中找到最大的长度即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{nums}$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
-        ans = 0
-        counter = Counter(nums)
-        for num in nums:
-            if num + 1 in counter:
-                ans = max(ans, counter[num] + counter[num + 1])
-        return ans
+        cnt = Counter(nums)
+        return max((c + cnt[x + 1] for x, c in cnt.items() if cnt[x + 1]), default=0)
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int findLHS(int[] nums) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
         }
         int ans = 0;
-        for (int num : nums) {
-            if (counter.containsKey(num + 1)) {
-                ans = Math.max(ans, counter.get(num) + counter.get(num + 1));
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), c = e.getValue();
+            if (cnt.containsKey(x + 1)) {
+                ans = Math.max(ans, c + cnt.get(x + 1));
             }
         }
         return ans;
@@ -82,18 +103,20 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     int findLHS(vector<int>& nums) {
-        unordered_map<int, int> counter;
-        for (int num : nums) {
-            ++counter[num];
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
         }
         int ans = 0;
-        for (int num : nums) {
-            if (counter.count(num + 1)) {
-                ans = max(ans, counter[num] + counter[num + 1]);
+        for (auto& [x, c] : cnt) {
+            if (cnt.contains(x + 1)) {
+                ans = max(ans, c + cnt[x + 1]);
             }
         }
         return ans;
@@ -101,38 +124,44 @@ public:
 };
 ```
 
+#### Go
+
 ```go
-func findLHS(nums []int) int {
-	counter := make(map[int]int)
-	for _, num := range nums {
-		counter[num]++
+func findLHS(nums []int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	ans := 0
-	for _, num := range nums {
-		if counter[num+1] > 0 {
-			ans = max(ans, counter[num]+counter[num+1])
+	for x, c := range cnt {
+		if c1, ok := cnt[x+1]; ok {
+			ans = max(ans, c+c1)
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function findLHS(nums: number[]): number {
+    const cnt: Record<number, number> = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    let ans = 0;
+    for (const [x, c] of Object.entries(cnt)) {
+        const y = +x + 1;
+        if (cnt[y]) {
+            ans = Math.max(ans, c + cnt[y]);
+        }
+    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-### 方法二
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def findLHS(self, nums: List[int]) -> int:
-        counter = Counter(nums)
-        return max(
-            [counter[num] + counter[num + 1] for num in nums if num + 1 in counter],
-            default=0,
-        )
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

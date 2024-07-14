@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README.md
+rating: 1791
+source: 第 347 场周赛 Q3
+tags:
+    - 贪心
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2712. 使所有字符相等的最小成本](https://leetcode.cn/problems/minimum-cost-to-make-all-characters-equal)
 
 [English Version](/solution/2700-2799/2712.Minimum%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)
 
-<!-- tags:贪心,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的二进制字符串 <code>s</code> ，你可以对其执行两种操作：</p>
 
@@ -38,7 +50,7 @@
 执行第一种操作，选中下标 i = 1 ，可以得到 s = "011101" ，成本为 2 。
 执行第一种操作，选中下标 i = 0 ，可以得到 s = "111101" ，成本为 1 。
 执行第二种操作，选中下标 i = 4 ，可以得到 s = "111110" ，成本为 2 。
-执行第一种操作，选中下标 i = 5 ，可以得到 s = "111111" ，成本为 1 。
+执行第二种操作，选中下标 i = 5 ，可以得到 s = "111111" ，成本为 1 。
 使所有字符相等的总成本等于 9 。可以证明 9 是使所有字符相等的最小成本。 </pre>
 
 <p>&nbsp;</p>
@@ -50,11 +62,25 @@
 	<li><code>s[i]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：贪心
+
+根据题目描述，如果 $s[i] \neq s[i - 1]$，那么一定要执行操作，否则无法使所有字符相等。
+
+我们要么选择将 $s[0..i-1]$ 的字符全部反转，反转的成本为 $i$；要么选择将 $s[i..n-1]$ 的字符全部反转，反转的成本为 $n - i$。取两者中的最小值即可。
+
+我们遍历字符串 $s$，将所有需要反转的字符的成本相加，即可得到最小成本。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +91,8 @@ class Solution:
                 ans += min(i, n - i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,6 +108,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +127,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumCost(s string) (ans int64) {
 	n := len(s)
@@ -108,6 +140,8 @@ func minimumCost(s string) (ans int64) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCost(s: string): number {
@@ -124,4 +158,6 @@ function minimumCost(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

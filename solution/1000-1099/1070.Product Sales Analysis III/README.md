@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1070.Product%20Sales%20Analysis%20III/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
 # [1070. 产品销售分析 III](https://leetcode.cn/problems/product-sales-analysis-iii)
 
 [English Version](/solution/1000-1099/1070.Product%20Sales%20Analysis%20III/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>销售表&nbsp;<code>Sales</code>：</p>
 
@@ -78,11 +86,17 @@ Product 表：
 | 200        | 2011       | 15       | 9000  |
 +------------+------------+----------+-------+</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -104,9 +118,15 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -127,4 +147,6 @@ WHERE rk = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1022.Sum%20of%20Root%20To%20Leaf%20Binary%20Numbers/README_EN.md
+rating: 1462
+source: Weekly Contest 131 Q2
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [1022. Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers)
 
 [中文文档](/solution/1000-1099/1022.Sum%20of%20Root%20To%20Leaf%20Binary%20Numbers/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given the <code>root</code> of a binary tree where each node has a value <code>0</code> or <code>1</code>. Each root-to-leaf path represents a binary number starting with the most significant bit.</p>
 
@@ -40,11 +54,26 @@
 	<li><code>Node.val</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Recursion
+
+We design a recursive function `dfs(root, t)`, which takes two parameters: the current node `root` and the binary number corresponding to the parent node `t`. The return value of the function is the sum of the binary numbers represented by the path from the current node to the leaf node. The answer is `dfs(root, 0)`.
+
+The logic of the recursive function is as follows:
+
+-   If the current node `root` is null, then return `0`. Otherwise, calculate the binary number `t` corresponding to the current node, i.e., `t = t << 1 | root.val`.
+-   If the current node is a leaf node, then return `t`. Otherwise, return the sum of `dfs(root.left, t)` and `dfs(root.right, t)`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree. Each node is visited once; the recursion stack requires $O(n)$ space.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -65,6 +94,8 @@ class Solution:
 
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -100,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -127,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -152,6 +187,8 @@ func sumRootToLeaf(root *TreeNode) int {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -184,6 +221,8 @@ function sumRootToLeaf(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -203,8 +242,8 @@ function sumRootToLeaf(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut num: i32) -> i32 {
         if root.is_none() {
@@ -226,4 +265,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

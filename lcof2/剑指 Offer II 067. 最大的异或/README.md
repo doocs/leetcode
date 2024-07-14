@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20067.%20%E6%9C%80%E5%A4%A7%E7%9A%84%E5%BC%82%E6%88%96/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 067. 最大的异或](https://leetcode.cn/problems/ms70jA)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code> ，返回<em> </em><code>nums[i] XOR nums[j]</code> 的最大运算结果，其中 <code>0 &le; i &le; j &lt; n</code> 。</p>
 
@@ -64,11 +71,17 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 421&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/">https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -91,6 +104,8 @@ class Solution:
                     break
         return max
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +135,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -169,6 +186,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -216,7 +235,39 @@ func findMaximumXOR(nums []int) int {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func findMaximumXOR(_ numbers: [Int]) -> Int {
+        var max = 0
+        var mask = 0
+
+        for i in stride(from: 30, through: 0, by: -1) {
+            let current = 1 << i
+            mask ^= current
+            var set = Set<Int>()
+            for num in numbers {
+                set.insert(mask & num)
+            }
+            let flag = max | current
+            for prefix in set {
+                if set.contains(prefix ^ flag) {
+                    max = flag
+                    break
+                }
+            }
+        }
+        return max
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：前缀树
 
@@ -227,6 +278,8 @@ func findMaximumXOR(nums []int) int {
 搜索 $x$ 时，尽量走相反的 $01$ 字符指针的策略，因为异或运算的法则是相同得 $0$，不同得 $1$，所以我们尽可能往与 $x$ 当前位相反的字符方向走，才能得到能和 $x$ 产生最大值的结果。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -262,6 +315,8 @@ class Solution:
             trie.insert(v)
         return max(trie.search(v) for v in nums)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -310,4 +365,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

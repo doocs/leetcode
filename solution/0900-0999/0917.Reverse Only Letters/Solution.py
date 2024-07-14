@@ -1,13 +1,13 @@
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:
-        s = list(s)
-        i, j = 0, len(s) - 1
+        cs = list(s)
+        i, j = 0, len(cs) - 1
         while i < j:
-            while i < j and not s[i].isalpha():
+            while i < j and not cs[i].isalpha():
                 i += 1
-            while i < j and not s[j].isalpha():
+            while i < j and not cs[j].isalpha():
                 j -= 1
             if i < j:
-                s[i], s[j] = s[j], s[i]
+                cs[i], cs[j] = cs[j], cs[i]
                 i, j = i + 1, j - 1
-        return ''.join(s)
+        return "".join(cs)

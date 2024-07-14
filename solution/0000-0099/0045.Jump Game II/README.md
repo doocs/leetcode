@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0045.Jump%20Game%20II/README.md
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii)
 
 [English Version](/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
 
-<!-- tags:贪心,数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的 <strong>0 索引</strong>整数数组 <code>nums</code>。初始位置为 <code>nums[0]</code>。</p>
 
@@ -47,7 +57,11 @@
 	<li>题目保证可以到达&nbsp;<code>nums[n-1]</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -67,6 +81,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -78,6 +94,8 @@ class Solution:
                 last = mx
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +112,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +132,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func jump(nums []int) (ans int) {
 	mx, last := 0, 0
@@ -126,6 +148,8 @@ func jump(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function jump(nums: number[]): number {
     let [ans, mx, last] = [0, 0, 0];
@@ -139,6 +163,8 @@ function jump(nums: number[]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -159,6 +185,8 @@ impl Solution {
 }
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Jump(int[] nums) {
@@ -174,6 +202,8 @@ public class Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) a < b ? a : b
@@ -192,6 +222,34 @@ int jump(int* nums, int numsSize) {
 }
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param integer[] $nums
+     * @return integer
+     */
+
+    function jump($nums) {
+        $maxReach = 0;
+        $steps = 0;
+        $lastJump = 0;
+        for ($i = 0; $i <= count($nums) - 2; $i++) {
+            $maxReach = max($maxReach, $i + $nums[$i]);
+            if ($i == $lastJump) {
+                $lastJump = $maxReach;
+                $steps++;
+            }
+        }
+
+        return $steps;
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,19 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Magic%20Number/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 17.09. 第 k 个数](https://leetcode.cn/problems/get-kth-magic-number-lcci)
 
 [中文文档](/lcci/17.09.Get%20Kth%20Magic%20Number/README.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>有些数的素因子只有 3，5，7，请设计一个算法找出第 k 个数。注意，不是必须有这些素因子，而是必须不包含其他的素因子。例如，前几个数按顺序应该是 1，3，5，7，9，15，21。</p>
 <p><strong>示例 1:</strong></p>
 <pre><strong>输入: </strong>k = 5
@@ -13,7 +22,11 @@
 
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：优先队列（小根堆）
 
@@ -22,6 +35,8 @@
 时间复杂度 $O(k\times \log k)$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -36,6 +51,8 @@ class Solution:
                     heappush(h, nxt)
         return h[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -62,6 +79,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -87,6 +106,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getKthMagicNumber(k int) int {
@@ -116,6 +137,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function getKthMagicNumber(k: number): number {
     const dp = [1];
@@ -139,6 +162,8 @@ function getKthMagicNumber(k: number): number {
     return dp[k - 1];
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -166,6 +191,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -196,7 +223,39 @@ int getKthMagicNumber(int k) {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private let factors = [3, 5, 7]
+
+    func getKthMagicNumber(_ k: Int) -> Int {
+        var heap: [Int] = [1]
+        var seen = Set<Int>()
+        seen.insert(1)
+
+        var value = 1
+        for _ in 1...k {
+            value = heap.removeFirst()
+            for factor in factors {
+                let nextValue = value * factor
+                if !seen.contains(nextValue) {
+                    heap.append(nextValue)
+                    seen.insert(nextValue)
+                }
+            }
+            heap.sort()
+        }
+        return value
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：动态规划
 
@@ -211,6 +270,8 @@ int getKthMagicNumber(int k) {
 时间复杂度 $O(k)$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -229,6 +290,8 @@ class Solution:
                 p7 += 1
         return dp[k]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -255,6 +318,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -279,6 +344,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func getKthMagicNumber(k int) int {
@@ -305,4 +372,6 @@ func getKthMagicNumber(k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md
+tags:
+    - 哈希表
+    - 链表
+    - 双指针
+---
+
+<!-- problem:start -->
+
 # [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii)
 
 [English Version](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
 
-<!-- tags:哈希表,链表,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个链表的头节点 &nbsp;<code>head</code>&nbsp;，返回链表开始入环的第一个节点。&nbsp;<em>如果链表无环，则返回&nbsp;<code>null</code>。</em></p>
 
@@ -63,7 +73,11 @@
 
 <p><strong>进阶：</strong>你是否可以使用 <code>O(1)</code> 空间解决此题？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：快慢指针
 
@@ -87,6 +101,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -108,6 +124,8 @@ class Solution:
                     slow = slow.next
                 return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -141,6 +159,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -172,6 +192,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -197,6 +219,8 @@ func detectCycle(head *ListNode) *ListNode {
 	return nil
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -228,6 +252,8 @@ function detectCycle(head: ListNode | null): ListNode | null {
     return null;
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -262,4 +288,6 @@ var detectCycle = function (head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

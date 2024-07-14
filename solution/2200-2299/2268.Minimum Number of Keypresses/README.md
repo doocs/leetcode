@@ -1,12 +1,24 @@
-# [2268. 最少按键次数](https://leetcode.cn/problems/minimum-number-of-keypresses)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README.md
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [2268. 最少按键次数 🔒](https://leetcode.cn/problems/minimum-number-of-keypresses)
 
 [English Version](/solution/2200-2299/2268.Minimum%20Number%20of%20Keypresses/README_EN.md)
 
-<!-- tags:贪心,哈希表,字符串,计数,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个 9 键键盘，按键按 1 到 9 编号，每个按键对应着几个英文小写字母。你可以决定每个按键对应哪些英文字母，但要满足如下条件：</p>
 
@@ -59,39 +71,53 @@
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：计数 + 贪心
 
+我们首先统计字符串 $s$ 中每个字符出现的次数，记录在数组或者哈希表 $\textit{cnt}$ 中。
+
+题目要求按键次数最少，那么出现最多的 $9$ 个字符应该对应按键 $1$ 到按键 $9$，出现次数第 $10$ 到第 $18$ 多的字符再次对应按键 $1$ 到按键 $9$，以此类推。
+
+因此，我们可以将 $\textit{cnt}$ 中的值按照从大到小的顺序排序，然后按照 $1$ 到 $9$ 的顺序依次分配给按键，每次分配完 $9$ 个字符后，按键次数加 $1$。
+
+时间复杂度 $O(n + |\Sigma| \times \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $\Sigma$ 是字符串 $s$ 中出现的字符集合，本题中 $\Sigma$ 是小写字母集合，因此 $|\Sigma| = 26$。
+
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def minimumKeypresses(self, s: str) -> int:
         cnt = Counter(s)
-        ans = 0
-        i, j = 0, 1
-        for v in sorted(cnt.values(), reverse=True):
-            i += 1
-            ans += j * v
+        ans, k = 0, 1
+        for i, x in enumerate(sorted(cnt.values(), reverse=True), 1):
+            ans += k * x
             if i % 9 == 0:
-                j += 1
+                k += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
     public int minimumKeypresses(String s) {
         int[] cnt = new int[26];
-        for (char c : s.toCharArray()) {
-            ++cnt[c - 'a'];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
         Arrays.sort(cnt);
-        int ans = 0;
-        for (int i = 1, j = 1; i <= 26; ++i) {
-            ans += j * cnt[26 - i];
+        int ans = 0, k = 1;
+        for (int i = 1; i <= 26; ++i) {
+            ans += k * cnt[26 - i];
             if (i % 9 == 0) {
-                ++j;
+                ++k;
             }
         }
         return ans;
@@ -99,41 +125,72 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     int minimumKeypresses(string s) {
-        vector<int> cnt(26);
-        for (char& c : s) ++cnt[c - 'a'];
-        sort(cnt.begin(), cnt.end());
-        int ans = 0;
-        for (int i = 1, j = 1; i <= 26; ++i) {
-            ans += j * cnt[26 - i];
-            if (i % 9 == 0) ++j;
+        int cnt[26]{};
+        for (char& c : s) {
+            ++cnt[c - 'a'];
+        }
+        sort(begin(cnt), end(cnt), greater<int>());
+        int ans = 0, k = 1;
+        for (int i = 1; i <= 26; ++i) {
+            ans += k * cnt[i - 1];
+            if (i % 9 == 0) {
+                ++k;
+            }
         }
         return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
-func minimumKeypresses(s string) int {
+func minimumKeypresses(s string) (ans int) {
 	cnt := make([]int, 26)
 	for _, c := range s {
 		cnt[c-'a']++
 	}
 	sort.Ints(cnt)
-	ans := 0
-	for i, j := 1, 1; i <= 26; i++ {
-		ans += j * cnt[26-i]
+	k := 1
+	for i := 1; i <= 26; i++ {
+		ans += k * cnt[26-i]
 		if i%9 == 0 {
-			j++
+			k++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumKeypresses(s: string): number {
+    const cnt: number[] = Array(26).fill(0);
+    const a = 'a'.charCodeAt(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - a];
+    }
+    cnt.sort((a, b) => b - a);
+    let [ans, k] = [0, 1];
+    for (let i = 1; i <= 26; ++i) {
+        ans += k * cnt[i - 1];
+        if (i % 9 === 0) {
+            ++k;
+        }
+    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

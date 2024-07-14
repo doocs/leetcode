@@ -1,10 +1,23 @@
-# [2128. Remove All Ones With Row and Column Flips](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [2128. Remove All Ones With Row and Column Flips 🔒](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips)
 
 [中文文档](/solution/2100-2199/2128.Remove%20All%20Ones%20With%20Row%20and%20Column%20Flips/README.md)
 
-<!-- tags:Bit Manipulation,Array,Math,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> binary matrix <code>grid</code>.</p>
 
@@ -49,11 +62,17 @@
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +83,8 @@ class Solution:
             s.add(t)
         return len(s) == 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +103,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func removeOnes(grid [][]int) bool {
 	s := map[string]bool{}
@@ -115,6 +140,8 @@ func removeOnes(grid [][]int) bool {
 	return len(s) == 1
 }
 ```
+
+#### TypeScript
 
 ```ts
 function removeOnes(grid: number[][]): boolean {
@@ -134,4 +161,6 @@ function removeOnes(grid: number[][]): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

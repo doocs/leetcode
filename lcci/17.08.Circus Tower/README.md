@@ -1,10 +1,18 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.08.Circus%20Tower/README.md
+---
+
+<!-- problem:start -->
+
 # [面试题 17.08. 马戏团人塔](https://leetcode.cn/problems/circus-tower-lcci)
 
 [English Version](/lcci/17.08.Circus%20Tower/README_EN.md)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有个马戏团正在设计叠罗汉的表演节目，一个人要站在另一人的肩膀上。出于实际和美观的考虑，在上面的人要比下面的人矮一点且轻一点。已知马戏团每个人的身高和体重，请编写代码计算叠罗汉最多能叠几个人。</p>
 <p><strong>示例：</strong></p>
@@ -16,17 +24,23 @@
 	<li><code>height.length == weight.length &lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 离散化 + 树状数组
 
-我们现将所有人按照身高从小到大排序，若身高相同，则按照体重从大到小排序。这样我们可以将问题转换为求体重数组的最长递增子序列的问题。
+我们先将所有人按照身高从小到大排序，若身高相同，则按照体重从大到小排序。这样我们可以将问题转换为求体重数组的最长递增子序列的问题。
 
 最长递增子序列的问题可以使用动态规划求解，时间复杂度 $O(n^2)$。但是我们可以使用树状数组来优化求解过程，时间复杂度 $O(n \log n)$。
 
 空间复杂度 $O(n)$。其中 $n$ 为人数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -62,6 +76,8 @@ class Solution:
             tree.update(x, t)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -121,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class BinaryIndexedTree {
 public:
@@ -178,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type BinaryIndexedTree struct {
@@ -239,6 +259,72 @@ func bestSeqAtIndex(height []int, weight []int) int {
 }
 ```
 
+#### Swift
+
+```swift
+class BinaryIndexedTree {
+    private var n: Int
+    private var c: [Int]
+
+    init(_ n: Int) {
+        self.n = n
+        self.c = [Int](repeating: 0, count: n + 1)
+    }
+
+    func update(_ x: Int, _ val: Int) {
+        var x = x
+        while x <= n {
+            c[x] = max(c[x], val)
+            x += x & -x
+        }
+    }
+
+    func query(_ x: Int) -> Int {
+        var x = x
+        var s = 0
+        while x > 0 {
+            s = max(s, c[x])
+            x -= x & -x
+        }
+        return s
+    }
+}
+
+class Solution {
+    func bestSeqAtIndex(_ height: [Int], _ weight: [Int]) -> Int {
+        let n = height.count
+        var arr: [(Int, Int)] = []
+        for i in 0..<n {
+            arr.append((height[i], weight[i]))
+        }
+        arr.sort {
+            if $0.0 == $1.0 {
+                return $1.1 < $0.1
+            }
+            return $0.0 < $1.0
+        }
+
+        let weights = Set(arr.map { $1 })
+        let sortedWeights = Array(weights).sorted()
+        let m = sortedWeights.enumerated().reduce(into: [Int: Int]()) {
+            $0[$1.element] = $1.offset + 1
+        }
+
+        let tree = BinaryIndexedTree(sortedWeights.count)
+        var ans = 1
+        for (_, w) in arr {
+            let x = m[w]!
+            let t = tree.query(x - 1) + 1
+            ans = max(ans, t)
+            tree.update(x, t)
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README.md
+rating: 1301
+source: 第 350 场周赛 Q2
+tags:
+    - 数组
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [2740. 找出分区值](https://leetcode.cn/problems/find-the-value-of-the-partition)
 
 [English Version](/solution/2700-2799/2740.Find%20the%20Value%20of%20the%20Partition/README_EN.md)
 
-<!-- tags:数组,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>正</strong> 整数数组 <code>nums</code> 。</p>
 
@@ -57,7 +68,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序
 
@@ -67,12 +82,16 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findValueOfPartition(self, nums: List[int]) -> int:
         nums.sort()
         return min(b - a for a, b in pairwise(nums))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -86,6 +105,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -101,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findValueOfPartition(nums []int) int {
 	sort.Ints(nums)
@@ -114,4 +137,6 @@ func findValueOfPartition(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

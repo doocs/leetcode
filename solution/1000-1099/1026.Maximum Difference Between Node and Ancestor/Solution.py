@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
-        def dfs(root, mi, mx):
+        def dfs(root: Optional[TreeNode], mi: int, mx: int):
             if root is None:
                 return
             nonlocal ans

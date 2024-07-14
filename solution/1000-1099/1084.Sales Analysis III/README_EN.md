@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1084.Sales%20Analysis%20III/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
 # [1084. Sales Analysis III](https://leetcode.com/problems/sales-analysis-iii)
 
 [中文文档](/solution/1000-1099/1084.Sales%20Analysis%20III/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Product</code></p>
 
@@ -81,11 +91,17 @@ The product with id 3 was sold after spring 2019.
 We return only product 1 as it is the product that was only sold in the spring of 2019.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -99,4 +115,6 @@ HAVING COUNT(1) = SUM(sale_date BETWEEN '2019-01-01' AND '2019-03-31');
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

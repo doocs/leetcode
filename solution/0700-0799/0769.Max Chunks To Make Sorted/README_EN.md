@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Sorting
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [769. Max Chunks To Make Sorted](https://leetcode.com/problems/max-chunks-to-make-sorted)
 
 [中文文档](/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README.md)
 
-<!-- tags:Stack,Greedy,Array,Sorting,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>arr</code> of length <code>n</code> that represents a permutation of the integers in the range <code>[0, n - 1]</code>.</p>
 
@@ -43,11 +57,17 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 	<li>All the elements of <code>arr</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -59,6 +79,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -89,6 +113,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	ans, mx := 0, 0
@@ -101,6 +127,8 @@ func maxChunksToSorted(arr []int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxChunksToSorted(arr: number[]): number {
@@ -117,6 +145,8 @@ function maxChunksToSorted(arr: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
@@ -132,6 +162,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -151,9 +183,15 @@ int maxChunksToSorted(int* arr, int arrSize) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -169,6 +207,8 @@ class Solution:
                 stk.append(mx)
         return len(stk)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -189,6 +229,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -212,6 +254,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxChunksToSorted(arr []int) int {
 	stk := []int{}
@@ -233,4 +277,6 @@ func maxChunksToSorted(arr []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

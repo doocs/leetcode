@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0867.Transpose%20Matrix/README.md
+tags:
+    - 数组
+    - 矩阵
+    - 模拟
+---
+
+<!-- problem:start -->
+
 # [867. 转置矩阵](https://leetcode.cn/problems/transpose-matrix)
 
 [English Version](/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md)
 
-<!-- tags:数组,矩阵,模拟 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组 <code>matrix</code>， 返回 <code>matrix</code> 的 <strong>转置矩阵</strong> 。</p>
 
@@ -42,17 +52,25 @@
 	<li><code>-10<sup>9</sup> <= matrix[i][j] <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
         return list(zip(*matrix))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -69,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -83,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func transpose(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
@@ -96,6 +118,8 @@ func transpose(matrix [][]int) [][]int {
 	return ans
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -117,4 +141,6 @@ var transpose = function (matrix) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

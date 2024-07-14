@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README.md
+rating: 1225
+source: 第 304 场周赛 Q1
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 排序
+    - 模拟
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [2357. 使数组中所有元素都等于零](https://leetcode.cn/problems/make-array-zero-by-subtracting-equal-amounts)
 
 [English Version](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README_EN.md)
 
-<!-- tags:贪心,数组,哈希表,排序,模拟,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数数组 <code>nums</code> 。在一步操作中，你必须：</p>
 
@@ -46,7 +61,11 @@
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表或数组
 
@@ -56,11 +75,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
         return len({x for x in nums if x})
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -78,6 +101,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -97,6 +122,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumOperations(nums []int) (ans int) {
 	s := [101]bool{true}
@@ -110,6 +137,8 @@ func minimumOperations(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumOperations(nums: number[]): number {
     const set = new Set(nums);
@@ -117,6 +146,8 @@ function minimumOperations(nums: number[]): number {
     return set.size;
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::HashSet;
@@ -128,6 +159,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int minimumOperations(int* nums, int numsSize) {
@@ -147,4 +180,6 @@ int minimumOperations(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

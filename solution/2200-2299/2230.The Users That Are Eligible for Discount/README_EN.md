@@ -1,10 +1,20 @@
-# [2230. The Users That Are Eligible for Discount](https://leetcode.com/problems/the-users-that-are-eligible-for-discount)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [2230. The Users That Are Eligible for Discount 🔒](https://leetcode.com/problems/the-users-that-are-eligible-for-discount)
 
 [中文文档](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Purchases</code></p>
 
@@ -61,11 +71,17 @@ Out of the three users, only User 3 is eligible for a discount.
 <p>&nbsp;</p>
 <p><strong>Important Note:</strong> This problem is basically the same as <a href="https://leetcode.com/problems/the-number-of-users-that-are-eligible-for-discount/">The Number of Users That Are Eligible for Discount</a>.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 CREATE PROCEDURE getUserIDs(startDate DATE, endDate DATE, minAmount INT)
@@ -80,4 +96,6 @@ END;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

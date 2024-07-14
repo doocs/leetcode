@@ -1,10 +1,20 @@
-# [1607. Sellers With No Sales](https://leetcode.com/problems/sellers-with-no-sales)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1607. Sellers With No Sales 🔒](https://leetcode.com/problems/sellers-with-no-sales)
 
 [中文文档](/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customer</code></p>
 
@@ -104,13 +114,19 @@ Elizabeth made 2 sales in 2020 and 1 sale in 2019.
 Frank made 1 sale in 2019 but no sales in 2020.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: LEFT JOIN + GROUP BY + FILTER
 
 We can use a left join to join the `Seller` table with the `Orders` table on the condition `seller_id`, and then group by `seller_id` to count the number of sales for each seller in the year $2020$. Finally, we can filter out the sellers with zero sales.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -125,4 +141,6 @@ ORDER BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

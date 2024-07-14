@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0006.Zigzag%20Conversion/README.md
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [6. Z 字形变换](https://leetcode.cn/problems/zigzag-conversion)
 
 [English Version](/solution/0000-0099/0006.Zigzag%20Conversion/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
 
@@ -62,7 +70,11 @@ P     I
 	<li><code>1 <= numRows <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -73,6 +85,8 @@ P     I
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -88,6 +102,8 @@ class Solution:
             i += k
         return ''.join(chain(*g))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -109,6 +125,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -135,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func convert(s string, numRows int) string {
 	if numRows == 1 {
@@ -152,6 +172,8 @@ func convert(s string, numRows int) string {
 	return string(bytes.Join(g, nil))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function convert(s: string, numRows: number): string {
@@ -171,6 +193,8 @@ function convert(s: string, numRows: number): string {
     return g.flat().join('');
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -202,6 +226,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -225,6 +251,8 @@ var convert = function (s, numRows) {
     return g.flat().join('');
 };
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -256,9 +284,15 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -278,6 +312,8 @@ class Solution:
                     interval = group
         return ''.join(ans)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -304,6 +340,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -325,6 +363,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func convert(s string, numRows int) string {
@@ -349,6 +389,8 @@ func convert(s string, numRows int) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function convert(s: string, numRows: number): string {
     if (numRows === 1) {
@@ -372,6 +414,8 @@ function convert(s: string, numRows: number): string {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn convert(s: String, num_rows: i32) -> String {
@@ -383,6 +427,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -412,6 +458,8 @@ var convert = function (s, numRows) {
     return ans.join('');
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -447,4 +495,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

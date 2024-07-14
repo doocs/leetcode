@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Matching/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.18. Pattern Matching](https://leetcode.cn/problems/pattern-matching-lcci)
 
 [中文文档](/lcci/16.18.Pattern%20Matching/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two strings, pattern and value. The pattern string consists of just the letters a and b, describing a pattern within a string. For example, the string catcatgocatgo matches the pattern aabab (where cat is a and go is b). It also matches patterns like a, ab, and b. Write a method to determine if value matches pattern. a and b cannot be the same string.</p>
 <p><strong>Example 1: </strong></p>
@@ -46,7 +56,11 @@
 	<li><code>pattern</code>&nbsp;only contains&nbsp;<code>&quot;a&quot;</code>&nbsp;and&nbsp;<code>&quot;b&quot;</code>,&nbsp;<code>value</code> only contains lowercase letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -61,6 +75,8 @@ Next, we denote the length of the string matched by the character `'a'` as $la$,
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $value$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -96,6 +112,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -152,6 +170,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -212,6 +232,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func patternMatching(pattern string, value string) bool {
 	cnt := [2]int{}
@@ -260,6 +282,8 @@ func patternMatching(pattern string, value string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function patternMatching(pattern: string, value: string): boolean {
     const cnt: number[] = [0, 0];
@@ -307,6 +331,76 @@ function patternMatching(pattern: string, value: string): boolean {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var pattern: String = ""
+    private var value: String = ""
+
+    func patternMatching(_ pattern: String, _ value: String) -> Bool {
+        self.pattern = pattern
+        self.value = value
+        var cnt = [Int](repeating: 0, count: 2)
+        for c in pattern {
+            cnt[Int(c.asciiValue! - Character("a").asciiValue!)] += 1
+        }
+        let n = value.count
+        if cnt[0] == 0 {
+            return n % cnt[1] == 0 && String(repeating: String(value.prefix(n / cnt[1])), count: cnt[1]) == value
+        }
+        if cnt[1] == 0 {
+            return n % cnt[0] == 0 && String(repeating: String(value.prefix(n / cnt[0])), count: cnt[0]) == value
+        }
+        for la in 0...n {
+            if la * cnt[0] > n {
+                break
+            }
+            if (n - la * cnt[0]) % cnt[1] == 0 {
+                let lb = (n - la * cnt[0]) / cnt[1]
+                if check(la, lb) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    private func check(_ la: Int, _ lb: Int) -> Bool {
+        var a: String? = nil
+        var b: String? = nil
+        var index = value.startIndex
+
+        for c in pattern {
+            if c == "a" {
+                let end = value.index(index, offsetBy: la)
+                if let knownA = a {
+                    if knownA != value[index..<end] {
+                        return false
+                    }
+                } else {
+                    a = String(value[index..<end])
+                }
+                index = end
+            } else {
+                let end = value.index(index, offsetBy: lb)
+                if let knownB = b {
+                    if knownB != value[index..<end] {
+                        return false
+                    }
+                } else {
+                    b = String(value[index..<end])
+                }
+                index = end
+            }
+        }
+        return a != b
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

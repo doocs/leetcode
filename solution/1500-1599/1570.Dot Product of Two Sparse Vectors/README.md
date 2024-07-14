@@ -1,12 +1,23 @@
-# [1570. 两个稀疏向量的点积](https://leetcode.cn/problems/dot-product-of-two-sparse-vectors)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 双指针
+---
+
+<!-- problem:start -->
+
+# [1570. 两个稀疏向量的点积 🔒](https://leetcode.cn/problems/dot-product-of-two-sparse-vectors)
 
 [English Version](/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README_EN.md)
 
-<!-- tags:设计,数组,哈希表,双指针 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个稀疏向量，计算它们的点积（数量积）。</p>
 
@@ -58,7 +69,11 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 	<li><code>0 <= nums1[i], nums2[i] <= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
@@ -69,6 +84,8 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class SparseVector:
@@ -88,6 +105,8 @@ class SparseVector:
 # v2 = SparseVector(nums2)
 # ans = v1.dotProduct(v2)
 ```
+
+#### Java
 
 ```java
 class SparseVector {
@@ -125,6 +144,8 @@ class SparseVector {
 // int ans = v1.dotProduct(v2);
 ```
 
+#### C++
+
 ```cpp
 class SparseVector {
 public:
@@ -160,6 +181,8 @@ public:
 // SparseVector v2(nums2);
 // int ans = v1.dotProduct(v2);
 ```
+
+#### Go
 
 ```go
 type SparseVector struct {
@@ -197,6 +220,8 @@ func (this *SparseVector) dotProduct(vec SparseVector) (ans int) {
  * ans := v1.dotProduct(v2);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class SparseVector {
@@ -238,4 +263,6 @@ class SparseVector {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

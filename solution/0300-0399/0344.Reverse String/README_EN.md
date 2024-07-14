@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0344.Reverse%20String/README_EN.md
+tags:
+    - Two Pointers
+    - String
+---
+
+<!-- problem:start -->
+
 # [344. Reverse String](https://leetcode.com/problems/reverse-string)
 
 [中文文档](/solution/0300-0399/0344.Reverse%20String/README.md)
 
-<!-- tags:Two Pointers,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Write a function that reverses a string. The input string is given as an array of characters <code>s</code>.</p>
 
@@ -26,11 +37,21 @@
 	<li><code>s[i]</code> is a <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters" target="_blank">printable ascii character</a>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Two Pointers
+
+We use two pointers $i$ and $j$, initially pointing to the start and end of the array respectively. Each time, we swap the elements at $i$ and $j$, then move $i$ forward and $j$ backward, until $i$ and $j$ meet.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -40,6 +61,8 @@ class Solution:
             s[i], s[j] = s[j], s[i]
             i, j = i + 1, j - 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -53,6 +76,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -64,6 +89,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverseString(s []byte) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
@@ -71,6 +98,8 @@ func reverseString(s []byte) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -82,6 +111,8 @@ function reverseString(s: string[]): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -97,6 +128,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {character[]} s
@@ -111,25 +144,6 @@ var reverseString = function (s) {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        s[:] = s[::-1]
-```
-
-```ts
-/**
- Do not return anything, modify s in-place instead.
- */
-function reverseString(s: string[]): void {
-    s.reverse();
-}
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

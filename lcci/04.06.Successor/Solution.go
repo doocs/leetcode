@@ -6,20 +6,14 @@
  *     Right *TreeNode
  * }
  */
-func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
-	var prev, ans *TreeNode
-	var dfs func(root *TreeNode)
-	dfs = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-		dfs(root.Left)
-		if prev == p {
+func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
+	for root != nil {
+		if root.Val > p.Val {
 			ans = root
+			root = root.Left
+		} else {
+			root = root.Right
 		}
-		prev = root
-		dfs(root.Right)
 	}
-	dfs(root)
-	return ans
+	return
 }

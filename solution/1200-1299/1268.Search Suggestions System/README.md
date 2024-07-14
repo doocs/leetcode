@@ -1,12 +1,27 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1268.Search%20Suggestions%20System/README.md
+rating: 1573
+source: 第 164 场周赛 Q3
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 二分查找
+    - 排序
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
 # [1268. 搜索推荐系统](https://leetcode.cn/problems/search-suggestions-system)
 
 [English Version](/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md)
 
-<!-- tags:字典树,数组,字符串,二分查找,排序,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个产品数组&nbsp;<code>products</code>&nbsp;和一个字符串&nbsp;<code>searchWord</code>&nbsp;，<code>products</code>&nbsp; 数组中每个产品都是一个字符串。</p>
 
@@ -61,7 +76,11 @@
 	<li><code>searchWord</code>&nbsp;中所有字符都是小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 前缀树
 
@@ -79,6 +98,8 @@
 时间复杂度 $O(L \times \log n + m)$，空间复杂度 $O(L)$。其中 $L$ 是 `products` 数组所有字符串的长度之和，而 $n$ 和 $m$ 分别是 `products` 数组的长度和 `searchWord` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -118,6 +139,8 @@ class Solution:
             trie.insert(w, i)
         return [[products[i] for i in v] for v in trie.search(searchWord)]
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -174,6 +197,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -233,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -290,4 +317,6 @@ func suggestedProducts(products []string, searchWord string) (ans [][]string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

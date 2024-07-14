@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README.md
+rating: 1732
+source: 第 109 场双周赛 Q3
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2786. 访问数组中的位置使分数最大](https://leetcode.cn/problems/visit-array-positions-to-maximize-score)
 
 [English Version](/solution/2700-2799/2786.Visit%20Array%20Positions%20to%20Maximize%20Score/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个正整数&nbsp;<code>x</code>&nbsp;。</p>
 
@@ -50,11 +61,30 @@
 	<li><code>1 &lt;= nums[i], x &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：动态规划
+
+根据题目描述，我们可以得到以下结论：
+
+1. 从位置 $i$ 移动到位置 $j$ 时，如果 $nums[i]$ 和 $nums[j]$ 的奇偶性不同，那么会损失 $x$ 分；
+2. 从位置 $i$ 移动到位置 $j$ 时，如果 $nums[i]$ 和 $nums[j]$ 的奇偶性相同，那么不会损失分数。
+
+因此，我们可以用一个长度为 $2$ 的数组 $f$ 来表示当前位置的奇偶性为 $0$ 和 $1$ 时的最大得分。初始时 $f$ 的值为 $-\infty$，然后我们再初始化 $f[nums[0] \& 1] = nums[0]$，表示初始位置的得分。
+
+接下来，我们从位置 $1$ 开始遍历数组 $nums$，对于每个位置 $i$ 对应的值 $v$，我们更新 $f[v \& 1]$ 的值为 $f[v \& 1]$ 和 $f[v \& 1 \oplus 1] - x$ 的较大值再加上 $v$，即 $f[v \& 1] = \max(f[v \& 1], f[v \& 1 \oplus 1] - x) + v$。
+
+答案为 $f[0]$ 和 $f[1]$ 中的较大值。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,9 +92,11 @@ class Solution:
         f = [-inf] * 2
         f[nums[0] & 1] = nums[0]
         for v in nums[1:]:
-            f[v & 1] = max(f[v & 1] + v, f[v & 1 ^ 1] + v - x)
+            f[v & 1] = max(f[v & 1], f[v & 1 ^ 1] - x) + v
         return max(f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,12 +105,15 @@ class Solution {
         Arrays.fill(f, -(1L << 60));
         f[nums[0] & 1] = nums[0];
         for (int i = 1; i < nums.length; ++i) {
-            f[nums[i] & 1] = Math.max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+            int v = nums[i];
+            f[v & 1] = Math.max(f[v & 1], f[v & 1 ^ 1] - x) + v;
         }
         return Math.max(f[0], f[1]);
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,12 +124,15 @@ public:
         f[nums[0] & 1] = nums[0];
         int n = nums.size();
         for (int i = 1; i < n; ++i) {
-            f[nums[i] & 1] = max(f[nums[i] & 1] + nums[i], f[nums[i] & 1 ^ 1] + nums[i] - x);
+            int v = nums[i];
+            f[v & 1] = max(f[v & 1], f[v & 1 ^ 1] - x) + v;
         }
         return max(f[0], f[1]);
     }
 };
 ```
+
+#### Go
 
 ```go
 func maxScore(nums []int, x int) int64 {
@@ -102,24 +140,28 @@ func maxScore(nums []int, x int) int64 {
 	f := [2]int{-inf, -inf}
 	f[nums[0]&1] = nums[0]
 	for _, v := range nums[1:] {
-		f[v&1] = max(f[v&1]+v, f[v&1^1]+v-x)
+		f[v&1] = max(f[v&1], f[v&1^1]-x) + v
 	}
 	return int64(max(f[0], f[1]))
 }
 ```
 
+#### TypeScript
+
 ```ts
 function maxScore(nums: number[], x: number): number {
-    const inf = 1 << 30;
-    const f: number[] = Array(2).fill(-inf);
+    const f: number[] = Array(2).fill(-Infinity);
     f[nums[0] & 1] = nums[0];
     for (let i = 1; i < nums.length; ++i) {
-        f[nums[i] & 1] = Math.max(f[nums[i] & 1] + nums[i], f[(nums[i] & 1) ^ 1] + nums[i] - x);
+        const v = nums[i];
+        f[v & 1] = Math.max(f[v & 1], f[(v & 1) ^ 1] - x) + v;
     }
-    return Math.max(f[0], f[1]);
+    return Math.max(...f);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

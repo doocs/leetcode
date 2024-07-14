@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20070.%20%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 070. 排序数组中只出现一次的数字](https://leetcode.cn/problems/skFtm2)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个只包含整数的有序数组 <code>nums</code>&nbsp;，每个元素都会出现两次，唯有一个数只会出现一次，请找出这个唯一的数字。</p>
 
@@ -43,11 +50,17 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 540&nbsp;题相同：<a href="https://leetcode.cn/problems/single-element-in-a-sorted-array/">https://leetcode.cn/problems/single-element-in-a-sorted-array/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +75,8 @@ class Solution:
                 left = mid + 1
         return nums[left]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +97,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -99,6 +116,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
@@ -113,6 +132,8 @@ func singleNonDuplicate(nums []int) int {
 	return nums[left]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
@@ -130,6 +151,30 @@ function singleNonDuplicate(nums: number[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func singleNonDuplicate(_ nums: [Int]) -> Int {
+        var left = 0
+        var right = nums.count - 1
+
+        while left < right {
+            let mid = (left + right) / 2
+            if nums[mid] != nums[mid ^ 1] {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+
+        return nums[left]
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

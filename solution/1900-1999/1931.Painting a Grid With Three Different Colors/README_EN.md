@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1931.Painting%20a%20Grid%20With%20Three%20Different%20Colors/README_EN.md
+rating: 2170
+source: Weekly Contest 249 Q3
+tags:
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1931. Painting a Grid With Three Different Colors](https://leetcode.com/problems/painting-a-grid-with-three-different-colors)
 
 [中文文档](/solution/1900-1999/1931.Painting%20a%20Grid%20With%20Three%20Different%20Colors/README.md)
 
-<!-- tags:Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two integers <code>m</code> and <code>n</code>. Consider an <code>m x n</code> grid where each cell is initially white. You can paint each cell <strong>red</strong>, <strong>green</strong>, or <strong>blue</strong>. All cells <strong>must</strong> be painted.</p>
 
@@ -42,7 +54,11 @@
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: State Compression + Dynamic Programming
 
@@ -63,6 +79,8 @@ We notice that $f[i][j]$ is only related to $f[i - 1][k]$, so we can use a rolli
 The time complexity is $O((m + n) \times 3^{2m})$, and the space complexity is $O(3^m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -100,6 +118,8 @@ class Solution:
             f = g
         return sum(f) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +186,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -228,6 +250,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func colorTheGrid(m int, n int) (ans int) {
 	f1 := func(x int) bool {
@@ -284,6 +308,8 @@ func colorTheGrid(m int, n int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function colorTheGrid(m: number, n: number): number {
@@ -345,4 +371,6 @@ function colorTheGrid(m: number, n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

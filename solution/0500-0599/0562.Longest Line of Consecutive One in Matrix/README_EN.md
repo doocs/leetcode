@@ -1,10 +1,22 @@
-# [562. Longest Line of Consecutive One in Matrix](https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [562. Longest Line of Consecutive One in Matrix 🔒](https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix)
 
 [中文文档](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README.md)
 
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an <code>m x n</code> binary matrix <code>mat</code>, return <em>the length of the longest line of consecutive one in the matrix</em>.</p>
 
@@ -36,11 +48,17 @@
 	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +79,8 @@ class Solution:
                     ans = max(ans, a[i][j], b[i][j], c[i][j], d[i][j])
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -95,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -120,6 +142,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestLine(mat [][]int) (ans int) {
@@ -149,4 +173,6 @@ func longestLine(mat [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

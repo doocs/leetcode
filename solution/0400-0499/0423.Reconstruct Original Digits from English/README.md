@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0423.Reconstruct%20Original%20Digits%20from%20English/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [423. 从英文中重建数字](https://leetcode.cn/problems/reconstruct-original-digits-from-english)
 
 [English Version](/solution/0400-0499/0423.Reconstruct%20Original%20Digits%20from%20English/README_EN.md)
 
-<!-- tags:哈希表,数学,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> ，其中包含字母顺序打乱的用英文单词表示的若干数字（<code>0-9</code>）。按 <strong>升序</strong> 返回原始的数字。</p>
 
@@ -36,11 +46,17 @@
 	<li><code>s</code> 保证是一个符合题目要求的字符串</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +79,8 @@ class Solution:
 
         return ''.join(cnt[i] * str(i) for i in range(10))
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +114,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -124,6 +144,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func originalDigits(s string) string {
@@ -155,4 +177,6 @@ func originalDigits(s string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

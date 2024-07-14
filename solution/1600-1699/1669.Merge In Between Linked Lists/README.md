@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md
+rating: 1428
+source: 第 40 场双周赛 Q2
+tags:
+    - 链表
+---
+
+<!-- problem:start -->
+
 # [1669. 合并两个链表](https://leetcode.cn/problems/merge-in-between-linked-lists)
 
 [English Version](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md)
 
-<!-- tags:链表 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个链表&nbsp;<code>list1</code> 和&nbsp;<code>list2</code>&nbsp;，它们包含的元素分别为&nbsp;<code>n</code> 个和&nbsp;<code>m</code> 个。</p>
 
@@ -20,11 +30,11 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/images/merge_linked_list_ex1.png" style="width: 406px; height: 140px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/images/1709608717-NVGojm-image.png" style="width: 450px; height: 155px;" /></p>
 
 <pre>
-<b>输入：</b>list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
-<b>输出：</b>[0,1,2,1000000,1000001,1000002,5]
+<b>输入：</b>list1 = [10,1,13,6,9,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
+<b>输出：</b>[10,1,13,1000000,1000001,1000002,5]
 <b>解释：</b>我们删除 list1 中下标为 3 和 4 的两个节点，并将 list2 接在该位置。上图中蓝色的边和节点为答案链表。
 </pre>
 
@@ -46,7 +56,11 @@
 	<li><code>1 &lt;= list2.length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -59,6 +73,8 @@
 时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为链表 `list1` 和 `list2` 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -82,6 +98,8 @@ class Solution:
         q.next = None
         return list1
 ```
+
+#### Java
 
 ```java
 /**
@@ -113,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -146,6 +166,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -171,6 +193,8 @@ func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
 	return list1
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -209,6 +233,8 @@ function mergeInBetween(
 }
 ```
 
+#### C#
+
 ```cs
 /**
  * Definition for singly-linked list.
@@ -243,4 +269,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

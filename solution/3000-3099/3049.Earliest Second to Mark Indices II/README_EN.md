@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README_EN.md
+rating: 3111
+source: Weekly Contest 386 Q4
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [3049. Earliest Second to Mark Indices II](https://leetcode.com/problems/earliest-second-to-mark-indices-ii)
 
 [中文文档](/solution/3000-3099/3049.Earliest%20Second%20to%20Mark%20Indices%20II/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>1-indexed</strong> integer arrays, <code>nums</code> and, <code>changeIndices</code>, having lengths <code>n</code> and <code>m</code>, respectively.</p>
 
@@ -76,23 +91,35 @@ Hence, the answer is -1.
 	<li><code>1 &lt;= changeIndices[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 
 ```
+
+#### Java
 
 ```java
 
 ```
 
+#### C++
+
 ```cpp
 
 ```
+
+#### Go
 
 ```go
 
@@ -100,4 +127,6 @@ Hence, the answer is -1.
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,23 @@
-# [1490. Clone N-ary Tree](https://leetcode.com/problems/clone-n-ary-tree)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1490.Clone%20N-ary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Hash Table
+---
+
+<!-- problem:start -->
+
+# [1490. Clone N-ary Tree 🔒](https://leetcode.com/problems/clone-n-ary-tree)
 
 [中文文档](/solution/1400-1499/1490.Clone%20N-ary%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>root</code> of an N-ary tree, return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the tree.</p>
 
@@ -49,11 +62,17 @@ class Node {
 <p>&nbsp;</p>
 <strong>Follow up: </strong>Can your solution work for the <a href="https://leetcode.com/problems/clone-graph/" target="_blank">graph problem</a>?
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 """
@@ -72,6 +91,8 @@ class Solution:
         children = [self.cloneTree(child) for child in root.children]
         return Node(root.val, children)
 ```
+
+#### Java
 
 ```java
 /*
@@ -111,6 +132,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /*
 // Definition for a Node.
@@ -147,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a Node.
@@ -170,4 +195,6 @@ func cloneTree(root *Node) *Node {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

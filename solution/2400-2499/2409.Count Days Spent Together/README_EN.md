@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README_EN.md
+rating: 1562
+source: Biweekly Contest 87 Q1
+tags:
+    - Math
+    - String
+---
+
+<!-- problem:start -->
+
 # [2409. Count Days Spent Together](https://leetcode.com/problems/count-days-spent-together)
 
 [中文文档](/solution/2400-2499/2409.Count%20Days%20Spent%20Together/README.md)
 
-<!-- tags:Math,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Alice and Bob are traveling to Rome for separate business meetings.</p>
 
@@ -40,7 +53,11 @@
 	<li>The given dates are valid dates of a <strong>non-leap</strong> year.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -49,6 +66,8 @@ We convert the dates into days, and then calculate the number of days both peopl
 The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is a constant.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -62,6 +81,8 @@ class Solution:
         y = sum(days[: int(b[:2]) - 1]) + int(b[3:])
         return max(y - x + 1, 0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +108,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, leaveBob string) int {
@@ -143,4 +168,6 @@ func countDaysTogether(arriveAlice string, leaveAlice string, arriveBob string, 
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md
+rating: 2422
+source: 第 126 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [1000. 合并石头的最低成本](https://leetcode.cn/problems/minimum-cost-to-merge-stones)
 
 [English Version](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md)
 
-<!-- tags:数组,动态规划,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有 <code>n</code> 堆石头排成一排，第 <code>i</code> 堆中有&nbsp;<code>stones[i]</code>&nbsp;块石头。</p>
 
@@ -60,7 +72,11 @@
 	<li><code>2 &lt;= k &lt;= 30</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划（区间 DP）+ 前缀和
 
@@ -84,6 +100,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def mergeStones(self, stones: List[int], K: int) -> int:
@@ -103,6 +121,8 @@ class Solution:
                 f[i][j][1] = f[i][j][K] + s[j] - s[i - 1]
         return f[1][n][1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -141,6 +161,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -174,6 +196,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func mergeStones(stones []int, K int) int {
@@ -215,4 +239,6 @@ func mergeStones(stones []int, K int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

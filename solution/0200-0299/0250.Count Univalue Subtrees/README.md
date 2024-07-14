@@ -1,20 +1,31 @@
-# [250. 统计同值子树](https://leetcode.cn/problems/count-univalue-subtrees)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
+# [250. 统计同值子树 🔒](https://leetcode.cn/problems/count-univalue-subtrees)
 
 [English Version](/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给定一个二叉树，统计该二叉树数值相同的子树个数。</p>
+<p>给定一个二叉树，统计该二叉树数值相同的<span data-keyword="subtree">子树</span>个数。</p>
 
 <p>同值子树是指该子树的所有节点都拥有相同的数值。</p>
 
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入: </strong>root = [5,1,5,5,5,null,5]
+<pre>
+<strong>输入: </strong>root = [5,1,5,5,5,null,5]
 
               5
              / \
@@ -25,7 +36,11 @@
 <strong>输出:</strong> 4
 </pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -41,6 +56,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -69,6 +86,8 @@ class Solution:
         dfs(root)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -114,6 +133,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -153,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -185,6 +208,8 @@ func countUnivalSubtrees(root *TreeNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -226,6 +251,8 @@ function countUnivalSubtrees(root: TreeNode | null): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -266,4 +293,6 @@ var countUnivalSubtrees = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

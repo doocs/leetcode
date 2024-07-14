@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md
+rating: 1744
+source: Biweekly Contest 38 Q3
+tags:
+    - Hash Table
+    - String
+    - Dynamic Programming
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [1638. Count Substrings That Differ by One Character](https://leetcode.com/problems/count-substrings-that-differ-by-one-character)
 
 [中文文档](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README.md)
 
-<!-- tags:Hash Table,String,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two strings <code>s</code> and <code>t</code>, find the number of ways you can choose a non-empty substring of <code>s</code> and replace a <strong>single character</strong> by a different character such that the resulting substring is a substring of <code>t</code>. In other words, find the number of substrings in <code>s</code> that differ from some substring in <code>t</code> by <strong>exactly</strong> one character.</p>
 
@@ -50,11 +65,17 @@ The underlined portions are the substrings that are chosen from s and t.
 	<li><code>s</code> and <code>t</code> consist of lowercase English letters only.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +95,8 @@ class Solution:
                     ans += (l + 1) * (r + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -125,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubstrings(s string, t string) (ans int) {
 	m, n := len(s), len(t)
@@ -148,9 +175,15 @@ func countSubstrings(s string, t string) (ans int) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -171,6 +204,8 @@ class Solution:
                     ans += (f[i][j] + 1) * (g[i + 1][j + 1] + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -199,6 +234,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -231,6 +268,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubstrings(s string, t string) (ans int) {
 	m, n := len(s), len(t)
@@ -262,4 +301,6 @@ func countSubstrings(s string, t string) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

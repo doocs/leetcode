@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README.md
+rating: 1643
+source: 第 283 场周赛 Q3
+tags:
+    - 树
+    - 数组
+    - 哈希表
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [2196. 根据描述创建二叉树](https://leetcode.cn/problems/create-binary-tree-from-descriptions)
 
 [English Version](/solution/2100-2199/2196.Create%20Binary%20Tree%20From%20Descriptions/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,数组,哈希表,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二维整数数组 <code>descriptions</code> ，其中 <code>descriptions[i] = [parent<sub>i</sub>, child<sub>i</sub>, isLeft<sub>i</sub>]</code> 表示 <code>parent<sub>i</sub></code> 是 <code>child<sub>i</sub></code> 在 <strong>二叉树</strong> 中的 <strong>父节点</strong>，二叉树中各节点的值 <strong>互不相同</strong> 。此外：</p>
 
@@ -54,11 +67,17 @@
 	<li><code>descriptions</code> 所描述的二叉树是一棵有效二叉树</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -85,6 +104,8 @@ class Solution:
             if v not in vis:
                 return node
 ```
+
+#### Java
 
 ```java
 /**
@@ -131,6 +152,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -165,6 +188,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -202,6 +227,8 @@ func createBinaryTree(descriptions [][]int) *TreeNode {
 	return nil
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -250,6 +277,8 @@ function createBinaryTree(descriptions: number[][]): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -269,9 +298,9 @@ function createBinaryTree(descriptions: number[][]): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     fn dfs(val: i32, map: &HashMap<i32, [i32; 2]>) -> Option<Rc<RefCell<TreeNode>>> {
         if val == 0 {
@@ -315,4 +344,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

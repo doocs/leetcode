@@ -1,10 +1,28 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md
+rating: 2030
+source: Biweekly Contest 88 Q4
+tags:
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Divide and Conquer
+    - Ordered Set
+    - Merge Sort
+---
+
+<!-- problem:start -->
+
 # [2426. Number of Pairs Satisfying Inequality](https://leetcode.com/problems/number-of-pairs-satisfying-inequality)
 
 [中文文档](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README.md)
 
-<!-- tags:Binary Indexed Tree,Segment Tree,Array,Binary Search,Divide and Conquer,Ordered Set,Merge Sort -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, each of size <code>n</code>, and an integer <code>diff</code>. Find the number of <strong>pairs</strong> <code>(i, j)</code> such that:</p>
 
@@ -48,7 +66,11 @@ Since there does not exist any pair that satisfies the conditions, we return 0.
 	<li><code>-10<sup>4</sup> &lt;= diff &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Binary Indexed Tree
 
@@ -59,6 +81,8 @@ We can enumerate $j$ from small to large, find out how many numbers before it sa
 The time complexity is $O(n \times \log n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class BinaryIndexedTree:
@@ -93,6 +117,8 @@ class Solution:
             tree.update(v + 40000, 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class BinaryIndexedTree {
@@ -138,6 +164,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class BinaryIndexedTree {
@@ -185,6 +213,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type BinaryIndexedTree struct {
 	n int
@@ -230,4 +260,6 @@ func numberOfPairs(nums1 []int, nums2 []int, diff int) int64 {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

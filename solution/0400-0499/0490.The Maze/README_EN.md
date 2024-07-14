@@ -1,10 +1,23 @@
-# [490. The Maze](https://leetcode.com/problems/the-maze)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0490.The%20Maze/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [490. The Maze 🔒](https://leetcode.com/problems/the-maze)
 
 [中文文档](/solution/0400-0499/0490.The%20Maze/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>There is a ball in a <code>maze</code> with empty spaces (represented as <code>0</code>) and walls (represented as <code>1</code>). The ball can go through the empty spaces by rolling <strong>up, down, left or right</strong>, but it won&#39;t stop rolling until hitting a wall. When the ball stops, it could choose the next direction.</p>
 
@@ -52,11 +65,17 @@
 	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -80,6 +99,8 @@ class Solution:
         dfs(start[0], start[1])
         return vis[destination[0]][destination[1]]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +181,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func hasPath(maze [][]int, start []int, destination []int) bool {
 	m, n := len(maze), len(maze[0])
@@ -192,9 +217,15 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -218,6 +249,8 @@ class Solution:
                     q.append((x, y))
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -254,6 +287,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -286,6 +321,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func hasPath(maze [][]int, start []int, destination []int) bool {
@@ -322,4 +359,6 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

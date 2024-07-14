@@ -1,10 +1,20 @@
-# [2533. Number of Good Binary Strings](https://leetcode.com/problems/number-of-good-binary-strings)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README_EN.md
+tags:
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [2533. Number of Good Binary Strings 🔒](https://leetcode.com/problems/number-of-good-binary-strings)
 
 [中文文档](/solution/2500-2599/2533.Number%20of%20Good%20Binary%20Strings/README.md)
 
-<!-- tags:Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given four integers <code>minLength</code>, <code>maxLength</code>, <code>oneGroup</code> and <code>zeroGroup</code>.</p>
 
@@ -55,7 +65,11 @@ It can be proven that there is only 1 good string satisfying all conditions.
 	<li><code>1 &lt;= oneGroup, zeroGroup &lt;= maxLength</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -74,6 +88,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n=maxL
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def goodBinaryStrings(
@@ -89,6 +105,8 @@ class Solution:
             f[i] %= mod
         return sum(f[minLength:]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +130,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +158,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func goodBinaryStrings(minLength int, maxLength int, oneGroup int, zeroGroup int) (ans int) {
 	const mod int = 1e9 + 7
@@ -158,6 +180,8 @@ func goodBinaryStrings(minLength int, maxLength int, oneGroup int, zeroGroup int
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function goodBinaryStrings(
@@ -184,4 +208,6 @@ function goodBinaryStrings(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

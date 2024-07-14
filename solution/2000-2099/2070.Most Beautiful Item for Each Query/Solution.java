@@ -1,24 +1,21 @@
 class Solution {
     public int[] maximumBeauty(int[][] items, int[] queries) {
         Arrays.sort(items, (a, b) -> a[0] - b[0]);
-        for (int i = 1; i < items.length; ++i) {
-            items[i][1] = Math.max(items[i - 1][1], items[i][1]);
+        int n = items.length;
+        int m = queries.length;
+        int[] ans = new int[m];
+        Integer[] idx = new Integer[m];
+        for (int i = 0; i < m; ++i) {
+            idx[i] = i;
         }
-        int n = queries.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int left = 0, right = items.length;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (items[mid][0] > queries[i]) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
+        Arrays.sort(idx, (i, j) -> queries[i] - queries[j]);
+        int i = 0, mx = 0;
+        for (int j : idx) {
+            while (i < n && items[i][0] <= queries[j]) {
+                mx = Math.max(mx, items[i][1]);
+                ++i;
             }
-            if (left > 0) {
-                ans[i] = items[left - 1][1];
-            }
+            ans[j] = mx;
         }
         return ans;
     }

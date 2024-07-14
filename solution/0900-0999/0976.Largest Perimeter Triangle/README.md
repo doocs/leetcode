@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README.md
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [976. 三角形的最大周长](https://leetcode.cn/problems/largest-perimeter-triangle)
 
 [English Version](/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README_EN.md)
 
-<!-- tags:贪心,数组,数学,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定由一些正数（代表长度）组成的数组 <code>nums</code>&nbsp;，返回 <em>由其中三个长度组成的、<strong>面积不为零</strong>的三角形的最大周长</em>&nbsp;。如果不能形成任何面积不为零的三角形，返回&nbsp;<code>0</code>。</p>
 
@@ -43,7 +54,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：排序 + 贪心
 
@@ -58,6 +73,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def largestPerimeter(self, nums: List[int]) -> int:
@@ -67,6 +84,8 @@ class Solution:
                 return c + nums[i]
         return 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -83,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -97,6 +118,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestPerimeter(nums []int) int {
 	sort.Ints(nums)
@@ -109,6 +132,8 @@ func largestPerimeter(nums []int) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestPerimeter(nums: number[]): number {
@@ -123,6 +148,8 @@ function largestPerimeter(nums: number[]): number {
     return 0;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +166,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 int cmp(const void* a, const void* b) {
@@ -158,4 +187,6 @@ int largestPerimeter(int* nums, int numsSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

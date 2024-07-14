@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README.md
+rating: 1802
+source: 第 371 场周赛 Q3
+tags:
+    - 数组
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [2934. 最大化数组末位元素的最少操作次数](https://leetcode.cn/problems/minimum-operations-to-maximize-last-elements-in-arrays)
 
 [English Version](/solution/2900-2999/2934.Minimum%20Operations%20to%20Maximize%20Last%20Elements%20in%20Arrays/README_EN.md)
 
-<!-- tags:数组,枚举 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong> 开始的整数数组 <code>nums1</code> 和 <code>nums2</code> ，这两个数组的长度都是 <code>n</code> 。</p>
 
@@ -71,7 +82,11 @@
 	<li><code>1 &lt;= nums2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分情况讨论 + 贪心
 
@@ -87,6 +102,8 @@
 时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -104,6 +121,8 @@ class Solution:
         a, b = f(nums1[-1], nums2[-1]), f(nums2[-1], nums1[-1])
         return -1 if a + b == -2 else min(a, b + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -132,6 +151,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -157,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minOperations(nums1 []int, nums2 []int) int {
 	n := len(nums1)
@@ -180,6 +203,8 @@ func minOperations(nums1 []int, nums2 []int) int {
 	return min(a, b+1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minOperations(nums1: number[], nums2: number[]): number {
@@ -205,4 +230,6 @@ function minOperations(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum)
 
 [中文文档](/solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
 
-<!-- tags:Array,Dynamic Programming,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a <code>m x n</code> <code>grid</code> filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.</p>
 
@@ -36,7 +48,11 @@
 	<li><code>0 &lt;= grid[i][j] &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -54,6 +70,8 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
@@ -69,6 +87,8 @@ class Solution:
                 f[i][j] = min(f[i - 1][j], f[i][j - 1]) + grid[i][j]
         return f[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -115,6 +137,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minPathSum(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -137,6 +161,8 @@ func minPathSum(grid [][]int) int {
 	return f[m-1][n-1]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minPathSum(grid: number[][]): number {
@@ -161,6 +187,8 @@ function minPathSum(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn min_path_sum(mut grid: Vec<Vec<i32>>) -> i32 {
@@ -181,6 +209,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -209,6 +239,8 @@ var minPathSum = function (grid) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MinPathSum(int[][] grid) {
@@ -233,4 +265,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
-# [1554. 只有一个不同字符的字符串](https://leetcode.cn/problems/strings-differ-by-one-character)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 哈希函数
+    - 滚动哈希
+---
+
+<!-- problem:start -->
+
+# [1554. 只有一个不同字符的字符串 🔒](https://leetcode.cn/problems/strings-differ-by-one-character)
 
 [English Version](/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README_EN.md)
 
-<!-- tags:哈希表,字符串,哈希函数,滚动哈希 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串列表&nbsp;<code>dict</code> ，其中所有字符串的长度都相同。</p>
 
@@ -51,11 +62,17 @@
 
 <p><strong>进阶：</strong>你可以以 <code>O(n*m)</code> 的复杂度解决问题吗？其中 n 是列表 <code>dict</code> 的长度，<code>m</code> 是字符串的长度。</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +86,8 @@ class Solution:
                 s.add(t)
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -88,6 +107,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +126,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func differByOne(dict []string) bool {
@@ -124,4 +147,6 @@ func differByOne(dict []string) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

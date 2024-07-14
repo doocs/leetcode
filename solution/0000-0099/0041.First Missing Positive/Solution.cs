@@ -1,35 +1,22 @@
 public class Solution {
     public int FirstMissingPositive(int[] nums) {
-        var i = 0;
-        while (i < nums.Length)
-        {
-            if (nums[i] > 0 && nums[i] <= nums.Length)
-            {
-                var index = nums[i] -1;
-                if (index != i && nums[index] != nums[i])
-                {
-                    var temp = nums[i];
-                    nums[i] = nums[index];
-                    nums[index] = temp;
-                }
-                else
-                {
-                    ++i;
-                }
-            }
-            else
-            {
-                ++i;
+        int n = nums.Length;
+        for (int i = 0; i < n; ++i) {
+            while (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                Swap(nums, i, nums[i] - 1);
             }
         }
-
-        for (i = 0; i < nums.Length; ++i)
-        {
-            if (nums[i] != i + 1)
-            {
+        for (int i = 0; i < n; ++i) {
+            if (i + 1 != nums[i]) {
                 return i + 1;
             }
         }
-        return nums.Length + 1;
+        return n + 1;
+    }
+
+    private void Swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 }

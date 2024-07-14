@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README_EN.md
+rating: 1395
+source: Biweekly Contest 40 Q1
+tags:
+    - String
+    - Dynamic Programming
+    - String Matching
+---
+
+<!-- problem:start -->
+
 # [1668. Maximum Repeating Substring](https://leetcode.com/problems/maximum-repeating-substring)
 
 [中文文档](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README.md)
 
-<!-- tags:String,String Matching -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>For a string <code>sequence</code>, a string <code>word</code> is <strong><code>k</code>-repeating</strong> if <code>word</code> concatenated <code>k</code> times is a substring of <code>sequence</code>. The <code>word</code>&#39;s <strong>maximum <code>k</code>-repeating value</strong> is the highest value <code>k</code> where <code>word</code> is <code>k</code>-repeating in <code>sequence</code>. If <code>word</code> is not a substring of <code>sequence</code>, <code>word</code>&#39;s maximum <code>k</code>-repeating value is <code>0</code>.</p>
 
@@ -44,11 +58,17 @@
 	<li><code>sequence</code> and <code>word</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +77,8 @@ class Solution:
             if word * k in sequence:
                 return k
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +92,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -90,6 +114,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxRepeating(sequence string, word string) int {
 	for k := len(sequence) / len(word); k > 0; k-- {
@@ -100,6 +126,8 @@ func maxRepeating(sequence string, word string) int {
 	return 0
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxRepeating(sequence: string, word: string): number {
@@ -114,6 +142,8 @@ function maxRepeating(sequence: string, word: string): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_repeating(sequence: String, word: String) -> i32 {
@@ -126,13 +156,19 @@ impl Solution {
         for i in 0..=n - m {
             let s = &sequence[i..i + m];
             if s == word {
-                dp[i] = (if (i as i32) - (m as i32) < 0 { 0 } else { dp[i - m] }) + 1;
+                dp[i] = (if (i as i32) - (m as i32) < 0 {
+                    0
+                } else {
+                    dp[i - m]
+                }) + 1;
             }
         }
         *dp.iter().max().unwrap()
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -160,4 +196,6 @@ int maxRepeating(char* sequence, char* word) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

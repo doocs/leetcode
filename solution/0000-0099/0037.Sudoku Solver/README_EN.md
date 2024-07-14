@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Backtracking
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver)
 
 [中文文档](/solution/0000-0099/0037.Sudoku%20Solver/README.md)
 
-<!-- tags:Array,Hash Table,Backtracking,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
 
@@ -39,7 +52,11 @@
 	<li>It is <strong>guaranteed</strong> that the input board has only one solution.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Backtracking
 
@@ -50,6 +67,8 @@ We traverse each empty space in `board`, enumerate the numbers `v` that it can f
 The time complexity is $O(9^{81})$, and the space complexity is $O(9^2)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -83,6 +102,8 @@ class Solution:
                     row[i][v] = col[j][v] = block[i // 3][j // 3][v] = True
         dfs(0)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -129,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 using pii = pair<int, int>;
 
@@ -173,6 +196,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func solveSudoku(board [][]byte) {
 	var row, col [9][9]bool
@@ -211,6 +236,8 @@ func solveSudoku(board [][]byte) {
 	dfs(0)
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -346,6 +373,88 @@ public class Solution {
 }
 ```
 
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param string[][] $board
+     * @return bool
+     */
+
+    public function solveSudoku(&$board) {
+        if (isSolved($board)) {
+            return true;
+        }
+
+        $emptyCell = findEmptyCell($board);
+        $row = $emptyCell[0];
+        $col = $emptyCell[1];
+
+        for ($num = 1; $num <= 9; $num++) {
+            if (isValid($board, $row, $col, $num)) {
+                $board[$row][$col] = (string) $num;
+                if ($this->solveSudoku($board)) {
+                    return true;
+                }
+                $board[$row][$col] = '.';
+            }
+        }
+        return false;
+    }
+}
+
+function isSolved($board) {
+    foreach ($board as $row) {
+        if (in_array('.', $row)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function findEmptyCell($board) {
+    for ($row = 0; $row < 9; $row++) {
+        for ($col = 0; $col < 9; $col++) {
+            if ($board[$row][$col] === '.') {
+                return [$row, $col];
+            }
+        }
+    }
+
+    return null;
+}
+
+function isValid($board, $row, $col, $num) {
+    for ($i = 0; $i < 9; $i++) {
+        if ($board[$row][$i] == $num) {
+            return false;
+        }
+    }
+
+    for ($i = 0; $i < 9; $i++) {
+        if ($board[$i][$col] == $num) {
+            return false;
+        }
+    }
+
+    $startRow = floor($row / 3) * 3;
+    $endCol = floor($col / 3) * 3;
+
+    for ($i = 0; $i < 3; $i++) {
+        for ($j = 0; $j < 3; $j++) {
+            if ($board[$startRow + $i][$endCol + $j] == $num) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README_EN.md
+rating: 1908
+source: Weekly Contest 145 Q3
+tags:
+    - Stack
+    - Array
+    - Hash Table
+    - Prefix Sum
+    - Monotonic Stack
+---
+
+<!-- problem:start -->
+
 # [1124. Longest Well-Performing Interval](https://leetcode.com/problems/longest-well-performing-interval)
 
 [中文文档](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md)
 
-<!-- tags:Stack,Array,Hash Table,Prefix Sum,Monotonic Stack -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>We are given <code>hours</code>, a list of the number of hours worked per day for a given employee.</p>
 
@@ -38,7 +54,11 @@
 	<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Prefix Sum + Hash Table
 
@@ -56,6 +76,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def longestWPI(self, hours: List[int]) -> int:
@@ -71,6 +93,8 @@ class Solution:
                 pos[s] = i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -112,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func longestWPI(hours []int) (ans int) {
@@ -138,4 +166,6 @@ func longestWPI(hours []int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

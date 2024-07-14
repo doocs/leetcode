@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README_EN.md
+tags:
+    - Reservoir Sampling
+    - Array
+    - Math
+    - Binary Search
+    - Ordered Set
+    - Prefix Sum
+    - Randomized
+---
+
+<!-- problem:start -->
+
 # [497. Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles)
 
 [中文文档](/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README.md)
 
-<!-- tags:Reservoir Sampling,Array,Math,Binary Search,Ordered Set,Prefix Sum,Randomized -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of non-overlapping axis-aligned rectangles <code>rects</code> where <code>rects[i] = [a<sub>i</sub>, b<sub>i</sub>, x<sub>i</sub>, y<sub>i</sub>]</code> indicates that <code>(a<sub>i</sub>, b<sub>i</sub>)</code> is the bottom-left corner point of the <code>i<sup>th</sup></code> rectangle and <code>(x<sub>i</sub>, y<sub>i</sub>)</code> is the top-right corner point of the <code>i<sup>th</sup></code> rectangle. Design an algorithm to pick a random integer point inside the space covered by one of the given rectangles. A point on the perimeter of a rectangle is included in the space covered by the rectangle.</p>
 
@@ -53,11 +69,17 @@ solution.pick(); // return [0, 0]
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +100,8 @@ class Solution:
 # obj = Solution(rects)
 # param_1 = obj.pick()
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -119,6 +143,8 @@ class Solution {
  */
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -150,6 +176,8 @@ public:
  * vector<int> param_1 = obj->pick();
  */
 ```
+
+#### Go
 
 ```go
 type Solution struct {
@@ -186,4 +214,6 @@ func (this *Solution) Pick() []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

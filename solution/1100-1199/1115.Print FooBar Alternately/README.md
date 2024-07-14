@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1115.Print%20FooBar%20Alternately/README.md
+tags:
+    - 多线程
+---
+
+<!-- problem:start -->
+
 # [1115. 交替打印 FooBar](https://leetcode.cn/problems/print-foobar-alternately)
 
 [English Version](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md)
 
-<!-- tags:多线程 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个类：</p>
 
@@ -61,7 +69,11 @@ class FooBar {
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：多线程 + 信号量
 
@@ -76,6 +88,8 @@ class FooBar {
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from threading import Semaphore
@@ -101,6 +115,8 @@ class FooBar:
             printBar()
             self.f.release()
 ```
+
+#### Java
 
 ```java
 class FooBar {
@@ -131,6 +147,8 @@ class FooBar {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 #include <semaphore.h>
@@ -169,4 +187,6 @@ public:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

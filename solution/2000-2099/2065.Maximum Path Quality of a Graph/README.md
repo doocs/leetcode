@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README.md
+rating: 2178
+source: 第 266 场周赛 Q4
+tags:
+    - 图
+    - 数组
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [2065. 最大化一张图中的路径价值](https://leetcode.cn/problems/maximum-path-quality-of-a-graph)
 
 [English Version](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README_EN.md)
 
-<!-- tags:图,数组,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一张 <strong>无向</strong>&nbsp;图，图中有 <code>n</code>&nbsp;个节点，节点编号从 <code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;（<strong>都包括</strong>）。同时给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>values</code>&nbsp;，其中&nbsp;<code>values[i]</code>&nbsp;是第 <code>i</code>&nbsp;个节点的 <strong>价值</strong>&nbsp;。同时给你一个下标从 <strong>0</strong>&nbsp;开始的二维整数数组&nbsp;<code>edges</code>&nbsp;，其中&nbsp;<code>edges[j] = [u<sub>j</sub>, v<sub>j</sub>, time<sub>j</sub>]</code>&nbsp;表示节点&nbsp;<code>u<sub>j</sub></code> 和&nbsp;<code>v<sub>j</sub></code>&nbsp;之间有一条需要&nbsp;<code>time<sub>j</sub></code>&nbsp;秒才能通过的无向边。最后，给你一个整数&nbsp;<code>maxTime</code>&nbsp;。</p>
 
@@ -82,50 +94,221 @@
 	<li>图可能不连通。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：DFS
+
+我们观察题目的数据范围，可以发现从 $0$ 开始的每条合法路径的边数不超过 $\frac{\text{maxTime}}{\min(time_j)} = \frac{100}{10} = 10$ 条，并且每个节点至多有四条边，所以我们可以直接使用朴素的 DFS 暴力搜索所有合法路径。
+
+我们先将图的边存储在邻接表表 $g$ 中，然后我们设计一个函数 $\text{dfs}(u, \text{cost}, \text{value})$，其中 $u$ 表示当前节点编号，而 $\text{cost}$ 和 $\text{value}$ 分别表示当前路径的花费时间和价值。另外，使用一个长度为 $n$ 的数组 $\text{vis}$ 记录每个节点是否被访问过。初始时，我们将节点 $0$ 标记为已访问。
+
+函数 $\text{dfs}(u, \text{cost}, \text{value})$ 的逻辑如下：
+
+-   如果当前节点编号 $u$ 等于 $0$，表示我们已经回到了起点，那么我们更新答案为 $\max(\text{ans}, \text{value})$；
+-   遍历当前节点 $u$ 的所有邻居节点 $v$，如果当前路径的花费时间加上边 $(u, v)$ 的时间 $t$ 不超过 $\text{maxTime}$，那么我们可以选择继续访问节点 $v$；
+    -   如果节点 $v$ 已经被访问过，那么我们直接递归调用 $\text{dfs}(v, \text{cost} + t, \text{value})$；
+    -   如果节点 $v$ 没有被访问过，我们标记节点 $v$ 为已访问，然后递归调用 $\text{dfs}(v, \text{cost} + t, \text{value} + \text{values}[v])$，最后恢复节点 $v$ 的访问状态。
+
+在主函数中，我们调用 $\text{dfs}(0, 0, \text{values}[0])$，并返回答案 $\text{ans}$ 即可。
+
+时间复杂度 $O(n + m + 4^{\frac{\text{maxTime}}{\min(time_j)}})$，空间复杂度 $O(n + m + \frac{\text{maxTime}}{\min(time_j)})$。其中 $n$ 和 $m$ 分别表示节点数和边数。
 
 <!-- tabs:start -->
 
-```ts
-function maximalPathQuality(values: number[], edges: number[][], maxTime: number): number {
-    const n = values.length;
-    let g: Array<Array<Array<number>>> = Array.from({ length: n }, v => new Array());
-    for (let edge of edges) {
-        let [u, v, t] = edge;
-        g[u].push([v, t]);
-        g[v].push([u, t]);
-    }
-    let visited = new Array(n).fill(false);
-    let ans = 0;
+#### Python3
 
-    function dfs(u: number, time: number, value: number): void {
-        // 索引0为终点
-        if (!u) {
-            ans = Math.max(value, ans);
+```python
+class Solution:
+    def maximalPathQuality(
+        self, values: List[int], edges: List[List[int]], maxTime: int
+    ) -> int:
+        def dfs(u: int, cost: int, value: int):
+            if u == 0:
+                nonlocal ans
+                ans = max(ans, value)
+            for v, t in g[u]:
+                if cost + t <= maxTime:
+                    if vis[v]:
+                        dfs(v, cost + t, value)
+                    else:
+                        vis[v] = True
+                        dfs(v, cost + t, value + values[v])
+                        vis[v] = False
+
+        n = len(values)
+        g = [[] for _ in range(n)]
+        for u, v, t in edges:
+            g[u].append((v, t))
+            g[v].append((u, t))
+        vis = [False] * n
+        vis[0] = True
+        ans = 0
+        dfs(0, 0, values[0])
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    private List<int[]>[] g;
+    private boolean[] vis;
+    private int[] values;
+    private int maxTime;
+    private int ans;
+
+    public int maximalPathQuality(int[] values, int[][] edges, int maxTime) {
+        int n = values.length;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1], t = e[2];
+            g[u].add(new int[] {v, t});
+            g[v].add(new int[] {u, t});
         }
-        for (let [v, dist] of g[u]) {
-            if (time - dist >= 0) {
-                if (!visited[v]) {
-                    visited[v] = true;
-                    dfs(v, time - dist, value + values[v]);
-                    visited[v] = false; // 回溯
+        vis = new boolean[n];
+        vis[0] = true;
+        this.values = values;
+        this.maxTime = maxTime;
+        dfs(0, 0, values[0]);
+        return ans;
+    }
+
+    private void dfs(int u, int cost, int value) {
+        if (u == 0) {
+            ans = Math.max(ans, value);
+        }
+        for (var e : g[u]) {
+            int v = e[0], t = e[1];
+            if (cost + t <= maxTime) {
+                if (vis[v]) {
+                    dfs(v, cost + t, value);
                 } else {
-                    dfs(v, time - dist, value);
+                    vis[v] = true;
+                    dfs(v, cost + t, value + values[v]);
+                    vis[v] = false;
                 }
             }
         }
     }
+}
+```
 
-    // 索引0为起点
-    visited[0] = true;
-    dfs(0, maxTime, values[0]);
+#### C++
 
+```cpp
+class Solution {
+public:
+    int maximalPathQuality(vector<int>& values, vector<vector<int>>& edges, int maxTime) {
+        int n = values.size();
+        vector<pair<int, int>> g[n];
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], t = e[2];
+            g[u].emplace_back(v, t);
+            g[v].emplace_back(u, t);
+        }
+        bool vis[n];
+        memset(vis, false, sizeof(vis));
+        vis[0] = true;
+        int ans = 0;
+        auto dfs = [&](auto&& dfs, int u, int cost, int value) -> void {
+            if (u == 0) {
+                ans = max(ans, value);
+            }
+            for (auto& [v, t] : g[u]) {
+                if (cost + t <= maxTime) {
+                    if (vis[v]) {
+                        dfs(dfs, v, cost + t, value);
+                    } else {
+                        vis[v] = true;
+                        dfs(dfs, v, cost + t, value + values[v]);
+                        vis[v] = false;
+                    }
+                }
+            }
+        };
+        dfs(dfs, 0, 0, values[0]);
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maximalPathQuality(values []int, edges [][]int, maxTime int) (ans int) {
+	n := len(values)
+	g := make([][][2]int, n)
+	for _, e := range edges {
+		u, v, t := e[0], e[1], e[2]
+		g[u] = append(g[u], [2]int{v, t})
+		g[v] = append(g[v], [2]int{u, t})
+	}
+	vis := make([]bool, n)
+	vis[0] = true
+	var dfs func(u, cost, value int)
+	dfs = func(u, cost, value int) {
+		if u == 0 {
+			ans = max(ans, value)
+		}
+		for _, e := range g[u] {
+			v, t := e[0], e[1]
+			if cost+t <= maxTime {
+				if vis[v] {
+					dfs(v, cost+t, value)
+				} else {
+					vis[v] = true
+					dfs(v, cost+t, value+values[v])
+					vis[v] = false
+				}
+			}
+		}
+	}
+	dfs(0, 0, values[0])
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximalPathQuality(values: number[], edges: number[][], maxTime: number): number {
+    const n = values.length;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [u, v, t] of edges) {
+        g[u].push([v, t]);
+        g[v].push([u, t]);
+    }
+    const vis: boolean[] = Array(n).fill(false);
+    vis[0] = true;
+    let ans = 0;
+    const dfs = (u: number, cost: number, value: number) => {
+        if (u === 0) {
+            ans = Math.max(ans, value);
+        }
+        for (const [v, t] of g[u]) {
+            if (cost + t <= maxTime) {
+                if (vis[v]) {
+                    dfs(v, cost + t, value);
+                } else {
+                    vis[v] = true;
+                    dfs(v, cost + t, value + values[v]);
+                    vis[v] = false;
+                }
+            }
+        }
+    };
+    dfs(0, 0, values[0]);
     return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

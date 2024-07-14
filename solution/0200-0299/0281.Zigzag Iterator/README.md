@@ -1,44 +1,77 @@
-# [281. 锯齿迭代器](https://leetcode.cn/problems/zigzag-iterator)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0281.Zigzag%20Iterator/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 迭代器
+---
+
+<!-- problem:start -->
+
+# [281. 锯齿迭代器 🔒](https://leetcode.cn/problems/zigzag-iterator)
 
 [English Version](/solution/0200-0299/0281.Zigzag%20Iterator/README_EN.md)
 
-<!-- tags:设计,队列,数组,迭代器 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给出两个一维的向量，请你实现一个迭代器，交替返回它们中间的元素。</p>
+<p>给出两个整数向量&nbsp;<code>v1</code>&nbsp;和&nbsp;<code>v2</code>，请你实现一个迭代器，交替返回它们的元素。</p>
 
-<p><strong>示例:</strong></p>
+<p>实现&nbsp;<code>ZigzagIterator</code>&nbsp;类：</p>
 
-<pre><strong>输入:</strong>
-v1 = [1,2]
-v2 = [3,4,5,6] 
+<ul>
+	<li><code>ZigzagIterator(List&lt;int&gt; v1, List&lt;int&gt; v2)</code>&nbsp;用两个向量&nbsp;<code>v1</code>&nbsp;和&nbsp;<code>v2</code>&nbsp;初始化对象。</li>
+	<li><code>boolean hasNext()</code>&nbsp;如果迭代器还有元素返回&nbsp;<code>true</code>，否则返回 <code>false</code>。</li>
+	<li><code>int next()</code>&nbsp;返回迭代器的当前元素并将迭代器移动到下一个元素。</li>
+</ul>
 
-<strong>输出:</strong> <code>[1,3,2,4,5,6]
+<p><strong class="example">示例 1:</strong></p>
 
-<strong>解析:</strong></code>&nbsp;通过连续调用 <em>next</em> 函数直到 <em>hasNext</em> 函数返回 <code>false，</code>
-&nbsp;    <em>next</em> 函数返回值的次序应依次为: <code>[1,3,2,4,5,6]。</code></pre>
-
-<p><strong>拓展：</strong>假如给你&nbsp;<code>k</code>&nbsp;个一维向量呢？你的代码在这种情况下的扩展性又会如何呢?</p>
-
-<p><strong>拓展声明：</strong><br>
-&nbsp;&ldquo;锯齿&rdquo; 顺序对于&nbsp;<code>k &gt; 2</code>&nbsp;的情况定义可能会有些歧义。所以，假如你觉得 &ldquo;锯齿&rdquo; 这个表述不妥，也可以认为这是一种&nbsp;&ldquo;循环&rdquo;。例如：</p>
-
-<pre><strong>输入:</strong>
-[1,2,3]
-[4,5,6,7]
-[8,9]
-
-<strong>输出: </strong><code>[1,4,8,2,5,9,3,6,7]</code>.
+<pre>
+<strong>输入：</strong>v1 = [1,2], v2 = [3,4,5,6]
+<strong>输出：</strong>[1,3,2,4,5,6]
+<strong>解释：</strong>通过重复调用 next 直到 hasNext 返回 false，那么 next 返回的元素的顺序应该是：[1,3,2,4,5,6]。
 </pre>
 
+<p><strong class="example">示例 2:</strong></p>
+
+<pre>
+<strong>输入：</strong>v1 = [1], v2 = []
+<strong>输出：</strong>[1]
+</pre>
+
+<p><strong class="example">示例 3:</strong></p>
+
+<pre>
+<strong>输入：</strong>v1 = [], v2 = [1]
+<strong>输出：</strong>[1]
+</pre>
+
+<p><strong>拓展：</strong>假如给你&nbsp;<code>k</code>&nbsp;个向量呢？你的代码在这种情况下的扩展性又会如何呢?</p>
+
+<p><strong>拓展声明：</strong><br />
+&nbsp;“锯齿” 顺序对于&nbsp;<code>k &gt; 2</code>&nbsp;的情况定义可能会有些歧义。所以，假如你觉得 “锯齿” 这个表述不妥，也可以认为这是一种&nbsp;“循环”。例如：</p>
+
+<pre>
+<strong>输入：</strong>v1 = [1,2,3], v2 = [4,5,6,7], v3 = [8,9]
+<strong>输出：</strong>[1,4,8,2,5,9,3,6,7]
+</pre>
+
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class ZigzagIterator:
@@ -69,6 +102,8 @@ class ZigzagIterator:
 # i, v = ZigzagIterator(v1, v2), []
 # while i.hasNext(): v.append(i.next())
 ```
+
+#### Java
 
 ```java
 public class ZigzagIterator {
@@ -113,6 +148,8 @@ public class ZigzagIterator {
  * while (i.hasNext()) v[f()] = i.next();
  */
 ```
+
+#### Rust
 
 ```rust
 struct ZigzagIterator {
@@ -172,4 +209,6 @@ impl ZigzagIterator {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

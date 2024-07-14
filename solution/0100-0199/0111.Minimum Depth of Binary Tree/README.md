@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree)
 
 [English Version](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉树，找出其最小深度。</p>
 
@@ -39,7 +50,11 @@
 	<li><code>-1000 <= Node.val <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -48,6 +63,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -66,6 +83,8 @@ class Solution:
             return 1 + self.minDepth(root.left)
         return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
 ```
+
+#### Java
 
 ```java
 /**
@@ -99,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -128,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -150,6 +173,8 @@ func minDepth(root *TreeNode) int {
 	return 1 + min(minDepth(root.Left), minDepth(root.Right))
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -181,6 +206,8 @@ function minDepth(root: TreeNode | null): number {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -200,8 +227,8 @@ function minDepth(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if root.is_none() {
@@ -222,6 +249,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -249,6 +278,8 @@ var minDepth = function (root) {
     return 1 + Math.min(minDepth(root.left), minDepth(root.right));
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -280,6 +311,10 @@ int minDepth(struct TreeNode* root) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：BFS
 
 使用队列实现广度优先搜索，初始时将根节点加入队列。每次从队列中取出一个节点，如果该节点是叶子节点，则直接返回当前深度；如果该节点不是叶子节点，则将该节点的所有非空子节点加入队列。继续搜索下一层节点，直到找到叶子节点。
@@ -287,6 +322,8 @@ int minDepth(struct TreeNode* root) {
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -312,6 +349,8 @@ class Solution:
                 if node.right:
                     q.append(node.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -356,6 +395,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -396,6 +437,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -428,6 +471,8 @@ func minDepth(root *TreeNode) (ans int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -468,6 +513,8 @@ function minDepth(root: TreeNode | null): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -507,4 +554,6 @@ var minDepth = function (root) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

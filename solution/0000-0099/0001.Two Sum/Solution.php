@@ -5,12 +5,13 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-        foreach ($nums as $key => $x) {
+        $m = [];
+        foreach ($nums as $i => $x) {
             $y = $target - $x;
-            if (isset($hashtable[$y])) {
-                return [$hashtable[$y], $key];
+            if (isset($m[$y])) {
+                return [$m[$y], $i];
             }
-            $hashtable[$x] = $key;
+            $m[$x] = $i;
         }
     }
 }

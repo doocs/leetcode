@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README.md
+tags:
+    - 设计
+    - 数组
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [303. 区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable)
 
 [English Version](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README_EN.md)
 
-<!-- tags:设计,数组,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 &nbsp;<code>nums</code>，处理以下类型的多个查询:</p>
 
@@ -50,7 +60,11 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>sumRange</code><strong> </strong>方法</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和
 
@@ -59,6 +73,8 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 初始化前缀和数组 $s$ 的时间复杂度为 $O(n)$，查询的时间复杂度为 $O(1)$。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class NumArray:
@@ -73,6 +89,8 @@ class NumArray:
 # obj = NumArray(nums)
 # param_1 = obj.sumRange(left,right)
 ```
+
+#### Java
 
 ```java
 class NumArray {
@@ -97,6 +115,8 @@ class NumArray {
  * int param_1 = obj.sumRange(left,right);
  */
 ```
+
+#### C++
 
 ```cpp
 class NumArray {
@@ -124,6 +144,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type NumArray struct {
 	s []int
@@ -149,6 +171,8 @@ func (this *NumArray) SumRange(left int, right int) int {
  */
 ```
 
+#### TypeScript
+
 ```ts
 class NumArray {
     private s: number[];
@@ -173,6 +197,8 @@ class NumArray {
  */
 ```
 
+#### Rust
+
 ```rust
 struct NumArray {
     s: Vec<i32>,
@@ -195,12 +221,10 @@ impl NumArray {
     fn sum_range(&self, left: i32, right: i32) -> i32 {
         self.s[(right + 1) as usize] - self.s[left as usize]
     }
-}/**
- * Your NumArray object will be instantiated and called as such:
- * let obj = NumArray::new(nums);
- * let ret_1: i32 = obj.sum_range(left, right);
- */
+}
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -230,6 +254,8 @@ NumArray.prototype.sumRange = function (left, right) {
  */
 ```
 
+#### PHP
+
 ```php
 class NumArray {
     /**
@@ -258,6 +284,8 @@ class NumArray {
  * $ret_1 = $obj->sumRange($left, $right);
  */
 ```
+
+#### C
 
 ```c
 typedef struct {
@@ -295,4 +323,6 @@ void numArrayFree(NumArray* obj) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

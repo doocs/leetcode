@@ -1,12 +1,24 @@
-# [527. 单词缩写](https://leetcode.cn/problems/word-abbreviation)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0527.Word%20Abbreviation/README.md
+tags:
+    - 贪心
+    - 字典树
+    - 数组
+    - 字符串
+    - 排序
+---
+
+<!-- problem:start -->
+
+# [527. 单词缩写 🔒](https://leetcode.cn/problems/word-abbreviation)
 
 [English Version](/solution/0500-0599/0527.Word%20Abbreviation/README_EN.md)
 
-<!-- tags:贪心,字典树,数组,字符串,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串数组 <code>words</code> ，该数组由 <strong>互不相同</strong> 的若干字符串组成，请你找出并返回每个单词的 <strong>最小缩写</strong> 。</p>
 
@@ -45,7 +57,11 @@
 	<li><code>words</code> 中的所有字符串 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：分组字典树
 
@@ -63,6 +79,8 @@
 时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 为所有单词的长度和。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -109,6 +127,8 @@ class Solution:
             )
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -161,6 +181,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -226,6 +248,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -284,6 +308,8 @@ func wordsAbbreviation(words []string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
     private children: Trie[] = Array(26);
@@ -340,4 +366,6 @@ function wordsAbbreviation(words: string[]): string[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

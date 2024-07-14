@@ -1,10 +1,20 @@
-# [3059. Find All Unique Email Domains](https://leetcode.com/problems/find-all-unique-email-domains)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [3059. Find All Unique Email Domains 🔒](https://leetcode.com/problems/find-all-unique-email-domains)
 
 [中文文档](/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README.md)
 
-<!-- tags: -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Emails</code></p>
 
@@ -53,13 +63,19 @@ Emails table:
 Output table is ordered by email_domains in ascending order.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Using `SUBSTRING_INDEX` Function + Grouping Statistics
 
 First, we filter out all emails ending with `.com`, then use the `SUBSTRING_INDEX` function to extract the domain name of the email. Finally, we use `GROUP BY` to count the number of each domain.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -69,6 +85,8 @@ WHERE email LIKE '%.com'
 GROUP BY 1
 ORDER BY 1;
 ```
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -87,4 +105,6 @@ def find_unique_email_domains(emails: pd.DataFrame) -> pd.DataFrame:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

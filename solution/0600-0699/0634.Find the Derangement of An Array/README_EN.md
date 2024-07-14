@@ -1,10 +1,21 @@
-# [634. Find the Derangement of An Array](https://leetcode.com/problems/find-the-derangement-of-an-array)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [634. Find the Derangement of An Array 🔒](https://leetcode.com/problems/find-the-derangement-of-an-array)
 
 [中文文档](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md)
 
-<!-- tags:Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>In combinatorial mathematics, a <strong>derangement</strong> is a permutation of the elements of a set, such that no element appears in its original position.</p>
 
@@ -33,11 +44,34 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the number of derangement of an array of length $i$. Initially, $f[0] = 1$, $f[1] = 0$. The answer is $f[n]$.
+
+For an array of length $i$, we consider where to place the number $1$. Suppose it is placed in the $j$-th position, where there are $i-1$ choices. Then, the number $j$ has two choices:
+
+-   Placed in the first position, then the remaining $i - 2$ positions have $f[i - 2]$ derangements, so there are a total of $(i - 1) \times f[i - 2]$ derangements;
+-   Not placed in the first position, which is equivalent to the derangement of an array of length $i - 1$, so there are a total of $(i - 1) \times f[i - 1]$ derangements.
+
+In summary, we have the following state transition equation:
+
+$$
+f[i] = (i - 1) \times (f[i - 1] + f[i - 2])
+$$
+
+The final answer is $f[n]$. Note the modulo operation in the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -48,6 +82,8 @@ class Solution:
             f[i] = (i - 1) * (f[i - 1] + f[i - 2]) % mod
         return f[n]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -62,6 +98,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -79,6 +117,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDerangement(n int) int {
 	f := make([]int, n+1)
@@ -93,9 +133,17 @@ func findDerangement(n int) int {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that the state transition equation only relates to $f[i - 1]$ and $f[i - 2]$. Therefore, we can use two variables $a$ and $b$ to represent $f[i - 1]$ and $f[i - 2]$ respectively, thereby reducing the space complexity to $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +154,8 @@ class Solution:
             a, b = b, ((i - 1) * (a + b)) % mod
         return b
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -121,6 +171,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -138,6 +190,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDerangement(n int) int {
 	a, b := 1, 0
@@ -151,4 +205,6 @@ func findDerangement(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

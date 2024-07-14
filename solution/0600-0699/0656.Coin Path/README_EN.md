@@ -1,10 +1,21 @@
-# [656. Coin Path](https://leetcode.com/problems/coin-path)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0656.Coin%20Path/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [656. Coin Path 🔒](https://leetcode.com/problems/coin-path)
 
 [中文文档](/solution/0600-0699/0656.Coin%20Path/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer array <code>coins</code> (<strong>1-indexed</strong>) of length <code>n</code> and an integer <code>maxJump</code>. You can jump to any index <code>i</code> of the array <code>coins</code> if <code>coins[i] != -1</code> and you have to pay <code>coins[i]</code> when you visit index <code>i</code>. In addition to that, if you are currently at index <code>i</code>, you can only jump to any index <code>i + k</code> where <code>i + k &lt;= n</code> and <code>k</code> is a value in the range <code>[1, maxJump]</code>.</p>
 
@@ -32,11 +43,17 @@
 	<li><code>1 &lt;= maxJump &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -61,6 +78,8 @@ class Solution:
                 ans.append(i + 1)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -97,6 +116,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +152,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func cheapestJump(coins []int, maxJump int) (ans []int) {
 	n := len(coins)
@@ -162,6 +185,8 @@ func cheapestJump(coins []int, maxJump int) (ans []int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function cheapestJump(coins: number[], maxJump: number): number[] {
@@ -195,4 +220,6 @@ function cheapestJump(coins: number[], maxJump: number): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

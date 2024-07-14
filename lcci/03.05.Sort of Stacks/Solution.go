@@ -1,37 +1,45 @@
 type SortedStack struct {
-	data []int
+	stk []int
 }
 
 func Constructor() SortedStack {
-	return SortedStack{make([]int, 0)}
+	return SortedStack{}
 }
 
-func (s *SortedStack) Push(val int) {
-	temp := make([]int, 0)
-	for !s.IsEmpty() && s.Peek() < val {
-		temp = append(temp, s.Peek())
-		s.Pop()
+func (this *SortedStack) Push(val int) {
+	t := make([]int, 0)
+	for len(this.stk) > 0 && this.stk[len(this.stk)-1] < val {
+		t = append(t, this.stk[len(this.stk)-1])
+		this.stk = this.stk[:len(this.stk)-1]
 	}
-	s.data = append(s.data, val)
-	for len(temp) > 0 {
-		s.data = append(s.data, temp[len(temp)-1])
-		temp = temp[:len(temp)-1]
-	}
-}
-
-func (s *SortedStack) Pop() {
-	if !s.IsEmpty() {
-		s.data = s.data[:len(s.data)-1]
+	this.stk = append(this.stk, val)
+	for i := len(t) - 1; i >= 0; i-- {
+		this.stk = append(this.stk, t[i])
 	}
 }
 
-func (s *SortedStack) Peek() int {
-	if !s.IsEmpty() {
-		return s.data[len(s.data)-1]
+func (this *SortedStack) Pop() {
+	if !this.IsEmpty() {
+		this.stk = this.stk[:len(this.stk)-1]
 	}
-	return -1
 }
 
-func (s *SortedStack) IsEmpty() bool {
-	return len(s.data) == 0
+func (this *SortedStack) Peek() int {
+	if this.IsEmpty() {
+		return -1
+	}
+	return this.stk[len(this.stk)-1]
 }
+
+func (this *SortedStack) IsEmpty() bool {
+	return len(this.stk) == 0
+}
+
+/**
+ * Your SortedStack object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Push(val);
+ * obj.Pop();
+ * param_3 := obj.Peek();
+ * param_4 := obj.IsEmpty();
+ */

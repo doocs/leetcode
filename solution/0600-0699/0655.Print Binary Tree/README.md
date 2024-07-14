@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0655.Print%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [655. 输出二叉树](https://leetcode.cn/problems/print-binary-tree)
 
 [English Version](/solution/0600-0699/0655.Print%20Binary%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,广度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵二叉树的根节点 <code>root</code> ，请你构造一个下标从 <strong>0</strong> 开始、大小为 <code>m x n</code> 的字符串矩阵 <code>res</code> ，用以表示树的 <strong>格式化布局</strong> 。构造此格式化布局矩阵需要遵循以下规则：</p>
 
@@ -54,7 +65,11 @@
 	<li>树的深度在范围 <code>[1, 10]</code> 内</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：两次 DFS
 
@@ -65,6 +80,8 @@
 时间复杂度 $O(h\times 2^h)$，空间复杂度 $O(h)$。其中 $h$ 是二叉树的高度。忽略结果返回值的空间消耗。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -93,6 +110,8 @@ class Solution:
         dfs(root, 0, (n - 1) // 2)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -144,6 +163,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -179,6 +200,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -221,6 +244,8 @@ func printTree(root *TreeNode) [][]string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -262,6 +287,8 @@ function printTree(root: TreeNode | null): string[][] {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -281,8 +308,8 @@ function printTree(root: TreeNode | null): string[][] {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn get_height(root: &Option<Rc<RefCell<TreeNode>>>, h: u32) -> u32 {
         if let Some(node) = root {
@@ -297,15 +324,27 @@ impl Solution {
         i: usize,
         j: usize,
         res: &mut Vec<Vec<String>>,
-        height: u32
+        height: u32,
     ) {
         if root.is_none() {
             return;
         }
         let node = root.as_ref().unwrap().borrow();
         res[i][j] = node.val.to_string();
-        Self::dfs(&node.left, i + 1, j - (2usize).pow(height - (i as u32) - 1), res, height);
-        Self::dfs(&node.right, i + 1, j + (2usize).pow(height - (i as u32) - 1), res, height);
+        Self::dfs(
+            &node.left,
+            i + 1,
+            j - (2usize).pow(height - (i as u32) - 1),
+            res,
+            height,
+        );
+        Self::dfs(
+            &node.right,
+            i + 1,
+            j + (2usize).pow(height - (i as u32) - 1),
+            res,
+            height,
+        );
     }
 
     pub fn print_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<String>> {
@@ -321,6 +360,10 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：两次 BFS
 
 方法一中，我们是通过 `DFS` 来求二叉树的高度，我们也可以改成 `BFS` 的方式，逐层往下扩展，那么扩展的层数就是二叉树的高度。
@@ -330,6 +373,8 @@ impl Solution {
 时间复杂度 $O(h\times 2^h)$，空间复杂度 $O(h)$。其中 $h$ 是二叉树的高度。忽略结果返回值的空间消耗。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -366,6 +411,8 @@ class Solution:
                 q.append((node.right, r + 1, c + 2 ** (h - r - 1)))
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -445,6 +492,8 @@ class Tuple {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -493,6 +542,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -558,4 +609,6 @@ type tuple struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

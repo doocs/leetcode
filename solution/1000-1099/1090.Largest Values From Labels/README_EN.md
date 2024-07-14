@@ -1,48 +1,74 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README_EN.md
+rating: 1501
+source: Weekly Contest 141 Q2
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Counting
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1090. Largest Values From Labels](https://leetcode.com/problems/largest-values-from-labels)
 
 [中文文档](/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README.md)
 
-<!-- tags:Greedy,Array,Hash Table,Counting,Sorting -->
-
 ## Description
 
-<p>There is a set of <code>n</code> items. You are given two integer arrays <code>values</code> and <code>labels</code> where the value and the label of the <code>i<sup>th</sup></code> element are <code>values[i]</code> and <code>labels[i]</code> respectively. You are also given two integers <code>numWanted</code> and <code>useLimit</code>.</p>
+<!-- description:start -->
 
-<p>Choose a subset <code>s</code> of the <code>n</code> elements such that:</p>
+<p>You are given <code>n</code> item&#39;s value and label as two integer arrays <code>values</code> and <code>labels</code>. You are also given two integers <code>numWanted</code> and <code>useLimit</code>.</p>
+
+<p>Your task is to find a subset of items with the <strong>maximum sum</strong> of their values such that:</p>
 
 <ul>
-	<li>The size of the subset <code>s</code> is <strong>less than or equal to</strong> <code>numWanted</code>.</li>
-	<li>There are <strong>at most</strong> <code>useLimit</code> items with the same label in <code>s</code>.</li>
+	<li>The number of items is <strong>at most</strong> <code>numWanted</code>.</li>
+	<li>The number of items with the same label is <strong>at most</strong> <code>useLimit</code>.</li>
 </ul>
 
-<p>The <strong>score</strong> of a subset is the sum of the values in the subset.</p>
-
-<p>Return <em>the maximum <strong>score</strong> of a subset </em><code>s</code>.</p>
+<p>Return the maximum sum.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> values = [5,4,3,2,1], labels = [1,1,2,2,3], numWanted = 3, useLimit = 1
-<strong>Output:</strong> 9
-<strong>Explanation:</strong> The subset chosen is the first, third, and fifth items.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">values = [5,4,3,2,1], labels = [1,1,2,2,3], numWanted = 3, useLimit = 1</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">9</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The subset chosen is the first, third, and fifth items with the sum of values 5 + 3 + 1.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> values = [5,4,3,2,1], labels = [1,3,3,3,2], numWanted = 3, useLimit = 2
-<strong>Output:</strong> 12
-<strong>Explanation:</strong> The subset chosen is the first, second, and third items.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">values = [5,4,3,2,1], labels = [1,3,3,3,2], numWanted = 3, useLimit = 2</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">12</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The subset chosen is the first, second, and third items with the sum of values 5 + 4 + 3.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> values = [9,8,8,7,6], labels = [0,0,0,1,1], numWanted = 3, useLimit = 1
-<strong>Output:</strong> 16
-<strong>Explanation:</strong> The subset chosen is the first and fourth items.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">values = [9,8,8,7,6], labels = [0,0,0,1,1], numWanted = 3, useLimit = 1</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">16</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The subset chosen is the first and fourth items with the sum of values 9 + 7.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -54,11 +80,17 @@
 	<li><code>1 &lt;= numWanted, useLimit &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +108,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -126,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) (ans int) {
 	n := len(values)
@@ -146,6 +184,8 @@ func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit i
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function largestValsFromLabels(
@@ -176,4 +216,6 @@ function largestValsFromLabels(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

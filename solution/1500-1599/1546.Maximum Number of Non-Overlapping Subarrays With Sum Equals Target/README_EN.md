@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1546.Maximum%20Number%20of%20Non-Overlapping%20Subarrays%20With%20Sum%20Equals%20Target/README_EN.md
+rating: 1855
+source: Weekly Contest 201 Q3
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Prefix Sum
+---
+
+<!-- problem:start -->
+
 # [1546. Maximum Number of Non-Overlapping Subarrays With Sum Equals Target](https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target)
 
 [中文文档](/solution/1500-1599/1546.Maximum%20Number%20of%20Non-Overlapping%20Subarrays%20With%20Sum%20Equals%20Target/README.md)
 
-<!-- tags:Greedy,Array,Hash Table,Prefix Sum -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>nums</code> and an integer <code>target</code>, return <em>the maximum number of <strong>non-empty</strong> <strong>non-overlapping</strong> subarrays such that the sum of values in each subarray is equal to</em> <code>target</code>.</p>
 
@@ -35,7 +50,11 @@
 	<li><code>0 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Prefix Sum + Hash Table
 
@@ -44,6 +63,8 @@ We traverse the array $nums$, using the method of prefix sum + hash table, to fi
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +84,8 @@ class Solution:
             i += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +110,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -110,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxNonOverlapping(nums []int, target int) (ans int) {
 	n := len(nums)
@@ -128,6 +155,8 @@ func maxNonOverlapping(nums []int, target int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxNonOverlapping(nums: number[], target: number): number {
@@ -152,4 +181,6 @@ function maxNonOverlapping(nums: number[], target: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

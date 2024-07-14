@@ -2,17 +2,17 @@ class Solution:
     def findWhetherExistsPath(
         self, n: int, graph: List[List[int]], start: int, target: int
     ) -> bool:
-        g = defaultdict(list)
-        for u, v in graph:
-            g[u].append(v)
-        q = deque([start])
+        g = [[] for _ in range(n)]
+        for a, b in graph:
+            g[a].append(b)
         vis = {start}
+        q = deque([start])
         while q:
-            u = q.popleft()
-            if u == target:
+            i = q.popleft()
+            if i == target:
                 return True
-            for v in g[u]:
-                if v not in vis:
-                    vis.add(v)
-                    q.append(v)
+            for j in g[i]:
+                if j not in vis:
+                    vis.add(j)
+                    q.append(j)
         return False

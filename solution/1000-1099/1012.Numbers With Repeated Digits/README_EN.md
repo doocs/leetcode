@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md
+rating: 2230
+source: Weekly Contest 128 Q4
+tags:
+    - Math
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1012. Numbers With Repeated Digits](https://leetcode.com/problems/numbers-with-repeated-digits)
 
 [中文文档](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
 
-<!-- tags:Math,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return <em>the number of positive integers in the range </em><code>[1, n]</code><em> that have <strong>at least one</strong> repeated digit</em>.</p>
 
@@ -39,11 +52,17 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +93,8 @@ class Solution:
                 ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +139,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +183,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDupDigitsAtMostN(n int) int {
@@ -208,6 +233,8 @@ func A(m, n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function numDupDigitsAtMostN(n: number): number {
     return n - f(n);
@@ -250,9 +277,15 @@ function f(n: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -281,6 +314,8 @@ class Solution:
             n //= 10
         return dfs(len(nums) - 1, 0, True, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -325,6 +360,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -372,6 +409,8 @@ private:
     }
 };
 ```
+
+#### Go
 
 ```go
 func numDupDigitsAtMostN(n int) int {
@@ -426,4 +465,6 @@ func f(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -11,12 +11,11 @@ func maximumSubarraySum(nums []int, k int) (ans int64) {
 	}
 	for i := k; i < n; i++ {
 		cnt[nums[i]]++
-		s += int64(nums[i])
 		cnt[nums[i-k]]--
-		s -= int64(nums[i-k])
 		if cnt[nums[i-k]] == 0 {
 			delete(cnt, nums[i-k])
 		}
+		s += int64(nums[i] - nums[i-k])
 		if len(cnt) == k && ans < s {
 			ans = s
 		}

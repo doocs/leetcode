@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README.md
+rating: 2444
+source: 第 373 场周赛 Q4
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 数论
+    - 前缀和
+---
+
+<!-- problem:start -->
+
 # [2949. 统计美丽子字符串 II](https://leetcode.cn/problems/count-beautiful-substrings-ii)
 
 [English Version](/solution/2900-2999/2949.Count%20Beautiful%20Substrings%20II/README_EN.md)
 
-<!-- tags:哈希表,数学,字符串,数论,前缀和 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 和一个正整数 <code>k</code> 。</p>
 
@@ -72,6 +86,60 @@
 	<li><code>s</code> 仅由小写英文字母组成。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-<!-- end -->
+<!-- solution:start -->
+
+### 方法一：前缀和 + 哈希表 + 分解质因子
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function beautifulSubstrings(s: string, k: number): number {
+    const l = pSqrt(k * 4);
+    const n = s.length;
+    let sum = n;
+    let ans = 0;
+    const counter = new Map();
+    counter.set(((l - 1) << 17) | sum, 1);
+    for (let i = 0; i < n; i++) {
+        const char = s[i];
+        const bit = (AEIOU_MASK >> (char.charCodeAt(0) - 'a'.charCodeAt(0))) & 1;
+        sum += bit * 2 - 1; // 1 -> 1    0 -> -1
+        const key = (i % l << 17) | sum;
+        ans += counter.get(key) || 0; // ans += cnt[(i%k,sum)]++
+        counter.set(key, (counter.get(key) ?? 0) + 1);
+    }
+    return ans;
+}
+const AEIOU_MASK = 1065233;
+
+function pSqrt(n: number) {
+    let res = 1;
+    for (let i = 2; i * i <= n; i++) {
+        let i2 = i * i;
+        while (n % i2 == 0) {
+            res *= i;
+            n /= i2;
+        }
+        if (n % i == 0) {
+            res *= i;
+            n /= i;
+        }
+    }
+    if (n > 1) {
+        res *= n;
+    }
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

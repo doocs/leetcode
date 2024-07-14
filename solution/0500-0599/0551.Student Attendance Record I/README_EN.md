@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README_EN.md
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [551. Student Attendance Record I](https://leetcode.com/problems/student-attendance-record-i)
 
 [中文文档](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a string <code>s</code> representing an attendance record for a student where each character signifies whether the student was absent, late, or present on that day. The record only contains the following three characters:</p>
 
@@ -48,17 +58,25 @@
 	<li><code>s[i]</code> is either <code>&#39;A&#39;</code>, <code>&#39;L&#39;</code>, or <code>&#39;P&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def checkRecord(self, s: str) -> bool:
         return s.count('A') < 2 and 'LLL' not in s
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +85,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -77,11 +97,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func checkRecord(s string) bool {
 	return strings.Count(s, "A") < 2 && !strings.Contains(s, "LLL")
 }
 ```
+
+#### TypeScript
 
 ```ts
 function checkRecord(s: string): boolean {
@@ -91,4 +115,6 @@ function checkRecord(s: string): boolean {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

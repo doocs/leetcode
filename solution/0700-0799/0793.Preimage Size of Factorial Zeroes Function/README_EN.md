@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0793.Preimage%20Size%20of%20Factorial%20Zeroes%20Function/README_EN.md
+tags:
+    - Math
+    - Binary Search
+---
+
+<!-- problem:start -->
+
 # [793. Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function)
 
 [中文文档](/solution/0700-0799/0793.Preimage%20Size%20of%20Factorial%20Zeroes%20Function/README.md)
 
-<!-- tags:Math,Binary Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Let <code>f(x)</code> be the number of zeroes at the end of <code>x!</code>. Recall that <code>x! = 1 * 2 * 3 * ... * x</code> and by convention, <code>0! = 1</code>.</p>
 
@@ -45,11 +56,17 @@
 	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -64,6 +81,8 @@ class Solution:
 
         return g(k + 1) - g(k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +111,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +145,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func preimageSizeFZF(k int) int {
 	f := func(x int) int {
@@ -154,4 +177,6 @@ func preimageSizeFZF(k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

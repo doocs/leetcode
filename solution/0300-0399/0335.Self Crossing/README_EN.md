@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0335.Self%20Crossing/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
+<!-- problem:start -->
+
 # [335. Self Crossing](https://leetcode.com/problems/self-crossing)
 
 [中文文档](/solution/0300-0399/0335.Self%20Crossing/README.md)
 
-<!-- tags:Geometry,Array,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>distance</code>.</p>
 
@@ -45,11 +57,17 @@
 	<li><code>1 &lt;=&nbsp;distance[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +88,8 @@ class Solution:
                 return True
         return False
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func isSelfCrossing(distance []int) bool {
@@ -124,6 +148,8 @@ func isSelfCrossing(distance []int) bool {
 	return false
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -144,4 +170,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

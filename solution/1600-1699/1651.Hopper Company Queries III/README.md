@@ -1,12 +1,20 @@
-# [1651. Hopper 公司查询 III](https://leetcode.cn/problems/hopper-company-queries-iii)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1651. Hopper 公司查询 III 🔒](https://leetcode.cn/problems/hopper-company-queries-iii)
 
 [English Version](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Drivers</code></p>
 
@@ -143,11 +151,17 @@ AcceptedRides table:
 9月底--&gt;平均骑行距离=（0+0+163）/3=54.33，平均骑行持续时间=（0+0+193）/3=64.33
 到10月底--&gt;平均骑行距离=（0+163+6）/3=56.33，平均骑行持续时间=（0+193+38）/3=77.00</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -187,4 +201,6 @@ LIMIT 10;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

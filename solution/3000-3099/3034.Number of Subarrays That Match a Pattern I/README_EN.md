@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README_EN.md
+rating: 1383
+source: Weekly Contest 384 Q2
+tags:
+    - Array
+    - String Matching
+    - Hash Function
+    - Rolling Hash
+---
+
+<!-- problem:start -->
+
 # [3034. Number of Subarrays That Match a Pattern I](https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i)
 
 [中文文档](/solution/3000-3099/3034.Number%20of%20Subarrays%20That%20Match%20a%20Pattern%20I/README.md)
 
-<!-- tags:Array,String Matching,Hash Function,Rolling Hash -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code>, and a <strong>0-indexed</strong> integer array <code>pattern</code> of size <code>m</code> consisting of integers <code>-1</code>, <code>0</code>, and <code>1</code>.</p>
 
@@ -47,7 +62,11 @@ Hence, there are 2 subarrays in nums that match the pattern.
 	<li><code>-1 &lt;= pattern[i] &lt;= 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration
 
@@ -56,6 +75,8 @@ We can enumerate all subarrays of array `nums` with a length of $m + 1$, and the
 The time complexity is $O(n \times m)$, where $n$ and $m$ are the lengths of the arrays `nums` and `pattern` respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +91,8 @@ class Solution:
             )
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +117,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +141,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
@@ -142,6 +169,8 @@ func countMatchingSubarrays(nums []int, pattern []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countMatchingSubarrays(nums: number[], pattern: number[]): number {
     const f = (a: number, b: number) => (a === b ? 0 : a < b ? 1 : -1);
@@ -160,6 +189,8 @@ function countMatchingSubarrays(nums: number[], pattern: number[]): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -186,4 +217,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

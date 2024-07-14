@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0472.Concatenated%20Words/README.md
+tags:
+    - 深度优先搜索
+    - 字典树
+    - 数组
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [472. 连接词](https://leetcode.cn/problems/concatenated-words)
 
 [English Version](/solution/0400-0499/0472.Concatenated%20Words/README_EN.md)
 
-<!-- tags:深度优先搜索,字典树,数组,字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>不含重复 </strong>单词的字符串数组 <code>words</code> ，请你找出并返回 <code>words</code> 中的所有 <strong>连接词</strong> 。</p>
 
@@ -42,7 +54,11 @@
 	<li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树 + DFS
 
@@ -62,6 +78,8 @@
 说明：由于一个连接词由多个更短的非空单词组成，如果存在一个较长的连接词的组成部分之一是一个较短的连接词，则一定可以将这个较短的连接词换成多个更短的非空单词，因此**不需要将连接词加入字典树**。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -104,6 +122,8 @@ class Solution:
                 trie.insert(w)
         return ans
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -159,6 +179,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -210,6 +232,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -266,4 +290,6 @@ func findAllConcatenatedWordsInADict(words []string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

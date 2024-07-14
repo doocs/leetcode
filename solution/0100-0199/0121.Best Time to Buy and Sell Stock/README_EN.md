@@ -1,10 +1,21 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock)
 
 [中文文档](/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>i<sup>th</sup></code> day.</p>
 
@@ -38,7 +49,11 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumerate + Maintain the Minimum Value of the Prefix
 
@@ -52,6 +67,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -61,6 +78,8 @@ class Solution:
             mi = min(mi, v)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -89,6 +110,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProfit(prices []int) (ans int) {
 	mi := prices[0]
@@ -99,6 +122,8 @@ func maxProfit(prices []int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProfit(prices: number[]): number {
@@ -112,19 +137,23 @@ function maxProfit(prices: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut min = i32::MAX;
-        for price in prices {
-            res = res.max(price - min);
-            min = min.min(price);
+        let mut ans = 0;
+        let mut mi = prices[0];
+        for &v in &prices {
+            ans = ans.max(v - mi);
+            mi = mi.min(v);
         }
-        res
+        ans
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -142,6 +171,8 @@ var maxProfit = function (prices) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int MaxProfit(int[] prices) {
@@ -155,6 +186,8 @@ public class Solution {
 }
 ```
 
+#### PHP
+
 ```php
 class Solution {
     /**
@@ -162,18 +195,19 @@ class Solution {
      * @return Integer
      */
     function maxProfit($prices) {
-        $win = 0;
-        $minPrice = $prices[0];
-        $len = count($prices);
-        for ($i = 1; $i < $len; $i++) {
-            $minPrice = min($minPrice, $prices[$i]);
-            $win = max($win, $prices[$i] - $minPrice);
+        $ans = 0;
+        $mi = $prices[0];
+        foreach ($prices as $v) {
+            $ans = max($ans, $v - $mi);
+            $mi = min($mi, $v);
         }
-        return $win;
+        return $ans;
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

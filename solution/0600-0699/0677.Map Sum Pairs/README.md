@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md
+tags:
+    - 设计
+    - 字典树
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [677. 键值映射](https://leetcode.cn/problems/map-sum-pairs)
 
 [English Version](/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md)
 
-<!-- tags:设计,字典树,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个 map ，满足以下几点:</p>
 
@@ -53,7 +64,11 @@ mapSum.sum("ap");           // 返回 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 	<li>最多调用 <code>50</code> 次 <code>insert</code> 和 <code>sum</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀树
 
@@ -71,6 +86,8 @@ mapSum.sum("ap");           // 返回 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 空间复杂度 $O(n \times m \times C)$，其中 $n$ 和 $m$ 分别是键的数量以及键的最大长度；而 $C$ 是字符集的大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -116,6 +133,8 @@ class MapSum:
 # obj.insert(key,val)
 # param_2 = obj.sum(prefix)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -172,6 +191,8 @@ class MapSum {
  * int param_2 = obj.sum(prefix);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -237,6 +258,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type trie struct {
 	children [26]*trie
@@ -291,6 +314,8 @@ func (this *MapSum) Sum(prefix string) int {
  * param_2 := obj.Sum(prefix);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class Trie {
@@ -356,4 +381,6 @@ class MapSum {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

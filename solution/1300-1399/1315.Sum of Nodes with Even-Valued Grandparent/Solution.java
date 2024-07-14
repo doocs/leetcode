@@ -14,28 +14,23 @@
  * }
  */
 class Solution {
-    private int res;
-
     public int sumEvenGrandparent(TreeNode root) {
-        res = 0;
-        dfs(root, root.left);
-        dfs(root, root.right);
-        return res;
+        return dfs(root, 1);
     }
 
-    private void dfs(TreeNode g, TreeNode p) {
-        if (p == null) {
-            return;
+    private int dfs(TreeNode root, int x) {
+        if (root == null) {
+            return 0;
         }
-        if (g.val % 2 == 0) {
-            if (p.left != null) {
-                res += p.left.val;
+        int ans = dfs(root.left, root.val) + dfs(root.right, root.val);
+        if (x % 2 == 0) {
+            if (root.left != null) {
+                ans += root.left.val;
             }
-            if (p.right != null) {
-                res += p.right.val;
+            if (root.right != null) {
+                ans += root.right.val;
             }
         }
-        dfs(p, p.left);
-        dfs(p, p.right);
+        return ans;
     }
 }

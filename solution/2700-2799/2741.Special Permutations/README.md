@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2741.Special%20Permutations/README.md
+rating: 2020
+source: 第 350 场周赛 Q3
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 状态压缩
+---
+
+<!-- problem:start -->
+
 # [2741. 特别的排列](https://leetcode.cn/problems/special-permutations)
 
 [English Version](/solution/2700-2799/2741.Special%20Permutations/README_EN.md)
 
-<!-- tags:位运算,数组,状态压缩 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，它包含 <code>n</code>&nbsp;个 <strong>互不相同</strong>&nbsp;的正整数。如果&nbsp;<code>nums</code>&nbsp;的一个排列满足以下条件，我们称它是一个特别的排列：</p>
 
@@ -41,11 +54,15 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：状态压缩动态规划
 
-我们注意到题目中数组的长度最大不超过 $14$，因此，我们可以用一个整数来表示当前的状态，其中第 $i$ 位为 $1$ 表示数组中的第 $i$ 个数已经被选取，为 $0$ 表示数组中的第 $i$ 个数还未被选取。
+我们注意到题目中数组的长度最大不超过 $14$，因此，我们可以用一个二进制整数来表示当前的状态，其中第 $i$ 位为 $1$ 表示数组中的第 $i$ 个数已经被选取，为 $0$ 表示数组中的第 $i$ 个数还未被选取。
 
 我们定义 $f[i][j]$ 表示当前选取的整数状态为 $i$，且最后一个选取的整数下标为 $j$ 的方案数。初始时 $f[0][0]=0$，答案为 $\sum_{j=0}^{n-1}f[2^n-1][j]$。
 
@@ -64,6 +81,8 @@ $$
 时间复杂度 $O(n^2 \times 2^n)$，空间复杂度 $O(n \times 2^n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +103,8 @@ class Solution:
                             f[i][j] = (f[i][j] + f[ii][k]) % mod
         return sum(f[-1]) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -116,6 +137,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -151,6 +174,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func specialPerm(nums []int) (ans int) {
 	const mod int = 1e9 + 7
@@ -183,6 +208,75 @@ func specialPerm(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function specialPerm(nums: number[]): number {
+    const mod = 1e9 + 7;
+    const n = nums.length;
+    const m = 1 << n;
+    const f = Array.from({ length: m }, () => Array(n).fill(0));
+
+    for (let i = 1; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (((i >> j) & 1) === 1) {
+                const ii = i ^ (1 << j);
+                if (ii === 0) {
+                    f[i][j] = 1;
+                    continue;
+                }
+                for (let k = 0; k < n; ++k) {
+                    if (nums[j] % nums[k] === 0 || nums[k] % nums[j] === 0) {
+                        f[i][j] = (f[i][j] + f[ii][k]) % mod;
+                    }
+                }
+            }
+        }
+    }
+
+    return f[m - 1].reduce((acc, x) => (acc + x) % mod);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn special_perm(nums: Vec<i32>) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let n = nums.len();
+        let m = 1 << n;
+        let mut f = vec![vec![0; n]; m];
+
+        for i in 1..m {
+            for j in 0..n {
+                if (i >> j) & 1 == 1 {
+                    let ii = i ^ (1 << j);
+                    if ii == 0 {
+                        f[i][j] = 1;
+                        continue;
+                    }
+                    for k in 0..n {
+                        if nums[j] % nums[k] == 0 || nums[k] % nums[j] == 0 {
+                            f[i][j] = (f[i][j] + f[ii][k]) % MOD;
+                        }
+                    }
+                }
+            }
+        }
+
+        let mut ans = 0;
+        for &x in &f[m - 1] {
+            ans = (ans + x) % MOD;
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

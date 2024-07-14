@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [17.16. The Masseuse](https://leetcode.cn/problems/the-masseuse-lcci)
 
 [中文文档](/lcci/17.16.The%20Masseuse/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>A popular masseuse receives a sequence of back-to-back appointment requests and is debating which ones to accept. She needs a break between appointments and therefore she cannot accept any adjacent requests. Given a sequence of back-to-back appoint&shy; ment requests, find the optimal (highest total booked minutes) set the masseuse can honor. Return the number of minutes.</p>
 
@@ -46,11 +56,17 @@
 
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -60,6 +76,8 @@ class Solution:
             f, g = g + x, max(f, g)
         return max(f, g)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,6 +93,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -92,6 +112,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func massage(nums []int) int {
 	f, g := 0, 0
@@ -101,6 +123,8 @@ func massage(nums []int) int {
 	return max(f, g)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function massage(nums: number[]): number {
@@ -116,6 +140,28 @@ function massage(nums: number[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func massage(_ nums: [Int]) -> Int {
+        var f = 0
+        var g = 0
+
+        for x in nums {
+            let ff = g + x
+            let gg = max(f, g)
+            f = ff
+            g = gg
+        }
+
+        return max(f, g)
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

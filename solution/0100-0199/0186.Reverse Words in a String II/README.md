@@ -1,12 +1,21 @@
-# [186. 反转字符串中的单词 II](https://leetcode.cn/problems/reverse-words-in-a-string-ii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README.md
+tags:
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [186. 反转字符串中的单词 II 🔒](https://leetcode.cn/problems/reverse-words-in-a-string-ii)
 
 [English Version](/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README_EN.md)
 
-<!-- tags:双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符数组 <code>s</code> ，反转其中 <strong>单词</strong> 的顺序。</p>
 
@@ -46,35 +55,41 @@
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：双指针
+
+我们可以遍历字符数组 $s$，利用双指针 $i$ 和 $j$ 找到每个单词的起始位置和结束位置，然后反转每个单词，最后再反转整个字符数组。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符数组 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def reverseWords(self, s: List[str]) -> None:
-        """
-        Do not return anything, modify s in-place instead.
-        """
-
-        def reverse(s, i, j):
+        def reverse(i: int, j: int):
             while i < j:
                 s[i], s[j] = s[j], s[i]
-                i += 1
-                j -= 1
+                i, j = i + 1, j - 1
 
-        i, j, n = 0, 0, len(s)
-        while j < n:
-            if s[j] == ' ':
-                reverse(s, i, j - 1)
+        i, n = 0, len(s)
+        for j, c in enumerate(s):
+            if c == " ":
+                reverse(i, j - 1)
                 i = j + 1
             elif j == n - 1:
-                reverse(s, i, j)
-            j += 1
-        reverse(s, 0, n - 1)
+                reverse(i, j)
+        reverse(0, n - 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -101,53 +116,80 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
     void reverseWords(vector<char>& s) {
+        auto reverse = [&](int i, int j) {
+            for (; i < j; ++i, --j) {
+                swap(s[i], s[j]);
+            }
+        };
         int n = s.size();
         for (int i = 0, j = 0; j < n; ++j) {
             if (s[j] == ' ') {
-                reverse(s, i, j - 1);
+                reverse(i, j - 1);
                 i = j + 1;
             } else if (j == n - 1) {
-                reverse(s, i, j);
+                reverse(i, j);
             }
         }
-        reverse(s, 0, n - 1);
-    }
-
-    void reverse(vector<char>& s, int i, int j) {
-        for (; i < j; ++i, --j) {
-            swap(s[i], s[j]);
-        }
+        reverse(0, n - 1);
     }
 };
 ```
 
+#### Go
+
 ```go
 func reverseWords(s []byte) {
-	n := len(s)
-	for i, j := 0, 0; j < n; j++ {
-		if s[j] == ' ' {
-			reverse(s, i, j-1)
-			i = j + 1
-		} else if j == n-1 {
-			reverse(s, i, j)
+	reverse := func(i, j int) {
+		for ; i < j; i, j = i+1, j-1 {
+			s[i], s[j] = s[j], s[i]
 		}
 	}
-	reverse(s, 0, n-1)
-}
-
-func reverse(s []byte, i, j int) {
-	for i < j {
-		s[i], s[j] = s[j], s[i]
-		i++
-		j--
+	i, n := 0, len(s)
+	for j, c := range s {
+		if c == ' ' {
+			reverse(i, j-1)
+			i = j + 1
+		} else if j == n-1 {
+			reverse(i, j)
+		}
 	}
+	reverse(0, n-1)
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ Do not return anything, modify s in-place instead.
+ */
+function reverseWords(s: string[]): void {
+    const n = s.length;
+    const reverse = (i: number, j: number): void => {
+        for (; i < j; ++i, --j) {
+            [s[i], s[j]] = [s[j], s[i]];
+        }
+    };
+    for (let i = 0, j = 0; j <= n; ++j) {
+        if (s[j] === ' ') {
+            reverse(i, j - 1);
+            i = j + 1;
+        } else if (j === n - 1) {
+            reverse(i, j);
+        }
+    }
+    reverse(0, n - 1);
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

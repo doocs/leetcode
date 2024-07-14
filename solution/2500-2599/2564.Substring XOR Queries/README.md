@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md
+rating: 1959
+source: 第 332 场周赛 Q3
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [2564. 子字符串异或查询](https://leetcode.cn/problems/substring-xor-queries)
 
 [English Version](/solution/2500-2599/2564.Substring%20XOR%20Queries/README_EN.md)
 
-<!-- tags:位运算,数组,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <strong>二进制字符串</strong>&nbsp;<code>s</code>&nbsp;和一个整数数组&nbsp;<code>queries</code>&nbsp;，其中&nbsp;<code>queries[i] = [first<sub>i</sub>, second<sub>i</sub>]</code>&nbsp;。</p>
 
@@ -57,7 +70,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 枚举
 
@@ -68,6 +85,8 @@
 时间复杂度 $O(n \times \log M + m)$，空间复杂度 $O(n \times \log M)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 和查询数组 $queries$ 的长度，而 $M$ 可以取整数的最大值 $2^{31} - 1$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +105,8 @@ class Solution:
                     break
         return [d.get(first ^ second, [-1, -1]) for first, second in queries]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -113,6 +134,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -147,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 	d := map[int][]int{}
@@ -177,4 +202,6 @@ func substringXorQueries(s string, queries [][]int) (ans [][]int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,14 +1,14 @@
 class Solution {
-    public boolean sequenceReconstruction(int[] nums, int[][] sequences) {
+    public boolean sequenceReconstruction(int[] nums, List<List<Integer>> sequences) {
         int n = nums.length;
         int[] indeg = new int[n];
         List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (int[] seq : sequences) {
-            for (int i = 1; i < seq.length; ++i) {
-                int a = seq[i - 1] - 1, b = seq[i] - 1;
+        for (var seq : sequences) {
+            for (int i = 1; i < seq.size(); ++i) {
+                int a = seq.get(i - 1) - 1, b = seq.get(i) - 1;
                 g[a].add(b);
-                indeg[b]++;
+                ++indeg[b];
             }
         }
         Deque<Integer> q = new ArrayDeque<>();
@@ -17,10 +17,7 @@ class Solution {
                 q.offer(i);
             }
         }
-        while (!q.isEmpty()) {
-            if (q.size() > 1) {
-                return false;
-            }
+        while (q.size() == 1) {
             int i = q.poll();
             for (int j : g[i]) {
                 if (--indeg[j] == 0) {
@@ -28,6 +25,6 @@ class Solution {
                 }
             }
         }
-        return true;
+        return q.isEmpty();
     }
 }

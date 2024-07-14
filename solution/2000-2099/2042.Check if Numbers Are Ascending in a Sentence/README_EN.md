@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2042.Check%20if%20Numbers%20Are%20Ascending%20in%20a%20Sentence/README_EN.md
+rating: 1257
+source: Weekly Contest 263 Q1
+tags:
+    - String
+---
+
+<!-- problem:start -->
+
 # [2042. Check if Numbers Are Ascending in a Sentence](https://leetcode.com/problems/check-if-numbers-are-ascending-in-a-sentence)
 
 [中文文档](/solution/2000-2099/2042.Check%20if%20Numbers%20Are%20Ascending%20in%20a%20Sentence/README.md)
 
-<!-- tags:String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>A sentence is a list of <strong>tokens</strong> separated by a <strong>single</strong> space with no leading or trailing spaces. Every token is either a <strong>positive number</strong> consisting of digits <code>0-9</code> with no leading zeros, or a <strong>word</strong> consisting of lowercase English letters.</p>
 
@@ -55,7 +67,11 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 	<li><code>s</code> contains no leading or trailing spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Simulation
 
@@ -66,6 +82,8 @@ If the traversal ends, it means that the numbers in the string are strictly incr
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +96,8 @@ class Solution:
                 pre = cur
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +116,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +140,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func areNumbersAscending(s string) bool {
 	pre := 0
@@ -134,6 +158,8 @@ func areNumbersAscending(s string) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function areNumbersAscending(s: string): boolean {
     let pre = -1;
@@ -149,6 +175,8 @@ function areNumbersAscending(s: string): boolean {
     return true;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -167,6 +195,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 bool areNumbersAscending(char* s) {
@@ -194,29 +224,6 @@ bool areNumbersAscending(char* s) {
 
 <!-- tabs:end -->
 
-### Solution 2
+<!-- solution:end -->
 
-<!-- tabs:start -->
-
-```python
-class Solution:
-    def areNumbersAscending(self, s: str) -> bool:
-        pre = i = 0
-        n = len(s)
-        while i < n:
-            if s[i].isdigit():
-                cur = 0
-                while i < n and s[i].isdigit():
-                    cur = cur * 10 + int(s[i])
-                    i += 1
-                if pre >= cur:
-                    return False
-                pre = cur
-            else:
-                i += 1
-        return True
-```
-
-<!-- tabs:end -->
-
-<!-- end -->
+<!-- problem:end -->

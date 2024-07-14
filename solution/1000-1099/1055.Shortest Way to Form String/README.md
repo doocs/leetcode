@@ -1,12 +1,22 @@
-# [1055. 形成字符串的最短路径](https://leetcode.cn/problems/shortest-way-to-form-string)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README.md
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [1055. 形成字符串的最短路径 🔒](https://leetcode.cn/problems/shortest-way-to-form-string)
 
 [English Version](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README_EN.md)
 
-<!-- tags:贪心,双指针,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>对于任何字符串，我们可以通过删除其中一些字符（也可能不删除）来构造该字符串的 <strong>子序列</strong> 。(例如，<code>“ace”</code>&nbsp;是 <code>“abcde”</code> 的子序列，而 <code>“aec”</code> 不是)。</p>
 
@@ -47,7 +57,11 @@
 	<li><code>source</code> 和&nbsp;<code>target</code>&nbsp;仅包含英文小写字母。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：双指针
 
@@ -55,9 +69,11 @@
 
 遍历结束后，返回子序列数量即可。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为字符串 `source` 和 `target` 的长度。
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别为字符串 `source` 和 `target` 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +95,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -104,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -131,6 +151,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func shortestWay(source string, target string) int {
 	m, n := len(source), len(target)
@@ -154,4 +176,6 @@ func shortestWay(source string, target string) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

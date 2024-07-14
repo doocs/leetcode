@@ -1,10 +1,21 @@
-# [2431. Maximize Total Tastiness of Purchased Fruits](https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [2431. Maximize Total Tastiness of Purchased Fruits 🔒](https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits)
 
 [中文文档](/solution/2400-2499/2431.Maximize%20Total%20Tastiness%20of%20Purchased%20Fruits/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two non-negative integer arrays <code>price</code> and <code>tastiness</code>, both arrays have the same length <code>n</code>. You are also given two non-negative integers <code>maxAmount</code> and <code>maxCoupons</code>.</p>
 
@@ -63,7 +74,11 @@ It can be proven that 28 is the maximum total tastiness that can be obtained.
 	<li><code>0 &lt;= maxCoupons &lt;= 5</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Memoization Search
 
@@ -80,6 +95,8 @@ The final answer is $dfs(0, maxAmount, maxCoupons)$.
 The time complexity is $O(n \times maxAmount \times maxCoupons)$, where $n$ is the number of fruits.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -99,6 +116,8 @@ class Solution:
 
         return dfs(0, maxAmount, maxCoupons)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -135,6 +154,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -158,6 +179,8 @@ private:
     int f[101][1001][6];
 };
 ```
+
+#### Go
 
 ```go
 func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) int {
@@ -193,4 +216,6 @@ func maxTastiness(price []int, tastiness []int, maxAmount int, maxCoupons int) i
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,26 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README_EN.md
+rating: 1301
+source: Weekly Contest 351 Q1
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Counting
+    - Number Theory
+---
+
+<!-- problem:start -->
+
 # [2748. Number of Beautiful Pairs](https://leetcode.com/problems/number-of-beautiful-pairs)
 
 [中文文档](/solution/2700-2799/2748.Number%20of%20Beautiful%20Pairs/README.md)
 
-<!-- tags:Array,Math,Number Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>0-indexed </strong>integer array <code>nums</code>. A pair of indices <code>i</code>, <code>j</code> where <code>0 &lt;=&nbsp;i &lt; j &lt; nums.length</code> is called beautiful if the <strong>first digit</strong> of <code>nums[i]</code> and the <strong>last digit</strong> of <code>nums[j]</code> are <strong>coprime</strong>.</p>
 
@@ -47,11 +63,25 @@ Thus, we return 2.
 	<li><code>nums[i] % 10 != 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Counting
+
+We can use an array $\text{cnt}$ of length $10$ to record the count of the first digit of each number.
+
+Iterate through the array $\text{nums}$. For each number $x$, we enumerate each digit $y$ from $0$ to $9$. If $\text{cnt}[y]$ is not $0$ and $\text{gcd}(x \mod 10, y) = 1$, then the answer is incremented by $\text{cnt}[y]$. Then, we increment the count of the first digit of $x$ by $1$.
+
+After the iteration, return the answer.
+
+The time complexity is $O(n \times (k + \log M))$, and the space complexity is $O(k + \log M)$. Here, $n$ is the length of the array $\text{nums}$, while $k$ and $M$ respectively represent the number of distinct numbers and the maximum value in the array $\text{nums}$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -65,6 +95,8 @@ class Solution:
             cnt[int(str(x)[0])] += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -91,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -112,6 +146,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countBeautifulPairs(nums []int) (ans int) {
@@ -137,6 +173,8 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countBeautifulPairs(nums: number[]): number {
@@ -166,4 +204,6 @@ function gcd(a: number, b: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

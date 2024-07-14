@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md
+tags:
+    - Math
+    - Dynamic Programming
+    - Backtracking
+---
+
+<!-- problem:start -->
+
 # [357. Count Numbers with Unique Digits](https://leetcode.com/problems/count-numbers-with-unique-digits)
 
 [中文文档](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
 
-<!-- tags:Math,Dynamic Programming,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer <code>n</code>, return the count of all numbers with unique digits, <code>x</code>, where <code>0 &lt;= x &lt; 10<sup>n</sup></code>.</p>
 
@@ -31,11 +43,17 @@
 	<li><code>0 &lt;= n &lt;= 8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -50,6 +68,8 @@ class Solution:
             ans += cur
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +90,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -85,6 +107,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countNumbersWithUniqueDigits(n int) int {
@@ -105,9 +129,15 @@ func countNumbersWithUniqueDigits(n int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -128,6 +158,8 @@ class Solution:
 
         return dfs(n, 0, True)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +198,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -199,6 +233,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countNumbersWithUniqueDigits(n int) int {
@@ -240,4 +276,6 @@ func countNumbersWithUniqueDigits(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README.md
+rating: 1850
+source: 第 28 场双周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 动态规划
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [1477. 找两个和为目标值且不重叠的子数组](https://leetcode.cn/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum)
 
 [English Version](/solution/1400-1499/1477.Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum/README_EN.md)
 
-<!-- tags:数组,哈希表,二分查找,动态规划,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code> 和一个整数值&nbsp;<code>target</code>&nbsp;。</p>
 
@@ -61,7 +75,11 @@
 	<li><code>1 &lt;= target &lt;= 10^8</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 前缀和 + 动态规划
 
@@ -76,6 +94,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -94,6 +114,8 @@ class Solution:
             d[s] = i
         return -1 if ans > n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -120,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minSumOfLengths(arr []int, target int) int {
 	d := map[int]int{0: 0}
@@ -175,4 +201,6 @@ func minSumOfLengths(arr []int, target int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

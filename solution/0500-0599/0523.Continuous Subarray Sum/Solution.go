@@ -1,14 +1,12 @@
 func checkSubarraySum(nums []int, k int) bool {
-	mp := map[int]int{0: -1}
+	d := map[int]int{0: -1}
 	s := 0
-	for i, v := range nums {
-		s += v
-		r := s % k
-		if j, ok := mp[r]; ok && i-j >= 2 {
+	for i, x := range nums {
+		s = (s + x) % k
+		if _, ok := d[s]; !ok {
+			d[s] = i
+		} else if i-d[s] > 1 {
 			return true
-		}
-		if _, ok := mp[r]; !ok {
-			mp[r] = i
 		}
 	}
 	return false

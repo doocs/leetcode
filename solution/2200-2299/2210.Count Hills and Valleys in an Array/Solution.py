@@ -1,10 +1,12 @@
 class Solution:
     def countHillValley(self, nums: List[int]) -> int:
-        arr = [nums[0]]
-        for v in nums[1:]:
-            if v != arr[-1]:
-                arr.append(v)
-        return sum(
-            (arr[i] < arr[i - 1]) == (arr[i] < arr[i + 1])
-            for i in range(1, len(arr) - 1)
-        )
+        ans = j = 0
+        for i in range(1, len(nums) - 1):
+            if nums[i] == nums[i + 1]:
+                continue
+            if nums[i] > nums[j] and nums[i] > nums[i + 1]:
+                ans += 1
+            if nums[i] < nums[j] and nums[i] < nums[i + 1]:
+                ans += 1
+            j = i
+        return ans

@@ -1,16 +1,27 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0648.Replace%20Words/README.md
+tags:
+    - 字典树
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [648. 单词替换](https://leetcode.cn/problems/replace-words)
 
 [English Version](/solution/0600-0699/0648.Replace%20Words/README_EN.md)
 
-<!-- tags:字典树,数组,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>在英语中，我们有一个叫做&nbsp;<code>词根</code>(root) 的概念，可以词根<strong>后面</strong>添加其他一些词组成另一个较长的单词——我们称这个词为&nbsp;<code>继承词</code>(successor)。例如，词根<code>an</code>，跟随着单词&nbsp;<code>other</code>(其他)，可以形成新的单词&nbsp;<code>another</code>(另一个)。</p>
+<p>在英语中，我们有一个叫做&nbsp;<strong>词根</strong>(root) 的概念，可以词根&nbsp;<strong>后面&nbsp;</strong>添加其他一些词组成另一个较长的单词——我们称这个词为 <strong>衍生词</strong>&nbsp;(<strong>derivative</strong>)。例如，词根&nbsp;<code>help</code>，跟随着 <strong>继承</strong>词&nbsp;<code>"ful"</code>，可以形成新的单词&nbsp;<code>"helpful"</code>。</p>
 
-<p>现在，给定一个由许多<strong>词根</strong>组成的词典 <code>dictionary</code> 和一个用空格分隔单词形成的句子 <code>sentence</code>。你需要将句子中的所有<strong>继承词</strong>用<strong>词根</strong>替换掉。如果<strong>继承词</strong>有许多可以形成它的<strong>词根</strong>，则用<strong>最短</strong>的词根替换它。</p>
+<p>现在，给定一个由许多&nbsp;<strong>词根&nbsp;</strong>组成的词典 <code>dictionary</code> 和一个用空格分隔单词形成的句子 <code>sentence</code>。你需要将句子中的所有&nbsp;<strong>衍生词&nbsp;</strong>用&nbsp;<strong>词根&nbsp;</strong>替换掉。如果&nbsp;<strong>衍生词&nbsp;</strong>有许多可以形成它的&nbsp;<strong>词根</strong>，则用&nbsp;<strong>最短&nbsp;</strong>的 <strong>词根</strong> 替换它。</p>
 
 <p>你需要输出替换之后的句子。</p>
 
@@ -38,7 +49,7 @@
 	<li><code>1 &lt;= dictionary.length&nbsp;&lt;= 1000</code></li>
 	<li><code>1 &lt;= dictionary[i].length &lt;= 100</code></li>
 	<li><code>dictionary[i]</code>&nbsp;仅由小写字母组成。</li>
-	<li><code>1 &lt;= sentence.length &lt;= 10^6</code></li>
+	<li><code>1 &lt;= sentence.length &lt;= 10<sup>6</sup></code></li>
 	<li><code>sentence</code>&nbsp;仅由小写字母和空格组成。</li>
 	<li><code>sentence</code> 中单词的总量在范围 <code>[1, 1000]</code> 内。</li>
 	<li><code>sentence</code> 中每个单词的长度在范围 <code>[1, 1000]</code> 内。</li>
@@ -48,7 +59,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树
 
@@ -62,6 +77,8 @@
 时间复杂度为 $O(\sum_{w \in dictionary} |w| + |sentence|)$，空间复杂度为 $O(\sum_{w \in dictionary} |w|)$。其中 $|w|$ 表示单词 $w$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -102,6 +119,8 @@ class Solution:
         return " ".join(ans)
 ```
 
+#### Java
+
 ```java
 class Solution {
     public String replaceWords(List<String> dictionary, String sentence) {
@@ -121,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -182,6 +203,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 type Trie struct {
 	children [26]*Trie
@@ -237,38 +260,31 @@ func replaceWords(dictionary []string, sentence string) string {
 }
 ```
 
+#### TypeScript
+
 ```ts
 class Trie {
-    private children: Trie[];
-    private ref: number;
+    #children: Record<string, Trie> = {};
+    #ref = -1;
 
-    constructor() {
-        this.children = new Array<Trie>(26);
-        this.ref = -1;
-    }
-
-    public insert(w: string, i: number) {
+    insert(w: string, i: number) {
         let node: Trie = this;
         for (const c of w) {
-            const idx = c.charCodeAt(0) - 97;
-            if (!node.children[idx]) {
-                node.children[idx] = new Trie();
-            }
-            node = node.children[idx];
+            node.#children[c] ??= new Trie();
+            node = node.#children[c];
         }
-        node.ref = i;
+        node.#ref = i;
     }
 
-    public search(w: string): number {
+    search(w: string): number {
         let node: Trie = this;
         for (const c of w) {
-            const idx = c.charCodeAt(0) - 97;
-            if (!node.children[idx]) {
+            if (!node.#children[c]) {
                 return -1;
             }
-            node = node.children[idx];
-            if (node.ref !== -1) {
-                return node.ref;
+            node = node.#children[c];
+            if (node.#ref !== -1) {
+                return node.#ref;
             }
         }
         return -1;
@@ -292,9 +308,15 @@ function replaceWords(dictionary: string[], sentence: string): string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Java
 
 ```java
 class Trie {
@@ -345,6 +367,51 @@ class Solution {
 }
 ```
 
+#### TypeScript
+
+```ts
+function replaceWords(dictionary: string[], sentence: string): string {
+    const words = sentence.split(' ');
+    const trie: Trie = {};
+    const TERMINAL_MARK = 'TERMINAL_MARK';
+
+    for (const s of dictionary) {
+        let t = trie;
+
+        for (const ch of s) {
+            t[ch] ??= {};
+            t = t[ch] as Trie_;
+        }
+        t[TERMINAL_MARK] = TERMINAL_MARK;
+    }
+
+    for (let i = 0; i < words.length; i++) {
+        const s = words[i];
+        let t = trie;
+
+        for (let j = 0; j < s.length; j++) {
+            const ch = s[j];
+
+            if (!t[ch]) break;
+
+            if ((t[ch] as Trie_)[TERMINAL_MARK]) {
+                words[i] = s.slice(0, j + 1);
+                break;
+            }
+            t = t[ch] as Trie_;
+        }
+    }
+
+    return words.join(' ');
+}
+
+// prettier-ignore
+type Trie = { [key: string]: Trie} | string
+type Trie_ = Exclude<Trie, string>;
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

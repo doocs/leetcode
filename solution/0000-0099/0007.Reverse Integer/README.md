@@ -1,12 +1,20 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0007.Reverse%20Integer/README.md
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [7. 整数反转](https://leetcode.cn/problems/reverse-integer)
 
 [English Version](/solution/0000-0099/0007.Reverse%20Integer/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 32 位的有符号整数 <code>x</code> ，返回将 <code>x</code> 中的数字部分反转后的结果。</p>
 
@@ -51,7 +59,11 @@
 	<li><code>-2<sup>31</sup> <= x <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -77,6 +89,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def reverse(self, x: int) -> int:
@@ -93,6 +107,8 @@ class Solution:
         return ans
 ```
 
+#### Java
+
 ```java
 class Solution {
     public int reverse(int x) {
@@ -107,6 +123,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -124,6 +142,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func reverse(x int) (ans int) {
 	for ; x != 0; x /= 10 {
@@ -136,17 +156,28 @@ func reverse(x int) (ans int) {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     pub fn reverse(mut x: i32) -> i32 {
         let is_minus = x < 0;
-        match x.abs().to_string().chars().rev().collect::<String>().parse::<i32>() {
+        match x
+            .abs()
+            .to_string()
+            .chars()
+            .rev()
+            .collect::<String>()
+            .parse::<i32>()
+        {
             Ok(x) => x * (if is_minus { -1 } else { 1 }),
             Err(_) => 0,
         }
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -167,6 +198,8 @@ var reverse = function (x) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public int Reverse(int x) {
@@ -182,6 +215,8 @@ public class Solution {
 }
 ```
 
+#### C
+
 ```c
 int reverse(int x) {
     int ans = 0;
@@ -194,6 +229,8 @@ int reverse(int x) {
     return ans;
 }
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -227,4 +264,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

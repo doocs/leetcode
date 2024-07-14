@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1288.Remove%20Covered%20Intervals/README_EN.md
+rating: 1375
+source: Biweekly Contest 15 Q2
+tags:
+    - Array
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [1288. Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals)
 
 [中文文档](/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md)
 
-<!-- tags:Array,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an array <code>intervals</code> where <code>intervals[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> represent the interval <code>[l<sub>i</sub>, r<sub>i</sub>)</code>, remove all intervals that are covered by another interval in the list.</p>
 
@@ -38,11 +51,17 @@
 	<li>All the given intervals are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -55,6 +74,8 @@ class Solution:
                 pre = e
         return cnt
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -73,6 +94,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -90,6 +113,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func removeCoveredIntervals(intervals [][]int) int {
@@ -113,4 +138,6 @@ func removeCoveredIntervals(intervals [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

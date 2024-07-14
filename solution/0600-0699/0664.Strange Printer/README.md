@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0664.Strange%20Printer/README.md
+tags:
+    - 字符串
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [664. 奇怪的打印机](https://leetcode.cn/problems/strange-printer)
 
 [English Version](/solution/0600-0699/0664.Strange%20Printer/README_EN.md)
 
-<!-- tags:字符串,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有台奇怪的打印机有以下两个特殊要求：</p>
 
@@ -43,7 +52,11 @@
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -66,6 +79,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def strangePrinter(self, s: str) -> int:
@@ -81,6 +96,8 @@ class Solution:
                         f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j])
         return f[0][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +125,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -131,6 +150,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func strangePrinter(s string) int {
@@ -158,6 +179,8 @@ func strangePrinter(s string) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function strangePrinter(s: string): number {
     const n = s.length;
@@ -180,4 +203,6 @@ function strangePrinter(s: string): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

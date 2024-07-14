@@ -1,10 +1,25 @@
-# [314. Binary Tree Vertical Order Traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Hash Table
+    - Binary Tree
+    - Sorting
+---
+
+<!-- problem:start -->
+
+# [314. Binary Tree Vertical Order Traversal 🔒](https://leetcode.com/problems/binary-tree-vertical-order-traversal)
 
 [中文文档](/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README.md)
 
-<!-- tags:Tree,Depth-First Search,Breadth-First Search,Hash Table,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree, return <em><strong>the vertical order traversal</strong> of its nodes&#39; values</em>. (i.e., from top to bottom, column by column).</p>
 
@@ -40,7 +55,11 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: DFS
 
@@ -49,6 +68,8 @@ DFS traverses the binary tree, recording the value, depth, and horizontal offset
 The time complexity is $O(n\log \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -74,6 +95,8 @@ class Solution:
             ans.append([x[1] for x in v])
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +142,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -162,6 +187,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -204,6 +231,10 @@ func verticalOrder(root *TreeNode) [][]int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2: BFS
 
 A better approach to this problem should be BFS, traversing from top to bottom level by level.
@@ -211,6 +242,8 @@ A better approach to this problem should be BFS, traversing from top to bottom l
 The time complexity is $O(n\log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -235,6 +268,8 @@ class Solution:
                     q.append((root.right, offset + 1))
         return [v for _, v in sorted(d.items())]
 ```
+
+#### Java
 
 ```java
 /**
@@ -280,6 +315,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -317,6 +354,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -368,4 +407,6 @@ type pair struct {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

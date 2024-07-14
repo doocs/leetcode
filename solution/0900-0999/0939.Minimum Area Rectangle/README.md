@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README.md
+tags:
+    - 几何
+    - 数组
+    - 哈希表
+    - 数学
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [939. 最小面积矩形](https://leetcode.cn/problems/minimum-area-rectangle)
 
 [English Version](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README_EN.md)
 
-<!-- tags:几何,数组,哈希表,数学,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定在 xy 平面上的一组点，确定由这些点组成的矩形的最小面积，其中矩形的边平行于 x 轴和 y 轴。</p>
 
@@ -37,7 +49,11 @@
 	<li>所有的点都是不同的。</li>
 </ol>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表 + 排序 + 枚举
 
@@ -50,6 +66,8 @@
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。其中 $n$ 是点的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -70,6 +88,8 @@ class Solution:
                     pos[(y1, y2)] = x
         return 0 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -103,6 +123,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -133,6 +155,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minAreaRect(points [][]int) int {
@@ -171,4 +195,6 @@ func minAreaRect(points [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

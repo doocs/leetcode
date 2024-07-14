@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Math
+---
+
+<!-- problem:start -->
+
 # [963. Minimum Area Rectangle II](https://leetcode.com/problems/minimum-area-rectangle-ii)
 
 [中文文档](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README.md)
 
-<!-- tags:Geometry,Array,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of points in the <strong>X-Y</strong> plane <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
@@ -47,11 +59,17 @@
 	<li>All the given points are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -78,6 +96,8 @@ class Solution:
                                     ans = min(ans, w * h)
         return 0 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -156,6 +178,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minAreaFreeRect(points [][]int) float64 {
@@ -196,6 +220,8 @@ func minAreaFreeRect(points [][]int) float64 {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minAreaFreeRect(points: number[][]): number {
     const n = points.length;
@@ -233,4 +259,6 @@ function minAreaFreeRect(points: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

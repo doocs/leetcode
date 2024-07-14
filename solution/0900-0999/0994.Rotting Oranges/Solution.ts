@@ -1,36 +1,32 @@
 function orangesRotting(grid: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
-    let count = 0;
-    const queue = [];
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
+    const m: number = grid.length;
+    const n: number = grid[0].length;
+    const q: number[][] = [];
+    let cnt: number = 0;
+    for (let i: number = 0; i < m; ++i) {
+        for (let j: number = 0; j < n; ++j) {
             if (grid[i][j] === 1) {
-                count++;
+                cnt++;
             } else if (grid[i][j] === 2) {
-                queue.push([i, j]);
+                q.push([i, j]);
             }
         }
     }
-    let res = 0;
-    const dris = [1, 0, -1, 0, 1];
-    while (count !== 0 && queue.length !== 0) {
-        for (let i = queue.length; i > 0; i--) {
-            const [x, y] = queue.shift();
-            for (let j = 0; j < 4; j++) {
-                const newX = x + dris[j];
-                const newY = y + dris[j + 1];
-                if (newX >= 0 && newX < m && newY >= 0 && newY <= n && grid[newX][newY] === 1) {
-                    grid[newX][newY] = 2;
-                    queue.push([newX, newY]);
-                    count--;
+    let ans: number = 0;
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+    for (; q.length && cnt; ++ans) {
+        const t: number[][] = [];
+        for (const [i, j] of q) {
+            for (let d = 0; d < 4; ++d) {
+                const [x, y] = [i + dirs[d], j + dirs[d + 1]];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
+                    grid[x][y] = 2;
+                    t.push([x, y]);
+                    cnt--;
                 }
             }
         }
-        res++;
+        q.splice(0, q.length, ...t);
     }
-    if (count != 0) {
-        return -1;
-    }
-    return res;
+    return cnt > 0 ? -1 : ans;
 }

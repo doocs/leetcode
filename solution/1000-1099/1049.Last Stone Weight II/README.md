@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README.md
+rating: 2092
+source: 第 137 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [1049. 最后一块石头的重量 II](https://leetcode.cn/problems/last-stone-weight-ii)
 
 [English Version](/solution/1000-1099/1049.Last%20Stone%20Weight%20II/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一堆石头，用整数数组&nbsp;<code>stones</code> 表示。其中&nbsp;<code>stones[i]</code> 表示第 <code>i</code> 块石头的重量。</p>
 
@@ -49,7 +60,11 @@
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -60,6 +75,8 @@
 定义 `dp[i][j]` 表示从前 i 个石头中选出若干个，使得所选石头重量之和为不超过 j 的最大重量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -76,6 +93,8 @@ class Solution:
                     )
         return s - 2 * dp[-1][-1]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -100,6 +119,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -117,6 +138,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeightII(stones []int) int {
@@ -141,6 +164,8 @@ func lastStoneWeightII(stones []int) int {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -163,7 +188,7 @@ impl Solution {
                 } else {
                     std::cmp::max(
                         dp[i - 1][j],
-                        dp[i - 1][j - (stones[i - 1] as usize)] + stones[i - 1]
+                        dp[i - 1][j - (stones[i - 1] as usize)] + stones[i - 1],
                     )
                 };
             }
@@ -173,6 +198,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -197,9 +224,15 @@ var lastStoneWeightII = function (stones) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -212,6 +245,8 @@ class Solution:
                 dp[j] = max(dp[j], dp[j - v] + v)
         return s - dp[-1] * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -233,6 +268,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -247,6 +284,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func lastStoneWeightII(stones []int) int {
@@ -267,4 +306,6 @@ func lastStoneWeightII(stones []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

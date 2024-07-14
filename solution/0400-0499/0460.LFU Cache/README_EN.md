@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0460.LFU%20Cache/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - Linked List
+    - Doubly-Linked List
+---
+
+<!-- problem:start -->
+
 # [460. LFU Cache](https://leetcode.com/problems/lfu-cache)
 
 [中文文档](/solution/0400-0499/0460.LFU%20Cache/README.md)
 
-<!-- tags:Design,Hash Table,Linked List,Doubly-Linked List -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design and implement a data structure for a <a href="https://en.wikipedia.org/wiki/Least_frequently_used" target="_blank">Least Frequently Used (LFU)</a> cache.</p>
 
@@ -67,11 +80,17 @@ lfu.get(4);      // return 4
 <p>&nbsp;</p>
 <span style="display: none;">&nbsp;</span>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Node:
@@ -163,6 +182,8 @@ class LFUCache:
 # param_1 = obj.get(key)
 # obj.put(key,value)
 ```
+
+#### Java
 
 ```java
 class LFUCache {
@@ -282,6 +303,8 @@ class LFUCache {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Node {
@@ -407,6 +430,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type LFUCache struct {
 	cache    map[int]*node
@@ -529,6 +554,8 @@ func (l *list) empty() bool {
 	return l.head.next == l.tail
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -709,14 +736,11 @@ impl LFUCache {
             }
         };
     }
-}/**
- * Your LFUCache object will be instantiated and called as such:
- * let obj = LFUCache::new(capacity);
- * let ret_1: i32 = obj.get(key);
- * obj.put(key, value);
- */
+}
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

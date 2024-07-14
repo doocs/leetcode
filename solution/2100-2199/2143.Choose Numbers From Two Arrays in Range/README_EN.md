@@ -1,10 +1,21 @@
-# [2143. Choose Numbers From Two Arrays in Range](https://leetcode.com/problems/choose-numbers-from-two-arrays-in-range)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2143.Choose%20Numbers%20From%20Two%20Arrays%20in%20Range/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
+# [2143. Choose Numbers From Two Arrays in Range 🔒](https://leetcode.com/problems/choose-numbers-from-two-arrays-in-range)
 
 [中文文档](/solution/2100-2199/2143.Choose%20Numbers%20From%20Two%20Arrays%20in%20Range/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given two <strong>0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> of length <code>n</code>.</p>
 
@@ -67,11 +78,17 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -93,6 +110,8 @@ class Solution:
             ans = (ans + f[i][s2]) % mod
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -123,6 +142,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -155,6 +176,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countSubranges(nums1 []int, nums2 []int) (ans int) {
@@ -192,6 +215,8 @@ func sum(nums []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function countSubranges(nums1: number[], nums2: number[]): number {
     const n = nums1.length;
@@ -224,4 +249,6 @@ function countSubranges(nums1: number[], nums2: number[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

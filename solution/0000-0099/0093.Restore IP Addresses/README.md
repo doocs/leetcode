@@ -1,12 +1,21 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0093.Restore%20IP%20Addresses/README.md
+tags:
+    - 字符串
+    - 回溯
+---
+
+<!-- problem:start -->
+
 # [93. 复原 IP 地址](https://leetcode.cn/problems/restore-ip-addresses)
 
 [English Version](/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md)
 
-<!-- tags:字符串,回溯 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于 <code>0</code> 到 <code>255</code> 之间组成，且不能含有前导 <code>0</code>），整数之间用 <code>'.'</code> 分隔。</p>
 
@@ -48,7 +57,11 @@
 	<li><code>s</code> 仅由数字组成</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -63,6 +76,8 @@
 时间复杂度 $O(n \times 3^4)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -90,6 +105,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -127,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -159,6 +178,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func restoreIpAddresses(s string) (ans []string) {
 	n := len(s)
@@ -188,6 +209,8 @@ func restoreIpAddresses(s string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function restoreIpAddresses(s: string): string[] {
     const n = s.length;
@@ -216,6 +239,8 @@ function restoreIpAddresses(s: string): string[] {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -255,4 +280,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

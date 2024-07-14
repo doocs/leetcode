@@ -1,19 +1,19 @@
 class SnapshotArray:
+
     def __init__(self, length: int):
-        self.idx = 0
-        self.arr = defaultdict(list)
+        self.arr = [[] for _ in range(length)]
+        self.i = 0
 
     def set(self, index: int, val: int) -> None:
-        self.arr[index].append((self.idx, val))
+        self.arr[index].append((self.i, val))
 
     def snap(self) -> int:
-        self.idx += 1
-        return self.idx - 1
+        self.i += 1
+        return self.i - 1
 
     def get(self, index: int, snap_id: int) -> int:
-        vals = self.arr[index]
-        i = bisect_right(vals, (snap_id, inf)) - 1
-        return 0 if i < 0 else vals[i][1]
+        i = bisect_left(self.arr[index], (snap_id, inf)) - 1
+        return 0 if i < 0 else self.arr[index][i][1]
 
 
 # Your SnapshotArray object will be instantiated and called as such:

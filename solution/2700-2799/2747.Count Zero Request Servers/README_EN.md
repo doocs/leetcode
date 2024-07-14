@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README_EN.md
+rating: 2405
+source: Biweekly Contest 107 Q4
+tags:
+    - Array
+    - Hash Table
+    - Sorting
+    - Sliding Window
+---
+
+<!-- problem:start -->
+
 # [2747. Count Zero Request Servers](https://leetcode.com/problems/count-zero-request-servers)
 
 [中文文档](/solution/2700-2799/2747.Count%20Zero%20Request%20Servers/README.md)
 
-<!-- tags:Array,Hash Table,Sorting,Sliding Window -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code> denoting the total number of servers and a <strong>2D</strong> <strong>0-indexed </strong>integer array <code>logs</code>, where <code>logs[i] = [server_id, time]</code> denotes that the server with id <code>server_id</code> received a request at time <code>time</code>.</p>
 
@@ -51,11 +66,23 @@ For queries[1]: Only server with id 3 gets no request in the duration [2,4].
 	<li><code>x &lt;&nbsp;queries[i]&nbsp;&lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Offline Queries + Sorting + Two Pointers
+
+We can sort all the queries by time from smallest to largest, and then process each query in chronological order.
+
+For each query $q = (r, i)$, its window left boundary is $l = r - x$, and we need to count how many servers received requests within the window $[l, r]$. We use two pointers $j$ and $k$ to maintain the left and right boundaries of the window, initially $j = k = 0$. Each time, if the log time pointed by $k$ is less than or equal to $r$, we add it to the window, and then move $k$ to the right by one. If the log time pointed by $j$ is less than $l$, we remove it from the window, and then move $j$ to the right by one. During the movement, we need to count how many different servers are in the window, which can be implemented using a hash table. After the movement, the number of servers that did not receive requests in the current time interval is $n$ minus the number of different servers in the hash table.
+
+The time complexity is $O(l \times \log l + m \times \log m + n)$, and the space complexity is $O(l + m)$. Here, $l$ and $n$ are the lengths of the arrays $\text{logs}$ and the number of servers, respectively, while $m$ is the length of the array $\text{queries}$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -79,6 +106,8 @@ class Solution:
             ans[i] = n - len(cnt)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -111,6 +140,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -146,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countServers(n int, logs [][]int, x int, queries []int) []int {
 	sort.Slice(logs, func(i, j int) bool { return logs[i][1] < logs[j][1] })
@@ -177,6 +210,8 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function countServers(n: number, logs: number[][], x: number, queries: number[]): number[] {
@@ -212,4 +247,6 @@ function countServers(n: number, logs: number[][], x: number, queries: number[])
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

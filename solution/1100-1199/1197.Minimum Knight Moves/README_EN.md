@@ -1,10 +1,22 @@
-# [1197. Minimum Knight Moves](https://leetcode.com/problems/minimum-knight-moves)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1197.Minimum%20Knight%20Moves/README_EN.md
+rating: 1722
+source: Biweekly Contest 9 Q2
+tags:
+    - Breadth-First Search
+---
+
+<!-- problem:start -->
+
+# [1197. Minimum Knight Moves 🔒](https://leetcode.com/problems/minimum-knight-moves)
 
 [中文文档](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README.md)
 
-<!-- tags:Breadth-First Search -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code> to <code>+infinity</code>, you have a <strong>knight</strong> at square <code>[0, 0]</code>.</p>
 
@@ -37,7 +49,11 @@
 	<li><code>0 &lt;= |x| + |y| &lt;= 300</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: BFS
 
@@ -51,6 +67,8 @@ Bidirectional BFS is a common optimization method for BFS. The main implementati
 4. If one of the queues is empty, it means that the search in the current direction cannot continue, indicating that the start and end points are not connected, and there is no need to continue the search.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +90,8 @@ class Solution:
             ans += 1
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -106,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -138,6 +160,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minKnightMoves(x int, y int) int {
 	x, y = x+310, y+310
@@ -168,6 +192,8 @@ func minKnightMoves(x int, y int) int {
 	return -1
 }
 ```
+
+#### Rust
 
 ```rust
 use std::collections::VecDeque;
@@ -216,7 +242,7 @@ impl Solution {
         q: &mut VecDeque<(i32, i32, i32)>,
         i: i32,
         j: i32,
-        cur_step: i32
+        cur_step: i32,
     ) {
         let next_step = cur_step + 1;
         for (dx, dy) in DIR {
@@ -243,9 +269,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -283,6 +315,8 @@ class Solution:
                 return t
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -334,6 +368,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 typedef pair<int, int> PII;
 
@@ -380,6 +416,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minKnightMoves(x int, y int) int {
 	if x == 0 && y == 0 {
@@ -425,9 +463,11 @@ func minKnightMoves(x int, y int) int {
 }
 ```
 
+#### Rust
+
 ```rust
-use std::collections::VecDeque;
 use std::collections::HashMap;
+use std::collections::VecDeque;
 
 const DIR: [(i32, i32); 8] = [
     (-2, 1),
@@ -481,17 +521,14 @@ impl Solution {
     fn extend(
         map_to: &mut HashMap<i32, i32>,
         map_from: &mut HashMap<i32, i32>,
-        cur_q: &mut VecDeque<(i32, i32)>
+        cur_q: &mut VecDeque<(i32, i32)>,
     ) -> i32 {
         let n = cur_q.len();
         for _ in 0..n {
             let (i, j) = cur_q.front().unwrap().clone();
             cur_q.pop_front();
             // The cur_step here must exist
-            let cur_step = map_to
-                .get(&(601 * i + j))
-                .unwrap()
-                .clone();
+            let cur_step = map_to.get(&(601 * i + j)).unwrap().clone();
             for (dx, dy) in DIR {
                 let x = i + dx;
                 let y = j + dy;
@@ -503,14 +540,7 @@ impl Solution {
                 // Check if this node has been visited by the other side
                 if map_from.contains_key(&(601 * x + y)) {
                     // We found the node
-                    return (
-                        cur_step +
-                        1 +
-                        map_from
-                            .get(&(601 * x + y))
-                            .unwrap()
-                            .clone()
-                    );
+                    return (cur_step + 1 + map_from.get(&(601 * x + y)).unwrap().clone());
                 }
                 // Otherwise, update map_to and push the new node to queue
                 map_to.insert(601 * x + y, cur_step + 1);
@@ -524,4 +554,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

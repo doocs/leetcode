@@ -1,12 +1,24 @@
-# [2969. 购买水果需要的最少金币数 II](https://leetcode.cn/problems/minimum-number-of-coins-for-fruits-ii)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README.md
+tags:
+    - 队列
+    - 数组
+    - 动态规划
+    - 单调队列
+    - 堆（优先队列）
+---
+
+<!-- problem:start -->
+
+# [2969. 购买水果需要的最少金币数 II 🔒](https://leetcode.cn/problems/minimum-number-of-coins-for-fruits-ii)
 
 [English Version](/solution/2900-2999/2969.Minimum%20Number%20of%20Coins%20for%20Fruits%20II/README_EN.md)
 
-<!-- tags:队列,数组,动态规划,单调队列,堆（优先队列） -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你在一个水果超市里，货架上摆满了玲琅满目的奇珍异果。</p>
 
@@ -59,7 +71,11 @@
 	<li><code>1 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：动态规划
 
@@ -79,6 +95,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
@@ -94,6 +112,8 @@ class Solution:
             q.append(i)
         return prices[0]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -117,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -139,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumCoins(prices []int) int {
@@ -217,6 +241,8 @@ func (q Deque) Get(i int) int {
 	return q.r[i-len(q.l)]
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumCoins(prices: number[]): number {
@@ -336,4 +362,6 @@ class Deque<T> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

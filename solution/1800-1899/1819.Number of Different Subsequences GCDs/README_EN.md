@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README_EN.md
+rating: 2539
+source: Weekly Contest 235 Q4
+tags:
+    - Array
+    - Math
+    - Counting
+    - Number Theory
+---
+
+<!-- problem:start -->
+
 # [1819. Number of Different Subsequences GCDs](https://leetcode.com/problems/number-of-different-subsequences-gcds)
 
 [中文文档](/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README.md)
 
-<!-- tags:Array,Math,Counting,Number Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> that consists of positive integers.</p>
 
@@ -47,7 +62,11 @@ The different GCDs are 6, 10, 3, 2, and 1.
 	<li><code>1 &lt;= nums[i] &lt;= 2 * 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Mathematics
 
@@ -60,6 +79,8 @@ So the problem is transformed into: determining whether $x$ is the GCD of a sub-
 The time complexity is $O(n + M \times \log M)$, and the space complexity is $O(M)$. Here, $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +98,8 @@ class Solution:
                         break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -108,6 +131,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -134,6 +159,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countDifferentSubsequenceGCDs(nums []int) (ans int) {
@@ -167,4 +194,6 @@ func gcd(a, b int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

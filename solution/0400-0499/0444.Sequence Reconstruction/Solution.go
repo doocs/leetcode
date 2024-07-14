@@ -1,24 +1,22 @@
 func sequenceReconstruction(nums []int, sequences [][]int) bool {
 	n := len(nums)
-	g := make([][]int, n)
 	indeg := make([]int, n)
+	g := make([][]int, n)
 	for _, seq := range sequences {
-		for i := 1; i < len(seq); i++ {
-			a, b := seq[i-1]-1, seq[i]-1
+		for i, b := range seq[1:] {
+			a := seq[i] - 1
+			b -= 1
 			g[a] = append(g[a], b)
 			indeg[b]++
 		}
 	}
 	q := []int{}
-	for i, v := range indeg {
-		if v == 0 {
+	for i, x := range indeg {
+		if x == 0 {
 			q = append(q, i)
 		}
 	}
-	for len(q) > 0 {
-		if len(q) > 1 {
-			return false
-		}
+	for len(q) == 1 {
 		i := q[0]
 		q = q[1:]
 		for _, j := range g[i] {
@@ -28,5 +26,5 @@ func sequenceReconstruction(nums []int, sequences [][]int) bool {
 			}
 		}
 	}
-	return true
+	return len(q) == 0
 }

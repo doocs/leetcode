@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1475.Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop/README.md
+rating: 1212
+source: 第 28 场双周赛 Q1
+tags:
+    - 栈
+    - 数组
+    - 单调栈
+---
+
+<!-- problem:start -->
+
 # [1475. 商品折扣后的最终价格](https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop)
 
 [English Version](/solution/1400-1499/1475.Final%20Prices%20With%20a%20Special%20Discount%20in%20a%20Shop/README_EN.md)
 
-<!-- tags:栈,数组,单调栈 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组&nbsp;<code>prices</code>&nbsp;，其中&nbsp;<code>prices[i]</code>&nbsp;是商店里第&nbsp;<code>i</code>&nbsp;件商品的价格。</p>
 
@@ -49,7 +61,11 @@
 	<li><code>1 &lt;= prices[i] &lt;= 10^3</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：暴力枚举
 
@@ -58,6 +74,8 @@
 时间复杂度为 $O(n^2)$，忽略结果数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +89,8 @@ class Solution:
                     break
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalPrices(prices []int) []int {
 	n := len(prices)
@@ -128,6 +152,8 @@ func finalPrices(prices []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function finalPrices(prices: number[]): number[] {
     const n = prices.length;
@@ -144,6 +170,8 @@ function finalPrices(prices: number[]): number[] {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -164,6 +192,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {number[]} prices
@@ -181,6 +211,8 @@ var finalPrices = function (prices) {
     return prices;
 };
 ```
+
+#### PHP
 
 ```php
 class Solution {
@@ -204,6 +236,10 @@ class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：单调栈
 
 单调栈常见模型：找出每个数左/右边**离它最近的**且**比它大/小的数**。模板：
@@ -222,6 +258,8 @@ for i in range(n):
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
@@ -233,6 +271,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -252,6 +292,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -270,6 +312,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalPrices(prices []int) []int {
 	var stk []int
@@ -286,6 +330,8 @@ func finalPrices(prices []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function finalPrices(prices: number[]): number[] {
@@ -305,9 +351,15 @@ function finalPrices(prices: number[]): number[] {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法三
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -322,6 +374,8 @@ class Solution:
             stk.append(i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -343,6 +397,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -366,6 +422,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func finalPrices(prices []int) []int {
 	stk := []int{}
@@ -384,6 +442,8 @@ func finalPrices(prices []int) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function finalPrices(prices: number[]): number[] {
@@ -404,4 +464,6 @@ function finalPrices(prices: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

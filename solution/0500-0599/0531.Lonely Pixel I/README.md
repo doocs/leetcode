@@ -1,12 +1,22 @@
-# [531. 孤独像素 I](https://leetcode.cn/problems/lonely-pixel-i)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0531.Lonely%20Pixel%20I/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
+<!-- problem:start -->
+
+# [531. 孤独像素 I 🔒](https://leetcode.cn/problems/lonely-pixel-i)
 
 [English Version](/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md)
 
-<!-- tags:数组,哈希表,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的图像 <code>picture</code> ，图像由黑白像素组成，<code>'B'</code> 表示黑色像素，<code>'W'</code> 表示白色像素，请你统计并返回图像中 <strong>黑色</strong> 孤独像素的数量。</p>
 
@@ -40,31 +50,41 @@
 	<li><code>picture[i][j]</code> 为 <code>'W'</code> 或 <code>'B'</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
 
-### 方法一
+<!-- solution:start -->
+
+### 方法一：计数 + 枚举
+
+根据题目描述，我们需要统计每一行和每一列的黑色像素数量，分别记录在数组 $\textit{rows}$ 和 $\textit{cols}$ 中。然后我们遍历每一个黑色像素，检查其所在的行和列是否只有一个黑色像素，如果是则将答案加一。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def findLonelyPixel(self, picture: List[List[str]]) -> int:
-        m, n = len(picture), len(picture[0])
-        rows, cols = [0] * m, [0] * n
-        for i in range(m):
-            for j in range(n):
-                if picture[i][j] == 'B':
+        rows = [0] * len(picture)
+        cols = [0] * len(picture[0])
+        for i, row in enumerate(picture):
+            for j, x in enumerate(row):
+                if x == "B":
                     rows[i] += 1
                     cols[j] += 1
-        res = 0
-        for i in range(m):
-            if rows[i] == 1:
-                for j in range(n):
-                    if picture[i][j] == 'B' and cols[j] == 1:
-                        res += 1
-                        break
-        return res
+        ans = 0
+        for i, row in enumerate(picture):
+            for j, x in enumerate(row):
+                if x == "B" and rows[i] == 1 and cols[j] == 1:
+                    ans += 1
+        return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -80,21 +100,20 @@ class Solution {
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
-            if (rows[i] == 1) {
-                for (int j = 0; j < n; ++j) {
-                    if (picture[i][j] == 'B' && cols[j] == 1) {
-                        ++res;
-                        break;
-                    }
+            for (int j = 0; j < n; ++j) {
+                if (picture[i][j] == 'B' && rows[i] == 1 && cols[j] == 1) {
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -111,50 +130,74 @@ public:
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
-            if (rows[i] == 1) {
-                for (int j = 0; j < n; ++j) {
-                    if (picture[i][j] == 'B' && cols[j] == 1) {
-                        ++res;
-                        break;
-                    }
+            for (int j = 0; j < n; ++j) {
+                if (picture[i][j] == 'B' && rows[i] == 1 && cols[j] == 1) {
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
 
+#### Go
+
 ```go
-func findLonelyPixel(picture [][]byte) int {
-	m, n := len(picture), len(picture[0])
-	rows := make([]int, m)
-	cols := make([]int, n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if picture[i][j] == 'B' {
+func findLonelyPixel(picture [][]byte) (ans int) {
+	rows := make([]int, len(picture))
+	cols := make([]int, len(picture[0]))
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' {
 				rows[i]++
 				cols[j]++
 			}
 		}
 	}
-	res := 0
-	for i := 0; i < m; i++ {
-		if rows[i] == 1 {
-			for j := 0; j < n; j++ {
-				if picture[i][j] == 'B' && cols[j] == 1 {
-					res++
-					break
-				}
+	for i, row := range picture {
+		for j, x := range row {
+			if x == 'B' && rows[i] == 1 && cols[j] == 1 {
+				ans++
 			}
 		}
 	}
-	return res
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function findLonelyPixel(picture: string[][]): number {
+    const m = picture.length;
+    const n = picture[0].length;
+    const rows: number[] = Array(m).fill(0);
+    const cols: number[] = Array(n).fill(0);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (picture[i][j] === 'B') {
+                ++rows[i];
+                ++cols[j];
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (picture[i][j] === 'B' && rows[i] === 1 && cols[j] === 1) {
+                ++ans;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

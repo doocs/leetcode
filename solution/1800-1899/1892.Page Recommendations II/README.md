@@ -1,12 +1,20 @@
-# [1892. 页面推荐 Ⅱ](https://leetcode.cn/problems/page-recommendations-ii)
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1892.Page%20Recommendations%20II/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1892. 页面推荐Ⅱ 🔒](https://leetcode.cn/problems/page-recommendations-ii)
 
 [English Version](/solution/1800-1899/1892.Page%20Recommendations%20II/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Friendship</code></p>
 
@@ -117,11 +125,17 @@ Likes 表:
 
 您可以使用类似的过程为用户2、3、4和5推荐页面。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -146,4 +160,6 @@ GROUP BY user1_id, page_id;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

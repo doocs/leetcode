@@ -1,8 +1,18 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.05.Factorial%20Zeros/README_EN.md
+---
+
+<!-- problem:start -->
+
 # [16.05. Factorial Zeros](https://leetcode.cn/problems/factorial-zeros-lcci)
 
 [中文文档](/lcci/16.05.Factorial%20Zeros/README.md)
 
 ## Description
+
+<!-- description:start -->
 
 <p>Write an algorithm which computes the number of trailing zeros in n factorial.</p>
 <p><strong>Example 1:</strong></p>
@@ -25,7 +35,11 @@
 
 <p><b>Note:&nbsp;</b>Your solution should be in logarithmic time complexity.</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Mathematics
 
@@ -42,6 +56,8 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def trailingZeroes(self, n: int) -> int:
@@ -51,6 +67,8 @@ class Solution:
             ans += n
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +82,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -79,6 +99,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func trailingZeroes(n int) int {
 	ans := 0
@@ -90,10 +112,12 @@ func trailingZeroes(n int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function trailingZeroes(n: number): number {
     let ans = 0;
-    while (n > 0) {
+    while (n) {
         n = Math.floor(n / 5);
         ans += n;
     }
@@ -101,6 +125,24 @@ function trailingZeroes(n: number): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func trailingZeroes(_ n: Int) -> Int {
+        var count = 0
+        var number = n
+        while number > 0 {
+            number /= 5
+            count += number
+        }
+        return count
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

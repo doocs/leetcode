@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+    - String Matching
+    - Hash Function
+---
+
+<!-- problem:start -->
+
 # [572. Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree)
 
 [中文文档](/solution/0500-0599/0572.Subtree%20of%20Another%20Tree/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Tree,String Matching,Hash Function -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the roots of two binary trees <code>root</code> and <code>subRoot</code>, return <code>true</code> if there is a subtree of <code>root</code> with the same structure and node values of<code> subRoot</code> and <code>false</code> otherwise.</p>
 
@@ -35,11 +49,17 @@
 	<li><code>-10<sup>4</sup> &lt;= subRoot.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -69,6 +89,8 @@ class Solution:
             or self.isSubtree(root.right, subRoot)
         )
 ```
+
+#### Java
 
 ```java
 /**
@@ -108,6 +130,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -135,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -161,6 +187,8 @@ func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
 	return dfs(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -195,6 +223,8 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -214,8 +244,8 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, sub_root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
         if root.is_none() && sub_root.is_none() {
@@ -226,31 +256,33 @@ impl Solution {
         }
         let root = root.as_ref().unwrap().borrow();
         let sub_root = sub_root.as_ref().unwrap().borrow();
-        root.val == sub_root.val &&
-            Self::dfs(&root.left, &sub_root.left) &&
-            Self::dfs(&root.right, &sub_root.right)
+        root.val == sub_root.val
+            && Self::dfs(&root.left, &sub_root.left)
+            && Self::dfs(&root.right, &sub_root.right)
     }
 
     fn help(
         root: &Option<Rc<RefCell<TreeNode>>>,
-        sub_root: &Option<Rc<RefCell<TreeNode>>>
+        sub_root: &Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
         if root.is_none() {
             return false;
         }
-        Self::dfs(root, sub_root) ||
-            Self::help(&root.as_ref().unwrap().borrow().left, sub_root) ||
-            Self::help(&root.as_ref().unwrap().borrow().right, sub_root)
+        Self::dfs(root, sub_root)
+            || Self::help(&root.as_ref().unwrap().borrow().left, sub_root)
+            || Self::help(&root.as_ref().unwrap().borrow().right, sub_root)
     }
 
     pub fn is_subtree(
         root: Option<Rc<RefCell<TreeNode>>>,
-        sub_root: Option<Rc<RefCell<TreeNode>>>
+        sub_root: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
         Self::help(&root, &sub_root)
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -285,4 +317,6 @@ var isSubtree = function (root, subRoot) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

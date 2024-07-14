@@ -1,17 +1,15 @@
 class Solution {
-    private static final int MAX_WIDTH = 100;
-
     public int[] numberOfLines(int[] widths, String s) {
-        int last = 0, row = 1;
-        for (char c : s.toCharArray()) {
-            int w = widths[c - 'a'];
-            if (last + w <= MAX_WIDTH) {
+        int lines = 1, last = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            int w = widths[s.charAt(i) - 'a'];
+            if (last + w <= 100) {
                 last += w;
             } else {
-                ++row;
+                ++lines;
                 last = w;
             }
         }
-        return new int[] {row, last};
+        return new int[] {lines, last};
     }
 }

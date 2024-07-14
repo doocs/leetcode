@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [73. 矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes)
 
 [English Version](/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README_EN.md)
 
-<!-- tags:数组,哈希表,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个&nbsp;<code><em>m</em> x <em>n</em></code> 的矩阵，如果一个元素为 <strong>0 </strong>，则将其所在行和列的所有元素都设为 <strong>0</strong> 。请使用 <strong><a href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong> 算法<strong>。</strong></p>
 
@@ -50,7 +60,11 @@
 	<li>你能想出一个仅使用常量空间的解决方案吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数组标记
 
@@ -61,6 +75,8 @@
 时间复杂度 $O(m\times n)$，空间复杂度 $O(m+n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +93,8 @@ class Solution:
                 if rows[i] or cols[j]:
                     matrix[i][j] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -102,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -129,6 +149,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -151,6 +173,8 @@ func setZeroes(matrix [][]int) {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -178,6 +202,8 @@ function setZeroes(matrix: number[][]): void {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -207,6 +233,8 @@ var setZeroes = function (matrix) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public void SetZeroes(int[][] matrix) {
@@ -233,6 +261,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：原地标记
 
 方法一中使用了额外的数组标记待清零的行和列，实际上我们也可以直接用矩阵的第一行和第一列来标记，不需要开辟额外的数组空间。
@@ -242,6 +274,8 @@ public class Solution {
 时间复杂度 $O(m\times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -264,6 +298,8 @@ class Solution:
             for i in range(m):
                 matrix[i][0] = 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -310,6 +346,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -358,6 +396,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func setZeroes(matrix [][]int) {
 	m, n := len(matrix), len(matrix[0])
@@ -401,6 +441,8 @@ func setZeroes(matrix [][]int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  Do not return anything, modify matrix in-place instead.
@@ -435,6 +477,8 @@ function setZeroes(matrix: number[][]): void {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -480,6 +524,8 @@ var setZeroes = function (matrix) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public void SetZeroes(int[][] matrix) {
@@ -522,4 +568,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

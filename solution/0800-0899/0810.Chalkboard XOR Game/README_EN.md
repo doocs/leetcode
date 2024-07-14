@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md
+tags:
+    - Bit Manipulation
+    - Brainteaser
+    - Array
+    - Math
+    - Game Theory
+---
+
+<!-- problem:start -->
+
 # [810. Chalkboard XOR Game](https://leetcode.com/problems/chalkboard-xor-game)
 
 [中文文档](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README.md)
 
-<!-- tags:Bit Manipulation,Brainteaser,Array,Math,Game Theory -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array of integers <code>nums</code> represents the numbers written on a chalkboard.</p>
 
@@ -48,17 +62,25 @@ If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elem
 	<li><code>0 &lt;= nums[i] &lt; 2<sup>16</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def xorGame(self, nums: List[int]) -> bool:
         return len(nums) % 2 == 0 or reduce(xor, nums) == 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -67,6 +89,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -79,6 +103,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func xorGame(nums []int) bool {
@@ -95,4 +121,6 @@ func xorGame(nums []int) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

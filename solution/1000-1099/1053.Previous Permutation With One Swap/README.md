@@ -1,14 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md
+rating: 1633
+source: 第 138 场周赛 Q3
+tags:
+    - 贪心
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [1053. 交换一次的先前排列](https://leetcode.cn/problems/previous-permutation-with-one-swap)
 
 [English Version](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md)
 
-<!-- tags:贪心,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给你一个正整数数组 <code>arr</code>（可能存在重复的元素），请你返回可在&nbsp;<strong>一次交换</strong>（交换两数字 <code>arr[i]</code> 和 <code>arr[j]</code> 的位置）后得到的、按字典序排列小于 <code>arr</code> 的最大排列。</p>
+<p>给你一个正整数数组 <code>arr</code>（可能存在重复的元素），请你返回可在&nbsp;<strong>一次交换</strong>（交换两数字 <code>arr[i]</code> 和 <code>arr[j]</code> 的位置）后得到的、按<span data-keyword="lexicographically-smaller-string-alien">字典序</span>排列小于 <code>arr</code> 的最大排列。</p>
 
 <p>如果无法这么操作，就请返回原数组。</p>
 
@@ -47,7 +58,11 @@
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心
 
@@ -55,9 +70,11 @@
 
 如果遍历完数组都没有找到满足条件的下标 $i$，说明数组已经是最小排列，直接返回原数组即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +88,8 @@ class Solution:
                         return arr
         return arr
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -113,6 +134,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func prevPermOpt1(arr []int) []int {
 	n := len(arr)
@@ -129,6 +152,8 @@ func prevPermOpt1(arr []int) []int {
 	return arr
 }
 ```
+
+#### TypeScript
 
 ```ts
 function prevPermOpt1(arr: number[]): number[] {
@@ -151,4 +176,6 @@ function prevPermOpt1(arr: number[]): number[] {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

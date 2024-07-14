@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README_EN.md
+rating: 1558
+source: Weekly Contest 298 Q2
+tags:
+    - Greedy
+    - Math
+    - Dynamic Programming
+    - Enumeration
+---
+
+<!-- problem:start -->
+
 # [2310. Sum of Numbers With Units Digit K](https://leetcode.com/problems/sum-of-numbers-with-units-digit-k)
 
 [中文文档](/solution/2300-2399/2310.Sum%20of%20Numbers%20With%20Units%20Digit%20K/README.md)
 
-<!-- tags:Greedy,Math,Dynamic Programming,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integers <code>num</code> and <code>k</code>, consider a set of positive integers with the following properties:</p>
 
@@ -58,11 +73,17 @@ It can be shown that 2 is the minimum possible size of a valid set.
 	<li><code>0 &lt;= k &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -74,6 +95,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -105,6 +130,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumNumbers(num int, k int) int {
@@ -121,6 +148,8 @@ func minimumNumbers(num int, k int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumNumbers(num: number, k: number): number {
     if (!num) return 0;
@@ -135,9 +164,15 @@ function minimumNumbers(num: number, k: number): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -149,6 +184,8 @@ class Solution:
                 return i
         return -1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -166,6 +203,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -178,6 +217,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minimumNumbers(num int, k int) int {
@@ -195,9 +236,15 @@ func minimumNumbers(num int, k int) int {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 3
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -225,4 +272,6 @@ class Solution:
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

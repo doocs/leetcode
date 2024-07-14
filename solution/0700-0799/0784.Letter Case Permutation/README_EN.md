@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0784.Letter%20Case%20Permutation/README_EN.md
+tags:
+    - Bit Manipulation
+    - String
+    - Backtracking
+---
+
+<!-- problem:start -->
+
 # [784. Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation)
 
 [中文文档](/solution/0700-0799/0784.Letter%20Case%20Permutation/README.md)
 
-<!-- tags:Bit Manipulation,String,Backtracking -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string <code>s</code>, you&nbsp;can transform every letter individually to be lowercase or uppercase to create another string.</p>
 
@@ -33,11 +45,17 @@
 	<li><code>s</code> consists of lowercase English letters, uppercase English letters, and digits.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -56,6 +74,8 @@ class Solution:
         dfs(0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +102,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -104,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func letterCasePermutation(s string) (ans []string) {
 	t := []byte(s)
@@ -125,6 +149,8 @@ func letterCasePermutation(s string) (ans []string) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function letterCasePermutation(s: string): string[] {
     const n = s.length;
@@ -145,6 +171,8 @@ function letterCasePermutation(s: string): string[] {
     return res;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -171,9 +199,15 @@ impl Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -190,6 +224,8 @@ class Solution:
             ans.append(''.join(t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -219,6 +255,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -243,6 +281,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func letterCasePermutation(s string) (ans []string) {
@@ -274,4 +314,6 @@ func letterCasePermutation(s string) (ans []string) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,20 @@
-# [1853. 转换日期格式](https://leetcode.cn/problems/convert-date-format)
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1853.Convert%20Date%20Format/README.md
+tags:
+    - 数据库
+---
+
+<!-- problem:start -->
+
+# [1853. 转换日期格式 🔒](https://leetcode.cn/problems/convert-date-format)
 
 [English Version](/solution/1800-1899/1853.Convert%20Date%20Format/README_EN.md)
 
-<!-- tags:数据库 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Days</code></p>
 
@@ -51,11 +59,17 @@ Days table:
 +-------------------------+
 <strong>解释：</strong>请注意，输出对大小写敏感。</pre>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -64,4 +78,6 @@ SELECT DATE_FORMAT(day, '%W, %M %e, %Y') AS day FROM Days;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

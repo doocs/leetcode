@@ -1,11 +1,10 @@
 class Solution {
     public int maximumCount(int[] nums) {
         int a = 0, b = 0;
-        for (int v : nums) {
-            if (v > 0) {
+        for (int x : nums) {
+            if (x > 0) {
                 ++a;
-            }
-            if (v < 0) {
+            } else if (x < 0) {
                 ++b;
             }
         }

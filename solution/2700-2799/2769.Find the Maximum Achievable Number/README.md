@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README.md
+rating: 1191
+source: 第 353 场周赛 Q1
+tags:
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [2769. 找出最大的可达成数字](https://leetcode.cn/problems/find-the-maximum-achievable-number)
 
 [English Version](/solution/2700-2799/2769.Find%20the%20Maximum%20Achievable%20Number/README_EN.md)
 
-<!-- tags:数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数 <code>num</code> 和 <code>t</code> 。</p>
 
@@ -47,7 +57,11 @@
 	<li><code>1 &lt;= num, t&nbsp;&lt;= 50</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：数学
 
@@ -57,11 +71,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def theMaximumAchievableX(self, num: int, t: int) -> int:
         return num + t * 2
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -70,6 +88,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -80,11 +100,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func theMaximumAchievableX(num int, t int) int {
 	return num + t*2
 }
 ```
+
+#### TypeScript
 
 ```ts
 function theMaximumAchievableX(num: number, t: number): number {
@@ -94,4 +118,6 @@ function theMaximumAchievableX(num: number, t: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

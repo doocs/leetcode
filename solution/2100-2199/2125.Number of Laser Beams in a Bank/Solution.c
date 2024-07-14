@@ -1,16 +1,15 @@
 int numberOfBeams(char** bank, int bankSize) {
-    int last = 0;
-    int ans = 0;
-    for (int i = 0; i < bankSize; i++) {
-        int t = 0;
-        for (int j = 0; bank[i][j]; j++) {
+    int ans = 0, pre = 0;
+    for (int i = 0; i < bankSize; ++i) {
+        int cur = 0;
+        for (int j = 0; bank[i][j] != '\0'; ++j) {
             if (bank[i][j] == '1') {
-                t++;
+                cur++;
             }
         }
-        if (t != 0) {
-            ans += last * t;
-            last = t;
+        if (cur) {
+            ans += pre * cur;
+            pre = cur;
         }
     }
     return ans;

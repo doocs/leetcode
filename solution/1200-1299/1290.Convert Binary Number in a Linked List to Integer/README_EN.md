@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/README_EN.md
+rating: 1151
+source: Weekly Contest 167 Q1
+tags:
+    - Linked List
+    - Math
+---
+
+<!-- problem:start -->
+
 # [1290. Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer)
 
 [中文文档](/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/README.md)
 
-<!-- tags:Linked List,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given <code>head</code> which is a reference node to a singly-linked list. The value of each node in the linked list is either <code>0</code> or <code>1</code>. The linked list holds the binary representation of a number.</p>
 
@@ -37,11 +50,17 @@
 	<li>Each node&#39;s value is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -57,6 +76,8 @@ class Solution:
             head = head.next
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -79,6 +100,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -103,6 +126,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -118,6 +143,8 @@ func getDecimalValue(head *ListNode) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -140,6 +167,8 @@ function getDecimalValue(head: ListNode | null): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 // Definition for singly-linked list.
@@ -171,6 +200,8 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -191,6 +222,8 @@ var getDecimalValue = function (head) {
     return ans;
 };
 ```
+
+#### PHP
 
 ```php
 /**
@@ -221,6 +254,8 @@ class Solution {
 }
 ```
 
+#### C
+
 ```c
 /**
  * Definition for singly-linked list.
@@ -243,4 +278,6 @@ int getDecimalValue(struct ListNode* head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

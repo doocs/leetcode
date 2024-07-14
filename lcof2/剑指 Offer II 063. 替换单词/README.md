@@ -1,8 +1,15 @@
+---
+comments: true
+edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20063.%20%E6%9B%BF%E6%8D%A2%E5%8D%95%E8%AF%8D/README.md
+---
+
+<!-- problem:start -->
+
 # [剑指 Offer II 063. 替换单词](https://leetcode.cn/problems/UhWRSj)
 
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在英语中，有一个叫做&nbsp;<code>词根(root)</code> 的概念，它可以跟着其他一些词组成另一个较长的单词&mdash;&mdash;我们称这个词为&nbsp;<code>继承词(successor)</code>。例如，词根<code>an</code>，跟随着单词&nbsp;<code>other</code>(其他)，可以形成新的单词&nbsp;<code>another</code>(另一个)。</p>
 
@@ -67,11 +74,17 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 648&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/replace-words/">https://leetcode.cn/problems/replace-words/</a></p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：哈希表
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -85,6 +98,8 @@ class Solution:
                     break
         return ' '.join(words)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -105,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -133,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func replaceWords(dictionary []string, sentence string) string {
 	s := map[string]bool{}
@@ -153,11 +172,41 @@ func replaceWords(dictionary []string, sentence string) string {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func replaceWords(_ dictionary: [String], _ sentence: String) -> String {
+        let dictSet = Set(dictionary)
+        var words = sentence.split(separator: " ").map { String($0) }
+
+        for i in 0..<words.count {
+            let word = words[i]
+            for j in 1...word.count {
+                let prefix = String(word.prefix(j))
+                if dictSet.contains(prefix) {
+                    words[i] = prefix
+                    break
+                }
+            }
+        }
+
+        return words.joined(separator: " ")
+    }
+}
+```
+
 <!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start-->
 
 ### 方法二：前缀树
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -193,6 +242,8 @@ class Solution:
             trie.insert(v)
         return ' '.join(trie.search(v) for v in sentence.split())
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -242,6 +293,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Trie {
 public:
@@ -289,6 +342,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -341,4 +396,6 @@ func replaceWords(dictionary []string, sentence string) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,31 +1,24 @@
+use std::collections::HashMap;
+
 impl Solution {
     pub fn garbage_collection(garbage: Vec<String>, travel: Vec<i32>) -> i32 {
-        let n = garbage.len();
-        let cs = [b'M', b'P', b'G'];
-        let mut count = [0, 0, 0];
-        for s in garbage.iter() {
-            for c in s.as_bytes().iter() {
-                count[if c == &b'M' { 0 } else if c == &b'P' { 1 } else { 2 }] += 1;
+        let mut last: HashMap<char, usize> = HashMap::new();
+        let mut ans = 0;
+        for (i, s) in garbage.iter().enumerate() {
+            ans += s.len() as i32;
+            for c in s.chars() {
+                last.insert(c, i);
             }
         }
-
-        let mut res = 0;
-        for i in 0..3 {
-            for j in 0..n {
-                let s = &garbage[j];
-                for c in s.as_bytes().iter() {
-                    if c == &cs[i] {
-                        res += 1;
-                        count[i] -= 1;
-                    }
+        let mut ts = 0;
+        for (i, t) in travel.iter().enumerate() {
+            ts += t;
+            for &j in last.values() {
+                if i + 1 == j {
+                    ans += ts;
                 }
-                if count[i] == 0 {
-                    break;
-                }
-
-                res += travel[j];
             }
         }
-        res
+        ans
     }
 }

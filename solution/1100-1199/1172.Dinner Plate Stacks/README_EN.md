@@ -1,10 +1,25 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md
+rating: 2109
+source: Weekly Contest 151 Q4
+tags:
+    - Stack
+    - Design
+    - Hash Table
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [1172. Dinner Plate Stacks](https://leetcode.com/problems/dinner-plate-stacks)
 
 [中文文档](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md)
 
-<!-- tags:Stack,Design,Hash Table,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You have an infinite number of stacks arranged in a row and numbered (left to right) from <code>0</code>, each of the stacks has the same maximum capacity.</p>
 
@@ -72,7 +87,11 @@ D.pop()            // Returns -1.  There are still no stacks.
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>push</code>, <code>pop</code>, and <code>popAtStack</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Stack Array + Ordered Set
 
@@ -100,6 +119,8 @@ For the `pop()` operation:
 The time complexity is $(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of operations.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 from sortedcontainers import SortedSet
@@ -144,6 +165,8 @@ class DinnerPlates:
 # param_2 = obj.pop()
 # param_3 = obj.popAtStack(index)
 ```
+
+#### Java
 
 ```java
 class DinnerPlates {
@@ -200,6 +223,8 @@ class DinnerPlates {
  * int param_3 = obj.popAtStack(index);
  */
 ```
+
+#### C++
 
 ```cpp
 class DinnerPlates {
@@ -260,6 +285,8 @@ private:
  */
 ```
 
+#### Go
+
 ```go
 type DinnerPlates struct {
 	capacity int
@@ -315,6 +342,8 @@ func (this *DinnerPlates) PopAtStack(index int) int {
  * param_3 := obj.PopAtStack(index);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class DinnerPlates {
@@ -865,4 +894,6 @@ class TreeSet<T = number> {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,10 +1,22 @@
-# [317. Shortest Distance from All Buildings](https://leetcode.com/problems/shortest-distance-from-all-buildings)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
+# [317. Shortest Distance from All Buildings 🔒](https://leetcode.com/problems/shortest-distance-from-all-buildings)
 
 [中文文档](/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README.md)
 
-<!-- tags:Breadth-First Search,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an <code>m x n</code> grid <code>grid</code> of values <code>0</code>, <code>1</code>, or <code>2</code>, where:</p>
 
@@ -58,11 +70,17 @@ So return 7.
 	<li>There will be <strong>at least one</strong> building in the <code>grid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +120,8 @@ class Solution:
                     ans = min(ans, dist[i][j])
         return -1 if ans == inf else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -153,6 +173,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -201,6 +223,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func shortestDistance(grid [][]int) int {
@@ -260,4 +284,6 @@ func shortestDistance(grid [][]int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

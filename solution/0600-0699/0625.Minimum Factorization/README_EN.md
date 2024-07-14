@@ -1,10 +1,21 @@
-# [625. Minimum Factorization](https://leetcode.com/problems/minimum-factorization)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0625.Minimum%20Factorization/README_EN.md
+tags:
+    - Greedy
+    - Math
+---
+
+<!-- problem:start -->
+
+# [625. Minimum Factorization 🔒](https://leetcode.com/problems/minimum-factorization)
 
 [中文文档](/solution/0600-0699/0625.Minimum%20Factorization/README.md)
 
-<!-- tags:Greedy,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a positive integer num, return <em>the smallest positive integer </em><code>x</code><em> whose multiplication of each digit equals </em><code>num</code>. If there is no answer or the answer is not fit in <strong>32-bit</strong> signed integer, return <code>0</code>.</p>
 
@@ -23,11 +34,17 @@
 	<li><code>1 &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -42,6 +59,8 @@ class Solution:
                 mul *= 10
         return ans if num < 2 and ans <= 2**31 - 1 else 0
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -64,6 +83,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -85,6 +106,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func smallestFactorization(num int) int {
@@ -110,4 +133,6 @@ func smallestFactorization(num int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

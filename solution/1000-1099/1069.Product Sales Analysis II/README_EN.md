@@ -1,10 +1,20 @@
-# [1069. Product Sales Analysis II](https://leetcode.com/problems/product-sales-analysis-ii)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1069.Product%20Sales%20Analysis%20II/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1069. Product Sales Analysis II 🔒](https://leetcode.com/problems/product-sales-analysis-ii)
 
 [中文文档](/solution/1000-1099/1069.Product%20Sales%20Analysis%20II/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Sales</code></p>
 
@@ -77,11 +87,17 @@ Product table:
 +--------------+----------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -92,4 +108,6 @@ GROUP BY 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

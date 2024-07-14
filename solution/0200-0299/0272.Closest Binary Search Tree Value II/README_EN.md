@@ -1,10 +1,26 @@
-# [272. Closest Binary Search Tree Value II](https://leetcode.com/problems/closest-binary-search-tree-value-ii)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0272.Closest%20Binary%20Search%20Tree%20Value%20II/README_EN.md
+tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Two Pointers
+    - Binary Tree
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
+# [272. Closest Binary Search Tree Value II 🔒](https://leetcode.com/problems/closest-binary-search-tree-value-ii)
 
 [中文文档](/solution/0200-0299/0272.Closest%20Binary%20Search%20Tree%20Value%20II/README.md)
 
-<!-- tags:Stack,Tree,Depth-First Search,Binary Search Tree,Two Pointers,Binary Tree,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary search tree, a <code>target</code> value, and an integer <code>k</code>, return <em>the </em><code>k</code><em> values in the BST that are closest to the</em> <code>target</code>. You may return the answer in <strong>any order</strong>.</p>
 
@@ -38,11 +54,17 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Assume that the BST is balanced. Could you solve it in less than <code>O(n)</code> runtime (where <code>n = total nodes</code>)?</p>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -70,6 +92,8 @@ class Solution:
         dfs(root)
         return list(q)
 ```
+
+#### Java
 
 ```java
 /**
@@ -120,6 +144,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -165,6 +191,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -200,4 +228,6 @@ func closestKValues(root *TreeNode, target float64, k int) []int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

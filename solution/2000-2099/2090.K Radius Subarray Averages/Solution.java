@@ -1,16 +1,21 @@
 class Solution {
     public int[] getAverages(int[] nums, int k) {
+        k = k << 1 | 1;
         int n = nums.length;
-        long[] s = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
-        }
         int[] ans = new int[n];
         Arrays.fill(ans, -1);
-        for (int i = 0; i < n; ++i) {
-            if (i - k >= 0 && i + k < n) {
-                ans[i] = (int) ((s[i + k + 1] - s[i - k]) / (k << 1 | 1));
-            }
+        if (k > n) {
+            return ans;
+        }
+        long s = 0;
+        for (int i = 0; i < k; ++i) {
+            s += nums[i];
+        }
+        int j = k / 2;
+        ans[j] = (int) (s / k);
+        for (int i = k; i < n; ++i) {
+            s += nums[i] - nums[i - k];
+            ans[++j] = (int) (s / k);
         }
         return ans;
     }

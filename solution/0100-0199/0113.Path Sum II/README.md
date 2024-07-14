@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0113.Path%20Sum%20II/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 回溯
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [113. 路径总和 II](https://leetcode.cn/problems/path-sum-ii)
 
 [English Version](/solution/0100-0199/0113.Path%20Sum%20II/README_EN.md)
 
-<!-- tags:树,深度优先搜索,回溯,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉树的根节点 <code>root</code> 和一个整数目标和 <code>targetSum</code> ，找出所有 <strong>从根节点到叶子节点</strong> 路径总和等于给定目标和的路径。</p>
 
@@ -49,7 +60,11 @@
 </div>
 </div>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
@@ -58,6 +73,8 @@
 时间复杂度 $O(n^2)$，其中 $n$ 是二叉树的节点数。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -84,6 +101,8 @@ class Solution:
         dfs(root, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -126,6 +145,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -158,6 +179,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -188,6 +211,8 @@ func pathSum(root *TreeNode, targetSum int) (ans [][]int) {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -207,14 +232,14 @@ func pathSum(root *TreeNode, targetSum int) (ans [][]int) {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn dfs(
         root: Option<Rc<RefCell<TreeNode>>>,
         paths: &mut Vec<i32>,
         mut target_sum: i32,
-        res: &mut Vec<Vec<i32>>
+        res: &mut Vec<Vec<i32>>,
     ) {
         if let Some(node) = root {
             let mut node = node.borrow_mut();
@@ -244,6 +269,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -278,4 +305,6 @@ var pathSum = function (root, targetSum) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

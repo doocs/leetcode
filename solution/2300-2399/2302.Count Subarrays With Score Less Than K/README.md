@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README.md
+rating: 1808
+source: 第 80 场双周赛 Q4
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [2302. 统计得分小于 K 的子数组数目](https://leetcode.cn/problems/count-subarrays-with-score-less-than-k)
 
 [English Version](/solution/2300-2399/2302.Count%20Subarrays%20With%20Score%20Less%20Than%20K/README_EN.md)
 
-<!-- tags:数组,二分查找,前缀和,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个数组的 <strong>分数</strong>&nbsp;定义为数组之和 <strong>乘以</strong>&nbsp;数组的长度。</p>
 
@@ -56,7 +69,11 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀和 + 二分查找
 
@@ -67,6 +84,8 @@
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -84,6 +103,8 @@ class Solution:
             ans += left
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -110,6 +131,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -139,6 +162,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int, k int64) (ans int64) {
 	n := len(nums)
@@ -164,6 +189,10 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：双指针
 
 我们可以使用双指针的方式，维护一个滑动窗口，使得窗口内的元素和小于 $k$。那么以当前元素为最后一个元素的子数组个数即为窗口的长度，我们将所有的窗口长度相加即为答案。
@@ -171,6 +200,8 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -184,6 +215,8 @@ class Solution:
             ans += i - j + 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -200,6 +233,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -218,6 +253,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func countSubarrays(nums []int, k int64) (ans int64) {
 	s, j := 0, 0
@@ -235,4 +272,6 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

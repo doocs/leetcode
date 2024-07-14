@@ -1,10 +1,20 @@
-# [1212. Team Scores in Football Tournament](https://leetcode.com/problems/team-scores-in-football-tournament)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1212.Team%20Scores%20in%20Football%20Tournament/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1212. Team Scores in Football Tournament 🔒](https://leetcode.com/problems/team-scores-in-football-tournament)
 
 [中文文档](/solution/1200-1299/1212.Team%20Scores%20in%20Football%20Tournament/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Teams</code></p>
 
@@ -90,7 +100,11 @@ Matches table:
 +------------+--------------+---------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Left Join + Group By + Case Expression
 
@@ -105,6 +119,8 @@ Next, we group by `team_id` and use a `CASE` expression to calculate the points 
 Finally, we sort the result by points in descending order, and if the points are the same, we sort by `team_id` in ascending order.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -130,4 +146,6 @@ ORDER BY 3 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README.md
+rating: 1992
+source: 第 211 场周赛 Q2
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 字符串
+    - 枚举
+---
+
+<!-- problem:start -->
+
 # [1625. 执行操作后字典序最小的字符串](https://leetcode.cn/problems/lexicographically-smallest-string-after-applying-operations)
 
 [English Version](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md)
 
-<!-- tags:广度优先搜索,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串 <code>s</code> 以及两个整数 <code>a</code> 和 <code>b</code> 。其中，字符串 <code>s</code> 的长度为偶数，且仅由数字 <code>0</code> 到 <code>9</code> 组成。</p>
 
@@ -74,13 +87,19 @@
 	<li><code>1 &lt;= b &lt;= s.length - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：BFS
 
 本题数据规模较小，我们可以使用 BFS 暴力搜索所有可能的状态，然后取字典序最小的状态即可。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -102,6 +121,8 @@ class Solution:
                     q.append(t)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -134,6 +155,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -162,6 +185,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLexSmallestString(s string, a int, b int) string {
@@ -193,6 +218,10 @@ func findLexSmallestString(s string, a int, b int) string {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：枚举
 
 我们观察发现，对于累加操作，数字最多累加 $10$ 次，就会回到原来的状态；对于轮转操作，字符串最多轮转 $n$ 次，也会回到原来的状态。
@@ -204,6 +233,8 @@ func findLexSmallestString(s string, a int, b int) string {
 时间复杂度 $O(n^2 \times 10^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -229,6 +260,8 @@ class Solution:
                         ans = t
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -265,6 +298,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -293,6 +328,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func findLexSmallestString(s string, a int, b int) string {
@@ -329,4 +366,6 @@ func findLexSmallestString(s string, a int, b int) string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

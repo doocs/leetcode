@@ -1,29 +1,28 @@
 class Solution {
     public int findLUSlength(String[] strs) {
         int ans = -1;
-        for (int i = 0, j = 0, n = strs.length; i < n; ++i) {
+        int n = strs.length;
+        for (int i = 0, j; i < n; ++i) {
+            int x = strs[i].length();
             for (j = 0; j < n; ++j) {
-                if (i == j) {
-                    continue;
-                }
-                if (check(strs[j], strs[i])) {
+                if (i != j && check(strs[i], strs[j])) {
+                    x = -1;
                     break;
                 }
             }
-            if (j == n) {
-                ans = Math.max(ans, strs[i].length());
-            }
+            ans = Math.max(ans, x);
         }
         return ans;
     }
 
-    private boolean check(String a, String b) {
-        int j = 0;
-        for (int i = 0; i < a.length() && j < b.length(); ++i) {
-            if (a.charAt(i) == b.charAt(j)) {
-                ++j;
+    private boolean check(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i = 0;
+        for (int j = 0; i < m && j < n; ++j) {
+            if (s.charAt(i) == t.charAt(j)) {
+                ++i;
             }
         }
-        return j == b.length();
+        return i == m;
     }
 }

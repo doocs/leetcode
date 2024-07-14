@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2208.Minimum%20Operations%20to%20Halve%20Array%20Sum/README_EN.md
+rating: 1550
+source: Biweekly Contest 74 Q3
+tags:
+    - Greedy
+    - Array
+    - Heap (Priority Queue)
+---
+
+<!-- problem:start -->
+
 # [2208. Minimum Operations to Halve Array Sum](https://leetcode.com/problems/minimum-operations-to-halve-array-sum)
 
 [中文文档](/solution/2200-2299/2208.Minimum%20Operations%20to%20Halve%20Array%20Sum/README.md)
 
-<!-- tags:Greedy,Array,Heap (Priority Queue) -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>nums</code> of positive integers. In one operation, you can choose <strong>any</strong> number from <code>nums</code> and reduce it to <strong>exactly</strong> half the number. (Note that you may choose this reduced number in future operations.)</p>
 
@@ -51,11 +65,23 @@ It can be shown that we cannot reduce the sum by at least half in less than 3 op
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Greedy + Priority Queue (Max Heap)
+
+According to the problem description, each operation will halve a number in the array. To minimize the number of operations that reduce the array sum by at least half, each operation should halve the current maximum value in the array.
+
+Therefore, we first calculate the total sum $s$ that the array needs to reduce, and then use a priority queue (max heap) to maintain all the numbers in the array. Each time we take the maximum value $t$ from the priority queue, halve it, and then put the halved number back into the priority queue, while updating $s$, until $s \le 0$. The number of operations at this time is the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -72,6 +98,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +122,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -118,6 +148,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func halveArray(nums []int) (ans int) {
@@ -149,6 +181,8 @@ func (h *hp) Pop() any {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function halveArray(nums: number[]): number {
     let s: number = nums.reduce((a, b) => a + b) / 2;
@@ -170,9 +204,15 @@ function halveArray(nums: number[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Go
 
 ```go
 func halveArray(nums []int) (ans int) {
@@ -200,4 +240,6 @@ func (hp) Pop() (_ any)         { return }
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

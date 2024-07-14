@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
 # [181. Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers)
 
 [中文文档](/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Employee</code></p>
 
@@ -52,11 +62,17 @@ Employee table:
 <strong>Explanation:</strong> Joe is the only employee who earns more than his manager.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 import pandas as pd
@@ -68,6 +84,8 @@ def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
 
     return pd.DataFrame({"Employee": emp})
 ```
+
+#### MySQL
 
 ```sql
 SELECT Name AS Employee
@@ -82,9 +100,15 @@ WHERE
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -98,4 +122,6 @@ WHERE e1.salary > e2.salary;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0969.Pancake%20Sorting/README.md
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [969. 煎饼排序](https://leetcode.cn/problems/pancake-sorting)
 
 [English Version](/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md)
 
-<!-- tags:贪心,数组,双指针,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>arr</code> ，请使用 <strong>煎饼翻转</strong><em> </em>完成对数组的排序。</p>
 
@@ -57,11 +68,17 @@
 	<li><code>arr</code> 中的所有整数互不相同（即，<code>arr</code> 是从 <code>1</code> 到 <code>arr.length</code> 整数的一个排列）</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -86,6 +103,8 @@ class Solution:
                 reverse(arr, i)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -118,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -140,6 +161,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func pancakeSort(arr []int) []int {
@@ -167,6 +190,8 @@ func pancakeSort(arr []int) []int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function pancakeSort(arr: number[]): number[] {
     let ans = [];
@@ -192,6 +217,8 @@ function reverse(nums: Array<number>, end: number): void {
     }
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -220,4 +247,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

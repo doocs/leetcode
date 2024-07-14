@@ -1,10 +1,20 @@
-# [580. Count Student Number in Departments](https://leetcode.com/problems/count-student-number-in-departments)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [580. Count Student Number in Departments 🔒](https://leetcode.com/problems/count-student-number-in-departments)
 
 [中文文档](/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Student</code></p>
 
@@ -76,13 +86,19 @@ Department table:
 +-------------+----------------+
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Left Join + Grouping
 
 We can use a left join to join the `Department` table and the `Student` table on `dept_id`, and then group by `dept_id` to count the number of students in each department. Finally, we can sort the result by `student_number` in descending order and `dept_name` in ascending order.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -96,4 +112,6 @@ ORDER BY 2 DESC, 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

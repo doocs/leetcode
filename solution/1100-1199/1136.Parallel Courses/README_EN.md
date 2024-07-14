@@ -1,10 +1,23 @@
-# [1136. Parallel Courses](https://leetcode.com/problems/parallel-courses)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1136.Parallel%20Courses/README_EN.md
+rating: 1710
+source: Biweekly Contest 5 Q4
+tags:
+    - Graph
+    - Topological Sort
+---
+
+<!-- problem:start -->
+
+# [1136. Parallel Courses 🔒](https://leetcode.com/problems/parallel-courses)
 
 [中文文档](/solution/1100-1199/1136.Parallel%20Courses/README.md)
 
-<!-- tags:Graph,Topological Sort -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an integer <code>n</code>, which indicates that there are <code>n</code> courses labeled from <code>1</code> to <code>n</code>. You are also given an array <code>relations</code> where <code>relations[i] = [prevCourse<sub>i</sub>, nextCourse<sub>i</sub>]</code>, representing a prerequisite relationship between course <code>prevCourse<sub>i</sub></code> and course <code>nextCourse<sub>i</sub></code>: course <code>prevCourse<sub>i</sub></code> has to be taken before course <code>nextCourse<sub>i</sub></code>.</p>
 
@@ -43,7 +56,11 @@ In the second semester, you can take course 3.
 	<li>All the pairs <code>[prevCourse<sub>i</sub>, nextCourse<sub>i</sub>]</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Topological Sorting
 
@@ -54,6 +71,8 @@ Then we enqueue the courses with an in-degree of $0$ and start topological sorti
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of courses and the number of prerequisite relationships, respectively.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -77,6 +96,8 @@ class Solution:
                         q.append(j)
         return -1 if n else ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -112,6 +133,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -149,6 +172,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumSemesters(n int, relations [][]int) (ans int) {
 	g := make([][]int, n)
@@ -185,9 +210,11 @@ func minimumSemesters(n int, relations [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minimumSemesters(n: number, relations: number[][]): number {
-    const g = Array.from({ length: n }, () => []);
+    const g: number[][] = Array.from({ length: n }, () => []);
     const indeg = new Array(n).fill(0);
     for (const [prev, nxt] of relations) {
         g[prev - 1].push(nxt - 1);
@@ -218,4 +245,6 @@ function minimumSemesters(n: number, relations: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

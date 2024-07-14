@@ -1,12 +1,22 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README.md
+rating: 1084
+source: 第 144 场周赛 Q1
+tags:
+    - 字符串
+---
+
+<!-- problem:start -->
+
 # [1108. IP 地址无效化](https://leetcode.cn/problems/defanging-an-ip-address)
 
 [English Version](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md)
 
-<!-- tags:字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个有效的 <a href="https://baike.baidu.com/item/IPv4" target="_blank">IPv4</a> 地址&nbsp;<code>address</code>，返回这个 IP 地址的无效化版本。</p>
 
@@ -34,7 +44,11 @@
 	<li>给出的&nbsp;<code>address</code>&nbsp;是一个有效的 IPv4 地址</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：直接替换
 
@@ -44,11 +58,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def defangIPaddr(self, address: str) -> str:
         return address.replace('.', '[.]')
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -57,6 +75,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -72,11 +92,15 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func defangIPaddr(address string) string {
 	return strings.Replace(address, ".", "[.]", -1)
 }
 ```
+
+#### TypeScript
 
 ```ts
 function defangIPaddr(address: string): string {
@@ -86,4 +110,6 @@ function defangIPaddr(address: string): string {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

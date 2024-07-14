@@ -1,10 +1,20 @@
-# [1821. Find Customers With Positive Revenue this Year](https://leetcode.com/problems/find-customers-with-positive-revenue-this-year)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
+# [1821. Find Customers With Positive Revenue this Year 🔒](https://leetcode.com/problems/find-customers-with-positive-revenue-this-year)
 
 [中文文档](/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Customers</code></p>
 
@@ -61,13 +71,19 @@ Customer 4 has revenue equal to 20 in the year 2021.
 Thus only customers 1 and 4 have positive revenue in the year 2021.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: WHERE Clause
 
 We can directly use the `WHERE` clause to filter out the customers whose `year` is `2021` and `revenue` is greater than $0$.
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -79,4 +95,6 @@ WHERE year = '2021' AND revenue > 0;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

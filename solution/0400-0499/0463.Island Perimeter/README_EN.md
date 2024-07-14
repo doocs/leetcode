@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0463.Island%20Perimeter/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Array
+    - Matrix
+---
+
+<!-- problem:start -->
+
 # [463. Island Perimeter](https://leetcode.com/problems/island-perimeter)
 
 [中文文档](/solution/0400-0499/0463.Island%20Perimeter/README.md)
 
-<!-- tags:Depth-First Search,Breadth-First Search,Array,Matrix -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given <code>row x col</code> <code>grid</code> representing a map where <code>grid[i][j] = 1</code> represents&nbsp;land and <code>grid[i][j] = 0</code> represents water.</p>
 
@@ -46,11 +59,17 @@
 	<li>There is exactly one island in <code>grid</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -67,6 +86,8 @@ class Solution:
                         ans -= 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +113,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -111,6 +134,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func islandPerimeter(grid [][]int) int {
@@ -132,6 +157,8 @@ func islandPerimeter(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function islandPerimeter(grid: number[][]): number {
@@ -166,4 +193,6 @@ function islandPerimeter(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

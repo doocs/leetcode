@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README.md
+rating: 2414
+source: 第 325 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+---
+
+<!-- problem:start -->
+
 # [2518. 好分区的数目](https://leetcode.cn/problems/number-of-great-partitions)
 
 [English Version](/solution/2500-2599/2518.Number%20of%20Great%20Partitions/README_EN.md)
 
-<!-- tags:数组,动态规划 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -52,7 +63,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：逆向思维 + 动态规划
 
@@ -77,6 +92,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def countPartitions(self, nums: List[int], k: int) -> int:
@@ -95,6 +112,8 @@ class Solution:
                     f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod
         return (ans - sum(f[-1]) * 2 + mod) % mod
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -130,6 +149,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -160,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func countPartitions(nums []int, k int) int {
@@ -197,4 +220,6 @@ func countPartitions(nums []int, k int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

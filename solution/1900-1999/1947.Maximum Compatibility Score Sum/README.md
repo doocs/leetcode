@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README.md
+rating: 1704
+source: 第 251 场周赛 Q3
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 回溯
+    - 状态压缩
+---
+
+<!-- problem:start -->
+
 # [1947. 最大兼容性评分和](https://leetcode.cn/problems/maximum-compatibility-score-sum)
 
 [English Version](/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README_EN.md)
 
-<!-- tags:位运算,数组,动态规划,回溯,状态压缩 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一份由 <code>n</code> 个问题组成的调查问卷，每个问题的答案要么是 <code>0</code>（no，否），要么是 <code>1</code>（yes，是）。</p>
 
@@ -53,7 +67,11 @@
 	<li><code>mentors[j][k]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：预处理 + 回溯
 
@@ -62,6 +80,8 @@
 时间复杂度 $O(m!)$，其中 $m$ 为学生或导师的数量。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -89,6 +109,8 @@ class Solution:
         dfs(0, 0)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +150,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -165,6 +189,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 	m, n := len(students), len(students[0])
@@ -201,4 +227,6 @@ func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

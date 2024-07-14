@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README.md
+rating: 1302
+source: 第 164 场周赛 Q1
+tags:
+    - 几何
+    - 数组
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [1266. 访问所有点的最小时间](https://leetcode.cn/problems/minimum-time-visiting-all-points)
 
 [English Version](/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md)
 
-<!-- tags:几何,数组,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>平面上有 <code>n</code> 个点，点的位置用整数坐标表示 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 。请你计算访问所有这些点需要的 <strong>最小时间</strong>（以秒为单位）。</p>
 
@@ -56,7 +68,11 @@
 	<li><code>-1000 <= points[i][0], points[i][1] <= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -70,6 +86,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
@@ -77,6 +95,8 @@ class Solution:
             max(abs(p1[0] - p2[0]), abs(p1[1] - p2[1])) for p1, p2 in pairwise(points)
         )
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -92,6 +112,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -106,6 +128,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minTimeToVisitAllPoints(points [][]int) (ans int) {
@@ -125,6 +149,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minTimeToVisitAllPoints(points: number[][]): number {
     let ans = 0;
@@ -136,6 +162,8 @@ function minTimeToVisitAllPoints(points: number[][]): number {
     return ans;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -151,6 +179,8 @@ impl Solution {
     }
 }
 ```
+
+#### C
 
 ```c
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -168,4 +198,6 @@ int minTimeToVisitAllPoints(int** points, int pointsSize, int* pointsColSize) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

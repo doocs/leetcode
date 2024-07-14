@@ -1,24 +1,27 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README.md
+rating: 1388
+source: 第 369 场周赛 Q1
+tags:
+    - 位运算
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [2917. 找出数组中的 K-or 值](https://leetcode.cn/problems/find-the-k-or-of-an-array)
 
 [English Version](/solution/2900-2999/2917.Find%20the%20K-or%20of%20an%20Array/README_EN.md)
 
-<!-- tags:位运算,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
-<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
-
-<p><code>nums</code> 中的 <strong>K-or</strong> 是一个满足以下条件的非负整数：</p>
-
-<ul>
-	<li>只有在 <code>nums</code> 中，至少存在 <code>k</code> 个元素的第 <code>i</code> 位值为 1 ，那么 K-or 中的第 <code>i</code> 位的值才是 1 。</li>
-</ul>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> 。让我们通过扩展标准的按位或来介绍 <strong>K-or</strong> 操作。在 K-or 操作中，如果在 <code>nums</code> 中，至少存在 <code>k</code> 个元素的第 <code>i</code> 位值为 1 ，那么 K-or 中的第 <code>i</code> 位的值是 1 。</p>
 
 <p>返回 <code>nums</code> 的 <strong>K-or</strong> 值。</p>
-
-<p><strong>注意</strong> ：对于整数 <code>x</code> ，如果&nbsp;<code>(2<sup>i</sup> AND x) == 2<sup>i</sup></code> ，则 <code>x</code> 中的第 <code>i</code> 位值为 1 ，其中 <code>AND</code> 为按位与运算符。</p>
 
 <p>&nbsp;</p>
 
@@ -27,11 +30,73 @@
 <pre>
 <strong>输入：</strong>nums = [7,12,9,8,9,15], k = 4
 <strong>输出：</strong>9
-<strong>解释：</strong>nums[0]、nums[2]、nums[4] 和 nums[5] 的第 0 位的值为 1 。
-nums[0] 和 nums[5] 的第 1 位的值为 1 。
-nums[0]、nums[1] 和 nums[5] 的第 2 位的值为 1 。
-nums[1]、nums[2]、nums[3]、nums[4] 和 nums[5] 的第 3 位的值为 1 。
-只有第 0 位和第 3 位满足数组中至少存在 k 个元素在对应位上的值为 1 。因此，答案为 2^0 + 2^3 = 9 。
+<strong>解释：</strong>
+用二进制表示 numbers：
+</pre>
+
+<table style="text-indent:10px; margin-bottom=20px;">
+	<tbody>
+		<tr>
+			<th><b>Number</b></th>
+			<th>Bit 3</th>
+			<th>Bit 2</th>
+			<th>Bit 1</th>
+			<th>Bit 0</th>
+		</tr>
+		<tr>
+			<td><b>7</b></td>
+			<td>0</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>12</b></td>
+			<td>1</td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td><b>9</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>8</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td><b>9</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>15</b></td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><b>Result = 9</b></td>
+			<td>1</td>
+			<td>0</td>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+	</tbody>
+</table>
+
+<pre>
+位 0 在 7, 9, 9, 15 中为 1。位 3 在 12, 9, 8, 9, 15 中为 1。 只有位 0 和 3 满足。结果是 (1001)<sub>2</sub> = 9。
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -39,7 +104,7 @@ nums[1]、nums[2]、nums[3]、nums[4] 和 nums[5] 的第 3 位的值为 1 。
 <pre>
 <strong>输入：</strong>nums = [2,12,1,11,4,5], k = 6
 <strong>输出：</strong>0
-<strong>解释：</strong>因为 k == 6 == nums.length ，所以数组的 6-or 等于其中所有元素按位与运算的结果。因此，答案为 2 AND 12 AND 1 AND 11 AND 4 AND 5 = 0 。
+<strong>解释：</strong>没有位在所有 6 个数字中都为 1，如 k = 6 所需要的。所以，答案为 0。
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -59,7 +124,11 @@ nums[1]、nums[2]、nums[3]、nums[4] 和 nums[5] 的第 3 位的值为 1 。
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：枚举
 
@@ -71,6 +140,8 @@ nums[1]、nums[2]、nums[3]、nums[4] 和 nums[5] 的第 3 位的值为 1 。
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findKOr(self, nums: List[int], k: int) -> int:
@@ -81,6 +152,8 @@ class Solution:
                 ans |= 1 << i
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -99,6 +172,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -119,6 +194,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findKOr(nums []int, k int) (ans int) {
 	for i := 0; i < 32; i++ {
@@ -133,6 +210,8 @@ func findKOr(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findKOr(nums: number[], k: number): number {
@@ -149,6 +228,8 @@ function findKOr(nums: number[], k: number): number {
     return ans;
 }
 ```
+
+#### C#
 
 ```cs
 public class Solution {
@@ -170,4 +251,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

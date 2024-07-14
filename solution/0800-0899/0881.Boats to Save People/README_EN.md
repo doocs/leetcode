@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+---
+
+<!-- problem:start -->
+
 # [881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people)
 
 [中文文档](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
 
-<!-- tags:Greedy,Array,Two Pointers,Sorting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given an array <code>people</code> where <code>people[i]</code> is the weight of the <code>i<sup>th</sup></code> person, and an <strong>infinite number of boats</strong> where each boat can carry a maximum weight of <code>limit</code>. Each boat carries at most two people at the same time, provided the sum of the weight of those people is at most <code>limit</code>.</p>
 
@@ -43,7 +56,11 @@
 	<li><code>1 &lt;= people[i] &lt;= limit &lt;= 3 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Greedy + Two Pointers
 
@@ -52,6 +69,8 @@ After sorting, use two pointers to point to the beginning and end of the array r
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `people`.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -66,6 +85,8 @@ class Solution:
             ans += 1
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +103,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -100,6 +123,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func numRescueBoats(people []int, limit int) int {
 	sort.Ints(people)
@@ -113,6 +138,8 @@ func numRescueBoats(people []int, limit int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function numRescueBoats(people: number[], limit: number): number {
@@ -130,4 +157,6 @@ function numRescueBoats(people: number[], limit: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

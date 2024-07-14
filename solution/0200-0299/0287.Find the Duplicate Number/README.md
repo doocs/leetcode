@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 二分查找
+---
+
+<!-- problem:start -->
+
 # [287. 寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number)
 
 [English Version](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md)
 
-<!-- tags:位运算,数组,双指针,二分查找 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个包含&nbsp;<code>n + 1</code> 个整数的数组&nbsp;<code>nums</code> ，其数字都在&nbsp;<code>[1, n]</code>&nbsp;范围内（包括 <code>1</code> 和 <code>n</code>），可知至少存在一个重复的整数。</p>
 
@@ -30,6 +41,15 @@
 <strong>输出：</strong>3
 </pre>
 
+<p><strong>示例 3 :</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [3,3,3,3,3]
+<strong>输出：</strong>3
+</pre>
+
+<p>&nbsp;</p>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
@@ -50,7 +70,11 @@
 	<li>你可以设计一个线性级时间复杂度 <code>O(n)</code> 的解决方案吗？</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：二分查找
 
@@ -62,6 +86,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
@@ -70,6 +96,8 @@ class Solution:
 
         return bisect_left(range(len(nums)), True, key=f)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -94,6 +122,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -116,6 +146,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func findDuplicate(nums []int) int {
 	return sort.Search(len(nums), func(x int) bool {
@@ -129,6 +161,8 @@ func findDuplicate(nums []int) int {
 	})
 }
 ```
+
+#### TypeScript
 
 ```ts
 function findDuplicate(nums: number[]): number {
@@ -152,6 +186,8 @@ function findDuplicate(nums: number[]): number {
 }
 ```
 
+#### Rust
+
 ```rust
 impl Solution {
     #[allow(dead_code)]
@@ -161,10 +197,7 @@ impl Solution {
 
         while left < right {
             let mid = (left + right) >> 1;
-            let cnt = nums
-                .iter()
-                .filter(|x| **x <= (mid as i32))
-                .count();
+            let cnt = nums.iter().filter(|x| **x <= (mid as i32)).count();
             if cnt > mid {
                 right = mid;
             } else {
@@ -176,6 +209,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -205,4 +240,6 @@ var findDuplicate = function (nums) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

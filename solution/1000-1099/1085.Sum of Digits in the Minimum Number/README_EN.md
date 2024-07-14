@@ -1,10 +1,23 @@
-# [1085. Sum of Digits in the Minimum Number](https://leetcode.com/problems/sum-of-digits-in-the-minimum-number)
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README_EN.md
+rating: 1256
+source: Biweekly Contest 2 Q1
+tags:
+    - Array
+    - Math
+---
+
+<!-- problem:start -->
+
+# [1085. Sum of Digits in the Minimum Number 🔒](https://leetcode.com/problems/sum-of-digits-in-the-minimum-number)
 
 [中文文档](/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README.md)
 
-<!-- tags:Array,Math -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given an integer array <code>nums</code>, return <code>0</code><em> if the sum of the digits of the minimum integer in </em><code>nums</code><em> is odd, or </em><code>1</code><em> otherwise</em>.</p>
 
@@ -33,11 +46,17 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -49,6 +68,8 @@ class Solution:
             x //= 10
         return s & 1 ^ 1
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -66,6 +87,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -80,6 +103,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumOfDigits(nums []int) int {
 	s := 0
@@ -92,4 +117,6 @@ func sumOfDigits(nums []int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

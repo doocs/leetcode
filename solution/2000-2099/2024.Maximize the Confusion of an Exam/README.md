@@ -1,12 +1,25 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README.md
+rating: 1643
+source: 第 62 场双周赛 Q3
+tags:
+    - 字符串
+    - 二分查找
+    - 前缀和
+    - 滑动窗口
+---
+
+<!-- problem:start -->
+
 # [2024. 考试的最大困扰度](https://leetcode.cn/problems/maximize-the-confusion-of-an-exam)
 
 [English Version](/solution/2000-2099/2024.Maximize%20the%20Confusion%20of%20an%20Exam/README_EN.md)
 
-<!-- tags:字符串,二分查找,前缀和,滑动窗口 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一位老师正在出一场由 <code>n</code>&nbsp;道判断题构成的考试，每道题的答案为 true （用 <code><span style="">'T'</span></code> 表示）或者 false （用 <code>'F'</code>&nbsp;表示）。老师想增加学生对自己做出答案的不确定性，方法是&nbsp;<strong>最大化&nbsp;</strong>有 <strong>连续相同</strong>&nbsp;结果的题数。（也就是连续出现 true 或者连续出现 false）。</p>
 
@@ -60,147 +73,163 @@
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：滑动窗口
 
-思路同 [1004. 最大连续 1 的个数 III](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
+我们设计一个函数 $\textit{f}(c)$，表示最多替换 $k$ 个字符 $c$ 的情况下，最长的连续字符的长度，其中 $c$ 可以是 'T' 或 'F'。答案就是 $\max(\textit{f}('T'), \textit{f}('F'))$。
 
-维护一个单调变长的窗口。这种窗口经常出现在寻求“最大窗口”的问题中：因为要求的是“最大”，所以我们没有必要缩短窗口，于是代码就少了缩短窗口的部分；从另一个角度讲，本题里的 K 是资源数，一旦透支，窗口就不能再增长了。
+我们遍历字符串 $\textit{answerKey}$，用一个变量 $\textit{cnt}$ 记录当前窗口内字符 $c$ 的个数，当 $\textit{cnt} > k$ 时，我们将窗口的左指针右移一位。遍历结束后，窗口的长度即为最大连续字符的长度。
 
--   l 是窗口左端点，负责移动起始位置
--   r 是窗口右端点，负责扩展窗口
--   k 是资源数，每次要替换，k 减 1，同时 r 向右移动
--   `r++` 每次都会执行，`l++` 只有资源 `k < 0` 时才触发，因此 `r - l` 的值只会单调递增（或保持不变）
--   移动左端点时，如果可以释放一个资源，k 加 1
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
+
+相似题目：
+
+-   [487. 最大连续1的个数 II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
+-   [1004. 最大连续1的个数 III](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        def get(c, k):
-            l = r = -1
-            while r < len(answerKey) - 1:
-                r += 1
-                if answerKey[r] == c:
-                    k -= 1
-                if k < 0:
+        def f(c: str) -> int:
+            cnt = l = 0
+            for ch in answerKey:
+                cnt += ch == c
+                if cnt > k:
+                    cnt -= answerKey[l] == c
                     l += 1
-                    if answerKey[l] == c:
-                        k += 1
-            return r - l
+            return len(answerKey) - l
 
-        return max(get('T', k), get('F', k))
+        return max(f("T"), f("F"))
 ```
+
+#### Java
 
 ```java
 class Solution {
+    private char[] s;
+    private int k;
+
     public int maxConsecutiveAnswers(String answerKey, int k) {
-        return Math.max(get('T', k, answerKey), get('F', k, answerKey));
+        s = answerKey.toCharArray();
+        this.k = k;
+        return Math.max(f('T'), f('F'));
     }
 
-    public int get(char c, int k, String answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.length()) {
-            if (answerKey.charAt(r++) == c) {
-                --k;
-            }
-            if (k < 0 && answerKey.charAt(l++) == c) {
-                ++k;
+    private int f(char c) {
+        int l = 0, cnt = 0;
+        for (char ch : s) {
+            cnt += ch == c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= s[l++] == c ? 1 : 0;
             }
         }
-        return r - l;
+        return s.length - l;
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
 public:
     int maxConsecutiveAnswers(string answerKey, int k) {
-        return max(get('T', k, answerKey), get('F', k, answerKey));
-    }
-
-    int get(char c, int k, string& answerKey) {
-        int l = 0, r = 0;
-        while (r < answerKey.size()) {
-            if (answerKey[r++] == c) --k;
-            if (k < 0 && answerKey[l++] == c) ++k;
-        }
-        return r - l;
+        int n = answerKey.size();
+        auto f = [&](char c) {
+            int l = 0, cnt = 0;
+            for (char& ch : answerKey) {
+                cnt += ch == c;
+                if (cnt > k) {
+                    cnt -= answerKey[l++] == c;
+                }
+            }
+            return n - l;
+        };
+        return max(f('T'), f('F'));
     }
 };
 ```
 
+#### Go
+
 ```go
 func maxConsecutiveAnswers(answerKey string, k int) int {
-	get := func(c byte, k int) int {
-		l, r := -1, -1
-		for r < len(answerKey)-1 {
-			r++
-			if answerKey[r] == c {
-				k--
+	f := func(c byte) int {
+		l, cnt := 0, 0
+		for _, ch := range answerKey {
+			if byte(ch) == c {
+				cnt++
 			}
-			if k < 0 {
-				l++
+			if cnt > k {
 				if answerKey[l] == c {
-					k++
+					cnt--
 				}
+				l++
 			}
 		}
-		return r - l
+		return len(answerKey) - l
 	}
-	return max(get('T', k), get('F', k))
+	return max(f('T'), f('F'))
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxConsecutiveAnswers(answerKey: string, k: number): number {
     const n = answerKey.length;
-    const getMaxCount = (target: 'T' | 'F'): number => {
-        let l = 0;
-        let u = k;
-        for (const c of answerKey) {
-            if (c !== target) {
-                u--;
-            }
-            if (u < 0 && answerKey[l++] !== target) {
-                u++;
+    const f = (c: string): number => {
+        let [l, cnt] = [0, 0];
+        for (const ch of answerKey) {
+            cnt += ch === c ? 1 : 0;
+            if (cnt > k) {
+                cnt -= answerKey[l++] === c ? 1 : 0;
             }
         }
         return n - l;
     };
-    return Math.max(getMaxCount('T'), getMaxCount('F'));
+    return Math.max(f('T'), f('F'));
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
     pub fn max_consecutive_answers(answer_key: String, k: i32) -> i32 {
-        let bs = answer_key.as_bytes();
-        let n = bs.len();
-        let get_max_count = |target| {
+        let n = answer_key.len();
+        let k = k as usize;
+        let s: Vec<char> = answer_key.chars().collect();
+
+        let f = |c: char| -> usize {
             let mut l = 0;
-            let mut u = k;
-            for b in bs.iter() {
-                if b != &target {
-                    u -= 1;
-                }
-                if u < 0 {
-                    if bs[l] != target {
-                        u += 1;
-                    }
+            let mut cnt = 0;
+            for &ch in &s {
+                cnt += if ch == c { 1 } else { 0 };
+                if cnt > k {
+                    cnt -= if s[l] == c { 1 } else { 0 };
                     l += 1;
                 }
             }
             n - l
         };
-        get_max_count(b'T').max(get_max_count(b'F')) as i32
+
+        std::cmp::max(f('T'), f('F')) as i32
     }
 }
 ```
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

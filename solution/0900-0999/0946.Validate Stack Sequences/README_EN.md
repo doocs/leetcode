@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Simulation
+---
+
+<!-- problem:start -->
+
 # [946. Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences)
 
 [中文文档](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README.md)
 
-<!-- tags:Stack,Array,Simulation -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given two integer arrays <code>pushed</code> and <code>popped</code> each with distinct values, return <code>true</code><em> if this could have been the result of a sequence of push and pop operations on an initially empty stack, or </em><code>false</code><em> otherwise.</em></p>
 
@@ -40,11 +52,17 @@ pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 	<li><code>popped</code> is a permutation of <code>pushed</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -57,6 +75,8 @@ class Solution:
                 j += 1
         return j == len(pushed)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -74,6 +94,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -93,6 +115,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func validateStackSequences(pushed []int, popped []int) bool {
 	stk := []int{}
@@ -108,6 +132,8 @@ func validateStackSequences(pushed []int, popped []int) bool {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function validateStackSequences(pushed: number[], popped: number[]): boolean {
     const stk = [];
@@ -122,6 +148,8 @@ function validateStackSequences(pushed: number[], popped: number[]): boolean {
     return j == pushed.length;
 }
 ```
+
+#### Rust
 
 ```rust
 impl Solution {
@@ -139,6 +167,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -160,6 +190,8 @@ var validateStackSequences = function (pushed, popped) {
 };
 ```
 
+#### C#
+
 ```cs
 public class Solution {
     public bool ValidateStackSequences(int[] pushed, int[] popped) {
@@ -180,4 +212,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

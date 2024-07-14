@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0781.Rabbits%20in%20Forest/README.md
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 数学
+---
+
+<!-- problem:start -->
+
 # [781. 森林中的兔子](https://leetcode.cn/problems/rabbits-in-forest)
 
 [English Version](/solution/0700-0799/0781.Rabbits%20in%20Forest/README_EN.md)
 
-<!-- tags:贪心,数组,哈希表,数学 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>森林中有未知数量的兔子。提问其中若干只兔子<strong> "还有多少只兔子与你（指被提问的兔子）颜色相同?"</strong> ，将答案收集到一个整数数组 <code>answers</code> 中，其中 <code>answers[i]</code> 是第 <code>i</code> 只兔子的回答。</p>
 
@@ -43,11 +54,17 @@
 	<li><code>0 &lt;= answers[i] &lt; 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -55,6 +72,8 @@ class Solution:
         counter = Counter(answers)
         return sum([math.ceil(v / (k + 1)) * (k + 1) for k, v in counter.items()])
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -75,4 +94,6 @@ class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

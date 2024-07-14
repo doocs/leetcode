@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README.md
+rating: 1218
+source: 第 363 场周赛 Q1
+tags:
+    - 位运算
+    - 数组
+---
+
+<!-- problem:start -->
+
 # [2859. 计算 K 置位下标对应元素的和](https://leetcode.cn/problems/sum-of-values-at-indices-with-k-set-bits)
 
 [English Version](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)
 
-<!-- tags:位运算,数组 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
 
@@ -56,7 +67,11 @@
 	<li><code>0 &lt;= k &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：模拟
 
@@ -68,11 +83,15 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def sumIndicesWithKSetBits(self, nums: List[int], k: int) -> int:
         return sum(x for i, x in enumerate(nums) if i.bit_count() == k)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -87,6 +106,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -103,6 +124,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	for i, x := range nums {
@@ -113,6 +136,8 @@ func sumIndicesWithKSetBits(nums []int, k int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function sumIndicesWithKSetBits(nums: number[], k: number): number {
@@ -137,4 +162,6 @@ function bitCount(n: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

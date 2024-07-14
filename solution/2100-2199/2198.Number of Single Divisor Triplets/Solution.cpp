@@ -1,24 +1,28 @@
 class Solution {
 public:
     long long singleDivisorTriplet(vector<int>& nums) {
-        vector<int> counter(101);
-        for (int& x : nums) ++counter[x];
+        int cnt[101]{};
+        for (int x : nums) {
+            ++cnt[x];
+        }
         long long ans = 0;
-        for (int i = 1; i <= 100; ++i) {
-            for (int j = 1; j <= 100; ++j) {
-                for (int k = 1; k <= 100; ++k) {
-                    int cnt1 = counter[i], cnt2 = counter[j], cnt3 = counter[k];
-                    int s = i + j + k;
-                    int cnt = (s % i == 0) + (s % j == 0) + (s % k == 0);
-                    if (cnt != 1) continue;
-                    if (i == j)
-                        ans += 1ll * cnt1 * (cnt1 - 1) * cnt3;
-                    else if (i == k)
-                        ans += 1ll * cnt1 * (cnt1 - 1) * cnt2;
-                    else if (j == k)
-                        ans += 1ll * cnt1 * cnt2 * (cnt2 - 1);
-                    else
-                        ans += 1ll * cnt1 * cnt2 * cnt3;
+        for (int a = 1; a <= 100; ++a) {
+            for (int b = 1; b <= 100; ++b) {
+                for (int c = 1; c <= 100; ++c) {
+                    int s = a + b + c;
+                    int x = cnt[a], y = cnt[b], z = cnt[c];
+                    int t = (s % a == 0) + (s % b == 0) + (s % c == 0);
+                    if (t == 1) {
+                        if (a == b) {
+                            ans += 1LL * x * (x - 1) * z;
+                        } else if (a == c) {
+                            ans += 1LL * x * (x - 1) * y;
+                        } else if (b == c) {
+                            ans += 1LL * x * y * (y - 1);
+                        } else {
+                            ans += 1LL * x * y * z;
+                        }
+                    }
                 }
             }
         }

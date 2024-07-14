@@ -1,19 +1,17 @@
 func minSwaps(nums []int) int {
+	k := 0
+	for _, x := range nums {
+		k += x
+	}
 	cnt := 0
-	for _, v := range nums {
-		cnt += v
+	for i := 0; i < k; i++ {
+		cnt += nums[i]
 	}
+	mx := cnt
 	n := len(nums)
-	s := make([]int, (n<<1)+1)
-	for i := 0; i < (n << 1); i++ {
-		s[i+1] = s[i] + nums[i%n]
+	for i := k; i < n+k; i++ {
+		cnt += nums[i%n] - nums[(i-k+n)%n]
+		mx = max(mx, cnt)
 	}
-	mx := 0
-	for i := 0; i < (n << 1); i++ {
-		j := i + cnt - 1
-		if j < (n << 1) {
-			mx = max(mx, s[j+1]-s[i])
-		}
-	}
-	return cnt - mx
+	return k - mx
 }

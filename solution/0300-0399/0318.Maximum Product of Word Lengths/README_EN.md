@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0318.Maximum%20Product%20of%20Word%20Lengths/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - String
+---
+
+<!-- problem:start -->
+
 # [318. Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths)
 
 [中文文档](/solution/0300-0399/0318.Maximum%20Product%20of%20Word%20Lengths/README.md)
 
-<!-- tags:Bit Manipulation,Array,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given a string array <code>words</code>, return <em>the maximum value of</em> <code>length(word[i]) * length(word[j])</code> <em>where the two words do not share common letters</em>. If no such two words exist, return <code>0</code>.</p>
 
@@ -42,7 +54,11 @@
 	<li><code>words[i]</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Bit Manipulation
 
@@ -55,6 +71,8 @@ After the traversal, we return the answer.
 The time complexity is $O(n^2 + L)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string array $words$, and $L$ is the sum of the lengths of all strings in the string array.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -69,6 +87,8 @@ class Solution:
                     ans = max(ans, len(s) * len(t))
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -90,6 +110,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -114,6 +136,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	n := len(words)
@@ -131,6 +155,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {
@@ -153,9 +179,15 @@ function maxProduct(words: string[]): number {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -173,6 +205,8 @@ class Solution:
             mask[x] = max(mask[x], a)
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -198,6 +232,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -222,6 +258,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func maxProduct(words []string) (ans int) {
 	mask := map[int]int{}
@@ -241,6 +279,8 @@ func maxProduct(words []string) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function maxProduct(words: string[]): number {
@@ -265,4 +305,6 @@ function maxProduct(words: string[]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

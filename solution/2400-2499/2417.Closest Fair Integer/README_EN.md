@@ -1,10 +1,21 @@
-# [2417. Closest Fair Integer](https://leetcode.com/problems/closest-fair-integer)
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2417.Closest%20Fair%20Integer/README_EN.md
+tags:
+    - Math
+    - Enumeration
+---
+
+<!-- problem:start -->
+
+# [2417. Closest Fair Integer 🔒](https://leetcode.com/problems/closest-fair-integer)
 
 [中文文档](/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md)
 
-<!-- tags:Math,Enumeration -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You are given a <strong>positive</strong> integer <code>n</code>.</p>
 
@@ -37,11 +48,24 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-### Solution 1
+<!-- solution:start -->
+
+### Solution 1: Case Discussion
+
+We denote the number of digits of $n$ as $k$, and the number of odd and even digits as $a$ and $b$ respectively.
+
+-   If $a = b$, then $n$ itself is `fair`, and we can directly return $n$;
+-   Otherwise, if $k$ is odd, we can find the smallest `fair` number with $k+1$ digits, in the form of `10000111`. If $k$ is even, we can directly brute force `closestFair(n+1)`.
+
+The time complexity is $O(\sqrt{n} \times \log_{10} n)$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -63,6 +87,8 @@ class Solution:
             return n
         return self.closestFair(n + 1)
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -93,6 +119,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -125,6 +153,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func closestFair(n int) int {
 	a, b := 0, 0
@@ -155,4 +185,6 @@ func closestFair(n int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

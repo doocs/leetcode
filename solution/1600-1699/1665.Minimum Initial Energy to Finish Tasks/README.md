@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README.md
+rating: 1900
+source: 第 216 场周赛 Q4
+tags:
+    - 贪心
+    - 数组
+    - 排序
+---
+
+<!-- problem:start -->
+
 # [1665. 完成所有任务的最少初始能量](https://leetcode.cn/problems/minimum-initial-energy-to-finish-tasks)
 
 [English Version](/solution/1600-1699/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README_EN.md)
 
-<!-- tags:贪心,数组,排序 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个任务数组 <code>tasks</code> ，其中 <code>tasks[i] = [actual<sub>i</sub>, minimum<sub>i</sub>]</code> ：</p>
 
@@ -69,7 +81,11 @@
 	<li><code>1 &lt;= actual<sub>​i</sub> &lt;= minimum<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：贪心 + 自定义排序
 
@@ -99,6 +115,8 @@ $$
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minimumEffort(self, tasks: List[List[int]]) -> int:
@@ -110,6 +128,8 @@ class Solution:
             cur -= a
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -128,6 +148,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -148,6 +170,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func minimumEffort(tasks [][]int) (ans int) {
 	sort.Slice(tasks, func(i, j int) bool { return tasks[i][0]-tasks[i][1] < tasks[j][0]-tasks[j][1] })
@@ -163,6 +187,8 @@ func minimumEffort(tasks [][]int) (ans int) {
 	return
 }
 ```
+
+#### TypeScript
 
 ```ts
 function minimumEffort(tasks: number[][]): number {
@@ -182,4 +208,6 @@ function minimumEffort(tasks: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

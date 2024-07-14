@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README_EN.md
+rating: 1714
+source: Biweekly Contest 47 Q3
+tags:
+    - Hash Table
+    - String
+    - Counting
+---
+
+<!-- problem:start -->
+
 # [1781. Sum of Beauty of All Substrings](https://leetcode.com/problems/sum-of-beauty-of-all-substrings)
 
 [中文文档](/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README.md)
 
-<!-- tags:Hash Table,String,Counting -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>The <strong>beauty</strong> of a string is the difference in frequencies between the most frequent and least frequent characters.</p>
 
@@ -37,7 +51,11 @@
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Enumeration + Counting
 
@@ -46,6 +64,8 @@ Enumerate the starting position $i$ of each substring, find all substrings with 
 The time complexity is $O(n^2 \times C)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -58,6 +78,8 @@ class Solution:
                 ans += max(cnt.values()) - min(cnt.values())
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -82,6 +104,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -109,6 +133,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautySum(s string) (ans int) {
 	for i := range s {
@@ -133,6 +159,8 @@ func beautySum(s string) (ans int) {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * @param {string} s
@@ -154,9 +182,15 @@ var beautySum = function (s) {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -181,6 +215,8 @@ class Solution:
                 ans += mx - mi
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -213,6 +249,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 class Solution {
@@ -247,6 +285,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 func beautySum(s string) (ans int) {
 	n := len(s)
@@ -275,6 +315,8 @@ func beautySum(s string) (ans int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -311,4 +353,6 @@ var beautySum = function (s) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

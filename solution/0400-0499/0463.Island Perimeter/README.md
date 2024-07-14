@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0463.Island%20Perimeter/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 数组
+    - 矩阵
+---
+
+<!-- problem:start -->
+
 # [463. 岛屿的周长](https://leetcode.cn/problems/island-perimeter)
 
 [English Version](/solution/0400-0499/0463.Island%20Perimeter/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,数组,矩阵 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <code>row x col</code> 的二维网格地图 <code>grid</code> ，其中：<code>grid[i][j] = 1</code> 表示陆地， <code>grid[i][j] = 0</code> 表示水域。</p>
 
@@ -50,11 +61,17 @@
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -71,6 +88,8 @@ class Solution:
                         ans -= 2
         return ans
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -96,6 +115,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -115,6 +136,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func islandPerimeter(grid [][]int) int {
@@ -136,6 +159,8 @@ func islandPerimeter(grid [][]int) int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 function islandPerimeter(grid: number[][]): number {
@@ -170,4 +195,6 @@ function islandPerimeter(grid: number[][]): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

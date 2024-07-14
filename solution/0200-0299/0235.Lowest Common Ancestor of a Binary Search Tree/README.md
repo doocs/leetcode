@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉搜索树
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree)
 
 [English Version](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉搜索树,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。</p>
 
@@ -40,7 +51,11 @@
 	<li>p、q 为不同节点且均存在于给定的二叉搜索树中。</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：迭代或递归
 
@@ -53,6 +68,8 @@
 递归的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -75,6 +92,8 @@ class Solution:
             else:
                 return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -101,6 +120,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -129,6 +150,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -151,6 +174,8 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -186,9 +211,15 @@ function lowestCommonAncestor(
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -209,6 +240,8 @@ class Solution:
             return self.lowestCommonAncestor(root.left, p, q)
         return root
 ```
+
+#### Java
 
 ```java
 /**
@@ -233,6 +266,8 @@ class Solution {
     }
 }
 ```
+
+#### C++
 
 ```cpp
 /**
@@ -259,6 +294,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -279,6 +316,8 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -308,4 +347,6 @@ function lowestCommonAncestor(
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

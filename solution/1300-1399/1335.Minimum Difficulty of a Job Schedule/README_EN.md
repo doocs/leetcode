@@ -1,10 +1,23 @@
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/README_EN.md
+rating: 2034
+source: Weekly Contest 173 Q4
+tags:
+    - Array
+    - Dynamic Programming
+---
+
+<!-- problem:start -->
+
 # [1335. Minimum Difficulty of a Job Schedule](https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule)
 
 [中文文档](/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/README.md)
 
-<!-- tags:Array,Dynamic Programming -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>You want to schedule a list of jobs in <code>d</code> days. Jobs are dependent (i.e To work on the <code>i<sup>th</sup></code> job, you have to finish all the jobs <code>j</code> where <code>0 &lt;= j &lt; i</code>).</p>
 
@@ -50,7 +63,11 @@ The difficulty of the schedule = 6 + 1 = 7
 	<li><code>1 &lt;= d &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1: Dynamic Programming
 
@@ -68,6 +85,8 @@ The time complexity is $O(n^2 \times d)$, and the space complexity is $O(n \time
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 class Solution:
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
@@ -82,6 +101,8 @@ class Solution:
                     f[i][j] = min(f[i][j], f[k - 1][j - 1] + mx)
         return -1 if f[n][d] >= inf else f[n][d]
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -107,6 +128,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -128,6 +151,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 func minDifficulty(jobDifficulty []int, d int) int {
@@ -157,6 +182,8 @@ func minDifficulty(jobDifficulty []int, d int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 function minDifficulty(jobDifficulty: number[], d: number): number {
     const n = jobDifficulty.length;
@@ -178,4 +205,6 @@ function minDifficulty(jobDifficulty: number[], d: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

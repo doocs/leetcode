@@ -1,10 +1,20 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0585.Investments%20in%202016/README_EN.md
+tags:
+    - Database
+---
+
+<!-- problem:start -->
+
 # [585. Investments in 2016](https://leetcode.com/problems/investments-in-2016)
 
 [中文文档](/solution/0500-0599/0585.Investments%20in%202016/README.md)
 
-<!-- tags:Database -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Table: <code>Insurance</code></p>
 
@@ -67,11 +77,17 @@ The second record does not meet any of the two criteria. Its tiv_2015 is not lik
 So, the result is the sum of tiv_2016 of the first and last record, which is 45.
 </pre>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### MySQL
 
 ```sql
 # Write your MySQL query statement below
@@ -90,4 +106,6 @@ WHERE cnt1 > 1 AND cnt2 = 1;
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

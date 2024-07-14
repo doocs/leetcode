@@ -1,12 +1,24 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README.md
+rating: 1446
+source: 第 132 场周赛 Q2
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [1026. 节点与其祖先之间的最大差值](https://leetcode.cn/problems/maximum-difference-between-node-and-ancestor)
 
 [English Version](/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README_EN.md)
 
-<!-- tags:树,深度优先搜索,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定二叉树的根节点 <code>root</code>，找出存在于 <strong>不同</strong> 节点 <code>A</code> 和 <code>B</code> 之间的最大值 <code>V</code>，其中 <code>V = |A.val - B.val|</code>，且 <code>A</code> 是 <code>B</code> 的祖先。</p>
 
@@ -46,11 +58,15 @@
 	<li><code>0 <= Node.val <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：DFS
 
-对于每个节点，求其与祖先节点的最大差值，我们只需要求出该节点与祖先节点最大值和最小值的差值，取所有差值的最大值即可。
+对于每个节点，求其与祖先节点的最大差值，我们只需要求出该节点与祖先节点最大值和最小值的差值。取所有节点与祖先节点差值的最大值即可。
 
 因此，我们设计一个函数 $dfs(root, mi, mx)$，表示当前搜索到的节点为 $root$，其祖先节点的最大值为 $mx$，最小值为 $mi$，函数内更新最大差值 $ans$。
 
@@ -66,6 +82,8 @@
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -75,7 +93,7 @@
 #         self.right = right
 class Solution:
     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
-        def dfs(root, mi, mx):
+        def dfs(root: Optional[TreeNode], mi: int, mx: int):
             if root is None:
                 return
             nonlocal ans
@@ -89,6 +107,8 @@ class Solution:
         dfs(root, root.val, root.val)
         return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -128,6 +148,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -159,6 +181,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 /**
@@ -193,6 +217,8 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
 ```ts
 /**
  * Definition for a binary tree node.
@@ -225,6 +251,8 @@ function maxAncestorDiff(root: TreeNode | null): number {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -255,6 +283,46 @@ var maxAncestorDiff = function (root) {
 };
 ```
 
+#### C#
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private int ans;
+
+    public int MaxAncestorDiff(TreeNode root) {
+        dfs(root, root.val, root.val);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int mi, int mx) {
+        if (root == null) {
+            return;
+        }
+        int x = Math.Max(Math.Abs(mi - root.val), Math.Abs(mx - root.val));
+        ans = Math.Max(ans, x);
+        mi = Math.Min(mi, root.val);
+        mx = Math.Max(mx, root.val);
+        dfs(root.left, mi, mx);
+        dfs(root.right, mi, mx);
+    }
+}
+```
+
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

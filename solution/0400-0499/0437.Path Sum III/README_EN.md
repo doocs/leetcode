@@ -1,10 +1,22 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0437.Path%20Sum%20III/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [437. Path Sum III](https://leetcode.com/problems/path-sum-iii)
 
 [中文文档](/solution/0400-0499/0437.Path%20Sum%20III/README.md)
 
-<!-- tags:Tree,Depth-First Search,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return <em>the number of paths where the sum of the values&nbsp;along the path equals</em>&nbsp;<code>targetSum</code>.</p>
 
@@ -35,11 +47,17 @@
 	<li><code>-1000 &lt;= targetSum &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -64,6 +82,8 @@ class Solution:
         cnt = Counter({0: 1})
         return dfs(root, 0)
 ```
+
+#### Java
 
 ```java
 /**
@@ -106,6 +126,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -137,6 +159,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -163,6 +187,8 @@ func pathSum(root *TreeNode, targetSum int) int {
 	return dfs(root, 0)
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -200,4 +226,6 @@ function pathSum(root: TreeNode | null, targetSum: number): number {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

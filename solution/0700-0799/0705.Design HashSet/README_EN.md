@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Easy
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0705.Design%20HashSet/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - Linked List
+    - Hash Function
+---
+
+<!-- problem:start -->
+
 # [705. Design HashSet](https://leetcode.com/problems/design-hashset)
 
 [中文文档](/solution/0700-0799/0705.Design%20HashSet/README.md)
 
-<!-- tags:Design,Array,Hash Table,Linked List,Hash Function -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Design a HashSet without using any built-in hash table libraries.</p>
 
@@ -45,11 +59,17 @@ myHashSet.contains(2); // return False, (already removed)</pre>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>add</code>, <code>remove</code>, and <code>contains</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyHashSet:
@@ -72,6 +92,8 @@ class MyHashSet:
 # obj.remove(key)
 # param_3 = obj.contains(key)
 ```
+
+#### Java
 
 ```java
 class MyHashSet {
@@ -101,6 +123,8 @@ class MyHashSet {
  * boolean param_3 = obj.contains(key);
  */
 ```
+
+#### C++
 
 ```cpp
 class MyHashSet {
@@ -133,6 +157,8 @@ public:
  */
 ```
 
+#### Go
+
 ```go
 type MyHashSet struct {
 	data []bool
@@ -163,6 +189,8 @@ func (this *MyHashSet) Contains(key int) bool {
  * param_3 := obj.Contains(key);
  */
 ```
+
+#### TypeScript
 
 ```ts
 class MyHashSet {
@@ -195,9 +223,15 @@ class MyHashSet {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### Solution 2
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class MyHashSet:
@@ -231,6 +265,8 @@ class MyHashSet:
 # obj.remove(key)
 # param_3 = obj.contains(key)
 ```
+
+#### Java
 
 ```java
 class MyHashSet {
@@ -286,6 +322,8 @@ class MyHashSet {
  */
 ```
 
+#### C++
+
 ```cpp
 class MyHashSet {
 private:
@@ -336,6 +374,8 @@ public:
  * bool param_3 = obj->contains(key);
  */
 ```
+
+#### Go
 
 ```go
 type MyHashSet struct {
@@ -388,4 +428,6 @@ func (this *MyHashSet) hash(key int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

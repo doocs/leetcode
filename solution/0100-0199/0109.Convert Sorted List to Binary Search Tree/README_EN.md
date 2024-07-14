@@ -1,10 +1,24 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0109.Convert%20Sorted%20List%20to%20Binary%20Search%20Tree/README_EN.md
+tags:
+    - Tree
+    - Binary Search Tree
+    - Linked List
+    - Divide and Conquer
+    - Binary Tree
+---
+
+<!-- problem:start -->
+
 # [109. Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree)
 
 [中文文档](/solution/0100-0199/0109.Convert%20Sorted%20List%20to%20Binary%20Search%20Tree/README.md)
 
-<!-- tags:Tree,Binary Search Tree,Linked List,Divide and Conquer,Binary Tree -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Given the <code>head</code> of a singly linked list where elements are sorted in <strong>ascending order</strong>, convert <em>it to a </em><span data-keyword="height-balanced"><strong><em>height-balanced</em></strong></span> <em>binary search tree</em>.</p>
 
@@ -32,11 +46,17 @@
 	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
+
+<!-- solution:start -->
 
 ### Solution 1
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for singly-linked list.
@@ -66,6 +86,8 @@ class Solution:
             head = head.next
         return buildBST(nums, 0, len(nums) - 1)
 ```
+
+#### Java
 
 ```java
 /**
@@ -115,6 +137,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -161,6 +185,8 @@ private:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -198,6 +224,8 @@ func buildBST(nums []int, start, end int) *TreeNode {
 	}
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -249,6 +277,8 @@ function sortedListToBST(head: ListNode | null): TreeNode | null {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for singly-linked list.
 // #[derive(PartialEq, Eq, Clone, Debug)]
@@ -284,23 +314,19 @@ function sortedListToBST(head: ListNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
     fn build(vals: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
         if start == end {
             return None;
         }
         let mid = (start + end) >> 1;
-        Some(
-            Rc::new(
-                RefCell::new(TreeNode {
-                    val: vals[mid],
-                    left: Self::build(vals, start, mid),
-                    right: Self::build(vals, mid + 1, end),
-                })
-            )
-        )
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: vals[mid],
+            left: Self::build(vals, start, mid),
+            right: Self::build(vals, mid + 1, end),
+        })))
     }
 
     pub fn sorted_list_to_bst(head: Option<Box<ListNode>>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -314,6 +340,8 @@ impl Solution {
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -354,6 +382,8 @@ var sortedListToBST = function (head) {
     return buildBST(nums, 0, nums.length - 1);
 };
 ```
+
+#### C
 
 ```c
 /**
@@ -400,4 +430,6 @@ struct TreeNode* sortedListToBST(struct ListNode* head) {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

@@ -1,12 +1,25 @@
-# [737. 句子相似性 II](https://leetcode.cn/problems/sentence-similarity-ii)
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0737.Sentence%20Similarity%20II/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 数组
+    - 哈希表
+    - 字符串
+---
+
+<!-- problem:start -->
+
+# [737. 句子相似性 II 🔒](https://leetcode.cn/problems/sentence-similarity-ii)
 
 [English Version](/solution/0700-0799/0737.Sentence%20Similarity%20II/README_EN.md)
 
-<!-- tags:深度优先搜索,广度优先搜索,并查集,数组,哈希表,字符串 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们可以将一个句子表示为一个单词数组，例如，句子 <code>I am happy with leetcode"</code>可以表示为&nbsp;<code>arr = ["I","am",happy","with","leetcode"]</code></p>
 
@@ -63,11 +76,17 @@
 	<li><code>x<sub>i</sub></code>&nbsp;和&nbsp;<code>y<sub>i</sub></code>&nbsp;只含英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Solution:
@@ -106,6 +125,8 @@ class Solution:
                 return False
         return True
 ```
+
+#### Java
 
 ```java
 class Solution {
@@ -154,6 +175,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 class Solution {
 public:
@@ -191,6 +214,8 @@ public:
     }
 };
 ```
+
+#### Go
 
 ```go
 var p []int
@@ -239,4 +264,6 @@ func find(x int) int {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

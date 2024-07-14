@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 中等
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 哈希表
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [508. 出现次数最多的子树元素和](https://leetcode.cn/problems/most-frequent-subtree-sum)
 
 [English Version](/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README_EN.md)
 
-<!-- tags:树,深度优先搜索,哈希表,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个二叉树的根结点&nbsp;<code>root</code>&nbsp;，请返回出现次数最多的子树元素和。如果有多个元素出现的次数相同，返回所有出现次数最多的子树元素和（不限顺序）。</p>
 
@@ -41,11 +52,17 @@
 	<li><code>-10<sup>5</sup>&nbsp;&lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -69,6 +86,8 @@ class Solution:
         mx = max(counter.values())
         return [k for k, v in counter.items() if v == mx]
 ```
+
+#### Java
 
 ```java
 /**
@@ -119,6 +138,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -156,6 +177,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -190,6 +213,8 @@ func findFrequentTreeSum(root *TreeNode) []int {
 	return ans
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -230,6 +255,8 @@ function findFrequentTreeSum(root: TreeNode | null): number[] {
 }
 ```
 
+#### Rust
+
 ```rust
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -249,14 +276,14 @@ function findFrequentTreeSum(root: TreeNode | null): number[] {
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
 use std::collections::HashMap;
+use std::rc::Rc;
 impl Solution {
     fn dfs(
         root: &Option<Rc<RefCell<TreeNode>>>,
         map: &mut HashMap<i32, i32>,
-        max: &mut i32
+        max: &mut i32,
     ) -> i32 {
         if root.is_none() {
             return 0;
@@ -285,4 +312,6 @@ impl Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

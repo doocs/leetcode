@@ -1,10 +1,23 @@
-# [772. Basic Calculator III](https://leetcode.com/problems/basic-calculator-iii)
+---
+comments: true
+difficulty: Hard
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0772.Basic%20Calculator%20III/README_EN.md
+tags:
+    - Stack
+    - Recursion
+    - Math
+    - String
+---
+
+<!-- problem:start -->
+
+# [772. Basic Calculator III 🔒](https://leetcode.com/problems/basic-calculator-iii)
 
 [中文文档](/solution/0700-0799/0772.Basic%20Calculator%20III/README.md)
 
-<!-- tags:Stack,Recursion,Math,String -->
-
 ## Description
+
+<!-- description:start -->
 
 <p>Implement a basic calculator to evaluate a simple expression string.</p>
 
@@ -45,6 +58,42 @@
 	<li><code>s</code> is a <strong>valid</strong> expression.</li>
 </ul>
 
+<!-- description:end -->
+
 ## Solutions
 
-<!-- end -->
+<!-- solution:start -->
+
+### Solution 1
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+
+```
+
+#### Java
+
+```java
+
+```
+
+#### C++
+
+```cpp
+
+```
+
+#### Go
+
+```go
+
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

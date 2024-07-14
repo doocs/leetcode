@@ -1,12 +1,26 @@
+---
+comments: true
+difficulty: 困难
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1032.Stream%20of%20Characters/README.md
+rating: 1970
+source: 第 133 场周赛 Q4
+tags:
+    - 设计
+    - 字典树
+    - 数组
+    - 字符串
+    - 数据流
+---
+
+<!-- problem:start -->
+
 # [1032. 字符流](https://leetcode.cn/problems/stream-of-characters)
 
 [English Version](/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md)
 
-<!-- tags:设计,字典树,数组,字符串,数据流 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个算法：接收一个字符流，并检查这些字符的后缀是否是字符串数组 <code>words</code> 中的一个字符串。</p>
 
@@ -58,7 +72,11 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 	<li>最多调用查询 <code>4 * 10<sup>4</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：前缀树
 
@@ -74,6 +92,8 @@ streamChecker.query("l"); // 返回 True ，因为 'kl' 在 words 中
 时间复杂度方面，构造函数的时间复杂度为 $O(L)$，而 `query` 函数的时间复杂度为 $O(M)$。其中 $L$ 为字符串数组 $words$ 中所有字符串的长度之和，而 $M$ 为字符串数组 $words$ 中字符串的最大长度。空间复杂度 $O(L)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 class Trie:
@@ -119,6 +139,8 @@ class StreamChecker:
 # obj = StreamChecker(words)
 # param_1 = obj.query(letter)
 ```
+
+#### Java
 
 ```java
 class Trie {
@@ -175,6 +197,8 @@ class StreamChecker {
  * boolean param_1 = obj.query(letter);
  */
 ```
+
+#### C++
 
 ```cpp
 class Trie {
@@ -238,6 +262,8 @@ public:
  * bool param_1 = obj->query(letter);
  */
 ```
+
+#### Go
 
 ```go
 type Trie struct {
@@ -303,4 +329,6 @@ func (this *StreamChecker) Query(letter byte) bool {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

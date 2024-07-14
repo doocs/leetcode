@@ -1,12 +1,23 @@
+---
+comments: true
+difficulty: 简单
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README.md
+tags:
+    - 位运算
+    - 树
+    - 二分查找
+    - 二叉树
+---
+
+<!-- problem:start -->
+
 # [222. 完全二叉树的节点个数](https://leetcode.cn/problems/count-complete-tree-nodes)
 
 [English Version](/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README_EN.md)
 
-<!-- tags:位运算,树,二分查找,二叉树 -->
-
 ## 题目描述
 
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一棵<strong> 完全二叉树</strong> 的根节点 <code>root</code> ，求出该树的节点个数。</p>
 
@@ -49,7 +60,11 @@
 
 <p><strong>进阶：</strong>遍历树来统计节点是一种时间复杂度为 <code>O(n)</code> 的简单解决方案。你可以设计一个更快的算法吗？</p>
 
+<!-- description:end -->
+
 ## 解法
+
+<!-- solution:start -->
 
 ### 方法一：递归
 
@@ -58,6 +73,8 @@
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为树的结点个数。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -72,6 +89,8 @@ class Solution:
             return 0
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 ```
+
+#### Java
 
 ```java
 /**
@@ -99,6 +118,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -122,6 +143,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -138,6 +161,8 @@ func countNodes(root *TreeNode) int {
 	return 1 + countNodes(root.Left) + countNodes(root.Right)
 }
 ```
+
+#### Rust
 
 ```rust
 use std::cell::RefCell;
@@ -160,10 +185,16 @@ impl Solution {
     }
 
     fn depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if let Some(node) = root { Self::depth(&node.borrow().left) + 1 } else { 0 }
+        if let Some(node) = root {
+            Self::depth(&node.borrow().left) + 1
+        } else {
+            0
+        }
     }
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -185,6 +216,8 @@ var countNodes = function (root) {
     return 1 + countNodes(root.left) + countNodes(root.right);
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -212,6 +245,10 @@ public class Solution {
 
 <!-- tabs:end -->
 
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 ### 方法二：二分查找
 
 对于此题，我们还可以利用完全二叉树的特点，设计一个更快的算法。
@@ -228,6 +265,8 @@ public class Solution {
 时间复杂度 $O(\log^2 n)$。
 
 <!-- tabs:start -->
+
+#### Python3
 
 ```python
 # Definition for a binary tree node.
@@ -252,6 +291,8 @@ class Solution:
             return (1 << left) + self.countNodes(root.right)
         return (1 << right) + self.countNodes(root.left)
 ```
+
+#### Java
 
 ```java
 /**
@@ -292,6 +333,8 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -328,6 +371,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -355,6 +400,8 @@ func depth(root *TreeNode) (d int) {
 	return
 }
 ```
+
+#### JavaScript
 
 ```js
 /**
@@ -388,6 +435,8 @@ var countNodes = function (root) {
     return (1 << right) + countNodes(root.left);
 };
 ```
+
+#### C#
 
 ```cs
 /**
@@ -428,4 +477,6 @@ public class Solution {
 
 <!-- tabs:end -->
 
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->

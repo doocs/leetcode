@@ -2,19 +2,21 @@ class Solution {
 public:
     vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
         sort(items.begin(), items.end());
-        for (int i = 1; i < items.size(); ++i) items[i][1] = max(items[i - 1][1], items[i][1]);
-        int n = queries.size();
-        vector<int> ans(n);
-        for (int i = 0; i < n; ++i) {
-            int left = 0, right = items.size();
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (items[mid][0] > queries[i])
-                    right = mid;
-                else
-                    left = mid + 1;
+        int n = items.size();
+        int m = queries.size();
+        vector<int> idx(m);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return queries[i] < queries[j];
+        });
+        int mx = 0, i = 0;
+        vector<int> ans(m);
+        for (int j : idx) {
+            while (i < n && items[i][0] <= queries[j]) {
+                mx = max(mx, items[i][1]);
+                ++i;
             }
-            if (left) ans[i] = items[left - 1][1];
+            ans[j] = mx;
         }
         return ans;
     }
