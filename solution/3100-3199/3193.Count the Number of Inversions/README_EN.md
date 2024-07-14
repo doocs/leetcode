@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3193.Count%20the%20Number%20of%20Inversions/README_EN.md
+rating: 2266
+source: Biweekly Contest 133 Q4
 tags:
     - Array
     - Dynamic Programming

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3184.Count%20Pairs%20That%20Form%20a%20Complete%20Day%20I/README.md
+rating: 1149
+source: 第 402 场周赛 Q1
 tags:
     - 数组
     - 哈希表
