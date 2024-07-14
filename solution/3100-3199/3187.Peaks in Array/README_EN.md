@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3187.Peaks%20in%20Array/README_EN.md
+rating: 2154
+source: Weekly Contest 402 Q4
 tags:
     - Binary Indexed Tree
     - Segment Tree

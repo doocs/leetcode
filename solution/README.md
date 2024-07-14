@@ -3226,6 +3226,10 @@
 |  3213  |  [最小代价构造字符串](/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README.md)  |  `数组`,`字符串`,`动态规划`,`后缀数组`  |  困难  |  第 405 场周赛  |
 |  3214  |  [同比增长率](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  3215  |  [用偶数异或设置位计数三元组 II](/solution/3200-3299/3215.Count%20Triplets%20with%20Even%20XOR%20Set%20Bits%20II/README.md)  |    |  中等  |  🔒  |
+|  3216  |  [交换后字典序最小的字符串](/solution/3200-3299/3216.Lexicographically%20Smallest%20String%20After%20a%20Swap/README.md)  |    |  简单  |  第 406 场周赛  |
+|  3217  |  [从链表中移除在数组中存在的节点](/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README.md)  |    |  中等  |  第 406 场周赛  |
+|  3218  |  [切蛋糕的最小总开销 I](/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README.md)  |    |  中等  |  第 406 场周赛  |
+|  3219  |  [切蛋糕的最小总开销 II](/solution/3200-3299/3219.Minimum%20Cost%20for%20Cutting%20Cake%20II/README.md)  |    |  困难  |  第 406 场周赛  |
 
 ## 版权
 

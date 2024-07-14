@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 406
+
+- [3216. Lexicographically Smallest String After a Swap](/solution/3200-3299/3216.Lexicographically%20Smallest%20String%20After%20a%20Swap/README_EN.md)
+- [3217. Delete Nodes From Linked List Present in Array](/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README_EN.md)
+- [3218. Minimum Cost for Cutting Cake I](/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README_EN.md)
+- [3219. Minimum Cost for Cutting Cake II](/solution/3200-3299/3219.Minimum%20Cost%20for%20Cutting%20Cake%20II/README_EN.md)
+
 #### Weekly Contest 405
 
 - [3210. Find the Encrypted String](/solution/3200-3299/3210.Find%20the%20Encrypted%20String/README_EN.md)

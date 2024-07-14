@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3196.Maximize%20Total%20Cost%20of%20Alternating%20Subarrays/README.md
+rating: 1846
+source: 第 403 场周赛 Q3
 tags:
     - 数组
     - 动态规划

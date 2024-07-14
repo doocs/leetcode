@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README.md
+rating: 1311
+source: 第 133 场双周赛 Q2
 tags:
     - 位运算
     - 队列
