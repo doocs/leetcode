@@ -52,7 +52,8 @@ class Solution {
         Map<Integer, Set<String>> g = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             int root = uf.find(i);
-            g.computeIfAbsent(root, k -> new HashSet<>()).addAll(accounts.get(i).subList(1, accounts.get(i).size()));
+            g.computeIfAbsent(root, k -> new HashSet<>())
+                .addAll(accounts.get(i).subList(1, accounts.get(i).size()));
         }
         List<List<String>> ans = new ArrayList<>();
         for (var e : g.entrySet()) {
