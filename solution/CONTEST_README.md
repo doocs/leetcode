@@ -166,7 +166,7 @@ comments: true
 - [3116. 单面值组合的第 K 小金额](/solution/3100-3199/3116.Kth%20Smallest%20Amount%20With%20Single%20Denomination%20Combination/README.md)
 - [3117. 划分数组得到最小的值之和](/solution/3100-3199/3117.Minimum%20Sum%20of%20Values%20by%20Dividing%20Array/README.md)
 
-#### 第 128 场双周赛(2024-04-13 22:30, 90 分钟) 参赛人数 2653
+#### 第 128 场双周赛(2024-04-13 22:30, 90 分钟) 参赛人数 2654
 
 - [3110. 字符串的分数](/solution/3100-3199/3110.Score%20of%20a%20String/README.md)
 - [3111. 覆盖所有点的最少矩形数目](/solution/3100-3199/3111.Minimum%20Rectangles%20to%20Cover%20Points/README.md)
