@@ -17,44 +17,42 @@
 //   }
 // }
 use std::cell::RefCell;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
 impl Solution {
-    fn dfs(val: i32, map: &HashMap<i32, [i32; 2]>) -> Option<Rc<RefCell<TreeNode>>> {
-        if val == 0 {
-            return None;
-        }
-        let mut left = None;
-        let mut right = None;
-        if let Some(&[l_val, r_val]) = map.get(&val) {
-            left = Self::dfs(l_val, map);
-            right = Self::dfs(r_val, map);
-        }
-        Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
-    }
-
     pub fn create_binary_tree(descriptions: Vec<Vec<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
-        let mut map = HashMap::new();
-        let mut is_root = HashMap::new();
-        for description in descriptions.iter() {
-            let (parent, child, is_left) = (description[0], description[1], description[2] == 1);
-            let [mut left, mut right] = map.get(&parent).unwrap_or(&[0, 0]);
-            if is_left {
-                left = child;
+        let mut nodes = HashMap::new();
+        let mut children = HashSet::new();
+
+        for d in descriptions {
+            let parent = d[0];
+            let child = d[1];
+            let is_left = d[2];
+
+            nodes
+                .entry(parent)
+                .or_insert_with(|| Rc::new(RefCell::new(TreeNode::new(parent))));
+            nodes
+                .entry(child)
+                .or_insert_with(|| Rc::new(RefCell::new(TreeNode::new(child))));
+
+            if is_left == 1 {
+                nodes.get(&parent).unwrap().borrow_mut().left =
+                    Some(Rc::clone(nodes.get(&child).unwrap()));
             } else {
-                right = child;
+                nodes.get(&parent).unwrap().borrow_mut().right =
+                    Some(Rc::clone(nodes.get(&child).unwrap()));
             }
-            if !is_root.contains_key(&parent) {
-                is_root.insert(parent, true);
-            }
-            is_root.insert(child, false);
-            map.insert(parent, [left, right]);
+
+            children.insert(child);
         }
-        for key in is_root.keys() {
-            if *is_root.get(key).unwrap() {
-                return Self::dfs(*key, &map);
+
+        for (key, node) in &nodes {
+            if !children.contains(key) {
+                return Some(Rc::clone(node));
             }
         }
+
         None
     }
 }

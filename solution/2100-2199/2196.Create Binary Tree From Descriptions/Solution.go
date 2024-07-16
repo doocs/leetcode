@@ -7,27 +7,26 @@
  * }
  */
 func createBinaryTree(descriptions [][]int) *TreeNode {
-	m := make(map[int]*TreeNode)
-	vis := make(map[int]bool)
+	nodes := map[int]*TreeNode{}
+	children := map[int]bool{}
 	for _, d := range descriptions {
-		p, c, left := d[0], d[1], d[2]
-		if m[p] == nil {
-			m[p] = &TreeNode{Val: p}
+		parent, child, isLeft := d[0], d[1], d[2]
+		if _, ok := nodes[parent]; !ok {
+			nodes[parent] = &TreeNode{Val: parent}
 		}
-		if m[c] == nil {
-			m[c] = &TreeNode{Val: c}
+		if _, ok := nodes[child]; !ok {
+			nodes[child] = &TreeNode{Val: child}
 		}
-		if left == 1 {
-			m[p].Left = m[c]
+		if isLeft == 1 {
+			nodes[parent].Left = nodes[child]
 		} else {
-			m[p].Right = m[c]
+			nodes[parent].Right = nodes[child]
 		}
-		vis[c] = true
+		children[child] = true
 	}
-
-	for v, node := range m {
-		if !vis[v] {
-			return node
+	for k, v := range nodes {
+		if _, ok := children[k]; !ok {
+			return v
 		}
 	}
 	return nil
