@@ -68,7 +68,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Lowest Common Ancestor + DFS
+
+We can first find the lowest common ancestor of nodes $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{node}$. Then, starting from $\textit{node}$, we find the paths to $\textit{startValue}$ and $\textit{destValue}$ respectively. The path from $\textit{startValue}$ to $\textit{node}$ will consist of a number of $\textit{U}$s, and the path from $\textit{node}$ to $\textit{destValue}$ will be the $\textit{path}$. Finally, we concatenate these two paths.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -81,115 +85,88 @@ tags:
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+
 class Solution:
     def getDirections(
         self, root: Optional[TreeNode], startValue: int, destValue: int
     ) -> str:
-        edges = defaultdict(list)
-        ans = None
-        visited = set()
+        def lca(node: Optional[TreeNode], p: int, q: int):
+            if node is None or node.val in (p, q):
+                return node
+            left = lca(node.left, p, q)
+            right = lca(node.right, p, q)
+            if left and right:
+                return node
+            return left or right
 
-        def traverse(root):
-            if not root:
-                return
-            if root.left:
-                edges[root.val].append([root.left.val, 'L'])
-                edges[root.left.val].append([root.val, 'U'])
-            if root.right:
-                edges[root.val].append([root.right.val, 'R'])
-                edges[root.right.val].append([root.val, 'U'])
-            traverse(root.left)
-            traverse(root.right)
+        def dfs(node: Optional[TreeNode], x: int, path: List[str]):
+            if node is None:
+                return False
+            if node.val == x:
+                return True
+            path.append("L")
+            if dfs(node.left, x, path):
+                return True
+            path[-1] = "R"
+            if dfs(node.right, x, path):
+                return True
+            path.pop()
+            return False
 
-        def dfs(start, dest, t):
-            nonlocal ans
-            if start in visited:
-                return
-            if start == dest:
-                if ans is None or len(ans) > len(t):
-                    ans = ''.join(t)
-                return
-            visited.add(start)
-            for d, k in edges[start]:
-                t.append(k)
-                dfs(d, dest, t)
-                t.pop()
+        node = lca(root, startValue, destValue)
 
-        traverse(root)
-        dfs(startValue, destValue, [])
-        return ans
+        path_to_start = []
+        path_to_dest = []
+
+        dfs(node, startValue, path_to_start)
+        dfs(node, destValue, path_to_dest)
+
+        return "U" * len(path_to_start) + "".join(path_to_dest)
 ```
 
 #### Java
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    private Map<Integer, List<List<String>>> edges;
-    private Set<Integer> visited;
-    private String ans;
-
     public String getDirections(TreeNode root, int startValue, int destValue) {
-        edges = new HashMap<>();
-        visited = new HashSet<>();
-        ans = null;
-        traverse(root);
-        dfs(startValue, destValue, new ArrayList<>());
-        return ans;
+        TreeNode node = lca(root, startValue, destValue);
+        StringBuilder pathToStart = new StringBuilder();
+        StringBuilder pathToDest = new StringBuilder();
+        dfs(node, startValue, pathToStart);
+        dfs(node, destValue, pathToDest);
+        return "U".repeat(pathToStart.length()) + pathToDest.toString();
     }
 
-    private void traverse(TreeNode root) {
-        if (root == null) {
-            return;
+    private TreeNode lca(TreeNode node, int p, int q) {
+        if (node == null || node.val == p || node.val == q) {
+            return node;
         }
-        if (root.left != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.left.val), "L"));
-            edges.computeIfAbsent(root.left.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.val), "U"));
+        TreeNode left = lca(node.left, p, q);
+        TreeNode right = lca(node.right, p, q);
+        if (left != null && right != null) {
+            return node;
         }
-        if (root.right != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.right.val), "R"));
-            edges.computeIfAbsent(root.right.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.val), "U"));
-        }
-        traverse(root.left);
-        traverse(root.right);
+        return left != null ? left : right;
     }
 
-    private void dfs(int start, int dest, List<String> t) {
-        if (visited.contains(start)) {
-            return;
+    private boolean dfs(TreeNode node, int x, StringBuilder path) {
+        if (node == null) {
+            return false;
         }
-        if (start == dest) {
-            if (ans == null || ans.length() > t.size()) {
-                ans = String.join("", t);
-            }
-            return;
+        if (node.val == x) {
+            return true;
         }
-        visited.add(start);
-        if (edges.containsKey(start)) {
-            for (List<String> item : edges.get(start)) {
-                t.add(item.get(1));
-                dfs(Integer.parseInt(item.get(0)), dest, t);
-                t.remove(t.size() - 1);
-            }
+        path.append('L');
+        if (dfs(node.left, x, path)) {
+            return true;
         }
+        path.setCharAt(path.length() - 1, 'R');
+        if (dfs(node.right, x, path)) {
+            return true;
+        }
+        path.deleteCharAt(path.length() - 1);
+        return false;
     }
 }
 ```
@@ -210,48 +187,238 @@ class Solution {
  */
 class Solution {
 public:
-    unordered_map<int, vector<pair<int, char>>> edges;
-    unordered_set<int> visited;
-    string ans;
-
     string getDirections(TreeNode* root, int startValue, int destValue) {
-        ans = "";
-        traverse(root);
-        string t = "";
-        dfs(startValue, destValue, t);
-        return ans;
+        TreeNode* node = lca(root, startValue, destValue);
+        string pathToStart, pathToDest;
+        dfs(node, startValue, pathToStart);
+        dfs(node, destValue, pathToDest);
+        return string(pathToStart.size(), 'U') + pathToDest;
     }
 
-    void traverse(TreeNode* root) {
-        if (!root) return;
-        if (root->left) {
-            edges[root->val].push_back({root->left->val, 'L'});
-            edges[root->left->val].push_back({root->val, 'U'});
+private:
+    TreeNode* lca(TreeNode* node, int p, int q) {
+        if (node == nullptr || node->val == p || node->val == q) {
+            return node;
         }
-        if (root->right) {
-            edges[root->val].push_back({root->right->val, 'R'});
-            edges[root->right->val].push_back({root->val, 'U'});
+        TreeNode* left = lca(node->left, p, q);
+        TreeNode* right = lca(node->right, p, q);
+        if (left != nullptr && right != nullptr) {
+            return node;
         }
-        traverse(root->left);
-        traverse(root->right);
+        return left != nullptr ? left : right;
     }
 
-    void dfs(int start, int dest, string& t) {
-        if (visited.count(start)) return;
-        if (start == dest) {
-            if (ans == "" || ans.size() > t.size()) ans = t;
-            return;
+    bool dfs(TreeNode* node, int x, string& path) {
+        if (node == nullptr) {
+            return false;
         }
-        visited.insert(start);
-        if (edges.count(start)) {
-            for (auto& item : edges[start]) {
-                t += item.second;
-                dfs(item.first, dest, t);
-                t.pop_back();
-            }
+        if (node->val == x) {
+            return true;
         }
+        path.push_back('L');
+        if (dfs(node->left, x, path)) {
+            return true;
+        }
+        path.back() = 'R';
+        if (dfs(node->right, x, path)) {
+            return true;
+        }
+        path.pop_back();
+        return false;
     }
 };
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func getDirections(root *TreeNode, startValue int, destValue int) string {
+	var lca func(node *TreeNode, p, q int) *TreeNode
+	lca = func(node *TreeNode, p, q int) *TreeNode {
+		if node == nil || node.Val == p || node.Val == q {
+			return node
+		}
+		left := lca(node.Left, p, q)
+		right := lca(node.Right, p, q)
+		if left != nil && right != nil {
+			return node
+		}
+		if left != nil {
+			return left
+		}
+		return right
+	}
+	var dfs func(node *TreeNode, x int, path *[]byte) bool
+	dfs = func(node *TreeNode, x int, path *[]byte) bool {
+		if node == nil {
+			return false
+		}
+		if node.Val == x {
+			return true
+		}
+		*path = append(*path, 'L')
+		if dfs(node.Left, x, path) {
+			return true
+		}
+		(*path)[len(*path)-1] = 'R'
+		if dfs(node.Right, x, path) {
+			return true
+		}
+		*path = (*path)[:len(*path)-1]
+		return false
+	}
+
+	node := lca(root, startValue, destValue)
+	pathToStart := []byte{}
+	pathToDest := []byte{}
+	dfs(node, startValue, &pathToStart)
+	dfs(node, destValue, &pathToDest)
+	return string(bytes.Repeat([]byte{'U'}, len(pathToStart))) + string(pathToDest)
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function getDirections(root: TreeNode | null, startValue: number, destValue: number): string {
+    const lca = (node: TreeNode | null, p: number, q: number): TreeNode | null => {
+        if (node === null || node.val === p || node.val === q) {
+            return node;
+        }
+        const left = lca(node.left, p, q);
+        const right = lca(node.right, p, q);
+        if (left !== null && right !== null) {
+            return node;
+        }
+        return left !== null ? left : right;
+    };
+
+    const dfs = (node: TreeNode | null, x: number, path: string[]): boolean => {
+        if (node === null) {
+            return false;
+        }
+        if (node.val === x) {
+            return true;
+        }
+        path.push('L');
+        if (dfs(node.left, x, path)) {
+            return true;
+        }
+        path[path.length - 1] = 'R';
+        if (dfs(node.right, x, path)) {
+            return true;
+        }
+        path.pop();
+        return false;
+    };
+
+    const node = lca(root, startValue, destValue);
+    const pathToStart: string[] = [];
+    const pathToDest: string[] = [];
+    dfs(node, startValue, pathToStart);
+    dfs(node, destValue, pathToDest);
+    return 'U'.repeat(pathToStart.length) + pathToDest.join('');
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+#### Solution 2: DFS
+
+<!-- tabs:start -->
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    static byte[] path = new byte[200_001];
+    int strtLevel = -1;
+    int destLevel = -1;
+    int comnLevel = -1;
+
+    public String getDirections(TreeNode root, int startValue, int destValue) {
+        findPaths(root, startValue, destValue, 100_000);
+        int answerIdx = comnLevel;
+        for (int i = strtLevel; i > comnLevel; i--) {
+            path[--answerIdx] = 'U';
+        }
+        return new String(path, answerIdx, destLevel - answerIdx);
+    }
+
+    private int findPaths(TreeNode node, int strtVal, int destVal, int level) {
+        if (node == null) {
+            return 0;
+        }
+        int result = 0;
+        if (node.val == strtVal) {
+            strtLevel = level;
+            result = 1;
+        } else if (node.val == destVal) {
+            destLevel = level;
+            result = 1;
+        }
+        int leftFound = 0;
+        int rightFound = 0;
+        if (comnLevel < 0) {
+            if (destLevel < 0) {
+                path[level] = 'L';
+            }
+            leftFound = findPaths(node.left, strtVal, destVal, level + 1);
+            rightFound = 0;
+            if (comnLevel < 0) {
+                if (destLevel < 0) {
+                    path[level] = 'R';
+                }
+                rightFound = findPaths(node.right, strtVal, destVal, level + 1);
+            }
+        }
+        if (comnLevel < 0 && leftFound + rightFound + result == 2) {
+            comnLevel = level;
+        }
+        return result | leftFound | rightFound;
+    }
+}
 ```
 
 <!-- tabs:end -->
