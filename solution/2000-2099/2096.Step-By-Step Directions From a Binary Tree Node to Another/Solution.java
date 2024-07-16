@@ -14,56 +14,42 @@
  * }
  */
 class Solution {
-    private Map<Integer, List<List<String>>> edges;
-    private Set<Integer> visited;
-    private String ans;
-
+    static byte[] path = new byte[200_001];
+    int strtLevel = -1; 
+    int destLevel = -1;
+    int comnLevel = -1;
+    
     public String getDirections(TreeNode root, int startValue, int destValue) {
-        edges = new HashMap<>();
-        visited = new HashSet<>();
-        ans = null;
-        traverse(root);
-        dfs(startValue, destValue, new ArrayList<>());
-        return ans;
+        findPaths(root, startValue, destValue, 100_000);
+        int answerIdx = comnLevel;
+        for (int i = strtLevel; i > comnLevel; i--)  
+            path[--answerIdx] = 'U';
+        return new String(path, answerIdx, destLevel - answerIdx);
     }
-
-    private void traverse(TreeNode root) {
-        if (root == null) {
-            return;
+    
+    private int findPaths(TreeNode node, int strtVal, int destVal, int level) {
+        if (node == null)  return 0;
+        int result = 0;
+        if (node.val == strtVal) {
+            strtLevel = level;
+            result = 1;
+        } else if (node.val == destVal) {
+            destLevel = level;
+            result = 1;
         }
-        if (root.left != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.left.val), "L"));
-            edges.computeIfAbsent(root.left.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.val), "U"));
-        }
-        if (root.right != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.right.val), "R"));
-            edges.computeIfAbsent(root.right.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.val), "U"));
-        }
-        traverse(root.left);
-        traverse(root.right);
-    }
-
-    private void dfs(int start, int dest, List<String> t) {
-        if (visited.contains(start)) {
-            return;
-        }
-        if (start == dest) {
-            if (ans == null || ans.length() > t.size()) {
-                ans = String.join("", t);
-            }
-            return;
-        }
-        visited.add(start);
-        if (edges.containsKey(start)) {
-            for (List<String> item : edges.get(start)) {
-                t.add(item.get(1));
-                dfs(Integer.parseInt(item.get(0)), dest, t);
-                t.remove(t.size() - 1);
+        int leftFound = 0;
+        int rightFound = 0;
+        if (comnLevel < 0) {
+            if (destLevel < 0)  path[level] = 'L';
+            leftFound = findPaths(node.left, strtVal, destVal, level + 1);
+            rightFound = 0;
+            if (comnLevel < 0) {
+                if (destLevel < 0)  path[level] = 'R';
+                rightFound = findPaths(node.right, strtVal, destVal, level + 1);
             }
         }
+        if (comnLevel < 0 && leftFound + rightFound + result == 2) 
+            comnLevel = level;
+        return result | leftFound | rightFound;
     }
 }
