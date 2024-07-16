@@ -11,45 +11,43 @@
  */
 class Solution {
 public:
-    unordered_map<int, vector<pair<int, char>>> edges;
-    unordered_set<int> visited;
-    string ans;
-
     string getDirections(TreeNode* root, int startValue, int destValue) {
-        ans = "";
-        traverse(root);
-        string t = "";
-        dfs(startValue, destValue, t);
-        return ans;
+        TreeNode* node = lca(root, startValue, destValue);
+        string pathToStart, pathToDest;
+        dfs(node, startValue, pathToStart);
+        dfs(node, destValue, pathToDest);
+        return string(pathToStart.size(), 'U') + pathToDest;
     }
 
-    void traverse(TreeNode* root) {
-        if (!root) return;
-        if (root->left) {
-            edges[root->val].push_back({root->left->val, 'L'});
-            edges[root->left->val].push_back({root->val, 'U'});
+private:
+    TreeNode* lca(TreeNode* node, int p, int q) {
+        if (node == nullptr || node->val == p || node->val == q) {
+            return node;
         }
-        if (root->right) {
-            edges[root->val].push_back({root->right->val, 'R'});
-            edges[root->right->val].push_back({root->val, 'U'});
+        TreeNode* left = lca(node->left, p, q);
+        TreeNode* right = lca(node->right, p, q);
+        if (left != nullptr && right != nullptr) {
+            return node;
         }
-        traverse(root->left);
-        traverse(root->right);
+        return left != nullptr ? left : right;
     }
 
-    void dfs(int start, int dest, string& t) {
-        if (visited.count(start)) return;
-        if (start == dest) {
-            if (ans == "" || ans.size() > t.size()) ans = t;
-            return;
+    bool dfs(TreeNode* node, int x, string& path) {
+        if (node == nullptr) {
+            return false;
         }
-        visited.insert(start);
-        if (edges.count(start)) {
-            for (auto& item : edges[start]) {
-                t += item.second;
-                dfs(item.first, dest, t);
-                t.pop_back();
-            }
+        if (node->val == x) {
+            return true;
         }
+        path.push_back('L');
+        if (dfs(node->left, x, path)) {
+            return true;
+        }
+        path.back() = 'R';
+        if (dfs(node->right, x, path)) {
+            return true;
+        }
+        path.pop_back();
+        return false;
     }
 };
