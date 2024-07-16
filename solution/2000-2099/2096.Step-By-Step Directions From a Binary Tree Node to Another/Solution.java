@@ -1,55 +1,41 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    static byte[] path = new byte[200_001];
-    int strtLevel = -1; 
-    int destLevel = -1;
-    int comnLevel = -1;
-    
     public String getDirections(TreeNode root, int startValue, int destValue) {
-        findPaths(root, startValue, destValue, 100_000);
-        int answerIdx = comnLevel;
-        for (int i = strtLevel; i > comnLevel; i--)  
-            path[--answerIdx] = 'U';
-        return new String(path, answerIdx, destLevel - answerIdx);
+        TreeNode node = lca(root, startValue, destValue);
+        StringBuilder pathToStart = new StringBuilder();
+        StringBuilder pathToDest = new StringBuilder();
+        dfs(node, startValue, pathToStart);
+        dfs(node, destValue, pathToDest);
+        return "U".repeat(pathToStart.length()) + pathToDest.toString();
     }
-    
-    private int findPaths(TreeNode node, int strtVal, int destVal, int level) {
-        if (node == null)  return 0;
-        int result = 0;
-        if (node.val == strtVal) {
-            strtLevel = level;
-            result = 1;
-        } else if (node.val == destVal) {
-            destLevel = level;
-            result = 1;
+
+    private TreeNode lca(TreeNode node, int p, int q) {
+        if (node == null || node.val == p || node.val == q) {
+            return node;
         }
-        int leftFound = 0;
-        int rightFound = 0;
-        if (comnLevel < 0) {
-            if (destLevel < 0)  path[level] = 'L';
-            leftFound = findPaths(node.left, strtVal, destVal, level + 1);
-            rightFound = 0;
-            if (comnLevel < 0) {
-                if (destLevel < 0)  path[level] = 'R';
-                rightFound = findPaths(node.right, strtVal, destVal, level + 1);
-            }
+        TreeNode left = lca(node.left, p, q);
+        TreeNode right = lca(node.right, p, q);
+        if (left != null && right != null) {
+            return node;
         }
-        if (comnLevel < 0 && leftFound + rightFound + result == 2) 
-            comnLevel = level;
-        return result | leftFound | rightFound;
+        return left != null ? left : right;
+    }
+
+    private boolean dfs(TreeNode node, int x, StringBuilder path) {
+        if (node == null) {
+            return false;
+        }
+        if (node.val == x) {
+            return true;
+        }
+        path.append('L');
+        if (dfs(node.left, x, path)) {
+            return true;
+        }
+        path.setCharAt(path.length() - 1, 'R');
+        if (dfs(node.right, x, path)) {
+            return true;
+        }
+        path.deleteCharAt(path.length() - 1);
+        return false;
     }
 }
