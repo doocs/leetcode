@@ -105,16 +105,16 @@ tags:
 
 ### 方法一：堆优化的 Dijkstra
 
-我们先创建一个邻接表 $g$，用于存储图的边。然后创建一个数组 $dist$，用于存储从节点 $0$ 到其他节点的最短距离。初始化 $dist[0] = 0$，其余节点的距离初始化为无穷大。
+我们先创建一个邻接表 $\textit{g}$，用于存储图的边。然后创建一个数组 $\textit{dist}$，用于存储从节点 $0$ 到其他节点的最短距离。初始化 $\textit{dist}[0] = 0$，其余节点的距离初始化为无穷大。
 
 然后，我们使用 Dijkstra 算法计算从节点 $0$ 到其他节点的最短距离。具体步骤如下：
 
-1. 创建一个优先队列 $q$，用于存储节点的距离和节点编号，初始时将节点 $0$ 加入队列，距离为 $0$。
-2. 从队列中取出一个节点 $u$，如果 $u$ 的距离 $du$ 大于 $dist[u]$，说明 $u$ 已经被更新过了，直接跳过。
-3. 遍历节点 $u$ 的所有邻居节点 $v$，如果 $dist[v] > dist[u] + w$ 且 $dist[u] + w < disappear[v]$，则更新 $dist[v] = dist[u] + w$，并将节点 $v$ 加入队列。
+1. 创建一个优先队列 $\textit{pq}$，用于存储节点的距离和节点编号，初始时将节点 $0$ 加入队列，距离为 $0$。
+2. 从队列中取出一个节点 $u$，如果 $u$ 的距离 $du$ 大于 $\textit{dist}[u]$，说明 $u$ 已经被更新过了，直接跳过。
+3. 遍历节点 $u$ 的所有邻居节点 $v$，如果 $\textit{dist}[v] > \textit{dist}[u] + w$ 且 $\textit{dist}[u] + w < \textit{disappear}[v]$，则更新 $\textit{dist}[v] = \textit{dist}[u] + w$，并将节点 $v$ 加入队列。
 4. 重复步骤 2 和步骤 3，直到队列为空。
 
-最后，我们遍历 $dist$ 数组，如果 $dist[i] < disappear[i]$，则 $answer[i] = dist[i]$，否则 $answer[i] = -1$。
+最后，我们遍历 $\textit{dist}$ 数组，如果 $\textit{dist}[i] < \textit{disappear}[i]$，则 $\textit{answer}[i] = \textit{dist}[i]$，否则 $\textit{answer}[i] = -1$。
 
 时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 是边的数量。
 
@@ -287,6 +287,37 @@ func (h hp) Less(i, j int) bool { return h[i].dis < h[j].dis }
 func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
+#### TypeScript
+
+```ts
+function minimumTime(n: number, edges: number[][], disappear: number[]): number[] {
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [u, v, w] of edges) {
+        g[u].push([v, w]);
+        g[v].push([u, w]);
+    }
+    const dist = Array.from({ length: n }, () => Infinity);
+    dist[0] = 0;
+    const pq = new PriorityQueue({
+        compare: (a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]),
+    });
+    pq.enqueue([0, 0]);
+    while (pq.size() > 0) {
+        const [du, u] = pq.dequeue()!;
+        if (du > dist[u]) {
+            continue;
+        }
+        for (const [v, w] of g[u]) {
+            if (dist[v] > dist[u] + w && dist[u] + w < disappear[v]) {
+                dist[v] = dist[u] + w;
+                pq.enqueue([dist[v], v]);
+            }
+        }
+    }
+    return dist.map((a, i) => (a < disappear[i] ? a : -1));
+}
 ```
 
 <!-- tabs:end -->
