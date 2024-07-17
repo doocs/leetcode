@@ -73,7 +73,15 @@ It is not required to do the modifications in-place.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+First, we create an array $\textit{ans}$ of length $n$. Then, we use two pointers $i$ and $j$ to point to the even and odd indices of $\textit{ans}$, respectively, with initial values $i = 0$, $j = 1$.
+
+We iterate through the array $\textit{nums}$. If the current element $x$ is a positive integer, then we place $x$ into $\textit{ans}[i]$ and increase $i$ by $2$; otherwise, we place $x$ into $\textit{ans}[j]$ and increase $j$ by $2$.
+
+Finally, we return $\textit{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -84,12 +92,12 @@ class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         ans = [0] * len(nums)
         i, j = 0, 1
-        for num in nums:
-            if num > 0:
-                ans[i] = num
+        for x in nums:
+            if x > 0:
+                ans[i] = x
                 i += 2
             else:
-                ans[j] = num
+                ans[j] = x
                 j += 2
         return ans
 ```
@@ -98,16 +106,15 @@ class Solution:
 
 ```java
 class Solution {
-
     public int[] rearrangeArray(int[] nums) {
         int[] ans = new int[nums.length];
         int i = 0, j = 1;
-        for (int num : nums) {
-            if (num > 0) {
-                ans[i] = num;
+        for (int x : nums) {
+            if (x > 0) {
+                ans[i] = x;
                 i += 2;
             } else {
-                ans[j] = num;
+                ans[j] = x;
                 j += 2;
             }
         }
@@ -124,12 +131,12 @@ public:
     vector<int> rearrangeArray(vector<int>& nums) {
         vector<int> ans(nums.size());
         int i = 0, j = 1;
-        for (int num : nums) {
-            if (num > 0) {
-                ans[i] = num;
+        for (int x : nums) {
+            if (x > 0) {
+                ans[i] = x;
                 i += 2;
             } else {
-                ans[j] = num;
+                ans[j] = x;
                 j += 2;
             }
         }
@@ -144,12 +151,12 @@ public:
 func rearrangeArray(nums []int) []int {
 	ans := make([]int, len(nums))
 	i, j := 0, 1
-	for _, num := range nums {
-		if num > 0 {
-			ans[i] = num
+	for _, x := range nums {
+		if x > 0 {
+			ans[i] = x
 			i += 2
 		} else {
-			ans[j] = num
+			ans[j] = x
 			j += 2
 		}
 	}
@@ -161,15 +168,14 @@ func rearrangeArray(nums []int) []int {
 
 ```ts
 function rearrangeArray(nums: number[]): number[] {
-    let ans = [];
-    let i = 0,
-        j = 1;
-    for (let num of nums) {
-        if (num > 0) {
-            ans[i] = num;
+    const ans: number[] = Array(nums.length);
+    let [i, j] = [0, 1];
+    for (const x of nums) {
+        if (x > 0) {
+            ans[i] = x;
             i += 2;
         } else {
-            ans[j] = num;
+            ans[j] = x;
             j += 2;
         }
     }

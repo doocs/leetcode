@@ -76,7 +76,15 @@ nums 中的正整数是 [3,1,2] ，负整数是 [-2,-5,-4] 。
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：双指针
+
+我们先创建一个长度为 $n$ 的数组 $\textit{ans}$，然后使用两个指针 $i$ 和 $j$ 分别指向 $\textit{ans}$ 的偶数下标和奇数下标，初始时 $i = 0$, $j = 1$。
+
+遍历数组 $\textit{nums}$，如果当前元素 $x$ 为正整数，则将 $x$ 放入 $\textit{ans}[i]$，并将 $i$ 增加 $2$；否则将 $x$ 放入 $\textit{ans}[j]$，并将 $j$ 增加 $2$。
+
+最后返回 $\textit{ans}$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -87,12 +95,12 @@ class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         ans = [0] * len(nums)
         i, j = 0, 1
-        for num in nums:
-            if num > 0:
-                ans[i] = num
+        for x in nums:
+            if x > 0:
+                ans[i] = x
                 i += 2
             else:
-                ans[j] = num
+                ans[j] = x
                 j += 2
         return ans
 ```
@@ -101,16 +109,15 @@ class Solution:
 
 ```java
 class Solution {
-
     public int[] rearrangeArray(int[] nums) {
         int[] ans = new int[nums.length];
         int i = 0, j = 1;
-        for (int num : nums) {
-            if (num > 0) {
-                ans[i] = num;
+        for (int x : nums) {
+            if (x > 0) {
+                ans[i] = x;
                 i += 2;
             } else {
-                ans[j] = num;
+                ans[j] = x;
                 j += 2;
             }
         }
@@ -127,12 +134,12 @@ public:
     vector<int> rearrangeArray(vector<int>& nums) {
         vector<int> ans(nums.size());
         int i = 0, j = 1;
-        for (int num : nums) {
-            if (num > 0) {
-                ans[i] = num;
+        for (int x : nums) {
+            if (x > 0) {
+                ans[i] = x;
                 i += 2;
             } else {
-                ans[j] = num;
+                ans[j] = x;
                 j += 2;
             }
         }
@@ -147,12 +154,12 @@ public:
 func rearrangeArray(nums []int) []int {
 	ans := make([]int, len(nums))
 	i, j := 0, 1
-	for _, num := range nums {
-		if num > 0 {
-			ans[i] = num
+	for _, x := range nums {
+		if x > 0 {
+			ans[i] = x
 			i += 2
 		} else {
-			ans[j] = num
+			ans[j] = x
 			j += 2
 		}
 	}
@@ -164,15 +171,14 @@ func rearrangeArray(nums []int) []int {
 
 ```ts
 function rearrangeArray(nums: number[]): number[] {
-    let ans = [];
-    let i = 0,
-        j = 1;
-    for (let num of nums) {
-        if (num > 0) {
-            ans[i] = num;
+    const ans: number[] = Array(nums.length);
+    let [i, j] = [0, 1];
+    for (const x of nums) {
+        if (x > 0) {
+            ans[i] = x;
             i += 2;
         } else {
-            ans[j] = num;
+            ans[j] = x;
             j += 2;
         }
     }
