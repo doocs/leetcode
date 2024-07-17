@@ -1,13 +1,12 @@
-func findLonely(nums []int) []int {
-	counter := make(map[int]int)
-	for _, num := range nums {
-		counter[num]++
+func findLonely(nums []int) (ans []int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	var ans []int
-	for k, v := range counter {
-		if v == 1 && counter[k-1] == 0 && counter[k+1] == 0 {
-			ans = append(ans, k)
+	for x, v := range cnt {
+		if v == 1 && cnt[x-1] == 0 && cnt[x+1] == 0 {
+			ans = append(ans, x)
 		}
 	}
-	return ans
+	return
 }

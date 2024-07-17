@@ -1,13 +1,12 @@
 function rearrangeArray(nums: number[]): number[] {
-    let ans = [];
-    let i = 0,
-        j = 1;
-    for (let num of nums) {
-        if (num > 0) {
-            ans[i] = num;
+    const ans: number[] = Array(nums.length);
+    let [i, j] = [0, 1];
+    for (const x of nums) {
+        if (x > 0) {
+            ans[i] = x;
             i += 2;
         } else {
-            ans[j] = num;
+            ans[j] = x;
             j += 2;
         }
     }
