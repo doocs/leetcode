@@ -85,7 +85,15 @@ Only index 0 has the highest possible division score 2.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+We start from $i = 0$, using two variables $\textit{l0}$ and $\textit{r1}$ to respectively record the number of $1$s to the left and right of $i$. Initially, $\textit{l0} = 0$, while $\textit{r1} = \sum \textit{nums}$.
+
+We iterate through the array $\textit{nums}$. For each $i$, we update $\textit{l0}$ and $\textit{r1}$, calculate the current grouping score $t = \textit{l0} + \textit{r1}$. If $t$ equals the current maximum grouping score $\textit{mx}$, then we add $i$ to the answer array. If $t$ is greater than $\textit{mx}$, we update $\textit{mx}$ to $t$, clear the answer array, and then add $i$ to the answer array.
+
+After the iteration ends, we return the answer array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -94,20 +102,18 @@ Only index 0 has the highest possible division score 2.
 ```python
 class Solution:
     def maxScoreIndices(self, nums: List[int]) -> List[int]:
-        left, right = 0, sum(nums)
-        mx = right
+        l0, r1 = 0, sum(nums)
+        mx = r1
         ans = [0]
-        for i, num in enumerate(nums):
-            if num == 0:
-                left += 1
-            else:
-                right -= 1
-            t = left + right
+        for i, x in enumerate(nums, 1):
+            l0 += x ^ 1
+            r1 -= x
+            t = l0 + r1
             if mx == t:
-                ans.append(i + 1)
+                ans.append(i)
             elif mx < t:
                 mx = t
-                ans = [i + 1]
+                ans = [i]
         return ans
 ```
 
@@ -115,36 +121,25 @@ class Solution:
 
 ```java
 class Solution {
-
     public List<Integer> maxScoreIndices(int[] nums) {
-        int left = 0, right = sum(nums);
-        int mx = right;
+        int l0 = 0, r1 = Arrays.stream(nums).sum();
+        int mx = r1;
         List<Integer> ans = new ArrayList<>();
         ans.add(0);
-        for (int i = 0; i < nums.length; ++i) {
-            if (nums[i] == 0) {
-                ++left;
-            } else {
-                --right;
-            }
-            int t = left + right;
+        for (int i = 1; i <= nums.length; ++i) {
+            int x = nums[i - 1];
+            l0 += x ^ 1;
+            r1 -= x;
+            int t = l0 + r1;
             if (mx == t) {
-                ans.add(i + 1);
+                ans.add(i);
             } else if (mx < t) {
                 mx = t;
                 ans.clear();
-                ans.add(i + 1);
+                ans.add(i);
             }
         }
         return ans;
-    }
-
-    private int sum(int[] nums) {
-        int s = 0;
-        for (int num : nums) {
-            s += num;
-        }
-        return s;
     }
 }
 ```
@@ -155,22 +150,19 @@ class Solution {
 class Solution {
 public:
     vector<int> maxScoreIndices(vector<int>& nums) {
-        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
-        int mx = right;
-        vector<int> ans;
-        ans.push_back(0);
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] == 0)
-                ++left;
-            else
-                --right;
-            int t = left + right;
-            if (mx == t)
-                ans.push_back(i + 1);
-            else if (mx < t) {
+        int l0 = 0, r1 = accumulate(nums.begin(), nums.end(), 0);
+        int mx = r1;
+        vector<int> ans = {0};
+        for (int i = 1; i <= nums.size(); ++i) {
+            int x = nums[i - 1];
+            l0 += x ^ 1;
+            r1 -= x;
+            int t = l0 + r1;
+            if (mx == t) {
+                ans.push_back(i);
+            } else if (mx < t) {
                 mx = t;
-                ans.clear();
-                ans.push_back(i + 1);
+                ans = {i};
             }
         }
         return ans;
@@ -182,19 +174,16 @@ public:
 
 ```go
 func maxScoreIndices(nums []int) []int {
-	left, right := 0, 0
-	for _, num := range nums {
-		right += num
+	l0, r1 := 0, 0
+	for _, x := range nums {
+		r1 += x
 	}
-	mx := right
+	mx := r1
 	ans := []int{0}
-	for i, num := range nums {
-		if num == 0 {
-			left++
-		} else {
-			right--
-		}
-		t := left + right
+	for i, x := range nums {
+		l0 += x ^ 1
+		r1 -= x
+		t := l0 + r1
 		if mx == t {
 			ans = append(ans, i+1)
 		} else if mx < t {
@@ -211,26 +200,51 @@ func maxScoreIndices(nums []int) []int {
 ```ts
 function maxScoreIndices(nums: number[]): number[] {
     const n = nums.length;
-    const total = nums.reduce((a, c) => a + c, 0);
-    let left = 0,
-        right = total;
-    let record: Array<number> = [total];
-    for (const num of nums) {
-        if (num == 0) {
-            left++;
-        } else {
-            right--;
-        }
-        record.push(left + right);
-    }
-    const max = Math.max(...record);
-    let ans: Array<number> = [];
-    for (let i = 0; i <= n; i++) {
-        if (record[i] == max) {
+    let [l0, r1] = [0, nums.reduce((a, b) => a + b, 0)];
+    let mx = r1;
+    const ans: number[] = [0];
+    for (let i = 1; i <= n; ++i) {
+        const x = nums[i - 1];
+        l0 += x ^ 1;
+        r1 -= x;
+        const t = l0 + r1;
+        if (mx === t) {
+            ans.push(i);
+        } else if (mx < t) {
+            mx = t;
+            ans.length = 0;
             ans.push(i);
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_score_indices(nums: Vec<i32>) -> Vec<i32> {
+        let mut l0 = 0;
+        let mut r1: i32 = nums.iter().sum();
+        let mut mx = r1;
+        let mut ans = vec![0];
+
+        for i in 1..=nums.len() {
+            let x = nums[i - 1];
+            l0 += x ^ 1;
+            r1 -= x;
+            let t = l0 + r1;
+            if mx == t {
+                ans.push(i as i32);
+            } else if mx < t {
+                mx = t;
+                ans = vec![i as i32];
+            }
+        }
+
+        ans
+    }
 }
 ```
 

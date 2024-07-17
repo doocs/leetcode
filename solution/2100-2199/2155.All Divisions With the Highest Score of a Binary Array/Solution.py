@@ -1,17 +1,15 @@
 class Solution:
     def maxScoreIndices(self, nums: List[int]) -> List[int]:
-        left, right = 0, sum(nums)
-        mx = right
+        l0, r1 = 0, sum(nums)
+        mx = r1
         ans = [0]
-        for i, num in enumerate(nums):
-            if num == 0:
-                left += 1
-            else:
-                right -= 1
-            t = left + right
+        for i, x in enumerate(nums, 1):
+            l0 += x ^ 1
+            r1 -= x
+            t = l0 + r1
             if mx == t:
-                ans.append(i + 1)
+                ans.append(i)
             elif mx < t:
                 mx = t
-                ans = [i + 1]
+                ans = [i]
         return ans
