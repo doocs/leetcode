@@ -453,7 +453,7 @@ def run():
         ) or spider.get_question_detail_en(slug, retry=8)
         if not detail:
             continue
-        time.sleep(0.3)
+        time.sleep(1)
         question_details[slug] = Spider.format_question_detail(
             detail, str(qid).zfill(4)
         )
