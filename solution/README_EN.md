@@ -3228,6 +3228,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3217  |  [Delete Nodes From Linked List Present in Array](/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 406  |
 |  3218  |  [Minimum Cost for Cutting Cake I](/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 406  |
 |  3219  |  [Minimum Cost for Cutting Cake II](/solution/3200-3299/3219.Minimum%20Cost%20for%20Cutting%20Cake%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 406  |
+|  3220  |  [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README_EN.md)  |    |  Medium  |    |
+|  3221  |  [Maximum Array Hopping Score II](/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

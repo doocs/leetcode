@@ -123,7 +123,7 @@ class Solution:
         for mask in range(1 << n):
             g = [[inf] * n for _ in range(n)]
             for u, v, w in roads:
-                if mask >> u & 1 and mask > v & 1:
+                if mask >> u & 1 and mask >> v & 1:
                     g[u][v] = min(g[u][v], w)
                     g[v][u] = min(g[v][u], w)
             for k in range(n):
