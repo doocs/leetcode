@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Linked List
 ---
 
 <!-- problem:start -->
