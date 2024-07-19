@@ -350,7 +350,7 @@ var delNodes = function (root, to_delete) {
 
 <!-- solution:start -->
 
-### Solution 2: BFS
+### 方法二：BFS
 
 <!-- tabs:start -->
 
