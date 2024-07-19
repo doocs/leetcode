@@ -173,25 +173,24 @@ func luckyNumbers(matrix [][]int) (ans []int) {
 
 ```ts
 function luckyNumbers(matrix: number[][]): number[] {
-    const m = matrix.length;
-    const n = matrix[0].length;
-    const rows: number[] = new Array(m).fill(1 << 30);
-    const cols: number[] = new Array(n).fill(0);
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; j++) {
-            rows[i] = Math.min(rows[i], matrix[i][j]);
-            cols[j] = Math.max(cols[j], matrix[i][j]);
-        }
-    }
-    const ans: number[] = [];
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; j++) {
-            if (rows[i] === cols[j]) {
-                ans.push(rows[i]);
+    const [m, n] = [matrix.length, matrix[0].length];
+    const mins = Array(n);
+
+    for (let i = 0; i < n; i++) {
+        let [max, iMax] = [Number.NEGATIVE_INFINITY, -1];
+
+        for (let j = 0; j < m; j++) {
+            if (matrix[j][i] > max) {
+                max = matrix[j][i];
+                iMax = j;
             }
         }
+
+        mins[iMax] ??= Math.min(...matrix[iMax]);
+        if (mins[iMax] === max) return [max];
     }
-    return ans;
+
+    return [];
 }
 ```
 
