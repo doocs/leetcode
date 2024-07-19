@@ -69,7 +69,11 @@ Third: nums = [1]
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+According to the problem statement, we can simulate the entire process, and the remaining number will be the answer. In implementation, we do not need to create an additional array; we can directly operate on the original array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
