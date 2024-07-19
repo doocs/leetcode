@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->

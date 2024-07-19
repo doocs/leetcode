@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 链表
 ---
 
 <!-- problem:start -->

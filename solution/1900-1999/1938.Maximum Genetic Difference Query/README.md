@@ -6,8 +6,10 @@ rating: 2502
 source: 第 250 场周赛 Q4
 tags:
     - 位运算
+    - 深度优先搜索
     - 字典树
     - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->
