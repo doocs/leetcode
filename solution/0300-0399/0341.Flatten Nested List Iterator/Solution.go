@@ -25,32 +25,32 @@
  */
 
 type NestedIterator struct {
-	iterator      []int
-	index, length int
+	nums []int
+	i    int
 }
 
 func Constructor(nestedList []*NestedInteger) *NestedIterator {
-	result := make([]int, 0)
-	var traversal func(nodes []*NestedInteger)
-	traversal = func(nodes []*NestedInteger) {
-		for _, child := range nodes {
-			if child.IsInteger() {
-				result = append(result, child.GetInteger())
+	var dfs func([]*NestedInteger)
+	nums := []int{}
+	i := -1
+	dfs = func(ls []*NestedInteger) {
+		for _, x := range ls {
+			if x.IsInteger() {
+				nums = append(nums, x.GetInteger())
 			} else {
-				traversal(child.GetList())
+				dfs(x.GetList())
 			}
 		}
 	}
-	traversal(nestedList)
-	return &NestedIterator{iterator: result, index: 0, length: len(result)}
+	dfs(nestedList)
+	return &NestedIterator{nums, i}
 }
 
 func (this *NestedIterator) Next() int {
-	res := this.iterator[this.index]
-	this.index++
-	return res
+	this.i++
+	return this.nums[this.i]
 }
 
 func (this *NestedIterator) HasNext() bool {
-	return this.index < this.length
+	return this.i+1 < len(this.nums)
 }
