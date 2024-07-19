@@ -1,8 +1,8 @@
 function arrayChange(nums: number[], operations: number[][]): number[] {
-    const d = new Map(nums.map((v, i) => [v, i]));
-    for (const [a, b] of operations) {
-        nums[d.get(a)] = b;
-        d.set(b, d.get(a));
+    const d: Map<number, number> = new Map(nums.map((x, i) => [x, i]));
+    for (const [x, y] of operations) {
+        nums[d.get(x)!] = y;
+        d.set(y, d.get(x)!);
     }
     return nums;
 }
