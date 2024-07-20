@@ -57,7 +57,15 @@ It can be shown with 5 or less moves that it is impossible for the array to have
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Greedy
+
+First, we sort the array $\textit{nums}$, and use a variable $\textit{y}$ to record the current maximum value, initially $\textit{y} = -1$.
+
+Then, we iterate through the array $\textit{nums}$. For each element $x$, we update $y$ to $\max(y + 1, x)$, and accumulate the operation count $y - x$ into the result.
+
+After completing the iteration, we return the result.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -67,12 +75,10 @@ It can be shown with 5 or less moves that it is impossible for the array to have
 class Solution:
     def minIncrementForUnique(self, nums: List[int]) -> int:
         nums.sort()
-        ans = 0
-        for i in range(1, len(nums)):
-            if nums[i] <= nums[i - 1]:
-                d = nums[i - 1] - nums[i] + 1
-                nums[i] += d
-                ans += d
+        ans, y = 0, -1
+        for x in nums:
+            y = max(y + 1, x)
+            ans += y - x
         return ans
 ```
 
@@ -82,13 +88,10 @@ class Solution:
 class Solution {
     public int minIncrementForUnique(int[] nums) {
         Arrays.sort(nums);
-        int ans = 0;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] <= nums[i - 1]) {
-                int d = nums[i - 1] - nums[i] + 1;
-                nums[i] += d;
-                ans += d;
-            }
+        int ans = 0, y = -1;
+        for (int x : nums) {
+            y = Math.max(y + 1, x);
+            ans += y - x;
         }
         return ans;
     }
@@ -102,13 +105,10 @@ class Solution {
 public:
     int minIncrementForUnique(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int ans = 0;
-        for (int i = 1; i < nums.size(); ++i) {
-            if (nums[i] <= nums[i - 1]) {
-                int d = nums[i - 1] - nums[i] + 1;
-                nums[i] += d;
-                ans += d;
-            }
+        int ans = 0, y = -1;
+        for (int x : nums) {
+            y = max(y + 1, x);
+            ans += y - x;
         }
         return ans;
     }
@@ -120,12 +120,10 @@ public:
 ```go
 func minIncrementForUnique(nums []int) (ans int) {
 	sort.Ints(nums)
-	for i := 1; i < len(nums); i++ {
-		if nums[i] <= nums[i-1] {
-			d := nums[i-1] - nums[i] + 1
-			nums[i] += d
-			ans += d
-		}
+	y := -1
+	for _, x := range nums {
+		y = max(y+1, x)
+		ans += y - x
 	}
 	return
 }
@@ -136,12 +134,10 @@ func minIncrementForUnique(nums []int) (ans int) {
 ```ts
 function minIncrementForUnique(nums: number[]): number {
     nums.sort((a, b) => a - b);
-    let ans = 0;
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] <= nums[i - 1]) {
-            ans += nums[i - 1] - nums[i] + 1;
-            nums[i] = nums[i - 1] + 1;
-        }
+    let [ans, y] = [0, -1];
+    for (const x of nums) {
+        y = Math.max(y + 1, x);
+        ans += y - x;
     }
     return ans;
 }
@@ -155,13 +151,13 @@ function minIncrementForUnique(nums: number[]): number {
 
 ### Solution 2: Counting + Greedy
 
-According to the problem description, the maximum value of the result array $m = \max(\text{nums}) + \text{len}(\text{nums})$. We can use a counting array `cnt` to record the occurrence times of each element.
+According to the problem description, the maximum value of the result array $m = \max(\text{nums}) + \text{len}(\text{nums})$. We can use a counting array $\textit{cnt}$ to record the occurrence count of each element.
 
-Then, we iterate from $0$ to $m - 1$. For each element $i$, if its occurrence times $\text{cnt}[i]$ is greater than $1$, then we add $\text{cnt}[i] - 1$ elements to $i + 1$ and accumulate the operation times to the result.
+Then, we iterate from $0$ to $m - 1$. For each element $i$, if its occurrence count $\textit{cnt}[i]$ is greater than $1$, then we add $\textit{cnt}[i] - 1$ elements to $i + 1$, and accumulate the operation count into the result.
 
-After the iteration, we return the result.
+After completing the iteration, we return the result.
 
-The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the length of the array `nums` plus the maximum value in the array `nums`.
+The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the length of the array $\textit{nums}$ plus the maximum value in the array.
 
 <!-- tabs:start -->
 

@@ -61,11 +61,13 @@ tags:
 
 ### 方法一：排序 + 贪心
 
-我们首先对数组进行排序，然后从前往后遍历数组，对于每个元素 `nums[i]`，如果它小于等于前一个元素 `nums[i - 1]`，那么我们将它增加到 `nums[i - 1] + 1`，那么操作的次数就是 `nums[i - 1] - nums[i] + 1`，累加到结果中。
+我们首先对数组 $\textit{nums}$ 进行排序，用一个变量 $\textit{y}$ 记录当前的最大值，初始时 $\textit{y} = -1$。
+
+然后遍历数组 $\textit{nums}$，对于每个元素 $x$，我们将 $y$ 更新为 $\max(y + 1, x)$，并将操作次数 $y - x$ 累加到结果中。
 
 遍历完成后，返回结果即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -75,12 +77,10 @@ tags:
 class Solution:
     def minIncrementForUnique(self, nums: List[int]) -> int:
         nums.sort()
-        ans = 0
-        for i in range(1, len(nums)):
-            if nums[i] <= nums[i - 1]:
-                d = nums[i - 1] - nums[i] + 1
-                nums[i] += d
-                ans += d
+        ans, y = 0, -1
+        for x in nums:
+            y = max(y + 1, x)
+            ans += y - x
         return ans
 ```
 
@@ -90,13 +90,10 @@ class Solution:
 class Solution {
     public int minIncrementForUnique(int[] nums) {
         Arrays.sort(nums);
-        int ans = 0;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] <= nums[i - 1]) {
-                int d = nums[i - 1] - nums[i] + 1;
-                nums[i] += d;
-                ans += d;
-            }
+        int ans = 0, y = -1;
+        for (int x : nums) {
+            y = Math.max(y + 1, x);
+            ans += y - x;
         }
         return ans;
     }
@@ -110,13 +107,10 @@ class Solution {
 public:
     int minIncrementForUnique(vector<int>& nums) {
         sort(nums.begin(), nums.end());
-        int ans = 0;
-        for (int i = 1; i < nums.size(); ++i) {
-            if (nums[i] <= nums[i - 1]) {
-                int d = nums[i - 1] - nums[i] + 1;
-                nums[i] += d;
-                ans += d;
-            }
+        int ans = 0, y = -1;
+        for (int x : nums) {
+            y = max(y + 1, x);
+            ans += y - x;
         }
         return ans;
     }
@@ -128,12 +122,10 @@ public:
 ```go
 func minIncrementForUnique(nums []int) (ans int) {
 	sort.Ints(nums)
-	for i := 1; i < len(nums); i++ {
-		if nums[i] <= nums[i-1] {
-			d := nums[i-1] - nums[i] + 1
-			nums[i] += d
-			ans += d
-		}
+	y := -1
+	for _, x := range nums {
+		y = max(y+1, x)
+		ans += y - x
 	}
 	return
 }
@@ -144,12 +136,10 @@ func minIncrementForUnique(nums []int) (ans int) {
 ```ts
 function minIncrementForUnique(nums: number[]): number {
     nums.sort((a, b) => a - b);
-    let ans = 0;
-    for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] <= nums[i - 1]) {
-            ans += nums[i - 1] - nums[i] + 1;
-            nums[i] = nums[i - 1] + 1;
-        }
+    let [ans, y] = [0, -1];
+    for (const x of nums) {
+        y = Math.max(y + 1, x);
+        ans += y - x;
     }
     return ans;
 }
@@ -163,13 +153,13 @@ function minIncrementForUnique(nums: number[]): number {
 
 ### 方法二：计数 + 贪心
 
-根据题目描述，结果数组的最大值 $m = \max(\text{nums}) + \text{len}(\text{nums})$，我们可以使用一个计数数组 `cnt` 来记录每个元素出现的次数。
+根据题目描述，结果数组的最大值 $m = \max(\text{nums}) + \text{len}(\text{nums})$，我们可以使用一个计数数组 $\textit{cnt}$ 来记录每个元素出现的次数。
 
 然后从 $0$ 到 $m - 1$ 遍历，对于每个元素 $i$，如果它出现的次数 $\text{cnt}[i]$ 大于 $1$，那么我们将 $\text{cnt}[i] - 1$ 个元素增加到 $i + 1$，并将操作次数累加到结果中。
 
 遍历完成后，返回结果即可。
 
-时间复杂度 $O(m)$，空间复杂度 $O(m)$。其中 $m$ 是数组 `nums` 的长度加上数组 `nums` 的最大值。
+时间复杂度 $O(m)$，空间复杂度 $O(m)$。其中 $m$ 是数组 $\textit{nums}$ 的长度加上数组的最大值。
 
 <!-- tabs:start -->
 
