@@ -1,16 +1,16 @@
 class Solution:
     def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
         tokens.sort()
+        ans = score = 0
         i, j = 0, len(tokens) - 1
-        ans = t = 0
         while i <= j:
             if power >= tokens[i]:
                 power -= tokens[i]
-                i, t = i + 1, t + 1
-                ans = max(ans, t)
-            elif t:
+                score, i = score + 1, i + 1
+                ans = max(ans, score)
+            elif score:
                 power += tokens[j]
-                j, t = j - 1, t - 1
+                score, j = score - 1, j - 1
             else:
                 break
         return ans

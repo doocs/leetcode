@@ -131,7 +131,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting + Two Pointers
+
+There are two ways to use tokens: one is to consume energy to gain points, and the other is to consume points to gain energy. Obviously, we should consume as little energy as possible to gain as many points as possible.
+
+Therefore, we can sort the tokens by the amount of energy they consume, and then use two pointers: one moving from left to right and the other from right to left. In each iteration, we try to consume energy to gain points as much as possible, and then update the maximum score. If the current energy is not enough to consume the current token, we try to consume the current token using points. If the points are not enough to consume the current token, we stop the iteration.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of tokens.
 
 <!-- tabs:start -->
 
@@ -141,16 +147,16 @@ tags:
 class Solution:
     def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
         tokens.sort()
+        ans = score = 0
         i, j = 0, len(tokens) - 1
-        ans = t = 0
         while i <= j:
             if power >= tokens[i]:
                 power -= tokens[i]
-                i, t = i + 1, t + 1
-                ans = max(ans, t)
-            elif t:
+                score, i = score + 1, i + 1
+                ans = max(ans, score)
+            elif score:
                 power += tokens[j]
-                j, t = j - 1, t - 1
+                score, j = score - 1, j - 1
             else:
                 break
         return ans
@@ -162,16 +168,14 @@ class Solution:
 class Solution {
     public int bagOfTokensScore(int[] tokens, int power) {
         Arrays.sort(tokens);
-        int i = 0, j = tokens.length - 1;
-        int ans = 0, t = 0;
-        while (i <= j) {
+        int ans = 0, score = 0;
+        for (int i = 0, j = tokens.length - 1; i <= j;) {
             if (power >= tokens[i]) {
                 power -= tokens[i++];
-                ++t;
-                ans = Math.max(ans, t);
-            } else if (t > 0) {
+                ans = Math.max(ans, ++score);
+            } else if (score > 0) {
                 power += tokens[j--];
-                --t;
+                --score;
             } else {
                 break;
             }
@@ -188,15 +192,14 @@ class Solution {
 public:
     int bagOfTokensScore(vector<int>& tokens, int power) {
         sort(tokens.begin(), tokens.end());
-        int i = 0, j = tokens.size() - 1;
-        int ans = 0, t = 0;
-        while (i <= j) {
+        int ans = 0, score = 0;
+        for (int i = 0, j = tokens.size() - 1; i <= j;) {
             if (power >= tokens[i]) {
                 power -= tokens[i++];
-                ans = max(ans, ++t);
-            } else if (t) {
+                ans = max(ans, ++score);
+            } else if (score > 0) {
                 power += tokens[j--];
-                --t;
+                --score;
             } else {
                 break;
             }
@@ -209,23 +212,47 @@ public:
 #### Go
 
 ```go
-func bagOfTokensScore(tokens []int, power int) int {
+func bagOfTokensScore(tokens []int, power int) (ans int) {
 	sort.Ints(tokens)
 	i, j := 0, len(tokens)-1
-	ans, t := 0, 0
+	score := 0
 	for i <= j {
 		if power >= tokens[i] {
 			power -= tokens[i]
-			i, t = i+1, t+1
-			ans = max(ans, t)
-		} else if t > 0 {
+			i++
+			score++
+			ans = max(ans, score)
+		} else if score > 0 {
 			power += tokens[j]
-			j, t = j-1, t-1
+			j--
+			score--
 		} else {
 			break
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function bagOfTokensScore(tokens: number[], power: number): number {
+    tokens.sort((a, b) => a - b);
+    let [i, j] = [0, tokens.length - 1];
+    let [ans, score] = [0, 0];
+    while (i <= j) {
+        if (power >= tokens[i]) {
+            power -= tokens[i++];
+            ans = Math.max(ans, ++score);
+        } else if (score) {
+            power += tokens[j--];
+            score--;
+        } else {
+            break;
+        }
+    }
+    return ans;
 }
 ```
 
