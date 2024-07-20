@@ -53,15 +53,22 @@ tags:
 
 ### 方法一：动态规划
 
-我们定义 $dp[i]$ 表示正整数 $n$ 能获得的最大乘积，初始化 $dp[1] = 1$。答案即为 $dp[n]$。
+我们定义 $f[i]$ 表示正整数 $i$ 拆分后能获得的最大乘积，初始时 $f[1] = 1$。答案即为 $f[n]$。
 
-状态转移方程为：
+考虑 $i$ 最后拆分出的数字 $j$，其中 $j \in [1, i)$。对于 $i$ 拆分出的数字 $j$，有两种情况：
+
+1. 将 $i$ 拆分成 $i - j$ 和 $j$ 的和，不继续拆分，此时乘积为 $(i - j) \times j$；
+2. 将 $i$ 拆分成 $i - j$ 和 $j$ 的和，继续拆分，此时乘积为 $f[i - j] \times j$。
+
+因此，我们可以得到状态转移方程：
 
 $$
-dp[i] = max(dp[i], dp[i - j] \times j, (i - j) \times j) \quad (j \in [0, i))
+f[i] = \max(f[i], f[i - j] \times j, (i - j) \times j) \quad (j \in [0, i))
 $$
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为正整数 $n$。
+最后返回 $f[n]$ 即可。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为给定的正整数。
 
 <!-- tabs:start -->
 
@@ -70,11 +77,11 @@ $$
 ```python
 class Solution:
     def integerBreak(self, n: int) -> int:
-        dp = [1] * (n + 1)
+        f = [1] * (n + 1)
         for i in range(2, n + 1):
             for j in range(1, i):
-                dp[i] = max(dp[i], dp[i - j] * j, (i - j) * j)
-        return dp[n]
+                f[i] = max(f[i], f[i - j] * j, (i - j) * j)
+        return f[n]
 ```
 
 #### Java
@@ -82,14 +89,14 @@ class Solution:
 ```java
 class Solution {
     public int integerBreak(int n) {
-        int[] dp = new int[n + 1];
-        dp[1] = 1;
+        int[] f = new int[n + 1];
+        f[1] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 1; j < i; ++j) {
-                dp[i] = Math.max(Math.max(dp[i], dp[i - j] * j), (i - j) * j);
+                f[i] = Math.max(Math.max(f[i], f[i - j] * j), (i - j) * j);
             }
         }
-        return dp[n];
+        return f[n];
     }
 }
 ```
@@ -100,14 +107,14 @@ class Solution {
 class Solution {
 public:
     int integerBreak(int n) {
-        vector<int> dp(n + 1);
-        dp[1] = 1;
+        vector<int> f(n + 1);
+        f[1] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 1; j < i; ++j) {
-                dp[i] = max(max(dp[i], dp[i - j] * j), (i - j) * j);
+                f[i] = max({f[i], f[i - j] * j, (i - j) * j});
             }
         }
-        return dp[n];
+        return f[n];
     }
 };
 ```
@@ -116,14 +123,14 @@ public:
 
 ```go
 func integerBreak(n int) int {
-	dp := make([]int, n+1)
-	dp[1] = 1
+	f := make([]int, n+1)
+	f[1] = 1
 	for i := 2; i <= n; i++ {
 		for j := 1; j < i; j++ {
-			dp[i] = max(max(dp[i], dp[i-j]*j), (i-j)*j)
+			f[i] = max(max(f[i], f[i-j]*j), (i-j)*j)
 		}
 	}
-	return dp[n]
+	return f[n]
 }
 ```
 
@@ -131,13 +138,13 @@ func integerBreak(n int) int {
 
 ```ts
 function integerBreak(n: number): number {
-    let dp = new Array(n + 1).fill(1);
+    const f = Array(n + 1).fill(1);
     for (let i = 3; i <= n; i++) {
         for (let j = 1; j < i; j++) {
-            dp[i] = Math.max(dp[i], j * (i - j), j * dp[i - j]);
+            f[i] = Math.max(f[i], j * (i - j), j * f[i - j]);
         }
     }
-    return dp.pop();
+    return f[n];
 }
 ```
 
@@ -146,11 +153,50 @@ function integerBreak(n: number): number {
 ```rust
 impl Solution {
     pub fn integer_break(n: i32) -> i32 {
-        if n < 4 {
-            return n - 1;
+        let n = n as usize;
+        let mut f = vec![0; n + 1];
+        f[1] = 1;
+        for i in 2..=n {
+            for j in 1..i {
+                f[i] = f[i].max(f[i - j] * j).max((i - j) * j);
+            }
         }
-        let count = (n - 2) / 3;
-        (3i32).pow(count as u32) * (n - count * 3)
+        f[n] as i32
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var integerBreak = function (n) {
+    const f = Array(n + 1).fill(1);
+    for (let i = 2; i <= n; ++i) {
+        for (let j = 1; j < i; ++j) {
+            f[i] = Math.max(f[i], f[i - j] * j, (i - j) * j);
+        }
+    }
+    return f[n];
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int IntegerBreak(int n) {
+        int[] f = new int[n + 1];
+        f[1] = 1;
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j < i; ++j) {
+                f[i] = Math.Max(Math.Max(f[i], f[i - j] * j), (i - j) * j);
+            }
+        }
+        return f[n];
     }
 }
 ```
@@ -158,12 +204,18 @@ impl Solution {
 #### C
 
 ```c
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+
 int integerBreak(int n) {
-    if (n < 4) {
-        return n - 1;
+    int* f = (int*) malloc((n + 1) * sizeof(int));
+    f[1] = 1;
+    for (int i = 2; i <= n; ++i) {
+        f[i] = 0;
+        for (int j = 1; j < i; ++j) {
+            f[i] = max(f[i], max(f[i - j] * j, (i - j) * j));
+        }
     }
-    int count = (n - 2) / 3;
-    return pow(3, count) * (n - count * 3);
+    return f[n];
 }
 ```
 
@@ -175,7 +227,7 @@ int integerBreak(int n) {
 
 ### 方法二：数学
 
-当 $n \lt 4$ 时，$n$ 不能拆分成至少两个正整数的和，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
+当 $n \lt 4$ 时，由于题目要求至少拆分成两个整数，因此 $n - 1$ 是最大乘积。当 $n \ge 4$ 时，我们尽可能多地拆分 $3$，当剩下的最后一段为 $4$ 时，我们将其拆分为 $2 + 2$，这样乘积最大。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -266,6 +318,81 @@ function integerBreak(n: number): number {
         return 3 ** (m - 1) * 4;
     }
     return 3 ** m * 2;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn integer_break(n: i32) -> i32 {
+        if n < 4 {
+            return n - 1;
+        }
+        match n % 3 {
+            0 => return (3 as i32).pow((n / 3) as u32),
+            1 => return (3 as i32).pow((n / 3 - 1) as u32) * 4,
+            _ => return (3 as i32).pow((n / 3) as u32) * 2,
+        }
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var integerBreak = function (n) {
+    if (n < 4) {
+        return n - 1;
+    }
+    const m = Math.floor(n / 3);
+    if (n % 3 == 0) {
+        return 3 ** m;
+    }
+    if (n % 3 == 1) {
+        return 3 ** (m - 1) * 4;
+    }
+    return 3 ** m * 2;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int IntegerBreak(int n) {
+        if (n < 4) {
+            return n - 1;
+        }
+        if (n % 3 == 0) {
+            return (int)Math.Pow(3, n / 3);
+        }
+        if (n % 3 == 1) {
+            return (int)Math.Pow(3, n / 3 - 1) * 4;
+        }
+        return (int)Math.Pow(3, n / 3) * 2;
+    }
+}
+```
+
+#### C
+
+```c
+int integerBreak(int n) {
+    if (n < 4) {
+        return n - 1;
+    }
+    if (n % 3 == 0) {
+        return (int) pow(3, n / 3);
+    }
+    if (n % 3 == 1) {
+        return (int) pow(3, n / 3 - 1) * 4;
+    }
+    return (int) pow(3, n / 3) * 2;
 }
 ```
 
