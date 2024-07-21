@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 407
+
+- [3226. Number of Bit Changes to Make Two Integers Equal](/solution/3200-3299/3226.Number%20of%20Bit%20Changes%20to%20Make%20Two%20Integers%20Equal/README_EN.md)
+- [3227. Vowels Game in a String](/solution/3200-3299/3227.Vowels%20Game%20in%20a%20String/README_EN.md)
+- [3228. Maximum Number of Operations to Move Ones to the End](/solution/3200-3299/3228.Maximum%20Number%20of%20Operations%20to%20Move%20Ones%20to%20the%20End/README_EN.md)
+- [3229. Minimum Operations to Make Array Equal to Target](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)
+
+#### Biweekly Contest 135
+
+- [3222. Find the Winning Player in Coin Game](/solution/3200-3299/3222.Find%20the%20Winning%20Player%20in%20Coin%20Game/README_EN.md)
+- [3223. Minimum Length of String After Operations](/solution/3200-3299/3223.Minimum%20Length%20of%20String%20After%20Operations/README_EN.md)
+- [3224. Minimum Array Changes to Make Differences Equal](/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README_EN.md)
+- [3225. Maximum Score From Grid Operations](/solution/3200-3299/3225.Maximum%20Score%20From%20Grid%20Operations/README_EN.md)
+
 #### Weekly Contest 406
 
 - [3216. Lexicographically Smallest String After a Swap](/solution/3200-3299/3216.Lexicographically%20Smallest%20String%20After%20a%20Swap/README_EN.md)

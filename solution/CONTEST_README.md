@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 407 场周赛(2024-07-21 10:30, 90 分钟) 参赛人数 3169
+
+- [3226. 使两个整数相等的位更改次数](/solution/3200-3299/3226.Number%20of%20Bit%20Changes%20to%20Make%20Two%20Integers%20Equal/README.md)
+- [3227. 字符串元音游戏](/solution/3200-3299/3227.Vowels%20Game%20in%20a%20String/README.md)
+- [3228. 将 1 移动到末尾的最大操作次数](/solution/3200-3299/3228.Maximum%20Number%20of%20Operations%20to%20Move%20Ones%20to%20the%20End/README.md)
+- [3229. 使数组等于目标数组所需的最少操作次数](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README.md)
+
+#### 第 135 场双周赛(2024-07-20 22:30, 90 分钟) 参赛人数 2259
+
+- [3222. 求出硬币游戏的赢家](/solution/3200-3299/3222.Find%20the%20Winning%20Player%20in%20Coin%20Game/README.md)
+- [3223. 操作后字符串的最短长度](/solution/3200-3299/3223.Minimum%20Length%20of%20String%20After%20Operations/README.md)
+- [3224. 使差值相等的最少数组改动次数](/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README.md)
+- [3225. 网格图操作后的最大分数](/solution/3200-3299/3225.Maximum%20Score%20From%20Grid%20Operations/README.md)
+
 #### 第 406 场周赛(2024-07-14 10:30, 90 分钟) 参赛人数 3422
 
 - [3216. 交换后字典序最小的字符串](/solution/3200-3299/3216.Lexicographically%20Smallest%20String%20After%20a%20Swap/README.md)
@@ -2861,7 +2875,7 @@ comments: true
 - [1043. 分隔数组以得到最大和](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md)
 - [1044. 最长重复子串](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md)
 
-#### 第 135 场周赛(2019-05-05 10:30, 90 分钟) 参赛人数 548
+#### 第 135 场周赛(2019-05-05 10:30, 90 分钟) 参赛人数 549
 
 - [1037. 有效的回旋镖](/solution/1000-1099/1037.Valid%20Boomerang/README.md)
 - [1038. 从二叉搜索树到更大和树](/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/README.md)
