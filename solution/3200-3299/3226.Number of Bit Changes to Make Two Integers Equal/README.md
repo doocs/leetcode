@@ -71,32 +71,69 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3226.Nu
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
+
+如果 $n$ 和 $k$ 的按位与结果不等于 $k$，说明 $k$ 存在某一位为 $1$，而 $n$ 对应的位为 $0$，此时无法通过改变 $n$ 的某一位使得 $n$ 等于 $k$，返回 $-1$；否则，我们统计 $n \oplus k$ 的二进制表示中 $1$ 的个数即可。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minChanges(self, n: int, k: int) -> int:
+        return -1 if n & k != k else (n ^ k).bit_count()
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minChanges(int n, int k) {
+        return (n & k) != k ? -1 : Integer.bitCount(n ^ k);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minChanges(int n, int k) {
+        return (n & k) != k ? -1 : __builtin_popcount(n ^ k);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minChanges(n int, k int) int {
+	if n&k != k {
+		return -1
+	}
+	return bits.OnesCount(uint(n ^ k))
+}
+```
 
+#### TypeScript
+
+```ts
+function minChanges(n: number, k: number): number {
+    return (n & k) !== k ? -1 : bitCount(n ^ k);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
 ```
 
 <!-- tabs:end -->
