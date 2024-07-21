@@ -91,7 +91,11 @@ tags:
 
 我们注意到 $f[i]$ 只与 $f[i-1]$ 有关，因此可以只用一个变量来维护操作次数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $target$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $target$ 的长度。空间复杂度 $O(1)$。
+
+相似题目：
+
+-   [3229. 使数组等于目标数组所需的最少操作次数](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README.md)
 
 <!-- tabs:start -->
 
