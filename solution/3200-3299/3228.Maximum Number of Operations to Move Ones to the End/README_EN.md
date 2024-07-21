@@ -67,32 +67,102 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3228.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We use a variable $\textit{ans}$ to record the answer and another variable $\textit{cnt}$ to count the current number of $1$s.
+
+Then, we iterate through the string $s$. If the current character is $1$, then we increment $\textit{cnt}$. Otherwise, if there is a previous character and the previous character is $1$, then the previous $\textit{cnt}$ number of $1$s can be moved backward, and we add $\textit{cnt}$ to the answer.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxOperations(self, s: str) -> int:
+        ans = cnt = 0
+        for i, c in enumerate(s):
+            if c == "1":
+                cnt += 1
+            elif i and s[i - 1] == "1":
+                ans += cnt
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxOperations(String s) {
+        int ans = 0, cnt = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '1') {
+                ++cnt;
+            } else if (i > 0 && s.charAt(i - 1) == '1') {
+                ans += cnt;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxOperations(string s) {
+        int ans = 0, cnt = 0;
+        int n = s.size();
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == '1') {
+                ++cnt;
+            } else if (i && s[i - 1] == '1') {
+                ans += cnt;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxOperations(s string) (ans int) {
+	cnt := 0
+	for i, c := range s {
+		if c == '1' {
+			cnt++
+		} else if i > 0 && s[i-1] == '1' {
+			ans += cnt
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxOperations(s: string): number {
+    let [ans, cnt] = [0, 0];
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === '1') {
+            ++cnt;
+        } else if (i && s[i - 1] === '1') {
+            ans += cnt;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

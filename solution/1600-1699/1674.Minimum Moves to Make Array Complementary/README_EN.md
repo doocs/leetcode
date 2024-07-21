@@ -74,27 +74,33 @@ Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 
 ### Solution 1: Difference Array
 
-Let's denote $a$ as the smaller value between $nums[i]$ and $nums[n-i-1]$, and $b$ as the larger value between $nums[i]$ and $nums[n-i-1]$.
+Assume that in the final array, the sum of the pair $\textit{nums}[i]$ and $\textit{nums}[n-i-1]$ is $s$.
 
-Suppose that after replacement, the sum of the two numbers is $x$. From the problem, we know that the minimum value of $x$ is $2$, which means both numbers are replaced by $1$; the maximum value is $2 \times limit$, which means both numbers are replaced by $limit$. Therefore, the range of $x$ is $[2,... 2 \times limit]$.
+Let's denote $x$ as the smaller value between $\textit{nums}[i]$ and $\textit{nums}[n-i-1]$, and $y$ as the larger value.
 
-How to find the minimum number of replacements for different $x$?
+For each pair of numbers, we have the following scenarios:
 
-We analyze and find:
+-   If no replacement is needed, then $x + y = s$.
+-   If one replacement is made, then $x + 1 \le s \le y + \textit{limit}$.
+-   If two replacements are made, then $2 \le s \le x$ or $y + \textit{limit} + 1 \le s \le 2 \times \textit{limit}$.
 
--   If $x = a + b$, then the number of replacements we need is $0$, which means the current pair of numbers already meets the complement requirement;
--   Otherwise, if $1 + a \le x \le limit + b $, then the number of replacements we need is $1$, which means we can replace one of the numbers;
--   Otherwise, if $2 \le x \le 2 \times limit$, then the number of replacements we need is $2$, which means we need to replace both numbers.
+That is:
 
-Therefore, we can iterate over each pair of numbers and perform the following operations:
+-   In the range $[2,..x]$, $2$ replacements are needed.
+-   In the range $[x+1,..x+y-1]$, $1$ replacement is needed.
+-   At $[x+y]$, no replacement is needed.
+-   In the range $[x+y+1,..y + \textit{limit}]$, $1$ replacement is needed.
+-   In the range $[y + \textit{limit} + 1,..2 \times \textit{limit}]$, $2$ replacements are needed.
 
-1. First, add $2$ to the number of operations required in the range $[2,... 2 \times limit]$.
-1. Then, subtract $1$ from the number of operations required in the range $[1 + a,... limit + b]$.
-1. Finally, subtract $1$ from the number of operations required in the range $[a + b,... a + b]$.
+We enumerate each pair of numbers and use a difference array to update the number of replacements needed in different ranges for each pair.
 
-We can see that this is actually adding and subtracting elements in a continuous interval, so we can use a difference array to implement it.
+Finally, we find the minimum value among the prefix sums from index $2$ to $2 \times \textit{limit}$, which is the minimum number of replacements needed.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
+
+Similar problems:
+
+-   [3224. Minimum Array Changes to Make Differences Equal](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -103,27 +109,20 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 ```python
 class Solution:
     def minMoves(self, nums: List[int], limit: int) -> int:
-        d = [0] * (limit * 2 + 2)
+        d = [0] * (2 * limit + 2)
         n = len(nums)
-
-        for i in range(n >> 1):
-            a, b = min(nums[i], nums[n - i - 1]), max(nums[i], nums[n - i - 1])
-
+        for i in range(n // 2):
+            x, y = nums[i], nums[-i - 1]
+            if x > y:
+                x, y = y, x
             d[2] += 2
-            d[limit * 2 + 1] -= 2
-
-            d[a + 1] -= 1
-            d[b + limit + 1] += 1
-
-            d[a + b] -= 1
-            d[a + b + 1] += 1
-
-        ans, s = n, 0
-        for v in d[2 : limit * 2 + 1]:
-            s += v
-            if ans > s:
-                ans = s
-        return ans
+            d[x + 1] -= 2
+            d[x + 1] += 1
+            d[x + y] -= 1
+            d[x + y + 1] += 1
+            d[y + limit + 1] -= 1
+            d[y + limit + 1] += 2
+        return min(accumulate(d[2:]))
 ```
 
 #### Java
@@ -131,27 +130,23 @@ class Solution:
 ```java
 class Solution {
     public int minMoves(int[] nums, int limit) {
+        int[] d = new int[2 * limit + 2];
         int n = nums.length;
-        int[] d = new int[limit * 2 + 2];
-        for (int i = 0; i < n >> 1; ++i) {
-            int a = Math.min(nums[i], nums[n - i - 1]);
-            int b = Math.max(nums[i], nums[n - i - 1]);
-
+        for (int i = 0; i < n / 2; ++i) {
+            int x = Math.min(nums[i], nums[n - i - 1]);
+            int y = Math.max(nums[i], nums[n - i - 1]);
             d[2] += 2;
-            d[limit * 2 + 1] -= 2;
-
-            d[a + 1] -= 1;
-            d[b + limit + 1] += 1;
-
-            d[a + b] -= 1;
-            d[a + b + 1] += 1;
+            d[x + 1] -= 2;
+            d[x + 1] += 1;
+            d[x + y] -= 1;
+            d[x + y + 1] += 1;
+            d[y + limit + 1] -= 1;
+            d[y + limit + 1] += 2;
         }
-        int ans = n, s = 0;
-        for (int i = 2; i <= limit * 2; ++i) {
+        int ans = n;
+        for (int i = 2, s = 0; i < d.length; ++i) {
             s += d[i];
-            if (ans > s) {
-                ans = s;
-            }
+            ans = Math.min(ans, s);
         }
         return ans;
     }
@@ -165,26 +160,25 @@ class Solution {
 public:
     int minMoves(vector<int>& nums, int limit) {
         int n = nums.size();
-        vector<int> d(limit * 2 + 2);
-        for (int i = 0; i < n >> 1; ++i) {
-            int a = min(nums[i], nums[n - i - 1]);
-            int b = max(nums[i], nums[n - i - 1]);
-
-            d[2] += 2;
-            d[limit * 2 + 1] -= 2;
-
-            d[a + 1] -= 1;
-            d[b + limit + 1] += 1;
-
-            d[a + b] -= 1;
-            d[a + b + 1] += 1;
-        }
-        int ans = n, s = 0;
-        for (int i = 2; i <= limit * 2; ++i) {
-            s += d[i];
-            if (ans > s) {
-                ans = s;
+        int d[limit * 2 + 2];
+        memset(d, 0, sizeof(d));
+        for (int i = 0; i < n / 2; ++i) {
+            int x = nums[i], y = nums[n - i - 1];
+            if (x > y) {
+                swap(x, y);
             }
+            d[2] += 2;
+            d[x + 1] -= 2;
+            d[x + 1] += 1;
+            d[x + y] -= 1;
+            d[x + y + 1] += 1;
+            d[y + limit + 1] -= 1;
+            d[y + limit + 1] += 2;
+        }
+        int ans = n;
+        for (int i = 2, s = 0; i <= limit * 2; ++i) {
+            s += d[i];
+            ans = min(ans, s);
         }
         return ans;
     }
@@ -195,25 +189,25 @@ public:
 
 ```go
 func minMoves(nums []int, limit int) int {
-	d := make([]int, limit*2+2)
 	n := len(nums)
-	for i := 0; i < n>>1; i++ {
-		a, b := min(nums[i], nums[n-i-1]), max(nums[i], nums[n-i-1])
+	d := make([]int, 2*limit+2)
+	for i := 0; i < n/2; i++ {
+		x, y := nums[i], nums[n-1-i]
+		if x > y {
+			x, y = y, x
+		}
 		d[2] += 2
-		d[limit*2+1] -= 2
-
-		d[a+1] -= 1
-		d[b+limit+1] += 1
-
-		d[a+b] -= 1
-		d[a+b+1] += 1
+		d[x+1] -= 2
+		d[x+1] += 1
+		d[x+y] -= 1
+		d[x+y+1] += 1
+		d[y+limit+1] -= 1
+		d[y+limit+1] += 2
 	}
 	ans, s := n, 0
-	for _, v := range d[2 : limit*2+1] {
-		s += v
-		if ans > s {
-			ans = s
-		}
+	for _, x := range d[2:] {
+		s += x
+		ans = min(ans, s)
 	}
 	return ans
 }
@@ -226,25 +220,21 @@ function minMoves(nums: number[], limit: number): number {
     const n = nums.length;
     const d: number[] = Array(limit * 2 + 2).fill(0);
     for (let i = 0; i < n >> 1; ++i) {
-        const a = Math.min(nums[i], nums[n - i - 1]);
-        const b = Math.max(nums[i], nums[n - i - 1]);
-
+        const x = Math.min(nums[i], nums[n - 1 - i]);
+        const y = Math.max(nums[i], nums[n - 1 - i]);
         d[2] += 2;
-        d[limit * 2 + 1] -= 2;
-
-        d[a + 1] -= 1;
-        d[b + limit + 1] += 1;
-
-        d[a + b] -= 1;
-        d[a + b + 1] += 1;
+        d[x + 1] -= 2;
+        d[x + 1] += 1;
+        d[x + y] -= 1;
+        d[x + y + 1] += 1;
+        d[y + limit + 1] -= 1;
+        d[y + limit + 1] += 2;
     }
     let ans = n;
     let s = 0;
-    for (let i = 2; i <= limit * 2; ++i) {
+    for (let i = 2; i < d.length; ++i) {
         s += d[i];
-        if (ans > s) {
-            ans = s;
-        }
+        ans = Math.min(ans, s);
     }
     return ans;
 }

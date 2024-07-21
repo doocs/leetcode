@@ -69,32 +69,102 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3228.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+我们用一个变量 $\textit{ans}$ 记录答案，用一个变量 $\textit{cnt}$ 记录当前的 $1$ 的个数。
+
+然后我们遍历字符串 $s$，如果当前字符是 $1$，则 $\textit{cnt}$ 加一，否则如果存在前一个字符，且前一个字符是 $1$，那么前面的 $\textit{cnt}$ 个 $1$ 可以往后移动，答案加上 $\textit{cnt}$。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxOperations(self, s: str) -> int:
+        ans = cnt = 0
+        for i, c in enumerate(s):
+            if c == "1":
+                cnt += 1
+            elif i and s[i - 1] == "1":
+                ans += cnt
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxOperations(String s) {
+        int ans = 0, cnt = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '1') {
+                ++cnt;
+            } else if (i > 0 && s.charAt(i - 1) == '1') {
+                ans += cnt;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxOperations(string s) {
+        int ans = 0, cnt = 0;
+        int n = s.size();
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == '1') {
+                ++cnt;
+            } else if (i && s[i - 1] == '1') {
+                ans += cnt;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxOperations(s string) (ans int) {
+	cnt := 0
+	for i, c := range s {
+		if c == '1' {
+			cnt++
+		} else if i > 0 && s[i-1] == '1' {
+			ans += cnt
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxOperations(s: string): number {
+    let [ans, cnt] = [0, 0];
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === '1') {
+            ++cnt;
+        } else if (i && s[i - 1] === '1') {
+            ans += cnt;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
