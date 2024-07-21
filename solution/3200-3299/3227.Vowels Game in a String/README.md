@@ -75,32 +75,89 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3227.Vo
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+我们不妨记字符串中元音字母的个数为 $k$。
+
+如果 $k = 0$，即字符串中没有元音字母，那么小红无法移除任何子字符串，小明直接获胜。
+
+如果 $k$ 为奇数，那么小红可以移除整个字符串，小红直接获胜。
+
+如果 $k$ 为偶数，那么小红可以移除 $k - 1$ 个元音字母，此时剩下一个元音字母，小明无法移除任何子字符串，小红直接获胜。
+
+综上所述，如果字符串中包含元音字母，那么小红获胜，否则小明获胜。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def doesAliceWin(self, s: str) -> bool:
+        vowels = set("aeiou")
+        return any(c in vowels for c in s)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean doesAliceWin(String s) {
+        for (int i = 0; i < s.length(); ++i) {
+            if ("aeiou".indexOf(s.charAt(i)) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool doesAliceWin(string s) {
+        string vowels = "aeiou";
+        for (char c : s) {
+            if (vowels.find(c) != string::npos) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func doesAliceWin(s string) bool {
+	vowels := "aeiou"
+	for _, c := range s {
+		if strings.ContainsRune(vowels, c) {
+			return true
+		}
+	}
+	return false
+}
+```
 
+#### TypeScript
+
+```ts
+function doesAliceWin(s: string): boolean {
+    const vowels = 'aeiou';
+    for (const c of s) {
+        if (vowels.includes(c)) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->

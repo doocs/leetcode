@@ -68,32 +68,69 @@ It is not possible to make <code>n</code> equal to <code>k</code>.</p>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+If the bitwise AND result of $n$ and $k$ is not equal to $k$, it indicates that there exists at least one bit where $k$ is $1$ and the corresponding bit in $n$ is $0$. In this case, it is impossible to modify a bit in $n$ to make $n$ equal to $k$, and we return $-1$. Otherwise, we count the number of $1$s in the binary representation of $n \oplus k$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minChanges(self, n: int, k: int) -> int:
+        return -1 if n & k != k else (n ^ k).bit_count()
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minChanges(int n, int k) {
+        return (n & k) != k ? -1 : Integer.bitCount(n ^ k);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minChanges(int n, int k) {
+        return (n & k) != k ? -1 : __builtin_popcount(n ^ k);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minChanges(n int, k int) int {
+	if n&k != k {
+		return -1
+	}
+	return bits.OnesCount(uint(n ^ k))
+}
+```
 
+#### TypeScript
+
+```ts
+function minChanges(n: number, k: number): number {
+    return (n & k) !== k ? -1 : bitCount(n ^ k);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
 ```
 
 <!-- tabs:end -->
