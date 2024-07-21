@@ -63,11 +63,11 @@ tags:
 
 ### Solution 1: Preprocessing + Enumeration
 
-We can first preprocess the array $arr$ to find the maximum subarray sum ending at and starting from each element, and store them in the arrays $left$ and $right$ respectively.
+We can preprocess the array $\textit{arr}$ to find the maximum subarray sum ending and starting with each element, storing them in arrays $\textit{left}$ and $\textit{right}$, respectively.
 
-If we do not delete any element, then the maximum subarray sum is the maximum value in $left[i]$ or $right[i]$. If we delete one element, we can enumerate each position $i$ in $[1..n-2]$, calculate the value of $left[i-1] + right[i+1]$, and take the maximum value.
+If we do not delete any element, then the maximum subarray sum is the maximum value in $\textit{left}[i]$ or $\textit{right}[i]$; if we delete an element, we can enumerate each position $i$ in $[1..n-2]$, calculate the value of $\textit{left}[i-1] + \textit{right}[i+1]$, and take the maximum value.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -188,6 +188,33 @@ function maximumSum(arr: number[]): number {
         ans = Math.max(ans, left[i - 1] + right[i + 1]);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_sum(arr: Vec<i32>) -> i32 {
+        let n = arr.len();
+        let mut left = vec![0; n];
+        let mut right = vec![0; n];
+        let mut s = 0;
+        for i in 0..n {
+            s = (s.max(0)) + arr[i];
+            left[i] = s;
+        }
+        s = 0;
+        for i in (0..n).rev() {
+            s = (s.max(0)) + arr[i];
+            right[i] = s;
+        }
+        let mut ans = *left.iter().max().unwrap();
+        for i in 1..n - 1 {
+            ans = ans.max(left[i - 1] + right[i + 1]);
+        }
+        ans
+    }
 }
 ```
 
