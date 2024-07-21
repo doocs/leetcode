@@ -14,15 +14,13 @@
 
 function getDirections(root: TreeNode | null, startValue: number, destValue: number): string {
     const lca = (node: TreeNode | null, p: number, q: number): TreeNode | null => {
-        if (node === null || node.val === p || node.val === q) {
+        if (node === null || [p, q].includes(node.val)) {
             return node;
         }
         const left = lca(node.left, p, q);
         const right = lca(node.right, p, q);
-        if (left !== null && right !== null) {
-            return node;
-        }
-        return left !== null ? left : right;
+
+        return left && right ? node : left ?? right;
     };
 
     const dfs = (node: TreeNode | null, x: number, path: string[]): boolean => {
