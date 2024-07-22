@@ -308,15 +308,13 @@ func getDirections(root *TreeNode, startValue int, destValue int) string {
 
 function getDirections(root: TreeNode | null, startValue: number, destValue: number): string {
     const lca = (node: TreeNode | null, p: number, q: number): TreeNode | null => {
-        if (node === null || node.val === p || node.val === q) {
+        if (node === null || [p, q].includes(node.val)) {
             return node;
         }
         const left = lca(node.left, p, q);
         const right = lca(node.right, p, q);
-        if (left !== null && right !== null) {
-            return node;
-        }
-        return left !== null ? left : right;
+
+        return left && right ? node : left ?? right;
     };
 
     const dfs = (node: TreeNode | null, x: number, path: string[]): boolean => {
@@ -345,6 +343,62 @@ function getDirections(root: TreeNode | null, startValue: number, destValue: num
     dfs(node, destValue, pathToDest);
     return 'U'.repeat(pathToStart.length) + pathToDest.join('');
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} startValue
+ * @param {number} destValue
+ * @return {string}
+ */
+var getDirections = function (root, startValue, destValue) {
+    const lca = (node, p, q) => {
+        if (node === null || [p, q].includes(node.val)) {
+            return node;
+        }
+        const left = lca(node.left, p, q);
+        const right = lca(node.right, p, q);
+
+        return left && right ? node : left ?? right;
+    };
+
+    const dfs = (node, x, path) => {
+        if (node === null) {
+            return false;
+        }
+        if (node.val === x) {
+            return true;
+        }
+        path.push('L');
+        if (dfs(node.left, x, path)) {
+            return true;
+        }
+        path[path.length - 1] = 'R';
+        if (dfs(node.right, x, path)) {
+            return true;
+        }
+        path.pop();
+        return false;
+    };
+
+    const node = lca(root, startValue, destValue);
+    const pathToStart = [];
+    const pathToDest = [];
+    dfs(node, startValue, pathToStart);
+    dfs(node, destValue, pathToDest);
+    return 'U'.repeat(pathToStart.length) + pathToDest.join('');
+};
 ```
 
 <!-- tabs:end -->
@@ -422,6 +476,63 @@ class Solution {
         }
         return result | leftFound | rightFound;
     }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+#### Solution 3: LCA + DFS (Optimized)
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+export function getDirections(root: TreeNode | null, start: number, dest: number): string {
+    const dfs = (node: TreeNode | null, x: number, path: string[] = []): boolean => {
+        if (!node) return false;
+        if (node.val === x) return true;
+
+        path.push('L');
+        if (dfs(node.left, x, path)) return true;
+
+        path[path.length - 1] = 'R';
+        if (dfs(node.right, x, path)) return true;
+        path.pop();
+
+        return false;
+    };
+
+    const startPath: string[] = [];
+    const destPath: string[] = [];
+    dfs(root, start, startPath);
+    dfs(root, dest, destPath);
+
+    let i = 0;
+    while (startPath[i] === destPath[i]) i++;
+
+    return (
+        Array(startPath.length - i)
+            .fill('U')
+            .join('') + destPath.slice(i).join('')
+    );
 }
 ```
 

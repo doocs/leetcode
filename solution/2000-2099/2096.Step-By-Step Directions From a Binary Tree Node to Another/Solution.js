@@ -1,19 +1,19 @@
 /**
  * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
  * }
  */
-
-function getDirections(root: TreeNode | null, startValue: number, destValue: number): string {
-    const lca = (node: TreeNode | null, p: number, q: number): TreeNode | null => {
+/**
+ * @param {TreeNode} root
+ * @param {number} startValue
+ * @param {number} destValue
+ * @return {string}
+ */
+var getDirections = function (root, startValue, destValue) {
+    const lca = (node, p, q) => {
         if (node === null || [p, q].includes(node.val)) {
             return node;
         }
@@ -23,7 +23,7 @@ function getDirections(root: TreeNode | null, startValue: number, destValue: num
         return left && right ? node : left ?? right;
     };
 
-    const dfs = (node: TreeNode | null, x: number, path: string[]): boolean => {
+    const dfs = (node, x, path) => {
         if (node === null) {
             return false;
         }
@@ -43,9 +43,9 @@ function getDirections(root: TreeNode | null, startValue: number, destValue: num
     };
 
     const node = lca(root, startValue, destValue);
-    const pathToStart: string[] = [];
-    const pathToDest: string[] = [];
+    const pathToStart = [];
+    const pathToDest = [];
     dfs(node, startValue, pathToStart);
     dfs(node, destValue, pathToDest);
     return 'U'.repeat(pathToStart.length) + pathToDest.join('');
-}
+};
