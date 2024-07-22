@@ -89,7 +89,7 @@ Next, we iterate over all bombs. For two bombs $(x_1, y_1, r_1)$ and $(x_2, y_2,
 
 Next, we iterate over all bombs. For each bomb $k$, we use breadth-first search to calculate the indices of all bombs that can be triggered by bomb $k$ within its explosion range and record them. If the number of these bombs equals $n$, then we can trigger all bombs and directly return $n$. Otherwise, we record the number of these bombs and return the maximum value.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of bombs.
+The time complexity is $O(n^3)$ and the space complexity is $O(n^2)$, where $n$ is the number of bombs.
 
 <!-- tabs:start -->
 
