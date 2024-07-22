@@ -288,6 +288,7 @@
 | 3204 | [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)                                                               | `数据库` | 中等 | 🔒   |
 | 3214 | [同比增长率](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README.md)                                                                            | `数据库` | 困难 | 🔒   |
 | 3220 | [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README.md)                                                              |          | 中等 |      |
+| 3230 | [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README.md)                                      |          | 中等 | 🔒   |
 
 ## 版权
 

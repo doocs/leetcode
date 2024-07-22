@@ -286,6 +286,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3204 | [Bitwise User Permissions Analysis](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README_EN.md)                                                                           | `Database` | Medium     | 🔒     |
 | 3214 | [Year on Year Growth Rate](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README_EN.md)                                                                                           | `Database` | Hard       | 🔒     |
 | 3220 | [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README_EN.md)                                                                                           |            | Medium     |        |
+| 3230 | [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)                                                                   |            | Medium     | 🔒     |
 
 ## Copyright
 
