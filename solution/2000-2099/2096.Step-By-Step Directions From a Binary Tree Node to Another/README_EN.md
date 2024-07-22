@@ -465,7 +465,8 @@ class Solution {
         dfs(root, startValue, pathToStart);
         dfs(root, destValue, pathToDest);
         int i = 0;
-        while (i < pathToStart.length() && i < pathToDest.length() && pathToStart.charAt(i) == pathToDest.charAt(i)) {
+        while (i < pathToStart.length() && i < pathToDest.length()
+            && pathToStart.charAt(i) == pathToDest.charAt(i)) {
             ++i;
         }
         return "U".repeat(pathToStart.length() - i) + pathToDest.substring(i);
