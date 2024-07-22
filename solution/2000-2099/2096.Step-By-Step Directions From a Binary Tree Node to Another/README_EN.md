@@ -403,87 +403,188 @@ var getDirections = function (root, startValue, destValue) {
 
 <!-- solution:start -->
 
-#### Solution 2: DFS
+### Solution 2: Lowest Common Ancestor + DFS (Optimized)
+
+We can start from $\textit{root}$, find the paths to $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{pathToStart}$ and $\textit{pathToDest}$, respectively. Then, remove the longest common prefix of $\textit{pathToStart}$ and $\textit{pathToDest}$. At this point, the length of $\textit{pathToStart}$ is the number of $\textit{U}$s in the answer, and the path of $\textit{pathToDest}$ is the path in the answer. We just need to concatenate these two paths.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+class Solution:
+    def getDirections(
+        self, root: Optional[TreeNode], startValue: int, destValue: int
+    ) -> str:
+        def dfs(node: Optional[TreeNode], x: int, path: List[str]):
+            if node is None:
+                return False
+            if node.val == x:
+                return True
+            path.append("L")
+            if dfs(node.left, x, path):
+                return True
+            path[-1] = "R"
+            if dfs(node.right, x, path):
+                return True
+            path.pop()
+            return False
+
+        path_to_start = []
+        path_to_dest = []
+
+        dfs(root, startValue, path_to_start)
+        dfs(root, destValue, path_to_dest)
+        i = 0
+        while (
+            i < len(path_to_start)
+            and i < len(path_to_dest)
+            and path_to_start[i] == path_to_dest[i]
+        ):
+            i += 1
+        return "U" * (len(path_to_start) - i) + "".join(path_to_dest[i:])
+```
 
 #### Java
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    static byte[] path = new byte[200_001];
-    int strtLevel = -1;
-    int destLevel = -1;
-    int comnLevel = -1;
-
     public String getDirections(TreeNode root, int startValue, int destValue) {
-        findPaths(root, startValue, destValue, 100_000);
-        int answerIdx = comnLevel;
-        for (int i = strtLevel; i > comnLevel; i--) {
-            path[--answerIdx] = 'U';
+        StringBuilder pathToStart = new StringBuilder();
+        StringBuilder pathToDest = new StringBuilder();
+        dfs(root, startValue, pathToStart);
+        dfs(root, destValue, pathToDest);
+        int i = 0;
+        while (i < pathToStart.length() && i < pathToDest.length()
+            && pathToStart.charAt(i) == pathToDest.charAt(i)) {
+            ++i;
         }
-        return new String(path, answerIdx, destLevel - answerIdx);
+        return "U".repeat(pathToStart.length() - i) + pathToDest.substring(i);
     }
 
-    private int findPaths(TreeNode node, int strtVal, int destVal, int level) {
+    private boolean dfs(TreeNode node, int x, StringBuilder path) {
         if (node == null) {
-            return 0;
+            return false;
         }
-        int result = 0;
-        if (node.val == strtVal) {
-            strtLevel = level;
-            result = 1;
-        } else if (node.val == destVal) {
-            destLevel = level;
-            result = 1;
+        if (node.val == x) {
+            return true;
         }
-        int leftFound = 0;
-        int rightFound = 0;
-        if (comnLevel < 0) {
-            if (destLevel < 0) {
-                path[level] = 'L';
-            }
-            leftFound = findPaths(node.left, strtVal, destVal, level + 1);
-            rightFound = 0;
-            if (comnLevel < 0) {
-                if (destLevel < 0) {
-                    path[level] = 'R';
-                }
-                rightFound = findPaths(node.right, strtVal, destVal, level + 1);
-            }
+        path.append('L');
+        if (dfs(node.left, x, path)) {
+            return true;
         }
-        if (comnLevel < 0 && leftFound + rightFound + result == 2) {
-            comnLevel = level;
+        path.setCharAt(path.length() - 1, 'R');
+        if (dfs(node.right, x, path)) {
+            return true;
         }
-        return result | leftFound | rightFound;
+        path.deleteCharAt(path.length() - 1);
+        return false;
     }
 }
 ```
 
-<!-- tabs:end -->
+#### C++
 
-<!-- solution:end -->
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    string getDirections(TreeNode* root, int startValue, int destValue) {
+        string pathToStart, pathToDest;
+        dfs(root, startValue, pathToStart);
+        dfs(root, destValue, pathToDest);
+        int i = 0;
+        while (i < pathToStart.size() && i < pathToDest.size() && pathToStart[i] == pathToDest[i]) {
+            i++;
+        }
+        return string(pathToStart.size() - i, 'U') + pathToDest.substr(i);
+    }
 
-<!-- solution:start -->
+private:
+    bool dfs(TreeNode* node, int x, string& path) {
+        if (node == nullptr) {
+            return false;
+        }
+        if (node->val == x) {
+            return true;
+        }
+        path.push_back('L');
+        if (dfs(node->left, x, path)) {
+            return true;
+        }
+        path.back() = 'R';
+        if (dfs(node->right, x, path)) {
+            return true;
+        }
+        path.pop_back();
+        return false;
+    }
+};
+```
 
-#### Solution 3: LCA + DFS (Optimized)
+#### Go
 
-<!-- tabs:start -->
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func getDirections(root *TreeNode, startValue int, destValue int) string {
+	var dfs func(node *TreeNode, x int, path *[]byte) bool
+	dfs = func(node *TreeNode, x int, path *[]byte) bool {
+		if node == nil {
+			return false
+		}
+		if node.Val == x {
+			return true
+		}
+		*path = append(*path, 'L')
+		if dfs(node.Left, x, path) {
+			return true
+		}
+		(*path)[len(*path)-1] = 'R'
+		if dfs(node.Right, x, path) {
+			return true
+		}
+		*path = (*path)[:len(*path)-1]
+		return false
+	}
+
+	pathToStart := []byte{}
+	pathToDest := []byte{}
+	dfs(root, startValue, &pathToStart)
+	dfs(root, destValue, &pathToDest)
+	i := 0
+	for i < len(pathToStart) && i < len(pathToDest) && pathToStart[i] == pathToDest[i] {
+		i++
+	}
+	return string(bytes.Repeat([]byte{'U'}, len(pathToStart)-i)) + string(pathToDest[i:])
+}
+```
 
 #### TypeScript
 
@@ -501,35 +602,84 @@ class Solution {
  *     }
  * }
  */
-export function getDirections(root: TreeNode | null, start: number, dest: number): string {
-    const dfs = (node: TreeNode | null, x: number, path: string[] = []): boolean => {
-        if (!node) return false;
-        if (node.val === x) return true;
 
+function getDirections(root: TreeNode | null, startValue: number, destValue: number): string {
+    const dfs = (node: TreeNode | null, x: number, path: string[]): boolean => {
+        if (node === null) {
+            return false;
+        }
+        if (node.val === x) {
+            return true;
+        }
         path.push('L');
-        if (dfs(node.left, x, path)) return true;
-
+        if (dfs(node.left, x, path)) {
+            return true;
+        }
         path[path.length - 1] = 'R';
-        if (dfs(node.right, x, path)) return true;
+        if (dfs(node.right, x, path)) {
+            return true;
+        }
         path.pop();
-
         return false;
     };
-
-    const startPath: string[] = [];
-    const destPath: string[] = [];
-    dfs(root, start, startPath);
-    dfs(root, dest, destPath);
-
+    const pathToStart: string[] = [];
+    const pathToDest: string[] = [];
+    dfs(root, startValue, pathToStart);
+    dfs(root, destValue, pathToDest);
     let i = 0;
-    while (startPath[i] === destPath[i]) i++;
-
-    return (
-        Array(startPath.length - i)
-            .fill('U')
-            .join('') + destPath.slice(i).join('')
-    );
+    while (pathToStart[i] === pathToDest[i]) {
+        ++i;
+    }
+    return 'U'.repeat(pathToStart.length - i) + pathToDest.slice(i).join('');
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} startValue
+ * @param {number} destValue
+ * @return {string}
+ */
+var getDirections = function (root, startValue, destValue) {
+    const dfs = (node, x, path) => {
+        if (node === null) {
+            return false;
+        }
+        if (node.val === x) {
+            return true;
+        }
+        path.push('L');
+        if (dfs(node.left, x, path)) {
+            return true;
+        }
+        path[path.length - 1] = 'R';
+        if (dfs(node.right, x, path)) {
+            return true;
+        }
+        path.pop();
+        return false;
+    };
+    const pathToStart = [];
+    const pathToDest = [];
+    dfs(root, startValue, pathToStart);
+    dfs(root, destValue, pathToDest);
+    let i = 0;
+    while (pathToStart[i] === pathToDest[i]) {
+        ++i;
+    }
+    return 'U'.repeat(pathToStart.length - i) + pathToDest.slice(i).join('');
+};
 ```
 
 <!-- tabs:end -->
