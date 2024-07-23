@@ -13,6 +13,9 @@ class Solution {
         if (i >= nums.length) {
             return k == 0 ? mi : 0;
         }
+        if (nums.length - i < k) {
+            return 0;
+        }
         long key = (1L * mi) << 18 | (i << 12) | (j << 6) | k;
         if (f.containsKey(key)) {
             return f.get(key);
