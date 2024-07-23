@@ -1,24 +1,22 @@
 class NumberContainers {
-    private Map<Integer, Integer> mp = new HashMap<>();
-    private Map<Integer, TreeSet<Integer>> t = new HashMap<>();
+    private Map<Integer, Integer> d = new HashMap<>();
+    private Map<Integer, TreeSet<Integer>> g = new HashMap<>();
 
     public NumberContainers() {
     }
 
     public void change(int index, int number) {
-        if (mp.containsKey(index)) {
-            int v = mp.get(index);
-            t.get(v).remove(index);
-            if (t.get(v).isEmpty()) {
-                t.remove(v);
-            }
+        if (d.containsKey(index)) {
+            int oldNumber = d.get(index);
+            g.get(oldNumber).remove(index);
         }
-        mp.put(index, number);
-        t.computeIfAbsent(number, k -> new TreeSet<>()).add(index);
+        d.put(index, number);
+        g.computeIfAbsent(number, k -> new TreeSet<>()).add(index);
     }
 
     public int find(int number) {
-        return t.containsKey(number) ? t.get(number).first() : -1;
+        var ids = g.get(number);
+        return ids == null || ids.isEmpty() ? -1 : ids.first();
     }
 }
 
