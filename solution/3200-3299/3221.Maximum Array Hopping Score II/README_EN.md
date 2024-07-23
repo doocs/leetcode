@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

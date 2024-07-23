@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->
