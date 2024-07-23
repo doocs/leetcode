@@ -93,7 +93,7 @@ The execution process of the function $dfs(i, j, k, mi)$ is as follows:
 
 To avoid repeated calculations, we can use the method of memoization search to save the calculated results.
 
-The time complexity is $O(n^5)$, and the space complexity is $O(n^5)$. Where $n$ is the length of the array.
+The time complexity is $O(n^4 \times k)$, and the space complexity is $O(n^4 \times k)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
