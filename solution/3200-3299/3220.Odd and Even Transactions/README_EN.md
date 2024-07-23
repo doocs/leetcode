@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README_EN.md
+tags:
+    - Database
 ---
 
 <!-- problem:start -->

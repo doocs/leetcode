@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3222.Find%20the%20Winning%20Player%20in%20Coin%20Game/README.md
+tags:
+    - 数学
+    - 博弈
+    - 模拟
 ---
 
 <!-- problem:start -->

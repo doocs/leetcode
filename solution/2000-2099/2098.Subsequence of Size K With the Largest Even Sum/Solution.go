@@ -26,7 +26,7 @@ func largestEvenSum(nums []int, k int) int64 {
 		}
 	}
 	ans = max(-1, max(ans-mi1+mx1, ans-mi2+mx2))
-	if ans%2 != 0 {
+	if ans%2 < 0 {
 		return -1
 	}
 	return int64(ans)

@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README.md
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 单调栈
 ---
 
 <!-- problem:start -->

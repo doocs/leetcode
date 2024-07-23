@@ -93,7 +93,7 @@ The execution process of the function $dfs(i, j, k, mi)$ is as follows:
 
 To avoid repeated calculations, we can use the method of memoization search to save the calculated results.
 
-The time complexity is $O(n^5)$, and the space complexity is $O(n^5)$. Where $n$ is the length of the array.
+The time complexity is $O(n^4 \times k)$, and the space complexity is $O(n^4 \times k)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -153,39 +153,6 @@ class Solution {
         return ans;
     }
 }
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int sumOfPowers(vector<int>& nums, int k) {
-        unordered_map<long long, int> f;
-        const int mod = 1e9 + 7;
-        int n = nums.size();
-        sort(nums.begin(), nums.end());
-        function<int(int, int, int, int)> dfs = [&](int i, int j, int k, int mi) {
-            if (i >= n) {
-                return k == 0 ? mi : 0;
-            }
-            long long key = (1LL * mi) << 18 | (i << 12) | (j << 6) | k;
-            if (f.contains(key)) {
-                return f[key];
-            }
-            long long ans = dfs(i + 1, j, k, mi);
-            if (j == n) {
-                ans += dfs(i + 1, i, k - 1, mi);
-            } else {
-                ans += dfs(i + 1, i, k - 1, min(mi, nums[i] - nums[j]));
-            }
-            ans %= mod;
-            f[key] = ans;
-            return f[key];
-        };
-        return dfs(0, n, k, INT_MAX);
-    }
-};
 ```
 
 #### Go

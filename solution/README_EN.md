@@ -3228,17 +3228,17 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3217  |  [Delete Nodes From Linked List Present in Array](/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Linked List`  |  Medium  |  Weekly Contest 406  |
 |  3218  |  [Minimum Cost for Cutting Cake I](/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`,`Sorting`  |  Medium  |  Weekly Contest 406  |
 |  3219  |  [Minimum Cost for Cutting Cake II](/solution/3200-3299/3219.Minimum%20Cost%20for%20Cutting%20Cake%20II/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Hard  |  Weekly Contest 406  |
-|  3220  |  [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README_EN.md)  |    |  Medium  |    |
-|  3221  |  [Maximum Array Hopping Score II](/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README_EN.md)  |    |  Medium  |  🔒  |
-|  3222  |  [Find the Winning Player in Coin Game](/solution/3200-3299/3222.Find%20the%20Winning%20Player%20in%20Coin%20Game/README_EN.md)  |    |  Easy  |  Biweekly Contest 135  |
-|  3223  |  [Minimum Length of String After Operations](/solution/3200-3299/3223.Minimum%20Length%20of%20String%20After%20Operations/README_EN.md)  |    |  Medium  |  Biweekly Contest 135  |
-|  3224  |  [Minimum Array Changes to Make Differences Equal](/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 135  |
-|  3225  |  [Maximum Score From Grid Operations](/solution/3200-3299/3225.Maximum%20Score%20From%20Grid%20Operations/README_EN.md)  |    |  Hard  |  Biweekly Contest 135  |
-|  3226  |  [Number of Bit Changes to Make Two Integers Equal](/solution/3200-3299/3226.Number%20of%20Bit%20Changes%20to%20Make%20Two%20Integers%20Equal/README_EN.md)  |    |  Easy  |  Weekly Contest 407  |
-|  3227  |  [Vowels Game in a String](/solution/3200-3299/3227.Vowels%20Game%20in%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 407  |
-|  3228  |  [Maximum Number of Operations to Move Ones to the End](/solution/3200-3299/3228.Maximum%20Number%20of%20Operations%20to%20Move%20Ones%20to%20the%20End/README_EN.md)  |    |  Medium  |  Weekly Contest 407  |
-|  3229  |  [Minimum Operations to Make Array Equal to Target](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)  |    |  Hard  |  Weekly Contest 407  |
-|  3230  |  [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)  |    |  Medium  |  🔒  |
+|  3220  |  [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3221  |  [Maximum Array Hopping Score II](/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Monotonic Stack`  |  Medium  |  🔒  |
+|  3222  |  [Find the Winning Player in Coin Game](/solution/3200-3299/3222.Find%20the%20Winning%20Player%20in%20Coin%20Game/README_EN.md)  |  `Math`,`Game Theory`,`Simulation`  |  Easy  |  Biweekly Contest 135  |
+|  3223  |  [Minimum Length of String After Operations](/solution/3200-3299/3223.Minimum%20Length%20of%20String%20After%20Operations/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Medium  |  Biweekly Contest 135  |
+|  3224  |  [Minimum Array Changes to Make Differences Equal](/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Biweekly Contest 135  |
+|  3225  |  [Maximum Score From Grid Operations](/solution/3200-3299/3225.Maximum%20Score%20From%20Grid%20Operations/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`,`Prefix Sum`  |  Hard  |  Biweekly Contest 135  |
+|  3226  |  [Number of Bit Changes to Make Two Integers Equal](/solution/3200-3299/3226.Number%20of%20Bit%20Changes%20to%20Make%20Two%20Integers%20Equal/README_EN.md)  |  `Bit Manipulation`  |  Easy  |  Weekly Contest 407  |
+|  3227  |  [Vowels Game in a String](/solution/3200-3299/3227.Vowels%20Game%20in%20a%20String/README_EN.md)  |  `Brainteaser`,`Math`,`String`,`Game Theory`  |  Medium  |  Weekly Contest 407  |
+|  3228  |  [Maximum Number of Operations to Move Ones to the End](/solution/3200-3299/3228.Maximum%20Number%20of%20Operations%20to%20Move%20Ones%20to%20the%20End/README_EN.md)  |  `Greedy`,`String`,`Counting`  |  Medium  |  Weekly Contest 407  |
+|  3229  |  [Minimum Operations to Make Array Equal to Target](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Hard  |  Weekly Contest 407  |
+|  3230  |  [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 
 ## Copyright
 

@@ -28,6 +28,6 @@ public:
             }
         }
         ans = max(ans - mi1 + mx1, ans - mi2 + mx2);
-        return ans % 2 || ans < 0 ? -1 : ans;
+        return ans < 0 ? -1 : ans;
     }
 };

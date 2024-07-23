@@ -26,7 +26,7 @@ class Solution {
                 mi1 = nums[i];
             }
         }
-        ans = Math.max(-1, Math.max(ans - mi1 + mx1, ans - mi2 + mx2));
-        return ans % 2 != 0 ? -1 : ans;
+        ans = Math.max(ans - mi1 + mx1, ans - mi2 + mx2);
+        return ans < 0 ? -1 : ans;
     }
 }

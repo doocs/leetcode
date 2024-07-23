@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3225.Maximum%20Score%20From%20Grid%20Operations/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

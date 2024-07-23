@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3225.Maximum%20Score%20From%20Grid%20Operations/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
+    - 前缀和
 ---
 
 <!-- problem:start -->

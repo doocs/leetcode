@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3223.Minimum%20Length%20of%20String%20After%20Operations/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Counting
 ---
 
 <!-- problem:start -->

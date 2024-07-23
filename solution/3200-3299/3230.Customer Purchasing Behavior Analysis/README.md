@@ -2,11 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README.md
+tags:
+    - 数据库
 ---
 
 <!-- problem:start -->
 
-# [3230. Customer Purchasing Behavior Analysis 🔒](https://leetcode.cn/problems/customer-purchasing-behavior-analysis)
+# [3230. 客户购买行为分析 🔒](https://leetcode.cn/problems/customer-purchasing-behavior-analysis)
 
 [English Version](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)
 
@@ -14,7 +16,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3230.Cu
 
 <!-- description:start -->
 
-<p>Table: <code>Transactions</code></p>
+<p>表：<code>Transactions</code></p>
 
 <pre>
 +------------------+---------+
@@ -26,11 +28,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3230.Cu
 | transaction_date | date    |
 | amount           | decimal |
 +------------------+---------+
-transaction_id is the unique identifier for this table.
-Each row of this table contains information about a transaction, including the customer ID, product ID, date, and amount spent.
+transaction_id 是这张表的唯一标识符。
+这张表的每一行包含一次交易的信息，包括客户 ID，产品 ID，日期和总花费。
 </pre>
 
-<p>Table: <code>Products</code></p>
+<p>表：<code>Products</code></p>
 
 <pre>
 +-------------+---------+
@@ -40,34 +42,35 @@ Each row of this table contains information about a transaction, including the c
 | category    | varchar |
 | price       | decimal |
 +-------------+---------+
-product_id is the unique identifier for this table.
-Each row of this table contains information about a product, including its category and price.
+product_id 是这张表的唯一标识符。
+这张表的每一行包含一个产品的信息，包括它的分类和价格。
 </pre>
 
-<p>Write a solution to analyze customer purchasing behavior. For <strong>each customer</strong>, calculate:</p>
+<p>编写一个解决方案来分析用户购买行为。对于 <strong>每个消费者</strong>，计算：</p>
 
 <ul>
-	<li>The total amount spent.</li>
-	<li>The number of transactions.</li>
-	<li>The number of <strong>unique</strong> product categories purchased.</li>
-	<li>The average amount spent.&nbsp;</li>
-	<li>The <strong>most frequently</strong> purchased product category&nbsp;(if there is a tie, choose the one with the most recent transaction).</li>
-	<li>A <strong>loyalty score</strong>&nbsp;defined as: (Number of transactions * 10) + (Total amount spent / 100).</li>
+	<li>总消费额</li>
+	<li>交易数量</li>
+	<li>购买的 <strong>不同</strong> 产品类别的数量。</li>
+	<li>平均消费金额。</li>
+	<li><strong>最常购买</strong> 的产品类别（如果相同，选择最近交易的那个）</li>
+	<li><strong>忠诚度分数 </strong>定义为：(交易数量 * 10) + (总消费&nbsp;/ 100)。</li>
 </ul>
 
-<p>Round <code>total_amount</code>, <code>avg_transaction_amount</code>, and <code>loyalty_score</code> to <code>2</code> decimal places.</p>
+<p>将&nbsp;<code>total_amount</code>，&nbsp;<code>avg_transaction_amount</code>&nbsp;和&nbsp;<code>loyalty_score</code>&nbsp;舍入到&nbsp;<code>2</code> 位小数。</p>
 
-<p>Return <em>the result table ordered by</em> <code>loyalty_score</code> <em>in <strong>descending</strong> order</em>, <em>then by </em><code>customer_id</code><em> in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以&nbsp;<code>loyalty_score</code>&nbsp;<strong>降序</strong> 排序，然后以<em>&nbsp;</em><code>customer_id</code><em>&nbsp;</em><strong>升序</strong><em> </em>排序。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p><code>Transactions</code> table:</p>
+<p><code>Transactions</code> 表：</p>
 
 <pre class="example-io">
 +----------------+-------------+------------+------------------+--------+
@@ -81,7 +84,7 @@ Each row of this table contains information about a product, including its categ
 +----------------+-------------+------------+------------------+--------+
 </pre>
 
-<p><code>Products</code> table:</p>
+<p><code>Products</code> 表：</p>
 
 <pre class="example-io">
 +------------+----------+--------+
@@ -93,7 +96,7 @@ Each row of this table contains information about a product, including its categ
 +------------+----------+--------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+--------------+-------------------+-------------------+------------------------+--------------+---------------+
@@ -104,32 +107,32 @@ Each row of this table contains information about a product, including its categ
 +-------------+--------------+-------------------+-------------------+------------------------+--------------+---------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>For customer 101:
+	<li>对于消费者 101：
 	<ul>
-		<li>Total amount spent: 100.00 + 150.00 + 200.00 = 450.00</li>
-		<li>Number of transactions: 3</li>
-		<li>Unique categories: A, B, C (3 categories)</li>
-		<li>Average transaction amount: 450.00 / 3 = 150.00</li>
-		<li>Top category: C (Customer 101 made 1 purchase each in categories A, B, and C. Since the count is the same for all categories, we choose the most recent transaction, which is category C on 2023-02-10)</li>
-		<li>Loyalty score: (3 * 10) + (450.00 / 100) = 34.50</li>
+		<li>总消费额：100.00 + 150.00 + 200.00 = 450.00</li>
+		<li>交易次数：3</li>
+		<li>不同分类：A, B, C （3 个分类）</li>
+		<li>平均交易金额：450.00 / 3 = 150.00</li>
+		<li>最高分类：C （消费者 101 在分类 A，B，C 分别进行了一次交易。因为所有分类的数量都一样，我们选择最近的那次交易，即在 2023-02-10 的分类&nbsp;C）</li>
+		<li>忠诚度分数：(3 * 10) + (450.00 / 100) = 34.50</li>
 	</ul>
 	</li>
-	<li>For customer 102:
+	<li>对于消费者 102：
 	<ul>
-		<li>Total amount spent: 100.00 + 200.00 = 300.00</li>
-		<li>Number of transactions: 2</li>
-		<li>Unique categories: A, C (2 categories)</li>
-		<li>Average transaction amount: 300.00 / 2 = 150.00</li>
-		<li>Top category: C (Customer 102 made 1 purchase each in categories A and C. Since the count is the same for both categories, we choose the most recent transaction, which is category C on 2023-01-22)</li>
-		<li>Loyalty score: (2 * 10) + (300.00 / 100) = 23.00</li>
+		<li>总消费额：100.00 + 200.00 = 300.00</li>
+		<li>交易次数：2</li>
+		<li>不同分类：A, C（2 个分类）</li>
+		<li>平均交易金额：300.00 / 2 = 150.00</li>
+		<li>最高分类：C （消费者 102 在分类 A 和 C 分别进行了一次交易。因为所有分类的数量都一样，我们选择最近的那次交易，即在 2023-01-22 的分类&nbsp;C）</li>
+		<li>忠诚度分数：(2 * 10) + (300.00 / 100) = 23.00</li>
 	</ul>
 	</li>
 </ul>
 
-<p><strong>Note:</strong> The output is ordered by loyalty_score in descending order, then by customer_id in ascending order.</p>
+<p><strong>注意：</strong>输出表以&nbsp;loyalty_score 降序排序，然后以&nbsp;customer_id 升序排序。</p>
 </div>
 
 <!-- description:end -->
