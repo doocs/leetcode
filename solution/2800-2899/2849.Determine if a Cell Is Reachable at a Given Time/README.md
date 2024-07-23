@@ -59,7 +59,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：分情况讨论
+
+如果起点和终点相同，那么只有当 $t \neq 1$ 时，才能在给定时间到达终点。
+
+否则，我们可以计算出起点和终点的横纵坐标之差，然后取最大值，如果最大值小于等于给定时间，那么就可以在给定时间到达终点。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -143,8 +149,9 @@ function isReachableAtTime(sx: number, sy: number, fx: number, fy: number, t: nu
 ```cs
 public class Solution {
     public bool IsReachableAtTime(int sx, int sy, int fx, int fy, int t) {
-        if (sx == fx && sy == fy)
+        if (sx == fx && sy == fy) {
             return t != 1;
+        }
         return Math.Max(Math.Abs(sx - fx), Math.Abs(sy - fy)) <= t;
     }
 }
