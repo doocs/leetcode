@@ -12,7 +12,7 @@
  * }
  */
 
-function getMinimumDifference(root: TreeNode | null): number {
+function minDiffInBST(root: TreeNode | null): number {
     let [ans, pre] = [Infinity, -Infinity];
     const dfs = (root: TreeNode | null) => {
         if (!root) {
