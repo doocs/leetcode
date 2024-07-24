@@ -56,7 +56,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+We create a matrix $\textit{ans}$ of the same size as $\textit{mat}$ and initialize all elements to $-1$.
+
+Then, we traverse $\textit{mat}$, adding the coordinates $(i, j)$ of all $0$ elements to the queue $\textit{q}$, and setting $\textit{ans}[i][j]$ to $0$.
+
+Next, we use Breadth-First Search (BFS), removing an element $(i, j)$ from the queue and traversing its four directions. If the element in that direction $(x, y)$ satisfies $0 \leq x < m$, $0 \leq y < n$ and $\textit{ans}[x][y] = -1$, then we set $\textit{ans}[x][y]$ to $\textit{ans}[i][j] + 1$ and add $(x, y)$ to the queue $\textit{q}$.
+
+Finally, we return $\textit{ans}$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix $\textit{mat}$, respectively.
 
 <!-- tabs:start -->
 
@@ -209,8 +219,7 @@ function updateMatrix(mat: number[][]): number[][] {
         }
     }
     const dirs: number[] = [-1, 0, 1, 0, -1];
-    while (q.length) {
-        const [i, j] = q.shift()!;
+    for (const [i, j] of q) {
         for (let k = 0; k < 4; ++k) {
             const [x, y] = [i + dirs[k], j + dirs[k + 1]];
             if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] === -1) {
@@ -229,49 +238,38 @@ function updateMatrix(mat: number[][]): number[][] {
 use std::collections::VecDeque;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn update_matrix(mat: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        let n: usize = mat.len();
-        let m: usize = mat[0].len();
-        let mut ret_vec: Vec<Vec<i32>> = vec![vec![-1; m]; n];
-        // The inner tuple is of <X, Y, Current Count>
-        let mut the_q: VecDeque<(usize, usize)> = VecDeque::new();
-        let traverse_vec: Vec<(i32, i32)> = vec![(-1, 0), (1, 0), (0, 1), (0, -1)];
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut ans = vec![vec![-1; n]; m];
+        let mut q = VecDeque::new();
 
-        // Initialize the queue
-        for i in 0..n {
-            for j in 0..m {
+        for i in 0..m {
+            for j in 0..n {
                 if mat[i][j] == 0 {
-                    // For the zero cell, enqueue at first
-                    the_q.push_back((i, j));
-                    // Set to 0 in return vector
-                    ret_vec[i][j] = 0;
+                    q.push_back((i, j));
+                    ans[i][j] = 0;
                 }
             }
         }
 
-        while !the_q.is_empty() {
-            let (x, y) = the_q.front().unwrap().clone();
-            the_q.pop_front();
-            for pair in &traverse_vec {
-                let cur_x = pair.0 + (x as i32);
-                let cur_y = pair.1 + (y as i32);
-                if Solution::check_bounds(cur_x, cur_y, n as i32, m as i32)
-                    && ret_vec[cur_x as usize][cur_y as usize] == -1
-                {
-                    // The current cell has not be updated yet, and is also in bound
-                    ret_vec[cur_x as usize][cur_y as usize] = ret_vec[x][y] + 1;
-                    the_q.push_back((cur_x as usize, cur_y as usize));
+        let dirs = [-1, 0, 1, 0, -1];
+        while let Some((i, j)) = q.pop_front() {
+            for k in 0..4 {
+                let x = i as isize + dirs[k];
+                let y = j as isize + dirs[k + 1];
+                if x >= 0 && x < m as isize && y >= 0 && y < n as isize {
+                    let x = x as usize;
+                    let y = y as usize;
+                    if ans[x][y] == -1 {
+                        ans[x][y] = ans[i][j] + 1;
+                        q.push_back((x, y));
+                    }
                 }
             }
         }
 
-        ret_vec
-    }
-
-    #[allow(dead_code)]
-    pub fn check_bounds(i: i32, j: i32, n: i32, m: i32) -> bool {
-        i >= 0 && i < n && j >= 0 && j < m
+        ans
     }
 }
 ```
