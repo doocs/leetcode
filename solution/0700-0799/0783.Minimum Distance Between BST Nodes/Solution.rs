@@ -19,7 +19,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    pub fn get_minimum_difference(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    pub fn min_diff_in_bst(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         const inf: i32 = 1 << 30;
         let mut ans = inf;
         let mut pre = -inf;

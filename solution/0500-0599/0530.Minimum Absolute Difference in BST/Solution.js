@@ -10,7 +10,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var minDiffInBST = function (root) {
+var getMinimumDifference = function (root) {
     let [ans, pre] = [Infinity, -Infinity];
     const dfs = root => {
         if (!root) {
