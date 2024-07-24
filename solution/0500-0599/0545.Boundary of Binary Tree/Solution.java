@@ -11,7 +11,7 @@ class Solution {
         dfs(left, root.left, 0);
         dfs(leaves, root, 1);
         dfs(right, root.right, 2);
-        
+
         ans.addAll(left);
         ans.addAll(leaves);
         Collections.reverse(right);
