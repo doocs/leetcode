@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> mapping = [8,9,4,0,2,1,3,5,7,6], nums = [991,338,38]
 <strong>Output:</strong> [338,38,991]
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Map the number 991 as follows:
 1. mapping[9] = 6, so all occurrences of the digit 9 will become 6.
 2. mapping[1] = 9, so all occurrences of the digit 1 will become 9.
@@ -220,6 +220,34 @@ function sortJumbled(mapping: number[], nums: number[]): number[] {
     arr.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
     return arr.map(x => nums[x[1]]);
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} mapping
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortJumbled = function (mapping, nums) {
+    const n = nums.length;
+    const f = x => {
+        if (x === 0) {
+            return mapping[0];
+        }
+        let y = 0;
+        for (let k = 1; x; x = (x / 10) | 0) {
+            const v = mapping[x % 10];
+            y += v * k;
+            k *= 10;
+        }
+        return y;
+    };
+    const arr = nums.map((x, i) => [f(x), i]);
+    arr.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+    return arr.map(x => nums[x[1]]);
+};
 ```
 
 #### Rust
