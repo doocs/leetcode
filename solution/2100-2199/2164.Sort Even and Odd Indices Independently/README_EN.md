@@ -80,7 +80,7 @@ The resultant array formed is [2,1], which is the same as the initial array.
 
 We can extract the elements at odd and even indices separately, then sort the array of odd indices in non-increasing order and the array of even indices in non-decreasing order. Finally, merge the two arrays back together.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

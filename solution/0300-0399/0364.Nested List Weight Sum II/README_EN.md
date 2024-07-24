@@ -62,31 +62,31 @@ tags:
 
 ### Solution 1: DFS
 
-Let's assume the integers are $a_1, a_2, \cdots, a_n$, their depths are $d_1, d_2, \cdots, d_n$, the maximum depth is $\text{maxDepth}$, then the answer is:
+Let's assume the integers are $a_1, a_2, \cdots, a_n$, their depths are $d_1, d_2, \cdots, d_n$, the maximum depth is $\textit{maxDepth}$, then the answer is:
 
 $$
-a_1 \times \text{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \text{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \text{maxDepth} - a_n \times d_n + a_n
+a_1 \times \textit{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \textit{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \textit{maxDepth} - a_n \times d_n + a_n
 $$
 
 which is:
 
 $$
-(\text{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
+(\textit{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
 $$
 
 If we denote the sum of all integers as $s$, and the sum of each integer multiplied by its depth as $ws$, then the answer is:
 
 $$
-(\text{maxDepth} + 1) \times s - ws
+(\textit{maxDepth} + 1) \times s - ws
 $$
 
 Therefore, we design a function $dfs(x, d)$, which starts searching from $x$ with depth $d$. The execution process of $dfs(x, d)$ is as follows:
 
--   We first update $\text{maxDepth} = \max(\text{maxDepth}, d)$;
+-   We first update $\textit{maxDepth} = \max(\textit{maxDepth}, d)$;
 -   If $x$ is an integer, then we update $s = s + x$, $ws = ws + x \times d$;
 -   Otherwise, we recursively traverse each element $y$ of $x$, and call $dfs(y, d + 1)$.
 
-We traverse the entire list, for each element $x$, we call $dfs(x, 1)$, and finally return $(\text{maxDepth} + 1) \times s - ws$.
+We traverse the entire list, for each element $x$, we call $dfs(x, 1)$, and finally return $(\textit{maxDepth} + 1) \times s - ws$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of integers.
 

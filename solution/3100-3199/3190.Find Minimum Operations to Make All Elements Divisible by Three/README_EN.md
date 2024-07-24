@@ -66,9 +66,9 @@ tags:
 
 ### Solution 1: Mathematics
 
-We directly iterate through the array $\text{nums}$. For each element $x$, we calculate the remainder of $x$ divided by 3, $x \bmod 3$. If the remainder is not 0, we need to make $x$ divisible by 3 with the minimum number of operations. Therefore, we can choose to either decrease $x$ by $x \bmod 3$ or increase $x$ by $3 - x \bmod 3$, and we accumulate the minimum of these two values to the answer.
+We directly iterate through the array $\textit{nums}$. For each element $x$, we calculate the remainder of $x$ divided by 3, $x \bmod 3$. If the remainder is not 0, we need to make $x$ divisible by 3 with the minimum number of operations. Therefore, we can choose to either decrease $x$ by $x \bmod 3$ or increase $x$ by $3 - x \bmod 3$, and we accumulate the minimum of these two values to the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -92,7 +92,7 @@ tags:
 设 $f[i][j]$ 表示前 $i$ 行是否能选出元素和为 $j$，则有状态转移方程：
 
 $$
-f[i][j] = \begin{cases} 1 & \text{如果存在 } x \in row[i] \text{ 使得 } f[i - 1][j - x] = 1 \\ 0 & \text{否则} \end{cases}
+f[i][j] = \begin{cases} 1 & \textit{如果存在 } x \in row[i] \textit{ 使得 } f[i - 1][j - x] = 1 \\ 0 & \textit{否则} \end{cases}
 $$
 
 其中 $row[i]$ 表示第 $i$ 行的元素集合。

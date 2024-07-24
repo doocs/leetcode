@@ -67,7 +67,7 @@ str2 = "cab" 是 "cabac" 的一个子串，因为我们可以删去 "cabac" 末�
 $$
 f[i][j] =
 \begin{cases}
-0 & i = 0 \text{ or } j = 0 \\
+0 & i = 0 \textit{ or } j = 0 \\
 f[i - 1][j - 1] + 1 & str1[i - 1] = str2[j - 1] \\
 \max(f[i - 1][j], f[i][j - 1]) & str1[i - 1] \neq str2[j - 1]
 \end{cases}

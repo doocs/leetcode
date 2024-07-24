@@ -85,7 +85,7 @@ Thus all 5 bombs are detonated.
 
 We define an array $g$ of length $n$, where $g[i]$ represents the indices of all bombs that can be triggered by bomb $i$ within its explosion range.
 
-Next, we iterate over all bombs. For two bombs $(x_1, y_1, r_1)$ and $(x_2, y_2, r_2)$, we calculate the distance between them $\text{dist} = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$. If $\text{dist} \leq r_1$, then bomb $i$ can trigger bomb $j$ within its explosion range, so we add $j$ to $g[i]$. If $\text{dist} \leq r_2$, then bomb $j$ can trigger bomb $i$ within its explosion range, so we add $i$ to $g[j]$.
+Next, we iterate over all bombs. For two bombs $(x_1, y_1, r_1)$ and $(x_2, y_2, r_2)$, we calculate the distance between them $\textit{dist} = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$. If $\textit{dist} \leq r_1$, then bomb $i$ can trigger bomb $j$ within its explosion range, so we add $j$ to $g[i]$. If $\textit{dist} \leq r_2$, then bomb $j$ can trigger bomb $i$ within its explosion range, so we add $i$ to $g[j]$.
 
 Next, we iterate over all bombs. For each bomb $k$, we use breadth-first search to calculate the indices of all bombs that can be triggered by bomb $k$ within its explosion range and record them. If the number of these bombs equals $n$, then we can trigger all bombs and directly return $n$. Otherwise, we record the number of these bombs and return the maximum value.
 

@@ -68,15 +68,15 @@ tags:
 
 ### Solution 1: Memoization Search + Hash Table
 
-We design a function $\text{dfs}(i)$, which represents the minimum number of substrings starting from the string $s[i]$. So the answer is $\text{dfs}(0)$.
+We design a function $\textit{dfs}(i)$, which represents the minimum number of substrings starting from the string $s[i]$. So the answer is $\textit{dfs}(0)$.
 
-The calculation process of the function $\text{dfs}(i)$ is as follows:
+The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
 If $i \geq n$, it means that all characters have been processed, return $0$.
 
-Otherwise, we maintain a hash table $\text{cnt}$, which represents the number of occurrences of each character in the current substring. In addition, we also maintain a hash table $\text{freq}$, which represents the frequency of the number of occurrences of each character.
+Otherwise, we maintain a hash table $\textit{cnt}$, which represents the number of occurrences of each character in the current substring. In addition, we also maintain a hash table $\textit{freq}$, which represents the frequency of the number of occurrences of each character.
 
-Then we enumerate $j$ from $i$ to $n-1$, which represents the end position of the current substring. For each $j$, we update $\text{cnt}$ and $\text{freq}$, then check whether the size of $\text{freq}$ is $1$. If so, we can start splitting from $j+1$, at this time the answer is $1 + \text{dfs}(j+1)$. We take the minimum value of the answer among all $j$ as the return value of the function.
+Then we enumerate $j$ from $i$ to $n-1$, which represents the end position of the current substring. For each $j$, we update $\textit{cnt}$ and $\textit{freq}$, then check whether the size of $\textit{freq}$ is $1$. If so, we can start splitting from $j+1$, at this time the answer is $1 + \textit{dfs}(j+1)$. We take the minimum value of the answer among all $j$ as the return value of the function.
 
 To avoid repeated calculations, we use memoization search.
 

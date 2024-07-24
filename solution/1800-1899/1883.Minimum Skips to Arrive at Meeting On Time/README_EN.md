@@ -89,7 +89,7 @@ We define $f[i][j]$ as the shortest time considering the first $i$ roads and exa
 Since we can choose to skip or not skip the rest time of the $i$-th road, we can list the state transition equation:
 
 $$
-f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \text{Do not skip the rest time of the $i$-th road} \\ f[i-1][j-1]+\frac{d_i}{s} & \text{Skip the rest time of the $i$-th road} \end{aligned}\right.
+f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \textit{Do not skip the rest time of the $i$-th road} \\ f[i-1][j-1]+\frac{d_i}{s} & \textit{Skip the rest time of the $i$-th road} \end{aligned}\right.
 $$
 
 Where $\lceil x\rceil$ represents rounding $x$ up. It should be noted that since we need to ensure that exactly $j$ rest times are skipped, we must have $j\le i$; moreover, if $j=0$, no rest time can be skipped.

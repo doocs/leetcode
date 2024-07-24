@@ -96,7 +96,7 @@ tags:
 
 答案为所有 $f[x][y]$ 中的最大值。
 
-时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\text{nums}$ 的长度，而 $k=2$。
+时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k=2$。
 
 <!-- tabs:start -->
 

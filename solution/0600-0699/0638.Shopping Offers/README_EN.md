@@ -74,17 +74,17 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 
 We notice that the number of types of items $n \leq 6$ in the problem, and the quantity of each item needed does not exceed $10$. We can use $4$ binary bits to represent the quantity of each item needed. Thus, we only need at most $6 \times 4 = 24$ binary bits to represent the entire shopping list.
 
-First, we convert the shopping list $\text{needs}$ into an integer $\text{mask}$, where the quantity of the $i$-th item needed is stored in the $i \times 4$ to $(i + 1) \times 4 - 1$ bits of $\text{mask}$. For example, when $\text{needs} = [1, 2, 1]$, we have $\text{mask} = 0b0001 0010 0001$.
+First, we convert the shopping list $\textit{needs}$ into an integer $\textit{mask}$, where the quantity of the $i$-th item needed is stored in the $i \times 4$ to $(i + 1) \times 4 - 1$ bits of $\textit{mask}$. For example, when $\textit{needs} = [1, 2, 1]$, we have $\textit{mask} = 0b0001 0010 0001$.
 
-Then, we design a function $\text{dfs}(cur)$, representing the minimum amount of money we need to spend when the current state of the shopping list is $\text{cur}$. Therefore, the answer is $\text{dfs}(\text{mask})$.
+Then, we design a function $\textit{dfs}(cur)$, representing the minimum amount of money we need to spend when the current state of the shopping list is $\textit{cur}$. Therefore, the answer is $\textit{dfs}(\textit{mask})$.
 
-The calculation method of the function $\text{dfs}(cur)$ is as follows:
+The calculation method of the function $\textit{dfs}(cur)$ is as follows:
 
--   First, we calculate the cost of the current shopping list $\text{cur}$ without using any bundles, denoted as $\text{ans}$.
--   Then, we iterate through each bundle $\text{offer}$. If the current shopping list $\text{cur}$ can use the bundle $\text{offer}$, i.e., the quantity of each item in $\text{cur}$ is not less than that in the bundle $\text{offer}$, then we can try to use this bundle. We subtract the quantity of each item in the bundle $\text{offer}$ from $\text{cur}$, obtaining a new shopping list $\text{nxt}$, then recursively calculate the minimum cost of $\text{nxt}$ and add the price of the bundle $\text{offer}[n]$, updating $\text{ans}$, i.e., $\text{ans} = \min(\text{ans}, \text{offer}[n] + \text{dfs}(\text{nxt}))$.
--   Finally, return $\text{ans}$.
+-   First, we calculate the cost of the current shopping list $\textit{cur}$ without using any bundles, denoted as $\textit{ans}$.
+-   Then, we iterate through each bundle $\textit{offer}$. If the current shopping list $\textit{cur}$ can use the bundle $\textit{offer}$, i.e., the quantity of each item in $\textit{cur}$ is not less than that in the bundle $\textit{offer}$, then we can try to use this bundle. We subtract the quantity of each item in the bundle $\textit{offer}$ from $\textit{cur}$, obtaining a new shopping list $\textit{nxt}$, then recursively calculate the minimum cost of $\textit{nxt}$ and add the price of the bundle $\textit{offer}[n]$, updating $\textit{ans}$, i.e., $\textit{ans} = \min(\textit{ans}, \textit{offer}[n] + \textit{dfs}(\textit{nxt}))$.
+-   Finally, return $\textit{ans}$.
 
-To avoid repeated calculations, we use a hash table $\text{f}$ to record the minimum cost corresponding to each state $\text{cur}$.
+To avoid repeated calculations, we use a hash table $\textit{f}$ to record the minimum cost corresponding to each state $\textit{cur}$.
 
 The time complexity is $O(n \times k \times m^n)$, where $n$ represents the types of items, and $k$ and $m$ respectively represent the number of bundles and the maximum demand for each type of item. The space complexity is $O(n \times m^n)$.
 

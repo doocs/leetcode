@@ -78,12 +78,12 @@ The execution process of the function $dfs(i)$ is as follows:
 That is:
 
 $$
-dfs(i) = \text{OR}
+dfs(i) = \textit{OR}
 \begin{cases}
 true,&i \ge n\\
-dfs(i+2),&i+1 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
-dfs(i+3),&i+2 < n\ \text{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
-dfs(i+3),&i+2 < n\ \text{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \text{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
+dfs(i+2),&i+1 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1]\\
+dfs(i+3),&i+2 < n\ \textit{and}\ \textit{nums}[i] = \textit{nums}[i+1] = \textit{nums}[i+2]\\
+dfs(i+3),&i+2 < n\ \textit{and}\ \textit{nums}[i+1] - \textit{nums}[i] = 1\ \textit{and}\ \textit{nums}[i+2] - \textit{nums}[i+1] = 1
 \end{cases}
 $$
 
@@ -246,12 +246,12 @@ Let $f[i]$ represent whether there is a valid partition for the first $i$ elemen
 The state transition equation is as follows:
 
 $$
-f[i] = \text{OR}
+f[i] = \textit{OR}
 \begin{cases}
 true,&i = 0\\
-f[i-2],&i-2 \ge 0\ \text{and}\ \textit{nums}[i-1] = \textit{nums}[i-2]\\
-f[i-3],&i-3 \ge 0\ \text{and}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3]\\
-f[i-3],&i-3 \ge 0\ \text{and}\ \textit{nums}[i-1] - \textit{nums}[i-2] = 1\ \text{and}\ \textit{nums}[i-2] - \textit{nums}[i-3] = 1
+f[i-2],&i-2 \ge 0\ \textit{and}\ \textit{nums}[i-1] = \textit{nums}[i-2]\\
+f[i-3],&i-3 \ge 0\ \textit{and}\ \textit{nums}[i-1] = \textit{nums}[i-2] = \textit{nums}[i-3]\\
+f[i-3],&i-3 \ge 0\ \textit{and}\ \textit{nums}[i-1] - \textit{nums}[i-2] = 1\ \textit{and}\ \textit{nums}[i-2] - \textit{nums}[i-3] = 1
 \end{cases}
 $$
 

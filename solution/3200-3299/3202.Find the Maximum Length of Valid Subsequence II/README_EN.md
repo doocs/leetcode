@@ -77,7 +77,7 @@ Iterate through the array $nums$, and for each number $x$, we get $x = x \bmod k
 
 The answer is the maximum value among all $f[x][y]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(k^2)$. Here, $n$ is the length of the array $\text{nums}$, and $k$ is the given positive integer.
+The time complexity is $O(n \times k)$, and the space complexity is $O(k^2)$. Here, $n$ is the length of the array $\textit{nums}$, and $k$ is the given positive integer.
 
 <!-- tabs:start -->
 

@@ -151,7 +151,7 @@ function minIncrementForUnique(nums: number[]): number {
 
 ### Solution 2: Counting + Greedy
 
-According to the problem description, the maximum value of the result array $m = \max(\text{nums}) + \text{len}(\text{nums})$. We can use a counting array $\textit{cnt}$ to record the occurrence count of each element.
+According to the problem description, the maximum value of the result array $m = \max(\textit{nums}) + \textit{len}(\textit{nums})$. We can use a counting array $\textit{cnt}$ to record the occurrence count of each element.
 
 Then, we iterate from $0$ to $m - 1$. For each element $i$, if its occurrence count $\textit{cnt}[i]$ is greater than $1$, then we add $\textit{cnt}[i] - 1$ elements to $i + 1$, and accumulate the operation count into the result.
 

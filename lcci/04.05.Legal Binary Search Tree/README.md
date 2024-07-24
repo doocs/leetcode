@@ -26,7 +26,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.05.Legal%20Binary%
 
 我们可以对二叉树进行递归中序遍历，如果遍历到的结果是严格升序的，那么这棵树就是一个二叉搜索树。
 
-因此，我们使用一个变量 $\textit{prev}$ 来保存上一个遍历到的节点，初始时 $\textit{prev} = -\infty$，然后我们递归遍历左子树，如果左子树不是二叉搜索树，直接返回 $\text{False}$，否则判断当前节点的值是否大于 $\textit{prev}$，如果不是，返回 $\text{False}$，否则更新 $\textit{prev}$ 为当前节点的值，然后递归遍历右子树。
+因此，我们使用一个变量 $\textit{prev}$ 来保存上一个遍历到的节点，初始时 $\textit{prev} = -\infty$，然后我们递归遍历左子树，如果左子树不是二叉搜索树，直接返回 $\textit{False}$，否则判断当前节点的值是否大于 $\textit{prev}$，如果不是，返回 $\textit{False}$，否则更新 $\textit{prev}$ 为当前节点的值，然后递归遍历右子树。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 

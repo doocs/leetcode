@@ -66,22 +66,22 @@ tags:
 根据题目描述，有：
 
 $$
-\text{encoded}[i] = \text{arr}[i] \oplus \text{arr}[i + 1]
+\textit{encoded}[i] = \textit{arr}[i] \oplus \textit{arr}[i + 1]
 $$
 
-如果我们将等式两边同时异或上 $\text{arr}[i]$，那么就会得到：
+如果我们将等式两边同时异或上 $\textit{arr}[i]$，那么就会得到：
 
 $$
-\text{arr}[i] \oplus \text{arr}[i] \oplus \text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+\textit{arr}[i] \oplus \textit{arr}[i] \oplus \textit{arr}[i + 1] = \textit{arr}[i] \oplus \textit{encoded}[i]
 $$
 
 即：
 
 $$
-\text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+\textit{arr}[i + 1] = \textit{arr}[i] \oplus \textit{encoded}[i]
 $$
 
-根据上述推导，我们可以从 $\text{first}$ 开始，依次计算出数组 $\text{arr}$ 的每一个元素。
+根据上述推导，我们可以从 $\textit{first}$ 开始，依次计算出数组 $\textit{arr}$ 的每一个元素。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 

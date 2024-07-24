@@ -80,8 +80,8 @@ tags:
 $$
 f[i][j] = \left\{
 \begin{aligned}
-&f[i - 1][j] & \text{如果不选第 } i \text{ 个元素} \\
-&f[i - 1][j - nums[i - 1]] & \text{如果选第 } i \text{ 个元素}
+&f[i - 1][j] & \textit{如果不选第 } i \textit{ 个元素} \\
+&f[i - 1][j - nums[i - 1]] & \textit{如果选第 } i \textit{ 个元素}
 \end{aligned}
 \right.
 $$

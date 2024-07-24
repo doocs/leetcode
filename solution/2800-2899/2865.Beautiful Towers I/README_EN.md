@@ -216,8 +216,8 @@ We define $f[i]$ to represent the height sum of the beautiful tower scheme with 
 $$
 f[i]=
 \begin{cases}
-f[i-1]+heights[i],&\text{if } heights[i]\geq heights[i-1]\\
-heights[i]\times(i-j)+f[j],&\text{if } heights[i]<heights[i-1]
+f[i-1]+heights[i],&\textit{if } heights[i]\geq heights[i-1]\\
+heights[i]\times(i-j)+f[j],&\textit{if } heights[i]<heights[i-1]
 \end{cases}
 $$
 

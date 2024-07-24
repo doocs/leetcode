@@ -94,10 +94,10 @@ tags:
 函数 $dfs(i, j, k)$ 的计算过程如下：
 
 -   如果 $i \lt 0$ 或 $j \lt 0$，返回 $0$。
--   如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \text{limit}$ 时返回 $1$，否则返回 $0$。
--   如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \text{limit}$ 时返回 $1$，否则返回 $0$。
--   如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\text{limit}$ 个 $0$，即不允许出现倒数第 $\text{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \text{limit} - 1, j, 1)$。
--   如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\text{limit}$ 个 $1$，即不允许出现倒数第 $\text{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \text{limit} - 1, 0)$。
+-   如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
+-   如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
+-   如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $0$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \textit{limit} - 1, j, 1)$。
+-   如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $1$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \textit{limit} - 1, 0)$。
 
 为了避免重复计算，我们使用记忆化搜索的方法。
 
@@ -271,12 +271,12 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 
 我们定义 $f[i][j][k]$ 表示使用 $i$ 个 $0$ 和 $j$ 个 $1$ 且最后一个数字是 $k$ 的稳定二进制数组的个数。那么答案就是 $f[zero][one][0] + f[zero][one][1]$。
 
-初始时，我们有 $f[i][0][0] = 1$，其中 $1 \leq i \leq \min(\text{limit}, \text{zero})$；有 $f[0][j][1] = 1$，其中 $1 \leq j \leq \min(\text{limit}, \text{one})$。
+初始时，我们有 $f[i][0][0] = 1$，其中 $1 \leq i \leq \min(\textit{limit}, \textit{zero})$；有 $f[0][j][1] = 1$，其中 $1 \leq j \leq \min(\textit{limit}, \textit{one})$。
 
 状态转移方程如下：
 
--   $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \text{limit} - 1][j][1]$。
--   $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \text{limit} - 1][0]$。
+-   $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$。
+-   $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$。
 
 时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。
 

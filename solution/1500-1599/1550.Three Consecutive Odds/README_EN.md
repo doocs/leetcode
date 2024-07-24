@@ -53,13 +53,13 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 
 ### Solution 1: Iteration + Counting
 
-We use a variable $\text{cnt}$ to record the current count of consecutive odd numbers.
+We use a variable $\textit{cnt}$ to record the current count of consecutive odd numbers.
 
-Next, we iterate through the array. If the current element is odd, then $\text{cnt}$ is incremented by one. If $\text{cnt}$ equals 3, then return $\text{True}$. If the current element is even, then $\text{cnt}$ is reset to zero.
+Next, we iterate through the array. If the current element is odd, then $\textit{cnt}$ is incremented by one. If $\textit{cnt}$ equals 3, then return $\textit{True}$. If the current element is even, then $\textit{cnt}$ is reset to zero.
 
-After the iteration, if three consecutive odd numbers are not found, then return $\text{False}$.
+After the iteration, if three consecutive odd numbers are not found, then return $\textit{False}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -167,9 +167,9 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 
 Based on the properties of bitwise operations, the result of a bitwise AND operation between two numbers is odd if and only if both numbers are odd. If there are three consecutive numbers whose bitwise AND result is odd, then these three numbers are all odd.
 
-Therefore, we only need to iterate through the array and check if there exists three consecutive numbers whose bitwise AND result is odd. If such numbers exist, return $\text{True}$; otherwise, return $\text{False}$.
+Therefore, we only need to iterate through the array and check if there exists three consecutive numbers whose bitwise AND result is odd. If such numbers exist, return $\textit{True}$; otherwise, return $\textit{False}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

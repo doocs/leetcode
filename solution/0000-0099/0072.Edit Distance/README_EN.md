@@ -79,10 +79,10 @@ Finally, we can get the state transition equation:
 
 $$
 f[i][j] = \begin{cases}
-i, & \text{if } j = 0 \\
-j, & \text{if } i = 0 \\
-f[i - 1][j - 1], & \text{if } word1[i - 1] = word2[j - 1] \\
-\min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1, & \text{otherwise}
+i, & \textit{if } j = 0 \\
+j, & \textit{if } i = 0 \\
+f[i - 1][j - 1], & \textit{if } word1[i - 1] = word2[j - 1] \\
+\min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1, & \textit{otherwise}
 \end{cases}
 $$
 

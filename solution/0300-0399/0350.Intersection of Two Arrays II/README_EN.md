@@ -63,11 +63,11 @@ tags:
 
 ### Solution 1: Hash Table
 
-We can use a hash table $\text{cnt}$ to count the occurrences of each element in the array $\text{nums1}$. Then, we iterate through the array $\text{nums2}$. If an element $x$ is in $\text{cnt}$ and the occurrence of $x$ is greater than $0$, we add $x$ to the answer and then decrement the occurrence of $x$ by one.
+We can use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums1}$. Then, we iterate through the array $\textit{nums2}$. If an element $x$ is in $\textit{cnt}$ and the occurrence of $x$ is greater than $0$, we add $x$ to the answer and then decrement the occurrence of $x$ by one.
 
 After the iteration is finished, we return the answer array.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $\text{nums1}$ and $\text{nums2}$, respectively.
+The time complexity is $O(m + n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 

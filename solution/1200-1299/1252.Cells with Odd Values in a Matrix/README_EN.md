@@ -71,11 +71,11 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 
 ### Solution 1: Simulation
 
-We create a matrix $g$ to store the result of operations. For each pair $(r_i, c_i)$ in $\text{indices}$, we add $1$ to all numbers in the $r_i$-th row of the matrix and add $1$ to all elements in the $c_i$-th column.
+We create a matrix $g$ to store the result of operations. For each pair $(r_i, c_i)$ in $\textit{indices}$, we add $1$ to all numbers in the $r_i$-th row of the matrix and add $1$ to all elements in the $c_i$-th column.
 
 After the simulation ends, we traverse the matrix and count the number of odd numbers.
 
-The time complexity is $O(k \times (m + n) + m \times n)$, and the space complexity is $O(m \times n)$. Here, $k$ is the length of $\text{indices}$.
+The time complexity is $O(k \times (m + n) + m \times n)$, and the space complexity is $O(m \times n)$. Here, $k$ is the length of $\textit{indices}$.
 
 <!-- tabs:start -->
 
@@ -181,11 +181,11 @@ func oddCells(m int, n int, indices [][]int) int {
 
 ### Solution 2: Space Optimization
 
-We can use a row array $\text{row}$ and a column array $\text{col}$ to record the number of times each row and column is incremented. For each pair $(r_i, c_i)$ in $\text{indices}$, we add $1$ to $\text{row}[r_i]$ and $\text{col}[c_i]$ respectively.
+We can use a row array $\textit{row}$ and a column array $\textit{col}$ to record the number of times each row and column is incremented. For each pair $(r_i, c_i)$ in $\textit{indices}$, we add $1$ to $\textit{row}[r_i]$ and $\textit{col}[c_i]$ respectively.
 
-After the operations are completed, the count at position $(i, j)$ can be calculated as $\text{row}[i] + \text{col}[j]$. We traverse the matrix and count the number of odd numbers.
+After the operations are completed, the count at position $(i, j)$ can be calculated as $\textit{row}[i] + \textit{col}[j]$. We traverse the matrix and count the number of odd numbers.
 
-The time complexity is $O(k + m \times n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\text{indices}$.
+The time complexity is $O(k + m \times n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\textit{indices}$.
 
 <!-- tabs:start -->
 
@@ -278,11 +278,11 @@ func oddCells(m int, n int, indices [][]int) int {
 
 ### Solution 3: Mathematical Optimization
 
-We notice that a number at position $(i, j)$ in the matrix will be odd only when exactly one of $\text{row}[i]$ and $\text{col}[j]$ is odd and the other is even.
+We notice that a number at position $(i, j)$ in the matrix will be odd only when exactly one of $\textit{row}[i]$ and $\textit{col}[j]$ is odd and the other is even.
 
-We count the number of odd numbers in $\text{row}$, denoted as $\text{cnt1}$, and the number of odd numbers in $\text{col}$, denoted as $\text{cnt2}$. Therefore, the final count of odd numbers is $\text{cnt1} \times (n - \text{cnt2}) + \text{cnt2} \times (m - \text{cnt1})$.
+We count the number of odd numbers in $\textit{row}$, denoted as $\textit{cnt1}$, and the number of odd numbers in $\textit{col}$, denoted as $\textit{cnt2}$. Therefore, the final count of odd numbers is $\textit{cnt1} \times (n - \textit{cnt2}) + \textit{cnt2} \times (m - \textit{cnt1})$.
 
-The time complexity is $O(k + m + n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\text{indices}$.
+The time complexity is $O(k + m + n)$, and the space complexity is $O(m + n)$. Here, $k$ is the length of $\textit{indices}$.
 
 <!-- tabs:start -->
 

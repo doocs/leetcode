@@ -112,7 +112,7 @@ tags:
 我们定义 $f[i][j]$ 表示以 $(i, j)$ 为顶点的金字塔的最大高度，那么有如下状态转移方程：
 
 $$
-f[i][j] = \begin{cases} 0 & \text{grid}[i][j] = 0 \\ \min(f[i + 1][j - 1], f[i + 1][j], f[i + 1][j + 1]) + 1 & \text{grid}[i][j] = 1 \end{cases}
+f[i][j] = \begin{cases} 0 & \textit{grid}[i][j] = 0 \\ \min(f[i + 1][j - 1], f[i + 1][j], f[i + 1][j + 1]) + 1 & \textit{grid}[i][j] = 1 \end{cases}
 $$
 
 因此，我们可以从下往上、从左往右遍历网格，计算出所有的 $f[i][j]$，并累加所有的 $f[i][j]$ 即可得到正金字塔的个数。
@@ -120,7 +120,7 @@ $$
 接下来，我们考虑倒金字塔的个数。与金字塔类似，我们定义 $g[i][j]$ 表示以 $(i, j)$ 为顶点的倒金字塔的最大高度，那么有如下状态转移方程：
 
 $$
-g[i][j] = \begin{cases} 0 & \text{grid}[i][j] = 0 \\ \min(g[i - 1][j - 1], g[i - 1][j], g[i - 1][j + 1]) + 1 & \text{grid}[i][j] = 1 \end{cases}
+g[i][j] = \begin{cases} 0 & \textit{grid}[i][j] = 0 \\ \min(g[i - 1][j - 1], g[i - 1][j], g[i - 1][j + 1]) + 1 & \textit{grid}[i][j] = 1 \end{cases}
 $$
 
 因此，我们可以从上往下、从左往右遍历网格，计算出所有的 $g[i][j]$，并累加所有的 $g[i][j]$ 即可得到倒金字塔的个数。

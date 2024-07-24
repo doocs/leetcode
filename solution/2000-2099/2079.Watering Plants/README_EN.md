@@ -89,12 +89,12 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 
 ### Solution 1: Simulation
 
-We can simulate the process of watering the plants. We use a variable $\text{water}$ to represent the current amount of water in the watering can, initially $\text{water} = \text{capacity}$.
+We can simulate the process of watering the plants. We use a variable $\textit{water}$ to represent the current amount of water in the watering can, initially $\textit{water} = \textit{capacity}$.
 
 We traverse the plants. For each plant:
 
--   If the current amount of water in the watering can is enough to water this plant, we move forward one step, water this plant, and update $\text{water} = \text{water} - \text{plants}[i]$.
--   Otherwise, we need to return to the river to refill the watering can, walk back to the current position, and then move forward one step. The number of steps we need is $i \times 2 + 1$. Then we water this plant and update $\text{water} = \text{capacity} - \text{plants}[i]$.
+-   If the current amount of water in the watering can is enough to water this plant, we move forward one step, water this plant, and update $\textit{water} = \textit{water} - \textit{plants}[i]$.
+-   Otherwise, we need to return to the river to refill the watering can, walk back to the current position, and then move forward one step. The number of steps we need is $i \times 2 + 1$. Then we water this plant and update $\textit{water} = \textit{capacity} - \textit{plants}[i]$.
 
 Finally, return the total number of steps.
 

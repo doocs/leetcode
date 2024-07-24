@@ -64,31 +64,31 @@ tags:
 
 ### 方法一：DFS
 
-我们不妨假设整数分别为 $a_1, a_2, \cdots, a_n$，它们的深度分别为 $d_1, d_2, \cdots, d_n$，最大深度为 $\text{maxDepth}$，那么答案就是：
+我们不妨假设整数分别为 $a_1, a_2, \cdots, a_n$，它们的深度分别为 $d_1, d_2, \cdots, d_n$，最大深度为 $\textit{maxDepth}$，那么答案就是：
 
 $$
-a_1 \times \text{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \text{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \text{maxDepth} - a_n \times d_n + a_n
+a_1 \times \textit{maxDepth} - a_1 \times d_1 + a_1 + a_2 \times \textit{maxDepth} - a_2 \times d_2 + a_2 + \cdots + a_n \times \textit{maxDepth} - a_n \times d_n + a_n
 $$
 
 即：
 
 $$
-(\text{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
+(\textit{maxDepth} + 1) \times (a_1 + a_2 + \cdots + a_n) - (a_1 \times d_1 + a_2 \times d_2 + \cdots + a_n \times d_n)
 $$
 
 如果我们记所有整数的和为 $s$，所有整数乘以深度的和为 $ws$，那么答案就是：
 
 $$
-(\text{maxDepth} + 1) \times s - ws
+(\textit{maxDepth} + 1) \times s - ws
 $$
 
 因此，我们设计一个函数 $dfs(x, d)$，表示从 $x$ 开始，深度为 $d$ 开始搜索，函数 $dfs(x, d)$ 的执行过程如下：
 
--   我们先更新 $\text{maxDepth} = \max(\text{maxDepth}, d)$；
+-   我们先更新 $\textit{maxDepth} = \max(\textit{maxDepth}, d)$；
 -   如果 $x$ 是一个整数，那么我们更新 $s = s + x$, $ws = ws + x \times d$；
 -   否则，我们递归地遍历 $x$ 的每一个元素 $y$，调用 $dfs(y, d + 1)$。
 
-我们遍历整个列表，对于每一个元素 $x$，我们调用 $dfs(x, 1)$，最终返回 $(\text{maxDepth} + 1) \times s - ws$ 即可。
+我们遍历整个列表，对于每一个元素 $x$，我们调用 $dfs(x, 1)$，最终返回 $(\textit{maxDepth} + 1) \times s - ws$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为整数的个数。
 

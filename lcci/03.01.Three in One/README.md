@@ -47,7 +47,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20On
 
 ### 方法一：数组模拟
 
-我们使用一个变量 $cap$ 来表示每个栈的大小，使用一个长度为 $3 \times \text{cap} + 3$ 的数组 $stk$ 来模拟三个栈，数组的前 $3 \times \text{cap}$ 个元素用来存储栈的元素，数组的后三个元素用来存储每个栈的元素个数。
+我们使用一个变量 $cap$ 来表示每个栈的大小，使用一个长度为 $3 \times \textit{cap} + 3$ 的数组 $stk$ 来模拟三个栈，数组的前 $3 \times \textit{cap}$ 个元素用来存储栈的元素，数组的后三个元素用来存储每个栈的元素个数。
 
 对于 `push` 操作，我们首先判断栈是否已满，如果未满，则将元素压入栈中，并更新栈的元素个数。
 
@@ -55,9 +55,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20On
 
 对于 `peek` 操作，我们首先判断栈是否为空，如果不为空，则返回栈顶元素。
 
-对于 `isEmpty` 操作，我们直接判断栈是否为空即可。对于栈 $i$，我们只需要判断 $stk[\text{cap} \times 3 + i]$ 是否为 $0$ 即可。
+对于 `isEmpty` 操作，我们直接判断栈是否为空即可。对于栈 $i$，我们只需要判断 $stk[\textit{cap} \times 3 + i]$ 是否为 $0$ 即可。
 
-时间复杂度上，每个操作的时间复杂度均为 $O(1)$。空间复杂度为 $O(\text{cap})$，其中 $\text{cap}$ 为栈的大小。
+时间复杂度上，每个操作的时间复杂度均为 $O(1)$。空间复杂度为 $O(\textit{cap})$，其中 $\textit{cap}$ 为栈的大小。
 
 <!-- tabs:start -->
 
