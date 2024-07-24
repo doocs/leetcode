@@ -268,7 +268,7 @@ fn dfs(i: usize, destination: usize, vis: &mut Vec<bool>, g: &Vec<HashSet<usize>
 
 具体地，我们定义一个队列 $q$，初始时将 `source` 加入队列。另外，我们用一个集合 `vis` 记录已经访问过的顶点，避免重复访问。
 
-接下来，我们不断从队列中取出顶点 $i$，如果 $i = \text{destination}$，则说明存在从 `source` 到 `destination` 的路径，返回 `true`。否则，我们遍历 $i$ 的所有邻接顶点 $j$，如果 $j$ 没有被访问过，我们将 $j$ 加入队列 $q$，并且标记 $j$ 为已访问。
+接下来，我们不断从队列中取出顶点 $i$，如果 $i = \textit{destination}$，则说明存在从 `source` 到 `destination` 的路径，返回 `true`。否则，我们遍历 $i$ 的所有邻接顶点 $j$，如果 $j$ 没有被访问过，我们将 $j$ 加入队列 $q$，并且标记 $j$ 为已访问。
 
 最后，如果队列为空，说明不存在从 `source` 到 `destination` 的路径，返回 `false`。
 

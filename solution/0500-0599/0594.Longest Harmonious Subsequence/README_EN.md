@@ -80,9 +80,9 @@ tags:
 
 ### Solution 1: Hash Table
 
-We can use a hash table $\text{cnt}$ to record the occurrence count of each element in the array $\text{nums}$. Then, we iterate through each key-value pair $(x, c)$ in the hash table. If the key $x + 1$ exists in the hash table, then the sum of occurrences of elements $x$ and $x + 1$, $c + \text{cnt}[x + 1]$, forms a harmonious subsequence. We just need to find the maximum length among all harmonious subsequences.
+We can use a hash table $\textit{cnt}$ to record the occurrence count of each element in the array $\textit{nums}$. Then, we iterate through each key-value pair $(x, c)$ in the hash table. If the key $x + 1$ exists in the hash table, then the sum of occurrences of elements $x$ and $x + 1$, $c + \textit{cnt}[x + 1]$, forms a harmonious subsequence. We just need to find the maximum length among all harmonious subsequences.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

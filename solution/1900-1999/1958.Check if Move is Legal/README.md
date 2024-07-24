@@ -70,9 +70,9 @@ tags:
 
 ### 方法一：枚举
 
-我们枚举所有可能的方向，对于每个方向 $(a, b)$，我们从 $(\textit{rMove}, \textit{cMove})$ 出发，用一个变量 $\textit{cnt}$ 记录我们走过的格子数，如果我们在走的过程中遇到了颜色为 $\textit{color}$ 的格子，且 $\textit{cnt} > 1$，那么我们就找到了一个好线段，返回 $\text{true}$。
+我们枚举所有可能的方向，对于每个方向 $(a, b)$，我们从 $(\textit{rMove}, \textit{cMove})$ 出发，用一个变量 $\textit{cnt}$ 记录我们走过的格子数，如果我们在走的过程中遇到了颜色为 $\textit{color}$ 的格子，且 $\textit{cnt} > 1$，那么我们就找到了一个好线段，返回 $\textit{true}$。
 
-枚举结束后，如果我们没有找到任何好线段，那么返回 $\text{false}$。
+枚举结束后，如果我们没有找到任何好线段，那么返回 $\textit{false}$。
 
 时间复杂度 $O(m + n)$，其中 $m$ 为 $\textit{board}$ 的行数，而 $n$ 为 $\textit{board}$ 的列数，本题中 $m = n = 8$。空间复杂度 $O(1)$。
 

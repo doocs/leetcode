@@ -70,7 +70,7 @@ Therefore, we have the following state transition equation:
 $$
 f[i][j] = \begin{cases}
 1 & i = 0, j = 0 \\
-f[i - 1][j] + f[i][j - 1] & \text{otherwise}
+f[i - 1][j] + f[i][j - 1] & \textit{otherwise}
 \end{cases}
 $$
 

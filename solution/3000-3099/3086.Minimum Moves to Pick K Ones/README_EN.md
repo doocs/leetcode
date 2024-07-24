@@ -92,10 +92,10 @@ We consider enumerating Alice's standing position $i$. For each $i$, we follow t
 
 -   First, if the number at position $i$ is $1$, we can directly pick up a $1$ without needing any moves.
 -   Then, we pick up the number $1$ from both sides of position $i$, which is action $2$, i.e., move the $1$ from position $i-1$ to position $i$, then pick it up; move the $1$ from position $i+1$ to position $i$, then pick it up. Each pick up of a $1$ requires $1$ move.
--   Next, we maximize the conversion of $0$s at positions $i-1$ or $i+1$ to $1$s using action $1$, then move them to position $i$ using action $2$ to pick them up. This continues until the number of $1$s picked up reaches $k$ or the number of times action $1$ is used reaches $\text{maxChanges}$. Assuming the number of times action $1$ is used is $c$, then a total of $2c$ moves are needed.
+-   Next, we maximize the conversion of $0$s at positions $i-1$ or $i+1$ to $1$s using action $1$, then move them to position $i$ using action $2$ to pick them up. This continues until the number of $1$s picked up reaches $k$ or the number of times action $1$ is used reaches $\textit{maxChanges}$. Assuming the number of times action $1$ is used is $c$, then a total of $2c$ moves are needed.
 -   After utilizing action $1$, if the number of $1$s picked up has not reached $k$, we need to continue considering moving $1$s to position $i$ from the intervals $[1,..i-2]$ and $[i+2,..n]$ using action $2$ to pick them up. We can use binary search to determine the size of this interval so that the number of $1$s picked up reaches $k$. Specifically, we binary search for an interval size $d$, then within the intervals $[i-d,..i-2]$ and $[i+2,..i+d]$, we perform action $2$ to move $1$s to position $i$ for pickup. If the number of $1$s picked up reaches $k$, we update the answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

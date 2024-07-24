@@ -75,8 +75,8 @@ If the $i$th character of $text1$ and the $j$th character of $text2$ are the sam
 $$
 f[i][j] =
 \begin{cases}
-f[i - 1][j - 1] + 1, & \text{if } text1[i - 1] = text2[j - 1] \\
-\max(f[i - 1][j], f[i][j - 1]), & \text{if } text1[i - 1] \neq text2[j - 1]
+f[i - 1][j - 1] + 1, & \textit{if } text1[i - 1] = text2[j - 1] \\
+\max(f[i - 1][j], f[i][j - 1]), & \textit{if } text1[i - 1] \neq text2[j - 1]
 \end{cases}
 $$
 

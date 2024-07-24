@@ -72,7 +72,7 @@ tags:
 
 ### Solution 1: BFS
 
-First, we traverse the entire grid once, count the number of fresh oranges, denoted as $\text{cnt}$, and add the coordinates of all rotten oranges to the queue $q$.
+First, we traverse the entire grid once, count the number of fresh oranges, denoted as $\textit{cnt}$, and add the coordinates of all rotten oranges to the queue $q$.
 
 Next, we perform a breadth-first search. In each round of the search, we let all the rotten oranges in the queue rot the fresh oranges in four directions, until the queue is empty or the number of fresh oranges is $0$.
 

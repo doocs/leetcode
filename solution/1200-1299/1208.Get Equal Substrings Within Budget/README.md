@@ -265,7 +265,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 ### 方法二：双指针
 
-我们可以维护两个指针 $l$ 和 $r$，初始时 $l = r = 0$；维护一个变量 $\text{cost}$，表示下标区间 $[l,..r]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\text{cost} = \text{cost} + |s[r] - t[r]|$。如果 $\text{cost} \gt \text{maxCost}$，那么我们就循环将 $l$ 向右移动一位，并且减少 $\text{cost}$ 的值，直到 $\text{cost} \leq \text{maxCost}$。然后我们更新答案，即 $\text{ans} = \max(\text{ans}, r - l + 1)$。
+我们可以维护两个指针 $l$ 和 $r$，初始时 $l = r = 0$；维护一个变量 $\textit{cost}$，表示下标区间 $[l,..r]$ 之间的 ASCII 码值的差的绝对值之和。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\textit{cost} = \textit{cost} + |s[r] - t[r]|$。如果 $\textit{cost} \gt \textit{maxCost}$，那么我们就循环将 $l$ 向右移动一位，并且减少 $\textit{cost}$ 的值，直到 $\textit{cost} \leq \textit{maxCost}$。然后我们更新答案，即 $\textit{ans} = \max(\textit{ans}, r - l + 1)$。
 
 最后返回答案即可。
 
@@ -382,7 +382,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 在方法二中，双指针维护的区间可能变短，也可能变长，由于题目只需要求出最大长度，我们可以维护一个单调变长的区间。
 
-具体地，我们用两个指针 $l$ 和 $r$ 指向区间的左右端点，初始时 $l = r = 0$。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\text{cost} = \text{cost} + |s[r] - t[r]|$。如果 $\text{cost} \gt \text{maxCost}$，那么我们就将 $l$ 向右移动一位，并且减少 $\text{cost}$ 的值。
+具体地，我们用两个指针 $l$ 和 $r$ 指向区间的左右端点，初始时 $l = r = 0$。在每一步中，我们将 $r$ 向右移动一位，然后更新 $\textit{cost} = \textit{cost} + |s[r] - t[r]|$。如果 $\textit{cost} \gt \textit{maxCost}$，那么我们就将 $l$ 向右移动一位，并且减少 $\textit{cost}$ 的值。
 
 最后返回 $n - l$ 即可。
 

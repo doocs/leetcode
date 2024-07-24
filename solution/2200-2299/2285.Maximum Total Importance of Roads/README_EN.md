@@ -79,7 +79,7 @@ It can be shown that we cannot obtain a greater total importance than 20.
 
 ### Solution 1: Greedy + Sorting
 
-We consider the contribution of each city to the total importance of all roads, recorded in the array $\text{deg}$. Then, we sort $\text{deg}$ by contribution from smallest to largest and allocate $[1, 2, ..., n]$ to the cities in order.
+We consider the contribution of each city to the total importance of all roads, recorded in the array $\textit{deg}$. Then, we sort $\textit{deg}$ by contribution from smallest to largest and allocate $[1, 2, ..., n]$ to the cities in order.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$.
 

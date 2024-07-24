@@ -90,12 +90,12 @@ tags:
 
 ### 方法一：模拟
 
-我们可以模拟给植物浇水的过程，用一个变量 $\text{water}$ 表示当前水罐中的水量，初始时 $\text{water} = \text{capacity}$。
+我们可以模拟给植物浇水的过程，用一个变量 $\textit{water}$ 表示当前水罐中的水量，初始时 $\textit{water} = \textit{capacity}$。
 
 我们遍历植物，对于每一株植物：
 
--   如果当前水罐中的水量足够浇灌这株植物，我们就向前移动一步，浇灌这株植物，同时更新 $\text{water} = \text{water} - \text{plants}[i]$。
--   否则我们就需要返回河边重新装满水罐，再次走到当前位置，然后向前移动一步，此时我们需要的步数为 $i \times 2 + 1$，然后我们浇灌这株植物，更新 $\text{water} = \text{capacity} - \text{plants}[i]$。
+-   如果当前水罐中的水量足够浇灌这株植物，我们就向前移动一步，浇灌这株植物，同时更新 $\textit{water} = \textit{water} - \textit{plants}[i]$。
+-   否则我们就需要返回河边重新装满水罐，再次走到当前位置，然后向前移动一步，此时我们需要的步数为 $i \times 2 + 1$，然后我们浇灌这株植物，更新 $\textit{water} = \textit{capacity} - \textit{plants}[i]$。
 
 最后返回总的步数即可。
 

@@ -69,7 +69,7 @@ tags:
 
 $$
 \begin{aligned}
-\text{ans} &= (a_1 \wedge b_1) \oplus (a_1 \wedge b_2) ... (a_1 \wedge b_m) \\
+\textit{ans} &= (a_1 \wedge b_1) \oplus (a_1 \wedge b_2) ... (a_1 \wedge b_m) \\
 &\quad \oplus (a_2 \wedge b_1) \oplus (a_2 \wedge b_2) ... (a_2 \wedge b_m) \\
 &\quad \oplus \cdots \\
 &\quad \oplus (a_n \wedge b_1) \oplus (a_n \wedge b_2) ... (a_n \wedge b_m) \\
@@ -79,7 +79,7 @@ $$
 由于布尔代数中，异或运算就是不进位的加法，与运算就是乘法，所以上式可以简化为：
 
 $$
-\text{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
+\textit{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
 $$
 
 即，数组 $arr1$ 的异或和与数组 $arr2$ 的异或和的与运算结果。

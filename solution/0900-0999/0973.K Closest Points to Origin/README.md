@@ -71,7 +71,7 @@ tags:
 
 我们将所有点按照与原点的距离从小到大排序，然后取前 $k$ 个点即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\text{points}$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{points}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -155,7 +155,7 @@ impl Solution {
 
 我们可以使用一个优先队列（大根堆）来维护距离原点最近的 $k$ 个点。
 
-时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\text{points}$ 的长度。
+时间复杂度 $O(n \times \log k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{points}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -285,7 +285,7 @@ function kClosest(points: number[][], k: number): number[][] {
 
 二分查找结束后，我们只需要返回距离小于等于左边界的点即可。
 
-时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{points}$ 的长度，而 $M$ 为距离的最大值。
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{points}$ 的长度，而 $M$ 为距离的最大值。
 
 <!-- tabs:start -->
 

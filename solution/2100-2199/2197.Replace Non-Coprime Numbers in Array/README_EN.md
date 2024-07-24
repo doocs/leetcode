@@ -83,7 +83,7 @@ Note that there are other ways to obtain the same resultant array.
 
 ### Solution 1: Stack
 
-If there exist three adjacent numbers $x$, $y$, $z$ that can be merged, then the result of first merging $x$ and $y$, then merging $z$, is the same as the result of first merging $y$ and $z$, then merging $x$. Both results are $\text{LCM}(x, y, z)$.
+If there exist three adjacent numbers $x$, $y$, $z$ that can be merged, then the result of first merging $x$ and $y$, then merging $z$, is the same as the result of first merging $y$ and $z$, then merging $x$. Both results are $\textit{LCM}(x, y, z)$.
 
 Therefore, we can always prefer to merge the adjacent numbers on the left, and then merge the result with the adjacent number on the right.
 

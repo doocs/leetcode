@@ -91,7 +91,7 @@ We can enumerate the positions of the two dividing lines, which have $6$ possibi
 5. First perform a vertical split, then a horizontal split on the left part
 6. First perform a vertical split, then a horizontal split on the right part
 
-We can use a function $\text{f}(i_1, j_1, i_2, j_2)$ to calculate the minimum rectangular area containing all $1$s from $(i_1, j_1)$ to $(i_2, j_2)$.
+We can use a function $\textit{f}(i_1, j_1, i_2, j_2)$ to calculate the minimum rectangular area containing all $1$s from $(i_1, j_1)$ to $(i_2, j_2)$.
 
 The time complexity is $O(m^2 \times n^2)$, where $m$ and $n$ are the number of rows and columns of the rectangle, respectively. The space complexity is $O(1)$.
 

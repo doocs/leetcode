@@ -48,11 +48,11 @@ findMedian() -&gt; 2
 
 ### 方法一：大小根堆（优先队列）
 
-我们可以使用两个堆来维护所有的元素，一个小根堆 $\text{minQ}$ 和一个大根堆 $\text{maxQ}$，其中小根堆 $\text{minQ}$ 存储较大的一半，大根堆 $\text{maxQ}$ 存储较小的一半。
+我们可以使用两个堆来维护所有的元素，一个小根堆 $\textit{minQ}$ 和一个大根堆 $\textit{maxQ}$，其中小根堆 $\textit{minQ}$ 存储较大的一半，大根堆 $\textit{maxQ}$ 存储较小的一半。
 
-调用 `addNum` 方法时，我们首先将元素加入到大根堆 $\text{maxQ}$，然后将 $\text{maxQ}$ 的堆顶元素弹出并加入到小根堆 $\text{minQ}$。如果此时 $\text{minQ}$ 的大小与 $\text{maxQ}$ 的大小差值大于 $1$，我们就将 $\text{minQ}$ 的堆顶元素弹出并加入到 $\text{maxQ}$。时间复杂度为 $O(\log n)$。
+调用 `addNum` 方法时，我们首先将元素加入到大根堆 $\textit{maxQ}$，然后将 $\textit{maxQ}$ 的堆顶元素弹出并加入到小根堆 $\textit{minQ}$。如果此时 $\textit{minQ}$ 的大小与 $\textit{maxQ}$ 的大小差值大于 $1$，我们就将 $\textit{minQ}$ 的堆顶元素弹出并加入到 $\textit{maxQ}$。时间复杂度为 $O(\log n)$。
 
-调用 `findMedian` 方法时，如果 $\text{minQ}$ 的大小等于 $\text{maxQ}$ 的大小，说明元素的总数为偶数，我们就可以返回 $\text{minQ}$ 的堆顶元素与 $\text{maxQ}$ 的堆顶元素的平均值；否则，我们返回 $\text{minQ}$ 的堆顶元素。时间复杂度为 $O(1)$。
+调用 `findMedian` 方法时，如果 $\textit{minQ}$ 的大小等于 $\textit{maxQ}$ 的大小，说明元素的总数为偶数，我们就可以返回 $\textit{minQ}$ 的堆顶元素与 $\textit{maxQ}$ 的堆顶元素的平均值；否则，我们返回 $\textit{minQ}$ 的堆顶元素。时间复杂度为 $O(1)$。
 
 空间复杂度为 $O(n)$。其中 $n$ 为元素的个数。
 

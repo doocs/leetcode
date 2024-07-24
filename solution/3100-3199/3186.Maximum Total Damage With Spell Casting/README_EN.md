@@ -75,17 +75,17 @@ tags:
 
 ### Solution 1: Binary Search + Memoization
 
-We can first sort the array $\text{power}$, use a hash table $\text{cnt}$ to record the occurrence count of each damage value, and then iterate through the array $\text{power}$. For each damage value $x$, we can determine the index of the next damage value that can be used when using a spell with damage value $x$, which is the index of the first damage value greater than $x + 2$. We can use binary search to find this index and record it in the array $\text{nxt}$.
+We can first sort the array $\textit{power}$, use a hash table $\textit{cnt}$ to record the occurrence count of each damage value, and then iterate through the array $\textit{power}$. For each damage value $x$, we can determine the index of the next damage value that can be used when using a spell with damage value $x$, which is the index of the first damage value greater than $x + 2$. We can use binary search to find this index and record it in the array $\textit{nxt}$.
 
-Next, we define a function $\text{dfs}$ to calculate the maximum damage value that can be obtained starting from the $i$-th damage value.
+Next, we define a function $\textit{dfs}$ to calculate the maximum damage value that can be obtained starting from the $i$-th damage value.
 
-In the $\text{dfs}$ function, we can choose to skip the current damage value, so we can skip all the same damage values of the current one and directly jump to $i + \text{cnt}[x]$, obtaining a damage value of $\text{dfs}(i + \text{cnt}[x])$; or we can choose to use the current damage value, so we can use all the same damage values of the current one and then jump to the index of the next damage value, obtaining a damage value of $x \times \text{cnt}[x] + \text{dfs}(\text{nxt}[i])$, where $\text{nxt}[i]$ represents the index of the first damage value greater than $x + 2$. We take the maximum of these two cases as the return value of the function.
+In the $\textit{dfs}$ function, we can choose to skip the current damage value, so we can skip all the same damage values of the current one and directly jump to $i + \textit{cnt}[x]$, obtaining a damage value of $\textit{dfs}(i + \textit{cnt}[x])$; or we can choose to use the current damage value, so we can use all the same damage values of the current one and then jump to the index of the next damage value, obtaining a damage value of $x \times \textit{cnt}[x] + \textit{dfs}(\textit{nxt}[i])$, where $\textit{nxt}[i]$ represents the index of the first damage value greater than $x + 2$. We take the maximum of these two cases as the return value of the function.
 
-To avoid repeated calculations, we can use memoization, storing the results that have already been calculated in an array $\text{f}$. Thus, when calculating $\text{dfs}(i)$, if $\text{f}[i]$ is not $0$, we directly return $\text{f}[i]$.
+To avoid repeated calculations, we can use memoization, storing the results that have already been calculated in an array $\textit{f}$. Thus, when calculating $\textit{dfs}(i)$, if $\textit{f}[i]$ is not $0$, we directly return $\textit{f}[i]$.
 
-The answer is $\text{dfs}(0)$.
+The answer is $\textit{dfs}(0)$.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{power}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{power}$.
 
 <!-- tabs:start -->
 

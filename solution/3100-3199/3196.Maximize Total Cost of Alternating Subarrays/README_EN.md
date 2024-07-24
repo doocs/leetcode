@@ -102,12 +102,12 @@ tags:
 
 Based on the problem description, if the current number has not been flipped, then the next one can either be flipped or not flipped; if the current number has been flipped, then the next one can only remain unflipped.
 
-Therefore, we define a function $\text{dfs}(i, j)$, which represents starting from the $i$-th number, whether the $i$-th number can be flipped, where $j$ indicates whether the $i$-th number is flipped. If $j = 0$, it means the $i$-th number cannot be flipped, otherwise, it can be flipped. The answer is $\text{dfs}(0, 0)$.
+Therefore, we define a function $\textit{dfs}(i, j)$, which represents starting from the $i$-th number, whether the $i$-th number can be flipped, where $j$ indicates whether the $i$-th number is flipped. If $j = 0$, it means the $i$-th number cannot be flipped, otherwise, it can be flipped. The answer is $\textit{dfs}(0, 0)$.
 
 The execution process of the function $dfs(i, j)$ is as follows:
 
--   If $i \geq \text{len}(nums)$, it means the array has been fully traversed, return $0$;
--   Otherwise, the $i$-th number can remain unflipped, in which case the answer is $nums[i] + \text{dfs}(i + 1, 1)$; if $j = 1$, it means the $i$-th number can be flipped, in which case the answer is $\max(\text{dfs}(i + 1, 0) - nums[i])$. We take the maximum of the two.
+-   If $i \geq \textit{len}(nums)$, it means the array has been fully traversed, return $0$;
+-   Otherwise, the $i$-th number can remain unflipped, in which case the answer is $nums[i] + \textit{dfs}(i + 1, 1)$; if $j = 1$, it means the $i$-th number can be flipped, in which case the answer is $\max(\textit{dfs}(i + 1, 0) - nums[i])$. We take the maximum of the two.
 
 To avoid repeated calculations, we can use memoization to save the results that have already been computed.
 

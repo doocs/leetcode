@@ -64,22 +64,22 @@ tags:
 Based on the problem description, we have:
 
 $$
-\text{encoded}[i] = \text{arr}[i] \oplus \text{arr}[i + 1]
+\textit{encoded}[i] = \textit{arr}[i] \oplus \textit{arr}[i + 1]
 $$
 
-If we XOR both sides of the equation with $\text{arr}[i]$, we get:
+If we XOR both sides of the equation with $\textit{arr}[i]$, we get:
 
 $$
-\text{arr}[i] \oplus \text{arr}[i] \oplus \text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+\textit{arr}[i] \oplus \textit{arr}[i] \oplus \textit{arr}[i + 1] = \textit{arr}[i] \oplus \textit{encoded}[i]
 $$
 
 Which simplifies to:
 
 $$
-\text{arr}[i + 1] = \text{arr}[i] \oplus \text{encoded}[i]
+\textit{arr}[i + 1] = \textit{arr}[i] \oplus \textit{encoded}[i]
 $$
 
-Following the derivation above, we can start with $\text{first}$ and sequentially calculate every element of the array $\text{arr}$.
+Following the derivation above, we can start with $\textit{first}$ and sequentially calculate every element of the array $\textit{arr}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 

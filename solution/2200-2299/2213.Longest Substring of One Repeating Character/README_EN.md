@@ -72,7 +72,7 @@ Thus, we return [2,3].
 
 ### Solution 1: Segment Tree
 
-The segment tree divides the entire interval into multiple non-continuous sub-intervals, and the number of sub-intervals does not exceed $\log(\text{width})$. To update the value of an element, you only need to update $\log(\text{width})$ intervals, and these intervals are all contained in a large interval that contains the element. When modifying the interval, you need to use **lazy tags** to ensure efficiency.
+The segment tree divides the entire interval into multiple non-continuous sub-intervals, and the number of sub-intervals does not exceed $\log(\textit{width})$. To update the value of an element, you only need to update $\log(\textit{width})$ intervals, and these intervals are all contained in a large interval that contains the element. When modifying the interval, you need to use **lazy tags** to ensure efficiency.
 
 -   Each node of the segment tree represents an interval;
 -   The segment tree has a unique root node, which represents the entire statistical range, such as $[1, n]$;

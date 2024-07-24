@@ -72,7 +72,7 @@ tags:
 
 ### Solution 1: Construction
 
-According to the problem description, the sum of all numbers is $(n + m) \times \text{mean}$, and the sum of known numbers is $\sum_{i=0}^{m-1} \text{rolls}[i]$. Therefore, the sum of the missing numbers is $s = (n + m) \times \text{mean} - \sum_{i=0}^{m-1} \text{rolls}[i]$.
+According to the problem description, the sum of all numbers is $(n + m) \times \textit{mean}$, and the sum of known numbers is $\sum_{i=0}^{m-1} \textit{rolls}[i]$. Therefore, the sum of the missing numbers is $s = (n + m) \times \textit{mean} - \sum_{i=0}^{m-1} \textit{rolls}[i]$.
 
 If $s \gt n \times 6$ or $s \lt n$, it means there is no answer that satisfies the conditions, so we return an empty array.
 

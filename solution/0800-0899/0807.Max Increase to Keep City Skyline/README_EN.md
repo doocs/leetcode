@@ -67,11 +67,11 @@ gridNew = [ [8, 4, 8, 7],
 
 ### Solution 1: Greedy
 
-According to the problem description, we can increase the value of each cell $(i, j)$ to the smaller value between the maximum value of the $i$-th row and the $j$-th column, ensuring it does not affect the skyline. Thus, the height added to each cell is $\min(\text{rowMax}[i], \text{colMax}[j]) - \text{grid}[i][j]$.
+According to the problem description, we can increase the value of each cell $(i, j)$ to the smaller value between the maximum value of the $i$-th row and the $j$-th column, ensuring it does not affect the skyline. Thus, the height added to each cell is $\min(\textit{rowMax}[i], \textit{colMax}[j]) - \textit{grid}[i][j]$.
 
-Therefore, we can first traverse the matrix once to calculate the maximum value of each row and column, storing them in the arrays $\text{rowMax}$ and $\text{colMax}$, respectively. Then, we traverse the matrix again to compute the answer.
+Therefore, we can first traverse the matrix once to calculate the maximum value of each row and column, storing them in the arrays $\textit{rowMax}$ and $\textit{colMax}$, respectively. Then, we traverse the matrix again to compute the answer.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the side length of the matrix $\text{grid}$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the side length of the matrix $\textit{grid}$.
 
 <!-- tabs:start -->
 

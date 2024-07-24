@@ -69,7 +69,7 @@ tags:
 
 我们注意到，如果我们能在 $t$ 时间内至少完成 $totalTrips$ 趟旅途，那么在 $t' > t$ 时间内也能至少完成 $totalTrips$ 趟旅途。因此我们可以使用二分查找的方法来找到最小的 $t$。
 
-我们定义二分查找的左边界 $l = 1$，右边界 $r = \min(time) \times \text{totalTrips}$。每一次二分查找，我们计算中间值 $\text{mid} = \frac{l + r}{2}$，然后计算在 $\text{mid}$ 时间内能完成的旅途数目。如果这个数目大于等于 $\text{totalTrips}$，那么我们将右边界缩小到 $\text{mid}$，否则我们将左边界扩大到 $\text{mid} + 1$。
+我们定义二分查找的左边界 $l = 1$，右边界 $r = \min(time) \times \textit{totalTrips}$。每一次二分查找，我们计算中间值 $\textit{mid} = \frac{l + r}{2}$，然后计算在 $\textit{mid}$ 时间内能完成的旅途数目。如果这个数目大于等于 $\textit{totalTrips}$，那么我们将右边界缩小到 $\textit{mid}$，否则我们将左边界扩大到 $\textit{mid} + 1$。
 
 最后返回左边界即可。
 

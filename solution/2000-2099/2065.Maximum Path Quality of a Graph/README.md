@@ -102,20 +102,20 @@ tags:
 
 ### 方法一：DFS
 
-我们观察题目的数据范围，可以发现从 $0$ 开始的每条合法路径的边数不超过 $\frac{\text{maxTime}}{\min(time_j)} = \frac{100}{10} = 10$ 条，并且每个节点至多有四条边，所以我们可以直接使用朴素的 DFS 暴力搜索所有合法路径。
+我们观察题目的数据范围，可以发现从 $0$ 开始的每条合法路径的边数不超过 $\frac{\textit{maxTime}}{\min(time_j)} = \frac{100}{10} = 10$ 条，并且每个节点至多有四条边，所以我们可以直接使用朴素的 DFS 暴力搜索所有合法路径。
 
-我们先将图的边存储在邻接表表 $g$ 中，然后我们设计一个函数 $\text{dfs}(u, \text{cost}, \text{value})$，其中 $u$ 表示当前节点编号，而 $\text{cost}$ 和 $\text{value}$ 分别表示当前路径的花费时间和价值。另外，使用一个长度为 $n$ 的数组 $\text{vis}$ 记录每个节点是否被访问过。初始时，我们将节点 $0$ 标记为已访问。
+我们先将图的边存储在邻接表表 $g$ 中，然后我们设计一个函数 $\textit{dfs}(u, \textit{cost}, \textit{value})$，其中 $u$ 表示当前节点编号，而 $\textit{cost}$ 和 $\textit{value}$ 分别表示当前路径的花费时间和价值。另外，使用一个长度为 $n$ 的数组 $\textit{vis}$ 记录每个节点是否被访问过。初始时，我们将节点 $0$ 标记为已访问。
 
-函数 $\text{dfs}(u, \text{cost}, \text{value})$ 的逻辑如下：
+函数 $\textit{dfs}(u, \textit{cost}, \textit{value})$ 的逻辑如下：
 
--   如果当前节点编号 $u$ 等于 $0$，表示我们已经回到了起点，那么我们更新答案为 $\max(\text{ans}, \text{value})$；
--   遍历当前节点 $u$ 的所有邻居节点 $v$，如果当前路径的花费时间加上边 $(u, v)$ 的时间 $t$ 不超过 $\text{maxTime}$，那么我们可以选择继续访问节点 $v$；
-    -   如果节点 $v$ 已经被访问过，那么我们直接递归调用 $\text{dfs}(v, \text{cost} + t, \text{value})$；
-    -   如果节点 $v$ 没有被访问过，我们标记节点 $v$ 为已访问，然后递归调用 $\text{dfs}(v, \text{cost} + t, \text{value} + \text{values}[v])$，最后恢复节点 $v$ 的访问状态。
+-   如果当前节点编号 $u$ 等于 $0$，表示我们已经回到了起点，那么我们更新答案为 $\max(\textit{ans}, \textit{value})$；
+-   遍历当前节点 $u$ 的所有邻居节点 $v$，如果当前路径的花费时间加上边 $(u, v)$ 的时间 $t$ 不超过 $\textit{maxTime}$，那么我们可以选择继续访问节点 $v$；
+    -   如果节点 $v$ 已经被访问过，那么我们直接递归调用 $\textit{dfs}(v, \textit{cost} + t, \textit{value})$；
+    -   如果节点 $v$ 没有被访问过，我们标记节点 $v$ 为已访问，然后递归调用 $\textit{dfs}(v, \textit{cost} + t, \textit{value} + \textit{values}[v])$，最后恢复节点 $v$ 的访问状态。
 
-在主函数中，我们调用 $\text{dfs}(0, 0, \text{values}[0])$，并返回答案 $\text{ans}$ 即可。
+在主函数中，我们调用 $\textit{dfs}(0, 0, \textit{values}[0])$，并返回答案 $\textit{ans}$ 即可。
 
-时间复杂度 $O(n + m + 4^{\frac{\text{maxTime}}{\min(time_j)}})$，空间复杂度 $O(n + m + \frac{\text{maxTime}}{\min(time_j)})$。其中 $n$ 和 $m$ 分别表示节点数和边数。
+时间复杂度 $O(n + m + 4^{\frac{\textit{maxTime}}{\min(time_j)}})$，空间复杂度 $O(n + m + \frac{\textit{maxTime}}{\min(time_j)})$。其中 $n$ 和 $m$ 分别表示节点数和边数。
 
 <!-- tabs:start -->
 

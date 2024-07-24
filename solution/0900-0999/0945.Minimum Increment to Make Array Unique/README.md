@@ -153,9 +153,9 @@ function minIncrementForUnique(nums: number[]): number {
 
 ### 方法二：计数 + 贪心
 
-根据题目描述，结果数组的最大值 $m = \max(\text{nums}) + \text{len}(\text{nums})$，我们可以使用一个计数数组 $\textit{cnt}$ 来记录每个元素出现的次数。
+根据题目描述，结果数组的最大值 $m = \max(\textit{nums}) + \textit{len}(\textit{nums})$，我们可以使用一个计数数组 $\textit{cnt}$ 来记录每个元素出现的次数。
 
-然后从 $0$ 到 $m - 1$ 遍历，对于每个元素 $i$，如果它出现的次数 $\text{cnt}[i]$ 大于 $1$，那么我们将 $\text{cnt}[i] - 1$ 个元素增加到 $i + 1$，并将操作次数累加到结果中。
+然后从 $0$ 到 $m - 1$ 遍历，对于每个元素 $i$，如果它出现的次数 $\textit{cnt}[i]$ 大于 $1$，那么我们将 $\textit{cnt}[i] - 1$ 个元素增加到 $i + 1$，并将操作次数累加到结果中。
 
 遍历完成后，返回结果即可。
 

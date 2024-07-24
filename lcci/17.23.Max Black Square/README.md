@@ -52,16 +52,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20S
 
 $$
 down[i][j] = \begin{cases}
-down[i + 1][j] + 1, & matrix[i][j] = 0 \text{ 且 } i + 1 < n \\
-1, & matrix[i][j] = 0 \text{ 且 } i + 1 = n \\
+down[i + 1][j] + 1, & matrix[i][j] = 0 \textit{ 且 } i + 1 < n \\
+1, & matrix[i][j] = 0 \textit{ 且 } i + 1 = n \\
 0, & matrix[i][j] = 1
 \end{cases}
 $$
 
 $$
 right[i][j] = \begin{cases}
-right[i][j + 1] + 1, & matrix[i][j] = 0 \text{ 且 } j + 1 < n \\
-1, & matrix[i][j] = 0 \text{ 且 } j + 1 = n \\
+right[i][j + 1] + 1, & matrix[i][j] = 0 \textit{ 且 } j + 1 < n \\
+1, & matrix[i][j] = 0 \textit{ 且 } j + 1 = n \\
 0, & matrix[i][j] = 1
 \end{cases}
 $$

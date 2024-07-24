@@ -76,17 +76,17 @@ tags:
 
 我们注意到，题目中物品的种类 $n \leq 6$，而每种物品需要购买的数量不超过 $10$，我们可以用 $4$ 个二进制位来表示每种物品需要购买的数量，这样，我们只需要最多 $6 \times 4 = 24$ 个二进制位来表示整个购物清单。
 
-我们首先将购物清单 $\text{needs}$ 转换为一个整数 $\text{mask}$，其中第 $i$ 个物品需要购买的数量存储在 $\text{mask}$ 的第 $i \times 4$ 位到第 $(i + 1) \times 4 - 1$ 位。例如，当 $\text{needs} = [1, 2, 1]$ 时，有 $\text{mask} = 0b0001 0010 0001$。
+我们首先将购物清单 $\textit{needs}$ 转换为一个整数 $\textit{mask}$，其中第 $i$ 个物品需要购买的数量存储在 $\textit{mask}$ 的第 $i \times 4$ 位到第 $(i + 1) \times 4 - 1$ 位。例如，当 $\textit{needs} = [1, 2, 1]$ 时，有 $\textit{mask} = 0b0001 0010 0001$。
 
-然后，我们设计一个函数 $\text{dfs}(cur)$，表示当前购物清单的状态为 $\text{cur}$ 时，我们需要花费的最少金额。那么答案即为 $\text{dfs}(\text{mask})$。
+然后，我们设计一个函数 $\textit{dfs}(cur)$，表示当前购物清单的状态为 $\textit{cur}$ 时，我们需要花费的最少金额。那么答案即为 $\textit{dfs}(\textit{mask})$。
 
-函数 $\text{dfs}(cur)$ 的计算方法如下：
+函数 $\textit{dfs}(cur)$ 的计算方法如下：
 
--   我们首先计算当前购物清单 $\text{cur}$ 不使用大礼包时的花费，记为 $\text{ans}$。
--   然后，我们遍历每一个大礼包 $\text{offer}$，如果当前购物清单 $\text{cur}$ 能够使用大礼包 $\text{offer}$，即 $\text{cur}$ 中每种物品的数量都不小于大礼包 $\text{offer}$ 中的数量，那么我们可以尝试使用这个大礼包。我们将 $\text{cur}$ 中每种物品的数量减去大礼包 $\text{offer}$ 中的数量，得到一个新的购物清单 $\text{nxt}$，然后递归计算 $\text{nxt}$ 的最少花费，并加上大礼包的价格 $\text{offer}[n]$，更新 $\text{ans}$，即 $\text{ans} = \min(\text{ans}, \text{offer}[n] + \text{dfs}(\text{nxt}))$。
--   最后，返回 $\text{ans}$。
+-   我们首先计算当前购物清单 $\textit{cur}$ 不使用大礼包时的花费，记为 $\textit{ans}$。
+-   然后，我们遍历每一个大礼包 $\textit{offer}$，如果当前购物清单 $\textit{cur}$ 能够使用大礼包 $\textit{offer}$，即 $\textit{cur}$ 中每种物品的数量都不小于大礼包 $\textit{offer}$ 中的数量，那么我们可以尝试使用这个大礼包。我们将 $\textit{cur}$ 中每种物品的数量减去大礼包 $\textit{offer}$ 中的数量，得到一个新的购物清单 $\textit{nxt}$，然后递归计算 $\textit{nxt}$ 的最少花费，并加上大礼包的价格 $\textit{offer}[n]$，更新 $\textit{ans}$，即 $\textit{ans} = \min(\textit{ans}, \textit{offer}[n] + \textit{dfs}(\textit{nxt}))$。
+-   最后，返回 $\textit{ans}$。
 
-为了避免重复计算，我们使用一个哈希表 $\text{f}$ 记录每一个状态 $\text{cur}$ 对应的最少花费。
+为了避免重复计算，我们使用一个哈希表 $\textit{f}$ 记录每一个状态 $\textit{cur}$ 对应的最少花费。
 
 时间复杂度 $O(n \times k \times m^n)$，其中 $n$ 表示物品的种类，而 $k$ 和 $m$ 分别表示大礼包的数量以及每种物品的最大需求量。空间复杂度 $O(n \times m^n)$。
 

@@ -69,27 +69,27 @@ tags:
 
 ### 方法一：动态规划
 
-我们记数组 $\text{nums}$ 所有元素的和为 $s$，添加负号的元素之和为 $x$，则添加正号的元素之和为 $s - x$，则有：
+我们记数组 $\textit{nums}$ 所有元素的和为 $s$，添加负号的元素之和为 $x$，则添加正号的元素之和为 $s - x$，则有：
 
 $$
-(s - x) - x = \text{target} \Rightarrow x = \frac{s - \text{target}}{2}
+(s - x) - x = \textit{target} \Rightarrow x = \frac{s - \textit{target}}{2}
 $$
 
-由于 $x \geq 0$，且 $x$ 为整数，所以 $s \geq \text{target}$ 且 $s - \text{target}$ 为偶数。如果不满足这两个条件，则直接返回 $0$。
+由于 $x \geq 0$，且 $x$ 为整数，所以 $s \geq \textit{target}$ 且 $s - \textit{target}$ 为偶数。如果不满足这两个条件，则直接返回 $0$。
 
-接下来，我们可以将问题转化为：在数组 $\text{nums}$ 中选取若干元素，使得这些元素之和等于 $\frac{s - \text{target}}{2}$，问有多少种选取方法。
+接下来，我们可以将问题转化为：在数组 $\textit{nums}$ 中选取若干元素，使得这些元素之和等于 $\frac{s - \textit{target}}{2}$，问有多少种选取方法。
 
-我们可以使用动态规划来解决这个问题。定义 $f[i][j]$ 表示在数组 $\text{nums}$ 的前 $i$ 个元素中选取若干元素，使得这些元素之和等于 $j$ 的选取方案数。
+我们可以使用动态规划来解决这个问题。定义 $f[i][j]$ 表示在数组 $\textit{nums}$ 的前 $i$ 个元素中选取若干元素，使得这些元素之和等于 $j$ 的选取方案数。
 
-对于 $\text{nums}[i - 1]$，我们有两种选择：选取或不选取。如果我们不选取 $\text{nums}[i - 1]$，则 $f[i][j] = f[i - 1][j]$；如果我们选取 $\text{nums}[i - 1]$，则 $f[i][j] = f[i - 1][j - \text{nums}[i - 1]]$。因此，状态转移方程为：
+对于 $\textit{nums}[i - 1]$，我们有两种选择：选取或不选取。如果我们不选取 $\textit{nums}[i - 1]$，则 $f[i][j] = f[i - 1][j]$；如果我们选取 $\textit{nums}[i - 1]$，则 $f[i][j] = f[i - 1][j - \textit{nums}[i - 1]]$。因此，状态转移方程为：
 
 $$
-f[i][j] = f[i - 1][j] + f[i - 1][j - \text{nums}[i - 1]]
+f[i][j] = f[i - 1][j] + f[i - 1][j - \textit{nums}[i - 1]]
 $$
 
-其中，选取的前提是 $j \geq \text{nums}[i - 1]$。
+其中，选取的前提是 $j \geq \textit{nums}[i - 1]$。
 
-最终答案即为 $f[m][n]$。其中 $m$ 为数组 $\text{nums}$ 的长度，而 $n = \frac{s - \text{target}}{2}$。
+最终答案即为 $f[m][n]$。其中 $m$ 为数组 $\textit{nums}$ 的长度，而 $n = \frac{s - \textit{target}}{2}$。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。
 
@@ -282,7 +282,7 @@ var findTargetSumWays = function (nums, target) {
 
 ### 方法二：动态规划（空间优化）
 
-我们可以发现，方法一中的状态转移方程中，$f[i][j]$ 的值只和 $f[i - 1][j]$ 以及 $f[i - 1][j - \text{nums}[i - 1]]$ 有关，因此我们去掉第一维空间，只使用一维数组即可。
+我们可以发现，方法一中的状态转移方程中，$f[i][j]$ 的值只和 $f[i - 1][j]$ 以及 $f[i - 1][j - \textit{nums}[i - 1]]$ 有关，因此我们去掉第一维空间，只使用一维数组即可。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(n)$。
 

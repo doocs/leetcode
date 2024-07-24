@@ -74,8 +74,8 @@ We design a function $dfs(i, j)$, which represents whether the string $s$ starti
 
 The execution process of the function $dfs(i, j)$ is as follows:
 
--   If $i \geq \text{len}(s)$, then $dfs(i, j)$ is true only when $j \geq \text{len}(p)$ or $p[j] = '*'$ and $dfs(i, j + 1)$ is true.
--   If $j \geq \text{len}(p)$, then $dfs(i, j)$ is false.
+-   If $i \geq \textit{len}(s)$, then $dfs(i, j)$ is true only when $j \geq \textit{len}(p)$ or $p[j] = '*'$ and $dfs(i, j + 1)$ is true.
+-   If $j \geq \textit{len}(p)$, then $dfs(i, j)$ is false.
 -   If $p[j] = '*'$, then $dfs(i, j)$ is true if and only if $dfs(i + 1, j)$ or $dfs(i + 1, j + 1)$ or $dfs(i, j + 1)$ is true.
 -   Otherwise, $dfs(i, j)$ is true if and only if $p[j] = '?'$ or $s[i] = p[j]$ and $dfs(i + 1, j + 1)$ is true.
 
@@ -288,7 +288,7 @@ public class Solution {
 
 We can convert the memoization search in Solution 1 into dynamic programming.
 
-Define $f[i][j]$ to represent whether the first $i$ characters of string $s$ match the first $j$ characters of string $p$. Initially, $f[0][0] = \text{true}$, indicating that two empty strings are matching. For $j \in [1, n]$, if $p[j-1] = '*'$, then $f[0][j] = f[0][j-1]$.
+Define $f[i][j]$ to represent whether the first $i$ characters of string $s$ match the first $j$ characters of string $p$. Initially, $f[0][0] = \textit{true}$, indicating that two empty strings are matching. For $j \in [1, n]$, if $p[j-1] = '*'$, then $f[0][j] = f[0][j-1]$.
 
 Next, we consider the case of $i \in [1, m]$ and $j \in [1, n]$:
 

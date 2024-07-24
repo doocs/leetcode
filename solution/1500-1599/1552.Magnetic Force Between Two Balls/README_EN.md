@@ -64,7 +64,7 @@ tags:
 
 We notice that the greater the minimum magnetic force between any two balls, the fewer balls can be placed, which exhibits monotonicity. We can use binary search to find the maximum minimum magnetic force that allows the number of balls not less than $m$ to be placed.
 
-First, we sort the positions of the baskets, and then use binary search with the left boundary $l = 1$ and the right boundary $r = \text{position}[n - 1]$, where $n$ is the number of baskets. In each binary search iteration, we calculate the midpoint $m = (l + r + 1) / 2$, and then determine if there is a way to place the balls such that the number of balls placed is not less than $m$.
+First, we sort the positions of the baskets, and then use binary search with the left boundary $l = 1$ and the right boundary $r = \textit{position}[n - 1]$, where $n$ is the number of baskets. In each binary search iteration, we calculate the midpoint $m = (l + r + 1) / 2$, and then determine if there is a way to place the balls such that the number of balls placed is not less than $m$.
 
 The problem is transformed into determining whether a given minimum magnetic force $f$ can place $m$ balls. We can traverse the positions of the baskets from left to right, and if the distance between the position of the last ball and the current basket's position is greater than or equal to $f$, it indicates that a ball can be placed in the current basket. Finally, we check if the number of balls placed is not less than $m$.
 

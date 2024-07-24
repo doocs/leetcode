@@ -65,11 +65,11 @@ The last space in the matrix is set to -1.</pre>
 
 ### Solution 1: Simulation
 
-We define a two-dimensional array $\text{ans}$ to store the elements in the linked list, initially all filled with $-1$. We define three variables $i, j, k$, representing the current row, column, and direction respectively. We define an array $\text{dirs}$ to represent the offsets of the four directions.
+We define a two-dimensional array $\textit{ans}$ to store the elements in the linked list, initially all filled with $-1$. We define three variables $i, j, k$, representing the current row, column, and direction respectively. We define an array $\textit{dirs}$ to represent the offsets of the four directions.
 
-Then we start traversing the linked list. Each time we traverse a node, we fill the current node's value into $\text{ans}[i][j]$, then update the linked list pointer. If the linked list is empty, it means all elements have been filled and we exit the loop.
+Then we start traversing the linked list. Each time we traverse a node, we fill the current node's value into $\textit{ans}[i][j]$, then update the linked list pointer. If the linked list is empty, it means all elements have been filled and we exit the loop.
 
-Otherwise, we need to find the position of the next element. We can calculate the next position $(x, y)$ through the current position $(i, j)$ and the current direction $k$. If $(x, y)$ is within the range of the matrix, and $\text{ans}[x][y]$ is $-1$, it means $(x, y)$ has not been filled yet, so we take $(x, y)$ as the next position. Otherwise, we need to change the direction.
+Otherwise, we need to find the position of the next element. We can calculate the next position $(x, y)$ through the current position $(i, j)$ and the current direction $k$. If $(x, y)$ is within the range of the matrix, and $\textit{ans}[x][y]$ is $-1$, it means $(x, y)$ has not been filled yet, so we take $(x, y)$ as the next position. Otherwise, we need to change the direction.
 
 After traversing the linked list, we get a spiral matrix and return it.
 

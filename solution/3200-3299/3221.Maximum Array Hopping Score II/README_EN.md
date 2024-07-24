@@ -73,9 +73,9 @@ tags:
 
 We observe that for the current position $i$, we should jump to the next position $j$ with the maximum value to obtain the maximum score.
 
-Therefore, we traverse the array $\text{nums}$, maintaining a stack $\text{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\text{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\text{nums}[i]$, and then push $i$ into the stack.
+Therefore, we traverse the array $\textit{nums}$, maintaining a stack $\textit{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\textit{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\textit{nums}[i]$, and then push $i$ into the stack.
 
-Next, we initialize the answer $\text{ans}$ and the current position $i = 0$, traverse the elements in the stack, each time taking out the top element $j$, updating the answer $\text{ans} += \text{nums}[j] \times (j - i)$, and then updating $i = j$.
+Next, we initialize the answer $\textit{ans}$ and the current position $i = 0$, traverse the elements in the stack, each time taking out the top element $j$, updating the answer $\textit{ans} += \textit{nums}[j] \times (j - i)$, and then updating $i = j$.
 
 <!-- tabs:start -->
 

@@ -80,11 +80,11 @@ tags:
 
 ### 方法一：模拟
 
-我们创建一个矩阵 $g$ 来存放操作的结果。对于 $\text{indices}$ 中的每一对 $(r_i, c_i)$，我们将矩阵第 $r_i$ 行的所有数加 $1$，第 $c_i$ 列的所有元素加 $1$。
+我们创建一个矩阵 $g$ 来存放操作的结果。对于 $\textit{indices}$ 中的每一对 $(r_i, c_i)$，我们将矩阵第 $r_i$ 行的所有数加 $1$，第 $c_i$ 列的所有元素加 $1$。
 
 模拟结束后，遍历矩阵，统计奇数的个数。
 
-时间复杂度 $O(k \times (m + n) + m \times n)$，空间复杂度 $O(m \times n)$。其中 $k$ 为 $\text{indices}$ 的长度。
+时间复杂度 $O(k \times (m + n) + m \times n)$，空间复杂度 $O(m \times n)$。其中 $k$ 为 $\textit{indices}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -190,11 +190,11 @@ func oddCells(m int, n int, indices [][]int) int {
 
 ### 方法二：空间优化
 
-我们可以使用行数组 $\text{row}$ 和列数组 $\text{col}$ 来记录每一行、每一列被增加的次数。对于 $\text{indices}$ 中的每一对 $(r_i, c_i)$，我们将 $\text{row}[r_i]$ 和 $\text{col}[c_i]$ 分别加 $1$。
+我们可以使用行数组 $\textit{row}$ 和列数组 $\textit{col}$ 来记录每一行、每一列被增加的次数。对于 $\textit{indices}$ 中的每一对 $(r_i, c_i)$，我们将 $\textit{row}[r_i]$ 和 $\textit{col}[c_i]$ 分别加 $1$。
 
-操作结束后，可以算出 $(i, j)$ 位置的计数为 $\text{row}[i]+\text{col}[j]$。遍历矩阵，统计奇数的个数。
+操作结束后，可以算出 $(i, j)$ 位置的计数为 $\textit{row}[i]+\textit{col}[j]$。遍历矩阵，统计奇数的个数。
 
-时间复杂度 $O(k + m \times n)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\text{indices}$ 的长度。
+时间复杂度 $O(k + m \times n)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\textit{indices}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -287,11 +287,11 @@ func oddCells(m int, n int, indices [][]int) int {
 
 ### 方法三：数学优化
 
-我们注意到，只有当 $\text{row}[i]$ 和 $\text{col}[j]$ 中恰好为“一奇一偶”时，矩阵 $(i, j)$ 位置的数才会是奇数。
+我们注意到，只有当 $\textit{row}[i]$ 和 $\textit{col}[j]$ 中恰好为“一奇一偶”时，矩阵 $(i, j)$ 位置的数才会是奇数。
 
-我们统计 $\text{row}$ 中的奇数个数，记为 $\text{cnt1}$；而 $\text{col}$ 中的奇数个数，记为 $\text{cnt2}$。那么最终得到的奇数个数为 $\text{cnt1} \times (n - \text{cnt2}) + \text{cnt2} \times (m - \text{cnt1})$。
+我们统计 $\textit{row}$ 中的奇数个数，记为 $\textit{cnt1}$；而 $\textit{col}$ 中的奇数个数，记为 $\textit{cnt2}$。那么最终得到的奇数个数为 $\textit{cnt1} \times (n - \textit{cnt2}) + \textit{cnt2} \times (m - \textit{cnt1})$。
 
-时间复杂度 $O(k + m + n)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\text{indices}$ 的长度。
+时间复杂度 $O(k + m + n)$，空间复杂度 $O(m + n)$。其中 $k$ 为 $\textit{indices}$ 的长度。
 
 <!-- tabs:start -->
 

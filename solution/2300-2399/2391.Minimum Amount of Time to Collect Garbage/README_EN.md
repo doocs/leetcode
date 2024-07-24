@@ -88,7 +88,7 @@ It takes a total of 7 + 15 + 15 = 37 minutes to collect all the garbage.
 
 According to the problem description, each garbage truck starts from house $0$, collects one type of garbage, and moves forward in order until it reaches the house index where this type of garbage last appears.
 
-Therefore, we can use a hash table $\text{last}$ to record the house index where each type of garbage last appears. We assume that the $i$-th type of garbage last appears in the $j$-th house, then the driving time required for the $i$-th truck is $\text{travel}[0] + \text{travel}[1] + \cdots + \text{travel}[j-1]$. Note, if $j = 0$, no driving time is needed. We accumulate the driving time of all vehicles, add the total collection time of each type of garbage, and we can get the answer.
+Therefore, we can use a hash table $\textit{last}$ to record the house index where each type of garbage last appears. We assume that the $i$-th type of garbage last appears in the $j$-th house, then the driving time required for the $i$-th truck is $\textit{travel}[0] + \textit{travel}[1] + \cdots + \textit{travel}[j-1]$. Note, if $j = 0$, no driving time is needed. We accumulate the driving time of all vehicles, add the total collection time of each type of garbage, and we can get the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(k)$, where $n$ and $k$ are the number and types of garbage, respectively. In this problem, $k = 3$.
 

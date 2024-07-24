@@ -66,9 +66,9 @@ tags:
 
 ### 方法一：枚举
 
-如果我们操作了 $k$ 次，那么问题实际上就变成了：判断 $\text{num1} - k \times \text{num2}$ 能否拆分成 $k$ 个 $2^i$ 之和。
+如果我们操作了 $k$ 次，那么问题实际上就变成了：判断 $\textit{num1} - k \times \textit{num2}$ 能否拆分成 $k$ 个 $2^i$ 之和。
 
-我们不妨假设 $x = \text{num1} - k \times \text{num2}$，接下来分类讨论：
+我们不妨假设 $x = \textit{num1} - k \times \textit{num2}$，接下来分类讨论：
 
 -   如果 $x \lt 0$，那么 $x$ 无法拆分成 $k$ 个 $2^i$ 之和，因为 $2^i \gt 0$，显然无解；
 -   如果 $x$ 的二进制表示中 $1$ 的个数大于 $k$，此时也是无解；
@@ -148,6 +148,23 @@ func makeTheIntegerZero(num1 int, num2 int) int {
 		}
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function makeTheIntegerZero(num1: number, num2: number): number {
+    for (let k = 1; ; ++k) {
+        let x = num1 - k * num2;
+        if (x < 0) {
+            break;
+        }
+        if (x.toString(2).replace(/0/g, '').length <= k && k <= x) {
+            return k;
+        }
+    }
+    return -1;
 }
 ```
 

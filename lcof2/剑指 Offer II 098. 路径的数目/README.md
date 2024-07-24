@@ -85,7 +85,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 $$
 f[i][j] = \begin{cases}
 1 & i = 0, j = 0 \\
-f[i - 1][j] + f[i][j - 1] & \text{otherwise}
+f[i - 1][j] + f[i][j - 1] & \textit{otherwise}
 \end{cases}
 $$
 
