@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> mapping = [8,9,4,0,2,1,3,5,7,6], nums = [991,338,38]
 <strong>Output:</strong> [338,38,991]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Map the number 991 as follows:
 1. mapping[9] = 6, so all occurrences of the digit 9 will become 6.
 2. mapping[1] = 9, so all occurrences of the digit 1 will become 9.

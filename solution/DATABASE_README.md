@@ -287,7 +287,7 @@
 | 3198 | [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)                                                                     | `数据库` | 简单 | 🔒   |
 | 3204 | [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)                                                               | `数据库` | 中等 | 🔒   |
 | 3214 | [同比增长率](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README.md)                                                                            | `数据库` | 困难 | 🔒   |
-| 3220 | [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README.md)                                                              | `数据库` | 中等 |      |
+| 3220 | [奇数和偶数交易](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README.md)                                                                         | `数据库` | 中等 |      |
 | 3230 | [客户购买行为分析](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README.md)                                                           | `数据库` | 中等 | 🔒   |
 
 ## 版权
