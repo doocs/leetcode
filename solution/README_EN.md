@@ -3239,6 +3239,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3228  |  [Maximum Number of Operations to Move Ones to the End](/solution/3200-3299/3228.Maximum%20Number%20of%20Operations%20to%20Move%20Ones%20to%20the%20End/README_EN.md)  |  `Greedy`,`String`,`Counting`  |  Medium  |  Weekly Contest 407  |
 |  3229  |  [Minimum Operations to Make Array Equal to Target](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Hard  |  Weekly Contest 407  |
 |  3230  |  [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3231  |  [Minimum Number of Increasing Subsequence to Be Removed](/solution/3200-3299/3231.Minimum%20Number%20of%20Increasing%20Subsequence%20to%20Be%20Removed/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

@@ -3241,6 +3241,7 @@
 |  3228  |  [将 1 移动到末尾的最大操作次数](/solution/3200-3299/3228.Maximum%20Number%20of%20Operations%20to%20Move%20Ones%20to%20the%20End/README.md)  |  `贪心`,`字符串`,`计数`  |  中等  |  第 407 场周赛  |
 |  3229  |  [使数组等于目标数组所需的最少操作次数](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README.md)  |  `栈`,`贪心`,`数组`,`动态规划`,`单调栈`  |  困难  |  第 407 场周赛  |
 |  3230  |  [客户购买行为分析](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3231  |  [Minimum Number of Increasing Subsequence to Be Removed](/solution/3200-3299/3231.Minimum%20Number%20of%20Increasing%20Subsequence%20to%20Be%20Removed/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
