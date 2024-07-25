@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>二叉树的 <strong>边界</strong> 是由 <strong>根节点 </strong>, <strong>左边界</strong> , 按从左到右顺序的<strong> 叶节点</strong> 和 <strong>逆序的右边界</strong> ，按顺序依次连接组成。</p>
+<p>二叉树的 <strong>边界</strong> 是由 <strong>根节点 </strong>、<strong>左边界</strong> 、按从左到右顺序的<strong> 叶节点</strong> 和 <strong>逆序的右边界</strong> ，按顺序依次连接组成。</p>
 
 <p><strong>左边界 </strong>是满足下述定义的节点集合：</p>
 
