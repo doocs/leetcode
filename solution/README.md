@@ -3230,8 +3230,8 @@
 |  3217  |  [从链表中移除在数组中存在的节点](/solution/3200-3299/3217.Delete%20Nodes%20From%20Linked%20List%20Present%20in%20Array/README.md)  |  `数组`,`哈希表`,`链表`  |  中等  |  第 406 场周赛  |
 |  3218  |  [切蛋糕的最小总开销 I](/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README.md)  |  `贪心`,`数组`,`动态规划`,`排序`  |  中等  |  第 406 场周赛  |
 |  3219  |  [切蛋糕的最小总开销 II](/solution/3200-3299/3219.Minimum%20Cost%20for%20Cutting%20Cake%20II/README.md)  |  `贪心`,`数组`,`排序`  |  困难  |  第 406 场周赛  |
-|  3220  |  [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README.md)  |  `数据库`  |  中等  |    |
-|  3221  |  [Maximum Array Hopping Score II](/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README.md)  |  `栈`,`贪心`,`数组`,`单调栈`  |  中等  |  🔒  |
+|  3220  |  [奇数和偶数交易](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README.md)  |  `数据库`  |  中等  |    |
+|  3221  |  [最大数组跳跃得分 II](/solution/3200-3299/3221.Maximum%20Array%20Hopping%20Score%20II/README.md)  |  `栈`,`贪心`,`数组`,`单调栈`  |  中等  |  🔒  |
 |  3222  |  [求出硬币游戏的赢家](/solution/3200-3299/3222.Find%20the%20Winning%20Player%20in%20Coin%20Game/README.md)  |  `数学`,`博弈`,`模拟`  |  简单  |  第 135 场双周赛  |
 |  3223  |  [操作后字符串的最短长度](/solution/3200-3299/3223.Minimum%20Length%20of%20String%20After%20Operations/README.md)  |  `哈希表`,`字符串`,`计数`  |  中等  |  第 135 场双周赛  |
 |  3224  |  [使差值相等的最少数组改动次数](/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README.md)  |  `数组`,`哈希表`,`前缀和`  |  中等  |  第 135 场双周赛  |
