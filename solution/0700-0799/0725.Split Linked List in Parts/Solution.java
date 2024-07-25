@@ -3,36 +3,30 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
-    public ListNode[] splitListToParts(ListNode root, int k) {
+    public ListNode[] splitListToParts(ListNode head, int k) {
         int n = 0;
-        ListNode cur = root;
-        while (cur != null) {
+        for (ListNode cur = head; cur != null; cur = cur.next) {
             ++n;
-            cur = cur.next;
         }
-        // width 表示每一部分至少含有的结点个数
-        // remainder 表示前 remainder 部分，每一部分多出一个数
-        int width = n / k, remainder = n % k;
-        ListNode[] res = new ListNode[k];
-        cur = root;
-        for (int i = 0; i < k; ++i) {
-            ListNode head = cur;
-            for (int j = 0; j < width + ((i < remainder) ? 1 : 0) - 1; ++j) {
-                if (cur != null) {
-                    cur = cur.next;
-                }
+        int cnt = n / k, mod = n % k;
+        ListNode[] ans = new ListNode[k];
+        ListNode cur = head;
+        for (int i = 0; i < k && cur != null; ++i) {
+            ans[i] = cur;
+            int m = cnt + (i < mod ? 1 : 0);
+            for (int j = 1; j < m; ++j) {
+                cur = cur.next;
             }
-            if (cur != null) {
-                ListNode t = cur.next;
-                cur.next = null;
-                cur = t;
-            }
-            res[i] = head;
+            ListNode nxt = cur.next;
+            cur.next = null;
+            cur = nxt;
         }
-        return res;
+        return ans;
     }
 }
