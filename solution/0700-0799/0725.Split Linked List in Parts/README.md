@@ -60,7 +60,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们先遍历链表，得到链表的长度 $n$，然后我们计算出平均长度 $\textit{cnt} = \lfloor \frac{n}{k} \rfloor$ 和余数 $\textit{mod} = n \bmod k$。那么对于前 $\textit{mod}$ 个部分，每个部分的长度为 $\textit{cnt} + 1$，其余部分的长度为 $\textit{cnt}$。
+
+接下来，我们只需要遍历链表，将链表分割成 $k$ 个部分即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
 
@@ -69,29 +75,32 @@ tags:
 ```python
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def splitListToParts(self, root: ListNode, k: int) -> List[ListNode]:
-        n, cur = 0, root
+    def splitListToParts(
+        self, head: Optional[ListNode], k: int
+    ) -> List[Optional[ListNode]]:
+        n = 0
+        cur = head
         while cur:
             n += 1
             cur = cur.next
-        cur = root
-        width, remainder = divmod(n, k)
-        res = [None for _ in range(k)]
+        cnt, mod = divmod(n, k)
+        ans = [None] * k
+        cur = head
         for i in range(k):
-            head = cur
-            for j in range(width + (i < remainder) - 1):
-                if cur:
-                    cur = cur.next
-            if cur:
-                cur.next, cur = None, cur.next
-            res[i] = head
-        return res
+            if cur is None:
+                break
+            ans[i] = cur
+            m = cnt + int(i < mod)
+            for _ in range(1, m):
+                cur = cur.next
+            nxt = cur.next
+            cur.next = None
+            cur = nxt
+        return ans
 ```
 
 #### Java
@@ -102,38 +111,147 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
-    public ListNode[] splitListToParts(ListNode root, int k) {
+    public ListNode[] splitListToParts(ListNode head, int k) {
         int n = 0;
-        ListNode cur = root;
-        while (cur != null) {
+        for (ListNode cur = head; cur != null; cur = cur.next) {
             ++n;
-            cur = cur.next;
         }
-        // width 表示每一部分至少含有的结点个数
-        // remainder 表示前 remainder 部分，每一部分多出一个数
-        int width = n / k, remainder = n % k;
-        ListNode[] res = new ListNode[k];
-        cur = root;
-        for (int i = 0; i < k; ++i) {
-            ListNode head = cur;
-            for (int j = 0; j < width + ((i < remainder) ? 1 : 0) - 1; ++j) {
-                if (cur != null) {
-                    cur = cur.next;
-                }
+        int cnt = n / k, mod = n % k;
+        ListNode[] ans = new ListNode[k];
+        ListNode cur = head;
+        for (int i = 0; i < k && cur != null; ++i) {
+            ans[i] = cur;
+            int m = cnt + (i < mod ? 1 : 0);
+            for (int j = 1; j < m; ++j) {
+                cur = cur.next;
             }
-            if (cur != null) {
-                ListNode t = cur.next;
-                cur.next = null;
-                cur = t;
-            }
-            res[i] = head;
+            ListNode nxt = cur.next;
+            cur.next = null;
+            cur = nxt;
         }
-        return res;
+        return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    vector<ListNode*> splitListToParts(ListNode* head, int k) {
+        int n = 0;
+        for (ListNode* cur = head; cur != nullptr; cur = cur->next) {
+            ++n;
+        }
+        int cnt = n / k, mod = n % k;
+        vector<ListNode*> ans(k, nullptr);
+        ListNode* cur = head;
+        for (int i = 0; i < k && cur != nullptr; ++i) {
+            ans[i] = cur;
+            int m = cnt + (i < mod ? 1 : 0);
+            for (int j = 1; j < m; ++j) {
+                cur = cur->next;
+            }
+            ListNode* nxt = cur->next;
+            cur->next = nullptr;
+            cur = nxt;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func splitListToParts(head *ListNode, k int) []*ListNode {
+	n := 0
+	for cur := head; cur != nil; cur = cur.Next {
+		n++
+	}
+
+	cnt := n / k
+	mod := n % k
+	ans := make([]*ListNode, k)
+	cur := head
+
+	for i := 0; i < k && cur != nil; i++ {
+		ans[i] = cur
+		m := cnt
+		if i < mod {
+			m++
+		}
+		for j := 1; j < m; j++ {
+			cur = cur.Next
+		}
+		next := cur.Next
+		cur.Next = nil
+		cur = next
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function splitListToParts(head: ListNode | null, k: number): Array<ListNode | null> {
+    let n = 0;
+    for (let cur = head; cur !== null; cur = cur.next) {
+        n++;
+    }
+    const cnt = (n / k) | 0;
+    const mod = n % k;
+    const ans: Array<ListNode | null> = Array(k).fill(null);
+    let cur = head;
+    for (let i = 0; i < k && cur !== null; i++) {
+        ans[i] = cur;
+        let m = cnt + (i < mod ? 1 : 0);
+        for (let j = 1; j < m; j++) {
+            cur = cur.next!;
+        }
+        let next = cur.next;
+        cur.next = null;
+        cur = next;
+    }
+    return ans;
 }
 ```
 
