@@ -65,7 +65,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can traverse the matrix row by row and column by column to find three consecutive identical elements and mark them as negative numbers. If marking is successful, we need to move the elements in the matrix down until no elements can move down.
+
+The time complexity is $O(m^2 \times n^2)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -79,37 +83,33 @@ class Solution:
         while run:
             run = False
             for i in range(m):
-                for j in range(n - 2):
-                    if (
-                        board[i][j] != 0
-                        and abs(board[i][j]) == abs(board[i][j + 1])
-                        and abs(board[i][j]) == abs(board[i][j + 2])
+                for j in range(2, n):
+                    if board[i][j] and abs(board[i][j]) == abs(board[i][j - 1]) == abs(
+                        board[i][j - 2]
                     ):
                         run = True
-                        board[i][j] = board[i][j + 1] = board[i][j + 2] = -abs(
+                        board[i][j] = board[i][j - 1] = board[i][j - 2] = -abs(
                             board[i][j]
                         )
             for j in range(n):
-                for i in range(m - 2):
-                    if (
-                        board[i][j] != 0
-                        and abs(board[i][j]) == abs(board[i + 1][j])
-                        and abs(board[i][j]) == abs(board[i + 2][j])
+                for i in range(2, m):
+                    if board[i][j] and abs(board[i][j]) == abs(board[i - 1][j]) == abs(
+                        board[i - 2][j]
                     ):
                         run = True
-                        board[i][j] = board[i + 1][j] = board[i + 2][j] = -abs(
+                        board[i][j] = board[i - 1][j] = board[i - 2][j] = -abs(
                             board[i][j]
                         )
             if run:
                 for j in range(n):
-                    curr = m - 1
+                    k = m - 1
                     for i in range(m - 1, -1, -1):
                         if board[i][j] > 0:
-                            board[curr][j] = board[i][j]
-                            curr -= 1
-                    while curr > -1:
-                        board[curr][j] = 0
-                        curr -= 1
+                            board[k][j] = board[i][j]
+                            k -= 1
+                    while k >= 0:
+                        board[k][j] = 0
+                        k -= 1
         return board
 ```
 
@@ -120,42 +120,46 @@ class Solution {
     public int[][] candyCrush(int[][] board) {
         int m = board.length, n = board[0].length;
         boolean run = true;
+
         while (run) {
             run = false;
-            for (int i = 0; i < m; ++i) {
-                for (int j = 0; j < n - 2; ++j) {
-                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i][j + 1])
-                        && Math.abs(board[i][j]) == Math.abs(board[i][j + 2])) {
+            for (int i = 0; i < m; i++) {
+                for (int j = 2; j < n; j++) {
+                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i][j - 1])
+                        && Math.abs(board[i][j]) == Math.abs(board[i][j - 2])) {
                         run = true;
-                        board[i][j] = board[i][j + 1] = board[i][j + 2] = -Math.abs(board[i][j]);
+                        int val = Math.abs(board[i][j]);
+                        board[i][j] = board[i][j - 1] = board[i][j - 2] = -val;
                     }
                 }
             }
-            for (int j = 0; j < n; ++j) {
-                for (int i = 0; i < m - 2; ++i) {
-                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i + 1][j])
-                        && Math.abs(board[i][j]) == Math.abs(board[i + 2][j])) {
+            for (int j = 0; j < n; j++) {
+                for (int i = 2; i < m; i++) {
+                    if (board[i][j] != 0 && Math.abs(board[i][j]) == Math.abs(board[i - 1][j])
+                        && Math.abs(board[i][j]) == Math.abs(board[i - 2][j])) {
                         run = true;
-                        board[i][j] = board[i + 1][j] = board[i + 2][j] = -Math.abs(board[i][j]);
+                        int val = Math.abs(board[i][j]);
+                        board[i][j] = board[i - 1][j] = board[i - 2][j] = -val;
                     }
                 }
             }
             if (run) {
-                for (int j = 0; j < n; ++j) {
-                    int curr = m - 1;
-                    for (int i = m - 1; i >= 0; --i) {
+                for (int j = 0; j < n; j++) {
+                    int k = m - 1;
+                    for (int i = m - 1; i >= 0; i--) {
                         if (board[i][j] > 0) {
-                            board[curr][j] = board[i][j];
-                            --curr;
+                            board[k][j] = board[i][j];
+                            k--;
                         }
                     }
-                    while (curr > -1) {
-                        board[curr][j] = 0;
-                        --curr;
+                    while (k >= 0) {
+                        board[k][j] = 0;
+                        k--;
                     }
                 }
             }
         }
+
         return board;
     }
 }
@@ -212,52 +216,114 @@ public:
 
 ```go
 func candyCrush(board [][]int) [][]int {
-	m, n := len(board), len(board[0])
+	m := len(board)
+	n := len(board[0])
 	run := true
+
 	for run {
 		run = false
 		for i := 0; i < m; i++ {
-			for j := 0; j < n-2; j++ {
-				if board[i][j] != 0 && abs(board[i][j]) == abs(board[i][j+1]) && abs(board[i][j]) == abs(board[i][j+2]) {
+			for j := 2; j < n; j++ {
+				if board[i][j] != 0 && abs(board[i][j]) == abs(board[i][j-1]) && abs(board[i][j]) == abs(board[i][j-2]) {
 					run = true
-					t := -abs(board[i][j])
-					board[i][j], board[i][j+1], board[i][j+2] = t, t, t
+					val := abs(board[i][j])
+					board[i][j] = -val
+					board[i][j-1] = -val
+					board[i][j-2] = -val
 				}
 			}
 		}
 		for j := 0; j < n; j++ {
-			for i := 0; i < m-2; i++ {
-				if board[i][j] != 0 && abs(board[i][j]) == abs(board[i+1][j]) && abs(board[i][j]) == abs(board[i+2][j]) {
+			for i := 2; i < m; i++ {
+				if board[i][j] != 0 && abs(board[i][j]) == abs(board[i-1][j]) && abs(board[i][j]) == abs(board[i-2][j]) {
 					run = true
-					t := -abs(board[i][j])
-					board[i][j], board[i+1][j], board[i+2][j] = t, t, t
+					val := abs(board[i][j])
+					board[i][j] = -val
+					board[i-1][j] = -val
+					board[i-2][j] = -val
 				}
 			}
 		}
 		if run {
 			for j := 0; j < n; j++ {
-				curr := m - 1
+				k := m - 1
 				for i := m - 1; i >= 0; i-- {
 					if board[i][j] > 0 {
-						board[curr][j] = board[i][j]
-						curr--
+						board[k][j] = board[i][j]
+						k--
 					}
 				}
-				for curr > -1 {
-					board[curr][j] = 0
-					curr--
+				for k >= 0 {
+					board[k][j] = 0
+					k--
 				}
 			}
 		}
 	}
+
 	return board
 }
 
 func abs(x int) int {
-	if x >= 0 {
-		return x
+	if x < 0 {
+		return -x
 	}
-	return -x
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function candyCrush(board: number[][]): number[][] {
+    const m = board.length;
+    const n = board[0].length;
+    let run = true;
+    while (run) {
+        run = false;
+        for (let i = 0; i < m; i++) {
+            for (let j = 2; j < n; j++) {
+                if (
+                    board[i][j] !== 0 &&
+                    Math.abs(board[i][j]) === Math.abs(board[i][j - 1]) &&
+                    Math.abs(board[i][j]) === Math.abs(board[i][j - 2])
+                ) {
+                    run = true;
+                    const val = Math.abs(board[i][j]);
+                    board[i][j] = board[i][j - 1] = board[i][j - 2] = -val;
+                }
+            }
+        }
+        for (let j = 0; j < n; j++) {
+            for (let i = 2; i < m; i++) {
+                if (
+                    board[i][j] !== 0 &&
+                    Math.abs(board[i][j]) === Math.abs(board[i - 1][j]) &&
+                    Math.abs(board[i][j]) === Math.abs(board[i - 2][j])
+                ) {
+                    run = true;
+                    const val = Math.abs(board[i][j]);
+                    board[i][j] = board[i - 1][j] = board[i - 2][j] = -val;
+                }
+            }
+        }
+        if (run) {
+            for (let j = 0; j < n; j++) {
+                let k = m - 1;
+                for (let i = m - 1; i >= 0; i--) {
+                    if (board[i][j] > 0) {
+                        board[k][j] = board[i][j];
+                        k--;
+                    }
+                }
+                while (k >= 0) {
+                    board[k][j] = 0;
+                    k--;
+                }
+            }
+        }
+    }
+    return board;
 }
 ```
 
