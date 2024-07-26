@@ -2,35 +2,31 @@ class Solution {
     public boolean isItPossible(String word1, String word2) {
         int[] cnt1 = new int[26];
         int[] cnt2 = new int[26];
+        int x = 0, y = 0;
         for (int i = 0; i < word1.length(); ++i) {
-            ++cnt1[word1.charAt(i) - 'a'];
+            if (++cnt1[word1.charAt(i) - 'a'] == 1) {
+                ++x;
+            }
         }
         for (int i = 0; i < word2.length(); ++i) {
-            ++cnt2[word2.charAt(i) - 'a'];
+            if (++cnt2[word2.charAt(i) - 'a'] == 1) {
+                ++y;
+            }
         }
         for (int i = 0; i < 26; ++i) {
             for (int j = 0; j < 26; ++j) {
                 if (cnt1[i] > 0 && cnt2[j] > 0) {
-                    --cnt1[i];
-                    --cnt2[j];
-                    ++cnt1[j];
-                    ++cnt2[i];
-                    int d = 0;
-                    for (int k = 0; k < 26; ++k) {
-                        if (cnt1[k] > 0) {
-                            ++d;
+                    if (i == j) {
+                        if (x == y) {
+                            return true;
                         }
-                        if (cnt2[k] > 0) {
-                            --d;
+                    } else {
+                        int a = x - (cnt1[i] == 1 ? 1 : 0) + (cnt1[j] == 0 ? 1 : 0);
+                        int b = y - (cnt2[j] == 1 ? 1 : 0) + (cnt2[i] == 0 ? 1 : 0);
+                        if (a == b) {
+                            return true;
                         }
                     }
-                    if (d == 0) {
-                        return true;
-                    }
-                    ++cnt1[i];
-                    ++cnt2[j];
-                    --cnt1[j];
-                    --cnt2[i];
                 }
             }
         }
