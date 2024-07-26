@@ -70,13 +70,15 @@ tags:
 
 ### 方法一：计数 + 枚举
 
-我们先用两个长度为 $26$ 的数组分别统计字符串 $word1$ 和 $word2$ 中每个字母的出现次数，记为 $cnt1$ 和 $cnt2$。
+我们先用两个长度为 $26$ 的数组 $\textit{cnt1}$ 和 $\textit{cnt2}$ 分别记录字符串 $\textit{word1}$ 和 $\textit{word2}$ 中每个字符的出现次数。
 
-然后我们枚举 $cnt1$ 中的每个字母，接着枚举 $cnt2$ 中的每个字母，如果 $cnt1[i]$ 和 $cnt2[j]$ 都不为 $0$，那么我们就可以交换 $word1$ 中的第 $i$ 个字母和 $word2$ 中的第 $j$ 个字母。如果交换后 $word1$ 和 $word2$ 中不同字母的数目相等，那么就返回 `true`，否则，我们撤销此次交换，继续枚举。
+然后我们分别统计 $\textit{word1}$ 和 $\textit{word2}$ 中不同字符的个数，分别记为 $x$ 和 $y$。
 
-如果枚举完所有的字母对，仍然没有找到一种交换方式，那么就返回 `false`。
+接下来我们枚举 $\textit{word1}$ 中的每个字符 $c1$ 和 $\textit{word2}$ 中的每个字符 $c2$，如果 $c1 = c2$，那么我们只需要判断 $x$ 和 $y$ 是否相等；否则，我们需要判断 $x - (\textit{cnt1}[c1] = 1) + (\textit{cnt1}[c2] = 0)$ 和 $y - (\textit{cnt2}[c2] = 1) + (\textit{cnt2}[c1] = 0)$ 是否相等。如果相等，那么我们就找到了一种方案，返回 $\text{true}$。
 
-时间复杂度 $O(n + C^3)$，空间复杂度 $O(C)$，其中 $n$ 是字符串的长度，而 $C$ 是字符集的大小。本题中 $C = 26$。
+如果我们枚举完所有的字符都没有找到合适的方案，那么我们就返回 $\text{false}$。
+
+时间复杂度 $O(m + n + |\Sigma|^2)$，其中 $m$ 和 $n$ 分别是字符串 $\textit{word1}$ 和 $\textit{word2}$ 的长度，而 $\Sigma$ 是字符集，本题中字符集为小写字母，所以 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
@@ -85,21 +87,19 @@ tags:
 ```python
 class Solution:
     def isItPossible(self, word1: str, word2: str) -> bool:
-        cnt1 = [0] * 26
-        cnt2 = [0] * 26
-        for c in word1:
-            cnt1[ord(c) - ord('a')] += 1
-        for c in word2:
-            cnt2[ord(c) - ord('a')] += 1
-        for i, a in enumerate(cnt1):
-            for j, b in enumerate(cnt2):
-                if a and b:
-                    cnt1[i], cnt2[j] = cnt1[i] - 1, cnt2[j] - 1
-                    cnt1[j], cnt2[i] = cnt1[j] + 1, cnt2[i] + 1
-                    if sum(v > 0 for v in cnt1) == sum(v > 0 for v in cnt2):
+        cnt1 = Counter(word1)
+        cnt2 = Counter(word2)
+        x, y = len(cnt1), len(cnt2)
+        for c1, v1 in cnt1.items():
+            for c2, v2 in cnt2.items():
+                if c1 == c2:
+                    if x == y:
                         return True
-                    cnt1[i], cnt2[j] = cnt1[i] + 1, cnt2[j] + 1
-                    cnt1[j], cnt2[i] = cnt1[j] - 1, cnt2[i] - 1
+                else:
+                    a = x - (v1 == 1) + (cnt1[c2] == 0)
+                    b = y - (v2 == 1) + (cnt2[c1] == 0)
+                    if a == b:
+                        return True
         return False
 ```
 
@@ -110,35 +110,31 @@ class Solution {
     public boolean isItPossible(String word1, String word2) {
         int[] cnt1 = new int[26];
         int[] cnt2 = new int[26];
+        int x = 0, y = 0;
         for (int i = 0; i < word1.length(); ++i) {
-            ++cnt1[word1.charAt(i) - 'a'];
+            if (++cnt1[word1.charAt(i) - 'a'] == 1) {
+                ++x;
+            }
         }
         for (int i = 0; i < word2.length(); ++i) {
-            ++cnt2[word2.charAt(i) - 'a'];
+            if (++cnt2[word2.charAt(i) - 'a'] == 1) {
+                ++y;
+            }
         }
         for (int i = 0; i < 26; ++i) {
             for (int j = 0; j < 26; ++j) {
                 if (cnt1[i] > 0 && cnt2[j] > 0) {
-                    --cnt1[i];
-                    --cnt2[j];
-                    ++cnt1[j];
-                    ++cnt2[i];
-                    int d = 0;
-                    for (int k = 0; k < 26; ++k) {
-                        if (cnt1[k] > 0) {
-                            ++d;
+                    if (i == j) {
+                        if (x == y) {
+                            return true;
                         }
-                        if (cnt2[k] > 0) {
-                            --d;
+                    } else {
+                        int a = x - (cnt1[i] == 1 ? 1 : 0) + (cnt1[j] == 0 ? 1 : 0);
+                        int b = y - (cnt2[j] == 1 ? 1 : 0) + (cnt2[i] == 0 ? 1 : 0);
+                        if (a == b) {
+                            return true;
                         }
                     }
-                    if (d == 0) {
-                        return true;
-                    }
-                    ++cnt1[i];
-                    ++cnt2[j];
-                    --cnt1[j];
-                    --cnt2[i];
                 }
             }
         }
@@ -155,35 +151,31 @@ public:
     bool isItPossible(string word1, string word2) {
         int cnt1[26]{};
         int cnt2[26]{};
+        int x = 0, y = 0;
         for (char& c : word1) {
-            ++cnt1[c - 'a'];
+            if (++cnt1[c - 'a'] == 1) {
+                ++x;
+            }
         }
         for (char& c : word2) {
-            ++cnt2[c - 'a'];
+            if (++cnt2[c - 'a'] == 1) {
+                ++y;
+            }
         }
         for (int i = 0; i < 26; ++i) {
             for (int j = 0; j < 26; ++j) {
                 if (cnt1[i] > 0 && cnt2[j] > 0) {
-                    --cnt1[i];
-                    --cnt2[j];
-                    ++cnt1[j];
-                    ++cnt2[i];
-                    int d = 0;
-                    for (int k = 0; k < 26; ++k) {
-                        if (cnt1[k] > 0) {
-                            ++d;
+                    if (i == j) {
+                        if (x == y) {
+                            return true;
                         }
-                        if (cnt2[k] > 0) {
-                            --d;
+                    } else {
+                        int a = x - (cnt1[i] == 1 ? 1 : 0) + (cnt1[j] == 0 ? 1 : 0);
+                        int b = y - (cnt2[j] == 1 ? 1 : 0) + (cnt2[i] == 0 ? 1 : 0);
+                        if (a == b) {
+                            return true;
                         }
                     }
-                    if (d == 0) {
-                        return true;
-                    }
-                    ++cnt1[i];
-                    ++cnt2[j];
-                    --cnt1[j];
-                    --cnt2[i];
                 }
             }
         }
@@ -198,35 +190,93 @@ public:
 func isItPossible(word1 string, word2 string) bool {
 	cnt1 := [26]int{}
 	cnt2 := [26]int{}
+	x, y := 0, 0
 	for _, c := range word1 {
 		cnt1[c-'a']++
+		if cnt1[c-'a'] == 1 {
+			x++
+		}
 	}
 	for _, c := range word2 {
 		cnt2[c-'a']++
+		if cnt2[c-'a'] == 1 {
+			y++
+		}
 	}
 	for i := range cnt1 {
 		for j := range cnt2 {
 			if cnt1[i] > 0 && cnt2[j] > 0 {
-				cnt1[i], cnt2[j] = cnt1[i]-1, cnt2[j]-1
-				cnt1[j], cnt2[i] = cnt1[j]+1, cnt2[i]+1
-				d := 0
-				for k, a := range cnt1 {
-					if a > 0 {
-						d++
+				if i == j {
+					if x == y {
+						return true
 					}
-					if cnt2[k] > 0 {
-						d--
+				} else {
+					a := x
+					if cnt1[i] == 1 {
+						a--
+					}
+					if cnt1[j] == 0 {
+						a++
+					}
+
+					b := y
+					if cnt2[j] == 1 {
+						b--
+					}
+					if cnt2[i] == 0 {
+						b++
+					}
+
+					if a == b {
+						return true
 					}
 				}
-				if d == 0 {
-					return true
-				}
-				cnt1[i], cnt2[j] = cnt1[i]+1, cnt2[j]+1
-				cnt1[j], cnt2[i] = cnt1[j]-1, cnt2[i]-1
 			}
 		}
 	}
 	return false
+}
+```
+
+#### TypeScript
+
+```ts
+function isItPossible(word1: string, word2: string): boolean {
+    const cnt1: number[] = Array(26).fill(0);
+    const cnt2: number[] = Array(26).fill(0);
+    let [x, y] = [0, 0];
+
+    for (const c of word1) {
+        if (++cnt1[c.charCodeAt(0) - 'a'.charCodeAt(0)] === 1) {
+            ++x;
+        }
+    }
+
+    for (const c of word2) {
+        if (++cnt2[c.charCodeAt(0) - 'a'.charCodeAt(0)] === 1) {
+            ++y;
+        }
+    }
+
+    for (let i = 0; i < 26; ++i) {
+        for (let j = 0; j < 26; ++j) {
+            if (cnt1[i] > 0 && cnt2[j] > 0) {
+                if (i === j) {
+                    if (x === y) {
+                        return true;
+                    }
+                } else {
+                    const a = x - (cnt1[i] === 1 ? 1 : 0) + (cnt1[j] === 0 ? 1 : 0);
+                    const b = y - (cnt2[j] === 1 ? 1 : 0) + (cnt2[i] === 0 ? 1 : 0);
+                    if (a === b) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
 }
 ```
 
