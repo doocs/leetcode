@@ -1,13 +1,15 @@
-func largestWordCount(messages []string, senders []string) (ans string) {
-	cnt := map[string]int{}
-	for i, msg := range messages {
-		v := strings.Count(msg, " ") + 1
+func largestWordCount(messages []string, senders []string) string {
+	cnt := make(map[string]int)
+	for i, message := range messages {
+		v := strings.Count(message, " ") + 1
 		cnt[senders[i]] += v
 	}
-	for sender, v := range cnt {
-		if cnt[ans] < v || (cnt[ans] == v && ans < sender) {
-			ans = sender
+
+	ans := senders[0]
+	for k, v := range cnt {
+		if cnt[ans] < v || (cnt[ans] == v && ans < k) {
+			ans = k
 		}
 	}
-	return
+	return ans
 }

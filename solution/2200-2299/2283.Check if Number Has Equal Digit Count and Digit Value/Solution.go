@@ -3,8 +3,8 @@ func digitCount(num string) bool {
 	for _, c := range num {
 		cnt[c-'0']++
 	}
-	for i, v := range num {
-		if cnt[i] != int(v-'0') {
+	for i, c := range num {
+		if int(c-'0') != cnt[i] {
 			return false
 		}
 	}
