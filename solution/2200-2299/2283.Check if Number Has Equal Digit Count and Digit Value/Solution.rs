@@ -1,14 +1,16 @@
 impl Solution {
     pub fn digit_count(num: String) -> bool {
-        let s = num.as_bytes();
-        let n = num.len();
-        let mut count = [0; 10];
-        for i in 0..n {
-            count[i] = s[i] - b'0';
+        let mut cnt = vec![0; 10];
+        for c in num.chars() {
+            let x = c.to_digit(10).unwrap() as usize;
+            cnt[x] += 1;
         }
-        for c in s {
-            count[(c - b'0') as usize] -= 1;
+        for (i, c) in num.chars().enumerate() {
+            let x = c.to_digit(10).unwrap() as usize;
+            if cnt[i] != x {
+                return false;
+            }
         }
-        count.iter().all(|v| *v == 0)
+        true
     }
 }
