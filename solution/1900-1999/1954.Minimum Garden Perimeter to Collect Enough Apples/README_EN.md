@@ -68,20 +68,20 @@ The perimeter is 2 * 4 = 8.
 
 ## Solutions
 
-###  Find the math formula for the number of apples inside a square with a side length L:
+### Find the math formula for the number of apples inside a square with a side length L:
 
 Let r be the radius, which is half the side length of the square area, there're apples planted along its perimeter:
-- 4 corners, each corner is $|r| + |r| = 2|r|$, so $8|r|$
-- middle top and middle bottom (when x axis = 0), each $|0| + |r| = |r|$, so $2|r|$
-- middle left and middle right (when y axis = 0), each $|0| + |r| = |r|$, so $2|r|$
-- between middle-top and top-right conner([1,r], [2,r], ..., [r-1,r]):
+
+-   4 corners, each corner is $|r| + |r| = 2|r|$, so $8|r|$
+-   middle top and middle bottom (when x axis = 0), each $|0| + |r| = |r|$, so $2|r|$
+-   middle left and middle right (when y axis = 0), each $|0| + |r| = |r|$, so $2|r|$
+-   between middle-top and top-right conner([1,r], [2,r], ..., [r-1,r]):
 
     $|r-1||r| + (1 + 2 + ... + r-1) = |r-1||r| + |r||r-1|/2$
 
     And we have 8 of them: middle-top to top-left, middle-left to top-left, ...
-    
-    So we have: $8(|r-1||r| + |r||r-1|/2)$
 
+    So we have: $8(|r-1||r| + |r||r-1|/2)$
 
 => the total number of apples around the perimeter is:
 
@@ -90,9 +90,8 @@ $8|r| + 4|r| + 8|r-1||r| + 4|r||r-1|
 = 12r^2$
 
 So the sum of apples inside a square with a side length L ($r = L/2$, perimeter = $L*4 = r*8$):
-    
-$$12\left( \sum_{k=1}^r k^2 \right) = 12\left(r(r+1)(2r+1)/6\right) = 2r(r+1)(2r+1)$$
 
+$$12\left( \sum_{k=1}^r k^2 \right) = 12\left(r(r+1)(2r+1)/6\right) = 2r(r+1)(2r+1)$$
 
 <!-- solution:start -->
 
