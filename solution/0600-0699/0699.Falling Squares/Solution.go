@@ -9,7 +9,7 @@ func newNode(l, r int) *node {
 	return &node{
 		l:   l,
 		r:   r,
-		mid: int(uint(l+r) >> 1),
+		mid: (l + r) >> 1,
 	}
 }
 
