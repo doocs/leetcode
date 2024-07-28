@@ -12,14 +12,9 @@
  * }
  */
 
-function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
-    if (!root) {
-        return new TreeNode(val);
+function searchBST(root: TreeNode | null, val: number): TreeNode | null {
+    if (root === null || root.val === val) {
+        return root;
     }
-    if (root.val > val) {
-        root.left = insertIntoBST(root.left, val);
-    } else {
-        root.right = insertIntoBST(root.right, val);
-    }
-    return root;
+    return root.val > val ? searchBST(root.left, val) : searchBST(root.right, val);
 }
