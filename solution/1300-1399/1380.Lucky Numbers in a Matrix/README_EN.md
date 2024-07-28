@@ -75,17 +75,16 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. 
 
 #### Optimize
 
-We can return the lucky number immediately when we found it, since there's only one lucky nunber. 
+We can return the lucky number immediately when we found it, since there's only one lucky nunber.
 We can prove this as follows:
 
 Given the input matrix contains only distinct numbers, now let suppose $[i,j]$ is the lucky number, we assume that there's another lucky number $[u,v]$, then we have:
 
-- $m[u][v]$ is the min of the row $u => m[u][v] < m[u][j] < m[i][j]$
-- $m[u][v]$ is the max of the col $v => m[u][v] > m[i][v] > m[i][j]$
+-   $m[u][v]$ is the min of the row $u => m[u][v] < m[u][j] < m[i][j]$
+-   $m[u][v]$ is the max of the col $v => m[u][v] > m[i][v] > m[i][j]$
 
 Thus $m[u][v] < m[i][j]$ and $m[u][v] > m[i][j]$, which is a contradiction.
 Therefore $[u,v]$ either does not exist or $[u,v]$ is the same as $[i,j]$. Since the matrix contains only distinct numbers, there is only one lucky number.
-
 
 <!-- tabs:start -->
 
