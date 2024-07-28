@@ -3240,6 +3240,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3229  |  [Minimum Operations to Make Array Equal to Target](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Hard  |  Weekly Contest 407  |
 |  3230  |  [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  3231  |  [Minimum Number of Increasing Subsequence to Be Removed](/solution/3200-3299/3231.Minimum%20Number%20of%20Increasing%20Subsequence%20to%20Be%20Removed/README_EN.md)  |    |  Hard  |  🔒  |
+|  3232  |  [Find if Digit Game Can Be Won](/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README_EN.md)  |    |  Easy  |  Weekly Contest 408  |
+|  3233  |  [Find the Count of Numbers Which Are Not Special](/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README_EN.md)  |    |  Medium  |  Weekly Contest 408  |
+|  3234  |  [Count the Number of Substrings With Dominant Ones](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README_EN.md)  |    |  Medium  |  Weekly Contest 408  |
+|  3235  |  [Check if the Rectangle Corner Is Reachable](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README_EN.md)  |    |  Hard  |  Weekly Contest 408  |
 
 ## Copyright
 
