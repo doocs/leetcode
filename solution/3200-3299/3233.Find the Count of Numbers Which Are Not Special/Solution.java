@@ -1,7 +1,7 @@
 class Solution {
     static int m = 31623;
     static boolean[] primes = new boolean[m + 1];
-    
+
     static {
         Arrays.fill(primes, true);
         primes[0] = primes[1] = false;
