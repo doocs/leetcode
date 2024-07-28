@@ -3242,6 +3242,10 @@
 |  3229  |  [使数组等于目标数组所需的最少操作次数](/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README.md)  |  `栈`,`贪心`,`数组`,`动态规划`,`单调栈`  |  困难  |  第 407 场周赛  |
 |  3230  |  [客户购买行为分析](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  3231  |  [要删除的递增子序列的最小数量](/solution/3200-3299/3231.Minimum%20Number%20of%20Increasing%20Subsequence%20to%20Be%20Removed/README.md)  |    |  困难  |  🔒  |
+|  3232  |  [判断是否可以赢得数字游戏](/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README.md)  |    |  简单  |  第 408 场周赛  |
+|  3233  |  [统计不是特殊数字的数字数量](/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README.md)  |    |  中等  |  第 408 场周赛  |
+|  3234  |  [统计 1 显著的字符串的数量](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README.md)  |    |  中等  |  第 408 场周赛  |
+|  3235  |  [判断矩形的两个角落是否可达](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README.md)  |    |  困难  |  第 408 场周赛  |
 
 ## 版权
 

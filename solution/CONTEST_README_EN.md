@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 408
+
+- [3232. Find if Digit Game Can Be Won](/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README_EN.md)
+- [3233. Find the Count of Numbers Which Are Not Special](/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README_EN.md)
+- [3234. Count the Number of Substrings With Dominant Ones](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README_EN.md)
+- [3235. Check if the Rectangle Corner Is Reachable](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README_EN.md)
+
 #### Weekly Contest 407
 
 - [3226. Number of Bit Changes to Make Two Integers Equal](/solution/3200-3299/3226.Number%20of%20Bit%20Changes%20to%20Make%20Two%20Integers%20Equal/README_EN.md)

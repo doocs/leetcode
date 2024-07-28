@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 408 场周赛(2024-07-28 10:30, 90 分钟) 参赛人数 3368
+
+- [3232. 判断是否可以赢得数字游戏](/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README.md)
+- [3233. 统计不是特殊数字的数字数量](/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README.md)
+- [3234. 统计 1 显著的字符串的数量](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README.md)
+- [3235. 判断矩形的两个角落是否可达](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README.md)
+
 #### 第 407 场周赛(2024-07-21 10:30, 90 分钟) 参赛人数 3268
 
 - [3226. 使两个整数相等的位更改次数](/solution/3200-3299/3226.Number%20of%20Bit%20Changes%20to%20Make%20Two%20Integers%20Equal/README.md)
