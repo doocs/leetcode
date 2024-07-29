@@ -1,6 +1,6 @@
-func calPoints(ops []string) int {
+func calPoints(operations []string) (ans int) {
 	var stk []int
-	for _, op := range ops {
+	for _, op := range operations {
 		n := len(stk)
 		switch op {
 		case "+":
@@ -14,9 +14,8 @@ func calPoints(ops []string) int {
 			stk = append(stk, num)
 		}
 	}
-	ans := 0
-	for _, score := range stk {
-		ans += score
+	for _, x := range stk {
+		ans += x
 	}
-	return ans
+	return
 }
