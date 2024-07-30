@@ -82,7 +82,13 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We use an array $d$ to record the denominations of the bills and an array $cnt$ to record the number of bills for each denomination.
+
+For the `deposit` operation, we only need to add the number of bills for the corresponding denomination. The time complexity is $O(1)$.
+
+For the `withdraw` operation, we enumerate the bills from largest to smallest denomination, taking out as many bills as possible without exceeding the $amount$. Then, we subtract the total value of the withdrawn bills from $amount$. If $amount$ is still greater than $0$ at the end, it means it's not possible to withdraw the $amount$ with the available bills, and we return $-1$. Otherwise, we return the number of bills withdrawn. The time complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -236,6 +242,48 @@ func (this *ATM) Withdraw(amount int) []int {
  * obj := Constructor();
  * obj.Deposit(banknotesCount);
  * param_2 := obj.Withdraw(amount);
+ */
+```
+
+#### TypeScript
+
+```ts
+class ATM {
+    private cnt: number[];
+    private d: number[];
+
+    constructor() {
+        this.cnt = [0, 0, 0, 0, 0];
+        this.d = [20, 50, 100, 200, 500];
+    }
+
+    deposit(banknotesCount: number[]): void {
+        for (let i = 0; i < banknotesCount.length; i++) {
+            this.cnt[i] += banknotesCount[i];
+        }
+    }
+
+    withdraw(amount: number): number[] {
+        let ans = [0, 0, 0, 0, 0];
+        for (let i = 4; i >= 0; i--) {
+            ans[i] = Math.min(Math.floor(amount / this.d[i]), this.cnt[i]);
+            amount -= ans[i] * this.d[i];
+        }
+        if (amount > 0) {
+            return [-1];
+        }
+        for (let i = 0; i < ans.length; i++) {
+            this.cnt[i] -= ans[i];
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your ATM object will be instantiated and called as such:
+ * var obj = new ATM()
+ * obj.deposit(banknotesCount)
+ * var param_2 = obj.withdraw(amount)
  */
 ```
 

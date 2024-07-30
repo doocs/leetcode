@@ -57,7 +57,11 @@ The total number of ways to buy pens and pencils is 5 + 3 + 1 = 9.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate the number of pens to buy, denoted as $x$. For each $x$, the maximum number of pencils we can buy is $\frac{\textit{total} - x \times \textit{cost1}}{\textit{cost2}}$. The number of ways for each $x$ is this value plus 1. We sum up the number of ways for all $x$ to get the answer.
+
+The time complexity is $O(\frac{\textit{total}}{\textit{cost1}})$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
