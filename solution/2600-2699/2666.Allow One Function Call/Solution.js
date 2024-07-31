@@ -1,7 +1,8 @@
-type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
-type OnceFn = (...args: JSONValue[]) => JSONValue | undefined;
-
-function once(fn: Function): OnceFn {
+/**
+ * @param {Function} fn
+ * @return {Function}
+ */
+var once = function (fn) {
     let called = false;
     return function (...args) {
         if (!called) {
@@ -9,7 +10,7 @@ function once(fn: Function): OnceFn {
             return fn(...args);
         }
     };
-}
+};
 
 /**
  * let fn = (a,b,c) => (a + b + c)
