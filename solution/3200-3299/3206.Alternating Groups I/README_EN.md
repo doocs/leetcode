@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3206.Alternating%20Groups%20I/README_EN.md
+rating: 1223
+source: Biweekly Contest 134 Q1
 tags:
     - Array
     - Sliding Window

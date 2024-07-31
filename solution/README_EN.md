@@ -3244,6 +3244,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3233  |  [Find the Count of Numbers Which Are Not Special](/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README_EN.md)  |    |  Medium  |  Weekly Contest 408  |
 |  3234  |  [Count the Number of Substrings With Dominant Ones](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README_EN.md)  |    |  Medium  |  Weekly Contest 408  |
 |  3235  |  [Check if the Rectangle Corner Is Reachable](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README_EN.md)  |    |  Hard  |  Weekly Contest 408  |
+|  3236  |  [CEO Subordinate Hierarchy](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 
 ## Copyright
 

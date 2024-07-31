@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3216.Lexicographically%20Smallest%20String%20After%20a%20Swap/README.md
+rating: 1242
+source: 第 406 场周赛 Q1
 tags:
     - 贪心
     - 字符串

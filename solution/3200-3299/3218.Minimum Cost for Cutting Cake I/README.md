@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3218.Minimum%20Cost%20for%20Cutting%20Cake%20I/README.md
+rating: 1654
+source: 第 406 场周赛 Q3
 tags:
     - 贪心
     - 数组
