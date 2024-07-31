@@ -456,6 +456,10 @@ var minimumDeletions = function (s) {
 };
 ```
 
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- solution:start -->
 
 ### Solution 4: Stack
