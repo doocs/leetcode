@@ -68,9 +68,10 @@ onceFn(4, 6, 8); // undefined, fn was not called
 #### TypeScript
 
 ```ts
-function once<T extends (...args: any[]) => any>(
-    fn: T,
-): (...args: Parameters<T>) => ReturnType<T> | undefined {
+type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue };
+type OnceFn = (...args: JSONValue[]) => JSONValue | undefined;
+
+function once(fn: Function): OnceFn {
     let called = false;
     return function (...args) {
         if (!called) {
@@ -89,22 +90,21 @@ function once<T extends (...args: any[]) => any>(
  */
 ```
 
-<!-- tabs:end -->
+#### JavaScript
 
 ```js
 /**
  * @param {Function} fn
  * @return {Function}
  */
-var once = function(fn) {
+var once = function (fn) {
     let called = false;
-    return function(...args){
-        if(!called){
-            called=true;
+    return function (...args) {
+        if (!called) {
+            called = true;
             return fn(...args);
         }
-        return undefined;
-    }
+    };
 };
 
 /**
@@ -114,9 +114,10 @@ var once = function(fn) {
  * onceFn(1,2,3); // 6
  * onceFn(2,3,6); // returns undefined without calling fn
  */
+```
 
+<!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- problem:end -->
-```
