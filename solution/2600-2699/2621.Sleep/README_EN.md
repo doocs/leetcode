@@ -67,9 +67,6 @@ async function sleep(millis: number): Promise<void> {
  */
 ```
 
-<!-- tabs:end -->
-
-<!-- tabs:start -->
 #### JavaScript
 
 ```js
@@ -78,16 +75,16 @@ async function sleep(millis: number): Promise<void> {
  * @return {Promise}
  */
 async function sleep(millis) {
-    return new Promise ( r => setTimeout(r,millis))
+    return new Promise(r => setTimeout(r, millis));
 }
 
-/** 
+/**
  * let t = Date.now()
  * sleep(100).then(() => console.log(Date.now() - t)) // 100
  */
+```
 
 <!-- tabs:end -->
-
 
 <!-- solution:end -->
 
