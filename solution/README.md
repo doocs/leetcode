@@ -3246,6 +3246,7 @@
 |  3233  |  [统计不是特殊数字的数字数量](/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README.md)  |    |  中等  |  第 408 场周赛  |
 |  3234  |  [统计 1 显著的字符串的数量](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README.md)  |    |  中等  |  第 408 场周赛  |
 |  3235  |  [判断矩形的两个角落是否可达](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README.md)  |    |  困难  |  第 408 场周赛  |
+|  3236  |  [首席执行官下属层级](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README.md)  |  `数据库`  |  困难  |  🔒  |
 
 ## 版权
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3207.Maximum%20Points%20After%20Enemy%20Battles/README_EN.md
+rating: 1591
+source: Biweekly Contest 134 Q2
 tags:
     - Greedy
     - Array

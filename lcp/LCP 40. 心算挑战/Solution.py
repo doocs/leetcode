@@ -1,12 +1,21 @@
 class Solution:
     def maxmiumScore(self, cards: List[int], cnt: int) -> int:
-        cards.sort(reverse=True)
-        t = cards[:cnt]
-        ans = sum(t)
+        cards.sort()
+        ans = sum(cards[-cnt:])
         if ans % 2 == 0:
             return ans
-        a = min([v for v in t if v & 1], default=inf)
-        b = min([v for v in t if v % 2 == 0], default=inf)
-        c = max([v for v in cards[cnt:] if v % 2 == 0], default=-inf)
-        d = max([v for v in cards[cnt:] if v & 1], default=-inf)
-        return max(ans - a + c, ans - b + d, 0)
+        n = len(cards)
+        mx1 = mx2 = -inf
+        for x in cards[: n - cnt]:
+            if x & 1:
+                mx1 = x
+            else:
+                mx2 = x
+        mi1 = mi2 = inf
+        for x in cards[-cnt:][::-1]:
+            if x & 1:
+                mi2 = x
+            else:
+                mi1 = x
+        ans = max(ans - mi1 + mx1, ans - mi2 + mx2, -1)
+        return 0 if ans < 0 else ans
