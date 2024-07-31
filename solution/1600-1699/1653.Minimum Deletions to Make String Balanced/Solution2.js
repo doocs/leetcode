@@ -1,4 +1,8 @@
-function minimumDeletions(s: string): number {
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minimumDeletions = function (s) {
     let [ans, b] = [0, 0];
 
     for (const ch of s) {
@@ -9,4 +13,4 @@ function minimumDeletions(s: string): number {
         }
     }
     return ans;
-}
+};

@@ -1,4 +1,8 @@
-function minimumDeletions(s: string): number {
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minimumDeletions = function (s) {
     let ra = [...s].reduce((acc, x) => (x === 'a' ? acc + 1 : acc), 0);
     let lb = 0;
 
@@ -9,4 +13,4 @@ function minimumDeletions(s: string): number {
         if (ch === 'b') lb++;
     }
     return ans;
-}
+};

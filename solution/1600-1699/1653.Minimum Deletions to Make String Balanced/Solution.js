@@ -1,4 +1,8 @@
-function minimumDeletions(s: string): number {
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minimumDeletions = function (s) {
     const n = s.length;
     const f = new Array(n + 1).fill(0);
     let b = 0;
@@ -11,4 +15,4 @@ function minimumDeletions(s: string): number {
         }
     }
     return f[n];
-}
+};
