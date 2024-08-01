@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README.md
+tags:
+    - 字符串
+    - 枚举
+    - 滑动窗口
 ---
 
 <!-- problem:start -->
