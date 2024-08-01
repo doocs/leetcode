@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README_EN.md
+tags:
+    - Array
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,13 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Geometry
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->

@@ -58,7 +58,7 @@ tags:
 
 我们用一个长度为 $26$ 的数组 $cnt$ 记录每个字符在所有字符串中出现的最小次数，最后遍历 $cnt$ 数组，将出现次数大于 $0$ 的字符加入答案即可。
 
-时间复杂度 $O(n \sum w_i)$，空间复杂度 $O(C)$。其中 $n$ 为字符串数组 $words$ 的长度，而 $w_i$ 为字符串数组 $words$ 中第 $i$ 个字符串的长度，另外 $C$ 为字符集的大小，本题中 $C = 26$。
+时间复杂度 $O(n \sum w_i)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 为字符串数组 $words$ 的长度，而 $w_i$ 为字符串数组 $words$ 中第 $i$ 个字符串的长度，另外 $|\Sigma|$ 为字符集的大小，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
@@ -69,13 +69,10 @@ class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
         cnt = Counter(words[0])
         for w in words:
-            ccnt = Counter(w)
-            for c in cnt.keys():
-                cnt[c] = min(cnt[c], ccnt[c])
-        ans = []
-        for c, v in cnt.items():
-            ans.extend([c] * v)
-        return ans
+            t = Counter(w)
+            for c in cnt:
+                cnt[c] = min(cnt[c], t[c])
+        return list(cnt.elements())
 ```
 
 #### Java
@@ -84,21 +81,19 @@ class Solution:
 class Solution {
     public List<String> commonChars(String[] words) {
         int[] cnt = new int[26];
-        Arrays.fill(cnt, 10000);
-        for (String w : words) {
-            int[] ccnt = new int[26];
+        Arrays.fill(cnt, 20000);
+        for (var w : words) {
+            int[] t = new int[26];
             for (int i = 0; i < w.length(); ++i) {
-                ++ccnt[w.charAt(i) - 'a'];
+                ++t[w.charAt(i) - 'a'];
             }
             for (int i = 0; i < 26; ++i) {
-                cnt[i] = Math.min(cnt[i], ccnt[i]);
+                cnt[i] = Math.min(cnt[i], t[i]);
             }
         }
         List<String> ans = new ArrayList<>();
         for (int i = 0; i < 26; ++i) {
-            while (cnt[i]-- > 0) {
-                ans.add(String.valueOf((char) (i + 'a')));
-            }
+            ans.addAll(Collections.nCopies(cnt[i], String.valueOf((char) ('a' + i))));
         }
         return ans;
     }
@@ -111,21 +106,20 @@ class Solution {
 class Solution {
 public:
     vector<string> commonChars(vector<string>& words) {
-        int cnt[26];
-        memset(cnt, 0x3f, sizeof(cnt));
-        for (auto& w : words) {
-            int ccnt[26]{};
-            for (char& c : w) {
-                ++ccnt[c - 'a'];
+        vector<int> cnt(26, 20000);
+        for (const auto& w : words) {
+            vector<int> t(26, 0);
+            for (char c : w) {
+                ++t[c - 'a'];
             }
             for (int i = 0; i < 26; ++i) {
-                cnt[i] = min(cnt[i], ccnt[i]);
+                cnt[i] = min(cnt[i], t[i]);
             }
         }
         vector<string> ans;
         for (int i = 0; i < 26; ++i) {
-            while (cnt[i]--) {
-                ans.emplace_back(1, i + 'a');
+            for (int j = 0; j < cnt[i]; ++j) {
+                ans.push_back(string(1, 'a' + i));
             }
         }
         return ans;
@@ -137,26 +131,25 @@ public:
 
 ```go
 func commonChars(words []string) (ans []string) {
-	cnt := [26]int{}
+	cnt := make([]int, 26)
 	for i := range cnt {
-		cnt[i] = 1 << 30
+		cnt[i] = 20000
 	}
 	for _, w := range words {
-		ccnt := [26]int{}
+		t := make([]int, 26)
 		for _, c := range w {
-			ccnt[c-'a']++
+			t[c-'a']++
 		}
-		for i, v := range cnt {
-			cnt[i] = min(v, ccnt[i])
-		}
-	}
-	for i, v := range cnt {
-		for v > 0 {
-			ans = append(ans, string(i+'a'))
-			v--
+		for i := 0; i < 26; i++ {
+			cnt[i] = min(cnt[i], t[i])
 		}
 	}
-	return
+	for i := 0; i < 26; i++ {
+		for j := 0; j < cnt[i]; j++ {
+			ans = append(ans, string('a'+rune(i)))
+		}
+	}
+	return ans
 }
 ```
 
@@ -164,22 +157,20 @@ func commonChars(words []string) (ans []string) {
 
 ```ts
 function commonChars(words: string[]): string[] {
-    const freq: number[] = Array(26).fill(Number.POSITIVE_INFINITY);
+    const cnt = Array(26).fill(20000);
     const aCode = 'a'.charCodeAt(0);
-    for (const word of words) {
-        const t: number[] = Array(26).fill(0);
-        for (const c of word) {
-            ++t[c.charCodeAt(0) - aCode];
+    for (const w of words) {
+        const t = Array(26).fill(0);
+        for (const c of w) {
+            t[c.charCodeAt(0) - aCode]++;
         }
-        for (let i = 0; i < 26; ++i) {
-            freq[i] = Math.min(freq[i], t[i]);
+        for (let i = 0; i < 26; i++) {
+            cnt[i] = Math.min(cnt[i], t[i]);
         }
     }
     const ans: string[] = [];
-    for (let i = 0; i < 26; ++i) {
-        if (freq[i]) {
-            ans.push(...String.fromCharCode(i + aCode).repeat(freq[i]));
-        }
+    for (let i = 0; i < 26; i++) {
+        cnt[i] && ans.push(...String.fromCharCode(i + aCode).repeat(cnt[i]));
     }
     return ans;
 }

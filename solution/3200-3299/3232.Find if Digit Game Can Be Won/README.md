@@ -2,6 +2,9 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README.md
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
@@ -16,9 +19,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3232.Fi
 
 <p>给你一个 <strong>正整数 </strong>数组 <code>nums</code>。</p>
 
-<p>小红和小明正在玩游戏。在游戏中，小红可以从 <code>nums</code> 中选择所有个位数 <strong>或</strong> 所有两位数，剩余的数字归小明所有。如果小红所选数字之和 <strong>严格大于 </strong>小明的数字之和，则小红获胜。</p>
+<p>Alice 和 Bob 正在玩游戏。在游戏中，Alice 可以从 <code>nums</code> 中选择所有个位数 <strong>或</strong> 所有两位数，剩余的数字归 Bob 所有。如果 Alice 所选数字之和 <strong>严格大于 </strong>Bob 的数字之和，则 Alice 获胜。</p>
 
-<p>如果小红能赢得这场游戏，返回 <code>true</code>；否则，返回 <code>false</code>。</p>
+<p>如果 Alice 能赢得这场游戏，返回 <code>true</code>；否则，返回 <code>false</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -31,7 +34,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3232.Fi
 
 <p><strong>解释：</strong></p>
 
-<p>小红不管选个位数还是两位数都无法赢得比赛。</p>
+<p>Alice&nbsp;不管选个位数还是两位数都无法赢得比赛。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -43,7 +46,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3232.Fi
 
 <p><strong>解释：</strong></p>
 
-<p>小红选择个位数可以赢得比赛，所选数字之和为 15。</p>
+<p>Alice&nbsp;选择个位数可以赢得比赛，所选数字之和为 15。</p>
 </div>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -55,7 +58,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3232.Fi
 
 <p><strong>解释：</strong></p>
 
-<p>小红选择两位数可以赢得比赛，所选数字之和为 25。</p>
+<p>Alice&nbsp;选择两位数可以赢得比赛，所选数字之和为 25。</p>
 </div>
 
 <p>&nbsp;</p>

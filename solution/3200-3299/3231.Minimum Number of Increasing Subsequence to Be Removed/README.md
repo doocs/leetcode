@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3231.Minimum%20Number%20of%20Increasing%20Subsequence%20to%20Be%20Removed/README.md
+tags:
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->
