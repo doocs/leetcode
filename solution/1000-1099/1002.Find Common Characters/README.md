@@ -93,7 +93,7 @@ class Solution {
         }
         List<String> ans = new ArrayList<>();
         for (int i = 0; i < 26; ++i) {
-            ans.addAll(Collections.nCopies(cnt[i], String.valueOf((char)('a' + i))));
+            ans.addAll(Collections.nCopies(cnt[i], String.valueOf((char) ('a' + i))));
         }
         return ans;
     }
