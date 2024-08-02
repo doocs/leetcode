@@ -106,14 +106,56 @@ manager_id is the employee_id of the employee&#39;s manager. The CEO has a NULL 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursive CTE + Join
+
+First, we use a recursive CTE to calculate the hierarchy level of each employee, where the CEO's level is $0$. We save `employee_id`, `employee_name`, `hierarchy_level`, `manager_id`, and `salary` into a temporary table `T`.
+
+Then, we query the CEO's salary and save it into a temporary table `P`.
+
+Finally, we join tables `T` and `P` to calculate the salary difference for each subordinate, and sort by `hierarchy_level` and `subordinate_id`.
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
-
+# Write your MySQL query statement below
+WITH RECURSIVE
+    T AS (
+        SELECT
+            employee_id,
+            employee_name,
+            0 AS hierarchy_level,
+            manager_id,
+            salary
+        FROM Employees
+        WHERE manager_id IS NULL
+        UNION ALL
+        SELECT
+            e.employee_id,
+            e.employee_name,
+            hierarchy_level + 1 AS hierarchy_level,
+            e.manager_id,
+            e.salary
+        FROM
+            T t
+            JOIN Employees e ON t.employee_id = e.manager_id
+    ),
+    P AS (
+        SELECT salary
+        FROM Employees
+        WHERE manager_id IS NULL
+    )
+SELECT
+    employee_id subordinate_id,
+    employee_name subordinate_name,
+    hierarchy_level,
+    t.salary - p.salary salary_difference
+FROM
+    T t
+    JOIN P p
+WHERE hierarchy_level != 0
+ORDER BY 3, 1;
 ```
 
 <!-- tabs:end -->
