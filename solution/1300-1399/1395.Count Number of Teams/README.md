@@ -529,7 +529,7 @@ function numTeams(rating: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 3: Recursion + Memoization
+### 方法三：记忆化搜索
 
 <!-- tabs:start -->
 
