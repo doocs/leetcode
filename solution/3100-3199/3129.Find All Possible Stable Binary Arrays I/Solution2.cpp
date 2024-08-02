@@ -13,12 +13,10 @@ public:
         }
         for (int i = 1; i <= zero; ++i) {
             for (int j = 1; j <= one; ++j) {
-                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1]
-                                 - (i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1]) + mod)
-                    % mod;
-                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1]
-                                 - (j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0]) + mod)
-                    % mod;
+                ll x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+                ll y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
             }
         }
         return (f[zero][one][0] + f[zero][one][1]) % mod;

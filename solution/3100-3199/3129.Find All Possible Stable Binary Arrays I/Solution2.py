@@ -8,14 +8,8 @@ class Solution:
             f[0][j][1] = 1
         for i in range(1, zero + 1):
             for j in range(1, one + 1):
-                f[i][j][0] = (
-                    f[i - 1][j][0]
-                    + f[i - 1][j][1]
-                    - (0 if i - limit - 1 < 0 else f[i - limit - 1][j][1])
-                ) % mod
-                f[i][j][1] = (
-                    f[i][j - 1][0]
-                    + f[i][j - 1][1]
-                    - (0 if j - limit - 1 < 0 else f[i][j - limit - 1][0])
-                ) % mod
+                x = 0 if i - limit - 1 < 0 else f[i - limit - 1][j][1]
+                y = 0 if j - limit - 1 < 0 else f[i][j - limit - 1][0]
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x) % mod
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y) % mod
         return sum(f[zero][one]) % mod
