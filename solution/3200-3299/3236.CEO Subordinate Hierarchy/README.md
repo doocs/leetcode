@@ -105,14 +105,56 @@ manager_id 是 employee_id 对应员工的经理。首席执行官的 manager_id
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：递归 CTE + 连接
+
+首先，我们使用递归 CTE 计算出每个员工的层级，其中 CEO 的层级为 0，将 `employee_id`、`employee_name`、`hierarchy_level`、`manager_id` 和 `salary` 保存到临时表 `T` 中。
+
+然后，我们查询出 CEO 的薪资，将其保存到临时表 `P` 中。
+
+最后，我们连接 `T` 和 `P` 表，计算出每个下属的薪资差异，并按照 `hierarchy_level` 和 `subordinate_id` 进行排序。
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
-
+# Write your MySQL query statement below
+WITH RECURSIVE
+    T AS (
+        SELECT
+            employee_id,
+            employee_name,
+            0 AS hierarchy_level,
+            manager_id,
+            salary
+        FROM Employees
+        WHERE manager_id IS NULL
+        UNION ALL
+        SELECT
+            e.employee_id,
+            e.employee_name,
+            hierarchy_level + 1 AS hierarchy_level,
+            e.manager_id,
+            e.salary
+        FROM
+            T t
+            JOIN Employees e ON t.employee_id = e.manager_id
+    ),
+    P AS (
+        SELECT salary
+        FROM Employees
+        WHERE manager_id IS NULL
+    )
+SELECT
+    employee_id subordinate_id,
+    employee_name subordinate_name,
+    hierarchy_level,
+    t.salary - p.salary salary_difference
+FROM
+    T t
+    JOIN P p
+WHERE hierarchy_level != 0
+ORDER BY 3, 1;
 ```
 
 <!-- tabs:end -->
