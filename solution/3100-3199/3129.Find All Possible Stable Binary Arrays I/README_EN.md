@@ -167,41 +167,34 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     int numberOfStableArrays(int zero, int one, int limit) {
-        this->limit = limit;
-        f = vector<vector<array<ll, 2>>>(zero + 1, vector<array<ll, 2>>(one + 1, {-1, -1}));
-        return (dfs(zero, one, 0) + dfs(zero, one, 1)) % mod;
-    }
-
-private:
-    const int mod = 1e9 + 7;
-    int limit;
-    vector<vector<array<ll, 2>>> f;
-
-    ll dfs(int i, int j, int k) {
-        if (i < 0 || j < 0) {
-            return 0;
-        }
-        if (i == 0) {
-            return k == 1 && j <= limit;
-        }
-        if (j == 0) {
-            return k == 0 && i <= limit;
-        }
-        ll& res = f[i][j][k];
-        if (res != -1) {
+        const int mod = 1e9 + 7;
+        using ll = long long;
+        vector<vector<array<ll, 2>>> f = vector<vector<array<ll, 2>>>(zero + 1, vector<array<ll, 2>>(one + 1, {-1, -1}));
+        auto dfs = [&](auto&& dfs, int i, int j, int k) -> ll {
+            if (i < 0 || j < 0) {
+                return 0;
+            }
+            if (i == 0) {
+                return k == 1 && j <= limit;
+            }
+            if (j == 0) {
+                return k == 0 && i <= limit;
+            }
+            ll& res = f[i][j][k];
+            if (res != -1) {
+                return res;
+            }
+            if (k == 0) {
+                res = (dfs(dfs, i - 1, j, 0) + dfs(dfs, i - 1, j, 1) - dfs(dfs, i - limit - 1, j, 1) + mod) % mod;
+            } else {
+                res = (dfs(dfs, i, j - 1, 0) + dfs(dfs, i, j - 1, 1) - dfs(dfs, i, j - limit - 1, 0) + mod) % mod;
+            }
             return res;
-        }
-        if (k == 0) {
-            res = (dfs(i - 1, j, 0) + dfs(i - 1, j, 1) - dfs(i - limit - 1, j, 1) + mod) % mod;
-        } else {
-            res = (dfs(i, j - 1, 0) + dfs(i, j - 1, 1) - dfs(i, j - limit - 1, 0) + mod) % mod;
-        }
-        return res;
+        };
+        return (dfs(dfs, zero, one, 0) + dfs(dfs, zero, one, 1)) % mod;
     }
 };
 ```
@@ -250,6 +243,41 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function numberOfStableArrays(zero: number, one: number, limit: number): number {
+    const mod = 1e9 + 7;
+    const f: number[][][] = Array.from({ length: zero + 1 }, () =>
+        Array.from({ length: one + 1 }, () => [-1, -1]),
+    );
+
+    const dfs = (i: number, j: number, k: number): number => {
+        if (i < 0 || j < 0) {
+            return 0;
+        }
+        if (i === 0) {
+            return k === 1 && j <= limit ? 1 : 0;
+        }
+        if (j === 0) {
+            return k === 0 && i <= limit ? 1 : 0;
+        }
+        let res = f[i][j][k];
+        if (res !== -1) {
+            return res;
+        }
+        if (k === 0) {
+            res = (dfs(i - 1, j, 0) + dfs(i - 1, j, 1) - dfs(i - limit - 1, j, 1) + mod) % mod;
+        } else {
+            res = (dfs(i, j - 1, 0) + dfs(i, j - 1, 1) - dfs(i, j - limit - 1, 0) + mod) % mod;
+        }
+        return (f[i][j][k] = res);
+    };
+
+    return (dfs(zero, one, 0) + dfs(zero, one, 1)) % mod;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -286,16 +314,10 @@ class Solution:
             f[0][j][1] = 1
         for i in range(1, zero + 1):
             for j in range(1, one + 1):
-                f[i][j][0] = (
-                    f[i - 1][j][0]
-                    + f[i - 1][j][1]
-                    - (0 if i - limit - 1 < 0 else f[i - limit - 1][j][1])
-                ) % mod
-                f[i][j][1] = (
-                    f[i][j - 1][0]
-                    + f[i][j - 1][1]
-                    - (0 if j - limit - 1 < 0 else f[i][j - limit - 1][0])
-                ) % mod
+                x = 0 if i - limit - 1 < 0 else f[i - limit - 1][j][1]
+                y = 0 if j - limit - 1 < 0 else f[i][j - limit - 1][0]
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x) % mod
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y) % mod
         return sum(f[zero][one]) % mod
 ```
 
@@ -303,37 +325,24 @@ class Solution:
 
 ```java
 class Solution {
-    private final int mod = (int) 1e9 + 7;
-    private Long[][][] f;
-    private int limit;
-
     public int numberOfStableArrays(int zero, int one, int limit) {
-        f = new Long[zero + 1][one + 1][2];
-        this.limit = limit;
-        return (int) ((dfs(zero, one, 0) + dfs(zero, one, 1)) % mod);
-    }
-
-    private long dfs(int i, int j, int k) {
-        if (i < 0 || j < 0) {
-            return 0;
+        final int mod = (int) 1e9 + 7;
+        long[][][] f = new long[zero + 1][one + 1][2];
+        for (int i = 1; i <= Math.min(zero, limit); ++i) {
+            f[i][0][0] = 1;
         }
-        if (i == 0) {
-            return k == 1 && j <= limit ? 1 : 0;
+        for (int j = 1; j <= Math.min(one, limit); ++j) {
+            f[0][j][1] = 1;
         }
-        if (j == 0) {
-            return k == 0 && i <= limit ? 1 : 0;
+        for (int i = 1; i <= zero; ++i) {
+            for (int j = 1; j <= one; ++j) {
+                long x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+                long y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
+            }
         }
-        if (f[i][j][k] != null) {
-            return f[i][j][k];
-        }
-        if (k == 0) {
-            f[i][j][k]
-                = (dfs(i - 1, j, 0) + dfs(i - 1, j, 1) - dfs(i - limit - 1, j, 1) + mod) % mod;
-        } else {
-            f[i][j][k]
-                = (dfs(i, j - 1, 0) + dfs(i, j - 1, 1) - dfs(i, j - limit - 1, 0) + mod) % mod;
-        }
-        return f[i][j][k];
+        return (int) ((f[zero][one][0] + f[zero][one][1]) % mod);
     }
 }
 ```
@@ -356,12 +365,10 @@ public:
         }
         for (int i = 1; i <= zero; ++i) {
             for (int j = 1; j <= one; ++j) {
-                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1]
-                                 - (i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1]) + mod)
-                    % mod;
-                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1]
-                                 - (j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0]) + mod)
-                    % mod;
+                ll x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+                ll y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
             }
         }
         return (f[zero][one][0] + f[zero][one][1]) % mod;
@@ -397,6 +404,35 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 		}
 	}
 	return (f[zero][one][0] + f[zero][one][1]) % mod
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfStableArrays(zero: number, one: number, limit: number): number {
+    const mod = 1e9 + 7;
+    const f: number[][][] = Array.from({ length: zero + 1 }, () =>
+        Array.from({ length: one + 1 }, () => [0, 0]),
+    );
+
+    for (let i = 1; i <= Math.min(limit, zero); i++) {
+        f[i][0][0] = 1;
+    }
+    for (let j = 1; j <= Math.min(limit, one); j++) {
+        f[0][j][1] = 1;
+    }
+
+    for (let i = 1; i <= zero; i++) {
+        for (let j = 1; j <= one; j++) {
+            const x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+            const y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+            f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+            f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
+        }
+    }
+
+    return (f[zero][one][0] + f[zero][one][1]) % mod;
 }
 ```
 
