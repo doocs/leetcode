@@ -39,9 +39,5 @@ function sumPrefixScores(words: string[]): number[] {
     for (const w of words) {
         trie.insert(w);
     }
-    let ans = [];
-    for (const w of words) {
-        ans.push(trie.search(w));
-    }
-    return ans;
+    return words.map(w => trie.search(w));
 }
