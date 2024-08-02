@@ -47,7 +47,7 @@ tags:
 - 2 个字符串的前缀为 "a" ，2 个字符串的前缀为 "ab" 。
 总计 answer[1] = 2 + 2 = 4 。
 - "bc" 有 2 个前缀："b" 和 "bc" 。
-- 2 个字符串的前缀为 "b" ，1 个字符串的前缀为 "bc" 。 
+- 2 个字符串的前缀为 "b" ，1 个字符串的前缀为 "bc" 。
 总计 answer[2] = 2 + 1 = 3 。
 - "b" 有 1 个前缀："b"。
 - 2 个字符串的前缀为 "b" 。
@@ -81,11 +81,21 @@ tags:
 
 ### 方法一：前缀树
 
-用前缀树维护所有字符串的前缀以及每个前缀出现的次数。
+我们可以用前缀树来维护所有字符串的前缀以及每个前缀出现的次数。
 
-然后遍历每个字符串，累加每个前缀的出现次数即可。
+定义前缀树节点结构体 `Trie`，包含两个属性：
 
-时间复杂度 $O(n \times m)$。其中 $n$, $m$ 分别为字符串数组 `words` 的长度和其中字符串的最大长度。
+-   `children`：长度为 26 的数组，用于存储当前节点的子节点。
+-   `cnt`：当前节点的出现次数。
+
+定义前缀树的两个方法：
+
+-   `insert`：插入一个字符串，将其前缀插入前缀树。
+-   `search`：搜索一个字符串，返回其前缀的出现次数。
+
+我们遍历所有字符串，将每个字符串插入前缀树中。然后再遍历所有字符串，对每个字符串调用 `search` 方法，累加每个前缀的出现次数即可。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 是所有字符串的总长度。
 
 <!-- tabs:start -->
 
@@ -93,6 +103,8 @@ tags:
 
 ```python
 class Trie:
+    __slots__ = "children", "cnt"
+
     def __init__(self):
         self.children = [None] * 26
         self.cnt = 0
@@ -100,7 +112,7 @@ class Trie:
     def insert(self, w):
         node = self
         for c in w:
-            idx = ord(c) - ord('a')
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
@@ -110,7 +122,7 @@ class Trie:
         node = self
         ans = 0
         for c in w:
-            idx = ord(c) - ord('a')
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 return ans
             node = node.children[idx]
@@ -180,19 +192,17 @@ class Solution {
 ```cpp
 class Trie {
 private:
-    vector<Trie*> children;
-    int cnt;
+    Trie* children[26]{};
+    int cnt = 0;
 
 public:
-    Trie()
-        : children(26)
-        , cnt(0) {}
-
     void insert(string& w) {
         Trie* node = this;
         for (char c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
             node = node->children[idx];
             ++node->cnt;
         }
@@ -203,7 +213,9 @@ public:
         int ans = 0;
         for (char c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) return ans;
+            if (!node->children[idx]) {
+                return ans;
+            }
             node = node->children[idx];
             ans += node->cnt;
         }
@@ -280,42 +292,6 @@ func sumPrefixScores(words []string) []int {
 #### TypeScript
 
 ```ts
-function sumPrefixScores(words: string[]): number[] {
-    const map = new Map();
-
-    for (const word of words) {
-        const n = word.length;
-        for (let i = 1; i <= n; i++) {
-            const s = word.slice(0, i);
-            map.set(s, (map.get(s) ?? 0) + 1);
-        }
-    }
-
-    return words.map(word => {
-        const n = word.length;
-        let count = 0;
-        for (let i = 1; i <= n; i++) {
-            const s = word.slice(0, i);
-            count += map.get(s);
-        }
-        return count;
-    });
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
 class Trie {
     children: Array<any>;
     cnt: number;
@@ -357,11 +333,7 @@ function sumPrefixScores(words: string[]): number[] {
     for (const w of words) {
         trie.insert(w);
     }
-    let ans = [];
-    for (const w of words) {
-        ans.push(trie.search(w));
-    }
-    return ans;
+    return words.map(w => trie.search(w));
 }
 ```
 

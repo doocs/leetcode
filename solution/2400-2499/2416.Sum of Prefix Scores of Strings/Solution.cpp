@@ -1,18 +1,16 @@
 class Trie {
 private:
-    vector<Trie*> children;
-    int cnt;
+    Trie* children[26]{};
+    int cnt = 0;
 
 public:
-    Trie()
-        : children(26)
-        , cnt(0) {}
-
     void insert(string& w) {
         Trie* node = this;
         for (char c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
             node = node->children[idx];
             ++node->cnt;
         }
@@ -23,7 +21,9 @@ public:
         int ans = 0;
         for (char c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) return ans;
+            if (!node->children[idx]) {
+                return ans;
+            }
             node = node->children[idx];
             ans += node->cnt;
         }
