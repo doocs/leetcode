@@ -273,7 +273,7 @@ function minSwaps(nums: number[]): number {
     };
 
     return Math.min(getMin(0), getMin(1));
-};
+}
 ```
 
 #### JavaScript
