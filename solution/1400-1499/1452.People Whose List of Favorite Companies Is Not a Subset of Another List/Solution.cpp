@@ -1,45 +1,42 @@
 class Solution {
 public:
     vector<int> peopleIndexes(vector<vector<string>>& favoriteCompanies) {
+        int n = favoriteCompanies.size();
         unordered_map<string, int> d;
-        int idx = 0, n = favoriteCompanies.size();
-        vector<unordered_set<int>> t(n);
+        int idx = 0;
+        vector<unordered_set<int>> nums(n);
+
         for (int i = 0; i < n; ++i) {
-            auto v = favoriteCompanies[i];
-            for (auto& c : v) {
-                if (!d.count(c)) {
-                    d[c] = idx++;
+            for (const auto& s : favoriteCompanies[i]) {
+                if (!d.contains(s)) {
+                    d[s] = idx++;
+                }
+                nums[i].insert(d[s]);
+            }
+        }
+
+        auto check = [](const unordered_set<int>& a, const unordered_set<int>& b) {
+            for (int x : a) {
+                if (!b.contains(x)) {
+                    return false;
                 }
             }
-            unordered_set<int> s;
-            for (auto& c : v) {
-                s.insert(d[c]);
-            }
-            t[i] = s;
-        }
+            return true;
+        };
+
         vector<int> ans;
         for (int i = 0; i < n; ++i) {
             bool ok = true;
-            for (int j = 0; j < n; ++j) {
-                if (i == j) continue;
-                if (check(t[i], t[j])) {
+            for (int j = 0; j < n && ok; ++j) {
+                if (i != j && check(nums[i], nums[j])) {
                     ok = false;
-                    break;
                 }
             }
             if (ok) {
                 ans.push_back(i);
             }
         }
-        return ans;
-    }
 
-    bool check(unordered_set<int>& nums1, unordered_set<int>& nums2) {
-        for (int v : nums1) {
-            if (!nums2.count(v)) {
-                return false;
-            }
-        }
-        return true;
+        return ans;
     }
 };
