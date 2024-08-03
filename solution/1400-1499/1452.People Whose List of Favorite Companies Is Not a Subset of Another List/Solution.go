@@ -1,24 +1,23 @@
-func peopleIndexes(favoriteCompanies [][]string) []int {
-	d := map[string]int{}
-	idx, n := 0, len(favoriteCompanies)
-	t := make([]map[int]bool, n)
-	for i, v := range favoriteCompanies {
-		for _, c := range v {
-			if _, ok := d[c]; !ok {
-				d[c] = idx
+func peopleIndexes(favoriteCompanies [][]string) (ans []int) {
+	n := len(favoriteCompanies)
+	d := make(map[string]int)
+	idx := 0
+	nums := make([]map[int]struct{}, n)
+
+	for i := 0; i < n; i++ {
+		nums[i] = make(map[int]struct{})
+		for _, s := range favoriteCompanies[i] {
+			if _, ok := d[s]; !ok {
+				d[s] = idx
 				idx++
 			}
+			nums[i][d[s]] = struct{}{}
 		}
-		s := map[int]bool{}
-		for _, c := range v {
-			s[d[c]] = true
-		}
-		t[i] = s
 	}
-	ans := []int{}
-	check := func(nums1, nums2 map[int]bool) bool {
-		for v, _ := range nums1 {
-			if _, ok := nums2[v]; !ok {
+
+	check := func(a, b map[int]struct{}) bool {
+		for x := range a {
+			if _, ok := b[x]; !ok {
 				return false
 			}
 		}
@@ -26,18 +25,15 @@ func peopleIndexes(favoriteCompanies [][]string) []int {
 	}
 	for i := 0; i < n; i++ {
 		ok := true
-		for j := 0; j < n; j++ {
-			if i == j {
-				continue
-			}
-			if check(t[i], t[j]) {
+		for j := 0; j < n && ok; j++ {
+			if i != j && check(nums[i], nums[j]) {
 				ok = false
-				break
 			}
 		}
 		if ok {
 			ans = append(ans, i)
 		}
 	}
-	return ans
+
+	return
 }
