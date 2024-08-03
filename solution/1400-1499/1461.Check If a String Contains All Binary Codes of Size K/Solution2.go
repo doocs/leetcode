@@ -1,20 +1,18 @@
 func hasAllCodes(s string, k int) bool {
-	n := len(s)
-	if n-k+1 < (1 << k) {
+	n, m := len(s), 1<<k
+	if n-k+1 < m {
 		return false
 	}
-	vis := make([]bool, 1<<k)
-	num := 0
-	for i := 0; i < k; i++ {
-		num = num<<1 | int(s[i]-'0')
-	}
-	vis[num] = true
+	ss := make([]bool, m)
+	x, _ := strconv.ParseInt(s[:k], 2, 64)
+	ss[x] = true
 	for i := k; i < n; i++ {
-		a := int(s[i-k]-'0') << (k - 1)
-		num = (num-a)<<1 | int(s[i]-'0')
-		vis[num] = true
+		a := int64(s[i-k]-'0') << (k - 1)
+		b := int64(s[i] - '0')
+		x = (x-a)<<1 | b
+		ss[x] = true
 	}
-	for _, v := range vis {
+	for _, v := range ss {
 		if !v {
 			return false
 		}

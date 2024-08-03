@@ -80,7 +80,19 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Floyd's Algorithm
+
+We create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$.
+
+Next, we iterate through the prerequisites array $prerequisites$. For each item $[a, b]$ in it, we set $f[a][b]$ to $true$.
+
+Then, we use Floyd's algorithm to compute the reachability between all pairs of nodes.
+
+Specifically, we use three nested loops: first enumerating the intermediate node $k$, then the starting node $i$, and finally the ending node $j$. For each iteration, if node $i$ can reach node $k$ and node $k$ can reach node $j$, then node $i$ can also reach node $j$, and we set $f[i][j]$ to $true$.
+
+After computing the reachability between all pairs of nodes, for each query $[a, b]$, we can directly return $f[a][b]$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -202,7 +214,19 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Topological Sorting
+
+Similar to Solution 1, we create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$. Additionally, we create an adjacency list $g$, where $g[i]$ represents all successor nodes of node $i$, and an array $indeg$, where $indeg[i]$ represents the in-degree of node $i$.
+
+Next, we iterate through the prerequisites array $prerequisites$. For each item $[a, b]$ in it, we update the adjacency list $g$ and the in-degree array $indeg$.
+
+Then, we use topological sorting to compute the reachability between all pairs of nodes.
+
+We define a queue $q$, initially adding all nodes with an in-degree of $0$ to the queue. Then, we continuously perform the following operations: remove the front node $i$ from the queue, then iterate through all nodes $j$ in $g[i]$, setting $f[i][j]$ to $true$. Next, we enumerate node $h$, and if $f[h][i]$ is $true$, we also set $f[h][j]$ to $true$. After this, we decrease the in-degree of $j$ by $1$. If the in-degree of $j$ becomes $0$, we add $j$ to the queue.
+
+After computing the reachability between all pairs of nodes, for each query $[a, b]$, we can directly return $f[a][b]$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
