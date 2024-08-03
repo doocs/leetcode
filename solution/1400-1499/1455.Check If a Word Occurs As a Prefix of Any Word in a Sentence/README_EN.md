@@ -67,7 +67,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: String Splitting
+
+We split $\textit{sentence}$ by spaces into $\textit{words}$, then iterate through $\textit{words}$ to check if $\textit{words}[i]$ is a prefix of $\textit{searchWord}$. If it is, we return $i+1$. If the iteration completes and no words satisfy the condition, we return $-1$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of $\textit{sentence}$ and $\textit{searchWord}$, respectively.
 
 <!-- tabs:start -->
 
@@ -170,9 +174,9 @@ class Solution {
      * @return Integer
      */
     function isPrefixOfWord($sentence, $searchWord) {
-        $arr = explode(' ', $sentence);
-        for ($i = 0; $i < count($arr); $i++) {
-            if (strpos($arr[$i], $searchWord) === 0) {
+        $words = explode(' ', $sentence);
+        for ($i = 0; $i < count($words); ++$i) {
+            if (strpos($words[$i], $searchWord) === 0) {
                 return $i + 1;
             }
         }

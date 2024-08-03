@@ -71,9 +71,9 @@ tags:
 
 ### 方法一：字符串分割
 
-将 $sentence$ 按空格分割为 $words$，然后遍历 $words$，检查 $words[i]$ 是否是 $searchWord$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。
+我们将 $\textit{sentence}$ 按空格分割为 $\textit{words}$，然后遍历 $\textit{words}$，检查 $\textit{words}[i]$ 是否是 $\textit{searchWord}$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。
 
-时间复杂度 $O(mn)$。其中 $m$ 是 $sentence$ 的长度，而 $n$ 是 $searchWord$ 的长度。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是 $\textit{sentence}$ 和 $\textit{searchWord}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -176,9 +176,9 @@ class Solution {
      * @return Integer
      */
     function isPrefixOfWord($sentence, $searchWord) {
-        $arr = explode(' ', $sentence);
-        for ($i = 0; $i < count($arr); $i++) {
-            if (strpos($arr[$i], $searchWord) === 0) {
+        $words = explode(' ', $sentence);
+        for ($i = 0; $i < count($words); ++$i) {
+            if (strpos($words[$i], $searchWord) === 0) {
                 return $i + 1;
             }
         }
