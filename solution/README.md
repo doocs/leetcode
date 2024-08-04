@@ -3247,6 +3247,15 @@
 |  3234  |  [统计 1 显著的字符串的数量](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README.md)  |  `字符串`,`枚举`,`滑动窗口`  |  中等  |  第 408 场周赛  |
 |  3235  |  [判断矩形的两个角落是否可达](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`几何`,`数组`,`数学`  |  困难  |  第 408 场周赛  |
 |  3236  |  [首席执行官下属层级](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README.md)  |  `数据库`  |  困难  |  🔒  |
+|  3237  |  [Alt 和 Tab模拟](/solution/3200-3299/3237.Alt%20and%20Tab%20Simulation/README.md)  |    |  中等  |  🔒  |
+|  3238  |  [求出胜利玩家的数目](/solution/3200-3299/3238.Find%20the%20Number%20of%20Winning%20Players/README.md)  |    |  简单  |  第 136 场双周赛  |
+|  3239  |  [最少翻转次数使二进制矩阵回文 I](/solution/3200-3299/3239.Minimum%20Number%20of%20Flips%20to%20Make%20Binary%20Grid%20Palindromic%20I/README.md)  |    |  中等  |  第 136 场双周赛  |
+|  3240  |  [最少翻转次数使二进制矩阵回文 II](/solution/3200-3299/3240.Minimum%20Number%20of%20Flips%20to%20Make%20Binary%20Grid%20Palindromic%20II/README.md)  |    |  中等  |  第 136 场双周赛  |
+|  3241  |  [标记所有节点需要的时间](/solution/3200-3299/3241.Time%20Taken%20to%20Mark%20All%20Nodes/README.md)  |    |  困难  |  第 136 场双周赛  |
+|  3242  |  [设计相邻元素求和服务](/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README.md)  |    |  简单  |  第 409 场周赛  |
+|  3243  |  [新增道路查询后的最短距离 I](/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README.md)  |    |  中等  |  第 409 场周赛  |
+|  3244  |  [新增道路查询后的最短距离 II](/solution/3200-3299/3244.Shortest%20Distance%20After%20Road%20Addition%20Queries%20II/README.md)  |    |  困难  |  第 409 场周赛  |
+|  3245  |  [交替组 III](/solution/3200-3299/3245.Alternating%20Groups%20III/README.md)  |    |  困难  |  第 409 场周赛  |
 
 ## 版权
 

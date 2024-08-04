@@ -58,7 +58,7 @@ This table contains the account id of the user who logged in and the login date.
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>Input:</strong> 
 Accounts table:
 +----+----------+
 | id | name     |
@@ -80,13 +80,13 @@ Logins table:
 | 1  | 2020-06-07 |
 | 7  | 2020-06-10 |
 +----+------------+
-<strong>Output:</strong>
+<strong>Output:</strong> 
 +----+----------+
 | id | name     |
 +----+----------+
 | 7  | Jonathan |
 +----+----------+
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 User Winston with id = 1 logged in 2 times only in 2 different days, so, Winston is not an active user.
 User Jonathan with id = 7 logged in 7 times in 6 different days, five of them were consecutive days, so, Jonathan is an active user.
 </pre>
