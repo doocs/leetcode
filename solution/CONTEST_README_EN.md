@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 409
+
+- [3242. Design Neighbor Sum Service](/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README_EN.md)
+- [3243. Shortest Distance After Road Addition Queries I](/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README_EN.md)
+- [3244. Shortest Distance After Road Addition Queries II](/solution/3200-3299/3244.Shortest%20Distance%20After%20Road%20Addition%20Queries%20II/README_EN.md)
+- [3245. Alternating Groups III](/solution/3200-3299/3245.Alternating%20Groups%20III/README_EN.md)
+
+#### Biweekly Contest 136
+
+- [3238. Find the Number of Winning Players](/solution/3200-3299/3238.Find%20the%20Number%20of%20Winning%20Players/README_EN.md)
+- [3239. Minimum Number of Flips to Make Binary Grid Palindromic I](/solution/3200-3299/3239.Minimum%20Number%20of%20Flips%20to%20Make%20Binary%20Grid%20Palindromic%20I/README_EN.md)
+- [3240. Minimum Number of Flips to Make Binary Grid Palindromic II](/solution/3200-3299/3240.Minimum%20Number%20of%20Flips%20to%20Make%20Binary%20Grid%20Palindromic%20II/README_EN.md)
+- [3241. Time Taken to Mark All Nodes](/solution/3200-3299/3241.Time%20Taken%20to%20Mark%20All%20Nodes/README_EN.md)
+
 #### Weekly Contest 408
 
 - [3232. Find if Digit Game Can Be Won](/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README_EN.md)

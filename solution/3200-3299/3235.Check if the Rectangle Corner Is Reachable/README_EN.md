@@ -70,6 +70,18 @@ tags:
 <p>No path exists from <code>(0, 0)</code> to <code>(3, 3)</code>.</p>
 </div>
 
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">X = 4, Y = 4, circles = [[5,5,1]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">true</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/images/rectangleexample5.png" /></p>
+</div>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

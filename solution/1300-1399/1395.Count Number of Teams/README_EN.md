@@ -37,7 +37,7 @@ tags:
 <pre>
 <strong>Input:</strong> rating = [2,5,3,4,1]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> We can form three teams given the conditions. (2,3,4), (5,4,1), (5,3,1).
+<strong>Explanation:</strong> We can form three teams given the conditions. (2,3,4), (5,4,1), (5,3,1). 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

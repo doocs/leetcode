@@ -61,7 +61,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+我们定义一个辅助函数 $\textit{same}(p, q)$，用于判断以 $p$ 为根节点的树和以 $q$ 为根节点的树是否相等。如果两棵树的根节点的值相等，并且它们的左子树和右子树也分别相等，那么这两棵树是相等的。
+
+在 $\textit{isSubtree}(\textit{root}, \textit{subRoot})$ 函数中，我们首先判断 $\textit{root}$ 是否为空，如果为空，则返回 $\text{false}$。否则，我们判断 $\textit{root}$ 和 $\textit{subRoot}$ 是否相等，如果相等，则返回 $\text{true}$。否则，我们递归地判断 $\textit{root}$ 的左子树和右子树是否包含 $\textit{subRoot}$。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是树 $root$ 和树 $subRoot$ 的节点个数。
 
 <!-- tabs:start -->
 
@@ -75,22 +81,16 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSubtree(self, root: TreeNode, subRoot: TreeNode) -> bool:
-        def dfs(root1, root2):
-            if root1 is None and root2 is None:
-                return True
-            if root1 is None or root2 is None:
-                return False
-            return (
-                root1.val == root2.val
-                and dfs(root1.left, root2.left)
-                and dfs(root1.right, root2.right)
-            )
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        def same(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+            if p is None or q is None:
+                return p is q
+            return p.val == q.val and same(p.left, q.left) and same(p.right, q.right)
 
         if root is None:
             return False
         return (
-            dfs(root, subRoot)
+            same(root, subRoot)
             or self.isSubtree(root.left, subRoot)
             or self.isSubtree(root.right, subRoot)
         )
@@ -119,19 +119,15 @@ class Solution {
         if (root == null) {
             return false;
         }
-        return dfs(root, subRoot) || isSubtree(root.left, subRoot)
+        return same(root, subRoot) || isSubtree(root.left, subRoot)
             || isSubtree(root.right, subRoot);
     }
 
-    private boolean dfs(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null) {
-            return true;
+    private boolean same(TreeNode p, TreeNode q) {
+        if (p == null || q == null) {
+            return p == q;
         }
-        if (root1 == null || root2 == null) {
-            return false;
-        }
-        return root1.val == root2.val && dfs(root1.left, root2.left)
-            && dfs(root1.right, root2.right);
+        return p.val == q.val && same(p.left, q.left) && same(p.right, q.right);
     }
 }
 ```
@@ -153,14 +149,17 @@ class Solution {
 class Solution {
 public:
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if (!root) return 0;
-        return dfs(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+        if (!root) {
+            return false;
+        }
+        return same(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
     }
 
-    bool dfs(TreeNode* root1, TreeNode* root2) {
-        if (!root1 && !root2) return 1;
-        if (!root1 || !root2) return 0;
-        return root1->val == root2->val && dfs(root1->left, root2->left) && dfs(root1->right, root2->right);
+    bool same(TreeNode* p, TreeNode* q) {
+        if (!p || !q) {
+            return p == q;
+        }
+        return p->val == q->val && same(p->left, q->left) && same(p->right, q->right);
     }
 };
 ```
@@ -177,20 +176,17 @@ public:
  * }
  */
 func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
+	var same func(p, q *TreeNode) bool
+	same = func(p, q *TreeNode) bool {
+		if p == nil || q == nil {
+			return p == q
+		}
+		return p.Val == q.Val && same(p.Left, q.Left) && same(p.Right, q.Right)
+	}
 	if root == nil {
 		return false
 	}
-	var dfs func(root1, root2 *TreeNode) bool
-	dfs = func(root1, root2 *TreeNode) bool {
-		if root1 == nil && root2 == nil {
-			return true
-		}
-		if root1 == nil || root2 == nil {
-			return false
-		}
-		return root1.Val == root2.Val && dfs(root1.Left, root2.Left) && dfs(root1.Right, root2.Right)
-	}
-	return dfs(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
+	return same(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
 }
 ```
 
@@ -210,22 +206,17 @@ func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
  *     }
  * }
  */
-
-const dfs = (root: TreeNode | null, subRoot: TreeNode | null) => {
-    if (root == null && subRoot == null) {
-        return true;
-    }
-    if (root == null || subRoot == null || root.val !== subRoot.val) {
-        return false;
-    }
-    return dfs(root.left, subRoot.left) && dfs(root.right, subRoot.right);
-};
-
 function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
-    if (root == null) {
+    const same = (p: TreeNode | null, q: TreeNode | null): boolean => {
+        if (!p || !q) {
+            return p === q;
+        }
+        return p.val === q.val && same(p.left, q.left) && same(p.right, q.right);
+    };
+    if (!root) {
         return false;
     }
-    return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+    return same(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 }
 ```
 
@@ -252,38 +243,36 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
 // }
 use std::cell::RefCell;
 use std::rc::Rc;
+
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, sub_root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if root.is_none() && sub_root.is_none() {
-            return true;
-        }
-        if root.is_none() || sub_root.is_none() {
-            return false;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        let sub_root = sub_root.as_ref().unwrap().borrow();
-        root.val == sub_root.val
-            && Self::dfs(&root.left, &sub_root.left)
-            && Self::dfs(&root.right, &sub_root.right)
-    }
-
-    fn help(
-        root: &Option<Rc<RefCell<TreeNode>>>,
-        sub_root: &Option<Rc<RefCell<TreeNode>>>,
-    ) -> bool {
-        if root.is_none() {
-            return false;
-        }
-        Self::dfs(root, sub_root)
-            || Self::help(&root.as_ref().unwrap().borrow().left, sub_root)
-            || Self::help(&root.as_ref().unwrap().borrow().right, sub_root)
-    }
-
     pub fn is_subtree(
         root: Option<Rc<RefCell<TreeNode>>>,
         sub_root: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
-        Self::help(&root, &sub_root)
+        if root.is_none() {
+            return false;
+        }
+        Self::same(&root, &sub_root)
+            || Self::is_subtree(
+                root.as_ref().unwrap().borrow().left.clone(),
+                sub_root.clone(),
+            )
+            || Self::is_subtree(
+                root.as_ref().unwrap().borrow().right.clone(),
+                sub_root.clone(),
+            )
+    }
+
+    fn same(p: &Option<Rc<RefCell<TreeNode>>>, q: &Option<Rc<RefCell<TreeNode>>>) -> bool {
+        match (p, q) {
+            (None, None) => true,
+            (Some(p), Some(q)) => {
+                let p = p.borrow();
+                let q = q.borrow();
+                p.val == q.val && Self::same(&p.left, &q.left) && Self::same(&p.right, &q.right)
+            }
+            _ => false,
+        }
     }
 }
 ```
@@ -305,19 +294,16 @@ impl Solution {
  * @return {boolean}
  */
 var isSubtree = function (root, subRoot) {
-    if (!root) return false;
-    let dfs = function (root1, root2) {
-        if (!root1 && !root2) {
-            return true;
+    const same = (p, q) => {
+        if (!p || !q) {
+            return p === q;
         }
-        if (!root1 || !root2) {
-            return false;
-        }
-        return (
-            root1.val == root2.val && dfs(root1.left, root2.left) && dfs(root1.right, root2.right)
-        );
+        return p.val === q.val && same(p.left, q.left) && same(p.right, q.right);
     };
-    return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+    if (!root) {
+        return false;
+    }
+    return same(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 };
 ```
 

@@ -3245,6 +3245,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3234  |  [Count the Number of Substrings With Dominant Ones](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README_EN.md)  |  `String`,`Enumeration`,`Sliding Window`  |  Medium  |  Weekly Contest 408  |
 |  3235  |  [Check if the Rectangle Corner Is Reachable](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Geometry`,`Array`,`Math`  |  Hard  |  Weekly Contest 408  |
 |  3236  |  [CEO Subordinate Hierarchy](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
+|  3237  |  [Alt and Tab Simulation](/solution/3200-3299/3237.Alt%20and%20Tab%20Simulation/README_EN.md)  |    |  Medium  |  🔒  |
+|  3238  |  [Find the Number of Winning Players](/solution/3200-3299/3238.Find%20the%20Number%20of%20Winning%20Players/README_EN.md)  |    |  Easy  |  Biweekly Contest 136  |
+|  3239  |  [Minimum Number of Flips to Make Binary Grid Palindromic I](/solution/3200-3299/3239.Minimum%20Number%20of%20Flips%20to%20Make%20Binary%20Grid%20Palindromic%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 136  |
+|  3240  |  [Minimum Number of Flips to Make Binary Grid Palindromic II](/solution/3200-3299/3240.Minimum%20Number%20of%20Flips%20to%20Make%20Binary%20Grid%20Palindromic%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 136  |
+|  3241  |  [Time Taken to Mark All Nodes](/solution/3200-3299/3241.Time%20Taken%20to%20Mark%20All%20Nodes/README_EN.md)  |    |  Hard  |  Biweekly Contest 136  |
+|  3242  |  [Design Neighbor Sum Service](/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README_EN.md)  |    |  Easy  |  Weekly Contest 409  |
+|  3243  |  [Shortest Distance After Road Addition Queries I](/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 409  |
+|  3244  |  [Shortest Distance After Road Addition Queries II](/solution/3200-3299/3244.Shortest%20Distance%20After%20Road%20Addition%20Queries%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 409  |
+|  3245  |  [Alternating Groups III](/solution/3200-3299/3245.Alternating%20Groups%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 409  |
 
 ## Copyright
 
