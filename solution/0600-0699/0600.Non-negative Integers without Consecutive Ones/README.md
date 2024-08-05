@@ -25,7 +25,7 @@ tags:
 <pre>
 <strong>输入:</strong> n = 5
 <strong>输出:</strong> 5
-<strong>解释:</strong>
+<strong>解释:</strong> 
 下面列出范围在 [0, 5] 的非负整数与其对应的二进制表示：
 0 : 0
 1 : 1
