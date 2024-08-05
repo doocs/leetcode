@@ -63,7 +63,7 @@ tags:
 
 <!-- description:end -->
 
-## 解法: Brute Force
+## 解法
 
 <!-- solution:start -->
 
