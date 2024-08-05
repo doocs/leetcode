@@ -3254,6 +3254,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3243  |  [Shortest Distance After Road Addition Queries I](/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 409  |
 |  3244  |  [Shortest Distance After Road Addition Queries II](/solution/3200-3299/3244.Shortest%20Distance%20After%20Road%20Addition%20Queries%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 409  |
 |  3245  |  [Alternating Groups III](/solution/3200-3299/3245.Alternating%20Groups%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 409  |
+|  3246  |  [Premier League Table Ranking](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 
