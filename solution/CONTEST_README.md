@@ -26,7 +26,7 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 409 场周赛(2024-08-04 10:30, 90 分钟) 参赛人数 3569
+#### 第 409 场周赛(2024-08-04 10:30, 90 分钟) 参赛人数 3642
 
 - [3242. 设计相邻元素求和服务](/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README.md)
 - [3243. 新增道路查询后的最短距离 I](/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README.md)

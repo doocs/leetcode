@@ -36,8 +36,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3237.Al
 
 <ul>
 	<li>Initial order: <code>[1,2,3]</code></li>
-	<li>After the first query: <code>[<u><strong>3</strong></u>,2,1]</code></li>
-	<li>After the second query: <code>[<u><strong>3</strong></u>,2,1]</code></li>
+	<li>After the first query: <code>[<u><strong>3</strong></u>,1,2]</code></li>
+	<li>After the second query: <code>[<u><strong>3</strong></u>,1,2]</code></li>
 	<li>After the last query: <code>[<u><strong>2</strong></u>,3,1]</code></li>
 </ul>
 </div>

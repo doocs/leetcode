@@ -83,32 +83,208 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3243.Sh
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：BFS
+
+我们先建立一个有向图 $\textit{g}$，其中 $\textit{g}[i]$ 表示从城市 $i$ 出发可以到达的城市列表，初始时，每个城市 $i$ 都有一条单向道路通往城市 $i + 1$。
+
+然后，我们对每个查询 $[u, v]$，将 $u$ 添加到 $v$ 的出发城市列表中，然后使用 BFS 求出从城市 $0$ 到城市 $n - 1$ 的最短路径长度，将结果添加到答案数组中。
+
+最后返回答案数组即可。
+
+时间复杂度 $O(q \times (n + q))$，空间复杂度 $O(n + q)$。其中 $n$ 和 $q$ 分别为城市数量和查询数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def shortestDistanceAfterQueries(
+        self, n: int, queries: List[List[int]]
+    ) -> List[int]:
+        def bfs(i: int) -> int:
+            q = deque([i])
+            vis = [False] * n
+            vis[i] = True
+            d = 0
+            while 1:
+                for _ in range(len(q)):
+                    u = q.popleft()
+                    if u == n - 1:
+                        return d
+                    for v in g[u]:
+                        if not vis[v]:
+                            vis[v] = True
+                            q.append(v)
+                d += 1
 
+        g = [[i + 1] for i in range(n - 1)]
+        ans = []
+        for u, v in queries:
+            g[u].append(v)
+            ans.append(bfs(0))
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int n;
 
+    public int[] shortestDistanceAfterQueries(int n, int[][] queries) {
+        this.n = n;
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int i = 0; i < n - 1; ++i) {
+            g[i].add(i + 1);
+        }
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int u = queries[i][0], v = queries[i][1];
+            g[u].add(v);
+            ans[i] = bfs(0);
+        }
+        return ans;
+    }
+
+    private int bfs(int i) {
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(i);
+        boolean[] vis = new boolean[n];
+        vis[i] = true;
+        for (int d = 0;; ++d) {
+            for (int k = q.size(); k > 0; --k) {
+                int u = q.poll();
+                if (u == n - 1) {
+                    return d;
+                }
+                for (int v : g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        q.offer(v);
+                    }
+                }
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> shortestDistanceAfterQueries(int n, vector<vector<int>>& queries) {
+        vector<int> g[n];
+        for (int i = 0; i < n - 1; ++i) {
+            g[i].push_back(i + 1);
+        }
+        auto bfs = [&](int i) -> int {
+            queue<int> q{{i}};
+            vector<bool> vis(n);
+            vis[i] = true;
+            for (int d = 0;; ++d) {
+                for (int k = q.size(); k; --k) {
+                    int u = q.front();
+                    q.pop();
+                    if (u == n - 1) {
+                        return d;
+                    }
+                    for (int v : g[u]) {
+                        if (!vis[v]) {
+                            vis[v] = true;
+                            q.push(v);
+                        }
+                    }
+                }
+            }
+        };
+        vector<int> ans;
+        for (const auto& q : queries) {
+            g[q[0]].push_back(q[1]);
+            ans.push_back(bfs(0));
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func shortestDistanceAfterQueries(n int, queries [][]int) []int {
+	g := make([][]int, n)
+	for i := range g {
+		g[i] = append(g[i], i+1)
+	}
+	bfs := func(i int) int {
+		q := []int{i}
+		vis := make([]bool, n)
+		vis[i] = true
+		for d := 0; ; d++ {
+			for k := len(q); k > 0; k-- {
+				u := q[0]
+				if u == n-1 {
+					return d
+				}
+				q = q[1:]
+				for _, v := range g[u] {
+					if !vis[v] {
+						vis[v] = true
+						q = append(q, v)
+					}
+				}
+			}
+		}
+	}
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		g[q[0]] = append(g[q[0]], q[1])
+		ans[i] = bfs(0)
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function shortestDistanceAfterQueries(n: number, queries: number[][]): number[] {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (let i = 0; i < n - 1; ++i) {
+        g[i].push(i + 1);
+    }
+    const bfs = (i: number): number => {
+        const q: number[] = [i];
+        const vis: boolean[] = Array(n).fill(false);
+        vis[i] = true;
+        for (let d = 0; ; ++d) {
+            const nq: number[] = [];
+            for (const u of q) {
+                if (u === n - 1) {
+                    return d;
+                }
+                for (const v of g[u]) {
+                    if (!vis[v]) {
+                        vis[v] = true;
+                        nq.push(v);
+                    }
+                }
+            }
+            q.splice(0, q.length, ...nq);
+        }
+    };
+    const ans: number[] = [];
+    for (const [u, v] of queries) {
+        g[u].push(v);
+        ans.push(bfs(0));
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
