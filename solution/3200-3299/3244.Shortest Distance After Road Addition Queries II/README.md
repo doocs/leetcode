@@ -86,32 +86,144 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3244.Sh
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 记录跳转位置
+
+我们定义一个长度为 $n - 1$ 的数组 $\textit{nxt}$，其中 $\textit{nxt}[i]$ 表示从城市 $i$ 可以到达的下一个城市的编号。初始时，$\textit{nxt}[i] = i + 1$。
+
+对于每次查询 $[u, v]$，如果此前已经连通了 $u'$ 和 $v'$，且 $u' <= u < v <= v'$，那么我们可以跳过这次查询。否则，我们需要将 $nxt[u]$ 到 $nxt[v - 1]$ 这些城市的下一个城市编号设置为 $0$，并将 $nxt[u]$ 设置为 $v$。
+
+在这个过程中，我们维护一个变量 $\textit{cnt}$，表示从城市 $0$ 到城市 $n - 1$ 的最短路径的长度。初始时 $\textit{cnt} = n - 1$。每一次，如果我们将 $[\textit{nxt}[u], \textit{v})$ 这些城市的下一个城市编号设置为 $0$，那么 $\textit{cnt}$ 就会减少 $1$。
+
+时间复杂度 $O(n + q)$，空间复杂度 $O(n)$。其中 $n$ 和 $q$ 分别是城市数量和查询数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def shortestDistanceAfterQueries(
+        self, n: int, queries: List[List[int]]
+    ) -> List[int]:
+        nxt = list(range(1, n))
+        ans = []
+        cnt = n - 1
+        for u, v in queries:
+            if 0 < nxt[u] < v:
+                i = nxt[u]
+                while i < v:
+                    cnt -= 1
+                    nxt[i], i = 0, nxt[i]
+                nxt[u] = v
+            ans.append(cnt)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] shortestDistanceAfterQueries(int n, int[][] queries) {
+        int[] nxt = new int[n - 1];
+        for (int i = 1; i < n; ++i) {
+            nxt[i - 1] = i;
+        }
+        int m = queries.length;
+        int cnt = n - 1;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int u = queries[i][0], v = queries[i][1];
+            if (nxt[u] > 0 && nxt[u] < v) {
+                int j = nxt[u];
+                while (j < v) {
+                    --cnt;
+                    int t = nxt[j];
+                    nxt[j] = 0;
+                    j = t;
+                }
+                nxt[u] = v;
+            }
+            ans[i] = cnt;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> shortestDistanceAfterQueries(int n, vector<vector<int>>& queries) {
+        vector<int> nxt(n - 1);
+        iota(nxt.begin(), nxt.end(), 1);
+        int cnt = n - 1;
+        vector<int> ans;
+        for (const auto& q : queries) {
+            int u = q[0], v = q[1];
+            if (nxt[u] && nxt[u] < v) {
+                int i = nxt[u];
+                while (i < v) {
+                    --cnt;
+                    int t = nxt[i];
+                    nxt[i] = 0;
+                    i = t;
+                }
+                nxt[u] = v;
+            }
+            ans.push_back(cnt);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func shortestDistanceAfterQueries(n int, queries [][]int) (ans []int) {
+	nxt := make([]int, n-1)
+	for i := range nxt {
+		nxt[i] = i + 1
+	}
+	cnt := n - 1
+	for _, q := range queries {
+		u, v := q[0], q[1]
+		if nxt[u] > 0 && nxt[u] < v {
+			i := nxt[u]
+			for i < v {
+				cnt--
+				nxt[i], i = 0, nxt[i]
+			}
+			nxt[u] = v
+		}
+		ans = append(ans, cnt)
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function shortestDistanceAfterQueries(n: number, queries: number[][]): number[] {
+    const nxt: number[] = Array.from({ length: n - 1 }, (_, i) => i + 1);
+    const ans: number[] = [];
+    let cnt = n - 1;
+    for (const [u, v] of queries) {
+        if (nxt[u] && nxt[u] < v) {
+            let i = nxt[u];
+            while (i < v) {
+                --cnt;
+                [nxt[i], i] = [0, nxt[i]];
+            }
+            nxt[u] = v;
+        }
+        ans.push(cnt);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
