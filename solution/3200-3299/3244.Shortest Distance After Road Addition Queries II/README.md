@@ -88,7 +88,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3244.Sh
 
 ### 方法一：贪心 + 记录跳转位置
 
-我们定义一个长度为 $n - 1$ 的数组 $\textit{nxt}$，其中 $\textit{nxt}[i]$ 表示从城市 $i$ 可以到达的下一个城市的编号。初始时，$\textit{nxt}[i] = i + 1$。
+我们定义一个长度为 $n - 1$ 的数组 $\textit{nxt}$，其中 $\textit{nxt}[i]$ 表示从城市 $i$ 可以到达的下一个城市的编号。初始时 $\textit{nxt}[i] = i + 1$。
 
 对于每次查询 $[u, v]$，如果此前已经连通了 $u'$ 和 $v'$，且 $u' <= u < v <= v'$，那么我们可以跳过这次查询。否则，我们需要将 $nxt[u]$ 到 $nxt[v - 1]$ 这些城市的下一个城市编号设置为 $0$，并将 $nxt[u]$ 设置为 $v$。
 
