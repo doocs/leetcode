@@ -65,7 +65,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Brute Force
+### Solution 1: Sorting
+
+According to the problem statement, generate the `arr` array, sort it, and then sum all the elements in the range $[left-1,.. right-1]$ to get the result.
+
+Time complexity is $O(n^2 \times \log n)$, and space complexity is $O(n^2)$. Here, $n$ is the length of the array given in the problem.
 
 <!-- tabs:start -->
 
