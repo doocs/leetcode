@@ -194,4 +194,36 @@ function kthDistinct(arr k) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Hash Set
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function kthDistinct(arr: string[], k: number): string {
+    const distinct = new Set<string>();
+    const duplicate = new Set<string>();
+
+    for (const x of arr) {
+        if (distinct.has(x)) {
+            distinct.delete(x);
+            duplicate.add(x);
+        } else if (!duplicate.has(x)) distinct.add(x);
+    }
+
+    for (const x of distinct) {
+        if (--k === 0) return x;
+    }
+
+    return '';
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
