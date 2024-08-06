@@ -68,13 +68,13 @@ The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 =
 
 ### Solution 1: Maintaining Prefix Minimum
 
-We use the variable $mi$ to represent the minimum value of the elements we have traversed so far, and the variable $ans$ to represent the maximum difference. Initially, $mi$ is set to $+\infty$, and $ans$ is set to $-1$.
+We use a variable $\textit{mi}$ to represent the minimum value among the elements currently being traversed, and a variable $\textit{ans}$ to represent the maximum difference. Initially, $\textit{mi}$ is set to $+\infty$, and $\textit{ans}$ is set to $-1$.
 
-We traverse the array. For the current element $x$, if $x > mi$, then we update $ans$ to be $max(ans, x - mi)$, otherwise we update $mi = x$.
+Traverse the array. For the current element $x$, if $x \gt \textit{mi}$, update $\textit{ans}$ to $\max(\textit{ans}, x - \textit{mi})$. Otherwise, update $\textit{mi}$ to $x$.
 
-After the traversal, we return $ans$.
+After the traversal, return $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+Time complexity is $O(n)$, where $n$ is the length of the array. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -153,14 +153,15 @@ func maximumDifference(nums []int) int {
 
 ```ts
 function maximumDifference(nums: number[]): number {
-    const n = nums.length;
-    let min = nums[0];
-    let res = -1;
-    for (let i = 1; i < n; i++) {
-        res = Math.max(res, nums[i] - min);
-        min = Math.min(min, nums[i]);
+    let [ans, mi] = [-1, Infinity];
+    for (const x of nums) {
+        if (x > mi) {
+            ans = Math.max(ans, x - mi);
+        } else {
+            mi = x;
+        }
     }
-    return res === 0 ? -1 : res;
+    return ans;
 }
 ```
 
@@ -169,16 +170,18 @@ function maximumDifference(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn maximum_difference(nums: Vec<i32>) -> i32 {
-        let mut min = nums[0];
-        let mut res = -1;
-        for i in 1..nums.len() {
-            res = res.max(nums[i] - min);
-            min = min.min(nums[i]);
+        let mut mi = i32::MAX;
+        let mut ans = -1;
+
+        for &x in &nums {
+            if x > mi {
+                ans = ans.max(x - mi);
+            } else {
+                mi = x;
+            }
         }
-        match res {
-            0 => -1,
-            _ => res,
-        }
+
+        ans
     }
 }
 ```
@@ -191,10 +194,9 @@ impl Solution {
  * @return {number}
  */
 var maximumDifference = function (nums) {
-    let mi = 1 << 30;
-    let ans = -1;
+    let [ans, mi] = [-1, Infinity];
     for (const x of nums) {
-        if (mi < x) {
+        if (x > mi) {
             ans = Math.max(ans, x - mi);
         } else {
             mi = x;

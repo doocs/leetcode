@@ -3,10 +3,9 @@
  * @return {number}
  */
 var maximumDifference = function (nums) {
-    let mi = 1 << 30;
-    let ans = -1;
+    let [ans, mi] = [-1, Infinity];
     for (const x of nums) {
-        if (mi < x) {
+        if (x > mi) {
             ans = Math.max(ans, x - mi);
         } else {
             mi = x;
