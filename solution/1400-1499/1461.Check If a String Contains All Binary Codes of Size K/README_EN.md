@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;0110&quot;, k = 1
 <strong>Output:</strong> true
-<strong>Explanation:</strong> The binary codes of length 1 are &quot;0&quot; and &quot;1&quot;, it is clear that both exist as a substring.
+<strong>Explanation:</strong> The binary codes of length 1 are &quot;0&quot; and &quot;1&quot;, it is clear that both exist as a substring. 
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

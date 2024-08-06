@@ -58,9 +58,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数组
+### 方法一：计数
 
-创建一个长度为 $26$ 的数组，统计每个字母出现的频率，至多有一个字符出现奇数次数即可。
+如果一个字符串是回文串，那么至多只有一个字符出现奇数次数，其余字符都出现偶数次数。因此我们只需要统计每个字符出现的次数，然后判断是否满足这个条件即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma|=26$。
 
@@ -131,7 +131,7 @@ func canPermutePalindrome(s string) bool {
 
 ```ts
 function canPermutePalindrome(s: string): boolean {
-    const cnt: number[] = new Array(26).fill(0);
+    const cnt: number[] = Array(26).fill(0);
     for (const c of s) {
         ++cnt[c.charCodeAt(0) - 97];
     }
@@ -147,11 +147,11 @@ function canPermutePalindrome(s: string): boolean {
  * @return {boolean}
  */
 var canPermutePalindrome = function (s) {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map();
     for (const c of s) {
-        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
-    return cnt.filter(c => c % 2 === 1).length < 2;
+    return [...cnt.values()].filter(v => v % 2 === 1).length < 2;
 };
 ```
 

@@ -1,32 +1,29 @@
 class Solution {
 public:
-    const int inf = INT_MAX;
-    int n;
-
     int minimumCost(string sentence, int k) {
-        istringstream is(sentence);
-        vector<string> words;
-        string word;
-        while (is >> word) words.push_back(word);
-        n = words.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + words[i].size();
-        vector<int> memo(n, inf);
-        return dfs(0, k, s, memo);
-    }
-
-    int dfs(int i, int k, vector<int>& s, vector<int>& memo) {
-        if (memo[i] != inf) return memo[i];
-        if (s[n] - s[i] + n - i - 1 <= k) {
-            memo[i] = 0;
-            return 0;
+        istringstream iss(sentence);
+        vector<int> s = {0};
+        string w;
+        while (iss >> w) {
+            s.push_back(s.back() + w.size());
         }
-        int ans = inf;
-        for (int j = i + 1; j < n; ++j) {
-            int t = s[j] - s[i] + j - i - 1;
-            if (t <= k) ans = min(ans, (k - t) * (k - t) + dfs(j, k, s, memo));
-        }
-        memo[i] = ans;
-        return ans;
+        int n = s.size() - 1;
+        int f[n];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i) -> int {
+            if (s[n] - s[i] + n - i - 1 <= k) {
+                return 0;
+            }
+            if (f[i] != -1) {
+                return f[i];
+            }
+            int ans = INT_MAX;
+            for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+                int m = s[j] - s[i] + j - i - 1;
+                ans = min(ans, dfs(dfs, j) + (k - m) * (k - m));
+            }
+            return f[i] = ans;
+        };
+        return dfs(dfs, 0);
     }
 };

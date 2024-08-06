@@ -56,7 +56,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+If a string is a palindrome, at most one character can appear an odd number of times, while all other characters must appear an even number of times. Therefore, we only need to count the occurrences of each character and then check if this condition is satisfied.
+
+Time complexity is $O(n)$, and space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 
@@ -125,7 +129,7 @@ func canPermutePalindrome(s string) bool {
 
 ```ts
 function canPermutePalindrome(s: string): boolean {
-    const cnt: number[] = new Array(26).fill(0);
+    const cnt: number[] = Array(26).fill(0);
     for (const c of s) {
         ++cnt[c.charCodeAt(0) - 97];
     }
@@ -141,11 +145,11 @@ function canPermutePalindrome(s: string): boolean {
  * @return {boolean}
  */
 var canPermutePalindrome = function (s) {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map();
     for (const c of s) {
-        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
-    return cnt.filter(c => c % 2 === 1).length < 2;
+    return [...cnt.values()].filter(v => v % 2 === 1).length < 2;
 };
 ```
 

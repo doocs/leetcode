@@ -87,7 +87,22 @@ The cost of the last row is not included in the total cost, and since there is o
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Memoized Search
+
+We use an array $\textit{nums}$ to record the length of each word, and let the length of the array be $n$. Then we define a prefix sum array $\textit{s}$ of length $n + 1$, where $\textit{s}[i]$ represents the sum of the lengths of the first $i$ words.
+
+Next, we design a function $\textit{dfs}(i)$, which represents the minimum cost of splitting the sentence starting from the $i$-th word. The answer is $\textit{dfs}(0)$.
+
+The execution process of the function $\textit{dfs}(i)$ is as follows:
+
+-   If the sum of the lengths of the words from the $i$-th word to the last word plus the number of spaces between the words is less than or equal to $k$, then these words can be placed on the last line, and the cost is $0$.
+-   Otherwise, we enumerate the position $j$ of the next word to start splitting, such that the sum of the lengths of the words from the $i$-th word to the $(j-1)$-th word plus the number of spaces between the words is less than or equal to $k$. Then $\textit{dfs}(j)$ represents the minimum cost of splitting the sentence starting from the $j$-th word, and $(k - m)^2$ represents the cost of placing the words from the $i$-th word to the $(j-1)$-th word on one line, where $m$ represents the sum of the lengths of the words from the $i$-th word to the $(j-1)$-th word plus the number of spaces between the words. We enumerate all $j$ and take the minimum value.
+
+The answer is $\textit{dfs}(0)$.
+
+To avoid repeated calculations, we can use memoized search.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of words.
 
 <!-- tabs:start -->
 
@@ -97,18 +112,19 @@ The cost of the last row is not included in the total cost, and since there is o
 class Solution:
     def minimumCost(self, sentence: str, k: int) -> int:
         @cache
-        def dfs(i):
-            if s[-1] - s[i] + n - i - 1 <= k:
+        def dfs(i: int) -> int:
+            if s[n] - s[i] + n - i - 1 <= k:
                 return 0
-            ans, j = inf, i + 1
-            while j < n and (t := s[j] - s[i] + j - i - 1) <= k:
-                ans = min(ans, (k - t) ** 2 + dfs(j))
+            ans = inf
+            j = i + 1
+            while j < n and (m := s[j] - s[i] + j - i - 1) <= k:
+                ans = min(ans, dfs(j) + (k - m) ** 2)
                 j += 1
             return ans
 
-        t = [len(w) for w in sentence.split()]
-        n = len(t)
-        s = list(accumulate(t, initial=0))
+        nums = [len(s) for s in sentence.split()]
+        n = len(nums)
+        s = list(accumulate(nums, initial=0))
         return dfs(0)
 ```
 
@@ -116,40 +132,36 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int INF = Integer.MAX_VALUE;
-    private int[] memo;
+    private Integer[] f;
     private int[] s;
+    private int k;
     private int n;
 
     public int minimumCost(String sentence, int k) {
+        this.k = k;
         String[] words = sentence.split(" ");
         n = words.length;
+        f = new Integer[n];
         s = new int[n + 1];
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + words[i].length();
         }
-        memo = new int[n];
-        Arrays.fill(memo, INF);
-        return dfs(0, k);
+        return dfs(0);
     }
 
-    private int dfs(int i, int k) {
-        if (memo[i] != INF) {
-            return memo[i];
-        }
+    private int dfs(int i) {
         if (s[n] - s[i] + n - i - 1 <= k) {
-            memo[i] = 0;
             return 0;
         }
-        int ans = INF;
-        for (int j = i + 1; j < n; ++j) {
-            int t = s[j] - s[i] + j - i - 1;
-            if (t <= k) {
-                ans = Math.min(ans, (k - t) * (k - t) + dfs(j, k));
-            }
+        if (f[i] != null) {
+            return f[i];
         }
-        memo[i] = ans;
-        return ans;
+        int ans = Integer.MAX_VALUE;
+        for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+            int m = s[j] - s[i] + j - i - 1;
+            ans = Math.min(ans, dfs(j) + (k - m) * (k - m));
+        }
+        return f[i] = ans;
     }
 }
 ```
@@ -159,34 +171,31 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int inf = INT_MAX;
-    int n;
-
     int minimumCost(string sentence, int k) {
-        istringstream is(sentence);
-        vector<string> words;
-        string word;
-        while (is >> word) words.push_back(word);
-        n = words.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + words[i].size();
-        vector<int> memo(n, inf);
-        return dfs(0, k, s, memo);
-    }
-
-    int dfs(int i, int k, vector<int>& s, vector<int>& memo) {
-        if (memo[i] != inf) return memo[i];
-        if (s[n] - s[i] + n - i - 1 <= k) {
-            memo[i] = 0;
-            return 0;
+        istringstream iss(sentence);
+        vector<int> s = {0};
+        string w;
+        while (iss >> w) {
+            s.push_back(s.back() + w.size());
         }
-        int ans = inf;
-        for (int j = i + 1; j < n; ++j) {
-            int t = s[j] - s[i] + j - i - 1;
-            if (t <= k) ans = min(ans, (k - t) * (k - t) + dfs(j, k, s, memo));
-        }
-        memo[i] = ans;
-        return ans;
+        int n = s.size() - 1;
+        int f[n];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i) -> int {
+            if (s[n] - s[i] + n - i - 1 <= k) {
+                return 0;
+            }
+            if (f[i] != -1) {
+                return f[i];
+            }
+            int ans = INT_MAX;
+            for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+                int m = s[j] - s[i] + j - i - 1;
+                ans = min(ans, dfs(dfs, j) + (k - m) * (k - m));
+            }
+            return f[i] = ans;
+        };
+        return dfs(dfs, 0);
     }
 };
 ```
@@ -195,37 +204,60 @@ public:
 
 ```go
 func minimumCost(sentence string, k int) int {
-	words := strings.Split(sentence, " ")
-	n := len(words)
-	inf := math.MaxInt32
-	s := make([]int, n+1)
-	for i, word := range words {
-		s[i+1] = s[i] + len(word)
+	s := []int{0}
+	for _, w := range strings.Split(sentence, " ") {
+		s = append(s, s[len(s)-1]+len(w))
 	}
-	memo := make([]int, n)
-	for i := range memo {
-		memo[i] = inf
+	n := len(s) - 1
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -1
 	}
 	var dfs func(int) int
 	dfs = func(i int) int {
-		if memo[i] != inf {
-			return memo[i]
-		}
 		if s[n]-s[i]+n-i-1 <= k {
-			memo[i] = 0
 			return 0
 		}
-		ans := inf
-		for j := i + 1; j < n; j++ {
-			t := s[j] - s[i] + j - i - 1
-			if t <= k {
-				ans = min(ans, (k-t)*(k-t)+dfs(j))
-			}
+		if f[i] != -1 {
+			return f[i]
 		}
-		memo[i] = ans
+		ans := math.MaxInt32
+		for j := i + 1; j < n && s[j]-s[i]+j-i-1 <= k; j++ {
+			m := s[j] - s[i] + j - i - 1
+			ans = min(ans, dfs(j)+(k-m)*(k-m))
+		}
+		f[i] = ans
 		return ans
 	}
 	return dfs(0)
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumCost(sentence: string, k: number): number {
+    const s: number[] = [0];
+    for (const w of sentence.split(' ')) {
+        s.push(s.at(-1)! + w.length);
+    }
+    const n = s.length - 1;
+    const f: number[] = Array(n).fill(-1);
+    const dfs = (i: number): number => {
+        if (s[n] - s[i] + n - i - 1 <= k) {
+            return 0;
+        }
+        if (f[i] !== -1) {
+            return f[i];
+        }
+        let ans = Infinity;
+        for (let j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+            const m = s[j] - s[i] + j - i - 1;
+            ans = Math.min(ans, dfs(j) + (k - m) ** 2);
+        }
+        return (f[i] = ans);
+    };
+    return dfs(0);
 }
 ```
 

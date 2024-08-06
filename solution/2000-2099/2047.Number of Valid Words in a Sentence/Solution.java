@@ -1,33 +1,34 @@
 class Solution {
     public int countValidWords(String sentence) {
         int ans = 0;
-        for (String token : sentence.split(" ")) {
-            if (check(token)) {
-                ++ans;
-            }
+        for (String s : sentence.split(" ")) {
+            ans += check(s.toCharArray());
         }
         return ans;
     }
 
-    private boolean check(String token) {
-        int n = token.length();
-        if (n == 0) {
-            return false;
+    private int check(char[] s) {
+        if (s.length == 0) {
+            return 0;
         }
-        boolean hyphen = false;
-        for (int i = 0; i < n; ++i) {
-            char c = token.charAt(i);
-            if (Character.isDigit(c) || (i < n - 1 && (c == '!' || c == '.' || c == ','))) {
-                return false;
+        boolean st = false;
+        for (int i = 0; i < s.length; ++i) {
+            if (Character.isDigit(s[i])) {
+                return 0;
             }
-            if (c == '-') {
-                if (hyphen || i == 0 || i == n - 1 || !Character.isLetter(token.charAt(i - 1))
-                    || !Character.isLetter(token.charAt(i + 1))) {
-                    return false;
+            if ((s[i] == '!' || s[i] == '.' || s[i] == ',') && i < s.length - 1) {
+                return 0;
+            }
+            if (s[i] == '-') {
+                if (st || i == 0 || i == s.length - 1) {
+                    return 0;
                 }
-                hyphen = true;
+                if (!Character.isAlphabetic(s[i - 1]) || !Character.isAlphabetic(s[i + 1])) {
+                    return 0;
+                }
+                st = true;
             }
         }
-        return true;
+        return 1;
     }
 }

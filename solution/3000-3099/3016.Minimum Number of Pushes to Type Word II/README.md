@@ -189,6 +189,83 @@ function minimumPushes(word: string): number {
 }
 ```
 
+#### JavaScript
+
+```js
+function minimumPushes(word) {
+    const cnt = Array(26).fill(0);
+    for (const c of word) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    cnt.sort((a, b) => b - a);
+    let ans = 0;
+    for (let i = 0; i < 26; ++i) {
+        ans += (((i / 8) | 0) + 1) * cnt[i];
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：优先队列（大根堆）
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minimumPushes(word: string): number {
+    const pq = new MaxPriorityQueue();
+    const cnt = new Map<string, number>();
+    let [i, res] = [0, 0];
+
+    for (const x of word) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        pq.enqueue(x, c);
+    }
+
+    while (!pq.isEmpty()) {
+        const c = pq.dequeue().priority;
+        res += c * (((i++ / 8) | 0) + 1);
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function minimumPushes(word) {
+    const pq = new MaxPriorityQueue();
+    const cnt = new Map();
+    let [i, res] = [0, 0];
+
+    for (const x of word) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        pq.enqueue(x, c);
+    }
+
+    while (!pq.isEmpty()) {
+        const c = pq.dequeue().priority;
+        res += c * (((i++ / 8) | 0) + 1);
+    }
+
+    return res;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
