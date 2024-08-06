@@ -226,8 +226,6 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 ### 方法二：Simple Method 
 
-> [My Solution Link](https://leetcode.cn/problems/count-the-number-of-complete-components/solutions/2269282/zui-jian-ji-jie-fa-c-stlzuo-fa-by-dengsc-rw5e/)
-
 Problems needed to solve：
 
 1. How do we maintain the link state between each node and the others? 如

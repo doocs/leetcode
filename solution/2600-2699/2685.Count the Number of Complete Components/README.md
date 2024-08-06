@@ -238,8 +238,6 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 ### 方法二：取巧做法
 
-> [我的题解](https://leetcode.cn/problems/count-the-number-of-complete-components/solutions/2269282/zui-jian-ji-jie-fa-c-stlzuo-fa-by-dengsc-rw5e/)
-
 要解决的问题：
 
 1. 如何保存每一个节点与其它点联通状态
