@@ -212,7 +212,7 @@ function minimumPushes(word) {
 
 <!-- solution:start -->
 
-### Solution 2: Priority Queue
+### 方法二：优先队列（大根堆）
 
 <!-- tabs:start -->
 
