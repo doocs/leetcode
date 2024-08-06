@@ -402,4 +402,29 @@ function singleNumber(nums) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 4: Bit Manipulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function singleNumber(nums: number[]): number {
+    let [ans, acc] = [0, 0];
+
+    for (const x of nums) {
+        ans ^= x & ~acc;
+        acc ^= x & ~ans;
+    }
+
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
