@@ -1,32 +1,39 @@
 func averageHeightOfBuildings(buildings [][]int) [][]int {
-	height := make(map[int]int)
 	cnt := make(map[int]int)
-	for _, v := range buildings {
-		s, e, h := v[0], v[1], v[2]
-		cnt[s]++
-		cnt[e]--
-		height[s] += h
-		height[e] -= h
+	d := make(map[int]int)
+
+	for _, e := range buildings {
+		start, end, height := e[0], e[1], e[2]
+		cnt[start]++
+		cnt[end]--
+		d[start] += height
+		d[end] -= height
 	}
-	keys := make([]int, len(cnt))
-	for k := range cnt {
+
+	s, m := 0, 0
+	last := -1
+	var ans [][]int
+
+	keys := make([]int, 0, len(d))
+	for k := range d {
 		keys = append(keys, k)
 	}
 	sort.Ints(keys)
-	i, h, n := 0, 0, 0
-	ans := [][]int{}
-	for _, j := range keys {
-		if n > 0 {
-			t := []int{i, j, h / n}
-			if len(ans) > 0 && ans[len(ans)-1][1] == i && ans[len(ans)-1][2] == t[2] {
-				ans[len(ans)-1][1] = j
+
+	for _, k := range keys {
+		v := d[k]
+		if m > 0 {
+			avg := s / m
+			if len(ans) > 0 && ans[len(ans)-1][2] == avg && ans[len(ans)-1][1] == last {
+				ans[len(ans)-1][1] = k
 			} else {
-				ans = append(ans, t)
+				ans = append(ans, []int{last, k, avg})
 			}
 		}
-		i = j
-		h += height[j]
-		n += cnt[j]
+		s += v
+		m += cnt[k]
+		last = k
 	}
+
 	return ans
 }
