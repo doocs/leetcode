@@ -1,36 +1,27 @@
 function countValidWords(sentence: string): number {
-    let words = sentence.trim().split(/\s+/);
-    let ans = 0;
-    for (let word of words) {
-        if (isValied(word)) {
-            ans++;
+    const check = (s: string): number => {
+        if (s.length === 0) {
+            return 0;
         }
-    }
-    return ans;
-}
-
-function isValied(str: string): boolean {
-    let n = str.length;
-    let hasLine = false;
-    for (let i = 0; i < n; i++) {
-        const char = str.charAt(i);
-        if (/^[0-9]$/.test(char)) {
-            return false;
-        }
-        if (char == '-') {
-            if (hasLine) return false;
-            else {
-                hasLine = true;
+        let st = false;
+        for (let i = 0; i < s.length; ++i) {
+            if (/\d/.test(s[i])) {
+                return 0;
             }
-            let pre = str.charAt(i - 1),
-                post = str.charAt(i + 1);
-            if (!/^[a-z]$/g.test(pre) || !/^[a-z]$/g.test(post)) {
-                return false;
+            if (['!', '.', ','].includes(s[i]) && i < s.length - 1) {
+                return 0;
+            }
+            if (s[i] === '-') {
+                if (st || [0, s.length - 1].includes(i)) {
+                    return 0;
+                }
+                if (!/[a-zA-Z]/.test(s[i - 1]) || !/[a-zA-Z]/.test(s[i + 1])) {
+                    return 0;
+                }
+                st = true;
             }
         }
-        if (/^[\!\.\,\s]$/.test(char) && i != n - 1) {
-            return false;
-        }
-    }
-    return true;
+        return 1;
+    };
+    return sentence.split(/\s+/).reduce((acc, s) => acc + check(s), 0);
 }
