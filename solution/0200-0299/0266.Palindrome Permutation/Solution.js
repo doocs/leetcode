@@ -3,9 +3,9 @@
  * @return {boolean}
  */
 var canPermutePalindrome = function (s) {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map();
     for (const c of s) {
-        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
-    return cnt.filter(c => c % 2 === 1).length < 2;
+    return [...cnt.values()].filter(v => v % 2 === 1).length < 2;
 };
