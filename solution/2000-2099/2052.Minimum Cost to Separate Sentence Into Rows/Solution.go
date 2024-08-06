@@ -1,32 +1,27 @@
 func minimumCost(sentence string, k int) int {
-	words := strings.Split(sentence, " ")
-	n := len(words)
-	inf := math.MaxInt32
-	s := make([]int, n+1)
-	for i, word := range words {
-		s[i+1] = s[i] + len(word)
+	s := []int{0}
+	for _, w := range strings.Split(sentence, " ") {
+		s = append(s, s[len(s)-1]+len(w))
 	}
-	memo := make([]int, n)
-	for i := range memo {
-		memo[i] = inf
+	n := len(s) - 1
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -1
 	}
 	var dfs func(int) int
 	dfs = func(i int) int {
-		if memo[i] != inf {
-			return memo[i]
-		}
 		if s[n]-s[i]+n-i-1 <= k {
-			memo[i] = 0
 			return 0
 		}
-		ans := inf
-		for j := i + 1; j < n; j++ {
-			t := s[j] - s[i] + j - i - 1
-			if t <= k {
-				ans = min(ans, (k-t)*(k-t)+dfs(j))
-			}
+		if f[i] != -1 {
+			return f[i]
 		}
-		memo[i] = ans
+		ans := math.MaxInt32
+		for j := i + 1; j < n && s[j]-s[i]+j-i-1 <= k; j++ {
+			m := s[j] - s[i] + j - i - 1
+			ans = min(ans, dfs(j)+(k-m)*(k-m))
+		}
+		f[i] = ans
 		return ans
 	}
 	return dfs(0)

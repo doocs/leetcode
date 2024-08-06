@@ -1,14 +1,17 @@
-function kthDistinct(arr k) {
+/**
+ * @param {string[]} arr
+ * @param {number} k
+ * @return {string}
+ */
+var kthDistinct = function (arr, k) {
     const cnt = new Map();
-
-    for (const x of arr) {
-        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    for (const s of arr) {
+        cnt.set(s, (cnt.get(s) || 0) + 1);
     }
-
-    for (const [x, c] of cnt) {
-        if (c === 1) k--;
-        if (!k) return x;
+    for (const s of arr) {
+        if (cnt.get(s) === 1 && --k === 0) {
+            return s;
+        }
     }
-
     return '';
-}
+};

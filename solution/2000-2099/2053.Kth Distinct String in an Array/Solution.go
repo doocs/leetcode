@@ -1,13 +1,13 @@
 func kthDistinct(arr []string, k int) string {
-	counter := make(map[string]int)
-	for _, v := range arr {
-		counter[v]++
+	cnt := map[string]int{}
+	for _, s := range arr {
+		cnt[s]++
 	}
-	for _, v := range arr {
-		if counter[v] == 1 {
+	for _, s := range arr {
+		if cnt[s] == 1 {
 			k--
 			if k == 0 {
-				return v
+				return s
 			}
 		}
 	}
