@@ -37,7 +37,7 @@ tags:
 The only distinct strings in arr are &quot;d&quot; and &quot;a&quot;.
 &quot;d&quot; appears 1<sup>st</sup>, so it is the 1<sup>st</sup> distinct string.
 &quot;a&quot; appears 2<sup>nd</sup>, so it is the 2<sup>nd</sup> distinct string.
-Since k == 2, &quot;a&quot; is returned. 
+Since k == 2, &quot;a&quot; is returned.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -73,7 +73,7 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
 
 <!-- tabs:start -->
 
@@ -149,6 +149,98 @@ func kthDistinct(arr []string, k int) string {
 		}
 	}
 	return ""
+}
+```
+
+#### TypeScript
+
+```ts
+function kthDistinct(arr: string[], k: number): string {
+    const cnt = new Map<string, number>();
+
+    for (const x of arr) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        if (c === 1) k--;
+        if (!k) return x;
+    }
+
+    return '';
+}
+```
+
+#### JavaScript
+
+```js
+function kthDistinct(arr k) {
+    const cnt = new Map();
+
+    for (const x of arr) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        if (c === 1) k--;
+        if (!k) return x;
+    }
+
+    return '';
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Hash Set
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function kthDistinct(arr: string[], k: number): string {
+    const distinct = new Set<string>();
+    const duplicate = new Set<string>();
+
+    for (const x of arr) {
+        if (distinct.has(x)) {
+            distinct.delete(x);
+            duplicate.add(x);
+        } else if (!duplicate.has(x)) distinct.add(x);
+    }
+
+    for (const x of distinct) {
+        if (--k === 0) return x;
+    }
+
+    return '';
+}
+```
+
+#### JavaScript
+
+```js
+function kthDistinct(arr, k) {
+    const distinct = new Set();
+    const duplicate = new Set();
+
+    for (const x of arr) {
+        if (distinct.has(x)) {
+            distinct.delete(x);
+            duplicate.add(x);
+        } else if (!duplicate.has(x)) distinct.add(x);
+    }
+
+    for (const x of distinct) {
+        if (--k === 0) return x;
+    }
+
+    return '';
 }
 ```
 

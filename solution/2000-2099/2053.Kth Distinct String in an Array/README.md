@@ -151,6 +151,98 @@ func kthDistinct(arr []string, k int) string {
 }
 ```
 
+#### TypeScript
+
+```ts
+function kthDistinct(arr: string[], k: number): string {
+    const cnt = new Map<string, number>();
+
+    for (const x of arr) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        if (c === 1) k--;
+        if (!k) return x;
+    }
+
+    return '';
+}
+```
+
+#### JavaScript
+
+```js
+function kthDistinct(arr k) {
+    const cnt = new Map();
+
+    for (const x of arr) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        if (c === 1) k--;
+        if (!k) return x;
+    }
+
+    return '';
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：哈希表
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function kthDistinct(arr: string[], k: number): string {
+    const distinct = new Set<string>();
+    const duplicate = new Set<string>();
+
+    for (const x of arr) {
+        if (distinct.has(x)) {
+            distinct.delete(x);
+            duplicate.add(x);
+        } else if (!duplicate.has(x)) distinct.add(x);
+    }
+
+    for (const x of distinct) {
+        if (--k === 0) return x;
+    }
+
+    return '';
+}
+```
+
+#### JavaScript
+
+```js
+function kthDistinct(arr, k) {
+    const distinct = new Set();
+    const duplicate = new Set();
+
+    for (const x of arr) {
+        if (distinct.has(x)) {
+            distinct.delete(x);
+            duplicate.add(x);
+        } else if (!duplicate.has(x)) distinct.add(x);
+    }
+
+    for (const x of distinct) {
+        if (--k === 0) return x;
+    }
+
+    return '';
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
