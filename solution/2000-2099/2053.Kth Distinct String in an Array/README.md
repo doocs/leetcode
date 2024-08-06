@@ -195,7 +195,7 @@ function kthDistinct(arr k) {
 
 <!-- solution:start -->
 
-### Solution 2: Hash Set
+### 方法二：哈希表
 
 <!-- tabs:start -->
 
