@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3241.Time%20Taken%20to%20Mark%20All%20Nodes/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 图
+    - 动态规划
 ---
 
 <!-- problem:start -->

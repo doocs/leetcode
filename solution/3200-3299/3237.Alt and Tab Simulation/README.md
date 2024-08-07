@@ -2,11 +2,15 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3237.Alt%20and%20Tab%20Simulation/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 模拟
 ---
 
 <!-- problem:start -->
 
-# [3237. Alt 和 Tab模拟 🔒](https://leetcode.cn/problems/alt-and-tab-simulation)
+# [3237. Alt 和 Tab 模拟 🔒](https://leetcode.cn/problems/alt-and-tab-simulation)
 
 [English Version](/solution/3200-3299/3237.Alt%20and%20Tab%20Simulation/README_EN.md)
 
@@ -37,8 +41,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3237.Al
 
 <ul>
 	<li>初始顺序：<code>[1,2,3]</code></li>
-	<li>第一次查询后：<code>[<u><strong>3</strong></u>,2,1]</code></li>
-	<li>第二次查询后：<code>[<u><strong>3</strong></u>,2,1]</code></li>
+	<li>第一次查询后：<code>[<u><strong>3</strong></u>,1,2]</code></li>
+	<li>第二次查询后：<code>[<u><strong>3</strong></u>,1,2]</code></li>
 	<li>最后一次查询后：<code>[<u><strong>2</strong></u>,3,1]</code></li>
 </ul>
 </div>

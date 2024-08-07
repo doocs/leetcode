@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README_EN.md
+tags:
+    - Breadth-First Search
+    - Graph
+    - Array
 ---
 
 <!-- problem:start -->

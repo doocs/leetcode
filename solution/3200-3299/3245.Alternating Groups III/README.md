@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3245.Alternating%20Groups%20III/README.md
+tags:
+    - 树状数组
+    - 数组
 ---
 
 <!-- problem:start -->

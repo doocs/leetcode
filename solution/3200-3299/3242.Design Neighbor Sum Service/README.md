@@ -2,6 +2,12 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README.md
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 矩阵
+    - 模拟
 ---
 
 <!-- problem:start -->

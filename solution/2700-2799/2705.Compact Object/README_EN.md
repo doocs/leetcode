@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2705.Compact%20Object/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

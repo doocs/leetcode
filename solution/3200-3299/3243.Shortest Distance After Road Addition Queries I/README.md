@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3243.Shortest%20Distance%20After%20Road%20Addition%20Queries%20I/README.md
+tags:
+    - 广度优先搜索
+    - 图
+    - 数组
 ---
 
 <!-- problem:start -->

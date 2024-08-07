@@ -12,11 +12,11 @@ public:
         }
         map<set<int>, int> s;
         for (int i = 0; i < n; i++) {
-            s[m[i]] ++;
+            s[m[i]]++;
         }
-        for (auto &[x,y] : s) {
+        for (auto& [x, y] : s) {
             if (y == x.size()) {
-                ans ++;
+                ans++;
             }
         }
         return ans;
