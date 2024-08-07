@@ -3,7 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2879.Display%20the%20First%20Three%20Rows/README.md
 tags:
-    - pandas
+    - Pandas
 ---
 
 <!-- problem:start -->
