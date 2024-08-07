@@ -195,9 +195,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- 这里是bash_problem_readme_template开始位置 -->
 
-<!-- problem:start -->
-
 {}
+
+<!-- problem:start -->
 
 # [{}. {}]({})
 
@@ -219,27 +219,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
-#### Python3
+#### Shell
 
-```python
-
-```
-
-#### Java
-
-```java
-
-```
-
-#### C++
-
-```cpp
-
-```
-
-#### Go
-
-```go
+```bash
 
 ```
 
@@ -279,27 +261,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 <!-- tabs:start -->
 
-#### Python3
+#### Shell
 
-```python
-
-```
-
-#### Java
-
-```java
-
-```
-
-#### C++
-
-```cpp
-
-```
-
-#### Go
-
-```go
+```bash
 
 ```
 

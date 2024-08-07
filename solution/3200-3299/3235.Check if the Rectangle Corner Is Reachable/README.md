@@ -71,6 +71,18 @@ tags:
 <p>不存在从&nbsp;<code>(0, 0)</code>&nbsp;到&nbsp;<code>(3, 3)</code>&nbsp;的路径。</p>
 </div>
 
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">X = 4, Y = 4, circles = [[5,5,1]]</span></p>
+
+<p><span class="example-io"><b>输出：</b>true</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/images/rectangles.png" style="width: 346px; height: 264px;" /></p>
+</div>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2691.Immutability%20Helper/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

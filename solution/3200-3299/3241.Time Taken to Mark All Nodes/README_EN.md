@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3241.Time%20Taken%20to%20Mark%20All%20Nodes/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Graph
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2623.Memoize/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

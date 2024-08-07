@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3245.Alternating%20Groups%20III/README_EN.md
+tags:
+    - Binary Indexed Tree
+    - Array
 ---
 
 <!-- problem:start -->

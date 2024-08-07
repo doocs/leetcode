@@ -1,12 +1,12 @@
-<!-- problem:start -->
-
 ---
-
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0195.Tenth%20Line/README.md
-
+tags:
+    - Shell
 ---
+
+<!-- problem:start -->
 
 # [195. 第十行](https://leetcode.cn/problems/tenth-line)
 

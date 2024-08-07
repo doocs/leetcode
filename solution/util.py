@@ -196,7 +196,7 @@ def generate_question_readme(result):
         ---
         """
         metadata = {
-            "tags": item["tags_cn"],
+            "tags": item["tags_cn"] or [category_dict.get(category, category)],
             "difficulty": item["difficulty_cn"],
             "rating": rating,
             "comments": True,
@@ -233,7 +233,7 @@ def generate_question_readme(result):
             else ''
         )
         metadata = {
-            "tags": item["tags_en"],
+            "tags": item["tags_en"] or [category],
             "difficulty": item["difficulty_en"],
             "rating": rating,
             "comments": True,
@@ -371,14 +371,14 @@ def refresh(result):
         )
 
         metadata = {
-            "tags": question["tags_cn"],
+            "tags": question["tags_cn"] or [category_dict.get(category, category)],
             "difficulty": question["difficulty_cn"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_cn"]}',
             "source": source,
         }
-        if not question['tags_cn']:
+        if not question['tags_cn'] and not [category_dict.get(category, category)]:
             metadata.pop('tags')
         if not rating:
             metadata.pop('rating')
@@ -408,14 +408,14 @@ def refresh(result):
         )
 
         metadata = {
-            "tags": question["tags_en"],
+            "tags": question["tags_en"] or [category],
             "difficulty": question["difficulty_en"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_en"]}',
             "source": source,
         }
-        if not question['tags_en']:
+        if not question['tags_en'] and not [category]:
             metadata.pop('tags')
         if not rating:
             metadata.pop('rating')

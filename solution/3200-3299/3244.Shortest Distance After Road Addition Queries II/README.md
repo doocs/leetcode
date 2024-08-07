@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3244.Shortest%20Distance%20After%20Road%20Addition%20Queries%20II/README.md
+tags:
+    - 贪心
+    - 图
+    - 数组
+    - 有序集合
 ---
 
 <!-- problem:start -->
