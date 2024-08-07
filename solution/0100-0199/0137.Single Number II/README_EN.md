@@ -365,7 +365,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 1: Set + Math
+### Solution 3: Set + Math
 
 <!-- tabs:start -->
 
