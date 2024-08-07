@@ -53,7 +53,11 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We can traverse the string $\textit{s}$ and count the number of characters that are equal to $\textit{letter}$. Then, we calculate the percentage using the formula $\textit{count} \times 100 \, / \, \textit{len}(\textit{s})$.
+
+Time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -87,9 +91,7 @@ class Solution {
 class Solution {
 public:
     int percentageLetter(string s, char letter) {
-        int cnt = 0;
-        for (char& c : s) cnt += c == letter;
-        return cnt * 100 / s.size();
+        return 100 * ranges::count(s, letter) / s.size();
     }
 };
 ```
@@ -98,13 +100,7 @@ public:
 
 ```go
 func percentageLetter(s string, letter byte) int {
-	cnt := 0
-	for i := range s {
-		if s[i] == letter {
-			cnt++
-		}
-	}
-	return cnt * 100 / len(s)
+	return strings.Count(s, string(letter)) * 100 / len(s)
 }
 ```
 
@@ -112,12 +108,8 @@ func percentageLetter(s string, letter byte) int {
 
 ```ts
 function percentageLetter(s: string, letter: string): number {
-    let count = 0;
-    let total = s.length;
-    for (let i of s) {
-        if (i === letter) count++;
-    }
-    return Math.floor((count / total) * 100);
+    const count = s.split('').filter(c => c === letter).length;
+    return Math.floor((100 * count) / s.length);
 }
 ```
 
@@ -126,13 +118,8 @@ function percentageLetter(s: string, letter: string): number {
 ```rust
 impl Solution {
     pub fn percentage_letter(s: String, letter: char) -> i32 {
-        let mut count = 0;
-        for c in s.chars() {
-            if c == letter {
-                count += 1;
-            }
-        }
-        ((count * 100) / s.len()) as i32
+        let count = s.chars().filter(|&c| c == letter).count();
+        (100 * count as i32 / s.len() as i32) as i32
     }
 }
 ```

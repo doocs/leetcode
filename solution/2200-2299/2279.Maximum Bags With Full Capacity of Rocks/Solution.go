@@ -1,17 +1,13 @@
 func maximumBags(capacity []int, rocks []int, additionalRocks int) int {
-	n := len(capacity)
-	d := make([]int, n)
-	for i, v := range capacity {
-		d[i] = v - rocks[i]
+	for i, x := range rocks {
+		capacity[i] -= x
 	}
-	sort.Ints(d)
-	ans := 0
-	for _, v := range d {
-		if v > additionalRocks {
-			break
+	sort.Ints(capacity)
+	for i, x := range capacity {
+		additionalRocks -= x
+		if additionalRocks < 0 {
+			return i
 		}
-		ans++
-		additionalRocks -= v
 	}
-	return ans
+	return len(capacity)
 }
