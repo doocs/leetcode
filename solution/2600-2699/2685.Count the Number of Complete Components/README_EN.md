@@ -248,7 +248,7 @@ Take example 1 to explain：
 
 #### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int countCompleteComponents(int n, vector<vector<int>>& edges) {
@@ -273,7 +273,6 @@ public:
         return ans;
     }
 };
-// cost：283ms、beats 5%.
 ```
 
 <!-- tabs:end -->
