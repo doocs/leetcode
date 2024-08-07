@@ -224,7 +224,7 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 <!-- solution:start -->
 
-### Solution 2: Simple Method 
+### Solution 2: Simple Method
 
 Problems needed to solve：
 
@@ -235,14 +235,14 @@ For the first one: we can maintain each node's connection set(including itself).
 
 For the second one: After solving the first one, we can see:
 
-- the node itself includes every node in the connected graph(including itself).
-- and only connected to the nodes in the connected graph.
+-   the node itself includes every node in the connected graph(including itself).
+-   and only connected to the nodes in the connected graph.
 
 Take example 1 to explain：
 
-- Node 5's connected node is itself, so it is a connected graph.
-- Node 0's connected 0, 1, 2. Same as nodes 1, 2.
-- Nodes 3 and  4 also include themselves and each other.
+-   Node 5's connected node is itself, so it is a connected graph.
+-   Node 0's connected 0, 1, 2. Same as nodes 1, 2.
+-   Nodes 3 and 4 also include themselves and each other.
 
 <!-- tabs:start -->
 
