@@ -374,7 +374,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 1: Set + Math
+### 方法三：哈希表 + 数学
 
 <!-- tabs:start -->
 
@@ -404,7 +404,7 @@ function singleNumber(nums) {
 
 <!-- solution:start -->
 
-### Solution 4: Bit Manipulation
+### 方法四：位运算
 
 <!-- tabs:start -->
 
