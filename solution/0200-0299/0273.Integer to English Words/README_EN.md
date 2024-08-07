@@ -298,10 +298,10 @@ public class Solution {
 
 ```ts
 function numberToWords(num: number): string {
-  if (num === 0) return 'Zero'
+    if (num === 0) return 'Zero';
 
-  // prettier-ignore
-  const f = (x: number): string => {
+    // prettier-ignore
+    const f = (x: number): string => {
     const dict1 = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen',]
     const dict2 = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety',]
     let ans = ''
@@ -316,7 +316,7 @@ function numberToWords(num: number): string {
     return ans.trim()
   }
 
-  return f(num)
+    return f(num);
 }
 ```
 
