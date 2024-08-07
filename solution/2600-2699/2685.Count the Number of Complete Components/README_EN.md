@@ -224,7 +224,7 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 <!-- solution:start -->
 
-### 方法二：Simple Method 
+### Solution 2: Simple Method 
 
 Problems needed to solve：
 
