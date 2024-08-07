@@ -251,16 +251,16 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 拿示例一举例：
 
-- 5包含的联通点有且只有自己，所以是连通图
-- 0包含0、1、2，同理1、2点也是
-- 3和4也是包含自己和彼此
-- 基于以上就有以下代码实现：
+-   5 包含的联通点有且只有自己，所以是连通图
+-   0 包含 0、1、2，同理 1、2 点也是
+-   3 和 4 也是包含自己和彼此
+-   基于以上就有以下代码实现：
 
 <!-- tabs:start -->
 
 #### C++
 
-```c++
+```cpp
 class Solution {
 public:
     int countCompleteComponents(int n, vector<vector<int>>& edges) {
@@ -285,7 +285,6 @@ public:
         return ans;
     }
 };
-// cost：283ms、beats 5%.
 ```
 
 <!-- tabs:end -->
