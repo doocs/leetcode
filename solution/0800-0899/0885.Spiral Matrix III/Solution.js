@@ -6,30 +6,26 @@
  * @return {number[][]}
  */
 var spiralMatrixIII = function (rows, cols, rStart, cStart) {
-    const ans = [];
-    const totalCells = rows * cols;
-    const directions = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    let step = 0;
-    let d = 0;
-    let [r, c] = [rStart, cStart];
-    ans.push([r, c]);
-    while (ans.length < totalCells) {
-        if (d === 0 || d === 2) {
-            step++;
-        }
-        for (let i = 0; i < step; i++) {
-            r += directions[d][0];
-            c += directions[d][1];
-            if (r >= 0 && r < rows && c >= 0 && c < cols) {
-                ans.push([r, c]);
+    // prettier-ignore
+    const dir = [[1,0],[0,1],[-1,0],[0,-1]]
+    let [x, y, i, size] = [cStart, rStart, 0, 0];
+    const ans = [[y, x]];
+    const total = rows * cols;
+
+    while (ans.length < total) {
+        if (i % 2 === 0) size++;
+
+        for (let j = 0; ans.length < total && j < size; j++) {
+            x += dir[i][0];
+            y += dir[i][1];
+
+            if (0 <= x && x < cols && 0 <= y && y < rows) {
+                ans.push([y, x]);
             }
         }
-        d = (d + 1) % 4;
+
+        i = (i + 1) % 4;
     }
+
     return ans;
 };
