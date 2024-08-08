@@ -203,7 +203,7 @@ def generate_question_readme(result):
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_cn"]}',
             "source": source,
         }
-        if not item["tags_cn"]:
+        if not item["tags_cn"] or metadata["tags"] == ["Algorithms"]:
             metadata.pop("tags")
         if not rating:
             metadata.pop("rating")
@@ -242,7 +242,7 @@ def generate_question_readme(result):
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_en"]}',
             "source": source,
         }
-        if not item["tags_cn"]:
+        if not item["tags_cn"] or metadata["tags"] == ["Algorithms"]:
             metadata.pop("tags")
         if not rating:
             metadata.pop("rating")
@@ -382,7 +382,7 @@ def refresh(result):
             "source": source,
         }
 
-        if not question["tags_cn"] and not cat:
+        if (not question["tags_cn"] and not cat) or metadata["tags"] == ["Algorithms"]:
             metadata.pop("tags")
         if not rating:
             metadata.pop("rating")
@@ -420,7 +420,9 @@ def refresh(result):
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_en"]}',
             "source": source,
         }
-        if not question["tags_en"] and not [category]:
+        if (not question["tags_en"] and not [category]) or metadata["tags"] == [
+            "Algorithms"
+        ]:
             metadata.pop("tags")
         if not rating:
             metadata.pop("rating")
