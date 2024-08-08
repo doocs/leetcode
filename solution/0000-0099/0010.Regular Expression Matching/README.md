@@ -25,7 +25,7 @@ tags:
 	<li><code>'*'</code> 匹配零个或多个前面的那一个元素</li>
 </ul>
 
-<p>所谓匹配，是要涵盖&nbsp;<strong>整个&nbsp;</strong>字符串&nbsp;<code>s</code>的，而不是部分字符串。</p>
+<p>所谓匹配，是要涵盖&nbsp;<strong>整个&nbsp;</strong>字符串&nbsp;<code>s</code> 的，而不是部分字符串。</p>
 &nbsp;
 
 <p><strong>示例 1：</strong></p>

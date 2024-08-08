@@ -6,6 +6,7 @@ rating: 1343
 source: Weekly Contest 182 Q2
 tags:
     - Binary Indexed Tree
+    - Segment Tree
     - Array
     - Dynamic Programming
 ---
