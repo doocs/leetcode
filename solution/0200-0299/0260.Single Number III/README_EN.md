@@ -236,4 +236,27 @@ public class Solution {
 
 <!-- solution:end -->
 
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function singleNumber(nums: number[]): number[] {
+    const set = new Set<number>();
+
+    for (const x of nums) {
+        if (set.has(x)) set.delete(x);
+        else set.add(x);
+    }
+
+    return [...set];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
