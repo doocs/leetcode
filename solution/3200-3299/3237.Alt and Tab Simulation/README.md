@@ -22,7 +22,7 @@ tags:
 
 <p>给定数组&nbsp;<code>windows</code>&nbsp;包含窗口的初始顺序（第一个元素在最前面，最后一个元素在最后面）。</p>
 
-<p>同时给定数组&nbsp;<code>queries</code>&nbsp;表示每一次查询中，窗口&nbsp;<code>queries[i]</code>&nbsp;被切换到最前面。</p>
+<p>同时给定数组&nbsp;<code>queries</code>&nbsp;表示每一次查询中，编号为&nbsp;<code>queries[i]</code>&nbsp;的窗口被切换到最前面。</p>
 
 <p>返回&nbsp;<code>windows</code>&nbsp;数组的最后状态。</p>
 

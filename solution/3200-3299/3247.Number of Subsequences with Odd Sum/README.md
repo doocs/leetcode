@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3247.Nu
 
 <!-- problem:start -->
 
-# [3247. Number of Subsequences with Odd Sum 🔒](https://leetcode.cn/problems/number-of-subsequences-with-odd-sum)
+# [3247. 奇数和子序列的数量 🔒](https://leetcode.cn/problems/number-of-subsequences-with-odd-sum)
 
 [English Version](/solution/3200-3299/3247.Number%20of%20Subsequences%20with%20Odd%20Sum/README_EN.md)
 
@@ -14,37 +14,39 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3247.Nu
 
 <!-- description:start -->
 
-<p>Given an array <code>nums</code>, return the number of <span data-keyword="subsequence-array">subsequences</span> with an odd sum of elements.</p>
+<p>给定一个数组&nbsp;<code>nums</code>，返回元素和为奇数的 <span data-keyword="subsequence-array">子序列</span> 的数量。</p>
 
-<p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,1,1]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The odd-sum subsequences are: <code>[<u><strong>1</strong></u>, 1, 1]</code>, <code>[1, <u><strong>1</strong></u>, 1],</code> <code>[1, 1, <u><strong>1</strong></u>]</code>, <code>[<u><strong>1, 1, 1</strong></u>]</code>.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,2,2]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The odd-sum subsequences are: <code>[<u><strong>1</strong></u>, 2, 2]</code>, <code>[<u><strong>1, 2</strong></u>, 2],</code> <code>[<u><strong>1</strong></u>, 2, <b><u>2</u></b>]</code>, <code>[<u><strong>1, 2, 2</strong></u>]</code>.</p>
-</div>
+<p>由于答案可能很大，返回答案对&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;<strong>取模</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">nums = [1,1,1]</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>奇数和子序列为：<code>[<u><strong>1</strong></u>, 1, 1]</code>, <code>[1, <u><strong>1</strong></u>, 1],</code> <code>[1, 1, <u><strong>1</strong></u>]</code>, <code>[<u><strong>1, 1, 1</strong></u>]</code>.</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [1,2,2]</span></p>
+
+<p><span class="example-io"><b>输出：</b>4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>奇数和子序列为：<code>[<u><strong>1</strong></u>, 2, 2]</code>, <code>[<u><strong>1, 2</strong></u>, 2],</code> <code>[<u><strong>1</strong></u>, 2, <b><u>2</u></b>]</code>, <code>[<u><strong>1, 2, 2</strong></u>]</code>.</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.lnegth &lt;= 10<sup>5</sup></code></li>
