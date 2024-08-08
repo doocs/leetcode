@@ -3257,6 +3257,7 @@
 |  3244  |  [新增道路查询后的最短距离 II](/solution/3200-3299/3244.Shortest%20Distance%20After%20Road%20Addition%20Queries%20II/README.md)  |  `贪心`,`图`,`数组`,`有序集合`  |  困难  |  第 409 场周赛  |
 |  3245  |  [交替组 III](/solution/3200-3299/3245.Alternating%20Groups%20III/README.md)  |  `树状数组`,`数组`  |  困难  |  第 409 场周赛  |
 |  3246  |  [英超积分榜排名](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  3247  |  [Number of Subsequences with Odd Sum](/solution/3200-3299/3247.Number%20of%20Subsequences%20with%20Odd%20Sum/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
