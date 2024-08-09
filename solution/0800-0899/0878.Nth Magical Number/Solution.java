@@ -1,21 +1,26 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
 
     public int nthMagicalNumber(int n, int a, int b) {
-        int c = a * b / gcd(a, b);
-        long l = 0, r = (long) (a + b) * n;
-        while (l < r) {
-            long mid = l + r >>> 1;
-            if (mid / a + mid / b - mid / c >= n) {
-                r = mid;
+        long lcm = lcm(a, b);
+        long ans = 0;
+        // binary search
+        for (long l = 0, r = (long) n * Math.min(a, b), m = 0; l <= r;) {
+            m = (l + r) / 2;
+            if (m / a + m / b - m /lcm >= n) {
+                ans = m;
+                r = m - 1;
             } else {
-                l = mid + 1;
+                l = m + 1;
             }
         }
-        return (int) (l % MOD);
+        return (int) (ans % 1000000007);
     }
 
-    private int gcd(int a, int b) {
+    public static long gcd(long a, long b) {
         return b == 0 ? a : gcd(b, a % b);
+    }
+
+    public static long lcm(long a, long b) {
+        return (long) a / gcd(a, b) * b;
     }
 }
