@@ -19,9 +19,11 @@ tags:
 
 <!-- description:start -->
 
-<p>A <code>3 x 3</code> magic square is a <code>3 x 3</code> grid filled with distinct numbers <strong>from </strong><code>1</code><strong> to </strong><code>9</code> such that each row, column, and both diagonals all have the same sum.</p>
+<p>A <code>3 x 3</code> <strong>magic square</strong> is a <code>3 x 3</code> grid filled with distinct numbers <strong>from </strong>1<strong> to </strong>9 such that each row, column, and both diagonals all have the same sum.</p>
 
-<p>Given a <code>row x col</code>&nbsp;<code>grid</code>&nbsp;of integers, how many <code>3 x 3</code> &quot;magic square&quot; subgrids are there?&nbsp; (Each subgrid is contiguous).</p>
+<p>Given a <code>row x col</code> <code>grid</code> of integers, how many <code>3 x 3</code> contiguous magic square subgrids are there?</p>
+
+<p>Note: while a magic square can only contain numbers from 1 to 9, <code>grid</code> may contain numbers up to 15.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -60,7 +62,11 @@ In total, there is only one magic square inside the given grid.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We directly enumerate the top-left coordinates $(i, j)$ of each $3 \times 3$ sub-matrix, then check whether the sub-matrix satisfies the "magic square" condition. If it does, increment the answer by one. After enumeration, return the answer.
+
+Time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -268,9 +274,9 @@ function numMagicSquaresInside(grid: number[][]): number {
         if (i + 3 > m || j + 3 > n) {
             return 0;
         }
-        const cnt: number[] = new Array(16).fill(0);
-        const row: number[] = new Array(3).fill(0);
-        const col: number[] = new Array(3).fill(0);
+        const cnt: number[] = Array(16).fill(0);
+        const row: number[] = Array(3).fill(0);
+        const col: number[] = Array(3).fill(0);
         let [a, b] = [0, 0];
         for (let x = i; x < i + 3; ++x) {
             for (let y = j; y < j + 3; ++y) {

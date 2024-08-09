@@ -23,6 +23,8 @@ tags:
 
 <p>给定一个由整数组成的<code>row x col</code>&nbsp;的 <code>grid</code>，其中有多少个&nbsp;<code>3 × 3</code> 的 “幻方” 子矩阵？（每个子矩阵都是连续的）。</p>
 
+<p>注意：虽然幻方只能包含 1 到 9 的数字，但&nbsp;<code>grid</code> 可以包含最多15的数字。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
@@ -276,9 +278,9 @@ function numMagicSquaresInside(grid: number[][]): number {
         if (i + 3 > m || j + 3 > n) {
             return 0;
         }
-        const cnt: number[] = new Array(16).fill(0);
-        const row: number[] = new Array(3).fill(0);
-        const col: number[] = new Array(3).fill(0);
+        const cnt: number[] = Array(16).fill(0);
+        const row: number[] = Array(3).fill(0);
+        const col: number[] = Array(3).fill(0);
         let [a, b] = [0, 0];
         for (let x = i; x < i + 3; ++x) {
             for (let y = j; y < j + 3; ++y) {

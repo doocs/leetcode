@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README.md
 tags:
+    - 深度优先搜索
     - 设计
     - 字典树
     - 字符串

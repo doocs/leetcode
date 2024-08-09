@@ -33,7 +33,7 @@ team_id 是这张表的唯一主键。
 这张表包含队伍 id，队伍名，场次，赢局，平局和输局。
 </pre>
 
-<p>编写一个解决方啊来计算联盟中每支球队的 <strong>得分</strong> 和 <strong>排名</strong>。积分计算方式如下：</p>
+<p>编写一个解决方案来计算联盟中每支球队的 <strong>得分</strong> 和 <strong>排名</strong>。积分计算方式如下：</p>
 
 <ul>
 	<li><strong>赢局</strong> 有&nbsp;<code>3</code>&nbsp;点得分</li>
