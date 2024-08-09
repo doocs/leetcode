@@ -70,11 +70,11 @@ tags:
 
 ### 方法一：哈希表
 
-我们可以用哈希表 $m$ 存放数组值以及对应的下标。
+我们可以使用一个哈希表 $\textit{d}$ 来存储每个元素及其对应的索引。
 
-遍历数组 `nums`，当发现 `target - nums[i]` 在哈希表中，说明找到了目标值，返回 `target - nums[i]` 的下标以及 $i$ 即可。
+遍历数组 $\textit{nums}$，对于当前元素 $\textit{nums}[i]$，我们首先判断 $\textit{target} - \textit{nums}[i]$ 是否在哈希表 $\textit{d}$ 中，如果在 $\textit{d}$ 中，说明 $\textit{target}$ 值已经找到，返回 $\textit{target} - \textit{nums}[i]$ 的索引和 $i$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -83,12 +83,12 @@ tags:
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        m = {}
+        d = {}
         for i, x in enumerate(nums):
             y = target - x
-            if y in m:
-                return [m[y], i]
-            m[x] = i
+            if y in d:
+                return [d[y], i]
+            d[x] = i
 ```
 
 #### Java
@@ -96,14 +96,14 @@ class Solution:
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> m = new HashMap<>();
+        Map<Integer, Integer> d = new HashMap<>();
         for (int i = 0;; ++i) {
             int x = nums[i];
             int y = target - x;
-            if (m.containsKey(y)) {
-                return new int[] {m.get(y), i};
+            if (d.containsKey(y)) {
+                return new int[] {d.get(y), i};
             }
-            m.put(x, i);
+            d.put(x, i);
         }
     }
 }
@@ -115,14 +115,14 @@ class Solution {
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> m;
+        unordered_map<int, int> d;
         for (int i = 0;; ++i) {
             int x = nums[i];
             int y = target - x;
-            if (m.count(y)) {
-                return {m[y], i};
+            if (d.contains(y)) {
+                return {d[y], i};
             }
-            m[x] = i;
+            d[x] = i;
         }
     }
 };
@@ -132,14 +132,14 @@ public:
 
 ```go
 func twoSum(nums []int, target int) []int {
-	m := map[int]int{}
+	d := map[int]int{}
 	for i := 0; ; i++ {
 		x := nums[i]
 		y := target - x
-		if j, ok := m[y]; ok {
+		if j, ok := d[y]; ok {
 			return []int{j, i}
 		}
-		m[x] = i
+		d[x] = i
 	}
 }
 ```
@@ -148,17 +148,14 @@ func twoSum(nums []int, target int) []int {
 
 ```ts
 function twoSum(nums: number[], target: number): number[] {
-    const m: Map<number, number> = new Map();
-
+    const d = new Map<number, number>();
     for (let i = 0; ; ++i) {
         const x = nums[i];
         const y = target - x;
-
-        if (m.has(y)) {
-            return [m.get(y)!, i];
+        if (d.has(y)) {
+            return [d.get(y)!, i];
         }
-
-        m.set(x, i);
+        d.set(x, i);
     }
 }
 ```
@@ -170,15 +167,15 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut m = HashMap::new();
+        let mut d = HashMap::new();
         for (i, &x) in nums.iter().enumerate() {
             let y = target - x;
-            if let Some(&j) = m.get(&y) {
+            if let Some(&j) = d.get(&y) {
                 return vec![j as i32, i as i32];
             }
-            m.insert(x, i as i32);
+            d.insert(x, i);
         }
-        unreachable!()
+        vec![]
     }
 }
 ```
@@ -192,14 +189,14 @@ impl Solution {
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    const m = new Map();
+    const d = new Map();
     for (let i = 0; ; ++i) {
         const x = nums[i];
         const y = target - x;
-        if (m.has(y)) {
-            return [m.get(y), i];
+        if (d.has(y)) {
+            return [d.get(y), i];
         }
-        m.set(x, i);
+        d.set(x, i);
     }
 };
 ```
@@ -209,15 +206,15 @@ var twoSum = function (nums, target) {
 ```cs
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
-        var m = new Dictionary<int, int>();
+        var d = new Dictionary<int, int>();
         for (int i = 0, j; ; ++i) {
             int x = nums[i];
             int y = target - x;
-            if (m.TryGetValue(y, out j)) {
+            if (d.TryGetValue(y, out j)) {
                 return new [] {j, i};
             }
-            if (!m.ContainsKey(x)) {
-                m.Add(x, i);
+            if (!d.ContainsKey(x)) {
+                d.Add(x, i);
             }
         }
     }
@@ -234,13 +231,13 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-        $m = [];
+        $d = [];
         foreach ($nums as $i => $x) {
             $y = $target - $x;
-            if (isset($m[$y])) {
-                return [$m[$y], $i];
+            if (isset($d[$y])) {
+                return [$d[$y], $i];
             }
-            $m[$x] = $i;
+            $d[$x] = $i;
         }
     }
 }
@@ -252,17 +249,20 @@ class Solution {
 import scala.collection.mutable
 
 object Solution {
-  def twoSum(nums: Array[Int], target: Int): Array[Int] = {
-    var map = new mutable.HashMap[Int, Int]()
-    for (i <- 0 to nums.length) {
-      if (map.contains(target - nums(i))) {
-        return Array(map(target - nums(i)), i)
-      } else {
-        map += (nums(i) -> i)
-      }
+    def twoSum(nums: Array[Int], target: Int): Array[Int] = {
+        val d = mutable.Map[Int, Int]()
+        var ans: Array[Int] = Array()
+        for (i <- nums.indices if ans.isEmpty) {
+            val x = nums(i)
+            val y = target - x
+            if (d.contains(y)) {
+                ans = Array(d(y), i)
+            } else {
+                d(x) = i
+            }
+        }
+        ans
     }
-    Array(0, 0)
-  }
 }
 ```
 
@@ -271,17 +271,15 @@ object Solution {
 ```swift
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var m = [Int: Int]()
-        var i = 0
-        while true {
-            let x = nums[i]
-            let y = target - nums[i]
-            if let j = m[target - nums[i]] {
+        var d = [Int: Int]()
+        for (i, x) in nums.enumerated() {
+            let y = target - x
+            if let j = d[y] {
                 return [j, i]
             }
-            m[nums[i]] = i
-            i += 1
+            d[x] = i
         }
+        return []
     }
 }
 ```
@@ -293,12 +291,14 @@ class Solution {
 # @param {Integer} target
 # @return {Integer[]}
 def two_sum(nums, target)
-  nums.each_with_index do |x, idx|
-    if nums.include? target - x
-      return [idx, nums.index(target - x)] if nums.index(target - x) != idx
+    d = {}
+    nums.each_with_index do |x, i|
+      y = target - x
+      if d.key?(y)
+        return [d[y], i]
+      end
+      d[x] = i
     end
-    next
-  end
 end
 ```
 
@@ -306,17 +306,16 @@ end
 
 ```nim
 import std/enumerate
+import std/tables
 
 proc twoSum(nums: seq[int], target: int): seq[int] =
-    var
-        bal: int
-        tdx: int
-    for idx, val in enumerate(nums):
-        bal = target - val
-        if bal in nums:
-            tdx = nums.find(bal)
-            if idx != tdx:
-                return @[idx, tdx]
+  var d = initTable[int, int]()
+  for i, x in nums.pairs():
+    let y = target - x
+    if d.hasKey(y):
+      return @[d[y], i]
+    d[x] = i
+  return @[]
 ```
 
 <!-- tabs:end -->
