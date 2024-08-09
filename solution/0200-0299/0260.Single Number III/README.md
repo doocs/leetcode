@@ -238,7 +238,9 @@ public class Solution {
 
 <!-- solution:end -->
 
-### Solution 2
+<!-- solution:start -->
+
+### 方法二：哈希表
 
 <!-- tabs:start -->
 
