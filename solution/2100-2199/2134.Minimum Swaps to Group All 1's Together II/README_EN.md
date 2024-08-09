@@ -165,15 +165,35 @@ func minSwaps(nums []int) int {
 
 ```ts
 function minSwaps(nums: number[]): number {
-    const k = nums.reduce((a, b) => a + b, 0);
-    let cnt = nums.slice(0, k).reduce((a, b) => a + b, 0);
-    let mx = cnt;
     const n = nums.length;
-    for (let i = k; i < n + k; ++i) {
-        cnt += nums[i % n] - nums[(i - k + n) % n];
-        mx = Math.max(mx, cnt);
+    const k = nums.reduce((a, b) => a + b, 0);
+    let cnt = k - nums.slice(0, k).reduce((a, b) => a + b, 0);
+    let min = cnt;
+
+    for (let i = k; i < n + k; i++) {
+        cnt += nums[i - k] - nums[i % n];
+        min = Math.min(min, cnt);
     }
-    return k - mx;
+
+    return min;
+}
+```
+
+#### JavaScript
+
+```ts
+function minSwaps(nums) {
+    const n = nums.length;
+    const k = nums.reduce((a, b) => a + b, 0);
+    let cnt = k - nums.slice(0, k).reduce((a, b) => a + b, 0);
+    let min = cnt;
+
+    for (let i = k; i < n + k; i++) {
+        cnt += nums[i - k] - nums[i % n];
+        min = Math.min(min, cnt);
+    }
+
+    return min;
 }
 ```
 
@@ -217,6 +237,68 @@ public class Solution {
         }
         return k - mx;
     }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Prefix Sum
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minSwaps(nums: number[]): number {
+    const n = nums.length;
+
+    const getMin = (x: 0 | 1) => {
+        const prefixSum = Array(n + 1).fill(0);
+        for (let i = 1; i <= n; i++) {
+            prefixSum[i] = prefixSum[i - 1] + (nums[i - 1] === x);
+        }
+
+        const length = prefixSum[n];
+        let ans = Number.POSITIVE_INFINITY;
+        for (let l = 0, r = length; r <= n; l++, r++) {
+            const min = length - (prefixSum[r] - prefixSum[l]);
+            ans = Math.min(ans, min);
+        }
+
+        return ans;
+    };
+
+    return Math.min(getMin(0), getMin(1));
+}
+```
+
+#### JavaScript
+
+```js
+function minSwaps(nums) {
+    const n = nums.length;
+
+    const getMin = x => {
+        const prefixSum = Array(n + 1).fill(0);
+        for (let i = 1; i <= n; i++) {
+            prefixSum[i] = prefixSum[i - 1] + (nums[i - 1] === x);
+        }
+
+        const length = prefixSum[n];
+        let ans = Number.POSITIVE_INFINITY;
+        for (let l = 0, r = length; r <= n; l++, r++) {
+            const min = length - (prefixSum[r] - prefixSum[l]);
+            ans = Math.min(ans, min);
+        }
+
+        return ans;
+    };
+
+    return Math.min(getMin(0), getMin(1));
 }
 ```
 

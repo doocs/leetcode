@@ -1,4 +1,4 @@
-function minSwaps(nums: number[]): number {
+function minSwaps(nums) {
     const n = nums.length;
     const k = nums.reduce((a, b) => a + b, 0);
     let cnt = k - nums.slice(0, k).reduce((a, b) => a + b, 0);
