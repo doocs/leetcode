@@ -236,7 +236,9 @@ public class Solution {
 
 <!-- solution:end -->
 
-### Solution 2
+<!-- solution:start -->
+
+### Solution 2: Hash Table
 
 <!-- tabs:start -->
 
