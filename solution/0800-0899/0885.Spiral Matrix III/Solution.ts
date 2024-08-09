@@ -1,15 +1,8 @@
-/**
- * @param {number} rows
- * @param {number} cols
- * @param {number} rStart
- * @param {number} cStart
- * @return {number[][]}
- */
-var spiralMatrixIII = function (rows, cols, rStart, cStart) {
+function spiralMatrixIII(rows: number, cols: number, rStart: number, cStart: number): number[][] {
     // prettier-ignore
     const dir = [[1,0],[0,1],[-1,0],[0,-1]]
     let [x, y, i, size] = [cStart, rStart, 0, 0];
-    const ans = [[y, x]];
+    const ans: number[][] = [[y, x]];
     const total = rows * cols;
 
     while (ans.length < total) {
@@ -28,4 +21,4 @@ var spiralMatrixIII = function (rows, cols, rStart, cStart) {
     }
 
     return ans;
-};
+}
