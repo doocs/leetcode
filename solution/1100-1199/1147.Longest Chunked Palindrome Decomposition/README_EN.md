@@ -94,107 +94,6 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$ or $O(1)$. H
 ```python
 class Solution:
     def longestDecomposition(self, text: str) -> int:
-        n = len(text)
-        if n < 2:
-            return n
-        for i in range(n // 2 + 1):
-            if text[:i] == text[-i:]:
-                return 2 + self.longestDecomposition(text[i:-i])
-        return 1
-```
-
-#### Java
-
-```java
-class Solution {
-    public int longestDecomposition(String text) {
-        int n = text.length();
-        if (n < 2) {
-            return n;
-        }
-        for (int i = 1; i <= n >> 1; ++i) {
-            if (text.substring(0, i).equals(text.substring(n - i))) {
-                return 2 + longestDecomposition(text.substring(i, n - i));
-            }
-        }
-        return 1;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int longestDecomposition(string text) {
-        int n = text.size();
-        if (n < 2) return n;
-        for (int i = 1; i <= n >> 1; ++i) {
-            if (text.substr(0, i) == text.substr(n - i)) {
-                return 2 + longestDecomposition(text.substr(i, n - i - i));
-            }
-        }
-        return 1;
-    }
-};
-```
-
-#### Go
-
-```go
-func longestDecomposition(text string) int {
-	n := len(text)
-	if n < 2 {
-		return n
-	}
-	for i := 1; i <= n>>1; i++ {
-		if text[:i] == text[n-i:] {
-			return 2 + longestDecomposition(text[i:n-i])
-		}
-	}
-	return 1
-}
-```
-
-#### TypeScript
-
-```ts
-function longestDecomposition(text: string): number {
-    const n: number = text.length;
-    if (n < 2) {
-        return n;
-    }
-    for (let i: number = 1; i <= n >> 1; i++) {
-        if (text.slice(0, i) === text.slice(n - i)) {
-            return 2 + longestDecomposition(text.slice(i, n - i));
-        }
-    }
-    return 1;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: String Hash
-
-**String hash** is to map a string of any length to a non-negative integer, and its collision probability is almost $0$. String hash is used to calculate the hash value of a string and quickly determine whether two strings are equal.
-
-Therefore, based on Solution 1, we can use the method of string hash to compare whether two strings are equal in $O(1)$ time.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def longestDecomposition(self, text: str) -> int:
         ans = 0
         i, j = 0, len(text) - 1
         while i <= j:
@@ -341,7 +240,13 @@ function longestDecomposition(text: string): number {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 2: String Hash
+
+**String hash** is to map a string of any length to a non-negative integer, and its collision probability is almost $0$. String hash is used to calculate the hash value of a string and quickly determine whether two strings are equal.
+
+Therefore, based on Solution 1, we can use the method of string hash to compare whether two strings are equal in $O(1)$ time.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
 

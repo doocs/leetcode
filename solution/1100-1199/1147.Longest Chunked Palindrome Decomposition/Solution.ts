@@ -1,12 +1,20 @@
 function longestDecomposition(text: string): number {
-    const n: number = text.length;
-    if (n < 2) {
-        return n;
-    }
-    for (let i: number = 1; i <= n >> 1; i++) {
-        if (text.slice(0, i) === text.slice(n - i)) {
-            return 2 + longestDecomposition(text.slice(i, n - i));
+    let ans = 0;
+    for (let i = 0, j = text.length - 1; i <= j; ) {
+        let ok = false;
+        for (let k = 1; i + k - 1 < j - k + 1; ++k) {
+            if (text.slice(i, i + k) === text.slice(j - k + 1, j + 1)) {
+                ans += 2;
+                i += k;
+                j -= k;
+                ok = true;
+                break;
+            }
+        }
+        if (!ok) {
+            ++ans;
+            break;
         }
     }
-    return 1;
+    return ans;
 }
