@@ -1,15 +1,18 @@
 import scala.collection.mutable
 
 object Solution {
-  def twoSum(nums: Array[Int], target: Int): Array[Int] = {
-    var map = new mutable.HashMap[Int, Int]()
-    for (i <- 0 to nums.length) {
-      if (map.contains(target - nums(i))) {
-        return Array(map(target - nums(i)), i)
-      } else {
-        map += (nums(i) -> i)
-      }
+    def twoSum(nums: Array[Int], target: Int): Array[Int] = {
+        val d = mutable.Map[Int, Int]()
+        var ans: Array[Int] = Array()
+        for (i <- nums.indices if ans.isEmpty) {
+            val x = nums(i)
+            val y = target - x
+            if (d.contains(y)) {
+                ans = Array(d(y), i)
+            } else {
+                d(x) = i
+            }
+        }
+        ans
     }
-    Array(0, 0)
-  }
 }
