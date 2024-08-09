@@ -259,6 +259,116 @@ function maximumGain(s: string, x: number, y: number): number {
 }
 ```
 
+#### JavaScript
+
+```js
+function maximumGain(s, x, y) {
+    let [a, b] = ['a', 'b'];
+    if (x < y) {
+        [x, y] = [y, x];
+        [a, b] = [b, a];
+    }
+
+    let [ans, cnt1, cnt2] = [0, 0, 0];
+    for (let c of s) {
+        if (c === a) {
+            cnt1++;
+        } else if (c === b) {
+            if (cnt1) {
+                ans += x;
+                cnt1--;
+            } else {
+                cnt2++;
+            }
+        } else {
+            ans += Math.min(cnt1, cnt2) * y;
+            cnt1 = 0;
+            cnt2 = 0;
+        }
+    }
+    ans += Math.min(cnt1, cnt2) * y;
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Greedy + Stack
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function maximumGain(s: string, x: number, y: number): number {
+    const stk: string[] = [];
+    const pairs: Record<string, string> = { a: 'b', b: 'a' };
+    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
+    let str = [...s];
+    let ans = 0;
+    let havePairs = true;
+
+    while (havePairs) {
+        for (const p of pair) {
+            havePairs = true;
+
+            for (const ch of str) {
+                if (stk.at(-1) === p && ch === pairs[p]) {
+                    stk.pop();
+                } else stk.push(ch);
+            }
+
+            if (str.length === stk.length) havePairs = false;
+
+            const multiplier = p === 'a' ? x : y;
+            ans += (multiplier * (str.length - stk.length)) / 2;
+            str = [...stk];
+            stk.length = 0;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaeScript
+
+```js
+function maximumGain(s, x, y) {
+    const stk = [];
+    const pairs = { a: 'b', b: 'a' };
+    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
+    let str = [...s];
+    let ans = 0;
+    let havePairs = true;
+
+    while (havePairs) {
+        for (const p of pair) {
+            havePairs = true;
+
+            for (const ch of str) {
+                if (stk.at(-1) === p && ch === pairs[p]) {
+                    stk.pop();
+                } else stk.push(ch);
+            }
+
+            if (str.length === stk.length) havePairs = false;
+
+            const multiplier = p === 'a' ? x : y;
+            ans += (multiplier * (str.length - stk.length)) / 2;
+            str = [...stk];
+            stk.length = 0;
+        }
+    }
+
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
