@@ -1,17 +1,17 @@
 class Solution:
     def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
-        ans = []
-
-        def dfs(n, k, t):
-            if n == 0:
-                ans.append(t)
+        def dfs(x: int):
+            if x >= boundary:
+                ans.append(x)
                 return
-            last = t % 10
+            last = x % 10
             if last + k <= 9:
-                dfs(n - 1, k, t * 10 + last + k)
+                dfs(x * 10 + last + k)
             if last - k >= 0 and k != 0:
-                dfs(n - 1, k, t * 10 + last - k)
+                dfs(x * 10 + last - k)
 
+        ans = []
+        boundary = 10 ** (n - 1)
         for i in range(1, 10):
-            dfs(n - 1, k, i)
+            dfs(i)
         return ans

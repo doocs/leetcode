@@ -68,7 +68,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+我们可以枚举所有长度为 $n$ 的数字的第一个数字，然后使用深度优先搜索的方法，递归地构造所有符合条件的数字。
+
+具体地，我们首先定义一个边界值 $\textit{boundary} = 10^{n-1}$，表示我们需要构造的数字的最小值。然后，我们从 $1$ 到 $9$ 枚举第一个数字，对于每一个数字 $i$，我们递归地构造以 $i$ 为第一个数字的长度为 $n$ 的数字。
+
+时间复杂度 $(n \times 2^n \times |\Sigma|)$，其中 $|\Sigma|$ 表示数字集合，本题中 $|\Sigma| = 9$。空间复杂度 $O(2^n)$。
 
 <!-- tabs:start -->
 
@@ -77,20 +83,20 @@ tags:
 ```python
 class Solution:
     def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
-        ans = []
-
-        def dfs(n, k, t):
-            if n == 0:
-                ans.append(t)
+        def dfs(x: int):
+            if x >= boundary:
+                ans.append(x)
                 return
-            last = t % 10
+            last = x % 10
             if last + k <= 9:
-                dfs(n - 1, k, t * 10 + last + k)
+                dfs(x * 10 + last + k)
             if last - k >= 0 and k != 0:
-                dfs(n - 1, k, t * 10 + last - k)
+                dfs(x * 10 + last - k)
 
+        ans = []
+        boundary = 10 ** (n - 1)
         for i in range(1, 10):
-            dfs(n - 1, k, i)
+            dfs(i)
         return ans
 ```
 
@@ -98,29 +104,30 @@ class Solution:
 
 ```java
 class Solution {
+    private List<Integer> ans = new ArrayList<>();
+    private int boundary;
+    private int k;
+
     public int[] numsSameConsecDiff(int n, int k) {
-        List<Integer> res = new ArrayList<>();
+        this.k = k;
+        boundary = (int) Math.pow(10, n - 1);
         for (int i = 1; i < 10; ++i) {
-            dfs(n - 1, k, i, res);
+            dfs(i);
         }
-        int[] ans = new int[res.size()];
-        for (int i = 0; i < res.size(); ++i) {
-            ans[i] = res.get(i);
-        }
-        return ans;
+        return ans.stream().mapToInt(i -> i).toArray();
     }
 
-    private void dfs(int n, int k, int t, List<Integer> res) {
-        if (n == 0) {
-            res.add(t);
+    private void dfs(int x) {
+        if (x >= boundary) {
+            ans.add(x);
             return;
         }
-        int last = t % 10;
-        if (last + k <= 9) {
-            dfs(n - 1, k, t * 10 + last + k, res);
+        int last = x % 10;
+        if (last + k < 10) {
+            dfs(x * 10 + last + k);
         }
-        if (last - k >= 0 && k != 0) {
-            dfs(n - 1, k, t * 10 + last - k, res);
+        if (k != 0 && last - k >= 0) {
+            dfs(x * 10 + last - k);
         }
     }
 }
@@ -131,22 +138,26 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> ans;
-
     vector<int> numsSameConsecDiff(int n, int k) {
-        for (int i = 1; i < 10; ++i)
-            dfs(n - 1, k, i);
-        return ans;
-    }
-
-    void dfs(int n, int k, int t) {
-        if (n == 0) {
-            ans.push_back(t);
-            return;
+        vector<int> ans;
+        int boundary = pow(10, n - 1);
+        auto dfs = [&](auto&& dfs, int x) {
+            if (x >= boundary) {
+                ans.push_back(x);
+                return;
+            }
+            int last = x % 10;
+            if (last + k < 10) {
+                dfs(dfs, x * 10 + last + k);
+            }
+            if (k != 0 && last - k >= 0) {
+                dfs(dfs, x * 10 + last - k);
+            }
+        };
+        for (int i = 1; i < 10; ++i) {
+            dfs(dfs, i);
         }
-        int last = t % 10;
-        if (last + k <= 9) dfs(n - 1, k, t * 10 + last + k);
-        if (last - k >= 0 && k != 0) dfs(n - 1, k, t * 10 + last - k);
+        return ans;
     }
 };
 ```
@@ -154,27 +165,26 @@ public:
 #### Go
 
 ```go
-func numsSameConsecDiff(n int, k int) []int {
-	var ans []int
-	var dfs func(n, k, t int)
-	dfs = func(n, k, t int) {
-		if n == 0 {
-			ans = append(ans, t)
+func numsSameConsecDiff(n int, k int) (ans []int) {
+	bounary := int(math.Pow10(n - 1))
+	var dfs func(int)
+	dfs = func(x int) {
+		if x >= bounary {
+			ans = append(ans, x)
 			return
 		}
-		last := t % 10
-		if last+k <= 9 {
-			dfs(n-1, k, t*10+last+k)
+		last := x % 10
+		if last+k < 10 {
+			dfs(x*10 + last + k)
 		}
-		if last-k >= 0 && k != 0 {
-			dfs(n-1, k, t*10+last-k)
+		if k > 0 && last-k >= 0 {
+			dfs(x*10 + last - k)
 		}
 	}
-
 	for i := 1; i < 10; i++ {
-		dfs(n-1, k, i)
+		dfs(i)
 	}
-	return ans
+	return
 }
 ```
 
@@ -182,58 +192,57 @@ func numsSameConsecDiff(n int, k int) []int {
 
 ```ts
 function numsSameConsecDiff(n: number, k: number): number[] {
-    const ans = new Set<number>();
+    const ans: number[] = [];
     const boundary = 10 ** (n - 1);
-
-    const dfs = (nums: number) => {
-        if (nums >= boundary) {
-            ans.add(nums);
+    const dfs = (x: number) => {
+        if (x >= boundary) {
+            ans.push(x);
             return;
         }
-
-        const num = nums % 10;
-        for (const x of [num + k, num - k]) {
-            if (0 <= x && x < 10) {
-                dfs(nums * 10 + x);
-            }
+        const last = x % 10;
+        if (last + k < 10) {
+            dfs(x * 10 + last + k);
+        }
+        if (k > 0 && last - k >= 0) {
+            dfs(x * 10 + last - k);
         }
     };
-
     for (let i = 1; i < 10; i++) {
         dfs(i);
     }
-
-    return [...ans];
+    return ans;
 }
 ```
 
 #### JavaScript
 
 ```js
-function numsSameConsecDiff(n, k) {
-    const ans = new Set();
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number[]}
+ */
+var numsSameConsecDiff = function (n, k) {
+    const ans = [];
     const boundary = 10 ** (n - 1);
-
-    const dfs = nums => {
-        if (nums >= boundary) {
-            ans.add(nums);
+    const dfs = x => {
+        if (x >= boundary) {
+            ans.push(x);
             return;
         }
-
-        const num = nums % 10;
-        for (const x of [num + k, num - k]) {
-            if (0 <= x && x < 10) {
-                dfs(nums * 10 + x);
-            }
+        const last = x % 10;
+        if (last + k < 10) {
+            dfs(x * 10 + last + k);
+        }
+        if (k > 0 && last - k >= 0) {
+            dfs(x * 10 + last - k);
         }
     };
-
     for (let i = 1; i < 10; i++) {
         dfs(i);
     }
-
-    return [...ans];
-}
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

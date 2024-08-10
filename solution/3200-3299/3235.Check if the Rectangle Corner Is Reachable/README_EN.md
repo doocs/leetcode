@@ -21,9 +21,9 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given two positive integers <code>X</code> and <code>Y</code>, and a 2D array <code>circles</code>, where <code>circles[i] = [x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub>]</code> denotes a circle with center at <code>(x<sub>i</sub>, y<sub>i</sub>)</code> and radius <code>r<sub>i</sub></code>.</p>
+<p>You are given two positive integers <code>xCorner</code> and <code>yCorner</code>, and a 2D array <code>circles</code>, where <code>circles[i] = [x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub>]</code> denotes a circle with center at <code>(x<sub>i</sub>, y<sub>i</sub>)</code> and radius <code>r<sub>i</sub></code>.</p>
 
-<p>There is a rectangle in the coordinate plane with its bottom left corner at the origin and top right corner at the coordinate <code>(X, Y)</code>. You need to check whether there is a path from the bottom left corner to the top right corner such that the <strong>entire path</strong> lies inside the rectangle, <strong>does not</strong> touch or lie inside <strong>any</strong> circle, and touches the rectangle <strong>only</strong> at the two corners.</p>
+<p>There is a rectangle in the coordinate plane with its bottom left corner at the origin and top right corner at the coordinate <code>(xCorner, yCorner)</code>. You need to check whether there is a path from the bottom left corner to the top right corner such that the <strong>entire path</strong> lies inside the rectangle, <strong>does not</strong> touch or lie inside <strong>any</strong> circle, and touches the rectangle <strong>only</strong> at the two corners.</p>
 
 <p>Return <code>true</code> if such a path exists, and <code>false</code> otherwise.</p>
 
@@ -31,7 +31,7 @@ tags:
 <p><strong class="example">Example 1:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">X = 3, Y = 4, circles = [[2,1,1]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">xCorner = 3, yCorner = 4, circles = [[2,1,1]]</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">true</span></p>
 
@@ -45,7 +45,7 @@ tags:
 <p><strong class="example">Example 2:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">X = 3, Y = 3, circles = [[1,1,2]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">xCorner = 3, yCorner = 3, circles = [[1,1,2]]</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">false</span></p>
 
@@ -59,7 +59,7 @@ tags:
 <p><strong class="example">Example 3:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">X = 3, Y = 3, circles = [[2,1,1],[1,2,1]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">xCorner = 3, yCorner = 3, circles = [[2,1,1],[1,2,1]]</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">false</span></p>
 
@@ -73,7 +73,7 @@ tags:
 <p><strong class="example">Example 4:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">X = 4, Y = 4, circles = [[5,5,1]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">xCorner = 4, yCorner = 4, circles = [[5,5,1]]</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">true</span></p>
 
@@ -86,7 +86,7 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>3 &lt;= X, Y &lt;= 10<sup>9</sup></code></li>
+	<li><code>3 &lt;= xCorner, yCorner &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= circles.length &lt;= 1000</code></li>
 	<li><code>circles[i].length == 3</code></li>
 	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
