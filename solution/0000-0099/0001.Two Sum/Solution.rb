@@ -2,10 +2,12 @@
 # @param {Integer} target
 # @return {Integer[]}
 def two_sum(nums, target)
-  nums.each_with_index do |x, idx|
-    if nums.include? target - x
-      return [idx, nums.index(target - x)] if nums.index(target - x) != idx
+    d = {}
+    nums.each_with_index do |x, i|
+      y = target - x
+      if d.key?(y)
+        return [d[y], i]
+      end
+      d[x] = i
     end
-    next
-  end
 end
