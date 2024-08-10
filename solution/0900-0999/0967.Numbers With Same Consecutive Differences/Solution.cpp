@@ -1,20 +1,24 @@
 class Solution {
 public:
-    vector<int> ans;
-
     vector<int> numsSameConsecDiff(int n, int k) {
-        for (int i = 1; i < 10; ++i)
-            dfs(n - 1, k, i);
-        return ans;
-    }
-
-    void dfs(int n, int k, int t) {
-        if (n == 0) {
-            ans.push_back(t);
-            return;
+        vector<int> ans;
+        int boundary = pow(10, n - 1);
+        auto dfs = [&](auto&& dfs, int x) {
+            if (x >= boundary) {
+                ans.push_back(x);
+                return;
+            }
+            int last = x % 10;
+            if (last + k < 10) {
+                dfs(dfs, x * 10 + last + k);
+            }
+            if (k != 0 && last - k >= 0) {
+                dfs(dfs, x * 10 + last - k);
+            }
+        };
+        for (int i = 1; i < 10; ++i) {
+            dfs(dfs, i);
         }
-        int last = t % 10;
-        if (last + k <= 9) dfs(n - 1, k, t * 10 + last + k);
-        if (last - k >= 0 && k != 0) dfs(n - 1, k, t * 10 + last - k);
+        return ans;
     }
 };

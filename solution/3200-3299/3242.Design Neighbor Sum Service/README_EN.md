@@ -22,10 +22,10 @@ tags:
 
 <p>You are given a <code>n x n</code> 2D array <code>grid</code> containing <strong>distinct</strong> elements in the range <code>[0, n<sup>2</sup> - 1]</code>.</p>
 
-<p>Implement the <code>neighborSum</code> class:</p>
+<p>Implement the <code>NeighborSum</code> class:</p>
 
 <ul>
-	<li><code>neighborSum(int [][]grid)</code> initializes the object.</li>
+	<li><code>NeighborSum(int [][]grid)</code> initializes the object.</li>
 	<li><code>int adjacentSum(int value)</code> returns the <strong>sum</strong> of elements which are adjacent neighbors of <code>value</code>, that is either to the top, left, right, or bottom of <code>value</code> in <code>grid</code>.</li>
 	<li><code>int diagonalSum(int value)</code> returns the <strong>sum</strong> of elements which are diagonal neighbors of <code>value</code>, that is either to the top-left, top-right, bottom-left, or bottom-right of <code>value</code> in <code>grid</code>.</li>
 </ul>
@@ -38,7 +38,7 @@ tags:
 <div class="example-block">
 <p><strong>Input:</strong></p>
 
-<p>[&quot;neighborSum&quot;, &quot;adjacentSum&quot;, &quot;adjacentSum&quot;, &quot;diagonalSum&quot;, &quot;diagonalSum&quot;]</p>
+<p>[&quot;NeighborSum&quot;, &quot;adjacentSum&quot;, &quot;adjacentSum&quot;, &quot;diagonalSum&quot;, &quot;diagonalSum&quot;]</p>
 
 <p>[[[[0, 1, 2], [3, 4, 5], [6, 7, 8]]], [1], [4], [4], [8]]</p>
 
@@ -61,7 +61,7 @@ tags:
 <div class="example-block">
 <p><strong>Input:</strong></p>
 
-<p>[&quot;neighborSum&quot;, &quot;adjacentSum&quot;, &quot;diagonalSum&quot;]</p>
+<p>[&quot;NeighborSum&quot;, &quot;adjacentSum&quot;, &quot;diagonalSum&quot;]</p>
 
 <p>[[[[1, 2, 0, 3], [4, 7, 15, 6], [8, 9, 10, 11], [12, 13, 14, 5]]], [15], [9]]</p>
 
