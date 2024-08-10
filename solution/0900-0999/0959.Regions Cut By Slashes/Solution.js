@@ -4,7 +4,7 @@
  */
 
 function regionsBySlashes(grid) {
-    const find = (x) => {
+    const find = x => {
         if (p[x] !== x) {
             p[x] = find(p[x]);
         }
@@ -48,5 +48,4 @@ function regionsBySlashes(grid) {
     }
 
     return size;
-
 }
