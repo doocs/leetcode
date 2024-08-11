@@ -392,7 +392,7 @@ function regionsBySlashes(grid) {
 
 <!-- solution:start -->
 
-### Solution 2: DFS
+### 方法二：DFS
 
 <!-- tabs:start -->
 
