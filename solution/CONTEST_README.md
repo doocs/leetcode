@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 410 场周赛(2024-08-11 10:30, 90 分钟) 参赛人数 2987
+
+- [3248. 矩阵中的蛇](/solution/3200-3299/3248.Snake%20in%20Matrix/README.md)
+- [3249. 统计好节点的数目](/solution/3200-3299/3249.Count%20the%20Number%20of%20Good%20Nodes/README.md)
+- [3250. 单调数组对的数目 I](/solution/3200-3299/3250.Find%20the%20Count%20of%20Monotonic%20Pairs%20I/README.md)
+- [3251. 单调数组对的数目 II](/solution/3200-3299/3251.Find%20the%20Count%20of%20Monotonic%20Pairs%20II/README.md)
+
 #### 第 409 场周赛(2024-08-04 10:30, 90 分钟) 参赛人数 3643
 
 - [3242. 设计相邻元素求和服务](/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README.md)
