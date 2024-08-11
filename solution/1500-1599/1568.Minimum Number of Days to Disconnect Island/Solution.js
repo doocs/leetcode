@@ -2,16 +2,29 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var minDays = function(grid) {
-        const directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+var minDays = function (grid) {
+    const directions = [
+        [0, 1],
+        [1, 0],
+        [0, -1],
+        [-1, 0],
+    ];
     const rows = grid.length;
     const cols = grid[0].length;
 
     function dfs(x, y, visited) {
         visited[x][y] = true;
         for (let [dx, dy] of directions) {
-            const nx = x + dx, ny = y + dy;
-            if (nx >= 0 && ny >= 0 && nx < rows && ny < cols && grid[nx][ny] === 1 && !visited[nx][ny]) {
+            const nx = x + dx,
+                ny = y + dy;
+            if (
+                nx >= 0 &&
+                ny >= 0 &&
+                nx < rows &&
+                ny < cols &&
+                grid[nx][ny] === 1 &&
+                !visited[nx][ny]
+            ) {
                 dfs(nx, ny, visited);
             }
         }
@@ -44,5 +57,4 @@ var minDays = function(grid) {
     }
 
     return 2;
-
 };
