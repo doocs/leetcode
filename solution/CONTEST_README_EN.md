@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 410
+
+- [3248. Snake in Matrix](/solution/3200-3299/3248.Snake%20in%20Matrix/README_EN.md)
+- [3249. Count the Number of Good Nodes](/solution/3200-3299/3249.Count%20the%20Number%20of%20Good%20Nodes/README_EN.md)
+- [3250. Find the Count of Monotonic Pairs I](/solution/3200-3299/3250.Find%20the%20Count%20of%20Monotonic%20Pairs%20I/README_EN.md)
+- [3251. Find the Count of Monotonic Pairs II](/solution/3200-3299/3251.Find%20the%20Count%20of%20Monotonic%20Pairs%20II/README_EN.md)
+
 #### Weekly Contest 409
 
 - [3242. Design Neighbor Sum Service](/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README_EN.md)

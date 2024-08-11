@@ -3258,6 +3258,10 @@
 |  3245  |  [交替组 III](/solution/3200-3299/3245.Alternating%20Groups%20III/README.md)  |  `树状数组`,`数组`  |  困难  |  第 409 场周赛  |
 |  3246  |  [英超积分榜排名](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  3247  |  [奇数和子序列的数量](/solution/3200-3299/3247.Number%20of%20Subsequences%20with%20Odd%20Sum/README.md)  |    |  中等  |  🔒  |
+|  3248  |  [矩阵中的蛇](/solution/3200-3299/3248.Snake%20in%20Matrix/README.md)  |    |  简单  |  第 410 场周赛  |
+|  3249  |  [统计好节点的数目](/solution/3200-3299/3249.Count%20the%20Number%20of%20Good%20Nodes/README.md)  |    |  中等  |  第 410 场周赛  |
+|  3250  |  [单调数组对的数目 I](/solution/3200-3299/3250.Find%20the%20Count%20of%20Monotonic%20Pairs%20I/README.md)  |    |  困难  |  第 410 场周赛  |
+|  3251  |  [单调数组对的数目 II](/solution/3200-3299/3251.Find%20the%20Count%20of%20Monotonic%20Pairs%20II/README.md)  |    |  困难  |  第 410 场周赛  |
 
 ## 版权
 

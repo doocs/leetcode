@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums1 = <span id="example-input-1-1">[1,4,2]</span>, nums2 = <span id="example-input-1-2">[1,2,4]</span>
 <strong>输出：</strong><span id="example-output-1">2</span>
-<strong>解释：</strong>可以画出两条不交叉的线，如上图所示。
+<strong>解释：</strong>可以画出两条不交叉的线，如上图所示。 
 但无法画出第三条不相交的直线，因为从 nums1[1]=4 到 nums2[2]=4 的直线将与从 nums1[2]=2 到 nums2[1]=2 的直线相交。
 </pre>
 
