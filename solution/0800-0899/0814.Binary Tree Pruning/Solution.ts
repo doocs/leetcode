@@ -13,12 +13,12 @@
  */
 
 function pruneTree(root: TreeNode | null): TreeNode | null {
-    if (root == null) {
+    if (!root) {
         return root;
     }
     root.left = pruneTree(root.left);
     root.right = pruneTree(root.right);
-    if (root.val == 0 && root.left == null && root.right == null) {
+    if (root.val === 0 && root.left === root.right) {
         return null;
     }
     return root;
