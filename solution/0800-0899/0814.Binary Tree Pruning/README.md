@@ -64,9 +64,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：DFS
+### 方法一：递归
 
-观察叶节点，当叶节点 `val` 为 0 时，便将该节点抹去。回溯，查看其父节点是否成为了新的叶节点，依照此规则自底向上。
+我们首先判断当前节点是否为空，如果为空则直接返回空节点。
+
+否则，我们递归地对左右子树进行剪枝，并将剪枝后的左右子树重新赋值给当前节点的左右子节点。然后判断当前节点的值是否为 0 且左右子节点都为空，如果是则返回空节点，否则返回当前节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -82,10 +86,10 @@ tags:
 class Solution:
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
-            return None
+            return root
         root.left = self.pruneTree(root.left)
         root.right = self.pruneTree(root.right)
-        if root.val == 0 and root.left is None and root.right is None:
+        if root.val == 0 and root.left == root.right:
             return None
         return root
 ```
@@ -140,10 +144,14 @@ class Solution {
 class Solution {
 public:
     TreeNode* pruneTree(TreeNode* root) {
-        if (!root) return nullptr;
+        if (!root) {
+            return root;
+        }
         root->left = pruneTree(root->left);
         root->right = pruneTree(root->right);
-        if (!root->val && !root->left && !root->right) return nullptr;
+        if (root->val == 0 && root->left == root->right) {
+            return nullptr;
+        }
         return root;
     }
 };
@@ -191,12 +199,12 @@ func pruneTree(root *TreeNode) *TreeNode {
  */
 
 function pruneTree(root: TreeNode | null): TreeNode | null {
-    if (root == null) {
+    if (!root) {
         return root;
     }
     root.left = pruneTree(root.left);
     root.right = pruneTree(root.right);
-    if (root.val == 0 && root.left == null && root.right == null) {
+    if (root.val === 0 && root.left === root.right) {
         return null;
     }
     return root;
@@ -262,10 +270,12 @@ impl Solution {
  * @return {TreeNode}
  */
 var pruneTree = function (root) {
-    if (!root) return null;
+    if (!root) {
+        return root;
+    }
     root.left = pruneTree(root.left);
     root.right = pruneTree(root.right);
-    if (root.val == 0 && !root.left && !root.right) {
+    if (root.val === 0 && root.left === root.right) {
         return null;
     }
     return root;
