@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [9,1,2,3,9], k = 3
 <strong>Output:</strong> 20.00000
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 The best choice is to partition nums into [9], [1, 2, 3], [9]. The answer is 9 + (1 + 2 + 3) / 3 + 9 = 20.
 We could have also partitioned nums into [9, 1], [2], [3, 9], for example.
 That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
@@ -58,7 +58,19 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Memoized Search
+
+We can preprocess to obtain the prefix sum array $s$, which allows us to quickly get the sum of subarrays.
+
+Next, we design a function $\textit{dfs}(i, k)$, which represents the maximum sum of averages when dividing the array starting from index $i$ into at most $k$ groups. The answer is $\textit{dfs}(0, k)$.
+
+The execution logic of the function $\textit{dfs}(i, k)$ is as follows:
+
+-   When $i = n$, it means we have traversed to the end of the array, and we return $0$.
+-   When $k = 1$, it means there is only one group left, and we return the average value from index $i$ to the end of the array.
+-   Otherwise, we enumerate the starting position $j$ of the next group in the interval $[i + 1, n)$, calculate the average value from $i$ to $j - 1$ as $\frac{s[j] - s[i]}{j - i}$, add the result of $\textit{dfs}(j, k - 1)$, and take the maximum value of all results.
+
+The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ represents the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -68,15 +80,14 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 class Solution:
     def largestSumOfAverages(self, nums: List[int], k: int) -> float:
         @cache
-        def dfs(i, k):
+        def dfs(i: int, k: int) -> float:
             if i == n:
                 return 0
             if k == 1:
-                return (s[-1] - s[i]) / (n - i)
+                return (s[n] - s[i]) / (n - i)
             ans = 0
-            for j in range(i, n):
-                t = (s[j + 1] - s[i]) / (j - i + 1) + dfs(j + 1, k - 1)
-                ans = max(ans, t)
+            for j in range(i + 1, n):
+                ans = max(ans, (s[j] - s[i]) / (j - i) + dfs(j, k - 1))
             return ans
 
         n = len(nums)
@@ -95,7 +106,7 @@ class Solution {
     public double largestSumOfAverages(int[] nums, int k) {
         n = nums.length;
         s = new int[n + 1];
-        f = new Double[n + 1][k + 1];
+        f = new Double[n][k + 1];
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + nums[i];
         }
@@ -113,9 +124,8 @@ class Solution {
             return f[i][k];
         }
         double ans = 0;
-        for (int j = i; j < n; ++j) {
-            double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
-            ans = Math.max(ans, t);
+        for (int j = i + 1; j < n; ++j) {
+            ans = Math.max(ans, (s[j] - s[i]) * 1.0 /(j - i) + dfs(j, k - 1));
         }
         return f[i][k] = ans;
     }
@@ -131,21 +141,28 @@ public:
         int n = nums.size();
         int s[n + 1];
         double f[n][k + 1];
+        memset(f, 0, sizeof(f));
         s[0] = 0;
-        memset(f, 0, sizeof f);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
-        function<double(int, int)> dfs = [&](int i, int k) -> double {
-            if (i == n) return 0;
-            if (k == 1) return (s[n] - s[i]) * 1.0 / (n - i);
-            if (f[i][k]) return f[i][k];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        auto dfs = [&](auto&& dfs, int i, int k) -> double {
+            if (i == n) {
+                return 0;
+            }
+            if (k == 1) {
+                return (s[n] - s[i]) * 1.0 / (n - i);
+            }
+            if (f[i][k] > 0) {
+                return f[i][k];
+            }
             double ans = 0;
-            for (int j = i; j < n; ++j) {
-                double t = (s[j + 1] - s[i]) * 1.0 / (j - i + 1) + dfs(j + 1, k - 1);
-                ans = max(ans, t);
+            for (int j = i + 1; j < n; ++j) {
+                ans = max(ans, (s[j] - s[i]) * 1.0 / (j - i) + dfs(dfs, j, k - 1));
             }
             return f[i][k] = ans;
         };
-        return dfs(0, k);
+        return dfs(dfs, 0, k);
     }
 };
 ```
@@ -156,30 +173,193 @@ public:
 func largestSumOfAverages(nums []int, k int) float64 {
 	n := len(nums)
 	s := make([]int, n+1)
-	f := [110][110]float64{}
-	for i, v := range nums {
-		s[i+1] = s[i] + v
+	for i, x := range nums {
+		s[i+1] = s[i] + x
 	}
-	var dfs func(i, k int) float64
+	f := make([][]float64, n)
+	for i := range f {
+		f[i] = make([]float64, k+1)
+	}
+	var dfs func(int, int) float64
 	dfs = func(i, k int) float64 {
 		if i == n {
 			return 0
 		}
-		if k == 1 {
-			return float64(s[n]-s[i]) / float64(n-i)
-		}
 		if f[i][k] > 0 {
 			return f[i][k]
 		}
-		var ans float64
-		for j := i; j < n; j++ {
-			t := float64(s[j+1]-s[i])/float64(j-i+1) + dfs(j+1, k-1)
-			ans = math.Max(ans, t)
+		if k == 1 {
+			return float64(s[n]-s[i]) / float64(n-i)
+		}
+		ans := 0.0
+		for j := i + 1; j < n; j++ {
+			ans = math.Max(ans, float64(s[j]-s[i])/float64(j-i)+dfs(j, k-1))
 		}
 		f[i][k] = ans
 		return ans
 	}
 	return dfs(0, k)
+}
+```
+
+#### TypeScript
+
+```ts
+function largestSumOfAverages(nums: number[], k: number): number {
+    const n = nums.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; i++) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    const f: number[][] = Array.from({ length: n }, () => Array(k + 1).fill(0));
+    const dfs = (i: number, k: number): number => {
+        if (i === n) {
+            return 0;
+        }
+        if (f[i][k] > 0) {
+            return f[i][k];
+        }
+        if (k === 1) {
+            return (s[n] - s[i]) / (n - i);
+        }
+        for (let j = i + 1; j < n; j++) {
+            f[i][k] = Math.max(f[i][k], dfs(j, k - 1) + (s[j] - s[i]) / (j - i));
+        }
+        return f[i][k];
+    };
+    return dfs(0, k);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+We can transform the memoized search from Solution 1 into dynamic programming.
+
+Define $f[i][j]$ to represent the maximum sum of averages when dividing the first $i$ elements of the array $\textit{nums}$ into at most $j$ groups. The answer is $f[n][k]$.
+
+For $f[i][j]$, we can enumerate the end position $h$ of the previous group, calculate $f[h][j-1]$, add the result of $\frac{s[i] - s[h]}{i - h}$, and take the maximum value of all results.
+
+The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ represents the length of the array $\textit{nums}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def largestSumOfAverages(self, nums: List[int], k: int) -> float:
+        n = len(nums)
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        s = list(accumulate(nums, initial=0))
+        for i in range(1, n + 1):
+            f[i][1] = s[i] / i
+            for j in range(2, min(i + 1, k + 1)):
+                for h in range(i):
+                    f[i][j] = max(f[i][j], f[h][j - 1] + (s[i] - s[h]) / (i - h))
+        return f[n][k]
+```
+
+#### Java
+
+```java
+class Solution {
+    public double largestSumOfAverages(int[] nums, int k) {
+        int n = nums.length;
+        double[][] f = new double[n + 1][k + 1];
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        for (int i = 1; i <= n; ++i) {
+            f[i][1] = s[i] * 1.0 / i;
+            for (int j = 2; j <= Math.min(i, k); ++j) {
+                for (int h = 0; h < i; ++h) {
+                    f[i][j] = Math.max(f[i][j], f[h][j - 1] + (s[i] - s[h]) * 1.0 / (i - h));
+                }
+            }
+        }
+        return f[n][k];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    double largestSumOfAverages(vector<int>& nums, int k) {
+        int n = nums.size();
+        int s[n + 1];
+        s[0] = 0;
+        double f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + nums[i];
+        }
+        for (int i = 1; i <= n; ++i) {
+            f[i][1] = s[i] * 1.0 / i;
+            for (int j = 2; j <= min(i, k); ++j) {
+                for (int h = 0; h < i; ++h) {
+                    f[i][j] = max(f[i][j], f[h][j - 1] + (s[i] - s[h]) * 1.0 / (i - h));
+                }
+            }
+        }
+        return f[n][k];
+    }
+};
+```
+
+#### Go
+
+```go
+func largestSumOfAverages(nums []int, k int) float64 {
+	n := len(nums)
+	s := make([]int, n+1)
+	for i, x := range nums {
+		s[i+1] = s[i] + x
+	}
+	f := make([][]float64, n+1)
+	for i := range f {
+		f[i] = make([]float64, k+1)
+	}
+	for i := 1; i <= n; i++ {
+		f[i][1] = float64(s[i]) / float64(i)
+		for j := 2; j <= min(i, k); j++ {
+			for h := 0; h < i; h++ {
+				f[i][j] = max(f[i][j], f[h][j-1]+float64(s[i]-s[h])/float64(i-h))
+			}
+		}
+	}
+	return f[n][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function largestSumOfAverages(nums: number[], k: number): number {
+    const n = nums.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; i++) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    for (let i = 1; i <= n; ++i) {
+        f[i][1] = s[i] / i;
+        for (let j = 2; j <= Math.min(i, k); ++j) {
+            for (let h = 0; h < i; ++h) {
+                f[i][j] = Math.max(f[i][j], f[h][j - 1] + (s[i] - s[h]) / (i - h));
+            }
+        }
+    }
+    return f[n][k];
 }
 ```
 
