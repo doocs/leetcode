@@ -3262,6 +3262,7 @@
 |  3249  |  [统计好节点的数目](/solution/3200-3299/3249.Count%20the%20Number%20of%20Good%20Nodes/README.md)  |    |  中等  |  第 410 场周赛  |
 |  3250  |  [单调数组对的数目 I](/solution/3200-3299/3250.Find%20the%20Count%20of%20Monotonic%20Pairs%20I/README.md)  |    |  困难  |  第 410 场周赛  |
 |  3251  |  [单调数组对的数目 II](/solution/3200-3299/3251.Find%20the%20Count%20of%20Monotonic%20Pairs%20II/README.md)  |    |  困难  |  第 410 场周赛  |
+|  3252  |  [Premier League Table Ranking II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
