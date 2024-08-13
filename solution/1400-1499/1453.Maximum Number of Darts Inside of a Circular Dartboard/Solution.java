@@ -1,13 +1,12 @@
-import java.util.*;
-
-public class Solution {
+class Solution {
     public int numPoints(int[][] darts, int r) {
         int n = darts.length;
         int maxDarts = 1;
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                List<double[]> centers = possibleCenters(darts[i][0], darts[i][1], darts[j][0], darts[j][1], r);
+                List<double[]> centers
+                    = possibleCenters(darts[i][0], darts[i][1], darts[j][0], darts[j][1], r);
                 for (double[] center : centers) {
                     maxDarts = Math.max(maxDarts, countDarts(center[0], center[1], darts, r));
                 }
@@ -30,8 +29,8 @@ public class Solution {
         double offsetX = distToCenter * dy / d;
         double offsetY = distToCenter * -dx / d;
 
-        centers.add(new double[]{midX + offsetX, midY + offsetY});
-        centers.add(new double[]{midX - offsetX, midY - offsetY});
+        centers.add(new double[] {midX + offsetX, midY + offsetY});
+        centers.add(new double[] {midX - offsetX, midY - offsetY});
         return centers;
     }
 
@@ -43,11 +42,5 @@ public class Solution {
             }
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.numPoints(new int[][]{{-2,0},{2,0},{0,2},{0,-2}}, 2)); // Output: 4
-        System.out.println(solution.numPoints(new int[][]{{-3,0},{3,0},{2,6},{5,4},{0,9},{7,8}}, 5)); // Output: 5
     }
 }
