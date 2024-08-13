@@ -194,11 +194,11 @@ class Solution {
         if left == right {
             return nums[left]
         }
-        
+
         var i = left - 1
         var j = right + 1
         let pivot = nums[(left + right) / 2]
-        
+
         while i < j {
             repeat { i += 1 } while nums[i] < pivot
             repeat { j -= 1 } while nums[j] > pivot
@@ -206,7 +206,7 @@ class Solution {
                 nums.swapAt(i, j)
             }
         }
-        
+
         if j < k {
             return quickSelect(&nums, j + 1, right, k)
         }
