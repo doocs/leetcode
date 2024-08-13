@@ -60,7 +60,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### Solution 1
 
 <!-- tabs:start -->
 
