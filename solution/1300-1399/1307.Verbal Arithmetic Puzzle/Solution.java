@@ -1,12 +1,6 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-
-public class Solution {
-
-    private boolean isAnyMapping(List<String> words, int row, int col, int bal, 
-                                 HashMap<Character, Integer> letToDig, 
-                                 char[] digToLet, int totalRows, int totalCols) {
+class Solution {
+    private boolean isAnyMapping(List<String> words, int row, int col, int bal,
+        HashMap<Character, Integer> letToDig, char[] digToLet, int totalRows, int totalCols) {
         // If traversed all columns.
         if (col == totalCols) {
             return bal == 0;
@@ -14,8 +8,9 @@ public class Solution {
 
         // At the end of a particular column.
         if (row == totalRows) {
-            return (bal % 10 == 0 && 
-                    isAnyMapping(words, 0, col + 1, bal / 10, letToDig, digToLet, totalRows, totalCols));
+            return (bal % 10 == 0
+                && isAnyMapping(
+                    words, 0, col + 1, bal / 10, letToDig, digToLet, totalRows, totalCols));
         }
 
         String w = words.get(row);
@@ -33,23 +28,25 @@ public class Solution {
 
         // If we have a prior valid mapping, then use that mapping.
         // The second condition is for the leading zeros.
-        if (letToDig.containsKey(letter) && 
-            (letToDig.get(letter) != 0 || (letToDig.get(letter) == 0 && w.length() == 1) || col != w.length() - 1)) {
-            
-            return isAnyMapping(words, row + 1, col, bal + sign * letToDig.get(letter), 
-                                letToDig, digToLet, totalRows, totalCols);
+        if (letToDig.containsKey(letter)
+            && (letToDig.get(letter) != 0 || (letToDig.get(letter) == 0 && w.length() == 1)
+                || col != w.length() - 1)) {
+
+            return isAnyMapping(words, row + 1, col, bal + sign * letToDig.get(letter), letToDig,
+                digToLet, totalRows, totalCols);
 
         } else {
             // Choose a new mapping.
             for (int i = 0; i < 10; i++) {
                 // If 'i'th mapping is valid then select it.
-                if (digToLet[i] == '-' && (i != 0 || (i == 0 && w.length() == 1) || col != w.length() - 1)) {
+                if (digToLet[i] == '-'
+                    && (i != 0 || (i == 0 && w.length() == 1) || col != w.length() - 1)) {
                     digToLet[i] = letter;
                     letToDig.put(letter, i);
-                    
+
                     // Call the function again with the new mapping.
-                    if (isAnyMapping(words, row + 1, col, bal + sign * letToDig.get(letter), 
-                                     letToDig, digToLet, totalRows, totalCols)) {
+                    if (isAnyMapping(words, row + 1, col, bal + sign * letToDig.get(letter),
+                            letToDig, digToLet, totalRows, totalCols)) {
                         return true;
                     }
 
@@ -92,21 +89,5 @@ public class Solution {
         }
 
         return isAnyMapping(words, 0, 0, 0, letToDig, digToLet, totalRows, totalCols);
-    }
-
-    public static void main(String[] args) {
-        Solution sol = new Solution();
-
-        String[] words1 = {"SEND", "MORE"};
-        String result1 = "MONEY";
-        System.out.println(sol.isSolvable(words1, result1));  // Output: true
-
-        String[] words2 = {"SIX", "SEVEN", "SEVEN"};
-        String result2 = "TWENTY";
-        System.out.println(sol.isSolvable(words2, result2));  // Output: true
-
-        String[] words3 = {"LEET", "CODE"};
-        String result3 = "POINT";
-        System.out.println(sol.isSolvable(words3, result3));  // Output: false
     }
 }
