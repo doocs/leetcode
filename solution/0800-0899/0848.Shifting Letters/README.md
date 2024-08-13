@@ -71,7 +71,7 @@ tags:
 
 ### 方法一：后缀和
 
-对于字符串 $s$ 中的每个字符，我们需要计算其最终的偏移量，即 `shifts[i]` 与 `shifts[i + 1]` 与 `shifts[i + 2]` ... 的和。我们可以使用后缀和的思想，从后往前遍历 `shifts`，计算每个字符的最终偏移量，然后对 $26$ 取模，得到最终的字符。
+对于字符串 $s$ 中的每个字符，我们需要计算其最终的偏移量，即 $\textit{shifts}[i]$ 与 $\textit{shifts}[i + 1]$ 与 $\textit{shifts}[i + 2]$ ... 的和。我们可以使用后缀和的思想，从后往前遍历 $\textit{shifts}$，计算每个字符的最终偏移量，然后对 $26$ 取模，得到最终的字符。
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
@@ -89,29 +89,6 @@ class Solution:
             j = (ord(s[i]) - ord('a') + t) % 26
             s[i] = ascii_lowercase[j]
         return ''.join(s)
-```
-
-#### Python3
-
-```python
-class Solution:
-    def shiftingLetters(self, s: str, shifts: List[int]) -> str:
-        n = len(s)
-        d = [0] * (n + 1)
-        for i, c in enumerate(s):
-            v = ord(c) - ord('a')
-            d[i] += v
-            d[i + 1] -= v
-        for i, x in enumerate(shifts):
-            d[0] += x
-            d[i + 1] -= x
-        t = 0
-        ans = []
-        for i in range(n):
-            d[i] %= 26
-            ans.append(ascii_lowercase[d[i]])
-            d[i + 1] += d[i]
-        return ''.join(ans)
 ```
 
 #### Java
