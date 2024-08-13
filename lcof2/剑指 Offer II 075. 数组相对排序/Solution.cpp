@@ -1,14 +1,18 @@
 class Solution {
 public:
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
-        vector<int> mp(1001);
-        for (int x : arr1) ++mp[x];
-        int i = 0;
-        for (int x : arr2) {
-            while (mp[x]-- > 0) arr1[i++] = x;
+        unordered_map<int, int> pos;
+        for (int i = 0; i < arr2.size(); ++i) {
+            pos[arr2[i]] = i;
         }
-        for (int j = 0; j < mp.size(); ++j) {
-            while (mp[j]-- > 0) arr1[i++] = j;
+        vector<pair<int, int>> arr;
+        for (int i = 0; i < arr1.size(); ++i) {
+            int j = pos.count(arr1[i]) ? pos[arr1[i]] : arr2.size();
+            arr.emplace_back(j, arr1[i]);
+        }
+        sort(arr.begin(), arr.end());
+        for (int i = 0; i < arr1.size(); ++i) {
+            arr1[i] = arr[i].second;
         }
         return arr1;
     }

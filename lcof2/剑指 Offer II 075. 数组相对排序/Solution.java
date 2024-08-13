@@ -1,19 +1,16 @@
 class Solution {
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
-        int[] mp = new int[1001];
-        for (int x : arr1) {
-            ++mp[x];
+        Map<Integer, Integer> pos = new HashMap<>(arr2.length);
+        for (int i = 0; i < arr2.length; ++i) {
+            pos.put(arr2[i], i);
         }
-        int i = 0;
-        for (int x : arr2) {
-            while (mp[x]-- > 0) {
-                arr1[i++] = x;
-            }
+        int[][] arr = new int[arr1.length][0];
+        for (int i = 0; i < arr.length; ++i) {
+            arr[i] = new int[] {arr1[i], pos.getOrDefault(arr1[i], arr2.length + arr1[i])};
         }
-        for (int j = 0; j < mp.length; ++j) {
-            while (mp[j]-- > 0) {
-                arr1[i++] = j;
-            }
+        Arrays.sort(arr, (a, b) -> a[1] - b[1]);
+        for (int i = 0; i < arr.length; ++i) {
+            arr1[i] = arr[i][0];
         }
         return arr1;
     }
