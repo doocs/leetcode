@@ -65,7 +65,11 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Suffix Sum
+
+For each character in the string $s$, we need to calculate its final shift amount, which is the sum of $\textit{shifts}[i]$, $\textit{shifts}[i + 1]$, $\textit{shifts}[i + 2]$, and so on. We can use the concept of suffix sum, traversing $\textit{shifts}$ from back to front, calculating the final shift amount for each character, and then taking modulo $26$ to get the final character.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -81,29 +85,6 @@ class Solution:
             j = (ord(s[i]) - ord('a') + t) % 26
             s[i] = ascii_lowercase[j]
         return ''.join(s)
-```
-
-#### Python3
-
-```python
-class Solution:
-    def shiftingLetters(self, s: str, shifts: List[int]) -> str:
-        n = len(s)
-        d = [0] * (n + 1)
-        for i, c in enumerate(s):
-            v = ord(c) - ord('a')
-            d[i] += v
-            d[i + 1] -= v
-        for i, x in enumerate(shifts):
-            d[0] += x
-            d[i + 1] -= x
-        t = 0
-        ans = []
-        for i in range(n):
-            d[i] %= 26
-            ans.append(ascii_lowercase[d[i]])
-            d[i + 1] += d[i]
-        return ''.join(ans)
 ```
 
 #### Java
