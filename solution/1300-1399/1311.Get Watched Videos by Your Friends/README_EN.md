@@ -118,7 +118,8 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> watchedVideosByFriends(List<List<String>> watchedVideos, int[][] friends, int id, int level) {
+    public List<String> watchedVideosByFriends(
+        List<List<String>> watchedVideos, int[][] friends, int id, int level) {
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(id);
         int n = friends.length;
