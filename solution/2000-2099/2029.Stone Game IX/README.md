@@ -42,7 +42,7 @@ tags:
 <strong>输出：</strong>true
 <strong>解释：</strong>游戏进行如下：
 - 回合 1：Alice 可以移除任意一个石子。
-- 回合 2：Bob 移除剩下的石子。 
+- 回合 2：Bob 移除剩下的石子。
 已移除的石子的值总和为 1 + 2 = 3 且可以被 3 整除。因此，Bob 输，Alice 获胜。
 </pre>
 
@@ -51,7 +51,7 @@ tags:
 <pre>
 <strong>输入：</strong>stones = [2]
 <strong>输出：</strong>false
-<strong>解释：</strong>Alice 会移除唯一一个石子，已移除石子的值总和为 2 。 
+<strong>解释：</strong>Alice 会移除唯一一个石子，已移除石子的值总和为 2 。
 由于所有石子都已移除，且值总和无法被 3 整除，Bob 获胜。
 </pre>
 
@@ -222,6 +222,96 @@ function stoneGameIX(stones: number[]): boolean {
         return r % 2 === 1 && cnt[1] !== cnt[2];
     };
     return check(c1) || check(c2);
+}
+```
+
+#### JavaScript
+
+```js
+function stoneGameIX(stones) {
+    const c1 = Array(3).fill(0);
+    for (const x of stones) {
+        ++c1[x % 3];
+    }
+    const c2 = [c1[0], c1[2], c1[1]];
+    const check = cnt => {
+        if (--cnt[1] < 0) {
+            return false;
+        }
+        let r = 1 + Math.min(cnt[1], cnt[2]) * 2 + cnt[0];
+        if (cnt[1] > cnt[2]) {
+            --cnt[1];
+            ++r;
+        }
+        return r % 2 === 1 && cnt[1] !== cnt[2];
+    };
+    return check(c1) || check(c2);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Simulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function stoneGameIX(stones: number[]): boolean {
+    if (stones.length === 1) return false;
+
+    const cnt = Array(3).fill(0);
+    for (const x of stones) cnt[x % 3]++;
+
+    const check = (x: number, cnt: number[]): boolean => {
+        let c = 1;
+        if (--cnt[x] < 0) return false;
+
+        while (cnt[1] || cnt[2]) {
+            if (cnt[x]) {
+                cnt[x]--;
+                x = x === 1 ? 2 : 1;
+            } else return (c + cnt[0]) % 2 === 1;
+            c++;
+        }
+
+        return false;
+    };
+
+    return check(1, [...cnt]) || check(2, [...cnt]);
+}
+```
+
+#### JavaScript
+
+```js
+function stoneGameIX(stones) {
+    if (stones.length === 1) return false;
+
+    const cnt = Array(3).fill(0);
+    for (const x of stones) cnt[x % 3]++;
+
+    const check = (x, cnt) => {
+        let c = 1;
+        if (--cnt[x] < 0) return false;
+
+        while (cnt[1] || cnt[2]) {
+            if (cnt[x]) {
+                cnt[x]--;
+                x = x === 1 ? 2 : 1;
+            } else return (c + cnt[0]) % 2 === 1;
+            c++;
+        }
+
+        return false;
+    };
+
+    return check(1, [...cnt]) || check(2, [...cnt]);
 }
 ```
 
