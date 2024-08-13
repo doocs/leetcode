@@ -1,19 +1,24 @@
 class Solution:
-    def isAnyMapping(self, words, row, col, bal, letToDig, digToLet, totalRows, totalCols):
+    def isAnyMapping(
+        self, words, row, col, bal, letToDig, digToLet, totalRows, totalCols
+    ):
         # If traversed all columns.
         if col == totalCols:
             return bal == 0
 
         # At the end of a particular column.
         if row == totalRows:
-            return (bal % 10 == 0 and 
-                    self.isAnyMapping(words, 0, col + 1, bal // 10, letToDig, digToLet, totalRows, totalCols))
+            return bal % 10 == 0 and self.isAnyMapping(
+                words, 0, col + 1, bal // 10, letToDig, digToLet, totalRows, totalCols
+            )
 
         w = words[row]
 
         # If the current string 'w' has no character in the ('col')th index.
         if col >= len(w):
-            return self.isAnyMapping(words, row + 1, col, bal, letToDig, digToLet, totalRows, totalCols)
+            return self.isAnyMapping(
+                words, row + 1, col, bal, letToDig, digToLet, totalRows, totalCols
+            )
 
         # Take the current character in the variable letter.
         letter = w[len(w) - 1 - col]
@@ -26,27 +31,48 @@ class Solution:
 
         # If we have a prior valid mapping, then use that mapping.
         # The second condition is for the leading zeros.
-        if (letter in letToDig and 
-            (letToDig[letter] != 0 or (letToDig[letter] == 0 and len(w) == 1) or col != len(w) - 1)):
-            
-            return self.isAnyMapping(words, row + 1, col, bal + sign * letToDig[letter], 
-                                     letToDig, digToLet, totalRows, totalCols)
+        if letter in letToDig and (
+            letToDig[letter] != 0
+            or (letToDig[letter] == 0 and len(w) == 1)
+            or col != len(w) - 1
+        ):
+
+            return self.isAnyMapping(
+                words,
+                row + 1,
+                col,
+                bal + sign * letToDig[letter],
+                letToDig,
+                digToLet,
+                totalRows,
+                totalCols,
+            )
 
         # Choose a new mapping.
         else:
             for i in range(10):
                 # If 'i'th mapping is valid then select it.
-                if digToLet[i] == '-' and (i != 0 or (i == 0 and len(w) == 1) or col != len(w) - 1):
+                if digToLet[i] == "-" and (
+                    i != 0 or (i == 0 and len(w) == 1) or col != len(w) - 1
+                ):
                     digToLet[i] = letter
                     letToDig[letter] = i
-                    
+
                     # Call the function again with the new mapping.
-                    if self.isAnyMapping(words, row + 1, col, bal + sign * letToDig[letter], 
-                                         letToDig, digToLet, totalRows, totalCols):
+                    if self.isAnyMapping(
+                        words,
+                        row + 1,
+                        col,
+                        bal + sign * letToDig[letter],
+                        letToDig,
+                        digToLet,
+                        totalRows,
+                        totalCols,
+                    ):
                         return True
 
                     # Unselect the mapping.
-                    digToLet[i] = '-'
+                    digToLet[i] = "-"
                     if letter in letToDig:
                         del letToDig[letter]
 
@@ -65,23 +91,10 @@ class Solution:
 
         # Create a HashMap for the letter to digit mapping.
         letToDig = {}
-        
+
         # Create a list for the digit to letter mapping.
-        digToLet = ['-'] * 10
+        digToLet = ["-"] * 10
 
-        return self.isAnyMapping(words, 0, 0, 0, letToDig, digToLet, totalRows, totalCols)
-
-# Example usage:
-sol = Solution()
-
-words1 = ["SEND", "MORE"]
-result1 = "MONEY"
-print(sol.isSolvable(words1, result1))  # Output: True
-
-words2 = ["SIX", "SEVEN", "SEVEN"]
-result2 = "TWENTY"
-print(sol.isSolvable(words2, result2))  # Output: True
-
-words3 = ["LEET", "CODE"]
-result3 = "POINT"
-print(sol.isSolvable(words3, result3))  # Output: False
+        return self.isAnyMapping(
+            words, 0, 0, 0, letToDig, digToLet, totalRows, totalCols
+        )
