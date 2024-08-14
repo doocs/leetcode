@@ -33,8 +33,8 @@ tags:
 
 <pre>
 <strong>Input:</strong> watchedVideos = [[&quot;A&quot;,&quot;B&quot;],[&quot;C&quot;],[&quot;B&quot;,&quot;C&quot;],[&quot;D&quot;]], friends = [[1,2],[0,3],[0,3],[1,2]], id = 0, level = 1
-<strong>Output:</strong> [&quot;B&quot;,&quot;C&quot;]
-<strong>Explanation:</strong>
+<strong>Output:</strong> [&quot;B&quot;,&quot;C&quot;] 
+<strong>Explanation:</strong> 
 You have id = 0 (green color in the figure) and your friends are (yellow color in the figure):
 Person with id = 1 -&gt; watchedVideos = [&quot;C&quot;]&nbsp;
 Person with id = 2 -&gt; watchedVideos = [&quot;B&quot;,&quot;C&quot;]&nbsp;
@@ -50,7 +50,7 @@ C -&gt; 2
 <pre>
 <strong>Input:</strong> watchedVideos = [[&quot;A&quot;,&quot;B&quot;],[&quot;C&quot;],[&quot;B&quot;,&quot;C&quot;],[&quot;D&quot;]], friends = [[1,2],[0,3],[0,3],[1,2]], id = 0, level = 2
 <strong>Output:</strong> [&quot;D&quot;]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 You have id = 0 (green color in the figure) and the only friend of your friends is the person with id = 3 (yellow color in the figure).
 </pre>
 

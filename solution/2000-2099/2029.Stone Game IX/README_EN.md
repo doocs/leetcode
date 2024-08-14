@@ -36,7 +36,7 @@ tags:
 <strong>Output:</strong> true
 <strong>Explanation:</strong>&nbsp;The game will be played as follows:
 - Turn 1: Alice can remove either stone.
-- Turn 2: Bob removes the remaining stone.
+- Turn 2: Bob removes the remaining stone. 
 The sum of the removed stones is 1 + 2 = 3 and is divisible by 3. Therefore, Bob loses and Alice wins the game.
 </pre>
 
@@ -45,7 +45,7 @@ The sum of the removed stones is 1 + 2 = 3 and is divisible by 3. Therefore, Bob
 <pre>
 <strong>Input:</strong> stones = [2]
 <strong>Output:</strong> false
-<strong>Explanation:</strong>&nbsp;Alice will remove the only stone, and the sum of the values on the removed stones is 2.
+<strong>Explanation:</strong>&nbsp;Alice will remove the only stone, and the sum of the values on the removed stones is 2. 
 Since all the stones are removed and the sum of values is not divisible by 3, Bob wins the game.
 </pre>
 

@@ -289,7 +289,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3230 | [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)                                                                   | `Database` | Medium     | 🔒     |
 | 3236 | [CEO Subordinate Hierarchy](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README_EN.md)                                                                                             | `Database` | Hard       | 🔒     |
 | 3246 | [Premier League Table Ranking](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README_EN.md)                                                                                     | `Database` | Easy       | 🔒     |
-| 3252 | [Premier League Table Ranking II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README_EN.md)                                                                             |            | Medium     | 🔒     |
+| 3252 | [Premier League Table Ranking II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README_EN.md)                                                                             | `Database` | Medium     | 🔒     |
 
 ## Copyright
 

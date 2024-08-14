@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3248.Snake%20in%20Matrix/README.md
+tags:
+    - 数组
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

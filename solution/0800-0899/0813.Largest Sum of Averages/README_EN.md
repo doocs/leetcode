@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [9,1,2,3,9], k = 3
 <strong>Output:</strong> 20.00000
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The best choice is to partition nums into [9], [1, 2, 3], [9]. The answer is 9 + (1 + 2 + 3) / 3 + 9 = 20.
 We could have also partitioned nums into [9, 1], [2], [3, 9], for example.
 That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
