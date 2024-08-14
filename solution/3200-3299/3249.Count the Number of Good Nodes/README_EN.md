@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3249.Count%20the%20Number%20of%20Good%20Nodes/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
 ---
 
 <!-- problem:start -->

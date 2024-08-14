@@ -37,7 +37,7 @@ tags:
 <p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/images/leetcode_friends_1.png" style="height: 179px; width: 129px;"></strong></p>
 
 <pre><strong>输入：</strong>watchedVideos = [[&quot;A&quot;,&quot;B&quot;],[&quot;C&quot;],[&quot;B&quot;,&quot;C&quot;],[&quot;D&quot;]], friends = [[1,2],[0,3],[0,3],[1,2]], id = 0, level = 1
-<strong>输出：</strong>[&quot;B&quot;,&quot;C&quot;]
+<strong>输出：</strong>[&quot;B&quot;,&quot;C&quot;] 
 <strong>解释：</strong>
 你的 id 为 0（绿色），你的朋友包括（黄色）：
 id 为 1 -&gt; watchedVideos = [&quot;C&quot;]&nbsp;

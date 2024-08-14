@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3251.Find%20the%20Count%20of%20Monotonic%20Pairs%20II/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 组合数学
+    - 前缀和
 ---
 
 <!-- problem:start -->

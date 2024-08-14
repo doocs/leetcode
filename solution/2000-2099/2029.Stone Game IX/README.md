@@ -42,7 +42,7 @@ tags:
 <strong>输出：</strong>true
 <strong>解释：</strong>游戏进行如下：
 - 回合 1：Alice 可以移除任意一个石子。
-- 回合 2：Bob 移除剩下的石子。
+- 回合 2：Bob 移除剩下的石子。 
 已移除的石子的值总和为 1 + 2 = 3 且可以被 3 整除。因此，Bob 输，Alice 获胜。
 </pre>
 
@@ -51,7 +51,7 @@ tags:
 <pre>
 <strong>输入：</strong>stones = [2]
 <strong>输出：</strong>false
-<strong>解释：</strong>Alice 会移除唯一一个石子，已移除石子的值总和为 2 。
+<strong>解释：</strong>Alice 会移除唯一一个石子，已移除石子的值总和为 2 。 
 由于所有石子都已移除，且值总和无法被 3 整除，Bob 获胜。
 </pre>
 

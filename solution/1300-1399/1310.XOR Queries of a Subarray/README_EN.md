@@ -31,17 +31,17 @@ tags:
 
 <pre>
 <strong>Input:</strong> arr = [1,3,4,8], queries = [[0,1],[1,2],[0,3],[3,3]]
-<strong>Output:</strong> [2,7,14,8]
-<strong>Explanation:</strong>
+<strong>Output:</strong> [2,7,14,8] 
+<strong>Explanation:</strong> 
 The binary representation of the elements in the array are:
-1 = 0001
-3 = 0011
-4 = 0100
-8 = 1000
+1 = 0001 
+3 = 0011 
+4 = 0100 
+8 = 1000 
 The XOR values for queries are:
-[0,1] = 1 xor 3 = 2
-[1,2] = 3 xor 4 = 7
-[0,3] = 1 xor 3 xor 4 xor 8 = 14
+[0,1] = 1 xor 3 = 2 
+[1,2] = 3 xor 4 = 7 
+[0,3] = 1 xor 3 xor 4 xor 8 = 14 
 [3,3] = 8
 </pre>
 

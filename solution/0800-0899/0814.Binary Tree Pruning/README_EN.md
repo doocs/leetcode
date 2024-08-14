@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> root = [1,null,0,0,1]
 <strong>Output:</strong> [1,null,0,null,1]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Only the red nodes satisfy the property &quot;every subtree not containing a 1&quot;.
 The diagram on the right represents the answer.
 </pre>

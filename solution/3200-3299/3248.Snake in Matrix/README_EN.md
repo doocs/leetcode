@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3248.Snake%20in%20Matrix/README_EN.md
+tags:
+    - Array
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->
