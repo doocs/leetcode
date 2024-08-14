@@ -10,7 +10,7 @@ function smallestDistancePair(nums, k) {
         right = nums[n - 1] - nums[0];
 
     while (left < right) {
-        let mid = Math.floor((left + right) / 2);
+        const mid = (left + right) >> 1;
         let count = 0,
             i = 0;
 
