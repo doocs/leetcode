@@ -4,14 +4,15 @@
  * @return {number}
  */
 function smallestDistancePair(nums, k) {
-    nums.sort((a, b) => a - b); 
+    nums.sort((a, b) => a - b);
     const n = nums.length;
     let left = 0,
-        right = nums[n - 1] - nums[0]; 
+        right = nums[n - 1] - nums[0];
 
     while (left < right) {
         let mid = Math.floor((left + right) / 2);
-        let count = 0, i = 0;
+        let count = 0,
+            i = 0;
 
         for (let j = 0; j < n; j++) {
             while (nums[j] - nums[i] > mid) {
