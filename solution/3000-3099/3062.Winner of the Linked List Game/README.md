@@ -26,7 +26,7 @@ tags:
 
 <ul>
 	<li>如果奇数节点更大，<code>"Odd"</code>&nbsp;队得一分。</li>
-	<li>如果偶数节点更大，<font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size: 12.6px; background-color: rgb(249, 242, 244);">"Even"</span></font>&nbsp;队得一分。</li>
+	<li>如果偶数节点更大，<code>"Even"</code>&nbsp;队得一分。</li>
 </ul>
 
 <p>返回分数更 <strong>高</strong> 的队名，如果分数相同，返回&nbsp;<code>"Tie"</code>。</p>
