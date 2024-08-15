@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>Input:</strong> bills = [5,5,5,10,20]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 From the first 3 customers, we collect three $5 bills in order.
 From the fourth customer, we collect a $10 bill and give back a $5.
 From the fifth customer, we give a $10 bill and a $5 bill.
@@ -41,7 +41,7 @@ Since all customers got correct change, we output true.
 <pre>
 <strong>Input:</strong> bills = [5,5,10,10,20]
 <strong>Output:</strong> false
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 From the first two customers in order, we collect two $5 bills.
 For the next two customers in order, we collect a $10 bill and give back a $5 bill.
 For the last customer, we can not give the change of $15 back because we only have two $10 bills.
@@ -181,10 +181,9 @@ func lemonadeChange(bills []int) bool {
 
 ```ts
 function lemonadeChange(bills: number[]): boolean {
-    let five = 0;
-    let ten = 0;
-    for (let bill of bills) {
-        switch (bill) {
+    let [five, ten] = [0, 0];
+    for (const x of bills) {
+        switch (x) {
             case 5:
                 five++;
                 break;
@@ -193,11 +192,12 @@ function lemonadeChange(bills: number[]): boolean {
                 ten++;
                 break;
             case 20:
-                if (ten !== 0) {
-                    ten -= 1;
-                    bill -= 10;
+                if (ten) {
+                    ten--;
+                    five--;
+                } else {
+                    five -= 3;
                 }
-                five -= bill / 5 - 1;
                 break;
         }
 
