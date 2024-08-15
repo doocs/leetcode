@@ -1,39 +1,26 @@
-﻿// https://leetcode.com/problems/shortest-palindrome/
+﻿public class Solution {
+    public string ShortestPalindrome(string s) {
+        int baseValue = 131;
+        int mul = 1;
+        int mod = (int)1e9 + 7;
+        int prefix = 0, suffix = 0;
+        int idx = 0;
+        int n = s.Length;
 
-using System.Text;
-
-public partial class Solution
-{
-    public string ShortestPalindrome(string s)
-    {
-        for (var i = s.Length - 1; i >= 0; --i)
-        {
-            var k = i;
-            var j = 0;
-            while (j < k)
-            {
-                if (s[j] == s[k])
-                {
-                    ++j;
-                    --k;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            if (j >= k)
-            {
-                var sb = new StringBuilder(s.Length * 2 - i - 1);
-                for (var l = s.Length - 1; l >= i + 1; --l)
-                {
-                    sb.Append(s[l]);
-                }
-                sb.Append(s);
-                return sb.ToString();
+        for (int i = 0; i < n; ++i) {
+            int t = s[i] - 'a' + 1;
+            prefix = (int)(((long)prefix * baseValue + t) % mod);
+            suffix = (int)((suffix + (long)t * mul) % mod);
+            mul = (int)(((long)mul * baseValue) % mod);
+            if (prefix == suffix) {
+                idx = i + 1;
             }
         }
 
-        return string.Empty;
+        if (idx == n) {
+            return s;
+        }
+
+        return new string(s.Substring(idx).Reverse().ToArray()) + s;
     }
 }
