@@ -17,9 +17,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个字符串 <code>path</code> ，表示指向某一文件或目录的 Unix 风格 <strong>绝对路径 </strong>（以 <code>'/'</code> 开头），请你将其转化为更加简洁的规范路径。</p>
+<p>给你一个字符串 <code>path</code> ，表示指向某一文件或目录的&nbsp;Unix 风格 <strong>绝对路径 </strong>（以 <code>'/'</code> 开头），请你将其转化为更加简洁的规范路径。</p>
 
-<p class="MachineTrans-lang-zh-CN">在 Unix 风格的文件系统中，一个点（<code>.</code>）表示当前目录本身；此外，两个点 （<code>..</code>） 表示将目录切换到上一级（指向父目录）；两者都可以是复杂相对路径的组成部分。任意多个连续的斜杠（即，<code>'//'</code>）都被视为单个斜杠 <code>'/'</code> 。 对于此问题，任何其他格式的点（例如，<code>'...'</code>）均被视为文件/目录名称。</p>
+<p class="MachineTrans-lang-zh-CN">在 Unix 风格的文件系统中，一个点（<code>.</code>）表示当前目录本身；此外，两个点 （<code>..</code>）&nbsp;表示将目录切换到上一级（指向父目录）；两者都可以是复杂相对路径的组成部分。任意多个连续的斜杠（即，<code>'//'</code>）都被视为单个斜杠 <code>'/'</code> 。 对于此问题，任何其他格式的点（例如，<code>'...'</code>）均被视为文件/目录名称。</p>
 
 <p>请注意，返回的 <strong>规范路径</strong> 必须遵循下述格式：</p>
 
@@ -32,44 +32,74 @@ tags:
 
 <p>返回简化后得到的 <strong>规范路径</strong> 。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>path = "/home/"
-<strong>输出：</strong>"/home"
-<strong>解释：</strong>注意，最后一个目录名后面没有斜杠。 </pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>path = "/home/"</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>"/home"</span></p>
 
-<pre>
-<strong>输入：</strong>path = "/../"
-<strong>输出：</strong>"/"
-<strong>解释：</strong>从根目录向上一级是不可行的，因为根目录是你可以到达的最高级。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>应删除尾部斜杠。</p>
+</div>
 
-<pre>
-<strong>输入：</strong>path = "/home//foo/"
-<strong>输出：</strong>"/home/foo"
-<strong>解释：</strong>在规范路径中，多个连续斜杠需要用一个斜杠替换。
-</pre>
+<p><strong class="example">示例 2：</strong></p>
 
-<p><strong>示例 4：</strong></p>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/home//foo/"</span></p>
 
-<pre>
-<strong>输入：</strong>path = "/a/./b/../../c/"
-<strong>输出：</strong>"/c"
-</pre>
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/home/foo"</span></p>
 
-<p> </p>
+<p><strong>解释：</strong></p>
+
+<p>多个连续的斜杠被单个斜杠替换。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/home/user/Documents/../Pictures"</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/home/user/Pictures"</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>两个点&nbsp;<code>".."</code>&nbsp;表示上一级目录。</p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/../"</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/"</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>不可能从根目录上升级一级。</p>
+</div>
+
+<p><strong class="example">示例 5：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/.../a/../b/c/../d/./"</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/.../b/d"</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><code>"..."</code> 是此问题中目录的有效名称。</p>
+</div>
+
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= path.length <= 3000</code></li>
+	<li><code>1 &lt;= path.length &lt;= 3000</code></li>
 	<li><code>path</code> 由英文字母，数字，<code>'.'</code>，<code>'/'</code> 或 <code>'_'</code> 组成。</li>
 	<li><code>path</code> 是一个有效的 Unix 风格绝对路径。</li>
 </ul>

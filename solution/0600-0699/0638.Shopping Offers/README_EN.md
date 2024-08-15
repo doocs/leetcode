@@ -62,6 +62,7 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 	<li><code>1 &lt;= special.length &lt;= 100</code></li>
 	<li><code>special[i].length == n + 1</code></li>
 	<li><code>0 &lt;= special[i][j] &lt;= 50</code></li>
+	<li>The input is generated that at least one of <code>special[i][j]</code> is non-zero for <code>0 &lt;= j &lt;= n - 1</code>.</li>
 </ul>
 
 <!-- description:end -->

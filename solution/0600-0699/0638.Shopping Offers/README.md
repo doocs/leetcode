@@ -29,7 +29,7 @@ tags:
 
 <p>返回<strong> 确切 </strong>满足购物清单所需花费的最低价格，你可以充分利用大礼包的优惠活动。你不能购买超出购物清单指定数量的物品，即使那样会降低整体价格。任意大礼包可无限次购买。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -51,19 +51,18 @@ tags:
 需要买 1A ，2B 和 1C ，所以付 ¥4 买 1A 和 1B（大礼包 1），以及 ¥3 购买 1B ， ¥4 购买 1C 。 
 不可以购买超出待购清单的物品，尽管购买大礼包 2 更加便宜。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>n == price.length</code></li>
-	<li><code>n == needs.length</code></li>
-	<li><code>1 <= n <= 6</code></li>
-	<li><code>0 <= price[i] <= 10</code></li>
-	<li><code>0 <= needs[i] <= 10</code></li>
-	<li><code>1 <= special.length <= 100</code></li>
+	<li><code>n == price.length == needs.length</code></li>
+	<li><code>1 &lt;= n &lt;= 6</code></li>
+	<li><code>0 &lt;= price[i], needs[i] &lt;= 10</code></li>
+	<li><code>1 &lt;= special.length &lt;= 100</code></li>
 	<li><code>special[i].length == n + 1</code></li>
-	<li><code>0 <= special[i][j] <= 50</code></li>
+	<li><code>0 &lt;= special[i][j] &lt;= 50</code></li>
+	<li>生成的输入对于&nbsp;<code>0 &lt;= j &lt;= n - 1</code> 至少有一个&nbsp;<code>special[i][j]</code>&nbsp;非零。</li>
 </ul>
 
 <!-- description:end -->

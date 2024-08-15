@@ -42,13 +42,6 @@ tags:
 <strong>解释：</strong>数组可以分成 [1,2,3] , [2,3,4] , [3,4,5] 和 [9,10,11]。
 </pre>
 
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>nums = [3,3,2,2,1,1], k = 3
-<strong>输出：</strong>true
-</pre>
-
 <p><strong>示例 4：</strong></p>
 
 <pre>
