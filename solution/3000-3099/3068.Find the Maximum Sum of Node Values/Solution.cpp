@@ -1,28 +1,12 @@
 class Solution {
 public:
     long long maximumValueSum(vector<int>& nums, int k, vector<vector<int>>& edges) {
-        long long totalSum = 0;
-        int count = 0;
-        int positiveMin = INT_MAX;
-        int negativeMax = INT_MIN;
-
-        for (int nodeValue : nums) {
-            int nodeValAfterOperation = nodeValue ^ k;
-            totalSum += nodeValue;
-            int netChange = nodeValAfterOperation - nodeValue;
-
-            if (netChange > 0) {
-                positiveMin = min(positiveMin, netChange);
-                totalSum += netChange;
-                count += 1;
-            } else {
-                negativeMax = max(negativeMax, netChange);
-            }
+        long long f0 = 0, f1 = -0x3f3f3f3f;
+        for (int x : nums) {
+            long long tmp = f0;
+            f0 = max(f0 + x, f1 + (x ^ k));
+            f1 = max(f1 + x, tmp + (x ^ k));
         }
-
-        if (count % 2 == 0) {
-            return totalSum;
-        }
-        return max(totalSum - positiveMin, totalSum + negativeMax);
+        return f0;
     }
 };
