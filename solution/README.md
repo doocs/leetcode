@@ -3263,6 +3263,7 @@
 |  3250  |  [单调数组对的数目 I](/solution/3200-3299/3250.Find%20the%20Count%20of%20Monotonic%20Pairs%20I/README.md)  |  `数组`,`数学`,`动态规划`,`组合数学`,`前缀和`  |  困难  |  第 410 场周赛  |
 |  3251  |  [单调数组对的数目 II](/solution/3200-3299/3251.Find%20the%20Count%20of%20Monotonic%20Pairs%20II/README.md)  |  `数组`,`数学`,`动态规划`,`组合数学`,`前缀和`  |  困难  |  第 410 场周赛  |
 |  3252  |  [英超积分榜排名 II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3253  |  [Construct String with Minimum Cost (Easy)](/solution/3200-3299/3253.Construct%20String%20with%20Minimum%20Cost%20%28Easy%29/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

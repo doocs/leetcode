@@ -3261,6 +3261,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3250  |  [Find the Count of Monotonic Pairs I](/solution/3200-3299/3250.Find%20the%20Count%20of%20Monotonic%20Pairs%20I/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`,`Combinatorics`,`Prefix Sum`  |  Hard  |  Weekly Contest 410  |
 |  3251  |  [Find the Count of Monotonic Pairs II](/solution/3200-3299/3251.Find%20the%20Count%20of%20Monotonic%20Pairs%20II/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`,`Combinatorics`,`Prefix Sum`  |  Hard  |  Weekly Contest 410  |
 |  3252  |  [Premier League Table Ranking II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3253  |  [Construct String with Minimum Cost (Easy)](/solution/3200-3299/3253.Construct%20String%20with%20Minimum%20Cost%20%28Easy%29/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
