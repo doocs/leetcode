@@ -296,7 +296,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: One-liner
+### 方法二：一行
 
 <!-- tabs:start -->
 
