@@ -77,9 +77,9 @@ tags:
 -   下一条对角线的 $i + j$ 的值比前一条对角线的大；
 -   在同一条对角线中的 $i + j$ 是相同的，而 $j$ 值是从小到大递增。
 
-因此，我们将所有数字以 `(i + j, j, nums[i][j])` 的形式存进 `arr`，然后按照前两项排序。最后返回 `arr` 所有元素第二项组成的数组即可。
+因此，我们将所有数字以 $(i, j, \textit{nums}[i][j])$ 的形式存进 $\textit{arr}$，然后按照前两项排序。最后返回 $\textit{arr}$ 所有元素下标为 $2$ 的值组成的数组即可。
 
-时间复杂度 $O(n\log n)$，其中 $n$ 是 `nums` 数组元素的个数。
+时间复杂度 $O(n \times \log n)$，其中 $n$ 是数组 $\textit{nums}$ 中元素的个数。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -160,6 +160,21 @@ func findDiagonalOrder(nums [][]int) []int {
 		ans = append(ans, v[2])
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findDiagonalOrder(nums: number[][]): number[] {
+    const arr: number[][] = [];
+    for (let i = 0; i < nums.length; ++i) {
+        for (let j = 0; j < nums[i].length; ++j) {
+            arr.push([i + j, j, nums[i][j]]);
+        }
+    }
+    arr.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+    return arr.map(x => x[2]);
 }
 ```
 

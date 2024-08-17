@@ -1,16 +1,12 @@
 class Solution {
 public:
     int maxScore(string s) {
+        int l = 0, r = count(s.begin(), s.end(), '1');
         int ans = 0;
-        for (int i = 1, n = s.size(); i < n; ++i) {
-            int t = 0;
-            for (int j = 0; j < i; ++j) {
-                t += s[j] == '0';
-            }
-            for (int j = i; j < n; ++j) {
-                t += s[j] == '1';
-            }
-            ans = max(ans, t);
+        for (int i = 0; i < s.size() - 1; ++i) {
+            l += (s[i] - '0') ^ 1;
+            r -= s[i] - '0';
+            ans = max(ans, l + r);
         }
         return ans;
     }
