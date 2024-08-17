@@ -1,18 +1,14 @@
 class Solution:
     def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
-        tables = set()
-        foods = set()
-        mp = Counter()
-        for _, table, food in orders:
-            tables.add(int(table))
-            foods.add(food)
-            mp[f'{table}.{food}'] += 1
-        foods = sorted(list(foods))
-        tables = sorted(list(tables))
-        res = [['Table'] + foods]
-        for table in tables:
-            t = [str(table)]
-            for food in foods:
-                t.append(str(mp[f'{table}.{food}']))
-            res.append(t)
-        return res
+        tables = defaultdict(list)
+        items = set()
+        for _, table, foodItem in orders:
+            tables[int(table)].append(foodItem)
+            items.add(foodItem)
+        sorted_items = sorted(items)
+        ans = [["Table"] + sorted_items]
+        for table in sorted(tables):
+            cnt = Counter(tables[table])
+            row = [str(table)] + [str(cnt[item]) for item in sorted_items]
+            ans.append(row)
+        return ans
