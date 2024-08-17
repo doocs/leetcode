@@ -184,7 +184,7 @@ var maxDistance = function (arrays) {
 
 <!-- solution:start -->
 
-### Solution 2: One-line solution
+### 方法二：一行
 
 <!-- tabs:start -->
 
