@@ -1,33 +1,32 @@
 class Solution {
     public List<List<String>> displayTable(List<List<String>> orders) {
-        Set<Integer> tables = new HashSet<>();
-        Set<String> foods = new HashSet<>();
-        Map<String, Integer> mp = new HashMap<>();
-        for (List<String> order : orders) {
-            int table = Integer.parseInt(order.get(1));
-            String food = order.get(2);
-            tables.add(table);
-            foods.add(food);
-            String key = table + "." + food;
-            mp.put(key, mp.getOrDefault(key, 0) + 1);
+        TreeMap<Integer, List<String>> tables = new TreeMap<>();
+        Set<String> items = new HashSet<>();
+        for (List<String> o : orders) {
+            int table = Integer.parseInt(o.get(1));
+            String foodItem = o.get(2);
+            tables.computeIfAbsent(table, k -> new ArrayList<>()).add(foodItem);
+            items.add(foodItem);
         }
-        List<Integer> t = new ArrayList<>(tables);
-        List<String> f = new ArrayList<>(foods);
-        Collections.sort(t);
-        Collections.sort(f);
-        List<List<String>> res = new ArrayList<>();
-        List<String> title = new ArrayList<>();
-        title.add("Table");
-        title.addAll(f);
-        res.add(title);
-        for (int table : t) {
-            List<String> tmp = new ArrayList<>();
-            tmp.add(String.valueOf(table));
-            for (String food : f) {
-                tmp.add(String.valueOf(mp.getOrDefault(table + "." + food, 0)));
+        List<String> sortedItems = new ArrayList<>(items);
+        Collections.sort(sortedItems);
+        List<List<String>> ans = new ArrayList<>();
+        List<String> header = new ArrayList<>();
+        header.add("Table");
+        header.addAll(sortedItems);
+        ans.add(header);
+        for (Map.Entry<Integer, List<String>> entry : tables.entrySet()) {
+            Map<String, Integer> cnt = new HashMap<>();
+            for (String item : entry.getValue()) {
+                cnt.merge(item, 1, Integer::sum);
             }
-            res.add(tmp);
+            List<String> row = new ArrayList<>();
+            row.add(String.valueOf(entry.getKey()));
+            for (String item : sortedItems) {
+                row.add(String.valueOf(cnt.getOrDefault(item, 0)));
+            }
+            ans.add(row);
         }
-        return res;
+        return ans;
     }
 }
