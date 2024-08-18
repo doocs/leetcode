@@ -26,6 +26,16 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 411 场周赛(2024-08-18 10:30, 90 分钟) 参赛人数 2688
+
+
+#### 第 137 场双周赛(2024-08-17 22:30, 90 分钟) 参赛人数 2198
+
+- [3254. 长度为 K 的子数组的能量值 I](/solution/3200-3299/3254.Find%20the%20Power%20of%20K-Size%20Subarrays%20I/README.md)
+- [3255. 长度为 K 的子数组的能量值 II](/solution/3200-3299/3255.Find%20the%20Power%20of%20K-Size%20Subarrays%20II/README.md)
+- [3256. 放三个车的价值之和最大 I](/solution/3200-3299/3256.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20I/README.md)
+- [3257. 放三个车的价值之和最大 II](/solution/3200-3299/3257.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20II/README.md)
+
 #### 第 410 场周赛(2024-08-11 10:30, 90 分钟) 参赛人数 2987
 
 - [3248. 矩阵中的蛇](/solution/3200-3299/3248.Snake%20in%20Matrix/README.md)
