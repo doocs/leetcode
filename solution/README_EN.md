@@ -3266,6 +3266,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3255  |  [Find the Power of K-Size Subarrays II](/solution/3200-3299/3255.Find%20the%20Power%20of%20K-Size%20Subarrays%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 137  |
 |  3256  |  [Maximum Value Sum by Placing Three Rooks I](/solution/3200-3299/3256.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20I/README_EN.md)  |    |  Hard  |  Biweekly Contest 137  |
 |  3257  |  [Maximum Value Sum by Placing Three Rooks II](/solution/3200-3299/3257.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 137  |
+|  3258  |  [Count Substrings That Satisfy K-Constraint I](/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 411  |
+|  3259  |  [Maximum Energy Boost From Two Drinks](/solution/3200-3299/3259.Maximum%20Energy%20Boost%20From%20Two%20Drinks/README_EN.md)  |    |  Medium  |  Weekly Contest 411  |
+|  3260  |  [Find the Largest Palindrome Divisible by K](/solution/3200-3299/3260.Find%20the%20Largest%20Palindrome%20Divisible%20by%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 411  |
+|  3261  |  [Count Substrings That Satisfy K-Constraint II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 411  |
 
 ## Copyright
 
