@@ -31,6 +31,10 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Weekly Contest 411
 
+- [3258. Count Substrings That Satisfy K-Constraint I](/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README_EN.md)
+- [3259. Maximum Energy Boost From Two Drinks](/solution/3200-3299/3259.Maximum%20Energy%20Boost%20From%20Two%20Drinks/README_EN.md)
+- [3260. Find the Largest Palindrome Divisible by K](/solution/3200-3299/3260.Find%20the%20Largest%20Palindrome%20Divisible%20by%20K/README_EN.md)
+- [3261. Count Substrings That Satisfy K-Constraint II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README_EN.md)
 
 #### Biweekly Contest 137
 

@@ -28,6 +28,10 @@ comments: true
 
 #### 第 411 场周赛(2024-08-18 10:30, 90 分钟) 参赛人数 2688
 
+- [3258. 统计满足 K 约束的子字符串数量 I](/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README.md)
+- [3259. 超级饮料的最大强化能量](/solution/3200-3299/3259.Maximum%20Energy%20Boost%20From%20Two%20Drinks/README.md)
+- [3260. 找出最大的 N 位 K 回文数](/solution/3200-3299/3260.Find%20the%20Largest%20Palindrome%20Divisible%20by%20K/README.md)
+- [3261. 统计满足 K 约束的子字符串数量 II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README.md)
 
 #### 第 137 场双周赛(2024-08-17 22:30, 90 分钟) 参赛人数 2198
 
