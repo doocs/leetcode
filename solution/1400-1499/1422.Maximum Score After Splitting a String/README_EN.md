@@ -28,13 +28,13 @@ tags:
 
 <pre>
 <strong>Input:</strong> s = &quot;011101&quot;
-<strong>Output:</strong> 5
-<strong>Explanation:</strong>
+<strong>Output:</strong> 5 
+<strong>Explanation:</strong> 
 All possible ways of splitting s into two non-empty substrings are:
-left = &quot;0&quot; and right = &quot;11101&quot;, score = 1 + 4 = 5
-left = &quot;01&quot; and right = &quot;1101&quot;, score = 1 + 3 = 4
-left = &quot;011&quot; and right = &quot;101&quot;, score = 1 + 2 = 3
-left = &quot;0111&quot; and right = &quot;01&quot;, score = 1 + 1 = 2
+left = &quot;0&quot; and right = &quot;11101&quot;, score = 1 + 4 = 5 
+left = &quot;01&quot; and right = &quot;1101&quot;, score = 1 + 3 = 4 
+left = &quot;011&quot; and right = &quot;101&quot;, score = 1 + 2 = 3 
+left = &quot;0111&quot; and right = &quot;01&quot;, score = 1 + 1 = 2 
 left = &quot;01110&quot; and right = &quot;1&quot;, score = 2 + 1 = 3
 </pre>
 
