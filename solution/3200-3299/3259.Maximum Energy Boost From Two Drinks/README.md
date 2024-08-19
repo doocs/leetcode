@@ -68,32 +68,107 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3259.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[i][0]$ 表示在第 $i$ 小时选择能量饮料 A 获得的最大强化能量，定义 $f[i][1]$ 表示在第 $i$ 小时选择能量饮料 B 获得的最大强化能量。初始时 $f[0][0] = \textit{energyDrinkA}[0]$, $f[0][1] = \textit{energyDrinkB}[0]$。答案为 $\max(f[n - 1][0], f[n - 1][1])$。
+
+对于 $i > 0$，我们有以下状态转移方程：
+
+$$
+\begin{aligned}
+f[i][0] & = \max(f[i - 1][0] + \textit{energyDrinkA}[i], f[i - 1][1]) \\
+f[i][1] & = \max(f[i - 1][1] + \textit{energyDrinkB}[i], f[i - 1][0])
+\end{aligned}
+$$
+
+最后返回 $\max(f[n - 1][0], f[n - 1][1])$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxEnergyBoost(self, energyDrinkA: List[int], energyDrinkB: List[int]) -> int:
+        n = len(energyDrinkA)
+        f = [[0] * 2 for _ in range(n)]
+        f[0][0] = energyDrinkA[0]
+        f[0][1] = energyDrinkB[0]
+        for i in range(1, n):
+            f[i][0] = max(f[i - 1][0] + energyDrinkA[i], f[i - 1][1])
+            f[i][1] = max(f[i - 1][1] + energyDrinkB[i], f[i - 1][0])
+        return max(f[n - 1])
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
+        int n = energyDrinkA.length;
+        long[][] f = new long[n][2];
+        f[0][0] = energyDrinkA[0];
+        f[0][1] = energyDrinkB[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = Math.max(f[i - 1][0] + energyDrinkA[i], f[i - 1][1]);
+            f[i][1] = Math.max(f[i - 1][1] + energyDrinkB[i], f[i - 1][0]);
+        }
+        return Math.max(f[n - 1][0], f[n - 1][1]);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxEnergyBoost(vector<int>& energyDrinkA, vector<int>& energyDrinkB) {
+        int n = energyDrinkA.size();
+        vector<vector<long long>> f(n, vector<long long>(2));
+        f[0][0] = energyDrinkA[0];
+        f[0][1] = energyDrinkB[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = max(f[i - 1][0] + energyDrinkA[i], f[i - 1][1]);
+            f[i][1] = max(f[i - 1][1] + energyDrinkB[i], f[i - 1][0]);
+        }
+        return max(f[n - 1][0], f[n - 1][1]);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxEnergyBoost(energyDrinkA []int, energyDrinkB []int) int64 {
+	n := len(energyDrinkA)
+	f := make([][2]int64, n)
+	f[0][0] = int64(energyDrinkA[0])
+	f[0][1] = int64(energyDrinkB[0])
+	for i := 1; i < n; i++ {
+		f[i][0] = max(f[i-1][0]+int64(energyDrinkA[i]), f[i-1][1])
+		f[i][1] = max(f[i-1][1]+int64(energyDrinkB[i]), f[i-1][0])
+	}
+	return max(f[n-1][0], f[n-1][1])
+}
+```
 
+#### TypeScript
+
+```ts
+function maxEnergyBoost(energyDrinkA: number[], energyDrinkB: number[]): number {
+    const n = energyDrinkA.length;
+    const f: number[][] = Array.from({ length: n }, () => [0, 0]);
+    f[0][0] = energyDrinkA[0];
+    f[0][1] = energyDrinkB[0];
+    for (let i = 1; i < n; i++) {
+        f[i][0] = Math.max(f[i - 1][0] + energyDrinkA[i], f[i - 1][1]);
+        f[i][1] = Math.max(f[i - 1][1] + energyDrinkB[i], f[i - 1][0]);
+    }
+    return Math.max(...f[n - 1]!);
+}
 ```
 
 <!-- tabs:end -->
