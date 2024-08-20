@@ -40,8 +40,8 @@ tags:
 <strong>输入：</strong>bottom = "BCD", allowed = ["BCC","CDE","CEA","FFF"]
 <strong>输出：</strong>true
 <strong>解释：</strong>允许的三角形模式显示在右边。
-从最底层(第3层)开始，我们可以在第2层构建“CE”，然后在第1层构建“E”。
-金字塔中有三种三角形图案，分别是“BCC”、“CDE”和“CEA”。都是允许的。
+从最底层(第 3 层)开始，我们可以在第 2 层构建“CE”，然后在第 1 层构建“E”。
+金字塔中有三种三角形图案，分别是 “BCC”、“CDE” 和 “CEA”。都是允许的。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -52,7 +52,7 @@ tags:
 <strong>输入：</strong>bottom = "AAAA", allowed = ["AAB","AAC","BCD","BBE","DEF"]
 <strong>输出：</strong>false
 <strong>解释：</strong>允许的三角形模式显示在右边。
-从最底层(游戏邦注:即第4个关卡)开始，创造第3个关卡有多种方法，但如果尝试所有可能性，你便会在创造第1个关卡前陷入困境。
+从最底层(游戏邦注:即第 4 个关卡)开始，创造第 3 个关卡有多种方法，但如果尝试所有可能性，你便会在创造第 1 个关卡前陷入困境。
 </pre>
 
 <p>&nbsp;</p>
@@ -63,7 +63,7 @@ tags:
 	<li><code>2 &lt;= bottom.length &lt;= 6</code></li>
 	<li><code>0 &lt;= allowed.length &lt;= 216</code></li>
 	<li><code>allowed[i].length == 3</code></li>
-	<li>所有输入字符串中的字母来自集合&nbsp;<code>{'A', 'B', 'C', 'D', 'E', 'F', 'G'}</code>。</li>
+	<li>所有输入字符串中的字母来自集合&nbsp;<code>{'A', 'B', 'C', 'D', 'E', 'F'}</code>。</li>
 	<li>&nbsp;<code>allowed</code>&nbsp;中所有值都是 <strong>唯一的</strong></li>
 </ul>
 
