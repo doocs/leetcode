@@ -66,21 +66,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memoization Search + Hash Table
+### Solution 1: Memoized Search + Hash Table
 
-We design a function $\textit{dfs}(i)$, which represents the minimum number of substrings starting from the string $s[i]$. So the answer is $\textit{dfs}(0)$.
+We design a function $\textit{dfs}(i)$, which represents the minimum number of substrings starting from $s[i]$. The answer is $\textit{dfs}(0)$.
 
 The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
-If $i \geq n$, it means that all characters have been processed, return $0$.
+If $i \geq n$, it means all characters have been processed, so return $0$.
 
-Otherwise, we maintain a hash table $\textit{cnt}$, which represents the number of occurrences of each character in the current substring. In addition, we also maintain a hash table $\textit{freq}$, which represents the frequency of the number of occurrences of each character.
+Otherwise, we maintain a hash table $\textit{cnt}$ to represent the frequency of each character in the current substring. Additionally, we maintain a hash table $\textit{freq}$ to represent the frequency of each character's occurrence count.
 
-Then we enumerate $j$ from $i$ to $n-1$, which represents the end position of the current substring. For each $j$, we update $\textit{cnt}$ and $\textit{freq}$, then check whether the size of $\textit{freq}$ is $1$. If so, we can start splitting from $j+1$, at this time the answer is $1 + \textit{dfs}(j+1)$. We take the minimum value of the answer among all $j$ as the return value of the function.
+Then we enumerate $j$ from $i$ to $n-1$, representing the end position of the current substring. For each $j$, we update $\textit{cnt}$ and $\textit{freq}$, then check if the size of $\textit{freq}$ is $1$. If it is, we can split from $j+1$, and the answer is $1 + \textit{dfs}(j+1)$. We take the minimum answer among all $j$ as the return value of the function.
 
-To avoid repeated calculations, we use memoization search.
+To avoid repeated calculations, we use memoized search.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n^2)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -163,7 +163,7 @@ public:
         int n = s.size();
         int f[n];
         memset(f, -1, sizeof(f));
-        function<int(int)> dfs = [&](int i) {
+        auto dfs = [&](auto&& dfs, int i) -> int {
             if (i >= n) {
                 return 0;
             }
@@ -184,12 +184,12 @@ public:
                 ++cnt[k];
                 ++freq[cnt[k]];
                 if (freq.size() == 1) {
-                    f[i] = min(f[i], 1 + dfs(j + 1));
+                    f[i] = min(f[i], 1 + dfs(dfs, j + 1));
                 }
             }
             return f[i];
         };
-        return dfs(0);
+        return dfs(dfs, 0);
     }
 };
 ```
@@ -267,6 +267,322 @@ function minimumSubstringsInPartition(s: string): number {
         return f[i];
     };
     return dfs(0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Memoized Search (Optimization)
+
+We can optimize Solution 1 by not maintaining the $\textit{freq}$ hash table. Instead, we only need to maintain a hash table $\textit{cnt}$, which represents the frequency of each character in the current substring. Additionally, we maintain two variables $k$ and $m$ to represent the number of distinct characters in the current substring and the maximum frequency of any character, respectively. For a substring $s[i..j]$, if $j-i+1 = m \times k$, then this substring is a balanced substring.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumSubstringsInPartition(self, s: str) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= n:
+                return 0
+            cnt = defaultdict(int)
+            m = 0
+            ans = n - i
+            for j in range(i, n):
+                cnt[s[j]] += 1
+                m = max(m, cnt[s[j]])
+                if j - i + 1 == m * len(cnt):
+                    ans = min(ans, 1 + dfs(j + 1))
+            return ans
+
+        n = len(s)
+        ans = dfs(0)
+        dfs.cache_clear()
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    private int n;
+    private char[] s;
+    private Integer[] f;
+
+    public int minimumSubstringsInPartition(String s) {
+        n = s.length();
+        f = new Integer[n];
+        this.s = s.toCharArray();
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] != null) {
+            return f[i];
+        }
+        int[] cnt = new int[26];
+        int ans = n - i;
+        int k = 0, m = 0;
+        for (int j = i; j < n; ++j) {
+            k += ++cnt[s[j] - 'a'] == 1 ? 1 : 0;
+            m = Math.max(m, cnt[s[j] - 'a']);
+            if (j - i + 1 == k * m) {
+                ans = Math.min(ans, 1 + dfs(j + 1));
+            }
+        }
+        return f[i] = ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumSubstringsInPartition(string s) {
+        int n = s.size();
+        int f[n];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i) -> int {
+            if (i >= n) {
+                return 0;
+            }
+            if (f[i] != -1) {
+                return f[i];
+            }
+            f[i] = n - i;
+            int cnt[26]{};
+            int k = 0, m = 0;
+            for (int j = i; j < n; ++j) {
+                k += ++cnt[s[j] - 'a'] == 1 ? 1 : 0;
+                m = max(m, cnt[s[j] - 'a']);
+                if (j - i + 1 == k * m) {
+                    f[i] = min(f[i], 1 + dfs(dfs, j + 1));
+                }
+            }
+            return f[i];
+        };
+        return dfs(dfs, 0);
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumSubstringsInPartition(s string) int {
+	n := len(s)
+	f := make([]int, n)
+	for i := range f {
+		f[i] = -1
+	}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i >= n {
+			return 0
+		}
+		if f[i] != -1 {
+			return f[i]
+		}
+		cnt := [26]int{}
+		f[i] = n - i
+		k, m := 0, 0
+		for j := i; j < n; j++ {
+			x := int(s[j] - 'a')
+			cnt[x]++
+			if cnt[x] == 1 {
+				k++
+			}
+			m = max(m, cnt[x])
+			if j-i+1 == k*m {
+				f[i] = min(f[i], 1+dfs(j+1))
+			}
+		}
+		return f[i]
+	}
+	return dfs(0)
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumSubstringsInPartition(s: string): number {
+    const n = s.length;
+    const f: number[] = Array(n).fill(-1);
+    const dfs = (i: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (f[i] !== -1) {
+            return f[i];
+        }
+        const cnt: number[] = Array(26).fill(0);
+        f[i] = n - i;
+        let [k, m] = [0, 0];
+        for (let j = i; j < n; ++j) {
+            const x = s.charCodeAt(j) - 97;
+            k += ++cnt[x] === 1 ? 1 : 0;
+            m = Math.max(m, cnt[x]);
+            if (j - i + 1 === k * m) {
+                f[i] = Math.min(f[i], 1 + dfs(j + 1));
+            }
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+We can convert the memoized search into dynamic programming. Define the state $f[i]$ as the minimum number of substrings required to partition the first $i$ characters. Initially, $f[0] = 0$, and the rest $f[i] = +\infty$ or $f[i] = n$.
+
+Next, we enumerate $i$ from $0$ to $n-1$. For each $i$, we maintain a hash table $\textit{cnt}$ to represent the frequency of each character in the current substring. Additionally, we maintain two variables $k$ and $m$ to represent the number of distinct characters in the current substring and the maximum frequency of any character, respectively. For a substring $s[j..i]$, if $i-j+1 = m \times k$, then this substring is a balanced substring. At this point, we can partition from $j$, so $f[i+1] = \min(f[i+1], f[j] + 1)$.
+
+The final answer is $f[n]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumSubstringsInPartition(self, s: str) -> int:
+        n = len(s)
+        f = [inf] * (n + 1)
+        f[0] = 0
+        for i in range(n):
+            cnt = defaultdict(int)
+            m = 0
+            for j in range(i, -1, -1):
+                cnt[s[j]] += 1
+                m = max(m, cnt[s[j]])
+                if i - j + 1 == len(cnt) * m:
+                    f[i + 1] = min(f[i + 1], f[j] + 1)
+        return f[n]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumSubstringsInPartition(String s) {
+        int n = s.length();
+        char[] cs = s.toCharArray();
+        int[] f = new int[n + 1];
+        Arrays.fill(f, n);
+        f[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            int[] cnt = new int[26];
+            int k = 0, m = 0;
+            for (int j = i; j >= 0; --j) {
+                k += ++cnt[cs[j] - 'a'] == 1 ? 1 : 0;
+                m = Math.max(m, cnt[cs[j] - 'a']);
+                if (i - j + 1 == k * m) {
+                    f[i + 1] = Math.min(f[i + 1], 1 + f[j]);
+                }
+            }
+        }
+        return f[n];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumSubstringsInPartition(string s) {
+        int n = s.size();
+        vector<int> f(n + 1, n);
+        f[0] = 0;
+        for (int i = 0; i < n; ++i) {
+            int cnt[26]{};
+            int k = 0, m = 0;
+            for (int j = i; ~j; --j) {
+                k += ++cnt[s[j] - 'a'] == 1;
+                m = max(m, cnt[s[j] - 'a']);
+                if (i - j + 1 == k * m) {
+                    f[i + 1] = min(f[i + 1], f[j] + 1);
+                }
+            }
+        }
+        return f[n];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumSubstringsInPartition(s string) int {
+	n := len(s)
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = n
+	}
+	f[0] = 0
+	for i := 0; i < n; i++ {
+		cnt := [26]int{}
+		k, m := 0, 0
+		for j := i; j >= 0; j-- {
+			x := int(s[j] - 'a')
+			cnt[x]++
+			if cnt[x] == 1 {
+				k++
+			}
+			m = max(m, cnt[x])
+			if i-j+1 == k*m {
+				f[i+1] = min(f[i+1], 1+f[j])
+			}
+		}
+	}
+	return f[n]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumSubstringsInPartition(s: string): number {
+    const n = s.length;
+    const f: number[] = Array(n + 1).fill(n);
+    f[0] = 0;
+    for (let i = 0; i < n; ++i) {
+        const cnt: number[] = Array(26).fill(0);
+        let [k, m] = [0, 0];
+        for (let j = i; ~j; --j) {
+            const x = s.charCodeAt(j) - 97;
+            k += ++cnt[x] === 1 ? 1 : 0;
+            m = Math.max(m, cnt[x]);
+            if (i - j + 1 === k * m) {
+                f[i + 1] = Math.min(f[i + 1], 1 + f[j]);
+            }
+        }
+    }
+    return f[n];
 }
 ```
 
