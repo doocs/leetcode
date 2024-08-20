@@ -1,35 +1,30 @@
 class Solution {
 public:
     vector<vector<string>> displayTable(vector<vector<string>>& orders) {
-        unordered_set<int> tables;
-        unordered_set<string> foods;
-        unordered_map<string, int> mp;
-        for (auto& order : orders) {
-            int table = stoi(order[1]);
-            string food = order[2];
-            tables.insert(table);
-            foods.insert(food);
-            ++mp[order[1] + "." + food];
+        map<int, vector<string>> tables;
+        set<string> sortedItems;
+        for (auto& o : orders) {
+            int table = stoi(o[1]);
+            string foodItem = o[2];
+            tables[table].push_back(foodItem);
+            sortedItems.insert(foodItem);
         }
-        vector<int> t;
-        t.assign(tables.begin(), tables.end());
-        sort(t.begin(), t.end());
-        vector<string> f;
-        f.assign(foods.begin(), foods.end());
-        sort(f.begin(), f.end());
-        vector<vector<string>> res;
-        vector<string> title;
-        title.push_back("Table");
-        for (auto e : f) title.push_back(e);
-        res.push_back(title);
-        for (int table : t) {
-            vector<string> tmp;
-            tmp.push_back(to_string(table));
-            for (string food : f) {
-                tmp.push_back(to_string(mp[to_string(table) + "." + food]));
+        vector<vector<string>> ans;
+        vector<string> header = {"Table"};
+        header.insert(header.end(), sortedItems.begin(), sortedItems.end());
+        ans.push_back(header);
+        for (auto& [table, items] : tables) {
+            unordered_map<string, int> cnt;
+            for (string& item : items) {
+                cnt[item]++;
             }
-            res.push_back(tmp);
+            vector<string> row;
+            row.push_back(to_string(table));
+            for (const string& item : sortedItems) {
+                row.push_back(to_string(cnt[item]));
+            }
+            ans.push_back(row);
         }
-        return res;
+        return ans;
     }
 };

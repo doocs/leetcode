@@ -22,7 +22,7 @@ tags:
 
 <p>You are given two positive integer arrays <code>nums</code> and <code>target</code>, of the same length.</p>
 
-<p>In a single operation, you can select any <span data-keyword="subarray">subarray</span> of <code>nums</code> and increment or decrement each element within that subarray by 1.</p>
+<p>In a single operation, you can select any subarray of <code>nums</code> and increment each element within that subarray by 1 or decrement each element within that subarray by 1.</p>
 
 <p>Return the <strong>minimum</strong> number of operations required to make <code>nums</code> equal to the array <code>target</code>.</p>
 

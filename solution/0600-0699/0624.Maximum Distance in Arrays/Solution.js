@@ -2,7 +2,7 @@
  * @param {number[][]} arrays
  * @return {number}
  */
-var maxDistance = function (arrays) {
+var maxDistance = function(arrays) {
     let minVal = arrays[0][0];
     let maxVal = arrays[0][arrays[0].length - 1];
     let maxDist = 0;

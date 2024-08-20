@@ -1,23 +1,16 @@
 function maxScore(s: string): number {
-    const n = s.length;
-    let res = 0;
-    let score = 0;
-    if (s[0] === '0') {
-        score++;
+    let [l, r] = [0, 0];
+    for (const c of s) {
+        r += c === '1' ? 1 : 0;
     }
-    for (let i = 1; i < n; i++) {
-        if (s[i] === '1') {
-            score++;
-        }
-    }
-    res = Math.max(res, score);
-    for (let i = 1; i < n - 1; i++) {
+    let ans = 0;
+    for (let i = 0; i < s.length - 1; ++i) {
         if (s[i] === '0') {
-            score++;
-        } else if (s[i] === '1') {
-            score--;
+            ++l;
+        } else {
+            --r;
         }
-        res = Math.max(res, score);
+        ans = Math.max(ans, l + r);
     }
-    return res;
+    return ans;
 }
