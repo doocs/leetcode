@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README_EN.md
+tags:
+    - Array
+    - String
+    - Binary Search
+    - Prefix Sum
+    - Sliding Window
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3254.Find%20the%20Power%20of%20K-Size%20Subarrays%20I/README.md
+tags:
+    - 数组
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

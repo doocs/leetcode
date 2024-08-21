@@ -2733,7 +2733,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Weekly Contest 154
 
-- [1189. Maximum Number of Balloons](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md)
 - [1190. Reverse Substrings Between Each Pair of Parentheses](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README_EN.md)
 - [1191. K-Concatenation Maximum Sum](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md)
 - [1192. Critical Connections in a Network](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md)
