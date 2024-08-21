@@ -51,7 +51,7 @@ tags:
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Note:</strong> This question is the same as 616: <a href="https://leetcode.com/problems/add-bold-tag-in-string/" target="_blank">https://leetcode.com/problems/add-bold-tag-in-string/</a></p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/add-bold-tag-in-string/description/" target="_blank">616. Add Bold Tag in String</a>.</p>
 
 <!-- description:end -->
 

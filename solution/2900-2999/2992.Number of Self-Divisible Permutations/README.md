@@ -4,9 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md
 tags:
     - 位运算
-    - 递归
     - 数组
     - 动态规划
+    - 回溯
     - 状态压缩
 ---
 

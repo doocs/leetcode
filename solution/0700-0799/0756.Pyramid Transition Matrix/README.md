@@ -26,9 +26,9 @@ tags:
 	<li>例如，<code>"ABC"</code>&nbsp;表示一个三角形图案，其中一个 <code>“C”</code> 块堆叠在一个&nbsp;<code>'A'</code>&nbsp;块(左)和一个&nbsp;<code>'B'</code>&nbsp;块(右)之上。请注意，这与 <code>"BAC"</code>&nbsp;不同，<code>"B"</code>&nbsp;在左下角，<code>"A"</code>&nbsp;在右下角。</li>
 </ul>
 
-<p>你从底部的一排积木&nbsp;<code>bottom</code>&nbsp;开始，作为一个单一的字符串，你 <strong>必须</strong> 使用作为金字塔的底部。</p>
+<p>你从作为单个字符串给出的底部的一排积木&nbsp;<code>bottom</code>&nbsp;开始，<strong>必须</strong>&nbsp;将其作为金字塔的底部。</p>
 
-<p>在给定&nbsp;<code>bottom</code>&nbsp;和&nbsp;<code>allowed</code>&nbsp;的情况下，如果你能一直构建到金字塔顶部，使金字塔中的 <strong>每个三角形图案</strong> 都是允许的，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+<p>在给定&nbsp;<code>bottom</code>&nbsp;和&nbsp;<code>allowed</code>&nbsp;的情况下，如果你能一直构建到金字塔顶部，使金字塔中的 <strong>每个三角形图案</strong> 都是在&nbsp;<code>allowed</code>&nbsp;中的，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 
 <p>&nbsp;</p>
 
@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>输入：</strong>bottom = "BCD", allowed = ["BCC","CDE","CEA","FFF"]
 <strong>输出：</strong>true
-<strong>解释：</strong>允许的三角形模式显示在右边。
+<strong>解释：</strong>允许的三角形图案显示在右边。
 从最底层(第 3 层)开始，我们可以在第 2 层构建“CE”，然后在第 1 层构建“E”。
 金字塔中有三种三角形图案，分别是 “BCC”、“CDE” 和 “CEA”。都是允许的。
 </pre>
@@ -51,8 +51,8 @@ tags:
 <pre>
 <strong>输入：</strong>bottom = "AAAA", allowed = ["AAB","AAC","BCD","BBE","DEF"]
 <strong>输出：</strong>false
-<strong>解释：</strong>允许的三角形模式显示在右边。
-从最底层(游戏邦注:即第 4 个关卡)开始，创造第 3 个关卡有多种方法，但如果尝试所有可能性，你便会在创造第 1 个关卡前陷入困境。
+<strong>解释：</strong>允许的三角形图案显示在右边。
+从最底层(即第 4 层)开始，创造第 3 层有多种方法，但如果尝试所有可能性，你便会在创造第 1 层前陷入困境。
 </pre>
 
 <p>&nbsp;</p>

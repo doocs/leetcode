@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 
 <!-- problem:start -->
 
-# [3253. Construct String with Minimum Cost (Easy) 🔒](https://leetcode.cn/problems/construct-string-with-minimum-cost-easy)
+# [3253. 以最低成本构建字符串（简单） 🔒](https://leetcode.cn/problems/construct-string-with-minimum-cost-easy)
 
 [English Version](/solution/3200-3299/3253.Construct%20String%20with%20Minimum%20Cost%20%28Easy%29/README_EN.md)
 
@@ -14,59 +14,61 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 
 <!-- description:start -->
 
-<p>You are given a string <code>target</code>, an array of strings <code>words</code>, and an integer array <code>costs</code>, both arrays of the same length.</p>
+<p>给定字符串&nbsp;<code>target</code>，一个字符串数组&nbsp;<code>words</code>&nbsp;以及一个整数数组&nbsp;<code>costs</code>，两个数组长度相同。</p>
 
-<p>Imagine an empty string <code>s</code>.</p>
+<p>想象一个空字符串&nbsp;<code>s</code>。</p>
 
-<p>You can perform the following operation any number of times (including <strong>zero</strong>):</p>
+<p>您可以执行以下操作任意次数（包括 <strong>零</strong>）：</p>
 
 <ul>
-	<li>Choose an index <code>i</code> in the range <code>[0, words.length - 1]</code>.</li>
-	<li>Append <code>words[i]</code> to <code>s</code>.</li>
-	<li>The cost of operation is <code>costs[i]</code>.</li>
+	<li>从范围&nbsp;<code>[0, words.length - 1]</code>&nbsp;中选择一个下标 <code>i</code>。</li>
+	<li>将&nbsp;<code>words[i]</code>&nbsp;添加到&nbsp;<code>s</code>。</li>
+	<li>操作的开销为&nbsp;<code>costs[i]</code>。</li>
 </ul>
 
-<p>Return the <strong>minimum</strong> cost to make <code>s</code> equal to <code>target</code>. If it&#39;s not possible, return -1.</p>
+<p>返回使&nbsp;<code>s</code> 与&nbsp;<code>target</code>&nbsp;相等的&nbsp;<strong>最小</strong>&nbsp;开销。如果不可能做到，返回 -1。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">target = &quot;abcdef&quot;, words = [&quot;abdef&quot;,&quot;abc&quot;,&quot;d&quot;,&quot;def&quot;,&quot;ef&quot;], costs = [100,1,1,10,5]</span></p>
+<p><strong>输入：</strong><span class="example-io">target = "abcdef", words = ["abdef","abc","d","def","ef"], costs = [100,1,1,10,5]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">7</span></p>
+<p><span class="example-io"><b>输出：</b>7</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>The minimum cost can be achieved by performing the following operations:</p>
+<p>通过执行以下操作可以实现最低开销：</p>
 
 <ul>
-	<li>Select index 1 and append <code>&quot;abc&quot;</code> to <code>s</code> at a cost of 1, resulting in <code>s = &quot;abc&quot;</code>.</li>
-	<li>Select index 2 and append <code>&quot;d&quot;</code> to <code>s</code> at a cost of 1, resulting in <code>s = &quot;abcd&quot;</code>.</li>
-	<li>Select index 4 and append <code>&quot;ef&quot;</code> to <code>s</code> at a cost of 5, resulting in <code>s = &quot;abcdef&quot;</code>.</li>
+	<li>选择下标 1 然后以 1 的开销将&nbsp;<code>"abc"</code>&nbsp;添加到&nbsp;<code>s</code>，得到&nbsp;<code>s = "abc"</code>。</li>
+	<li>选择下标 2 然后以 1 的开销将 <code>"d"</code> 添加到&nbsp;<code>s</code>，得到&nbsp;<code>s = "abcd"</code>。</li>
+	<li>选择下标 4 然后以 5 的开销将 <code>"ef"</code> 添加到&nbsp;<code>s</code>，得到&nbsp;<code>s = "abcdef"</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">target = &quot;aaaa&quot;, words = [&quot;z&quot;,&quot;zz&quot;,&quot;zzz&quot;], costs = [1,10,100]</span></p>
+<p><span class="example-io"><b>输入：</b>target = "aaaa", words = ["z","zz","zzz"], costs = [1,10,100]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">-1</span></p>
+<p><span class="example-io"><b>输出：</b>-1</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>It is impossible to make <code>s</code> equal to <code>target</code>, so we return -1.</p>
+<p>不可能使&nbsp;<code>s</code> 与&nbsp;<code>target</code>&nbsp;相等，所以我们返回 -1。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= target.length &lt;= 2000</code></li>
 	<li><code>1 &lt;= words.length == costs.length &lt;= 50</code></li>
 	<li><code>1 &lt;= words[i].length &lt;= target.length</code></li>
-	<li><code>target</code> and <code>words[i]</code> consist only of lowercase English letters.</li>
+	<li><code>target</code> 和&nbsp;<code>words[i]</code>&nbsp;只包含小写英语字母。</li>
 	<li><code>1 &lt;= costs[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 

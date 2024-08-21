@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3260.Find%20the%20Largest%20Palindrome%20Divisible%20by%20K/README_EN.md
+tags:
+    - Greedy
+    - Math
+    - String
+    - Dynamic Programming
+    - Number Theory
 ---
 
 <!-- problem:start -->

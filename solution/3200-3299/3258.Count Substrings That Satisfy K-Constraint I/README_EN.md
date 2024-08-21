@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README_EN.md
+tags:
+    - String
+    - Sliding Window
 ---
 
 <!-- problem:start -->

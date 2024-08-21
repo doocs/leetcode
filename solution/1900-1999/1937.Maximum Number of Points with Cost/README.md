@@ -7,6 +7,7 @@ source: 第 250 场周赛 Q3
 tags:
     - 数组
     - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

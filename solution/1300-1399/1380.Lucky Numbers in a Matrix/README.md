@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个 <code>m * n</code> 的矩阵，矩阵中的数字 <strong>各不相同</strong> 。请你按 <strong>任意</strong> 顺序返回矩阵中的所有幸运数。</p>
+<p>给你一个 <code>m x&nbsp;n</code> 的矩阵，矩阵中的数字 <strong>各不相同</strong> 。请你按 <strong>任意</strong> 顺序返回矩阵中的所有幸运数。</p>
 
 <p><strong>幸运数</strong> 是指矩阵中满足同时下列两个条件的元素：</p>
 
@@ -30,7 +30,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>matrix = [[3,7,8],[9,11,13],[15,16,17]]
@@ -38,7 +38,7 @@ tags:
 <strong>解释：</strong>15 是唯一的幸运数，因为它是其所在行中的最小值，也是所在列中的最大值。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
@@ -46,12 +46,12 @@ tags:
 <strong>解释：</strong>12 是唯一的幸运数，因为它是其所在行中的最小值，也是所在列中的最大值。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>matrix = [[7,8],[1,2]]
 <strong>输出：</strong>[7]
-<strong>解释：</strong>7是唯一的幸运数字，因为它是行中的最小值，列中的最大值。
+<strong>解释：</strong>7 是唯一的幸运数字，因为它是行中的最小值，列中的最大值。
 </pre>
 
 <p>&nbsp;</p>
@@ -62,7 +62,7 @@ tags:
 	<li><code>m == mat.length</code></li>
 	<li><code>n == mat[i].length</code></li>
 	<li><code>1 &lt;= n, m &lt;= 50</code></li>
-	<li><code>1 &lt;=&nbsp;matrix[i][j]&nbsp;&lt;= 10^5</code></li>
+	<li><code>1 &lt;=&nbsp;matrix[i][j]&nbsp;&lt;= 10<sup>5</sup></code></li>
 	<li>矩阵中的所有元素都是不同的</li>
 </ul>
 

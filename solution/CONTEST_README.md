@@ -2730,7 +2730,6 @@ comments: true
 
 #### 第 154 场周赛(2019-09-15 10:30, 90 分钟) 参赛人数 1299
 
-- [1189. “气球” 的最大数量](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md)
 - [1190. 反转每对括号间的子串](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README.md)
 - [1191. K 次串联后最大子数组之和](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)
 - [1192. 查找集群内的关键连接](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)
