@@ -163,6 +163,26 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func relativeSortArray(_ arr1: [Int], _ arr2: [Int]) -> [Int] {
+        var pos = [Int: Int]()
+        for (i, x) in arr2.enumerated() {
+            pos[x] = i
+        }
+        var arr = [(Int, Int)]()
+        for x in arr1 {
+            let j = pos[x] ?? arr2.count
+            arr.append((j, x))
+        }
+        arr.sort { $0.0 < $1.0 || ($0.0 == $1.0 && $0.1 < $1.1) }
+        return arr.map { $0.1 }
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -312,6 +332,40 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
     }
 
     return ans;
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func relativeSortArray(_ arr1: [Int], _ arr2: [Int]) -> [Int] {
+        var cnt = [Int](repeating: 0, count: 1001)
+        for x in arr1 {
+            cnt[x] += 1
+        }
+
+        guard let mi = arr1.min(), let mx = arr1.max() else {
+            return []
+        }
+
+        var ans = [Int]()
+        for x in arr2 {
+            while cnt[x] > 0 {
+                ans.append(x)
+                cnt[x] -= 1
+            }
+        }
+
+        for x in mi...mx {
+            while cnt[x] > 0 {
+                ans.append(x)
+                cnt[x] -= 1
+            }
+        }
+
+        return ans
+    }
 }
 ```
 

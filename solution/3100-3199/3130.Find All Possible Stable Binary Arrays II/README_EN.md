@@ -90,9 +90,9 @@ We design a function $dfs(i, j, k)$ to represent the number of stable binary arr
 The calculation process of the function $dfs(i, j, k)$ is as follows:
 
 -   If $i < 0$ or $j < 0$, return $0$.
--   If $i = 0$, return $1$ when $k = 1$ and $j \leq \text{limit}$, otherwise return $0$.
--   If $j = 0$, return $1$ when $k = 0$ and $i \leq \text{limit}$, otherwise return $0$.
--   If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\text{limit}$ $0$s in the subarray, i.e., the situation where the $\text{limit} + 1$
+-   If $i = 0$, return $1$ when $k = 1$ and $j \leq \textit{limit}$, otherwise return $0$.
+-   If $j = 0$, return $1$ when $k = 0$ and $i \leq \textit{limit}$, otherwise return $0$.
+-   If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$
 
 <!-- tabs:start -->
 
@@ -167,41 +167,34 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     int numberOfStableArrays(int zero, int one, int limit) {
-        this->limit = limit;
-        f = vector<vector<array<ll, 2>>>(zero + 1, vector<array<ll, 2>>(one + 1, {-1, -1}));
-        return (dfs(zero, one, 0) + dfs(zero, one, 1)) % mod;
-    }
-
-private:
-    const int mod = 1e9 + 7;
-    int limit;
-    vector<vector<array<ll, 2>>> f;
-
-    ll dfs(int i, int j, int k) {
-        if (i < 0 || j < 0) {
-            return 0;
-        }
-        if (i == 0) {
-            return k == 1 && j <= limit;
-        }
-        if (j == 0) {
-            return k == 0 && i <= limit;
-        }
-        ll& res = f[i][j][k];
-        if (res != -1) {
+        const int mod = 1e9 + 7;
+        using ll = long long;
+        vector<vector<array<ll, 2>>> f = vector<vector<array<ll, 2>>>(zero + 1, vector<array<ll, 2>>(one + 1, {-1, -1}));
+        auto dfs = [&](auto&& dfs, int i, int j, int k) -> ll {
+            if (i < 0 || j < 0) {
+                return 0;
+            }
+            if (i == 0) {
+                return k == 1 && j <= limit;
+            }
+            if (j == 0) {
+                return k == 0 && i <= limit;
+            }
+            ll& res = f[i][j][k];
+            if (res != -1) {
+                return res;
+            }
+            if (k == 0) {
+                res = (dfs(dfs, i - 1, j, 0) + dfs(dfs, i - 1, j, 1) - dfs(dfs, i - limit - 1, j, 1) + mod) % mod;
+            } else {
+                res = (dfs(dfs, i, j - 1, 0) + dfs(dfs, i, j - 1, 1) - dfs(dfs, i, j - limit - 1, 0) + mod) % mod;
+            }
             return res;
-        }
-        if (k == 0) {
-            res = (dfs(i - 1, j, 0) + dfs(i - 1, j, 1) - dfs(i - limit - 1, j, 1) + mod) % mod;
-        } else {
-            res = (dfs(i, j - 1, 0) + dfs(i, j - 1, 1) - dfs(i, j - limit - 1, 0) + mod) % mod;
-        }
-        return res;
+        };
+        return (dfs(dfs, zero, one, 0) + dfs(dfs, zero, one, 1)) % mod;
     }
 };
 ```
@@ -262,12 +255,12 @@ We can also convert the memoization search of Solution 1 into dynamic programmin
 
 We define $f[i][j][k]$ as the number of stable binary arrays using $i$ $0$s and $j$ $1$s, and the last number is $k$. So the answer is $f[zero][one][0] + f[zero][one][1]$.
 
-Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\text{limit}, \text{zero})$; and $f[0][j][1] = 1$, where $1 \leq j \leq \min(\text{limit}, \text{one})$.
+Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\textit{limit}, \textit{zero})$; and $f[0][j][1] = 1$, where $1 \leq j \leq \min(\textit{limit}, \textit{one})$.
 
 The state transition equation is as follows:
 
--   $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \text{limit} - 1][j][1]$.
--   $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \text{limit} - 1][0]$.
+-   $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.
+-   $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.
 
 The time complexity is $O(zero \times one)$, and the space complexity is $O(zero \times one)$.
 
@@ -286,16 +279,10 @@ class Solution:
             f[0][j][1] = 1
         for i in range(1, zero + 1):
             for j in range(1, one + 1):
-                f[i][j][0] = (
-                    f[i - 1][j][0]
-                    + f[i - 1][j][1]
-                    - (0 if i - limit - 1 < 0 else f[i - limit - 1][j][1])
-                ) % mod
-                f[i][j][1] = (
-                    f[i][j - 1][0]
-                    + f[i][j - 1][1]
-                    - (0 if j - limit - 1 < 0 else f[i][j - limit - 1][0])
-                ) % mod
+                x = 0 if i - limit - 1 < 0 else f[i - limit - 1][j][1]
+                y = 0 if j - limit - 1 < 0 else f[i][j - limit - 1][0]
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x) % mod
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y) % mod
         return sum(f[zero][one]) % mod
 ```
 
@@ -314,12 +301,10 @@ class Solution {
         }
         for (int i = 1; i <= zero; ++i) {
             for (int j = 1; j <= one; ++j) {
-                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1]
-                                 - (i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1]) + mod)
-                    % mod;
-                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1]
-                                 - (j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0]) + mod)
-                    % mod;
+                long x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+                long y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
             }
         }
         return (int) ((f[zero][one][0] + f[zero][one][1]) % mod);
@@ -345,12 +330,10 @@ public:
         }
         for (int i = 1; i <= zero; ++i) {
             for (int j = 1; j <= one; ++j) {
-                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1]
-                                 - (i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1]) + mod)
-                    % mod;
-                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1]
-                                 - (j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0]) + mod)
-                    % mod;
+                ll x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+                ll y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
             }
         }
         return (f[zero][one][0] + f[zero][one][1]) % mod;
@@ -386,6 +369,35 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 		}
 	}
 	return (f[zero][one][0] + f[zero][one][1]) % mod
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfStableArrays(zero: number, one: number, limit: number): number {
+    const mod = 1e9 + 7;
+    const f: number[][][] = Array.from({ length: zero + 1 }, () =>
+        Array.from({ length: one + 1 }, () => [0, 0]),
+    );
+
+    for (let i = 1; i <= Math.min(limit, zero); i++) {
+        f[i][0][0] = 1;
+    }
+    for (let j = 1; j <= Math.min(limit, one); j++) {
+        f[0][j][1] = 1;
+    }
+
+    for (let i = 1; i <= zero; i++) {
+        for (let j = 1; j <= one; j++) {
+            const x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+            const y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+            f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+            f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
+        }
+    }
+
+    return (f[zero][one][0] + f[zero][one][1]) % mod;
 }
 ```
 

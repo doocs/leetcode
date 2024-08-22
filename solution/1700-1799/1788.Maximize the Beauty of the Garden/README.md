@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1788.Ma
 tags:
     - 贪心
     - 数组
+    - 哈希表
     - 前缀和
 ---
 
@@ -18,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>有一个花园，有 <code>n</code> 朵花，这些花都有一个用整数表示的美观度。这些花被种在一条线上。给定一个长度为 <code>n</code> 的整数类型数组 <code>flowers</code> ，每一个 <code>flowers[i]</code> 表示第 <code>i</code> 朵花的美观度。</p>
+<p>有一个花园，有&nbsp;<code>n</code>&nbsp;朵花，这些花都有一个用整数表示的美观度。这些花被种在一条线上。给定一个长度为 <code>n</code> 的整数类型数组&nbsp;<code>flowers</code>&nbsp;，每一个&nbsp;<code>flowers[i]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;朵花的美观度。</p>
 
 <p>一个花园满足下列条件时，该花园是<strong>有效</strong>的。</p>
 
@@ -31,29 +32,32 @@ tags:
 
 <p>返回你去除了任意朵花（也可以不去除任意一朵）之后形成的<strong>有效</strong>花园中最大可能的美观度。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><b>示例 1：</b></p>
+<p><b class="example">示例 1：</b></p>
 
-<pre><strong>输入:</strong> flowers = [1,2,3,1,2]
+<pre>
+<strong>输入:</strong> flowers = [1,2,3,1,2]
 <strong>输出:</strong> 8
 <strong>解释:</strong> 你可以修整为有效花园 [2,3,1,2] 来达到总美观度 2 + 3 + 1 + 2 = 8。</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre><strong>输入:</strong> flowers = [100,1,1,-3,1]
+<pre>
+<strong>输入:</strong> flowers = [100,1,1,-3,1]
 <strong>输出:</strong> 3
 <strong>解释:</strong> 你可以修整为有效花园 [1,1,1] 来达到总美观度 1 + 1 + 1 = 3。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<pre><strong>输入:</strong> flowers = [-1,-2,0,-1]
+<pre>
+<strong>输入:</strong> flowers = [-1,-2,0,-1]
 <strong>输出:</strong> -2
 <strong>解释:</strong> 你可以修整为有效花园 [-1,-1] 来达到总美观度 -1 + -1 = -2。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><b>提示：</b></p>
 

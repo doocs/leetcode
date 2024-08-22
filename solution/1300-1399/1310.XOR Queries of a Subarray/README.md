@@ -73,18 +73,18 @@ tags:
 
 ### 方法一：前缀异或
 
-我们可以用一个长度为 $n+1$ 的前缀异或数组 $s$ 来存储数组 $arr$ 的前缀异或结果，其中 $s[i] = s[i-1] \oplus arr[i-1]$，即 $s[i]$ 表示 $arr$ 中下标 $[0,i-1]$ 的元素的异或结果。
+我们可以用一个长度为 $n+1$ 的前缀异或数组 $s$ 来存储数组 $\textit{arr}$ 的前缀异或结果，其中 $s[i] = s[i-1] \oplus \textit{arr}[i-1]$，即 $s[i]$ 表示 $\textit{arr}$ 的前 $i$ 个元素的异或结果。
 
 那么对于一个查询 $[l,r]$，我们可以得到：
 
 $$
 \begin{aligned}
-arr[l] \oplus arr[l+1] \oplus \cdots \oplus arr[r] &= (arr[0] \oplus arr[1] \oplus \cdots \oplus arr[l-1]) \oplus (arr[0] \oplus arr[1] \oplus \cdots \oplus arr[r]) \\
+\textit{arr}[l] \oplus \textit{arr}[l+1] \oplus \cdots \oplus \textit{arr}[r] &= (\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[l-1]) \oplus (\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[r]) \\
 &= s[l] \oplus s[r+1]
 \end{aligned}
 $$
 
-时间复杂度 $O(n+m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $arr$ 和查询数组 $queries$ 的长度。
+时间复杂度 $O(n+m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{arr}$ 的长度和查询数组 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -162,15 +162,11 @@ func xorQueries(arr []int, queries [][]int) (ans []int) {
 ```ts
 function xorQueries(arr: number[], queries: number[][]): number[] {
     const n = arr.length;
-    const s: number[] = new Array(n + 1).fill(0);
+    const s: number[] = Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
         s[i + 1] = s[i] ^ arr[i];
     }
-    const ans: number[] = [];
-    for (const [l, r] of queries) {
-        ans.push(s[r + 1] ^ s[l]);
-    }
-    return ans;
+    return queries.map(([l, r]) => s[r + 1] ^ s[l]);
 }
 ```
 
@@ -184,15 +180,11 @@ function xorQueries(arr: number[], queries: number[][]): number[] {
  */
 var xorQueries = function (arr, queries) {
     const n = arr.length;
-    const s = new Array(n + 1).fill(0);
+    const s = Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
         s[i + 1] = s[i] ^ arr[i];
     }
-    const ans = [];
-    for (const [l, r] of queries) {
-        ans.push(s[r + 1] ^ s[l]);
-    }
-    return ans;
+    return queries.map(([l, r]) => s[r + 1] ^ s[l]);
 };
 ```
 

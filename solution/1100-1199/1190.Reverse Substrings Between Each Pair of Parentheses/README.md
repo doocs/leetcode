@@ -48,13 +48,6 @@ tags:
 <strong>输出：</strong>"leetcode"
 <strong>解释：</strong>先反转子字符串 "oc" ，接着反转 "etco" ，然后反转整个字符串。</pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "a(bcdefghijkl(mno)p)q"
-<strong>输出：</strong>"apmnolkjihgfedcbq"
-</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

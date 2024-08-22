@@ -65,7 +65,11 @@ The indices 0 and 1 both violate the condition, so return false.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting + Enumeration
+
+We can use an array $\textit{cnt}$ of length $10$ to count the occurrences of each digit in the string $\textit{num}$. Then, we enumerate each digit in the string $\textit{num}$ and check if its occurrence count equals the digit itself. If this condition is satisfied for all digits, we return $\text{true}$; otherwise, we return $\text{false}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $\textit{num}$, and $|\Sigma|$ is the range of possible digit values, which is $10$.
 
 <!-- tabs:start -->
 
@@ -74,8 +78,8 @@ The indices 0 and 1 both violate the condition, so return false.
 ```python
 class Solution:
     def digitCount(self, num: str) -> bool:
-        cnt = Counter(num)
-        return all(cnt[str(i)] == int(v) for i, v in enumerate(num))
+        cnt = Counter(int(x) for x in num)
+        return all(cnt[i] == int(x) for i, x in enumerate(num))
 ```
 
 #### Java
@@ -89,7 +93,7 @@ class Solution {
             ++cnt[num.charAt(i) - '0'];
         }
         for (int i = 0; i < n; ++i) {
-            if (cnt[i] != num.charAt(i) - '0') {
+            if (num.charAt(i) - '0' != cnt[i]) {
                 return false;
             }
         }
@@ -126,8 +130,8 @@ func digitCount(num string) bool {
 	for _, c := range num {
 		cnt[c-'0']++
 	}
-	for i, v := range num {
-		if cnt[i] != int(v-'0') {
+	for i, c := range num {
+		if int(c-'0') != cnt[i] {
 			return false
 		}
 	}
@@ -139,15 +143,16 @@ func digitCount(num string) bool {
 
 ```ts
 function digitCount(num: string): boolean {
-    const n = num.length;
-    const count = new Array(10).fill(0);
-    for (let i = 0; i < n; i++) {
-        count[i] = Number(num[i]);
-    }
+    const cnt: number[] = Array(10).fill(0);
     for (const c of num) {
-        count[c]--;
+        ++cnt[+c];
     }
-    return count.every(v => v === 0);
+    for (let i = 0; i < num.length; ++i) {
+        if (cnt[i] !== +num[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 
@@ -156,16 +161,18 @@ function digitCount(num: string): boolean {
 ```rust
 impl Solution {
     pub fn digit_count(num: String) -> bool {
-        let s = num.as_bytes();
-        let n = num.len();
-        let mut count = [0; 10];
-        for i in 0..n {
-            count[i] = s[i] - b'0';
+        let mut cnt = vec![0; 10];
+        for c in num.chars() {
+            let x = c.to_digit(10).unwrap() as usize;
+            cnt[x] += 1;
         }
-        for c in s {
-            count[(c - b'0') as usize] -= 1;
+        for (i, c) in num.chars().enumerate() {
+            let x = c.to_digit(10).unwrap() as usize;
+            if cnt[i] != x {
+                return false;
+            }
         }
-        count.iter().all(|v| *v == 0)
+        true
     }
 }
 ```
@@ -174,15 +181,12 @@ impl Solution {
 
 ```c
 bool digitCount(char* num) {
-    int count[10] = {0};
-    for (int i = 0; num[i]; i++) {
-        count[i] = num[i] - '0';
+    int cnt[10] = {0};
+    for (int i = 0; num[i] != '\0'; ++i) {
+        ++cnt[num[i] - '0'];
     }
-    for (int i = 0; num[i]; i++) {
-        count[num[i] - '0']--;
-    }
-    for (int i = 0; i < 10; i++) {
-        if (count[i] != 0) {
+    for (int i = 0; num[i] != '\0'; ++i) {
+        if (cnt[i] != num[i] - '0') {
             return false;
         }
     }

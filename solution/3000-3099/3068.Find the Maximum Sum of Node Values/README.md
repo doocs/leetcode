@@ -98,20 +98,56 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+对于任意一个数 $x$，与 $k$ 异或偶数次后，值不变。所以，对于一棵树的任意一条路径，我们将路径上所有的边都进行操作，那么该路径上除了起点和终点外，其他节点的值都不会改变。
+
+另外，无论进行了多少次操作，总会有偶数个元素异或了 $k$，其余元素不变。
+
+因此，问题转化为：对于数组 $\textit{nums}$，任选其中偶数个元素异或 $k$，使得和最大。
+
+我们可以使用动态规划解决这个问题。设 $f_0$ 表示当前有偶数个元素异或了 $k$ 时的最大和，而 $f_1$ 表示当前有奇数个元素异或了 $k$ 时的最大和。那么状态转移方程为：
+
+$$
+\begin{aligned}
+f_0 &= \max(f_0 + x, f_1 + (x \oplus k)) \\
+f_1 &= \max(f_1 + x, f_0 + (x \oplus k))
+\end{aligned}
+$$
+
+其中 $x$ 表示当前元素的值。
+
+我们遍历数组 $\textit{nums}$，根据上述状态转移方程更新 $f_0$ 和 $f_1$，最后返回 $f_0$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumValueSum(self, nums: List[int], k: int, edges: List[List[int]]) -> int:
+        f0, f1 = 0, -inf
+        for x in nums:
+            f0, f1 = max(f0 + x, f1 + (x ^ k)), max(f1 + x, f0 + (x ^ k))
+        return f0
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maximumValueSum(int[] nums, int k, int[][] edges) {
+        long f0 = 0, f1 = -0x3f3f3f3f;
+        for (int x : nums) {
+            long tmp = f0;
+            f0 = Math.max(f0 + x, f1 + (x ^ k));
+            f1 = Math.max(f1 + x, tmp + (x ^ k));
+        }
+        return f0;
+    }
+}
 ```
 
 #### C++
@@ -120,29 +156,13 @@ tags:
 class Solution {
 public:
     long long maximumValueSum(vector<int>& nums, int k, vector<vector<int>>& edges) {
-        long long totalSum = 0;
-        int count = 0;
-        int positiveMin = INT_MAX;
-        int negativeMax = INT_MIN;
-
-        for (int nodeValue : nums) {
-            int nodeValAfterOperation = nodeValue ^ k;
-            totalSum += nodeValue;
-            int netChange = nodeValAfterOperation - nodeValue;
-
-            if (netChange > 0) {
-                positiveMin = min(positiveMin, netChange);
-                totalSum += netChange;
-                count += 1;
-            } else {
-                negativeMax = max(negativeMax, netChange);
-            }
+        long long f0 = 0, f1 = -0x3f3f3f3f;
+        for (int x : nums) {
+            long long tmp = f0;
+            f0 = max(f0 + x, f1 + (x ^ k));
+            f1 = max(f1 + x, tmp + (x ^ k));
         }
-
-        if (count % 2 == 0) {
-            return totalSum;
-        }
-        return max(totalSum - positiveMin, totalSum + negativeMax);
+        return f0;
     }
 };
 ```
@@ -150,7 +170,60 @@ public:
 #### Go
 
 ```go
+func maximumValueSum(nums []int, k int, edges [][]int) int64 {
+	f0, f1 := 0, -0x3f3f3f3f
+	for _, x := range nums {
+		f0, f1 = max(f0+x, f1+(x^k)), max(f1+x, f0+(x^k))
+	}
+	return int64(f0)
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumValueSum(nums: number[], k: number, edges: number[][]): number {
+    let [f0, f1] = [0, -Infinity];
+    for (const x of nums) {
+        [f0, f1] = [Math.max(f0 + x, f1 + (x ^ k)), Math.max(f1 + x, f0 + (x ^ k))];
+    }
+    return f0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_value_sum(nums: Vec<i32>, k: i32, edges: Vec<Vec<i32>>) -> i64 {
+        let mut f0: i64 = 0;
+        let mut f1: i64 = i64::MIN;
+
+        for &x in &nums {
+            let tmp = f0;
+            f0 = std::cmp::max(f0 + x as i64, f1 + (x ^ k) as i64);
+            f1 = std::cmp::max(f1 + x as i64, tmp + (x ^ k) as i64);
+        }
+
+        f0
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public long MaximumValueSum(int[] nums, int k, int[][] edges) {
+        long f0 = 0, f1 = -0x3f3f3f3f;
+        foreach (int x in nums) {
+            long tmp = f0;
+            f0 = Math.Max(f0 + x, f1 + (x ^ k));
+            f1 = Math.Max(f1 + x, tmp + (x ^ k));
+        }
+        return f0;
+    }
+}
 ```
 
 <!-- tabs:end -->

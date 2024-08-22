@@ -64,7 +64,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们用一个哈希表 $\textit{cnt}$ 记录每个数字出现的次数，然后遍历哈希表，对于每个数字及其出现次数 $(x, v)$，如果 $v = 1$ 且 $\textit{cnt}[x - 1] = 0$ 且 $\textit{cnt}[x + 1] = 0$，则 $x$ 是一个孤独数字，将其加入答案数组中。
+
+遍历结束后，返回答案数组即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -73,30 +79,28 @@ tags:
 ```python
 class Solution:
     def findLonely(self, nums: List[int]) -> List[int]:
-        counter = Counter(nums)
-        ans = []
-        for num, cnt in counter.items():
-            if cnt == 1 and counter[num - 1] == 0 and counter[num + 1] == 0:
-                ans.append(num)
-        return ans
+        cnt = Counter(nums)
+        return [
+            x for x, v in cnt.items() if v == 1 and cnt[x - 1] == 0 and cnt[x + 1] == 0
+        ]
 ```
 
 #### Java
 
 ```java
 class Solution {
-
     public List<Integer> findLonely(int[] nums) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
         }
         List<Integer> ans = new ArrayList<>();
-        counter.forEach((k, v) -> {
-            if (v == 1 && !counter.containsKey(k - 1) && !counter.containsKey(k + 1)) {
-                ans.add(k);
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            if (v == 1 && !cnt.containsKey(x - 1) && !cnt.containsKey(x + 1)) {
+                ans.add(x);
             }
-        });
+        }
         return ans;
     }
 }
@@ -108,12 +112,15 @@ class Solution {
 class Solution {
 public:
     vector<int> findLonely(vector<int>& nums) {
-        unordered_map<int, int> counter;
-        for (int num : nums) ++counter[num];
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            cnt[x]++;
+        }
         vector<int> ans;
-        for (auto& e : counter) {
-            int k = e.first, v = e.second;
-            if (v == 1 && !counter.count(k - 1) && !counter.count(k + 1)) ans.push_back(k);
+        for (auto& [x, v] : cnt) {
+            if (v == 1 && !cnt.contains(x - 1) && !cnt.contains(x + 1)) {
+                ans.push_back(x);
+            }
         }
         return ans;
     }
@@ -123,18 +130,17 @@ public:
 #### Go
 
 ```go
-func findLonely(nums []int) []int {
-	counter := make(map[int]int)
-	for _, num := range nums {
-		counter[num]++
+func findLonely(nums []int) (ans []int) {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	var ans []int
-	for k, v := range counter {
-		if v == 1 && counter[k-1] == 0 && counter[k+1] == 0 {
-			ans = append(ans, k)
+	for x, v := range cnt {
+		if v == 1 && cnt[x-1] == 0 && cnt[x+1] == 0 {
+			ans = append(ans, x)
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -142,14 +148,14 @@ func findLonely(nums []int) []int {
 
 ```ts
 function findLonely(nums: number[]): number[] {
-    let hashMap: Map<number, number> = new Map();
-    for (let num of nums) {
-        hashMap.set(num, (hashMap.get(num) || 0) + 1);
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
     }
-    let ans: Array<number> = [];
-    for (let [num, count] of hashMap.entries()) {
-        if (count == 1 && !hashMap.get(num - 1) && !hashMap.get(num + 1)) {
-            ans.push(num);
+    const ans: number[] = [];
+    for (const [x, v] of cnt) {
+        if (v === 1 && !cnt.has(x - 1) && !cnt.has(x + 1)) {
+            ans.push(x);
         }
     }
     return ans;

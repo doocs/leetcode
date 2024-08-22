@@ -12,8 +12,9 @@ class Solution:
 
         nums1.sort()
         nums2.sort()
-        return min(
-            x
-            for x in (nums2[0] - nums1[0], nums2[0] - nums1[1], nums2[0] - nums1[2])
-            if f(x)
-        )
+        ans = inf
+        for i in range(3):
+            x = nums2[0] - nums1[i]
+            if f(x):
+                ans = min(ans, x)
+        return ans

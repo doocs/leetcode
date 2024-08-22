@@ -379,13 +379,13 @@ We define $f[i][j]$ to represent whether the first $i$ characters of string $s_1
 
 $$
 f[i][j] = \begin{cases}
-f[i - 1][j] & \text{if } s_1[i - 1] = s_3[i + j - 1] \\
-\text{or } f[i][j - 1] & \text{if } s_2[j - 1] = s_3[i + j - 1] \\
-\text{false} & \text{otherwise}
+f[i - 1][j] & \textit{if } s_1[i - 1] = s_3[i + j - 1] \\
+\textit{or } f[i][j - 1] & \textit{if } s_2[j - 1] = s_3[i + j - 1] \\
+\textit{false} & \textit{otherwise}
 \end{cases}
 $$
 
-where $f[0][0] = \text{true}$ indicates that an empty string is an interleaving string of two empty strings.
+where $f[0][0] = \textit{true}$ indicates that an empty string is an interleaving string of two empty strings.
 
 The answer is $f[m][n]$.
 

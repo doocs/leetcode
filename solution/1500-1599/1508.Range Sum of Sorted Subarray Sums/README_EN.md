@@ -65,7 +65,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+According to the problem statement, generate the `arr` array, sort it, and then sum all the elements in the range $[left-1,.. right-1]$ to get the result.
+
+Time complexity is $O(n^2 \times \log n)$, and space complexity is $O(n^2)$. Here, $n$ is the length of the array given in the problem.
 
 <!-- tabs:start -->
 
@@ -152,6 +156,54 @@ func rangeSum(nums []int, n int, left int, right int) (ans int) {
 		ans = (ans + x) % mod
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function rangeSum(nums: number[], n: number, left: number, right: number): number {
+    let arr = Array((n * (n + 1)) / 2).fill(0);
+    const mod = 10 ** 9 + 7;
+
+    for (let i = 0, s = 0, k = 0; i < n; i++, s = 0) {
+        for (let j = i; j < n; j++, k++) {
+            s += nums[j];
+            arr[k] = s;
+        }
+    }
+
+    let ans = 0;
+    arr = arr.sort((a, b) => a - b).slice(left - 1, right);
+    for (const x of arr) {
+        ans += x;
+    }
+
+    return ans % mod;
+}
+```
+
+#### JavaScript
+
+```js
+function rangeSum(nums, n, left, right) {
+    let arr = Array((n * (n + 1)) / 2).fill(0);
+    const mod = 10 ** 9 + 7;
+
+    for (let i = 0, s = 0, k = 0; i < n; i++, s = 0) {
+        for (let j = i; j < n; j++, k++) {
+            s += nums[j];
+            arr[k] = s;
+        }
+    }
+
+    let ans = 0;
+    arr = arr.sort((a, b) => a - b).slice(left - 1, right);
+    for (const x of arr) {
+        ans += x;
+    }
+
+    return ans % mod;
 }
 ```
 

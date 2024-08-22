@@ -285,6 +285,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3198 | [Find Cities in Each State](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README_EN.md)                                                                                         | `Database` | Easy       | 🔒     |
 | 3204 | [Bitwise User Permissions Analysis](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README_EN.md)                                                                           | `Database` | Medium     | 🔒     |
 | 3214 | [Year on Year Growth Rate](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README_EN.md)                                                                                           | `Database` | Hard       | 🔒     |
+| 3220 | [Odd and Even Transactions](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README_EN.md)                                                                                           | `Database` | Medium     |        |
+| 3230 | [Customer Purchasing Behavior Analysis](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README_EN.md)                                                                   | `Database` | Medium     | 🔒     |
+| 3236 | [CEO Subordinate Hierarchy](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README_EN.md)                                                                                             | `Database` | Hard       | 🔒     |
+| 3246 | [Premier League Table Ranking](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README_EN.md)                                                                                     | `Database` | Easy       | 🔒     |
+| 3252 | [Premier League Table Ranking II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README_EN.md)                                                                             | `Database` | Medium     | 🔒     |
+| 3262 | [Find Overlapping Shifts](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README_EN.md)                                                                                                 |            | Medium     | 🔒     |
 
 ## Copyright
 

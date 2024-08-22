@@ -258,9 +258,9 @@ class Solution {
 
 Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:
 
--   If $\text{matrix}[i][j] = \text{target}$, it means the target value has been found, and we directly return `true`.
--   If $\text{matrix}[i][j] > \text{target}$, it means all elements in this column from the current position upwards are greater than `target`, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
--   If $\text{matrix}[i][j] < \text{target}$, it means all elements in this row from the current position to the right are less than `target`, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
+-   If $\textit{matrix}[i][j] = \textit{target}$, it means the target value has been found, and we directly return `true`.
+-   If $\textit{matrix}[i][j] > \textit{target}$, it means all elements in this column from the current position upwards are greater than `target`, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
+-   If $\textit{matrix}[i][j] < \textit{target}$, it means all elements in this row from the current position to the right are less than `target`, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
 
 If the search ends and the `target` is still not found, return `false`.
 

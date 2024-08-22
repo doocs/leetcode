@@ -72,7 +72,7 @@ tags:
 
 ### Solution 1: Dynamic Programming + Bit Manipulation
 
-We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \text{True}$, and all other values are $\text{False}$.
+We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \textit{True}$, and all other values are $\textit{False}$.
 
 We consider the $i$-th reward value $v$. If we do not choose it, then $f[i][j] = f[i - 1][j]$; if we choose it, then $f[i][j] = f[i - 1][j - v]$, where $0 \leq j - v < v$. Thus, the state transition equation is:
 
@@ -80,7 +80,7 @@ $$
 f[i][j] = f[i - 1][j] \vee f[i - 1][j - v]
 $$
 
-The final answer is $\max\{j \mid f[n][j] = \text{True}\}$.
+The final answer is $\max\{j \mid f[n][j] = \textit{True}\}$.
 
 Since $f[i][j]$ only depends on $f[i - 1][j]$ and $f[i - 1][j - v]$, we can optimize away the first dimension and use only a one-dimensional array for state transitions. Additionally, due to the large data range of this problem, we need to use bit manipulation to optimize the efficiency of state transitions.
 

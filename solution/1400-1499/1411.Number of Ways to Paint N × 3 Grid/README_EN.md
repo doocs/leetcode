@@ -166,10 +166,10 @@ We notice that the grid only has $3$ columns, so there are at most $3^3=27$ diff
 Therefore, we define $f[i][j]$ to represent the number of schemes in the first $i$ rows, where the coloring state of the $i$th row is $j$. The state $f[i][j]$ is transferred from $f[i - 1][k]$, where $k$ is the coloring state of the $i - 1$th row, and $k$ and $j$ meet the requirement of different colors being adjacent. That is:
 
 $$
-f[i][j] = \sum_{k \in \text{valid}(j)} f[i - 1][k]
+f[i][j] = \sum_{k \in \textit{valid}(j)} f[i - 1][k]
 $$
 
-where $\text{valid}(j)$ represents all legal predecessor states of state $j$.
+where $\textit{valid}(j)$ represents all legal predecessor states of state $j$.
 
 The final answer is the sum of $f[n][j]$, where $j$ is any legal state.
 

@@ -154,13 +154,15 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
-According to the problem description, we don't need to consider the height of the rectangle, only the width.
+According to the problem description, we do not need to consider the height of the rectangles, only the width.
 
-We can sort all the points according to the x-coordinate and use a variable $x_1$ to record the current x-coordinate of the lower left corner of the rectangle. Then we traverse all the points. If the x-coordinate $x$ of the current point is greater than $x_1 + w$, it means that the current point cannot be covered by the current rectangle. We need to add a new rectangle and update $x_1$ to the x-coordinate of the current point.
+We can sort all the points by their x-coordinates and use a variable $x_1$ to record the rightmost x-coordinate that the current rectangle can cover. Initially, $x_1 = -1$.
 
-After the traversal, we get the minimum number of rectangles needed.
+Next, we iterate through all the points. If the current point's x-coordinate $x$ is greater than $x_1$, it means the existing rectangle cannot cover the current point. We need to add a new rectangle, increment the answer by one, and update $x_1 = x + w$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of points.
+After completing the iteration, we obtain the minimum number of rectangles needed.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of points.
 
 <!-- tabs:start -->
 
@@ -170,11 +172,11 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 class Solution:
     def minRectanglesToCoverPoints(self, points: List[List[int]], w: int) -> int:
         points.sort()
-        ans, x1 = 0, -inf
+        ans, x1 = 0, -1
         for x, _ in points:
-            if x1 + w < x:
-                x1 = x
+            if x > x1:
                 ans += 1
+                x1 = x + w
         return ans
 ```
 
@@ -184,13 +186,12 @@ class Solution:
 class Solution {
     public int minRectanglesToCoverPoints(int[][] points, int w) {
         Arrays.sort(points, (a, b) -> a[0] - b[0]);
-        int ans = 0;
-        int x1 = -(1 << 30);
+        int ans = 0, x1 = -1;
         for (int[] p : points) {
             int x = p[0];
-            if (x1 + w < x) {
-                x1 = x;
+            if (x > x1) {
                 ++ans;
+                x1 = x + w;
             }
         }
         return ans;
@@ -205,12 +206,12 @@ class Solution {
 public:
     int minRectanglesToCoverPoints(vector<vector<int>>& points, int w) {
         sort(points.begin(), points.end());
-        int ans = 0, x1 = -(1 << 30);
-        for (auto& p : points) {
+        int ans = 0, x1 = -1;
+        for (const auto& p : points) {
             int x = p[0];
-            if (x1 + w < x) {
-                x1 = x;
+            if (x > x1) {
                 ++ans;
+                x1 = x + w;
             }
         }
         return ans;
@@ -223,11 +224,11 @@ public:
 ```go
 func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
-	x1 := -(1 << 30)
+	x1 := -1
 	for _, p := range points {
-		if x := p[0]; x1+w < x {
-			x1 = x
+		if x := p[0]; x > x1 {
 			ans++
+			x1 = x + w
 		}
 	}
 	return
@@ -239,15 +240,53 @@ func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 ```ts
 function minRectanglesToCoverPoints(points: number[][], w: number): number {
     points.sort((a, b) => a[0] - b[0]);
-    let ans = 0;
-    let x1 = -Infinity;
+    let [ans, x1] = [0, -1];
     for (const [x, _] of points) {
-        if (x1 + w < x) {
-            x1 = x;
+        if (x > x1) {
             ++ans;
+            x1 = x + w;
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_rectangles_to_cover_points(mut points: Vec<Vec<i32>>, w: i32) -> i32 {
+        points.sort_by(|a, b| a[0].cmp(&b[0]));
+        let mut ans = 0;
+        let mut x1 = -1;
+        for p in points {
+            let x = p[0];
+            if x > x1 {
+                ans += 1;
+                x1 = x + w;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinRectanglesToCoverPoints(int[][] points, int w) {
+        Array.Sort(points, (a, b) => a[0] - b[0]);
+        int ans = 0, x1 = -1;
+        foreach (int[] p in points) {
+            int x = p[0];
+            if (x > x1) {
+                ans++;
+                x1 = x + w;
+            }
+        }
+        return ans;
+    }
 }
 ```
 

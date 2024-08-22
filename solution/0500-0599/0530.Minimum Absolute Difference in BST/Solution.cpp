@@ -11,21 +11,19 @@
  */
 class Solution {
 public:
-    const int inf = INT_MAX;
-    int ans;
-    int prev;
-
     int getMinimumDifference(TreeNode* root) {
-        ans = inf, prev = inf;
-        dfs(root);
+        const int inf = 1 << 30;
+        int ans = inf, pre = -inf;
+        auto dfs = [&](auto&& dfs, TreeNode* root) -> void {
+            if (!root) {
+                return;
+            }
+            dfs(dfs, root->left);
+            ans = min(ans, root->val - pre);
+            pre = root->val;
+            dfs(dfs, root->right);
+        };
+        dfs(dfs, root);
         return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        ans = min(ans, abs(prev - root->val));
-        prev = root->val;
-        dfs(root->right);
     }
 };

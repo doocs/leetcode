@@ -23,6 +23,8 @@ tags:
 
 <p>给定一个由整数组成的<code>row x col</code>&nbsp;的 <code>grid</code>，其中有多少个&nbsp;<code>3 × 3</code> 的 “幻方” 子矩阵？（每个子矩阵都是连续的）。</p>
 
+<p>注意：虽然幻方只能包含 1 到 9 的数字，但&nbsp;<code>grid</code> 可以包含最多15的数字。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
@@ -276,9 +278,9 @@ function numMagicSquaresInside(grid: number[][]): number {
         if (i + 3 > m || j + 3 > n) {
             return 0;
         }
-        const cnt: number[] = new Array(16).fill(0);
-        const row: number[] = new Array(3).fill(0);
-        const col: number[] = new Array(3).fill(0);
+        const cnt: number[] = Array(16).fill(0);
+        const row: number[] = Array(3).fill(0);
+        const col: number[] = Array(3).fill(0);
         let [a, b] = [0, 0];
         for (let x = i; x < i + 3; ++x) {
             for (let y = j; y < j + 3; ++y) {
@@ -313,6 +315,158 @@ function numMagicSquaresInside(grid: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function numMagicSquaresInside(grid) {
+    const m = grid.length;
+    const n = grid[0].length;
+    const check = (i, j) => {
+        if (i + 3 > m || j + 3 > n) {
+            return 0;
+        }
+        const cnt = Array(16).fill(0);
+        const row = Array(3).fill(0);
+        const col = Array(3).fill(0);
+        let [a, b] = [0, 0];
+        for (let x = i; x < i + 3; ++x) {
+            for (let y = j; y < j + 3; ++y) {
+                const v = grid[x][y];
+                if (v < 1 || v > 9 || ++cnt[v] > 1) {
+                    return 0;
+                }
+                row[x - i] += v;
+                col[y - j] += v;
+                if (x - i === y - j) {
+                    a += v;
+                }
+                if (x - i === 2 - (y - j)) {
+                    b += v;
+                }
+            }
+        }
+        if (a !== b) {
+            return 0;
+        }
+        for (let k = 0; k < 3; ++k) {
+            if (row[k] !== a || col[k] !== a) {
+                return 0;
+            }
+        }
+        return 1;
+    };
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            ans += check(i, j);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+export function numMagicSquaresInside(grid: number[][]): number {
+    const [m, n] = [grid.length, grid[0].length];
+    if (m < 3 || n < 3) return 0;
+
+    const check = (y: number, x: number) => {
+        const g = grid;
+        if (g[y + 1][x + 1] !== 5) return 0;
+
+        const cells = [
+            g[y][x],
+            g[y][x + 1],
+            g[y][x + 2],
+            g[y + 1][x + 2],
+            g[y + 2][x + 2],
+            g[y + 2][x + 1],
+            g[y + 2][x],
+            g[y + 1][x],
+        ];
+
+        const i = cells.indexOf(2);
+        if (i === -1) return 0;
+        cells.push(...cells.splice(0, i));
+
+        const circle = [2, 9, 4, 3, 8, 1, 6, 7];
+        const reverseCircle = [2, 7, 6, 1, 8, 3, 4, 9];
+
+        if (cells.every((x, i) => x === circle[i])) return 1;
+        if (cells.every((x, i) => x === reverseCircle[i])) return 1;
+
+        return 0;
+    };
+
+    let res = 0;
+    for (let i = 0; i < m - 2; i++) {
+        for (let j = 0; j < n - 2; j++) {
+            res += check(i, j);
+        }
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function numMagicSquaresInside(grid) {
+    const [m, n] = [grid.length, grid[0].length];
+    if (m < 3 || n < 3) return 0;
+
+    const check = (y, x) => {
+        const g = grid;
+        if (g[y + 1][x + 1] !== 5) return false;
+
+        const cells = [
+            g[y][x],
+            g[y][x + 1],
+            g[y][x + 2],
+            g[y + 1][x + 2],
+            g[y + 2][x + 2],
+            g[y + 2][x + 1],
+            g[y + 2][x],
+            g[y + 1][x],
+        ];
+
+        const i = cells.indexOf(2);
+        if (i === -1) return false;
+        cells.push(...cells.splice(0, i));
+
+        const circle = [2, 9, 4, 3, 8, 1, 6, 7];
+        const reverseCircle = [2, 7, 6, 1, 8, 3, 4, 9];
+
+        if (cells.every((x, i) => x === circle[i])) return true;
+        if (cells.every((x, i) => x === reverseCircle[i])) return true;
+
+        return false;
+    };
+
+    let res = 0;
+    for (let i = 0; i < m - 2; i++) {
+        for (let j = 0; j < n - 2; j++) {
+            res += +check(i, j);
+        }
+    }
+
+    return res;
 }
 ```
 

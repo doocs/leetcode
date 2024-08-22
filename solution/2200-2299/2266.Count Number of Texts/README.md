@@ -23,7 +23,7 @@ tags:
 
 <p>Alice 在给 Bob 用手机打字。数字到字母的 <strong>对应</strong>&nbsp;如下图所示。</p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2266.Count%20Number%20of%20Texts/images/1200px-telephone-keypad2svg.png" style="width: 200px; height: 162px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2200-2299/2266.Count%20Number%20of%20Texts/images/1722224025-gsUAIv-image.png" style="width: 200px; height: 162px;" /></p>
 
 <p>为了 <strong>打出</strong>&nbsp;一个字母，Alice 需要 <strong>按</strong>&nbsp;对应字母 <code>i</code>&nbsp;次，<code>i</code>&nbsp;是该字母在这个按键上所处的位置。</p>
 
@@ -46,7 +46,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>pressedKeys = "22233"
+<pre>
+<b>输入：</b>pressedKeys = "22233"
 <b>输出：</b>8
 <strong>解释：</strong>
 Alice 可能发出的文字信息包括：
@@ -56,7 +57,8 @@ Alice 可能发出的文字信息包括：
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>pressedKeys = "222222222222222222222222222222222222"
+<pre>
+<b>输入：</b>pressedKeys = "222222222222222222222222222222222222"
 <b>输出：</b>82876089
 <strong>解释：</strong>
 总共有 2082876103 种 Alice 可能发出的文字信息。

@@ -54,7 +54,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Inorder Traversal
+
+The problem requires us to find the minimum difference between the values of any two nodes. Since the inorder traversal of a binary search tree is an increasing sequence, we only need to find the minimum difference between the values of two adjacent nodes in the inorder traversal.
+
+We can use a recursive method to implement the inorder traversal. During the process, we use a variable $\textit{pre}$ to save the value of the previous node. This way, we can calculate the minimum difference between the values of two adjacent nodes during the traversal.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 
@@ -68,17 +74,18 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getMinimumDifference(self, root: TreeNode) -> int:
-        def dfs(root):
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]):
             if root is None:
                 return
             dfs(root.left)
-            nonlocal ans, prev
-            ans = min(ans, abs(prev - root.val))
-            prev = root.val
+            nonlocal pre, ans
+            ans = min(ans, root.val - pre)
+            pre = root.val
             dfs(root.right)
 
-        ans = prev = inf
+        pre = -inf
+        ans = inf
         dfs(root)
         return ans
 ```
@@ -102,13 +109,11 @@ class Solution:
  * }
  */
 class Solution {
-    private int ans;
-    private int prev;
-    private int inf = Integer.MAX_VALUE;
+    private final int inf = 1 << 30;
+    private int ans = inf;
+    private int pre = -inf;
 
     public int getMinimumDifference(TreeNode root) {
-        ans = inf;
-        prev = inf;
         dfs(root);
         return ans;
     }
@@ -118,8 +123,8 @@ class Solution {
             return;
         }
         dfs(root.left);
-        ans = Math.min(ans, Math.abs(root.val - prev));
-        prev = root.val;
+        ans = Math.min(ans, root.val - pre);
+        pre = root.val;
         dfs(root.right);
     }
 }
@@ -141,22 +146,20 @@ class Solution {
  */
 class Solution {
 public:
-    const int inf = INT_MAX;
-    int ans;
-    int prev;
-
     int getMinimumDifference(TreeNode* root) {
-        ans = inf, prev = inf;
-        dfs(root);
+        const int inf = 1 << 30;
+        int ans = inf, pre = -inf;
+        auto dfs = [&](auto&& dfs, TreeNode* root) -> void {
+            if (!root) {
+                return;
+            }
+            dfs(dfs, root->left);
+            ans = min(ans, root->val - pre);
+            pre = root->val;
+            dfs(dfs, root->right);
+        };
+        dfs(dfs, root);
         return ans;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->left);
-        ans = min(ans, abs(prev - root->val));
-        prev = root->val;
-        dfs(root->right);
     }
 };
 ```
@@ -173,27 +176,53 @@ public:
  * }
  */
 func getMinimumDifference(root *TreeNode) int {
-	inf := 0x3f3f3f3f
-	ans, prev := inf, inf
+	const inf int = 1 << 30
+	ans, pre := inf, -inf
 	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
 		if root == nil {
 			return
 		}
 		dfs(root.Left)
-		ans = min(ans, abs(prev-root.Val))
-		prev = root.Val
+		ans = min(ans, root.Val-pre)
+		pre = root.Val
 		dfs(root.Right)
 	}
 	dfs(root)
 	return ans
 }
+```
 
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function getMinimumDifference(root: TreeNode | null): number {
+    let [ans, pre] = [Infinity, -Infinity];
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        ans = Math.min(ans, root.val - pre);
+        pre = root.val;
+        dfs(root.right);
+    };
+    dfs(root);
+    return ans;
 }
 ```
 
@@ -218,69 +247,59 @@ func abs(x int) int {
 //     }
 //   }
 // }
-use std::cell::RefCell;
 use std::rc::Rc;
+use std::cell::RefCell;
 impl Solution {
-    #[allow(dead_code)]
     pub fn get_minimum_difference(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        let mut ret = i32::MAX;
-        let mut prev = i32::MAX;
-        Self::traverse(root, &mut prev, &mut ret);
-        ret
-    }
+        const inf: i32 = 1 << 30;
+        let mut ans = inf;
+        let mut pre = -inf;
 
-    #[allow(dead_code)]
-    fn traverse(root: Option<Rc<RefCell<TreeNode>>>, prev: &mut i32, ans: &mut i32) {
-        let left = root.as_ref().unwrap().borrow().left.clone();
-        let right = root.as_ref().unwrap().borrow().right.clone();
-        let val = root.as_ref().unwrap().borrow().val;
-        if !left.is_none() {
-            Self::traverse(left.clone(), prev, ans);
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, ans: &mut i32, pre: &mut i32) {
+            if let Some(n) = node {
+                let n = n.borrow();
+                dfs(n.left.clone(), ans, pre);
+                *ans = (*ans).min(n.val - *pre);
+                *pre = n.val;
+                dfs(n.right.clone(), ans, pre);
+            }
         }
-        *ans = std::cmp::min(*ans, (*prev - val).abs());
-        *prev = val;
-        if !right.is_none() {
-            Self::traverse(right.clone(), prev, ans);
-        }
+
+        dfs(root, &mut ans, &mut pre);
+        ans
     }
 }
 ```
 
-#### TypeScript
+#### JavaScript
 
-```ts
+```js
 /**
  * Definition for a binary tree node.
- * class TreeNode {
- *     val: number
- *     left: TreeNode | null
- *     right: TreeNode | null
- *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.left = (left===undefined ? null : left)
- *         this.right = (right===undefined ? null : right)
- *     }
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
  * }
  */
-function getMinimumDifference(root: TreeNode | null): number {
-    if (!root) return 0;
-
-    let prev = Number.MIN_SAFE_INTEGER;
-    let min = Number.MAX_SAFE_INTEGER;
-
-    const dfs = (node: TreeNode | null) => {
-        if (!node) return;
-
-        dfs(node.left);
-        min = Math.min(min, node.val - prev);
-        prev = node.val;
-        dfs(node.right);
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var getMinimumDifference = function (root) {
+    let [ans, pre] = [Infinity, -Infinity];
+    const dfs = root => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left);
+        ans = Math.min(ans, root.val - pre);
+        pre = root.val;
+        dfs(root.right);
     };
-
     dfs(root);
-
-    return min;
-}
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

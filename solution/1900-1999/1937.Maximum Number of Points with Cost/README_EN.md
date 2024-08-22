@@ -7,6 +7,7 @@ source: Weekly Contest 250 Q3
 tags:
     - Array
     - Dynamic Programming
+    - Matrix
 ---
 
 <!-- problem:start -->

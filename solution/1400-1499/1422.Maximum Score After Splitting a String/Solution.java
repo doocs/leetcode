@@ -1,19 +1,17 @@
 class Solution {
     public int maxScore(String s) {
+        int l = 0, r = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '1') {
+                ++r;
+            }
+        }
         int ans = 0;
-        for (int i = 1; i < s.length(); ++i) {
-            int t = 0;
-            for (int j = 0; j < i; ++j) {
-                if (s.charAt(j) == '0') {
-                    ++t;
-                }
-            }
-            for (int j = i; j < s.length(); ++j) {
-                if (s.charAt(j) == '1') {
-                    ++t;
-                }
-            }
-            ans = Math.max(ans, t);
+        for (int i = 0; i < n - 1; ++i) {
+            l += (s.charAt(i) - '0') ^ 1;
+            r -= s.charAt(i) - '0';
+            ans = Math.max(ans, l + r);
         }
         return ans;
     }

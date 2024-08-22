@@ -89,7 +89,7 @@ So, the total number of times they have to refill is 0.
 
 ### Solution 1: Two Pointers + Simulation
 
-We use two variables $a$ and $b$ to represent the amount of water Alice and Bob have, initially $a = \text{capacityA}$, $b = \text{capacityB}$. Then we use two pointers $i$ and $j$ to point to the head and tail of the plant array, and simulate the process of Alice and Bob watering from both ends to the middle.
+We use two variables $a$ and $b$ to represent the amount of water Alice and Bob have, initially $a = \textit{capacityA}$, $b = \textit{capacityB}$. Then we use two pointers $i$ and $j$ to point to the head and tail of the plant array, and simulate the process of Alice and Bob watering from both ends to the middle.
 
 When $i < j$, we judge whether Alice and Bob have enough water to water the plants. If not, we refill the watering cans. Then we update the amount of water $a$ and $b$, and move the pointers $i$ and $j$. Finally, we need to judge whether $i$ and $j$ are equal. If they are equal, we need to judge whether $\max(a, b)$ is less than the amount of water the plant needs. If it is less, we need to refill the watering cans again.
 

@@ -69,9 +69,9 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 
 ### Solution 1: Hash Table
 
-We use a hash table $g$ to store the array of indices corresponding to each value. In the constructor, we traverse the array $\text{arr}$, adding the index corresponding to each value to the hash table.
+We use a hash table $g$ to store the array of indices corresponding to each value. In the constructor, we traverse the array $\textit{arr}$, adding the index corresponding to each value to the hash table.
 
-In the query function, we first check whether the given value exists in the hash table. If it does not exist, it means that the value does not exist in the array, so we directly return $0$. Otherwise, we get the index array $\text{idx}$ corresponding to the value. Then we use binary search to find the first index $l$ that is greater than or equal to $\text{left}$, and the first index $r$ that is greater than $\text{right}$. Finally, we return $r - l$.
+In the query function, we first check whether the given value exists in the hash table. If it does not exist, it means that the value does not exist in the array, so we directly return $0$. Otherwise, we get the index array $\textit{idx}$ corresponding to the value. Then we use binary search to find the first index $l$ that is greater than or equal to $\textit{left}$, and the first index $r$ that is greater than $\textit{right}$. Finally, we return $r - l$.
 
 In terms of time complexity, the time complexity of the constructor is $O(n)$, and the time complexity of the query function is $O(\log n)$. The space complexity is $O(n)$. Where $n$ is the length of the array.
 

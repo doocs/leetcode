@@ -98,7 +98,49 @@ tags:
 #### Java
 
 ```java
-
+class Solution {
+    public String countOfAtoms(String formula) {
+        Map<String, Integer> map = new HashMap<>();
+        int[] stack = new int[1000];
+        int top = 0, multiplier = 1, freq = 0;
+        char[] c = formula.toCharArray();
+        for (int i = c.length - 1; i >= 0; i--) {
+            if (c[i] >= 'a' && c[i] <= 'z') {
+                int end = i--;
+                while (i >= 0 && c[i] >= 'a' && c[i] <= 'z') i--;
+                String key = new String(c, i, end - i + 1);
+                map.put(key, map.getOrDefault(key, 0) + Math.max(freq, 1) * multiplier);
+                freq = 0;
+            } else if (c[i] >= 'A' && c[i] <= 'Z') {
+                String key = new String(c, i, 1);
+                map.put(key, map.getOrDefault(key, 0) + Math.max(freq, 1) * multiplier);
+                freq = 0;
+            } else if (c[i] >= '0' && c[i] <= '9') {
+                freq = c[i] - '0';
+                int p = 10;
+                while (i - 1 >= 0 && c[i - 1] >= '0' && c[i - 1] <= '9') {
+                    freq += p * (c[--i] - '0');
+                    p *= 10;
+                }
+            } else if (c[i] == ')') {
+                stack[top++] = multiplier;
+                multiplier *= Math.max(freq, 1);
+                freq = 0;
+            } else {
+                multiplier = stack[--top];
+            }
+        }
+        List<String> keys = new ArrayList<>(map.keySet());
+        Collections.sort(keys);
+        StringBuilder sb = new StringBuilder();
+        for (String key : keys) {
+            sb.append(key);
+            int f = map.get(key);
+            if (f > 1) sb.append(f);
+        }
+        return sb.toString();
+    }
+}
 ```
 
 #### C++
@@ -111,6 +153,146 @@ tags:
 
 ```go
 
+```
+
+#### TypeScript
+
+```ts
+function countOfAtoms(formula: string): string {
+    const getCount = (formula: string, factor = 1) => {
+        const n = formula.length;
+        const cnt: Record<string, number> = {};
+        const s: string[] = [];
+        let [atom, c] = ['', 0];
+
+        for (let i = 0; i <= n; i++) {
+            if (formula[i] === '(') {
+                const stk: string[] = ['('];
+                let j = i;
+                while (stk.length) {
+                    j++;
+                    if (formula[j] === '(') stk.push('(');
+                    else if (formula[j] === ')') stk.pop();
+                }
+
+                const molecule = formula.slice(i + 1, j);
+                const nextFactor: string[] = [];
+
+                while (isDigit(formula[++j])) {
+                    nextFactor.push(formula[j]);
+                }
+
+                const nextC = getCount(molecule, +nextFactor.join('') || 1);
+                for (const [atom, c] of Object.entries(nextC)) {
+                    cnt[atom] = (cnt[atom] ?? 0) + c * factor;
+                }
+
+                i = j - 1;
+                continue;
+            }
+
+            if (s.length && (!formula[i] || isUpper(formula[i]))) {
+                [atom, c] = getAtom(s);
+
+                c *= factor;
+                cnt[atom] = (cnt[atom] ?? 0) + c;
+                s.length = 0;
+            }
+
+            s.push(formula[i]);
+        }
+
+        return cnt;
+    };
+
+    return Object.entries(getCount(formula))
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([a, b]) => (b > 1 ? a + b : a))
+        .join('');
+}
+
+const regex = {
+    atom: /(\D+)(\d+)?/,
+    isUpper: /[A-Z]+/,
+};
+const getAtom = (s: string[]): [string, number] => {
+    const [_, atom, c] = regex.atom.exec(s.join(''))!;
+    return [atom, c ? +c : 1];
+};
+const isDigit = (ch: string) => !Number.isNaN(Number.parseInt(ch));
+const isUpper = (ch: string) => regex.isUpper.test(ch);
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} formula
+ * @return {string}
+ */
+var countOfAtoms = function (formula) {
+    const getCount = (formula, factor = 1) => {
+        const n = formula.length;
+        const cnt = {};
+        const s = [];
+        let [atom, c] = ['', 0];
+
+        for (let i = 0; i <= n; i++) {
+            if (formula[i] === '(') {
+                const stk = ['('];
+                let j = i;
+                while (stk.length) {
+                    j++;
+                    if (formula[j] === '(') stk.push('(');
+                    else if (formula[j] === ')') stk.pop();
+                }
+
+                const molecule = formula.slice(i + 1, j);
+                const nextFactor = [];
+
+                while (isDigit(formula[++j])) {
+                    nextFactor.push(formula[j]);
+                }
+
+                const nextC = getCount(molecule, +nextFactor.join('') || 1);
+                for (const [atom, c] of Object.entries(nextC)) {
+                    cnt[atom] = (cnt[atom] ?? 0) + c * factor;
+                }
+
+                i = j - 1;
+                continue;
+            }
+
+            if (s.length && (!formula[i] || isUpper(formula[i]))) {
+                [atom, c] = getAtom(s);
+
+                c *= factor;
+                cnt[atom] = (cnt[atom] ?? 0) + c;
+                s.length = 0;
+            }
+
+            s.push(formula[i]);
+        }
+
+        return cnt;
+    };
+
+    return Object.entries(getCount(formula))
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([a, b]) => (b > 1 ? a + b : a))
+        .join('');
+};
+
+const regex = {
+    atom: /(\D+)(\d+)?/,
+    isUpper: /[A-Z]+/,
+};
+const getAtom = s => {
+    const [_, atom, c] = regex.atom.exec(s.join(''));
+    return [atom, c ? +c : 1];
+};
+const isDigit = ch => !Number.isNaN(Number.parseInt(ch));
+const isUpper = ch => regex.isUpper.test(ch);
 ```
 
 <!-- tabs:end -->

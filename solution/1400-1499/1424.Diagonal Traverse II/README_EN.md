@@ -53,7 +53,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We observe that:
+
+-   The value of $i + j$ is the same for each diagonal;
+-   The value of $i + j$ for the next diagonal is greater than that of the previous diagonal;
+-   Within the same diagonal, the value of $i + j$ is the same, and the value of $j$ increases from small to large.
+
+Therefore, we store all numbers in the form of $(i, j, \textit{nums}[i][j])$ into $\textit{arr}$, and then sort according to the first two items. Finally, return the array composed of the values at index 2 of all elements in $\textit{arr}$.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the number of elements in the array $\textit{nums}$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -134,6 +144,21 @@ func findDiagonalOrder(nums [][]int) []int {
 		ans = append(ans, v[2])
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findDiagonalOrder(nums: number[][]): number[] {
+    const arr: number[][] = [];
+    for (let i = 0; i < nums.length; ++i) {
+        for (let j = 0; j < nums[i].length; ++j) {
+            arr.push([i + j, j, nums[i][j]]);
+        }
+    }
+    arr.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+    return arr.map(x => x[2]);
 }
 ```
 

@@ -14,13 +14,11 @@
  * }
  */
 class Solution {
-    private int ans;
-    private int prev;
-    private int inf = Integer.MAX_VALUE;
+    private final int inf = 1 << 30;
+    private int ans = inf;
+    private int pre = -inf;
 
     public int getMinimumDifference(TreeNode root) {
-        ans = inf;
-        prev = inf;
         dfs(root);
         return ans;
     }
@@ -30,8 +28,8 @@ class Solution {
             return;
         }
         dfs(root.left);
-        ans = Math.min(ans, Math.abs(root.val - prev));
-        prev = root.val;
+        ans = Math.min(ans, root.val - pre);
+        pre = root.val;
         dfs(root.right);
     }
 }

@@ -45,8 +45,6 @@ tags:
 <p>The trailing slash should be removed.</p>
 </div>
 
-<div class="example-block">&nbsp;</div>
-
 <p><strong class="example">Example 2:</strong></p>
 
 <div class="example-block">
@@ -69,6 +67,7 @@ tags:
 <p><strong>Explanation:</strong></p>
 
 <p>A double period <code>&quot;..&quot;</code> refers to the directory up a level.</p>
+</div>
 
 <p><strong class="example">Example 4:</strong></p>
 
@@ -80,7 +79,6 @@ tags:
 <p><strong>Explanation:</strong></p>
 
 <p>Going one level up from the root directory is not possible.</p>
-</div>
 </div>
 
 <p><strong class="example">Example 5:</strong></p>

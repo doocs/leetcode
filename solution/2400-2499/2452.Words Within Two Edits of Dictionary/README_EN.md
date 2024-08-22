@@ -66,9 +66,9 @@ Applying any two edits to &quot;yes&quot; cannot make it equal to &quot;not&quot
 
 ### Solution 1: Brute Force Enumeration
 
-We directly traverse each word $s$ in the array $\text{queries}$, and then traverse each word $t$ in the array $\text{dictionary}$. If there exists a word $t$ whose edit distance from $s$ is less than $3$, we add $s$ to the answer array and then exit the inner loop. If there is no such word $t$, we continue to traverse the next word $s$.
+We directly traverse each word $s$ in the array $\textit{queries}$, and then traverse each word $t$ in the array $\textit{dictionary}$. If there exists a word $t$ whose edit distance from $s$ is less than $3$, we add $s$ to the answer array and then exit the inner loop. If there is no such word $t$, we continue to traverse the next word $s$.
 
-The time complexity is $O(m \times n \times l)$, where $m$ and $n$ are the lengths of the arrays $\text{queries}$ and $\text{dictionary}$ respectively, and $l$ is the length of the word.
+The time complexity is $O(m \times n \times l)$, where $m$ and $n$ are the lengths of the arrays $\textit{queries}$ and $\textit{dictionary}$ respectively, and $l$ is the length of the word.
 
 <!-- tabs:start -->
 

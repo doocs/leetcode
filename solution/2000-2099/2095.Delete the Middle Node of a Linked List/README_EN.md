@@ -73,7 +73,13 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Fast and Slow Pointers
+
+The fast and slow pointer technique is a common method used to solve problems related to linked lists. We can maintain two pointers, a slow pointer $\textit{slow}$ and a fast pointer $\textit{fast}$. Initially, $\textit{slow}$ points to a dummy node, whose $\textit{next}$ pointer points to the head node $\textit{head}$ of the list, while $\textit{fast}$ points to the head node $\textit{head}$.
+
+Then, we move the slow pointer one position backward and the fast pointer two positions backward each time, until the fast pointer reaches the end of the list. At this point, the node next to the node pointed by the slow pointer is the middle node of the list. We can remove the middle node by setting the $\textit{next}$ pointer of the node pointed by the slow pointer to point to the next next node.
+
+The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -189,15 +195,14 @@ func deleteMiddle(head *ListNode) *ListNode {
  */
 
 function deleteMiddle(head: ListNode | null): ListNode | null {
-    if (!head || !head.next) return null;
-    let fast = head.next,
-        slow = head;
-    while (fast.next && fast.next.next) {
+    const dummy = new ListNode(0, head);
+    let [slow, fast] = [dummy, head];
+    while (fast && fast.next) {
         slow = slow.next;
         fast = fast.next.next;
     }
     slow.next = slow.next.next;
-    return head;
+    return dummy.next;
 }
 ```
 

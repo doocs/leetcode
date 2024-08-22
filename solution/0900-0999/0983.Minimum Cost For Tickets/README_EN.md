@@ -78,12 +78,12 @@ In total, you spent $17 and covered all the days of your travel.
 
 ### Solution 1: Memoization Search + Binary Search
 
-We define a function $\text{dfs(i)}$, which represents the minimum cost required from the $i$-th trip to the last trip. Thus, the answer is $\text{dfs(0)}$.
+We define a function $\textit{dfs(i)}$, which represents the minimum cost required from the $i$-th trip to the last trip. Thus, the answer is $\textit{dfs(0)}$.
 
-The execution process of the function $\text{dfs(i)}$ is as follows:
+The execution process of the function $\textit{dfs(i)}$ is as follows:
 
 -   If $i \geq n$, it means all trips have ended, return $0$;
--   Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\text{dfs(j)}$, and finally return the minimum cost among these three purchasing methods.
+-   Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\textit{dfs(j)}$, and finally return the minimum cost among these three purchasing methods.
 
 To avoid repeated calculations, we use memoization search to save the results that have already been calculated.
 
@@ -247,9 +247,9 @@ function mincostTickets(days: number[], costs: number[]): number {
 
 ### Solution 2: Dynamic Programming
 
-Let's denote the last day in the $\text{days}$ array as $m$. We can define an array $f$ of length $m + 1$, where $f[i]$ represents the minimum cost from day $1$ to day $i$.
+Let's denote the last day in the $\textit{days}$ array as $m$. We can define an array $f$ of length $m + 1$, where $f[i]$ represents the minimum cost from day $1$ to day $i$.
 
-We can calculate the value of $f[i]$ in increasing order of the dates in the $\text{days}$ array, starting from day $1$. If day $i$ is a travel day, we can consider three purchasing options: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and take the minimum cost among these three as the value of $f[i]$. If day $i$ is not a travel day, then $f[i] = f[i - 1]$.
+We can calculate the value of $f[i]$ in increasing order of the dates in the $\textit{days}$ array, starting from day $1$. If day $i$ is a travel day, we can consider three purchasing options: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and take the minimum cost among these three as the value of $f[i]$. If day $i$ is not a travel day, then $f[i] = f[i - 1]$.
 
 The final answer is $f[m]$.
 

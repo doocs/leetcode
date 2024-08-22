@@ -78,11 +78,11 @@ We return the array [2,1].
 
 ### Solution 1: Hash Table
 
-First, we use a hash table $d$ to record the index of each number in the array `nums`. Then, we iterate through the operation array `operations`. For each operation $[a, b]$, we replace the number at index $d[a]$ in `nums` with $b$, and update the index of $b$ in $d$ to $d[a]$.
+First, we use a hash table $d$ to record the indices of each number in the array $\textit{nums}$. Then, we iterate through the operation array $\textit{operations}$. For each operation $[x, y]$, we replace the number at index $d[x]$ in $\textit{nums}$ with $y$, and update the index of $y$ in $d$ to $d[x]$.
 
-Finally, we return `nums`.
+Finally, we return $\textit{nums}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the arrays `nums` and `operations`, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array $\textit{nums}$ and the operation array $\textit{operations}$, respectively.
 
 <!-- tabs:start -->
 
@@ -91,10 +91,10 @@ The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$
 ```python
 class Solution:
     def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
-        d = {v: i for i, v in enumerate(nums)}
-        for a, b in operations:
-            nums[d[a]] = b
-            d[b] = d[a]
+        d = {x: i for i, x in enumerate(nums)}
+        for x, y in operations:
+            nums[d[x]] = y
+            d[y] = d[x]
         return nums
 ```
 
@@ -103,14 +103,15 @@ class Solution:
 ```java
 class Solution {
     public int[] arrayChange(int[] nums, int[][] operations) {
-        Map<Integer, Integer> d = new HashMap<>();
-        for (int i = 0; i < nums.length; ++i) {
+        int n = nums.length;
+        Map<Integer, Integer> d = new HashMap<>(n);
+        for (int i = 0; i < n; ++i) {
             d.put(nums[i], i);
         }
         for (var op : operations) {
-            int a = op[0], b = op[1];
-            nums[d.get(a)] = b;
-            d.put(b, d.get(a));
+            int x = op[0], y = op[1];
+            nums[d.get(x)] = y;
+            d.put(y, d.get(x));
         }
         return nums;
     }
@@ -128,9 +129,9 @@ public:
             d[nums[i]] = i;
         }
         for (auto& op : operations) {
-            int a = op[0], b = op[1];
-            nums[d[a]] = b;
-            d[b] = d[a];
+            int x = op[0], y = op[1];
+            nums[d[x]] = y;
+            d[y] = d[x];
         }
         return nums;
     }
@@ -142,13 +143,13 @@ public:
 ```go
 func arrayChange(nums []int, operations [][]int) []int {
 	d := map[int]int{}
-	for i, v := range nums {
-		d[v] = i
+	for i, x := range nums {
+		d[x] = i
 	}
 	for _, op := range operations {
-		a, b := op[0], op[1]
-		nums[d[a]] = b
-		d[b] = d[a]
+		x, y := op[0], op[1]
+		nums[d[x]] = y
+		d[y] = d[x]
 	}
 	return nums
 }
@@ -158,10 +159,10 @@ func arrayChange(nums []int, operations [][]int) []int {
 
 ```ts
 function arrayChange(nums: number[], operations: number[][]): number[] {
-    const d = new Map(nums.map((v, i) => [v, i]));
-    for (const [a, b] of operations) {
-        nums[d.get(a)] = b;
-        d.set(b, d.get(a));
+    const d: Map<number, number> = new Map(nums.map((x, i) => [x, i]));
+    for (const [x, y] of operations) {
+        nums[d.get(x)!] = y;
+        d.set(y, d.get(x)!);
     }
     return nums;
 }

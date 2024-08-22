@@ -245,7 +245,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二分查找 + 数位 DP
+
+我们注意到，如果 $\textit{num}$ 增大，数字 $1$ 到 $\textit{num}$ 的总价值也会增大。因此，我们可以使用二分查找的方法找到最大的廉价数字。
+
+我们定义二分查找的左边界 $l = 1$，由于每 $2^x + 1$ 个数中至少有一个数字是有价值的，而总价值不超过 $10^15$，因此我们可以设定二分查找的右边界 $r = 10^{18}$。
+
+接下来，我们进行二分查找，对于每一个 $\textit{mid}$，我们使用数位 DP 的方法计算出 $1$ 到 $\textit{mid}$ 的总价值，如果总价值不超过 $k$，则说明 $\textit{mid}$ 是一个廉价数字，我们将左边界 $l$ 更新为 $\textit{mid}$，否则我们将右边界 $r$ 更新为 $\textit{mid} - 1$。
+
+最后，我们返回左边界 $l$ 即可。
+
+时间复杂度 $O(\log^2 k)$，空间复杂度 $O(\log k)$。
 
 <!-- tabs:start -->
 
@@ -332,7 +342,7 @@ public:
         ll l = 1, r = 1e17;
         ll num = 0;
         ll f[65][65];
-        function<ll(int, int, bool)> dfs = [&](int pos, int cnt, bool limit) -> ll {
+        auto dfs = [&](auto&& dfs, int pos, int cnt, bool limit) -> ll {
             if (pos == 0) {
                 return cnt;
             }
@@ -342,7 +352,7 @@ public:
             int up = limit ? num >> (pos - 1) & 1 : 1;
             ll ans = 0;
             for (int i = 0; i <= up; ++i) {
-                ans += dfs(pos - 1, cnt + (i == 1 && pos % x == 0), limit && i == up);
+                ans += dfs(dfs, pos - 1, cnt + (i == 1 && pos % x == 0), limit && i == up);
             }
             if (!limit) {
                 f[pos][cnt] = ans;
@@ -354,7 +364,7 @@ public:
             num = mid;
             memset(f, -1, sizeof(f));
             int pos = 64 - __builtin_clzll(mid);
-            if (dfs(pos, 0, true) <= k) {
+            if (dfs(dfs, pos, 0, true) <= k) {
                 l = mid;
             } else {
                 r = mid - 1;
@@ -413,6 +423,56 @@ func findMaximumNumber(k int64, x int) int64 {
 		}
 	}
 	return l
+}
+```
+
+#### TypeScript
+
+```ts
+function findMaximumNumber(k: number, x: number): number {
+    let [l, r] = [1n, 10n ** 17n];
+    let num: bigint;
+    const f: bigint[][] = Array.from({ length: 65 }, () => Array(65).fill(-1n));
+
+    const dfs = (pos: number, cnt: number, limit: boolean): bigint => {
+        if (pos === 0) {
+            return BigInt(cnt);
+        }
+        if (!limit && f[pos][cnt] !== -1n) {
+            return f[pos][cnt];
+        }
+        let ans: bigint = 0n;
+        let up: number = 1;
+        if (limit) {
+            up = Number((num >> BigInt(pos - 1)) & 1n);
+        }
+        for (let i = 0; i <= up; i++) {
+            let v: number = cnt;
+            if (i === 1 && pos % x === 0) {
+                v++;
+            }
+            ans += dfs(pos - 1, v, limit && i === up);
+        }
+        if (!limit) {
+            f[pos][cnt] = ans;
+        }
+        return ans;
+    };
+
+    while (l < r) {
+        let mid: bigint = (l + r + 1n) >> 1n;
+        num = mid;
+        let m: number = num.toString(2).length;
+        for (let i = 0; i < f.length; i++) {
+            f[i].fill(-1n);
+        }
+        if (dfs(m, 0, true) <= BigInt(k)) {
+            l = mid;
+        } else {
+            r = mid - 1n;
+        }
+    }
+    return Number(l);
 }
 ```
 

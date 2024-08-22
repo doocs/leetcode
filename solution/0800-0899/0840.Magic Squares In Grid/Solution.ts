@@ -5,9 +5,9 @@ function numMagicSquaresInside(grid: number[][]): number {
         if (i + 3 > m || j + 3 > n) {
             return 0;
         }
-        const cnt: number[] = new Array(16).fill(0);
-        const row: number[] = new Array(3).fill(0);
-        const col: number[] = new Array(3).fill(0);
+        const cnt: number[] = Array(16).fill(0);
+        const row: number[] = Array(3).fill(0);
+        const col: number[] = Array(3).fill(0);
         let [a, b] = [0, 0];
         for (let x = i; x < i + 3; ++x) {
             for (let y = j; y < j + 3; ++y) {

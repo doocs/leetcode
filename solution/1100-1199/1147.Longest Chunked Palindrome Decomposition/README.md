@@ -96,107 +96,6 @@ tags:
 ```python
 class Solution:
     def longestDecomposition(self, text: str) -> int:
-        n = len(text)
-        if n < 2:
-            return n
-        for i in range(n // 2 + 1):
-            if text[:i] == text[-i:]:
-                return 2 + self.longestDecomposition(text[i:-i])
-        return 1
-```
-
-#### Java
-
-```java
-class Solution {
-    public int longestDecomposition(String text) {
-        int n = text.length();
-        if (n < 2) {
-            return n;
-        }
-        for (int i = 1; i <= n >> 1; ++i) {
-            if (text.substring(0, i).equals(text.substring(n - i))) {
-                return 2 + longestDecomposition(text.substring(i, n - i));
-            }
-        }
-        return 1;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int longestDecomposition(string text) {
-        int n = text.size();
-        if (n < 2) return n;
-        for (int i = 1; i <= n >> 1; ++i) {
-            if (text.substr(0, i) == text.substr(n - i)) {
-                return 2 + longestDecomposition(text.substr(i, n - i - i));
-            }
-        }
-        return 1;
-    }
-};
-```
-
-#### Go
-
-```go
-func longestDecomposition(text string) int {
-	n := len(text)
-	if n < 2 {
-		return n
-	}
-	for i := 1; i <= n>>1; i++ {
-		if text[:i] == text[n-i:] {
-			return 2 + longestDecomposition(text[i:n-i])
-		}
-	}
-	return 1
-}
-```
-
-#### TypeScript
-
-```ts
-function longestDecomposition(text: string): number {
-    const n: number = text.length;
-    if (n < 2) {
-        return n;
-    }
-    for (let i: number = 1; i <= n >> 1; i++) {
-        if (text.slice(0, i) === text.slice(n - i)) {
-            return 2 + longestDecomposition(text.slice(i, n - i));
-        }
-    }
-    return 1;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：字符串哈希
-
-**字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 $0$。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
-
-因此，在方法一的基础上，我们可以使用字符串哈希的方法，在 $O(1)$ 时间内比较两个字符串是否相等。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def longestDecomposition(self, text: str) -> int:
         ans = 0
         i, j = 0, len(text) - 1
         while i <= j:
@@ -343,7 +242,13 @@ function longestDecomposition(text: string): number {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法二：字符串哈希
+
+**字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 $0$。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
+
+因此，在方法一的基础上，我们可以使用字符串哈希的方法，在 $O(1)$ 时间内比较两个字符串是否相等。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
 

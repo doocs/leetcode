@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1902.De
 tags:
     - 树
     - 二叉搜索树
+    - 数组
     - 二叉树
     - 有序集合
 ---

@@ -262,7 +262,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 ### Solution 2: Two Pointers
 
-We can maintain two pointers $l$ and $r$, initially $l = r = 0$; maintain a variable $\text{cost}$, which represents the sum of the absolute values of the ASCII code differences in the index interval $[l,..r]$. In each step, we move $r$ to the right by one position, then update $\text{cost} = \text{cost} + |s[r] - t[r]|$. If $\text{cost} \gt \text{maxCost}$, then we loop to move $l$ to the right by one position, and decrease the value of $\text{cost}$, until $\text{cost} \leq \text{maxCost}$. Then we update the answer, that is, $\text{ans} = \max(\text{ans}, r - l + 1)$.
+We can maintain two pointers $l$ and $r$, initially $l = r = 0$; maintain a variable $\textit{cost}$, which represents the sum of the absolute values of the ASCII code differences in the index interval $[l,..r]$. In each step, we move $r$ to the right by one position, then update $\textit{cost} = \textit{cost} + |s[r] - t[r]|$. If $\textit{cost} \gt \textit{maxCost}$, then we loop to move $l$ to the right by one position, and decrease the value of $\textit{cost}$, until $\textit{cost} \leq \textit{maxCost}$. Then we update the answer, that is, $\textit{ans} = \max(\textit{ans}, r - l + 1)$.
 
 Finally, return the answer.
 
@@ -379,7 +379,7 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 In Solution 2, the interval maintained by the two pointers may become shorter or longer. Since the problem only requires the maximum length, we can maintain a monotonically increasing interval.
 
-Specifically, we use two pointers $l$ and $r$ to point to the left and right endpoints of the interval, initially $l = r = 0$. In each step, we move $r$ to the right by one position, then update $\text{cost} = \text{cost} + |s[r] - t[r]|$. If $\text{cost} \gt \text{maxCost}$, then we move $l$ to the right by one position, and decrease the value of $\text{cost}$.
+Specifically, we use two pointers $l$ and $r$ to point to the left and right endpoints of the interval, initially $l = r = 0$. In each step, we move $r$ to the right by one position, then update $\textit{cost} = \textit{cost} + |s[r] - t[r]|$. If $\textit{cost} \gt \textit{maxCost}$, then we move $l$ to the right by one position, and decrease the value of $\textit{cost}$.
 
 Finally, return $n - l$.
 

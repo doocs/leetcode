@@ -67,11 +67,11 @@ tags:
 
 ### 方法一：预处理 + 枚举
 
-我们可以先预处理出数组 $arr$ 以每个元素结尾和开头的最大子数组和，分别存入数组 $left$ 和 $right$ 中。
+我们可以先预处理出数组 $\textit{arr}$ 以每个元素结尾和开头的最大子数组和，分别存入数组 $\textit{left}$ 和 $\textit{right}$ 中。
 
-如果我们不删除任何元素，那么最大子数组和就是 $left[i]$ 或 $right[i]$ 中的最大值；如果我们删除一个元素，我们可以枚举 $[1..n-2]$ 中的每个位置 $i$，计算 $left[i-1] + right[i+1]$ 的值，取最大值即可。
+如果我们不删除任何元素，那么最大子数组和就是 $\textit{left}[i]$ 或 $\textit{right}[i]$ 中的最大值；如果我们删除一个元素，我们可以枚举 $[1..n-2]$ 中的每个位置 $i$，计算 $\textit{left}[i-1] + \textit{right}[i+1]$ 的值，取最大值即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -192,6 +192,33 @@ function maximumSum(arr: number[]): number {
         ans = Math.max(ans, left[i - 1] + right[i + 1]);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_sum(arr: Vec<i32>) -> i32 {
+        let n = arr.len();
+        let mut left = vec![0; n];
+        let mut right = vec![0; n];
+        let mut s = 0;
+        for i in 0..n {
+            s = (s.max(0)) + arr[i];
+            left[i] = s;
+        }
+        s = 0;
+        for i in (0..n).rev() {
+            s = (s.max(0)) + arr[i];
+            right[i] = s;
+        }
+        let mut ans = *left.iter().max().unwrap();
+        for i in 1..n - 1 {
+            ans = ans.max(left[i - 1] + right[i + 1]);
+        }
+        ans
+    }
 }
 ```
 

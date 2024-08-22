@@ -31,7 +31,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [-1,2,1,-4], target = 1
 <strong>输出：</strong>2
-<strong>解释：</strong>与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
+<strong>解释：</strong>与 target 最接近的和是 2 (-1 + 2 + 1 = 2)。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [0,0,0], target = 1
 <strong>输出：</strong>0
-</pre>
+<strong>解释：</strong>与 target 最接近的和是 0（0 + 0 + 0 = 0）。</pre>
 
 <p>&nbsp;</p>
 

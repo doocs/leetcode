@@ -1,17 +1,12 @@
 function minimumDeletions(s: string): number {
-    let lb = 0,
-        ra = 0;
-    const n = s.length;
-    for (let i = 0; i < n; ++i) {
-        if (s.charAt(i) === 'a') {
-            ++ra;
-        }
-    }
-    let ans = n;
-    for (let i = 0; i < n; ++i) {
-        ra -= s.charAt(i) === 'a' ? 1 : 0;
+    let ra = [...s].reduce((acc, x) => (x === 'a' ? acc + 1 : acc), 0);
+    let lb = 0;
+
+    let ans = s.length;
+    for (const ch of s) {
+        if (ch === 'a') ra--;
         ans = Math.min(ans, lb + ra);
-        lb += s.charAt(i) === 'b' ? 1 : 0;
+        if (ch === 'b') lb++;
     }
     return ans;
 }

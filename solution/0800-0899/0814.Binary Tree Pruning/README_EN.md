@@ -61,7 +61,13 @@ The diagram on the right represents the answer.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+First, we check if the current node is null. If it is, we directly return the null node.
+
+Otherwise, we recursively prune the left and right subtrees and reassign the pruned subtrees to the current node's left and right children. Then, we check if the current node's value is 0 and both its left and right children are null. If so, we return the null node; otherwise, we return the current node.
+
+Time complexity is $O(n)$, and space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -77,10 +83,10 @@ The diagram on the right represents the answer.
 class Solution:
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
-            return None
+            return root
         root.left = self.pruneTree(root.left)
         root.right = self.pruneTree(root.right)
-        if root.val == 0 and root.left is None and root.right is None:
+        if root.val == 0 and root.left == root.right:
             return None
         return root
 ```
@@ -135,10 +141,14 @@ class Solution {
 class Solution {
 public:
     TreeNode* pruneTree(TreeNode* root) {
-        if (!root) return nullptr;
+        if (!root) {
+            return root;
+        }
         root->left = pruneTree(root->left);
         root->right = pruneTree(root->right);
-        if (!root->val && !root->left && !root->right) return nullptr;
+        if (root->val == 0 && root->left == root->right) {
+            return nullptr;
+        }
         return root;
     }
 };
@@ -186,12 +196,12 @@ func pruneTree(root *TreeNode) *TreeNode {
  */
 
 function pruneTree(root: TreeNode | null): TreeNode | null {
-    if (root == null) {
+    if (!root) {
         return root;
     }
     root.left = pruneTree(root.left);
     root.right = pruneTree(root.right);
-    if (root.val == 0 && root.left == null && root.right == null) {
+    if (root.val === 0 && root.left === root.right) {
         return null;
     }
     return root;
@@ -257,10 +267,12 @@ impl Solution {
  * @return {TreeNode}
  */
 var pruneTree = function (root) {
-    if (!root) return null;
+    if (!root) {
+        return root;
+    }
     root.left = pruneTree(root.left);
     root.right = pruneTree(root.right);
-    if (root.val == 0 && !root.left && !root.right) {
+    if (root.val === 0 && root.left === root.right) {
         return null;
     }
     return root;

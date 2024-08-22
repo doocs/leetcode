@@ -1,15 +1,13 @@
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var m = [Int: Int]()
-        var i = 0
-        while true {
-            let x = nums[i]
-            let y = target - nums[i]
-            if let j = m[target - nums[i]] {
+        var d = [Int: Int]()
+        for (i, x) in nums.enumerated() {
+            let y = target - x
+            if let j = d[y] {
                 return [j, i]
             }
-            m[nums[i]] = i
-            i += 1
+            d[x] = i
         }
+        return []
     }
 }

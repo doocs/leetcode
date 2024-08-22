@@ -69,7 +69,7 @@ It can be proven that there is no longer path that satisfies the conditions.
 
 First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
 
-Then we start DFS from the root node. For each node $i$, we traverse each child node $j$ in $g[i]$. If $s[i] \neq s[j]$, then we can start from node $i$, pass through node $j$, and reach a leaf node. The length of this path is $x = 1 + \text{dfs}(j)$. We use $mx$ to record the longest path length starting from node $i$. At the same time, we update the answer $ans = \max(ans, mx + x)$ during the traversal process.
+Then we start DFS from the root node. For each node $i$, we traverse each child node $j$ in $g[i]$. If $s[i] \neq s[j]$, then we can start from node $i$, pass through node $j$, and reach a leaf node. The length of this path is $x = 1 + \textit{dfs}(j)$. We use $mx$ to record the longest path length starting from node $i$. At the same time, we update the answer $ans = \max(ans, mx + x)$ during the traversal process.
 
 Finally, we return $ans + 1$.
 

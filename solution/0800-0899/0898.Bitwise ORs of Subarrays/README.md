@@ -18,11 +18,11 @@ tags:
 
 <!-- description:start -->
 
-<p>我们有一个非负整数数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;。</p>
+<p>给定一个整数数组<meta charset="UTF-8" />&nbsp;<code>arr</code>，返回所有&nbsp;<code>arr</code>&nbsp;的非空子数组的不同按位或的数量。</p>
 
-<p>对于每个（连续的）子数组<meta charset="UTF-8" />&nbsp;<code>sub = [arr[i], arr[i + 1], ..., arr[j]]</code>&nbsp;（&nbsp;<code>i &lt;= j</code>），我们对<meta charset="UTF-8" />&nbsp;<code>sub</code>&nbsp;中的每个元素进行按位或操作，获得结果<meta charset="UTF-8" />&nbsp;<code>arr[i] | arr[i + 1] | ... | arr[j]</code>&nbsp;。</p>
+<p>子数组的按位或是子数组中每个整数的按位或。含有一个整数的子数组的按位或就是该整数。</p>
 
-<p>返回可能结果的数量。 多次出现的结果在最终答案中仅计算一次。</p>
+<p><strong>子数组</strong> 是数组内连续的非空元素序列。</p>
 
 <p>&nbsp;</p>
 
@@ -61,7 +61,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 10<sup>9</sup></code>​​​​​​​</li>
+	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->

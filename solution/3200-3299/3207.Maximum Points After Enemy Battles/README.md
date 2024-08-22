@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3207.Maximum%20Points%20After%20Enemy%20Battles/README.md
+rating: 1591
+source: 第 134 场双周赛 Q2
 tags:
     - 贪心
     - 数组

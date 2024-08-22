@@ -272,16 +272,15 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 ```python
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        n = len(nums)
-        ans = n + 1
-        s = j = 0
-        for i, x in enumerate(nums):
+        l = s = 0
+        ans = inf
+        for r, x in enumerate(nums):
             s += x
-            while j < n and s >= target:
-                ans = min(ans, i - j + 1)
-                s -= nums[j]
-                j += 1
-        return ans if ans <= n else 0
+            while s >= target:
+                ans = min(ans, r - l + 1)
+                s -= nums[l]
+                l += 1
+        return 0 if ans == inf else ans
 ```
 
 #### Java
@@ -289,17 +288,17 @@ class Solution:
 ```java
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        int n = nums.length;
+        int l = 0, n = nums.length;
         long s = 0;
         int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (j < n && s >= target) {
-                ans = Math.min(ans, i - j + 1);
-                s -= nums[j++];
+        for (int r = 0; r < n; ++r) {
+            s += nums[r];
+            while (s >= target) {
+                ans = Math.min(ans, r - l + 1);
+                s -= nums[l++];
             }
         }
-        return ans <= n ? ans : 0;
+        return ans > n ? 0 : ans;
     }
 }
 ```
@@ -310,17 +309,17 @@ class Solution {
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        int n = nums.size();
+        int l = 0, n = nums.size();
         long long s = 0;
         int ans = n + 1;
-        for (int i = 0, j = 0; i < n; ++i) {
-            s += nums[i];
-            while (j < n && s >= target) {
-                ans = min(ans, i - j + 1);
-                s -= nums[j++];
+        for (int r = 0; r < n; ++r) {
+            s += nums[r];
+            while (s >= target) {
+                ans = min(ans, r - l + 1);
+                s -= nums[l++];
             }
         }
-        return ans == n + 1 ? 0 : ans;
+        return ans > n ? 0 : ans;
     }
 };
 ```
@@ -329,18 +328,17 @@ public:
 
 ```go
 func minSubArrayLen(target int, nums []int) int {
-	n := len(nums)
-	s := 0
-	ans := n + 1
-	for i, j := 0, 0; i < n; i++ {
-		s += nums[i]
+	l, n := 0, len(nums)
+	s, ans := 0, n+1
+	for r, x := range nums {
+		s += x
 		for s >= target {
-			ans = min(ans, i-j+1)
-			s -= nums[j]
-			j++
+			ans = min(ans, r-l+1)
+			s -= nums[l]
+			l++
 		}
 	}
-	if ans == n+1 {
+	if ans > n {
 		return 0
 	}
 	return ans
@@ -352,16 +350,15 @@ func minSubArrayLen(target int, nums []int) int {
 ```ts
 function minSubArrayLen(target: number, nums: number[]): number {
     const n = nums.length;
-    let s = 0;
-    let ans = n + 1;
-    for (let i = 0, j = 0; i < n; ++i) {
-        s += nums[i];
+    let [s, ans] = [0, n + 1];
+    for (let l = 0, r = 0; r < n; ++r) {
+        s += nums[r];
         while (s >= target) {
-            ans = Math.min(ans, i - j + 1);
-            s -= nums[j++];
+            ans = Math.min(ans, r - l + 1);
+            s -= nums[l++];
         }
     }
-    return ans === n + 1 ? 0 : ans;
+    return ans > n ? 0 : ans;
 }
 ```
 

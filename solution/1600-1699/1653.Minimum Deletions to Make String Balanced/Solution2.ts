@@ -1,9 +1,8 @@
 function minimumDeletions(s: string): number {
-    const n = s.length;
-    let ans = 0,
-        b = 0;
-    for (let i = 0; i < n; ++i) {
-        if (s.charAt(i) === 'b') {
+    let [ans, b] = [0, 0];
+
+    for (const ch of s) {
+        if (ch === 'b') {
             ++b;
         } else {
             ans = Math.min(ans + 1, b);

@@ -56,9 +56,9 @@ tags:
 
 ### 方法一：双指针
 
-我们利用两个指针 $i$ 和 $j$ 分别指向字符串 $\text{typed}$ 和 $\text{name}$ 的第一个字符，然后开始遍历，如果 $\text{typed}[j] \neq \text{name}[i]$，说明两个字符串不匹配，直接返回 $\text{False}$。否则，我们找到连续相同的字符的下一个位置，分别记为 $x$ 和 $y$，如果 $x - i > y - j$，说明 $\text{typed}$ 中的字符个数小于 $\text{name}$ 中的字符个数，直接返回 $\text{False}$。否则，我们将 $i$ 和 $j$ 更新为 $x$ 和 $y$，继续遍历，直到 $i$ 和 $j$ 分别遍历完 $\text{name}$ 和 $\text{typed}$，返回 $\text{True}$。
+我们利用两个指针 $i$ 和 $j$ 分别指向字符串 $\textit{typed}$ 和 $\textit{name}$ 的第一个字符，然后开始遍历，如果 $\textit{typed}[j] \neq \textit{name}[i]$，说明两个字符串不匹配，直接返回 $\textit{False}$。否则，我们找到连续相同的字符的下一个位置，分别记为 $x$ 和 $y$，如果 $x - i > y - j$，说明 $\textit{typed}$ 中的字符个数小于 $\textit{name}$ 中的字符个数，直接返回 $\textit{False}$。否则，我们将 $i$ 和 $j$ 更新为 $x$ 和 $y$，继续遍历，直到 $i$ 和 $j$ 分别遍历完 $\textit{name}$ 和 $\textit{typed}$，返回 $\textit{True}$。
 
-时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是字符串 $\text{name}$ 和 $\text{typed}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是字符串 $\textit{name}$ 和 $\textit{typed}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

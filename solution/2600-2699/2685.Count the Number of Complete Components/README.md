@@ -234,4 +234,61 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：取巧做法
+
+要解决的问题：
+
+1. 如何保存每一个节点与其它点联通状态
+2. 如何判断多个点是否是一个联通图
+
+对于第一点：实际上就是保存了当前到每个点的联通点集合（包括自己），方便后续判等。
+第二点：有了第一点之后，如果是连通图中的点就有：
+
+1. 此点包含此联通图中所有的点（包括自己）
+2. 并且只包含此联通图中的点
+
+拿示例一举例：
+
+-   5 包含的联通点有且只有自己，所以是连通图
+-   0 包含 0、1、2，同理 1、2 点也是
+-   3 和 4 也是包含自己和彼此
+-   基于以上就有以下代码实现：
+
+<!-- tabs:start -->
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countCompleteComponents(int n, vector<vector<int>>& edges) {
+        int ans = 0;
+        vector<set<int>> m(n + 1, set<int>());
+        for (int i = 0; i < n; i++) {
+            m[i].insert(i);
+        }
+        for (auto x : edges) {
+            m[x[0]].insert(x[1]);
+            m[x[1]].insert(x[0]);
+        }
+        map<set<int>, int> s;
+        for (int i = 0; i < n; i++) {
+            s[m[i]]++;
+        }
+        for (auto& [x, y] : s) {
+            if (y == x.size()) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

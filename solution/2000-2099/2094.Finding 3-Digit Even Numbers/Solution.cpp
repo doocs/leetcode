@@ -1,30 +1,24 @@
 class Solution {
 public:
     vector<int> findEvenNumbers(vector<int>& digits) {
-        vector<int> counter = count(digits);
+        int cnt[10]{};
+        for (int x : digits) {
+            ++cnt[x];
+        }
         vector<int> ans;
-        for (int i = 100; i < 1000; i += 2) {
-            vector<int> t(3);
-            for (int j = 0, k = i; k > 0; ++j) {
-                t[j] = k % 10;
-                k /= 10;
+        for (int x = 100; x < 1000; x += 2) {
+            int cnt1[10]{};
+            for (int y = x; y; y /= 10) {
+                ++cnt1[y % 10];
             }
-            vector<int> cnt = count(t);
-            if (check(counter, cnt)) ans.push_back(i);
+            bool ok = true;
+            for (int i = 0; i < 10 && ok; ++i) {
+                ok = cnt[i] >= cnt1[i];
+            }
+            if (ok) {
+                ans.push_back(x);
+            }
         }
         return ans;
-    }
-
-    vector<int> count(vector<int>& nums) {
-        vector<int> counter(10);
-        for (int num : nums) ++counter[num];
-        return counter;
-    }
-
-    bool check(vector<int>& cnt1, vector<int>& cnt2) {
-        for (int i = 0; i < 10; ++i)
-            if (cnt1[i] < cnt2[i])
-                return false;
-        return true;
     }
 };

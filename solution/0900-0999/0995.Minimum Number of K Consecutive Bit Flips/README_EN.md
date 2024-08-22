@@ -236,9 +236,9 @@ impl Solution {
 
 ### Solution 2: Sliding Window
 
-We can use a variable $\text{flipped}$ to indicate whether the current position has been flipped. If $\text{flipped} = 1$, it means the current position has already been flipped; otherwise, it means the current position has not been flipped. For positions that have been flipped, we can set their value to $-1$, allowing us to distinguish which positions have been flipped.
+We can use a variable $\textit{flipped}$ to indicate whether the current position has been flipped. If $\textit{flipped} = 1$, it means the current position has already been flipped; otherwise, it means the current position has not been flipped. For positions that have been flipped, we can set their value to $-1$, allowing us to distinguish which positions have been flipped.
 
-Next, we traverse the array from left to right. For each position $i$, if $i \geq k$ and the element at position $i-k$ is $-1$, then the flip state of the current position should be the opposite of the flip state of the previous position. That is, $\text{flipped} = \text{flipped} \oplus 1$. If the element at the current position is the same as the current flip state, then we need to flip the current position. At this point, we check if $i+k$ exceeds the length of the array. If it does, then it is impossible to achieve the goal, and we return $-1$. Otherwise, we invert the current flip state, increase the answer by $1$, and set the element at the current position to $-1$.
+Next, we traverse the array from left to right. For each position $i$, if $i \geq k$ and the element at position $i-k$ is $-1$, then the flip state of the current position should be the opposite of the flip state of the previous position. That is, $\textit{flipped} = \textit{flipped} \oplus 1$. If the element at the current position is the same as the current flip state, then we need to flip the current position. At this point, we check if $i+k$ exceeds the length of the array. If it does, then it is impossible to achieve the goal, and we return $-1$. Otherwise, we invert the current flip state, increase the answer by $1$, and set the element at the current position to $-1$.
 
 By processing all elements in the array in this manner, we can return the answer upon completion.
 

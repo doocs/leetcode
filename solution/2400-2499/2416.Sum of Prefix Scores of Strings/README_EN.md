@@ -79,13 +79,23 @@ Each prefix has a score of one, so the total is answer[0] = 1 + 1 + 1 + 1 = 4.
 
 <!-- solution:start -->
 
-### Solution 1: Trie
+### Solution 1: Prefix Tree
 
-Use a trie to maintain the prefixes of all strings and the occurrence count of each prefix.
+We can use a prefix tree to maintain all prefixes of the strings and count the occurrences of each prefix.
 
-Then, traverse each string, accumulating the occurrence count of each prefix.
+Define the prefix tree node structure `Trie`, which includes two properties:
 
-The time complexity is $O(n \times m)$. Here, $n$ and $m$ are the length of the string array `words` and the maximum length of the strings in it, respectively.
+-   `children`: An array of length 26 used to store the current node's children.
+-   `cnt`: The occurrence count of the current node.
+
+Define two methods for the prefix tree:
+
+-   `insert`: Inserts a string, adding its prefixes into the prefix tree.
+-   `search`: Searches for a string and returns the occurrence count of its prefixes.
+
+We traverse all strings, inserting each string into the prefix tree. Then we traverse all strings again, calling the `search` method for each string and summing up the occurrence counts of each prefix.
+
+Time complexity is $O(L)$, and space complexity is $O(L)$, where $L$ is the total length of all strings.
 
 <!-- tabs:start -->
 
@@ -93,6 +103,8 @@ The time complexity is $O(n \times m)$. Here, $n$ and $m$ are the length of the 
 
 ```python
 class Trie:
+    __slots__ = "children", "cnt"
+
     def __init__(self):
         self.children = [None] * 26
         self.cnt = 0
@@ -100,7 +112,7 @@ class Trie:
     def insert(self, w):
         node = self
         for c in w:
-            idx = ord(c) - ord('a')
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
@@ -110,7 +122,7 @@ class Trie:
         node = self
         ans = 0
         for c in w:
-            idx = ord(c) - ord('a')
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 return ans
             node = node.children[idx]
@@ -180,19 +192,17 @@ class Solution {
 ```cpp
 class Trie {
 private:
-    vector<Trie*> children;
-    int cnt;
+    Trie* children[26]{};
+    int cnt = 0;
 
 public:
-    Trie()
-        : children(26)
-        , cnt(0) {}
-
     void insert(string& w) {
         Trie* node = this;
         for (char c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) node->children[idx] = new Trie();
+            if (!node->children[idx]) {
+                node->children[idx] = new Trie();
+            }
             node = node->children[idx];
             ++node->cnt;
         }
@@ -203,7 +213,9 @@ public:
         int ans = 0;
         for (char c : w) {
             int idx = c - 'a';
-            if (!node->children[idx]) return ans;
+            if (!node->children[idx]) {
+                return ans;
+            }
             node = node->children[idx];
             ans += node->cnt;
         }
@@ -280,42 +292,6 @@ func sumPrefixScores(words []string) []int {
 #### TypeScript
 
 ```ts
-function sumPrefixScores(words: string[]): number[] {
-    const map = new Map();
-
-    for (const word of words) {
-        const n = word.length;
-        for (let i = 1; i <= n; i++) {
-            const s = word.slice(0, i);
-            map.set(s, (map.get(s) ?? 0) + 1);
-        }
-    }
-
-    return words.map(word => {
-        const n = word.length;
-        let count = 0;
-        for (let i = 1; i <= n; i++) {
-            const s = word.slice(0, i);
-            count += map.get(s);
-        }
-        return count;
-    });
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
 class Trie {
     children: Array<any>;
     cnt: number;
@@ -357,11 +333,7 @@ function sumPrefixScores(words: string[]): number[] {
     for (const w of words) {
         trie.insert(w);
     }
-    let ans = [];
-    for (const w of words) {
-        ans.push(trie.search(w));
-    }
-    return ans;
+    return words.map(w => trie.search(w));
 }
 ```
 

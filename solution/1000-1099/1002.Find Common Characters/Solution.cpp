@@ -1,21 +1,20 @@
 class Solution {
 public:
     vector<string> commonChars(vector<string>& words) {
-        int cnt[26];
-        memset(cnt, 0x3f, sizeof(cnt));
-        for (auto& w : words) {
-            int ccnt[26]{};
-            for (char& c : w) {
-                ++ccnt[c - 'a'];
+        vector<int> cnt(26, 20000);
+        for (const auto& w : words) {
+            vector<int> t(26, 0);
+            for (char c : w) {
+                ++t[c - 'a'];
             }
             for (int i = 0; i < 26; ++i) {
-                cnt[i] = min(cnt[i], ccnt[i]);
+                cnt[i] = min(cnt[i], t[i]);
             }
         }
         vector<string> ans;
         for (int i = 0; i < 26; ++i) {
-            while (cnt[i]--) {
-                ans.emplace_back(1, i + 'a');
+            for (int j = 0; j < cnt[i]; ++j) {
+                ans.push_back(string(1, 'a' + i));
             }
         }
         return ans;

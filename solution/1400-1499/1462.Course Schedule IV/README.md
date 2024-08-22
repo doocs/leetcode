@@ -233,7 +233,7 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 
 在计算完所有节点对之间的可达性之后，对于每一个查询 $[a, b]$，我们直接返回 $f[a][b]$ 即可。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 

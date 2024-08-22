@@ -79,7 +79,7 @@ Note that the last node is not considered a local maxima because it does not hav
 
 ### Solution 1: Direct Traversal
 
-Based on the problem description, we need to find the positions of the first and last critical points in the linked list, $\text{first}$ and $\text{last}$, respectively. This allows us to calculate the maximum distance $\text{maxDistance} = \text{last} - \text{first}$. For the minimum distance $\text{minDistance}$, we need to traverse the linked list, calculate the distance between two adjacent critical points, and take the minimum value.
+Based on the problem description, we need to find the positions of the first and last critical points in the linked list, $\textit{first}$ and $\textit{last}$, respectively. This allows us to calculate the maximum distance $\textit{maxDistance} = \textit{last} - \textit{first}$. For the minimum distance $\textit{minDistance}$, we need to traverse the linked list, calculate the distance between two adjacent critical points, and take the minimum value.
 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 

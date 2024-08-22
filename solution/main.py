@@ -299,7 +299,16 @@ class Contest:
 
     def get_data(self, retry: int = 3):
         try:
-            res = requests.get(self.contest_url, timeout=6, verify=False).json()
+            print(self.contest_url)
+            headers = {
+                'User-Agent': user_agent,
+                'Host': 'leetcode.cn',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            }
+            res = requests.get(
+                self.contest_url, timeout=6, verify=False, headers=headers
+            )
+            res = res.json()
             if not res or "error" in res or not res["questions"]:
                 return {}
             questions = res["questions"]
@@ -360,6 +369,7 @@ def get_contests(fetch_new=True) -> List:
             if c.contest_title_slug in d:
                 continue
             contest_data = c.get_data(retry=10)
+            time.sleep(1)
             if not contest_data:
                 cnt += 1
                 if cnt > 2:
@@ -453,7 +463,7 @@ def run():
         ) or spider.get_question_detail_en(slug, retry=8)
         if not detail:
             continue
-        time.sleep(0.3)
+        time.sleep(1)
         question_details[slug] = Spider.format_question_detail(
             detail, str(qid).zfill(4)
         )

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README.md
+rating: 2170
+source: 第 405 场周赛 Q4
 tags:
     - 数组
     - 字符串

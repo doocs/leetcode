@@ -128,9 +128,19 @@ func canBeEqual(target []int, arr []int) bool {
 
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
-    target.sort((a, b) => a - b);
-    arr.sort((a, b) => a - b);
-    return target.join() === arr.join();
+    target.sort();
+    arr.sort();
+    return target.every((x, i) => x === arr[i]);
+}
+```
+
+#### JavaScript
+
+```js
+function canBeEqual(target, arr) {
+    target.sort();
+    arr.sort();
+    return target.every((x, i) => x === arr[i]);
 }
 ```
 
@@ -263,6 +273,20 @@ func canBeEqual(target []int, arr []int) bool {
 
 ```ts
 function canBeEqual(target: number[], arr: number[]): boolean {
+    const n = target.length;
+    const cnt = Array(1001).fill(0);
+    for (let i = 0; i < n; i++) {
+        cnt[target[i]]++;
+        cnt[arr[i]]--;
+    }
+    return cnt.every(v => !v);
+}
+```
+
+#### JavaScript
+
+```js
+function canBeEqual(target, arr) {
     const n = target.length;
     const cnt = Array(1001).fill(0);
     for (let i = 0; i < n; i++) {

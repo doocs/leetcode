@@ -1,13 +1,14 @@
 class Solution {
     public String reverseStr(String s, int k) {
-        char[] chars = s.toCharArray();
-        for (int i = 0; i < chars.length; i += (k << 1)) {
-            for (int st = i, ed = Math.min(chars.length - 1, i + k - 1); st < ed; ++st, --ed) {
-                char t = chars[st];
-                chars[st] = chars[ed];
-                chars[ed] = t;
+        char[] cs = s.toCharArray();
+        int n = cs.length;
+        for (int i = 0; i < n; i += k * 2) {
+            for (int l = i, r = Math.min(i + k - 1, n - 1); l < r; ++l, --r) {
+                char t = cs[l];
+                cs[l] = cs[r];
+                cs[r] = t;
             }
         }
-        return new String(chars);
+        return new String(cs);
     }
 }

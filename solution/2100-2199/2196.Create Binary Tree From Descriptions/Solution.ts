@@ -13,32 +13,25 @@
  */
 
 function createBinaryTree(descriptions: number[][]): TreeNode | null {
-    const map = new Map<number, [number, number]>();
-    const isRoot = new Map<number, boolean>();
+    const nodes: Record<number, TreeNode> = {};
+    const children = new Set<number>();
     for (const [parent, child, isLeft] of descriptions) {
-        let [left, right] = map.get(parent) ?? [0, 0];
+        if (!nodes[parent]) {
+            nodes[parent] = new TreeNode(parent);
+        }
+        if (!nodes[child]) {
+            nodes[child] = new TreeNode(child);
+        }
         if (isLeft) {
-            left = child;
+            nodes[parent].left = nodes[child];
         } else {
-            right = child;
+            nodes[parent].right = nodes[child];
         }
-        if (!isRoot.has(parent)) {
-            isRoot.set(parent, true);
-        }
-        isRoot.set(child, false);
-        map.set(parent, [left, right]);
+        children.add(child);
     }
-    const dfs = (val: number) => {
-        if (val === 0) {
-            return null;
-        }
-        const [left, right] = map.get(val) ?? [0, 0];
-        return new TreeNode(val, dfs(left), dfs(right));
-    };
-    for (const [key, val] of isRoot.entries()) {
-        if (val) {
-            return dfs(key);
+    for (const [k, v] of Object.entries(nodes)) {
+        if (!children.has(+k)) {
+            return v;
         }
     }
-    return null;
 }

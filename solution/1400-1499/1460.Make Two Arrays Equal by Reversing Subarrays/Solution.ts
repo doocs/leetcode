@@ -1,5 +1,5 @@
 function canBeEqual(target: number[], arr: number[]): boolean {
-    target.sort((a, b) => a - b);
-    arr.sort((a, b) => a - b);
-    return target.join() === arr.join();
+    target.sort();
+    arr.sort();
+    return target.every((x, i) => x === arr[i]);
 }

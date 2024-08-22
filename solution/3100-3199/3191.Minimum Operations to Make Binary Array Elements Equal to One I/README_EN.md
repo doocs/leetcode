@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3191.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20I/README_EN.md
+rating: 1311
+source: Biweekly Contest 133 Q2
 tags:
     - Bit Manipulation
     - Queue
@@ -81,7 +83,7 @@ We notice that the first position in the array that is $0$ must undergo a flip o
 
 After the traversal, we return the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

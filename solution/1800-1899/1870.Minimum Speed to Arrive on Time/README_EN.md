@@ -87,7 +87,7 @@ We notice that if a speed value $v$ allows us to arrive within the stipulated ti
 
 Before conducting the binary search, we need to first determine if it is possible to arrive within the stipulated time. If the number of trains is greater than the ceiling of the stipulated time, then it is definitely impossible to arrive within the stipulated time, and we should directly return $-1$.
 
-Next, we define the left and right boundaries for the binary search as $l = 1$, $r = 10^7 + 1$, and then we take the middle value $\text{mid} = \frac{l + r}{2}$ each time to check if it meets the condition. If it does, we move the right boundary to $\text{mid}$; otherwise, we move the left boundary to $\text{mid} + 1$.
+Next, we define the left and right boundaries for the binary search as $l = 1$, $r = 10^7 + 1$, and then we take the middle value $\textit{mid} = \frac{l + r}{2}$ each time to check if it meets the condition. If it does, we move the right boundary to $\textit{mid}$; otherwise, we move the left boundary to $\textit{mid} + 1$.
 
 The problem is transformed into determining whether a speed value $v$ can allow us to arrive within the stipulated time. We can traverse each train trip, calculate the running time of each trip $t = \frac{d}{v}$, if it is the last trip, we directly add $t$; otherwise, we round up and add $t$. Finally, we check if the total time is less than or equal to the stipulated time, if so, it means the condition is met.
 

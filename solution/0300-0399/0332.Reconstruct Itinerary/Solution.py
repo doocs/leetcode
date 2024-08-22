@@ -1,17 +1,13 @@
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
-        graph = defaultdict(list)
+        def dfs(f: str):
+            while g[f]:
+                dfs(g[f].pop())
+            ans.append(f)
 
-        for src, dst in sorted(tickets, reverse=True):
-            graph[src].append(dst)
-
-        itinerary = []
-
-        def dfs(airport):
-            while graph[airport]:
-                dfs(graph[airport].pop())
-            itinerary.append(airport)
-
+        g = defaultdict(list)
+        for f, t in sorted(tickets, reverse=True):
+            g[f].append(t)
+        ans = []
         dfs("JFK")
-
-        return itinerary[::-1]
+        return ans[::-1]

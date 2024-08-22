@@ -12,20 +12,27 @@
 class Solution {
 public:
     TreeNode* createBinaryTree(vector<vector<int>>& descriptions) {
-        unordered_map<int, TreeNode*> m;
-        unordered_set<int> vis;
-        for (auto& d : descriptions) {
-            int p = d[0], c = d[1], left = d[2];
-            if (!m.count(p)) m[p] = new TreeNode(p);
-            if (!m.count(c)) m[c] = new TreeNode(c);
-            if (left)
-                m[p]->left = m[c];
-            else
-                m[p]->right = m[c];
-            vis.insert(c);
+        unordered_map<int, TreeNode*> nodes;
+        unordered_set<int> children;
+        for (const auto& d : descriptions) {
+            int parent = d[0], child = d[1], isLeft = d[2];
+            if (!nodes.contains(parent)) {
+                nodes[parent] = new TreeNode(parent);
+            }
+            if (!nodes.contains(child)) {
+                nodes[child] = new TreeNode(child);
+            }
+            if (isLeft) {
+                nodes[parent]->left = nodes[child];
+            } else {
+                nodes[parent]->right = nodes[child];
+            }
+            children.insert(child);
         }
-        for (auto& [v, node] : m) {
-            if (!vis.count(v)) return node;
+        for (const auto& [k, v] : nodes) {
+            if (!children.contains(k)) {
+                return v;
+            }
         }
         return nullptr;
     }

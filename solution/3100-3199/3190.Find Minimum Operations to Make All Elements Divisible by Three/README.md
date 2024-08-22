@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3190.Find%20Minimum%20Operations%20to%20Make%20All%20Elements%20Divisible%20by%20Three/README.md
+rating: 1139
+source: 第 133 场双周赛 Q1
 tags:
     - 数组
     - 数学
@@ -66,9 +68,9 @@ tags:
 
 ### 方法一：数学
 
-我们直接遍历数组 $\text{nums}$，对于每个元素 $x$，我们计算 $x$ 除以 3 的余数 $x \bmod 3$，如果余数不为 0，我们需要将 $x$ 变为能被 3 整除且操作次数最少，那么我们可以选择将 $x$ 减少 $x \bmod 3$ 或者增加 $3 - x \bmod 3$，取两者的最小值累加到答案中。
+我们直接遍历数组 $\textit{nums}$，对于每个元素 $x$，我们计算 $x$ 除以 3 的余数 $x \bmod 3$，如果余数不为 0，我们需要将 $x$ 变为能被 3 整除且操作次数最少，那么我们可以选择将 $x$ 减少 $x \bmod 3$ 或者增加 $3 - x \bmod 3$，取两者的最小值累加到答案中。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\text{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

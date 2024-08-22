@@ -74,10 +74,10 @@ So the total cost of this path is 5 + 1 = 6.
 We define $f[i][j]$ to represent the minimum path cost from the first row to the $i$th row and $j$th column. Since we can only move from a column in the previous row to a column in the current row, the value of $f[i][j]$ can be transferred from $f[i - 1][k]$, where the range of $k$ is $[0, n - 1]$. Therefore, the state transition equation is:
 
 $$
-f[i][j] = \min_{0 \leq k < n} \{f[i - 1][k] + \text{moveCost}[grid[i - 1][k]][j] + grid[i][j]\}
+f[i][j] = \min_{0 \leq k < n} \{f[i - 1][k] + \textit{moveCost}[grid[i - 1][k]][j] + grid[i][j]\}
 $$
 
-where $\text{moveCost}[grid[i - 1][k]][j]$ represents the cost of moving from the $k$th column of the $i - 1$th row to the $j$th column of the $i$th row.
+where $\textit{moveCost}[grid[i - 1][k]][j]$ represents the cost of moving from the $k$th column of the $i - 1$th row to the $j$th column of the $i$th row.
 
 The final answer is $\min_{0 \leq j < n} \{f[m - 1][j]\}$.
 

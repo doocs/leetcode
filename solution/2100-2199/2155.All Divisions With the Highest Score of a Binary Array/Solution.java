@@ -1,33 +1,22 @@
 class Solution {
-
     public List<Integer> maxScoreIndices(int[] nums) {
-        int left = 0, right = sum(nums);
-        int mx = right;
+        int l0 = 0, r1 = Arrays.stream(nums).sum();
+        int mx = r1;
         List<Integer> ans = new ArrayList<>();
         ans.add(0);
-        for (int i = 0; i < nums.length; ++i) {
-            if (nums[i] == 0) {
-                ++left;
-            } else {
-                --right;
-            }
-            int t = left + right;
+        for (int i = 1; i <= nums.length; ++i) {
+            int x = nums[i - 1];
+            l0 += x ^ 1;
+            r1 -= x;
+            int t = l0 + r1;
             if (mx == t) {
-                ans.add(i + 1);
+                ans.add(i);
             } else if (mx < t) {
                 mx = t;
                 ans.clear();
-                ans.add(i + 1);
+                ans.add(i);
             }
         }
         return ans;
-    }
-
-    private int sum(int[] nums) {
-        int s = 0;
-        for (int num : nums) {
-            s += num;
-        }
-        return s;
     }
 }

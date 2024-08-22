@@ -1,69 +1,41 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    private Map<Integer, List<List<String>>> edges;
-    private Set<Integer> visited;
-    private String ans;
-
     public String getDirections(TreeNode root, int startValue, int destValue) {
-        edges = new HashMap<>();
-        visited = new HashSet<>();
-        ans = null;
-        traverse(root);
-        dfs(startValue, destValue, new ArrayList<>());
-        return ans;
+        TreeNode node = lca(root, startValue, destValue);
+        StringBuilder pathToStart = new StringBuilder();
+        StringBuilder pathToDest = new StringBuilder();
+        dfs(node, startValue, pathToStart);
+        dfs(node, destValue, pathToDest);
+        return "U".repeat(pathToStart.length()) + pathToDest.toString();
     }
 
-    private void traverse(TreeNode root) {
-        if (root == null) {
-            return;
+    private TreeNode lca(TreeNode node, int p, int q) {
+        if (node == null || node.val == p || node.val == q) {
+            return node;
         }
-        if (root.left != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.left.val), "L"));
-            edges.computeIfAbsent(root.left.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.val), "U"));
+        TreeNode left = lca(node.left, p, q);
+        TreeNode right = lca(node.right, p, q);
+        if (left != null && right != null) {
+            return node;
         }
-        if (root.right != null) {
-            edges.computeIfAbsent(root.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.right.val), "R"));
-            edges.computeIfAbsent(root.right.val, k -> new ArrayList<>())
-                .add(Arrays.asList(String.valueOf(root.val), "U"));
-        }
-        traverse(root.left);
-        traverse(root.right);
+        return left != null ? left : right;
     }
 
-    private void dfs(int start, int dest, List<String> t) {
-        if (visited.contains(start)) {
-            return;
+    private boolean dfs(TreeNode node, int x, StringBuilder path) {
+        if (node == null) {
+            return false;
         }
-        if (start == dest) {
-            if (ans == null || ans.length() > t.size()) {
-                ans = String.join("", t);
-            }
-            return;
+        if (node.val == x) {
+            return true;
         }
-        visited.add(start);
-        if (edges.containsKey(start)) {
-            for (List<String> item : edges.get(start)) {
-                t.add(item.get(1));
-                dfs(Integer.parseInt(item.get(0)), dest, t);
-                t.remove(t.size() - 1);
-            }
+        path.append('L');
+        if (dfs(node.left, x, path)) {
+            return true;
         }
+        path.setCharAt(path.length() - 1, 'R');
+        if (dfs(node.right, x, path)) {
+            return true;
+        }
+        path.deleteCharAt(path.length() - 1);
+        return false;
     }
 }

@@ -1,21 +1,43 @@
-function sumPrefixScores(words: string[]): number[] {
-    const map = new Map();
+class Trie {
+    children: Array<any>;
+    cnt: number;
 
-    for (const word of words) {
-        const n = word.length;
-        for (let i = 1; i <= n; i++) {
-            const s = word.slice(0, i);
-            map.set(s, (map.get(s) ?? 0) + 1);
+    constructor() {
+        this.children = Array(26);
+        this.cnt = 0;
+    }
+
+    insert(w: string): void {
+        let node = this;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            node.cnt++;
         }
     }
 
-    return words.map(word => {
-        const n = word.length;
-        let count = 0;
-        for (let i = 1; i <= n; i++) {
-            const s = word.slice(0, i);
-            count += map.get(s);
+    search(w: string): number {
+        let node = this;
+        let ans = 0;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (!node.children[idx]) {
+                return ans;
+            }
+            node = node.children[idx];
+            ans += node.cnt;
         }
-        return count;
-    });
+        return ans;
+    }
+}
+
+function sumPrefixScores(words: string[]): number[] {
+    const trie = new Trie();
+    for (const w of words) {
+        trie.insert(w);
+    }
+    return words.map(w => trie.search(w));
 }

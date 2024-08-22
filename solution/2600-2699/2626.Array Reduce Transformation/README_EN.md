@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2626.Array%20Reduce%20Transformation/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

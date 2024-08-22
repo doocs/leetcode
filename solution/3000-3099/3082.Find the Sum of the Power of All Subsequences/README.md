@@ -97,32 +97,237 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+题目需要我们在给定数组 $\textit{nums}$ 中找到所有子序列 $\textit{S}$，然后计算每个 $\textit{S}$ 的每个子序列 $\textit{T}$ 的和等于 $\textit{k}$ 的方案数。
+
+我们定义 $f[i][j]$ 表示前 $i$ 个数构成的若干个子序列中，每个子序列的子序列和等于 $j$ 的方案数。初始时 $f[0][0] = 1$，其余位置均为 $0$。
+
+对于第 $i$ 个数 $x$，有以下三种情况：
+
+1. 不在子序列 $\textit{S}$ 中，此时 $f[i][j] = f[i-1][j]$；
+1. 在子序列 $\textit{S}$，但不在子序列 $\textit{T}$ 中，此时 $f[i][j] = f[i-1][j]$；
+1. 在子序列 $\textit{S}$，且在子序列 $\textit{T}$ 中，此时 $f[i][j] = f[i-1][j-x]$。
+
+综上，状态转移方程为：
+
+$$
+f[i][j] = f[i-1][j] \times 2 + f[i-1][j-x]
+$$
+
+最终答案为 $f[n][k]$。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def sumOfPower(self, nums: List[int], k: int) -> int:
+        mod = 10**9 + 7
+        n = len(nums)
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        for i, x in enumerate(nums, 1):
+            for j in range(k + 1):
+                f[i][j] = f[i - 1][j] * 2 % mod
+                if j >= x:
+                    f[i][j] = (f[i][j] + f[i - 1][j - x]) % mod
+        return f[n][k]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int sumOfPower(int[] nums, int k) {
+        final int mod = (int) 1e9 + 7;
+        int n = nums.length;
+        int[][] f = new int[n + 1][k + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j] * 2) % mod;
+                if (j >= nums[i - 1]) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod;
+                }
+            }
+        }
+        return f[n][k];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int sumOfPower(vector<int>& nums, int k) {
+        const int mod = 1e9 + 7;
+        int n = nums.size();
+        int f[n + 1][k + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                f[i][j] = (f[i - 1][j] * 2) % mod;
+                if (j >= nums[i - 1]) {
+                    f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod;
+                }
+            }
+        }
+        return f[n][k];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func sumOfPower(nums []int, k int) int {
+	const mod int = 1e9 + 7
+	n := len(nums)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		for j := 0; j <= k; j++ {
+			f[i][j] = (f[i-1][j] * 2) % mod
+			if j >= nums[i-1] {
+				f[i][j] = (f[i][j] + f[i-1][j-nums[i-1]]) % mod
+			}
+		}
+	}
+	return f[n][k]
+}
+```
 
+#### TypeScript
+
+```ts
+function sumOfPower(nums: number[], k: number): number {
+    const mod = 10 ** 9 + 7;
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    f[0][0] = 1;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 0; j <= k; ++j) {
+            f[i][j] = (f[i - 1][j] * 2) % mod;
+            if (j >= nums[i - 1]) {
+                f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod;
+            }
+        }
+    }
+    return f[n][k];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划（优化）
+
+方法一中的状态转移方程中，$f[i][j]$ 的值只与 $f[i-1][j]$ 和 $f[i-1][j-x]$ 有关，因此我们可以优化第一维空间，从而将空间复杂度优化为 $O(k)$。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def sumOfPower(self, nums: List[int], k: int) -> int:
+        mod = 10**9 + 7
+        f = [1] + [0] * k
+        for x in nums:
+            for j in range(k, -1, -1):
+                f[j] = (f[j] * 2 + (0 if j < x else f[j - x])) % mod
+        return f[k]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int sumOfPower(int[] nums, int k) {
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[k + 1];
+        f[0] = 1;
+        for (int x : nums) {
+            for (int j = k; j >= 0; --j) {
+                f[j] = (f[j] * 2 % mod + (j >= x ? f[j - x] : 0)) % mod;
+            }
+        }
+        return f[k];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int sumOfPower(vector<int>& nums, int k) {
+        const int mod = 1e9 + 7;
+        int f[k + 1];
+        memset(f, 0, sizeof(f));
+        f[0] = 1;
+        for (int x : nums) {
+            for (int j = k; j >= 0; --j) {
+                f[j] = (f[j] * 2 % mod + (j >= x ? f[j - x] : 0)) % mod;
+            }
+        }
+        return f[k];
+    }
+};
+```
+
+#### Go
+
+```go
+func sumOfPower(nums []int, k int) int {
+	const mod int = 1e9 + 7
+	f := make([]int, k+1)
+	f[0] = 1
+	for _, x := range nums {
+		for j := k; j >= 0; j-- {
+			f[j] = f[j] * 2 % mod
+			if j >= x {
+				f[j] = (f[j] + f[j-x]) % mod
+			}
+		}
+	}
+	return f[k]
+}
+```
+
+#### TypeScript
+
+```ts
+function sumOfPower(nums: number[], k: number): number {
+    const mod = 10 ** 9 + 7;
+    const f: number[] = Array(k + 1).fill(0);
+    f[0] = 1;
+    for (const x of nums) {
+        for (let j = k; ~j; --j) {
+            f[j] = (f[j] * 2) % mod;
+            if (j >= x) {
+                f[j] = (f[j] + f[j - x]) % mod;
+            }
+        }
+    }
+    return f[k];
+}
 ```
 
 <!-- tabs:end -->

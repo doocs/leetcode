@@ -19,9 +19,11 @@ tags:
 
 <!-- description:start -->
 
-<p>A <code>3 x 3</code> magic square is a <code>3 x 3</code> grid filled with distinct numbers <strong>from </strong><code>1</code><strong> to </strong><code>9</code> such that each row, column, and both diagonals all have the same sum.</p>
+<p>A <code>3 x 3</code> <strong>magic square</strong> is a <code>3 x 3</code> grid filled with distinct numbers <strong>from </strong>1<strong> to </strong>9 such that each row, column, and both diagonals all have the same sum.</p>
 
-<p>Given a <code>row x col</code>&nbsp;<code>grid</code>&nbsp;of integers, how many <code>3 x 3</code> &quot;magic square&quot; subgrids are there?&nbsp; (Each subgrid is contiguous).</p>
+<p>Given a <code>row x col</code> <code>grid</code> of integers, how many <code>3 x 3</code> contiguous magic square subgrids are there?</p>
+
+<p>Note: while a magic square can only contain numbers from 1 to 9, <code>grid</code> may contain numbers up to 15.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -60,7 +62,11 @@ In total, there is only one magic square inside the given grid.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We directly enumerate the top-left coordinates $(i, j)$ of each $3 \times 3$ sub-matrix, then check whether the sub-matrix satisfies the "magic square" condition. If it does, increment the answer by one. After enumeration, return the answer.
+
+Time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -268,9 +274,9 @@ function numMagicSquaresInside(grid: number[][]): number {
         if (i + 3 > m || j + 3 > n) {
             return 0;
         }
-        const cnt: number[] = new Array(16).fill(0);
-        const row: number[] = new Array(3).fill(0);
-        const col: number[] = new Array(3).fill(0);
+        const cnt: number[] = Array(16).fill(0);
+        const row: number[] = Array(3).fill(0);
+        const col: number[] = Array(3).fill(0);
         let [a, b] = [0, 0];
         for (let x = i; x < i + 3; ++x) {
             for (let y = j; y < j + 3; ++y) {
@@ -305,6 +311,158 @@ function numMagicSquaresInside(grid: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function numMagicSquaresInside(grid) {
+    const m = grid.length;
+    const n = grid[0].length;
+    const check = (i, j) => {
+        if (i + 3 > m || j + 3 > n) {
+            return 0;
+        }
+        const cnt = Array(16).fill(0);
+        const row = Array(3).fill(0);
+        const col = Array(3).fill(0);
+        let [a, b] = [0, 0];
+        for (let x = i; x < i + 3; ++x) {
+            for (let y = j; y < j + 3; ++y) {
+                const v = grid[x][y];
+                if (v < 1 || v > 9 || ++cnt[v] > 1) {
+                    return 0;
+                }
+                row[x - i] += v;
+                col[y - j] += v;
+                if (x - i === y - j) {
+                    a += v;
+                }
+                if (x - i === 2 - (y - j)) {
+                    b += v;
+                }
+            }
+        }
+        if (a !== b) {
+            return 0;
+        }
+        for (let k = 0; k < 3; ++k) {
+            if (row[k] !== a || col[k] !== a) {
+                return 0;
+            }
+        }
+        return 1;
+    };
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            ans += check(i, j);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+export function numMagicSquaresInside(grid: number[][]): number {
+    const [m, n] = [grid.length, grid[0].length];
+    if (m < 3 || n < 3) return 0;
+
+    const check = (y: number, x: number) => {
+        const g = grid;
+        if (g[y + 1][x + 1] !== 5) return 0;
+
+        const cells = [
+            g[y][x],
+            g[y][x + 1],
+            g[y][x + 2],
+            g[y + 1][x + 2],
+            g[y + 2][x + 2],
+            g[y + 2][x + 1],
+            g[y + 2][x],
+            g[y + 1][x],
+        ];
+
+        const i = cells.indexOf(2);
+        if (i === -1) return 0;
+        cells.push(...cells.splice(0, i));
+
+        const circle = [2, 9, 4, 3, 8, 1, 6, 7];
+        const reverseCircle = [2, 7, 6, 1, 8, 3, 4, 9];
+
+        if (cells.every((x, i) => x === circle[i])) return 1;
+        if (cells.every((x, i) => x === reverseCircle[i])) return 1;
+
+        return 0;
+    };
+
+    let res = 0;
+    for (let i = 0; i < m - 2; i++) {
+        for (let j = 0; j < n - 2; j++) {
+            res += check(i, j);
+        }
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function numMagicSquaresInside(grid) {
+    const [m, n] = [grid.length, grid[0].length];
+    if (m < 3 || n < 3) return 0;
+
+    const check = (y, x) => {
+        const g = grid;
+        if (g[y + 1][x + 1] !== 5) return false;
+
+        const cells = [
+            g[y][x],
+            g[y][x + 1],
+            g[y][x + 2],
+            g[y + 1][x + 2],
+            g[y + 2][x + 2],
+            g[y + 2][x + 1],
+            g[y + 2][x],
+            g[y + 1][x],
+        ];
+
+        const i = cells.indexOf(2);
+        if (i === -1) return false;
+        cells.push(...cells.splice(0, i));
+
+        const circle = [2, 9, 4, 3, 8, 1, 6, 7];
+        const reverseCircle = [2, 7, 6, 1, 8, 3, 4, 9];
+
+        if (cells.every((x, i) => x === circle[i])) return true;
+        if (cells.every((x, i) => x === reverseCircle[i])) return true;
+
+        return false;
+    };
+
+    let res = 0;
+    for (let i = 0; i < m - 2; i++) {
+        for (let j = 0; j < n - 2; j++) {
+            res += +check(i, j);
+        }
+    }
+
+    return res;
 }
 ```
 

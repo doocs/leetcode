@@ -2,20 +2,21 @@ from sortedcontainers import SortedSet
 
 
 class NumberContainers:
+
     def __init__(self):
-        self.mp = {}
-        self.t = defaultdict(SortedSet)
+        self.d = {}
+        self.g = defaultdict(SortedSet)
 
     def change(self, index: int, number: int) -> None:
-        if index in self.mp:
-            v = self.mp[index]
-            self.t[v].remove(index)
-        self.mp[index] = number
-        self.t[number].add(index)
+        if index in self.d:
+            old_number = self.d[index]
+            self.g[old_number].remove(index)
+        self.d[index] = number
+        self.g[number].add(index)
 
     def find(self, number: int) -> int:
-        s = self.t[number]
-        return s[0] if s else -1
+        ids = self.g[number]
+        return ids[0] if ids else -1
 
 
 # Your NumberContainers object will be instantiated and called as such:

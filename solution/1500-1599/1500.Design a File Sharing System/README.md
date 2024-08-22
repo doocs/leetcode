@@ -6,6 +6,7 @@ tags:
     - 设计
     - 哈希表
     - 数据流
+    - 排序
     - 堆（优先队列）
 ---
 
@@ -19,9 +20,9 @@ tags:
 
 <!-- description:start -->
 
-<p>我们需要使用一套文件分享系统来分享一个非常大的文件，该文件由&nbsp;<code>m</code> 个从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>m</code>&nbsp;编号的文件块组成。</p>
+<p>我们需要使用一套文件分享系统来分享一个非常大的文件，该文件由&nbsp;<code>m</code> 个从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>m</code>&nbsp;编号的 <strong>文件块</strong> 组成。</p>
 
-<p>当用户加入系统时，系统应为其注册<strong>一个独有</strong>的 ID。这个独有的 ID 应当被相应的用户使用<strong>一次</strong>，但是当用户离开系统时，其&nbsp;ID 应可以被（后续新注册的用户）<strong>再次使用</strong>。</p>
+<p>当用户加入系统时，系统应为其注册&nbsp;<strong>一个独有&nbsp;</strong>的 ID。这个独有的 ID 应当被相应的用户使用&nbsp;<strong>一次</strong>，但是当用户离开系统时，其&nbsp;ID 应可以被（后续新注册的用户）<strong>再次使用</strong>。</p>
 
 <p>用户可以请求文件中的某个指定的文件块，系统应当返回拥有这个文件块的所有用户的 ID。如果用户收到&nbsp;ID 的非空列表，就表示成功接收到请求的文件块。</p>
 

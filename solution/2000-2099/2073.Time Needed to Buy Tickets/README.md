@@ -71,7 +71,7 @@ tags:
 
 根据题目描述，当第 $k$ 个人完成购票时，在第 $k$ 个人前面的所有人，购买的票数都不会超过第 $k$ 个人购买的票数，而在第 $k$ 个人后面的所有人，购买的票数都不会超过第 $k$ 个人购买的票数减 $1$。
 
-因此，我们可以遍历整个队伍，对于第 $i$ 个人，如果 $i \leq k$，购票时间为 $\min(\text{tickets}[i], \text{tickets}[k])$，否则购票时间为 $\min(\text{tickets}[i], \text{tickets}[k] - 1)$。我们将所有人的购票时间相加即可。
+因此，我们可以遍历整个队伍，对于第 $i$ 个人，如果 $i \leq k$，购票时间为 $\min(\textit{tickets}[i], \textit{tickets}[k])$，否则购票时间为 $\min(\textit{tickets}[i], \textit{tickets}[k] - 1)$。我们将所有人的购票时间相加即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为队伍的长度。空间复杂度 $O(1)$。
 

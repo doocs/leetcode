@@ -7,17 +7,21 @@
  * }
  */
 func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
-	var dfs func(*TreeNode) []int
-	dfs = func(root *TreeNode) []int {
-		if root == nil {
-			return []int{}
+	l1, l2 := []int{}, []int{}
+	var dfs func(*TreeNode, *[]int)
+	dfs = func(root *TreeNode, nums *[]int) {
+		if root.Left == root.Right {
+			*nums = append(*nums, root.Val)
+			return
 		}
-		ans := dfs(root.Left)
-		ans = append(ans, dfs(root.Right)...)
-		if len(ans) == 0 {
-			ans = append(ans, root.Val)
+		if root.Left != nil {
+			dfs(root.Left, nums)
 		}
-		return ans
+		if root.Right != nil {
+			dfs(root.Right, nums)
+		}
 	}
-	return reflect.DeepEqual(dfs(root1), dfs(root2))
+	dfs(root1, &l1)
+	dfs(root2, &l2)
+	return reflect.DeepEqual(l1, l2)
 }

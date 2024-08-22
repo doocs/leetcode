@@ -75,7 +75,19 @@ The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or n
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+Suppose the coordinates of a lamp are $(x, y)$. Then, the row value is $x$, the column value is $y$, the main diagonal value is $x-y$, and the anti-diagonal value is $x+y$. Once we determine the unique value identifier for a line, we can use a hash table to record the number of lamps on that line.
+
+We traverse the array $\textit{lamps}$, and for each lamp, we increment the count of lamps in its row, column, main diagonal, and anti-diagonal by $1$.
+
+Note that when processing $\textit{lamps}$, we need to remove duplicates because we treat repeated lamps as the same lamp.
+
+Next, we traverse the queries and check if there are lamps in the row, column, main diagonal, or anti-diagonal of the current query point. If there are, we set the value to $1$, indicating that the point is illuminated during the query. Then, we perform the turn-off operation by checking the eight neighboring points of the query point and the point itself to see if there are any lamps. If there are, we decrement the count of lamps in the corresponding row, column, main diagonal, and anti-diagonal by $1$ and remove the lamp from the grid.
+
+Finally, we return the answer array.
+
+The time complexity is $O(m + q)$, where $m$ and $q$ are the lengths of the arrays $\textit{lamps}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 

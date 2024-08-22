@@ -1,27 +1,28 @@
 class Solution {
+    private List<Integer> ans = new ArrayList<>();
+    private int boundary;
+    private int k;
+
     public int[] numsSameConsecDiff(int n, int k) {
-        List<Integer> res = new ArrayList<>();
+        this.k = k;
+        boundary = (int) Math.pow(10, n - 1);
         for (int i = 1; i < 10; ++i) {
-            dfs(n - 1, k, i, res);
+            dfs(i);
         }
-        int[] ans = new int[res.size()];
-        for (int i = 0; i < res.size(); ++i) {
-            ans[i] = res.get(i);
-        }
-        return ans;
+        return ans.stream().mapToInt(i -> i).toArray();
     }
 
-    private void dfs(int n, int k, int t, List<Integer> res) {
-        if (n == 0) {
-            res.add(t);
+    private void dfs(int x) {
+        if (x >= boundary) {
+            ans.add(x);
             return;
         }
-        int last = t % 10;
-        if (last + k <= 9) {
-            dfs(n - 1, k, t * 10 + last + k, res);
+        int last = x % 10;
+        if (last + k < 10) {
+            dfs(x * 10 + last + k);
         }
-        if (last - k >= 0 && k != 0) {
-            dfs(n - 1, k, t * 10 + last - k, res);
+        if (k != 0 && last - k >= 0) {
+            dfs(x * 10 + last - k);
         }
     }
 }

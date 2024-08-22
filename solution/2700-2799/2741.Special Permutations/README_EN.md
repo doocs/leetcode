@@ -72,7 +72,7 @@ $$
 f[i][j]=
 \begin{cases}
 1, & i=2^j\\
-\sum_{k=0}^{n-1}f[i \oplus 2^j][k], & i \neq 2^j \text{ and nums}[j] \text{ and nums}[k] \text{ meet the requirements of the problem}\\
+\sum_{k=0}^{n-1}f[i \oplus 2^j][k], & i \neq 2^j \textit{ and nums}[j] \textit{ and nums}[k] \textit{ meet the requirements of the problem}\\
 \end{cases}
 $$
 

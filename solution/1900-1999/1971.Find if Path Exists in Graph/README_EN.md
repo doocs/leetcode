@@ -266,7 +266,7 @@ We can also use BFS to determine whether there is a path from `source` to `desti
 
 Specifically, we define a queue $q$ and initially add `source` to the queue. In addition, we use a set `vis` to record the vertices that have been visited to avoid repeated visits.
 
-Next, we continuously take out the vertex $i$ from the queue. If $i = \text{destination}$, it means that there is a path from `source` to `destination`, and we return `true`. Otherwise, we traverse all adjacent vertices $j$ of $i$. If $j$ has not been visited, we add $j$ to the queue $q$ and mark $j$ as visited.
+Next, we continuously take out the vertex $i$ from the queue. If $i = \textit{destination}$, it means that there is a path from `source` to `destination`, and we return `true`. Otherwise, we traverse all adjacent vertices $j$ of $i$. If $j$ has not been visited, we add $j$ to the queue $q$ and mark $j$ as visited.
 
 Finally, if the queue is empty, it means that there is no path from `source` to `destination`, and we return `false`.
 

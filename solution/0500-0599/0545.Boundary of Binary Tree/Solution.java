@@ -1,75 +1,53 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    private List<Integer> res;
-
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
+        List<Integer> ans = new ArrayList<>();
+        ans.add(root.val);
+        if (root.left == root.right) {
+            return ans;
         }
-        res = new ArrayList<>();
+        List<Integer> left = new ArrayList<>();
+        List<Integer> leaves = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
+        dfs(left, root.left, 0);
+        dfs(leaves, root, 1);
+        dfs(right, root.right, 2);
 
-        // root
-        if (!isLeaf(root)) {
-            res.add(root.val);
-        }
-
-        // left boundary
-        TreeNode t = root.left;
-        while (t != null) {
-            if (!isLeaf(t)) {
-                res.add(t.val);
-            }
-            t = t.left == null ? t.right : t.left;
-        }
-
-        // leaves
-        addLeaves(root);
-
-        // right boundary(reverse order)
-        Deque<Integer> s = new ArrayDeque<>();
-        t = root.right;
-        while (t != null) {
-            if (!isLeaf(t)) {
-                s.offer(t.val);
-            }
-            t = t.right == null ? t.left : t.right;
-        }
-        while (!s.isEmpty()) {
-            res.add(s.pollLast());
-        }
-
-        // output
-        return res;
+        ans.addAll(left);
+        ans.addAll(leaves);
+        Collections.reverse(right);
+        ans.addAll(right);
+        return ans;
     }
 
-    private void addLeaves(TreeNode root) {
-        if (isLeaf(root)) {
-            res.add(root.val);
+    private void dfs(List<Integer> nums, TreeNode root, int i) {
+        if (root == null) {
             return;
         }
-        if (root.left != null) {
-            addLeaves(root.left);
+        if (i == 0) {
+            if (root.left != root.right) {
+                nums.add(root.val);
+                if (root.left != null) {
+                    dfs(nums, root.left, i);
+                } else {
+                    dfs(nums, root.right, i);
+                }
+            }
+        } else if (i == 1) {
+            if (root.left == root.right) {
+                nums.add(root.val);
+            } else {
+                dfs(nums, root.left, i);
+                dfs(nums, root.right, i);
+            }
+        } else {
+            if (root.left != root.right) {
+                nums.add(root.val);
+                if (root.right != null) {
+                    dfs(nums, root.right, i);
+                } else {
+                    dfs(nums, root.left, i);
+                }
+            }
         }
-        if (root.right != null) {
-            addLeaves(root.right);
-        }
-    }
-
-    private boolean isLeaf(TreeNode node) {
-        return node != null && node.left == null && node.right == null;
     }
 }

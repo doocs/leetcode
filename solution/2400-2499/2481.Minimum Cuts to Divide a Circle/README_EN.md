@@ -73,9 +73,9 @@ Also note that the first cut will not divide the circle into distinct parts.
 In summary, we can get:
 
 $$
-\text{ans} = \begin{cases}
-n, & n \gt 1 \text{ and } n \text{ is odd} \\
-\frac{n}{2}, & n \text{ is even} \\
+\textit{ans} = \begin{cases}
+n, & n \gt 1 \textit{ and } n \textit{ is odd} \\
+\frac{n}{2}, & n \textit{ is even} \\
 \end{cases}
 $$
 

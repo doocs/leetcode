@@ -4,7 +4,7 @@ public:
         int n = s.size();
         int f[n];
         memset(f, -1, sizeof(f));
-        function<int(int)> dfs = [&](int i) {
+        auto dfs = [&](auto&& dfs, int i) -> int {
             if (i >= n) {
                 return 0;
             }
@@ -25,11 +25,11 @@ public:
                 ++cnt[k];
                 ++freq[cnt[k]];
                 if (freq.size() == 1) {
-                    f[i] = min(f[i], 1 + dfs(j + 1));
+                    f[i] = min(f[i], 1 + dfs(dfs, j + 1));
                 }
             }
             return f[i];
         };
-        return dfs(0);
+        return dfs(dfs, 0);
     }
 };

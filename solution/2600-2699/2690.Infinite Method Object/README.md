@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2690.Infinite%20Method%20Object/README.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

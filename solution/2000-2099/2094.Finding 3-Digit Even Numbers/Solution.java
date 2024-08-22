@@ -1,35 +1,23 @@
 class Solution {
     public int[] findEvenNumbers(int[] digits) {
-        int[] counter = count(digits);
+        int[] cnt = new int[10];
+        for (int x : digits) {
+            ++cnt[x];
+        }
         List<Integer> ans = new ArrayList<>();
-        for (int i = 100; i < 1000; i += 2) {
-            int[] t = new int[3];
-            for (int j = 0, k = i; k > 0; ++j) {
-                t[j] = k % 10;
-                k /= 10;
+        for (int x = 100; x < 1000; x += 2) {
+            int[] cnt1 = new int[10];
+            for (int y = x; y > 0; y /= 10) {
+                ++cnt1[y % 10];
             }
-            int[] cnt = count(t);
-            if (check(counter, cnt)) {
-                ans.add(i);
+            boolean ok = true;
+            for (int i = 0; i < 10 && ok; ++i) {
+                ok = cnt[i] >= cnt1[i];
             }
-        }
-        return ans.stream().mapToInt(Integer::valueOf).toArray();
-    }
-
-    private boolean check(int[] cnt1, int[] cnt2) {
-        for (int i = 0; i < 10; ++i) {
-            if (cnt1[i] < cnt2[i]) {
-                return false;
+            if (ok) {
+                ans.add(x);
             }
         }
-        return true;
-    }
-
-    private int[] count(int[] nums) {
-        int[] counter = new int[10];
-        for (int num : nums) {
-            ++counter[num];
-        }
-        return counter;
+        return ans.stream().mapToInt(i -> i).toArray();
     }
 }

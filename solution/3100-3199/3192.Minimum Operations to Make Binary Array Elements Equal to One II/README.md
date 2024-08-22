@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README.md
+rating: 1432
+source: 第 133 场双周赛 Q3
 tags:
     - 贪心
     - 数组
@@ -84,11 +86,11 @@ tags:
 
 我们注意到，每当我们将某个位置的元素变为 1 时，它的右侧的所有元素都会被反转。因此，我们可以用一个变量 $v$ 来记录当前位置及其右侧的元素是否被反转，如果被反转，那么 $v$ 的值为 1，否则为 0。
 
-我们遍历数组 $\text{nums}$，对于每个元素 $x$，我们将 $x$ 与 $v$ 进行异或运算，如果 $x$ 为 0，那么我们需要将 $x$ 变为 1，我们需要进行反转操作，我们将答案加一，并将 $v$ 取反。
+我们遍历数组 $\textit{nums}$，对于每个元素 $x$，我们将 $x$ 与 $v$ 进行异或运算，如果 $x$ 为 0，那么我们需要将 $x$ 变为 1，我们需要进行反转操作，我们将答案加一，并将 $v$ 取反。
 
 遍历结束后，我们就可以得到最少操作次数。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\text{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

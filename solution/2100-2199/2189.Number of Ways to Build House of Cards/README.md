@@ -21,13 +21,13 @@ tags:
 
 <ul>
 	<li>一个<strong> 纸牌屋&nbsp;</strong>由一行或多行&nbsp;<strong>三角形</strong> 和水平纸牌组成。</li>
-	<li><strong>三角形&nbsp;</strong>是由两张卡片相互靠在一起形成的。</li>
-	<li>一张卡片必须水平放置在一行中&nbsp;<strong>所有相邻&nbsp;</strong>的三角形之间。</li>
-	<li>比第一行高的任何三角形都必须放在前一行的水平牌上。</li>
+	<li><strong>三角形&nbsp;</strong>是由两张纸牌相互靠在一起形成的。</li>
+	<li>一张纸牌必须水平放置在一行中&nbsp;<strong>所有相邻&nbsp;</strong>的三角形之间。</li>
+	<li>比第一行高的任何三角形都必须放在前一行的水平纸牌上。</li>
 	<li>每个三角形都被放置在行中&nbsp;<strong>最左边&nbsp;</strong>的可用位置。</li>
 </ul>
 
-<p>返回<em>使用所有 <code>n</code> 张卡片可以构建的不同纸牌屋的数量</em>。如果存在一行两个纸牌屋包含不同数量的纸牌，那么两个纸牌屋被认为是不同的。</p>
+<p>返回<em>使用所有 <code>n</code> 张</em>纸牌<em>可以构建的不同纸牌屋的数量</em>。如果存在一行两个纸牌屋包含不同数量的纸牌，那么两个纸牌屋被认为是不同的。</p>
 
 <p>&nbsp;</p>
 

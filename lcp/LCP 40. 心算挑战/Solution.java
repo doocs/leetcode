@@ -9,25 +9,24 @@ class Solution {
         if (ans % 2 == 0) {
             return ans;
         }
-        int inf = 0x3f3f3f3f;
-        int a = inf, b = inf;
-        for (int i = 0; i < cnt; ++i) {
-            int v = cards[n - i - 1];
-            if (v % 2 == 1) {
-                a = Math.min(a, v);
+        final int inf = 1 << 29;
+        int mx1 = -inf, mx2 = -inf;
+        for (int i = 0; i < n - cnt; ++i) {
+            if (cards[i] % 2 == 1) {
+                mx1 = cards[i];
             } else {
-                b = Math.min(b, v);
+                mx2 = cards[i];
             }
         }
-        int c = -inf, d = -inf;
-        for (int i = cnt; i < n; ++i) {
-            int v = cards[n - i - 1];
-            if (v % 2 == 0) {
-                c = Math.max(c, v);
+        int mi1 = inf, mi2 = inf;
+        for (int i = n - 1; i >= n - cnt; --i) {
+            if (cards[i] % 2 == 1) {
+                mi2 = cards[i];
             } else {
-                d = Math.max(d, v);
+                mi1 = cards[i];
             }
         }
-        return Math.max(0, Math.max(ans - a + c, ans - b + d));
+        ans = Math.max(ans - mi1 + mx1, ans - mi2 + mx2);
+        return ans < 0 ? 0 : ans;
     }
 }

@@ -202,14 +202,11 @@ class StreamChecker {
 
 ```cpp
 class Trie {
+private:
+    Trie* children[26]{};
+    bool isEnd = false;
+
 public:
-    vector<Trie*> children;
-    bool isEnd;
-
-    Trie()
-        : children(26)
-        , isEnd(false) {}
-
     void insert(string& w) {
         Trie* node = this;
         reverse(w.begin(), w.end());
@@ -225,7 +222,7 @@ public:
 
     bool search(string& w) {
         Trie* node = this;
-        for (int i = w.size() - 1; ~i; --i) {
+        for (int i = w.size() - 1, j = 0; ~i && j < 201; --i, ++j) {
             int idx = w[i] - 'a';
             if (!node->children[idx]) {
                 return false;
@@ -245,7 +242,7 @@ public:
     string s;
 
     StreamChecker(vector<string>& words) {
-        for (auto&& w : words) {
+        for (auto& w : words) {
             trie->insert(w);
         }
     }

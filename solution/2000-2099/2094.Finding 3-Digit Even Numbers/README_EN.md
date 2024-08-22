@@ -76,7 +76,15 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting + Enumeration
+
+First, we count the occurrence of each digit in $\textit{digits}$, recording it in an array or hash table $\textit{cnt}$.
+
+Then, we enumerate all even numbers in the range $[100, 1000)$, checking if each digit of the even number does not exceed the corresponding digit's count in $\textit{cnt}$. If so, we add this even number to the answer array.
+
+Finally, we return the answer array.
+
+The time complexity is $O(k \times 10^k)$, where $k$ is the number of digits of the target even number, which is $3$ in this problem. Ignoring the space consumed by the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -85,17 +93,16 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 ```python
 class Solution:
     def findEvenNumbers(self, digits: List[int]) -> List[int]:
+        cnt = Counter(digits)
         ans = []
-        counter = Counter(digits)
-        for i in range(100, 1000, 2):
-            t = []
-            k = i
-            while k:
-                t.append(k % 10)
-                k //= 10
-            cnt = Counter(t)
-            if all([counter[i] >= cnt[i] for i in range(10)]):
-                ans.append(i)
+        for x in range(100, 1000, 2):
+            cnt1 = Counter()
+            y = x
+            while y:
+                y, v = divmod(y, 10)
+                cnt1[v] += 1
+            if all(cnt[i] >= cnt1[i] for i in range(10)):
+                ans.append(x)
         return ans
 ```
 
@@ -104,37 +111,25 @@ class Solution:
 ```java
 class Solution {
     public int[] findEvenNumbers(int[] digits) {
-        int[] counter = count(digits);
+        int[] cnt = new int[10];
+        for (int x : digits) {
+            ++cnt[x];
+        }
         List<Integer> ans = new ArrayList<>();
-        for (int i = 100; i < 1000; i += 2) {
-            int[] t = new int[3];
-            for (int j = 0, k = i; k > 0; ++j) {
-                t[j] = k % 10;
-                k /= 10;
+        for (int x = 100; x < 1000; x += 2) {
+            int[] cnt1 = new int[10];
+            for (int y = x; y > 0; y /= 10) {
+                ++cnt1[y % 10];
             }
-            int[] cnt = count(t);
-            if (check(counter, cnt)) {
-                ans.add(i);
+            boolean ok = true;
+            for (int i = 0; i < 10 && ok; ++i) {
+                ok = cnt[i] >= cnt1[i];
             }
-        }
-        return ans.stream().mapToInt(Integer::valueOf).toArray();
-    }
-
-    private boolean check(int[] cnt1, int[] cnt2) {
-        for (int i = 0; i < 10; ++i) {
-            if (cnt1[i] < cnt2[i]) {
-                return false;
+            if (ok) {
+                ans.add(x);
             }
         }
-        return true;
-    }
-
-    private int[] count(int[] nums) {
-        int[] counter = new int[10];
-        for (int num : nums) {
-            ++counter[num];
-        }
-        return counter;
+        return ans.stream().mapToInt(i -> i).toArray();
     }
 }
 ```
@@ -145,31 +140,25 @@ class Solution {
 class Solution {
 public:
     vector<int> findEvenNumbers(vector<int>& digits) {
-        vector<int> counter = count(digits);
+        int cnt[10]{};
+        for (int x : digits) {
+            ++cnt[x];
+        }
         vector<int> ans;
-        for (int i = 100; i < 1000; i += 2) {
-            vector<int> t(3);
-            for (int j = 0, k = i; k > 0; ++j) {
-                t[j] = k % 10;
-                k /= 10;
+        for (int x = 100; x < 1000; x += 2) {
+            int cnt1[10]{};
+            for (int y = x; y; y /= 10) {
+                ++cnt1[y % 10];
             }
-            vector<int> cnt = count(t);
-            if (check(counter, cnt)) ans.push_back(i);
+            bool ok = true;
+            for (int i = 0; i < 10 && ok; ++i) {
+                ok = cnt[i] >= cnt1[i];
+            }
+            if (ok) {
+                ans.push_back(x);
+            }
         }
         return ans;
-    }
-
-    vector<int> count(vector<int>& nums) {
-        vector<int> counter(10);
-        for (int num : nums) ++counter[num];
-        return counter;
-    }
-
-    bool check(vector<int>& cnt1, vector<int>& cnt2) {
-        for (int i = 0; i < 10; ++i)
-            if (cnt1[i] < cnt2[i])
-                return false;
-        return true;
     }
 };
 ```
@@ -177,39 +166,25 @@ public:
 #### Go
 
 ```go
-func findEvenNumbers(digits []int) []int {
-	counter := count(digits)
-	var ans []int
-	for i := 100; i < 1000; i += 2 {
-		t := make([]int, 3)
-		k := i
-		for j := 0; k > 0; j++ {
-			t[j] = k % 10
-			k /= 10
-		}
-		cnt := count(t)
-		if check(counter, cnt) {
-			ans = append(ans, i)
-		}
+func findEvenNumbers(digits []int) (ans []int) {
+	cnt := [10]int{}
+	for _, x := range digits {
+		cnt[x]++
 	}
-	return ans
-}
-
-func count(nums []int) []int {
-	counter := make([]int, 10)
-	for _, num := range nums {
-		counter[num]++
-	}
-	return counter
-}
-
-func check(cnt1, cnt2 []int) bool {
-	for i := 0; i < 10; i++ {
-		if cnt1[i] < cnt2[i] {
-			return false
+	for x := 100; x < 1000; x += 2 {
+		cnt1 := [10]int{}
+		for y := x; y > 0; y /= 10 {
+			cnt1[y%10]++
+		}
+		ok := true
+		for i := 0; i < 10 && ok; i++ {
+			ok = cnt[i] >= cnt1[i]
+		}
+		if ok {
+			ans = append(ans, x)
 		}
 	}
-	return true
+	return
 }
 ```
 
@@ -217,30 +192,56 @@ func check(cnt1, cnt2 []int) bool {
 
 ```ts
 function findEvenNumbers(digits: number[]): number[] {
-    let record = new Array(10).fill(0);
-    for (let digit of digits) {
-        record[digit]++;
+    const cnt: number[] = Array(10).fill(0);
+    for (const x of digits) {
+        ++cnt[x];
     }
-    let ans = [];
-    for (let i = 100; i < 1000; i += 2) {
-        if (check(record, String(i))) {
-            ans.push(i);
+    const ans: number[] = [];
+    for (let x = 100; x < 1000; x += 2) {
+        const cnt1: number[] = Array(10).fill(0);
+        for (let y = x; y; y = Math.floor(y / 10)) {
+            ++cnt1[y % 10];
+        }
+        let ok = true;
+        for (let i = 0; i < 10 && ok; ++i) {
+            ok = cnt[i] >= cnt1[i];
+        }
+        if (ok) {
+            ans.push(x);
         }
     }
     return ans;
 }
+```
 
-function check(target: Array<number>, digits: string): boolean {
-    let record = new Array(10).fill(0);
-    for (let digit of digits) {
-        record[digit]++;
-    }
+#### JavaScript
 
-    for (let i = 0; i < 10; i++) {
-        if (record[i] > target[i]) return false;
+```js
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var findEvenNumbers = function (digits) {
+    const cnt = Array(10).fill(0);
+    for (const x of digits) {
+        ++cnt[x];
     }
-    return true;
-}
+    const ans = [];
+    for (let x = 100; x < 1000; x += 2) {
+        const cnt1 = Array(10).fill(0);
+        for (let y = x; y; y = Math.floor(y / 10)) {
+            ++cnt1[y % 10];
+        }
+        let ok = true;
+        for (let i = 0; i < 10 && ok; ++i) {
+            ok = cnt[i] >= cnt1[i];
+        }
+        if (ok) {
+            ans.push(x);
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

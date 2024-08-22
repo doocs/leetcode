@@ -1,11 +1,13 @@
 class Solution {
     public String complexNumberMultiply(String num1, String num2) {
-        String[] c1 = num1.split("\\+|i");
-        String[] c2 = num2.split("\\+|i");
-        int a = Integer.parseInt(c1[0]);
-        int b = Integer.parseInt(c1[1]);
-        int c = Integer.parseInt(c2[0]);
-        int d = Integer.parseInt(c2[1]);
-        return String.format("%d+%di", a * c - b * d, a * d + c * b);
+        int[] x = parse(num1);
+        int[] y = parse(num2);
+        int a1 = x[0], b1 = x[1], a2 = y[0], b2 = y[1];
+        return (a1 * a2 - b1 * b2) + "+" + (a1 * b2 + a2 * b1) + "i";
+    }
+
+    private int[] parse(String s) {
+        var cs = s.substring(0, s.length() - 1).split("\\+");
+        return new int[] {Integer.parseInt(cs[0]), Integer.parseInt(cs[1])};
     }
 }

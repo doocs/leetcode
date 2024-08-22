@@ -81,7 +81,7 @@ tags:
 考虑 $f[i][j]$ 如何进行状态转移。对于 $f[i]$，我们枚举所有城市 $j$，如果 $i$ 的第 $j$ 位为 $1$，那么我们就可以从其它城市 $h$ 经过公路到达城市 $j$，此时 $f[i][j]$ 的值为 $f[i][h]+cost(h, j)$ 的最大值，其中 $cost(h, j)$ 表示从城市 $h$ 到城市 $j$ 的旅行费用。因此，我们可以得到状态转移方程：
 
 $$
-f[i][j]=\max_{h \in \text{city}}\{f[i \backslash j][h]+cost(h, j)\}
+f[i][j]=\max_{h \in \textit{city}}\{f[i \backslash j][h]+cost(h, j)\}
 $$
 
 其中 $i \backslash j$ 表示将 $i$ 的第 $j$ 位变为 $0$。
