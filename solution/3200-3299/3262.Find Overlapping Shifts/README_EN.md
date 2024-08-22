@@ -113,17 +113,16 @@ This table contains information about the shifts worked by employees, including 
 
 <!-- solution:start -->
 
-### Solution 1: Self-Join + Group Count
+### Solution 1: Self-Join + Group Counting
 
-We start by using a self-join to join the `EmployeeShifts` table with itself. The join condition ensures that only shifts of the same employee are compared, and checks if there is any overlap between the shifts.
+We first use a self-join to connect the `EmployeeShifts` table to itself. The join condition ensures that we only compare shifts belonging to the same employee and check if there is any overlap between shifts.
 
-1. `t1.start_time < t2.end_time`: Ensures that the start time of the first shift is earlier than the end time of the second shift.
+1. `t1.start_time < t2.start_time`: Ensures that the start time of the first shift is earlier than the start time of the second shift.
 2. `t1.end_time > t2.start_time`: Ensures that the end time of the first shift is later than the start time of the second shift.
-3. `t1.start_time != t2.start_time`: Avoids comparing a shift with itself.
 
-Next, we group the data by `employee_id` and count the number of overlapping shifts for each employee. We divide the count by 2 because each overlap is counted twice in the self-join.
+Next, we group the data by `employee_id` and count the number of overlapping shifts for each employee.
 
-Finally, we filter out employees with an overlapping shift count greater than 0 and sort the results in ascending order by `employee_id`.
+Finally, we filter out employees with overlapping shift counts greater than $0$ and sort the results in ascending order by `employee_id`.
 
 <!-- tabs:start -->
 
@@ -132,14 +131,13 @@ Finally, we filter out employees with an overlapping shift count greater than 0 
 ```sql
 SELECT
     t1.employee_id,
-    COUNT(*) / 2 AS overlapping_shifts
+    COUNT(*) AS overlapping_shifts
 FROM
     EmployeeShifts t1
     JOIN EmployeeShifts t2
         ON t1.employee_id = t2.employee_id
-        AND t1.start_time < t2.end_time
+        AND t1.start_time < t2.start_time
         AND t1.end_time > t2.start_time
-        AND t1.start_time != t2.start_time
 GROUP BY 1
 HAVING overlapping_shifts > 0
 ORDER BY 1;
@@ -152,23 +150,20 @@ import pandas as pd
 
 
 def find_overlapping_shifts(employee_shifts: pd.DataFrame) -> pd.DataFrame:
-    merged = employee_shifts.merge(
-        employee_shifts, on="employee_id", suffixes=("_1", "_2")
+    merged_shifts = employee_shifts.merge(
+        employee_shifts, on="employee_id", suffixes=("_t1", "_t2")
     )
-    overlap = merged[
-        (merged["start_time_1"] < merged["end_time_2"])
-        & (merged["end_time_1"] > merged["start_time_2"])
-        & (merged["start_time_1"] != merged["start_time_2"])
+    overlapping_shifts = merged_shifts[
+        (merged_shifts["start_time_t1"] < merged_shifts["start_time_t2"])
+        & (merged_shifts["end_time_t1"] > merged_shifts["start_time_t2"])
     ]
-    overlap_counts = (
-        overlap.groupby("employee_id").size().reset_index(name="overlapping_shifts")
-    )
-    overlap_counts["overlapping_shifts"] = overlap_counts["overlapping_shifts"] // 2
     result = (
-        overlap_counts[overlap_counts["overlapping_shifts"] > 0]
-        .sort_values("employee_id")
-        .reset_index(drop=True)
+        overlapping_shifts.groupby("employee_id")
+        .size()
+        .reset_index(name="overlapping_shifts")
     )
+    result = result[result["overlapping_shifts"] > 0]
+    result = result.sort_values("employee_id").reset_index(drop=True)
     return result
 ```
 

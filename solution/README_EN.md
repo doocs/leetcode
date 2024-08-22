@@ -1197,6 +1197,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1186  |  [Maximum Subarray Sum with One Deletion](/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 153  |
 |  1187  |  [Make Array Strictly Increasing](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README_EN.md)  |  `Array`,`Binary Search`,`Dynamic Programming`,`Sorting`  |  Hard  |  Weekly Contest 153  |
 |  1188  |  [Design Bounded Blocking Queue](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README_EN.md)  |  `Concurrency`  |  Medium  |  🔒  |
+|  1189  |  [Maximum Number of Balloons](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Weekly Contest 154  |
 |  1190  |  [Reverse Substrings Between Each Pair of Parentheses](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README_EN.md)  |  `Stack`,`String`  |  Medium  |  Weekly Contest 154  |
 |  1191  |  [K-Concatenation Maximum Sum](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 154  |
 |  1192  |  [Critical Connections in a Network](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md)  |  `Depth-First Search`,`Graph`,`Biconnected Component`  |  Hard  |  Weekly Contest 154  |
@@ -3270,6 +3271,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3260  |  [Find the Largest Palindrome Divisible by K](/solution/3200-3299/3260.Find%20the%20Largest%20Palindrome%20Divisible%20by%20K/README_EN.md)  |  `Greedy`,`Math`,`String`,`Dynamic Programming`,`Number Theory`  |  Hard  |  Weekly Contest 411  |
 |  3261  |  [Count Substrings That Satisfy K-Constraint II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README_EN.md)  |  `Array`,`String`,`Binary Search`,`Prefix Sum`,`Sliding Window`  |  Hard  |  Weekly Contest 411  |
 |  3262  |  [Find Overlapping Shifts](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README_EN.md)  |    |  Medium  |  🔒  |
+|  3263  |  [Convert Doubly Linked List to Array I](/solution/3200-3299/3263.Convert%20Doubly%20Linked%20List%20to%20Array%20I/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 

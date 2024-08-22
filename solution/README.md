@@ -1199,6 +1199,7 @@
 |  1186  |  [删除一次得到子数组最大和](/solution/1100-1199/1186.Maximum%20Subarray%20Sum%20with%20One%20Deletion/README.md)  |  `数组`,`动态规划`  |  中等  |  第 153 场周赛  |
 |  1187  |  [使数组严格递增](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README.md)  |  `数组`,`二分查找`,`动态规划`,`排序`  |  困难  |  第 153 场周赛  |
 |  1188  |  [设计有限阻塞队列](/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README.md)  |  `多线程`  |  中等  |  🔒  |
+|  1189  |  [“气球” 的最大数量](/solution/1100-1199/1189.Maximum%20Number%20of%20Balloons/README.md)  |  `哈希表`,`字符串`,`计数`  |  简单  |  第 154 场周赛  |
 |  1190  |  [反转每对括号间的子串](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README.md)  |  `栈`,`字符串`  |  中等  |  第 154 场周赛  |
 |  1191  |  [K 次串联后最大子数组之和](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)  |  `数组`,`动态规划`  |  中等  |  第 154 场周赛  |
 |  1192  |  [查找集群内的关键连接](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)  |  `深度优先搜索`,`图`,`双连通分量`  |  困难  |  第 154 场周赛  |
@@ -3271,7 +3272,8 @@
 |  3259  |  [超级饮料的最大强化能量](/solution/3200-3299/3259.Maximum%20Energy%20Boost%20From%20Two%20Drinks/README.md)  |  `数组`,`动态规划`  |  中等  |  第 411 场周赛  |
 |  3260  |  [找出最大的 N 位 K 回文数](/solution/3200-3299/3260.Find%20the%20Largest%20Palindrome%20Divisible%20by%20K/README.md)  |  `贪心`,`数学`,`字符串`,`动态规划`,`数论`  |  困难  |  第 411 场周赛  |
 |  3261  |  [统计满足 K 约束的子字符串数量 II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README.md)  |  `数组`,`字符串`,`二分查找`,`前缀和`,`滑动窗口`  |  困难  |  第 411 场周赛  |
-|  3262  |  [Find Overlapping Shifts](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README.md)  |    |  中等  |  🔒  |
+|  3262  |  [查找重叠的班次](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README.md)  |    |  中等  |  🔒  |
+|  3263  |  [Convert Doubly Linked List to Array I](/solution/3200-3299/3263.Convert%20Doubly%20Linked%20List%20to%20Array%20I/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 
