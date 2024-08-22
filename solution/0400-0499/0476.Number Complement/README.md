@@ -138,4 +138,34 @@ var findComplement = function(num) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Bit Manipulation. Inversion + AND
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findComplement(num: number): number {
+    return ~num & (2 ** num.toString(2).length - 1);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+function findComplement(num) {
+    return ~num & (2 ** num.toString(2).length - 1);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
