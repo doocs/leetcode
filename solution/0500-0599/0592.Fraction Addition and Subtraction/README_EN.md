@@ -171,14 +171,17 @@ func gcd(a, b int) int {
 	return gcd(b, a%b)
 }
 ```
+
 #### JavaScript
+
 ```js
 /**
  * @param {string} expression
  * @return {string}
  */
-var fractionAddition = function(expression) {
-    let x = 0, y = 1;
+var fractionAddition = function (expression) {
+    let x = 0,
+        y = 1;
 
     if (!expression.startsWith('-') && !expression.startsWith('+')) {
         expression = '+' + expression;
@@ -215,8 +218,8 @@ var fractionAddition = function(expression) {
 
     return `${x}/${y}`;
 };
-
 ```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

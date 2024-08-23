@@ -2,8 +2,9 @@
  * @param {string} expression
  * @return {string}
  */
-var fractionAddition = function(expression) {
-    let x = 0, y = 1;
+var fractionAddition = function (expression) {
+    let x = 0,
+        y = 1;
 
     if (!expression.startsWith('-') && !expression.startsWith('+')) {
         expression = '+' + expression;
