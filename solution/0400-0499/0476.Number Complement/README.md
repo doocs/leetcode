@@ -140,7 +140,7 @@ var findComplement = function (num) {
 
 <!-- solution:start -->
 
-### Solution 2: Bit Manipulation. Inversion + AND
+### 方法二：位运算（取反+按位与）
 
 <!-- tabs:start -->
 
