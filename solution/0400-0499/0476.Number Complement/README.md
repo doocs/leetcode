@@ -122,6 +122,48 @@ function findComplement(num: number): number {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var findComplement = function (num) {
+    return num ^ (2 ** num.toString(2).length - 1);
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：位运算（取反+按位与）
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findComplement(num: number): number {
+    return ~num & (2 ** num.toString(2).length - 1);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+function findComplement(num) {
+    return ~num & (2 ** num.toString(2).length - 1);
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
