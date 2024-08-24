@@ -72,9 +72,12 @@ Tree table:
 +---+-------+
 <strong>Explanation:</strong> 
 - Node 5 is the root node since it has no parent node.
-- Nodes 1, 3, 6, and 8 are leaf nodes because they don&#39;t have any child nodes.
-- Nodes 2, 4, and 7 are inner nodes as they serve as parents to some of the nodes in the structure.
+- Nodes 1, 3, 6, and 9 are leaf nodes because they don&#39;t have any child nodes.
+- Nodes 2, and 8 are inner nodes as they serve as parents to some of the nodes in the structure.
 </pre>
+
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/tree-node/description/" target="_blank"> 608: Tree Node.</a></p>
 
 <!-- description:end -->
 

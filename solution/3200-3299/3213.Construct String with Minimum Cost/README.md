@@ -25,7 +25,7 @@ tags:
 
 <p>设想一个空字符串 <code>s</code>。</p>
 
-<p>你可以执行以下操作任意次数（包括<strong>零</strong>次）：</p>
+<p>你可以执行以下操作任意次数（包括&nbsp;<strong>零&nbsp;</strong>次）：</p>
 
 <ul>
 	<li>选择一个在范围&nbsp; <code>[0, words.length - 1]</code> 的索引 <code>i</code>。</li>

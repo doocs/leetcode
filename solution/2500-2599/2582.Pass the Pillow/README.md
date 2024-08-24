@@ -56,6 +56,10 @@ tags:
 	<li><code>1 &lt;= time &lt;= 1000</code></li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><b>注意：</b>本题与 <a href="https://leetcode.cn/problems/find-the-child-who-has-the-ball-after-k-seconds/">3178.找出 K 秒后拿着球的孩子</a>&nbsp;一致。</p>
+
 <!-- description:end -->
 
 ## 解法

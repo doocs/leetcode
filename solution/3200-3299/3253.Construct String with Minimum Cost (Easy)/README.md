@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 
 <!-- problem:start -->
 
-# [3253. 以最低成本构建字符串（简单） 🔒](https://leetcode.cn/problems/construct-string-with-minimum-cost-easy)
+# [3253. 最小代价构造字符串（简单） 🔒](https://leetcode.cn/problems/construct-string-with-minimum-cost-easy)
 
 [English Version](/solution/3200-3299/3253.Construct%20String%20with%20Minimum%20Cost%20%28Easy%29/README_EN.md)
 
@@ -14,51 +14,45 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 
 <!-- description:start -->
 
-<p>给定字符串&nbsp;<code>target</code>，一个字符串数组&nbsp;<code>words</code>&nbsp;以及一个整数数组&nbsp;<code>costs</code>，两个数组长度相同。</p>
+<p>给你一个字符串 <code>target</code>、一个字符串数组 <code>words</code> 以及一个整数数组 <code>costs</code>，这两个数组长度相同。</p>
 
-<p>想象一个空字符串&nbsp;<code>s</code>。</p>
+<p>设想一个空字符串 <code>s</code>。</p>
 
-<p>您可以执行以下操作任意次数（包括 <strong>零</strong>）：</p>
+<p>你可以执行以下操作任意次数（包括&nbsp;<strong>零&nbsp;</strong>次）：</p>
 
 <ul>
-	<li>从范围&nbsp;<code>[0, words.length - 1]</code>&nbsp;中选择一个下标 <code>i</code>。</li>
-	<li>将&nbsp;<code>words[i]</code>&nbsp;添加到&nbsp;<code>s</code>。</li>
-	<li>操作的开销为&nbsp;<code>costs[i]</code>。</li>
+	<li>选择一个在范围&nbsp; <code>[0, words.length - 1]</code> 的索引 <code>i</code>。</li>
+	<li>将 <code>words[i]</code> 追加到 <code>s</code>。</li>
+	<li>该操作的成本是 <code>costs[i]</code>。</li>
 </ul>
 
-<p>返回使&nbsp;<code>s</code> 与&nbsp;<code>target</code>&nbsp;相等的&nbsp;<strong>最小</strong>&nbsp;开销。如果不可能做到，返回 -1。</p>
+<p>返回使 <code>s</code> 等于 <code>target</code> 的 <strong>最小</strong> 成本。如果不可能，返回 <code>-1</code>。</p>
 
 <p>&nbsp;</p>
 
-<p><strong class="example">示例 1：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<div class="example-block">
-<p><strong>输入：</strong><span class="example-io">target = "abcdef", words = ["abdef","abc","d","def","ef"], costs = [100,1,1,10,5]</span></p>
+<p><strong>输入：</strong> target = "abcdef", words = ["abdef","abc","d","def","ef"], costs = [100,1,1,10,5]</p>
 
-<p><span class="example-io"><b>输出：</b>7</span></p>
+<p><strong>输出：</strong> 7</p>
 
 <p><strong>解释：</strong></p>
-
-<p>通过执行以下操作可以实现最低开销：</p>
 
 <ul>
-	<li>选择下标 1 然后以 1 的开销将&nbsp;<code>"abc"</code>&nbsp;添加到&nbsp;<code>s</code>，得到&nbsp;<code>s = "abc"</code>。</li>
-	<li>选择下标 2 然后以 1 的开销将 <code>"d"</code> 添加到&nbsp;<code>s</code>，得到&nbsp;<code>s = "abcd"</code>。</li>
-	<li>选择下标 4 然后以 5 的开销将 <code>"ef"</code> 添加到&nbsp;<code>s</code>，得到&nbsp;<code>s = "abcdef"</code>。</li>
+	<li>选择索引 1 并以成本 1 将 <code>"abc"</code> 追加到 <code>s</code>，得到 <code>s = "abc"</code>。</li>
+	<li>选择索引 2 并以成本 1 将 <code>"d"</code> 追加到 <code>s</code>，得到 <code>s = "abcd"</code>。</li>
+	<li>选择索引 4 并以成本 5 将 <code>"ef"</code> 追加到 <code>s</code>，得到 <code>s = "abcdef"</code>。</li>
 </ul>
-</div>
 
-<p><strong class="example">示例 2：</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<div class="example-block">
-<p><span class="example-io"><b>输入：</b>target = "aaaa", words = ["z","zz","zzz"], costs = [1,10,100]</span></p>
+<p><strong>输入：</strong> target = "aaaa", words = ["z","zz","zzz"], costs = [1,10,100]</p>
 
-<p><span class="example-io"><b>输出：</b>-1</span></p>
+<p><strong>输出：</strong> -1</p>
 
 <p><strong>解释：</strong></p>
 
-<p>不可能使&nbsp;<code>s</code> 与&nbsp;<code>target</code>&nbsp;相等，所以我们返回 -1。</p>
-</div>
+<p>无法使 <code>s</code> 等于 <code>target</code>，因此返回 -1。</p>
 
 <p>&nbsp;</p>
 
@@ -68,7 +62,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 	<li><code>1 &lt;= target.length &lt;= 2000</code></li>
 	<li><code>1 &lt;= words.length == costs.length &lt;= 50</code></li>
 	<li><code>1 &lt;= words[i].length &lt;= target.length</code></li>
-	<li><code>target</code> 和&nbsp;<code>words[i]</code>&nbsp;只包含小写英语字母。</li>
+	<li><code>target</code> 和 <code>words[i]</code> 仅由小写英文字母组成。</li>
 	<li><code>1 &lt;= costs[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 

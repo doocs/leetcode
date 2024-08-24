@@ -23,11 +23,13 @@ tags:
 
 <p>返回使 <code>nums</code> 中的每个值都变成唯一的所需要的最少操作次数。</p>
 
+<p>生成的测试用例保证答案在 32 位整数范围内。</p>
+
 <div class="original__bRMd">
 <div>
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [1,2,2]
@@ -35,7 +37,7 @@ tags:
 <strong>解释：</strong>经过一次 <em>move</em> 操作，数组将变为 [1, 2, 3]。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [3,2,1,2,1,7]

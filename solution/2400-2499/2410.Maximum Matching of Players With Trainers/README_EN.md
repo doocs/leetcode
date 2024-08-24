@@ -58,6 +58,9 @@ Each player can only be matched with one trainer, so the maximum answer is 1.
 	<li><code>1 &lt;= players[i], trainers[j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/assign-cookies/description/" target="_blank"> 445: Assign Cookies.</a></p>
+
 <!-- description:end -->
 
 ## Solutions

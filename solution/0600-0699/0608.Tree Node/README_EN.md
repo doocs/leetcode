@@ -96,6 +96,9 @@ Tree table:
 <strong>Explanation:</strong> If there is only one node on the tree, you only need to output its root attributes.
 </pre>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/binary-tree-nodes/description/" target="_blank"> 3054: Binary Tree Nodes.</a></p>
+
 <!-- description:end -->
 
 ## Solutions

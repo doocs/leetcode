@@ -40,7 +40,7 @@ tags:
 <strong>Input:</strong> nums = [3,2,1,2,1,7]
 <strong>Output:</strong> 6
 <strong>Explanation:</strong> After 6 moves, the array could be [3, 4, 1, 2, 5, 7].
-It can be shown with 5 or less moves that it is impossible for the array to have all unique values.
+It can be shown that it is impossible for the array to have all unique values with 5 or less moves.
 </pre>
 
 <p>&nbsp;</p>

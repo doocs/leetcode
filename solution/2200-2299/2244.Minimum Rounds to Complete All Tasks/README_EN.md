@@ -55,6 +55,9 @@ It can be shown that all the tasks cannot be completed in fewer than 4 rounds, s
 	<li><code>1 &lt;= tasks[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/description/" target="_blank">2870: Minimum Number of Operations to Make Array Empty.</a></p>
+
 <!-- description:end -->
 
 ## Solutions
