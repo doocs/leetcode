@@ -23,41 +23,60 @@ tags:
 
 <p>设计一个找到数据流中第 <code>k</code> 大元素的类（class）。注意是排序后的第 <code>k</code> 大元素，不是第 <code>k</code> 个不同的元素。</p>
 
-<p>请实现 <code>KthLargest</code> 类：</p>
+<p>请实现 <code>KthLargest</code>&nbsp;类：</p>
 
 <ul>
 	<li><code>KthLargest(int k, int[] nums)</code> 使用整数 <code>k</code> 和整数流 <code>nums</code> 初始化对象。</li>
 	<li><code>int add(int val)</code> 将 <code>val</code> 插入数据流 <code>nums</code> 后，返回当前数据流中第 <code>k</code> 大的元素。</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>
-["KthLargest", "add", "add", "add", "add", "add"]
-[[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
-<strong>输出：</strong>
-[null, 4, 5, 5, 8, 8]
+<div class="example-block">
+<p><strong>输入：</strong><br />
+<span class="example-io">["KthLargest", "add", "add", "add", "add", "add"]<br />
+[[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]</span></p>
 
-<strong>解释：</strong>
-KthLargest kthLargest = new KthLargest(3, [4, 5, 8, 2]);
-kthLargest.add(3);   // return 4
-kthLargest.add(5);   // return 5
-kthLargest.add(10);  // return 5
-kthLargest.add(9);   // return 8
-kthLargest.add(4);   // return 8
-</pre>
+<p><strong>输出：</strong><span class="example-io">[null, 4, 5, 5, 8, 8]</span></p>
 
-<p> </p>
+<p><strong>解释：</strong></p>
+
+<p>KthLargest kthLargest = new KthLargest(3, [4, 5, 8, 2]);<br />
+kthLargest.add(3); // 返回 4<br />
+kthLargest.add(5); // 返回 5<br />
+kthLargest.add(10); // 返回 5<br />
+kthLargest.add(9); // 返回 8<br />
+kthLargest.add(4); // 返回 8</p>
+
+<p>&nbsp;</p>
+</div>
+
+<p><strong class="example">示例&nbsp;2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><br />
+<span class="example-io">["KthLargest", "add", "add", "add", "add"]<br />
+[[4, [7, 7, 7, 7, 8, 3]], [2], [10], [9], [9]]</span></p>
+
+<p><span class="example-io"><b>输出：</b>[null, 7, 7, 7, 8]</span></p>
+
+<p><strong>解释：</strong></p>
+KthLargest kthLargest = new KthLargest(4, [7, 7, 7, 7, 8, 3]);<br />
+kthLargest.add(2); // 返回 7<br />
+kthLargest.add(10); // 返回 7<br />
+kthLargest.add(9); // 返回 7<br />
+kthLargest.add(9); // 返回 8</div>
+
+<p>&nbsp;</p>
 <strong>提示：</strong>
 
 <ul>
-	<li><code>1 <= k <= 10<sup>4</sup></code></li>
-	<li><code>0 <= nums.length <= 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> <= val <= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= val &lt;= 10<sup>4</sup></code></li>
 	<li>最多调用 <code>add</code> 方法 <code>10<sup>4</sup></code> 次</li>
 	<li>题目数据保证，在查找第 <code>k</code> 大元素时，数组中至少有 <code>k</code> 个元素</li>
 </ul>

@@ -65,7 +65,7 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n == heights &lt;= 10<sup>3</sup></code></li>
+	<li><code>1 &lt;= n == heights.length &lt;= 10<sup>3</sup></code></li>
 	<li><code>1 &lt;= heights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 

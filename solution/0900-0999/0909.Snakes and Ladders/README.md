@@ -36,7 +36,7 @@ tags:
 
 </ul>
 
-<p><code>r</code> 行 <code>c</code> 列的棋盘，按前述方法编号，棋盘格中可能存在 “蛇” 或 “梯子”；如果 <code>board[r][c] != -1</code>，那个蛇或梯子的目的地将会是 <code>board[r][c]</code>。编号为 <code>1</code> 和 <code>n<sup>2</sup></code> 的方格上没有蛇或梯子。</p>
+<p><code>r</code> 行 <code>c</code> 列的棋盘，按前述方法编号，棋盘格中可能存在 “蛇” 或 “梯子”；如果 <code>board[r][c] != -1</code>，那个蛇或梯子的目的地将会是 <code>board[r][c]</code>。编号为 <code>1</code> 和 <code>n<sup>2</sup></code> 的方格不是任何蛇或梯子的起点。</p>
 
 <p>注意，玩家在每回合的前进过程中最多只能爬过蛇或梯子一次：就算目的地是另一条蛇或梯子的起点，玩家也 <strong>不能</strong> 继续移动。</p>
 
@@ -48,7 +48,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0909.Snakes%20and%20Ladders/images/snakes.png" style="width: 500px; height: 394px;" />
 <pre>
 <strong>输入：</strong>board = [[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]
@@ -62,7 +62,7 @@ tags:
 可以证明需要至少 4 次移动才能到达最后一个方格，所以答案是 4 。 
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>board = [[-1,-1],[-1,3]]
@@ -76,7 +76,7 @@ tags:
 <ul>
 	<li><code>n == board.length == board[i].length</code></li>
 	<li><code>2 &lt;= n &lt;= 20</code></li>
-	<li><code>grid[i][j]</code> 的值是 <code>-1</code> 或在范围 <code>[1, n<sup>2</sup>]</code> 内</li>
+	<li><code>board[i][j]</code> 的值是 <code>-1</code> 或在范围 <code>[1, n<sup>2</sup>]</code> 内</li>
 	<li>编号为 <code>1</code> 和 <code>n<sup>2</sup></code> 的方格上没有蛇或梯子</li>
 </ul>
 

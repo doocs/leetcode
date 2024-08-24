@@ -77,7 +77,7 @@ It can be shown that there exists no other beautiful configuration with a sum of
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n == maxHeights&nbsp;&lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= n == maxHeights.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= maxHeights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 

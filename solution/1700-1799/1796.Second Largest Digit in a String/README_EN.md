@@ -45,7 +45,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 500</code></li>
-	<li><code>s</code> consists of only lowercase English letters and/or digits.</li>
+	<li><code>s</code> consists of only lowercase English letters and digits.</li>
 </ul>
 
 <!-- description:end -->

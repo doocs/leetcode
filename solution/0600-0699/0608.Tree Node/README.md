@@ -97,6 +97,10 @@ Tree table:
 <b>解释：</b>如果树中只有一个节点，则只需要输出其根属性。
 </pre>
 
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与 <a href="https://leetcode.cn/problems/binary-tree-nodes/">3054. 二叉树节点</a> 一致。</p>
+
 <!-- description:end -->
 
 ## 解法

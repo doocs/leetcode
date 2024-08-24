@@ -84,32 +84,203 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二分查找 + 双指针
+
+我们记数组 $\textit{nums}$ 的长度为 $n$，那么唯一性数组的长度为 $m = \frac{(1 + n) \times n}{2}$，而唯一性数组的中位数就是这 $m$ 个数中的第 $\frac{m + 1}{2}$ 小的数字。
+
+考虑唯一性数组中，有多少个数小于等于 $x$。随着 $x$ 的增大，只会有越来越多的数小于等于 $x$。这存在着单调性，因此，我们可以二分枚举 $x$，找到第一个 $x$，满足唯一性数组中小于等于 $x$ 的数的个数大于等于 $\frac{m + 1}{2}$，这个 $x$ 就是唯一性数组的中位数。
+
+我们定义二分查找的左边界 $l = 0$，右边界 $r = n$，然后进行二分查找，对于每个 $\textit{mid}$，我们检查唯一性数组中小于等于 $\textit{mid}$ 的数的个数是否大于等于 $\frac{m + 1}{2}$。我们通过函数 $\text{check}(mx)$ 来实现这一点。
+
+函数 $\text{check}(mx)$ 的实现思路如下：
+
+由于子数组越长，不同元素的个数越多，因此，我们可以利用双指针维护一个滑动窗口，使得窗口中的子数组的不同元素的个数不超过 $mx$。具体地，我们维护一个哈希表 $\textit{cnt}$，$\textit{cnt}[x]$ 表示窗口中元素 $x$ 的个数。我们使用两个指针 $l$ 和 $r$，其中 $l$ 表示窗口的左边界，而 $r$ 表示窗口的右边界。初始时 $l = r = 0$。
+
+我们枚举 $r$，对于每个 $r$，我们将 $\textit{nums}[r]$ 加入窗口中，并更新 $\textit{cnt}[\textit{nums}[r]]$。如果窗口中的不同元素的个数超过了 $mx$，我们需要将 $l$ 右移，直到窗口中的不同元素的个数不超过 $mx$。此时，右端点为 $r$，而左端点为 $[l,..r]$ 的子数组都是满足条件的，一共有 $r - l + 1$ 个子数组。我们将这个数量累加到 $k$ 中，如果 $k$ 大于等于 $\frac{m + 1}{2}$，那么说明唯一性数组中小于等于 $\textit{mid}$ 的数的个数大于等于 $\frac{m + 1}{2}$，我们返回 $\text{true}$，否则返回 $\text{false}$。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def medianOfUniquenessArray(self, nums: List[int]) -> int:
+        def check(mx: int) -> bool:
+            cnt = defaultdict(int)
+            k = l = 0
+            for r, x in enumerate(nums):
+                cnt[x] += 1
+                while len(cnt) > mx:
+                    y = nums[l]
+                    cnt[y] -= 1
+                    if cnt[y] == 0:
+                        cnt.pop(y)
+                    l += 1
+                k += r - l + 1
+                if k >= (m + 1) // 2:
+                    return True
+            return False
 
+        n = len(nums)
+        m = (1 + n) * n // 2
+        return bisect_left(range(n), True, key=check)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private long m;
+    private int[] nums;
 
+    public int medianOfUniquenessArray(int[] nums) {
+        int n = nums.length;
+        this.nums = nums;
+        m = (1L + n) * n / 2;
+        int l = 0, r = n;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+
+    private boolean check(int mx) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        long k = 0;
+        for (int l = 0, r = 0; r < nums.length; ++r) {
+            int x = nums[r];
+            cnt.merge(x, 1, Integer::sum);
+            while (cnt.size() > mx) {
+                int y = nums[l++];
+                if (cnt.merge(y, -1, Integer::sum) == 0) {
+                    cnt.remove(y);
+                }
+            }
+            k += r - l + 1;
+            if (k >= (m + 1) / 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int medianOfUniquenessArray(vector<int>& nums) {
+        int n = nums.size();
+        using ll = long long;
+        ll m = (1LL + n) * n / 2;
+        int l = 0, r = n;
+        auto check = [&](int mx) -> bool {
+            unordered_map<int, int> cnt;
+            ll k = 0;
+            for (int l = 0, r = 0; r < n; ++r) {
+                int x = nums[r];
+                ++cnt[x];
+                while (cnt.size() > mx) {
+                    int y = nums[l++];
+                    if (--cnt[y] == 0) {
+                        cnt.erase(y);
+                    }
+                }
+                k += r - l + 1;
+                if (k >= (m + 1) / 2) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func medianOfUniquenessArray(nums []int) int {
+	n := len(nums)
+	m := (1 + n) * n / 2
+	return sort.Search(n, func(mx int) bool {
+		cnt := map[int]int{}
+		l, k := 0, 0
+		for r, x := range nums {
+			cnt[x]++
+			for len(cnt) > mx {
+				y := nums[l]
+				cnt[y]--
+				if cnt[y] == 0 {
+					delete(cnt, y)
+				}
+				l++
+			}
+			k += r - l + 1
+			if k >= (m+1)/2 {
+				return true
+			}
+		}
+		return false
+	})
+}
+```
 
+#### TypeScript
+
+```ts
+function medianOfUniquenessArray(nums: number[]): number {
+    const n = nums.length;
+    const m = Math.floor(((1 + n) * n) / 2);
+    let [l, r] = [0, n];
+    const check = (mx: number): boolean => {
+        const cnt = new Map<number, number>();
+        let [l, k] = [0, 0];
+        for (let r = 0; r < n; ++r) {
+            const x = nums[r];
+            cnt.set(x, (cnt.get(x) || 0) + 1);
+            while (cnt.size > mx) {
+                const y = nums[l++];
+                cnt.set(y, cnt.get(y)! - 1);
+                if (cnt.get(y) === 0) {
+                    cnt.delete(y);
+                }
+            }
+            k += r - l + 1;
+            if (k >= Math.floor((m + 1) / 2)) {
+                return true;
+            }
+        }
+        return false;
+    };
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
 ```
 
 <!-- tabs:end -->
