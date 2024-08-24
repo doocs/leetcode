@@ -80,7 +80,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search + Two Pointers
+
+Let the length of the array $\textit{nums}$ be $n$. The length of the uniqueness array is $m = \frac{(1 + n) \times n}{2}$, and the median of the uniqueness array is the $\frac{m + 1}{2}$-th smallest number among these $m$ numbers.
+
+Consider how many numbers in the uniqueness array are less than or equal to $x$. As $x$ increases, there will be more and more numbers less than or equal to $x$. This property is monotonic, so we can use binary search to enumerate $x$ and find the first $x$ such that the number of elements in the uniqueness array less than or equal to $x$ is greater than or equal to $\frac{m + 1}{2}$. This $x$ is the median of the uniqueness array.
+
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n$. Then we perform binary search. For each $\textit{mid}$, we check whether the number of elements in the uniqueness array less than or equal to $\textit{mid}$ is greater than or equal to $\frac{m + 1}{2}$. We achieve this through the function $\text{check}(mx)$.
+
+The implementation idea of the function $\text{check}(mx)$ is as follows:
+
+Since the longer the subarray, the more different elements it contains, we can use two pointers to maintain a sliding window such that the number of different elements in the window does not exceed $mx$. Specifically, we maintain a hash table $\textit{cnt}$, where $\textit{cnt}[x]$ represents the number of occurrences of element $x$ in the window. We use two pointers $l$ and $r$, where $l$ represents the left boundary of the window and $r$ represents the right boundary. Initially, $l = r = 0$.
+
+We enumerate $r$. For each $r$, we add $\textit{nums}[r]$ to the window and update $\textit{cnt}[\textit{nums}[r]]$. If the number of different elements in the window exceeds $mx$, we need to move $l$ to the right until the number of different elements in the window does not exceed $mx$. At this point, the subarrays with the right endpoint $r$ and left endpoints in the range $[l, .., r]$ all meet the condition, and there are $r - l + 1$ such subarrays. We accumulate this count into $k$. If $k$ is greater than or equal to $\frac{m + 1}{2}$, it means that the number of elements in the uniqueness array less than or equal to $\textit{mid}$ is greater than or equal to $\frac{m + 1}{2}$, and we return $\text{true}$; otherwise, we return $\text{false}$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
