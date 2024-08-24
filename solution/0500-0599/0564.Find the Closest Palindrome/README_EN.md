@@ -188,6 +188,7 @@ func abs(x int) int {
 ```
 
 #### JavaScript
+
 ```js
 /**
  * @param {string} n
@@ -216,13 +217,19 @@ function getCandidates(n) {
     const res = new Set();
 
     res.add(BigInt(Math.pow(10, length - 1) - 1));
-    res.add(BigInt(Math.pow(10, length) + 1)); 
+    res.add(BigInt(Math.pow(10, length) + 1));
 
     const left = BigInt(n.substring(0, Math.ceil(length / 2)));
 
     for (let i = left - 1n; i <= left + 1n; i++) {
         const prefix = i.toString();
-        const t = prefix + prefix.split('').reverse().slice(length % 2).join('');
+        const t =
+            prefix +
+            prefix
+                .split('')
+                .reverse()
+                .slice(length % 2)
+                .join('');
         res.add(BigInt(t));
     }
 
@@ -233,7 +240,6 @@ function getCandidates(n) {
 function absDiff(a, b) {
     return a > b ? a - b : b - a;
 }
-
 ```
 
 <!-- tabs:end -->
