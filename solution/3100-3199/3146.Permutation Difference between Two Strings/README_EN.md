@@ -72,7 +72,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table or Array
+
+We can use a hash table or an array of length $26$, denoted as $\textit{d}$, to store the positions of each character in the string $\textit{s}$.
+
+Then, we traverse the string $\textit{t}$ and calculate the sum of the absolute differences between the positions of each character in the string $\textit{t}$ and the positions in the string $\textit{s}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. Here, it is lowercase English letters, so $|\Sigma| \leq 26$.
 
 <!-- tabs:start -->
 
@@ -146,13 +152,32 @@ function findPermutationDifference(s: string, t: string): number {
     const d: number[] = Array(26).fill(0);
     const n = s.length;
     for (let i = 0; i < n; ++i) {
-        d[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
+        d[s.charCodeAt(i) - 97] = i;
     }
     let ans = 0;
     for (let i = 0; i < n; ++i) {
-        ans += Math.abs(d[t.charCodeAt(i) - 'a'.charCodeAt(0)] - i);
+        ans += Math.abs(d[t.charCodeAt(i) - 97] - i);
     }
     return ans;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int FindPermutationDifference(string s, string t) {
+        int[] d = new int[26];
+        int n = s.Length;
+        for (int i = 0; i < n; ++i) {
+            d[s[i] - 'a'] = i;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Abs(d[t[i] - 'a'] - i);
+        }
+        return ans;
+    }
 }
 ```
 
