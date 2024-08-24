@@ -74,7 +74,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表或数组
+
+我们可以使用哈希表或者一个长度为 $26$ 的数组 $\textit{d}$ 来存储字符串 $\textit{s}$ 中每个字符的位置。
+
+然后遍历字符串 $\textit{t}$，计算每个字符在字符串 $\textit{t}$ 中的位置与在字符串 $\textit{s}$ 中的位置之差的绝对值之和即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{s}$ 的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 为字符集，这里是小写英文字母，所以 $|\Sigma| \leq 26$。
 
 <!-- tabs:start -->
 
@@ -148,13 +154,32 @@ function findPermutationDifference(s: string, t: string): number {
     const d: number[] = Array(26).fill(0);
     const n = s.length;
     for (let i = 0; i < n; ++i) {
-        d[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
+        d[s.charCodeAt(i) - 97] = i;
     }
     let ans = 0;
     for (let i = 0; i < n; ++i) {
-        ans += Math.abs(d[t.charCodeAt(i) - 'a'.charCodeAt(0)] - i);
+        ans += Math.abs(d[t.charCodeAt(i) - 97] - i);
     }
     return ans;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int FindPermutationDifference(string s, string t) {
+        int[] d = new int[26];
+        int n = s.Length;
+        for (int i = 0; i < n; ++i) {
+            d[s[i] - 'a'] = i;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans += Math.Abs(d[t[i] - 'a'] - i);
+        }
+        return ans;
+    }
 }
 ```
 

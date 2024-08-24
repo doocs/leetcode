@@ -114,9 +114,9 @@ tags:
 
 ### 方法一：二分查找 + 位运算
 
-连续的正整数数字对应的强整数数组连接得到数组 $\textit{big\_nums}$，题目需要我们求出对于每个查询 $[\textit{left}, \textit{right}, \textit{mod}]$，子数组 $\textit{big\_nums}[\textit{left}..\textit{right}]$ 的乘积对 $\textit{mod}$ 取模的结果。由于子数组每个元素都是 $2$ 的幂，这等价于求子数组的幂次之和 $\textit{power}$，然后计算 $2^{\textit{power}} \bmod \textit{mod}$。例如，对于子数组 $[1, 4, 8]$，即 $[2^0, 2^2, 2^3]$，其幂次之和为 $0 + 2 + 3 = 5$，所以 $2^5 \bmod \textit{mod}$ 就是我们要求的结果。
+连续的正整数数字对应的强整数数组连接得到数组 $\textit{bignums}$，题目需要我们求出对于每个查询 $[\textit{left}, \textit{right}, \textit{mod}]$，子数组 $\textit{bignums}[\textit{left}..\textit{right}]$ 的乘积对 $\textit{mod}$ 取模的结果。由于子数组每个元素都是 $2$ 的幂，这等价于求子数组的幂次之和 $\textit{power}$，然后计算 $2^{\textit{power}} \bmod \textit{mod}$。例如，对于子数组 $[1, 4, 8]$，即 $[2^0, 2^2, 2^3]$，其幂次之和为 $0 + 2 + 3 = 5$，所以 $2^5 \bmod \textit{mod}$ 就是我们要求的结果。
 
-因此，我们不妨将 $\textit{big\_nums}$ 转换为幂次数组，即对于子数组 $[1, 4, 8]$，我们将其转换为 $[0, 2, 3]$。这样，问题转换为求幂次数组的子数组之和，即 $\textit{power} = \textit{f}(\textit{right} + 1) - \textit{f}(\textit{left})$，其中 $\textit{f}(i)$ 表示 $\textit{big\_nums}[0..i)$ 的幂次之和，也即是前缀和。
+因此，我们不妨将 $\textit{bignums}$ 转换为幂次数组，即对于子数组 $[1, 4, 8]$，我们将其转换为 $[0, 2, 3]$。这样，问题转换为求幂次数组的子数组之和，即 $\textit{power} = \textit{f}(\textit{right} + 1) - \textit{f}(\textit{left})$，其中 $\textit{f}(i)$ 表示 $\textit{bignums}[0..i)$ 的幂次之和，也即是前缀和。
 
 接下来，就是根据下标 $i$ 计算 $\textit{f}(i)$ 的值。我们可以使用二分查找的方法，先找到强数组长度和小于 $i$ 的最大数字，然后再计算剩下的数字的幂次之和。
 
@@ -140,7 +140,7 @@ tags:
 | 13              | <span style="color: yellow;">1</span> | <span style="color: yellow;">1</span> | <span style="color: yellow;">0</span> | <span style="color: yellow;">1</span> |
 | 14              | <span style="color: yellow;">1</span> | <span style="color: yellow;">1</span> | <span style="color: yellow;">1</span> | <span style="color: yellow;">0</span> |
 
-将数字按照 $[2^i, 2^{i+1}-1]$ 的区间划分为不同的颜色，可以发现，区间 $[2^i, 2^{i+1}-1]$ 的数字，相当于在区间 $[0, 2^i-1]$ 的数字基础上，每个数字加上 $2^i$。我们可以根据这个规律，计算出 $\textit{big\_nums}$ 的前 $i$ 组的所有数字的强数组个数之和 $\textit{cnt}[i]$ 和幂次之和 $\textit{s}[i]$。
+将数字按照 $[2^i, 2^{i+1}-1]$ 的区间划分为不同的颜色，可以发现，区间 $[2^i, 2^{i+1}-1]$ 的数字，相当于在区间 $[0, 2^i-1]$ 的数字基础上，每个数字加上 $2^i$。我们可以根据这个规律，计算出 $\textit{bignums}$ 的前 $i$ 组的所有数字的强数组个数之和 $\textit{cnt}[i]$ 和幂次之和 $\textit{s}[i]$。
 
 接下来，对于任何数字，我们考虑如何计算其强数组的个数和幂次之和。我们可以通过二进制的方式，从最高位开始，诸位计算。例如，对于数字 $13 = 2^3 + 2^2 + 2^0$，前 $2^3$ 个数字的结果可以由 $textit{cnt}[3]$ 和 $\textit{s}[3]$ 计算得到，而剩下的 $[2^3, 13]$ 的结果，相当于给 $[0, 13-2^3]$ 的所有数字，即 $[0, 5]$ 的所有数字的强数组增加 $3$，问题转换为计算 $[0, 5]$ 的所有数字的强数组的个数和幂次之和。这样，我们可以计算出任意数字的强数组的个数和幂次之和。
 
