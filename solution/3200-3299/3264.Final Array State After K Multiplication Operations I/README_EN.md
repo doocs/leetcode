@@ -131,7 +131,21 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3264.Fi
 #### C++
 
 ```cpp
-
+vector<int> getFinalState(vector<int>& nums, int k, int multiplier) {
+        vector<int> ans=nums;
+        for(int i=0;i<k;i++){
+            int ind=0;
+            int mini=ans[0];
+            for(int i=1;i<ans.size();i++){
+                if(ans[i]<ans[ind]){
+                    ind=i;
+                    mini=ans[i];
+                }
+            }
+            ans[ind]*=multiplier;
+        }
+        return ans;
+    }
 ```
 
 #### Go
