@@ -3272,6 +3272,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3261  |  [Count Substrings That Satisfy K-Constraint II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README_EN.md)  |  `Array`,`String`,`Binary Search`,`Prefix Sum`,`Sliding Window`  |  Hard  |  Weekly Contest 411  |
 |  3262  |  [Find Overlapping Shifts](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README_EN.md)  |    |  Medium  |  🔒  |
 |  3263  |  [Convert Doubly Linked List to Array I](/solution/3200-3299/3263.Convert%20Doubly%20Linked%20List%20to%20Array%20I/README_EN.md)  |    |  Easy  |  🔒  |
+|  3264  |  [Final Array State After K Multiplication Operations I](/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 412  |
+|  3265  |  [Count Almost Equal Pairs I](/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 412  |
+|  3266  |  [Final Array State After K Multiplication Operations II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 412  |
+|  3267  |  [Count Almost Equal Pairs II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 412  |
 
 ## Copyright
 

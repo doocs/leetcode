@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 412
+
+- [3264. Final Array State After K Multiplication Operations I](/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README_EN.md)
+- [3265. Count Almost Equal Pairs I](/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README_EN.md)
+- [3266. Final Array State After K Multiplication Operations II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README_EN.md)
+- [3267. Count Almost Equal Pairs II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README_EN.md)
+
 #### Weekly Contest 411
 
 - [3258. Count Substrings That Satisfy K-Constraint I](/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README_EN.md)

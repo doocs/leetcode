@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 412 场周赛(2024-08-25 10:30, 90 分钟) 参赛人数 2681
+
+- [3264. K 次乘运算后的最终数组 I](/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README.md)
+- [3265. 统计近似相等数对 I](/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README.md)
+- [3266. K 次乘运算后的最终数组 II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README.md)
+- [3267. 统计近似相等数对 II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README.md)
+
 #### 第 411 场周赛(2024-08-18 10:30, 90 分钟) 参赛人数 3029
 
 - [3258. 统计满足 K 约束的子字符串数量 I](/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README.md)
