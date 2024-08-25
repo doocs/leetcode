@@ -3274,6 +3274,10 @@
 |  3261  |  [统计满足 K 约束的子字符串数量 II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README.md)  |  `数组`,`字符串`,`二分查找`,`前缀和`,`滑动窗口`  |  困难  |  第 411 场周赛  |
 |  3262  |  [查找重叠的班次](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README.md)  |    |  中等  |  🔒  |
 |  3263  |  [将双链表转换为数组 I](/solution/3200-3299/3263.Convert%20Doubly%20Linked%20List%20to%20Array%20I/README.md)  |    |  简单  |  🔒  |
+|  3264  |  [K 次乘运算后的最终数组 I](/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README.md)  |    |  简单  |  第 412 场周赛  |
+|  3265  |  [统计近似相等数对 I](/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README.md)  |    |  中等  |  第 412 场周赛  |
+|  3266  |  [K 次乘运算后的最终数组 II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README.md)  |    |  困难  |  第 412 场周赛  |
+|  3267  |  [统计近似相等数对 II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README.md)  |    |  困难  |  第 412 场周赛  |
 
 ## 版权
 
