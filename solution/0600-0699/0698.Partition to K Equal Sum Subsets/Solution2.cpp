@@ -10,8 +10,7 @@ public:
         int n = nums.size();
         int mask = (1 << n) - 1;
         vector<int> f(1 << n);
-        function<bool(int, int)> dfs;
-        dfs = [&](int state, int t) {
+        function<bool(int, int)> dfs = [&](int state, int t) {
             if (state == mask) {
                 return true;
             }

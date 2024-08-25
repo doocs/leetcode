@@ -8,8 +8,7 @@ public:
         s /= k;
         int n = nums.size();
         vector<int> cur(k);
-        function<bool(int)> dfs;
-        dfs = [&](int i) {
+        function<bool(int)> dfs = [&](int i) {
             if (i == n) {
                 return true;
             }
