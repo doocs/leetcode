@@ -1,0 +1,33 @@
+function countPairs(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    const cnt = new Map<number, number>();
+
+    for (const x of nums) {
+        const vis = new Set<number>();
+        vis.add(x);
+        const s = x.toString().split('');
+
+        for (let j = 0; j < s.length; j++) {
+            for (let i = 0; i < j; i++) {
+                [s[i], s[j]] = [s[j], s[i]];
+                vis.add(+s.join(''));
+                for (let q = i + 1; q < s.length; ++q) {
+                    for (let p = i + 1; p < q; ++p) {
+                        [s[p], s[q]] = [s[q], s[p]];
+                        vis.add(+s.join(''));
+                        [s[p], s[q]] = [s[q], s[p]];
+                    }
+                }
+                [s[i], s[j]] = [s[j], s[i]];
+            }
+        }
+
+        for (const y of vis) {
+            ans += cnt.get(y) || 0;
+        }
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+
+    return ans;
+}
