@@ -65,12 +65,12 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 	<li><code>2 &lt;= numCourses &lt;= 100</code></li>
 	<li><code>0 &lt;= prerequisites.length &lt;= (numCourses * (numCourses - 1) / 2)</code></li>
 	<li><code>prerequisites[i].length == 2</code></li>
-	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n - 1</code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= numCourses - 1</code></li>
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>All the pairs <code>[a<sub>i</sub>, b<sub>i</sub>]</code> are <strong>unique</strong>.</li>
 	<li>The prerequisites graph has no cycles.</li>
 	<li><code>1 &lt;= queries.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n - 1</code></li>
+	<li><code>0 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= numCourses - 1</code></li>
 	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
 </ul>
 

@@ -114,32 +114,138 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3264.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：优先队列（小根堆）+ 模拟
+
+我们可以用一个小根堆来维护数组 $\textit{nums}$ 中的元素，每次从小根堆中取出最小值，将其乘以 $\textit{multiplier}$ 后再放回小根堆中。在实现过程中，我们往小根堆插入的是元素的下标，然后自定义比较函数，使得小根堆按照 $\textit{nums}$ 中元素的大小作为第一关键字，下标作为第二关键字进行排序。
+
+最后，我们返回数组 $\textit{nums}$ 即可。
+
+时间复杂度 $O((n + k) \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
+        pq = [(x, i) for i, x in enumerate(nums)]
+        heapify(pq)
+        for _ in range(k):
+            _, i = heappop(pq)
+            nums[i] *= multiplier
+            heappush(pq, (nums[i], i))
+        return nums
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] getFinalState(int[] nums, int k, int multiplier) {
+        PriorityQueue<Integer> pq
+            = new PriorityQueue<>((i, j) -> nums[i] - nums[j] == 0 ? i - j : nums[i] - nums[j]);
+        for (int i = 0; i < nums.length; i++) {
+            pq.offer(i);
+        }
+        while (k-- > 0) {
+            int i = pq.poll();
+            nums[i] *= multiplier;
+            pq.offer(i);
+        }
+        return nums;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> getFinalState(vector<int>& nums, int k, int multiplier) {
+        auto cmp = [&nums](int i, int j) {
+            return nums[i] == nums[j] ? i > j : nums[i] > nums[j];
+        };
+        priority_queue<int, vector<int>, decltype(cmp)> pq(cmp);
 
+        for (int i = 0; i < nums.size(); ++i) {
+            pq.push(i);
+        }
+
+        while (k--) {
+            int i = pq.top();
+            pq.pop();
+            nums[i] *= multiplier;
+            pq.push(i);
+        }
+
+        return nums;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func getFinalState(nums []int, k int, multiplier int) []int {
+	h := &hp{nums: nums}
+	for i := range nums {
+		heap.Push(h, i)
+	}
 
+	for k > 0 {
+		i := heap.Pop(h).(int)
+		nums[i] *= multiplier
+		heap.Push(h, i)
+		k--
+	}
+
+	return nums
+}
+
+type hp struct {
+	sort.IntSlice
+	nums []int
+}
+
+func (h *hp) Less(i, j int) bool {
+	if h.nums[h.IntSlice[i]] == h.nums[h.IntSlice[j]] {
+		return h.IntSlice[i] < h.IntSlice[j]
+	}
+	return h.nums[h.IntSlice[i]] < h.nums[h.IntSlice[j]]
+}
+
+func (h *hp) Pop() any {
+	old := h.IntSlice
+	n := len(old)
+	x := old[n-1]
+	h.IntSlice = old[:n-1]
+	return x
+}
+
+func (h *hp) Push(x any) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+```
+
+#### TypeScript
+
+```ts
+function getFinalState(nums: number[], k: number, multiplier: number): number[] {
+    const pq = new PriorityQueue({
+        compare: (i, j) => (nums[i] === nums[j] ? i - j : nums[i] - nums[j]),
+    });
+    for (let i = 0; i < nums.length; ++i) {
+        pq.enqueue(i);
+    }
+    while (k--) {
+        const i = pq.dequeue()!;
+        nums[i] *= multiplier;
+        pq.enqueue(i);
+    }
+    return nums;
+}
 ```
 
 <!-- tabs:end -->

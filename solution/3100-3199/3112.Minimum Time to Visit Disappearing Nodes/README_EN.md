@@ -25,21 +25,21 @@ tags:
 
 <p>Additionally, you are given an array <code>disappear</code>, where <code>disappear[i]</code> denotes the time when the node <code>i</code> disappears from the graph and you won&#39;t be able to visit it.</p>
 
-<p><strong>Notice</strong> that the graph might be disconnected and might contain multiple edges.</p>
+<p><strong>Note</strong>&nbsp;that the graph might be <em>disconnected</em> and might contain <em>multiple edges</em>.</p>
 
 <p>Return the array <code>answer</code>, with <code>answer[i]</code> denoting the <strong>minimum</strong> units of time required to reach node <code>i</code> from node 0. If node <code>i</code> is <strong>unreachable</strong> from node 0 then <code>answer[i]</code> is <code>-1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<p><img 10px="" alt="" padding:="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/images/example1.png" style="width: 350px; height: 210px;" /></p>
-
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io"> n = 3, edges = [[0,1,2],[1,2,1],[0,2,4]], disappear = [1,1,5]</span></p>
+<p><strong>Input:</strong> <span class="example-io">n = 3, edges = [[0,1,2],[1,2,1],[0,2,4]], disappear = [1,1,5]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io"> [0,-1,4]</span></p>
+<p><strong>Output:</strong> <span class="example-io">[0,-1,4]</span></p>
 
 <p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/images/output-onlinepngtools.png" style="width: 350px; height: 210px;" /></p>
 
 <p>We are starting our journey from node 0, and our goal is to find the minimum time required to reach each node before it disappears.</p>
 
@@ -52,14 +52,14 @@ tags:
 
 <p><strong class="example">Example 2:</strong></p>
 
-<p><img 10px="" alt="" padding:="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/images/example2.png" style="width: 350px; height: 210px;" /></p>
-
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io"> n = 3, edges = [[0,1,2],[1,2,1],[0,2,4]], disappear = [1,3,5]</span></p>
+<p><strong>Input:</strong> <span class="example-io">n = 3, edges = [[0,1,2],[1,2,1],[0,2,4]], disappear = [1,3,5]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io"> [0,2,3]</span></p>
+<p><strong>Output:</strong> <span class="example-io">[0,2,3]</span></p>
 
 <p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3100-3199/3112.Minimum%20Time%20to%20Visit%20Disappearing%20Nodes/images/output-onlinepngtools-1.png" style="width: 350px; height: 210px;" /></p>
 
 <p>We are starting our journey from node 0, and our goal is to find the minimum time required to reach each node before it disappears.</p>
 

@@ -84,32 +84,165 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3265.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序 + 枚举
+
+我们可以枚举每一个数，然后对于每一个数，我们可以枚举每一对不同的数位，然后交换这两个数位，得到一个新的数，记录到一个哈希表 $\textit{vis}$ 中，表示这个数至多进行一次交换后的所有可能的数。然后计算前面枚举过的数中有多少个数在哈希表 $\textit{vis}$ 中，累加到答案中。接下来，我们将当前枚举的数加入到哈希表 $\textit{cnt}$ 中，表示当前枚举的数的个数。
+
+这样枚举，会少统计一些数对，比如 $[100, 1]$，因为 $100$ 交换后的数是 $1$，而此前枚举过数不包含 $1$，因此会少统计一些数对。我们只需要在枚举之前，将数组排序，即可解决这个问题。
+
+时间复杂度 $O(n \times (\log n + \log^3 M))$，空间复杂度 $O(n + \log^2 M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的最大值。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countPairs(self, nums: List[int]) -> int:
+        nums.sort()
+        ans = 0
+        cnt = defaultdict(int)
+        for x in nums:
+            vis = {x}
+            s = list(str(x))
+            for j in range(len(s)):
+                for i in range(j):
+                    s[i], s[j] = s[j], s[i]
+                    vis.add(int("".join(s)))
+                    s[i], s[j] = s[j], s[i]
+            ans += sum(cnt[x] for x in vis)
+            cnt[x] += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countPairs(int[] nums) {
+        Arrays.sort(nums);
+        int ans = 0;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            Set<Integer> vis = new HashSet<>();
+            vis.add(x);
+            char[] s = String.valueOf(x).toCharArray();
+            for (int j = 0; j < s.length; ++j) {
+                for (int i = 0; i < j; ++i) {
+                    swap(s, i, j);
+                    vis.add(Integer.parseInt(String.valueOf(s)));
+                    swap(s, i, j);
+                }
+            }
+            for (int y : vis) {
+                ans += cnt.getOrDefault(y, 0);
+            }
+            cnt.merge(x, 1, Integer::sum);
+        }
+        return ans;
+    }
 
+    private void swap(char[] s, int i, int j) {
+        char t = s[i];
+        s[i] = s[j];
+        s[j] = t;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countPairs(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        unordered_map<int, int> cnt;
 
+        for (int x : nums) {
+            unordered_set<int> vis = {x};
+            string s = to_string(x);
+
+            for (int j = 0; j < s.length(); ++j) {
+                for (int i = 0; i < j; ++i) {
+                    swap(s[i], s[j]);
+                    vis.insert(stoi(s));
+                    swap(s[i], s[j]);
+                }
+            }
+
+            for (int y : vis) {
+                ans += cnt[y];
+            }
+            cnt[x]++;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countPairs(nums []int) (ans int) {
+	sort.Ints(nums)
+	cnt := make(map[int]int)
 
+	for _, x := range nums {
+		vis := make(map[int]struct{})
+		vis[x] = struct{}{}
+		s := []rune(strconv.Itoa(x))
+
+		for j := 0; j < len(s); j++ {
+			for i := 0; i < j; i++ {
+				s[i], s[j] = s[j], s[i]
+				y, _ := strconv.Atoi(string(s))
+				vis[y] = struct{}{}
+				s[i], s[j] = s[j], s[i]
+			}
+		}
+
+		for y := range vis {
+			ans += cnt[y]
+		}
+		cnt[x]++
+	}
+
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countPairs(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    const cnt = new Map<number, number>();
+
+    for (const x of nums) {
+        const vis = new Set<number>();
+        vis.add(x);
+        const s = x.toString().split('');
+
+        for (let j = 0; j < s.length; j++) {
+            for (let i = 0; i < j; i++) {
+                [s[i], s[j]] = [s[j], s[i]];
+                vis.add(+s.join(''));
+                [s[i], s[j]] = [s[j], s[i]];
+            }
+        }
+
+        for (const y of vis) {
+            ans += cnt.get(y) || 0;
+        }
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

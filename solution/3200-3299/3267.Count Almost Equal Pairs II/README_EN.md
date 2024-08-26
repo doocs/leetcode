@@ -80,32 +80,200 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3267.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Enumeration
+
+We can enumerate each number, and for each number, we can enumerate each pair of different digits, then swap these two digits to get a new number. Record this new number in a hash table $\textit{vis}$, representing all possible numbers after at most one swap. Then continue to enumerate each pair of different digits, swap these two digits to get a new number, and record it in the hash table $\textit{vis}$, representing all possible numbers after at most two swaps.
+
+This enumeration may miss some pairs of numbers, such as $[100, 1]$, because the number obtained after swapping $100$ is $1$, and the previously enumerated numbers do not include $1$, so some pairs of numbers will be missed. We only need to sort the array before enumeration to solve this problem.
+
+The time complexity is $O(n \times (\log n + \log^5 M))$, and the space complexity is $O(n + \log^4 M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countPairs(self, nums: List[int]) -> int:
+        nums.sort()
+        ans = 0
+        cnt = defaultdict(int)
+        for x in nums:
+            vis = {x}
+            s = list(str(x))
+            m = len(s)
+            for j in range(m):
+                for i in range(j):
+                    s[i], s[j] = s[j], s[i]
+                    vis.add(int("".join(s)))
+                    for q in range(i + 1, m):
+                        for p in range(i + 1, q):
+                            s[p], s[q] = s[q], s[p]
+                            vis.add(int("".join(s)))
+                            s[p], s[q] = s[q], s[p]
+                    s[i], s[j] = s[j], s[i]
+            ans += sum(cnt[x] for x in vis)
+            cnt[x] += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countPairs(int[] nums) {
+        Arrays.sort(nums);
+        int ans = 0;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            Set<Integer> vis = new HashSet<>();
+            vis.add(x);
+            char[] s = String.valueOf(x).toCharArray();
+            for (int j = 0; j < s.length; ++j) {
+                for (int i = 0; i < j; ++i) {
+                    swap(s, i, j);
+                    vis.add(Integer.parseInt(String.valueOf(s)));
+                    for (int q = i; q < s.length; ++q) {
+                        for (int p = i; p < q; ++p) {
+                            swap(s, p, q);
+                            vis.add(Integer.parseInt(String.valueOf(s)));
+                            swap(s, p, q);
+                        }
+                    }
+                    swap(s, i, j);
+                }
+            }
+            for (int y : vis) {
+                ans += cnt.getOrDefault(y, 0);
+            }
+            cnt.merge(x, 1, Integer::sum);
+        }
+        return ans;
+    }
 
+    private void swap(char[] s, int i, int j) {
+        char t = s[i];
+        s[i] = s[j];
+        s[j] = t;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countPairs(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        unordered_map<int, int> cnt;
 
+        for (int x : nums) {
+            unordered_set<int> vis = {x};
+            string s = to_string(x);
+
+            for (int j = 0; j < s.length(); ++j) {
+                for (int i = 0; i < j; ++i) {
+                    swap(s[i], s[j]);
+                    vis.insert(stoi(s));
+                    for (int q = i + 1; q < s.length(); ++q) {
+                        for (int p = i + 1; p < q; ++p) {
+                            swap(s[p], s[q]);
+                            vis.insert(stoi(s));
+                            swap(s[p], s[q]);
+                        }
+                    }
+                    swap(s[i], s[j]);
+                }
+            }
+
+            for (int y : vis) {
+                ans += cnt[y];
+            }
+            cnt[x]++;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countPairs(nums []int) (ans int) {
+	sort.Ints(nums)
+	cnt := make(map[int]int)
 
+	for _, x := range nums {
+		vis := make(map[int]struct{})
+		vis[x] = struct{}{}
+		s := []rune(strconv.Itoa(x))
+
+		for j := 0; j < len(s); j++ {
+			for i := 0; i < j; i++ {
+				s[i], s[j] = s[j], s[i]
+				y, _ := strconv.Atoi(string(s))
+				vis[y] = struct{}{}
+				for q := i + 1; q < len(s); q++ {
+					for p := i + 1; p < q; p++ {
+						s[p], s[q] = s[q], s[p]
+						z, _ := strconv.Atoi(string(s))
+						vis[z] = struct{}{}
+						s[p], s[q] = s[q], s[p]
+					}
+				}
+				s[i], s[j] = s[j], s[i]
+			}
+		}
+
+		for y := range vis {
+			ans += cnt[y]
+		}
+		cnt[x]++
+	}
+
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countPairs(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    const cnt = new Map<number, number>();
+
+    for (const x of nums) {
+        const vis = new Set<number>();
+        vis.add(x);
+        const s = x.toString().split('');
+
+        for (let j = 0; j < s.length; j++) {
+            for (let i = 0; i < j; i++) {
+                [s[i], s[j]] = [s[j], s[i]];
+                vis.add(+s.join(''));
+                for (let q = i + 1; q < s.length; ++q) {
+                    for (let p = i + 1; p < q; ++p) {
+                        [s[p], s[q]] = [s[q], s[p]];
+                        vis.add(+s.join(''));
+                        [s[p], s[q]] = [s[q], s[p]];
+                    }
+                }
+                [s[i], s[j]] = [s[j], s[i]];
+            }
+        }
+
+        for (const y of vis) {
+            ans += cnt.get(y) || 0;
+        }
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
