@@ -41,9 +41,8 @@ title is the name of the movie.
 | name          | varchar |
 +---------------+---------+
 user_id is the primary key (column with unique values) for this table.
+The column &#39;name&#39; has unique values.
 </pre>
-
-<p>&nbsp;</p>
 
 <p>Table: <code>MovieRating</code></p>
 
@@ -56,7 +55,7 @@ user_id is the primary key (column with unique values) for this table.
 | rating        | int     |
 | created_at    | date    |
 +---------------+---------+
-(movie_id, user_id) is the primary key (column with unique values)&nbsp;for this table.
+(movie_id, user_id) is the primary key (column with unique values) for this table.
 This table contains the rating of a movie by a user in their review.
 created_at is the user&#39;s review date. 
 </pre>

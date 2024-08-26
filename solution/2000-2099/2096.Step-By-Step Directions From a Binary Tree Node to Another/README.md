@@ -314,7 +314,7 @@ function getDirections(root: TreeNode | null, startValue: number, destValue: num
         const left = lca(node.left, p, q);
         const right = lca(node.right, p, q);
 
-        return left && right ? node : left ?? right;
+        return left && right ? node : (left ?? right);
     };
 
     const dfs = (node: TreeNode | null, x: number, path: string[]): boolean => {
@@ -370,7 +370,7 @@ var getDirections = function (root, startValue, destValue) {
         const left = lca(node.left, p, q);
         const right = lca(node.right, p, q);
 
-        return left && right ? node : left ?? right;
+        return left && right ? node : (left ?? right);
     };
 
     const dfs = (node, x, path) => {

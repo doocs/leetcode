@@ -22,7 +22,7 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a array <code>points</code> representing integer coordinates of some points on a 2D plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
+<p>You are given an array <code>points</code> representing integer coordinates of some points on a 2D plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
 <p>The distance between two points is defined as their <span data-keyword="manhattan-distance">Manhattan distance</span>.</p>
 
