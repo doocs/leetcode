@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3227.Vowels%20Game%20in%20a%20String/README_EN.md
+rating: 1451
+source: Weekly Contest 407 Q2
 tags:
     - Brainteaser
     - Math

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README.md
+rating: 1334
+source: 第 409 场周赛 Q1
 tags:
     - 设计
     - 数组

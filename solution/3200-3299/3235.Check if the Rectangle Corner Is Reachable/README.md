@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README.md
+rating: 3773
+source: 第 408 场周赛 Q4
 tags:
     - 深度优先搜索
     - 广度优先搜索

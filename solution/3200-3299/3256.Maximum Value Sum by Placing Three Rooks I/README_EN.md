@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3256.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20I/README_EN.md
+rating: 2262
+source: Biweekly Contest 137 Q3
 tags:
     - Array
     - Dynamic Programming

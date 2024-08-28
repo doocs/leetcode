@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3245.Alternating%20Groups%20III/README.md
+rating: 3112
+source: 第 409 场周赛 Q4
 tags:
     - 树状数组
     - 数组

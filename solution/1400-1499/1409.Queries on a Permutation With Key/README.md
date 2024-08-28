@@ -35,13 +35,13 @@ tags:
 
 <pre>
 <strong>输入：</strong>queries = [3,1,2,1], m = 5
-<strong>输出：</strong>[2,1,2,1]
+<strong>输出：</strong>[2,1,2,1] 
 <strong>解释：处理</strong> queries 的过程如下：
 对于 i=0: queries[i]=3, P=[1,2,3,4,5], 3 在 P 中的位置是 <strong>2</strong>，然后我们把 3 移动到 P 的开头，得到 P=[3,1,2,4,5] 。
-对于 i=1: queries[i]=1, P=[3,1,2,4,5], 1 在 P 中的位置是 <strong>1</strong>，然后我们把 1 移动到 P 的开头，得到 P=[1,3,2,4,5] 。
+对于 i=1: queries[i]=1, P=[3,1,2,4,5], 1 在 P 中的位置是 <strong>1</strong>，然后我们把 1 移动到 P 的开头，得到 P=[1,3,2,4,5] 。 
 对于 i=2: queries[i]=2, P=[1,3,2,4,5], 2 在 P 中的位置是 <strong>2</strong>，然后我们把 2 移动到 P 的开头，得到 P=[2,1,3,4,5] 。
-对于 i=3: queries[i]=1, P=[2,1,3,4,5], 1 在 P 中的位置是 <strong>1</strong>，然后我们把 1 移动到 P 的开头，得到 P=[1,2,3,4,5] 。
-因此，包含结果的数组为 [2,1,2,1] 。
+对于 i=3: queries[i]=1, P=[2,1,3,4,5], 1 在 P 中的位置是 <strong>1</strong>，然后我们把 1 移动到 P 的开头，得到 P=[1,2,3,4,5] 。 
+因此，包含结果的数组为 [2,1,2,1] 。  
 </pre>
 
 <p><strong>示例 2：</strong></p>

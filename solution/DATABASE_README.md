@@ -293,6 +293,7 @@
 | 3246 | [英超积分榜排名](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README.md)                                                                      | `数据库` | 简单 | 🔒   |
 | 3252 | [英超积分榜排名 II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README.md)                                                              | `数据库` | 中等 | 🔒   |
 | 3262 | [查找重叠的班次](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README.md)                                                                             |          | 中等 | 🔒   |
+| 3268 | [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md)                                                            |          | 困难 | 🔒   |
 
 ## 版权
 

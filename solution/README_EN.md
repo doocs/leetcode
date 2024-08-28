@@ -3276,6 +3276,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3265  |  [Count Almost Equal Pairs I](/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 412  |
 |  3266  |  [Final Array State After K Multiplication Operations II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 412  |
 |  3267  |  [Count Almost Equal Pairs II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 412  |
+|  3268  |  [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

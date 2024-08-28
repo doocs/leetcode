@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README.md
+rating: 1258
+source: 第 411 场周赛 Q1
 tags:
     - 字符串
     - 滑动窗口
