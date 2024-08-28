@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3248.Snake%20in%20Matrix/README_EN.md
+rating: 1171
+source: Weekly Contest 410 Q1
 tags:
     - Array
     - String

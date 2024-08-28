@@ -3278,6 +3278,7 @@
 |  3265  |  [统计近似相等数对 I](/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README.md)  |    |  中等  |  第 412 场周赛  |
 |  3266  |  [K 次乘运算后的最终数组 II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README.md)  |    |  困难  |  第 412 场周赛  |
 |  3267  |  [统计近似相等数对 II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README.md)  |    |  困难  |  第 412 场周赛  |
+|  3268  |  [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3255.Find%20the%20Power%20of%20K-Size%20Subarrays%20II/README_EN.md
+rating: 1595
+source: Biweekly Contest 137 Q2
 tags:
     - Array
     - Sliding Window

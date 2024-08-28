@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3241.Time%20Taken%20to%20Mark%20All%20Nodes/README_EN.md
+rating: 2521
+source: Biweekly Contest 136 Q4
 tags:
     - Tree
     - Depth-First Search

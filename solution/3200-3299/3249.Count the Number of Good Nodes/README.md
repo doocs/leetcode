@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3249.Count%20the%20Number%20of%20Good%20Nodes/README.md
+rating: 1565
+source: 第 410 场周赛 Q2
 tags:
     - 树
     - 深度优先搜索

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3225.Maximum%20Score%20From%20Grid%20Operations/README_EN.md
+rating: 3027
+source: Biweekly Contest 135 Q4
 tags:
     - Array
     - Dynamic Programming

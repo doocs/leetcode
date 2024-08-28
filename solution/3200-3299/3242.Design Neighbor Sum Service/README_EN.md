@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3242.Design%20Neighbor%20Sum%20Service/README_EN.md
+rating: 1334
+source: Weekly Contest 409 Q1
 tags:
     - Design
     - Array

@@ -291,6 +291,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3246 | [Premier League Table Ranking](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README_EN.md)                                                                                     | `Database` | Easy       | 🔒     |
 | 3252 | [Premier League Table Ranking II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README_EN.md)                                                                             | `Database` | Medium     | 🔒     |
 | 3262 | [Find Overlapping Shifts](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README_EN.md)                                                                                                 |            | Medium     | 🔒     |
+| 3268 | [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)                                                                                         |            | Hard       | 🔒     |
 
 ## Copyright
 

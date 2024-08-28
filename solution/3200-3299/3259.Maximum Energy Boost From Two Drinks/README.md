@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3259.Maximum%20Energy%20Boost%20From%20Two%20Drinks/README.md
+rating: 1483
+source: 第 411 场周赛 Q2
 tags:
     - 数组
     - 动态规划

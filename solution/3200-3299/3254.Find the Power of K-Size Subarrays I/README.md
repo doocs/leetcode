@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3254.Find%20the%20Power%20of%20K-Size%20Subarrays%20I/README.md
+rating: 1266
+source: 第 137 场双周赛 Q1
 tags:
     - 数组
     - 滑动窗口
