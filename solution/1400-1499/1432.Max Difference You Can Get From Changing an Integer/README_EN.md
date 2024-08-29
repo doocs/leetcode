@@ -57,7 +57,7 @@ We have now a = 9 and b = 1 and max difference = 8
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= num &lt;= 10</code><sup>8</sup></li>
+	<li><code>1 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
 
 <!-- description:end -->

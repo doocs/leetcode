@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Enumeration
+    - Sorting
 ---
 
 <!-- problem:start -->

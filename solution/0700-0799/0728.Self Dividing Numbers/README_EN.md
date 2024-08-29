@@ -24,7 +24,7 @@ tags:
 
 <p>A <strong>self-dividing number</strong> is not allowed to contain the digit zero.</p>
 
-<p>Given two integers <code>left</code> and <code>right</code>, return <em>a list of all the <strong>self-dividing numbers</strong> in the range</em> <code>[left, right]</code>.</p>
+<p>Given two integers <code>left</code> and <code>right</code>, return <em>a list of all the <strong>self-dividing numbers</strong> in the range</em> <code>[left, right]</code> (both <strong>inclusive</strong>).</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

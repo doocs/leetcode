@@ -274,7 +274,7 @@
 | 3087 | [查找热门话题标签](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)                                                                            | `数据库` | 中等 | 🔒   |
 | 3089 | [查找突发行为](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md)                                                                                  | `数据库` | 中等 | 🔒   |
 | 3103 | [查找热门话题标签 II](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README.md)                                                                    | `数据库` | 困难 | 🔒   |
-| 3118 | [Friday Purchase III](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)                                                                            | `数据库` | 中等 | 🔒   |
+| 3118 | [发生在周五的交易 III](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)                                                                           | `数据库` | 中等 | 🔒   |
 | 3124 | [查找最长的电话](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)                                                                                  | `数据库` | 中等 | 🔒   |
 | 3126 | [服务器利用时间](/solution/3100-3199/3126.Server%20Utilization%20Time/README.md)                                                                             | `数据库` | 中等 | 🔒   |
 | 3140 | [连续空余座位 II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)                                                                   | `数据库` | 中等 | 🔒   |
@@ -292,8 +292,8 @@
 | 3236 | [首席执行官下属层级](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README.md)                                                                       | `数据库` | 困难 | 🔒   |
 | 3246 | [英超积分榜排名](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README.md)                                                                      | `数据库` | 简单 | 🔒   |
 | 3252 | [英超积分榜排名 II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README.md)                                                              | `数据库` | 中等 | 🔒   |
-| 3262 | [查找重叠的班次](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README.md)                                                                             |          | 中等 | 🔒   |
-| 3268 | [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md)                                                            |          | 困难 | 🔒   |
+| 3262 | [查找重叠的班次](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README.md)                                                                             | `数据库` | 中等 | 🔒   |
+| 3268 | [查找重叠的班次 II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md)                                                                     | `数据库` | 困难 | 🔒   |
 
 ## 版权
 

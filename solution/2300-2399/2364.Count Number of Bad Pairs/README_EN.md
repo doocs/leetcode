@@ -7,6 +7,8 @@ source: Biweekly Contest 84 Q2
 tags:
     - Array
     - Hash Table
+    - Math
+    - Counting
 ---
 
 <!-- problem:start -->

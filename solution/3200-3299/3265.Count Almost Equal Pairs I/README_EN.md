@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Counting
+    - Enumeration
+    - Sorting
 ---
 
 <!-- problem:start -->
@@ -65,7 +71,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3265.Co
 
 <p><strong>Explanation:</strong></p>
 
-<p>We cannot swap any two digits of <code>123</code> or <code>231</code> to reach the other.</p>
+<p>We cannot swap any two digits of 123 or 231 to reach the other.</p>
 </div>
 
 <p>&nbsp;</p>
