@@ -157,6 +157,10 @@ tags:
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>此问题与 <a href="https://leetcode.cn/problems/pass-the-pillow/">2582. 递枕头</a>&nbsp;一致。</p>
+
 <!-- description:end -->
 
 ## 解法

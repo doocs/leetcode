@@ -11,7 +11,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3104. Find Longest Self-Contained Substring 🔒](https://leetcode.cn/problems/find-longest-self-contained-substring)
+# [3104. 查找最长的自包含子串 🔒](https://leetcode.cn/problems/find-longest-self-contained-substring)
 
 [English Version](/solution/3100-3199/3104.Find%20Longest%20Self-Contained%20Substring/README_EN.md)
 
@@ -19,52 +19,54 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a string <code>s</code>, your task is to find the length of the <strong>longest self-contained</strong> <span data-keyword="substring-nonempty">substring</span> of <code>s</code>.</p>
+<p>给定字符串&nbsp;<code>s</code>，你需要找到&nbsp;<code>s</code>&nbsp;的 <strong>最长自包含</strong>&nbsp;<span data-keyword="substring-nonempty">子串</span>&nbsp;的长度。</p>
 
-<p>A substring <code>t</code> of a string <code>s</code> is called <strong>self-contained </strong>if <code>t != s</code> and for every character in <code>t</code>, it doesn&#39;t exist in the <em>rest</em> of <code>s</code>.</p>
+<p>如果 <code>s</code>&nbsp;的一个子串 <code>t</code>&nbsp;满足&nbsp;<code>t != s</code>&nbsp;且&nbsp;<code>t</code>&nbsp;中的每一个字符在&nbsp;<code>s</code>&nbsp;的剩余部分都不存在，则被称为是 <strong>自包含</strong>&nbsp;的。</p>
 
-<p>Return the length of the <em>longest<strong> </strong>self-contained </em>substring of <code>s</code> if it exists, otherwise, return -1.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;abba&quot;</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">2</span></p>
-
-<p><strong>Explanation:</strong><br />
-Let&#39;s check the substring <code>&quot;bb&quot;</code>. You can see that no other <code>&quot;b&quot;</code> is outside of this substring. Hence the answer is 2.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;abab&quot;</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">-1</span></p>
-
-<p><strong>Explanation:</strong><br />
-Every substring we choose does not satisfy the described property (there is some character which is inside and outside of that substring). So the answer would be -1.</p>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;abacd&quot;</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong><br />
-Let&#39;s check the substring <code>&quot;<span class="example-io">abac</span>&quot;</code>. There is only one character outside of this substring and that is <code>&quot;d&quot;</code>. There is no <code>&quot;d&quot;</code> inside the chosen substring, so it satisfies the condition and the answer is 4.</p>
-</div>
+<p>如果存在&nbsp;&nbsp;<code>s</code>&nbsp;的最长自包含子串，返回它的长度，否则返回 -1。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "abba"</span></p>
+
+<p><span class="example-io"><b>输出：</b>2</span></p>
+
+<p><strong>解释：</strong><br />
+让我们检查子串&nbsp;<code>"bb"</code>。你可以发现子串外没有其它&nbsp;<code>"b"</code>。因此答案为 2。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">s = "abab"</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">-1</span></p>
+
+<p><strong>解释：</strong><br />
+我们选择的每一个子串都不满足描述的特点（子串内外包含有一些字母）。所以答案是&nbsp;-1。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">s = "abacd"</span></p>
+
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">4</span></p>
+
+<p><strong>解释：</strong><br />
+让我们检查子串&nbsp;<code>"<span class="example-io">abac</span>"</code>。子串之外只有一个字母&nbsp;<code>"d"</code>。子串内没有&nbsp;<code>"d"</code>，所以它满足条件并且答案为 4。</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
-	<li><code>s</code> consists only of lowercase English letters.</li>
+	<li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 
 <!-- description:end -->

@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 枚举
+    - 排序
 ---
 
 <!-- problem:start -->
@@ -66,7 +72,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3265.Co
 
 <p><strong>解释：</strong></p>
 
-<p>我们无法通过交换 <code>123</code>&nbsp;或者 <code>321</code>&nbsp;中的两个数位得到另一个数。</p>
+<p>我们无法通过交换 123&nbsp;或者 321&nbsp;中的两个数位得到另一个数。</p>
 </div>
 
 <p>&nbsp;</p>

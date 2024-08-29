@@ -8,6 +8,7 @@ tags:
     - Greedy
     - Array
     - Math
+    - Binary Search
     - Sorting
 ---
 

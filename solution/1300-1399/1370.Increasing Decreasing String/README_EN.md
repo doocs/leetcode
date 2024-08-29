@@ -23,18 +23,18 @@ tags:
 <p>You are given a string <code>s</code>. Reorder the string using the following algorithm:</p>
 
 <ol>
-	<li>Pick the <strong>smallest</strong> character from <code>s</code> and <strong>append</strong> it to the result.</li>
-	<li>Pick the <strong>smallest</strong> character from <code>s</code> which is greater than the last appended character to the result and <strong>append</strong> it.</li>
-	<li>Repeat step 2 until you cannot pick more characters.</li>
-	<li>Pick the <strong>largest</strong> character from <code>s</code> and <strong>append</strong> it to the result.</li>
-	<li>Pick the <strong>largest</strong> character from <code>s</code> which is smaller than the last appended character to the result and <strong>append</strong> it.</li>
-	<li>Repeat step 5 until you cannot pick more characters.</li>
-	<li>Repeat the steps from 1 to 6 until you pick all characters from <code>s</code>.</li>
+	<li>Remove the <strong>smallest</strong> character from <code>s</code> and <strong>append</strong> it to the result.</li>
+	<li>Remove the <strong>smallest</strong> character from <code>s</code> that is greater than the last appended character, and <strong>append</strong> it to the result.</li>
+	<li>Repeat step 2 until no more characters can be removed.</li>
+	<li>Remove the <strong>largest</strong> character from <code>s</code> and <strong>append</strong> it to the result.</li>
+	<li>Remove the <strong>largest</strong> character from <code>s</code> that is smaller than the last appended character, and <strong>append</strong> it to the result.</li>
+	<li>Repeat step 5 until no more characters can be removed.</li>
+	<li>Repeat steps 1 through 6 until all characters from <code>s</code> have been removed.</li>
 </ol>
 
-<p>In each step, If the smallest or the largest character appears more than once you can choose any occurrence and append it to the result.</p>
+<p>If the smallest or largest character appears more than once, you may choose any occurrence to append to the result.</p>
 
-<p>Return <em>the result string after sorting </em><code>s</code><em> with this algorithm</em>.</p>
+<p>Return the resulting string after reordering <code>s</code> using this algorithm.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

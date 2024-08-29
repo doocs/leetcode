@@ -7,6 +7,8 @@ source: 第 84 场双周赛 Q2
 tags:
     - 数组
     - 哈希表
+    - 数学
+    - 计数
 ---
 
 <!-- problem:start -->

@@ -44,7 +44,7 @@ tags:
 	<li><code>"c"</code> 在 <code>s</code> 中的位置与在 <code>t</code> 中的位置之差的绝对值。</li>
 </ul>
 
-<p>即，<code>s</code> 和 <code>t</code> 的排列差等于 <code>|0 - 1| + |2 - 2| + |1 - 0| = 2</code>。</p>
+<p>即，<code>s</code> 和 <code>t</code> 的排列差等于 <code>|0 - 1| + |1 - 0| + |2&nbsp;- 2| = 2</code>。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>

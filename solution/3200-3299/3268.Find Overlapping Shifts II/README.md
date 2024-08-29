@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3268. Find Overlapping Shifts II 🔒](https://leetcode.cn/problems/find-overlapping-shifts-ii)
+# [3268. 查找重叠的班次 II 🔒](https://leetcode.cn/problems/find-overlapping-shifts-ii)
 
 [English Version](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>EmployeeShifts</code></p>
+<p>表：<code>EmployeeShifts</code></p>
 
 <pre>
 +------------------+----------+
@@ -26,30 +26,31 @@ tags:
 | start_time       | datetime |
 | end_time         | datetime |
 +------------------+----------+
-(employee_id, start_time) is the unique key for this table.
-This table contains information about the shifts worked by employees, including the start time, and end time.
+(employee_id, start_time) 是此表的唯一主键。
+这张表包含员工的排班工作，包括特定日期的开始和结束时间。
 </pre>
 
-<p>Write a solution to analyze overlapping shifts for each employee. Two shifts are considered overlapping if they occur on the <strong>same date</strong> and one shift&#39;s <code>end_time</code> is <strong>later than</strong> another shift&#39;s <code>start_time</code>.</p>
+<p>编写一个解决方案来为每个员工分析重叠排班。如果一个排班的&nbsp;<code>end_time</code>&nbsp;比另一个排班的&nbsp;<code>start_time</code>&nbsp;<strong>更晚&nbsp;</strong>则认为两个排班重叠。</p>
 
-<p>For <strong>each employee</strong>, calculate the following:</p>
+<p>对于&nbsp;<strong>每个员工</strong>，计算如下内容：</p>
 
 <ol>
-	<li>The <strong>maximum</strong> number of shifts that <strong>overlap</strong> at any <strong>given time</strong>.</li>
-	<li>The <strong>total duration</strong> of all overlaps in minutes.</li>
+	<li>任何 <strong>给定时间</strong><strong>重叠&nbsp;</strong>的 <strong>最大</strong> 班次数。</li>
+	<li>所有重叠班次的 <strong>总持续时间</strong>，以分钟为单位。</li>
 </ol>
 
-<p><em>Return the result table ordered by</em> <code>employee_id</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以&nbsp;<code>employee_id</code> <strong>升序&nbsp;</strong>排序。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p><code>EmployeeShifts</code> table:</p>
+<p><code>EmployeeShifts</code> 表：</p>
 
 <pre class="example-io">
 +-------------+---------------------+---------------------+
@@ -64,7 +65,7 @@ This table contains information about the shifts worked by employees, including 
 +-------------+---------------------+---------------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+---------------------------+------------------------+
@@ -76,26 +77,26 @@ This table contains information about the shifts worked by employees, including 
 +-------------+---------------------------+------------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Employee 1 has 3 shifts:
+	<li>员工 1 有 3 个排班：
 	<ul>
-		<li>2023-10-01 09:00:00 to 2023-10-01 17:00:00</li>
-		<li>2023-10-01 15:00:00 to 2023-10-01 23:00:00</li>
-		<li>2023-10-01 16:00:00 to 2023-10-02 00:00:00</li>
+		<li>2023-10-01 09:00:00 到 2023-10-01 17:00:00</li>
+		<li>2023-10-01 15:00:00 到 2023-10-01 23:00:00</li>
+		<li>2023-10-01 16:00:00 到 2023-10-02 00:00:00</li>
 	</ul>
-	The maximum number of overlapping shifts is 3 (from 16:00 to 17:00). The total overlap duration is: - 2 hours (15:00-17:00) between 1st and 2nd shifts - 1 hour (16:00-17:00) between 1st and 3rd shifts - 7 hours (16:00-23:00) between 2nd and 3rd shifts Total: 10 hours = 600 minutes</li>
-	<li>Employee 2 has 2 shifts:
+	最大重叠班次数量为 3 (from 16:00 to 17:00)。重叠班次的总持续时间为：第 1 个和第 2 个排班之间的 2 小时 (15:00-17:00) + 第 1 个和第 3 个排班之间的&nbsp;1 小时 (16:00-17:00) +&nbsp;第 2 个和第 3 个排班之间的 7 小时 (16:00-23:00)，总共：10 小时 = 600 分钟</li>
+	<li>员工 2 有 2 个排班：
 	<ul>
-		<li>2023-10-01 09:00:00 to 2023-10-01 17:00:00</li>
-		<li>2023-10-01 11:00:00 to 2023-10-01 19:00:00</li>
+		<li>2023-10-01 09:00:00 到 2023-10-01 17:00:00</li>
+		<li>2023-10-01 11:00:00 到 2023-10-01 19:00:00</li>
 	</ul>
-	The maximum number of overlapping shifts is 2. The total overlap duration is 6 hours (11:00-17:00) = 360 minutes.</li>
-	<li>Employee 3 has only 1 shift, so there are no overlaps.</li>
+	最大重叠班次数量为 2。重叠班次的总持续时间为 6 小时&nbsp;(11:00-17:00) = 360 分钟。</li>
+	<li>员工 3 只有 1 个排班，所以没有重叠。</li>
 </ul>
 
-<p>The output table contains the employee_id, the maximum number of simultaneous overlaps, and the total overlap duration in minutes for each employee, ordered by employee_id in ascending order.</p>
+<p>输出表包含 employee_id，同时重叠排班的最大数量,以及每位员工的重叠班次总持续时间（分钟），以&nbsp;employee_id 升序排序。</p>
 </div>
 
 <!-- description:end -->

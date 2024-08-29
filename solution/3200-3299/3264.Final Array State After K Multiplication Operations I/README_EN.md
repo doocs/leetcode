@@ -2,6 +2,11 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README_EN.md
+tags:
+    - Array
+    - Math
+    - Simulation
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

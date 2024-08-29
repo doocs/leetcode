@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3118. Friday Purchase III 🔒](https://leetcode.cn/problems/friday-purchase-iii)
+# [3118. 发生在周五的交易 III 🔒](https://leetcode.cn/problems/friday-purchase-iii)
 
 [English Version](/solution/3100-3199/3118.Friday%20Purchase%20III/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>Purchases</code></p>
+<p>表：<code>Purchases</code></p>
 
 <pre>
 +---------------+------+
@@ -26,12 +26,12 @@ tags:
 | purchase_date | date |
 | amount_spend  | int  |
 +---------------+------+
-(user_id, purchase_date, amount_spend) is the primary key (combination of columns with unique values) for this table.
-purchase_date will range from November 1, 2023, to November 30, 2023, inclusive of both dates.
-Each row contains user_id, purchase_date, and amount_spend.
+(user_id, purchase_date, amount_spend) 是该表的主键(具有唯一值的列)。
+purchase_date 的范围从 2023 年 11 月 1 日到 2023 年 11 月 30 日，并包括这两个日期。
+每一行包含 user_id, purchase_date，和 amount_spend。
 </pre>
 
-<p>Table: <code>Users</code></p>
+<p>表：<code>Users</code></p>
 
 <pre>
 +-------------+------+
@@ -40,24 +40,25 @@ Each row contains user_id, purchase_date, and amount_spend.
 | user_id     | int  |
 | membership  | enum |
 +-------------+------+
-user_id is the primary key for this table.
-membership is an ENUM (category) type of (&#39;Standard&#39;, &#39;Premium&#39;, &#39;VIP&#39;).
-Each row of this table indicates the user_id, membership type.
+user_id 是这张表的主键。
+membership 是 ('Standard', 'Premium', 'VIP') 的枚举类型。
+这张表的每一行表示 user_id 和会员类型。
 </pre>
 
-<p>Write a solution to calculate the <strong>total spending</strong> by <code>Premium</code>&nbsp;and <code>VIP</code> members on <strong>each Friday of every week</strong> in November 2023.&nbsp; If there are <strong>no purchases</strong> on a <strong>particular Friday</strong> by <code>Premium</code> or <code>VIP</code> members, it should be considered as <code>0</code>.</p>
+<p>编写一个解决方案来计算&nbsp;<code>Premium</code>&nbsp;和&nbsp;<code>VIP</code>&nbsp;会员在 2023 年 11 月&nbsp;<strong>每周的周五</strong>&nbsp;的 <strong>总花费</strong>。如果某个周五没有&nbsp;<code>Premium</code> 或&nbsp;<code>VIP</code> 会员购买，把它当作&nbsp;<code>0</code>。</p>
 
-<p>Return <em>the result table</em>&nbsp;<em>ordered by week of the month,&nbsp; and </em><code>membership</code><em> in <strong>ascending</strong> order</em>.</p>
+<p>按照每月的周次序&nbsp;<strong>升序</strong>&nbsp;排列结果表，然后以&nbsp;<code>membership</code>&nbsp;<strong>升序&nbsp;</strong>排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Purchases table:</p>
+<p>Purchases 表：</p>
 
 <pre class="example-io">
 +---------+---------------+--------------+
@@ -74,7 +75,7 @@ Each row of this table indicates the user_id, membership type.
 +---------+---------------+--------------+
 </pre>
 
-<p>Users table:</p>
+<p>Users 表：</p>
 
 <pre class="example-io">
 +---------+------------+
@@ -91,7 +92,7 @@ Each row of this table indicates the user_id, membership type.
 +---------+------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------------+-------------+--------------+
@@ -108,16 +109,16 @@ Each row of this table indicates the user_id, membership type.
 +---------------+-------------+--------------+
         </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>During the first week of November 2023, a transaction occurred on Friday, 2023-11-03, by a Premium member amounting to $1,126. No transactions were made by VIP members on this day, resulting in a value of 0.</li>
-	<li>For the second week of November 2023, there was a transaction on Friday, 2023-11-10, and it was made by a VIP member, amounting to $7,473. Since there were no purchases by Premium members that Friday, the output shows 0 for Premium members.</li>
-	<li>Similarly, during the third week of November 2023, no transactions by Premium or VIP members occurred on Friday, 2023-11-17, which shows 0 for both categories in this week.</li>
-	<li>In the fourth week of November 2023, transactions occurred on Friday, 2023-11-24, involving one Premium member purchase of $5,117 and VIP member purchases totaling $14,933 ($9,692 from one and $5,241 from another).</li>
+	<li>在 2023 年 11 月的第一周，周五有一笔交易，2023-11-03，由一个&nbsp;Premium 会员花费了 $1,126。这天没有 VIP 会员交易，所以值为 0。</li>
+	<li>在 2023 年 11 月的第二周，周五有一笔交易，2023-11-10，由一个 VIP 会员花费了 $7,473。因为这条没有&nbsp;Premium 会员交易，Premium 会员的输出为 0。</li>
+	<li>相似地，在 2023 年 11 月的第三周，周五没有&nbsp;Premium 或 VIP 会员交易，2023-11-17，所以这周两种分类都输出 0。</li>
+	<li>在 2023 年 11 月的第四周，周五存在交易，2023-11-24，有一名 Premium 会员购买了 $5,117 以及 VIP 会员购买了总共 $14,933（一个花费 $9,692，另一个花费 $5,241）。</li>
 </ul>
 
-<p><strong>Note:</strong> The output table is ordered by week_of_month and membership in ascending order.</p>
+<p><strong>注意：</strong>输出表以&nbsp;week_of_month 和 membership 升序排序。</p>
 </div>
 
 <!-- description:end -->
