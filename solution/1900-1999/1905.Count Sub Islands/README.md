@@ -41,7 +41,7 @@ grid2 中标红的 1 区域是子岛屿，总共有 3 个子岛屿。
 <p><strong>示例 2：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1905.Count%20Sub%20Islands/images/testcasex2.png" style="width: 491px; height: 201px;">
 <pre><b>输入：</b>grid1 = [[1,0,1,0,1],[1,1,1,1,1],[0,0,0,0,0],[1,1,1,1,1],[1,0,1,0,1]], grid2 = [[0,0,0,0,0],[1,1,1,1,1],[0,1,0,1,0],[0,1,0,1,0],[1,0,0,0,1]]
-<b>输出：</b>2 
+<b>输出：</b>2
 <strong>解释：</strong>如上图所示，左边为 grid1 ，右边为 grid2 。
 grid2 中标红的 1 区域是子岛屿，总共有 2 个子岛屿。
 </pre>
@@ -199,6 +199,35 @@ function countSubIslands(grid1: number[][], grid2: number[][]): number {
     let ans = 0;
     const dirs: number[] = [-1, 0, 1, 0, -1];
     const dfs = (i: number, j: number): number => {
+        let ok = grid1[i][j];
+        grid2[i][j] = 0;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y]) {
+                ok &= dfs(x, y);
+            }
+        }
+        return ok;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (grid2[i][j]) {
+                ans += dfs(i, j);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function countSubIslands(grid1, grid2) {
+    const [m, n] = [grid1.length, grid1[0].length];
+    let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i, j) => {
         let ok = grid1[i][j];
         grid2[i][j] = 0;
         for (let k = 0; k < 4; ++k) {
