@@ -338,7 +338,7 @@ function removeStones(stones: number[][]): number {
 
 <!-- solution:end -->
 
-<!--- solution:start --->
+<!-- solution:start -->
 
 ### 方法二：并查集（优化）
 
@@ -701,6 +701,6 @@ function removeStones(stones) {
 
 <!-- tabs:end -->
 
-<!--- solution:end --->
+<!-- solution:end -->
 
 <!-- problem:end -->
