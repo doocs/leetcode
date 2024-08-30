@@ -45,7 +45,7 @@ tags:
 <strong>解释：</strong>
 NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
 numArray.sumRange(0, 2); // return 1 ((-2) + 0 + 3)
-numArray.sumRange(2, 5); // return -1 (3 + (-5) + 2 + (-1)) 
+numArray.sumRange(2, 5); // return -1 (3 + (-5) + 2 + (-1))
 numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 </pre>
 
@@ -319,6 +319,29 @@ void numArrayFree(NumArray* obj) {
 
  * numArrayFree(obj);
 */
+```
+
+#### Kotlin
+
+```kotlin
+class NumArray(nums: IntArray) {
+    private val prefix_sums: IntArray
+
+    init {
+        val nums_size = nums.size
+        this.prefix_sums = IntArray(nums_size + 1)
+        for (i in 0..<nums_size) {
+            this.prefix_sums[i + 1] = this.prefix_sums[i] + nums[i]
+        }
+    }
+
+    fun sumRange(left: Int, right: Int): Int = this.prefix_sums[right + 1] - this.prefix_sums[left]
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such: var obj = NumArray(nums) var
+ * param_1 = obj.sumRange(left,right)
+ */
 ```
 
 <!-- tabs:end -->
