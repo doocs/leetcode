@@ -339,7 +339,7 @@ function removeStones(stones: number[][]): number {
 
 <!-- solution:end -->
 
-<!--- solution:start --->
+<!-- solution:start -->
 
 ### Solution 2: Union-Find (Optimized)
 
@@ -600,7 +600,7 @@ function removeStones(stones: number[][]): number {
 
 <!-- tabs:end -->
 
-<!--- solution:end --->
+<!-- solution:end -->
 
 <!-- solution:start -->
 
@@ -702,6 +702,6 @@ function removeStones(stones) {
 
 <!-- tabs:end -->
 
-<!--- solution:end --->
+<!-- solution:end -->
 
 <!-- problem:end -->
