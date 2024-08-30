@@ -141,7 +141,7 @@ public:
                 nums[i] /= 10;
             }
             for (int i = 0; i < 10; ++i) {
-                ans += 1LL * (cnt[i] * (n - cnt[i]));
+                ans += 1LL * cnt[i] * (n - cnt[i]);
             }
         }
         return ans / 2;
