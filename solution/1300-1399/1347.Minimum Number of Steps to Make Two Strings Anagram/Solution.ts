@@ -1,10 +1,5 @@
-/**
- * @param {string} s
- * @param {string} t
- * @return {number}
- */
-var minSteps = function (s, t) {
-    const cnt = Array(26).fill(0);
+function minSteps(s: string, t: string): number {
+    const cnt: number[] = Array(26).fill(0);
     for (const c of s) {
         ++cnt[c.charCodeAt(0) - 97];
     }
@@ -15,4 +10,4 @@ var minSteps = function (s, t) {
         }
     }
     return ans;
-};
+}
