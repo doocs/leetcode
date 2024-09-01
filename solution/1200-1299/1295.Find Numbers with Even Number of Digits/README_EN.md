@@ -6,6 +6,7 @@ rating: 1139
 source: Weekly Contest 168 Q1
 tags:
     - Array
+    - Math
 ---
 
 <!-- problem:start -->

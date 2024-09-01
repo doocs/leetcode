@@ -64,6 +64,7 @@ tags:
 	<li><code>1 &lt;= nums.length &lt;= 15</code></li>
 	<li><code>110 &lt;= nums[i] &lt;= 489</code></li>
 	<li><code>nums</code>&nbsp;表示深度小于&nbsp;<code>5</code> 的有效二叉树</li>
+	<li><code>nums</code>&nbsp;以升序排序。</li>
 </ul>
 
 <!-- description:end -->

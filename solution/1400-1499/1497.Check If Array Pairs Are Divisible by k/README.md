@@ -24,7 +24,7 @@ tags:
 
 <p>现在需要把数组恰好分成 <code>n /&nbsp;2</code> 对，以使每对数字的和都能够被 <code>k</code> 整除。</p>
 
-<p>如果存在这样的分法，请返回 <em>True</em> ；否则，返回 <em>False</em> 。</p>
+<p>如果存在这样的分法，请返回&nbsp;<code>true</code> ；否则，返回<i>&nbsp;</i><code>false</code>。</p>
 
 <p>&nbsp;</p>
 

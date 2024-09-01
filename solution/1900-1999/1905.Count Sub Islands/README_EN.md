@@ -42,7 +42,7 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1905.Count%20Sub%20Islands/images/testcasex2.png" style="width: 491px; height: 201px;" />
 <pre>
 <strong>Input:</strong> grid1 = [[1,0,1,0,1],[1,1,1,1,1],[0,0,0,0,0],[1,1,1,1,1],[1,0,1,0,1]], grid2 = [[0,0,0,0,0],[1,1,1,1,1],[0,1,0,1,0],[0,1,0,1,0],[1,0,0,0,1]]
-<strong>Output:</strong> 2
+<strong>Output:</strong> 2 
 <strong>Explanation: </strong>In the picture above, the grid on the left is grid1 and the grid on the right is grid2.
 The 1s colored red in grid2 are those considered to be part of a sub-island. There are two sub-islands.
 </pre>

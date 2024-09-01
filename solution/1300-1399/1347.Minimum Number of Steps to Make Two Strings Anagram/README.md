@@ -46,7 +46,7 @@ tags:
 
 <pre><strong>输出：</strong>s = &quot;anagram&quot;, t = &quot;mangaar&quot;
 <strong>输出：</strong>0
-<strong>提示：</strong>&quot;anagram&quot; 和 &quot;mangaar&quot; 本身就是一组字母异位词。
+<strong>提示：</strong>&quot;anagram&quot; 和 &quot;mangaar&quot; 本身就是一组字母异位词。 
 </pre>
 
 <p><strong>示例 4：</strong></p>

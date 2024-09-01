@@ -48,7 +48,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;anagram&quot;, t = &quot;mangaar&quot;
 <strong>Output:</strong> 0
-<strong>Explanation:</strong> &quot;anagram&quot; and &quot;mangaar&quot; are anagrams.
+<strong>Explanation:</strong> &quot;anagram&quot; and &quot;mangaar&quot; are anagrams. 
 </pre>
 
 <p>&nbsp;</p>
