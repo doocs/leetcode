@@ -1303,7 +1303,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1292  |  [Maximum Side Length of a Square with Sum Less than or Equal to Threshold](/solution/1200-1299/1292.Maximum%20Side%20Length%20of%20a%20Square%20with%20Sum%20Less%20than%20or%20Equal%20to%20Threshold/README_EN.md)  |  `Array`,`Binary Search`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 167  |
 |  1293  |  [Shortest Path in a Grid with Obstacles Elimination](/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README_EN.md)  |  `Breadth-First Search`,`Array`,`Matrix`  |  Hard  |  Weekly Contest 167  |
 |  1294  |  [Weather Type in Each Country](/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
-|  1295  |  [Find Numbers with Even Number of Digits](/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 168  |
+|  1295  |  [Find Numbers with Even Number of Digits](/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 168  |
 |  1296  |  [Divide Array in Sets of K Consecutive Numbers](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Sorting`  |  Medium  |  Weekly Contest 168  |
 |  1297  |  [Maximum Number of Occurrences of a Substring](/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 168  |
 |  1298  |  [Maximum Candies You Can Get from Boxes](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Array`  |  Hard  |  Weekly Contest 168  |
@@ -2045,7 +2045,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2034  |  [Stock Price Fluctuation](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md)  |  `Design`,`Hash Table`,`Data Stream`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 262  |
 |  2035  |  [Partition Array Into Two Arrays to Minimize Sum Difference](/solution/2000-2099/2035.Partition%20Array%20Into%20Two%20Arrays%20to%20Minimize%20Sum%20Difference/README_EN.md)  |  `Bit Manipulation`,`Array`,`Two Pointers`,`Binary Search`,`Dynamic Programming`,`Bitmask`,`Ordered Set`  |  Hard  |  Weekly Contest 262  |
 |  2036  |  [Maximum Alternating Subarray Sum](/solution/2000-2099/2036.Maximum%20Alternating%20Subarray%20Sum/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  🔒  |
-|  2037  |  [Minimum Number of Moves to Seat Everyone](/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Easy  |  Biweekly Contest 63  |
+|  2037  |  [Minimum Number of Moves to Seat Everyone](/solution/2000-2099/2037.Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone/README_EN.md)  |  `Greedy`,`Array`,`Counting Sort`,`Sorting`  |  Easy  |  Biweekly Contest 63  |
 |  2038  |  [Remove Colored Pieces if Both Neighbors are the Same Color](/solution/2000-2099/2038.Remove%20Colored%20Pieces%20if%20Both%20Neighbors%20are%20the%20Same%20Color/README_EN.md)  |  `Greedy`,`Math`,`String`,`Game Theory`  |  Medium  |  Biweekly Contest 63  |
 |  2039  |  [The Time When the Network Becomes Idle](/solution/2000-2099/2039.The%20Time%20When%20the%20Network%20Becomes%20Idle/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Array`  |  Medium  |  Biweekly Contest 63  |
 |  2040  |  [Kth Smallest Product of Two Sorted Arrays](/solution/2000-2099/2040.Kth%20Smallest%20Product%20of%20Two%20Sorted%20Arrays/README_EN.md)  |  `Array`,`Binary Search`  |  Hard  |  Biweekly Contest 63  |
@@ -3278,6 +3278,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3267  |  [Count Almost Equal Pairs II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Enumeration`,`Sorting`  |  Hard  |  Weekly Contest 412  |
 |  3268  |  [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  3269  |  [Constructing Two Increasing Arrays](/solution/3200-3299/3269.Constructing%20Two%20Increasing%20Arrays/README_EN.md)  |    |  Hard  |  🔒  |
+|  3270  |  [Find the Key of the Numbers](/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README_EN.md)  |    |  Easy  |  Biweekly Contest 138  |
+|  3271  |  [Hash Divided String](/solution/3200-3299/3271.Hash%20Divided%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 138  |
+|  3272  |  [Find the Count of Good Integers](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README_EN.md)  |    |  Hard  |  Biweekly Contest 138  |
+|  3273  |  [Minimum Amount of Damage Dealt to Bob](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README_EN.md)  |    |  Hard  |  Biweekly Contest 138  |
+|  3274  |  [Check if Two Chessboard Squares Have the Same Color](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README_EN.md)  |    |  Easy  |  Weekly Contest 413  |
+|  3275  |  [K-th Nearest Obstacle Queries](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README_EN.md)  |    |  Medium  |  Weekly Contest 413  |
+|  3276  |  [Select Cells in Grid With Maximum Score](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 413  |
+|  3277  |  [Maximum XOR Score Subarray Queries](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 413  |
 
 ## Copyright
 

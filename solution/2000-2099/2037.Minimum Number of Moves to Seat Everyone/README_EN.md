@@ -7,6 +7,7 @@ source: Biweekly Contest 63 Q1
 tags:
     - Greedy
     - Array
+    - Counting Sort
     - Sorting
 ---
 

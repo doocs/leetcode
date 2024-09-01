@@ -23,25 +23,44 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/images/pre1.jpg" style="width: 127px; height: 200px;" />
-<pre>
-<strong>Input:</strong> root = [1,null,2,3]
-<strong>Output:</strong> [3,2,1]
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = [1,null,2,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[3,2,1]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/images/screenshot-2024-08-29-202743.png" style="width: 200px; height: 264px;" /></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> root = []
-<strong>Output:</strong> []
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = [1,2,3,4,5,null,8,null,null,6,7,9]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[4,6,7,5,2,9,8,3,1]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/images/tree_2.png" style="width: 350px; height: 286px;" /></p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> root = [1]
-<strong>Output:</strong> [1]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = []</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[]</span></p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">root = [1]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[1]</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

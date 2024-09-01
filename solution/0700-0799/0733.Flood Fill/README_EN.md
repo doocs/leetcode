@@ -29,21 +29,32 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0733.Flood%20Fill/images/flood1-grid.jpg" style="width: 613px; height: 253px;" />
-<pre>
-<strong>Input:</strong> image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
-<strong>Output:</strong> [[2,2,2],[2,2,0],[2,0,1]]
-<strong>Explanation:</strong> From the center of the image with position (sr, sc) = (1, 1) (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color.
-Note the bottom corner is not colored 2, because it is not 4-directionally connected to the starting pixel.
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[[2,2,2],[2,2,0],[2,0,1]]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0733.Flood%20Fill/images/flood1-grid.jpg" style="width: 613px; height: 253px;" /></p>
+
+<p>From the center of the image with position <code>(sr, sc) = (1, 1)</code> (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color.</p>
+
+<p>Note the bottom corner is <strong>not</strong> colored 2, because it is not 4-directionally connected to the starting pixel.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0
-<strong>Output:</strong> [[0,0,0],[0,0,0]]
-<strong>Explanation:</strong> The starting pixel is already colored 0, so no changes are made to the image.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[[0,0,0],[0,0,0]]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The starting pixel is already colored with 0, which is the same as the target color. Therefore, no changes are made to the image.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

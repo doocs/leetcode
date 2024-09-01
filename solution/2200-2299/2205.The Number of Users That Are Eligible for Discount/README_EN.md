@@ -66,6 +66,9 @@ Out of the three users, only User 3 is eligible for a discount.
  - User 3 is the only user who had a purchase that satisfies both conditions.
 </pre>
 
+<p>&nbsp;</p>
+<p><strong>Important Note:</strong> This problem is basically the same as <a href="https://leetcode.com/problems/the-users-that-are-eligible-for-discount/description/">The Users That Are Eligible for Discount</a>.</p>
+
 <!-- description:end -->
 
 ## Solutions

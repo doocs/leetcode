@@ -197,7 +197,7 @@ class Solution {
         dfs(0, nums, [], &res)
         return res
     }
-    
+
     private func dfs(_ i: Int, _ nums: [Int], _ current: [Int], _ res: inout [[Int]]) {
         res.append(current)
         for j in i..<nums.count {

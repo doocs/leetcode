@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 413 场周赛(2024-09-01 10:30, 90 分钟) 参赛人数 2875
+
+- [3274. 检查棋盘方格颜色是否相同](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README.md)
+- [3275. 第 K 近障碍物查询](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README.md)
+- [3276. 选择矩阵中单元格的最大得分](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README.md)
+- [3277. 查询子数组最大异或值](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README.md)
+
+#### 第 138 场双周赛(2024-08-31 22:30, 90 分钟) 参赛人数 2029
+
+- [3270. 求出数字答案](/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README.md)
+- [3271. 哈希分割字符串](/solution/3200-3299/3271.Hash%20Divided%20String/README.md)
+- [3272. 统计好整数的数目](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README.md)
+- [3273. 对 Bob 造成的最少伤害](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README.md)
+
 #### 第 412 场周赛(2024-08-25 10:30, 90 分钟) 参赛人数 2681
 
 - [3264. K 次乘运算后的最终数组 I](/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README.md)
@@ -47,7 +61,7 @@ comments: true
 - [3256. 放三个车的价值之和最大 I](/solution/3200-3299/3256.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20I/README.md)
 - [3257. 放三个车的价值之和最大 II](/solution/3200-3299/3257.Maximum%20Value%20Sum%20by%20Placing%20Three%20Rooks%20II/README.md)
 
-#### 第 410 场周赛(2024-08-11 10:30, 90 分钟) 参赛人数 2987
+#### 第 410 场周赛(2024-08-11 10:30, 90 分钟) 参赛人数 2988
 
 - [3248. 矩阵中的蛇](/solution/3200-3299/3248.Snake%20in%20Matrix/README.md)
 - [3249. 统计好节点的数目](/solution/3200-3299/3249.Count%20the%20Number%20of%20Good%20Nodes/README.md)
@@ -177,7 +191,7 @@ comments: true
 
 - [3151. 特殊数组 I](/solution/3100-3199/3151.Special%20Array%20I/README.md)
 - [3152. 特殊数组 II](/solution/3100-3199/3152.Special%20Array%20II/README.md)
-- [3153. 所有数对中数位不同之和](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README.md)
+- [3153. 所有数对中数位差之和](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README.md)
 - [3154. 到达第 K 级台阶的方案数](/solution/3100-3199/3154.Find%20Number%20of%20Ways%20to%20Reach%20the%20K-th%20Stair/README.md)
 
 #### 第 397 场周赛(2024-05-12 10:30, 90 分钟) 参赛人数 3365
@@ -1148,7 +1162,7 @@ comments: true
 
 #### 第 305 场周赛(2022-08-07 10:30, 90 分钟) 参赛人数 7465
 
-- [2367. 算术三元组的数目](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
+- [2367. 等差三元组的数目](/solution/2300-2399/2367.Number%20of%20Arithmetic%20Triplets/README.md)
 - [2368. 受限条件下可到达节点的数目](/solution/2300-2399/2368.Reachable%20Nodes%20With%20Restrictions/README.md)
 - [2369. 检查数组是否存在有效划分](/solution/2300-2399/2369.Check%20if%20There%20is%20a%20Valid%20Partition%20For%20The%20Array/README.md)
 - [2370. 最长理想子序列](/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README.md)

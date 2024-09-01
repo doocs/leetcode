@@ -58,6 +58,7 @@ The path sum is (3 + 1) = 4.
 	<li><code>1 &lt;= nums.length &lt;= 15</code></li>
 	<li><code>110 &lt;= nums[i] &lt;= 489</code></li>
 	<li><code>nums</code> represents a valid binary tree with depth less than <code>5</code>.</li>
+	<li><code>nums</code> is sorted in ascending order.</li>
 </ul>
 
 <!-- description:end -->

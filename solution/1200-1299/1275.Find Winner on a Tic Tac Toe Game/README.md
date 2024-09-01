@@ -21,69 +21,45 @@ tags:
 
 <!-- description:start -->
 
-<p><em>A</em> 和&nbsp;<em>B</em>&nbsp;在一个&nbsp;<em>3</em>&nbsp;x&nbsp;<em>3</em>&nbsp;的网格上玩井字棋。</p>
-
-<p>井字棋游戏的规则如下：</p>
+<p><strong>井字棋&nbsp;</strong>是由两个玩家<i>&nbsp;</i><code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;在&nbsp;<code>3 x 3</code>&nbsp;的棋盘上进行的游戏。井字棋游戏的规则如下：</p>
 
 <ul>
-	<li>玩家轮流将棋子放在空方格 (" ") 上。</li>
-	<li>第一个玩家 A 总是用&nbsp;"X" 作为棋子，而第二个玩家 B 总是用 "O" 作为棋子。</li>
-	<li>"X" 和 "O" 只能放在空方格中，而不能放在已经被占用的方格上。</li>
-	<li>只要有 3 个相同的（非空）棋子排成一条直线（行、列、对角线）时，游戏结束。</li>
+	<li>玩家轮流将棋子放在空方格 (<code>' '</code>) 上。</li>
+	<li>第一个玩家 <code>A</code> 总是用&nbsp;<code>'X'</code> 作为棋子，而第二个玩家 <code>B</code> 总是用 <code>'O'</code> 作为棋子。</li>
+	<li><code>'X'</code> 和 <code>'O'</code> 只能放在空方格中，而不能放在已经被占用的方格上。</li>
+	<li>只要有 <strong>3</strong> 个相同的（非空）棋子排成一条直线（行、列、对角线）时，游戏结束。</li>
 	<li>如果所有方块都放满棋子（不为空），游戏也会结束。</li>
 	<li>游戏结束后，棋子无法再进行任何移动。</li>
 </ul>
 
-<p>给你一个数组 <code>moves</code>，其中每个元素是大小为 <code>2</code> 的另一个数组（元素分别对应网格的行和列），它按照 <em>A</em> 和 <em>B</em> 的行动顺序（先 <em>A</em> 后 <em>B</em>）记录了两人各自的棋子位置。</p>
+<p>给你一个数组 <code>moves</code>，其中 <code>moves[i] = [row<sub>i</sub>, col<sub>i</sub>]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;次移动在&nbsp;<code>grid[row<sub>i</sub>][col<sub>i</sub>]</code>。如果游戏存在获胜者（<code>A</code> 或 <code>B</code>），就返回该游戏的获胜者；如果游戏以平局结束，则返回 <code>"Draw"</code>；如果仍会有行动（游戏未结束），则返回 <code>"Pending"</code>。</p>
 
-<p>如果游戏存在获胜者（<em>A</em> 或 <em>B</em>），就返回该游戏的获胜者；如果游戏以平局结束，则返回 "Draw"；如果仍会有行动（游戏未结束），则返回 "Pending"。</p>
-
-<p>你可以假设&nbsp;<code>moves</code>&nbsp;都 <strong>有效</strong>（遵循井字棋规则），网格最初是空的，<em>A</em> 将先行动。</p>
+<p>你可以假设&nbsp;<code>moves</code>&nbsp;都 <strong>有效</strong>（遵循 <strong>井字棋</strong> 规则），网格最初是空的，<code>A</code> 将先行动。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/images/xo1-grid.jpg" style="width: 244px; height: 245px;" />
 <pre>
 <strong>输入：</strong>moves = [[0,0],[2,0],[1,1],[2,1],[2,2]]
 <strong>输出：</strong>"A"
 <strong>解释：</strong>"A" 获胜，他总是先走。
-"X  "    "X  "    "X  "    "X  "    "<strong>X</strong>  "
-"   " -&gt; "   " -&gt; " X " -&gt; " X " -&gt; " <strong>X</strong> "
-"   "    "O  "    "O  "    "OO "    "OO<strong>X</strong>"
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/images/xo2-grid.jpg" style="width: 244px; height: 245px;" />
 <pre>
 <strong>输入：</strong>moves = [[0,0],[1,1],[0,1],[0,2],[1,0],[2,0]]
 <strong>输出：</strong>"B"
 <strong>解释：</strong>"B" 获胜。
-"X  "    "X  "    "XX "    "XXO"    "XXO"    "XX<strong>O</strong>"
-"   " -&gt; " O " -&gt; " O " -&gt; " O " -&gt; "XO " -&gt; "X<strong>O</strong> " 
-"   "    "   "    "   "    "   "    "   "    "<strong>O</strong>  "
 </pre>
 
 <p><strong>示例 3：</strong></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1275.Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game/images/xo3-grid.jpg" style="width: 244px; height: 245px;" />
 <pre>
 <strong>输入：</strong>moves = [[0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2]]
 <strong>输出：</strong>"Draw"
 <strong>解释：</strong>由于没有办法再行动，游戏以平局结束。
-"XXO"
-"OOX"
-"XOX"
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>moves = [[0,0],[1,1]]
-<strong>输出：</strong>"Pending"
-<strong>解释：</strong>游戏还没有结束。
-"X  "
-" O "
-"   "
 </pre>
 
 <p>&nbsp;</p>

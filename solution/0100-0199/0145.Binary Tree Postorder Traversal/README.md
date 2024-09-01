@@ -23,26 +23,45 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/images/pre1.jpg" style="width: 127px; height: 200px;" />
-<pre>
-<strong>输入：</strong>root = [1,null,2,3]
-<strong>输出：</strong>[3,2,1]
-</pre>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><strong>示例 2：</strong></p>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>root = [1,null,2,3]</span></p>
 
-<pre>
-<strong>输入：</strong>root = []
-<strong>输出：</strong>[]
-</pre>
+<p><span class="example-io"><b>输出：</b>[3,2,1]</span></p>
 
-<p><strong>示例 3：</strong></p>
+<p><strong>解释：</strong></p>
 
-<pre>
-<strong>输入：</strong>root = [1]
-<strong>输出：</strong>[1]
-</pre>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/images/screenshot-2024-08-29-202743.png" style="width: 200px; height: 264px;" /></p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>root = [1,2,3,4,5,null,8,null,null,6,7,9]</span></p>
+
+<p><span class="example-io"><b>输出：</b>[4,6,7,5,2,9,8,3,1]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/images/tree_2.png" style="width: 350px; height: 286px;" /></p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>root = []</span></p>
+
+<p><span class="example-io"><b>输出：</b>[]</span></p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>root = [1]</span></p>
+
+<p><span class="example-io"><b>输出：</b>[1]</span></p>
+</div>
 
 <p>&nbsp;</p>
 

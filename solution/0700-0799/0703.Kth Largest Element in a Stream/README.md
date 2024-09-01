@@ -73,12 +73,11 @@ kthLargest.add(9); // 返回 8</div>
 <strong>提示：</strong>
 
 <ul>
-	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= k &lt;= nums.length + 1</code></li>
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>-10<sup>4</sup> &lt;= val &lt;= 10<sup>4</sup></code></li>
 	<li>最多调用 <code>add</code> 方法 <code>10<sup>4</sup></code> 次</li>
-	<li>题目数据保证，在查找第 <code>k</code> 大元素时，数组中至少有 <code>k</code> 个元素</li>
 </ul>
 
 <!-- description:end -->

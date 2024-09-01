@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 413
+
+- [3274. Check if Two Chessboard Squares Have the Same Color](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README_EN.md)
+- [3275. K-th Nearest Obstacle Queries](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README_EN.md)
+- [3276. Select Cells in Grid With Maximum Score](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README_EN.md)
+- [3277. Maximum XOR Score Subarray Queries](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README_EN.md)
+
+#### Biweekly Contest 138
+
+- [3270. Find the Key of the Numbers](/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README_EN.md)
+- [3271. Hash Divided String](/solution/3200-3299/3271.Hash%20Divided%20String/README_EN.md)
+- [3272. Find the Count of Good Integers](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README_EN.md)
+- [3273. Minimum Amount of Damage Dealt to Bob](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README_EN.md)
+
 #### Weekly Contest 412
 
 - [3264. Final Array State After K Multiplication Operations I](/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README_EN.md)
