@@ -3286,6 +3286,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3275  |  [K-th Nearest Obstacle Queries](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README_EN.md)  |    |  Medium  |  Weekly Contest 413  |
 |  3276  |  [Select Cells in Grid With Maximum Score](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 413  |
 |  3277  |  [Maximum XOR Score Subarray Queries](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 413  |
+|  3278  |  [Find Candidates for Data Scientist Position II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
