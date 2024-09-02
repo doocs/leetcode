@@ -66,6 +66,10 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
  - 用户 2 在时间间隔内有一次购买，但金额小于 minAmount。
  - 用户 3 是唯一一个购买行为同时满足这两个条件的用户。</pre>
 
+<p>&nbsp;</p>
+
+<p><b>重要提示：</b>此问题与 <a href="https://leetcode.cn/problems/the-users-that-are-eligible-for-discount/">2230. 查找可享受优惠的用户</a>&nbsp;基本相同。</p>
+
 <!-- description:end -->
 
 ## 解法

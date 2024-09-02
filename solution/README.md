@@ -3288,6 +3288,7 @@
 |  3275  |  [第 K 近障碍物查询](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README.md)  |    |  中等  |  第 413 场周赛  |
 |  3276  |  [选择矩阵中单元格的最大得分](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README.md)  |    |  困难  |  第 413 场周赛  |
 |  3277  |  [查询子数组最大异或值](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README.md)  |    |  困难  |  第 413 场周赛  |
+|  3278  |  [Find Candidates for Data Scientist Position II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
