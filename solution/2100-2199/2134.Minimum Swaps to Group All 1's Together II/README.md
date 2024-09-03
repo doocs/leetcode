@@ -244,7 +244,7 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Prefix Sum
+### 方法二：前缀和
 
 <!-- tabs:start -->
 
