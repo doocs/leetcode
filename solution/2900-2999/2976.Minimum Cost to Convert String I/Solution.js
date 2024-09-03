@@ -1,13 +1,15 @@
-function minimumCost(
-    source: string,
-    target: string,
-    original: string[],
-    changed: string[],
-    cost: number[],
-): number {
+/**
+ * @param {string} source
+ * @param {string} target
+ * @param {character[]} original
+ * @param {character[]} changed
+ * @param {number[]} cost
+ * @return {number}
+ */
+var minimumCost = function (source, target, original, changed, cost) {
     const [n, m, MAX] = [source.length, original.length, Number.POSITIVE_INFINITY];
-    const g: number[][] = Array.from({ length: 26 }, () => Array(26).fill(MAX));
-    const getIndex = (ch: string) => ch.charCodeAt(0) - 'a'.charCodeAt(0);
+    const g = Array.from({ length: 26 }, () => Array(26).fill(MAX));
+    const getIndex = ch => ch.charCodeAt(0) - 'a'.charCodeAt(0);
 
     for (let i = 0; i < 26; ++i) g[i][i] = 0;
     for (let i = 0; i < m; ++i) {
@@ -36,4 +38,4 @@ function minimumCost(
         ans += g[x][y];
     }
     return ans;
-}
+};
