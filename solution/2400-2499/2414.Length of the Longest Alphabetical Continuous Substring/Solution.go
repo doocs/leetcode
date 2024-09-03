@@ -1,12 +1,12 @@
 func longestContinuousSubstring(s string) int {
-	ans := 0
-	i, j := 0, 1
-	for ; j < len(s); j++ {
-		ans = max(ans, j-i)
-		if s[j]-s[j-1] != 1 {
-			i = j
+	ans, cnt := 1, 1
+	for i := range s[1:] {
+		if s[i+1]-s[i] == 1 {
+			cnt++
+			ans = max(ans, cnt)
+		} else {
+			cnt = 1
 		}
 	}
-	ans = max(ans, j-i)
 	return ans
 }

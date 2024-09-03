@@ -1,12 +1,11 @@
 function longestContinuousSubstring(s: string): number {
-    const n = s.length;
-    let res = 1;
-    let i = 0;
-    for (let j = 1; j < n; j++) {
-        if (s[j].charCodeAt(0) - s[j - 1].charCodeAt(0) !== 1) {
-            res = Math.max(res, j - i);
-            i = j;
+    let [ans, cnt] = [1, 1];
+    for (let i = 1; i < s.length; ++i) {
+        if (s.charCodeAt(i) - s.charCodeAt(i - 1) === 1) {
+            ans = Math.max(ans, ++cnt);
+        } else {
+            cnt = 1;
         }
     }
-    return Math.max(res, n - i);
+    return ans;
 }

@@ -2,13 +2,14 @@
 
 int longestContinuousSubstring(char* s) {
     int n = strlen(s);
-    int i = 0;
-    int res = 1;
-    for (int j = 1; j < n; j++) {
-        if (s[j] - s[j - 1] != 1) {
-            res = max(res, j - i);
-            i = j;
+    int ans = 1, cnt = 1;
+    for (int i = 1; i < n; ++i) {
+        if (s[i] - s[i - 1] == 1) {
+            ++cnt;
+            ans = max(ans, cnt);
+        } else {
+            cnt = 1;
         }
     }
-    return max(res, n - i);
+    return ans;
 }
