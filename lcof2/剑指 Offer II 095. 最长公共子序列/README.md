@@ -284,7 +284,7 @@ class Solution {
         let text1Array = Array(text1)
         let text2Array = Array(text2)
         var f = Array(repeating: Array(repeating: 0, count: n + 1), count: m + 1)
-        
+
         for i in 1...m {
             for j in 1...n {
                 if text1Array[i - 1] == text2Array[j - 1] {
