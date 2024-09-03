@@ -261,7 +261,7 @@ func minimumCost(source string, target string, original []byte, changed []byte, 
 #### TypeScript
 
 ```ts
-export function minimumCost(
+function minimumCost(
     source: string,
     target: string,
     original: string[],
