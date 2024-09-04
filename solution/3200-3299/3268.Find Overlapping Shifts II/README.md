@@ -30,12 +30,12 @@ tags:
 这张表包含员工的排班工作，包括特定日期的开始和结束时间。
 </pre>
 
-<p>编写一个解决方案来为每个员工分析重叠排班。如果一个排班的&nbsp;<code>end_time</code>&nbsp;比另一个排班的&nbsp;<code>start_time</code>&nbsp;<strong>更晚&nbsp;</strong>则认为两个排班重叠。</p>
+<p>编写一个解决方案来为每个员工分析重叠排班。如果两个排班在&nbsp;<strong>同一天</strong>&nbsp;且一个排班的&nbsp;<code>end_time</code>&nbsp;比另一个排班的&nbsp;<code>start_time</code>&nbsp;<strong>更晚&nbsp;</strong>则认为两个排班重叠。</p>
 
 <p>对于&nbsp;<strong>每个员工</strong>，计算如下内容：</p>
 
 <ol>
-	<li>任何 <strong>给定时间</strong><strong>重叠&nbsp;</strong>的 <strong>最大</strong> 班次数。</li>
+	<li>任何 <strong>给定时间</strong> 的 <strong>最多重叠</strong> 班次数。</li>
 	<li>所有重叠班次的 <strong>总持续时间</strong>，以分钟为单位。</li>
 </ol>
 

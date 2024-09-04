@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README.md
+tags:
+    - 数学
 ---
 
 <!-- problem:start -->

@@ -3277,16 +3277,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3266  |  [Final Array State After K Multiplication Operations II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README_EN.md)  |  `Array`,`Simulation`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 412  |
 |  3267  |  [Count Almost Equal Pairs II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Enumeration`,`Sorting`  |  Hard  |  Weekly Contest 412  |
 |  3268  |  [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
-|  3269  |  [Constructing Two Increasing Arrays](/solution/3200-3299/3269.Constructing%20Two%20Increasing%20Arrays/README_EN.md)  |    |  Hard  |  🔒  |
-|  3270  |  [Find the Key of the Numbers](/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README_EN.md)  |    |  Easy  |  Biweekly Contest 138  |
-|  3271  |  [Hash Divided String](/solution/3200-3299/3271.Hash%20Divided%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 138  |
-|  3272  |  [Find the Count of Good Integers](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README_EN.md)  |    |  Hard  |  Biweekly Contest 138  |
-|  3273  |  [Minimum Amount of Damage Dealt to Bob](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README_EN.md)  |    |  Hard  |  Biweekly Contest 138  |
-|  3274  |  [Check if Two Chessboard Squares Have the Same Color](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README_EN.md)  |    |  Easy  |  Weekly Contest 413  |
-|  3275  |  [K-th Nearest Obstacle Queries](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README_EN.md)  |    |  Medium  |  Weekly Contest 413  |
-|  3276  |  [Select Cells in Grid With Maximum Score](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 413  |
-|  3277  |  [Maximum XOR Score Subarray Queries](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 413  |
-|  3278  |  [Find Candidates for Data Scientist Position II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  3269  |  [Constructing Two Increasing Arrays](/solution/3200-3299/3269.Constructing%20Two%20Increasing%20Arrays/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  🔒  |
+|  3270  |  [Find the Key of the Numbers](/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README_EN.md)  |  `Math`  |  Easy  |  Biweekly Contest 138  |
+|  3271  |  [Hash Divided String](/solution/3200-3299/3271.Hash%20Divided%20String/README_EN.md)  |  `String`,`Simulation`  |  Medium  |  Biweekly Contest 138  |
+|  3272  |  [Find the Count of Good Integers](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README_EN.md)  |  `Hash Table`,`Math`,`Combinatorics`,`Enumeration`  |  Hard  |  Biweekly Contest 138  |
+|  3273  |  [Minimum Amount of Damage Dealt to Bob](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Hard  |  Biweekly Contest 138  |
+|  3274  |  [Check if Two Chessboard Squares Have the Same Color](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README_EN.md)  |  `Math`,`String`  |  Easy  |  Weekly Contest 413  |
+|  3275  |  [K-th Nearest Obstacle Queries](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README_EN.md)  |  `Array`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 413  |
+|  3276  |  [Select Cells in Grid With Maximum Score](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Bitmask`,`Matrix`  |  Hard  |  Weekly Contest 413  |
+|  3277  |  [Maximum XOR Score Subarray Queries](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 413  |
+|  3278  |  [Find Candidates for Data Scientist Position II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 
 ## Copyright
 

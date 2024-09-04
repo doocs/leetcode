@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3271.Hash%20Divided%20String/README.md
+tags:
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

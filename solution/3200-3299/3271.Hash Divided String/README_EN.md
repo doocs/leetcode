@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3271.Hash%20Divided%20String/README_EN.md
+tags:
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

@@ -3279,16 +3279,16 @@
 |  3266  |  [K 次乘运算后的最终数组 II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README.md)  |  `数组`,`模拟`,`堆（优先队列）`  |  困难  |  第 412 场周赛  |
 |  3267  |  [统计近似相等数对 II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README.md)  |  `数组`,`哈希表`,`计数`,`枚举`,`排序`  |  困难  |  第 412 场周赛  |
 |  3268  |  [查找重叠的班次 II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  3269  |  [Constructing Two Increasing Arrays](/solution/3200-3299/3269.Constructing%20Two%20Increasing%20Arrays/README.md)  |    |  困难  |  🔒  |
-|  3270  |  [求出数字答案](/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README.md)  |    |  简单  |  第 138 场双周赛  |
-|  3271  |  [哈希分割字符串](/solution/3200-3299/3271.Hash%20Divided%20String/README.md)  |    |  中等  |  第 138 场双周赛  |
-|  3272  |  [统计好整数的数目](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README.md)  |    |  困难  |  第 138 场双周赛  |
-|  3273  |  [对 Bob 造成的最少伤害](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README.md)  |    |  困难  |  第 138 场双周赛  |
-|  3274  |  [检查棋盘方格颜色是否相同](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README.md)  |    |  简单  |  第 413 场周赛  |
-|  3275  |  [第 K 近障碍物查询](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README.md)  |    |  中等  |  第 413 场周赛  |
-|  3276  |  [选择矩阵中单元格的最大得分](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README.md)  |    |  困难  |  第 413 场周赛  |
-|  3277  |  [查询子数组最大异或值](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README.md)  |    |  困难  |  第 413 场周赛  |
-|  3278  |  [Find Candidates for Data Scientist Position II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README.md)  |    |  中等  |  🔒  |
+|  3269  |  [Constructing Two Increasing Arrays](/solution/3200-3299/3269.Constructing%20Two%20Increasing%20Arrays/README.md)  |  `数组`,`动态规划`  |  困难  |  🔒  |
+|  3270  |  [求出数字答案](/solution/3200-3299/3270.Find%20the%20Key%20of%20the%20Numbers/README.md)  |  `数学`  |  简单  |  第 138 场双周赛  |
+|  3271  |  [哈希分割字符串](/solution/3200-3299/3271.Hash%20Divided%20String/README.md)  |  `字符串`,`模拟`  |  中等  |  第 138 场双周赛  |
+|  3272  |  [统计好整数的数目](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README.md)  |  `哈希表`,`数学`,`组合数学`,`枚举`  |  困难  |  第 138 场双周赛  |
+|  3273  |  [对 Bob 造成的最少伤害](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README.md)  |  `贪心`,`数组`,`排序`  |  困难  |  第 138 场双周赛  |
+|  3274  |  [检查棋盘方格颜色是否相同](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README.md)  |  `数学`,`字符串`  |  简单  |  第 413 场周赛  |
+|  3275  |  [第 K 近障碍物查询](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README.md)  |  `数组`,`堆（优先队列）`  |  中等  |  第 413 场周赛  |
+|  3276  |  [选择矩阵中单元格的最大得分](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README.md)  |  `位运算`,`数组`,`动态规划`,`状态压缩`,`矩阵`  |  困难  |  第 413 场周赛  |
+|  3277  |  [查询子数组最大异或值](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README.md)  |  `数组`,`动态规划`  |  困难  |  第 413 场周赛  |
+|  3278  |  [寻找数据科学家职位的候选人 II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README.md)  |  `数据库`  |  中等  |  🔒  |
 
 ## 版权
 
