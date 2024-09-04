@@ -2,16 +2,19 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* decompressRLElist(int* nums, int numsSize, int* returnSize) {
-    int size = 0;
+    int n = 0;
     for (int i = 0; i < numsSize; i += 2) {
-        size += nums[i];
+        n += nums[i];
     }
-    int* ans = malloc(size * sizeof(int));
-    for (int i = 0, j = 0; j < numsSize; j += 2) {
-        for (int k = 0; k < nums[j]; k++) {
-            ans[i++] = nums[j + 1];
+    int* ans = (int*) malloc(n * sizeof(int));
+    *returnSize = n;
+    int k = 0;
+    for (int i = 0; i < numsSize; i += 2) {
+        int freq = nums[i];
+        int val = nums[i + 1];
+        for (int j = 0; j < freq; j++) {
+            ans[k++] = val;
         }
     }
-    *returnSize = size;
     return ans;
 }

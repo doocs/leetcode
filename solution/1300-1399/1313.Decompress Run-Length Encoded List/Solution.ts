@@ -1,10 +1,9 @@
 function decompressRLElist(nums: number[]): number[] {
-    let n = nums.length >> 1;
-    let ans = [];
-    for (let i = 0; i < n; i++) {
-        let freq = nums[2 * i],
-            val = nums[2 * i + 1];
-        ans.push(...new Array(freq).fill(val));
+    const ans: number[] = [];
+    for (let i = 0; i < nums.length; i += 2) {
+        for (let j = 0; j < nums[i]; j++) {
+            ans.push(nums[i + 1]);
+        }
     }
     return ans;
 }
