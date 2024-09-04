@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README.md
+tags:
+    - 数组
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

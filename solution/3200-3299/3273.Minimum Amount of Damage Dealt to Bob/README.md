@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
 ---
 
 <!-- problem:start -->

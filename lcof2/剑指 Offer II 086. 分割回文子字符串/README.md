@@ -299,15 +299,15 @@ class Solution {
         n = s.count
         self.s = s
         f = Array(repeating: Array(repeating: true, count: n), count: n)
-        
+
         let chars = Array(s)
-        
+
         for i in stride(from: n - 1, through: 0, by: -1) {
             for j in i + 1 ..< n {
                 f[i][j] = chars[i] == chars[j] && f[i + 1][j - 1]
             }
         }
-        
+
         dfs(0)
         return ans
     }

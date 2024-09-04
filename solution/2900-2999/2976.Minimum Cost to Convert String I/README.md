@@ -53,8 +53,8 @@ tags:
 <strong>输入：</strong>source = "aaaa", target = "bbbb", original = ["a","c"], changed = ["c","b"], cost = [1,2]
 <strong>输出：</strong>12
 <strong>解释：</strong>要将字符 'a' 更改为 'b'：
-- 将字符 'a' 更改为 'c'，成本为 1
-- 将字符 'c' 更改为 'b'，成本为 2
+- 将字符 'a' 更改为 'c'，成本为 1 
+- 将字符 'c' 更改为 'b'，成本为 2 
 产生的总成本是 1 + 2 = 3。
 将所有 'a' 更改为 'b'，产生的总成本是 3 * 4 = 12 。
 </pre>

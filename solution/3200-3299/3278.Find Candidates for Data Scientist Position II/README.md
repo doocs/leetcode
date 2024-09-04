@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3278. Find Candidates for Data Scientist Position II 🔒](https://leetcode.cn/problems/find-candidates-for-data-scientist-position-ii)
+# [3278. 寻找数据科学家职位的候选人 II 🔒](https://leetcode.cn/problems/find-candidates-for-data-scientist-position-ii)
 
 [English Version](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <font face="monospace"><code>Candidates</code></font></p>
+<p>表：<font face="monospace"><code>Candidates</code></font></p>
 
 <pre>
 +--------------+---------+ 
@@ -26,11 +26,11 @@ tags:
 | skill        | varchar |
 | proficiency  | int     |
 +--------------+---------+
-(candidate_id, skill) is the unique key for this table.
-Each row includes candidate_id, skill, and proficiency level (1-5).
+是这张表的主键（有不同值的列）。 
+每一行包括 candidate_id 和技能，以及熟练程度（1-5）。
 </pre>
 
-<p>Table: <font face="monospace"><code>Projects</code></font></p>
+<p>表：<font face="monospace"><code>Projects</code></font></p>
 
 <pre>
 +--------------+---------+ 
@@ -40,36 +40,37 @@ Each row includes candidate_id, skill, and proficiency level (1-5).
 | skill        | varchar |
 | importance   | int     |
 +--------------+---------+
-(project_id, skill) is the primary key for this table.
-Each row includes project_id, required skill, and its importance (1-5) for the project.
+(project_id, skill) 是这张表的主键。
+每一行包括 project_id，所需技能，以及项目的重要性（1-5）。
 </pre>
 
-<p>Leetcode is staffing for multiple data science projects. Write a solution to find the <strong>best candidate</strong> for<strong> each project</strong> based on the following criteria:</p>
+<p>Leetcode 正在为多个数据科学项目招聘人员。编写一个解决方案来根据以下条件为 <strong>每一个项目</strong> 找到 <strong>最佳候选人</strong>：</p>
 
 <ol>
-	<li>Candidates must have <strong>all</strong> the skills required for a project.</li>
-	<li>Calculate a <strong>score</strong> for each candidate-project pair as follows:
+	<li>候选人必须拥有项目所需的 <strong>所有</strong>&nbsp;技能。</li>
+	<li>为每个候选人-项目对计算如下的 <strong>分数</strong>：
 	<ul>
-		<li><strong>Start</strong> with <code>100</code> points</li>
-		<li><strong>Add</strong> <code>10</code> points for each skill where <strong>proficiency &gt; importance</strong></li>
-		<li><strong>Subtract</strong> <code>5</code> points for each skill where <strong>proficiency &lt; importance</strong></li>
+		<li>从&nbsp;<code>100</code>&nbsp;分<strong>&nbsp;开始。</strong></li>
+		<li>对于每一个技能，当 <b>熟练程度 &gt; 重要性 加</b>&nbsp;<code>10</code>&nbsp;分。</li>
+		<li>对于每一个技能，当&nbsp;<strong>熟练程度 &lt; 重要性 减</strong>&nbsp;<code>5</code>&nbsp;分。</li>
 	</ul>
 	</li>
 </ol>
 
-<p>Include only the top candidate (highest score) for each project. If there&rsquo;s a <strong>tie</strong>, choose the candidate with the <strong>lower</strong> <code>candidate_id</code>. If there is <strong>no suitable candidate</strong> for a project, <strong>do not return</strong>&nbsp;that project.</p>
+<p>仅包括每个项目的最佳候选人（最高分）。如果 <strong>相同</strong>，选择有 <strong>更小</strong>&nbsp;<code>candidate_id</code>&nbsp;的候选人。如果一个项目 <strong>没有适合的候选人</strong>，<strong>不要返回 </strong>那个项目。</p>
 
-<p>Return a result table ordered by <code>project_id</code> in ascending order.</p>
+<p>返回结果表以&nbsp;<code>project_id</code>&nbsp;升序排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>输出格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p><code>Candidates</code> table:</p>
+<p><code>Candidates</code> 表：</p>
 
 <pre class="example-io">
 +--------------+-----------+-------------+
@@ -90,7 +91,7 @@ Each row includes project_id, required skill, and its importance (1-5) for the p
 +--------------+-----------+-------------+
 </pre>
 
-<p><code>Projects</code> table:</p>
+<p><code>Projects</code> 表：</p>
 
 <pre class="example-io">
 +-------------+-----------+------------+
@@ -105,7 +106,7 @@ Each row includes project_id, required skill, and its importance (1-5) for the p
 +-------------+-----------+------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+--------------+-------+
@@ -116,14 +117,14 @@ Each row includes project_id, required skill, and its importance (1-5) for the p
 +-------------+--------------+-------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>For Project 501, Candidate 101 has the highest score of 105. All other candidates have the same score but Candidate 101 has the lowest candidate_id among them.</li>
-	<li>For Project 502, Candidate 102 has the highest score of 130.</li>
+	<li>对于项目 501, 候选人 101 有最高的 105 分。所有其他的候选人有相同的分数，但候选人 101 有比他们更小的 candidate_id。</li>
+	<li>对于项目 502，候选人&nbsp;102 有最高的 130&nbsp;分。</li>
 </ul>
 
-<p>The output table is ordered by project_id in ascending order.</p>
+<p>输出表以 project_id 升序排序。</p>
 </div>
 
 <!-- description:end -->

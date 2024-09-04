@@ -8,4 +8,5 @@ class Solution:
                 continue
             if i < n and nums[i] <= i:
                 continue
+            ans += 1
         return ans

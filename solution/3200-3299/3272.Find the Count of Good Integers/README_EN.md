@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - Combinatorics
+    - Enumeration
 ---
 
 <!-- problem:start -->

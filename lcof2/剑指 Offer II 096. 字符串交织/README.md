@@ -694,11 +694,11 @@ class Solution {
         if m + n != s3.count {
             return false
         }
-        
+
         let s1 = Array(s1), s2 = Array(s2), s3 = Array(s3)
         var dp = Array(repeating: Array(repeating: false, count: n + 1), count: m + 1)
         dp[0][0] = true
-        
+
         for i in 0...m {
             for j in 0...n {
                 let k = i + j - 1
@@ -710,7 +710,7 @@ class Solution {
                 }
             }
         }
-        
+
         return dp[m][n]
     }
 }

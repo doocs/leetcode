@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

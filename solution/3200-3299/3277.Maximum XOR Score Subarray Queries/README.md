@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README.md
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->
