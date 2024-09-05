@@ -26,7 +26,7 @@ tags:
 
 <pre>
 <strong>输入: </strong>s = "abcabcbb"
-<strong>输出: </strong>3 
+<strong>输出: </strong>3
 <strong>解释:</strong> 因为无重复字符的最长子串是 <code>"abc"</code>，所以其长度为 3。
 </pre>
 
@@ -307,6 +307,27 @@ proc lengthOfLongestSubstring(s: string): int =
     i += 1
 
   result = res # result has the default return value
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun lengthOfLongestSubstring(s: String): Int {
+        var char_set = BooleanArray(128)
+        var left = 0
+        var ans = 0
+        s.forEachIndexed { right, c ->
+            while (char_set[c.code]) {
+                char_set[s[left].code] = false
+                left++
+            }
+            char_set[c.code] = true
+            ans = Math.max(ans, right - left + 1)
+        }
+        return ans
+    }
+}
 ```
 
 <!-- tabs:end -->
