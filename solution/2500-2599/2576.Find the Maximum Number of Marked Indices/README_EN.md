@@ -70,7 +70,7 @@ Since there is no other operation, the answer is 4.
 </ul>
 
 <p>&nbsp;</p>
-<style type="text/css">.spoilerbutton {display:block; border:dashed; padding: 0px 0px; margin:10px 0px; font-size:150%; font-weight: bold; color:#000000; background-color:cyan; outline:0; 
+<style type="text/css">.spoilerbutton {display:block; border:dashed; padding: 0px 0px; margin:10px 0px; font-size:150%; font-weight: bold; color:#000000; background-color:cyan; outline:0;
 }
 .spoiler {overflow:hidden;}
 .spoiler > div {-webkit-transition: all 0s ease;-moz-transition: margin 0s ease;-o-transition: all 0s ease;transition: margin 0s ease;}
@@ -86,9 +86,11 @@ Since there is no other operation, the answer is 4.
 
 ### Solution 1: Greedy + Two Pointers
 
-In order to mark as many indices as possible, we can sort the array `nums`, and then traverse the array from left to right. For each index $i$, we find the first index $j$ in the right half of the array that satisfies $2 \times nums[i] \leq nums[j]$, and then mark indices $i$ and $j$. Continue to traverse the next index $i$. When we have traversed the right half of the array, it means that the marking is complete, and the number of marked indices is the answer.
+According to the problem description, the problem can generate at most $n / 2$ pairs of indices, where $n$ is the length of the array $\textit{nums}$.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `nums`.
+To mark as many indices as possible, we can sort the array $\textit{nums}$. Next, we traverse each element $\textit{nums}[j]$ in the right half of the array, using a pointer $\textit{i}$ to point to the smallest element in the left half. If $\textit{nums}[i] \times 2 \leq \textit{nums}[j]$, we can mark the indices $\textit{i}$ and $\textit{j}$, and move $\textit{i}$ one position to the right. Continue traversing the elements in the right half until reaching the end of the array. At this point, the number of indices we can mark is $\textit{i} \times 2$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -98,16 +100,11 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log
 class Solution:
     def maxNumOfMarkedIndices(self, nums: List[int]) -> int:
         nums.sort()
-        n = len(nums)
-        i, j = 0, (n + 1) // 2
-        ans = 0
-        while j < n:
-            while j < n and nums[i] * 2 > nums[j]:
-                j += 1
-            if j < n:
-                ans += 2
-            i, j = i + 1, j + 1
-        return ans
+        i, n = 0, len(nums)
+        for x in nums[(n + 1) // 2 :]:
+            if nums[i] * 2 <= x:
+                i += 1
+        return i * 2
 ```
 
 #### Java
@@ -116,17 +113,13 @@ class Solution:
 class Solution {
     public int maxNumOfMarkedIndices(int[] nums) {
         Arrays.sort(nums);
-        int n = nums.length;
-        int ans = 0;
-        for (int i = 0, j = (n + 1) / 2; j < n; ++i, ++j) {
-            while (j < n && nums[i] * 2 > nums[j]) {
-                ++j;
-            }
-            if (j < n) {
-                ans += 2;
+        int i = 0, n = nums.length;
+        for (int j = (n + 1) / 2; j < n; ++j) {
+            if (nums[i] * 2 <= nums[j]) {
+                ++i;
             }
         }
-        return ans;
+        return i * 2;
     }
 }
 ```
@@ -137,18 +130,14 @@ class Solution {
 class Solution {
 public:
     int maxNumOfMarkedIndices(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int n = nums.size();
-        int ans = 0;
-        for (int i = 0, j = (n + 1) / 2; j < n; ++i, ++j) {
-            while (j < n && nums[i] * 2 > nums[j]) {
-                ++j;
-            }
-            if (j < n) {
-                ans += 2;
+        ranges::sort(nums);
+        int i = 0, n = nums.size();
+        for (int j = (n + 1) / 2; j < n; ++j) {
+            if (nums[i] * 2 <= nums[j]) {
+                ++i;
             }
         }
-        return ans;
+        return i * 2;
     }
 };
 ```
@@ -158,16 +147,13 @@ public:
 ```go
 func maxNumOfMarkedIndices(nums []int) (ans int) {
 	sort.Ints(nums)
-	n := len(nums)
-	for i, j := 0, (n+1)/2; j < n; i, j = i+1, j+1 {
-		for j < n && nums[i]*2 > nums[j] {
-			j++
-		}
-		if j < n {
-			ans += 2
+	i, n := 0, len(nums)
+	for _, x := range nums[(n+1)/2:] {
+		if nums[i]*2 <= x {
+			i++
 		}
 	}
-	return
+	return i * 2
 }
 ```
 
@@ -177,16 +163,31 @@ func maxNumOfMarkedIndices(nums []int) (ans int) {
 function maxNumOfMarkedIndices(nums: number[]): number {
     nums.sort((a, b) => a - b);
     const n = nums.length;
-    let ans = 0;
-    for (let i = 0, j = Math.floor((n + 1) / 2); j < n; ++i, ++j) {
-        while (j < n && nums[i] * 2 > nums[j]) {
-            ++j;
-        }
-        if (j < n) {
-            ans += 2;
+    let i = 0;
+    for (let j = (n + 1) >> 1; j < n; ++j) {
+        if (nums[i] * 2 <= nums[j]) {
+            ++i;
         }
     }
-    return ans;
+    return i * 2;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_num_of_marked_indices(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let mut i = 0;
+        let n = nums.len();
+        for j in (n + 1) / 2..n {
+            if nums[i] * 2 <= nums[j] {
+                i += 1;
+            }
+        }
+        (i * 2) as i32
+    }
 }
 ```
 
