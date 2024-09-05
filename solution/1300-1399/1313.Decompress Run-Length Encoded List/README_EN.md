@@ -57,7 +57,11 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can directly simulate the process described in the problem. Traverse the array $\textit{nums}$ from left to right, each time taking out two numbers $\textit{freq}$ and $\textit{val}$, then repeat $\textit{val}$ $\textit{freq}$ times, and add these $\textit{freq}$ $\textit{val}$s to the answer array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. We only need to traverse the array $\textit{nums}$ once. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -66,10 +70,7 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 ```python
 class Solution:
     def decompressRLElist(self, nums: List[int]) -> List[int]:
-        res = []
-        for i in range(1, len(nums), 2):
-            res.extend([nums[i]] * nums[i - 1])
-        return res
+        return [nums[i + 1] for i in range(0, len(nums), 2) for _ in range(nums[i])]
 ```
 
 #### Java
@@ -77,17 +78,13 @@ class Solution:
 ```java
 class Solution {
     public int[] decompressRLElist(int[] nums) {
-        int n = 0;
+        List<Integer> ans = new ArrayList<>();
         for (int i = 0; i < nums.length; i += 2) {
-            n += nums[i];
-        }
-        int[] res = new int[n];
-        for (int i = 1, k = 0; i < nums.length; i += 2) {
-            for (int j = 0; j < nums[i - 1]; ++j) {
-                res[k++] = nums[i];
+            for (int j = 0; j < nums[i]; ++j) {
+                ans.add(nums[i + 1]);
             }
         }
-        return res;
+        return ans.stream().mapToInt(i -> i).toArray();
     }
 }
 ```
@@ -98,13 +95,13 @@ class Solution {
 class Solution {
 public:
     vector<int> decompressRLElist(vector<int>& nums) {
-        vector<int> res;
-        for (int i = 1; i < nums.size(); i += 2) {
-            for (int j = 0; j < nums[i - 1]; ++j) {
-                res.push_back(nums[i]);
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); i += 2) {
+            for (int j = 0; j < nums[i]; j++) {
+                ans.push_back(nums[i + 1]);
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -112,14 +109,13 @@ public:
 #### Go
 
 ```go
-func decompressRLElist(nums []int) []int {
-	var res []int
+func decompressRLElist(nums []int) (ans []int) {
 	for i := 1; i < len(nums); i += 2 {
 		for j := 0; j < nums[i-1]; j++ {
-			res = append(res, nums[i])
+			ans = append(ans, nums[i])
 		}
 	}
-	return res
+	return
 }
 ```
 
@@ -127,12 +123,11 @@ func decompressRLElist(nums []int) []int {
 
 ```ts
 function decompressRLElist(nums: number[]): number[] {
-    let n = nums.length >> 1;
-    let ans = [];
-    for (let i = 0; i < n; i++) {
-        let freq = nums[2 * i],
-            val = nums[2 * i + 1];
-        ans.push(...new Array(freq).fill(val));
+    const ans: number[] = [];
+    for (let i = 0; i < nums.length; i += 2) {
+        for (let j = 0; j < nums[i]; j++) {
+            ans.push(nums[i + 1]);
+        }
     }
     return ans;
 }
@@ -143,12 +138,16 @@ function decompressRLElist(nums: number[]): number[] {
 ```rust
 impl Solution {
     pub fn decompress_rl_elist(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len() >> 1;
         let mut ans = Vec::new();
-        for i in 0..n {
-            for _ in 0..nums[2 * i] {
-                ans.push(nums[2 * i + 1]);
+        let n = nums.len();
+        let mut i = 0;
+        while i < n {
+            let freq = nums[i];
+            let val = nums[i + 1];
+            for _ in 0..freq {
+                ans.push(val);
             }
+            i += 2;
         }
         ans
     }
@@ -162,17 +161,20 @@ impl Solution {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* decompressRLElist(int* nums, int numsSize, int* returnSize) {
-    int size = 0;
+    int n = 0;
     for (int i = 0; i < numsSize; i += 2) {
-        size += nums[i];
+        n += nums[i];
     }
-    int* ans = malloc(size * sizeof(int));
-    for (int i = 0, j = 0; j < numsSize; j += 2) {
-        for (int k = 0; k < nums[j]; k++) {
-            ans[i++] = nums[j + 1];
+    int* ans = (int*) malloc(n * sizeof(int));
+    *returnSize = n;
+    int k = 0;
+    for (int i = 0; i < numsSize; i += 2) {
+        int freq = nums[i];
+        int val = nums[i + 1];
+        for (int j = 0; j < freq; j++) {
+            ans[k++] = val;
         }
     }
-    *returnSize = size;
     return ans;
 }
 ```
