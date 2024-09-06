@@ -23,7 +23,7 @@ tags:
 
 <p>你也被给予三个整数 <code>sr</code> ,&nbsp; <code>sc</code> 和 <code>color</code> 。你应该从像素&nbsp;<code>image[sr][sc]</code>&nbsp;开始对图像进行 上色<strong>填充</strong> 。</p>
 
-<p>为了完成<strong> 上色工作</strong> ，从初始像素开始，记录初始坐标的 <strong>上下左右四个方向上</strong> 像素值与初始坐标相同的相连像素点，接着再记录这四个方向上符合条件的像素点与他们对应 <strong>四个方向上</strong> 像素值与初始坐标相同的相连像素点，……，重复该过程。将所有有记录的像素点的颜色值改为&nbsp;<code>color</code>&nbsp;。</p>
+<p>为了完成 <strong>上色工作</strong>，从初始像素开始，记录初始坐标的 <strong>上下左右四个方向上</strong> 相邻且同色的像素点，接着再记录与这些像素点相邻且同色的新像素点，……，重复该过程。将所有有记录的像素点的颜色值改为 <code>color</code>。</p>
 
 <p>最后返回 <em>经过上色渲染后的图像&nbsp;</em>。</p>
 

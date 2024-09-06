@@ -36,9 +36,10 @@ tags:
 <ul>
 	<li><code>1 &lt;= text.length &lt;= 1000</code></li>
 	<li><code>text</code> consists of lowercase English letters and spaces.</li>
-	<li>All the words in <code>text</code> a separated by <strong>a single space</strong>.</li>
+	<li>All the words in <code>text</code> are separated by <strong>a single space</strong>.</li>
 	<li><code>1 &lt;= first.length, second.length &lt;= 10</code></li>
 	<li><code>first</code> and <code>second</code> consist of lowercase English letters.</li>
+	<li><code>text</code> will not have any leading or trailing spaces.</li>
 </ul>
 
 <!-- description:end -->

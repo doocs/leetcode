@@ -17,20 +17,27 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an absolute path for a Unix-style file system, which begins with a slash <code>&#39;/&#39;</code>, transform this path into its <strong>simplified canonical path</strong>.</p>
+<p>You are given an <em>absolute</em> path for a Unix-style file system, which always begins with a slash <code>&#39;/&#39;</code>. Your task is to transform this absolute path into its <strong>simplified canonical path</strong>.</p>
 
-<p>In Unix-style file system context, a single period <code>&#39;.&#39;</code> signifies the current directory, a double period <code>&quot;..&quot;</code> denotes moving up one directory level, and multiple slashes such as <code>&quot;//&quot;</code> are interpreted as a single slash. In this problem, treat sequences of periods not covered by the previous rules (like <code>&quot;...&quot;</code>) as valid names for files or directories.</p>
-
-<p>The simplified canonical path should adhere to the following rules:</p>
+<p>The <em>rules</em> of a Unix-style file system are as follows:</p>
 
 <ul>
-	<li>It must start with a single slash <code>&#39;/&#39;</code>.</li>
-	<li>Directories within the path should be separated by only one slash <code>&#39;/&#39;</code>.</li>
-	<li>It should not end with a slash <code>&#39;/&#39;</code>, unless it&#39;s the root directory.</li>
-	<li>It should exclude any single or double periods used to denote current or parent directories.</li>
+	<li>A single period <code>&#39;.&#39;</code> represents the current directory.</li>
+	<li>A double period <code>&#39;..&#39;</code> represents the previous/parent directory.</li>
+	<li>Multiple consecutive slashes such as <code>&#39;//&#39;</code> and <code>&#39;///&#39;</code> are treated as a single slash <code>&#39;/&#39;</code>.</li>
+	<li>Any sequence of periods that does <strong>not match</strong> the rules above should be treated as a <strong>valid directory or</strong> <strong>file </strong><strong>name</strong>. For example, <code>&#39;...&#39; </code>and <code>&#39;....&#39;</code> are valid directory or file names.</li>
 </ul>
 
-<p>Return the new path.</p>
+<p>The simplified canonical path should follow these <em>rules</em>:</p>
+
+<ul>
+	<li>The path must start with a single slash <code>&#39;/&#39;</code>.</li>
+	<li>Directories within the path must be separated by exactly one slash <code>&#39;/&#39;</code>.</li>
+	<li>The path must not end with a slash <code>&#39;/&#39;</code>, unless it is the root directory.</li>
+	<li>The path must not have any single or double periods (<code>&#39;.&#39;</code> and <code>&#39;..&#39;</code>) used to denote current or parent directories.</li>
+</ul>
+
+<p>Return the <strong>simplified canonical path</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -66,7 +73,7 @@ tags:
 
 <p><strong>Explanation:</strong></p>
 
-<p>A double period <code>&quot;..&quot;</code> refers to the directory up a level.</p>
+<p>A double period <code>&quot;..&quot;</code> refers to the directory up a level (the parent directory).</p>
 </div>
 
 <p><strong class="example">Example 4:</strong></p>

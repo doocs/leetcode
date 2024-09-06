@@ -22,23 +22,37 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [1,2,3,1]
-<strong>输出：</strong>true</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [1,2,3,1]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>true</span></p>
 
-<pre>
-<strong>输入：</strong>nums = [1,2,3,4]
-<strong>输出：</strong>false</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例&nbsp;3：</strong></p>
+<p>元素 1 在下标 0 和 3 出现。</p>
+</div>
 
-<pre>
-<strong>输入：</strong>nums = [1,1,1,3,3,4,3,2,4,2]
-<strong>输出：</strong>true</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [1,2,3,4]</span></p>
+
+<p><span class="example-io"><b>输出：</b>false</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>所有元素都不同。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [1,1,1,3,3,4,3,2,4,2]</span></p>
+
+<p><span class="example-io"><b>输出：</b>true</span></p>
+</div>
 
 <p>&nbsp;</p>
 

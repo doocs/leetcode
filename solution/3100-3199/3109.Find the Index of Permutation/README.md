@@ -22,7 +22,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>perm</code>，它是&nbsp;<code>[1, 2, ..., n]</code>&nbsp;的一个排列，返回 <code>[1, 2, ..., n]</code>&nbsp;的所有排列的字典序数组中&nbsp;<code>perm</code>&nbsp;的下标。</p>
+<p>给定一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>perm</code>，它是&nbsp;<code>[1, 2, ..., n]</code>&nbsp;的一个排列，将&nbsp;<code>[1, 2, ..., n]</code>&nbsp;所有的排列放在数组中，并以&nbsp;<span data-keyword="lexicographically-sorted-array">字典序</span>&nbsp;排序，返回这个数组中&nbsp;<code>perm</code>&nbsp;的下标。</p>
 
 <p>由于答案可能非常大，返回值对&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;<strong>取模</strong>。</p>
 
