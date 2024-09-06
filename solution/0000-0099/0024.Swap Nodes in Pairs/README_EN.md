@@ -21,25 +21,40 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/images/swap_ex1.jpg" style="width: 422px; height: 222px;" />
-<pre>
-<strong>Input:</strong> head = [1,2,3,4]
-<strong>Output:</strong> [2,1,4,3]
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = [1,2,3,4]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[2,1,4,3]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/images/swap_ex1.jpg" style="width: 422px; height: 222px;" /></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> head = []
-<strong>Output:</strong> []
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = []</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[]</span></p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> head = [1]
-<strong>Output:</strong> [1]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = [1]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[1]</span></p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">head = [1,2,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[2,1,3]</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

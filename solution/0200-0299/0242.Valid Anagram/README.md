@@ -18,23 +18,21 @@ tags:
 
 <!-- description:start -->
 
-<p>给定两个字符串 <code><em>s</em></code> 和 <code><em>t</em></code> ，编写一个函数来判断 <code><em>t</em></code> 是否是 <code><em>s</em></code> 的字母异位词。</p>
-
-<p><strong>字母异位词</strong> 是通过重新排列不同单词或短语的字母而形成的单词或短语，通常只使用所有原始字母一次。</p>
+<p>给定两个字符串 <code>s</code> 和 <code>t</code> ，编写一个函数来判断 <code>t</code> 是否是 <code>s</code> 的 <span data-keyword="anagram">字母异位词</span>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例&nbsp;1:</strong></p>
 
 <pre>
-<strong>输入:</strong> <em>s</em> = "anagram", <em>t</em> = "nagaram"
+<strong>输入:</strong> s = "anagram", t = "nagaram"
 <strong>输出:</strong> true
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong> <em>s</em> = "rat", <em>t</em> = "car"
+<strong>输入:</strong> s = "rat", t = "car"
 <strong>输出: </strong>false</pre>
 
 <p>&nbsp;</p>

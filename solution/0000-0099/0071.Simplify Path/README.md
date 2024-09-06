@@ -17,11 +17,18 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个字符串 <code>path</code> ，表示指向某一文件或目录的&nbsp;Unix 风格 <strong>绝对路径 </strong>（以 <code>'/'</code> 开头），请你将其转化为更加简洁的规范路径。</p>
+<p>给你一个字符串 <code>path</code> ，表示指向某一文件或目录的&nbsp;Unix 风格 <strong>绝对路径 </strong>（以 <code>'/'</code> 开头），请你将其转化为 <strong>更加简洁的规范路径</strong>。</p>
 
-<p class="MachineTrans-lang-zh-CN">在 Unix 风格的文件系统中，一个点（<code>.</code>）表示当前目录本身；此外，两个点 （<code>..</code>）&nbsp;表示将目录切换到上一级（指向父目录）；两者都可以是复杂相对路径的组成部分。任意多个连续的斜杠（即，<code>'//'</code>）都被视为单个斜杠 <code>'/'</code> 。 对于此问题，任何其他格式的点（例如，<code>'...'</code>）均被视为文件/目录名称。</p>
+<p class="MachineTrans-lang-zh-CN">在 Unix 风格的文件系统中规则如下：</p>
 
-<p>请注意，返回的 <strong>规范路径</strong> 必须遵循下述格式：</p>
+<ul>
+	<li class="MachineTrans-lang-zh-CN">一个点&nbsp;<code>'.'</code>&nbsp;表示当前目录本身。</li>
+	<li class="MachineTrans-lang-zh-CN">此外，两个点 <code>'..'</code>&nbsp;表示将目录切换到上一级（指向父目录）。</li>
+	<li class="MachineTrans-lang-zh-CN">任意多个连续的斜杠（即，<code>'//'</code>&nbsp;或 <code>'///'</code>）都被视为单个斜杠 <code>'/'</code>。</li>
+	<li class="MachineTrans-lang-zh-CN">任何其他格式的点（例如，<code>'...'</code>&nbsp;或 <code>'....'</code>）均被视为有效的文件/目录名称。</li>
+</ul>
+
+<p>返回的 <strong>简化路径</strong> 必须遵循下述格式：</p>
 
 <ul>
 	<li>始终以斜杠 <code>'/'</code> 开头。</li>
@@ -37,21 +44,21 @@ tags:
 <p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b>path = "/home/"</span></p>
+<p><strong>输入：</strong><span class="example-io">path = "/home/"</span></p>
 
 <p><span class="example-io"><b>输出：</b>"/home"</span></p>
 
 <p><strong>解释：</strong></p>
 
-<p>应删除尾部斜杠。</p>
+<p>应删除尾随斜杠。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/home//foo/"</span></p>
+<p><span class="example-io"><b>输入：</b>path = "/home//foo/"</span></p>
 
-<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/home/foo"</span></p>
+<p><span class="example-io"><b>输出：</b>"/home/foo"</span></p>
 
 <p><strong>解释：</strong></p>
 
@@ -61,37 +68,37 @@ tags:
 <p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/home/user/Documents/../Pictures"</span></p>
+<p><strong>输入：</strong><span class="example-io">path = "/home/user/Documents/../Pictures"</span></p>
 
-<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/home/user/Pictures"</span></p>
+<p><span class="example-io"><b>输出：</b>"/home/user/Pictures"</span></p>
 
 <p><strong>解释：</strong></p>
 
-<p>两个点&nbsp;<code>".."</code>&nbsp;表示上一级目录。</p>
+<p>两个点&nbsp;<code>".."</code>&nbsp;表示上一级目录（父目录）。</p>
 </div>
 
 <p><strong class="example">示例 4：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/../"</span></p>
+<p><span class="example-io"><b>输入：</b>path = "/../"</span></p>
 
-<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/"</span></p>
+<p><span class="example-io"><b>输出：</b>"/"</span></p>
 
 <p><strong>解释：</strong></p>
 
-<p>不可能从根目录上升级一级。</p>
+<p>不可能从根目录上升一级目录。</p>
 </div>
 
 <p><strong class="example">示例 5：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b></span><span class="example-io">path = "/.../a/../b/c/../d/./"</span></p>
+<p><span class="example-io"><b>输入：</b>path = "/.../a/../b/c/../d/./"</span></p>
 
-<p><span class="example-io"><b>输出：</b></span><span class="example-io">"/.../b/d"</span></p>
+<p><span class="example-io"><b>输出：</b>"/.../b/d"</span></p>
 
 <p><strong>解释：</strong></p>
 
-<p><code>"..."</code> 是此问题中目录的有效名称。</p>
+<p><code>"..."</code>&nbsp;在这个问题中是一个合法的目录名。</p>
 </div>
 
 <p>&nbsp;</p>

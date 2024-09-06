@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2000.Re
 rating: 1199
 source: Weekly Contest 258 Q1
 tags:
+    - Stack
     - Two Pointers
     - String
 ---

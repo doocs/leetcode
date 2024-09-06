@@ -42,7 +42,7 @@ Each row includes item id, item type, item category and sqaure footage.
 	<li>If the count for the <strong>not_prime</strong> category is <code>0</code>, you should <strong>output</strong> <code>0</code> for that particular category.</li>
 </ul>
 
-<p>Return <em>the result table ordered by item count in <strong>ascending order</strong></em>.</p>
+<p>Return <em>the result table ordered by item count in <strong>descending order</strong></em>.</p>
 
 <p>The result format is in the following example.</p>
 

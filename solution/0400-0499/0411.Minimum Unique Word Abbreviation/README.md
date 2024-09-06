@@ -4,6 +4,7 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README.md
 tags:
     - 位运算
+    - 数组
     - 字符串
     - 回溯
 ---
@@ -70,6 +71,7 @@ tags:
 	<li><code>1 &lt;= dictionary[i].length&nbsp;&lt;= 100</code></li>
 	<li>如果 <code>n &gt; 0</code> ，那么 <code>log<sub>2</sub>(n) + m &lt;= 21</code></li>
 	<li><code>target</code>&nbsp;和&nbsp;<code>dictionary[i]</code>&nbsp;仅包含小写字符</li>
+	<li><code>dictionary</code>&nbsp;不包含 <code>target</code>。</li>
 </ul>
 
 <p>&nbsp;</p>
