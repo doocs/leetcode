@@ -325,6 +325,88 @@ class Solution {
 }
 ```
 
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun multiply(num1: String, num2: String): String {
+        if (num1 == "0" || num2 == "0") return "0"
+
+        val chars_1 = num1.toCharArray().reversedArray()
+        val chars_2 = num2.toCharArray().reversedArray()
+
+        val result = mutableListOf<Int>()
+
+        chars_1.forEachIndexed { i, c1 ->
+            val multiplier_1 = c1 - '0'
+            var over = 0
+            var index = 0
+
+            fun sum(product: Int = 0): Unit {
+                while (index >= result.size) {
+                    result.add(0)
+                }
+                val value = product + over + result[index]
+                result[index] = value % 10
+                over = value / 10
+                return
+            }
+
+            chars_2.forEachIndexed { j, c2 ->
+                index = i + j
+                val multiplier_2 = c2 - '0'
+                sum(multiplier_1 * multiplier_2)
+            }
+
+            while (over > 0) {
+                index++
+                sum()
+            }
+        }
+
+        return result.reversed().joinToString("")
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var multiply = function (num1, num2) {
+    if (num1 === '0' || num2 === '0') return '0';
+
+    const result = Array(num1.length + num2.length).fill(0);
+    const code_0 = '0'.charCodeAt(0);
+
+    const num1_len = num1.length;
+    const num2_len = num2.length;
+
+    for (let i = 0; i < num1_len; ++i) {
+        const multiplier_1 = num1.charCodeAt(num1_len - i - 1) - code_0;
+        for (let j = 0; j < num2_len; ++j) {
+            const multiplier_2 = num2.charCodeAt(num2_len - j - 1) - code_0;
+            result[i + j] += multiplier_1 * multiplier_2;
+        }
+    }
+
+    result.reduce((carry, value, index) => {
+        const sum = carry + value;
+        result[index] = sum % 10;
+        return (sum / 10) | 0;
+    }, 0);
+
+    return result
+        .slice(0, result.findLastIndex(d => d !== 0) + 1)
+        .reverse()
+        .join('');
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
