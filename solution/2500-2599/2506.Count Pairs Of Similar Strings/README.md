@@ -41,8 +41,8 @@ tags:
 <strong>输入：</strong>words = ["aba","aabb","abcd","bac","aabc"]
 <strong>输出：</strong>2
 <strong>解释：</strong>共有 2 对满足条件：
-- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。 
-- i = 3 且 j = 4 ：words[3] 和 words[4] 只由字符 'a'、'b' 和 'c' 。 
+- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。
+- i = 3 且 j = 4 ：words[3] 和 words[4] 只由字符 'a'、'b' 和 'c' 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -51,9 +51,9 @@ tags:
 <strong>输入：</strong>words = ["aabb","ab","ba"]
 <strong>输出：</strong>3
 <strong>解释：</strong>共有 3 对满足条件：
-- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。 
-- i = 0 且 j = 2 ：words[0] 和 words[2] 只由字符 'a' 和 'b' 组成。 
-- i = 1 且 j = 2 ：words[1] 和 words[2] 只由字符 'a' 和 'b' 组成。 
+- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。
+- i = 0 且 j = 2 ：words[0] 和 words[2] 只由字符 'a' 和 'b' 组成。
+- i = 1 且 j = 2 ：words[1] 和 words[2] 只由字符 'a' 和 'b' 组成。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -96,12 +96,12 @@ class Solution:
     def similarPairs(self, words: List[str]) -> int:
         ans = 0
         cnt = Counter()
-        for w in words:
-            v = 0
-            for c in w:
-                v |= 1 << (ord(c) - ord("A"))
-            ans += cnt[v]
-            cnt[v] += 1
+        for s in words:
+            x = 0
+            for c in map(ord, s):
+                x |= 1 << (c - ord("a"))
+            ans += cnt[x]
+            cnt[x] += 1
         return ans
 ```
 
@@ -112,13 +112,13 @@ class Solution {
     public int similarPairs(String[] words) {
         int ans = 0;
         Map<Integer, Integer> cnt = new HashMap<>();
-        for (var w : words) {
-            int v = 0;
-            for (int i = 0; i < w.length(); ++i) {
-                v |= 1 << (w.charAt(i) - 'a');
+        for (var s : words) {
+            int x = 0;
+            for (char c : s.toCharArray()) {
+                x |= 1 << (c - 'a');
             }
-            ans += cnt.getOrDefault(v, 0);
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            ans += cnt.getOrDefault(x, 0);
+            cnt.merge(x, 1, Integer::sum);
         }
         return ans;
     }
@@ -133,11 +133,12 @@ public:
     int similarPairs(vector<string>& words) {
         int ans = 0;
         unordered_map<int, int> cnt;
-        for (auto& w : words) {
-            int v = 0;
-            for (auto& c : w) v |= 1 << c - 'a';
-            ans += cnt[v];
-            cnt[v]++;
+        for (const auto& s : words) {
+            int x = 0;
+            for (auto& c : s) {
+                x |= 1 << (c - 'a');
+            }
+            ans += cnt[x]++;
         }
         return ans;
     }
@@ -149,13 +150,13 @@ public:
 ```go
 func similarPairs(words []string) (ans int) {
 	cnt := map[int]int{}
-	for _, w := range words {
-		v := 0
-		for _, c := range w {
-			v |= 1 << (c - 'a')
+	for _, s := range words {
+		x := 0
+		for _, c := range s {
+			x |= 1 << (c - 'a')
 		}
-		ans += cnt[v]
-		cnt[v]++
+		ans += cnt[x]
+		cnt[x]++
 	}
 	return
 }
@@ -166,14 +167,14 @@ func similarPairs(words []string) (ans int) {
 ```ts
 function similarPairs(words: string[]): number {
     let ans = 0;
-    const cnt: Map<number, number> = new Map();
-    for (const w of words) {
-        let v = 0;
-        for (let i = 0; i < w.length; ++i) {
-            v |= 1 << (w.charCodeAt(i) - 'a'.charCodeAt(0));
+    const cnt = new Map<number, number>();
+    for (const s of words) {
+        let x = 0;
+        for (const c of s) {
+            x |= 1 << (c.charCodeAt(0) - 97);
         }
-        ans += cnt.get(v) || 0;
-        cnt.set(v, (cnt.get(v) || 0) + 1);
+        ans += cnt.get(x) || 0;
+        cnt.set(x, (cnt.get(x) || 0) + 1);
     }
     return ans;
 }
@@ -187,19 +188,15 @@ use std::collections::HashMap;
 impl Solution {
     pub fn similar_pairs(words: Vec<String>) -> i32 {
         let mut ans = 0;
-        let mut hash: HashMap<i32, i32> = HashMap::new();
-
-        for w in words {
-            let mut v = 0;
-
-            for c in w.chars() {
-                v |= 1 << ((c as u8) - b'a');
+        let mut cnt: HashMap<i32, i32> = HashMap::new();
+        for s in words {
+            let mut x = 0;
+            for c in s.chars() {
+                x |= 1 << ((c as u8) - b'a');
             }
-
-            ans += hash.get(&v).unwrap_or(&0);
-            *hash.entry(v).or_insert(0) += 1;
+            ans += cnt.get(&x).unwrap_or(&0);
+            *cnt.entry(x).or_insert(0) += 1;
         }
-
         ans
     }
 }

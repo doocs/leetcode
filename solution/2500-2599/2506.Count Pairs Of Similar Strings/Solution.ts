@@ -1,13 +1,13 @@
 function similarPairs(words: string[]): number {
     let ans = 0;
-    const cnt: Map<number, number> = new Map();
-    for (const w of words) {
-        let v = 0;
-        for (let i = 0; i < w.length; ++i) {
-            v |= 1 << (w.charCodeAt(i) - 'a'.charCodeAt(0));
+    const cnt = new Map<number, number>();
+    for (const s of words) {
+        let x = 0;
+        for (const c of s) {
+            x |= 1 << (c.charCodeAt(0) - 97);
         }
-        ans += cnt.get(v) || 0;
-        cnt.set(v, (cnt.get(v) || 0) + 1);
+        ans += cnt.get(x) || 0;
+        cnt.set(x, (cnt.get(x) || 0) + 1);
     }
     return ans;
 }
