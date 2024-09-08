@@ -12,16 +12,16 @@
 
 function mergeNodes(head: ListNode | null): ListNode | null {
     const dummy = new ListNode();
-    let cur = dummy;
-    let sum = 0;
-    while (head) {
-        if (head.val === 0 && sum !== 0) {
-            cur.next = new ListNode(sum);
-            cur = cur.next;
-            sum = 0;
+    let tail = dummy;
+    let s = 0;
+    for (let cur = head.next; cur; cur = cur.next) {
+        if (cur.val) {
+            s += cur.val;
+        } else {
+            tail.next = new ListNode(s);
+            tail = tail.next;
+            s = 0;
         }
-        sum += head.val;
-        head = head.next;
     }
     return dummy.next;
 }
