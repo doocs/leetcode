@@ -45,7 +45,7 @@ tags:
 <strong>解释：</strong>
 NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
 numArray.sumRange(0, 2); // return 1 ((-2) + 0 + 3)
-numArray.sumRange(2, 5); // return -1 (3 + (-5) + 2 + (-1))
+numArray.sumRange(2, 5); // return -1 (3 + (-5) + 2 + (-1)) 
 numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 </pre>
 

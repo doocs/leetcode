@@ -20,9 +20,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和一个 <strong>非负</strong>&nbsp;整数&nbsp;<code>k</code>&nbsp;。如果一个整数序列&nbsp;<code>seq</code>&nbsp;满足在范围下标范围&nbsp;<code>[0, seq.length - 2]</code>&nbsp;中存在 <strong>不超过</strong>&nbsp;<code>k</code>&nbsp;个下标 <code>i</code>&nbsp;满足&nbsp;<code>seq[i] != seq[i + 1]</code>&nbsp;，那么我们称这个整数序列为&nbsp;<strong>好</strong>&nbsp;序列。</p>
+<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;和一个 <strong>非负</strong>&nbsp;整数&nbsp;<code>k</code>&nbsp;。如果一个整数序列&nbsp;<code>seq</code>&nbsp;满足在下标范围&nbsp;<code>[0, seq.length - 2]</code>&nbsp;中&nbsp;<strong>最多只有</strong>&nbsp;<code>k</code>&nbsp;个下标 <code>i</code>&nbsp;满足&nbsp;<code>seq[i] != seq[i + 1]</code>&nbsp;，那么我们称这个整数序列为&nbsp;<strong>好</strong>&nbsp;序列。</p>
 
-<p>请你返回 <code>nums</code>&nbsp;中&nbsp;<strong>好</strong> <span data-keyword="subsequence-array">子序列</span>&nbsp;的最长长度</p>
+<p>请你返回 <code>nums</code>&nbsp;中&nbsp;<strong>好</strong> <span data-keyword="subsequence-array">子序列</span>&nbsp;的最长长度。</p>
 
 <p>&nbsp;</p>
 
@@ -35,7 +35,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>最长好子序列为&nbsp;<code>[<em><strong>1</strong></em>,<em><strong>2</strong></em>,<strong><em>1</em></strong>,<em><strong>1</strong></em>,3]</code>&nbsp;。</p>
+<p>最长好子序列为&nbsp;<code>[<u>1</u>,<u>2</u>,<u>1</u>,<u>1</u>,3]</code>&nbsp;。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -47,7 +47,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>最长好子序列为&nbsp;<code>[<strong><em>1</em></strong>,2,3,4,5,<strong><em>1</em></strong>]</code>&nbsp;。</p>
+<p>最长好子序列为&nbsp;<code>[<u>1</u>,2,3,4,5,<u>1</u>]</code>&nbsp;。</p>
 </div>
 
 <p>&nbsp;</p>

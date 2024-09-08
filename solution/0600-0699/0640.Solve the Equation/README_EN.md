@@ -51,6 +51,7 @@ tags:
 	<li><code>3 &lt;= equation.length &lt;= 1000</code></li>
 	<li><code>equation</code> has exactly one <code>&#39;=&#39;</code>.</li>
 	<li><code>equation</code> consists of integers with an absolute value in the range <code>[0, 100]</code> without any leading zeros, and the variable <code>&#39;x&#39;</code>.</li>
+	<li>The input is generated that if there is a single solution, it will be an integer.</li>
 </ul>
 
 <!-- description:end -->

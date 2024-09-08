@@ -39,10 +39,10 @@ tags:
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/images/1626332422-wUpUHT-image.png" style="width: 200px;" /></p>
 
 <pre>
-<strong>输入:</strong>
+<strong>输入:</strong> 
 ["NumMatrix","sumRegion","sumRegion","sumRegion"]
 [[[[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]],[2,1,4,3],[1,1,2,2],[1,2,2,4]]
-<strong>输出:</strong>
+<strong>输出:</strong> 
 [null, 8, 11, 12]
 
 <strong>解释:</strong>

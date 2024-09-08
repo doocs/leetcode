@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 414 场周赛(2024-09-08 10:30, 90 分钟) 参赛人数 3236
+
+- [3280. 将日期转换为二进制表示](/solution/3200-3299/3280.Convert%20Date%20to%20Binary/README.md)
+- [3281. 范围内整数的最大得分](/solution/3200-3299/3281.Maximize%20Score%20of%20Numbers%20in%20Ranges/README.md)
+- [3282. 到达数组末尾的最大得分](/solution/3200-3299/3282.Reach%20End%20of%20Array%20With%20Max%20Score/README.md)
+- [3283. 吃掉所有兵需要的最多移动次数](/solution/3200-3299/3283.Maximum%20Number%20of%20Moves%20to%20Kill%20All%20Pawns/README.md)
+
 #### 第 413 场周赛(2024-09-01 10:30, 90 分钟) 参赛人数 2875
 
 - [3274. 检查棋盘方格颜色是否相同](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README.md)
@@ -1016,7 +1023,7 @@ comments: true
 #### 第 319 场周赛(2022-11-13 10:30, 90 分钟) 参赛人数 6175
 
 - [2469. 温度转换](/solution/2400-2499/2469.Convert%20the%20Temperature/README.md)
-- [2470. 最小公倍数为 K 的子数组数目](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README.md)
+- [2470. 最小公倍数等于 K 的子数组数目](/solution/2400-2499/2470.Number%20of%20Subarrays%20With%20LCM%20Equal%20to%20K/README.md)
 - [2471. 逐层排序二叉树所需的最少操作数目](/solution/2400-2499/2471.Minimum%20Number%20of%20Operations%20to%20Sort%20a%20Binary%20Tree%20by%20Level/README.md)
 - [2472. 不重叠回文子字符串的最大数目](/solution/2400-2499/2472.Maximum%20Number%20of%20Non-overlapping%20Palindrome%20Substrings/README.md)
 

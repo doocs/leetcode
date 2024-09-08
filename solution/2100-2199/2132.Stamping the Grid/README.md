@@ -51,8 +51,8 @@ tags:
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2132.Stamping%20the%20Grid/images/ex2.png" style="width: 170px; height: 179px;"></p>
 
-<pre><b>输入：</b>grid = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]], stampHeight = 2, stampWidth = 2
-<b>输出：</b>false
+<pre><b>输入：</b>grid = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]], stampHeight = 2, stampWidth = 2 
+<b>输出：</b>false 
 <b>解释：</b>没办法放入邮票覆盖所有的空格子，且邮票不超出网格图以外。
 </pre>
 
