@@ -15,9 +15,9 @@ public:
         ListNode* tail = dummy;
         int s = 0;
         for (ListNode* cur = head->next; cur; cur = cur->next) {
-            if (cur->val)
+            if (cur->val) {
                 s += cur->val;
-            else {
+            } else {
                 tail->next = new ListNode(s);
                 tail = tail->next;
                 s = 0;
