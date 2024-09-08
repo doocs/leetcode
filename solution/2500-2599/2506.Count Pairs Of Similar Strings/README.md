@@ -41,8 +41,8 @@ tags:
 <strong>输入：</strong>words = ["aba","aabb","abcd","bac","aabc"]
 <strong>输出：</strong>2
 <strong>解释：</strong>共有 2 对满足条件：
-- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。
-- i = 3 且 j = 4 ：words[3] 和 words[4] 只由字符 'a'、'b' 和 'c' 。
+- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。 
+- i = 3 且 j = 4 ：words[3] 和 words[4] 只由字符 'a'、'b' 和 'c' 。 
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -51,9 +51,9 @@ tags:
 <strong>输入：</strong>words = ["aabb","ab","ba"]
 <strong>输出：</strong>3
 <strong>解释：</strong>共有 3 对满足条件：
-- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。
-- i = 0 且 j = 2 ：words[0] 和 words[2] 只由字符 'a' 和 'b' 组成。
-- i = 1 且 j = 2 ：words[1] 和 words[2] 只由字符 'a' 和 'b' 组成。
+- i = 0 且 j = 1 ：words[0] 和 words[1] 只由字符 'a' 和 'b' 组成。 
+- i = 0 且 j = 2 ：words[0] 和 words[2] 只由字符 'a' 和 'b' 组成。 
+- i = 1 且 j = 2 ：words[1] 和 words[2] 只由字符 'a' 和 'b' 组成。 
 </pre>
 
 <p><strong>示例 3：</strong></p>

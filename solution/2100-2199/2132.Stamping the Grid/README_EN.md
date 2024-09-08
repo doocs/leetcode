@@ -48,8 +48,8 @@ tags:
 <p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2132.Stamping%20the%20Grid/images/ex2.png" style="width: 170px; height: 179px;" />
 <pre>
-<strong>Input:</strong> grid = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]], stampHeight = 2, stampWidth = 2
-<strong>Output:</strong> false
+<strong>Input:</strong> grid = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]], stampHeight = 2, stampWidth = 2 
+<strong>Output:</strong> false 
 <strong>Explanation:</strong> There is no way to fit the stamps onto all the empty cells without the stamps going outside the grid.
 </pre>
 
