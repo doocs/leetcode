@@ -3,16 +3,16 @@ class Solution:
         self, chargeTimes: List[int], runningCosts: List[int], budget: int
     ) -> int:
         q = deque()
-        ans = j = s = 0
-        for i, (a, b) in enumerate(zip(chargeTimes, runningCosts)):
-            while q and chargeTimes[q[-1]] <= a:
+        ans = s = l = 0
+        for r, (t, c) in enumerate(zip(chargeTimes, runningCosts)):
+            s += c
+            while q and chargeTimes[q[-1]] <= t:
                 q.pop()
-            q.append(i)
-            s += b
-            while q and chargeTimes[q[0]] + (i - j + 1) * s > budget:
-                if q[0] == j:
+            q.append(r)
+            while q and (r - l + 1) * s + chargeTimes[q[0]] > budget:
+                if q[0] == l:
                     q.popleft()
-                s -= runningCosts[j]
-                j += 1
-            ans = max(ans, i - j + 1)
+                s -= runningCosts[l]
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
