@@ -58,13 +58,13 @@ tags:
 
 ### Solution 1: Arithmetic Series Sum Formula
 
-The sum formula for an arithmetic series is $\frac{n(a_1 + a_n)}{2}$, where $n$ is the number of terms in the arithmetic series, $a_1$ is the first term of the arithmetic series, and $a_n$ is the last term of the arithmetic series.
+The sum formula for an arithmetic series is $\frac{(a_1 + a_n)n}{2}$, where $n$ is the number of terms in the arithmetic series, the first term is $a_1$, and the last term is $a_n$.
 
-Since the array given in the problem is an arithmetic series and is missing a number, the number of terms in the array is $n + 1$, the first term is $a_1$, and the last term is $a_n$, so the sum of the array is $\frac{n + 1}{2}(a_1 + a_n)$.
+Since the array given in the problem is an arithmetic series with one missing number, the number of terms in the array is $n + 1$, the first term is $a_1$, and the last term is $a_n$. Therefore, the sum of the array is $\frac{(a_1 + a_n)(n + 1)}{2}$.
 
-Therefore, the missing number is $\frac{n + 1}{2}(a_1 + a_n) - \sum_{i = 0}^n a_i$.
+Thus, the missing number is $\frac{(a_1 + a_n)(n + 1)}{2} - \sum_{i = 0}^n a_i$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array.
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -108,13 +108,22 @@ public:
 ```go
 func missingNumber(arr []int) int {
 	n := len(arr)
-	d := (arr[n-1] - arr[0]) / n
-	for i := 1; i < n; i++ {
-		if arr[i] != arr[i-1]+d {
-			return arr[i-1] + d
-		}
+	x := (arr[0] + arr[n-1]) * (n + 1) / 2
+	y := 0
+	for _, v := range arr {
+		y += v
 	}
-	return arr[0]
+	return x - y
+}
+```
+
+#### TypeScript
+
+```ts
+function missingNumber(arr: number[]): number {
+    const x = ((arr[0] + arr.at(-1)!) * (arr.length + 1)) >> 1;
+    const y = arr.reduce((acc, cur) => acc + cur, 0);
+    return x - y;
 }
 ```
 
@@ -124,7 +133,15 @@ func missingNumber(arr []int) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Find Common Difference + Traverse
+
+Since the array given in the problem is an arithmetic series with one missing number, the first term is $a_1$, and the last term is $a_n$. The common difference $d$ is $\frac{a_n - a_1}{n}$.
+
+Traverse the array, and if $a_i \neq a_{i - 1} + d$, then return $a_{i - 1} + d$.
+
+If the traversal completes without finding the missing number, it means all numbers in the array are equal. In this case, directly return the first number of the array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -166,11 +183,43 @@ public:
     int missingNumber(vector<int>& arr) {
         int n = arr.size();
         int d = (arr[n - 1] - arr[0]) / n;
-        for (int i = 1; i < n; ++i)
-            if (arr[i] != arr[i - 1] + d) return arr[i - 1] + d;
+        for (int i = 1; i < n; ++i) {
+            if (arr[i] != arr[i - 1] + d) {
+                return arr[i - 1] + d;
+            }
+        }
         return arr[0];
     }
 };
+```
+
+#### Go
+
+```go
+func missingNumber(arr []int) int {
+	n := len(arr)
+	d := (arr[n-1] - arr[0]) / n
+	for i := 1; i < n; i++ {
+		if arr[i] != arr[i-1]+d {
+			return arr[i-1] + d
+		}
+	}
+	return arr[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function missingNumber(arr: number[]): number {
+    const d = ((arr.at(-1)! - arr[0]) / arr.length) | 0;
+    for (let i = 1; i < arr.length; ++i) {
+        if (arr[i] - arr[i - 1] !== d) {
+            return arr[i - 1] + d;
+        }
+    }
+    return arr[0];
+}
 ```
 
 <!-- tabs:end -->
