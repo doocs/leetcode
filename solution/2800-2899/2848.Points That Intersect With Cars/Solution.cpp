@@ -1,10 +1,11 @@
 class Solution {
 public:
     int numberOfPoints(vector<vector<int>>& nums) {
-        int d[110]{};
-        for (auto& e : nums) {
-            d[e[0]]++;
-            d[e[1] + 1]--;
+        int d[102]{};
+        for (const auto& e : nums) {
+            int start = e[0], end = e[1];
+            ++d[start];
+            --d[end + 1];
         }
         int ans = 0, s = 0;
         for (int x : d) {

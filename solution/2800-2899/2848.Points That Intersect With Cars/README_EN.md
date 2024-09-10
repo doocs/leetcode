@@ -58,9 +58,13 @@ tags:
 
 ### Solution 1: Difference Array
 
-We create a difference array $d$ of length $110$, then traverse the given array. For each interval $[a, b]$, we increase $d[a]$ by $1$ and decrease $d[b + 1]$ by $1$. Finally, we traverse the difference array $d$, calculate the prefix sum $s$ at each position. If $s > 0$, it means that the position is covered, and we increase the answer by $1$.
+According to the problem description, we need to add one vehicle to each interval $[\textit{start}_i, \textit{end}_i]$. We can use a difference array to achieve this.
 
-The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ is the length of the given array, and $M$ is the maximum value in the array.
+We define an array $d$ of length 102. For each interval $[\textit{start}_i, \textit{end}_i]$, we increment $d[\textit{start}_i]$ by 1 and decrement $d[\textit{end}_i + 1]$ by 1.
+
+Finally, we perform a prefix sum operation on $d$ and count the number of elements in the prefix sum that are greater than 0.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(m)$, where $n$ is the length of the given array, and $m$ is the maximum value in the array. In this problem, $m \leq 102$.
 
 <!-- tabs:start -->
 
@@ -69,10 +73,11 @@ The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ is 
 ```python
 class Solution:
     def numberOfPoints(self, nums: List[List[int]]) -> int:
-        d = [0] * 110
-        for a, b in nums:
-            d[a] += 1
-            d[b + 1] -= 1
+        m = 102
+        d = [0] * m
+        for start, end in nums:
+            d[start] += 1
+            d[end + 1] -= 1
         return sum(s > 0 for s in accumulate(d))
 ```
 
@@ -81,16 +86,17 @@ class Solution:
 ```java
 class Solution {
     public int numberOfPoints(List<List<Integer>> nums) {
-        int[] d = new int[110];
+        int[] d = new int[102];
         for (var e : nums) {
-            d[e.get(0)]++;
-            d[e.get(1) + 1]--;
+            int start = e.get(0), end = e.get(1);
+            ++d[start];
+            --d[end + 1];
         }
         int ans = 0, s = 0;
         for (int x : d) {
             s += x;
             if (s > 0) {
-                ans++;
+                ++ans;
             }
         }
         return ans;
@@ -104,10 +110,11 @@ class Solution {
 class Solution {
 public:
     int numberOfPoints(vector<vector<int>>& nums) {
-        int d[110]{};
-        for (auto& e : nums) {
-            d[e[0]]++;
-            d[e[1] + 1]--;
+        int d[102]{};
+        for (const auto& e : nums) {
+            int start = e[0], end = e[1];
+            ++d[start];
+            --d[end + 1];
         }
         int ans = 0, s = 0;
         for (int x : d) {
@@ -123,10 +130,11 @@ public:
 
 ```go
 func numberOfPoints(nums [][]int) (ans int) {
-	d := [110]int{}
+	d := [102]int{}
 	for _, e := range nums {
-		d[e[0]]++
-		d[e[1]+1]--
+		start, end := e[0], e[1]
+		d[start]++
+		d[end+1]--
 	}
 	s := 0
 	for _, x := range d {
@@ -143,18 +151,147 @@ func numberOfPoints(nums [][]int) (ans int) {
 
 ```ts
 function numberOfPoints(nums: number[][]): number {
-    const d: number[] = Array(110).fill(0);
-    for (const [a, b] of nums) {
-        d[a]++;
-        d[b + 1]--;
+    const d: number[] = Array(102).fill(0);
+    for (const [start, end] of nums) {
+        ++d[start];
+        --d[end + 1];
     }
     let ans = 0;
     let s = 0;
     for (const x of d) {
         s += x;
-        if (s > 0) {
-            ans++;
+        ans += s > 0 ? 1 : 0;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Hash Table + Difference Array + Sorting
+
+If the range of intervals in the problem is large, we can use a hash table to store the start and end points of the intervals. Then, we sort the keys of the hash table and perform prefix sum statistics.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the given array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfPoints(self, nums: List[List[int]]) -> int:
+        d = defaultdict(int)
+        for start, end in nums:
+            d[start] += 1
+            d[end + 1] -= 1
+        ans = s = last = 0
+        for cur, v in sorted(d.items()):
+            if s > 0:
+                ans += cur - last
+            s += v
+            last = cur
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numberOfPoints(List<List<Integer>> nums) {
+        TreeMap<Integer, Integer> d = new TreeMap<>();
+        for (var e : nums) {
+            int start = e.get(0), end = e.get(1);
+            d.merge(start, 1, Integer::sum);
+            d.merge(end + 1, -1, Integer::sum);
         }
+        int ans = 0, s = 0, last = 0;
+        for (var e : d.entrySet()) {
+            int cur = e.getKey(), v = e.getValue();
+            if (s > 0) {
+                ans += cur - last;
+            }
+            s += v;
+            last = cur;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numberOfPoints(vector<vector<int>>& nums) {
+        map<int, int> d;
+        for (const auto& e : nums) {
+            int start = e[0], end = e[1];
+            ++d[start];
+            --d[end + 1];
+        }
+        int ans = 0, s = 0, last = 0;
+        for (const auto& [cur, v] : d) {
+            if (s > 0) {
+                ans += cur - last;
+            }
+            s += v;
+            last = cur;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numberOfPoints(nums [][]int) (ans int) {
+	d := map[int]int{}
+	for _, e := range nums {
+		start, end := e[0], e[1]
+		d[start]++
+		d[end+1]--
+	}
+	keys := []int{}
+	for k := range d {
+		keys = append(keys, k)
+	}
+	s, last := 0, 0
+	sort.Ints(keys)
+	for _, cur := range keys {
+		if s > 0 {
+			ans += cur - last
+		}
+		s += d[cur]
+		last = cur
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfPoints(nums: number[][]): number {
+    const d = new Map<number, number>();
+    for (const [start, end] of nums) {
+        d.set(start, (d.get(start) || 0) + 1);
+        d.set(end + 1, (d.get(end + 1) || 0) - 1);
+    }
+    const keys = [...d.keys()].sort((a, b) => a - b);
+    let [ans, s, last] = [0, 0, 0];
+    for (const cur of keys) {
+        if (s > 0) {
+            ans += cur - last;
+        }
+        s += d.get(cur)!;
+        last = cur;
     }
     return ans;
 }
