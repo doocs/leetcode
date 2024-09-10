@@ -39,7 +39,7 @@ tags:
 
 <pre><strong>输入：</strong>s = &quot;deeedbbcccbdaa&quot;, k = 3
 <strong>输出：</strong>&quot;aa&quot;
-<strong>解释：
+<strong>解释： 
 </strong>先删除 &quot;eee&quot; 和 &quot;ccc&quot;，得到 &quot;ddbbbdaa&quot;
 再删除 &quot;bbb&quot;，得到 &quot;dddaa&quot;
 最后删除 &quot;ddd&quot;，得到 &quot;aa&quot;</pre>

@@ -31,7 +31,7 @@ tags:
 <pre>
 <strong>Input:</strong> head = [0,3,1,0,4,5,2,0]
 <strong>Output:</strong> [4,11]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The above figure represents the given linked list. The modified list contains
 - The sum of the nodes marked in green: 3 + 1 = 4.
 - The sum of the nodes marked in red: 4 + 5 + 2 = 11.
@@ -42,7 +42,7 @@ The above figure represents the given linked list. The modified list contains
 <pre>
 <strong>Input:</strong> head = [0,1,0,3,0,2,2,0]
 <strong>Output:</strong> [1,3,4]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The above figure represents the given linked list. The modified list contains
 - The sum of the nodes marked in green: 1 = 1.
 - The sum of the nodes marked in red: 3 = 3.

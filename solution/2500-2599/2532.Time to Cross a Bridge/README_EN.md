@@ -43,6 +43,7 @@ tags:
 <ul>
 	<li>Only one worker can use the bridge at a time.</li>
 	<li>When the bridge is unused prioritize the <strong>least efficient</strong> worker on the right side to cross. If there are no workers on the right side, prioritize the <strong>least efficient</strong> worker on the left side to cross.</li>
+	<li>If enough workers have already been dispatched from the left side to pick up all the remaining boxes, <strong>no more</strong> workers will be sent from the left side.</li>
 </ul>
 
 <p>Return the <strong>elapsed minutes</strong> at which the last box reaches the <strong>left side of the bridge</strong>.</p>

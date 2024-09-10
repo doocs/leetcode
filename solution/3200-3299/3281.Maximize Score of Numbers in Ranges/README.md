@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3281.Maximize%20Score%20of%20Numbers%20in%20Ranges/README.md
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

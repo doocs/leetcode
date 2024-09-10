@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3282.Reach%20End%20of%20Array%20With%20Max%20Score/README_EN.md
+tags:
+    - Greedy
+    - Array
 ---
 
 <!-- problem:start -->
