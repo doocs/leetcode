@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;deeedbbcccbdaa&quot;, k = 3
 <strong>Output:</strong> &quot;aa&quot;
-<strong>Explanation:
+<strong>Explanation: 
 </strong>First delete &quot;eee&quot; and &quot;ccc&quot;, get &quot;ddbbbdaa&quot;
 Then delete &quot;bbb&quot;, get &quot;dddaa&quot;
 Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>

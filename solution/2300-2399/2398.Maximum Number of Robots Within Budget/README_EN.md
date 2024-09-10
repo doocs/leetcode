@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> chargeTimes = [3,6,1,3,4], runningCosts = [2,1,3,4,5], budget = 25
 <strong>Output:</strong> 3
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 It is possible to run all individual and consecutive pairs of robots within budget.
 To obtain answer 3, consider the first 3 robots. The total cost will be max(3,6,1) + 3 * sum(2,1,3) = 6 + 3 * 6 = 24 which is less than 25.
 It can be shown that it is not possible to run more than 3 consecutive robots within budget, so we return 3.
