@@ -1,12 +1,5 @@
 function countElements(nums: number[]): number {
-    const min = Math.min(...nums),
-        max = Math.max(...nums);
-    let ans = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        let cur = nums[i];
-        if (cur < max && cur > min) {
-            ++ans;
-        }
-    }
-    return ans;
+    const mi = Math.min(...nums);
+    const mx = Math.max(...nums);
+    return nums.filter(x => mi < x && x < mx).length;
 }
