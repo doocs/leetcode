@@ -3,20 +3,25 @@ class Solution:
         self, grid: List[List[int]], pricing: List[int], start: List[int], k: int
     ) -> List[List[int]]:
         m, n = len(grid), len(grid[0])
-        row, col, low, high = start + pricing
-        items = []
+        row, col = start
+        low, high = pricing
+        q = deque([(row, col)])
+        pq = []
         if low <= grid[row][col] <= high:
-            items.append([0, grid[row][col], row, col])
-        q = deque([(row, col, 0)])
+            pq.append((0, grid[row][col], row, col))
         grid[row][col] = 0
+        dirs = (-1, 0, 1, 0, -1)
+        step = 0
         while q:
-            i, j, d = q.popleft()
-            for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and grid[x][y]:
-                    if low <= grid[x][y] <= high:
-                        items.append([d + 1, grid[x][y], x, y])
-                    q.append((x, y, d + 1))
-                    grid[x][y] = 0
-        items.sort()
-        return [item[2:] for item in items][:k]
+            step += 1
+            for _ in range(len(q)):
+                x, y = q.popleft()
+                for a, b in pairwise(dirs):
+                    nx, ny = x + a, y + b
+                    if 0 <= nx < m and 0 <= ny < n and grid[nx][ny] > 0:
+                        if low <= grid[nx][ny] <= high:
+                            pq.append((step, grid[nx][ny], nx, ny))
+                        grid[nx][ny] = 0
+                        q.append((nx, ny))
+        pq.sort()
+        return [list(x[2:]) for x in pq[:k]]
