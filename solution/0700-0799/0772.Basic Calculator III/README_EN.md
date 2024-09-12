@@ -83,10 +83,6 @@ tags:
 #### C++
 
 ```cpp
-#include <stack>
-#include <string>
-using namespace std;
-
 class Solution {
 public:
     // Define an operation function that performs mathematical operations based on the operator
