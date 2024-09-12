@@ -90,6 +90,7 @@ class Solution {
 public:
     // 定义一个操作函数，根据操作符进行数学运算
     int operate(int b, char ch, int a) {
+        //注意ab顺序
         switch (ch) {
         case '+':
             return a + b; // 加法
