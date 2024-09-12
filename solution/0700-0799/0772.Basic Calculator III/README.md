@@ -121,7 +121,7 @@ public:
         preority[')'] = 0;
 
         stack<char> op; // 操作符栈
-        stack<int> num; // 数字栈
+        stack<int> num; // 操作数栈
         int stringsize = s.size(); // 字符串长度
         int i = 0;
         char ch;
