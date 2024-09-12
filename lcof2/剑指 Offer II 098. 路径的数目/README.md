@@ -254,7 +254,7 @@ class Solution {
     func uniquePaths(_ m: Int, _ n: Int) -> Int {
         var dp = Array(repeating: Array(repeating: 0, count: n), count: m)
         dp[0][0] = 1
-        
+
         for i in 0..<m {
             for j in 0..<n {
                 if i > 0 {
@@ -265,7 +265,7 @@ class Solution {
                 }
             }
         }
-        
+
         return dp[m - 1][n - 1]
     }
 }
