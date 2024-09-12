@@ -82,11 +82,11 @@ Thus, the 2 highest ranked items in the price range are (2,1) and (1,2).
 <strong>Input:</strong> grid = [[1,1,1],[0,0,1],[2,3,4]], pricing = [2,3], start = [0,0], k = 3
 <strong>Output:</strong> [[2,1],[2,0]]
 <strong>Explanation:</strong> You start at (0,0).
-With a price range of [2,3], we can take items from (2,0) and (2,1).
-The ranks of these items are:
+With a price range of [2,3], we can take items from (2,0) and (2,1). 
+The ranks of these items are: 
 - (2,1) with distance 5
 - (2,0) with distance 6
-Thus, the 2 highest ranked items in the price range are (2,1) and (2,0).
+Thus, the 2 highest ranked items in the price range are (2,1) and (2,0). 
 Note that k = 3 but there are only 2 reachable items within the price range.
 </pre>
 
