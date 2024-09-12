@@ -175,4 +175,30 @@ int minBitFlips(int start, int goal) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minBitFlips(start: number, goal: number): number {
+    return (start ^ goal).toString(2).replace(/0/g, '').length;
+}
+```
+
+#### JavaScript
+
+```js
+function minBitFlips(start, goal) {
+    return (start ^ goal).toString(2).replace(/0/g, '').length;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
