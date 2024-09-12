@@ -85,25 +85,21 @@ tags:
 #### C++
 
 ```cpp
-//逆波兰表示法求解
+// 逆波兰表示法求解
 class Solution {
 public:
     // 定义一个操作函数，根据操作符进行数学运算
     int operate(int b, char ch, int a) {
-        //注意ab顺序
+        // 注意ab顺序
         switch (ch) {
         case '+':
             return a + b; // 加法
-            break;
         case '-':
             return a - b; // 减法
-            break;
         case '*':
             return a * b; // 乘法
-            break;
         case '/':
             return a / b; // 除法
-            break;
         default:
             break;
         }
@@ -213,8 +209,6 @@ public:
         return num.top(); // 返回最终结果
     }
 };
-
-
 ```
 
 #### Go
