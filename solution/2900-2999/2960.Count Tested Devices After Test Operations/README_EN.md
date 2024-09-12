@@ -6,6 +6,7 @@ rating: 1169
 source: Weekly Contest 375 Q1
 tags:
     - Array
+    - Counting
     - Simulation
 ---
 

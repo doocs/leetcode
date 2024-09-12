@@ -61,7 +61,7 @@ comments: true
 - [3260. 找出最大的 N 位 K 回文数](/solution/3200-3299/3260.Find%20the%20Largest%20Palindrome%20Divisible%20by%20K/README.md)
 - [3261. 统计满足 K 约束的子字符串数量 II](/solution/3200-3299/3261.Count%20Substrings%20That%20Satisfy%20K-Constraint%20II/README.md)
 
-#### 第 137 场双周赛(2024-08-17 22:30, 90 分钟) 参赛人数 2198
+#### 第 137 场双周赛(2024-08-17 22:30, 90 分钟) 参赛人数 2199
 
 - [3254. 长度为 K 的子数组的能量值 I](/solution/3200-3299/3254.Find%20the%20Power%20of%20K-Size%20Subarrays%20I/README.md)
 - [3255. 长度为 K 的子数组的能量值 II](/solution/3200-3299/3255.Find%20the%20Power%20of%20K-Size%20Subarrays%20II/README.md)

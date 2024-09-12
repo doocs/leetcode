@@ -17,29 +17,29 @@
 //   }
 // }
 use std::cell::RefCell;
+use std::collections::VecDeque;
 use std::rc::Rc;
-impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, depth: i32, max_depth: &mut i32, res: &mut i32) {
-        if let Some(node) = root {
-            let node = node.borrow();
-            if node.left.is_none() && node.right.is_none() {
-                if depth == *max_depth {
-                    *res += node.val;
-                } else if depth > *max_depth {
-                    *max_depth = depth;
-                    *res = node.val;
-                }
-                return;
-            }
-            Self::dfs(&node.left, depth + 1, max_depth, res);
-            Self::dfs(&node.right, depth + 1, max_depth, res);
-        }
-    }
 
+impl Solution {
     pub fn deepest_leaves_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        let mut res = 0;
-        let mut max_depth = 0;
-        Self::dfs(&root, 0, &mut max_depth, &mut res);
-        res
+        let mut q = VecDeque::new();
+        q.push_back(root);
+        let mut ans = 0;
+        while !q.is_empty() {
+            ans = 0;
+            for _ in 0..q.len() {
+                if let Some(Some(node)) = q.pop_front() {
+                    let node = node.borrow();
+                    ans += node.val;
+                    if node.left.is_some() {
+                        q.push_back(node.left.clone());
+                    }
+                    if node.right.is_some() {
+                        q.push_back(node.right.clone());
+                    }
+                }
+            }
+        }
+        ans
     }
 }

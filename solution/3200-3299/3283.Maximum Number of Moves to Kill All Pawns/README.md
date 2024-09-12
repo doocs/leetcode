@@ -32,7 +32,7 @@ tags:
 
 <p>Alice 的目标是 <strong>最大化</strong>&nbsp;两名玩家的 <strong>总</strong>&nbsp;移动次数，直到棋盘上不再存在兵，而 Bob 的目标是 <strong>最小化</strong>&nbsp;总移动次数。</p>
 
-<p>假设两名玩家都采用 <strong>最优</strong>&nbsp;策略，请你返回 Alice 可以达到的 <strong>最大</strong>&nbsp;总移动次数。</p>
+<p>假设两名玩家都采用 <strong>最优</strong>&nbsp;策略，请你返回可以达到的 <strong>最大</strong>&nbsp;总移动次数。</p>
 
 <p>在一次&nbsp;<strong>移动</strong>&nbsp;中，如下图所示，马有 8 个可以移动到的位置，每个移动位置都是沿着坐标轴的一个方向前进 2 格，然后沿着垂直的方向前进 1 格。</p>
 
@@ -121,6 +121,8 @@ tags:
 为了避免重复计算，我们使用记忆化搜索，即使用哈希表记录已经计算过的状态。
 
 时间复杂度 $O(n \times m^2 + 2^n \times n^2)$，空间复杂度 $O(n \times m^2 + 2^n \times n)$。其中 $n$ 和 $m$ 分别为兵的数量和棋盘的大小。
+
+<!-- tabs:start -->
 
 #### Python3
 

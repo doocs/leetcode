@@ -20,14 +20,14 @@ class Solution {
         int ans = 0;
         while (!q.isEmpty()) {
             ans = 0;
-            for (int n = q.size(); n > 0; --n) {
-                root = q.pollFirst();
-                ans += root.val;
-                if (root.left != null) {
-                    q.offer(root.left);
+            for (int k = q.size(); k > 0; --k) {
+                TreeNode node = q.poll();
+                ans += node.val;
+                if (node.left != null) {
+                    q.offer(node.left);
                 }
-                if (root.right != null) {
-                    q.offer(root.right);
+                if (node.right != null) {
+                    q.offer(node.right);
                 }
             }
         }

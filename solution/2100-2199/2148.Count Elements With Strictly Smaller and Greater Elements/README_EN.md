@@ -6,6 +6,7 @@ rating: 1201
 source: Weekly Contest 277 Q1
 tags:
     - Array
+    - Counting
     - Sorting
 ---
 

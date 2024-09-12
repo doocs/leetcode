@@ -7,6 +7,7 @@ source: 第 336 场周赛 Q1
 tags:
     - 数组
     - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->
