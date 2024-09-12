@@ -7,6 +7,7 @@ source: 第 229 场周赛 Q2
 tags:
     - 数组
     - 字符串
+    - 前缀和
 ---
 
 <!-- problem:start -->

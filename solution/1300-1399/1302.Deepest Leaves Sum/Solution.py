@@ -10,10 +10,10 @@ class Solution:
         while q:
             ans = 0
             for _ in range(len(q)):
-                root = q.popleft()
-                ans += root.val
-                if root.left:
-                    q.append(root.left)
-                if root.right:
-                    q.append(root.right)
+                node = q.popleft()
+                ans += node.val
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
         return ans

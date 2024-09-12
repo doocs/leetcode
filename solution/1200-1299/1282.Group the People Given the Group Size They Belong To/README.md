@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1282.Gr
 rating: 1267
 source: 第 166 场周赛 Q2
 tags:
+    - 贪心
     - 数组
     - 哈希表
 ---

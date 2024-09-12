@@ -6,22 +6,21 @@
  *     Right *TreeNode
  * }
  */
-func deepestLeavesSum(root *TreeNode) int {
+func deepestLeavesSum(root *TreeNode) (ans int) {
 	q := []*TreeNode{root}
-	ans := 0
 	for len(q) > 0 {
 		ans = 0
-		for n := len(q); n > 0; n-- {
-			root = q[0]
+		for k := len(q); k > 0; k-- {
+			node := q[0]
 			q = q[1:]
-			ans += root.Val
-			if root.Left != nil {
-				q = append(q, root.Left)
+			ans += node.Val
+			if node.Left != nil {
+				q = append(q, node.Left)
 			}
-			if root.Right != nil {
-				q = append(q, root.Right)
+			if node.Right != nil {
+				q = append(q, node.Right)
 			}
 		}
 	}
-	return ans
+	return
 }

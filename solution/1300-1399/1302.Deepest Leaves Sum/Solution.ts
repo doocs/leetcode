@@ -13,18 +13,17 @@
  */
 
 function deepestLeavesSum(root: TreeNode | null): number {
-    const queue = [root];
-    let res = 0;
-    while (queue.length !== 0) {
-        const n = queue.length;
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            const { val, left, right } = queue.shift();
-            sum += val;
-            left && queue.push(left);
-            right && queue.push(right);
+    let q: TreeNode[] = [root];
+    let ans = 0;
+    while (q.length) {
+        const nq: TreeNode[] = [];
+        ans = 0;
+        for (const { val, left, right } of q) {
+            ans += val;
+            left && nq.push(left);
+            right && nq.push(right);
         }
-        res = sum;
+        q = nq;
     }
-    return res;
+    return ans;
 }
