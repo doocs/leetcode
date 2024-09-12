@@ -198,7 +198,7 @@ public:
             }
         }
 
-        // 处理剩余的操作符
+        // 处理剩余在栈中的表达式
         while (!op.empty()) {
             ch = op.top();
             op.pop();
