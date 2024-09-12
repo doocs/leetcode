@@ -108,7 +108,7 @@ public:
         return 0; // 默认返回0，处理无效操作符
     }
 
-
+    // 计算字符串表达式的值
     int calculate(string s) {
         int preority[250]; // 操作符优先级数组
         preority['+'] = 1;
