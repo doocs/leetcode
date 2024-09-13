@@ -62,11 +62,15 @@ It can be shown that 4 is the minimum number of substrings needed.
 
 ### Solution 1: Greedy
 
-According to the problem, each substring should be as long as possible and contain unique characters. We just need to partition greedily.
+According to the problem description, each substring should be as long as possible and contain unique characters. Therefore, we can greedily partition the string.
 
-During the process, we can use a hash table to record all characters in the current substring, with a space complexity of $O(n)$; or we can use a number to record characters using bitwise operations, with a space complexity of $O(1)$.
+We define a binary integer $\textit{mask}$ to record the characters that have appeared in the current substring. The $i$-th bit of $\textit{mask}$ being $1$ indicates that the $i$-th letter has already appeared, and $0$ indicates that it has not appeared. Additionally, we need a variable $\textit{ans}$ to record the number of substrings, initially $\textit{ans} = 1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$.
+Traverse each character in the string $s$. For each character $c$, convert it to an integer $x$ between $0$ and $25$, then check if the $x$-th bit of $\textit{mask}$ is $1$. If it is $1$, it means the current character $c$ is a duplicate in the current substring. In this case, increment $\textit{ans}$ by $1$ and reset $\textit{mask}$ to $0$. Otherwise, set the $x$-th bit of $\textit{mask}$ to $1$. Then, update $\textit{mask}$ to the bitwise OR result of $\textit{mask}$ and $2^x$.
+
+Finally, return $\textit{ans}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -75,13 +79,12 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$.
 ```python
 class Solution:
     def partitionString(self, s: str) -> int:
-        ss = set()
-        ans = 1
-        for c in s:
-            if c in ss:
+        ans, mask = 1, 0
+        for x in map(lambda c: ord(c) - ord("a"), s):
+            if mask >> x & 1:
                 ans += 1
-                ss = set()
-            ss.add(c)
+                mask = 0
+            mask |= 1 << x
         return ans
 ```
 
@@ -90,14 +93,14 @@ class Solution:
 ```java
 class Solution {
     public int partitionString(String s) {
-        Set<Character> ss = new HashSet<>();
-        int ans = 1;
-        for (char c : s.toCharArray()) {
-            if (ss.contains(c)) {
+        int ans = 1, mask = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            int x = s.charAt(i) - 'a';
+            if ((mask >> x & 1) == 1) {
                 ++ans;
-                ss.clear();
+                mask = 0;
             }
-            ss.add(c);
+            mask |= 1 << x;
         }
         return ans;
     }
@@ -110,14 +113,14 @@ class Solution {
 class Solution {
 public:
     int partitionString(string s) {
-        unordered_set<char> ss;
-        int ans = 1;
-        for (char c : s) {
-            if (ss.count(c)) {
+        int ans = 1, mask = 0;
+        for (char& c : s) {
+            int x = c - 'a';
+            if (mask >> x & 1) {
                 ++ans;
-                ss.clear();
+                mask = 0;
             }
-            ss.insert(c);
+            mask |= 1 << x;
         }
         return ans;
     }
@@ -128,14 +131,14 @@ public:
 
 ```go
 func partitionString(s string) int {
-	ss := map[rune]bool{}
-	ans := 1
+	ans, mask := 1, 0
 	for _, c := range s {
-		if ss[c] {
+		x := int(c - 'a')
+		if mask>>x&1 == 1 {
 			ans++
-			ss = map[rune]bool{}
+			mask = 0
 		}
-		ss[c] = true
+		mask |= 1 << x
 	}
 	return ans
 }
@@ -145,119 +148,35 @@ func partitionString(s string) int {
 
 ```ts
 function partitionString(s: string): number {
-    const set = new Set();
-    let res = 1;
+    let [ans, mask] = [1, 0];
     for (const c of s) {
-        if (set.has(c)) {
-            res++;
-            set.clear();
+        const x = c.charCodeAt(0) - 97;
+        if ((mask >> x) & 1) {
+            ++ans;
+            mask = 0;
         }
-        set.add(c);
+        mask |= 1 << x;
     }
-    return res;
+    return ans;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::collections::HashSet;
 impl Solution {
     pub fn partition_string(s: String) -> i32 {
-        let mut set = HashSet::new();
-        let mut res = 1;
-        for c in s.as_bytes().iter() {
-            if set.contains(c) {
-                res += 1;
-                set.clear();
+        let mut ans = 1;
+        let mut mask = 0;
+        for x in s.chars().map(|c| (c as u8 - b'a') as u32) {
+            if mask >> x & 1 == 1 {
+                ans += 1;
+                mask = 0;
             }
-            set.insert(c);
+            mask |= 1 << x;
         }
-        res
+        ans
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def partitionString(self, s: str) -> int:
-        ans, v = 1, 0
-        for c in s:
-            i = ord(c) - ord('a')
-            if (v >> i) & 1:
-                v = 0
-                ans += 1
-            v |= 1 << i
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    public int partitionString(String s) {
-        int v = 0;
-        int ans = 1;
-        for (char c : s.toCharArray()) {
-            int i = c - 'a';
-            if (((v >> i) & 1) == 1) {
-                v = 0;
-                ++ans;
-            }
-            v |= 1 << i;
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int partitionString(string s) {
-        int ans = 1;
-        int v = 0;
-        for (char c : s) {
-            int i = c - 'a';
-            if ((v >> i) & 1) {
-                v = 0;
-                ++ans;
-            }
-            v |= 1 << i;
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func partitionString(s string) int {
-	ans, v := 1, 0
-	for _, c := range s {
-		i := int(c - 'a')
-		if v>>i&1 == 1 {
-			v = 0
-			ans++
-		}
-		v |= 1 << i
-	}
-	return ans
 }
 ```
 
