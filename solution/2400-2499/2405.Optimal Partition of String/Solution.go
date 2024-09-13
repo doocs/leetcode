@@ -1,12 +1,12 @@
 func partitionString(s string) int {
-	ss := map[rune]bool{}
-	ans := 1
+	ans, mask := 1, 0
 	for _, c := range s {
-		if ss[c] {
+		x := int(c - 'a')
+		if mask>>x&1 == 1 {
 			ans++
-			ss = map[rune]bool{}
+			mask = 0
 		}
-		ss[c] = true
+		mask |= 1 << x
 	}
 	return ans
 }

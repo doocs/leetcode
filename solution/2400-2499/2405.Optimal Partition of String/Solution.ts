@@ -1,12 +1,12 @@
 function partitionString(s: string): number {
-    const set = new Set();
-    let res = 1;
+    let [ans, mask] = [1, 0];
     for (const c of s) {
-        if (set.has(c)) {
-            res++;
-            set.clear();
+        const x = c.charCodeAt(0) - 97;
+        if ((mask >> x) & 1) {
+            ++ans;
+            mask = 0;
         }
-        set.add(c);
+        mask |= 1 << x;
     }
-    return res;
+    return ans;
 }
