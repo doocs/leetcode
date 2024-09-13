@@ -1,17 +1,17 @@
 class Solution {
     public long minimumTime(int[] power) {
         int n = power.length;
-        long[] dp = new long[1 << n];
-        Arrays.fill(dp, Long.MAX_VALUE);
-        dp[0] = 0;
+        long[] f = new long[1 << n];
+        Arrays.fill(f, Long.MAX_VALUE);
+        f[0] = 0;
         for (int mask = 1; mask < 1 << n; ++mask) {
-            int cnt = Integer.bitCount(mask);
+            int gain = Integer.bitCount(mask);
             for (int i = 0; i < n; ++i) {
-                if (((mask >> i) & 1) == 1) {
-                    dp[mask] = Math.min(dp[mask], dp[mask ^ (1 << i)] + (power[i] + cnt - 1) / cnt);
+                if ((mask >> i & 1) == 1) {
+                    f[mask] = Math.min(f[mask], f[mask ^ 1 << i] + (power[i] + gain - 1) / gain);
                 }
             }
         }
-        return dp[(1 << n) - 1];
+        return f[(1 << n) - 1];
     }
 }
