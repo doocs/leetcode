@@ -2,12 +2,12 @@ class Solution {
 public:
     int longestNiceSubarray(vector<int>& nums) {
         int ans = 0, mask = 0;
-        for (int i = 0, j = 0; i < nums.size(); ++i) {
-            while (mask & nums[i]) {
-                mask ^= nums[j++];
+        for (int l = 0, r = 0; r < nums.size(); ++r) {
+            while (mask & nums[r]) {
+                mask ^= nums[l++];
             }
-            ans = max(ans, i - j + 1);
-            mask |= nums[i];
+            mask |= nums[r];
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }

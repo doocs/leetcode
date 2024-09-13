@@ -1,12 +1,12 @@
 public class Solution {
     public int LongestNiceSubarray(int[] nums) {
         int ans = 0, mask = 0;
-        for (int i = 0, j = 0; i < nums.Length; ++i) {
-            while ((mask & nums[i]) != 0) {
-                mask ^= nums[j++];
+        for (int l = 0, r = 0; r < nums.Length; ++r) {
+            while ((mask & nums[r]) != 0) {
+                mask ^= nums[l++];
             }
-            ans = Math.Max(ans, i - j + 1);
-            mask |= nums[i];
+            mask |= nums[r];
+            ans = Math.Max(ans, r - l + 1);
         }
         return ans;
     }
