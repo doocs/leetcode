@@ -1,24 +1,23 @@
 function minimumTime(power: number[]): number {
     const n = power.length;
-    const dp = new Array(1 << n).fill(Infinity);
-    dp[0] = 0;
+    const f: number[] = Array(1 << n).fill(Infinity);
+    f[0] = 0;
     for (let mask = 1; mask < 1 << n; ++mask) {
-        const cnt = bitCount(mask);
+        const gain = bitCount(mask);
         for (let i = 0; i < n; ++i) {
             if ((mask >> i) & 1) {
-                dp[mask] = Math.min(dp[mask], dp[mask ^ (1 << i)] + Math.ceil(power[i] / cnt));
+                f[mask] = Math.min(f[mask], f[mask ^ (1 << i)] + Math.ceil(power[i] / gain));
             }
         }
     }
-    return dp[dp.length - 1];
+    return f.at(-1)!;
 }
 
-function bitCount(x) {
-    let cnt = 0;
-    for (let i = 0; i < 32; ++i) {
-        if ((x >> i) & 1) {
-            ++cnt;
-        }
-    }
-    return cnt;
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }

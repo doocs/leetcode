@@ -1,15 +1,15 @@
 class Solution:
     def minimumTime(self, power: List[int]) -> int:
         @cache
-        def dfs(mask):
-            cnt = mask.bit_count()
-            if cnt == len(power):
+        def dfs(mask: int) -> int:
+            if mask == 0:
                 return 0
             ans = inf
-            for i, v in enumerate(power):
-                if mask & (1 << i):
-                    continue
-                ans = min(ans, dfs(mask | 1 << i) + (v + cnt) // (cnt + 1))
+            gain = 1 + (n - mask.bit_count())
+            for i, x in enumerate(power):
+                if mask >> i & 1:
+                    ans = min(ans, dfs(mask ^ (1 << i)) + (x + gain - 1) // gain)
             return ans
 
-        return dfs(0)
+        n = len(power)
+        return dfs((1 << n) - 1)
