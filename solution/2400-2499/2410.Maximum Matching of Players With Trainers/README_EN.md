@@ -69,9 +69,13 @@ Each player can only be matched with one trainer, so the maximum answer is 1.
 
 ### Solution 1: Greedy + Two Pointers
 
-Sort the athletes by their abilities in ascending order, and select the trainer with the smallest ability that is greater than or equal to the athlete's ability.
+According to the problem description, each athlete should be matched with the trainer whose ability value is as close as possible. Therefore, we can sort the ability values of both athletes and trainers, and then use the two-pointer method for matching.
 
-The time complexity is $O(n \times \log n + m \times \log m)$, and the space complexity is $O(\log n + \log m)$. Here, $n$ and $m$ are the number of athletes and trainers, respectively.
+We use two pointers $i$ and $j$ to point to the arrays of athletes and trainers, respectively, both initially pointing to the start of the arrays. Then we traverse the ability values of the athletes one by one. If the current trainer's ability value is less than the current athlete's ability value, we move the trainer's pointer to the right by one position until we find a trainer whose ability value is greater than or equal to the current athlete's. If no such trainer is found, it means the current athlete cannot be matched with any trainer, and we return the current athlete's index. Otherwise, we can match the current athlete with the trainer, and then move both pointers to the right by one position. Continue this process until all athletes have been traversed.
+
+If we traverse all athletes, it means all athletes can be matched with trainers, and we return the number of athletes.
+
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\max(\log m, \log n))$. Here, $m$ and $n$ are the numbers of athletes and trainers, respectively.
 
 <!-- tabs:start -->
 
@@ -82,14 +86,14 @@ class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
         players.sort()
         trainers.sort()
-        ans = j = 0
-        for p in players:
-            while j < len(trainers) and trainers[j] < p:
+        j, n = 0, len(trainers)
+        for i, p in enumerate(players):
+            while j < n and trainers[j] < p:
                 j += 1
-            if j < len(trainers):
-                ans += 1
-                j += 1
-        return ans
+            if j == n:
+                return i
+            j += 1
+        return len(players)
 ```
 
 #### Java
@@ -99,18 +103,16 @@ class Solution {
     public int matchPlayersAndTrainers(int[] players, int[] trainers) {
         Arrays.sort(players);
         Arrays.sort(trainers);
-        int ans = 0;
-        int j = 0;
-        for (int p : players) {
-            while (j < trainers.length && trainers[j] < p) {
+        int m = players.length, n = trainers.length;
+        for (int i = 0, j = 0; i < m; ++i, ++j) {
+            while (j < n && trainers[j] < players[i]) {
                 ++j;
             }
-            if (j < trainers.length) {
-                ++ans;
-                ++j;
+            if (j == n) {
+                return i;
             }
         }
-        return ans;
+        return m;
     }
 }
 ```
@@ -121,19 +123,18 @@ class Solution {
 class Solution {
 public:
     int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
-        sort(players.begin(), players.end());
-        sort(trainers.begin(), trainers.end());
-        int ans = 0, j = 0;
-        for (int p : players) {
-            while (j < trainers.size() && trainers[j] < p) {
+        ranges::sort(players);
+        ranges::sort(trainers);
+        int m = players.size(), n = trainers.size();
+        for (int i = 0, j = 0; i < m; ++i, ++j) {
+            while (j < n && trainers[j] < players[i]) {
                 ++j;
             }
-            if (j < trainers.size()) {
-                ++ans;
-                ++j;
+            if (j == n) {
+                return i;
             }
         }
-        return ans;
+        return m;
     }
 };
 ```
@@ -144,17 +145,35 @@ public:
 func matchPlayersAndTrainers(players []int, trainers []int) int {
 	sort.Ints(players)
 	sort.Ints(trainers)
-	ans, j := 0, 0
-	for _, p := range players {
-		for j < len(trainers) && trainers[j] < p {
+	m, n := len(players), len(trainers)
+	for i, j := 0, 0; i < m; i, j = i+1, j+1 {
+		for j < n && trainers[j] < players[i] {
 			j++
 		}
-		if j < len(trainers) {
-			ans++
-			j++
+		if j == n {
+			return i
 		}
 	}
-	return ans
+	return m
+}
+```
+
+#### TypeScript
+
+```ts
+function matchPlayersAndTrainers(players: number[], trainers: number[]): number {
+    players.sort((a, b) => a - b);
+    trainers.sort((a, b) => a - b);
+    const [m, n] = [players.length, trainers.length];
+    for (let i = 0, j = 0; i < m; ++i, ++j) {
+        while (j < n && trainers[j] < players[i]) {
+            ++j;
+        }
+        if (j === n) {
+            return i;
+        }
+    }
+    return m;
 }
 ```
 
