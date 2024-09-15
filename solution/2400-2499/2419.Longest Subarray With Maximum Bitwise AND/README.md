@@ -52,7 +52,7 @@ tags:
 <strong>输入：</strong>nums = [1,2,3,4]
 <strong>输出：</strong>1
 <strong>解释：</strong>
-子数组按位与运算的最大值是 4 。 
+子数组按位与运算的最大值是 4 。
 能得到此结果的最长子数组是 [4]，所以返回 1 。
 </pre>
 
@@ -158,6 +158,46 @@ func longestSubarray(nums []int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function longestSubarray(nums: number[]): number {
+    const mx = Math.max(...nums);
+    let [ans, cnt] = [0, 0];
+
+    for (const x of nums) {
+        if (x === mx) {
+            cnt++;
+            ans = Math.max(ans, cnt);
+        } else {
+            cnt = 0;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function longestSubarray(nums) {
+    const mx = Math.max(...nums);
+    let [ans, cnt] = [0, 0];
+
+    for (const x of nums) {
+        if (x === mx) {
+            cnt++;
+            ans = Math.max(ans, cnt);
+        } else {
+            cnt = 0;
+        }
+    }
+
+    return ans;
 }
 ```
 
