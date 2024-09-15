@@ -69,7 +69,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3285.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：遍历
+
+我们直接从下标为 $1$ 的山开始遍历，如果它左侧相邻的山的高度大于 $threshold$，那么我们就将它的下标加入到结果数组中。
+
+遍历结束后，返回结果数组即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{height}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

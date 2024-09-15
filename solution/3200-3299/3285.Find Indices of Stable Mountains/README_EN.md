@@ -67,7 +67,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3285.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal
+
+We directly traverse the mountains starting from index $1$. If the height of the mountain to its left is greater than $threshold$, we add its index to the result array.
+
+After the traversal, we return the result array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{height}$. Ignoring the space consumption of the result array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
