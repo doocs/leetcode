@@ -28,7 +28,7 @@ tags:
 
 <p>Given the sorted rotated array <code>nums</code> of <strong>unique</strong> elements, return <em>the minimum element of this array</em>.</p>
 
-<p>You must write an algorithm that runs in&nbsp;<code>O(log n) time.</code></p>
+<p>You must write an algorithm that runs in&nbsp;<code>O(log n) time</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

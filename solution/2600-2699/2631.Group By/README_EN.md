@@ -18,11 +18,11 @@ tags:
 
 <p>Write code that enhances all arrays such that you can call the&nbsp;<code>array.groupBy(fn)</code>&nbsp;method on any array and it will return a <strong>grouped</strong>&nbsp;version of the array.</p>
 
-<p>A&nbsp;<strong>grouped</strong>&nbsp;array is an object where each&nbsp;key&nbsp;is&nbsp;the output of&nbsp;<code>fn(arr[i])</code>&nbsp;and each&nbsp;value is an array containing all items in the original array with that key.</p>
+<p>A <strong>grouped</strong> array is an object where each&nbsp;key&nbsp;is&nbsp;the output of <code>fn(arr[i])</code> and each value is an array containing all items in the original array which generate that key.</p>
 
 <p>The provided callback&nbsp;<code>fn</code>&nbsp;will accept an item in the array and return a string key.</p>
 
-<p>The order of each value list should be the order the items&nbsp;appear in the array. Any order of keys is acceptable.</p>
+<p>The order of each value list should be the order the items appear in the array. Any order of keys is acceptable.</p>
 
 <p>Please solve it without lodash&#39;s&nbsp;<code>_.groupBy</code> function.</p>
 

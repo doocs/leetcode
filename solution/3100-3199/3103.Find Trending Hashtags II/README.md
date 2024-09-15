@@ -29,7 +29,7 @@ tags:
 +-------------+---------+
 tweet_id 是这张表的主键 (值互不相同的列)。
 这张表的每一行都包含 user_id, tweet_id, tweet_date 和 tweet。
-</pre>
+题目保证所有 tweet_date 都是 2024 年 2 月的合法日期。</pre>
 
 <p>编写一个解决方案来找到&nbsp;<code>2024</code>&nbsp;年 <strong>二月&nbsp;</strong>的 <strong>前</strong>&nbsp;<code>3</code>&nbsp;热门话题 <strong>标签</strong>。一条推文可能含有 <strong>多个标签</strong>。</p>
 
