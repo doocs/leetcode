@@ -47,6 +47,9 @@ The above arrows point to positions where the corresponding bits are different.
 	<li><code>0 &lt;=&nbsp;x, y &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/minimum-bit-flips-to-convert-number/description/" target="_blank"> 2220: Minimum Bit Flips to Convert Number.</a></p>
+
 <!-- description:end -->
 
 ## Solutions

@@ -51,7 +51,7 @@ tags:
 <div class="example-block">
 <p><strong>Input:</strong> <span class="example-io">nums = [1,5,3,3,4,1,3,2,2,3]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">1</span></p>
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
 
 <p><strong>Explanation:</strong></p>
 

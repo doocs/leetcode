@@ -29,6 +29,8 @@ tags:
 +-------------+---------+
 tweet_id is the primary key (column with unique values) for this table.
 Each row of this table contains user_id, tweet_id, tweet_date and tweet.
+It is guaranteed that all tweet_date are valid dates in February 2024.
+
 </pre>
 
 <p>Write a solution to find the <strong>top</strong> <code>3</code> trending <strong>hashtags</strong> in <strong>February</strong> <code>2024</code>. Every tweet may contain <strong>several</strong> <strong>hashtags</strong>.</p>

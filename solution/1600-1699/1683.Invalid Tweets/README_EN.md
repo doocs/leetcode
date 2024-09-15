@@ -43,12 +43,12 @@ This table contains all the tweets in a social media app.
 <pre>
 <strong>Input:</strong> 
 Tweets table:
-+----------+----------------------------------+
-| tweet_id | content                          |
-+----------+----------------------------------+
-| 1        | Vote for Biden                   |
-| 2        | Let us make America great again! |
-+----------+----------------------------------+
++----------+-----------------------------------+
+| tweet_id | content                           |
++----------+-----------------------------------+
+| 1        | Let us Code                       |
+| 2        | More than fifteen chars are here! |
++----------+-----------------------------------+
 <strong>Output:</strong> 
 +----------+
 | tweet_id |
@@ -56,8 +56,8 @@ Tweets table:
 | 2        |
 +----------+
 <strong>Explanation:</strong> 
-Tweet 1 has length = 14. It is a valid tweet.
-Tweet 2 has length = 32. It is an invalid tweet.
+Tweet 1 has length = 11. It is a valid tweet.
+Tweet 2 has length = 33. It is an invalid tweet.
 </pre>
 
 <!-- description:end -->

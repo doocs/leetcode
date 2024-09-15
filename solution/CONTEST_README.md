@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 415 场周赛(2024-09-15 10:30, 90 分钟) 参赛人数 2769
+
+- [3289. 数字小镇中的捣蛋鬼](/solution/3200-3299/3289.The%20Two%20Sneaky%20Numbers%20of%20Digitville/README.md)
+- [3290. 最高乘法得分](/solution/3200-3299/3290.Maximum%20Multiplication%20Score/README.md)
+- [3291. 形成目标字符串需要的最少字符串数 I](/solution/3200-3299/3291.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20I/README.md)
+- [3292. 形成目标字符串需要的最少字符串数 II](/solution/3200-3299/3292.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20II/README.md)
+
+#### 第 139 场双周赛(2024-09-14 22:30, 90 分钟) 参赛人数 2120
+
+- [3285. 找到稳定山的下标](/solution/3200-3299/3285.Find%20Indices%20of%20Stable%20Mountains/README.md)
+- [3286. 穿越网格图的安全路径](/solution/3200-3299/3286.Find%20a%20Safe%20Walk%20Through%20a%20Grid/README.md)
+- [3287. 求出数组中最大序列值](/solution/3200-3299/3287.Find%20the%20Maximum%20Sequence%20Value%20of%20Array/README.md)
+- [3288. 最长上升路径的长度](/solution/3200-3299/3288.Length%20of%20the%20Longest%20Increasing%20Path/README.md)
+
 #### 第 414 场周赛(2024-09-08 10:30, 90 分钟) 参赛人数 3236
 
 - [3280. 将日期转换为二进制表示](/solution/3200-3299/3280.Convert%20Date%20to%20Binary/README.md)
@@ -54,7 +68,7 @@ comments: true
 - [3266. K 次乘运算后的最终数组 II](/solution/3200-3299/3266.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20II/README.md)
 - [3267. 统计近似相等数对 II](/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README.md)
 
-#### 第 411 场周赛(2024-08-18 10:30, 90 分钟) 参赛人数 3029
+#### 第 411 场周赛(2024-08-18 10:30, 90 分钟) 参赛人数 3030
 
 - [3258. 统计满足 K 约束的子字符串数量 I](/solution/3200-3299/3258.Count%20Substrings%20That%20Satisfy%20K-Constraint%20I/README.md)
 - [3259. 超级饮料的最大强化能量](/solution/3200-3299/3259.Maximum%20Energy%20Boost%20From%20Two%20Drinks/README.md)

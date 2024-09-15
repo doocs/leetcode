@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1743.Re
 rating: 1579
 source: 第 226 场周赛 Q2
 tags:
+    - 深度优先搜索
     - 数组
     - 哈希表
 ---

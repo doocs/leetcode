@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1743.Re
 rating: 1579
 source: Weekly Contest 226 Q2
 tags:
+    - Depth-First Search
     - Array
     - Hash Table
 ---

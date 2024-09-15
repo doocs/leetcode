@@ -67,6 +67,9 @@ We can make at most one copy of &quot;aaaaa&quot;, so we return 1.
 	<li><code>s</code> and <code>target</code> consist of lowercase English letters.</li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/maximum-number-of-balloons/description/" target="_blank"> 1189: Maximum Number of Balloons.</a></p>
+
 <!-- description:end -->
 
 ## Solutions
