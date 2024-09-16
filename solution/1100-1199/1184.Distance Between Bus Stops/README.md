@@ -75,9 +75,9 @@ tags:
 
 ### 方法一：模拟
 
-我们可以先统计出公交车的总行驶距离 $s$，然后模拟公交车的行驶过程，从出发点开始，每次向右移动一站，直到到达目的地为止。在模拟的过程中，我们可以记录从出发点到目的地的距离 $a$，那么从目的地到出发点的最短距离就是 $\min(a, s - a)$。
+我们可以先统计出公交车的总行驶距离 $s$，然后模拟公交车的行驶过程，从出发点开始，每次向右移动一站，直到到达目的地为止，记录下这个过程中的行驶距离 $t$，最后返回 $t$ 和 $s - t$ 中的最小值即可。
 
-时间复杂度 $O(n)$，其中 $n$ 是公交车站的数量。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{distance}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -88,11 +88,12 @@ class Solution:
     def distanceBetweenBusStops(
         self, distance: List[int], start: int, destination: int
     ) -> int:
-        a, n = 0, len(distance)
+        s = sum(distance)
+        t, n = 0, len(distance)
         while start != destination:
-            a += distance[start]
+            t += distance[start]
             start = (start + 1) % n
-        return min(a, sum(distance) - a)
+        return min(t, s - t)
 ```
 
 #### Java
@@ -101,13 +102,12 @@ class Solution:
 class Solution {
     public int distanceBetweenBusStops(int[] distance, int start, int destination) {
         int s = Arrays.stream(distance).sum();
-        int n = distance.length;
-        int a = 0;
+        int n = distance.length, t = 0;
         while (start != destination) {
-            a += distance[start];
+            t += distance[start];
             start = (start + 1) % n;
         }
-        return Math.min(a, s - a);
+        return Math.min(t, s - t);
     }
 }
 ```
@@ -119,12 +119,12 @@ class Solution {
 public:
     int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
         int s = accumulate(distance.begin(), distance.end(), 0);
-        int a = 0, n = distance.size();
+        int t = 0, n = distance.size();
         while (start != destination) {
-            a += distance[start];
+            t += distance[start];
             start = (start + 1) % n;
         }
-        return min(a, s - a);
+        return min(t, s - t);
     }
 };
 ```
@@ -133,16 +133,15 @@ public:
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
-	s := 0
+	s, t := 0, 0
 	for _, x := range distance {
 		s += x
 	}
-	a, n := 0, len(distance)
 	for start != destination {
-		a += distance[start]
-		start = (start + 1) % n
+		t += distance[start]
+		start = (start + 1) % len(distance)
 	}
-	return min(a, s-a)
+	return min(t, s-t)
 }
 ```
 
@@ -151,13 +150,34 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 ```ts
 function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
     const s = distance.reduce((a, b) => a + b, 0);
-    let a = 0;
     const n = distance.length;
-    while (start != destination) {
-        a += distance[start];
+    let t = 0;
+    while (start !== destination) {
+        t += distance[start];
         start = (start + 1) % n;
     }
-    return Math.min(a, s - a);
+    return Math.min(t, s - t);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn distance_between_bus_stops(distance: Vec<i32>, start: i32, destination: i32) -> i32 {
+        let s: i32 = distance.iter().sum();
+        let mut t = 0;
+        let n = distance.len();
+        let mut start = start as usize;
+        let destination = destination as usize;
+
+        while start != destination {
+            t += distance[start];
+            start = (start + 1) % n;
+        }
+
+        t.min(s - t)
+    }
 }
 ```
 
@@ -172,13 +192,13 @@ function distanceBetweenBusStops(distance: number[], start: number, destination:
  */
 var distanceBetweenBusStops = function (distance, start, destination) {
     const s = distance.reduce((a, b) => a + b, 0);
-    let a = 0;
     const n = distance.length;
-    while (start != destination) {
-        a += distance[start];
+    let t = 0;
+    while (start !== destination) {
+        t += distance[start];
         start = (start + 1) % n;
     }
-    return Math.min(a, s - a);
+    return Math.min(t, s - t);
 };
 ```
 

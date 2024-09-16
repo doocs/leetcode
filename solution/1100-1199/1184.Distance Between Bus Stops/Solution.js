@@ -6,11 +6,11 @@
  */
 var distanceBetweenBusStops = function (distance, start, destination) {
     const s = distance.reduce((a, b) => a + b, 0);
-    let a = 0;
     const n = distance.length;
-    while (start != destination) {
-        a += distance[start];
+    let t = 0;
+    while (start !== destination) {
+        t += distance[start];
         start = (start + 1) % n;
     }
-    return Math.min(a, s - a);
+    return Math.min(t, s - t);
 };
