@@ -4,49 +4,45 @@ public:
         if (source == target) {
             return 0;
         }
-        int n = routes.size();
-        vector<unordered_set<int>> s(n);
-        vector<vector<int>> g(n);
-        unordered_map<int, vector<int>> d;
-        for (int i = 0; i < n; ++i) {
-            for (int v : routes[i]) {
-                s[i].insert(v);
-                d[v].push_back(i);
+
+        unordered_map<int, vector<int>> g;
+        for (int i = 0; i < routes.size(); i++) {
+            for (int stop : routes[i]) {
+                g[stop].push_back(i);
             }
         }
-        for (auto& [_, ids] : d) {
-            int m = ids.size();
-            for (int i = 0; i < m; ++i) {
-                for (int j = i + 1; j < m; ++j) {
-                    int a = ids[i], b = ids[j];
-                    g[a].push_back(b);
-                    g[b].push_back(a);
-                }
-            }
+
+        if (!g.contains(source) || !g.contains(target)) {
+            return -1;
         }
-        queue<int> q;
-        unordered_set<int> vis;
-        int ans = 1;
-        for (int v : d[source]) {
-            q.push(v);
-            vis.insert(v);
-        }
+
+        queue<pair<int, int>> q;
+        unordered_set<int> visBus;
+        unordered_set<int> visStop;
+        q.push({source, 0});
+        visStop.insert(source);
+
         while (!q.empty()) {
-            for (int k = q.size(); k; --k) {
-                int i = q.front();
-                q.pop();
-                if (s[i].count(target)) {
-                    return ans;
-                }
-                for (int j : g[i]) {
-                    if (!vis.count(j)) {
-                        vis.insert(j);
-                        q.push(j);
+            auto [stop, busCount] = q.front();
+            q.pop();
+
+            if (stop == target) {
+                return busCount;
+            }
+
+            for (int bus : g[stop]) {
+                if (!visBus.contains(bus)) {
+                    for (int nextStop : routes[bus]) {
+                        if (!visStop.contains(nextStop)) {
+                            visBus.insert(bus);
+                            visStop.insert(nextStop);
+                            q.push({nextStop, busCount + 1});
+                        }
                     }
                 }
             }
-            ++ans;
         }
+
         return -1;
     }
 };

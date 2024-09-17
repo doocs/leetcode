@@ -4,45 +4,39 @@ public class Solution {
             return 0;
         }
 
-        Dictionary<int, HashSet<int>> stopToRoutes = new Dictionary<int, HashSet<int>>();
-        List<HashSet<int>> routeToStops = new List<HashSet<int>>();
-
+        Dictionary<int, List<int>> g = new Dictionary<int, List<int>>();
         for (int i = 0; i < routes.Length; i++) {
-            routeToStops.Add(new HashSet<int>());
             foreach (int stop in routes[i]) {
-                routeToStops[i].Add(stop);
-                if (!stopToRoutes.ContainsKey(stop)) {
-                    stopToRoutes[stop] = new HashSet<int>();
+                if (!g.ContainsKey(stop)) {
+                    g[stop] = new List<int>();
                 }
-                stopToRoutes[stop].Add(i);
+                g[stop].Add(i);
             }
         }
 
-        Queue<int> queue = new Queue<int>();
-        HashSet<int> visited = new HashSet<int>();
-        int ans = 0;
-
-        foreach (int routeId in stopToRoutes[source]) {
-            queue.Enqueue(routeId);
-            visited.Add(routeId);
+        if (!g.ContainsKey(source) || !g.ContainsKey(target)) {
+            return -1;
         }
 
-        while (queue.Count > 0) {
-            int count = queue.Count;
-            ans++;
+        Queue<int[]> q = new Queue<int[]>();
+        HashSet<int> visBus = new HashSet<int>();
+        HashSet<int> visStop = new HashSet<int>();
+        q.Enqueue(new int[]{source, 0});
+        visStop.Add(source);
 
-            for (int i = 0; i < count; i++) {
-                int routeId = queue.Dequeue();
-
-                foreach (int stop in routeToStops[routeId]) {
-                    if (stop == target) {
-                        return ans;
-                    }
-
-                    foreach (int nextRoute in stopToRoutes[stop]) {
-                        if (!visited.Contains(nextRoute)) {
-                            visited.Add(nextRoute);
-                            queue.Enqueue(nextRoute);
+        while (q.Count > 0) {
+            int[] current = q.Dequeue();
+            int stop = current[0], busCount = current[1];
+            if (stop == target) {
+                return busCount;
+            }
+            foreach (int bus in g[stop]) {
+                if (!visBus.Contains(bus)) {
+                    foreach (int nextStop in routes[bus]) {
+                        if (!visStop.Contains(nextStop)) {
+                            visBus.Add(bus);
+                            visStop.Add(nextStop);
+                            q.Enqueue(new int[]{nextStop, busCount + 1});
                         }
                     }
                 }
