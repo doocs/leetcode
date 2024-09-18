@@ -183,6 +183,32 @@ public class Solution {
 }
 ```
 
+#### TypeScript
+
+```ts
+function largestNumber(nums: number[]): string {
+    nums.sort((a, b) => {
+        const [ab, ba] = [String(a) + String(b), String(b) + String(a)];
+        return +ba - +ab;
+    });
+
+    return nums[0] ? nums.join('') : '0';
+}
+```
+
+#### JavaScript
+
+```js
+function largestNumber(nums) {
+    nums.sort((a, b) => {
+        const [ab, ba] = [String(a) + String(b), String(b) + String(a)];
+        return +ba - +ab;
+    });
+
+    return nums[0] ? nums.join('') : '0';
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
