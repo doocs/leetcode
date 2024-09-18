@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3289.The%20Two%20Sneaky%20Numbers%20of%20Digitville/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
 ---
 
 <!-- problem:start -->

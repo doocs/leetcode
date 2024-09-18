@@ -4,7 +4,8 @@ public class Solution {
             return 0;
         }
 
-        Dictionary<int, List<int>> g = new Dictionary<int, List<int>>();
+        // Use Dictionary to map stops to bus routes
+        var g = new Dictionary<int, List<int>>();
         for (int i = 0; i < routes.Length; i++) {
             foreach (int stop in routes[i]) {
                 if (!g.ContainsKey(stop)) {
@@ -14,35 +15,41 @@ public class Solution {
             }
         }
 
+        // If source or target is not in the mapping, return -1
         if (!g.ContainsKey(source) || !g.ContainsKey(target)) {
             return -1;
         }
 
-        Queue<int[]> q = new Queue<int[]>();
-        HashSet<int> visBus = new HashSet<int>();
-        HashSet<int> visStop = new HashSet<int>();
-        q.Enqueue(new int[]{source, 0});
+        // Initialize queue and visited sets
+        var q = new Queue<int[]>();
+        var visBus = new HashSet<int>();
+        var visStop = new HashSet<int>();
+        q.Enqueue(new int[] { source, 0 });
         visStop.Add(source);
 
+        // Begin BFS
         while (q.Count > 0) {
-            int[] current = q.Dequeue();
+            var current = q.Dequeue();
             int stop = current[0], busCount = current[1];
+
+            // If the current stop is the target stop, return the bus count
             if (stop == target) {
                 return busCount;
             }
+
+            // Traverse all bus routes passing through the current stop
             foreach (int bus in g[stop]) {
-                if (!visBus.Contains(bus)) {
+                if (visBus.Add(bus)) {
+                    // Traverse all stops on this bus route
                     foreach (int nextStop in routes[bus]) {
-                        if (!visStop.Contains(nextStop)) {
-                            visBus.Add(bus);
-                            visStop.Add(nextStop);
-                            q.Enqueue(new int[]{nextStop, busCount + 1});
+                        if (visStop.Add(nextStop)) {
+                            q.Enqueue(new int[] { nextStop, busCount + 1 });
                         }
                     }
                 }
             }
         }
 
-        return -1;
+        return -1; // If unable to reach the target stop, return -1
     }
 }

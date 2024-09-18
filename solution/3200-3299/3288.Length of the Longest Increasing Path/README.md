@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3288.Length%20of%20the%20Longest%20Increasing%20Path/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

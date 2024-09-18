@@ -10,6 +10,7 @@ tags:
     - Binary Search
     - Prefix Sum
     - Sliding Window
+    - Monotonic Queue
     - Heap (Priority Queue)
 ---
 

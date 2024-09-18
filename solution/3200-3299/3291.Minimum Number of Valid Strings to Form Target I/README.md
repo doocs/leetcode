@@ -2,6 +2,16 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3291.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20I/README.md
+tags:
+    - 字典树
+    - 线段树
+    - 数组
+    - 字符串
+    - 二分查找
+    - 动态规划
+    - 字符串匹配
+    - 哈希函数
+    - 滚动哈希
 ---
 
 <!-- problem:start -->
