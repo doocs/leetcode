@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3285.Find%20Indices%20of%20Stable%20Mountains/README.md
+tags:
+    - 数组
 ---
 
 <!-- problem:start -->

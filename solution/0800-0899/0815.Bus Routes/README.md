@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>输入：</strong>routes = [[1,2,7],[3,6,7]], source = 1, target = 6
 <strong>输出：</strong>2
-<strong>解释：</strong>最优策略是先乘坐第一辆公交车到达车站 7 , 然后换乘第二辆公交车到车站 6 。
+<strong>解释：</strong>最优策略是先乘坐第一辆公交车到达车站 7 , 然后换乘第二辆公交车到车站 6 。 
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -367,55 +367,56 @@ function numBusesToDestination(routes: number[][], source: number, target: numbe
 public class Solution {
     public int NumBusesToDestination(int[][] routes, int source, int target) {
         if (source == target) {
-            return 0;
+            return 0; // 如果起点和终点相同，直接返回 0
         }
 
-        Dictionary<int, HashSet<int>> stopToRoutes = new Dictionary<int, HashSet<int>>();
-        List<HashSet<int>> routeToStops = new List<HashSet<int>>();
-
+        // 使用 Dictionary 构建站点到公交线路的映射
+        var g = new Dictionary<int, List<int>>();
         for (int i = 0; i < routes.Length; i++) {
-            routeToStops.Add(new HashSet<int>());
             foreach (int stop in routes[i]) {
-                routeToStops[i].Add(stop);
-                if (!stopToRoutes.ContainsKey(stop)) {
-                    stopToRoutes[stop] = new HashSet<int>();
+                if (!g.ContainsKey(stop)) {
+                    g[stop] = new List<int>();
                 }
-                stopToRoutes[stop].Add(i);
+                g[stop].Add(i); // 将公交线路编号添加到该站点的列表中
             }
         }
 
-        Queue<int> queue = new Queue<int>();
-        HashSet<int> visited = new HashSet<int>();
-        int ans = 0;
-
-        foreach (int routeId in stopToRoutes[source]) {
-            queue.Enqueue(routeId);
-            visited.Add(routeId);
+        // 如果 source 或 target 不在站点映射中，返回 -1
+        if (!g.ContainsKey(source) || !g.ContainsKey(target)) {
+            return -1;
         }
 
-        while (queue.Count > 0) {
-            int count = queue.Count;
-            ans++;
+        // 初始化队列和访问集合
+        var q = new Queue<int[]>();
+        var visBus = new HashSet<int>(); // 记录访问过的公交线路
+        var visStop = new HashSet<int>(); // 记录访问过的站点
+        q.Enqueue(new int[] { source, 0 }); // 将起点加入队列，公交次数初始化为 0
+        visStop.Add(source); // 将起点标记为已访问
 
-            for (int i = 0; i < count; i++) {
-                int routeId = queue.Dequeue();
+        // 开始广度优先搜索
+        while (q.Count > 0) {
+            var current = q.Dequeue(); // 从队列中取出当前站点
+            int stop = current[0], busCount = current[1];
 
-                foreach (int stop in routeToStops[routeId]) {
-                    if (stop == target) {
-                        return ans;
-                    }
+            // 如果当前站点是目标站点，返回所需的公交次数
+            if (stop == target) {
+                return busCount;
+            }
 
-                    foreach (int nextRoute in stopToRoutes[stop]) {
-                        if (!visited.Contains(nextRoute)) {
-                            visited.Add(nextRoute);
-                            queue.Enqueue(nextRoute);
+            // 遍历经过当前站点的所有公交线路
+            foreach (int bus in g[stop]) {
+                if (visBus.Add(bus)) { // 如果公交线路没有被访问过
+                    // 遍历该线路上的所有站点
+                    foreach (int nextStop in routes[bus]) {
+                        if (visStop.Add(nextStop)) { // 如果该站点没有被访问过
+                            q.Enqueue(new int[] { nextStop, busCount + 1 }); // 将新站点加入队列，公交次数加 1
                         }
                     }
                 }
             }
         }
 
-        return -1;
+        return -1; // 如果无法到达目标站点，返回 -1
     }
 }
 ```

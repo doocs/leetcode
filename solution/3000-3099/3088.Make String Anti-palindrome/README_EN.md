@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3088.Ma
 tags:
     - Greedy
     - String
+    - Counting Sort
     - Sorting
 ---
 

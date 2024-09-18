@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3284.Sum%20of%20Consecutive%20Subarrays/README.md
+tags:
+    - 数组
+    - 双指针
+    - 动态规划
 ---
 
 <!-- problem:start -->

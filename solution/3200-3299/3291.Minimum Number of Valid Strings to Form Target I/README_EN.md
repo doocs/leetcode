@@ -2,6 +2,16 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3291.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20I/README_EN.md
+tags:
+    - Trie
+    - Segment Tree
+    - Array
+    - String
+    - Binary Search
+    - Dynamic Programming
+    - String Matching
+    - Hash Function
+    - Rolling Hash
 ---
 
 <!-- problem:start -->
@@ -19,8 +29,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3291.Mi
 <p>A string <code>x</code> is called <strong>valid</strong> if <code>x</code> is a <span data-keyword="string-prefix">prefix</span> of <strong>any</strong> string in <code>words</code>.</p>
 
 <p>Return the <strong>minimum</strong> number of <strong>valid</strong> strings that can be <em>concatenated</em> to form <code>target</code>. If it is <strong>not</strong> possible to form <code>target</code>, return <code>-1</code>.</p>
-
-<p>A prefix of a string is a substring that starts from the beginning of the string and extends to any point within it.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
