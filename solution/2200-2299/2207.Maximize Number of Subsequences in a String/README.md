@@ -67,7 +67,18 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：遍历 + 计数
+
+我们可以使用两个变量 $x$ 和 $y$ 分别记录当前字符串中 $\textit{pattern}[0]$ 和 $\textit{pattern}[1]$ 出现的次数。
+
+然后遍历字符串 $\textit{text}$，对于当前遍历到的字符 $c$：
+
+-   如果 $c$ 等于 $\textit{pattern}[1]$，我们将 $y$ 加一，此时之前出现过的所有 $\textit{pattern}[0]$ 都可以和当前的 $c$ 组成一个 $\textit{pattern}$ 子序列，因此答案加上 $x$；
+-   如果 $c$ 等于 $\textit{pattern}[0]$，我们将 $x$ 加一。
+
+遍历结束后，由于我们可以插入一个字符，因此，如果我们在字符串开头加上 $\textit{pattern}[0]$，那么可以得到 $y$ 个 $\textit{pattern}$ 子序列；如果我们在字符串结尾加上 $\textit{pattern}[1]$，那么可以得到 $x$ 个 $\textit{pattern}$ 子序列。因此，我们将答案加上 $x$ 和 $y$ 中的较大值即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{text}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -76,13 +87,14 @@ tags:
 ```python
 class Solution:
     def maximumSubsequenceCount(self, text: str, pattern: str) -> int:
-        ans = 0
-        cnt = Counter()
+        ans = x = y = 0
         for c in text:
             if c == pattern[1]:
-                ans += cnt[pattern[0]]
-            cnt[c] += 1
-        ans += max(cnt[pattern[0]], cnt[pattern[1]])
+                y += 1
+                ans += x
+            if c == pattern[0]:
+                x += 1
+        ans += max(x, y)
         return ans
 ```
 
@@ -91,17 +103,18 @@ class Solution:
 ```java
 class Solution {
     public long maximumSubsequenceCount(String text, String pattern) {
-        int[] cnt = new int[26];
-        char a = pattern.charAt(0);
-        char b = pattern.charAt(1);
         long ans = 0;
-        for (char c : text.toCharArray()) {
-            if (c == b) {
-                ans += cnt[a - 'a'];
+        int x = 0, y = 0;
+        for (int i = 0; i < text.length(); ++i) {
+            if (text.charAt(i) == pattern.charAt(1)) {
+                ++y;
+                ans += x;
             }
-            cnt[c - 'a']++;
+            if (text.charAt(i) == pattern.charAt(0)) {
+                ++x;
+            }
         }
-        ans += Math.max(cnt[a - 'a'], cnt[b - 'a']);
+        ans += Math.max(x, y);
         return ans;
     }
 }
@@ -114,13 +127,17 @@ class Solution {
 public:
     long long maximumSubsequenceCount(string text, string pattern) {
         long long ans = 0;
-        char a = pattern[0], b = pattern[1];
-        vector<int> cnt(26);
+        int x = 0, y = 0;
         for (char& c : text) {
-            if (c == b) ans += cnt[a - 'a'];
-            cnt[c - 'a']++;
+            if (c == pattern[1]) {
+                ++y;
+                ans += x;
+            }
+            if (c == pattern[0]) {
+                ++x;
+            }
         }
-        ans += max(cnt[a - 'a'], cnt[b - 'a']);
+        ans += max(x, y);
         return ans;
     }
 };
@@ -129,19 +146,39 @@ public:
 #### Go
 
 ```go
-func maximumSubsequenceCount(text string, pattern string) int64 {
-	ans := 0
-	cnt := make([]int, 26)
-	a, b := pattern[0], pattern[1]
-	for i := range text {
-		c := text[i]
-		if c == b {
-			ans += cnt[a-'a']
+func maximumSubsequenceCount(text string, pattern string) (ans int64) {
+	x, y := 0, 0
+	for _, c := range text {
+		if byte(c) == pattern[1] {
+			y++
+			ans += int64(x)
 		}
-		cnt[c-'a']++
+		if byte(c) == pattern[0] {
+			x++
+		}
 	}
-	ans += max(cnt[a-'a'], cnt[b-'a'])
-	return int64(ans)
+	ans += int64(max(x, y))
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumSubsequenceCount(text: string, pattern: string): number {
+    let ans = 0;
+    let [x, y] = [0, 0];
+    for (const c of text) {
+        if (c === pattern[1]) {
+            ++y;
+            ans += x;
+        }
+        if (c === pattern[0]) {
+            ++x;
+        }
+    }
+    ans += Math.max(x, y);
+    return ans;
 }
 ```
 
