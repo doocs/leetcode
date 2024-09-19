@@ -129,7 +129,7 @@ class Solution {
  */
 class Solution {
 public:
-	vector<int> toArray(Node *node){
+    vector<int> toArray(Node* node) {
         Node* cur = node;
         while (cur && cur->prev) {
             cur = cur->prev;
