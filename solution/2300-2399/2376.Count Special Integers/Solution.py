@@ -1,24 +1,19 @@
 class Solution:
     def countSpecialNumbers(self, n: int) -> int:
-        def A(m, n):
-            return 1 if n == 0 else A(m, n - 1) * (m - n + 1)
+        @cache
+        def dfs(i: int, mask: int, lead: bool, limit: bool) -> int:
+            if i >= len(s):
+                return int(lead ^ 1)
+            up = int(s[i]) if limit else 9
+            ans = 0
+            for j in range(up + 1):
+                if mask >> j & 1:
+                    continue
+                if lead and j == 0:
+                    ans += dfs(i + 1, mask, True, limit and j == up)
+                else:
+                    ans += dfs(i + 1, mask | 1 << j, False, limit and j == up)
+            return ans
 
-        vis = [False] * 10
-        ans = 0
-        digits = [int(c) for c in str(n)[::-1]]
-        m = len(digits)
-        for i in range(1, m):
-            ans += 9 * A(9, i - 1)
-        for i in range(m - 1, -1, -1):
-            v = digits[i]
-            j = 1 if i == m - 1 else 0
-            while j < v:
-                if not vis[j]:
-                    ans += A(10 - (m - i), i)
-                j += 1
-            if vis[v]:
-                break
-            vis[v] = True
-            if i == 0:
-                ans += 1
-        return ans
+        s = str(n)
+        return dfs(0, 0, True, True)
