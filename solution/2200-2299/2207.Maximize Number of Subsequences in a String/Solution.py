@@ -1,10 +1,11 @@
 class Solution:
     def maximumSubsequenceCount(self, text: str, pattern: str) -> int:
-        ans = 0
-        cnt = Counter()
+        ans = x = y = 0
         for c in text:
             if c == pattern[1]:
-                ans += cnt[pattern[0]]
-            cnt[c] += 1
-        ans += max(cnt[pattern[0]], cnt[pattern[1]])
+                y += 1
+                ans += x
+            if c == pattern[0]:
+                x += 1
+        ans += max(x, y)
         return ans

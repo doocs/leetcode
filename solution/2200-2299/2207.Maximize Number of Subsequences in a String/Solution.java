@@ -1,16 +1,17 @@
 class Solution {
     public long maximumSubsequenceCount(String text, String pattern) {
-        int[] cnt = new int[26];
-        char a = pattern.charAt(0);
-        char b = pattern.charAt(1);
         long ans = 0;
-        for (char c : text.toCharArray()) {
-            if (c == b) {
-                ans += cnt[a - 'a'];
+        int x = 0, y = 0;
+        for (int i = 0; i < text.length(); ++i) {
+            if (text.charAt(i) == pattern.charAt(1)) {
+                ++y;
+                ans += x;
             }
-            cnt[c - 'a']++;
+            if (text.charAt(i) == pattern.charAt(0)) {
+                ++x;
+            }
         }
-        ans += Math.max(cnt[a - 'a'], cnt[b - 'a']);
+        ans += Math.max(x, y);
         return ans;
     }
 }
