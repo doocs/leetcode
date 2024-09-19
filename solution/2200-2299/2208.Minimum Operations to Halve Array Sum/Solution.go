@@ -1,16 +1,16 @@
 func halveArray(nums []int) (ans int) {
 	var s float64
-	q := hp{}
+	pq := &hp{}
 	for _, x := range nums {
 		s += float64(x)
-		heap.Push(&q, float64(x))
+		heap.Push(pq, float64(x))
 	}
 	s /= 2
 	for s > 0 {
-		x := heap.Pop(&q).(float64)
+		t := heap.Pop(pq).(float64) / 2
+		s -= t
 		ans++
-		s -= x / 2
-		heap.Push(&q, x/2)
+		heap.Push(pq, t)
 	}
 	return
 }
