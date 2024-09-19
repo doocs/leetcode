@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README_EN.md
+rating: 2692
+source: Weekly Contest 413 Q4
 tags:
     - Array
     - Dynamic Programming

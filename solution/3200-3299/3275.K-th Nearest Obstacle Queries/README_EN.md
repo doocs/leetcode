@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README_EN.md
+rating: 1419
+source: Weekly Contest 413 Q2
 tags:
     - Array
     - Heap (Priority Queue)

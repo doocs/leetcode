@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3271.Hash%20Divided%20String/README_EN.md
+rating: 1292
+source: Biweekly Contest 138 Q2
 tags:
     - String
     - Simulation

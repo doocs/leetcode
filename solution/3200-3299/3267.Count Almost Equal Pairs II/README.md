@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3267.Count%20Almost%20Equal%20Pairs%20II/README.md
+rating: 2545
+source: 第 412 场周赛 Q4
 tags:
     - 数组
     - 哈希表
