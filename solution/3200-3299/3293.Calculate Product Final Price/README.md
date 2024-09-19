@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3293. Calculate Product Final Price 🔒](https://leetcode.cn/problems/calculate-product-final-price)
+# [3293. 计算产品最终价格 🔒](https://leetcode.cn/problems/calculate-product-final-price)
 
 [English Version](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <font face="monospace"><code>Products</code></font></p>
+<p>表：<font face="monospace"><code>Products</code></font></p>
 
 <pre>
 +------------+---------+ 
@@ -26,11 +26,11 @@ tags:
 | category   | varchar |
 | price      | decimal |
 +------------+---------+
-product_id is the unique key for this table.
-Each row includes the product&#39;s ID, its category, and its price.
+product_id 是这张表的唯一主键。
+每一行包含产品的 ID，分类以及价格。
 </pre>
 
-<p>Table: <font face="monospace"><code>Discounts</code></font></p>
+<p>表：<font face="monospace"><code>Discounts</code></font></p>
 
 <pre>
 +------------+---------+ 
@@ -39,23 +39,24 @@ Each row includes the product&#39;s ID, its category, and its price.
 | category   | varchar |
 | discount   | int     |
 +------------+---------+
-category is the primary key for this table.
-Each row contains a product category and the percentage discount applied to that category (values range from 0 to 100).
+category 是这张表的主键。
+每一行包含有一个产品分类和该分类的折扣百分比（值的范围从 0 到 100）。
 </pre>
 
-<p>Write a solution to find the <strong>final price</strong> of each product after applying the <strong>category discount</strong>. If a product&#39;s category has <strong>no</strong> <strong>associated</strong> <strong>discount</strong>, its price remains <strong>unchanged</strong>.</p>
+<p>编写一个解决方案来找到每个产品使用 <strong>分类折扣</strong>&nbsp;后的 <strong>最终价格</strong>。如果一个产品分类 <strong>没有关联的折扣</strong>，它的价格保持 <strong>不变</strong>。</p>
 
-<p>Return <em>the result table ordered by</em> <code>product_id</code><em> in <strong>ascending</strong> order.</em></p>
+<p>返回结果表以&nbsp;<code>product_id</code><em> </em><strong>升序&nbsp;</strong>排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p><code>Products</code> table:</p>
+<p><code>Products</code> 表：</p>
 
 <pre class="example-io">
 +------------+-------------+-------+
@@ -68,7 +69,7 @@ Each row contains a product category and the percentage discount applied to that
 +------------+-------------+-------+
   </pre>
 
-<p><code>Discounts</code> table:</p>
+<p><code>Discounts</code> 表：</p>
 
 <pre class="example-io">
 +------------+----------+
@@ -79,7 +80,7 @@ Each row contains a product category and the percentage discount applied to that
 +------------+----------+
   </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +------------+------------+-------------+
@@ -92,15 +93,15 @@ Each row contains a product category and the percentage discount applied to that
 +------------+------------+-------------+
   </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>For product 1, it belongs to the Electronics&nbsp;category which has a 10% discount, so the final price is 1000 - (10% of 1000) = 900.</li>
-	<li>For product 2, it belongs to the Clothing&nbsp;category which has a 20% discount, so the final price is 50 - (20% of 50) = 40.</li>
-	<li>For product 3, it belongs to the Electronics&nbsp;category and receives a 10% discount, so the final price is 1200 - (10% of 1200) = 1080.</li>
-	<li>For product 4, no discount is available for the Home&nbsp;category, so the final price remains 500.</li>
+	<li>对于产品 1，它属于电器分类，有 10% 的折扣，所以最终价格为 1000 - (10% of 1000) = 900。</li>
+	<li>对于产品 2，它属于衣物分类，有 20% 的折扣，所以最终价格为 50 - (20% of 50) = 40。</li>
+	<li>对于产品 3，它属于电器分类，有 10% 的折扣，所以最终价格为&nbsp;1200 - (10% of 1200) = 1080。</li>
+	<li>对于产品 4，它属于家具分类，没有可用的折扣，所以最终价格仍是 500。</li>
 </ul>
-Result table is ordered by product_id in ascending order.</div>
+结果表以 product_id 升序排序。</div>
 
 <!-- description:end -->
 

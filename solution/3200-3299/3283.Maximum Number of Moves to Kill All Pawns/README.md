@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3283.Maximum%20Number%20of%20Moves%20to%20Kill%20All%20Pawns/README.md
+rating: 2473
+source: 第 414 场周赛 Q4
 tags:
     - 位运算
     - 广度优先搜索

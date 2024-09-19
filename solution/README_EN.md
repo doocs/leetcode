@@ -3302,6 +3302,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3291  |  [Minimum Number of Valid Strings to Form Target I](/solution/3200-3299/3291.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20I/README_EN.md)  |  `Trie`,`Segment Tree`,`Array`,`String`,`Binary Search`,`Dynamic Programming`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Medium  |  Weekly Contest 415  |
 |  3292  |  [Minimum Number of Valid Strings to Form Target II](/solution/3200-3299/3292.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20II/README_EN.md)  |  `Segment Tree`,`Array`,`String`,`Binary Search`,`Dynamic Programming`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 415  |
 |  3293  |  [Calculate Product Final Price](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3294  |  [Convert Doubly Linked List to Array II](/solution/3200-3299/3294.Convert%20Doubly%20Linked%20List%20to%20Array%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

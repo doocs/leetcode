@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README.md
+rating: 2382
+source: 第 138 场双周赛 Q3
 tags:
     - 哈希表
     - 数学

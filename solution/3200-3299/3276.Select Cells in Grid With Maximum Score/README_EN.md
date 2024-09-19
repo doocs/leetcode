@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README_EN.md
+rating: 2402
+source: Weekly Contest 413 Q3
 tags:
     - Bit Manipulation
     - Array

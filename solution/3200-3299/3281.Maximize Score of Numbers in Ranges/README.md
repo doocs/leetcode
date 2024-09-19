@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3281.Maximize%20Score%20of%20Numbers%20in%20Ranges/README.md
+rating: 1768
+source: 第 414 场周赛 Q2
 tags:
     - 贪心
     - 数组

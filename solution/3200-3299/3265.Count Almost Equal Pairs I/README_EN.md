@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README_EN.md
+rating: 1661
+source: Weekly Contest 412 Q2
 tags:
     - Array
     - Hash Table

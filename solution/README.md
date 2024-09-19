@@ -3303,7 +3303,8 @@
 |  3290  |  [最高乘法得分](/solution/3200-3299/3290.Maximum%20Multiplication%20Score/README.md)  |  `数组`,`动态规划`  |  中等  |  第 415 场周赛  |
 |  3291  |  [形成目标字符串需要的最少字符串数 I](/solution/3200-3299/3291.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20I/README.md)  |  `字典树`,`线段树`,`数组`,`字符串`,`二分查找`,`动态规划`,`字符串匹配`,`哈希函数`,`滚动哈希`  |  中等  |  第 415 场周赛  |
 |  3292  |  [形成目标字符串需要的最少字符串数 II](/solution/3200-3299/3292.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20II/README.md)  |  `线段树`,`数组`,`字符串`,`二分查找`,`动态规划`,`字符串匹配`,`哈希函数`,`滚动哈希`  |  困难  |  第 415 场周赛  |
-|  3293  |  [Calculate Product Final Price](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3293  |  [计算产品最终价格](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3294  |  [Convert Doubly Linked List to Array II](/solution/3200-3299/3294.Convert%20Doubly%20Linked%20List%20to%20Array%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

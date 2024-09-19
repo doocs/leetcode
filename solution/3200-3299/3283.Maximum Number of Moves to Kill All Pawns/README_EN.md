@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3283.Maximum%20Number%20of%20Moves%20to%20Kill%20All%20Pawns/README_EN.md
+rating: 2473
+source: Weekly Contest 414 Q4
 tags:
     - Bit Manipulation
     - Breadth-First Search
