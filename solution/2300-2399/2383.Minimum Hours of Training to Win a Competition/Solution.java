@@ -1,19 +1,18 @@
 class Solution {
-    public int minNumberOfHours(
-        int initialEnergy, int initialExperience, int[] energy, int[] experience) {
+    public int minNumberOfHours(int x, int y, int[] energy, int[] experience) {
         int ans = 0;
         for (int i = 0; i < energy.length; ++i) {
-            int a = energy[i], b = experience[i];
-            if (initialEnergy <= a) {
-                ans += a - initialEnergy + 1;
-                initialEnergy = a + 1;
+            int dx = energy[i], dy = experience[i];
+            if (x <= dx) {
+                ans += dx + 1 - x;
+                x = dx + 1;
             }
-            if (initialExperience <= b) {
-                ans += b - initialExperience + 1;
-                initialExperience = b + 1;
+            if (y <= dy) {
+                ans += dy + 1 - y;
+                y = dy + 1;
             }
-            initialEnergy -= a;
-            initialExperience += b;
+            x -= dx;
+            y += dy;
         }
         return ans;
     }

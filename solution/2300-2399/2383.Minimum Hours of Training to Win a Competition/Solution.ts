@@ -1,26 +1,17 @@
-function minNumberOfHours(
-    initialEnergy: number,
-    initialExperience: number,
-    energy: number[],
-    experience: number[],
-): number {
-    const n = energy.length;
+function minNumberOfHours(x: number, y: number, energy: number[], experience: number[]): number {
     let ans = 0;
-    for (let i = 0; i < n; i++) {
-        const minEnergy = energy[i];
-        const minExperience = experience[i];
-        if (initialEnergy <= minEnergy) {
-            const need = minEnergy - initialEnergy + 1;
-            ans += need;
-            initialEnergy += need;
+    for (let i = 0; i < energy.length; ++i) {
+        const [dx, dy] = [energy[i], experience[i]];
+        if (x <= dx) {
+            ans += dx + 1 - x;
+            x = dx + 1;
         }
-        if (initialExperience <= minExperience) {
-            const need = minExperience - initialExperience + 1;
-            ans += need;
-            initialExperience += need;
+        if (y <= dy) {
+            ans += dy + 1 - y;
+            y = dy + 1;
         }
-        initialEnergy -= minEnergy;
-        initialExperience += minExperience;
+        x -= dx;
+        y += dy;
     }
     return ans;
 }
