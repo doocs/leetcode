@@ -70,19 +70,24 @@ tags:
 
 基本步骤如下：
 
-1. 将数字 $n$ 转为整型数组 $nums$，其中 $nums[0]$ 为最低位，而 $nums[i]$ 为最高位；
-1. 根据题目信息，设计函数 $dfs()$，对于本题，我们定义 $dfs(pos, mask, lead, limit)$，其中：
+我们将数字 $n$ 转为字符串 $s$，接下来，我们设计一个函数 $\textit{dfs}(i, \textit{mask}, \textit{lead}, \textit{limit})$，其中：
 
--   参数 $pos$ 表示当前搜索到的数字的位数，从末位或者第一位开始，一般根据题目的数字构造性质来选择顺序。对于本题，我们选择从高位开始，因此 $pos$ 的初始值为数字的高位下标；
--   参数 $mask$ 表示当前数字中出现过的数字；
--   参数 $lead$ 表示当前数字是否仅包含前导零；
--   参数 $limit$ 表示当前可填的数字的限制，如果无限制，那么可以选择 $i \in [0,1,..9]$，否则，只能选择 $i \in [0,..nums[pos]]$。如果 $limit$ 为 `true` 且已经取到了能取到的最大值，那么下一个 $limit$ 同样为 `true`；如果 $limit$ 为 `true` 但是还没有取到最大值，或者 $limit$ 为 `false`，那么下一个 $limit$ 为 `false`。
+-   数字 $i$ 表示当前处理的数字下标，从 $0$ 开始。
+-   数字 $\textit{mask}$ 表示当前数字中出现过的数字，用二进制数表示。其中 $\textit{mask}$ 的二进制的第 $j$ 位为 $1$ 表示数字 $j$ 出现过，为 $0$ 表示数字 $j$ 没有出现过。
+-   布尔值 $\textit{lead}$ 表示是否只包含前导零。
+-   布尔值 $\textit{limit}$ 表示当前位置是否受到上界的限制。
 
-答案为 $dfs(0, 0, true, true)$。
+函数的执行过程如下：
 
-关于函数的实现细节，可以参考下面的代码。
+如果 $i$ 大于等于 $m$，说明我们已经处理完了所有的位数，此时如果 $\textit{lead}$ 为真，说明当前的数字是前导零，我们应当返回 $0$；否则，我们应当返回 $1$。
 
-时间复杂度 $O(m \times 2^m \times 10)$，空间复杂度 $O(m \times 2^m)$。其中 $m$ 为数字 $n$ 的位数。
+否则，我们计算当前位置的上界 $\textit{up}$，如果 $\textit{limit}$ 为真，则 $up$ 为 $s[i]$ 对应的数字，否则 $up$ 为 $9$。
+
+然后，我们在 $[0, \textit{up}]$ 的范围内枚举当前位置的数字 $j$，如果 $j$ 为 $0$ 且 $\textit{lead}$ 为真，我们递归计算 $\textit{dfs}(i + 1, \textit{mask}, \text{true}, \textit{limit} \wedge j = \textit{up})$；否则，如果 $\textit{mask}$ 的第 $j$ 位为 $0$，我们递归计算 $\textit{dfs}(i + 1, \textit{mask} \,|\, 2^j, \text{false}, \textit{limit} \wedge j = \textit{up})$。累加所有的结果即为答案。
+
+答案为 $n - \textit{dfs}(0, 0, \text{true}, \text{true})$。
+
+时间复杂度 $O(\log n \times 2^D \times D)$，空间复杂度 $O(\log n \times 2^D)$。其中 $D = 10$。
 
 相似题目：
 
@@ -100,74 +105,56 @@ tags:
 ```python
 class Solution:
     def numDupDigitsAtMostN(self, n: int) -> int:
-        return n - self.f(n)
+        @cache
+        def dfs(i: int, mask: int, lead: bool, limit: bool) -> int:
+            if i >= len(s):
+                return lead ^ 1
+            up = int(s[i]) if limit else 9
+            ans = 0
+            for j in range(up + 1):
+                if lead and j == 0:
+                    ans += dfs(i + 1, mask, True, False)
+                elif mask >> j & 1 ^ 1:
+                    ans += dfs(i + 1, mask | 1 << j, False, limit and j == up)
+            return ans
 
-    def f(self, n):
-        def A(m, n):
-            return 1 if n == 0 else A(m, n - 1) * (m - n + 1)
-
-        vis = [False] * 10
-        ans = 0
-        digits = [int(c) for c in str(n)[::-1]]
-        m = len(digits)
-        for i in range(1, m):
-            ans += 9 * A(9, i - 1)
-        for i in range(m - 1, -1, -1):
-            v = digits[i]
-            j = 1 if i == m - 1 else 0
-            while j < v:
-                if not vis[j]:
-                    ans += A(10 - (m - i), i)
-                j += 1
-            if vis[v]:
-                break
-            vis[v] = True
-            if i == 0:
-                ans += 1
-        return ans
+        s = str(n)
+        return n - dfs(0, 0, True, True)
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private char[] s;
+    private Integer[][] f;
+
     public int numDupDigitsAtMostN(int n) {
-        return n - f(n);
+        s = String.valueOf(n).toCharArray();
+        f = new Integer[s.length][1 << 10];
+        return n - dfs(0, 0, true, true);
     }
 
-    public int f(int n) {
-        List<Integer> digits = new ArrayList<>();
-        while (n != 0) {
-            digits.add(n % 10);
-            n /= 10;
+    private int dfs(int i, int mask, boolean lead, boolean limit) {
+        if (i >= s.length) {
+            return lead ? 0 : 1;
         }
-        int m = digits.size();
+        if (!lead && !limit && f[i][mask] != null) {
+            return f[i][mask];
+        }
+        int up = limit ? s[i] - '0' : 9;
         int ans = 0;
-        for (int i = 1; i < m; ++i) {
-            ans += 9 * A(9, i - 1);
+        for (int j = 0; j <= up; ++j) {
+            if (lead && j == 0) {
+                ans += dfs(i + 1, mask, true, false);
+            } else if ((mask >> j & 1) == 0) {
+                ans += dfs(i + 1, mask | 1 << j, false, limit && j == up);
+            }
         }
-        boolean[] vis = new boolean[10];
-        for (int i = m - 1; i >= 0; --i) {
-            int v = digits.get(i);
-            for (int j = i == m - 1 ? 1 : 0; j < v; ++j) {
-                if (vis[j]) {
-                    continue;
-                }
-                ans += A(10 - (m - i), i);
-            }
-            if (vis[v]) {
-                break;
-            }
-            vis[v] = true;
-            if (i == 0) {
-                ++ans;
-            }
+        if (!lead && !limit) {
+            f[i][mask] = ans;
         }
         return ans;
-    }
-
-    private int A(int m, int n) {
-        return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
     }
 }
 ```
@@ -178,41 +165,32 @@ class Solution {
 class Solution {
 public:
     int numDupDigitsAtMostN(int n) {
-        return n - f(n);
-    }
-
-    int f(int n) {
-        int ans = 0;
-        vector<int> digits;
-        while (n) {
-            digits.push_back(n % 10);
-            n /= 10;
-        }
-        int m = digits.size();
-        vector<bool> vis(10);
-        for (int i = 1; i < m; ++i) {
-            ans += 9 * A(9, i - 1);
-        }
-        for (int i = m - 1; ~i; --i) {
-            int v = digits[i];
-            for (int j = i == m - 1 ? 1 : 0; j < v; ++j) {
-                if (!vis[j]) {
-                    ans += A(10 - (m - i), i);
+        string s = to_string(n);
+        int m = s.size();
+        int f[m][1 << 10];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i, int mask, bool lead, bool limit) -> int {
+            if (i >= m) {
+                return lead ^ 1;
+            }
+            if (!lead && !limit && f[i][mask] != -1) {
+                return f[i][mask];
+            }
+            int up = limit ? s[i] - '0' : 9;
+            int ans = 0;
+            for (int j = 0; j <= up; ++j) {
+                if (lead && j == 0) {
+                    ans += dfs(dfs, i + 1, mask, true, limit && j == up);
+                } else if (mask >> j & 1 ^ 1) {
+                    ans += dfs(dfs, i + 1, mask | (1 << j), false, limit && j == up);
                 }
             }
-            if (vis[v]) {
-                break;
+            if (!lead && !limit) {
+                f[i][mask] = ans;
             }
-            vis[v] = true;
-            if (i == 0) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    int A(int m, int n) {
-        return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
+            return ans;
+        };
+        return n - dfs(dfs, 0, 0, true, true);
     }
 };
 ```
@@ -221,48 +199,45 @@ public:
 
 ```go
 func numDupDigitsAtMostN(n int) int {
-	return n - f(n)
-}
-
-func f(n int) int {
-	digits := []int{}
-	for n != 0 {
-		digits = append(digits, n%10)
-		n /= 10
-	}
-	m := len(digits)
-	vis := make([]bool, 10)
-	ans := 0
-	for i := 1; i < m; i++ {
-		ans += 9 * A(9, i-1)
-	}
-	for i := m - 1; i >= 0; i-- {
-		v := digits[i]
-		j := 0
-		if i == m-1 {
-			j = 1
+	s := []byte(strconv.Itoa(n))
+	m := len(s)
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, 1<<10)
+		for j := range f[i] {
+			f[i][j] = -1
 		}
-		for ; j < v; j++ {
-			if !vis[j] {
-				ans += A(10-(m-i), i)
+	}
+
+	var dfs func(i, mask int, lead, limit bool) int
+	dfs = func(i, mask int, lead, limit bool) int {
+		if i >= m {
+			if lead {
+				return 0
+			}
+			return 1
+		}
+		if !lead && !limit && f[i][mask] != -1 {
+			return f[i][mask]
+		}
+		up := 9
+		if limit {
+			up = int(s[i] - '0')
+		}
+		ans := 0
+		for j := 0; j <= up; j++ {
+			if lead && j == 0 {
+				ans += dfs(i+1, mask, true, limit && j == up)
+			} else if mask>>j&1 == 0 {
+				ans += dfs(i+1, mask|(1<<j), false, limit && j == up)
 			}
 		}
-		if vis[v] {
-			break
+		if !lead && !limit {
+			f[i][mask] = ans
 		}
-		vis[v] = true
-		if i == 0 {
-			ans++
-		}
+		return ans
 	}
-	return ans
-}
-
-func A(m, n int) int {
-	if n == 0 {
-		return 1
-	}
-	return A(m, n-1) * (m - n + 1)
+	return n - dfs(0, 0, true, true)
 }
 ```
 
@@ -270,229 +245,33 @@ func A(m, n int) int {
 
 ```ts
 function numDupDigitsAtMostN(n: number): number {
-    return n - f(n);
-}
+    const s = n.toString();
+    const m = s.length;
+    const f = Array.from({ length: m }, () => Array(1 << 10).fill(-1));
 
-function f(n: number): number {
-    const nums: number[] = [];
-    let i = -1;
-    for (; n; n = Math.floor(n / 10)) {
-        nums[++i] = n % 10;
-    }
-    const dp = Array.from({ length: 11 }, () => Array(1 << 11).fill(-1));
-    const dfs = (pos: number, mask: number, lead: boolean, limit: boolean): number => {
-        if (pos < 0) {
+    const dfs = (i: number, mask: number, lead: boolean, limit: boolean): number => {
+        if (i >= m) {
             return lead ? 0 : 1;
         }
-        if (!lead && !limit && dp[pos][mask] !== -1) {
-            return dp[pos][mask];
+        if (!lead && !limit && f[i][mask] !== -1) {
+            return f[i][mask];
         }
-        const up = limit ? nums[pos] : 9;
+        const up = limit ? parseInt(s[i]) : 9;
         let ans = 0;
-        for (let i = 0; i <= up; ++i) {
-            if ((mask >> i) & 1) {
-                continue;
-            }
-            if (lead && i === 0) {
-                ans += dfs(pos - 1, mask, lead, limit && i === up);
-            } else {
-                ans += dfs(pos - 1, mask | (1 << i), false, limit && i === up);
+        for (let j = 0; j <= up; j++) {
+            if (lead && j === 0) {
+                ans += dfs(i + 1, mask, true, limit && j === up);
+            } else if (((mask >> j) & 1) === 0) {
+                ans += dfs(i + 1, mask | (1 << j), false, limit && j === up);
             }
         }
         if (!lead && !limit) {
-            dp[pos][mask] = ans;
+            f[i][mask] = ans;
         }
         return ans;
     };
-    return dfs(i, 0, true, true);
-}
-```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def numDupDigitsAtMostN(self, n: int) -> int:
-        return n - self.f(n)
-
-    def f(self, n: int) -> int:
-        @cache
-        def dfs(pos: int, mask: int, lead: bool, limit: bool) -> int:
-            if pos < 0:
-                return int(lead) ^ 1
-            up = nums[pos] if limit else 9
-            ans = 0
-            for i in range(up + 1):
-                if mask >> i & 1:
-                    continue
-                if i == 0 and lead:
-                    ans += dfs(pos - 1, mask, lead, limit and i == up)
-                else:
-                    ans += dfs(pos - 1, mask | 1 << i, False, limit and i == up)
-            return ans
-
-        nums = []
-        while n:
-            nums.append(n % 10)
-            n //= 10
-        return dfs(len(nums) - 1, 0, True, True)
-```
-
-#### Java
-
-```java
-class Solution {
-    private int[] nums = new int[11];
-    private Integer[][] dp = new Integer[11][1 << 11];
-
-    public int numDupDigitsAtMostN(int n) {
-        return n - f(n);
-    }
-
-    private int f(int n) {
-        int i = -1;
-        for (; n > 0; n /= 10) {
-            nums[++i] = n % 10;
-        }
-        return dfs(i, 0, true, true);
-    }
-
-    private int dfs(int pos, int mask, boolean lead, boolean limit) {
-        if (pos < 0) {
-            return lead ? 0 : 1;
-        }
-        if (!lead && !limit && dp[pos][mask] != null) {
-            return dp[pos][mask];
-        }
-        int ans = 0;
-        int up = limit ? nums[pos] : 9;
-        for (int i = 0; i <= up; ++i) {
-            if ((mask >> i & 1) == 1) {
-                continue;
-            }
-            if (i == 0 && lead) {
-                ans += dfs(pos - 1, mask, lead, limit && i == up);
-            } else {
-                ans += dfs(pos - 1, mask | 1 << i, false, limit && i == up);
-            }
-        }
-        if (!lead && !limit) {
-            dp[pos][mask] = ans;
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int numDupDigitsAtMostN(int n) {
-        return n - f(n);
-    }
-
-private:
-    int nums[11];
-    int dp[11][1 << 11];
-
-    int f(int n) {
-        memset(dp, -1, sizeof(dp));
-        int i = -1;
-        for (; n; n /= 10) {
-            nums[++i] = n % 10;
-        }
-        return dfs(i, 0, true, true);
-    }
-
-    int dfs(int pos, int mask, bool lead, bool limit) {
-        if (pos < 0) {
-            return lead ? 0 : 1;
-        }
-        if (!lead && !limit && dp[pos][mask] != -1) {
-            return dp[pos][mask];
-        }
-        int up = limit ? nums[pos] : 9;
-        int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            if (mask >> i & 1) {
-                continue;
-            }
-            if (i == 0 && lead) {
-                ans += dfs(pos - 1, mask, lead, limit && i == up);
-            } else {
-                ans += dfs(pos - 1, mask | 1 << i, false, limit && i == up);
-            }
-        }
-        if (!lead && !limit) {
-            dp[pos][mask] = ans;
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func numDupDigitsAtMostN(n int) int {
-	return n - f(n)
-}
-
-func f(n int) int {
-	nums := []int{}
-	for ; n > 0; n /= 10 {
-		nums = append(nums, n%10)
-	}
-	dp := [11][1 << 11]int{}
-	for i := range dp {
-		for j := range dp[i] {
-			dp[i][j] = -1
-		}
-	}
-	var dfs func(int, int, bool, bool) int
-	dfs = func(pos int, mask int, lead bool, limit bool) int {
-		if pos < 0 {
-			if lead {
-				return 0
-			}
-			return 1
-		}
-		if !lead && !limit && dp[pos][mask] != -1 {
-			return dp[pos][mask]
-		}
-		up := 9
-		if limit {
-			up = nums[pos]
-		}
-		ans := 0
-		for i := 0; i <= up; i++ {
-			if mask>>i&1 == 1 {
-				continue
-			}
-			if i == 0 && lead {
-				ans += dfs(pos-1, mask, lead, limit && i == up)
-			} else {
-				ans += dfs(pos-1, mask|1<<i, false, limit && i == up)
-			}
-		}
-		if !lead && !limit {
-			dp[pos][mask] = ans
-		}
-		return ans
-	}
-	return dfs(len(nums)-1, 0, true, true)
+    return n - dfs(0, 0, true, true);
 }
 ```
 
