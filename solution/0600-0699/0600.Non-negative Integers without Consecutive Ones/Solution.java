@@ -1,29 +1,31 @@
 class Solution {
-    private char[] s;
+    private int n;
     private Integer[][] f;
 
     public int findIntegers(int n) {
-        s = Integer.toBinaryString(n).toCharArray();
-        f = new Integer[s.length][2];
-        return dfs(0, 0, true);
+        this.n = n;
+        int m = Integer.SIZE - Integer.numberOfLeadingZeros(n);
+        f = new Integer[m][2];
+        return dfs(m - 1, 0, true);
     }
 
-    private int dfs(int pos, int pre, boolean limit) {
-        if (pos >= s.length) {
+    private int dfs(int i, int pre, boolean limit) {
+        if (i < 0) {
             return 1;
         }
-        if (!limit && f[pos][pre] != null) {
-            return f[pos][pre];
+        if (!limit && f[i][pre] != null) {
+            return f[i][pre];
         }
-        int up = limit ? s[pos] - '0' : 1;
+        int up = limit ? (n >> i & 1) : 1;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            if (!(pre == 1 && i == 1)) {
-                ans += dfs(pos + 1, i, limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            if (j == 1 && pre == 1) {
+                continue;
             }
+            ans += dfs(i - 1, j, limit && j == up);
         }
         if (!limit) {
-            f[pos][pre] = ans;
+            f[i][pre] = ans;
         }
         return ans;
     }

@@ -25,7 +25,7 @@ tags:
 <pre>
 <strong>输入:</strong> n = 5
 <strong>输出:</strong> 5
-<strong>解释:</strong> 
+<strong>解释:</strong>
 下面列出范围在 [0, 5] 的非负整数与其对应的二进制表示：
 0 : 0
 1 : 1
@@ -77,18 +77,22 @@ $$
 
 这里我们用记忆化搜索来实现数位 DP。基本步骤如下：
 
-1. 将数字 $n$ 转为二进制字符串 $s$；
-1. 根据题目信息，设计函数 $\textit{dfs}()$，对于本题，我们定义 $\textit{dfs}(\textit{pos}, \textit{pre}, \textit{limit})$，答案为 $\textit{dfs}(\textit{0}, 0, \textit{true})$。
+我们首先获取数字 $n$ 的二进制长度，记为 $m$。然后根据题目信息，我们设计函数 $\textit{dfs}(i, \textit{pre}, \textit{limit})$，其中：
 
-其中：
+-   数字 $i$ 表示当前搜索到的位置，我们从数字的最高位开始搜索，即二进制字符串的首字符；
+-   数字 $\textit{pre}$ 表示上一个数字二进制位上的数字，对于本题，$\textit{pre}$ 的初始值为 $0$；
+-   布尔值 $\textit{limit}$ 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1]$，否则，只能选择 $[0, \textit{up}]$。
 
--   `pos` 表示数字的位数，我们从数字的最高位开始，即二进制字符串的首字符；
--   `pre` 表示当前数字二进制位上的数字，对于本题，`pre` 的初始值为 `0`；
--   `limit` 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1]$，否则，只能选择 $[0,..s[\textit{pos}]]$。
+函数的执行过程如下：
 
-关于函数的实现细节，可以参考下面的代码。
+如果 $i$ 超过了数字 $n$ 的长度，即 $i \lt 0$，说明搜索结束，直接返回 $1$。否则，我们从 $0$ 到 $\textit{up}$ 枚举位置 $i$ 的数字 $j$，对于每一个 $j$：
 
-时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为题目给定的数字。
+-   如果 $\textit{pre}$ 和 $j$ 都为 $1$，说明有连续的 $1$，直接跳过；
+-   否则，我们递归到下一层，更新 $\textit{pre}$ 为 $j$，并将 $\textit{limit}$ 更新为 $\textit{limit}$ 与 $j$ 是否等于 $\textit{up}$ 的逻辑与。
+
+最后，我们将所有递归到下一层的结果累加，即为答案。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为题目给定的正整数。
 
 相似题目：
 
@@ -107,50 +111,51 @@ $$
 class Solution:
     def findIntegers(self, n: int) -> int:
         @cache
-        def dfs(pos: int, pre: int, limit: bool) -> int:
-            if pos == len(s):
+        def dfs(i: int, pre: int, limit: bool) -> int:
+            if i < 0:
                 return 1
-            up = int(s[pos]) if limit else 1
+            up = (n >> i & 1) if limit else 1
             ans = 0
-            for i in range(up + 1):
-                if pre == 1 and i == 1:
+            for j in range(up + 1):
+                if pre and j:
                     continue
-                ans += dfs(pos + 1, i, limit and i == up)
+                ans += dfs(i - 1, j, limit and j == up)
             return ans
 
-        s = bin(n)[2:]
-        return dfs(0, 0, True)
+        return dfs(n.bit_length() - 1, 0, True)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private char[] s;
+    private int n;
     private Integer[][] f;
 
     public int findIntegers(int n) {
-        s = Integer.toBinaryString(n).toCharArray();
-        f = new Integer[s.length][2];
-        return dfs(0, 0, true);
+        this.n = n;
+        int m = Integer.SIZE - Integer.numberOfLeadingZeros(n);
+        f = new Integer[m][2];
+        return dfs(m - 1, 0, true);
     }
 
-    private int dfs(int pos, int pre, boolean limit) {
-        if (pos >= s.length) {
+    private int dfs(int i, int pre, boolean limit) {
+        if (i < 0) {
             return 1;
         }
-        if (!limit && f[pos][pre] != null) {
-            return f[pos][pre];
+        if (!limit && f[i][pre] != null) {
+            return f[i][pre];
         }
-        int up = limit ? s[pos] - '0' : 1;
+        int up = limit ? (n >> i & 1) : 1;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            if (!(pre == 1 && i == 1)) {
-                ans += dfs(pos + 1, i, limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            if (j == 1 && pre == 1) {
+                continue;
             }
+            ans += dfs(i - 1, j, limit && j == up);
         }
         if (!limit) {
-            f[pos][pre] = ans;
+            f[i][pre] = ans;
         }
         return ans;
     }
@@ -163,31 +168,30 @@ class Solution {
 class Solution {
 public:
     int findIntegers(int n) {
-        string s = bitset<32>(n).to_string();
-        s = s.substr(s.find('1'));
-        int m = s.size();
+        int m = 32 - __builtin_clz(n);
         int f[m][2];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int pos, int pre, bool limit) -> int {
-            if (pos >= m) {
+        auto dfs = [&](auto&& dfs, int i, int pre, bool limit) -> int {
+            if (i < 0) {
                 return 1;
             }
-            if (!limit && f[pos][pre] != -1) {
-                return f[pos][pre];
+            if (!limit && f[i][pre] != -1) {
+                return f[i][pre];
             }
-            int up = limit ? s[pos] - '0' : 1;
+            int up = limit ? (n >> i & 1) : 1;
             int ans = 0;
-            for (int i = 0; i <= up; ++i) {
-                if (!(pre == 1 && i == 1)) {
-                    ans += dfs(dfs, pos + 1, i, limit && i == up);
+            for (int j = 0; j <= up; ++j) {
+                if (j && pre) {
+                    continue;
                 }
+                ans += dfs(dfs, i - 1, j, limit && j == up);
             }
             if (!limit) {
-                f[pos][pre] = ans;
+                f[i][pre] = ans;
             }
             return ans;
         };
-        return dfs(dfs, 0, 0, true);
+        return dfs(dfs, m - 1, 0, true);
     }
 };
 ```
@@ -196,36 +200,36 @@ public:
 
 ```go
 func findIntegers(n int) int {
-	s := strconv.FormatInt(int64(n), 2)
-	m := len(s)
-	f := make([][]int, m)
+	m := bits.Len(uint(n))
+	f := make([][2]int, m)
 	for i := range f {
-		f[i] = []int{-1, -1}
+		f[i] = [2]int{-1, -1}
 	}
-	var dfs func(int, int, bool) int
-	dfs = func(pos int, pre int, limit bool) int {
-		if pos >= m {
+	var dfs func(i, pre int, limit bool) int
+	dfs = func(i, pre int, limit bool) int {
+		if i < 0 {
 			return 1
 		}
-		if !limit && f[pos][pre] != -1 {
-			return f[pos][pre]
+		if !limit && f[i][pre] != -1 {
+			return f[i][pre]
 		}
 		up := 1
 		if limit {
-			up = int(s[pos] - '0')
+			up = n >> i & 1
 		}
 		ans := 0
-		for i := 0; i <= up; i++ {
-			if !(pre == 1 && i == 1) {
-				ans += dfs(pos+1, i, limit && i == up)
+		for j := 0; j <= up; j++ {
+			if j == 1 && pre == 1 {
+				continue
 			}
+			ans += dfs(i-1, j, limit && j == up)
 		}
 		if !limit {
-			f[pos][pre] = ans
+			f[i][pre] = ans
 		}
 		return ans
 	}
-	return dfs(0, 0, true)
+	return dfs(m-1, 0, true)
 }
 ```
 
@@ -233,31 +237,29 @@ func findIntegers(n int) int {
 
 ```ts
 function findIntegers(n: number): number {
-    const s = n.toString(2);
-    const m = s.length;
-    const f: number[][] = Array.from({ length: m }, () => [-1, -1]);
-
-    function dfs(pos: number, pre: number, limit: boolean): number {
-        if (pos >= m) {
+    const m = n.toString(2).length;
+    const f: number[][] = Array.from({ length: m }, () => Array(2).fill(-1));
+    const dfs = (i: number, pre: number, limit: boolean): number => {
+        if (i < 0) {
             return 1;
         }
-        if (!limit && f[pos][pre] !== -1) {
-            return f[pos][pre];
+        if (!limit && f[i][pre] !== -1) {
+            return f[i][pre];
         }
-        const up = limit ? parseInt(s[pos]) : 1;
+        const up = limit ? (n >> i) & 1 : 1;
         let ans = 0;
-        for (let i = 0; i <= up; ++i) {
-            if (!(pre === 1 && i === 1)) {
-                ans += dfs(pos + 1, i, limit && i === up);
+        for (let j = 0; j <= up; ++j) {
+            if (pre === 1 && j === 1) {
+                continue;
             }
+            ans += dfs(i - 1, j, limit && j === up);
         }
         if (!limit) {
-            f[pos][pre] = ans;
+            f[i][pre] = ans;
         }
         return ans;
-    }
-
-    return dfs(0, 0, true);
+    };
+    return dfs(m - 1, 0, true);
 }
 ```
 

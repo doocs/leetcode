@@ -32,7 +32,7 @@ Here are the non-negative integers &lt;= 5 with their corresponding binary repre
 3 : 11
 4 : 100
 5 : 101
-Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule. 
+Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -64,30 +64,34 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 
 ### Solution 1: Digit DP
 
-This problem is essentially about finding the number of numbers in the given interval $[l,..r]$ whose binary representation does not contain consecutive $1$s. The count is related to the number of digits and the digits in each binary position. We can solve this problem using the digit DP approach. In digit DP, the size of the number has little impact on the complexity.
+This problem essentially asks for the number of numbers in the given range $[l, ..r]$ whose binary representation does not contain consecutive $1$s. The count is related to the number of digits and the value of each binary digit. We can use the concept of Digit DP to solve this problem. In Digit DP, the size of the number has little impact on the complexity.
 
-For the interval $[l,..r]$ problem, we generally convert it to the problem of $[0,..r]$ and then subtract the problem of $[0,..l - 1]$, i.e.:
+For the range $[l, ..r]$ problem, we generally convert it to the problem of $[0, ..r]$ and then subtract the result of $[0, ..l - 1]$, i.e.:
 
 $$
 ans = \sum_{i=0}^{r} ans_i -  \sum_{i=0}^{l-1} ans_i
 $$
 
-However, for this problem, we only need to find the value for the interval $[0,..r]$.
+However, for this problem, we only need to find the value for the range $[0, ..r]$.
 
-Here we use memoization to implement digit DP. The basic steps are as follows:
+Here, we use memoized search to implement Digit DP. The basic steps are as follows:
 
-1. Convert the number $n$ to a binary string $s$;
-1. According to the problem information, design the function $\textit{dfs}()$. For this problem, we define $\textit{dfs}(\textit{pos}, \textit{pre}, \textit{limit})$, and the answer is $\textit{dfs}(\textit{0}, 0, \textit{true})$.
+First, we get the binary length of the number $n$, denoted as $m$. Then, based on the problem information, we design a function $\textit{dfs}(i, \textit{pre}, \textit{limit})$, where:
 
-Where:
+-   The digit $i$ represents the current position being searched, starting from the highest digit, i.e., the first character of the binary string.
+-   The digit $\textit{pre}$ represents the digit at the previous binary position. For this problem, the initial value of $\textit{pre}$ is $0$.
+-   The boolean $\textit{limit}$ indicates whether the digits that can be filled are restricted. If there is no restriction, then we can choose $[0,1]$. Otherwise, we can only choose $[0, \textit{up}]$.
 
--   `pos` represents the digit position, starting from the highest digit of the number, i.e., the first character of the binary string;
--   `pre` represents the digit at the current binary position. For this problem, the initial value of `pre` is `0`;
--   `limit` represents the restriction on the digits that can be filled. If there is no restriction, then $[0,1]$ can be chosen; otherwise, only $[0,..s[\textit{pos}]]$ can be chosen.
+The function executes as follows:
 
-For the implementation details of the function, refer to the code below.
+If $i$ exceeds the length of the number $n$, i.e., $i < 0$, it means the search is over, directly return $1$. Otherwise, we enumerate the digits $j$ from $0$ to $\textit{up}$ for the position $i$. For each $j$:
 
-Time complexity is $O(\log n)$, and space complexity is $O(\log n)$. Here, $n$ is the number given in the problem.
+-   If both $\textit{pre}$ and $j$ are $1$, it means there are consecutive $1$, so we skip it.
+-   Otherwise, we recurse to the next level, update $\textit{pre}$ to $j$, and update $\textit{limit}$ to the logical AND of $\textit{limit}$ and whether $j$ equals $\textit{up}$.
+
+Finally, we sum all the results from the recursive calls to the next level, which is the answer.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given positive integer.
 
 Similar problems:
 
@@ -106,50 +110,51 @@ Similar problems:
 class Solution:
     def findIntegers(self, n: int) -> int:
         @cache
-        def dfs(pos: int, pre: int, limit: bool) -> int:
-            if pos == len(s):
+        def dfs(i: int, pre: int, limit: bool) -> int:
+            if i < 0:
                 return 1
-            up = int(s[pos]) if limit else 1
+            up = (n >> i & 1) if limit else 1
             ans = 0
-            for i in range(up + 1):
-                if pre == 1 and i == 1:
+            for j in range(up + 1):
+                if pre and j:
                     continue
-                ans += dfs(pos + 1, i, limit and i == up)
+                ans += dfs(i - 1, j, limit and j == up)
             return ans
 
-        s = bin(n)[2:]
-        return dfs(0, 0, True)
+        return dfs(n.bit_length() - 1, 0, True)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private char[] s;
+    private int n;
     private Integer[][] f;
 
     public int findIntegers(int n) {
-        s = Integer.toBinaryString(n).toCharArray();
-        f = new Integer[s.length][2];
-        return dfs(0, 0, true);
+        this.n = n;
+        int m = Integer.SIZE - Integer.numberOfLeadingZeros(n);
+        f = new Integer[m][2];
+        return dfs(m - 1, 0, true);
     }
 
-    private int dfs(int pos, int pre, boolean limit) {
-        if (pos >= s.length) {
+    private int dfs(int i, int pre, boolean limit) {
+        if (i < 0) {
             return 1;
         }
-        if (!limit && f[pos][pre] != null) {
-            return f[pos][pre];
+        if (!limit && f[i][pre] != null) {
+            return f[i][pre];
         }
-        int up = limit ? s[pos] - '0' : 1;
+        int up = limit ? (n >> i & 1) : 1;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            if (!(pre == 1 && i == 1)) {
-                ans += dfs(pos + 1, i, limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            if (j == 1 && pre == 1) {
+                continue;
             }
+            ans += dfs(i - 1, j, limit && j == up);
         }
         if (!limit) {
-            f[pos][pre] = ans;
+            f[i][pre] = ans;
         }
         return ans;
     }
@@ -162,31 +167,30 @@ class Solution {
 class Solution {
 public:
     int findIntegers(int n) {
-        string s = bitset<32>(n).to_string();
-        s = s.substr(s.find('1'));
-        int m = s.size();
+        int m = 32 - __builtin_clz(n);
         int f[m][2];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int pos, int pre, bool limit) -> int {
-            if (pos >= m) {
+        auto dfs = [&](auto&& dfs, int i, int pre, bool limit) -> int {
+            if (i < 0) {
                 return 1;
             }
-            if (!limit && f[pos][pre] != -1) {
-                return f[pos][pre];
+            if (!limit && f[i][pre] != -1) {
+                return f[i][pre];
             }
-            int up = limit ? s[pos] - '0' : 1;
+            int up = limit ? (n >> i & 1) : 1;
             int ans = 0;
-            for (int i = 0; i <= up; ++i) {
-                if (!(pre == 1 && i == 1)) {
-                    ans += dfs(dfs, pos + 1, i, limit && i == up);
+            for (int j = 0; j <= up; ++j) {
+                if (j && pre) {
+                    continue;
                 }
+                ans += dfs(dfs, i - 1, j, limit && j == up);
             }
             if (!limit) {
-                f[pos][pre] = ans;
+                f[i][pre] = ans;
             }
             return ans;
         };
-        return dfs(dfs, 0, 0, true);
+        return dfs(dfs, m - 1, 0, true);
     }
 };
 ```
@@ -195,36 +199,36 @@ public:
 
 ```go
 func findIntegers(n int) int {
-	s := strconv.FormatInt(int64(n), 2)
-	m := len(s)
-	f := make([][]int, m)
+	m := bits.Len(uint(n))
+	f := make([][2]int, m)
 	for i := range f {
-		f[i] = []int{-1, -1}
+		f[i] = [2]int{-1, -1}
 	}
-	var dfs func(int, int, bool) int
-	dfs = func(pos int, pre int, limit bool) int {
-		if pos >= m {
+	var dfs func(i, pre int, limit bool) int
+	dfs = func(i, pre int, limit bool) int {
+		if i < 0 {
 			return 1
 		}
-		if !limit && f[pos][pre] != -1 {
-			return f[pos][pre]
+		if !limit && f[i][pre] != -1 {
+			return f[i][pre]
 		}
 		up := 1
 		if limit {
-			up = int(s[pos] - '0')
+			up = n >> i & 1
 		}
 		ans := 0
-		for i := 0; i <= up; i++ {
-			if !(pre == 1 && i == 1) {
-				ans += dfs(pos+1, i, limit && i == up)
+		for j := 0; j <= up; j++ {
+			if j == 1 && pre == 1 {
+				continue
 			}
+			ans += dfs(i-1, j, limit && j == up)
 		}
 		if !limit {
-			f[pos][pre] = ans
+			f[i][pre] = ans
 		}
 		return ans
 	}
-	return dfs(0, 0, true)
+	return dfs(m-1, 0, true)
 }
 ```
 
@@ -232,31 +236,29 @@ func findIntegers(n int) int {
 
 ```ts
 function findIntegers(n: number): number {
-    const s = n.toString(2);
-    const m = s.length;
-    const f: number[][] = Array.from({ length: m }, () => [-1, -1]);
-
-    function dfs(pos: number, pre: number, limit: boolean): number {
-        if (pos >= m) {
+    const m = n.toString(2).length;
+    const f: number[][] = Array.from({ length: m }, () => Array(2).fill(-1));
+    const dfs = (i: number, pre: number, limit: boolean): number => {
+        if (i < 0) {
             return 1;
         }
-        if (!limit && f[pos][pre] !== -1) {
-            return f[pos][pre];
+        if (!limit && f[i][pre] !== -1) {
+            return f[i][pre];
         }
-        const up = limit ? parseInt(s[pos]) : 1;
+        const up = limit ? (n >> i) & 1 : 1;
         let ans = 0;
-        for (let i = 0; i <= up; ++i) {
-            if (!(pre === 1 && i === 1)) {
-                ans += dfs(pos + 1, i, limit && i === up);
+        for (let j = 0; j <= up; ++j) {
+            if (pre === 1 && j === 1) {
+                continue;
             }
+            ans += dfs(i - 1, j, limit && j === up);
         }
         if (!limit) {
-            f[pos][pre] = ans;
+            f[i][pre] = ans;
         }
         return ans;
-    }
-
-    return dfs(0, 0, true);
+    };
+    return dfs(m - 1, 0, true);
 }
 ```
 

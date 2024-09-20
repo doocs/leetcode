@@ -1,30 +1,29 @@
 class Solution {
 public:
     int findIntegers(int n) {
-        string s = bitset<32>(n).to_string();
-        s = s.substr(s.find('1'));
-        int m = s.size();
+        int m = 32 - __builtin_clz(n);
         int f[m][2];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int pos, int pre, bool limit) -> int {
-            if (pos >= m) {
+        auto dfs = [&](auto&& dfs, int i, int pre, bool limit) -> int {
+            if (i < 0) {
                 return 1;
             }
-            if (!limit && f[pos][pre] != -1) {
-                return f[pos][pre];
+            if (!limit && f[i][pre] != -1) {
+                return f[i][pre];
             }
-            int up = limit ? s[pos] - '0' : 1;
+            int up = limit ? (n >> i & 1) : 1;
             int ans = 0;
-            for (int i = 0; i <= up; ++i) {
-                if (!(pre == 1 && i == 1)) {
-                    ans += dfs(dfs, pos + 1, i, limit && i == up);
+            for (int j = 0; j <= up; ++j) {
+                if (j && pre) {
+                    continue;
                 }
+                ans += dfs(dfs, i - 1, j, limit && j == up);
             }
             if (!limit) {
-                f[pos][pre] = ans;
+                f[i][pre] = ans;
             }
             return ans;
         };
-        return dfs(dfs, 0, 0, true);
+        return dfs(dfs, m - 1, 0, true);
     }
 };

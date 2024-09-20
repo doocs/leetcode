@@ -1,27 +1,25 @@
 function findIntegers(n: number): number {
-    const s = n.toString(2);
-    const m = s.length;
-    const f: number[][] = Array.from({ length: m }, () => [-1, -1]);
-
-    function dfs(pos: number, pre: number, limit: boolean): number {
-        if (pos >= m) {
+    const m = n.toString(2).length;
+    const f: number[][] = Array.from({ length: m }, () => Array(2).fill(-1));
+    const dfs = (i: number, pre: number, limit: boolean): number => {
+        if (i < 0) {
             return 1;
         }
-        if (!limit && f[pos][pre] !== -1) {
-            return f[pos][pre];
+        if (!limit && f[i][pre] !== -1) {
+            return f[i][pre];
         }
-        const up = limit ? parseInt(s[pos]) : 1;
+        const up = limit ? (n >> i) & 1 : 1;
         let ans = 0;
-        for (let i = 0; i <= up; ++i) {
-            if (!(pre === 1 && i === 1)) {
-                ans += dfs(pos + 1, i, limit && i === up);
+        for (let j = 0; j <= up; ++j) {
+            if (pre === 1 && j === 1) {
+                continue;
             }
+            ans += dfs(i - 1, j, limit && j === up);
         }
         if (!limit) {
-            f[pos][pre] = ans;
+            f[i][pre] = ans;
         }
         return ans;
-    }
-
-    return dfs(0, 0, true);
+    };
+    return dfs(m - 1, 0, true);
 }
