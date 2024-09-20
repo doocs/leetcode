@@ -10,11 +10,10 @@ class Node:
 
 class Solution:
     def toArray(self, node: "Optional[Node]") -> List[int]:
-        cur = node
-        while cur and cur.prev:
-            cur = cur.prev
+        while node.prev:
+            node = node.prev
         ans = []
-        while cur:
-            ans.append(cur.val)
-            cur = cur.next
+        while node:
+            ans.append(node.val)
+            node = node.next
         return ans

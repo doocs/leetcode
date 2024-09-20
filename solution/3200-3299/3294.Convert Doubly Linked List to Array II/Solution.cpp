@@ -12,14 +12,12 @@
 class Solution {
 public:
     vector<int> toArray(Node* node) {
-        Node* cur = node;
-        while (cur && cur->prev) {
-            cur = cur->prev;
+        while (node && node->prev) {
+            node = node->prev;
         }
         vector<int> ans;
-        while (cur) {
-            ans.push_back(cur->val);
-            cur = cur->next;
+        for (; node; node = node->next) {
+            ans.push_back(node->val);
         }
         return ans;
     }

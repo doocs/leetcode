@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3294.Co
 
 <!-- problem:start -->
 
-# [3294. Convert Doubly Linked List to Array II 🔒](https://leetcode.cn/problems/convert-doubly-linked-list-to-array-ii)
+# [3294. 将双链表转换为数组 II 🔒](https://leetcode.cn/problems/convert-doubly-linked-list-to-array-ii)
 
 [English Version](/solution/3200-3299/3294.Convert%20Doubly%20Linked%20List%20to%20Array%20II/README_EN.md)
 
@@ -14,34 +14,36 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3294.Co
 
 <!-- description:start -->
 
-<p>You are given an <strong>arbitrary</strong> <code>node</code> from a <strong>doubly linked list</strong>, which contains nodes that have a next pointer and a previous pointer.</p>
+<p>给定一个 <strong>双链表&nbsp;</strong>的&nbsp;<b>任意</b>&nbsp;<code>node</code>，其中的节点具有指向下一个节点的指针和上一个节点的指针。</p>
 
-<p>Return an integer array which contains the elements of the linked list <strong>in order</strong>.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">head = [1,2,3,4,5], node = 5</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[1,2,3,4,5]</span></p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">head = [4,5,6,7,8], node = 8</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[4,5,6,7,8]</span></p>
-</div>
+<p>返回一个 <strong>按顺序</strong> 包含链表中元素的整数数组。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">head = [1,2,3,4,5], node = 5</span></p>
+
+<p><span class="example-io"><b>输出：</b>[1,2,3,4,5]</span></p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>head = [4,5,6,7,8], node = 8</span></p>
+
+<p><span class="example-io"><b>输出：</b>[4,5,6,7,8]</span></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>The number of nodes in the given list is in the range <code>[1, 500]</code>.</li>
+	<li>给定列表中的节点数在范围&nbsp;<code>[1, 500]</code>&nbsp;内。</li>
 	<li><code>1 &lt;= Node.val &lt;= 1000</code></li>
-	<li>All nodes have unique <code>Node.val</code>.</li>
+	<li>所有节点的&nbsp;<code>Node.val</code>&nbsp;互不相同。</li>
 </ul>
 
 <!-- description:end -->
@@ -75,13 +77,12 @@ class Node:
 
 class Solution:
     def toArray(self, node: "Optional[Node]") -> List[int]:
-        cur = node
-        while cur and cur.prev:
-            cur = cur.prev
+        while node.prev:
+            node = node.prev
         ans = []
-        while cur:
-            ans.append(cur.val)
-            cur = cur.next
+        while node:
+            ans.append(node.val)
+            node = node.next
         return ans
 ```
 
@@ -99,14 +100,12 @@ class Node {
 
 class Solution {
     public int[] toArray(Node node) {
-        var cur = node;
-        while (cur != null && cur.prev != null) {
-            cur = cur.prev;
+        while (node != null && node.prev != null) {
+            node = node.prev;
         }
         var ans = new ArrayList<Integer>();
-        while (cur != null) {
-            ans.add(cur.val);
-            cur = cur.next;
+        for (; node != null; node = node.next) {
+            ans.add(node.val);
         }
         return ans.stream().mapToInt(i -> i).toArray();
     }
@@ -130,14 +129,12 @@ class Solution {
 class Solution {
 public:
     vector<int> toArray(Node* node) {
-        Node* cur = node;
-        while (cur && cur->prev) {
-            cur = cur->prev;
+        while (node && node->prev) {
+            node = node->prev;
         }
         vector<int> ans;
-        while (cur) {
-            ans.push_back(cur->val);
-            cur = cur->next;
+        for (; node; node = node->next) {
+            ans.push_back(node->val);
         }
         return ans;
     }
@@ -157,13 +154,11 @@ public:
  */
 
 func toArray(node *Node) (ans []int) {
-	cur := node
-	for cur != nil && cur.Prev != nil {
-		cur = cur.Prev
+	for node != nil && node.Prev != nil {
+		node = node.Prev
 	}
-	for cur != nil {
-		ans = append(ans, cur.Val)
-		cur = cur.Next
+	for ; node != nil; node = node.Next {
+		ans = append(ans, node.Val)
 	}
 	return
 }
@@ -188,14 +183,12 @@ func toArray(node *Node) (ans []int) {
  */
 
 function toArray(node: _Node | null): number[] {
-    let cur = node;
-    while (cur && cur.prev) {
-        cur = cur.prev;
+    while (node && node.prev) {
+        node = node.prev;
     }
     const ans: number[] = [];
-    while (cur) {
-        ans.push(cur.val);
-        cur = cur.next;
+    for (; node; node = node.next) {
+        ans.push(node.val);
     }
     return ans;
 }

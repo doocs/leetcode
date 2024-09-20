@@ -29,6 +29,8 @@ tags:
 +-------------+----------+
 ride_id column contains unique values.
 Each row contains a ride information that includes ride_id, bike number, start and end time of the ride.
+It is guaranteed that start_time and end_time are valid datetime values.
+
 </pre>
 
 <p>Write a solution to find the <strong>last</strong> <strong>time</strong> when each bike was used.</p>

@@ -25,6 +25,8 @@ tags:
 
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你将该数组升序排列。</p>
 
+<p>你必须在 <strong>不使用任何内置函数</strong> 的情况下解决问题，时间复杂度为 <code>O(nlog(n))</code>，并且空间复杂度尽可能小。</p>
+
 <p>&nbsp;</p>
 
 <ol>

@@ -20,36 +20,48 @@ tags:
 
 <!-- description:start -->
 
-<p>If the depth of a tree is smaller than <code>5</code>, then this tree can be represented by an array of three-digit integers. For each integer in this array:</p>
+<p>If the depth of a tree is smaller than <code>5</code>, then this tree can be represented by an array of three-digit integers. You are given an <strong>ascending </strong>array <code>nums</code> consisting of three-digit integers representing a binary tree with a depth smaller than <code>5</code>, where for each integer:</p>
 
 <ul>
-	<li>The hundreds digit represents the depth <code>d</code> of this node where <code>1 &lt;= d &lt;= 4</code>.</li>
-	<li>The tens digit represents the position <code>p</code> of this node in the level it belongs to where <code>1 &lt;= p &lt;= 8</code>. The position is the same as that in a full binary tree.</li>
-	<li>The units digit represents the value <code>v</code> of this node where <code>0 &lt;= v &lt;= 9</code>.</li>
+	<li>The hundreds digit represents the depth <code>d</code> of this node, where <code>1 &lt;= d &lt;= 4</code>.</li>
+	<li>The tens digit represents the position <code>p</code> of this node within its level, where <code>1 &lt;= p &lt;= 8</code>, corresponding to its position in a <strong>full binary tree</strong>.</li>
+	<li>The units digit represents the value <code>v</code> of this node, where <code>0 &lt;= v &lt;= 9</code>.</li>
 </ul>
 
-<p>Given an array of <strong>ascending</strong> three-digit integers <code>nums</code> representing a binary tree with a depth smaller than <code>5</code>, return <em>the sum of all paths from the root towards the leaves</em>.</p>
+<p>Return the <strong>sum</strong> of <strong>all paths</strong> from the <strong>root</strong> towards the <strong>leaves</strong>.</p>
 
 <p>It is <strong>guaranteed</strong> that the given array represents a valid connected binary tree.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-1-tree.jpg" style="width: 212px; height: 183px;" />
-<pre>
-<strong>Input:</strong> nums = [113,215,221]
-<strong>Output:</strong> 12
-<strong>Explanation:</strong> The tree that the list represents is shown.
-The path sum is (3 + 5) + (3 + 1) = 12.
-</pre>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-1-tree.jpg" style="width: 212px; height: 183px;" /></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [113,215,221]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">12</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The tree that the list represents is shown.<br />
+The path sum is (3 + 5) + (3 + 1) = 12.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-2-tree.jpg" style="width: 132px; height: 183px;" />
-<pre>
-<strong>Input:</strong> nums = [113,221]
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> The tree that the list represents is shown. 
-The path sum is (3 + 1) = 4.
-</pre>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0666.Path%20Sum%20IV/images/pathsum4-2-tree.jpg" style="width: 132px; height: 183px;" /></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [113,221]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">4</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The tree that the list represents is shown.&nbsp;<br />
+The path sum is (3 + 1) = 4.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
