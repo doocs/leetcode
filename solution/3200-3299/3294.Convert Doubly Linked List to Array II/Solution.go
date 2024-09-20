@@ -8,13 +8,11 @@
  */
 
 func toArray(node *Node) (ans []int) {
-	cur := node
-	for cur != nil && cur.Prev != nil {
-		cur = cur.Prev
+	for node != nil && node.Prev != nil {
+		node = node.Prev
 	}
-	for cur != nil {
-		ans = append(ans, cur.Val)
-		cur = cur.Next
+	for ; node != nil; node = node.Next {
+		ans = append(ans, node.Val)
 	}
 	return
 }

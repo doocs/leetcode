@@ -14,14 +14,12 @@
  */
 
 function toArray(node: _Node | null): number[] {
-    let cur = node;
-    while (cur && cur.prev) {
-        cur = cur.prev;
+    while (node && node.prev) {
+        node = node.prev;
     }
     const ans: number[] = [];
-    while (cur) {
-        ans.push(cur.val);
-        cur = cur.next;
+    for (; node; node = node.next) {
+        ans.push(node.val);
     }
     return ans;
 }

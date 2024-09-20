@@ -77,13 +77,12 @@ class Node:
 
 class Solution:
     def toArray(self, node: "Optional[Node]") -> List[int]:
-        cur = node
-        while cur and cur.prev:
-            cur = cur.prev
+        while node.prev:
+            node = node.prev
         ans = []
-        while cur:
-            ans.append(cur.val)
-            cur = cur.next
+        while node:
+            ans.append(node.val)
+            node = node.next
         return ans
 ```
 
@@ -101,14 +100,12 @@ class Node {
 
 class Solution {
     public int[] toArray(Node node) {
-        var cur = node;
-        while (cur != null && cur.prev != null) {
-            cur = cur.prev;
+        while (node != null && node.prev != null) {
+            node = node.prev;
         }
         var ans = new ArrayList<Integer>();
-        while (cur != null) {
-            ans.add(cur.val);
-            cur = cur.next;
+        for (; node != null; node = node.next) {
+            ans.add(node.val);
         }
         return ans.stream().mapToInt(i -> i).toArray();
     }
@@ -132,14 +129,12 @@ class Solution {
 class Solution {
 public:
     vector<int> toArray(Node* node) {
-        Node* cur = node;
-        while (cur && cur->prev) {
-            cur = cur->prev;
+        while (node && node->prev) {
+            node = node->prev;
         }
         vector<int> ans;
-        while (cur) {
-            ans.push_back(cur->val);
-            cur = cur->next;
+        for (; node; node = node->next) {
+            ans.push_back(node->val);
         }
         return ans;
     }
@@ -159,13 +154,11 @@ public:
  */
 
 func toArray(node *Node) (ans []int) {
-	cur := node
-	for cur != nil && cur.Prev != nil {
-		cur = cur.Prev
+	for node != nil && node.Prev != nil {
+		node = node.Prev
 	}
-	for cur != nil {
-		ans = append(ans, cur.Val)
-		cur = cur.Next
+	for ; node != nil; node = node.Next {
+		ans = append(ans, node.Val)
 	}
 	return
 }
@@ -190,14 +183,12 @@ func toArray(node *Node) (ans []int) {
  */
 
 function toArray(node: _Node | null): number[] {
-    let cur = node;
-    while (cur && cur.prev) {
-        cur = cur.prev;
+    while (node && node.prev) {
+        node = node.prev;
     }
     const ans: number[] = [];
-    while (cur) {
-        ans.push(cur.val);
-        cur = cur.next;
+    for (; node; node = node.next) {
+        ans.push(node.val);
     }
     return ans;
 }

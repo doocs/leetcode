@@ -9,14 +9,12 @@ class Node {
 
 class Solution {
     public int[] toArray(Node node) {
-        var cur = node;
-        while (cur != null && cur.prev != null) {
-            cur = cur.prev;
+        while (node != null && node.prev != null) {
+            node = node.prev;
         }
         var ans = new ArrayList<Integer>();
-        while (cur != null) {
-            ans.add(cur.val);
-            cur = cur.next;
+        for (; node != null; node = node.next) {
+            ans.add(node.val);
         }
         return ans.stream().mapToInt(i -> i).toArray();
     }
