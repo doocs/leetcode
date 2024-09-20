@@ -1,32 +1,32 @@
 func findIntegers(n int) int {
-	s := strconv.FormatInt(int64(n), 2)
-	m := len(s)
-	f := make([][]int, m)
+	m := bits.Len(uint(n))
+	f := make([][2]int, m)
 	for i := range f {
-		f[i] = []int{-1, -1}
+		f[i] = [2]int{-1, -1}
 	}
-	var dfs func(int, int, bool) int
-	dfs = func(pos int, pre int, limit bool) int {
-		if pos >= m {
+	var dfs func(i, pre int, limit bool) int
+	dfs = func(i, pre int, limit bool) int {
+		if i < 0 {
 			return 1
 		}
-		if !limit && f[pos][pre] != -1 {
-			return f[pos][pre]
+		if !limit && f[i][pre] != -1 {
+			return f[i][pre]
 		}
 		up := 1
 		if limit {
-			up = int(s[pos] - '0')
+			up = n >> i & 1
 		}
 		ans := 0
-		for i := 0; i <= up; i++ {
-			if !(pre == 1 && i == 1) {
-				ans += dfs(pos+1, i, limit && i == up)
+		for j := 0; j <= up; j++ {
+			if j == 1 && pre == 1 {
+				continue
 			}
+			ans += dfs(i-1, j, limit && j == up)
 		}
 		if !limit {
-			f[pos][pre] = ans
+			f[i][pre] = ans
 		}
 		return ans
 	}
-	return dfs(0, 0, true)
+	return dfs(m-1, 0, true)
 }
