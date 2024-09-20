@@ -1,33 +1,29 @@
 class Solution {
-    private int[] a = new int[12];
-    private int[][] dp = new int[12][12];
+    private int m;
+    private char[] s;
+    private Integer[][] f;
 
     public int countDigitOne(int n) {
-        int len = 0;
-        while (n > 0) {
-            a[++len] = n % 10;
-            n /= 10;
-        }
-        for (var e : dp) {
-            Arrays.fill(e, -1);
-        }
-        return dfs(len, 0, true);
+        s = String.valueOf(n).toCharArray();
+        m = s.length;
+        f = new Integer[m][m];
+        return dfs(0, 0, true);
     }
 
-    private int dfs(int pos, int cnt, boolean limit) {
-        if (pos <= 0) {
+    private int dfs(int i, int cnt, boolean limit) {
+        if (i >= m) {
             return cnt;
         }
-        if (!limit && dp[pos][cnt] != -1) {
-            return dp[pos][cnt];
+        if (!limit && f[i][cnt] != null) {
+            return f[i][cnt];
         }
-        int up = limit ? a[pos] : 9;
+        int up = limit ? s[i] - '0' : 9;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            ans += dfs(pos - 1, cnt + (i == 1 ? 1 : 0), limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            ans += dfs(i + 1, cnt + (j == 1 ? 1 : 0), limit && j == up);
         }
         if (!limit) {
-            dp[pos][cnt] = ans;
+            f[i][cnt] = ans;
         }
         return ans;
     }
