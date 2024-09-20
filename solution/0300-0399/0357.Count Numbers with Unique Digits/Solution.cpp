@@ -1,13 +1,31 @@
 class Solution {
 public:
     int countNumbersWithUniqueDigits(int n) {
-        if (n == 0) return 1;
-        if (n == 1) return 10;
-        int ans = 10;
-        for (int i = 0, cur = 9; i < n - 1; ++i) {
-            cur *= (9 - i);
-            ans += cur;
-        }
-        return ans;
+        int f[n + 1][1 << 10];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i, int mask, bool lead) -> int {
+            if (i < 0) {
+                return 1;
+            }
+            if (!lead && f[i][mask] != -1) {
+                return f[i][mask];
+            }
+            int ans = 0;
+            for (int j = 0; j <= 9; ++j) {
+                if (mask >> j & 1) {
+                    continue;
+                }
+                if (lead && j == 0) {
+                    ans += dfs(dfs, i - 1, mask, true);
+                } else {
+                    ans += dfs(dfs, i - 1, mask | 1 << i, false);
+                }
+            }
+            if (!lead) {
+                f[i][mask] = ans;
+            }
+            return ans;
+        };
+        return dfs(dfs, n - 1, 0, true);
     }
 };
