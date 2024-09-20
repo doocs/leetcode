@@ -86,7 +86,7 @@ The function executes as follows:
 
 If $i$ exceeds the length of the number $n$, i.e., $i < 0$, it means the search is over, directly return $1$. Otherwise, we enumerate the digits $j$ from $0$ to $\textit{up}$ for the position $i$. For each $j$:
 
--   If both $\textit{pre}$ and $j$ are $1$, it means there are consecutive $1$s, so we skip it.
+-   If both $\textit{pre}$ and $j$ are $1$, it means there are consecutive $1$, so we skip it.
 -   Otherwise, we recurse to the next level, update $\textit{pre}$ to $j$, and update $\textit{limit}$ to the logical AND of $\textit{limit}$ and whether $j$ equals $\textit{up}$.
 
 Finally, we sum all the results from the recursive calls to the next level, which is the answer.
