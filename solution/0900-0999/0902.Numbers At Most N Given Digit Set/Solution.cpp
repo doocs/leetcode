@@ -1,41 +1,35 @@
 class Solution {
 public:
-    int a[12];
-    int dp[12][2];
-    unordered_set<int> s;
-
     int atMostNGivenDigitSet(vector<string>& digits, int n) {
-        memset(dp, -1, sizeof dp);
-        for (auto& d : digits) {
-            s.insert(stoi(d));
+        string s = to_string(n);
+        unordered_set<int> nums;
+        for (auto& x : digits) {
+            nums.insert(stoi(x));
         }
-        int len = 0;
-        while (n) {
-            a[++len] = n % 10;
-            n /= 10;
-        }
-        return dfs(len, 1, true);
-    }
-
-    int dfs(int pos, int lead, bool limit) {
-        if (pos <= 0) {
-            return lead ^ 1;
-        }
-        if (!limit && !lead && dp[pos][lead] != -1) {
-            return dp[pos][lead];
-        }
-        int ans = 0;
-        int up = limit ? a[pos] : 9;
-        for (int i = 0; i <= up; ++i) {
-            if (i == 0 && lead) {
-                ans += dfs(pos - 1, lead, limit && i == up);
-            } else if (s.count(i)) {
-                ans += dfs(pos - 1, 0, limit && i == up);
+        int m = s.size();
+        int f[m];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i, bool lead, bool limit) -> int {
+            if (i >= m) {
+                return lead ? 0 : 1;
             }
-        }
-        if (!limit && !lead) {
-            dp[pos][lead] = ans;
-        }
-        return ans;
+            if (!lead && !limit && f[i] != -1) {
+                return f[i];
+            }
+            int up = limit ? s[i] - '0' : 9;
+            int ans = 0;
+            for (int j = 0; j <= up; ++j) {
+                if (j == 0 && lead) {
+                    ans += dfs(dfs, i + 1, true, limit && j == up);
+                } else if (nums.count(j)) {
+                    ans += dfs(dfs, i + 1, false, limit && j == up);
+                }
+            }
+            if (!lead && !limit) {
+                f[i] = ans;
+            }
+            return ans;
+        };
+        return dfs(dfs, 0, true, true);
     }
 };

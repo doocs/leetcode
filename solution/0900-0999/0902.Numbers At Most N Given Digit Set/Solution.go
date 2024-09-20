@@ -1,44 +1,42 @@
 func atMostNGivenDigitSet(digits []string, n int) int {
-	s := map[int]bool{}
+	s := strconv.Itoa(n)
+	m := len(s)
+	f := make([]int, m)
+	for i := range f {
+		f[i] = -1
+	}
+	nums := map[int]bool{}
 	for _, d := range digits {
-		i, _ := strconv.Atoi(d)
-		s[i] = true
+		x, _ := strconv.Atoi(d)
+		nums[x] = true
 	}
-	a := make([]int, 12)
-	dp := make([][2]int, 12)
-	for i := range a {
-		dp[i] = [2]int{-1, -1}
-	}
-	l := 0
-	for n > 0 {
-		l++
-		a[l] = n % 10
-		n /= 10
-	}
-	var dfs func(int, int, bool) int
-	dfs = func(pos, lead int, limit bool) int {
-		if pos <= 0 {
-			return lead ^ 1
+	var dfs func(i int, lead, limit bool) int
+	dfs = func(i int, lead, limit bool) int {
+		if i >= m {
+			if lead {
+				return 0
+			}
+			return 1
 		}
-		if !limit && lead == 0 && dp[pos][lead] != -1 {
-			return dp[pos][lead]
+		if !lead && !limit && f[i] != -1 {
+			return f[i]
 		}
 		up := 9
 		if limit {
-			up = a[pos]
+			up = int(s[i] - '0')
 		}
 		ans := 0
-		for i := 0; i <= up; i++ {
-			if i == 0 && lead == 1 {
-				ans += dfs(pos-1, lead, limit && i == up)
-			} else if s[i] {
-				ans += dfs(pos-1, 0, limit && i == up)
+		for j := 0; j <= up; j++ {
+			if j == 0 && lead {
+				ans += dfs(i+1, true, limit && j == up)
+			} else if nums[j] {
+				ans += dfs(i+1, false, limit && j == up)
 			}
 		}
-		if !limit {
-			dp[pos][lead] = ans
+		if !lead && !limit {
+			f[i] = ans
 		}
 		return ans
 	}
-	return dfs(l, 1, true)
+	return dfs(0, true, true)
 }
