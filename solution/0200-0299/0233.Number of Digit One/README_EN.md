@@ -75,7 +75,7 @@ The function executes as follows:
 If $i$ exceeds the length of the number $n$, it means the search is over, directly return $cnt$. If $\textit{limit}$ is true, $up$ is the $i$-th digit of the current number. Otherwise, $up = 9$. Next, we iterate $j$ from $0$ to $up$. For each $j$:
 
 -   If $j$ equals $1$, we increment $cnt$ by one.
--   Recursively call $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \&\& j == up)$.
+-   Recursively call $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \land j = up)$.
 
 The answer is $\textit{dfs}(0, 0, \text{True})$.
 

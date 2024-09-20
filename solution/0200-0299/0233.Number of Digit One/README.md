@@ -74,10 +74,10 @@ $$
 
 函数的执行过程如下：
 
-如果 $i$ 超过了数字 $n$ 的长度，说明搜索结束，直接返回 $cnt$。如果 $\textit{limit}$ 为真，$up$ 为当前数字的第 $i$ 位，否则 $up = 9$。接下来，我们遍历 $j$ 从 $0$ 到 $up$，对于每一个 $j$：
+如果 $i$ 超过了数字 $n$ 的长度，说明搜索结束，直接返回 $cnt$。如果 $\textit{limit}$ 为真，那么 $up$ 为当前数字的第 $i$ 位，否则 $up = 9$。接下来，我们遍历 $j$ 从 $0$ 到 $up$，对于每一个 $j$：
 
 -   如果 $j$ 等于 $1$，我们将 $cnt$ 加一。
--   递归调用 $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \&\& j == up)$。
+-   递归调用 $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \land j = up)$。
 
 答案为 $\textit{dfs}(0, 0, \text{True})$。
 
