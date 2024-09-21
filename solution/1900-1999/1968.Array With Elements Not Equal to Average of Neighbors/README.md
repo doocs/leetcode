@@ -65,6 +65,10 @@ i=3, nums[i] = 2, 两相邻元素平均值为 (6+0) / 2 = 3
 
 ### 方法一：排序
 
+由于数组中的元素是互不相同的，我们可以先对数组进行排序，然后将数组分成两部分，将前一半的元素放到答案数组中的偶数位置，将后一半的元素放到答案数组中的奇数位置。这样，对于每个元素，它的两个相邻元素都不会等于它的平均值。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -74,7 +78,7 @@ class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         nums.sort()
         n = len(nums)
-        m = (n + 1) >> 1
+        m = (n + 1) // 2
         ans = []
         for i in range(m):
             ans.append(nums[i])
@@ -109,13 +113,15 @@ class Solution {
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         vector<int> ans;
         int n = nums.size();
         int m = (n + 1) >> 1;
         for (int i = 0; i < m; ++i) {
             ans.push_back(nums[i]);
-            if (i + m < n) ans.push_back(nums[i + m]);
+            if (i + m < n) {
+                ans.push_back(nums[i + m]);
+            }
         }
         return ans;
     }
@@ -125,46 +131,35 @@ public:
 #### Go
 
 ```go
-func rearrangeArray(nums []int) []int {
+func rearrangeArray(nums []int) (ans []int) {
 	sort.Ints(nums)
 	n := len(nums)
 	m := (n + 1) >> 1
-	var ans []int
 	for i := 0; i < m; i++ {
 		ans = append(ans, nums[i])
 		if i+m < n {
 			ans = append(ans, nums[i+m])
 		}
 	}
-	return ans
+	return
 }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：随机打乱
-
-<!-- tabs:start -->
-
-#### Go
-
-```go
-func rearrangeArray(nums []int) []int {
-	rand.Seed(time.Now().UnixNano())
-outer:
-	for {
-		rand.Shuffle(len(nums), func(i, j int) { nums[i], nums[j] = nums[j], nums[i] })
-		for i := 1; i < len(nums)-1; i++ {
-			if nums[i]*2 == nums[i-1]+nums[i+1] {
-				continue outer
-			}
-		}
-		return nums
-	}
+```ts
+function rearrangeArray(nums: number[]): number[] {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const m = (n + 1) >> 1;
+    const ans: number[] = [];
+    for (let i = 0; i < m; i++) {
+        ans.push(nums[i]);
+        if (i + m < n) {
+            ans.push(nums[i + m]);
+        }
+    }
+    return ans;
 }
 ```
 

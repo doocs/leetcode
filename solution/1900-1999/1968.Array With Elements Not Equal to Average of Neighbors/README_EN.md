@@ -63,7 +63,11 @@ When i=3, nums[i] = 2, and the average of its neighbors is (6+0) / 2 = 3.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+Since the elements in the array are distinct, we can first sort the array, then divide the array into two parts. Place the first half of the elements in the even positions of the answer array, and the second half of the elements in the odd positions of the answer array. In this way, for each element, its two adjacent elements will not be equal to its average value.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -74,7 +78,7 @@ class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         nums.sort()
         n = len(nums)
-        m = (n + 1) >> 1
+        m = (n + 1) // 2
         ans = []
         for i in range(m):
             ans.append(nums[i])
@@ -109,13 +113,15 @@ class Solution {
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         vector<int> ans;
         int n = nums.size();
         int m = (n + 1) >> 1;
         for (int i = 0; i < m; ++i) {
             ans.push_back(nums[i]);
-            if (i + m < n) ans.push_back(nums[i + m]);
+            if (i + m < n) {
+                ans.push_back(nums[i + m]);
+            }
         }
         return ans;
     }
@@ -125,46 +131,35 @@ public:
 #### Go
 
 ```go
-func rearrangeArray(nums []int) []int {
+func rearrangeArray(nums []int) (ans []int) {
 	sort.Ints(nums)
 	n := len(nums)
 	m := (n + 1) >> 1
-	var ans []int
 	for i := 0; i < m; i++ {
 		ans = append(ans, nums[i])
 		if i+m < n {
 			ans = append(ans, nums[i+m])
 		}
 	}
-	return ans
+	return
 }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Go
-
-```go
-func rearrangeArray(nums []int) []int {
-	rand.Seed(time.Now().UnixNano())
-outer:
-	for {
-		rand.Shuffle(len(nums), func(i, j int) { nums[i], nums[j] = nums[j], nums[i] })
-		for i := 1; i < len(nums)-1; i++ {
-			if nums[i]*2 == nums[i-1]+nums[i+1] {
-				continue outer
-			}
-		}
-		return nums
-	}
+```ts
+function rearrangeArray(nums: number[]): number[] {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const m = (n + 1) >> 1;
+    const ans: number[] = [];
+    for (let i = 0; i < m; i++) {
+        ans.push(nums[i]);
+        if (i + m < n) {
+            ans.push(nums[i + m]);
+        }
+    }
+    return ans;
 }
 ```
 
