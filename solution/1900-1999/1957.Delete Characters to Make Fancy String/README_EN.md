@@ -68,7 +68,13 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can traverse the string $s$ and use an array $\textit{ans}$ to record the current answer. For each character $c$, if the length of $\textit{ans}$ is less than $2$ or the last two characters of $\textit{ans}$ are not equal to $c$, we add $c$ to $\textit{ans}$.
+
+Finally, we concatenate the characters in $\textit{ans}$ to get the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -79,10 +85,9 @@ class Solution:
     def makeFancyString(self, s: str) -> str:
         ans = []
         for c in s:
-            if len(ans) > 1 and ans[-1] == ans[-2] == c:
-                continue
-            ans.append(c)
-        return ''.join(ans)
+            if len(ans) < 2 or ans[-1] != c or ans[-2] != c:
+                ans.append(c)
+        return "".join(ans)
 ```
 
 #### Java
@@ -93,10 +98,9 @@ class Solution {
         StringBuilder ans = new StringBuilder();
         for (char c : s.toCharArray()) {
             int n = ans.length();
-            if (n > 1 && ans.charAt(n - 1) == c && ans.charAt(n - 2) == c) {
-                continue;
+            if (n < 2 || c != ans.charAt(n - 1) || c != ans.charAt(n - 2)) {
+                ans.append(c);
             }
-            ans.append(c);
         }
         return ans.toString();
     }
@@ -112,8 +116,9 @@ public:
         string ans = "";
         for (char& c : s) {
             int n = ans.size();
-            if (n > 1 && ans[n - 1] == c && ans[n - 2] == c) continue;
-            ans.push_back(c);
+            if (n < 2 || ans[n - 1] != c || ans[n - 2] != c) {
+                ans += c;
+            }
         }
         return ans;
     }
@@ -126,13 +131,26 @@ public:
 func makeFancyString(s string) string {
 	ans := []rune{}
 	for _, c := range s {
-		n := len(ans)
-		if n > 1 && ans[n-1] == c && ans[n-2] == c {
-			continue
+		if n := len(ans); n < 2 || c != ans[n-1] || c != ans[n-2] {
+			ans = append(ans, c)
 		}
-		ans = append(ans, c)
 	}
 	return string(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function makeFancyString(s: string): string {
+    const ans: string[] = [];
+    for (const c of s) {
+        const n = ans.length;
+        if (n < 2 || c !== ans[n - 1] || c !== ans[n - 2]) {
+            ans.push(c);
+        }
+    }
+    return ans.join('');
 }
 ```
 
@@ -145,15 +163,17 @@ class Solution {
      * @return String
      */
     function makeFancyString($s) {
-        $rs = '';
-        for ($i = 0; $i < strlen($s); $i++) {
-            if ($s[$i] == $s[$i + 1] && $s[$i] == $s[$i + 2]) {
-                continue;
-            } else {
-                $rs .= $s[$i];
+        $ans = [];
+        $length = strlen($s);
+
+        for ($i = 0; $i < $length; $i++) {
+            $n = count($ans);
+            if ($n < 2 || $s[$i] !== $ans[$n - 1] || $s[$i] !== $ans[$n - 2]) {
+                $ans[] = $s[$i];
             }
         }
-        return $rs;
+
+        return implode('', $ans);
     }
 }
 ```
