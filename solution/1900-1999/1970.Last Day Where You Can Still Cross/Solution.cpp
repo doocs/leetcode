@@ -1,38 +1,46 @@
 class Solution {
 public:
-    vector<int> p;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-    int row, col;
-
     int latestDayToCross(int row, int col, vector<vector<int>>& cells) {
-        int n = row * col;
-        this->row = row;
-        this->col = col;
-        p.resize(n + 2);
-        for (int i = 0; i < p.size(); ++i) p[i] = i;
-        vector<vector<bool>> grid(row, vector<bool>(col, false));
-        int top = n, bottom = n + 1;
-        for (int k = cells.size() - 1; k >= 0; --k) {
-            int i = cells[k][0] - 1, j = cells[k][1] - 1;
-            grid[i][j] = true;
-            for (auto e : dirs) {
-                if (check(i + e[0], j + e[1], grid)) {
-                    p[find(i * col + j)] = find((i + e[0]) * col + j + e[1]);
+        int l = 1, r = cells.size();
+        int g[row][col];
+        int dirs[5] = {0, 1, 0, -1, 0};
+        auto check = [&](int k) -> bool {
+            memset(g, 0, sizeof(g));
+            for (int i = 0; i < k; ++i) {
+                g[cells[i][0] - 1][cells[i][1] - 1] = 1;
+            }
+            queue<pair<int, int>> q;
+            for (int j = 0; j < col; ++j) {
+                if (g[0][j] == 0) {
+                    q.emplace(0, j);
+                    g[0][j] = 1;
                 }
             }
-            if (i == 0) p[find(i * col + j)] = find(top);
-            if (i == row - 1) p[find(i * col + j)] = find(bottom);
-            if (find(top) == find(bottom)) return k;
+            while (!q.empty()) {
+                auto [x, y] = q.front();
+                q.pop();
+                if (x == row - 1) {
+                    return true;
+                }
+                for (int i = 0; i < 4; ++i) {
+                    int nx = x + dirs[i];
+                    int ny = y + dirs[i + 1];
+                    if (nx >= 0 && nx < row && ny >= 0 && ny < col && g[nx][ny] == 0) {
+                        q.emplace(nx, ny);
+                        g[nx][ny] = 1;
+                    }
+                }
+            }
+            return false;
+        };
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
         }
-        return 0;
-    }
-
-    bool check(int i, int j, vector<vector<bool>>& grid) {
-        return i >= 0 && i < row && j >= 0 && j < col && grid[i][j];
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        return l;
     }
 };

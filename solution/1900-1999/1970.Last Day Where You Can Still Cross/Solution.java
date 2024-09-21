@@ -1,49 +1,51 @@
 class Solution {
-    private int[] p;
-    private int row;
-    private int col;
-    private boolean[][] grid;
-    private int[][] dirs = new int[][] {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    private int[][] cells;
+    private int m;
+    private int n;
 
     public int latestDayToCross(int row, int col, int[][] cells) {
-        int n = row * col;
-        this.row = row;
-        this.col = col;
-        p = new int[n + 2];
-        for (int i = 0; i < p.length; ++i) {
-            p[i] = i;
+        int l = 1, r = cells.length;
+        this.cells = cells;
+        this.m = row;
+        this.n = col;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
         }
-        grid = new boolean[row][col];
-        int top = n, bottom = n + 1;
-        for (int k = cells.length - 1; k >= 0; --k) {
-            int i = cells[k][0] - 1, j = cells[k][1] - 1;
-            grid[i][j] = true;
-            for (int[] e : dirs) {
-                if (check(i + e[0], j + e[1])) {
-                    p[find(i * col + j)] = find((i + e[0]) * col + j + e[1]);
+        return l;
+    }
+
+    private boolean check(int k) {
+        int[][] g = new int[m][n];
+        for (int i = 0; i < k; i++) {
+            g[cells[i][0] - 1][cells[i][1] - 1] = 1;
+        }
+        final int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> q = new ArrayDeque<>();
+        for (int j = 0; j < n; j++) {
+            if (g[0][j] == 0) {
+                q.offer(new int[] {0, j});
+                g[0][j] = 1;
+            }
+        }
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int x = p[0], y = p[1];
+            if (x == m - 1) {
+                return true;
+            }
+            for (int i = 0; i < 4; i++) {
+                int nx = x + dirs[i], ny = y + dirs[i + 1];
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n && g[nx][ny] == 0) {
+                    q.offer(new int[] {nx, ny});
+                    g[nx][ny] = 1;
                 }
             }
-            if (i == 0) {
-                p[find(i * col + j)] = find(top);
-            }
-            if (i == row - 1) {
-                p[find(i * col + j)] = find(bottom);
-            }
-            if (find(top) == find(bottom)) {
-                return k;
-            }
         }
-        return 0;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-
-    private boolean check(int i, int j) {
-        return i >= 0 && i < row && j >= 0 && j < col && grid[i][j];
+        return false;
     }
 }
