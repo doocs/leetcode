@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md
 tags:
     - Array
+    - Binary Search
+    - Prefix Sum
     - Sliding Window
 ---
 

@@ -72,7 +72,9 @@ tags:
 
 ### 方法一：位运算
 
-大于 0，实际上就是要求存在某个二进制位（0-31），满足所有数字的这一位均为 1。
+题目需要找到按位与结果大于 $0$ 的数字组合的最大长度，那么说明一定存在某个二进制位，所有数字在这个二进制位上都是 $1$。因此，我们可以枚举每个二进制位，统计所有数字在这个二进制位上的 $1$ 的个数，最后取最大值即可。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $\textit{candidates}$ 的长度和数组中的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -82,11 +84,8 @@ tags:
 class Solution:
     def largestCombination(self, candidates: List[int]) -> int:
         ans = 0
-        for i in range(32):
-            t = 0
-            for x in candidates:
-                t += (x >> i) & 1
-            ans = max(ans, t)
+        for i in range(max(candidates).bit_length()):
+            ans = max(ans, sum(x >> i & 1 for x in candidates))
         return ans
 ```
 
@@ -95,16 +94,56 @@ class Solution:
 ```java
 class Solution {
     public int largestCombination(int[] candidates) {
+        int mx = Arrays.stream(candidates).max().getAsInt();
+        int m = Integer.SIZE - Integer.numberOfLeadingZeros(mx);
         int ans = 0;
-        for (int i = 0; i < 32; ++i) {
-            int t = 0;
+        for (int i = 0; i < m; ++i) {
+            int cnt = 0;
             for (int x : candidates) {
-                t += (x >> i) & 1;
+                cnt += x >> i & 1;
             }
-            ans = Math.max(ans, t);
+            ans = Math.max(ans, cnt);
         }
         return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int largestCombination(vector<int>& candidates) {
+        int mx = *max_element(candidates.begin(), candidates.end());
+        int m = 32 - __builtin_clz(mx);
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            int cnt = 0;
+            for (int x : candidates) {
+                cnt += x >> i & 1;
+            }
+            ans = max(ans, cnt);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func largestCombination(candidates []int) (ans int) {
+	mx := slices.Max(candidates)
+	m := bits.Len(uint(mx))
+	for i := 0; i < m; i++ {
+		cnt := 0
+		for _, x := range candidates {
+			cnt += (x >> i) & 1
+		}
+		ans = max(ans, cnt)
+	}
+	return
 }
 ```
 
@@ -112,14 +151,15 @@ class Solution {
 
 ```ts
 function largestCombination(candidates: number[]): number {
-    const n = 24;
+    const mx = Math.max(...candidates);
+    const m = mx.toString(2).length;
     let ans = 0;
-    for (let i = 0; i < n; i++) {
-        let count = 0;
-        for (let num of candidates) {
-            if ((num >> i) & 1) count++;
+    for (let i = 0; i < m; ++i) {
+        let cnt = 0;
+        for (const x of candidates) {
+            cnt += (x >> i) & 1;
         }
-        ans = Math.max(ans, count);
+        ans = Math.max(ans, cnt);
     }
     return ans;
 }

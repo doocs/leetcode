@@ -4,6 +4,8 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md
 tags:
     - 数组
+    - 二分查找
+    - 前缀和
     - 滑动窗口
 ---
 

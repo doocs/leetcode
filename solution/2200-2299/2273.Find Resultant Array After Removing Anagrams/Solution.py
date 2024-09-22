@@ -1,7 +1,13 @@
 class Solution:
     def removeAnagrams(self, words: List[str]) -> List[str]:
-        return [
-            w
-            for i, w in enumerate(words)
-            if i == 0 or sorted(w) != sorted(words[i - 1])
-        ]
+        def check(s: str, t: str) -> bool:
+            if len(s) != len(t):
+                return True
+            cnt = Counter(s)
+            for c in t:
+                cnt[c] -= 1
+                if cnt[c] < 0:
+                    return True
+            return False
+
+        return [words[0]] + [t for s, t in pairwise(words) if check(s, t)]

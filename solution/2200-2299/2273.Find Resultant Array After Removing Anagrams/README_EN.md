@@ -68,7 +68,15 @@ No two adjacent strings in words are anagrams of each other, so no operations ar
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We first add $\textit{words}[0]$ to the answer array, then traverse from $\textit{words}[1]$. If $\textit{words}[i - 1]$ and $\textit{words}[i]$ are not anagrams, we add $\textit{words}[i]$ to the answer array.
+
+The problem is converted to determining whether two strings are anagrams. We define a helper function $\textit{check}(s, t)$ to achieve this. If $s$ and $t$ are not anagrams, we return $\text{true}$; otherwise, we return $\text{false}$.
+
+In the function $\textit{check}(s, t)$, we first check if the lengths of $s$ and $t$ are equal. If they are not, we return $\text{true}$. Otherwise, we use an array $\textit{cnt}$ of length $26$ to count the occurrences of each character in $s$, then traverse each character in $t$ and decrement $\textit{cnt}[c]$ by $1$. If $\textit{cnt}[c]$ is less than $0$, we return $\text{true}$. If we traverse all characters in $t$ without issues, it means $s$ and $t$ are anagrams, and we return $\text{false}$.
+
+The time complexity is $O(L)$, and the space complexity is $O(|\Sigma|)$. Here, $L$ is the length of the array $\textit{words}$, and $\Sigma$ is the character set, which is lowercase English letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
@@ -77,11 +85,17 @@ No two adjacent strings in words are anagrams of each other, so no operations ar
 ```python
 class Solution:
     def removeAnagrams(self, words: List[str]) -> List[str]:
-        return [
-            w
-            for i, w in enumerate(words)
-            if i == 0 or sorted(w) != sorted(words[i - 1])
-        ]
+        def check(s: str, t: str) -> bool:
+            if len(s) != len(t):
+                return True
+            cnt = Counter(s)
+            for c in t:
+                cnt[c] -= 1
+                if cnt[c] < 0:
+                    return True
+            return False
+
+        return [words[0]] + [t for s, t in pairwise(words) if check(s, t)]
 ```
 
 #### Java
@@ -90,18 +104,93 @@ class Solution:
 class Solution {
     public List<String> removeAnagrams(String[] words) {
         List<String> ans = new ArrayList<>();
-        String prev = "";
-        for (String w : words) {
-            char[] cs = w.toCharArray();
-            Arrays.sort(cs);
-            String t = String.valueOf(cs);
-            if (!t.equals(prev)) {
-                ans.add(w);
+        ans.add(words[0]);
+        for (int i = 1; i < words.length; ++i) {
+            if (check(words[i - 1], words[i])) {
+                ans.add(words[i]);
             }
-            prev = t;
         }
         return ans;
     }
+
+    private boolean check(String s, String t) {
+        if (s.length() != t.length()) {
+            return true;
+        }
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
+        }
+        for (int i = 0; i < t.length(); ++i) {
+            if (--cnt[t.charAt(i) - 'a'] < 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> removeAnagrams(vector<string>& words) {
+        auto check = [](string& s, string& t) -> bool {
+            if (s.size() != t.size()) {
+                return true;
+            }
+            int cnt[26]{};
+            for (char& c : s) {
+                ++cnt[c - 'a'];
+            }
+            for (char& c : t) {
+                if (--cnt[c - 'a'] < 0) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        vector<string> ans = {words[0]};
+        for (int i = 1; i < words.size(); ++i) {
+            if (check(words[i - 1], words[i])) {
+                ans.emplace_back(words[i]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func removeAnagrams(words []string) []string {
+	ans := []string{words[0]}
+	check := func(s, t string) bool {
+		if len(s) != len(t) {
+			return true
+		}
+		cnt := [26]int{}
+		for _, c := range s {
+			cnt[c-'a']++
+		}
+		for _, c := range t {
+			cnt[c-'a']--
+			if cnt[c-'a'] < 0 {
+				return true
+			}
+		}
+		return false
+	}
+	for i, t := range words[1:] {
+		if check(words[i], t) {
+			ans = append(ans, t)
+		}
+	}
+	return ans
 }
 ```
 
@@ -109,26 +198,28 @@ class Solution {
 
 ```ts
 function removeAnagrams(words: string[]): string[] {
-    const n = words.length;
-    let ans = [];
-    ans.push(words[0]);
-    let pre = countWord(words[0]).join('');
-    for (let i = 1; i < n; i++) {
-        let cur = countWord(words[i]).join('');
-        if (pre !== cur) {
+    const ans: string[] = [words[0]];
+    const check = (s: string, t: string): boolean => {
+        if (s.length !== t.length) {
+            return true;
+        }
+        const cnt: number[] = Array(26).fill(0);
+        for (const c of s) {
+            ++cnt[c.charCodeAt(0) - 97];
+        }
+        for (const c of t) {
+            if (--cnt[c.charCodeAt(0) - 97] < 0) {
+                return true;
+            }
+        }
+        return false;
+    };
+    for (let i = 1; i < words.length; ++i) {
+        if (check(words[i - 1], words[i])) {
             ans.push(words[i]);
-            pre = cur;
         }
     }
     return ans;
-}
-
-function countWord(word: string): number[] {
-    let count = new Array(128).fill(0);
-    for (let i = 0; i < word.length; i++) {
-        count[word.charCodeAt(i)]++;
-    }
-    return count;
 }
 ```
 

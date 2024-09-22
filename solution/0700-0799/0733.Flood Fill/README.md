@@ -19,13 +19,18 @@ tags:
 
 <!-- description:start -->
 
-<p>有一幅以&nbsp;<code>m x n</code>&nbsp;的二维整数数组表示的图画&nbsp;<code>image</code>&nbsp;，其中&nbsp;<code>image[i][j]</code>&nbsp;表示该图画的像素值大小。</p>
+<p>有一幅以&nbsp;<code>m x n</code>&nbsp;的二维整数数组表示的图画&nbsp;<code>image</code>&nbsp;，其中&nbsp;<code>image[i][j]</code>&nbsp;表示该图画的像素值大小。你也被给予三个整数 <code>sr</code> ,&nbsp; <code>sc</code> 和 <code>color</code> 。你应该从像素&nbsp;<code>image[sr][sc]</code>&nbsp;开始对图像进行上色&nbsp;<strong>填充</strong> 。</p>
 
-<p>你也被给予三个整数 <code>sr</code> ,&nbsp; <code>sc</code> 和 <code>color</code> 。你应该从像素&nbsp;<code>image[sr][sc]</code>&nbsp;开始对图像进行 上色<strong>填充</strong> 。</p>
+<p>为了完成 <strong>上色工作</strong>：</p>
 
-<p>为了完成 <strong>上色工作</strong>，从初始像素开始，记录初始坐标的 <strong>上下左右四个方向上</strong> 相邻且同色的像素点，接着再记录与这些像素点相邻且同色的新像素点，……，重复该过程。将所有有记录的像素点的颜色值改为 <code>color</code>。</p>
+<ol>
+	<li>从初始像素开始，将其颜色改为 <code>color</code>。</li>
+	<li>对初始坐标的 <strong>上下左右四个方向上</strong> 相邻且与初始像素的原始颜色同色的像素点执行相同操作。</li>
+	<li>通过检查与初始像素的原始颜色相同的相邻像素并修改其颜色来继续 <strong>重复</strong> 此过程。</li>
+	<li>当 <strong>没有</strong> 其它原始颜色的相邻像素时 <strong>停止</strong> 操作。</li>
+</ol>
 
-<p>最后返回 <em>经过上色渲染后的图像&nbsp;</em>。</p>
+<p>最后返回经过上色渲染&nbsp;<strong>修改</strong> 后的图像&nbsp;。</p>
 
 <p>&nbsp;</p>
 
@@ -33,19 +38,23 @@ tags:
 
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0733.Flood%20Fill/images/flood1-grid.jpg" /></p>
 
-<pre>
-<strong>输入:</strong> image = [[1,1,1],[1,1,0],[1,0,1]]，sr = 1, sc = 1, color = 2
-<strong>输出:</strong> [[2,2,2],[2,2,0],[2,0,1]]
-<strong>解析:</strong> 在图像的正中间，(坐标(sr,sc)=(1,1)),在路径上所有符合条件的像素点的颜色都被更改成2。
-注意，右下角的像素没有更改为2，因为它不是在上下左右四个方向上与初始点相连的像素点。
-</pre>
+<div class="example-block"><strong>输入：</strong>image = [[1,1,1],[1,1,0],[1,0,1]]，sr = 1, sc = 1, color = 2</div>
+
+<div class="example-block"><strong>输出：</strong>[[2,2,2],[2,2,0],[2,0,1]]</div>
+
+<div class="example-block"><b>解释：</b>在图像的正中间，坐标 <code>(sr,sc)=(1,1)</code>&nbsp;（即红色像素）,在路径上所有符合条件的像素点的颜色都被更改成相同的新颜色（即蓝色像素）。</div>
+
+<div class="example-block">注意，右下角的像素 <strong>没有</strong> 更改为2，因为它不是在上下左右四个方向上与初始点相连的像素点。</div>
+
+<div class="example-block">&nbsp;</div>
 
 <p><strong>示例 2:</strong></p>
 
-<pre>
-<strong>输入:</strong> image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0
-<strong>输出:</strong> [[0,0,0],[0,0,0]]
-</pre>
+<div class="example-block"><strong>输入：</strong>image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0</div>
+
+<div class="example-block"><strong>输出：</strong>[[0,0,0],[0,0,0]]</div>
+
+<div class="example-block"><strong>解释：</strong>初始像素已经用 0 着色，这与目标颜色相同。因此，不会对图像进行任何更改。</div>
 
 <p>&nbsp;</p>
 
