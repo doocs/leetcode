@@ -28,6 +28,10 @@ comments: true
 
 #### 第 416 场周赛(2024-09-22 10:30, 90 分钟) 参赛人数 3051
 
+- [3295. 举报垃圾信息](/solution/3200-3299/3295.Report%20Spam%20Message/README.md)
+- [3296. 移山所需的最少秒数](/solution/3200-3299/3296.Minimum%20Number%20of%20Seconds%20to%20Make%20Mountain%20Height%20Zero/README.md)
+- [3297. 统计重新排列后包含另一个字符串的子字符串数目 I](/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README.md)
+- [3298. 统计重新排列后包含另一个字符串的子字符串数目 II](/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README.md)
 
 #### 第 415 场周赛(2024-09-15 10:30, 90 分钟) 参赛人数 2769
 
