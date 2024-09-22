@@ -68,7 +68,11 @@ The size of the combination is 2, so we return 2.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+The problem requires finding the maximum length of a combination of numbers where the bitwise AND result is greater than $0$. This implies that there must be a certain binary bit where all numbers have a $1$ at that position. Therefore, we can enumerate each binary bit and count the number of $1$s at that bit position for all numbers. Finally, we take the maximum count.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $\textit{candidates}$ and the maximum value in the array, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -78,11 +82,8 @@ The size of the combination is 2, so we return 2.
 class Solution:
     def largestCombination(self, candidates: List[int]) -> int:
         ans = 0
-        for i in range(32):
-            t = 0
-            for x in candidates:
-                t += (x >> i) & 1
-            ans = max(ans, t)
+        for i in range(max(candidates).bit_length()):
+            ans = max(ans, sum(x >> i & 1 for x in candidates))
         return ans
 ```
 
@@ -91,16 +92,56 @@ class Solution:
 ```java
 class Solution {
     public int largestCombination(int[] candidates) {
+        int mx = Arrays.stream(candidates).max().getAsInt();
+        int m = Integer.SIZE - Integer.numberOfLeadingZeros(mx);
         int ans = 0;
-        for (int i = 0; i < 32; ++i) {
-            int t = 0;
+        for (int i = 0; i < m; ++i) {
+            int cnt = 0;
             for (int x : candidates) {
-                t += (x >> i) & 1;
+                cnt += x >> i & 1;
             }
-            ans = Math.max(ans, t);
+            ans = Math.max(ans, cnt);
         }
         return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int largestCombination(vector<int>& candidates) {
+        int mx = *max_element(candidates.begin(), candidates.end());
+        int m = 32 - __builtin_clz(mx);
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            int cnt = 0;
+            for (int x : candidates) {
+                cnt += x >> i & 1;
+            }
+            ans = max(ans, cnt);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func largestCombination(candidates []int) (ans int) {
+	mx := slices.Max(candidates)
+	m := bits.Len(uint(mx))
+	for i := 0; i < m; i++ {
+		cnt := 0
+		for _, x := range candidates {
+			cnt += (x >> i) & 1
+		}
+		ans = max(ans, cnt)
+	}
+	return
 }
 ```
 
@@ -108,14 +149,15 @@ class Solution {
 
 ```ts
 function largestCombination(candidates: number[]): number {
-    const n = 24;
+    const mx = Math.max(...candidates);
+    const m = mx.toString(2).length;
     let ans = 0;
-    for (let i = 0; i < n; i++) {
-        let count = 0;
-        for (let num of candidates) {
-            if ((num >> i) & 1) count++;
+    for (let i = 0; i < m; ++i) {
+        let cnt = 0;
+        for (const x of candidates) {
+            cnt += (x >> i) & 1;
         }
-        ans = Math.max(ans, count);
+        ans = Math.max(ans, cnt);
     }
     return ans;
 }

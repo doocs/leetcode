@@ -723,7 +723,7 @@
 |  0710  |  [黑名单中的随机数](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README.md)  |  `数组`,`哈希表`,`数学`,`二分查找`,`排序`,`随机化`  |  困难  |    |
 |  0711  |  [不同岛屿的数量 II](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`哈希表`,`哈希函数`  |  困难  |  🔒  |
 |  0712  |  [两个字符串的最小ASCII删除和](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README.md)  |  `字符串`,`动态规划`  |  中等  |    |
-|  0713  |  [乘积小于 K 的子数组](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)  |  `数组`,`滑动窗口`  |  中等  |    |
+|  0713  |  [乘积小于 K 的子数组](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md)  |  `数组`,`二分查找`,`前缀和`,`滑动窗口`  |  中等  |    |
 |  0714  |  [买卖股票的最佳时机含手续费](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |    |
 |  0715  |  [Range 模块](/solution/0700-0799/0715.Range%20Module/README.md)  |  `设计`,`线段树`,`有序集合`  |  困难  |    |
 |  0716  |  [最大栈](/solution/0700-0799/0716.Max%20Stack/README.md)  |  `栈`,`设计`,`链表`,`双向链表`,`有序集合`  |  困难  |  🔒  |
