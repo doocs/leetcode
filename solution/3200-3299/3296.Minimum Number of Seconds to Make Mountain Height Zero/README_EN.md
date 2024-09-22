@@ -181,7 +181,7 @@ public:
         auto check = [&](ll t) -> bool {
             ll h = 0;
             for (int& wt : workerTimes) {
-                h += (ll)(sqrt(t * 2.0 / wt + 0.25) - 0.5);
+                h += (long long) (sqrt(t * 2.0 / wt + 0.25) - 0.5);
             }
             return h >= mountainHeight;
         };
