@@ -3303,6 +3303,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3292  |  [Minimum Number of Valid Strings to Form Target II](/solution/3200-3299/3292.Minimum%20Number%20of%20Valid%20Strings%20to%20Form%20Target%20II/README_EN.md)  |  `Segment Tree`,`Array`,`String`,`Binary Search`,`Dynamic Programming`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Hard  |  Weekly Contest 415  |
 |  3293  |  [Calculate Product Final Price](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  3294  |  [Convert Doubly Linked List to Array II](/solution/3200-3299/3294.Convert%20Doubly%20Linked%20List%20to%20Array%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  3295  |  [Report Spam Message](/solution/3200-3299/3295.Report%20Spam%20Message/README_EN.md)  |    |  Medium  |  Weekly Contest 416  |
+|  3296  |  [Minimum Number of Seconds to Make Mountain Height Zero](/solution/3200-3299/3296.Minimum%20Number%20of%20Seconds%20to%20Make%20Mountain%20Height%20Zero/README_EN.md)  |    |  Medium  |  Weekly Contest 416  |
+|  3297  |  [Count Substrings That Can Be Rearranged to Contain a String I](/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 416  |
+|  3298  |  [Count Substrings That Can Be Rearranged to Contain a String II](/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 416  |
 
 ## Copyright
 
