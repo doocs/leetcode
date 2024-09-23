@@ -1258,7 +1258,7 @@
 |  1245  |  [树的直径](/solution/1200-1299/1245.Tree%20Diameter/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`图`,`拓扑排序`  |  中等  |  第 12 场双周赛  |
 |  1246  |  [删除回文子数组](/solution/1200-1299/1246.Palindrome%20Removal/README.md)  |  `数组`,`动态规划`  |  困难  |  第 12 场双周赛  |
 |  1247  |  [交换字符使得字符串相同](/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README.md)  |  `贪心`,`数学`,`字符串`  |  中等  |  第 161 场周赛  |
-|  1248  |  [统计「优美子数组」](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md)  |  `数组`,`哈希表`,`数学`,`滑动窗口`  |  中等  |  第 161 场周赛  |
+|  1248  |  [统计「优美子数组」](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md)  |  `数组`,`哈希表`,`数学`,`前缀和`,`滑动窗口`  |  中等  |  第 161 场周赛  |
 |  1249  |  [移除无效的括号](/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README.md)  |  `栈`,`字符串`  |  中等  |  第 161 场周赛  |
 |  1250  |  [检查「好数组」](/solution/1200-1299/1250.Check%20If%20It%20Is%20a%20Good%20Array/README.md)  |  `数组`,`数学`,`数论`  |  困难  |  第 161 场周赛  |
 |  1251  |  [平均售价](/solution/1200-1299/1251.Average%20Selling%20Price/README.md)  |  `数据库`  |  简单  |    |

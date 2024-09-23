@@ -29,33 +29,37 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>tasks = ["A","A","A","B","B","B"], n = 2
-<strong>输出：</strong>8
-<strong>解释：</strong>A -&gt; B -&gt; (待命) -&gt; A -&gt; B -&gt; (待命) -&gt; A -&gt; B
-     在本示例中，两个相同类型任务之间必须间隔长度为 n = 2 的冷却时间，而执行一个任务只需要一个单位时间，所以中间出现了（待命）状态。 </pre>
+<div class="example-block"><strong>输入：</strong>tasks = ["A","A","A","B","B","B"], n = 2</div>
 
-<p><strong>示例 2：</strong></p>
+<div class="example-block"><strong>输出：</strong>8</div>
 
-<pre>
-<strong>输入：</strong>tasks = ["A","A","A","B","B","B"], n = 0
-<strong>输出：</strong>6
-<strong>解释：</strong>在这种情况下，任何大小为 6 的排列都可以满足要求，因为 n = 0
-["A","A","A","B","B","B"]
-["A","B","A","B","A","B"]
-["B","B","B","A","A","A"]
-...
-诸如此类
-</pre>
+<div class="example-block"><strong>解释：</strong></div>
+
+<div class="example-block">在完成任务 A 之后，你必须等待两个间隔。对任务 B 来说也是一样。在第 3 个间隔，A 和 B 都不能完成，所以你需要待命。在第 4 个间隔，由于已经经过了 2 个间隔，你可以再次执行 A 任务。</div>
+
+<div class="example-block">&nbsp;</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><b>输入：</b>tasks = ["A","C","A","B","D","B"], n = 1</p>
+
+<p><b>输出：</b>6</p>
+
+<p><b>解释：</b>一种可能的序列是：A -&gt; B -&gt; C -&gt; D -&gt; A -&gt; B。</p>
+
+<p>由于冷却间隔为 1，你可以在完成另一个任务后重复执行这个任务。</p>
+</div>
 
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>tasks = ["A","A","A","A","A","A","B","C","D","E","F","G"], n = 2
-<strong>输出：</strong>16
-<strong>解释：</strong>一种可能的解决方案是：
-     A -&gt; B -&gt; C -&gt; A -&gt; D -&gt; E -&gt; A -&gt; F -&gt; G -&gt; A -&gt; (待命) -&gt; (待命) -&gt; A -&gt; (待命) -&gt; (待命) -&gt; A
-</pre>
+<div class="example-block"><strong>输入：</strong>tasks = ["A","A","A","B","B","B"], n = 0</div>
+
+<div class="example-block"><strong>输出：</strong>6</div>
+
+<div class="example-block"><strong>解释：</strong>一种可能的序列为：A -&gt; B -&gt; idle -&gt; idle -&gt; A -&gt; B -&gt; idle -&gt; idle -&gt; A -&gt; B。</div>
+
+<div class="example-block">只有两种任务类型，A 和 B，需要被 3 个间隔分割。这导致重复执行这些任务的间隔当中有两次待命状态。</div>
 
 <p>&nbsp;</p>
 
