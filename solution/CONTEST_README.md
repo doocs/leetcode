@@ -26,7 +26,7 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 416 场周赛(2024-09-22 10:30, 90 分钟) 参赛人数 3051
+#### 第 416 场周赛(2024-09-22 10:30, 90 分钟) 参赛人数 3254
 
 - [3295. 举报垃圾信息](/solution/3200-3299/3295.Report%20Spam%20Message/README.md)
 - [3296. 移山所需的最少秒数](/solution/3200-3299/3296.Minimum%20Number%20of%20Seconds%20to%20Make%20Mountain%20Height%20Zero/README.md)
