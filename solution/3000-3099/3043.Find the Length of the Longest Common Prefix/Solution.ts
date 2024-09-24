@@ -1,24 +1,17 @@
 function longestCommonPrefix(arr1: number[], arr2: number[]): number {
-    let set = new Set<number>();
-
+    const s: Set<number> = new Set<number>();
     for (let x of arr1) {
-        while (x > 0) {
-            set.add(x);
-            x = Math.floor(x / 10);
+        for (; x; x = Math.floor(x / 10)) {
+            s.add(x);
         }
     }
-
-    let ans = 0;
-
+    let ans: number = 0;
     for (let x of arr2) {
-        while (x > 0) {
-            if (set.has(x)) {
+        for (; x; x = Math.floor(x / 10)) {
+            if (s.has(x)) {
                 ans = Math.max(ans, Math.floor(Math.log10(x)) + 1);
-                break;
             }
-            x = Math.floor(x / 10);
         }
     }
-
     return ans;
 }
