@@ -1,27 +1,25 @@
 class Solution {
     public int maxLength(List<String> arr) {
+        List<Integer> s = new ArrayList<>();
+        s.add(0);
         int ans = 0;
-        List<Integer> masks = new ArrayList<>();
-        masks.add(0);
-        for (var s : arr) {
-            int mask = 0;
-            for (int i = 0; i < s.length(); ++i) {
-                int j = s.charAt(i) - 'a';
-                if (((mask >> j) & 1) == 1) {
-                    mask = 0;
+        for (var t : arr) {
+            int x = 0;
+            for (char c : t.toCharArray()) {
+                int b = c - 'a';
+                if ((x >> b & 1) == 1) {
+                    x = 0;
                     break;
                 }
-                mask |= 1 << j;
+                x |= 1 << b;
             }
-            if (mask == 0) {
-                continue;
-            }
-            int n = masks.size();
-            for (int i = 0; i < n; ++i) {
-                int m = masks.get(i);
-                if ((m & mask) == 0) {
-                    masks.add(m | mask);
-                    ans = Math.max(ans, Integer.bitCount(m | mask));
+            if (x > 0) {
+                for (int i = s.size() - 1; i >= 0; --i) {
+                    int y = s.get(i);
+                    if ((x & y) == 0) {
+                        s.add(x | y);
+                        ans = Math.max(ans, Integer.bitCount(x | y));
+                    }
                 }
             }
         }
