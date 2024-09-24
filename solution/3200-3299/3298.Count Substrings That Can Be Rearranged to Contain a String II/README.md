@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 滑动窗口
 ---
 
 <!-- problem:start -->
