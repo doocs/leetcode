@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3295.Report%20Spam%20Message/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - String
 ---
 
 <!-- problem:start -->

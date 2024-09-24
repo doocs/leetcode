@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3296.Minimum%20Number%20of%20Seconds%20to%20Make%20Mountain%20Height%20Zero/README_EN.md
+tags:
+    - Array
+    - Math
+    - Binary Search
 ---
 
 <!-- problem:start -->
