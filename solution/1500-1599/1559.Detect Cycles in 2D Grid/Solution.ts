@@ -1,15 +1,11 @@
-/**
- * @param {character[][]} grid
- * @return {boolean}
- */
-var containsCycle = function (grid) {
+function containsCycle(grid: string[][]): boolean {
     const [m, n] = [grid.length, grid[0].length];
-    const vis = Array.from({ length: m }, () => Array(n).fill(false));
+    const vis: boolean[][] = Array.from({ length: m }, () => Array(n).fill(false));
     const dirs = [-1, 0, 1, 0, -1];
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
             if (!vis[i][j]) {
-                const q = [[i, j, -1, -1]];
+                const q: [number, number, number, number][] = [[i, j, -1, -1]];
                 vis[i][j] = true;
                 for (const [x, y, px, py] of q) {
                     for (let k = 0; k < 4; k++) {
@@ -30,4 +26,4 @@ var containsCycle = function (grid) {
         }
     }
     return false;
-};
+}
