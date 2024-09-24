@@ -1,4 +1,4 @@
-var longestCommonPrefix = function(arr1, arr2) {
+var longestCommonPrefix = function (arr1, arr2) {
     let set = new Set();
 
     for (let x of arr1) {
