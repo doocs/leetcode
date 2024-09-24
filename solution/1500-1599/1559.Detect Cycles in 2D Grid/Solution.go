@@ -1,26 +1,35 @@
 func containsCycle(grid [][]byte) bool {
 	m, n := len(grid), len(grid[0])
-	p := make([]int, m*n)
-	for i := range p {
-		p[i] = i
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
 	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
-	}
-	dirs := []int{1, 0, 1}
+	dirs := []int{-1, 0, 1, 0, -1}
+
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			for k := 0; k < 2; k++ {
-				x, y := i+dirs[k], j+dirs[k+1]
-				if x < m && y < n && grid[x][y] == grid[i][j] {
-					if find(x*n+y) == find(i*n+j) {
-						return true
+			if !vis[i][j] {
+				q := [][]int{{i, j, -1, -1}}
+				vis[i][j] = true
+
+				for len(q) > 0 {
+					p := q[0]
+					q = q[1:]
+					x, y, px, py := p[0], p[1], p[2], p[3]
+
+					for k := 0; k < 4; k++ {
+						nx, ny := x+dirs[k], y+dirs[k+1]
+						if nx >= 0 && nx < m && ny >= 0 && ny < n {
+							if grid[nx][ny] != grid[x][y] || (nx == px && ny == py) {
+								continue
+							}
+							if vis[nx][ny] {
+								return true
+							}
+							q = append(q, []int{nx, ny, x, y})
+							vis[nx][ny] = true
+						}
 					}
-					p[find(x*n+y)] = find(i*n + j)
 				}
 			}
 		}
