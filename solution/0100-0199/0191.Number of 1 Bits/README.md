@@ -42,7 +42,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 2147483645
 <strong>输出：</strong>30
-<strong>解释：</strong>输入的二进制串 <strong>11111111111111111111111111111101</strong> 中，共有 30 个设置位。</pre>
+<strong>解释：</strong>输入的二进制串 <strong>1111111111111111111111111111101</strong> 中，共有 30 个设置位。</pre>
 
 <p>&nbsp;</p>
 

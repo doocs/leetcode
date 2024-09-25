@@ -67,6 +67,8 @@ tags:
 	<li>每个 <code>emails[i]</code> 都包含有且仅有一个 <code>'@'</code> 字符</li>
 	<li>所有本地名和域名都不为空</li>
 	<li>本地名不会以 <code>'+'</code> 字符作为开头</li>
+	<li>域名以&nbsp;<code>".com"</code> 后缀结尾。</li>
+	<li>域名在&nbsp;<code>".com"</code> 后缀前至少包含一个字符</li>
 </ul>
 
 <!-- description:end -->

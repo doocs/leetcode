@@ -24,13 +24,9 @@ tags:
 
 <p>给你一个二维 boolean 矩阵&nbsp;<code>grid</code>&nbsp;。</p>
 
+<p>如果&nbsp;<code>grid</code> 的 3 个元素的集合中，一个元素与另一个元素在 <strong>同一行</strong>，并且与第三个元素在 <strong>同一列</strong>，则该集合是一个 <strong>直角三角形</strong>。3 个元素 <strong>不必</strong> 彼此相邻。</p>
+
 <p>请你返回使用 <code>grid</code>&nbsp;中的 3 个元素可以构建的 <strong>直角三角形</strong> 数目，且满足 3 个元素值 <strong>都</strong>&nbsp;为 1 。</p>
-
-<p><b>注意：</b></p>
-
-<ul>
-	<li>如果 <code>grid</code>&nbsp;中 3 个元素满足：一个元素与另一个元素在 <strong>同一行</strong>，同时与第三个元素在 <strong>同一列</strong>&nbsp;，那么这 3 个元素称为一个 <strong>直角三角形</strong>&nbsp;。这 3 个元素互相之间不需要相邻。</li>
-</ul>
 
 <p>&nbsp;</p>
 

@@ -41,7 +41,7 @@ tags:
 <p>各查询结果的评分与其位置之间比率的平均值。</p>
 </blockquote>
 
-<p>将劣质查询百分比&nbsp;<code>poor_query_percentage</code> 为：</p>
+<p>将劣质查询百分比&nbsp;<code>poor_query_percentage</code>&nbsp;定义为：</p>
 
 <blockquote>
 <p>评分小于 3 的查询结果占全部查询结果的百分比。</p>
