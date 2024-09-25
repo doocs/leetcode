@@ -33,7 +33,7 @@ class Trie {
  * @param {string[]} words
  * @return {number[]}
  */
-var sumPrefixScores = function(words) {
+var sumPrefixScores = function (words) {
     const trie = new Trie();
     for (const w of words) {
         trie.insert(w);
