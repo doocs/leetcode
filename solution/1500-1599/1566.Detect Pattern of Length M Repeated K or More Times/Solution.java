@@ -1,15 +1,16 @@
 class Solution {
     public boolean containsPattern(int[] arr, int m, int k) {
-        int n = arr.length;
-        for (int i = 0; i <= n - m * k; ++i) {
-            int j = 0;
-            for (; j < m * k; ++j) {
-                if (arr[i + j] != arr[i + (j % m)]) {
-                    break;
+        if (arr.length < m * k) {
+            return false;
+        }
+        int cnt = 0, target = (k - 1) * m;
+        for (int i = m; i < arr.length; ++i) {
+            if (arr[i] == arr[i - m]) {
+                if (++cnt == target) {
+                    return true;
                 }
-            }
-            if (j == m * k) {
-                return true;
+            } else {
+                cnt = 0;
             }
         }
         return false;
