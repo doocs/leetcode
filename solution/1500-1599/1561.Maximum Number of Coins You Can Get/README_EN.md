@@ -77,7 +77,11 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+To maximize the number of coins we get, we can greedily let Bob take the smallest $n$ piles of coins. Each time, we let Alice take the largest pile of coins, then we take the second largest pile of coins, and so on, until there are no more coins to take.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of piles of coins.
 
 <!-- tabs:start -->
 
@@ -87,18 +91,17 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
         piles.sort()
-        return sum(piles[-2 : len(piles) // 3 - 1 : -2])
+        return sum(piles[len(piles) // 3 :][::2])
 ```
 
 #### Java
 
 ```java
 class Solution {
-
     public int maxCoins(int[] piles) {
         Arrays.sort(piles);
         int ans = 0;
-        for (int i = piles.length - 2; i >= piles.length / 3; i -= 2) {
+        for (int i = piles.length / 3; i < piles.length; i += 2) {
             ans += piles[i];
         }
         return ans;
@@ -112,9 +115,11 @@ class Solution {
 class Solution {
 public:
     int maxCoins(vector<int>& piles) {
-        sort(piles.begin(), piles.end());
+        ranges::sort(piles);
         int ans = 0;
-        for (int i = piles.size() - 2; i >= (int) piles.size() / 3; i -= 2) ans += piles[i];
+        for (int i = piles.size() / 3; i < piles.size(); i += 2) {
+            ans += piles[i];
+        }
         return ans;
     }
 };
@@ -123,13 +128,12 @@ public:
 #### Go
 
 ```go
-func maxCoins(piles []int) int {
+func maxCoins(piles []int) (ans int) {
 	sort.Ints(piles)
-	ans, n := 0, len(piles)
-	for i := n - 2; i >= n/3; i -= 2 {
+	for i := len(piles) / 3; i < len(piles); i += 2 {
 		ans += piles[i]
 	}
-	return ans
+	return
 }
 ```
 
@@ -138,10 +142,9 @@ func maxCoins(piles []int) int {
 ```ts
 function maxCoins(piles: number[]): number {
     piles.sort((a, b) => a - b);
-    const n = piles.length;
     let ans = 0;
-    for (let i = 1; i <= Math.floor(n / 3); i++) {
-        ans += piles[n - 2 * i];
+    for (let i = piles.length / 3; i < piles.length; i += 2) {
+        ans += piles[i];
     }
     return ans;
 }
@@ -153,10 +156,9 @@ function maxCoins(piles: number[]): number {
 impl Solution {
     pub fn max_coins(mut piles: Vec<i32>) -> i32 {
         piles.sort();
-        let n = piles.len();
         let mut ans = 0;
-        for i in 1..=n / 3 {
-            ans += piles[n - 2 * i];
+        for i in (piles.len() / 3..piles.len()).step_by(2) {
+            ans += piles[i];
         }
         ans
     }
@@ -166,16 +168,16 @@ impl Solution {
 #### C
 
 ```c
-int cmp(const void* a, const void* b) {
-    return *(int*) a - *(int*) b;
+int compare(const void* a, const void* b) {
+    return (*(int*) a - *(int*) b);
 }
 
 int maxCoins(int* piles, int pilesSize) {
-    qsort(piles, pilesSize, sizeof(int), cmp);
+    qsort(piles, pilesSize, sizeof(int), compare);
     int ans = 0;
-    for (int i = 1; i <= pilesSize / 3; i++) {
-        ans += piles[pilesSize - 2 * i];
-    };
+    for (int i = pilesSize / 3; i < pilesSize; i += 2) {
+        ans += piles[i];
+    }
     return ans;
 }
 ```
