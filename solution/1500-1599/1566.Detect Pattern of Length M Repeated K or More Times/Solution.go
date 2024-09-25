@@ -1,14 +1,13 @@
 func containsPattern(arr []int, m int, k int) bool {
-	n := len(arr)
-	for i := 0; i <= n-m*k; i++ {
-		j := 0
-		for ; j < m*k; j++ {
-			if arr[i+j] != arr[i+(j%m)] {
-				break
+	cnt, target := 0, (k-1)*m
+	for i := m; i < len(arr); i++ {
+		if arr[i] == arr[i-m] {
+			cnt++
+			if cnt == target {
+				return true
 			}
-		}
-		if j == m*k {
-			return true
+		} else {
+			cnt = 0
 		}
 	}
 	return false
