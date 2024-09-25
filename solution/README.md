@@ -2343,10 +2343,10 @@
 |  2330  |  [验证回文串 IV](/solution/2300-2399/2330.Valid%20Palindrome%20IV/README.md)  |  `双指针`,`字符串`  |  中等  |  🔒  |
 |  2331  |  [计算布尔二叉树的值](/solution/2300-2399/2331.Evaluate%20Boolean%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  简单  |  第 82 场双周赛  |
 |  2332  |  [坐上公交的最晚时间](/solution/2300-2399/2332.The%20Latest%20Time%20to%20Catch%20a%20Bus/README.md)  |  `数组`,`双指针`,`二分查找`,`排序`  |  中等  |  第 82 场双周赛  |
-|  2333  |  [最小差值平方和](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md)  |  `数组`,`数学`,`排序`,`堆（优先队列）`  |  中等  |  第 82 场双周赛  |
+|  2333  |  [最小差值平方和](/solution/2300-2399/2333.Minimum%20Sum%20of%20Squared%20Difference/README.md)  |  `贪心`,`数组`,`二分查找`,`排序`,`堆（优先队列）`  |  中等  |  第 82 场双周赛  |
 |  2334  |  [元素值大于变化阈值的子数组](/solution/2300-2399/2334.Subarray%20With%20Elements%20Greater%20Than%20Varying%20Threshold/README.md)  |  `栈`,`并查集`,`数组`,`单调栈`  |  困难  |  第 82 场双周赛  |
 |  2335  |  [装满杯子需要的最短总时长](/solution/2300-2399/2335.Minimum%20Amount%20of%20Time%20to%20Fill%20Cups/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  简单  |  第 301 场周赛  |
-|  2336  |  [无限集中的最小数字](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README.md)  |  `设计`,`哈希表`,`堆（优先队列）`  |  中等  |  第 301 场周赛  |
+|  2336  |  [无限集中的最小数字](/solution/2300-2399/2336.Smallest%20Number%20in%20Infinite%20Set/README.md)  |  `设计`,`哈希表`,`有序集合`,`堆（优先队列）`  |  中等  |  第 301 场周赛  |
 |  2337  |  [移动片段得到字符串](/solution/2300-2399/2337.Move%20Pieces%20to%20Obtain%20a%20String/README.md)  |  `双指针`,`字符串`  |  中等  |  第 301 场周赛  |
 |  2338  |  [统计理想数组的数目](/solution/2300-2399/2338.Count%20the%20Number%20of%20Ideal%20Arrays/README.md)  |  `数学`,`动态规划`,`组合数学`,`数论`  |  困难  |  第 301 场周赛  |
 |  2339  |  [联赛的所有比赛](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README.md)  |  `数据库`  |  简单  |  🔒  |

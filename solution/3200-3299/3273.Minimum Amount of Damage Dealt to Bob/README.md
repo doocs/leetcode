@@ -26,7 +26,7 @@ tags:
 
 <p>每一秒中，在敌人对 Bob 造成伤害 <strong>之后</strong>&nbsp;，Bob 会选择 <strong>一个</strong>&nbsp;还活着的敌人进行攻击，该敌人的健康值减少 <code>power</code>&nbsp;。</p>
 
-<p>请你返回 Bob 将 <strong>所有</strong>&nbsp;<code>n</code>&nbsp;个敌人都消灭之前，<strong>最少</strong>&nbsp;会收到多少伤害。</p>
+<p>请你返回 Bob 将 <strong>所有</strong>&nbsp;<code>n</code>&nbsp;个敌人都消灭之前，<strong>最少</strong>&nbsp;会受到多少伤害。</p>
 
 <p>&nbsp;</p>
 

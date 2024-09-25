@@ -67,6 +67,7 @@ tags:
 	<li>All local and domain names are non-empty.</li>
 	<li>Local names do not start with a <code>&#39;+&#39;</code> character.</li>
 	<li>Domain names end with the <code>&quot;.com&quot;</code> suffix.</li>
+	<li>Domain names must contain at least one character before <code>&quot;.com&quot;</code> suffix.</li>
 </ul>
 
 <!-- description:end -->

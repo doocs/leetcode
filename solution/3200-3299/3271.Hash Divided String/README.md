@@ -27,7 +27,7 @@ tags:
 
 <ul>
 	<li>一个字符的 <strong>哈希值</strong>&nbsp;是它在 <strong>字母表</strong>&nbsp;中的下标（也就是&nbsp;<code>'a' →<!-- notionvc: d3f8e4c2-23cd-41ad-a14b-101dfe4c5aba --> 0</code>&nbsp;，<code>'b' →<!-- notionvc: d3f8e4c2-23cd-41ad-a14b-101dfe4c5aba --> 1</code>&nbsp;，... ，<code>'z' →<!-- notionvc: d3f8e4c2-23cd-41ad-a14b-101dfe4c5aba --> 25</code>）。</li>
-	<li>将子字符串中字幕的 <strong>哈希值</strong>&nbsp;求和。</li>
+	<li>将子字符串中字母的 <strong>哈希值</strong>&nbsp;求和。</li>
 	<li>将和对 26 取余，将结果记为&nbsp;<code>hashedChar</code>&nbsp;。</li>
 	<li>找到小写字母表中 <code>hashedChar</code>&nbsp;对应的字符。</li>
 	<li>将该字符添加到&nbsp;<code>result</code>&nbsp;的末尾。</li>
