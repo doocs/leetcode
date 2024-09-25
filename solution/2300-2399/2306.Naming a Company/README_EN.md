@@ -78,17 +78,17 @@ The following are some examples of invalid selections:
 
 <!-- solution:start -->
 
-### Solution 1: Enumeration Counting
+### Solution 1: Enumeration and Counting
 
-We define $f[i][j]$ to represent the number of strings in $ideas$ that start with the $i$th letter and are not in $ideas$ after being replaced with the $j$th letter. Initially, $f[i][j] = 0$. Additionally, we use a hash table $s$ to record the strings in $ideas$, which allows us to quickly determine whether a string is in $ideas$.
+We define $f[i][j]$ to represent the number of strings in $\textit{ideas}$ that start with the $i$-th letter and, when replaced with the $j$-th letter, do not exist in $\textit{ideas}$. Initially, $f[i][j] = 0$. Additionally, we use a hash table $s$ to record the strings in $\textit{ideas}$, allowing us to quickly determine whether a string is in $\textit{ideas}$.
 
-Next, we traverse the strings in $ideas$. For the current string $v$, we enumerate the first letter $j$ after replacement. If the string after $v$ is replaced is not in $ideas$, then we update $f[i][j] = f[i][j] + 1$.
+Next, we traverse the strings in $\textit{ideas}$. For the current string $v$, we enumerate the first letter $j$ after replacement. If the string obtained by replacing $v$ is not in $\textit{ideas}$, we update $f[i][j] = f[i][j] + 1$.
 
-Finally, we traverse the strings in $ideas$ again. For the current string $v$, we enumerate the first letter $j$ after replacement. If the string after $v$ is replaced is not in $ideas$, then we update the answer $ans = ans + f[j][i]$.
+Finally, we traverse the strings in $\textit{ideas}$ again. For the current string $v$, we enumerate the first letter $j$ after replacement. If the string obtained by replacing $v$ is not in $\textit{ideas}$, we update the answer $\textit{ans} = \textit{ans} + f[j][i]$.
 
-The final answer is $ans$.
+The final answer is $\textit{ans}$.
 
-The time complexity is $O(n \times m \times |\Sigma|)$, and the space complexity is $O(|\Sigma|^2)$. Here, $n$ and $m$ are the number of strings in $ideas$ and the maximum length of the strings, respectively, and $|\Sigma|$ is the character set that appears in the string. In this problem, $|\Sigma| \leq 26$.
+The time complexity is $O(n \times m \times |\Sigma|)$, and the space complexity is $O(|\Sigma|^2)$. Here, $n$ and $m$ are the number of strings in $\textit{ideas}$ and the maximum length of the strings, respectively, and $|\Sigma|$ is the character set of the strings, with $|\Sigma| \leq 26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -216,39 +216,6 @@ func distinctNames(ideas []string) (ans int64) {
 		}
 	}
 	return
-}
-```
-
-#### TypeScript
-
-```ts
-function distinctNames(ideas: string[]): number {
-    const s = new Set(ideas);
-    const f: number[][] = Array(26)
-        .fill(0)
-        .map(() => Array(26).fill(0));
-    for (const v of s) {
-        const i = v.charCodeAt(0) - 'a'.charCodeAt(0);
-        const t = [...v];
-        for (let j = 0; j < 26; ++j) {
-            t[0] = String.fromCharCode('a'.charCodeAt(0) + j);
-            if (!s.has(t.join(''))) {
-                f[i][j]++;
-            }
-        }
-    }
-    let ans = 0;
-    for (const v of s) {
-        const i = v.charCodeAt(0) - 'a'.charCodeAt(0);
-        const t = [...v];
-        for (let j = 0; j < 26; ++j) {
-            t[0] = String.fromCharCode('a'.charCodeAt(0) + j);
-            if (!s.has(t.join(''))) {
-                ans += f[j][i];
-            }
-        }
-    }
-    return ans;
 }
 ```
 

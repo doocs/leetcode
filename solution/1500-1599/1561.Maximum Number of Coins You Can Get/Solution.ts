@@ -1,9 +1,8 @@
 function maxCoins(piles: number[]): number {
     piles.sort((a, b) => a - b);
-    const n = piles.length;
     let ans = 0;
-    for (let i = 1; i <= Math.floor(n / 3); i++) {
-        ans += piles[n - 2 * i];
+    for (let i = piles.length / 3; i < piles.length; i += 2) {
+        ans += piles[i];
     }
     return ans;
 }
