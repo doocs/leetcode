@@ -1,19 +1,16 @@
-func selfDividingNumbers(left int, right int) []int {
-	check := func(num int) bool {
-		for t := num; t != 0; t /= 10 {
-			x := t % 10
-			if x == 0 || num%x != 0 {
+func selfDividingNumbers(left int, right int) (ans []int) {
+	check := func(x int) bool {
+		for y := x; y > 0; y /= 10 {
+			if y%10 == 0 || x%(y%10) != 0 {
 				return false
 			}
 		}
 		return true
 	}
-
-	var ans []int
-	for i := left; i <= right; i++ {
-		if check(i) {
-			ans = append(ans, i)
+	for x := left; x <= right; x++ {
+		if check(x) {
+			ans = append(ans, x)
 		}
 	}
-	return ans
+	return
 }
