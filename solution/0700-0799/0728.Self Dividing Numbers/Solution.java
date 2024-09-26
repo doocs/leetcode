@@ -1,18 +1,17 @@
 class Solution {
     public List<Integer> selfDividingNumbers(int left, int right) {
         List<Integer> ans = new ArrayList<>();
-        for (int i = left; i <= right; ++i) {
-            if (check(i)) {
-                ans.add(i);
+        for (int x = left; x <= right; ++x) {
+            if (check(x)) {
+                ans.add(x);
             }
         }
         return ans;
     }
 
-    private boolean check(int num) {
-        for (int t = num; t != 0; t /= 10) {
-            int x = t % 10;
-            if (x == 0 || num % x != 0) {
+    private boolean check(int x) {
+        for (int y = x; y > 0; y /= 10) {
+            if (y % 10 == 0 || x % (y % 10) != 0) {
                 return false;
             }
         }
