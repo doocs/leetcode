@@ -23,7 +23,7 @@ tags:
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>words</code> ，该数组由 <strong>非空</strong> 字符串组成。</p>
 
-<p>定义字符串 <code>word</code> 的 <strong>分数</strong> 等于以 <code>word</code> 作为 <strong>前缀</strong> 的 <code>words[i]</code> 的数目。</p>
+<p>定义字符串 <code>term</code> 的 <strong>分数</strong> 等于以 <code>term</code> 作为 <strong>前缀</strong> 的 <code>words[i]</code> 的数目。</p>
 
 <ul>
 	<li>例如，如果 <code>words = ["a", "ab", "abc", "cab"]</code> ，那么 <code>"ab"</code> 的分数是 <code>2</code> ，因为 <code>"ab"</code> 是 <code>"ab"</code> 和 <code>"abc"</code> 的一个前缀。</li>
@@ -37,7 +37,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>words = ["abc","ab","bc","b"]
+<pre>
+<strong>输入：</strong>words = ["abc","ab","bc","b"]
 <strong>输出：</strong>[5,4,3,2]
 <strong>解释：</strong>对应每个字符串的答案如下：
 - "abc" 有 3 个前缀："a"、"ab" 和 "abc" 。
@@ -56,7 +57,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>words = ["abcd"]
+<pre>
+<strong>输入：</strong>words = ["abcd"]
 <strong>输出：</strong>[4]
 <strong>解释：</strong>
 "abcd" 有 4 个前缀 "a"、"ab"、"abc" 和 "abcd"。

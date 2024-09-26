@@ -54,14 +54,14 @@ tags:
 [null, [0, 0], [], true, false]
 
 <strong>Explanation</strong>
-BookMyShow bms = new BookMyShow(2, 5); // There are 2 rows with 5 seats each
+BookMyShow bms = new BookMyShow(2, 5); // There are 2 rows with 5 seats each 
 bms.gather(4, 0); // return [0, 0]
-                  // The group books seats [0, 3] of row 0.
+                  // The group books seats [0, 3] of row 0. 
 bms.gather(2, 0); // return []
                   // There is only 1 seat left in row 0,
-                  // so it is not possible to book 2 consecutive seats.
+                  // so it is not possible to book 2 consecutive seats. 
 bms.scatter(5, 1); // return True
-                   // The group books seat 4 of row 0 and seats [0, 3] of row 1.
+                   // The group books seat 4 of row 0 and seats [0, 3] of row 1. 
 bms.scatter(5, 1); // return False
                    // There is only one seat left in the hall.
 </pre>
