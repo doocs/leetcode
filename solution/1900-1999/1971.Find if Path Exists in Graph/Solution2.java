@@ -3,9 +3,9 @@ class Solution {
         List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (var e : edges) {
-            int a = e[0], b = e[1];
-            g[a].add(b);
-            g[b].add(a);
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
         }
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(source);
