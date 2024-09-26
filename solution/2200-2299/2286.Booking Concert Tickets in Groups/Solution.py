@@ -1,4 +1,6 @@
 class Node:
+    __slots__ = "l", "r", "s", "mx"
+
     def __init__(self):
         self.l = self.r = 0
         self.s = self.mx = 0

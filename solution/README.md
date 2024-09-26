@@ -3309,6 +3309,7 @@
 |  3296  |  [移山所需的最少秒数](/solution/3200-3299/3296.Minimum%20Number%20of%20Seconds%20to%20Make%20Mountain%20Height%20Zero/README.md)  |  `数组`,`数学`,`二分查找`  |  中等  |  第 416 场周赛  |
 |  3297  |  [统计重新排列后包含另一个字符串的子字符串数目 I](/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  中等  |  第 416 场周赛  |
 |  3298  |  [统计重新排列后包含另一个字符串的子字符串数目 II](/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  困难  |  第 416 场周赛  |
+|  3299  |  [Sum of Consecutive Subsequences](/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
