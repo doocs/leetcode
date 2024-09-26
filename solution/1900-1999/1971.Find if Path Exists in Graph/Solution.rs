@@ -1,28 +1,32 @@
 impl Solution {
     pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
-        let mut disjoint_set: Vec<i32> = vec![0; n as usize];
-        // Initialize the set
-        for i in 0..n {
-            disjoint_set[i as usize] = i;
+        let n = n as usize;
+        let source = source as usize;
+        let destination = destination as usize;
+
+        let mut g = vec![Vec::new(); n];
+        let mut vis = vec![false; n];
+
+        for e in edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            g[u].push(v);
+            g[v].push(u);
         }
 
-        // Traverse the edges
-        for p_vec in &edges {
-            let parent_one = Solution::find(p_vec[0], &mut disjoint_set);
-            let parent_two = Solution::find(p_vec[1], &mut disjoint_set);
-            disjoint_set[parent_one as usize] = parent_two;
+        fn dfs(g: &Vec<Vec<usize>>, vis: &mut Vec<bool>, i: usize, destination: usize) -> bool {
+            if i == destination {
+                return true;
+            }
+            vis[i] = true;
+            for &j in &g[i] {
+                if !vis[j] && dfs(g, vis, j, destination) {
+                    return true;
+                }
+            }
+            false
         }
 
-        let p_s = Solution::find(source, &mut disjoint_set);
-        let p_d = Solution::find(destination, &mut disjoint_set);
-
-        p_s == p_d
-    }
-
-    pub fn find(x: i32, d_set: &mut Vec<i32>) -> i32 {
-        if d_set[x as usize] != x {
-            d_set[x as usize] = Solution::find(d_set[x as usize], d_set);
-        }
-        d_set[x as usize]
+        dfs(&g, &mut vis, source, destination)
     }
 }

@@ -66,11 +66,11 @@ tags:
 
 ### Solution 1: DFS
 
-First, we convert `edges` into an adjacency list $g$, then use DFS to determine whether there is a path from `source` to `destination`.
+We first convert $\textit{edges}$ into an adjacency list $g$, then use DFS to determine whether there is a path from $\textit{source}$ to $\textit{destination}$.
 
-During the process, we use an array `vis` to record the vertices that have been visited to avoid repeated visits.
+During the process, we use an array $\textit{vis}$ to record the vertices that have already been visited to avoid revisiting them.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -81,7 +81,7 @@ class Solution:
     def validPath(
         self, n: int, edges: List[List[int]], source: int, destination: int
     ) -> bool:
-        def dfs(i):
+        def dfs(i: int) -> bool:
             if i == destination:
                 return True
             vis.add(i)
@@ -91,9 +91,9 @@ class Solution:
             return False
 
         g = [[] for _ in range(n)]
-        for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
         vis = set()
         return dfs(source)
 ```
@@ -107,15 +107,15 @@ class Solution {
     private List<Integer>[] g;
 
     public boolean validPath(int n, int[][] edges, int source, int destination) {
-        g = new List[n];
-        Arrays.setAll(g, k -> new ArrayList<>());
-        for (var e : edges) {
-            int a = e[0], b = e[1];
-            g[a].add(b);
-            g[b].add(a);
-        }
-        vis = new boolean[n];
         this.destination = destination;
+        vis = new boolean[n];
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
         return dfs(source);
     }
 
@@ -124,7 +124,7 @@ class Solution {
             return true;
         }
         vis[i] = true;
-        for (int j : g[i]) {
+        for (var j : g[i]) {
             if (!vis[j] && dfs(j)) {
                 return true;
             }
@@ -140,19 +140,19 @@ class Solution {
 class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
-        vector<bool> vis(n);
         vector<int> g[n];
-        for (auto& e : edges) {
-            int a = e[0], b = e[1];
-            g[a].emplace_back(b);
-            g[b].emplace_back(a);
+        vector<bool> vis(n);
+        for (const auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
         }
         function<bool(int)> dfs = [&](int i) -> bool {
             if (i == destination) {
                 return true;
             }
             vis[i] = true;
-            for (int& j : g[i]) {
+            for (int j : g[i]) {
                 if (!vis[j] && dfs(j)) {
                     return true;
                 }
@@ -171,9 +171,9 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 	vis := make([]bool, n)
 	g := make([][]int, n)
 	for _, e := range edges {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
 	}
 	var dfs func(int) bool
 	dfs = func(i int) bool {
@@ -197,11 +197,10 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 ```ts
 function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
     const g: number[][] = Array.from({ length: n }, () => []);
-    for (const [a, b] of edges) {
-        g[a].push(b);
-        g[b].push(a);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
     }
-
     const vis = new Set<number>();
     const dfs = (i: number) => {
         if (i === destination) {
@@ -210,11 +209,9 @@ function validPath(n: number, edges: number[][], source: number, destination: nu
         if (vis.has(i)) {
             return false;
         }
-
         vis.add(i);
         return g[i].some(dfs);
     };
-
     return dfs(source);
 }
 ```
@@ -222,35 +219,37 @@ function validPath(n: number, edges: number[][], source: number, destination: nu
 #### Rust
 
 ```rust
-use std::collections::HashSet;
-
 impl Solution {
     pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
-        let mut vis = vec![false; n as usize];
-        let mut g = vec![HashSet::new(); n as usize];
+        let n = n as usize;
+        let source = source as usize;
+        let destination = destination as usize;
+
+        let mut g = vec![Vec::new(); n];
+        let mut vis = vec![false; n];
 
         for e in edges {
-            let a = e[0] as usize;
-            let b = e[1] as usize;
-            g[a].insert(b);
-            g[b].insert(a);
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            g[u].push(v);
+            g[v].push(u);
         }
 
-        dfs(source as usize, destination as usize, &mut vis, &g)
-    }
-}
-
-fn dfs(i: usize, destination: usize, vis: &mut Vec<bool>, g: &Vec<HashSet<usize>>) -> bool {
-    if i == destination {
-        return true;
-    }
-    vis[i] = true;
-    for &j in &g[i] {
-        if !vis[j] && dfs(j, destination, vis, g) {
-            return true;
+        fn dfs(g: &Vec<Vec<usize>>, vis: &mut Vec<bool>, i: usize, destination: usize) -> bool {
+            if i == destination {
+                return true;
+            }
+            vis[i] = true;
+            for &j in &g[i] {
+                if !vis[j] && dfs(g, vis, j, destination) {
+                    return true;
+                }
+            }
+            false
         }
+
+        dfs(&g, &mut vis, source, destination)
     }
-    false
 }
 ```
 
@@ -262,15 +261,15 @@ fn dfs(i: usize, destination: usize, vis: &mut Vec<bool>, g: &Vec<HashSet<usize>
 
 ### Solution 2: BFS
 
-We can also use BFS to determine whether there is a path from `source` to `destination`.
+We can also use BFS to determine whether there is a path from $\textit{source}$ to $\textit{destination}$.
 
-Specifically, we define a queue $q$ and initially add `source` to the queue. In addition, we use a set `vis` to record the vertices that have been visited to avoid repeated visits.
+Specifically, we define a queue $q$, initially adding $\textit{source}$ to the queue. Additionally, we use a set $\textit{vis}$ to record the vertices that have already been visited to avoid revisiting them.
 
-Next, we continuously take out the vertex $i$ from the queue. If $i = \textit{destination}$, it means that there is a path from `source` to `destination`, and we return `true`. Otherwise, we traverse all adjacent vertices $j$ of $i$. If $j$ has not been visited, we add $j$ to the queue $q$ and mark $j$ as visited.
+Next, we continuously take vertices $i$ from the queue. If $i = \textit{destination}$, it means there is a path from $\textit{source}$ to $\textit{destination}$, and we return $\textit{true}$. Otherwise, we traverse all adjacent vertices $j$ of $i$. If $j$ has not been visited, we add $j$ to the queue $q$ and mark $j$ as visited.
 
-Finally, if the queue is empty, it means that there is no path from `source` to `destination`, and we return `false`.
+Finally, if the queue is empty, it means there is no path from $\textit{source}$ to $\textit{destination}$, and we return $\textit{false}$.
 
-The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -282,10 +281,9 @@ class Solution:
         self, n: int, edges: List[List[int]], source: int, destination: int
     ) -> bool:
         g = [[] for _ in range(n)]
-        for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
-
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
         q = deque([source])
         vis = {source}
         while q:
@@ -307,9 +305,9 @@ class Solution {
         List<Integer>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (var e : edges) {
-            int a = e[0], b = e[1];
-            g[a].add(b);
-            g[b].add(a);
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
         }
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(source);
@@ -339,10 +337,10 @@ class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
         vector<vector<int>> g(n);
-        for (auto& e : edges) {
-            int a = e[0], b = e[1];
-            g[a].push_back(b);
-            g[b].push_back(a);
+        for (const auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
         }
         queue<int> q{{source}};
         vector<bool> vis(n);
@@ -371,9 +369,9 @@ public:
 func validPath(n int, edges [][]int, source int, destination int) bool {
 	g := make([][]int, n)
 	for _, e := range edges {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
 	}
 	q := []int{source}
 	vis := make([]bool, n)
@@ -400,27 +398,24 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 ```ts
 function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
     const g: number[][] = Array.from({ length: n }, () => []);
-
-    for (const [a, b] of edges) {
-        g[a].push(b);
-        g[b].push(a);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
     }
-
-    const vis = new Set<number>();
+    const vis = new Set<number>([source]);
     const q = [source];
-
     while (q.length) {
         const i = q.pop()!;
         if (i === destination) {
             return true;
         }
-        if (vis.has(i)) {
-            continue;
+        for (const j of g[i]) {
+            if (!vis.has(j)) {
+                vis.add(j);
+                q.push(j);
+            }
         }
-        vis.add(i);
-        q.push(...g[i]);
     }
-
     return false;
 }
 ```
@@ -432,26 +427,30 @@ use std::collections::{HashSet, VecDeque};
 
 impl Solution {
     pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
-        let mut g = vec![HashSet::new(); n as usize];
-        for e in edges {
-            let a = e[0] as usize;
-            let b = e[1] as usize;
-            g[a].insert(b);
-            g[b].insert(a);
+        let n = n as usize;
+        let source = source as usize;
+        let destination = destination as usize;
+
+        let mut g = vec![Vec::new(); n];
+        for edge in edges {
+            let u = edge[0] as usize;
+            let v = edge[1] as usize;
+            g[u].push(v);
+            g[v].push(u);
         }
 
         let mut q = VecDeque::new();
-        q.push_back(source as usize);
-        let mut vis = vec![false; n as usize];
-        vis[source as usize] = true;
+        let mut vis = HashSet::new();
+        q.push_back(source);
+        vis.insert(source);
 
         while let Some(i) = q.pop_front() {
-            if i == (destination as usize) {
+            if i == destination {
                 return true;
             }
             for &j in &g[i] {
-                if !vis[j] {
-                    vis[j] = true;
+                if !vis.contains(&j) {
+                    vis.insert(j);
                     q.push_back(j);
                 }
             }
@@ -484,43 +483,83 @@ The time complexity is $O(n \log n + m)$ or $O(n \alpha(n) + m)$, and the space 
 #### Python3
 
 ```python
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
+
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
+
+
 class Solution:
     def validPath(
         self, n: int, edges: List[List[int]], source: int, destination: int
     ) -> bool:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        p = list(range(n))
+        uf = UnionFind(n)
         for u, v in edges:
-            p[find(u)] = find(v)
-        return find(source) == find(destination)
+            uf.union(u, v)
+        return uf.find(source) == uf.find(destination)
 ```
 
 #### Java
 
 ```java
-class Solution {
+class UnionFind {
     private int[] p;
+    private int[] size;
 
-    public boolean validPath(int n, int[][] edges, int source, int destination) {
+    public UnionFind(int n) {
         p = new int[n];
+        size = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
+            size[i] = 1;
         }
-        for (int[] e : edges) {
-            p[find(e[0])] = find(e[1]);
-        }
-        return find(source) == find(destination);
     }
 
-    private int find(int x) {
+    public int find(int x) {
         if (p[x] != x) {
             p[x] = find(p[x]);
         }
         return p[x];
+    }
+
+    public void union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa != pb) {
+            if (size[pa] > size[pb]) {
+                p[pb] = pa;
+                size[pa] += size[pb];
+            } else {
+                p[pa] = pb;
+                size[pb] += size[pa];
+            }
+        }
+    }
+}
+
+class Solution {
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        UnionFind uf = new UnionFind(n);
+        for (var e : edges) {
+            uf.union(e[0], e[1]);
+        }
+        return uf.find(source) == uf.find(destination);
     }
 }
 ```
@@ -528,21 +567,46 @@ class Solution {
 #### C++
 
 ```cpp
+class UnionFind {
+public:
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
+        iota(p.begin(), p.end(), 0);
+    }
+
+    void unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa != pb) {
+            if (size[pa] > size[pb]) {
+                p[pb] = pa;
+                size[pa] += size[pb];
+            } else {
+                p[pa] = pb;
+                size[pb] += size[pa];
+            }
+        }
+    }
+
+    int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+private:
+    vector<int> p, size;
+};
+
 class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
-        vector<int> p(n);
-        iota(p.begin(), p.end(), 0);
-        function<int(int)> find = [&](int x) -> int {
-            if (p[x] != x) {
-                p[x] = find(p[x]);
-            }
-            return p[x];
-        };
-        for (auto& e : edges) {
-            p[find(e[0])] = find(e[1]);
+        UnionFind uf(n);
+        for (const auto& e : edges) {
+            uf.unite(e[0], e[1]);
         }
-        return find(source) == find(destination);
+        return uf.find(source) == uf.find(destination);
     }
 };
 ```
@@ -550,40 +614,144 @@ public:
 #### Go
 
 ```go
-func validPath(n int, edges [][]int, source int, destination int) bool {
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
 	p := make([]int, n)
+	size := make([]int, n)
 	for i := range p {
 		p[i] = i
+		size[i] = 1
 	}
-	var find func(x int) int
-	find = func(x int) int {
-		if p[x] != x {
-			p[x] = find(p[x])
-		}
-		return p[x]
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
 	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	return true
+}
+
+func validPath(n int, edges [][]int, source int, destination int) bool {
+	uf := newUnionFind(n)
 	for _, e := range edges {
-		p[find(e[0])] = find(e[1])
+		uf.union(e[0], e[1])
 	}
-	return find(source) == find(destination)
+	return uf.find(source) == uf.find(destination)
 }
 ```
 
 #### TypeScript
 
 ```ts
-function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
-    const p: number[] = Array.from({ length: n }, (_, i) => i);
-    const find = (x: number): number => {
-        if (p[x] !== x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    };
-    for (const [a, b] of edges) {
-        p[find(a)] = find(b);
+class UnionFind {
+    p: number[];
+    size: number[];
+    constructor(n: number) {
+        this.p = Array(n)
+            .fill(0)
+            .map((_, i) => i);
+        this.size = Array(n).fill(1);
     }
-    return find(source) === find(destination);
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        const [pa, pb] = [this.find(a), this.find(b)];
+        if (pa === pb) {
+            return false;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+function validPath(n: number, edges: number[][], source: number, destination: number): boolean {
+    const uf = new UnionFind(n);
+    edges.forEach(([u, v]) => uf.union(u, v));
+    return uf.find(source) === uf.find(destination);
+}
+```
+
+#### Rust
+
+```rust
+struct UnionFind {
+    p: Vec<usize>,
+    size: Vec<usize>,
+}
+
+impl UnionFind {
+    fn new(n: usize) -> Self {
+        let p = (0..n).collect();
+        let size = vec![1; n];
+        UnionFind { p, size }
+    }
+
+    fn find(&mut self, x: usize) -> usize {
+        if self.p[x] != x {
+            self.p[x] = self.find(self.p[x]);
+        }
+        self.p[x]
+    }
+
+    fn union(&mut self, a: usize, b: usize) {
+        let pa = self.find(a);
+        let pb = self.find(b);
+        if pa != pb {
+            if self.size[pa] > self.size[pb] {
+                self.p[pb] = pa;
+                self.size[pa] += self.size[pb];
+            } else {
+                self.p[pa] = pb;
+                self.size[pb] += self.size[pa];
+            }
+        }
+    }
+}
+
+impl Solution {
+    pub fn valid_path(n: i32, edges: Vec<Vec<i32>>, source: i32, destination: i32) -> bool {
+        let n = n as usize;
+        let mut uf = UnionFind::new(n);
+
+        for e in edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            uf.union(u, v);
+        }
+
+        uf.find(source as usize) == uf.find(destination as usize)
+    }
 }
 ```
 
