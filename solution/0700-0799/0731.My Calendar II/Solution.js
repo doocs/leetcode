@@ -1,15 +1,14 @@
-
-var MyCalendarTwo = function() {
+var MyCalendarTwo = function () {
     this.events = [];
     this.overlaps = [];
 };
 
-/** 
- * @param {number} start 
+/**
+ * @param {number} start
  * @param {number} end
  * @return {boolean}
  */
-MyCalendarTwo.prototype.book = function(start, end) {
+MyCalendarTwo.prototype.book = function (start, end) {
     for (let [s, e] of this.overlaps) {
         if (Math.max(start, s) < Math.min(end, e)) {
             return false;
@@ -26,7 +25,7 @@ MyCalendarTwo.prototype.book = function(start, end) {
     return true;
 };
 
-/** 
+/**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * var obj = new MyCalendarTwo()
  * var param_1 = obj.book(start,end)
