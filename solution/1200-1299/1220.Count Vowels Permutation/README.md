@@ -258,37 +258,30 @@ var countVowelPermutation = function (n) {
 #### Python3
 
 ```python
+import numpy as np
+
+
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
         mod = 10**9 + 7
-
-        def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
-            m, n = len(a), len(b[0])
-            c = [[0] * n for _ in range(m)]
-            for i in range(m):
-                for j in range(n):
-                    for k in range(len(b)):
-                        c[i][j] = (c[i][j] + a[i][k] * b[k][j]) % mod
-            return c
-
-        def pow(a: List[List[int]], n: int) -> List[int]:
-            res = [[1] * len(a)]
-            while n:
-                if n & 1:
-                    res = mul(res, a)
-                a = mul(a, a)
-                n >>= 1
-            return res
-
-        a = [
-            [0, 1, 0, 0, 0],
-            [1, 0, 1, 0, 0],
-            [1, 1, 0, 1, 1],
-            [0, 0, 1, 0, 1],
-            [1, 0, 0, 0, 0],
-        ]
-        res = pow(a, n - 1)
-        return sum(map(sum, res)) % mod
+        factor = np.asmatrix(
+            [
+                (0, 1, 0, 0, 0),
+                (1, 0, 1, 0, 0),
+                (1, 1, 0, 1, 1),
+                (0, 0, 1, 0, 1),
+                (1, 0, 0, 0, 0),
+            ],
+            np.dtype("O"),
+        )
+        res = np.asmatrix([(1, 1, 1, 1, 1)], np.dtype("O"))
+        n -= 1
+        while n:
+            if n & 1:
+                res = res * factor % mod
+            factor = factor * factor % mod
+            n >>= 1
+        return res.sum() % mod
 ```
 
 #### Java
@@ -522,73 +515,6 @@ function pow(a, n) {
         n >>>= 1;
     }
     return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-import numpy as np
-
-
-class Solution:
-    def countVowelPermutation(self, n: int) -> int:
-        mod = 10**9 + 7
-        factor = np.mat(
-            [
-                (0, 1, 0, 0, 0),
-                (1, 0, 1, 0, 0),
-                (1, 1, 0, 1, 1),
-                (0, 0, 1, 0, 1),
-                (1, 0, 0, 0, 0),
-            ],
-            np.dtype("O"),
-        )
-        res = np.mat([(1, 1, 1, 1, 1)], np.dtype("O"))
-        n -= 1
-        while n:
-            if n & 1:
-                res = res * factor % mod
-            factor = factor * factor % mod
-            n >>= 1
-        return res.sum() % mod
-```
-
-#### Java
-
-```java
-class Solution {
-    public int countVowelPermutation(int n) {
-        final int mod = 1000000007;
-        long countA = 1, countE = 1, countI = 1, countO = 1, countU = 1;
-        for (int length = 1; length < n; length++) {
-            // Calculate the next counts for each vowel based on the previous counts
-            long nextCountA = countE;
-            long nextCountE = (countA + countI) % mod;
-            long nextCountI = (countA + countE + countO + countU) % mod;
-            long nextCountO = (countI + countU) % mod;
-            long nextCountU = countA;
-            // Update the counts with the newly calculated values for the next length
-            countA = nextCountA;
-            countE = nextCountE;
-            countI = nextCountI;
-            countO = nextCountO;
-            countU = nextCountU;
-        }
-        // Calculate the total count of valid strings for length n
-        long totalCount = (countA + countE + countI + countO + countU) % mod;
-        return (int) totalCount;
-    }
 }
 ```
 
