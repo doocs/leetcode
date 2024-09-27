@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,15,6,3]
 <strong>Output:</strong> 9
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The element sum of nums is 1 + 15 + 6 + 3 = 25.
 The digit sum of nums is 1 + 1 + 5 + 6 + 3 = 16.
 The absolute difference between the element sum and digit sum is |25 - 16| = 9.

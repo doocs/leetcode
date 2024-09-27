@@ -56,7 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们定义一个函数 $\textit{check}(x)$，用来判断 $x$ 是否是自除数。函数的实现思路如下：
+
+我们用 $y$ 来记录 $x$ 的值，然后不断地对 $y$ 除以 $10$，直到 $y$ 为 $0$。在这个过程中，我们判断 $y$ 的末位是否为 $0$，或者 $x$ 是否不能被 $y$ 的末位整除，如果满足这两个条件中的任意一个，那么 $x$ 就不是自除数，返回 $\text{false}$。否则遍历完所有的位数后，返回 $\text{true}$。
+
+最后，我们遍历区间 $[\textit{left}, \textit{right}]$ 中的所有数，对每个数调用 $\textit{check}(x)$，如果返回 $\text{true}$，那么我们就将这个数加入答案数组中。
+
+时间复杂度 $O(n \times \log_{10} M)$，其中 $n$ 是区间 $[\textit{left}, \textit{right}]$ 中的元素个数，而 $M = \textit{right}$，表示区间中的最大值。
 
 <!-- tabs:start -->
 
@@ -65,11 +73,15 @@ tags:
 ```python
 class Solution:
     def selfDividingNumbers(self, left: int, right: int) -> List[int]:
-        return [
-            num
-            for num in range(left, right + 1)
-            if all(i != '0' and num % int(i) == 0 for i in str(num))
-        ]
+        def check(x: int) -> bool:
+            y = x
+            while y:
+                if y % 10 == 0 or x % (y % 10):
+                    return False
+                y //= 10
+            return True
+
+        return [x for x in range(left, right + 1) if check(x)]
 ```
 
 #### Java
@@ -78,18 +90,17 @@ class Solution:
 class Solution {
     public List<Integer> selfDividingNumbers(int left, int right) {
         List<Integer> ans = new ArrayList<>();
-        for (int i = left; i <= right; ++i) {
-            if (check(i)) {
-                ans.add(i);
+        for (int x = left; x <= right; ++x) {
+            if (check(x)) {
+                ans.add(x);
             }
         }
         return ans;
     }
 
-    private boolean check(int num) {
-        for (int t = num; t != 0; t /= 10) {
-            int x = t % 10;
-            if (x == 0 || num % x != 0) {
+    private boolean check(int x) {
+        for (int y = x; y > 0; y /= 10) {
+            if (y % 10 == 0 || x % (y % 10) != 0) {
                 return false;
             }
         }
@@ -104,19 +115,21 @@ class Solution {
 class Solution {
 public:
     vector<int> selfDividingNumbers(int left, int right) {
+        auto check = [&](int x) -> bool {
+            for (int y = x; y; y /= 10) {
+                if (y % 10 == 0 || x % (y % 10)) {
+                    return false;
+                }
+            }
+            return true;
+        };
         vector<int> ans;
-        for (int i = left; i <= right; ++i)
-            if (check(i))
-                ans.push_back(i);
-        return ans;
-    }
-
-    bool check(int num) {
-        for (int t = num; t; t /= 10) {
-            int x = t % 10;
-            if (x == 0 || num % x) return false;
+        for (int x = left; x <= right; ++x) {
+            if (check(x)) {
+                ans.push_back(x);
+            }
         }
-        return true;
+        return ans;
     }
 };
 ```
@@ -124,24 +137,37 @@ public:
 #### Go
 
 ```go
-func selfDividingNumbers(left int, right int) []int {
-	check := func(num int) bool {
-		for t := num; t != 0; t /= 10 {
-			x := t % 10
-			if x == 0 || num%x != 0 {
+func selfDividingNumbers(left int, right int) (ans []int) {
+	check := func(x int) bool {
+		for y := x; y > 0; y /= 10 {
+			if y%10 == 0 || x%(y%10) != 0 {
 				return false
 			}
 		}
 		return true
 	}
-
-	var ans []int
-	for i := left; i <= right; i++ {
-		if check(i) {
-			ans = append(ans, i)
+	for x := left; x <= right; x++ {
+		if check(x) {
+			ans = append(ans, x)
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function selfDividingNumbers(left: number, right: number): number[] {
+    const check = (x: number): boolean => {
+        for (let y = x; y; y = Math.floor(y / 10)) {
+            if (y % 10 === 0 || x % (y % 10) !== 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+    return Array.from({ length: right - left + 1 }, (_, i) => i + left).filter(check);
 }
 ```
 
@@ -150,23 +176,18 @@ func selfDividingNumbers(left int, right int) []int {
 ```rust
 impl Solution {
     pub fn self_dividing_numbers(left: i32, right: i32) -> Vec<i32> {
-        let mut res = vec![];
-        for i in left..=right {
-            let mut num = i;
-            if (loop {
-                if num == 0 {
-                    break true;
+        fn check(x: i32) -> bool {
+            let mut y = x;
+            while y > 0 {
+                if y % 10 == 0 || x % (y % 10) != 0 {
+                    return false;
                 }
-                let j = num % 10;
-                if j == 0 || i % j != 0 {
-                    break false;
-                }
-                num /= 10;
-            }) {
-                res.push(i);
+                y /= 10;
             }
+            true
         }
-        res
+
+        (left..=right).filter(|&x| check(x)).collect()
     }
 }
 ```
