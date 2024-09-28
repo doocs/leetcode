@@ -33,7 +33,7 @@ tags:
 <strong>输入：</strong>n = 3, edges = [[0,1],[1,2],[2,0]], source = 0, destination = 2
 <strong>输出：</strong>true
 <strong>解释：</strong>存在由顶点 0 到顶点 2 的路径:
-- 0 → 1 → 2
+- 0 → 1 → 2 
 - 0 → 2
 </pre>
 

@@ -68,7 +68,7 @@ comments: true
 - [3272. 统计好整数的数目](/solution/3200-3299/3272.Find%20the%20Count%20of%20Good%20Integers/README.md)
 - [3273. 对 Bob 造成的最少伤害](/solution/3200-3299/3273.Minimum%20Amount%20of%20Damage%20Dealt%20to%20Bob/README.md)
 
-#### 第 412 场周赛(2024-08-25 10:30, 90 分钟) 参赛人数 2681
+#### 第 412 场周赛(2024-08-25 10:30, 90 分钟) 参赛人数 2682
 
 - [3264. K 次乘运算后的最终数组 I](/solution/3200-3299/3264.Final%20Array%20State%20After%20K%20Multiplication%20Operations%20I/README.md)
 - [3265. 统计近似相等数对 I](/solution/3200-3299/3265.Count%20Almost%20Equal%20Pairs%20I/README.md)
