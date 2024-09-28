@@ -46,9 +46,9 @@ tags:
 
 <strong>Explanation</strong>
 MyCalendarTwo myCalendarTwo = new MyCalendarTwo();
-myCalendarTwo.book(10, 20); // return True, The event can be booked. 
-myCalendarTwo.book(50, 60); // return True, The event can be booked. 
-myCalendarTwo.book(10, 40); // return True, The event can be double booked. 
+myCalendarTwo.book(10, 20); // return True, The event can be booked.
+myCalendarTwo.book(50, 60); // return True, The event can be booked.
+myCalendarTwo.book(10, 40); // return True, The event can be double booked.
 myCalendarTwo.book(5, 15);  // return False, The event cannot be booked, because it would result in a triple booking.
 myCalendarTwo.book(5, 10); // return True, The event can be booked, as it does not use time 10 which is already double booked.
 myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time in [25, 40) will be double booked with the third event, the time [40, 50) will be single booked, and the time [50, 55) will be double booked with the second event.
@@ -692,6 +692,76 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
  * obj := Constructor();
  * param_1 := obj.Book(start,end);
  */
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Line Sweep
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+class MyCalendarTwo {
+    #OVERLAPS = 2;
+    #cnt: Record<number, number> = {};
+
+    book(start: number, end: number): boolean {
+        this.#cnt[start] = (this.#cnt[start] ?? 0) + 1;
+        this.#cnt[end] = (this.#cnt[end] ?? 0) - 1;
+
+        let sum = 0;
+        for (const v of Object.values(this.#cnt)) {
+            sum += v;
+            if (sum > this.#OVERLAPS) {
+                this.#cnt[start]--;
+                this.#cnt[end]++;
+
+                if (!this.#cnt[start]) delete this.#cnt[start];
+                if (!this.#cnt[end]) delete this.#cnt[end];
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+```
+
+#### JavaScript
+
+```js
+class MyCalendarTwo {
+    #OVERLAPS = 2;
+    #cnt = {};
+
+    book(start, end) {
+        this.#cnt[start] = (this.#cnt[start] ?? 0) + 1;
+        this.#cnt[end] = (this.#cnt[end] ?? 0) - 1;
+
+        let sum = 0;
+        for (const v of Object.values(this.#cnt)) {
+            sum += v;
+            if (sum > this.#OVERLAPS) {
+                this.#cnt[start]--;
+                this.#cnt[end]++;
+
+                if (!this.#cnt[start]) delete this.#cnt[start];
+                if (!this.#cnt[end]) delete this.#cnt[end];
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->
