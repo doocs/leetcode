@@ -30,8 +30,8 @@ tags:
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4], n = 4, left = 1, right = 5
-<strong>Output:</strong> 13 
-<strong>Explanation:</strong> All subarray sums are 1, 3, 6, 10, 2, 5, 9, 3, 7, 4. After sorting them in non-decreasing order we have the new array [1, 2, 3, 3, 4, 5, 6, 7, 9, 10]. The sum of the numbers from index le = 1 to ri = 5 is 1 + 2 + 3 + 3 + 4 = 13. 
+<strong>Output:</strong> 13
+<strong>Explanation:</strong> All subarray sums are 1, 3, 6, 10, 2, 5, 9, 3, 7, 4. After sorting them in non-decreasing order we have the new array [1, 2, 3, 3, 4, 5, 6, 7, 9, 10]. The sum of the numbers from index le = 1 to ri = 5 is 1 + 2 + 3 + 3 + 4 = 13.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -65,11 +65,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Sorting
+### Solution 1: Simulation
 
-According to the problem statement, generate the `arr` array, sort it, and then sum all the elements in the range $[left-1,.. right-1]$ to get the result.
+We can generate the array $\textit{arr}$ according to the problem's requirements, then sort the array, and finally calculate the sum of all elements in the range $[\textit{left}-1, \textit{right}-1]$ to get the result.
 
-Time complexity is $O(n^2 \times \log n)$, and space complexity is $O(n^2)$. Here, $n$ is the length of the array given in the problem.
+The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array given in the problem.
 
 <!-- tabs:start -->
 
@@ -173,13 +173,8 @@ function rangeSum(nums: number[], n: number, left: number, right: number): numbe
         }
     }
 
-    let ans = 0;
     arr = arr.sort((a, b) => a - b).slice(left - 1, right);
-    for (const x of arr) {
-        ans += x;
-    }
-
-    return ans % mod;
+    return arr.reduce((acc, cur) => (acc + cur) % mod, 0);
 }
 ```
 
@@ -197,13 +192,8 @@ function rangeSum(nums, n, left, right) {
         }
     }
 
-    let ans = 0;
     arr = arr.sort((a, b) => a - b).slice(left - 1, right);
-    for (const x of arr) {
-        ans += x;
-    }
-
-    return ans % mod;
+    return arr.reduce((acc, cur) => acc + cur, 0) % mod;
 }
 ```
 

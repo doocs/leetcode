@@ -9,11 +9,6 @@ function rangeSum(nums: number[], n: number, left: number, right: number): numbe
         }
     }
 
-    let ans = 0;
     arr = arr.sort((a, b) => a - b).slice(left - 1, right);
-    for (const x of arr) {
-        ans += x;
-    }
-
-    return ans % mod;
+    return arr.reduce((acc, cur) => (acc + cur) % mod, 0);
 }
