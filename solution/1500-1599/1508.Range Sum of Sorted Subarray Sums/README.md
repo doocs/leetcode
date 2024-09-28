@@ -31,7 +31,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>nums = [1,2,3,4], n = 4, left = 1, right = 5
-<strong>输出：</strong>13 
+<strong>输出：</strong>13
 <strong>解释：</strong>所有的子数组和为 1, 3, 6, 10, 2, 5, 9, 3, 7, 4 。将它们升序排序后，我们得到新的数组 [1, 2, 3, 3, 4, 5, 6, 7, 9, 10] 。下标从 le = 1 到 ri = 5 的和为 1 + 2 + 3 + 3 + 4 = 13 。
 </pre>
 
@@ -67,11 +67,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：排序
+### 方法一：模拟
 
-按照题意生成 `arr` 数组，排序后，对 $[left-1,.. right-1]$ 范围的所有元素求和，得到结果。
+我们可以按照题目的要求，生成数组 $\textit{arr}$，然后对数组进行排序，最后求出 $[\textit{left}-1, \textit{right}-1]$ 范围的所有元素的和，得到结果。
 
-时间复杂度 $O(n^2\log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为题目给定的数组长度。
+时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为题目给定的数组长度。
 
 <!-- tabs:start -->
 
@@ -175,13 +175,8 @@ function rangeSum(nums: number[], n: number, left: number, right: number): numbe
         }
     }
 
-    let ans = 0;
     arr = arr.sort((a, b) => a - b).slice(left - 1, right);
-    for (const x of arr) {
-        ans += x;
-    }
-
-    return ans % mod;
+    return arr.reduce((acc, cur) => (acc + cur) % mod, 0);
 }
 ```
 
@@ -199,13 +194,8 @@ function rangeSum(nums, n, left, right) {
         }
     }
 
-    let ans = 0;
     arr = arr.sort((a, b) => a - b).slice(left - 1, right);
-    for (const x of arr) {
-        ans += x;
-    }
-
-    return ans % mod;
+    return arr.reduce((acc, cur) => acc + cur, 0) % mod;
 }
 ```
 
