@@ -53,9 +53,9 @@ tags:
 
 <p><strong>示例 3：</strong></p>
 
-<div class="example-block"><strong>输入：</strong>tasks = ["A","A","A","B","B","B"], n = 0</div>
+<div class="example-block"><strong>输入：</strong>tasks = ["A","A","A","B","B","B"], n = 3</div>
 
-<div class="example-block"><strong>输出：</strong>6</div>
+<div class="example-block"><strong>输出：</strong>10</div>
 
 <div class="example-block"><strong>解释：</strong>一种可能的序列为：A -&gt; B -&gt; idle -&gt; idle -&gt; A -&gt; B -&gt; idle -&gt; idle -&gt; A -&gt; B。</div>
 
