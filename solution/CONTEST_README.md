@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 417 场周赛(2024-09-29 10:30, 90 分钟) 参赛人数 2509
+
+- [3304. 找出第 K 个字符 I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README.md)
+- [3305. 元音辅音字符串计数 I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README.md)
+- [3306. 元音辅音字符串计数 II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README.md)
+- [3307. 找出第 K 个字符 II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README.md)
+
 #### 第 140 场双周赛(2024-09-28 22:30, 90 分钟) 参赛人数 2066
 
 - [3300. 替换为数位和以后的最小元素](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README.md)

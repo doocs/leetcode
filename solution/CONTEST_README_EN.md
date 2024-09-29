@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 417
+
+- [3304. Find the K-th Character in String Game I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README_EN.md)
+- [3305. Count of Substrings Containing Every Vowel and K Consonants I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README_EN.md)
+- [3306. Count of Substrings Containing Every Vowel and K Consonants II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README_EN.md)
+- [3307. Find the K-th Character in String Game II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README_EN.md)
+
 #### Biweekly Contest 140
 
 - [3300. Minimum Element After Replacement With Digit Sum](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README_EN.md)

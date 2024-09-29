@@ -3314,6 +3314,10 @@
 |  3301  |  [高度互不相同的最大塔高和](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README.md)  |    |  中等  |  第 140 场双周赛  |
 |  3302  |  [字典序最小的合法序列](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README.md)  |    |  中等  |  第 140 场双周赛  |
 |  3303  |  [第一个几乎相等子字符串的下标](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README.md)  |    |  困难  |  第 140 场双周赛  |
+|  3304  |  [找出第 K 个字符 I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README.md)  |    |  简单  |  第 417 场周赛  |
+|  3305  |  [元音辅音字符串计数 I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README.md)  |    |  中等  |  第 417 场周赛  |
+|  3306  |  [元音辅音字符串计数 II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README.md)  |    |  中等  |  第 417 场周赛  |
+|  3307  |  [找出第 K 个字符 II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README.md)  |    |  困难  |  第 417 场周赛  |
 
 ## 版权
 
