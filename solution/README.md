@@ -423,7 +423,7 @@
 |  0410  |  [分割数组的最大值](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md)  |  `贪心`,`数组`,`二分查找`,`动态规划`,`前缀和`  |  困难  |    |
 |  0411  |  [最短独占单词缩写](/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README.md)  |  `位运算`,`数组`,`字符串`,`回溯`  |  困难  |  🔒  |
 |  0412  |  [Fizz Buzz](/solution/0400-0499/0412.Fizz%20Buzz/README.md)  |  `数学`,`字符串`,`模拟`  |  简单  |    |
-|  0413  |  [等差数列划分](/solution/0400-0499/0413.Arithmetic%20Slices/README.md)  |  `数组`,`动态规划`  |  中等  |    |
+|  0413  |  [等差数列划分](/solution/0400-0499/0413.Arithmetic%20Slices/README.md)  |  `数组`,`动态规划`,`滑动窗口`  |  中等  |    |
 |  0414  |  [第三大的数](/solution/0400-0499/0414.Third%20Maximum%20Number/README.md)  |  `数组`,`排序`  |  简单  |    |
 |  0415  |  [字符串相加](/solution/0400-0499/0415.Add%20Strings/README.md)  |  `数学`,`字符串`,`模拟`  |  简单  |    |
 |  0416  |  [分割等和子集](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README.md)  |  `数组`,`动态规划`  |  中等  |    |
@@ -3310,6 +3310,10 @@
 |  3297  |  [统计重新排列后包含另一个字符串的子字符串数目 I](/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  中等  |  第 416 场周赛  |
 |  3298  |  [统计重新排列后包含另一个字符串的子字符串数目 II](/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  困难  |  第 416 场周赛  |
 |  3299  |  [Sum of Consecutive Subsequences](/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README.md)  |    |  困难  |  🔒  |
+|  3300  |  [替换为数位和以后的最小元素](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README.md)  |    |  简单  |  第 140 场双周赛  |
+|  3301  |  [高度互不相同的最大塔高和](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README.md)  |    |  中等  |  第 140 场双周赛  |
+|  3302  |  [字典序最小的合法序列](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README.md)  |    |  中等  |  第 140 场双周赛  |
+|  3303  |  [第一个几乎相等子字符串的下标](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README.md)  |    |  困难  |  第 140 场双周赛  |
 
 ## 版权
 

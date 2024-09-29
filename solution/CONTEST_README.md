@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 140 场双周赛(2024-09-28 22:30, 90 分钟) 参赛人数 2066
+
+- [3300. 替换为数位和以后的最小元素](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README.md)
+- [3301. 高度互不相同的最大塔高和](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README.md)
+- [3302. 字典序最小的合法序列](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README.md)
+- [3303. 第一个几乎相等子字符串的下标](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README.md)
+
 #### 第 416 场周赛(2024-09-22 10:30, 90 分钟) 参赛人数 3254
 
 - [3295. 举报垃圾信息](/solution/3200-3299/3295.Report%20Spam%20Message/README.md)

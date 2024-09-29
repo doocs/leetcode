@@ -33,21 +33,23 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>nums = [2,3,4,3,4]
-<b>输出：</b>4
-<b>解释：</b>交替子数组有 [3,4] ，[3,4,3] 和 [3,4,3,4] 。最长的子数组为 [3,4,3,4] ，长度为4 。
-</pre>
+<div class="example-block"><b>输入：</b>nums = [2,3,4,3,4]</div>
 
-<p><strong>示例 2：</strong></p>
+<div class="example-block"><b>输出：</b>4</div>
 
-<pre>
-<b>输入：</b>nums = [4,5,6]
-<b>输出：</b>2
-<strong>解释：</strong>[4,5] 和 [5,6] 是仅有的两个交替子数组。它们长度都为 2 。
-</pre>
+<div class="example-block"><b>解释：</b>交替子数组有 <code>[2,3]</code>，<code>[3,4]</code>，<code>[3,4,3]</code> 和 <code>[3,4,3,4]</code>。最长的子数组为 <code>[3,4,3,4]</code>，长度为 4。</div>
+
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block"><b>输入：</b>nums = [4,5,6]</div>
+
+<div class="example-block"><b>输出：</b>2</div>
+
+<div class="example-block"><strong>解释：</strong><code>[4,5]</code> 和 <code>[5,6]</code> 是仅有的两个交替子数组。它们长度都为 2 。</div>
 
 <p>&nbsp;</p>
 
