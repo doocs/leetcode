@@ -421,7 +421,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0410  |  [Split Array Largest Sum](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |    |
 |  0411  |  [Minimum Unique Word Abbreviation](/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README_EN.md)  |  `Bit Manipulation`,`Array`,`String`,`Backtracking`  |  Hard  |  🔒  |
 |  0412  |  [Fizz Buzz](/solution/0400-0499/0412.Fizz%20Buzz/README_EN.md)  |  `Math`,`String`,`Simulation`  |  Easy  |    |
-|  0413  |  [Arithmetic Slices](/solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
+|  0413  |  [Arithmetic Slices](/solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sliding Window`  |  Medium  |    |
 |  0414  |  [Third Maximum Number](/solution/0400-0499/0414.Third%20Maximum%20Number/README_EN.md)  |  `Array`,`Sorting`  |  Easy  |    |
 |  0415  |  [Add Strings](/solution/0400-0499/0415.Add%20Strings/README_EN.md)  |  `Math`,`String`,`Simulation`  |  Easy  |    |
 |  0416  |  [Partition Equal Subset Sum](/solution/0400-0499/0416.Partition%20Equal%20Subset%20Sum/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
@@ -3308,6 +3308,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3297  |  [Count Substrings That Can Be Rearranged to Contain a String I](/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 416  |
 |  3298  |  [Count Substrings That Can Be Rearranged to Contain a String II](/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Hard  |  Weekly Contest 416  |
 |  3299  |  [Sum of Consecutive Subsequences](/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README_EN.md)  |    |  Hard  |  🔒  |
+|  3300  |  [Minimum Element After Replacement With Digit Sum](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README_EN.md)  |    |  Easy  |  Biweekly Contest 140  |
+|  3301  |  [Maximize the Total Height of Unique Towers](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README_EN.md)  |    |  Medium  |  Biweekly Contest 140  |
+|  3302  |  [Find the Lexicographically Smallest Valid Sequence](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README_EN.md)  |    |  Medium  |  Biweekly Contest 140  |
+|  3303  |  [Find the Occurrence of First Almost Equal Substring](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md)  |    |  Hard  |  Biweekly Contest 140  |
 
 ## Copyright
 

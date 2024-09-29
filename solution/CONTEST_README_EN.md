@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 140
+
+- [3300. Minimum Element After Replacement With Digit Sum](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README_EN.md)
+- [3301. Maximize the Total Height of Unique Towers](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README_EN.md)
+- [3302. Find the Lexicographically Smallest Valid Sequence](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README_EN.md)
+- [3303. Find the Occurrence of First Almost Equal Substring](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md)
+
 #### Weekly Contest 416
 
 - [3295. Report Spam Message](/solution/3200-3299/3295.Report%20Spam%20Message/README_EN.md)
