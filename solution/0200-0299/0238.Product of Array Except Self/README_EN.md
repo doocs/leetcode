@@ -267,3 +267,15 @@ function productExceptSelf(nums: number[]): number[] {
 <!-- solution:end -->
 
 <!-- problem:end -->
+
+#### Java
+
+```java
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        return IntStream.range(0, nums.length)
+                        .map(i -> IntStream.range(0, nums.length)
+                                           .reduce(1, (p, j) -> j == i ? p : p * nums[j]))
+                        .toArray();
+    }
+}
