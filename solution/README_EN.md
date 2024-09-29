@@ -3312,6 +3312,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3301  |  [Maximize the Total Height of Unique Towers](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README_EN.md)  |    |  Medium  |  Biweekly Contest 140  |
 |  3302  |  [Find the Lexicographically Smallest Valid Sequence](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README_EN.md)  |    |  Medium  |  Biweekly Contest 140  |
 |  3303  |  [Find the Occurrence of First Almost Equal Substring](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md)  |    |  Hard  |  Biweekly Contest 140  |
+|  3304  |  [Find the K-th Character in String Game I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 417  |
+|  3305  |  [Count of Substrings Containing Every Vowel and K Consonants I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 417  |
+|  3306  |  [Count of Substrings Containing Every Vowel and K Consonants II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 417  |
+|  3307  |  [Find the K-th Character in String Game II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 417  |
 
 ## Copyright
 
