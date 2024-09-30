@@ -294,6 +294,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3268 | [Find Overlapping Shifts II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)                                                                                         | `Database` | Hard       | 🔒     |
 | 3278 | [Find Candidates for Data Scientist Position II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README_EN.md)                                           | `Database` | Medium     | 🔒     |
 | 3293 | [Calculate Product Final Price](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README_EN.md)                                                                                   | `Database` | Medium     | 🔒     |
+| 3308 | [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README_EN.md)                                                                                         |            | Medium     | 🔒     |
 
 ## Copyright
 
