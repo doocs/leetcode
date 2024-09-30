@@ -72,11 +72,17 @@ The values are in descending order with adjacent values differing by 1.
 
 <!-- solution:start -->
 
-### Solution 1: DFS (Depth-First Search)
+### Solution 1: DFS
 
-Starting from the first character of the string, enumerate all possible split positions. Check if the split substring meets the requirements of the problem. If it does, continue to recursively check whether the remaining substring meets the requirements, until the entire string is traversed.
+We can start from the first character of the string and try to split it into one or more substrings, then recursively process the remaining part.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
+Specifically, we design a function $\textit{dfs}(i, x)$, where $i$ represents the current position being processed, and $x$ represents the last split value. Initially, $x = -1$, indicating that we have not split out any value yet.
+
+In $\textit{dfs}(i, x)$, we first calculate the current split value $y$. If $x = -1$, or $x - y = 1$, then we can try to use $y$ as the next value and continue to recursively process the remaining part. If the result of the recursion is $\textit{true}$, we have found a valid split method and return $\textit{true}$.
+
+After traversing all possible split methods, if no valid split method is found, we return $\textit{false}$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -85,38 +91,40 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ i
 ```python
 class Solution:
     def splitString(self, s: str) -> bool:
-        def dfs(i, x, k):
-            if i == len(s):
-                return k > 1
+        def dfs(i: int, x: int) -> bool:
+            if i >= len(s):
+                return True
             y = 0
-            for j in range(i, len(s)):
+            r = len(s) - 1 if x < 0 else len(s)
+            for j in range(i, r):
                 y = y * 10 + int(s[j])
-                if (x == -1 or x - y == 1) and dfs(j + 1, y, k + 1):
+                if (x < 0 or x - y == 1) and dfs(j + 1, y):
                     return True
             return False
 
-        return dfs(0, -1, 0)
+        return dfs(0, -1)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private String s;
+    private char[] s;
 
     public boolean splitString(String s) {
-        this.s = s;
-        return dfs(0, -1, 0);
+        this.s = s.toCharArray();
+        return dfs(0, -1);
     }
 
-    private boolean dfs(int i, long x, int k) {
-        if (i == s.length()) {
-            return k > 1;
+    private boolean dfs(int i, long x) {
+        if (i >= s.length) {
+            return true;
         }
         long y = 0;
-        for (int j = i; j < s.length(); ++j) {
-            y = y * 10 + (s.charAt(j) - '0');
-            if ((x == -1 || x - y == 1) && dfs(j + 1, y, k + 1)) {
+        int r = x < 0 ? s.length - 1 : s.length;
+        for (int j = i; j < r; ++j) {
+            y = y * 10 + s[j] - '0';
+            if ((x < 0 || x - y == 1) && dfs(j + 1, y)) {
                 return true;
             }
         }
@@ -131,23 +139,24 @@ class Solution {
 class Solution {
 public:
     bool splitString(string s) {
-        function<bool(int, long long, int)> dfs = [&](int i, long long x, int k) -> bool {
-            if (i == s.size()) {
-                return k > 1;
+        auto dfs = [&](auto&& dfs, int i, long long x) -> bool {
+            if (i >= s.size()) {
+                return true;
             }
             long long y = 0;
-            for (int j = i; j < s.size(); ++j) {
-                y = y * 10 + (s[j] - '0');
+            int r = x < 0 ? s.size() - 1 : s.size();
+            for (int j = i; j < r; ++j) {
+                y = y * 10 + s[j] - '0';
                 if (y > 1e10) {
                     break;
                 }
-                if ((x == -1 || x - y == 1) && dfs(j + 1, y, k + 1)) {
+                if ((x < 0 || x - y == 1) && dfs(dfs, j + 1, y)) {
                     return true;
                 }
             }
             return false;
         };
-        return dfs(0, -1, 0);
+        return dfs(dfs, 0, -1);
     }
 };
 ```
@@ -156,24 +165,47 @@ public:
 
 ```go
 func splitString(s string) bool {
-	var dfs func(i, x, k int) bool
-	dfs = func(i, x, k int) bool {
-		if i == len(s) {
-			return k > 1
+	var dfs func(i, x int) bool
+	dfs = func(i, x int) bool {
+		if i >= len(s) {
+			return true
 		}
 		y := 0
-		for j := i; j < len(s); j++ {
+		r := len(s)
+		if x < 0 {
+			r--
+		}
+		for j := i; j < r; j++ {
 			y = y*10 + int(s[j]-'0')
-			if y > int(1e10) {
-				break
-			}
-			if (x == -1 || x-y == 1) && dfs(j+1, y, k+1) {
+			if (x < 0 || x-y == 1) && dfs(j+1, y) {
 				return true
 			}
 		}
 		return false
 	}
-	return dfs(0, -1, 0)
+	return dfs(0, -1)
+}
+```
+
+#### TypeScript
+
+```ts
+function splitString(s: string): boolean {
+    const dfs = (i: number, x: number): boolean => {
+        if (i >= s.length) {
+            return true;
+        }
+        let y = 0;
+        const r = x < 0 ? s.length - 1 : s.length;
+        for (let j = i; j < r; ++j) {
+            y = y * 10 + +s[j];
+            if ((x < 0 || x - y === 1) && dfs(j + 1, y)) {
+                return true;
+            }
+        }
+        return false;
+    };
+    return dfs(0, -1);
 }
 ```
 
