@@ -3318,6 +3318,7 @@
 |  3305  |  [元音辅音字符串计数 I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README.md)  |    |  中等  |  第 417 场周赛  |
 |  3306  |  [元音辅音字符串计数 II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README.md)  |    |  中等  |  第 417 场周赛  |
 |  3307  |  [找出第 K 个字符 II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README.md)  |    |  困难  |  第 417 场周赛  |
+|  3308  |  [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
