@@ -44,7 +44,7 @@ id 是该表的主键（具有唯一值的列）。
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> 
+<strong>输入:</strong>
 Employee 表:
 +----+-------+--------+-----------+
 | id | name  | salary | managerId |
@@ -54,7 +54,7 @@ Employee 表:
 | 3  | Sam   | 60000  | Null      |
 | 4  | Max   | 90000  | Null      |
 +----+-------+--------+-----------+
-<strong>输出:</strong> 
+<strong>输出:</strong>
 +----------+
 | Employee |
 +----------+
@@ -68,7 +68,9 @@ Employee 表:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：自连接 + 条件筛选
+
+我们可以通过自连接 `Employee` 表，找出员工的工资以及其经理的工资，然后筛选出工资比经理高的员工。
 
 <!-- tabs:start -->
 
@@ -79,44 +81,22 @@ import pandas as pd
 
 
 def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
-    df = employee.merge(right=employee, how="left", left_on="managerId", right_on="id")
-    emp = df[df["salary_x"] > df["salary_y"]]["name_x"]
-
-    return pd.DataFrame({"Employee": emp})
+    merged = employee.merge(
+        employee, left_on="managerId", right_on="id", suffixes=("", "_manager")
+    )
+    result = merged[merged["salary"] > merged["salary_manager"]][["name"]]
+    result.columns = ["Employee"]
+    return result
 ```
-
-#### MySQL
-
-```sql
-SELECT Name AS Employee
-FROM Employee AS Curr
-WHERE
-    Salary > (
-        SELECT Salary
-        FROM Employee
-        WHERE Id = Curr.ManagerId
-    );
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
 
 #### MySQL
 
 ```sql
 # Write your MySQL query statement below
-SELECT
-    e1.name AS Employee
+SELECT e1.name Employee
 FROM
-    Employee AS e1
-    JOIN Employee AS e2 ON e1.managerId = e2.id
+    Employee e1
+    JOIN Employee e2 ON e1.managerId = e2.id
 WHERE e1.salary > e2.salary;
 ```
 
