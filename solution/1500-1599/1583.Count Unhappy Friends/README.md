@@ -91,11 +91,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数组 + 枚举
+### 方法一：枚举
 
-我们用数组 $d$ 记录每个朋友与其它朋友的亲近程度，其中 $d[i][j]$ 表示朋友 $i$ 对 $j$ 的亲近程度（值越小，越亲近），另外，用数组 $p$ 记录每个朋友的配对朋友。
+我们用数组 $\textit{d}$ 记录每个朋友与其它朋友的亲近程度，其中 $\textit{d}[i][j]$ 表示朋友 $i$ 对 $j$ 的亲近程度（值越小，越亲近），另外，用数组 $\textit{p}$ 记录每个朋友的配对朋友。
 
-我们枚举每个朋友 $x$，对于 $x$ 的配对朋友 $y$，我们找到 $x$ 对 $y$ 的亲近程度 $d[x][y]$，然后枚举比 $d[x][y]$ 更亲近的其它朋友 $u$，如果存在 $u$ 对 $x$ 的亲近程度 $d[u][x]$ 比 $d[u][y]$ 更高，那么 $x$ 就是不开心的朋友，将结果加一即可。
+我们枚举每个朋友 $x$，对于 $x$ 的配对朋友 $y$，我们找到 $x$ 对 $y$ 的亲近程度 $\textit{d}[x][y]$，然后枚举比 $\textit{d}[x][y]$ 更亲近的其它朋友 $u$，如果存在 $u$ 对 $x$ 的亲近程度 $\textit{d}[u][x]$ 比 $\textit{d}[u][y]$ 更高，那么 $x$ 就是不开心的朋友，将结果加一即可。
 
 枚举结束后，即可得到不开心的朋友的数目。
 
@@ -110,7 +110,7 @@ class Solution:
     def unhappyFriends(
         self, n: int, preferences: List[List[int]], pairs: List[List[int]]
     ) -> int:
-        d = [{p: i for i, p in enumerate(v)} for v in preferences]
+        d = [{x: j for j, x in enumerate(p)} for p in preferences]
         p = {}
         for x, y in pairs:
             p[x] = y
@@ -118,7 +118,12 @@ class Solution:
         ans = 0
         for x in range(n):
             y = p[x]
-            ans += any(d[u][x] < d[u][p[u]] for u in preferences[x][: d[x][y]])
+            for i in range(d[x][y]):
+                u = preferences[x][i]
+                v = p[u]
+                if d[u][x] < d[u][v]:
+                    ans += 1
+                    break
         return ans
 ```
 
@@ -142,15 +147,14 @@ class Solution {
         int ans = 0;
         for (int x = 0; x < n; ++x) {
             int y = p[x];
-            int find = 0;
             for (int i = 0; i < d[x][y]; ++i) {
                 int u = preferences[x][i];
-                if (d[u][x] < d[u][p[u]]) {
-                    find = 1;
+                int v = p[u];
+                if (d[u][x] < d[u][v]) {
+                    ++ans;
                     break;
                 }
             }
-            ans += find;
         }
         return ans;
     }
@@ -163,13 +167,13 @@ class Solution {
 class Solution {
 public:
     int unhappyFriends(int n, vector<vector<int>>& preferences, vector<vector<int>>& pairs) {
-        int d[n][n];
-        int p[n];
+        vector<vector<int>> d(n, vector<int>(n));
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n - 1; ++j) {
                 d[i][preferences[i][j]] = j;
             }
         }
+        vector<int> p(n, 0);
         for (auto& e : pairs) {
             int x = e[0], y = e[1];
             p[x] = y;
@@ -178,15 +182,14 @@ public:
         int ans = 0;
         for (int x = 0; x < n; ++x) {
             int y = p[x];
-            int find = 0;
             for (int i = 0; i < d[x][y]; ++i) {
                 int u = preferences[x][i];
-                if (d[u][x] < d[u][p[u]]) {
-                    find = 1;
+                int v = p[u];
+                if (d[u][x] < d[u][v]) {
+                    ++ans;
                     break;
                 }
             }
-            ans += find;
         }
         return ans;
     }
@@ -198,31 +201,67 @@ public:
 ```go
 func unhappyFriends(n int, preferences [][]int, pairs [][]int) (ans int) {
 	d := make([][]int, n)
-	p := make([]int, n)
 	for i := range d {
 		d[i] = make([]int, n)
+	}
+
+	for i := 0; i < n; i++ {
 		for j := 0; j < n-1; j++ {
 			d[i][preferences[i][j]] = j
 		}
 	}
+
+	p := make([]int, n)
 	for _, e := range pairs {
 		x, y := e[0], e[1]
 		p[x] = y
 		p[y] = x
 	}
+
 	for x := 0; x < n; x++ {
 		y := p[x]
-		find := 0
 		for i := 0; i < d[x][y]; i++ {
 			u := preferences[x][i]
-			if d[u][x] < d[u][p[u]] {
-				find = 1
+			v := p[u]
+			if d[u][x] < d[u][v] {
+				ans++
 				break
 			}
 		}
-		ans += find
 	}
+
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function unhappyFriends(n: number, preferences: number[][], pairs: number[][]): number {
+    const d: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n - 1; ++j) {
+            d[i][preferences[i][j]] = j;
+        }
+    }
+    const p: number[] = Array(n).fill(0);
+    for (const [x, y] of pairs) {
+        p[x] = y;
+        p[y] = x;
+    }
+    let ans = 0;
+    for (let x = 0; x < n; ++x) {
+        const y = p[x];
+        for (let i = 0; i < d[x][y]; ++i) {
+            const u = preferences[x][i];
+            const v = p[u];
+            if (d[u][x] < d[u][v]) {
+                ++ans;
+                break;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
