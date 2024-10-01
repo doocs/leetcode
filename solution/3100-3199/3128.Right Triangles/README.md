@@ -81,7 +81,7 @@ tags:
 
 <p><b>解释：</b></p>
 
-<p>有 2 个直角三角形。</p>
+<p>有 2 个值为 1 的直角三角形。注意蓝色的那个 <strong>没有&nbsp;</strong>组成直角三角形，因为 3 个元素在同一列。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -118,7 +118,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>没有直角三角形。</p>
+<p>没有值为 1 的直角三角形。注意蓝色的那个&nbsp;<strong>没有</strong> 组成直角三角形。</p>
 </div>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -172,7 +172,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>有两个直角三角形。</p>
+<p>有两个值为 1 的直角三角形。</p>
 </div>
 
 <p>&nbsp;</p>

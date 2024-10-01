@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README_EN.md
+tags:
+    - Bit Manipulation
+    - Recursion
+    - Math
 ---
 
 <!-- problem:start -->

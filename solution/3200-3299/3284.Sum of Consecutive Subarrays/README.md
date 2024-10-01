@@ -10,7 +10,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3284. Sum of Consecutive Subarrays 🔒](https://leetcode.cn/problems/sum-of-consecutive-subarrays)
+# [3284. 连续子数组的和 🔒](https://leetcode.cn/problems/sum-of-consecutive-subarrays)
 
 [English Version](/solution/3200-3299/3284.Sum%20of%20Consecutive%20Subarrays/README_EN.md)
 
@@ -18,64 +18,66 @@ tags:
 
 <!-- description:start -->
 
-<p>We call an array <code>arr</code> of length <code>n</code> <strong>consecutive</strong> if one of the following holds:</p>
+<p>如果一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>arr</code>&nbsp;符合下面条件，可以称它 <strong>连续</strong>：</p>
 
 <ul>
-	<li><code>arr[i] - arr[i - 1] == 1</code> for <em>all</em> <code>1 &lt;= i &lt; n</code>.</li>
-	<li><code>arr[i] - arr[i - 1] == -1</code> for <em>all</em> <code>1 &lt;= i &lt; n</code>.</li>
+	<li>对于所有的&nbsp;<code>1 &lt;= i &lt; n</code>，<code>arr[i] - arr[i - 1] == 1</code>。</li>
+	<li>对于所有的&nbsp;<code>1 &lt;= i &lt; n</code>，<code>arr[i] - arr[i - 1] == -1</code>。</li>
 </ul>
 
-<p>The <strong>value</strong> of an array is the sum of its elements.</p>
+<p>数组的 <strong>值</strong> 是其元素的和。</p>
 
-<p>For example, <code>[3, 4, 5]</code> is a consecutive array of value 12 and <code>[9, 8]</code> is another of value 17. While <code>[3, 4, 3]</code> and <code>[8, 6]</code> are not consecutive.</p>
+<p>例如，<code>[3, 4, 5]</code>&nbsp;是一个值为 12 的连续数组，并且&nbsp;<code>[9, 8]</code>&nbsp;是另一个值为 17 的子数组。而&nbsp;<code>[3, 4, 3]</code> 和&nbsp;<code>[8, 6]</code>&nbsp;都不连续。</p>
 
-<p>Given an array of integers <code>nums</code>, return the <em>sum</em> of the <strong>values</strong> of all <strong>consecutive </strong><span data-keyword="subarray-nonempty">subarrays</span>.</p>
+<p>给定一个整数数组&nbsp;<code>nums</code>，返回所有 <strong>连续</strong> <span data-keyword="subarray-nonempty">子数组</span> 的 <strong>值</strong> 之和。</p>
 
-<p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9 </sup>+ 7.</code></p>
+<p>由于答案可能很大，返回它对&nbsp;<code>10<sup>9 </sup>+ 7</code>&nbsp;<strong>取模</strong>&nbsp;的值。</p>
 
-<p><strong>Note</strong> that an array of length 1 is also considered consecutive.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,2,3]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">20</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The consecutive subarrays are: <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, <code>[1, 2]</code>, <code>[2, 3]</code>, <code>[1, 2, 3]</code>.<br />
-Sum of their values would be: <code>1 + 2 + 3 + 3 + 5 + 6 = 20</code>.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,3,5,7]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">16</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The consecutive subarrays are: <code>[1]</code>, <code>[3]</code>, <code>[5]</code>, <code>[7]</code>.<br />
-Sum of their values would be: <code>1 + 3 + 5 + 7 = 16</code>.</p>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [7,6,1,2]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">32</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The consecutive subarrays are: <code>[7]</code>, <code>[6]</code>, <code>[1]</code>, <code>[2]</code>, <code>[7, 6]</code>, <code>[1, 2]</code>.<br />
-Sum of their values would be: <code>7 + 6 + 1 + 2 + 13 + 3 = 32</code>.</p>
-</div>
+<p><strong>注意</strong>&nbsp;长度为 1 的数组也被认为是连续的。</p>
 
 <p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [1,2,3]</span></p>
+
+<p><span class="example-io"><b>输出：</b>20</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>连续子数组为：<code>[1]</code>，<code>[2]</code>，<code>[3]</code>，<code>[1, 2]</code>，<code>[2, 3]</code>，<code>[1, 2, 3]</code>。<br />
+它们的值之和为：<code>1 + 2 + 3 + 3 + 5 + 6 = 20</code>。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">nums = [1,3,5,7]</span></p>
+
+<p><span class="example-io"><b>输出：</b>16</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>连续子数组为：<code>[1]</code>，<code>[3]</code>，<code>[5]</code>，<code>[7]</code>。<br />
+它们的值之和为：<code>1 + 3 + 5 + 7 = 16</code>。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [7,6,1,2]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">32</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>连续子数组为：<code>[7]</code>，<code>[6]</code>，<code>[1]</code>，<code>[2]</code>，<code>[7, 6]</code>，<code>[1, 2]</code>。<br />
+它们的值之和为&nbsp;<code>7 + 6 + 1 + 2 + 13 + 3 = 32</code>。</p>
+</div>
+
+<p>&nbsp;</p>
+
 <p><strong>Constraints:</strong></p>
 
 <ul>

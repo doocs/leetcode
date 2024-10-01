@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md
+tags:
+    - String
+    - String Matching
 ---
 
 <!-- problem:start -->
@@ -65,7 +68,7 @@ A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of charac
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= pattern.length &lt; s.length &lt;= 3 * 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= pattern.length &lt; s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> and <code>pattern</code> consist only of lowercase English letters.</li>
 </ul>
 

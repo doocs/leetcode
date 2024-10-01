@@ -58,13 +58,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：模拟
+### 方法一：计数
 
-遍历矩阵 `mat`，先统计每一行，每一列中 `1` 的个数，分别记录在 `r` 和 `c` 数组中。
+我们可以用两个数组 $\textit{rows}$ 和 $\textit{cols}$ 分别记录每一行和每一列的 $1$ 的个数。
 
-然后再遍历矩阵 `mat`，如果 `mat[i][j] == 1` 且 `row[i] == 1` 且 `col[j] == 1`，则 $(i, j)$ 是特殊位置。
+然后遍历矩阵，对于每一个 $1$，检查其所在的行和列是否只有一个 $1$，如果是则答案加一。
 
-时间复杂度 $O(m\times n)$，空间复杂度 $O(m+n)$。其中 $m$, $n$ 分别是矩阵 `mat` 的行数和列数。
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别是矩阵 $\textit{mat}$ 的行数和列数。
 
 <!-- tabs:start -->
 
@@ -73,18 +75,16 @@ tags:
 ```python
 class Solution:
     def numSpecial(self, mat: List[List[int]]) -> int:
-        m, n = len(mat), len(mat[0])
-        r = [0] * m
-        c = [0] * n
+        rows = [0] * len(mat)
+        cols = [0] * len(mat[0])
         for i, row in enumerate(mat):
-            for j, v in enumerate(row):
-                r[i] += v
-                c[j] += v
+            for j, x in enumerate(row):
+                rows[i] += x
+                cols[j] += x
         ans = 0
-        for i in range(m):
-            for j in range(n):
-                if mat[i][j] == 1 and r[i] == 1 and c[j] == 1:
-                    ans += 1
+        for i, row in enumerate(mat):
+            for j, x in enumerate(row):
+                ans += x == 1 and rows[i] == 1 and cols[j] == 1
         return ans
 ```
 
@@ -94,22 +94,25 @@ class Solution:
 class Solution {
     public int numSpecial(int[][] mat) {
         int m = mat.length, n = mat[0].length;
-        int[] r = new int[m];
-        int[] c = new int[n];
+        int[] rows = new int[m];
+        int[] cols = new int[n];
+
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                r[i] += mat[i][j];
-                c[j] += mat[i][j];
+                rows[i] += mat[i][j];
+                cols[j] += mat[i][j];
             }
         }
+
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (mat[i][j] == 1 && r[i] == 1 && c[j] == 1) {
-                    ++ans;
+                if (mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1) {
+                    ans++;
                 }
             }
         }
+
         return ans;
     }
 }
@@ -122,21 +125,25 @@ class Solution {
 public:
     int numSpecial(vector<vector<int>>& mat) {
         int m = mat.size(), n = mat[0].size();
-        vector<int> r(m), c(n);
+        vector<int> rows(m);
+        vector<int> cols(n);
+
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                r[i] += mat[i][j];
-                c[j] += mat[i][j];
+                rows[i] += mat[i][j];
+                cols[j] += mat[i][j];
             }
         }
+
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (mat[i][j] == 1 && r[i] == 1 && c[j] == 1) {
-                    ++ans;
+                if (mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1) {
+                    ans++;
                 }
             }
         }
+
         return ans;
     }
 };
@@ -145,24 +152,23 @@ public:
 #### Go
 
 ```go
-func numSpecial(mat [][]int) int {
-	m, n := len(mat), len(mat[0])
-	r, c := make([]int, m), make([]int, n)
+func numSpecial(mat [][]int) (ans int) {
+	rows := make([]int, len(mat))
+	cols := make([]int, len(mat[0]))
 	for i, row := range mat {
-		for j, v := range row {
-			r[i] += v
-			c[j] += v
+		for j, x := range row {
+			rows[i] += x
+			cols[j] += x
 		}
 	}
-	ans := 0
-	for i, x := range r {
-		for j, y := range c {
-			if mat[i][j] == 1 && x == 1 && y == 1 {
+	for i, row := range mat {
+		for j, x := range row {
+			if x == 1 && rows[i] == 1 && cols[j] == 1 {
 				ans++
 			}
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -172,27 +178,23 @@ func numSpecial(mat [][]int) int {
 function numSpecial(mat: number[][]): number {
     const m = mat.length;
     const n = mat[0].length;
-    const rows = new Array(m).fill(0);
-    const cols = new Array(n).fill(0);
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (mat[i][j] === 1) {
-                rows[i]++;
-                cols[j]++;
-            }
+    const rows: number[] = Array(m).fill(0);
+    const cols: number[] = Array(n).fill(0);
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            rows[i] += mat[i][j];
+            cols[j] += mat[i][j];
         }
     }
-
-    let res = 0;
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
             if (mat[i][j] === 1 && rows[i] === 1 && cols[j] === 1) {
-                res++;
+                ++ans;
             }
         }
     }
-
-    return res;
+    return ans;
 }
 ```
 
@@ -212,15 +214,15 @@ impl Solution {
             }
         }
 
-        let mut res = 0;
+        let mut ans = 0;
         for i in 0..m {
             for j in 0..n {
                 if mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1 {
-                    res += 1;
+                    ans += 1;
                 }
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -229,31 +231,29 @@ impl Solution {
 
 ```c
 int numSpecial(int** mat, int matSize, int* matColSize) {
-    int m = matSize;
-    int n = *matColSize;
-    int* rows = (int*) malloc(sizeof(int) * m);
-    int* cols = (int*) malloc(sizeof(int) * n);
-    memset(rows, 0, sizeof(int) * m);
-    memset(cols, 0, sizeof(int) * n);
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (mat[i][j] == 1) {
-                rows[i]++;
-                cols[j]++;
-            }
+    int m = matSize, n = matColSize[0];
+    int rows[m];
+    int cols[n];
+    memset(rows, 0, sizeof(rows));
+    memset(cols, 0, sizeof(cols));
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            rows[i] += mat[i][j];
+            cols[j] += mat[i][j];
         }
     }
-    int res = 0;
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
+
+    int ans = 0;
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
             if (mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1) {
-                res++;
+                ans++;
             }
         }
     }
-    free(rows);
-    free(cols);
-    return res;
+
+    return ans;
 }
 ```
 

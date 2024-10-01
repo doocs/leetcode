@@ -3307,16 +3307,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3296  |  [Minimum Number of Seconds to Make Mountain Height Zero](/solution/3200-3299/3296.Minimum%20Number%20of%20Seconds%20to%20Make%20Mountain%20Height%20Zero/README_EN.md)  |  `Array`,`Math`,`Binary Search`  |  Medium  |  Weekly Contest 416  |
 |  3297  |  [Count Substrings That Can Be Rearranged to Contain a String I](/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 416  |
 |  3298  |  [Count Substrings That Can Be Rearranged to Contain a String II](/solution/3200-3299/3298.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20II/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Hard  |  Weekly Contest 416  |
-|  3299  |  [Sum of Consecutive Subsequences](/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README_EN.md)  |    |  Hard  |  🔒  |
-|  3300  |  [Minimum Element After Replacement With Digit Sum](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README_EN.md)  |    |  Easy  |  Biweekly Contest 140  |
-|  3301  |  [Maximize the Total Height of Unique Towers](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README_EN.md)  |    |  Medium  |  Biweekly Contest 140  |
-|  3302  |  [Find the Lexicographically Smallest Valid Sequence](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README_EN.md)  |    |  Medium  |  Biweekly Contest 140  |
-|  3303  |  [Find the Occurrence of First Almost Equal Substring](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md)  |    |  Hard  |  Biweekly Contest 140  |
-|  3304  |  [Find the K-th Character in String Game I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 417  |
-|  3305  |  [Count of Substrings Containing Every Vowel and K Consonants I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 417  |
-|  3306  |  [Count of Substrings Containing Every Vowel and K Consonants II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 417  |
-|  3307  |  [Find the K-th Character in String Game II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 417  |
-|  3308  |  [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README_EN.md)  |    |  Medium  |  🔒  |
+|  3299  |  [Sum of Consecutive Subsequences](/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README_EN.md)  |  `Array`,`Hash Table`,`Dynamic Programming`  |  Hard  |  🔒  |
+|  3300  |  [Minimum Element After Replacement With Digit Sum](/solution/3300-3399/3300.Minimum%20Element%20After%20Replacement%20With%20Digit%20Sum/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Biweekly Contest 140  |
+|  3301  |  [Maximize the Total Height of Unique Towers](/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Biweekly Contest 140  |
+|  3302  |  [Find the Lexicographically Smallest Valid Sequence](/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 140  |
+|  3303  |  [Find the Occurrence of First Almost Equal Substring](/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md)  |  `String`,`String Matching`  |  Hard  |  Biweekly Contest 140  |
+|  3304  |  [Find the K-th Character in String Game I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README_EN.md)  |  `Bit Manipulation`,`Recursion`,`Math`,`Simulation`  |  Easy  |  Weekly Contest 417  |
+|  3305  |  [Count of Substrings Containing Every Vowel and K Consonants I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 417  |
+|  3306  |  [Count of Substrings Containing Every Vowel and K Consonants II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 417  |
+|  3307  |  [Find the K-th Character in String Game II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README_EN.md)  |  `Bit Manipulation`,`Recursion`,`Math`  |  Hard  |  Weekly Contest 417  |
+|  3308  |  [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 
 ## Copyright
 

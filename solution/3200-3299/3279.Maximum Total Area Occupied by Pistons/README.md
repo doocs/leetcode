@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3279. Maximum Total Area Occupied by Pistons 🔒](https://leetcode.cn/problems/maximum-total-area-occupied-by-pistons)
+# [3279. 活塞占据的最大总面积 🔒](https://leetcode.cn/problems/maximum-total-area-occupied-by-pistons)
 
 [English Version](/solution/3200-3299/3279.Maximum%20Total%20Area%20Occupied%20by%20Pistons/README_EN.md)
 
@@ -21,58 +21,60 @@ tags:
 
 <!-- description:start -->
 
-<p>There are several pistons in an old car engine, and we want to calculate the <strong>maximum</strong> possible area <strong>under</strong> the pistons.</p>
+<p>一台旧车的引擎中有一些活塞，我们想要计算活塞 <strong>下方</strong> 的 <strong>最大</strong> 面积。</p>
 
-<p>You are given:</p>
-
-<ul>
-	<li>An integer <code>height</code>, representing the <strong>maximum</strong> height a piston can reach.</li>
-	<li>An integer array <code>positions</code>, where <code>positions[i]</code> is the current position of piston <code>i</code>, which is equal to the current area <strong>under</strong> it.</li>
-	<li>A string <code>directions</code>, where <code>directions[i]</code> is the current moving direction of piston <code>i</code>, <code>&#39;U&#39;</code> for up, and <code>&#39;D&#39;</code> for down.</li>
-</ul>
-
-<p>Each second:</p>
+<p>给定：</p>
 
 <ul>
-	<li>Every piston moves in its current direction 1 unit. e.g., if the direction is up, <code>positions[i]</code> is incremented by 1.</li>
-	<li>If a piston has reached one of the ends, i.e., <code>positions[i] == 0</code> or <code>positions[i] == height</code>, its direction will change.</li>
+	<li>一个整数&nbsp;<code>height</code>，表示活塞 <strong>最大</strong> 可到达的高度。</li>
+	<li>一个整数数组&nbsp;<code>positions</code>，其中&nbsp;<code>positions[i]</code>&nbsp;是活塞&nbsp;<code>i</code>&nbsp;的当前位置，等于其 <strong>下方</strong>&nbsp;的当前面积。</li>
+	<li>一个字符串&nbsp;<code>directions</code>，其中&nbsp;<code>directions[i]</code>&nbsp;是活塞&nbsp;<code>i</code>&nbsp;的当前移动方向，<code>'U'</code> 表示向上，<code>'D'</code> 表示向下。</li>
 </ul>
 
-<p>Return the <em>maximum possible area</em> under all the pistons.</p>
+<p>每一秒：</p>
+
+<ul>
+	<li>每个活塞向它的当前方向移动 1 单位。即如果方向向上，<code>positions[i]</code> 增加 1。</li>
+	<li>如果一个活塞到达了其中一个终点，即&nbsp;<code>positions[i] == 0</code> 或&nbsp;<code>positions[i] == height</code>，它的方向将会改变。</li>
+</ul>
+
+<p>返回所有活塞下方的最大可能面积。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">height = 5, positions = [2,5], directions = &quot;UD&quot;</span></p>
+<p><strong>输入：</strong><span class="example-io">height = 5, positions = [2,5], directions = "UD"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">7</span></p>
+<p><span class="example-io"><b>输出：</b>7</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>The current position of the pistons has the maximum possible area under it.</p>
+<p>当前活塞的位置下方面积最大。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">height = 6, positions = [0,0,6,3], directions = &quot;UUDU&quot;</span></p>
+<p><strong>输入：</strong><span class="example-io">height = 6, positions = [0,0,6,3], directions = "UUDU"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">15</span></p>
+<p><span class="example-io"><b>输出：</b>15</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>After 3 seconds, the pistons will be in positions <code>[3, 3, 3, 6]</code>, which has the maximum possible area under it.</p>
+<p>三秒后，活塞将会位于&nbsp;<code>[3, 3, 3, 6]</code>，此时下方面积最大。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= height &lt;= 10<sup>6</sup></code></li>
 	<li><code>1 &lt;= positions.length == directions.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= positions[i] &lt;= height</code></li>
-	<li><code>directions[i]</code> is either <code>&#39;U&#39;</code> or <code>&#39;D&#39;</code>.</li>
+	<li><code>directions[i]</code>&nbsp;为&nbsp;<code>'U'</code>&nbsp;或&nbsp;<code>'D'</code>。</li>
 </ul>
 
 <!-- description:end -->
