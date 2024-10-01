@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
 ---
 
 <!-- problem:start -->

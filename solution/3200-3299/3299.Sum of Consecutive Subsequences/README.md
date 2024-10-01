@@ -2,11 +2,15 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
 ---
 
 <!-- problem:start -->
 
-# [3299. Sum of Consecutive Subsequences 🔒](https://leetcode.cn/problems/sum-of-consecutive-subsequences)
+# [3299. 连续子序列的和 🔒](https://leetcode.cn/problems/sum-of-consecutive-subsequences)
 
 [English Version](/solution/3200-3299/3299.Sum%20of%20Consecutive%20Subsequences/README_EN.md)
 
@@ -14,50 +18,52 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3299.Su
 
 <!-- description:start -->
 
-<p>We call an array <code>arr</code> of length <code>n</code> <strong>consecutive</strong> if one of the following holds:</p>
+<p>如果一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>arr</code>&nbsp;符合下面条件，可以称它 <strong>连续</strong>：</p>
 
 <ul>
-	<li><code>arr[i] - arr[i - 1] == 1</code> for <em>all</em> <code>1 &lt;= i &lt; n</code>.</li>
-	<li><code>arr[i] - arr[i - 1] == -1</code> for <em>all</em> <code>1 &lt;= i &lt; n</code>.</li>
+	<li>对于所有的&nbsp;<code>1 &lt;= i &lt; n</code>，<code>arr[i] - arr[i - 1] == 1</code>。</li>
+	<li>对于所有的&nbsp;<code>1 &lt;= i &lt; n</code>，<code>arr[i] - arr[i - 1] == -1</code>。</li>
 </ul>
 
-<p>The <strong>value</strong> of an array is the sum of its elements.</p>
+<p>数组的 <strong>值</strong> 是其元素的和。</p>
 
-<p>For example, <code>[3, 4, 5]</code> is a consecutive array of value 12 and <code>[9, 8]</code> is another of value 17. While <code>[3, 4, 3]</code> and <code>[8, 6]</code> are not consecutive.</p>
+<p>例如，<code>[3, 4, 5]</code>&nbsp;是一个值为 12 的连续数组，并且&nbsp;<code>[9, 8]</code>&nbsp;是另一个值为 17 的子数组。而&nbsp;<code>[3, 4, 3]</code> 和&nbsp;<code>[8, 6]</code>&nbsp;都不连续。</p>
 
-<p>Given an array of integers <code>nums</code>, return the <em>sum</em> of the <strong>values</strong> of all <strong>consecutive </strong><em>non-empty</em> <span data-keyword="subsequence-array">subsequences</span>.</p>
+<p>给定一个整数数组&nbsp;<code>nums</code>，返回所有 <strong>连续</strong>&nbsp;非空&nbsp;<span data-keyword="subsequence-array">子序列</span>&nbsp;的 <strong>值</strong>&nbsp;之和。</p>
 
-<p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9 </sup>+ 7.</code></p>
+<p>由于答案可能很大，返回它对&nbsp;<code>10<sup>9 </sup>+ 7</code>&nbsp;<strong>取模</strong>&nbsp;的值。</p>
 
-<p><strong>Note</strong> that an array of length 1 is also considered consecutive.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,2]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">6</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The consecutive subsequences are: <code>[1]</code>, <code>[2]</code>, <code>[1, 2]</code>.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,4,2,3]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">31</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The consecutive subsequences are: <code>[1]</code>, <code>[4]</code>, <code>[2]</code>, <code>[3]</code>, <code>[1, 2]</code>, <code>[2, 3]</code>, <code>[4, 3]</code>, <code>[1, 2, 3]</code>.</p>
-</div>
+<p><strong>注意</strong>&nbsp;长度为 1 的数组也被认为是连续的。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">nums = [1,2]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">6</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>连续子序列为&nbsp;<code>[1]</code>，<code>[2]</code>，<code>[1, 2]</code>。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [1,4,2,3]</span></p>
+
+<p><span class="example-io"><b>输出：</b>31</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>连续子序列为：<code>[1]</code>，<code>[4]</code>，<code>[2]</code>，<code>[3]</code>，<code>[1, 2]</code>，<code>[2, 3]</code>，<code>[4, 3]</code>，<code>[1, 2, 3]</code>。</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

@@ -32,40 +32,40 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<div class="example-block"><strong>输入：</strong>tickets = [2,3,2], k = 2</div>
+<div class="example-block">
+<p><strong>输入：</strong>tickets = [2,3,2], k = 2</p>
 
-<div class="example-block"><strong>输出：</strong>6</div>
+<p><strong>输出：</strong>6</p>
 
-<div class="example-block"><strong>解释：</strong></div>
-
-<div class="example-block">&nbsp;</div>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li class="example-block">队伍一开始为 [2,3,2]，第 k 个人以下划线标识。</li>
-	<li class="example-block">在最前面的人买完票后，队伍在第 1 秒变成 [3,<u>2</u>,1]。</li>
-	<li class="example-block">继续这个过程，队伍在第 2 秒变为[<u>2</u>,1,2]。</li>
-	<li class="example-block">继续这个过程，队伍在第 3 秒变为[1,2,<u>1</u>]。</li>
-	<li class="example-block">继续这个过程，队伍在第 4 秒变为[2,<u>1</u>]。</li>
-	<li class="example-block">继续这个过程，队伍在第 5 秒变为[<u>1</u>,1]。</li>
-	<li class="example-block">继续这个过程，队伍在第 6 秒变为[1]。第 k 个人完成买票，所以返回 6。</li>
+	<li>队伍一开始为 [2,3,2]，第 k 个人以下划线标识。</li>
+	<li>在最前面的人买完票后，队伍在第 1 秒变成 [3,<u>2</u>,1]。</li>
+	<li>继续这个过程，队伍在第 2 秒变为[<u>2</u>,1,2]。</li>
+	<li>继续这个过程，队伍在第 3 秒变为[1,2,<u>1</u>]。</li>
+	<li>继续这个过程，队伍在第 4 秒变为[2,<u>1</u>]。</li>
+	<li>继续这个过程，队伍在第 5 秒变为[<u>1</u>,1]。</li>
+	<li>继续这个过程，队伍在第 6 秒变为[1]。第 k 个人完成买票，所以返回 6。</li>
 </ul>
-
-<div class="example-block">&nbsp;</div>
+</div>
 
 <p><strong>示例 2：</strong></p>
 
-<div class="example-block"><strong>输入：</strong>tickets = [5,1,1,1], k = 0</div>
+<div class="example-block">
+<p><strong>输入：</strong>tickets = [5,1,1,1], k = 0</p>
 
-<div class="example-block"><strong>输出：</strong>8</div>
+<p><strong>输出：</strong>8</p>
 
-<div class="example-block"><strong>解释：</strong></div>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li class="example-block">队伍一开始为 [<u>5</u>,1,1,1]，第 k 个人以下划线标识。</li>
-	<li class="example-block">在最前面的人买完票后，队伍在第 1 秒变成 [1,1,1,<u>4</u>]。</li>
-	<li class="example-block">继续这个过程 3 秒，队伍在第 4&nbsp;秒变为[<u>4</u>]。</li>
-	<li class="example-block">继续这个过程 4 秒，队伍在第 8&nbsp;秒变为[]。第 k 个人完成买票，所以返回 8。</li>
+	<li>队伍一开始为 [<u>5</u>,1,1,1]，第 k 个人以下划线标识。</li>
+	<li>在最前面的人买完票后，队伍在第 1 秒变成 [1,1,1,<u>4</u>]。</li>
+	<li>继续这个过程 3 秒，队伍在第 4&nbsp;秒变为[<u>4</u>]。</li>
+	<li>继续这个过程 4 秒，队伍在第 8&nbsp;秒变为[]。第 k 个人完成买票，所以返回 8。</li>
 </ul>
+</div>
 
 <p>&nbsp;</p>
 

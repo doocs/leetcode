@@ -11,14 +11,14 @@ impl Solution {
             }
         }
 
-        let mut res = 0;
+        let mut ans = 0;
         for i in 0..m {
             for j in 0..n {
                 if mat[i][j] == 1 && rows[i] == 1 && cols[j] == 1 {
-                    res += 1;
+                    ans += 1;
                 }
             }
         }
-        res
+        ans
     }
 }

@@ -43,7 +43,7 @@ Each row of this table indicates the ID of an employee, their name, salary, and 
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>Input:</strong> 
 Employee table:
 +----+-------+--------+-----------+
 | id | name  | salary | managerId |
@@ -53,7 +53,7 @@ Employee table:
 | 3  | Sam   | 60000  | Null      |
 | 4  | Max   | 90000  | Null      |
 +----+-------+--------+-----------+
-<strong>Output:</strong>
+<strong>Output:</strong> 
 +----------+
 | Employee |
 +----------+

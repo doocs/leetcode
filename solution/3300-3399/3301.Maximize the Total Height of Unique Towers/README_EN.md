@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

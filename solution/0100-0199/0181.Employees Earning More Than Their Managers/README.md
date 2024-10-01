@@ -44,7 +44,7 @@ id 是该表的主键（具有唯一值的列）。
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong>
+<strong>输入:</strong> 
 Employee 表:
 +----+-------+--------+-----------+
 | id | name  | salary | managerId |
@@ -54,7 +54,7 @@ Employee 表:
 | 3  | Sam   | 60000  | Null      |
 | 4  | Max   | 90000  | Null      |
 +----+-------+--------+-----------+
-<strong>输出:</strong>
+<strong>输出:</strong> 
 +----------+
 | Employee |
 +----------+

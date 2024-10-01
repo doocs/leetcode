@@ -73,7 +73,13 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Preprocessing + Sorting + Greedy
+
+First, we preprocess the warehouse to get the maximum height of each room. Then, we sort both the boxes and the warehouse. Starting with the smallest box and the smallest room, if the current room's height is greater than or equal to the current box's height, we can place the current box in the current room; otherwise, we continue to the next room.
+
+Finally, we return the number of boxes that can be placed.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the warehouse.
 
 <!-- tabs:start -->
 
