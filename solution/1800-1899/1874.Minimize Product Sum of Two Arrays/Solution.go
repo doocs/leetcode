@@ -1,9 +1,8 @@
-func minProductSum(nums1 []int, nums2 []int) int {
+func minProductSum(nums1 []int, nums2 []int) (ans int) {
 	sort.Ints(nums1)
 	sort.Ints(nums2)
-	res, n := 0, len(nums1)
-	for i, num := range nums1 {
-		res += num * nums2[n-i-1]
+	for i, x := range nums1 {
+		ans += x * nums2[len(nums2)-1-i]
 	}
-	return res
+	return
 }
