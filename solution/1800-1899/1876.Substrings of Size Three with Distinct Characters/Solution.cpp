@@ -1,11 +1,12 @@
 class Solution {
-    public int countGoodSubstrings(String s) {
+public:
+    int countGoodSubstrings(string s) {
         int ans = 0;
         int n = s.length();
         for (int l = 0, r = 0, mask = 0; r < n; ++r) {
-            int x = s.charAt(r) - 'a';
+            int x = s[r] - 'a';
             while ((mask >> x & 1) == 1) {
-                int y = s.charAt(l++) - 'a';
+                int y = s[l++] - 'a';
                 mask ^= 1 << y;
             }
             mask |= 1 << x;
@@ -13,4 +14,4 @@ class Solution {
         }
         return ans;
     }
-}
+};

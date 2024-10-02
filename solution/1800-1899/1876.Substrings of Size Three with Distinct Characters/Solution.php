@@ -4,12 +4,25 @@ class Solution {
      * @return Integer
      */
     function countGoodSubstrings($s) {
-        $cnt = 0;
-        for ($i = 0; $i < strlen($s) - 2; $i++) {
-            if ($s[$i] != $s[$i + 1] && $s[$i] != $s[$i + 2] && $s[$i + 1] != $s[$i + 2]) {
-                $cnt++;
+        $ans = 0;
+        $n = strlen($s);
+        $l = 0;
+        $r = 0;
+        $mask = 0;
+
+        while ($r < $n) {
+            $x = ord($s[$r]) - ord('a');
+            while (($mask >> $x) & 1) {
+                $y = ord($s[$l++]) - ord('a');
+                $mask ^= 1 << $y;
             }
+            $mask |= 1 << $x;
+            if ($r - $l + 1 >= 3) {
+                $ans++;
+            }
+            $r++;
         }
-        return $cnt++;
+
+        return $ans;
     }
 }
