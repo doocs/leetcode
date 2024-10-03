@@ -67,7 +67,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们直接根据题目描述模拟，将 $\textit{nums}$ 中的元素依次添加到答案数组中，然后再将 $\textit{nums}$ 中的元素再次添加到答案数组中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -142,9 +146,7 @@ impl Solution {
  * @return {number[]}
  */
 var getConcatenation = function (nums) {
-    let ans = nums.slice();
-    ans.splice(nums.length, 0, ...nums);
-    return ans;
+    return [...nums, ...nums];
 };
 ```
 
