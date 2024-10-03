@@ -185,7 +185,7 @@ function arrayRankTransform(arr: number[]): number[] {
 
 <!-- solution:start -->
 
-### Solution 2: Sorting + Hash Map
+### 方法二：排序 + 哈希表
 
 <!-- tabs:start -->
 
