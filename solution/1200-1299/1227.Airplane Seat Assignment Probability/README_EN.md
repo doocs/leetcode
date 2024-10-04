@@ -136,6 +136,8 @@ f(n) = \begin{cases}
 \end{cases}
 $$
 
+The time complexity of this solution is $O(1)$, and the space complexity is $O(1)$.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -175,6 +177,24 @@ func nthPersonGetsNthSeat(n int) float64 {
 		return 1
 	}
 	return .5
+}
+```
+
+#### TypeScript
+
+```ts
+function nthPersonGetsNthSeat(n: number): number {
+    return n === 1 ? 1 : 0.5;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn nth_person_gets_nth_seat(n: i32) -> f64 {
+        return if n == 1 { 1.0 } else { 0.5 };
+    }
 }
 ```
 
