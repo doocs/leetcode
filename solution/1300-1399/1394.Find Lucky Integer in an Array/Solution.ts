@@ -1,5 +1,5 @@
 function findLucky(arr: number[]): number {
-    const cnt = new Array(510).fill(0);
+    const cnt = Array(510).fill(0);
     for (const x of arr) {
         ++cnt[x];
     }
