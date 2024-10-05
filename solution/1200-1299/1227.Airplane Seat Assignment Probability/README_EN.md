@@ -61,9 +61,9 @@ tags:
 
 Let $f(n)$ represent the probability that the $n$th passenger will sit in their own seat when there are $n$ passengers boarding. Consider from the simplest case:
 
--   When $n=1$, there is only 1 passenger and 1 seat, so the first passenger can only sit in the first seat, $f(1)=1$;
+When $n=1$, there is only 1 passenger and 1 seat, so the first passenger can only sit in the first seat, $f(1)=1$;
 
--   When $n=2$, there are 2 seats, each seat has a probability of 0.5 to be chosen by the first passenger. After the first passenger chooses a seat, the second passenger can only choose the remaining seat, so the second passenger has a probability of 0.5 to sit in their own seat, $f(2)=0.5$.
+When $n=2$, there are 2 seats, each seat has a probability of 0.5 to be chosen by the first passenger. After the first passenger chooses a seat, the second passenger can only choose the remaining seat, so the second passenger has a probability of 0.5 to sit in their own seat, $f(2)=0.5$.
 
 When $n>2$, how to calculate the value of $f(n)$? Consider the seat chosen by the first passenger, there are three cases.
 
