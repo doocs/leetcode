@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> skill = [3,2,5,1,3,4]
 <strong>Output:</strong> 22
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Divide the players into the following teams: (1, 5), (2, 4), (3, 3), where each team has a total skill of 6.
 The sum of the chemistry of all the teams is: 1 * 5 + 2 * 4 + 3 * 3 = 5 + 8 + 9 = 22.
 </pre>
@@ -43,7 +43,7 @@ The sum of the chemistry of all the teams is: 1 * 5 + 2 * 4 + 3 * 3 = 5 + 8 + 9 
 <pre>
 <strong>Input:</strong> skill = [3,4]
 <strong>Output:</strong> 12
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 The two players form a team with a total skill of 7.
 The chemistry of the team is 3 * 4 = 12.
 </pre>
@@ -53,7 +53,7 @@ The chemistry of the team is 3 * 4 = 12.
 <pre>
 <strong>Input:</strong> skill = [1,1,2,3]
 <strong>Output:</strong> -1
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There is no way to divide the players into teams such that the total skill of each team is equal.
 </pre>
 
@@ -329,6 +329,58 @@ func dividePlayers(skill []int) int64 {
 		return int64(ans)
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function dividePlayers(skill: number[]): number {
+    let [sum, res, map] = [0, 0, new Map<number, number>()];
+
+    for (const x of skill) {
+        sum += x;
+        map.set(x, (map.get(x) || 0) + 1);
+    }
+    sum /= skill.length / 2;
+
+    for (let [x, c] of map) {
+        const complement = sum - x;
+        if ((map.get(complement) ?? 0) !== c) return -1;
+        if (x === complement) c /= 2;
+
+        res += x * complement * c;
+        map.delete(x);
+        map.delete(complement);
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function dividePlayers(skill) {
+    let [sum, res, map] = [0, 0, new Map()];
+
+    for (const x of skill) {
+        sum += x;
+        map.set(x, (map.get(x) || 0) + 1);
+    }
+    sum /= skill.length / 2;
+
+    for (let [x, c] of map) {
+        const complement = sum - x;
+        if ((map.get(complement) ?? 0) !== c) return -1;
+        if (x === complement) c /= 2;
+
+        res += x * complement * c;
+        map.delete(x);
+        map.delete(complement);
+    }
+
+    return res;
 }
 ```
 
