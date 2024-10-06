@@ -1,20 +1,20 @@
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
+	pq := &hp{}
+	ans, pre := 0, 0
 	stations = append(stations, []int{target, 0})
-	ans, prev := 0, 0
-	q := &hp{}
-	heap.Init(q)
-	for _, s := range stations {
-		d := s[0] - prev
-		startFuel -= d
-		for startFuel < 0 && q.Len() > 0 {
-			startFuel += q.pop()
+	for _, station := range stations {
+		pos, fuel := station[0], station[1]
+		dist := pos - pre
+		startFuel -= dist
+		for startFuel < 0 && pq.Len() > 0 {
+			startFuel += heap.Pop(pq).(int)
 			ans++
 		}
 		if startFuel < 0 {
 			return -1
 		}
-		q.push(s[1])
-		prev = s[0]
+		heap.Push(pq, fuel)
+		pre = pos
 	}
 	return ans
 }
@@ -29,5 +29,3 @@ func (h *hp) Pop() any {
 	h.IntSlice = a[:len(a)-1]
 	return v
 }
-func (h *hp) push(v int) { heap.Push(h, v) }
-func (h *hp) pop() int   { return heap.Pop(h).(int) }
