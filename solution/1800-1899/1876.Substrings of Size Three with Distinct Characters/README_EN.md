@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;xyzzaz&quot;
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> There are 4 substrings of size 3: &quot;xyz&quot;, &quot;yzz&quot;, &quot;zza&quot;, and &quot;zaz&quot;.
+<strong>Explanation:</strong> There are 4 substrings of size 3: &quot;xyz&quot;, &quot;yzz&quot;, &quot;zza&quot;, and &quot;zaz&quot;. 
 The only good substring of length 3 is &quot;xyz&quot;.
 </pre>
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3289.The%20Two%20Sneaky%20Numbers%20of%20Digitville/README.md
+rating: 1163
+source: 第 415 场周赛 Q1
 tags:
     - 数组
     - 哈希表

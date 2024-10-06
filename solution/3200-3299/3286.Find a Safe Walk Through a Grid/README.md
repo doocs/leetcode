@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3286.Find%20a%20Safe%20Walk%20Through%20a%20Grid/README.md
+rating: 1607
+source: 第 139 场双周赛 Q2
 tags:
     - 广度优先搜索
     - 图

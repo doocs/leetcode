@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3287.Find%20the%20Maximum%20Sequence%20Value%20of%20Array/README.md
+rating: 2545
+source: 第 139 场双周赛 Q3
 tags:
     - 位运算
     - 数组

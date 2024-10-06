@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3285.Find%20Indices%20of%20Stable%20Mountains/README_EN.md
+rating: 1166
+source: Biweekly Contest 139 Q1
 tags:
     - Array
 ---

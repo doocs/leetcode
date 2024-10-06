@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> skill = [3,2,5,1,3,4]
 <strong>Output:</strong> 22
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Divide the players into the following teams: (1, 5), (2, 4), (3, 3), where each team has a total skill of 6.
 The sum of the chemistry of all the teams is: 1 * 5 + 2 * 4 + 3 * 3 = 5 + 8 + 9 = 22.
 </pre>
@@ -43,7 +43,7 @@ The sum of the chemistry of all the teams is: 1 * 5 + 2 * 4 + 3 * 3 = 5 + 8 + 9 
 <pre>
 <strong>Input:</strong> skill = [3,4]
 <strong>Output:</strong> 12
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The two players form a team with a total skill of 7.
 The chemistry of the team is 3 * 4 = 12.
 </pre>
@@ -53,7 +53,7 @@ The chemistry of the team is 3 * 4 = 12.
 <pre>
 <strong>Input:</strong> skill = [1,1,2,3]
 <strong>Output:</strong> -1
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 There is no way to divide the players into teams such that the total skill of each team is equal.
 </pre>
 

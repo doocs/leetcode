@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 418
+
+- [3309. Maximum Possible Number by Binary Concatenation](/solution/3300-3399/3309.Maximum%20Possible%20Number%20by%20Binary%20Concatenation/README_EN.md)
+- [3310. Remove Methods From Project](/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README_EN.md)
+- [3311. Construct 2D Grid Matching Graph Layout](/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README_EN.md)
+- [3312. Sorted GCD Pair Queries](/solution/3300-3399/3312.Sorted%20GCD%20Pair%20Queries/README_EN.md)
+
 #### Weekly Contest 417
 
 - [3304. Find the K-th Character in String Game I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README_EN.md)

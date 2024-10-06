@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3290.Maximum%20Multiplication%20Score/README.md
+rating: 1692
+source: 第 415 场周赛 Q2
 tags:
     - 数组
     - 动态规划

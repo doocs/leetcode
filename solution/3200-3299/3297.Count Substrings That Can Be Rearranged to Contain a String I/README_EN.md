@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3297.Count%20Substrings%20That%20Can%20Be%20Rearranged%20to%20Contain%20a%20String%20I/README_EN.md
+rating: 1847
+source: Weekly Contest 416 Q3
 tags:
     - Hash Table
     - String

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 418 场周赛(2024-10-06 10:30, 90 分钟) 参赛人数 2255
+
+- [3309. 连接二进制表示可形成的最大数值](/solution/3300-3399/3309.Maximum%20Possible%20Number%20by%20Binary%20Concatenation/README.md)
+- [3310. 移除可疑的方法](/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README.md)
+- [3311. 构造符合图结构的二维矩阵](/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README.md)
+- [3312. 查询排序后的最大公约数](/solution/3300-3399/3312.Sorted%20GCD%20Pair%20Queries/README.md)
+
 #### 第 417 场周赛(2024-09-29 10:30, 90 分钟) 参赛人数 2509
 
 - [3304. 找出第 K 个字符 I](/solution/3300-3399/3304.Find%20the%20K-th%20Character%20in%20String%20Game%20I/README.md)

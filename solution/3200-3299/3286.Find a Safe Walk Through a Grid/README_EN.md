@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3286.Find%20a%20Safe%20Walk%20Through%20a%20Grid/README_EN.md
+rating: 1607
+source: Biweekly Contest 139 Q2
 tags:
     - Breadth-First Search
     - Graph

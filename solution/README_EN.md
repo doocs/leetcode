@@ -3317,6 +3317,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3306  |  [Count of Substrings Containing Every Vowel and K Consonants II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 417  |
 |  3307  |  [Find the K-th Character in String Game II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README_EN.md)  |  `Bit Manipulation`,`Recursion`,`Math`  |  Hard  |  Weekly Contest 417  |
 |  3308  |  [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3309  |  [Maximum Possible Number by Binary Concatenation](/solution/3300-3399/3309.Maximum%20Possible%20Number%20by%20Binary%20Concatenation/README_EN.md)  |    |  Medium  |  Weekly Contest 418  |
+|  3310  |  [Remove Methods From Project](/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README_EN.md)  |    |  Medium  |  Weekly Contest 418  |
+|  3311  |  [Construct 2D Grid Matching Graph Layout](/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README_EN.md)  |    |  Hard  |  Weekly Contest 418  |
+|  3312  |  [Sorted GCD Pair Queries](/solution/3300-3399/3312.Sorted%20GCD%20Pair%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 418  |
 
 ## Copyright
 
