@@ -30,7 +30,7 @@ tags:
 
 <pre>
 <strong>Input:</strong> croakOfFrogs = &quot;croakcroak&quot;
-<strong>Output:</strong> 1
+<strong>Output:</strong> 1 
 <strong>Explanation:</strong> One frog yelling &quot;croak<strong>&quot;</strong> twice.
 </pre>
 
@@ -38,8 +38,8 @@ tags:
 
 <pre>
 <strong>Input:</strong> croakOfFrogs = &quot;crcoakroak&quot;
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The minimum number of frogs is two.
+<strong>Output:</strong> 2 
+<strong>Explanation:</strong> The minimum number of frogs is two. 
 The first frog could yell &quot;<strong>cr</strong>c<strong>oak</strong>roak&quot;.
 The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</strong>&quot;.
 </pre>

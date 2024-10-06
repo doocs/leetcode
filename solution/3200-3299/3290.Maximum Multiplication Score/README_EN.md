@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3290.Maximum%20Multiplication%20Score/README_EN.md
+rating: 1692
+source: Weekly Contest 415 Q2
 tags:
     - Array
     - Dynamic Programming

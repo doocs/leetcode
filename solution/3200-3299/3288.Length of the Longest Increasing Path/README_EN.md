@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3288.Length%20of%20the%20Longest%20Increasing%20Path/README_EN.md
+rating: 2449
+source: Biweekly Contest 139 Q4
 tags:
     - Array
     - Binary Search

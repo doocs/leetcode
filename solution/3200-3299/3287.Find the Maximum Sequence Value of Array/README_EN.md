@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3287.Find%20the%20Maximum%20Sequence%20Value%20of%20Array/README_EN.md
+rating: 2545
+source: Biweekly Contest 139 Q3
 tags:
     - Bit Manipulation
     - Array
