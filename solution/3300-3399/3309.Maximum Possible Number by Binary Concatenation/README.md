@@ -61,32 +61,124 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3309.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+根据题目描述，数组 $\textit{nums}$ 的长度为 $3$，我们可以枚举 $\textit{nums}$ 的全排列，一共有 $3! = 6$ 种排列方式，然后将排列后的数组中的元素转换为二进制字符串，再将这些二进制字符串连接起来，最后将连接后的二进制字符串转换为十进制数，取最大值即可。
+
+时间复杂度 $O(\log M)$，其中 $M$ 表示 $\textit{nums}$ 中的元素的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxGoodNumber(self, nums: List[int]) -> int:
+        ans = 0
+        for arr in permutations(nums):
+            num = int("".join(bin(i)[2:] for i in arr), 2)
+            ans = max(ans, num)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[] nums;
 
+    public int maxGoodNumber(int[] nums) {
+        this.nums = nums;
+        int ans = f(0, 1, 2);
+        ans = Math.max(ans, f(0, 2, 1));
+        ans = Math.max(ans, f(1, 0, 2));
+        ans = Math.max(ans, f(1, 2, 0));
+        ans = Math.max(ans, f(2, 0, 1));
+        ans = Math.max(ans, f(2, 1, 0));
+        return ans;
+    }
+
+    private int f(int i, int j, int k) {
+        String a = Integer.toBinaryString(nums[i]);
+        String b = Integer.toBinaryString(nums[j]);
+        String c = Integer.toBinaryString(nums[k]);
+        return Integer.parseInt(a + b + c, 2);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxGoodNumber(vector<int>& nums) {
+        int ans = 0;
+        auto f = [&](vector<int>& nums) {
+            int res = 0;
+            vector<int> t;
+            for (int x : nums) {
+                for (; x; x >>= 1) {
+                    t.push_back(x & 1);
+                }
+            }
+            while (t.size()) {
+                res = res * 2 + t.back();
+                t.pop_back();
+            }
+            return res;
+        };
+        for (int i = 0; i < 6; ++i) {
+            ans = max(ans, f(nums));
+            next_permutation(nums.begin(), nums.end());
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxGoodNumber(nums []int) int {
+	f := func(i, j, k int) int {
+		a := strconv.FormatInt(int64(nums[i]), 2)
+		b := strconv.FormatInt(int64(nums[j]), 2)
+		c := strconv.FormatInt(int64(nums[k]), 2)
+		res, _ := strconv.ParseInt(a+b+c, 2, 64)
+		return int(res)
+	}
+	ans := f(0, 1, 2)
+	ans = max(ans, f(0, 2, 1))
+	ans = max(ans, f(1, 0, 2))
+	ans = max(ans, f(1, 2, 0))
+	ans = max(ans, f(2, 0, 1))
+	ans = max(ans, f(2, 1, 0))
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maxGoodNumber(nums: number[]): number {
+    const f = (i: number, j: number, k: number): number => {
+        const a = nums[i].toString(2);
+        const b = nums[j].toString(2);
+        const c = nums[k].toString(2);
+        const res = parseInt(a + b + c, 2);
+        return res;
+    };
+
+    let ans = f(0, 1, 2);
+    ans = Math.max(ans, f(0, 2, 1));
+    ans = Math.max(ans, f(1, 0, 2));
+    ans = Math.max(ans, f(1, 2, 0));
+    ans = Math.max(ans, f(2, 0, 1));
+    ans = Math.max(ans, f(2, 1, 0));
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
