@@ -175,7 +175,7 @@ var coinChange = function (coins, amount) {
 class Solution {
     func coinChange(_ coins: [Int], _ amount: Int) -> Int {
         var dp = [Int](repeating: amount + 1, count: amount + 1)
-        dp[0] = 0  
+        dp[0] = 0
 
         for coin in coins {
             if coin > amount { continue }
