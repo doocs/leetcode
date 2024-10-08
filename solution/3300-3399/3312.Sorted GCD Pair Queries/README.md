@@ -2,6 +2,15 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3312.Sorted%20GCD%20Pair%20Queries/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 二分查找
+    - 组合数学
+    - 计数
+    - 数论
+    - 前缀和
 ---
 
 <!-- problem:start -->

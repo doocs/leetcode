@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
 ---
 
 <!-- problem:start -->

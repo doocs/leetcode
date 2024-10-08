@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3309.Maximum%20Possible%20Number%20by%20Binary%20Concatenation/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Enumeration
 ---
 
 <!-- problem:start -->

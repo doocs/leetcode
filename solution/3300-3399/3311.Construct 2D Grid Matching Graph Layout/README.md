@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README.md
+tags:
+    - 图
+    - 数组
+    - 哈希表
+    - 矩阵
 ---
 
 <!-- problem:start -->
