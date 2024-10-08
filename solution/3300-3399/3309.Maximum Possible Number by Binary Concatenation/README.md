@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3309.Maximum%20Possible%20Number%20by%20Binary%20Concatenation/README.md
+tags:
+    - 位运算
+    - 数组
+    - 枚举
 ---
 
 <!-- problem:start -->

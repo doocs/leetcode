@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3296.Mi
 rating: 1694
 source: Weekly Contest 416 Q2
 tags:
+    - Greedy
     - Array
     - Math
     - Binary Search
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->
