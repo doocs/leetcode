@@ -209,7 +209,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: One-liner
+### 方法二：递归（一行代码）
 
 <!-- tabs:start -->
 
