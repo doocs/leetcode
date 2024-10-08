@@ -1,4 +1,4 @@
-function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
+function areSentencesSimilar(sentence1, sentence2) {
     const [words1, words2] = [sentence1.split(' '), sentence2.split(' ')];
     const [m, n] = [words1.length, words2.length];
 
