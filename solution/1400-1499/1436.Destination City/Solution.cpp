@@ -5,11 +5,11 @@ public:
         for (auto& p : paths) {
             s.insert(p[0]);
         }
-        for (auto& p : paths) {
-            if (!s.count(p[1])) {
-                return p[1];
+        for (int i = 0;; ++i) {
+            auto b = paths[i][1];
+            if (!s.contains(b)) {
+                return b;
             }
         }
-        return "";
     }
 };

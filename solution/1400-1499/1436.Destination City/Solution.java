@@ -4,11 +4,11 @@ class Solution {
         for (var p : paths) {
             s.add(p.get(0));
         }
-        for (var p : paths) {
-            if (!s.contains(p.get(1))) {
-                return p.get(1);
+        for (int i = 0;; ++i) {
+            var b = paths.get(i).get(1);
+            if (!s.contains(b)) {
+                return b;
             }
         }
-        return "";
     }
 }

@@ -40,7 +40,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [9,12,5,10,14,3,10], pivot = 10
 <strong>Output:</strong> [9,5,3,10,10,12,14]
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 The elements 9, 5, and 3 are less than the pivot so they are on the left side of the array.
 The elements 12 and 14 are greater than the pivot so they are on the right side of the array.
 The relative ordering of the elements less than and greater than pivot is also maintained. [9, 5, 3] and [12, 14] are the respective orderings.
@@ -51,7 +51,7 @@ The relative ordering of the elements less than and greater than pivot is also m
 <pre>
 <strong>Input:</strong> nums = [-3,4,3,2], pivot = 2
 <strong>Output:</strong> [-3,2,4,3]
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 The element -3 is less than the pivot so it is on the left side of the array.
 The elements 4 and 3 are greater than the pivot so they are on the right side of the array.
 The relative ordering of the elements less than and greater than pivot is also maintained. [-3] and [4, 3] are the respective orderings.
@@ -72,7 +72,11 @@ The relative ordering of the elements less than and greater than pivot is also m
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can traverse the array $\textit{nums}$, sequentially finding all elements less than $\textit{pivot}$, all elements equal to $\textit{pivot}$, and all elements greater than $\textit{pivot}$, then concatenate them in the order required by the problem.
+
+Time complexity $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -127,12 +131,21 @@ class Solution {
 public:
     vector<int> pivotArray(vector<int>& nums, int pivot) {
         vector<int> ans;
-        for (int& x : nums)
-            if (x < pivot) ans.push_back(x);
-        for (int& x : nums)
-            if (x == pivot) ans.push_back(x);
-        for (int& x : nums)
-            if (x > pivot) ans.push_back(x);
+        for (int& x : nums) {
+            if (x < pivot) {
+                ans.push_back(x);
+            }
+        }
+        for (int& x : nums) {
+            if (x == pivot) {
+                ans.push_back(x);
+            }
+        }
+        for (int& x : nums) {
+            if (x > pivot) {
+                ans.push_back(x);
+            }
+        }
         return ans;
     }
 };
@@ -159,6 +172,30 @@ func pivotArray(nums []int, pivot int) []int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function pivotArray(nums: number[], pivot: number): number[] {
+    const ans: number[] = [];
+    for (const x of nums) {
+        if (x < pivot) {
+            ans.push(x);
+        }
+    }
+    for (const x of nums) {
+        if (x === pivot) {
+            ans.push(x);
+        }
+    }
+    for (const x of nums) {
+        if (x > pivot) {
+            ans.push(x);
+        }
+    }
+    return ans;
 }
 ```
 
