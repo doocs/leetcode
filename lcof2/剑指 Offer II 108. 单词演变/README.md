@@ -212,7 +212,7 @@ class Solution {
         var words = Set(wordList)
         var queue = [beginWord]
         var ans = 1
-        
+
         while !queue.isEmpty {
             for _ in 0..<queue.count {
                 let s = queue.removeFirst()
