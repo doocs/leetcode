@@ -30,7 +30,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>paths = [["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]]
-<strong>输出：</strong>"Sao Paulo"
+<strong>输出：</strong>"Sao Paulo" 
 <strong>解释：</strong>从 "London" 出发，最后抵达终点站 "Sao Paulo" 。本次旅行的路线是 "London" -&gt; "New York" -&gt; "Lima" -&gt; "Sao Paulo" 。
 </pre>
 

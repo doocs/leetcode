@@ -3321,6 +3321,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3310  |  [Remove Methods From Project](/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`  |  Medium  |  Weekly Contest 418  |
 |  3311  |  [Construct 2D Grid Matching Graph Layout](/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README_EN.md)  |  `Graph`,`Array`,`Hash Table`,`Matrix`  |  Hard  |  Weekly Contest 418  |
 |  3312  |  [Sorted GCD Pair Queries](/solution/3300-3399/3312.Sorted%20GCD%20Pair%20Queries/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Binary Search`,`Combinatorics`,`Counting`,`Number Theory`,`Prefix Sum`  |  Hard  |  Weekly Contest 418  |
+|  3313  |  [Find the Last Marked Nodes in Tree](/solution/3300-3399/3313.Find%20the%20Last%20Marked%20Nodes%20in%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`  |  Hard  |  🔒  |
 
 ## Copyright
 
