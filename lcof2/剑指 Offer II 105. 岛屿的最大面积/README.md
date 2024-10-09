@@ -281,7 +281,7 @@ class Solution {
         var area = 1
         grid[i][j] = 0
         let dirs = [-1, 0, 1, 0, -1]
-        
+
         for k in 0..<4 {
             let x = i + dirs[k], y = j + dirs[k + 1]
             if x >= 0 && x < m && y >= 0 && y < n {

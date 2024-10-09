@@ -29,7 +29,7 @@ tags:
 
 <pre>
 <strong>Input:</strong> paths = [[&quot;London&quot;,&quot;New York&quot;],[&quot;New York&quot;,&quot;Lima&quot;],[&quot;Lima&quot;,&quot;Sao Paulo&quot;]]
-<strong>Output:</strong> &quot;Sao Paulo&quot;
+<strong>Output:</strong> &quot;Sao Paulo&quot; 
 <strong>Explanation:</strong> Starting at &quot;London&quot; city you will reach &quot;Sao Paulo&quot; city which is the destination city. Your trip consist of: &quot;London&quot; -&gt; &quot;New York&quot; -&gt; &quot;Lima&quot; -&gt; &quot;Sao Paulo&quot;.
 </pre>
 
