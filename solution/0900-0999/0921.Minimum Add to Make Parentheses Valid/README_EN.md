@@ -284,4 +284,36 @@ function minAddToMakeValid(s: string): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Replace + recursion
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minAddToMakeValid(s: string): number {
+    const l = s.length;
+    s = s.replace('()', '');
+
+    return s.length === l ? l : minAddToMakeValid(s);
+}
+```
+
+#### JavaScript
+
+```js
+function minAddToMakeValid(s: string): number {
+    const l = s.length;
+    s = s.replace('()', '');
+
+    return s.length === l ? l : minAddToMakeValid(s);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
