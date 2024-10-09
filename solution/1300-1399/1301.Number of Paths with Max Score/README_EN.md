@@ -66,7 +66,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ to represent the maximum score from the starting point $(n - 1, n - 1)$ to $(i, j)$, and $g[i][j]$ to represent the number of ways to achieve the maximum score from the starting point $(n - 1, n - 1)$ to $(i, j)$. Initially, $f[n - 1][n - 1] = 0$ and $g[n - 1][n - 1] = 1$. The other positions of $f[i][j]$ are all $-1$, and $g[i][j]$ are all $0$.
+
+For the current position $(i, j)$, it can be transferred from three positions: $(i + 1, j)$, $(i, j + 1)$, and $(i + 1, j + 1)$. Therefore, we can enumerate these three positions to update the values of $f[i][j]$ and $g[i][j]$. If the current position $(i, j)$ has an obstacle, or the current position is the starting point, or other positions are out of bounds, no update is performed. Otherwise, if another position $(x, y)$ satisfies $f[x][y] \gt f[i][j]$, then we update $f[i][j] = f[x][y]$ and $g[i][j] = g[x][y]$. If $f[x][y] = f[i][j]$, then we update $g[i][j] = g[i][j] + g[x][y]$. Finally, if the current position $(i, j)$ is reachable and is a number, we update $f[i][j] = f[i][j] + board[i][j]$.
+
+Finally, if $f[0][0] \lt 0$, it means there is no path to reach the endpoint, return $[0, 0]$. Otherwise, return $[f[0][0], g[0][0]]$. Note that the result needs to be taken modulo $10^9 + 7$.
+
+Time complexity $O(n^2)$, space complexity $O(n^2)$. Where $n$ is the side length of the array.
 
 <!-- tabs:start -->
 
