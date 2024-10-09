@@ -74,7 +74,7 @@ tags:
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        ans, mi = 0, inf
+        ans, mi = 0, float('inf')
         for v in prices:
             ans = max(ans, v - mi)
             mi = min(mi, v)
