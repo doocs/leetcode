@@ -25,10 +25,10 @@ Given an integer number <code>n</code>, return the difference between the produc
 
 <pre>
 <strong>Input:</strong> n = 234
-<strong>Output:</strong> 15 
-<b>Explanation:</b> 
-Product of digits = 2 * 3 * 4 = 24 
-Sum of digits = 2 + 3 + 4 = 9 
+<strong>Output:</strong> 15
+<b>Explanation:</b>
+Product of digits = 2 * 3 * 4 = 24
+Sum of digits = 2 + 3 + 4 = 9
 Result = 24 - 9 = 15
 </pre>
 
@@ -37,9 +37,9 @@ Result = 24 - 9 = 15
 <pre>
 <strong>Input:</strong> n = 4421
 <strong>Output:</strong> 21
-<b>Explanation: 
-</b>Product of digits = 4 * 4 * 2 * 1 = 32 
-Sum of digits = 4 + 4 + 2 + 1 = 11 
+<b>Explanation:
+</b>Product of digits = 4 * 4 * 2 * 1 = 32
+Sum of digits = 4 + 4 + 2 + 1 = 11
 Result = 32 - 11 = 21
 </pre>
 
@@ -73,12 +73,8 @@ The time complexity is $O(\log n)$, where $n$ is the given integer. The space co
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        x, y = 1, 0
-        while n:
-            n, v = divmod(n, 10)
-            x *= v
-            y += v
-        return x - y
+        nums = list(map(int, str(n)))
+        return prod(nums) - sum(nums)
 ```
 
 #### Java
@@ -190,25 +186,6 @@ int subtractProductAndSum(int n) {
     }
     return x - y;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def subtractProductAndSum(self, n: int) -> int:
-        nums = list(map(int, str(n)))
-        return prod(nums) - sum(nums)
 ```
 
 <!-- tabs:end -->
