@@ -8,17 +8,13 @@ public:
             g[u].push_back(v);
             g[v].push_back(u);
         }
-        auto max_node = [&](const vector<int>& dist) {
-            int mx = ranges::max(dist);
-            return ranges::find(dist, mx) - dist.begin();
-        };
         vector<int> dist1(n);
         dfs(0, -1, dist1);
-        int a = max_node(dist1);
+        int a = max_element(dist1.begin(), dist1.end()) - dist1.begin();
 
         vector<int> dist2(n);
         dfs(a, -1, dist2);
-        int b = max_node(dist2);
+        int b = max_element(dist2.begin(), dist2.end()) - dist2.begin();
 
         vector<int> dist3(n);
         dfs(b, -1, dist3);
