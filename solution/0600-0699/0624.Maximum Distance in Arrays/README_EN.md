@@ -9,7 +9,7 @@ tags:
 
 <!-- problem:start -->
 
-# [624. Maximum Distance in Arrays 🔒](https://leetcode.com/problems/maximum-distance-in-arrays)
+# [624. Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays)
 
 [中文文档](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README.md)
 
@@ -137,6 +137,90 @@ func abs(x int) int {
 	}
 	return x
 }
+```
+
+#### TypeScript
+
+```ts
+function maxDistance(arrays: number[][]): number {
+    const n = arrays.length;
+    let res = 0;
+    let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+
+    for (let i = 0; i < n; i++) {
+        const a = arrays[i];
+        res = Math.max(Math.max(a.at(-1)! - min, max - a[0]), res);
+        min = Math.min(min, a[0]);
+        max = Math.max(max, a.at(-1)!);
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} arrays
+ * @return {number}
+ */
+var maxDistance = function (arrays) {
+    const n = arrays.length;
+    let res = 0;
+    let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+
+    for (let i = 0; i < n; i++) {
+        const a = arrays[i];
+        res = Math.max(Math.max(a.at(-1) - min, max - a[0]), res);
+        min = Math.min(min, a[0]);
+        max = Math.max(max, a.at(-1));
+    }
+
+    return res;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: One-line solution
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+const maxDistance = (arrays: number[][]): number =>
+    arrays.reduce(
+        ([res, min, max], a) => [
+            Math.max(Math.max(a.at(-1)! - min, max - a[0]), res),
+            Math.min(min, a[0]),
+            Math.max(max, a.at(-1)!),
+        ],
+        [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY],
+    )[0];
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} arrays
+ * @return {number}
+ */
+var maxDistance = arrays =>
+    arrays.reduce(
+        ([res, min, max], a) => [
+            Math.max(Math.max(a.at(-1) - min, max - a[0]), res),
+            Math.min(min, a[0]),
+            Math.max(max, a.at(-1)),
+        ],
+        [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY],
+    )[0];
 ```
 
 <!-- tabs:end -->

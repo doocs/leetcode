@@ -1,9 +1,8 @@
-func decompressRLElist(nums []int) []int {
-	var res []int
+func decompressRLElist(nums []int) (ans []int) {
 	for i := 1; i < len(nums); i += 2 {
 		for j := 0; j < nums[i-1]; j++ {
-			res = append(res, nums[i])
+			ans = append(ans, nums[i])
 		}
 	}
-	return res
+	return
 }

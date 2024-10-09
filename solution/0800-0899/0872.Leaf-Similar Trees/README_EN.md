@@ -57,7 +57,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+We can use Depth-First Search (DFS) to traverse the leaf nodes of the two trees, storing the values of the leaf nodes in two lists $l_1$ and $l_2$ respectively. Finally, we compare whether the two lists are equal.
+
+Time complexity is $O(n)$, and space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -72,13 +76,19 @@ tags:
 #         self.right = right
 class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
-        def dfs(root):
-            if root is None:
-                return []
-            ans = dfs(root.left) + dfs(root.right)
-            return ans or [root.val]
+        def dfs(root: Optional[TreeNode], nums: List[int]) -> None:
+            if root.left == root.right:
+                nums.append(root.val)
+                return
+            if root.left:
+                dfs(root.left, nums)
+            if root.right:
+                dfs(root.right, nums)
 
-        return dfs(root1) == dfs(root2)
+        l1, l2 = [], []
+        dfs(root1, l1)
+        dfs(root2, l2)
+        return l1 == l2
 ```
 
 #### Java
@@ -101,21 +111,24 @@ class Solution:
  */
 class Solution {
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        List<Integer> l1 = dfs(root1);
-        List<Integer> l2 = dfs(root2);
+        List<Integer> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        dfs(root1, l1);
+        dfs(root2, l2);
         return l1.equals(l2);
     }
 
-    private List<Integer> dfs(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
+    private void dfs(TreeNode root, List<Integer> nums) {
+        if (root.left == root.right) {
+            nums.add(root.val);
+            return;
         }
-        List<Integer> ans = dfs(root.left);
-        ans.addAll(dfs(root.right));
-        if (ans.isEmpty()) {
-            ans.add(root.val);
+        if (root.left != null) {
+            dfs(root.left, nums);
         }
-        return ans;
+        if (root.right != null) {
+            dfs(root.right, nums);
+        }
     }
 }
 ```
@@ -137,16 +150,23 @@ class Solution {
 class Solution {
 public:
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        return dfs(root1) == dfs(root2);
+        vector<int> l1, l2;
+        dfs(root1, l1);
+        dfs(root2, l2);
+        return l1 == l2;
     }
 
-    vector<int> dfs(TreeNode* root) {
-        if (!root) return {};
-        auto ans = dfs(root->left);
-        auto right = dfs(root->right);
-        ans.insert(ans.end(), right.begin(), right.end());
-        if (ans.empty()) ans.push_back(root->val);
-        return ans;
+    void dfs(TreeNode* root, vector<int>& nums) {
+        if (root->left == root->right) {
+            nums.push_back(root->val);
+            return;
+        }
+        if (root->left) {
+            dfs(root->left, nums);
+        }
+        if (root->right) {
+            dfs(root->right, nums);
+        }
     }
 };
 ```
@@ -163,19 +183,23 @@ public:
  * }
  */
 func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
-	var dfs func(*TreeNode) []int
-	dfs = func(root *TreeNode) []int {
-		if root == nil {
-			return []int{}
+	l1, l2 := []int{}, []int{}
+	var dfs func(*TreeNode, *[]int)
+	dfs = func(root *TreeNode, nums *[]int) {
+		if root.Left == root.Right {
+			*nums = append(*nums, root.Val)
+			return
 		}
-		ans := dfs(root.Left)
-		ans = append(ans, dfs(root.Right)...)
-		if len(ans) == 0 {
-			ans = append(ans, root.Val)
+		if root.Left != nil {
+			dfs(root.Left, nums)
 		}
-		return ans
+		if root.Right != nil {
+			dfs(root.Right, nums)
+		}
 	}
-	return reflect.DeepEqual(dfs(root1), dfs(root2))
+	dfs(root1, &l1)
+	dfs(root2, &l2)
+	return reflect.DeepEqual(l1, l2)
 }
 ```
 
@@ -203,39 +227,31 @@ func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    #[allow(dead_code)]
     pub fn leaf_similar(
         root1: Option<Rc<RefCell<TreeNode>>>,
         root2: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
-        let mut one_vec: Vec<i32> = Vec::new();
-        let mut two_vec: Vec<i32> = Vec::new();
-
-        // Initialize the two vector
-        Self::traverse(&mut one_vec, root1);
-        Self::traverse(&mut two_vec, root2);
-
-        one_vec == two_vec
+        let mut l1 = Vec::new();
+        let mut l2 = Vec::new();
+        Self::dfs(&root1, &mut l1);
+        Self::dfs(&root2, &mut l2);
+        l1 == l2
     }
 
-    #[allow(dead_code)]
-    fn traverse(v: &mut Vec<i32>, root: Option<Rc<RefCell<TreeNode>>>) {
-        if root.is_none() {
-            return;
+    fn dfs(node: &Option<Rc<RefCell<TreeNode>>>, nums: &mut Vec<i32>) {
+        if let Some(n) = node {
+            let n = n.borrow();
+            if n.left.is_none() && n.right.is_none() {
+                nums.push(n.val);
+                return;
+            }
+            if n.left.is_some() {
+                Self::dfs(&n.left, nums);
+            }
+            if n.right.is_some() {
+                Self::dfs(&n.right, nums);
+            }
         }
-        if Self::is_leaf_node(&root) {
-            v.push(root.as_ref().unwrap().borrow().val);
-        }
-        let left = root.as_ref().unwrap().borrow().left.clone();
-        let right = root.as_ref().unwrap().borrow().right.clone();
-        Self::traverse(v, left);
-        Self::traverse(v, right);
-    }
-
-    #[allow(dead_code)]
-    fn is_leaf_node(node: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        node.as_ref().unwrap().borrow().left.is_none()
-            && node.as_ref().unwrap().borrow().right.is_none()
     }
 }
 ```
@@ -244,19 +260,19 @@ impl Solution {
 
 ```js
 var leafSimilar = function (root1, root2) {
-    const dfs = root => {
-        if (!root) {
-            return [];
+    const l1 = [];
+    const l2 = [];
+    const dfs = (root, nums) => {
+        if (root.left === root.right) {
+            nums.push(root.val);
+            return;
         }
-        let ans = [...dfs(root.left), ...dfs(root.right)];
-        if (!ans.length) {
-            ans = [root.val];
-        }
-        return ans;
+        root.left && dfs(root.left, nums);
+        root.right && dfs(root.right, nums);
     };
-    const l1 = dfs(root1);
-    const l2 = dfs(root2);
-    return l1.toString() === l2.toString();
+    dfs(root1, l1);
+    dfs(root2, l2);
+    return l1.join(',') === l2.join(',');
 };
 ```
 

@@ -72,7 +72,7 @@ $$
 f[i][j]=
 \begin{cases}
 1, & i=2^j\\
-\sum_{k=0}^{n-1}f[i \oplus 2^j][k], & i \neq 2^j \text{且} \text{nums}[j] \text{与} \text{nums}[k] \text{满足题目要求}\\
+\sum_{k=0}^{n-1}f[i \oplus 2^j][k], & i \neq 2^j \textit{且} \textit{nums}[j] \textit{与} \textit{nums}[k] \textit{满足题目要求}\\
 \end{cases}
 $$
 

@@ -1,16 +1,15 @@
-function calPoints(ops: string[]): number {
-    const stack = [];
-    for (const op of ops) {
-        const n = stack.length;
+function calPoints(operations: string[]): number {
+    const stk: number[] = [];
+    for (const op of operations) {
         if (op === '+') {
-            stack.push(stack[n - 1] + stack[n - 2]);
+            stk.push(stk.at(-1)! + stk.at(-2)!);
         } else if (op === 'D') {
-            stack.push(stack[n - 1] * 2);
+            stk.push(stk.at(-1)! << 1);
         } else if (op === 'C') {
-            stack.pop();
+            stk.pop();
         } else {
-            stack.push(Number(op));
+            stk.push(+op);
         }
     }
-    return stack.reduce((p, v) => p + v);
+    return stk.reduce((a, b) => a + b, 0);
 }

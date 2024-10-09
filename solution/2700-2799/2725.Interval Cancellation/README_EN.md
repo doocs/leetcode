@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2725.Interval%20Cancellation/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->
@@ -23,8 +25,6 @@ setTimeout(cancelFn, cancelTimeMs)
 </pre>
 
 <p>The function <code>fn</code> should be called with <code>args</code> immediately and then called again every&nbsp;<code>t</code> milliseconds&nbsp;until&nbsp;<code>cancelFn</code>&nbsp;is called at <code>cancelTimeMs</code> ms.</p>
-
-<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

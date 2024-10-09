@@ -28,25 +28,24 @@ tags:
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/vtree1.jpg" style="width: 282px; height: 301px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/1727276130-UOKFsu-image.png" style="width: 400px; height: 273px;" />
 <pre>
 <strong>输入：</strong>root = [3,9,20,null,null,15,7]
 <strong>输出：</strong>[[9],[3,15],[20],[7]]
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/vtree2-1.jpg" style="width: 462px; height: 222px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/1727276212-bzuKab-image.png" style="width: 400px; height: 253px;" />
 <pre>
 <strong>输入：</strong>root = [3,9,8,4,0,1,7]
 <strong>输出：</strong>[[4],[9],[3,0,1],[8],[7]]
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/vtree2.jpg" style="width: 462px; height: 302px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/1727276242-EGdtNz-image.png" style="width: 400px; height: 391px;" />
 <pre>
-<strong>输入：</strong>root = [3,9,8,4,0,1,7,null,null,null,2,5]
-<strong>输出：</strong>[[4],[9,5],[3,0,1],[8,2],[7]]
-</pre>
+<strong>输入：</strong>root = [1,2,3,4,10,9,11,null,5,null,null,null,null,null,null,null,6]
+<strong>输出：</strong>[[4],[2,5],[1,10,9,6],[3],[11]]</pre>
 
 <p>&nbsp;</p>
 

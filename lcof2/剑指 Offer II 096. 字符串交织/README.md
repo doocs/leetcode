@@ -290,6 +290,51 @@ public class Solution {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    private var memo = [String: Bool]()
+    private var s1: [Character] = []
+    private var s2: [Character] = []
+    private var s3: [Character] = []
+    private var m = 0
+    private var n = 0
+
+    func isInterleave(_ s1: String, _ s2: String, _ s3: String) -> Bool {
+        m = s1.count
+        n = s2.count
+        if m + n != s3.count {
+            return false
+        }
+        self.s1 = Array(s1)
+        self.s2 = Array(s2)
+        self.s3 = Array(s3)
+        return dfs(0, 0)
+    }
+
+    private func dfs(_ i: Int, _ j: Int) -> Bool {
+        if i >= m && j >= n {
+            return true
+        }
+        let key = "\(i),\(j)"
+        if let cached = memo[key] {
+            return cached
+        }
+        let k = i + j
+        var ans = false
+        if i < m && s1[i] == s3[k] && dfs(i + 1, j) {
+            ans = true
+        }
+        if !ans && j < n && s2[j] == s3[k] && dfs(i, j + 1) {
+            ans = true
+        }
+        memo[key] = ans
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -304,13 +349,13 @@ public class Solution {
 
 $$
 f[i][j] = \begin{cases}
-f[i - 1][j] & \text{if } s_1[i - 1] = s_3[i + j - 1] \\
-\text{or } f[i][j - 1] & \text{if } s_2[j - 1] = s_3[i + j - 1] \\
-\text{false} & \text{otherwise}
+f[i - 1][j] & \textit{if } s_1[i - 1] = s_3[i + j - 1] \\
+\textit{or } f[i][j - 1] & \textit{if } s_2[j - 1] = s_3[i + j - 1] \\
+\textit{false} & \textit{otherwise}
 \end{cases}
 $$
 
-其中 $f[0][0] = \text{true}$ 表示空串是两个空串的交错字符串。
+其中 $f[0][0] = \textit{true}$ 表示空串是两个空串的交错字符串。
 
 答案即为 $f[m][n]$。
 
@@ -636,6 +681,37 @@ public class Solution {
             }
         }
         return f[n];
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func isInterleave(_ s1: String, _ s2: String, _ s3: String) -> Bool {
+        let m = s1.count, n = s2.count
+        if m + n != s3.count {
+            return false
+        }
+
+        let s1 = Array(s1), s2 = Array(s2), s3 = Array(s3)
+        var dp = Array(repeating: Array(repeating: false, count: n + 1), count: m + 1)
+        dp[0][0] = true
+
+        for i in 0...m {
+            for j in 0...n {
+                let k = i + j - 1
+                if i > 0 && s1[i - 1] == s3[k] {
+                    dp[i][j] = dp[i][j] || dp[i - 1][j]
+                }
+                if j > 0 && s2[j - 1] == s3[k] {
+                    dp[i][j] = dp[i][j] || dp[i][j - 1]
+                }
+            }
+        }
+
+        return dp[m][n]
     }
 }
 ```

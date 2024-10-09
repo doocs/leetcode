@@ -19,32 +19,28 @@
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
-impl Solution {
-    fn dfs(
-        root: &Option<Rc<RefCell<TreeNode>>>,
-        map: &mut HashMap<i32, i32>,
-        max: &mut i32,
-    ) -> i32 {
-        if root.is_none() {
-            return 0;
-        }
-        let node = root.as_ref().unwrap().borrow();
-        let sum = node.val + Self::dfs(&node.left, map, max) + Self::dfs(&node.right, map, max);
-        map.insert(sum, map.get(&sum).unwrap_or(&0) + 1);
-        *max = (*max).max(map[&sum]);
-        sum
-    }
 
+impl Solution {
     pub fn find_frequent_tree_sum(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut map = HashMap::new();
-        let mut max = 0;
-        let mut res = Vec::new();
-        Self::dfs(&root, &mut map, &mut max);
-        for (k, v) in map.into_iter() {
-            if v == max {
-                res.push(k);
+        fn dfs(root: Option<Rc<RefCell<TreeNode>>>, cnt: &mut HashMap<i32, i32>) -> i32 {
+            if let Some(node) = root {
+                let l = dfs(node.borrow().left.clone(), cnt);
+                let r = dfs(node.borrow().right.clone(), cnt);
+                let s = l + r + node.borrow().val;
+                *cnt.entry(s).or_insert(0) += 1;
+                s
+            } else {
+                0
             }
         }
-        res
+
+        let mut cnt = HashMap::new();
+        dfs(root, &mut cnt);
+
+        let mx = cnt.values().cloned().max().unwrap_or(0);
+        cnt.into_iter()
+            .filter(|&(_, v)| v == mx)
+            .map(|(k, _)| k)
+            .collect()
     }
 }

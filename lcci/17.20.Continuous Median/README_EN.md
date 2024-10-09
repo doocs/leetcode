@@ -55,11 +55,11 @@ findMedian() -&gt; 2
 
 ### Solution 1: Min Heap and Max Heap (Priority Queue)
 
-We can use two heaps to maintain all the elements, a min heap $\text{minQ}$ and a max heap $\text{maxQ}$, where the min heap $\text{minQ}$ stores the larger half, and the max heap $\text{maxQ}$ stores the smaller half.
+We can use two heaps to maintain all the elements, a min heap $\textit{minQ}$ and a max heap $\textit{maxQ}$, where the min heap $\textit{minQ}$ stores the larger half, and the max heap $\textit{maxQ}$ stores the smaller half.
 
-When calling the `addNum` method, we first add the element to the max heap $\text{maxQ}$, then pop the top element of $\text{maxQ}$ and add it to the min heap $\text{minQ}$. If at this time the size difference between $\text{minQ}$ and $\text{maxQ}$ is greater than $1$, we pop the top element of $\text{minQ}$ and add it to $\text{maxQ}$. The time complexity is $O(\log n)$.
+When calling the `addNum` method, we first add the element to the max heap $\textit{maxQ}$, then pop the top element of $\textit{maxQ}$ and add it to the min heap $\textit{minQ}$. If at this time the size difference between $\textit{minQ}$ and $\textit{maxQ}$ is greater than $1$, we pop the top element of $\textit{minQ}$ and add it to $\textit{maxQ}$. The time complexity is $O(\log n)$.
 
-When calling the `findMedian` method, if the size of $\text{minQ}$ is equal to the size of $\text{maxQ}$, it means the total number of elements is even, and we can return the average value of the top elements of $\text{minQ}$ and $\text{maxQ}$; otherwise, we return the top element of $\text{minQ}$. The time complexity is $O(1)$.
+When calling the `findMedian` method, if the size of $\textit{minQ}$ is equal to the size of $\textit{maxQ}$, it means the total number of elements is even, and we can return the average value of the top elements of $\textit{minQ}$ and $\textit{maxQ}$; otherwise, we return the top element of $\textit{minQ}$. The time complexity is $O(1)$.
 
 The space complexity is $O(n)$, where $n$ is the number of elements.
 

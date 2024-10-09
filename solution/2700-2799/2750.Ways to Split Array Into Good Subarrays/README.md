@@ -7,6 +7,7 @@ source: 第 351 场周赛 Q3
 tags:
     - 数组
     - 数学
+    - 动态规划
 ---
 
 <!-- problem:start -->

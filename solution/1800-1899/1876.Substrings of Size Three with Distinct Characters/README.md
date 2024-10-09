@@ -64,7 +64,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：滑动窗口
+
+我们可以维护一个滑动窗口，使得窗口内的字符不重复。初始时，我们用一个长度为 $26$ 的二进制整数 $\textit{mask}$ 表示窗口内的字符，其中第 $i$ 位为 $1$ 表示字符 $i$ 在窗口内出现过，否则表示字符 $i$ 在窗口内没有出现过。
+
+然后，我们遍历字符串 $s$，对于每一个位置 $r$，如果 $\textit{s}[r]$ 在窗口内出现过，我们需要将窗口的左边界 $l$ 右移，直到窗口内不再有重复的字符。在这之后，我们将 $\textit{s}[r]$ 加入窗口内，此时如果窗口的长度大于等于 $3$，那么我们就找到了一个以 $\textit{s}[r]$ 结尾的长度为 $3$ 的好子字符串。
+
+遍历结束后，我们就找到了所有的好子字符串的数量。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
+
+> 该解法可以拓展到长度为 $k$ 的好子字符串的数量。
 
 <!-- tabs:start -->
 
@@ -73,10 +83,15 @@ tags:
 ```python
 class Solution:
     def countGoodSubstrings(self, s: str) -> int:
-        count, n = 0, len(s)
-        for i in range(n - 2):
-            count += s[i] != s[i + 1] and s[i] != s[i + 2] and s[i + 1] != s[i + 2]
-        return count
+        ans = mask = l = 0
+        for r, x in enumerate(map(lambda c: ord(c) - 97, s)):
+            while mask >> x & 1:
+                y = ord(s[l]) - 97
+                mask ^= 1 << y
+                l += 1
+            mask |= 1 << x
+            ans += int(r - l + 1 >= 3)
+        return ans
 ```
 
 #### Java
@@ -84,15 +99,62 @@ class Solution:
 ```java
 class Solution {
     public int countGoodSubstrings(String s) {
-        int count = 0, n = s.length();
-        for (int i = 0; i < n - 2; ++i) {
-            char a = s.charAt(i), b = s.charAt(i + 1), c = s.charAt(i + 2);
-            if (a != b && a != c && b != c) {
-                ++count;
+        int ans = 0;
+        int n = s.length();
+        for (int l = 0, r = 0, mask = 0; r < n; ++r) {
+            int x = s.charAt(r) - 'a';
+            while ((mask >> x & 1) == 1) {
+                int y = s.charAt(l++) - 'a';
+                mask ^= 1 << y;
             }
+            mask |= 1 << x;
+            ans += r - l + 1 >= 3 ? 1 : 0;
         }
-        return count;
+        return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countGoodSubstrings(string s) {
+        int ans = 0;
+        int n = s.length();
+        for (int l = 0, r = 0, mask = 0; r < n; ++r) {
+            int x = s[r] - 'a';
+            while ((mask >> x & 1) == 1) {
+                int y = s[l++] - 'a';
+                mask ^= 1 << y;
+            }
+            mask |= 1 << x;
+            ans += r - l + 1 >= 3 ? 1 : 0;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countGoodSubstrings(s string) (ans int) {
+	mask, l := 0, 0
+	for r, c := range s {
+		x := int(c - 'a')
+		for (mask>>x)&1 == 1 {
+			y := int(s[l] - 'a')
+			l++
+			mask ^= 1 << y
+		}
+		mask |= 1 << x
+		if r-l+1 >= 3 {
+			ans++
+		}
+	}
+	return
 }
 ```
 
@@ -100,17 +162,18 @@ class Solution {
 
 ```ts
 function countGoodSubstrings(s: string): number {
-    const n: number = s.length;
-    let count: number = 0;
-    for (let i: number = 0; i < n - 2; ++i) {
-        let a: string = s.charAt(i),
-            b: string = s.charAt(i + 1),
-            c: string = s.charAt(i + 2);
-        if (a != b && a != c && b != c) {
-            ++count;
+    let ans = 0;
+    const n = s.length;
+    for (let l = 0, r = 0, mask = 0; r < n; ++r) {
+        const x = s.charCodeAt(r) - 'a'.charCodeAt(0);
+        while ((mask >> x) & 1) {
+            const y = s.charCodeAt(l++) - 'a'.charCodeAt(0);
+            mask ^= 1 << y;
         }
+        mask |= 1 << x;
+        ans += r - l + 1 >= 3 ? 1 : 0;
     }
-    return count;
+    return ans;
 }
 ```
 
@@ -123,13 +186,26 @@ class Solution {
      * @return Integer
      */
     function countGoodSubstrings($s) {
-        $cnt = 0;
-        for ($i = 0; $i < strlen($s) - 2; $i++) {
-            if ($s[$i] != $s[$i + 1] && $s[$i] != $s[$i + 2] && $s[$i + 1] != $s[$i + 2]) {
-                $cnt++;
+        $ans = 0;
+        $n = strlen($s);
+        $l = 0;
+        $r = 0;
+        $mask = 0;
+
+        while ($r < $n) {
+            $x = ord($s[$r]) - ord('a');
+            while (($mask >> $x) & 1) {
+                $y = ord($s[$l++]) - ord('a');
+                $mask ^= 1 << $y;
             }
+            $mask |= 1 << $x;
+            if ($r - $l + 1 >= 3) {
+                $ans++;
+            }
+            $r++;
         }
-        return $cnt++;
+
+        return $ans;
     }
 }
 ```

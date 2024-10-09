@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3201.Find%20the%20Maximum%20Length%20of%20Valid%20Subsequence%20I/README_EN.md
+rating: 1663
+source: Weekly Contest 404 Q2
 tags:
     - Array
     - Dynamic Programming
@@ -92,7 +94,7 @@ Iterate through the array $nums$, and for each number $x$, we get $x = x \bmod k
 
 The answer is the maximum value among all $f[x][y]$.
 
-The time complexity is $O(n \times k)$, and the space complexity is $O(k^2)$. Here, $n$ is the length of the array $\text{nums}$, and $k=2$.
+The time complexity is $O(n \times k)$, and the space complexity is $O(k^2)$. Here, $n$ is the length of the array $\textit{nums}$, and $k=2$.
 
 <!-- tabs:start -->
 

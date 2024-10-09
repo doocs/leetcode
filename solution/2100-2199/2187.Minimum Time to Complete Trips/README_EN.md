@@ -69,7 +69,7 @@ So the minimum time needed to complete 1 trip is 2.
 
 We notice that if we can complete at least $totalTrips$ trips in $t$ time, then we can also complete at least $totalTrips$ trips in $t' > t$ time. Therefore, we can use the method of binary search to find the smallest $t$.
 
-We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \min(time) \times totalTrips$. For each binary search, we calculate the middle value $\text{mid} = \frac{l + r}{2}$, and then calculate the number of trips that can be completed in $\text{mid}$ time. If this number is greater than or equal to $totalTrips$, then we reduce the right boundary to $\text{mid}$, otherwise we increase the left boundary to $\text{mid} + 1$.
+We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \min(time) \times totalTrips$. For each binary search, we calculate the middle value $\textit{mid} = \frac{l + r}{2}$, and then calculate the number of trips that can be completed in $\textit{mid}$ time. If this number is greater than or equal to $totalTrips$, then we reduce the right boundary to $\textit{mid}$, otherwise we increase the left boundary to $\textit{mid} + 1$.
 
 Finally, return the left boundary.
 

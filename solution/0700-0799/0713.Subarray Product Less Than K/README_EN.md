@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md
 tags:
     - Array
+    - Binary Search
+    - Prefix Sum
     - Sliding Window
 ---
 
@@ -184,6 +186,26 @@ var numSubarrayProductLessThanK = function (nums, k) {
     }
     return ans;
 };
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun numSubarrayProductLessThanK(nums: IntArray, k: Int): Int {
+        var left = 0
+        var count = 0
+        var product = 1
+        nums.forEachIndexed { right, num ->
+            product *= num
+            while (product >= k && left <= right) {
+                product /= nums[left++]
+            }
+            count += right - left + 1
+        }
+        return count
+    }
+}
 ```
 
 <!-- tabs:end -->

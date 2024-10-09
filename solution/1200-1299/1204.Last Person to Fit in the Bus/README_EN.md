@@ -40,6 +40,8 @@ weight is the weight of the person in kilograms.
 
 <p>Write a solution to find the <code>person_name</code> of the <strong>last person</strong> that can fit on the bus without exceeding the weight limit. The test cases are generated such that the first person does not exceed the weight limit.</p>
 
+<p><strong>Note</strong> that <em>only one</em> person can board the bus at any given turn.</p>
+
 <p>The&nbsp;result format is in the following example.</p>
 
 <p>&nbsp;</p>

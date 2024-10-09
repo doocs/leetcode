@@ -54,15 +54,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：递归
 
-我们设计一个函数 $\text{dfs}(A, B)$，用于判断树 A 中以节点 A 为根节点的子树是否包含树 B。
+我们设计一个函数 $\textit{dfs}(A, B)$，用于判断树 A 中以节点 A 为根节点的子树是否包含树 B。
 
-函数 $\text{dfs}(A, B)$ 的执行步骤如下：
+函数 $\textit{dfs}(A, B)$ 的执行步骤如下：
 
 1. 如果树 B 为空，则树 B 是树 A 的子结构，返回 `true`；
 2. 如果树 A 为空，或者树 A 的根节点的值不等于树 B 的根节点的值，则树 B 不是树 A 的子结构，返回 `false`；
-3. 判断树 A 的左子树是否包含树 B，即调用 $\text{dfs}(A.left, B)$，并且判断树 A 的右子树是否包含树 B，即调用 $\text{dfs}(A.right, B)$。如果其中有一个函数返回 `false`，则树 B 不是树 A 的子结构，返回 `false`；否则，返回 `true`。
+3. 判断树 A 的左子树是否包含树 B，即调用 $\textit{dfs}(A.left, B)$，并且判断树 A 的右子树是否包含树 B，即调用 $\textit{dfs}(A.right, B)$。如果其中有一个函数返回 `false`，则树 B 不是树 A 的子结构，返回 `false`；否则，返回 `true`。
 
-在函数 `isSubStructure` 中，我们首先判断树 A 和树 B 是否为空，如果其中有一个为空，则树 B 不是树 A 的子结构，返回 `false`。然后，我们调用 $\text{dfs}(A, B)$，判断树 A 是否包含树 B。如果是，则返回 `true`；否则，递归判断树 A 的左子树是否包含树 B，以及树 A 的右子树是否包含树 B。如果其中有一个返回 `true`，则树 B 是树 A 的子结构，返回 `true`；否则，返回 `false`。
+在函数 `isSubStructure` 中，我们首先判断树 A 和树 B 是否为空，如果其中有一个为空，则树 B 不是树 A 的子结构，返回 `false`。然后，我们调用 $\textit{dfs}(A, B)$，判断树 A 是否包含树 B。如果是，则返回 `true`；否则，递归判断树 A 的左子树是否包含树 B，以及树 A 的右子树是否包含树 B。如果其中有一个返回 `true`，则树 B 是树 A 的子结构，返回 `true`；否则，返回 `false`。
 
 时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是树 A 和树 B 的节点个数。
 

@@ -1,16 +1,11 @@
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
-        mp = [0] * 1001
-        for x in arr1:
-            mp[x] += 1
-        i = 0
+        cnt = Counter(arr1)
+        ans = []
         for x in arr2:
-            while mp[x] > 0:
-                arr1[i] = x
-                mp[x] -= 1
-                i += 1
-        for x, cnt in enumerate(mp):
-            for _ in range(cnt):
-                arr1[i] = x
-                i += 1
-        return arr1
+            ans.extend([x] * cnt[x])
+            cnt.pop(x)
+        mi, mx = min(arr1), max(arr1)
+        for x in range(mi, mx + 1):
+            ans.extend([x] * cnt[x])
+        return ans

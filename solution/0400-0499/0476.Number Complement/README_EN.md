@@ -61,13 +61,13 @@ tags:
 
 According to the problem description, we can use XOR operation to implement the flipping operation, the steps are as follows:
 
-First, we find the highest bit of $1$ in the binary representation of $\text{num}$, and the position is denoted as $k$.
+First, we find the highest bit of $1$ in the binary representation of $\textit{num}$, and the position is denoted as $k$.
 
 Then, we construct a binary number, where the $k$-th bit is $0$ and the rest of the lower bits are $1$, which is $2^k - 1$;
 
-Finally, we perform XOR operation on $\text{num}$ and the constructed binary number to get the answer.
+Finally, we perform XOR operation on $\textit{num}$ and the constructed binary number to get the answer.
 
-The time complexity is $O(\log \text{num})$, where $\text{num}$ is the input integer. The space complexity is $O(1)$.
+The time complexity is $O(\log \textit{num})$, where $\textit{num}$ is the input integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -113,6 +113,48 @@ func findComplement(num int) int {
 ```ts
 function findComplement(num: number): number {
     return num ^ (2 ** num.toString(2).length - 1);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var findComplement = function (num) {
+    return num ^ (2 ** num.toString(2).length - 1);
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Bit Manipulation. Inversion + AND
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findComplement(num: number): number {
+    return ~num & (2 ** num.toString(2).length - 1);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+function findComplement(num) {
+    return ~num & (2 ** num.toString(2).length - 1);
 }
 ```
 

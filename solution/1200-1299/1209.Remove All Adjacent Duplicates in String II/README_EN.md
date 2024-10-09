@@ -80,22 +80,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 ```python
 class Solution:
     def removeDuplicates(self, s: str, k: int) -> str:
-        t = []
-        i, n = 0, len(s)
-        while i < n:
-            j = i
-            while j < n and s[j] == s[i]:
-                j += 1
-            cnt = j - i
-            cnt %= k
-            if t and t[-1][0] == s[i]:
-                t[-1][1] = (t[-1][1] + cnt) % k
-                if t[-1][1] == 0:
-                    t.pop()
-            elif cnt:
-                t.append([s[i], cnt])
-            i = j
-        ans = [c * v for c, v in t]
+        stk = []
+        for c in s:
+            if stk and stk[-1][0] == c:
+                stk[-1][1] = (stk[-1][1] + 1) % k
+                if stk[-1][1] == 0:
+                    stk.pop()
+            else:
+                stk.append([c, 1])
+        ans = [c * v for c, v in stk]
         return "".join(ans)
 ```
 
@@ -183,33 +176,6 @@ type pair struct {
 	c rune
 	v int
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def removeDuplicates(self, s: str, k: int) -> str:
-        stk = []
-        for c in s:
-            if stk and stk[-1][0] == c:
-                stk[-1][1] = (stk[-1][1] + 1) % k
-                if stk[-1][1] == 0:
-                    stk.pop()
-            else:
-                stk.append([c, 1])
-        ans = [c * v for c, v in stk]
-        return "".join(ans)
 ```
 
 <!-- tabs:end -->

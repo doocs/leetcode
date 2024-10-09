@@ -7,6 +7,7 @@ source: Biweekly Contest 51 Q4
 tags:
     - Array
     - Binary Search
+    - Ordered Set
     - Sorting
 ---
 

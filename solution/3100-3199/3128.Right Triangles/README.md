@@ -24,13 +24,9 @@ tags:
 
 <p>给你一个二维 boolean 矩阵&nbsp;<code>grid</code>&nbsp;。</p>
 
+<p>如果&nbsp;<code>grid</code> 的 3 个元素的集合中，一个元素与另一个元素在 <strong>同一行</strong>，并且与第三个元素在 <strong>同一列</strong>，则该集合是一个 <strong>直角三角形</strong>。3 个元素 <strong>不必</strong> 彼此相邻。</p>
+
 <p>请你返回使用 <code>grid</code>&nbsp;中的 3 个元素可以构建的 <strong>直角三角形</strong> 数目，且满足 3 个元素值 <strong>都</strong>&nbsp;为 1 。</p>
-
-<p><b>注意：</b></p>
-
-<ul>
-	<li>如果 <code>grid</code>&nbsp;中 3 个元素满足：一个元素与另一个元素在 <strong>同一行</strong>，同时与第三个元素在 <strong>同一列</strong>&nbsp;，那么这 3 个元素称为一个 <strong>直角三角形</strong>&nbsp;。这 3 个元素互相之间不需要相邻。</li>
-</ul>
 
 <p>&nbsp;</p>
 
@@ -85,7 +81,7 @@ tags:
 
 <p><b>解释：</b></p>
 
-<p>有 2 个直角三角形。</p>
+<p>有 2 个值为 1 的直角三角形。注意蓝色的那个 <strong>没有&nbsp;</strong>组成直角三角形，因为 3 个元素在同一列。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -122,7 +118,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>没有直角三角形。</p>
+<p>没有值为 1 的直角三角形。注意蓝色的那个&nbsp;<strong>没有</strong> 组成直角三角形。</p>
 </div>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -176,7 +172,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>有两个直角三角形。</p>
+<p>有两个值为 1 的直角三角形。</p>
 </div>
 
 <p>&nbsp;</p>

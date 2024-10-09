@@ -1,9 +1,4 @@
 function destCity(paths: string[][]): string {
-    const set = new Set(paths.map(([a]) => a));
-    for (const [_, b] of paths) {
-        if (!set.has(b)) {
-            return b;
-        }
-    }
-    return '';
+    const s = new Set<string>(paths.map(([a, _]) => a));
+    return paths.find(([_, b]) => !s.has(b))![1];
 }

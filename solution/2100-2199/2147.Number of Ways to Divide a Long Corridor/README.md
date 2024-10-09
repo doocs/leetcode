@@ -78,15 +78,21 @@ tags:
 
 ### 方法一：记忆化搜索
 
-设计函数 `dfs(i, cnt)` 表示从下标 `i` 开始，且当前已经分配了 `cnt` 个座位的方案数。
+我们设计一个函数 $\textit{dfs}(i, k)$，表示在走廊的第 $i$ 个位置，已经放置了 $k$ 个屏风的情况下，划分走廊的方案数。那么答案就是 $\textit{dfs}(0, 0)$。
 
-对于下标 `i` 处的字符，如果是 `S`，那么 `cnt` 加 `1`，如果此时 `cnt` 超过 `2`，那么直接返回 `0`。
+函数 $\textit{dfs}(i, k)$ 的计算过程如下：
 
-否则我们可以选择不放置屏风，此时的方案数为 `dfs(i + 1, cnt)`；如果此时 `cnt` 为 `2`，我们还可以选择放置屏风，此时的方案数为 `dfs(i + 1, 0)`。
+如果 $i \geq \textit{len}(\textit{corridor})$，表示已经遍历完了走廊，此时如果 $k = 2$，说明找到了一种划分走廊的方案，返回 $1$，否则返回 $0$；
 
-最终返回方案数，记忆化搜索即可。
+否则，我们需要考虑当前位置 $i$ 的情况：
 
-时间复杂度 $O(n\times 3)$，空间复杂度 $O(n\times 3)$。其中 $n$ 为字符串 `corridor` 的长度。
+-   如果 $\textit{corridor}[i] = \text{'S'}$，表示当前位置是一个座位，我们将 $k$ 加 $1$；
+-   如果 $k > 2$，表示当前位置放置的屏风数量超过了 $2$，返回 $0$；
+-   否则，我们可以选择不放置屏风，即 $\textit{dfs}(i + 1, k)$；如果 $k = 2$，我们还可以选择放置屏风，即 $\textit{dfs}(i + 1, 0)$；我们将这两种情况的结果相加并取模 $10^9 + 7$，即 $\textit{ans} = (\textit{ans} + \textit{dfs}(i + 1, k)) \bmod \text{mod}$。
+
+最后，我们返回 $\textit{dfs}(0, 0)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是走廊的长度。
 
 <!-- tabs:start -->
 
@@ -96,19 +102,17 @@ tags:
 class Solution:
     def numberOfWays(self, corridor: str) -> int:
         @cache
-        def dfs(i, cnt):
-            if i == n:
-                return int(cnt == 2)
-            cnt += corridor[i] == 'S'
-            if cnt > 2:
+        def dfs(i: int, k: int) -> int:
+            if i >= len(corridor):
+                return int(k == 2)
+            k += int(corridor[i] == "S")
+            if k > 2:
                 return 0
-            ans = dfs(i + 1, cnt)
-            if cnt == 2:
-                ans += dfs(i + 1, 0)
-                ans %= mod
+            ans = dfs(i + 1, k)
+            if k == 2:
+                ans = (ans + dfs(i + 1, 0)) % mod
             return ans
 
-        n = len(corridor)
         mod = 10**9 + 7
         ans = dfs(0, 0)
         dfs.cache_clear()
@@ -119,39 +123,34 @@ class Solution:
 
 ```java
 class Solution {
-    private String s;
     private int n;
-    private int[][] f;
-    private static final int MOD = (int) 1e9 + 7;
+    private char[] s;
+    private Integer[][] f;
+    private final int mod = (int) 1e9 + 7;
 
     public int numberOfWays(String corridor) {
-        s = corridor;
-        n = s.length();
-        f = new int[n][3];
-        for (var e : f) {
-            Arrays.fill(e, -1);
-        }
+        s = corridor.toCharArray();
+        n = s.length;
+        f = new Integer[n][3];
         return dfs(0, 0);
     }
 
-    private int dfs(int i, int cnt) {
-        if (i == n) {
-            return cnt == 2 ? 1 : 0;
+    private int dfs(int i, int k) {
+        if (i >= n) {
+            return k == 2 ? 1 : 0;
         }
-        cnt += s.charAt(i) == 'S' ? 1 : 0;
-        if (cnt > 2) {
+        if (f[i][k] != null) {
+            return f[i][k];
+        }
+        k += s[i] == 'S' ? 1 : 0;
+        if (k > 2) {
             return 0;
         }
-        if (f[i][cnt] != -1) {
-            return f[i][cnt];
+        int ans = dfs(i + 1, k);
+        if (k == 2) {
+            ans = (ans + dfs(i + 1, 0)) % mod;
         }
-        int ans = dfs(i + 1, cnt);
-        if (cnt == 2) {
-            ans += dfs(i + 1, 0);
-            ans %= MOD;
-        }
-        f[i][cnt] = ans;
-        return ans;
+        return f[i][k] = ans;
     }
 }
 ```
@@ -161,26 +160,29 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int numberOfWays(string corridor) {
         int n = corridor.size();
-        vector<vector<int>> f(n, vector<int>(3, -1));
-        function<int(int, int)> dfs;
-        dfs = [&](int i, int cnt) {
-            if (i == n) return cnt == 2 ? 1 : 0;
-            cnt += corridor[i] == 'S';
-            if (cnt > 2) return 0;
-            if (f[i][cnt] != -1) return f[i][cnt];
-            int ans = dfs(i + 1, cnt);
-            if (cnt == 2) {
-                ans += dfs(i + 1, 0);
-                ans %= mod;
+        int f[n][3];
+        memset(f, -1, sizeof(f));
+        const int mod = 1e9 + 7;
+        auto dfs = [&](auto&& dfs, int i, int k) -> int {
+            if (i >= n) {
+                return k == 2;
             }
-            f[i][cnt] = ans;
-            return ans;
+            if (f[i][k] != -1) {
+                return f[i][k];
+            }
+            k += corridor[i] == 'S';
+            if (k > 2) {
+                return 0;
+            }
+            f[i][k] = dfs(dfs, i + 1, k);
+            if (k == 2) {
+                f[i][k] = (f[i][k] + dfs(dfs, i + 1, 0)) % mod;
+            }
+            return f[i][k];
         };
-        return dfs(0, 0);
+        return dfs(dfs, 0, 0);
     }
 };
 ```
@@ -190,38 +192,33 @@ public:
 ```go
 func numberOfWays(corridor string) int {
 	n := len(corridor)
-	var mod int = 1e9 + 7
-	f := make([][]int, n)
+	f := make([][3]int, n)
 	for i := range f {
-		f[i] = make([]int, 3)
-		for j := range f[i] {
-			f[i][j] = -1
-		}
+		f[i] = [3]int{-1, -1, -1}
 	}
-	var dfs func(i, cnt int) int
-	dfs = func(i, cnt int) int {
-		if i == n {
-			if cnt == 2 {
+	const mod = 1e9 + 7
+	var dfs func(int, int) int
+	dfs = func(i, k int) int {
+		if i >= n {
+			if k == 2 {
 				return 1
 			}
 			return 0
 		}
-		if corridor[i] == 'S' {
-			cnt++
+		if f[i][k] != -1 {
+			return f[i][k]
 		}
-		if cnt > 2 {
+		if corridor[i] == 'S' {
+			k++
+		}
+		if k > 2 {
 			return 0
 		}
-		if f[i][cnt] != -1 {
-			return f[i][cnt]
+		f[i][k] = dfs(i+1, k)
+		if k == 2 {
+			f[i][k] = (f[i][k] + dfs(i+1, 0)) % mod
 		}
-		ans := dfs(i+1, cnt)
-		if cnt == 2 {
-			ans += dfs(i+1, 0)
-			ans %= mod
-		}
-		f[i][cnt] = ans
-		return ans
+		return f[i][k]
 	}
 	return dfs(0, 0)
 }
@@ -231,26 +228,148 @@ func numberOfWays(corridor string) int {
 
 ```ts
 function numberOfWays(corridor: string): number {
-    const M: number = 1e9 + 7;
-    const seatNumbers: number[] = [];
+    const n = corridor.length;
+    const mod = 10 ** 9 + 7;
+    const f: number[][] = Array.from({ length: n }, () => Array(3).fill(-1));
+    const dfs = (i: number, k: number): number => {
+        if (i >= n) {
+            return k === 2 ? 1 : 0;
+        }
+        if (f[i][k] !== -1) {
+            return f[i][k];
+        }
+        if (corridor[i] === 'S') {
+            ++k;
+        }
+        if (k > 2) {
+            return (f[i][k] = 0);
+        }
+        f[i][k] = dfs(i + 1, k);
+        if (k === 2) {
+            f[i][k] = (f[i][k] + dfs(i + 1, 0)) % mod;
+        }
+        return f[i][k];
+    };
+    return dfs(0, 0);
+}
+```
 
-    for (let i = 0; i < corridor.length; i++) {
-        if (corridor.charAt(i) === 'S') {
-            seatNumbers.push(i);
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：数学
+
+我们可以将每两个座位划分为一组。在相邻的两组座位之间，如果前一组的最后一个座位和后一组的第一个座位之间的距离为 $x$，那么就有 $x$ 种放置屏风的方案。
+
+我们遍历走廊，用一个变量 $\textit{cnt}$ 记录当前座位数，用一个变量 $\textit{last}$ 记录上一个座位的位置。
+
+当遍历到一个座位时，我们将 $\textit{cnt}$ 加 $1$，如果 $\textit{cnt}$ 大于 $2$ 且 $\textit{cnt}$ 为奇数，那么我们就需要在 $\textit{last}$ 和当前座位之间放置一个屏风，此时的方案数就是 $\textit{ans} \times (i - \textit{last})$，其中 $\textit{ans}$ 是之前的方案数。然后，我们更新 $\textit{last}$ 为当前座位的位置 $i$。
+
+最后，如果 $\textit{cnt}$ 大于 $0$ 且 $\textit{cnt}$ 为偶数，那么返回 $\textit{ans}$，否则返回 $0$。
+
+时间复杂度 $O(n)$，其中 $n$ 是走廊的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfWays(self, corridor: str) -> int:
+        mod = 10**9 + 7
+        ans, cnt, last = 1, 0, 0
+        for i, c in enumerate(corridor):
+            if c == "S":
+                cnt += 1
+                if cnt > 2 and cnt % 2:
+                    ans = ans * (i - last) % mod
+                last = i
+        return ans if cnt and cnt % 2 == 0 else 0
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numberOfWays(String corridor) {
+        final int mod = (int) 1e9 + 7;
+        long ans = 1, cnt = 0, last = 0;
+        for (int i = 0; i < corridor.length(); ++i) {
+            if (corridor.charAt(i) == 'S') {
+                if (++cnt > 2 && cnt % 2 == 1) {
+                    ans = ans * (i - last) % mod;
+                }
+                last = i;
+            }
+        }
+        return cnt > 0 && cnt % 2 == 0 ? (int) ans : 0;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numberOfWays(string corridor) {
+        const int mod = 1e9 + 7;
+        long long ans = 1;
+        int cnt = 0, last = 0;
+        for (int i = 0; i < corridor.length(); ++i) {
+            if (corridor[i] == 'S') {
+                if (++cnt > 2 && cnt % 2) {
+                    ans = ans * (i - last) % mod;
+                }
+                last = i;
+            }
+        }
+        return cnt > 0 && cnt % 2 == 0 ? ans : 0;
+    }
+};
+```
+
+#### Go
+
+```go
+func numberOfWays(corridor string) int {
+	const mod int = 1e9 + 7
+	ans, cnt, last := 1, 0, 0
+	for i, c := range corridor {
+		if c == 'S' {
+			cnt++
+			if cnt > 2 && cnt%2 == 1 {
+				ans = ans * (i - last) % mod
+			}
+			last = i
+		}
+	}
+	if cnt > 0 && cnt%2 == 0 {
+		return ans
+	}
+	return 0
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfWays(corridor: string): number {
+    const mod = 10 ** 9 + 7;
+    const n = corridor.length;
+    let [ans, cnt, last] = [1, 0, 0];
+    for (let i = 0; i < n; ++i) {
+        if (corridor[i] === 'S') {
+            if (++cnt > 2 && cnt % 2) {
+                ans = (ans * (i - last)) % mod;
+            }
+            last = i;
         }
     }
-
-    if (seatNumbers.length % 2 !== 0 || seatNumbers.length === 0) {
-        return 0;
-    }
-
-    let result: number = 1;
-
-    for (let i = 2; i < seatNumbers.length; i += 2) {
-        result = (result * (seatNumbers[i] - seatNumbers[i - 1])) % M;
-    }
-
-    return result;
+    return cnt > 0 && cnt % 2 === 0 ? ans : 0;
 }
 ```
 

@@ -48,7 +48,49 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Digit DP
+
+This problem essentially asks for the number of times the digit $1$ appears in the given range $[l, ..r]$. The count is related to the number of digits and the value of each digit. We can use the concept of Digit DP to solve this problem. In Digit DP, the size of the number has little impact on the complexity.
+
+For the range $[l, ..r]$ problem, we generally convert it to the problem of $[1, ..r]$ and then subtract the result of $[1, ..l - 1]$, i.e.:
+
+$$
+ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+$$
+
+However, for this problem, we only need to find the value for the range $[1, ..r]$.
+
+Here, we use memoized search to implement Digit DP. We search from the starting point downwards, and at the lowest level, we get the number of solutions. We then return the answers layer by layer upwards, and finally get the final answer from the starting point of the search.
+
+The basic steps are as follows:
+
+First, we convert the number $n$ to a string $s$. Then we design a function $\textit{dfs}(i, \textit{cnt}, \textit{limit})$, where:
+
+-   The digit $i$ represents the current position being searched, starting from the highest digit, i.e., $i = 0$ represents the highest digit.
+-   The digit $\textit{cnt}$ represents the current count of the digit $1$ in the number.
+-   The boolean $\textit{limit}$ indicates whether the current number is restricted by the upper bound.
+
+The function executes as follows:
+
+If $i$ exceeds the length of the number $n$, it means the search is over, directly return $cnt$. If $\textit{limit}$ is true, $up$ is the $i$-th digit of the current number. Otherwise, $up = 9$. Next, we iterate $j$ from $0$ to $up$. For each $j$:
+
+-   If $j$ equals $1$, we increment $cnt$ by one.
+-   Recursively call $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \land j = up)$.
+
+The answer is $\textit{dfs}(0, 0, \text{True})$.
+
+The time complexity is $O(m^2 \times D)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the number $n$, and $D = 10$.
+
+Similar Problems:
+
+Here is the translation of the similar problems into English:
+
+-   [357. Count Numbers with Unique Digits](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
+-   [600. Non-negative Integers without Consecutive Ones](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
+-   [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
+-   [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
+-   [1012. Numbers with Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
+-   [2376. Count Special Integers](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -58,57 +100,48 @@ tags:
 class Solution:
     def countDigitOne(self, n: int) -> int:
         @cache
-        def dfs(pos, cnt, limit):
-            if pos <= 0:
+        def dfs(i: int, cnt: int, limit: bool) -> int:
+            if i >= len(s):
                 return cnt
-            up = a[pos] if limit else 9
+            up = int(s[i]) if limit else 9
             ans = 0
-            for i in range(up + 1):
-                ans += dfs(pos - 1, cnt + (i == 1), limit and i == up)
+            for j in range(up + 1):
+                ans += dfs(i + 1, cnt + (j == 1), limit and j == up)
             return ans
 
-        a = [0] * 12
-        l = 1
-        while n:
-            a[l] = n % 10
-            n //= 10
-            l += 1
-        return dfs(l, 0, True)
+        s = str(n)
+        return dfs(0, 0, True)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int[] a = new int[12];
-    private int[][] dp = new int[12][12];
+    private int m;
+    private char[] s;
+    private Integer[][] f;
 
     public int countDigitOne(int n) {
-        int len = 0;
-        while (n > 0) {
-            a[++len] = n % 10;
-            n /= 10;
-        }
-        for (var e : dp) {
-            Arrays.fill(e, -1);
-        }
-        return dfs(len, 0, true);
+        s = String.valueOf(n).toCharArray();
+        m = s.length;
+        f = new Integer[m][m];
+        return dfs(0, 0, true);
     }
 
-    private int dfs(int pos, int cnt, boolean limit) {
-        if (pos <= 0) {
+    private int dfs(int i, int cnt, boolean limit) {
+        if (i >= m) {
             return cnt;
         }
-        if (!limit && dp[pos][cnt] != -1) {
-            return dp[pos][cnt];
+        if (!limit && f[i][cnt] != null) {
+            return f[i][cnt];
         }
-        int up = limit ? a[pos] : 9;
+        int up = limit ? s[i] - '0' : 9;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            ans += dfs(pos - 1, cnt + (i == 1 ? 1 : 0), limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            ans += dfs(i + 1, cnt + (j == 1 ? 1 : 0), limit && j == up);
         }
         if (!limit) {
-            dp[pos][cnt] = ans;
+            f[i][cnt] = ans;
         }
         return ans;
     }
@@ -120,35 +153,29 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int a[12];
-    int dp[12][12];
-
     int countDigitOne(int n) {
-        int len = 0;
-        while (n) {
-            a[++len] = n % 10;
-            n /= 10;
-        }
-        memset(dp, -1, sizeof dp);
-        return dfs(len, 0, true);
-    }
-
-    int dfs(int pos, int cnt, bool limit) {
-        if (pos <= 0) {
-            return cnt;
-        }
-        if (!limit && dp[pos][cnt] != -1) {
-            return dp[pos][cnt];
-        }
-        int ans = 0;
-        int up = limit ? a[pos] : 9;
-        for (int i = 0; i <= up; ++i) {
-            ans += dfs(pos - 1, cnt + (i == 1), limit && i == up);
-        }
-        if (!limit) {
-            dp[pos][cnt] = ans;
-        }
-        return ans;
+        string s = to_string(n);
+        int m = s.size();
+        int f[m][m];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i, int cnt, bool limit) -> int {
+            if (i >= m) {
+                return cnt;
+            }
+            if (!limit && f[i][cnt] != -1) {
+                return f[i][cnt];
+            }
+            int up = limit ? s[i] - '0' : 9;
+            int ans = 0;
+            for (int j = 0; j <= up; ++j) {
+                ans += dfs(dfs, i + 1, cnt + (j == 1), limit && j == up);
+            }
+            if (!limit) {
+                f[i][cnt] = ans;
+            }
+            return ans;
+        };
+        return dfs(dfs, 0, 0, true);
     }
 };
 ```
@@ -157,46 +184,69 @@ public:
 
 ```go
 func countDigitOne(n int) int {
-	a := make([]int, 12)
-	dp := make([][]int, 12)
-	for i := range dp {
-		dp[i] = make([]int, 12)
-		for j := range dp[i] {
-			dp[i][j] = -1
+	s := strconv.Itoa(n)
+	m := len(s)
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, m)
+		for j := range f[i] {
+			f[i][j] = -1
 		}
 	}
-	l := 0
-	for n > 0 {
-		l++
-		a[l] = n % 10
-		n /= 10
-	}
-	var dfs func(int, int, bool) int
-	dfs = func(pos, cnt int, limit bool) int {
-		if pos <= 0 {
+	var dfs func(i, cnt int, limit bool) int
+	dfs = func(i, cnt int, limit bool) int {
+		if i >= m {
 			return cnt
 		}
-		if !limit && dp[pos][cnt] != -1 {
-			return dp[pos][cnt]
+		if !limit && f[i][cnt] != -1 {
+			return f[i][cnt]
 		}
 		up := 9
 		if limit {
-			up = a[pos]
+			up = int(s[i] - '0')
 		}
 		ans := 0
-		for i := 0; i <= up; i++ {
-			t := cnt
-			if i == 1 {
-				t++
+		for j := 0; j <= up; j++ {
+			t := 0
+			if j == 1 {
+				t = 1
 			}
-			ans += dfs(pos-1, t, limit && i == up)
+			ans += dfs(i+1, cnt+t, limit && j == up)
 		}
 		if !limit {
-			dp[pos][cnt] = ans
+			f[i][cnt] = ans
 		}
 		return ans
 	}
-	return dfs(l, 0, true)
+	return dfs(0, 0, true)
+}
+```
+
+#### TypeScript
+
+```ts
+function countDigitOne(n: number): number {
+    const s = n.toString();
+    const m = s.length;
+    const f: number[][] = Array.from({ length: m }, () => Array(m).fill(-1));
+    const dfs = (i: number, cnt: number, limit: boolean): number => {
+        if (i >= m) {
+            return cnt;
+        }
+        if (!limit && f[i][cnt] !== -1) {
+            return f[i][cnt];
+        }
+        const up = limit ? +s[i] : 9;
+        let ans = 0;
+        for (let j = 0; j <= up; ++j) {
+            ans += dfs(i + 1, cnt + (j === 1 ? 1 : 0), limit && j === up);
+        }
+        if (!limit) {
+            f[i][cnt] = ans;
+        }
+        return ans;
+    };
+    return dfs(0, 0, true);
 }
 ```
 
@@ -204,20 +254,33 @@ func countDigitOne(n int) int {
 
 ```cs
 public class Solution {
+    private int m;
+    private char[] s;
+    private int?[,] f;
+
     public int CountDigitOne(int n) {
-        if (n <= 0) return 0;
-        if (n < 10) return 1;
-        return CountDigitOne(n / 10 - 1) * 10 + n / 10 + CountDigitOneOfN(n / 10) * (n % 10 + 1) + (n % 10 >= 1 ? 1 : 0);
+        s = n.ToString().ToCharArray();
+        m = s.Length;
+        f = new int?[m, m];
+        return Dfs(0, 0, true);
     }
 
-    private int CountDigitOneOfN(int n) {
-        var count = 0;
-        while (n > 0)
-        {
-            if (n % 10 == 1) ++count;
-            n /= 10;
+    private int Dfs(int i, int cnt, bool limit) {
+        if (i >= m) {
+            return cnt;
         }
-        return count;
+        if (!limit && f[i, cnt] != null) {
+            return f[i, cnt].Value;
+        }
+        int up = limit ? s[i] - '0' : 9;
+        int ans = 0;
+        for (int j = 0; j <= up; ++j) {
+            ans += Dfs(i + 1, cnt + (j == 1 ? 1 : 0), limit && j == up);
+        }
+        if (!limit) {
+            f[i, cnt] = ans;
+        }
+        return ans;
     }
 }
 ```

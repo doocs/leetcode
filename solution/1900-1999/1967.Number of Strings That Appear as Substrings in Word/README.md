@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1967.Nu
 rating: 1231
 source: 第 254 场周赛 Q1
 tags:
+    - 数组
     - 字符串
 ---
 

@@ -24,12 +24,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.02.Minimum%20Heigh
 
 ### 方法一：递归
 
-我们设计一个函数 $\text{dfs}(l, r)$，表示构造出从 $l$ 到 $r$ 的子树，那么答案就是 $\text{dfs}(0, \text{len}(nums) - 1)$。
+我们设计一个函数 $\textit{dfs}(l, r)$，表示构造出从 $l$ 到 $r$ 的子树，那么答案就是 $\textit{dfs}(0, \textit{len}(nums) - 1)$。
 
-函数 $\text{dfs}(l, r)$ 的执行过程如下：
+函数 $\textit{dfs}(l, r)$ 的执行过程如下：
 
-1. 如果 $l > r$，返回 $\text{None}$。
-2. 否则，我们计算出中间位置 $mid = \frac{l + r}{2}$，然后构造出根节点，左子树为 $\text{dfs}(l, mid - 1)$，右子树为 $\text{dfs}(mid + 1, r)$。
+1. 如果 $l > r$，返回 $\textit{None}$。
+2. 否则，我们计算出中间位置 $mid = \frac{l + r}{2}$，然后构造出根节点，左子树为 $\textit{dfs}(l, mid - 1)$，右子树为 $\textit{dfs}(mid + 1, r)$。
 3. 最后返回根节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。

@@ -70,7 +70,7 @@ Assume that the elements of array $arr1$ are $a_1, a_2, ..., a_n$, and the eleme
 
 $$
 \begin{aligned}
-\text{ans} &= (a_1 \wedge b_1) \oplus (a_1 \wedge b_2) ... (a_1 \wedge b_m) \\
+\textit{ans} &= (a_1 \wedge b_1) \oplus (a_1 \wedge b_2) ... (a_1 \wedge b_m) \\
 &\quad \oplus (a_2 \wedge b_1) \oplus (a_2 \wedge b_2) ... (a_2 \wedge b_m) \\
 &\quad \oplus \cdots \\
 &\quad \oplus (a_n \wedge b_1) \oplus (a_n \wedge b_2) ... (a_n \wedge b_m) \\
@@ -80,7 +80,7 @@ $$
 Since in Boolean algebra, the XOR operation is addition without carry, and the AND operation is multiplication, the above formula can be simplified as:
 
 $$
-\text{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
+\textit{ans} = (a_1 \oplus a_2 \oplus \cdots \oplus a_n) \wedge (b_1 \oplus b_2 \oplus \cdots \oplus b_m)
 $$
 
 That is, the bitwise AND of the XOR sum of array $arr1$ and the XOR sum of array $arr2$.

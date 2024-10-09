@@ -11,23 +11,22 @@
  */
 class Solution {
 public:
-    int mx = 0;
-    int ans = 0;
-
     int deepestLeavesSum(TreeNode* root) {
-        dfs(root, 1);
+        int mx = 0, ans = 0;
+        auto dfs = [&](auto&& dfs, TreeNode* root, int i) {
+            if (!root) {
+                return;
+            }
+            if (i == mx) {
+                ans += root->val;
+            } else if (i > mx) {
+                mx = i;
+                ans = root->val;
+            }
+            dfs(dfs, root->left, i + 1);
+            dfs(dfs, root->right, i + 1);
+        };
+        dfs(dfs, root, 1);
         return ans;
-    }
-
-    void dfs(TreeNode* root, int i) {
-        if (!root) return;
-        if (i == mx) {
-            ans += root->val;
-        } else if (i > mx) {
-            mx = i;
-            ans = root->val;
-        }
-        dfs(root->left, i + 1);
-        dfs(root->right, i + 1);
     }
 };

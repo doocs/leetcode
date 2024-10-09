@@ -303,4 +303,100 @@ function longestSubarray(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Two Pointers (Optimization)
+
+In Solution 2, we move the left pointer in a loop until $cnt \leq 1$. Since the problem asks for the longest subarray, it means we don't need to reduce the length of the subarray. Therefore, if $\textit{cnt} \gt 1$, we only move the left pointer once, and the right pointer continues to move to the right. This ensures that the length of the subarray does not decrease.
+
+Finally, the answer we return is $n - l - 1$, where $l$ is the position of the left pointer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestSubarray(self, nums: List[int]) -> int:
+        cnt = l = 0
+        for x in nums:
+            cnt += x ^ 1
+            if cnt > 1:
+                cnt -= nums[l] ^ 1
+                l += 1
+        return len(nums) - l - 1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestSubarray(int[] nums) {
+        int ans = 0, cnt = 0, l = 0;
+        for (int x : nums) {
+            cnt += x ^ 1;
+            if (cnt > 1) {
+                cnt -= nums[l++] ^ 1;
+            }
+        }
+        return nums.length - l - 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        int ans = 0, cnt = 0, l = 0;
+        for (int x : nums) {
+            cnt += x ^ 1;
+            if (cnt > 1) {
+                cnt -= nums[l++] ^ 1;
+            }
+        }
+        return nums.size() - l - 1;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestSubarray(nums []int) (ans int) {
+	cnt, l := 0, 0
+	for _, x := range nums {
+		cnt += x ^ 1
+		if cnt > 1 {
+			cnt -= nums[l] ^ 1
+			l++
+		}
+	}
+	return len(nums) - l - 1
+}
+```
+
+#### TypeScript
+
+```ts
+function longestSubarray(nums: number[]): number {
+    let [cnt, l] = [0, 0];
+    for (const x of nums) {
+        cnt += x ^ 1;
+        if (cnt > 1) {
+            cnt -= nums[l++] ^ 1;
+        }
+    }
+    return nums.length - l - 1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

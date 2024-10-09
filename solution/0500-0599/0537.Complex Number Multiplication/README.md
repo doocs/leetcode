@@ -60,7 +60,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以将复数字符串转换成对应的实部 $a$ 和虚部 $b$，然后根据复数乘法的公式 $(a_1 + b_1i) \times (a_2 + b_2i) = (a_1a_2 - b_1b_2) + (a_1b_2 + a_2b_1)i$ 计算出结果。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -69,9 +73,9 @@ tags:
 ```python
 class Solution:
     def complexNumberMultiply(self, num1: str, num2: str) -> str:
-        a, b = map(int, num1[:-1].split('+'))
-        c, d = map(int, num2[:-1].split('+'))
-        return f'{a * c - b * d}+{a * d + c * b}i'
+        a1, b1 = map(int, num1[:-1].split("+"))
+        a2, b2 = map(int, num2[:-1].split("+"))
+        return f"{a1 * a2 - b1 * b2}+{a1 * b2 + a2 * b1}i"
 ```
 
 #### Java
@@ -79,13 +83,15 @@ class Solution:
 ```java
 class Solution {
     public String complexNumberMultiply(String num1, String num2) {
-        String[] c1 = num1.split("\\+|i");
-        String[] c2 = num2.split("\\+|i");
-        int a = Integer.parseInt(c1[0]);
-        int b = Integer.parseInt(c1[1]);
-        int c = Integer.parseInt(c2[0]);
-        int d = Integer.parseInt(c2[1]);
-        return String.format("%d+%di", a * c - b * d, a * d + c * b);
+        int[] x = parse(num1);
+        int[] y = parse(num2);
+        int a1 = x[0], b1 = x[1], a2 = y[0], b2 = y[1];
+        return (a1 * a2 - b1 * b2) + "+" + (a1 * b2 + a2 * b1) + "i";
+    }
+
+    private int[] parse(String s) {
+        var cs = s.substring(0, s.length() - 1).split("\\+");
+        return new int[] {Integer.parseInt(cs[0]), Integer.parseInt(cs[1])};
     }
 }
 ```
@@ -96,10 +102,10 @@ class Solution {
 class Solution {
 public:
     string complexNumberMultiply(string num1, string num2) {
-        int a, b, c, d;
-        sscanf(num1.c_str(), "%d+%di", &a, &b);
-        sscanf(num2.c_str(), "%d+%di", &c, &d);
-        return string(to_string(a * c - b * d) + "+" + to_string(a * d + c * b) + "i");
+        int a1, b1, a2, b2;
+        sscanf(num1.c_str(), "%d+%di", &a1, &b1);
+        sscanf(num2.c_str(), "%d+%di", &a2, &b2);
+        return to_string(a1 * a2 - b1 * b2) + "+" + to_string(a1 * b2 + a2 * b1) + "i";
     }
 };
 ```
@@ -107,16 +113,10 @@ public:
 #### Go
 
 ```go
-func complexNumberMultiply(num1, num2 string) string {
-	parse := func(num string) (a, b int) {
-		i := strings.IndexByte(num, '+')
-		a, _ = strconv.Atoi(num[:i])
-		b, _ = strconv.Atoi(num[i+1 : len(num)-1])
-		return
-	}
-	a, b := parse(num1)
-	c, d := parse(num2)
-	return fmt.Sprintf("%d+%di", a*c-b*d, a*d+b*c)
+func complexNumberMultiply(num1 string, num2 string) string {
+	x, _ := strconv.ParseComplex(num1, 64)
+	y, _ := strconv.ParseComplex(num2, 64)
+	return fmt.Sprintf("%d+%di", int(real(x*y)), int(imag(x*y)))
 }
 ```
 
@@ -124,15 +124,9 @@ func complexNumberMultiply(num1, num2 string) string {
 
 ```ts
 function complexNumberMultiply(num1: string, num2: string): string {
-    let arr1 = num1.split('+'),
-        arr2 = num2.split('+');
-    let r1 = Number(arr1[0]),
-        r2 = Number(arr2[0]);
-    let v1 = Number(arr1[1].substring(0, arr1[1].length - 1)),
-        v2 = Number(arr2[1].substring(0, arr2[1].length - 1));
-    let ansR = r1 * r2 - v1 * v2;
-    let ansV = r1 * v2 + r2 * v1;
-    return `${ansR}+${ansV}i`;
+    const [a1, b1] = num1.slice(0, -1).split('+').map(Number);
+    const [a2, b2] = num2.slice(0, -1).split('+').map(Number);
+    return `${a1 * a2 - b1 * b2}+${a1 * b2 + a2 * b1}i`;
 }
 ```
 

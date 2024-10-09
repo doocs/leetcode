@@ -32,12 +32,21 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<pre><strong>Input:</strong> arr = [1,2,3,4,5], k = 4, x = 3
-<strong>Output:</strong> [1,2,3,4]
-</pre><p><strong class="example">Example 2:</strong></p>
-<pre><strong>Input:</strong> arr = [1,2,3,4,5], k = 4, x = -1
-<strong>Output:</strong> [1,2,3,4]
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [1,2,3,4,5], k = 4, x = 3</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[1,2,3,4]</span></p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">arr = [1,1,2,3,4,5], k = 4, x = -1</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[1,1,2,3]</span></p>
+</div>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

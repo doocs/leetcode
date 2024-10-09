@@ -42,7 +42,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 2147483645
 <strong>输出：</strong>30
-<strong>解释：</strong>输入的二进制串 <strong>11111111111111111111111111111101</strong> 中，共有 30 个设置位。</pre>
+<strong>解释：</strong>输入的二进制串 <strong>1111111111111111111111111111101</strong> 中，共有 30 个设置位。</pre>
 
 <p>&nbsp;</p>
 
@@ -206,6 +206,22 @@ int hammingWeight(uint32_t n) {
 }
 ```
 
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun hammingWeight(n: Int): Int {
+        var count = 0
+        var num = n
+        while (num != 0) {
+            num = num and (num - 1)
+            count++
+        }
+        return count
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -277,6 +293,19 @@ func hammingWeight(num uint32) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function hammingWeight(n: number): number {
+    let count = 0;
+    while (n) {
+        n -= n & -n;
+        count++;
+    }
+    return count;
+}
+```
+
 #### Rust
 
 ```rust
@@ -288,6 +317,39 @@ impl Solution {
             res += 1;
         }
         res
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+    let count = 0;
+    while (n) {
+        n -= n & -n;
+        count++;
+    }
+    return count;
+};
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun hammingWeight(n: Int): Int {
+        var count = 0
+        var num = n
+        while (num != 0) {
+            num -= num and (-num)
+            count++
+        }
+        return count
     }
 }
 ```

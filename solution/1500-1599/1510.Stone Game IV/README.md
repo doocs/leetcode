@@ -242,8 +242,8 @@ function winnerSquareGame(n: number): boolean {
 $$
 f[i]=
 \begin{cases}
-true, & \text{if } \exists j \in [1,..i], j^2 \leq i \text{ and } f[i-j^2] = false\\
-false, & \text{otherwise}
+true, & \textit{if } \exists j \in [1,..i], j^2 \leq i \textit{ and } f[i-j^2] = false\\
+false, & \textit{otherwise}
 \end{cases}
 $$
 

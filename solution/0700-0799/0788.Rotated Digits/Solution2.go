@@ -1,42 +1,34 @@
 func rotatedDigits(n int) int {
-	a := make([]int, 6)
-	dp := make([][2]int, 6)
-	for i := range a {
-		dp[i] = [2]int{-1, -1}
+	s := strconv.Itoa(n)
+	m := len(s)
+	f := make([][2]int, m)
+	for i := range f {
+		f[i] = [2]int{-1, -1}
 	}
-	l := 0
-	for n > 0 {
-		l++
-		a[l] = n % 10
-		n /= 10
-	}
-
-	var dfs func(int, int, bool) int
-	dfs = func(pos, ok int, limit bool) int {
-		if pos <= 0 {
+	var dfs func(i, ok int, limit bool) int
+	dfs = func(i, ok int, limit bool) int {
+		if i >= m {
 			return ok
 		}
-		if !limit && dp[pos][ok] != -1 {
-			return dp[pos][ok]
+		if !limit && f[i][ok] != -1 {
+			return f[i][ok]
 		}
 		up := 9
 		if limit {
-			up = a[pos]
+			up = int(s[i] - '0')
 		}
 		ans := 0
-		for i := 0; i <= up; i++ {
-			if i == 0 || i == 1 || i == 8 {
-				ans += dfs(pos-1, ok, limit && i == up)
-			}
-			if i == 2 || i == 5 || i == 6 || i == 9 {
-				ans += dfs(pos-1, 1, limit && i == up)
+		for j := 0; j <= up; j++ {
+			if j == 0 || j == 1 || j == 8 {
+				ans += dfs(i+1, ok, limit && j == up)
+			} else if j == 2 || j == 5 || j == 6 || j == 9 {
+				ans += dfs(i+1, 1, limit && j == up)
 			}
 		}
 		if !limit {
-			dp[pos][ok] = ans
+			f[i][ok] = ans
 		}
 		return ans
 	}
-
-	return dfs(l, 0, true)
+	return dfs(0, 0, true)
 }

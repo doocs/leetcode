@@ -1,14 +1,10 @@
-func edgeScore(edges []int) int {
-	n := len(edges)
-	cnt := make([]int, n)
-	for i, v := range edges {
-		cnt[v] += i
-	}
-	ans := 0
-	for i, v := range cnt {
-		if cnt[ans] < v {
-			ans = i
+func edgeScore(edges []int) (ans int) {
+	cnt := make([]int, len(edges))
+	for i, j := range edges {
+		cnt[j] += i
+		if cnt[ans] < cnt[j] || (cnt[ans] == cnt[j] && j < ans) {
+			ans = j
 		}
 	}
-	return ans
+	return
 }

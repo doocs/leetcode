@@ -8,6 +8,7 @@ tags:
     - Array
     - Hash Table
     - Math
+    - Prefix Sum
     - Sliding Window
 ---
 

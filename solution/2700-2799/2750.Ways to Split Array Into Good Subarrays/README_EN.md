@@ -7,6 +7,7 @@ source: Weekly Contest 351 Q3
 tags:
     - Array
     - Math
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

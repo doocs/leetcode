@@ -73,13 +73,13 @@ Thus, &quot;abcabcababcc&quot; is valid.
 
 ### Solution 1: Stack
 
-If the string is valid, it's length must be the multiple of $3$.
+We observe the operations in the problem and find that each time a string $\textit{"abc"}$ is inserted at any position in the string. Therefore, after each insertion operation, the length of the string increases by $3$. If the string $s$ is valid, its length must be a multiple of $3$. Thus, we first check the length of the string $s$. If it is not a multiple of $3$, then $s$ must be invalid, and we can directly return $\textit{false}$.
 
-We traverse the string and push every character into the stack $t$. If the size of stack $t$ is greater than or equal to $3$ and the top three elements of stack $t$ constitute the string `"abc"`, we pop the top three elements. Then we continue to traverse the next character of the string $s$.
+Next, we traverse each character $c$ in the string $s$. We first push the character $c$ onto the stack $t$. If the length of the stack $t$ is greater than or equal to $3$, and the top three elements of the stack form the string $\textit{"abc"}$, then we pop the top three elements from the stack. We then continue to traverse the next character in the string $s$.
 
-When the traversal is over, if the stack $t$ is empty, the string $s$ is valid, return `true`, otherwise return `false`.
+After the traversal, if the stack $t$ is empty, it means the string $s$ is valid, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

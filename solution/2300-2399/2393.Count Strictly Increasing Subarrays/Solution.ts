@@ -1,15 +1,12 @@
 function countSubarrays(nums: number[]): number {
-    let ans = 0;
-    let i = 0;
-    const n = nums.length;
-    while (i < n) {
-        let j = i + 1;
-        while (j < n && nums[j] > nums[j - 1]) {
-            ++j;
+    let [ans, cnt] = [1, 1];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
+            ++cnt;
+        } else {
+            cnt = 1;
         }
-        const cnt = j - i;
-        ans += ((1 + cnt) * cnt) / 2;
-        i = j;
+        ans += cnt;
     }
     return ans;
 }

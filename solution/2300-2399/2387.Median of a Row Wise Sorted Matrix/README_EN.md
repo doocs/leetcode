@@ -57,7 +57,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Binary Searches
+
+The median is actually the $target = \left \lceil \frac{m \times n}{2} \right \rceil$-th number after sorting.
+
+We perform a binary search on the elements of the matrix $x$, counting the number of elements in the grid that are greater than $x$, denoted as $cnt$. If $cnt \ge target$, it means the median is on the left side of $x$ (including $x$); otherwise, it is on the right side.
+
+The time complexity is $O(m \times \log n \times \log M)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively, and $M$ is the maximum element in the grid. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -194,7 +194,7 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 
 ### Solution 2: Dynamic Programming
 
-Let's denote $m = \max(\text{difficulty})$ and define an array $f$ of length $m + 1$, where $f[i]$ represents the maximum profit among jobs with difficulty less than or equal to $i$, initially $f[i] = 0$.
+Let's denote $m = \max(\textit{difficulty})$ and define an array $f$ of length $m + 1$, where $f[i]$ represents the maximum profit among jobs with difficulty less than or equal to $i$, initially $f[i] = 0$.
 
 Then, we iterate over the jobs, and for each job $(d, p)$, if $d \leq m$, we update $f[d] = \max(f[d], p)$.
 

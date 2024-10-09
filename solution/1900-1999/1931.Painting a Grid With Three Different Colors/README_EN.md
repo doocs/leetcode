@@ -67,10 +67,10 @@ We notice that the number of rows in the grid does not exceed $5$, so there are 
 Therefore, we define $f[i][j]$ to represent the number of schemes in the first $i$ columns, where the coloring state of the $i$th column is $j$. The state $f[i][j]$ is transferred from $f[i - 1][k]$, where $k$ is the coloring state of the $i - 1$th column, and $k$ and $j$ meet the requirement of different colors being adjacent. That is:
 
 $$
-f[i][j] = \sum_{k \in \text{valid}(j)} f[i - 1][k]
+f[i][j] = \sum_{k \in \textit{valid}(j)} f[i - 1][k]
 $$
 
-where $\text{valid}(j)$ represents all legal predecessor states of state $j$.
+where $\textit{valid}(j)$ represents all legal predecessor states of state $j$.
 
 The final answer is the sum of $f[n][j]$, where $j$ is any legal state.
 

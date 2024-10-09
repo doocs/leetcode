@@ -66,7 +66,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each character in the string $\textit{s}$. Then, we traverse the string $\textit{t}$. For each character, we decrement its count in $\textit{cnt}$. If the decremented value is less than $0$, it means that this character appears more times in the string $\textit{t}$ than in the string $\textit{s}$. In this case, we need to replace this character and increment the answer by one.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of the strings $\textit{s}$ and $\textit{t}$, respectively, and $|\Sigma|$ is the size of the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
@@ -78,10 +84,8 @@ class Solution:
         cnt = Counter(s)
         ans = 0
         for c in t:
-            if cnt[c] > 0:
-                cnt[c] -= 1
-            else:
-                ans += 1
+            cnt[c] -= 1
+            ans += cnt[c] < 0
         return ans
 ```
 
@@ -91,13 +95,13 @@ class Solution:
 class Solution {
     public int minSteps(String s, String t) {
         int[] cnt = new int[26];
-        for (int i = 0; i < s.length(); ++i) {
-            ++cnt[s.charAt(i) - 'a'];
+        for (char c : s.toCharArray()) {
+            cnt[c - 'a']++;
         }
         int ans = 0;
-        for (int i = 0; i < t.length(); ++i) {
-            if (--cnt[t.charAt(i) - 'a'] < 0) {
-                ++ans;
+        for (char c : t.toCharArray()) {
+            if (--cnt[c - 'a'] < 0) {
+                ans++;
             }
         }
         return ans;
@@ -112,10 +116,14 @@ class Solution {
 public:
     int minSteps(string s, string t) {
         int cnt[26]{};
-        for (char& c : s) ++cnt[c - 'a'];
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
         int ans = 0;
-        for (char& c : t) {
-            ans += --cnt[c - 'a'] < 0;
+        for (char c : t) {
+            if (--cnt[c - 'a'] < 0) {
+                ++ans;
+            }
         }
         return ans;
     }
@@ -140,6 +148,24 @@ func minSteps(s string, t string) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function minSteps(s: string, t: string): number {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 97];
+    }
+    let ans = 0;
+    for (const c of t) {
+        if (--cnt[c.charCodeAt(0) - 97] < 0) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
 #### JavaScript
 
 ```js
@@ -149,15 +175,15 @@ func minSteps(s string, t string) (ans int) {
  * @return {number}
  */
 var minSteps = function (s, t) {
-    const cnt = new Array(26).fill(0);
+    const cnt = Array(26).fill(0);
     for (const c of s) {
-        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
-        ++cnt[i];
+        ++cnt[c.charCodeAt(0) - 97];
     }
     let ans = 0;
     for (const c of t) {
-        const i = c.charCodeAt(0) - 'a'.charCodeAt(0);
-        ans += --cnt[i] < 0;
+        if (--cnt[c.charCodeAt(0) - 97] < 0) {
+            ++ans;
+        }
     }
     return ans;
 };

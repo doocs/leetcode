@@ -75,8 +75,8 @@ tags:
 $$
 f[i][h]=
 \begin{cases}
-\max(f[i][h], f[j][h] + 1), & \text{if } nums[i] = nums[j], \\
-\max(f[i][h], f[j][h - 1] + 1), & \text{if } h > 0.
+\max(f[i][h], f[j][h] + 1), & \textit{if } nums[i] = nums[j], \\
+\max(f[i][h], f[j][h - 1] + 1), & \textit{if } h > 0.
 \end{cases}
 $$
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.Sort%20By/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->
@@ -14,7 +16,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2724.So
 
 <!-- description:start -->
 
-<p>Given an array <code>arr</code> and a function <code>fn</code>, return a sorted array <code>sortedArr</code>. You can assume&nbsp;<code>fn</code>&nbsp;only returns numbers and those numbers determine the sort order of&nbsp;<code>sortedArr</code>. <code>sortedArray</code> must be sorted in <strong>ascending order</strong> by <code>fn</code> output.</p>
+<p>Given an array <code>arr</code> and a function <code>fn</code>, return a sorted array <code>sortedArr</code>. You can assume&nbsp;<code>fn</code>&nbsp;only returns numbers and those numbers determine the sort order of&nbsp;<code>sortedArr</code>. <code>sortedArr</code> must be sorted in <strong>ascending order</strong> by <code>fn</code> output.</p>
 
 <p>You may assume that <code>fn</code> will never duplicate numbers for a given array.</p>
 

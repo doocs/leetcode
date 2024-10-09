@@ -163,6 +163,35 @@ func findTargetSumWays(nums []int, target int) int {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func findTargetSumWays(_ nums: [Int], _ target: Int) -> Int {
+        if target < -1000 || target > 1000 {
+            return 0
+        }
+
+        let n = nums.count
+        var dp = Array(repeating: Array(repeating: 0, count: 2001), count: n)
+
+        dp[0][nums[0] + 1000] += 1
+        dp[0][-nums[0] + 1000] += 1
+
+        for i in 1..<n {
+            for j in -1000...1000 {
+                if dp[i - 1][j + 1000] > 0 {
+                    dp[i][j + nums[i] + 1000] += dp[i - 1][j + 1000]
+                    dp[i][j - nums[i] + 1000] += dp[i - 1][j + 1000]
+                }
+            }
+        }
+
+        return dp[n - 1][target + 1000]
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -238,6 +267,29 @@ func findTargetSumWays(nums []int, target int) int {
 		}
 	}
 	return dp[target-1]
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func findTargetSumWays(_ nums: [Int], _ target: Int) -> Int {
+        let s = nums.reduce(0, +)
+        if s - target < 0 || (s - target) % 2 != 0 {
+            return 0
+        }
+        let target = (s - target) / 2
+        var dp = [Int](repeating: 0, count: target + 1)
+        dp[0] = 1
+
+        for num in nums {
+            for j in stride(from: target, through: num, by: -1) {
+                dp[j] += dp[j - num]
+            }
+        }
+        return dp[target]
+    }
 }
 ```
 

@@ -83,20 +83,20 @@ The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 
 
 ### Solution 1: DFS
 
-We observe the data range of the problem and find that the number of edges in each valid path starting from $0$ does not exceed $\frac{\text{maxTime}}{\min(time_j)} = \frac{100}{10} = 10$, and each node has at most four edges. Therefore, we can directly use naive DFS to brute-force search all valid paths.
+We observe the data range of the problem and find that the number of edges in each valid path starting from $0$ does not exceed $\frac{\textit{maxTime}}{\min(time_j)} = \frac{100}{10} = 10$, and each node has at most four edges. Therefore, we can directly use naive DFS to brute-force search all valid paths.
 
-First, we store the edges of the graph in the adjacency list $g$. Then, we design a function $\text{dfs}(u, \text{cost}, \text{value})$, where $u$ represents the current node number, and $\text{cost}$ and $\text{value}$ respectively represent the cost time and value of the current path. Additionally, we use an array $\text{vis}$ of length $n$ to record whether each node has been visited. Initially, we mark node $0$ as visited.
+First, we store the edges of the graph in the adjacency list $g$. Then, we design a function $\textit{dfs}(u, \textit{cost}, \textit{value})$, where $u$ represents the current node number, and $\textit{cost}$ and $\textit{value}$ respectively represent the cost time and value of the current path. Additionally, we use an array $\textit{vis}$ of length $n$ to record whether each node has been visited. Initially, we mark node $0$ as visited.
 
-The logic of the function $\text{dfs}(u, \text{cost}, \text{value})$ is as follows:
+The logic of the function $\textit{dfs}(u, \textit{cost}, \textit{value})$ is as follows:
 
--   If the current node number $u$ equals $0$, it means we have returned to the starting point, so we update the answer to $\max(\text{ans}, \text{value})$;
--   For each neighbor node $v$ of the current node $u$, if the current path's cost time plus the time $t$ of the edge $(u, v)$ does not exceed $\text{maxTime}$, then we can choose to continue visiting node $v$;
-    -   If node $v$ has already been visited, we directly recursively call $\text{dfs}(v, \text{cost} + t, \text{value})$;
-    -   If node $v$ has not been visited, we mark node $v$ as visited, then recursively call $\text{dfs}(v, \text{cost} + t, \text{value} + \text{values}[v])$, and finally restore the visit status of node $v$.
+-   If the current node number $u$ equals $0$, it means we have returned to the starting point, so we update the answer to $\max(\textit{ans}, \textit{value})$;
+-   For each neighbor node $v$ of the current node $u$, if the current path's cost time plus the time $t$ of the edge $(u, v)$ does not exceed $\textit{maxTime}$, then we can choose to continue visiting node $v$;
+    -   If node $v$ has already been visited, we directly recursively call $\textit{dfs}(v, \textit{cost} + t, \textit{value})$;
+    -   If node $v$ has not been visited, we mark node $v$ as visited, then recursively call $\textit{dfs}(v, \textit{cost} + t, \textit{value} + \textit{values}[v])$, and finally restore the visit status of node $v$.
 
-In the main function, we call $\text{dfs}(0, 0, \text{values}[0])$ and return the answer $\text{ans}$.
+In the main function, we call $\textit{dfs}(0, 0, \textit{values}[0])$ and return the answer $\textit{ans}$.
 
-The time complexity is $O(n + m + 4^{\frac{\text{maxTime}}{\min(time_j)}})$, and the space complexity is $O(n + m + \frac{\text{maxTime}}{\min(time_j)})$. Here, $n$ and $m$ respectively represent the number of nodes and edges.
+The time complexity is $O(n + m + 4^{\frac{\textit{maxTime}}{\min(time_j)}})$, and the space complexity is $O(n + m + \frac{\textit{maxTime}}{\min(time_j)})$. Here, $n$ and $m$ respectively represent the number of nodes and edges.
 
 <!-- tabs:start -->
 

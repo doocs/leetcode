@@ -70,9 +70,9 @@ favoriteCompanies[3]=[&quot;google&quot;] 是 favoriteCompanies[0]=[&quot;leetco
 
 ### 方法一：哈希表
 
-将每个 `company` 字符串列表都转换为一个整数类型的集合。然后遍历每个集合，判断其是否是其他集合的子集，如果不是，则将其下标加入结果集。
+我们可以将每个公司映射到一个唯一的整数，然后对于每个人，我们将他们收藏的公司转换为整数集合，最后判断是否存在一个人的收藏公司是另一个人的子集。
 
-时间复杂度 $O(n^2 \times m)$，其中 $n$ 为 `favoriteCompanies` 的长度，$m$ 为 `favoriteCompanies[i]` 的最大长度。
+时间复杂度 $(n \times m \times k + n^2 \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别是 `favoriteCompanies` 的长度和每个公司清单的平均长度，而 $k$ 是每个公司的平均长度。
 
 <!-- tabs:start -->
 
@@ -81,25 +81,19 @@ favoriteCompanies[3]=[&quot;google&quot;] 是 favoriteCompanies[0]=[&quot;leetco
 ```python
 class Solution:
     def peopleIndexes(self, favoriteCompanies: List[List[str]]) -> List[int]:
-        d = {}
         idx = 0
-        t = []
-        for v in favoriteCompanies:
-            for c in v:
-                if c not in d:
-                    d[c] = idx
+        d = {}
+        n = len(favoriteCompanies)
+        nums = [set() for _ in range(n)]
+        for i, ss in enumerate(favoriteCompanies):
+            for s in ss:
+                if s not in d:
+                    d[s] = idx
                     idx += 1
-            t.append({d[c] for c in v})
+                nums[i].add(d[s])
         ans = []
-        for i, nums1 in enumerate(t):
-            ok = True
-            for j, nums2 in enumerate(t):
-                if i == j:
-                    continue
-                if not (nums1 - nums2):
-                    ok = False
-                    break
-            if ok:
+        for i in range(n):
+            if not any(i != j and (nums[i] & nums[j]) == nums[i] for j in range(n)):
                 ans.append(i)
         return ans
 ```
@@ -109,32 +103,26 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> peopleIndexes(List<List<String>> favoriteCompanies) {
+        int n = favoriteCompanies.size();
         Map<String, Integer> d = new HashMap<>();
         int idx = 0;
-        int n = favoriteCompanies.size();
-        Set<Integer>[] t = new Set[n];
+        Set<Integer>[] nums = new Set[n];
+        Arrays.setAll(nums, i -> new HashSet<>());
         for (int i = 0; i < n; ++i) {
-            var v = favoriteCompanies.get(i);
-            for (var c : v) {
-                if (!d.containsKey(c)) {
-                    d.put(c, idx++);
+            var ss = favoriteCompanies.get(i);
+            for (var s : ss) {
+                if (!d.containsKey(s)) {
+                    d.put(s, idx++);
                 }
+                nums[i].add(d.get(s));
             }
-            Set<Integer> s = new HashSet<>();
-            for (var c : v) {
-                s.add(d.get(c));
-            }
-            t[i] = s;
         }
         List<Integer> ans = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
             boolean ok = true;
-            for (int j = 0; j < n; ++j) {
-                if (i != j) {
-                    if (t[j].containsAll(t[i])) {
-                        ok = false;
-                        break;
-                    }
+            for (int j = 0; j < n && ok; ++j) {
+                if (i != j && nums[j].containsAll(nums[i])) {
+                    ok = false;
                 }
             }
             if (ok) {
@@ -152,46 +140,43 @@ class Solution {
 class Solution {
 public:
     vector<int> peopleIndexes(vector<vector<string>>& favoriteCompanies) {
+        int n = favoriteCompanies.size();
         unordered_map<string, int> d;
-        int idx = 0, n = favoriteCompanies.size();
-        vector<unordered_set<int>> t(n);
+        int idx = 0;
+        vector<unordered_set<int>> nums(n);
+
         for (int i = 0; i < n; ++i) {
-            auto v = favoriteCompanies[i];
-            for (auto& c : v) {
-                if (!d.count(c)) {
-                    d[c] = idx++;
+            for (const auto& s : favoriteCompanies[i]) {
+                if (!d.contains(s)) {
+                    d[s] = idx++;
+                }
+                nums[i].insert(d[s]);
+            }
+        }
+
+        auto check = [](const unordered_set<int>& a, const unordered_set<int>& b) {
+            for (int x : a) {
+                if (!b.contains(x)) {
+                    return false;
                 }
             }
-            unordered_set<int> s;
-            for (auto& c : v) {
-                s.insert(d[c]);
-            }
-            t[i] = s;
-        }
+            return true;
+        };
+
         vector<int> ans;
         for (int i = 0; i < n; ++i) {
             bool ok = true;
-            for (int j = 0; j < n; ++j) {
-                if (i == j) continue;
-                if (check(t[i], t[j])) {
+            for (int j = 0; j < n && ok; ++j) {
+                if (i != j && check(nums[i], nums[j])) {
                     ok = false;
-                    break;
                 }
             }
             if (ok) {
                 ans.push_back(i);
             }
         }
-        return ans;
-    }
 
-    bool check(unordered_set<int>& nums1, unordered_set<int>& nums2) {
-        for (int v : nums1) {
-            if (!nums2.count(v)) {
-                return false;
-            }
-        }
-        return true;
+        return ans;
     }
 };
 ```
@@ -199,27 +184,26 @@ public:
 #### Go
 
 ```go
-func peopleIndexes(favoriteCompanies [][]string) []int {
-	d := map[string]int{}
-	idx, n := 0, len(favoriteCompanies)
-	t := make([]map[int]bool, n)
-	for i, v := range favoriteCompanies {
-		for _, c := range v {
-			if _, ok := d[c]; !ok {
-				d[c] = idx
+func peopleIndexes(favoriteCompanies [][]string) (ans []int) {
+	n := len(favoriteCompanies)
+	d := make(map[string]int)
+	idx := 0
+	nums := make([]map[int]struct{}, n)
+
+	for i := 0; i < n; i++ {
+		nums[i] = make(map[int]struct{})
+		for _, s := range favoriteCompanies[i] {
+			if _, ok := d[s]; !ok {
+				d[s] = idx
 				idx++
 			}
+			nums[i][d[s]] = struct{}{}
 		}
-		s := map[int]bool{}
-		for _, c := range v {
-			s[d[c]] = true
-		}
-		t[i] = s
 	}
-	ans := []int{}
-	check := func(nums1, nums2 map[int]bool) bool {
-		for v, _ := range nums1 {
-			if _, ok := nums2[v]; !ok {
+
+	check := func(a, b map[int]struct{}) bool {
+		for x := range a {
+			if _, ok := b[x]; !ok {
 				return false
 			}
 		}
@@ -227,20 +211,61 @@ func peopleIndexes(favoriteCompanies [][]string) []int {
 	}
 	for i := 0; i < n; i++ {
 		ok := true
-		for j := 0; j < n; j++ {
-			if i == j {
-				continue
-			}
-			if check(t[i], t[j]) {
+		for j := 0; j < n && ok; j++ {
+			if i != j && check(nums[i], nums[j]) {
 				ok = false
-				break
 			}
 		}
 		if ok {
 			ans = append(ans, i)
 		}
 	}
-	return ans
+
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function peopleIndexes(favoriteCompanies: string[][]): number[] {
+    const n = favoriteCompanies.length;
+    const d: Map<string, number> = new Map();
+    let idx = 0;
+    const nums: Set<number>[] = Array.from({ length: n }, () => new Set<number>());
+
+    for (let i = 0; i < n; i++) {
+        for (const s of favoriteCompanies[i]) {
+            if (!d.has(s)) {
+                d.set(s, idx++);
+            }
+            nums[i].add(d.get(s)!);
+        }
+    }
+
+    const check = (a: Set<number>, b: Set<number>): boolean => {
+        for (const x of a) {
+            if (!b.has(x)) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    const ans: number[] = [];
+    for (let i = 0; i < n; i++) {
+        let ok = true;
+        for (let j = 0; j < n && ok; j++) {
+            if (i !== j && check(nums[i], nums[j])) {
+                ok = false;
+            }
+        }
+        if (ok) {
+            ans.push(i);
+        }
+    }
+
+    return ans;
 }
 ```
 

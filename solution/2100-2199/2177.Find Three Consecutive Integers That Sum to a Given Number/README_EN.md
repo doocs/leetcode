@@ -52,7 +52,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+Assume the three consecutive integers are $x-1$, $x$, and $x+1$. Their sum is $3x$, so $num$ must be a multiple of $3$. If $num$ is not a multiple of $3$, it cannot be expressed as the sum of three consecutive integers, and we return an empty array. Otherwise, let $x = \frac{num}{3}$, then $x-1$, $x$, and $x+1$ are the three consecutive integers whose sum is $num$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

@@ -1,24 +1,23 @@
 class Solution {
     public boolean checkValid(int[][] matrix) {
         int n = matrix.length;
-        for (int i = 0; i < n; ++i) {
-            boolean[] seen = new boolean[n];
-            for (int j = 0; j < n; ++j) {
-                int v = matrix[i][j] - 1;
-                if (seen[v]) {
+        boolean[] vis = new boolean[n + 1];
+        for (var row : matrix) {
+            Arrays.fill(vis, false);
+            for (int x : row) {
+                if (vis[x]) {
                     return false;
                 }
-                seen[v] = true;
+                vis[x] = true;
             }
         }
         for (int j = 0; j < n; ++j) {
-            boolean[] seen = new boolean[n];
+            Arrays.fill(vis, false);
             for (int i = 0; i < n; ++i) {
-                int v = matrix[i][j] - 1;
-                if (seen[v]) {
+                if (vis[matrix[i][j]]) {
                     return false;
                 }
-                seen[v] = true;
+                vis[matrix[i][j]] = true;
             }
         }
         return true;

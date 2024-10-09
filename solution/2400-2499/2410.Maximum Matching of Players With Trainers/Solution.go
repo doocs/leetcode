@@ -1,15 +1,14 @@
 func matchPlayersAndTrainers(players []int, trainers []int) int {
 	sort.Ints(players)
 	sort.Ints(trainers)
-	ans, j := 0, 0
-	for _, p := range players {
-		for j < len(trainers) && trainers[j] < p {
+	m, n := len(players), len(trainers)
+	for i, j := 0, 0; i < m; i, j = i+1, j+1 {
+		for j < n && trainers[j] < players[i] {
 			j++
 		}
-		if j < len(trainers) {
-			ans++
-			j++
+		if j == n {
+			return i
 		}
 	}
-	return ans
+	return m
 }

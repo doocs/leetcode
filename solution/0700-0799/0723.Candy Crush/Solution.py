@@ -5,35 +5,31 @@ class Solution:
         while run:
             run = False
             for i in range(m):
-                for j in range(n - 2):
-                    if (
-                        board[i][j] != 0
-                        and abs(board[i][j]) == abs(board[i][j + 1])
-                        and abs(board[i][j]) == abs(board[i][j + 2])
+                for j in range(2, n):
+                    if board[i][j] and abs(board[i][j]) == abs(board[i][j - 1]) == abs(
+                        board[i][j - 2]
                     ):
                         run = True
-                        board[i][j] = board[i][j + 1] = board[i][j + 2] = -abs(
+                        board[i][j] = board[i][j - 1] = board[i][j - 2] = -abs(
                             board[i][j]
                         )
             for j in range(n):
-                for i in range(m - 2):
-                    if (
-                        board[i][j] != 0
-                        and abs(board[i][j]) == abs(board[i + 1][j])
-                        and abs(board[i][j]) == abs(board[i + 2][j])
+                for i in range(2, m):
+                    if board[i][j] and abs(board[i][j]) == abs(board[i - 1][j]) == abs(
+                        board[i - 2][j]
                     ):
                         run = True
-                        board[i][j] = board[i + 1][j] = board[i + 2][j] = -abs(
+                        board[i][j] = board[i - 1][j] = board[i - 2][j] = -abs(
                             board[i][j]
                         )
             if run:
                 for j in range(n):
-                    curr = m - 1
+                    k = m - 1
                     for i in range(m - 1, -1, -1):
                         if board[i][j] > 0:
-                            board[curr][j] = board[i][j]
-                            curr -= 1
-                    while curr > -1:
-                        board[curr][j] = 0
-                        curr -= 1
+                            board[k][j] = board[i][j]
+                            k -= 1
+                    while k >= 0:
+                        board[k][j] = 0
+                        k -= 1
         return board

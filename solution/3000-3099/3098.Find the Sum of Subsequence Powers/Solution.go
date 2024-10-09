@@ -11,6 +11,9 @@ func sumOfPowers(nums []int, k int) int {
 			}
 			return 0
 		}
+		if n-i < k {
+			return 0
+		}
 		key := mi<<18 | (i << 12) | (j << 6) | k
 		if v, ok := f[key]; ok {
 			return v

@@ -77,7 +77,7 @@ It can be shown that there exists no other beautiful configuration with a sum of
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n == maxHeights&nbsp;&lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= n == maxHeights.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= maxHeights[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
@@ -94,8 +94,8 @@ We define $f[i]$ to represent the height sum of the beautiful tower scheme with 
 $$
 f[i]=
 \begin{cases}
-f[i-1]+heights[i],&\text{if } heights[i]\geq heights[i-1]\\
-heights[i]\times(i-j)+f[j],&\text{if } heights[i]<heights[i-1]
+f[i-1]+heights[i],&\textit{if } heights[i]\geq heights[i-1]\\
+heights[i]\times(i-j)+f[j],&\textit{if } heights[i]<heights[i-1]
 \end{cases}
 $$
 

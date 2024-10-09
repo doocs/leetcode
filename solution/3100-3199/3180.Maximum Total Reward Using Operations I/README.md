@@ -75,12 +75,12 @@ tags:
 
 我们可以对奖励值数组 `rewardValues` 进行排序，然后使用记忆化搜索的方法求解最大总奖励。
 
-我们定义一个函数 $\text{dfs}(x)$，表示当前总奖励为 $x$ 时，能够获得的最大总奖励。那么答案为 $\text{dfs}(0)$。
+我们定义一个函数 $\textit{dfs}(x)$，表示当前总奖励为 $x$ 时，能够获得的最大总奖励。那么答案为 $\textit{dfs}(0)$。
 
-函数 $\text{dfs}(x)$ 的执行过程如下：
+函数 $\textit{dfs}(x)$ 的执行过程如下：
 
 1. 二分查找数组 `rewardValues` 中第一个大于 $x$ 的元素的下标 $i$；
-2. 遍历数组 `rewardValues` 中从下标 $i$ 开始的元素，对于每个元素 $v$，计算 $v + \text{dfs}(x + v)$ 的最大值。
+2. 遍历数组 `rewardValues` 中从下标 $i$ 开始的元素，对于每个元素 $v$，计算 $v + \textit{dfs}(x + v)$ 的最大值。
 3. 将结果返回。
 
 为了避免重复计算，我们使用记忆化数组 `f` 记录已经计算过的结果。
@@ -228,7 +228,7 @@ function maxTotalReward(rewardValues: number[]): number {
 
 ### 方法二：动态规划
 
-我们定义 $f[i][j]$ 表示用前 $i$ 个奖励值，能否得到总奖励 $j$。初始时 $f[0][0] = \text{True}$，其余值均为 $\text{False}$。
+我们定义 $f[i][j]$ 表示用前 $i$ 个奖励值，能否得到总奖励 $j$。初始时 $f[0][0] = \textit{True}$，其余值均为 $\textit{False}$。
 
 我们考虑第 $i$ 个奖励值 $v$，如果我们不选择它，那么 $f[i][j] = f[i - 1][j]$；如果我们选择它，那么 $f[i][j] = f[i - 1][j - v]$，其中 $0 \leq j - v \lt v$。即状态转移方程为：
 
@@ -236,7 +236,7 @@ $$
 f[i][j] = f[i - 1][j] \vee f[i - 1][j - v]
 $$
 
-最终答案为 $\max\{j \mid f[n][j] = \text{True}\}$。
+最终答案为 $\max\{j \mid f[n][j] = \textit{True}\}$。
 
 由于 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i - 1][j - v]$ 有关，我们可以优化掉第一维，只使用一个一维数组进行状态转移。
 

@@ -7,6 +7,7 @@ source: Weekly Contest 336 Q1
 tags:
     - Array
     - String
+    - Counting
 ---
 
 <!-- problem:start -->

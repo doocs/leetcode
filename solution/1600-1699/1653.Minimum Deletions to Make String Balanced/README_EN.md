@@ -174,7 +174,7 @@ function minimumDeletions(s: string): number {
     const f = new Array(n + 1).fill(0);
     let b = 0;
     for (let i = 1; i <= n; ++i) {
-        if (s.charAt(i - 1) === 'b') {
+        if (s[i - 1] === 'b') {
             f[i] = f[i - 1];
             ++b;
         } else {
@@ -183,6 +183,29 @@ function minimumDeletions(s: string): number {
     }
     return f[n];
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minimumDeletions = function (s) {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    let b = 0;
+    for (let i = 1; i <= n; ++i) {
+        if (s[i - 1] === 'b') {
+            f[i] = f[i - 1];
+            ++b;
+        } else {
+            f[i] = Math.min(f[i - 1] + 1, b);
+        }
+    }
+    return f[n];
+};
 ```
 
 <!-- tabs:end -->
@@ -273,11 +296,10 @@ func minimumDeletions(s string) int {
 
 ```ts
 function minimumDeletions(s: string): number {
-    const n = s.length;
-    let ans = 0,
-        b = 0;
-    for (let i = 0; i < n; ++i) {
-        if (s.charAt(i) === 'b') {
+    let [ans, b] = [0, 0];
+
+    for (const ch of s) {
+        if (ch === 'b') {
             ++b;
         } else {
             ans = Math.min(ans + 1, b);
@@ -287,13 +309,34 @@ function minimumDeletions(s: string): number {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minimumDeletions = function (s) {
+    let [ans, b] = [0, 0];
+
+    for (const ch of s) {
+        if (ch === 'b') {
+            ++b;
+        } else {
+            ans = Math.min(ans + 1, b);
+        }
+    }
+    return ans;
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Two-Variable Method
 
 <!-- tabs:start -->
 
@@ -377,22 +420,88 @@ func minimumDeletions(s string) int {
 
 ```ts
 function minimumDeletions(s: string): number {
-    let lb = 0,
-        ra = 0;
-    const n = s.length;
-    for (let i = 0; i < n; ++i) {
-        if (s.charAt(i) === 'a') {
-            ++ra;
-        }
-    }
-    let ans = n;
-    for (let i = 0; i < n; ++i) {
-        ra -= s.charAt(i) === 'a' ? 1 : 0;
+    let ra = [...s].reduce((acc, x) => (x === 'a' ? acc + 1 : acc), 0);
+    let lb = 0;
+
+    let ans = s.length;
+    for (const ch of s) {
+        if (ch === 'a') ra--;
         ans = Math.min(ans, lb + ra);
-        lb += s.charAt(i) === 'b' ? 1 : 0;
+        if (ch === 'b') lb++;
     }
     return ans;
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minimumDeletions = function (s) {
+    let ra = [...s].reduce((acc, x) => (x === 'a' ? acc + 1 : acc), 0);
+    let lb = 0;
+
+    let ans = s.length;
+    for (const ch of s) {
+        if (ch === 'a') ra--;
+        ans = Math.min(ans, lb + ra);
+        if (ch === 'b') lb++;
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Stack
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minimumDeletions(s: string): number {
+    const stk: string[] = [];
+    let res = 0;
+
+    for (const ch of s) {
+        if (stk.at(-1) === 'b' && ch === 'a') {
+            stk.pop();
+            res++;
+        } else stk.push(ch);
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minimumDeletions = function (s) {
+    const stk = [];
+    let res = 0;
+
+    for (const ch of s) {
+        if (stk.at(-1) === 'b' && ch === 'a') {
+            stk.pop();
+            res++;
+        } else stk.push(ch);
+    }
+
+    return res;
+};
 ```
 
 <!-- tabs:end -->

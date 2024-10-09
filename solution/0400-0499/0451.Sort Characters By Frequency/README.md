@@ -27,7 +27,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1:</strong></p>
 
 <pre>
 <strong>输入: </strong>s = "tree"
@@ -36,7 +36,7 @@ tags:
 因此'e'必须出现在'r'和't'之前。此外，"eetr"也是一个有效的答案。
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong class="example">示例 2:</strong></p>
 
 <pre>
 <strong>输入: </strong>s = "cccaaa"
@@ -45,7 +45,7 @@ tags:
 注意"cacaca"是不正确的，因为相同的字母必须放在一起。
 </pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong class="example">示例 3:</strong></p>
 
 <pre>
 <strong>输入: </strong>s = "Aabb"

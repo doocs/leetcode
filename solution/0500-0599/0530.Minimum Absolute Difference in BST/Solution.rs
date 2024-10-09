@@ -19,26 +19,22 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    #[allow(dead_code)]
     pub fn get_minimum_difference(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        let mut ret = i32::MAX;
-        let mut prev = i32::MAX;
-        Self::traverse(root, &mut prev, &mut ret);
-        ret
-    }
+        const inf: i32 = 1 << 30;
+        let mut ans = inf;
+        let mut pre = -inf;
 
-    #[allow(dead_code)]
-    fn traverse(root: Option<Rc<RefCell<TreeNode>>>, prev: &mut i32, ans: &mut i32) {
-        let left = root.as_ref().unwrap().borrow().left.clone();
-        let right = root.as_ref().unwrap().borrow().right.clone();
-        let val = root.as_ref().unwrap().borrow().val;
-        if !left.is_none() {
-            Self::traverse(left.clone(), prev, ans);
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, ans: &mut i32, pre: &mut i32) {
+            if let Some(n) = node {
+                let n = n.borrow();
+                dfs(n.left.clone(), ans, pre);
+                *ans = (*ans).min(n.val - *pre);
+                *pre = n.val;
+                dfs(n.right.clone(), ans, pre);
+            }
         }
-        *ans = std::cmp::min(*ans, (*prev - val).abs());
-        *prev = val;
-        if !right.is_none() {
-            Self::traverse(right.clone(), prev, ans);
-        }
+
+        dfs(root, &mut ans, &mut pre);
+        ans
     }
 }

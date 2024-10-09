@@ -251,28 +251,20 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 #### Python3
 
 ```python
+import numpy as np
+
+
 class Solution:
     def climbStairs(self, n: int) -> int:
-        def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
-            m, n = len(a), len(b[0])
-            c = [[0] * n for _ in range(m)]
-            for i in range(m):
-                for j in range(n):
-                    for k in range(len(a[0])):
-                        c[i][j] = c[i][j] + a[i][k] * b[k][j]
-            return c
-
-        def pow(a: List[List[int]], n: int) -> List[List[int]]:
-            res = [[1, 1]]
-            while n:
-                if n & 1:
-                    res = mul(res, a)
-                n >>= 1
-                a = mul(a, a)
-            return res
-
-        a = [[1, 1], [1, 0]]
-        return pow(a, n - 1)[0][0]
+        res = np.asmatrix([(1, 1)], np.dtype("O"))
+        factor = np.asmatrix([(1, 1), (1, 0)], np.dtype("O"))
+        n -= 1
+        while n:
+            if n & 1:
+                res *= factor
+            factor *= factor
+            n >>= 1
+        return res[0, 0]
 ```
 
 #### Java
@@ -471,35 +463,6 @@ function pow(a, n) {
     }
     return res;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-import numpy as np
-
-
-class Solution:
-    def climbStairs(self, n: int) -> int:
-        res = np.mat([(1, 1)], np.dtype("O"))
-        factor = np.mat([(1, 1), (1, 0)], np.dtype("O"))
-        n -= 1
-        while n:
-            if n & 1:
-                res *= factor
-            factor *= factor
-            n >>= 1
-        return res[0, 0]
 ```
 
 <!-- tabs:end -->

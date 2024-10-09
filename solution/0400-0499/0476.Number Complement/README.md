@@ -67,13 +67,13 @@ tags:
 
 根据题目描述，我们可以通过异或运算来实现取反的操作，步骤如下：
 
-我们首先找到 $\text{num}$ 的二进制表示中最高位的 $1$，位置记为 $k$。
+我们首先找到 $\textit{num}$ 的二进制表示中最高位的 $1$，位置记为 $k$。
 
 然后，构造一个二进制数，第 $k$ 位为 $0$，其余低位为 $1$，即 $2^k - 1$；
 
-最后，将 $\text{num}$ 与上述构造的二进制数进行异或运算，即可得到答案。
+最后，将 $\textit{num}$ 与上述构造的二进制数进行异或运算，即可得到答案。
 
-时间复杂度 $O(\log \text{num})$，其中 $\text{num}$ 为输入的整数。空间复杂度 $O(1)$。
+时间复杂度 $O(\log \textit{num})$，其中 $\textit{num}$ 为输入的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -119,6 +119,48 @@ func findComplement(num int) int {
 ```ts
 function findComplement(num: number): number {
     return num ^ (2 ** num.toString(2).length - 1);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var findComplement = function (num) {
+    return num ^ (2 ** num.toString(2).length - 1);
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：位运算（取反+按位与）
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findComplement(num: number): number {
+    return ~num & (2 ** num.toString(2).length - 1);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+function findComplement(num) {
+    return ~num & (2 ** num.toString(2).length - 1);
 }
 ```
 

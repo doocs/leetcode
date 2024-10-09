@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3203.Find%20Minimum%20Diameter%20After%20Merging%20Two%20Trees/README_EN.md
+rating: 2266
+source: Weekly Contest 404 Q4
 tags:
     - Tree
     - Depth-First Search

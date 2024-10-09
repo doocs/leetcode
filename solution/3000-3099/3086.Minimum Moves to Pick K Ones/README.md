@@ -44,7 +44,7 @@ tags:
 <p><strong>解释：</strong>如果游戏开始时&nbsp;Alice 在 <code>aliceIndex == 1</code> 的位置上，按照以下步骤执行每个动作，他可以利用 <code>3</code> 次行动拾取 <code>3</code> 个 1 ：</p>
 
 <ul>
-	<li>游戏开始时&nbsp;Alice 拾取了一个 1 ，<code>nums[1]</code> 变成了 <code>0</code>。此时 <code>nums</code> 变为 <code>[1,<strong><u>0</u></strong>,1,0,0,1,1,0,0,1]</code> 。</li>
+	<li>游戏开始时&nbsp;Alice 拾取了一个 1 ，<code>nums[1]</code> 变成了 <code>0</code>。此时 <code>nums</code> 变为 <code>[1,<strong><u>0</u></strong>,0,0,0,1,1,0,0,1]</code> 。</li>
 	<li>选择 <code>j == 2</code> 并执行第一种类型的动作。<code>nums</code> 变为 <code>[1,<strong><u>0</u></strong>,1,0,0,1,1,0,0,1]</code></li>
 	<li>选择 <code>x == 2</code> 和 <code>y == 1</code> ，并执行第二种类型的动作。<code>nums</code> 变为 <code>[1,<strong><u>1</u></strong>,0,0,0,1,1,0,0,1]</code> 。由于 <code>y == aliceIndex</code>，Alice 拾取了一个 1 ，<code>nums</code> 变为&nbsp; <code>[1,<strong><u>0</u></strong>,0,0,0,1,1,0,0,1]</code> 。</li>
 	<li>选择 <code>x == 0</code> 和 <code>y == 1</code> ，并执行第二种类型的动作。<code>nums</code> 变为 <code>[0,<strong><u>1</u></strong>,0,0,0,1,1,0,0,1]</code> 。由于 <code>y == aliceIndex</code>，Alice 拾取了一个 1 ，<code>nums</code> 变为&nbsp; <code>[0,<strong><u>0</u></strong>,0,0,0,1,1,0,0,1]</code> 。</li>
@@ -94,10 +94,10 @@ tags:
 
 -   首先，如果位置 $i$ 的数字为 $1$，我们可以直接拾取一个 $1$，不需要行动次数。
 -   然后，我们对 $i$ 的左右两侧位置的数字 $1$ 进行拾取，执行的是行动 $2$，即把位置 $i-1$ 的 $1$ 移到位置 $i$，然后拾取；把位置 $i+1$ 的 $1$ 移到位置 $i$，然后拾取。每拾取一个 $1$，需要 $1$ 次行动。
--   接下来，我们最大限度地将 $i-1$ 或 $i+1$ 上的 $0$，利用行动 $1$，将其置为 $1$，然后利用行动 $2$，将其移动到位置 $i$，拾取。直到拾取的 $1$ 的数量达到 $k$ 或者行动 $1$ 的次数达到 $\text{maxChanges}$。我们假设行动 $1$ 的次数为 $c$，那么总共需要 $2c$ 次行动。
+-   接下来，我们最大限度地将 $i-1$ 或 $i+1$ 上的 $0$，利用行动 $1$，将其置为 $1$，然后利用行动 $2$，将其移动到位置 $i$，拾取。直到拾取的 $1$ 的数量达到 $k$ 或者行动 $1$ 的次数达到 $\textit{maxChanges}$。我们假设行动 $1$ 的次数为 $c$，那么总共需要 $2c$ 次行动。
 -   利用完行动 $1$，如果拾取的 $1$ 的数量还没有达到 $k$，我们需要继续考虑在 $[1,..i-2]$ 和 $[i+2,..n]$ 的区间内，进行行动 $2$，将 $1$ 移动到位置 $i$，拾取。我们可以使用二分查找来确定这个区间的大小，使得拾取的 $1$ 的数量达到 $k$。具体地，我们二分枚举一个区间的大小 $d$，然后在区间 $[i-d,..i-2]$ 和 $[i+2,..i+d]$ 内，进行行动 $2$，将 $1$ 移动到位置 $i$，拾取。如果拾取的 $1$ 的数量达到 $k$，我们就更新答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\text{nums}$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

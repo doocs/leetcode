@@ -109,7 +109,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：合并 + 连接
+
+我们首先将 `employee_id` 的 `start_time` 和 `end_time` 合并到一个新的表 `T` 中，然后使用 `LEAD` 函数计算出每个员工的下一个任务的开始时间，接着我们将 `T` 表和 `Tasks` 表连接起来，计算出每个员工的并发任务数，最后按照 `employee_id` 分组，计算出每个员工的总任务时间和最大并发任务数。
+
+相似题目：
+
+-   [3268. Find Overlapping Shifts II 🔒](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md)
 
 <!-- tabs:start -->
 

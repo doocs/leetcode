@@ -1,14 +1,12 @@
 func countSubarrays(nums []int) int64 {
-	ans := 0
-	i, n := 0, len(nums)
-	for i < n {
-		j := i + 1
-		for j < n && nums[j] > nums[j-1] {
-			j++
+	ans, cnt := 1, 1
+	for i, x := range nums[1:] {
+		if nums[i] < x {
+			cnt++
+		} else {
+			cnt = 1
 		}
-		cnt := j - i
-		ans += (1 + cnt) * cnt / 2
-		i = j
+		ans += cnt
 	}
 	return int64(ans)
 }

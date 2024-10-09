@@ -1,17 +1,14 @@
 func maxScoreIndices(nums []int) []int {
-	left, right := 0, 0
-	for _, num := range nums {
-		right += num
+	l0, r1 := 0, 0
+	for _, x := range nums {
+		r1 += x
 	}
-	mx := right
+	mx := r1
 	ans := []int{0}
-	for i, num := range nums {
-		if num == 0 {
-			left++
-		} else {
-			right--
-		}
-		t := left + right
+	for i, x := range nums {
+		l0 += x ^ 1
+		r1 -= x
+		t := l0 + r1
 		if mx == t {
 			ans = append(ans, i+1)
 		} else if mx < t {

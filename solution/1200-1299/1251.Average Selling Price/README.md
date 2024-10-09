@@ -48,7 +48,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p>编写解决方案以查找每种产品的平均售价。<code>average_price</code> 应该 <strong>四舍五入到小数点后两位</strong>。</p>
+<p>编写解决方案以查找每种产品的平均售价。<code>average_price</code> 应该 <strong>四舍五入到小数点后两位</strong>。如果产品没有任何售出，则假设其平均售价为 0。</p>
 
 <p>返回结果表 <strong>无顺序要求</strong> 。</p>
 

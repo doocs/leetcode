@@ -1,7 +1,7 @@
 function findFinalValue(nums: number[], original: number): number {
-    let set: Set<number> = new Set(nums);
-    while (set.has(original)) {
-        original *= 2;
+    const s: Set<number> = new Set([...nums]);
+    while (s.has(original)) {
+        original <<= 1;
     }
     return original;
 }

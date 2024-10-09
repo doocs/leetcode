@@ -54,7 +54,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS + Pruning
+
+According to the problem description, we need to partition the array $\textit{nums}$ into $k$ subsets such that the sum of each subset is equal. Therefore, we first sum all the elements in $\textit{nums}$. If the total sum cannot be divided by $k$, it means we cannot partition the array into $k$ subsets, and we return $\textit{false}$ early.
+
+If the total sum can be divided by $k$, let's denote the expected sum of each subset as $s$. Then, we create an array $\textit{cur}$ of length $k$ to represent the current sum of each subset.
+
+We sort the array $\textit{nums}$ in descending order (to reduce the number of searches), and then start from the first element, trying to add it to each subset in $\textit{cur}$ one by one. If adding $\textit{nums}[i]$ to a subset $\textit{cur}[j]$ makes the subset's sum exceed $s$, it means it cannot be placed in that subset, and we can skip it. Additionally, if $\textit{cur}[j]$ is equal to $\textit{cur}[j - 1]$, it means we have already completed the search for $\textit{cur}[j - 1]$, and we can skip the current search.
+
+If we can add all elements to $\textit{cur}$, it means we can partition the array into $k$ subsets, and we return $\textit{true}$.
 
 <!-- tabs:start -->
 
@@ -63,7 +71,7 @@ tags:
 ```python
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
-        def dfs(i):
+        def dfs(i: int) -> bool:
             if i == len(nums):
                 return True
             for j in range(k):
@@ -137,8 +145,7 @@ public:
         s /= k;
         int n = nums.size();
         vector<int> cur(k);
-        function<bool(int)> dfs;
-        dfs = [&](int i) {
+        function<bool(int)> dfs = [&](int i) {
             if (i == n) {
                 return true;
             }
@@ -202,31 +209,32 @@ func canPartitionKSubsets(nums []int, k int) bool {
 
 ```ts
 function canPartitionKSubsets(nums: number[], k: number): boolean {
-    let s = nums.reduce((a, b) => a + b);
-    if (s % k !== 0) {
+    const dfs = (i: number): boolean => {
+        if (i === nums.length) {
+            return true;
+        }
+        for (let j = 0; j < k; j++) {
+            if (j > 0 && cur[j] === cur[j - 1]) {
+                continue;
+            }
+            cur[j] += nums[i];
+            if (cur[j] <= s && dfs(i + 1)) {
+                return true;
+            }
+            cur[j] -= nums[i];
+        }
+        return false;
+    };
+
+    let s = nums.reduce((a, b) => a + b, 0);
+    const mod = s % k;
+    if (mod !== 0) {
         return false;
     }
-    s /= k;
-    nums.sort((a, b) => a - b);
-    const n = nums.length;
-    const f: boolean[] = new Array(1 << n).fill(false);
-    f[0] = true;
-    const cur: number[] = new Array(n).fill(0);
-    for (let i = 0; i < 1 << n; ++i) {
-        if (!f[i]) {
-            continue;
-        }
-        for (let j = 0; j < n; ++j) {
-            if (cur[i] + nums[j] > s) {
-                break;
-            }
-            if (((i >> j) & 1) === 0) {
-                f[i | (1 << j)] = true;
-                cur[i | (1 << j)] = (cur[i] + nums[j]) % s;
-            }
-        }
-    }
-    return f[(1 << n) - 1];
+    s = Math.floor(s / k);
+    const cur = Array(k).fill(0);
+    nums.sort((a, b) => b - a);
+    return dfs(0);
 }
 ```
 
@@ -236,7 +244,24 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: State Compression + Memoization
+
+Similar to Solution 1, we first check whether the array $\textit{nums}$ can be partitioned into $k$ subsets. If it cannot be divided by $k$, we directly return $\textit{false}$.
+
+Let $s$ be the expected sum of each subset, and let $\textit{state}$ represent the current partitioning state of the elements. For the $i$-th number, if the $i$-th bit of $\textit{state}$ is $0$, it means the $i$-th element has not been partitioned.
+
+Our goal is to form $k$ subsets with a sum of $s$ from all elements. Let $t$ be the current sum of the subset. When the $i$-th element is not partitioned:
+
+-   If $t + \textit{nums}[i] \gt s$, it means the $i$-th element cannot be added to the current subset. Since we sort the array $\textit{nums}$ in ascending order, all elements from position $i$ onwards cannot be added to the current subset, and we directly return $\textit{false}$.
+-   Otherwise, add the $i$-th element to the current subset, change the state to $\textit{state} | 2^i$, and continue searching for unpartitioned elements. Note that if $t + \textit{nums}[i] = s$, it means we can form a subset with a sum of $s$. The next step is to reset $t$ to zero (which can be achieved by $(t + \textit{nums}[i]) \bmod s$) and continue partitioning the next subset.
+
+To avoid repeated searches, we use an array $\textit{f}$ of length $2^n$ to record the search results for each state. The array $\textit{f}$ has three possible values:
+
+-   `0` indicates that the current state has not been searched yet;
+-   `-1`: indicates that the current state cannot be partitioned into $k$ subsets;
+-   `1`: indicates that the current state can be partitioned into $k$ subsets.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ represents the length of the array $\textit{nums}$. For each state, we need to traverse the array $\textit{nums}$, which has a time complexity of $O(n)$. The total number of states is $2^n$, so the overall time complexity is $O(n \times 2^n)$.
 
 <!-- tabs:start -->
 
@@ -330,8 +355,7 @@ public:
         int n = nums.size();
         int mask = (1 << n) - 1;
         vector<int> f(1 << n);
-        function<bool(int, int)> dfs;
-        dfs = [&](int state, int t) {
+        function<bool(int, int)> dfs = [&](int state, int t) {
             if (state == mask) {
                 return true;
             }
@@ -403,13 +427,64 @@ func canPartitionKSubsets(nums []int, k int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function canPartitionKSubsets(nums: number[], k: number): boolean {
+    let s = nums.reduce((a, b) => a + b, 0);
+    if (s % k !== 0) {
+        return false;
+    }
+    s = Math.floor(s / k);
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const mask = (1 << n) - 1;
+    const f = Array(1 << n).fill(0);
+
+    const dfs = (state: number, t: number): boolean => {
+        if (state === mask) {
+            return true;
+        }
+        if (f[state] !== 0) {
+            return f[state] === 1;
+        }
+        for (let i = 0; i < n; ++i) {
+            if ((state >> i) & 1) {
+                continue;
+            }
+            if (t + nums[i] > s) {
+                break;
+            }
+            if (dfs(state | (1 << i), (t + nums[i]) % s)) {
+                f[state] = 1;
+                return true;
+            }
+        }
+        f[state] = -1;
+        return false;
+    };
+
+    return dfs(0, 0);
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Dynamic Programming
+
+We can use dynamic programming to solve this problem.
+
+We define $f[i]$ to represent whether there exists $k$ subsets that meet the requirements when the current selected numbers' state is $i$. Initially, $f[0] = \text{true}$, and the answer is $f[2^n - 1]$, where $n$ is the length of the array $\textit{nums}$. Additionally, we define $cur[i]$ to represent the sum of the last subset when the current selected numbers' state is $i$.
+
+We enumerate the states $i$ in the range $[0, 2^n]$. For each state $i$, if $f[i]$ is $\text{false}$, we skip it. Otherwise, we enumerate any number $\textit{nums}[j]$ in the array $\textit{nums}$. If $cur[i] + \textit{nums}[j] > s$, we break the enumeration loop because the subsequent numbers are larger and cannot be placed in the current subset. Otherwise, if the $j$-th bit of the binary representation of $i$ is $0$, it means the current $\textit{nums}[j]$ has not been selected. We can place it in the current subset, change the state to $i | 2^j$, update $cur[i | 2^j] = (cur[i] + \textit{nums}[j]) \bmod s$, and set $f[i | 2^j] = \text{true}$.
+
+Finally, we return $f[2^n - 1]$.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ represents the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -546,6 +621,38 @@ func canPartitionKSubsets(nums []int, k int) bool {
 		}
 	}
 	return f[(1<<n)-1]
+}
+```
+
+#### TypeScript
+
+```ts
+function canPartitionKSubsets(nums: number[], k: number): boolean {
+    let s = nums.reduce((a, b) => a + b);
+    if (s % k !== 0) {
+        return false;
+    }
+    s /= k;
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const f: boolean[] = Array(1 << n).fill(false);
+    f[0] = true;
+    const cur: number[] = Array(n).fill(0);
+    for (let i = 0; i < 1 << n; ++i) {
+        if (!f[i]) {
+            continue;
+        }
+        for (let j = 0; j < n; ++j) {
+            if (cur[i] + nums[j] > s) {
+                break;
+            }
+            if (((i >> j) & 1) === 0) {
+                f[i | (1 << j)] = true;
+                cur[i | (1 << j)] = (cur[i] + nums[j]) % s;
+            }
+        }
+    }
+    return f[(1 << n) - 1];
 }
 ```
 

@@ -6,6 +6,7 @@ tags:
     - Greedy
     - Two Pointers
     - String
+    - Binary Search
 ---
 
 <!-- problem:start -->

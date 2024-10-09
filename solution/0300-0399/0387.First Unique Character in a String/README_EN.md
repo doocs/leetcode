@@ -19,19 +19,37 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a string <code>s</code>, <em>find the first non-repeating character in it and return its index</em>. If it does not exist, return <code>-1</code>.</p>
+<p>Given a string <code>s</code>, find the <strong>first</strong> non-repeating character in it and return its index. If it <strong>does not</strong> exist, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<pre><strong>Input:</strong> s = "leetcode"
-<strong>Output:</strong> 0
-</pre><p><strong class="example">Example 2:</strong></p>
-<pre><strong>Input:</strong> s = "loveleetcode"
-<strong>Output:</strong> 2
-</pre><p><strong class="example">Example 3:</strong></p>
-<pre><strong>Input:</strong> s = "aabb"
-<strong>Output:</strong> -1
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;leetcode&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The character <code>&#39;l&#39;</code> at index 0 is the first character that does not occur at any other index.</p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;loveleetcode&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s = &quot;aabb&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">-1</span></p>
+</div>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

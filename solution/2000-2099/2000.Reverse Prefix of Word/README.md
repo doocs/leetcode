@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2000.Re
 rating: 1199
 source: 第 258 场周赛 Q1
 tags:
+    - 栈
     - 双指针
     - 字符串
 ---

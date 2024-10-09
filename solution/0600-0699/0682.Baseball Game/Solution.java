@@ -1,7 +1,7 @@
 class Solution {
-    public int calPoints(String[] ops) {
+    public int calPoints(String[] operations) {
         Deque<Integer> stk = new ArrayDeque<>();
-        for (String op : ops) {
+        for (String op : operations) {
             if ("+".equals(op)) {
                 int a = stk.pop();
                 int b = stk.peek();

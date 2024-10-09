@@ -65,19 +65,19 @@ The 5-Sum of the array is 2.
 
 <!-- solution:start -->
 
-### Solution 1: Priority Queue (Min Heap)
+### Solution 1: Priority Queue (Min-Heap)
 
-First, we find the maximum subsequence sum $mx$, which is the sum of all positive numbers.
+First, we find the maximum subarray sum $mx$, which is the sum of all positive numbers.
 
-It can be found that the sum of other subsequences can be regarded as the maximum subsequence sum, minus the sum of other part of the subsequence. Therefore, we can convert the problem into finding the $k$-th smallest subsequence sum.
+It can be observed that the sum of other subarrays can be considered as the maximum subarray sum minus the sum of other parts of the subarray. Therefore, we can convert the problem into finding the $k$-th smallest subarray sum.
 
-We only need to sort all numbers in ascending order by their absolute values, then establish a min heap, storing pairs $(s, i)$, representing the current sum is $s$, and the index of the next number to be selected is $i$.
+We only need to sort all numbers in ascending order by their absolute values, then build a min-heap to store the tuple $(s, i)$, where $s$ is the current sum and $i$ is the index of the next number to be selected in the subarray.
 
-Each time we take out the top of the heap, and put in two new situations: one is to select the next position, and the other is to select the next position and not select this position.
+Each time, we extract the top of the heap and insert two new situations: one is to select the next number, and the other is to select the next number but not the current number.
 
-Since the array is sorted from small to large, this method can traverse all subsequence sums in order without duplication.
+Since the array is sorted in ascending order, this method can traverse all subarray sums in order without omission.
 
-The time complexity is $O(n \times \log n + k \times \log k)$, where $n$ is the length of the array `nums`, and $k$ is the given $k$ in the problem.
+The time complexity is $O(n \times \log n + k \times \log k)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

@@ -73,7 +73,7 @@ tags:
 
 我们可以用哈希表 $d$ 记录每个字母出现的下标，然后遍历哈希表，判断每个字母的下标之差是否等于 `distance` 中对应的值。如果出现不等的情况，直接返回 `false`。如果遍历结束后，没有出现不等的情况，返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C = 26$。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 为字符集，这里为小写字母集合。
 
 <!-- tabs:start -->
 
@@ -83,10 +83,11 @@ tags:
 class Solution:
     def checkDistances(self, s: str, distance: List[int]) -> bool:
         d = defaultdict(int)
-        for i, c in enumerate(s, 1):
-            if d[c] and i - d[c] - 1 != distance[ord(c) - ord('a')]:
+        for i, c in enumerate(map(ord, s), 1):
+            j = c - ord("a")
+            if d[j] and i - d[j] - 1 != distance[j]:
                 return False
-            d[c] = i
+            d[j] = i
         return True
 ```
 
@@ -96,7 +97,7 @@ class Solution:
 class Solution {
     public boolean checkDistances(String s, int[] distance) {
         int[] d = new int[26];
-        for (int i = 1, n = s.length(); i <= n; ++i) {
+        for (int i = 1; i <= s.length(); ++i) {
             int j = s.charAt(i - 1) - 'a';
             if (d[j] > 0 && i - d[j] - 1 != distance[j]) {
                 return false;
@@ -147,8 +148,8 @@ func checkDistances(s string, distance []int) bool {
 
 ```ts
 function checkDistances(s: string, distance: number[]): boolean {
+    const d: number[] = Array(26).fill(0);
     const n = s.length;
-    const d: number[] = new Array(26).fill(0);
     for (let i = 1; i <= n; ++i) {
         const j = s.charCodeAt(i - 1) - 97;
         if (d[j] && i - d[j] - 1 !== distance[j]) {

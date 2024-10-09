@@ -19,21 +19,41 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an array of strings <code>strs</code>, group <strong>the anagrams</strong> together. You can return the answer in <strong>any order</strong>.</p>
-
-<p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+<p>Given an array of strings <code>strs</code>, group the <span data-keyword="anagram">anagrams</span> together. You can return the answer in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<pre><strong>Input:</strong> strs = ["eat","tea","tan","ate","nat","bat"]
-<strong>Output:</strong> [["bat"],["nat","tan"],["ate","eat","tea"]]
-</pre><p><strong class="example">Example 2:</strong></p>
-<pre><strong>Input:</strong> strs = [""]
-<strong>Output:</strong> [[""]]
-</pre><p><strong class="example">Example 3:</strong></p>
-<pre><strong>Input:</strong> strs = ["a"]
-<strong>Output:</strong> [["a"]]
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">strs = [&quot;eat&quot;,&quot;tea&quot;,&quot;tan&quot;,&quot;ate&quot;,&quot;nat&quot;,&quot;bat&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[[&quot;bat&quot;],[&quot;nat&quot;,&quot;tan&quot;],[&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;]]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>There is no string in strs that can be rearranged to form <code>&quot;bat&quot;</code>.</li>
+	<li>The strings <code>&quot;nat&quot;</code> and <code>&quot;tan&quot;</code> are anagrams as they can be rearranged to form each other.</li>
+	<li>The strings <code>&quot;ate&quot;</code>, <code>&quot;eat&quot;</code>, and <code>&quot;tea&quot;</code> are anagrams as they can be rearranged to form each other.</li>
+</ul>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">strs = [&quot;&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[[&quot;&quot;]]</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">strs = [&quot;a&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[[&quot;a&quot;]]</span></p>
+</div>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

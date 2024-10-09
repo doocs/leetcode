@@ -62,7 +62,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Eulerian Path
+
+The problem is essentially about finding a path that starts from a specified starting point, passes through all the edges exactly once, and has the smallest lexicographical order among all such paths, given $n$ vertices and $m$ edges. This is a classic Eulerian path problem.
+
+Since the problem guarantees that there is at least one feasible itinerary, we can directly use the Hierholzer algorithm to output the Eulerian path starting from the starting point.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the number of edges.
 
 <!-- tabs:start -->
 
@@ -71,55 +77,42 @@ tags:
 ```python
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
-        graph = defaultdict(list)
+        def dfs(f: str):
+            while g[f]:
+                dfs(g[f].pop())
+            ans.append(f)
 
-        for src, dst in sorted(tickets, reverse=True):
-            graph[src].append(dst)
-
-        itinerary = []
-
-        def dfs(airport):
-            while graph[airport]:
-                dfs(graph[airport].pop())
-            itinerary.append(airport)
-
+        g = defaultdict(list)
+        for f, t in sorted(tickets, reverse=True):
+            g[f].append(t)
+        ans = []
         dfs("JFK")
-
-        return itinerary[::-1]
+        return ans[::-1]
 ```
 
 #### Java
 
 ```java
 class Solution {
-    void dfs(Map<String, Queue<String>> adjLists, List<String> ans, String curr) {
-        Queue<String> neighbors = adjLists.get(curr);
-        if (neighbors == null) {
-            ans.add(curr);
-            return;
-        }
-        while (!neighbors.isEmpty()) {
-            String neighbor = neighbors.poll();
-            dfs(adjLists, ans, neighbor);
-        }
-        ans.add(curr);
-        return;
-    }
+    private Map<String, List<String>> g = new HashMap<>();
+    private List<String> ans = new ArrayList<>();
 
     public List<String> findItinerary(List<List<String>> tickets) {
-        Map<String, Queue<String>> adjLists = new HashMap<>();
+        Collections.sort(tickets, (a, b) -> b.get(1).compareTo(a.get(1)));
         for (List<String> ticket : tickets) {
-            String from = ticket.get(0);
-            String to = ticket.get(1);
-            if (!adjLists.containsKey(from)) {
-                adjLists.put(from, new PriorityQueue<>());
-            }
-            adjLists.get(from).add(to);
+            g.computeIfAbsent(ticket.get(0), k -> new ArrayList<>()).add(ticket.get(1));
         }
-        List<String> ans = new ArrayList<>();
-        dfs(adjLists, ans, "JFK");
+        dfs("JFK");
         Collections.reverse(ans);
         return ans;
+    }
+
+    private void dfs(String f) {
+        while (g.containsKey(f) && !g.get(f).isEmpty()) {
+            String t = g.get(f).remove(g.get(f).size() - 1);
+            dfs(t);
+        }
+        ans.add(f);
     }
 }
 ```
@@ -130,36 +123,77 @@ class Solution {
 class Solution {
 public:
     vector<string> findItinerary(vector<vector<string>>& tickets) {
-        unordered_map<string, priority_queue<string, vector<string>, greater<string>>> g;
-        vector<string> ret;
-
-        // Initialize the graph
-        for (const auto& t : tickets) {
-            g[t[0]].push(t[1]);
+        sort(tickets.rbegin(), tickets.rend());
+        unordered_map<string, vector<string>> g;
+        for (const auto& ticket : tickets) {
+            g[ticket[0]].push_back(ticket[1]);
         }
-
-        findItineraryInner(g, ret, "JFK");
-
-        ret = {ret.rbegin(), ret.rend()};
-
-        return ret;
-    }
-
-    void findItineraryInner(unordered_map<string, priority_queue<string, vector<string>, greater<string>>>& g, vector<string>& ret, string cur) {
-        if (g.count(cur) == 0) {
-            // This is the end point
-            ret.push_back(cur);
-            return;
-        } else {
-            while (!g[cur].empty()) {
-                auto front = g[cur].top();
-                g[cur].pop();
-                findItineraryInner(g, ret, front);
+        vector<string> ans;
+        auto dfs = [&](auto&& dfs, string& f) -> void {
+            while (!g[f].empty()) {
+                string t = g[f].back();
+                g[f].pop_back();
+                dfs(dfs, t);
             }
-            ret.push_back(cur);
-        }
+            ans.emplace_back(f);
+        };
+        string f = "JFK";
+        dfs(dfs, f);
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
+```
+
+#### Go
+
+```go
+func findItinerary(tickets [][]string) (ans []string) {
+	sort.Slice(tickets, func(i, j int) bool {
+		return tickets[i][0] > tickets[j][0] || (tickets[i][0] == tickets[j][0] && tickets[i][1] > tickets[j][1])
+	})
+	g := make(map[string][]string)
+	for _, ticket := range tickets {
+		g[ticket[0]] = append(g[ticket[0]], ticket[1])
+	}
+	var dfs func(f string)
+	dfs = func(f string) {
+		for len(g[f]) > 0 {
+			t := g[f][len(g[f])-1]
+			g[f] = g[f][:len(g[f])-1]
+			dfs(t)
+		}
+		ans = append(ans, f)
+	}
+	dfs("JFK")
+	for i := 0; i < len(ans)/2; i++ {
+		ans[i], ans[len(ans)-1-i] = ans[len(ans)-1-i], ans[i]
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function findItinerary(tickets: string[][]): string[] {
+    const g: Record<string, string[]> = {};
+    tickets.sort((a, b) => b[1].localeCompare(a[1]));
+    for (const [f, t] of tickets) {
+        g[f] = g[f] || [];
+        g[f].push(t);
+    }
+    const ans: string[] = [];
+    const dfs = (f: string) => {
+        while (g[f] && g[f].length) {
+            const t = g[f].pop()!;
+            dfs(t);
+        }
+        ans.push(f);
+    };
+    dfs('JFK');
+    return ans.reverse();
+}
 ```
 
 <!-- tabs:end -->

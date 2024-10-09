@@ -1,10 +1,9 @@
 class Solution:
     def edgeScore(self, edges: List[int]) -> int:
-        cnt = Counter()
-        for i, v in enumerate(edges):
-            cnt[v] += i
         ans = 0
-        for i in range(len(edges)):
-            if cnt[ans] < cnt[i]:
-                ans = i
+        cnt = [0] * len(edges)
+        for i, j in enumerate(edges):
+            cnt[j] += i
+            if cnt[ans] < cnt[j] or (cnt[ans] == cnt[j] and j < ans):
+                ans = j
         return ans

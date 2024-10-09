@@ -1,10 +1,10 @@
 class Solution:
     def largestWordCount(self, messages: List[str], senders: List[str]) -> str:
         cnt = Counter()
-        for msg, sender in zip(messages, senders):
-            cnt[sender] += msg.count(' ') + 1
-        ans = ''
-        for sender, v in cnt.items():
-            if cnt[ans] < v or (cnt[ans] == v and ans < sender):
-                ans = sender
+        for message, sender in zip(messages, senders):
+            cnt[sender] += message.count(" ") + 1
+        ans = senders[0]
+        for k, v in cnt.items():
+            if cnt[ans] < v or (cnt[ans] == v and ans < k):
+                ans = k
         return ans

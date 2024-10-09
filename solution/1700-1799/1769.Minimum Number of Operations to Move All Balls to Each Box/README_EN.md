@@ -7,6 +7,7 @@ source: Weekly Contest 229 Q2
 tags:
     - Array
     - String
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

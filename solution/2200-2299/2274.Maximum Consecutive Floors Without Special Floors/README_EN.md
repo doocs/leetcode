@@ -61,7 +61,11 @@ Therefore, we return the maximum number which is 3 floors.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We can sort the special floors in ascending order, then calculate the number of floors between each pair of adjacent special floors. Finally, we calculate the number of floors between the first special floor and $\textit{bottom}$, as well as the number of floors between the last special floor and $\textit{top}$. The maximum of these floor counts is the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{special}$.
 
 <!-- tabs:start -->
 
@@ -72,8 +76,8 @@ class Solution:
     def maxConsecutive(self, bottom: int, top: int, special: List[int]) -> int:
         special.sort()
         ans = max(special[0] - bottom, top - special[-1])
-        for i in range(1, len(special)):
-            ans = max(ans, special[i] - special[i - 1] - 1)
+        for x, y in pairwise(special):
+            ans = max(ans, y - x - 1)
         return ans
 ```
 
@@ -93,17 +97,44 @@ class Solution {
 }
 ```
 
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxConsecutive(int bottom, int top, vector<int>& special) {
+        ranges::sort(special);
+        int ans = max(special[0] - bottom, top - special.back());
+        for (int i = 1; i < special.size(); ++i) {
+            ans = max(ans, special[i] - special[i - 1] - 1);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxConsecutive(bottom int, top int, special []int) int {
+	sort.Ints(special)
+	ans := max(special[0]-bottom, top-special[len(special)-1])
+	for i, x := range special[1:] {
+		ans = max(ans, x-special[i]-1)
+	}
+	return ans
+}
+```
+
 #### TypeScript
 
 ```ts
 function maxConsecutive(bottom: number, top: number, special: number[]): number {
-    let nums = special.slice().sort((a, b) => a - b);
-    nums.unshift(bottom - 1);
-    nums.push(top + 1);
-    let ans = 0;
-    const n = nums.length;
-    for (let i = 1; i < n; i++) {
-        ans = Math.max(ans, nums[i] - nums[i - 1] - 1);
+    special.sort((a, b) => a - b);
+    const n = special.length;
+    let ans = Math.max(special[0] - bottom, top - special[n - 1]);
+    for (let i = 1; i < n; ++i) {
+        ans = Math.max(ans, special[i] - special[i - 1] - 1);
     }
     return ans;
 }

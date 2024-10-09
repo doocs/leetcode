@@ -69,6 +69,14 @@ tags:
 
 ### 方法一：考虑开始、结束的位置关系
 
+由于每个阶段的结束位置是下一个阶段的开始位置，并且每个阶段都是逆时针方向的，所以我们可以根据开始和结束的位置关系来确定每个扇区的经过次数。
+
+如果 $\textit{rounds}[0] \leq \textit{rounds}[m]$，那么从 $\textit{rounds}[0]$ 开始，到 $\textit{rounds}[m]$ 结束的所有扇区经过的次数是最多的，我们可以直接返回这个区间内的所有扇区。
+
+否则，从 $1$ 开始，到 $\textit{rounds}[m]$ 结束的所有扇区和从 $\textit{rounds}[0]$ 开始，到 $n$ 结束的所有扇区的并集是经过次数最多的，我们可以返回这两个区间的并集。
+
+时间复杂度 $O(n)$，其中 $n$ 是扇区的个数。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -114,10 +122,16 @@ public:
         int m = rounds.size() - 1;
         vector<int> ans;
         if (rounds[0] <= rounds[m]) {
-            for (int i = rounds[0]; i <= rounds[m]; ++i) ans.push_back(i);
+            for (int i = rounds[0]; i <= rounds[m]; ++i) {
+                ans.push_back(i);
+            }
         } else {
-            for (int i = 1; i <= rounds[m]; ++i) ans.push_back(i);
-            for (int i = rounds[0]; i <= n; ++i) ans.push_back(i);
+            for (int i = 1; i <= rounds[m]; ++i) {
+                ans.push_back(i);
+            }
+            for (int i = rounds[0]; i <= n; ++i) {
+                ans.push_back(i);
+            }
         }
         return ans;
     }
@@ -143,6 +157,28 @@ func mostVisited(n int, rounds []int) []int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function mostVisited(n: number, rounds: number[]): number[] {
+    const ans: number[] = [];
+    const m = rounds.length - 1;
+    if (rounds[0] <= rounds[m]) {
+        for (let i = rounds[0]; i <= rounds[m]; ++i) {
+            ans.push(i);
+        }
+    } else {
+        for (let i = 1; i <= rounds[m]; ++i) {
+            ans.push(i);
+        }
+        for (let i = rounds[0]; i <= n; ++i) {
+            ans.push(i);
+        }
+    }
+    return ans;
 }
 ```
 

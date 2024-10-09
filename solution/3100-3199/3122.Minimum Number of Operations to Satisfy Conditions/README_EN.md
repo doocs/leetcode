@@ -99,10 +99,10 @@ We notice that the values in the cells of the matrix only have 10 possibilities.
 We define the state $f[i][j]$ to represent the minimum number of operations for the numbers in the first $[0,..i]$ columns, and the number in the $i$-th column is $j$. Then we can get the state transition equation:
 
 $$
-f[i][j] = \min_{k \neq j} (f[i-1][k] + m - \text{cnt}[j])
+f[i][j] = \min_{k \neq j} (f[i-1][k] + m - \textit{cnt}[j])
 $$
 
-Where $\text{cnt}[j]$ represents the number of cells in the $i$-th column that are $j$.
+Where $\textit{cnt}[j]$ represents the number of cells in the $i$-th column that are $j$.
 
 Finally, we only need to find the minimum value of $f[n-1][j]$.
 

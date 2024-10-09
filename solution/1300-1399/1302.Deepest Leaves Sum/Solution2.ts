@@ -13,21 +13,20 @@
  */
 
 function deepestLeavesSum(root: TreeNode | null): number {
-    let res = 0;
-    let maxDepath = 0;
-    const dfs = ({ val, left, right }: TreeNode, depth: number) => {
-        if (left == null && right == null) {
-            if (depth === maxDepath) {
-                res += val;
-            } else if (depth > maxDepath) {
-                maxDepath = depth;
-                res = val;
-            }
+    let [ans, mx] = [0, 0];
+    const dfs = (root: TreeNode | null, i: number) => {
+        if (!root) {
             return;
         }
-        left && dfs(left, depth + 1);
-        right && dfs(right, depth + 1);
+        if (i > mx) {
+            mx = i;
+            ans = root.val;
+        } else if (i === mx) {
+            ans += root.val;
+        }
+        dfs(root.left, i + 1);
+        dfs(root.right, i + 1);
     };
-    dfs(root, 0);
-    return res;
+    dfs(root, 1);
+    return ans;
 }

@@ -1,35 +1,31 @@
 class Solution {
-    private int[] a = new int[33];
-    private int[][] dp = new int[33][2];
+    private int n;
+    private Integer[][] f;
 
     public int findIntegers(int n) {
-        int len = 0;
-        while (n > 0) {
-            a[++len] = n & 1;
-            n >>= 1;
-        }
-        for (var e : dp) {
-            Arrays.fill(e, -1);
-        }
-        return dfs(len, 0, true);
+        this.n = n;
+        int m = Integer.SIZE - Integer.numberOfLeadingZeros(n);
+        f = new Integer[m][2];
+        return dfs(m - 1, 0, true);
     }
 
-    private int dfs(int pos, int pre, boolean limit) {
-        if (pos <= 0) {
+    private int dfs(int i, int pre, boolean limit) {
+        if (i < 0) {
             return 1;
         }
-        if (!limit && dp[pos][pre] != -1) {
-            return dp[pos][pre];
+        if (!limit && f[i][pre] != null) {
+            return f[i][pre];
         }
-        int up = limit ? a[pos] : 1;
+        int up = limit ? (n >> i & 1) : 1;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            if (!(pre == 1 && i == 1)) {
-                ans += dfs(pos - 1, i, limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            if (j == 1 && pre == 1) {
+                continue;
             }
+            ans += dfs(i - 1, j, limit && j == up);
         }
         if (!limit) {
-            dp[pos][pre] = ans;
+            f[i][pre] = ans;
         }
         return ans;
     }

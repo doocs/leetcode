@@ -66,7 +66,15 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Considering the Relationship Between Start and End Positions
+
+Since the end position of each stage is the start position of the next stage, and each stage is in a counterclockwise direction, we can determine the number of times each sector is passed based on the relationship between the start and end positions.
+
+If $\textit{rounds}[0] \leq \textit{rounds}[m]$, then the sectors from $\textit{rounds}[0]$ to $\textit{rounds}[m]$ are passed the most times, and we can directly return all sectors within this interval.
+
+Otherwise, the sectors from $1$ to $\textit{rounds}[m]$ and the sectors from $\textit{rounds}[0]$ to $n$ form the union of the most passed sectors, and we can return the union of these two intervals.
+
+The time complexity is $O(n)$, where $n$ is the number of sectors. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -113,10 +121,16 @@ public:
         int m = rounds.size() - 1;
         vector<int> ans;
         if (rounds[0] <= rounds[m]) {
-            for (int i = rounds[0]; i <= rounds[m]; ++i) ans.push_back(i);
+            for (int i = rounds[0]; i <= rounds[m]; ++i) {
+                ans.push_back(i);
+            }
         } else {
-            for (int i = 1; i <= rounds[m]; ++i) ans.push_back(i);
-            for (int i = rounds[0]; i <= n; ++i) ans.push_back(i);
+            for (int i = 1; i <= rounds[m]; ++i) {
+                ans.push_back(i);
+            }
+            for (int i = rounds[0]; i <= n; ++i) {
+                ans.push_back(i);
+            }
         }
         return ans;
     }
@@ -142,6 +156,28 @@ func mostVisited(n int, rounds []int) []int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function mostVisited(n: number, rounds: number[]): number[] {
+    const ans: number[] = [];
+    const m = rounds.length - 1;
+    if (rounds[0] <= rounds[m]) {
+        for (let i = rounds[0]; i <= rounds[m]; ++i) {
+            ans.push(i);
+        }
+    } else {
+        for (let i = 1; i <= rounds[m]; ++i) {
+            ans.push(i);
+        }
+        for (let i = rounds[0]; i <= n; ++i) {
+            ans.push(i);
+        }
+    }
+    return ans;
 }
 ```
 

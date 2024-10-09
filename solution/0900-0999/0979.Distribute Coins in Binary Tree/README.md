@@ -61,9 +61,9 @@ tags:
 
 ### 方法一：DFS
 
-我们定义一个函数 $\text{dfs(\text{node})}$，表示以 $\text{node}$ 为根节点的子树中，金币的超载量，即金币的数量减去节点数。如果 $\text{dfs(\text{node})}$ 为正数，表示该子树中金币的数量多于节点数，需要将多余的金币移出该子树；如果 $\text{dfs(\text{node})}$ 为负数，表示该子树中金币的数量少于节点数，需要将不足的金币移入该子树。
+我们定义一个函数 $\textit{dfs(\textit{node})}$，表示以 $\textit{node}$ 为根节点的子树中，金币的超载量，即金币的数量减去节点数。如果 $\textit{dfs(\textit{node})}$ 为正数，表示该子树中金币的数量多于节点数，需要将多余的金币移出该子树；如果 $\textit{dfs(\textit{node})}$ 为负数，表示该子树中金币的数量少于节点数，需要将不足的金币移入该子树。
 
-在函数 $\text{dfs(\text{node})}$ 中，我们首先遍历左右子树，获得左右子树的金币超载量 $\text{left}$ 和 $\text{right}$。那么当前移动的次数需要加上 $|\text{left}| + |\text{right}|$，即将左右子树中的金币移动到当前节点。然后，我们返回整个子树的金币超载量，即 $\text{left} + \text{right} + \text{node.val} - 1$。
+在函数 $\textit{dfs(\textit{node})}$ 中，我们首先遍历左右子树，获得左右子树的金币超载量 $\textit{left}$ 和 $\textit{right}$。那么当前移动的次数需要加上 $|\textit{left}| + |\textit{right}|$，即将左右子树中的金币移动到当前节点。然后，我们返回整个子树的金币超载量，即 $\textit{left} + \textit{right} + \textit{node.val} - 1$。
 
 最后返回移动的次数即可。
 

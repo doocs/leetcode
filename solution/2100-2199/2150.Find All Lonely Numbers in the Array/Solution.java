@@ -1,16 +1,16 @@
 class Solution {
-
     public List<Integer> findLonely(int[] nums) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
         }
         List<Integer> ans = new ArrayList<>();
-        counter.forEach((k, v) -> {
-            if (v == 1 && !counter.containsKey(k - 1) && !counter.containsKey(k + 1)) {
-                ans.add(k);
+        for (var e : cnt.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            if (v == 1 && !cnt.containsKey(x - 1) && !cnt.containsKey(x + 1)) {
+                ans.add(x);
             }
-        });
+        }
         return ans;
     }
 }

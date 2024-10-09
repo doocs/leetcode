@@ -82,7 +82,7 @@ The blue arrows show how we can find originalText from encodedText.
 
 ### Solution 1: Simulation
 
-First, we calculate the number of columns in the matrix $cols = \text{len}(encodedText) / rows$. Then, following the rules described in the problem, we start traversing the matrix from the top left corner, adding characters to the answer.
+First, we calculate the number of columns in the matrix $cols = \textit{len}(encodedText) / rows$. Then, following the rules described in the problem, we start traversing the matrix from the top left corner, adding characters to the answer.
 
 Finally, we return the answer, making sure to remove any trailing spaces.
 

@@ -66,7 +66,13 @@ tags:
 
 ### 方法一：动态规划
 
-时间复杂度 $O(n)$。
+我们可以使用哈希表 $f$ 来存储以 $x$ 结尾的最长等差子序列的长度。
+
+遍历数组 $\textit{arr}$，对于每个元素 $x$，我们更新 $f[x]$ 为 $f[x - \textit{difference}] + 1$。
+
+遍历结束后，我们返回 $f$ 中的最大值作为答案返回即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -124,6 +130,25 @@ func longestSubsequence(arr []int, difference int) (ans int) {
 		ans = max(ans, f[x])
 	}
 	return
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn longest_subsequence(arr: Vec<i32>, difference: i32) -> i32 {
+        let mut f = HashMap::new();
+        let mut ans = 0;
+        for &x in &arr {
+            let count = f.get(&(x - difference)).unwrap_or(&0) + 1;
+            f.insert(x, count);
+            ans = ans.max(count);
+        }
+        ans
+    }
 }
 ```
 

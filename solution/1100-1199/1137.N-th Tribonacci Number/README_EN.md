@@ -27,43 +27,29 @@ tags:
 <p>Given <code>n</code>, return the value of T<sub>n</sub>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 4
-
 <strong>Output:</strong> 4
-
 <strong>Explanation:</strong>
-
 T_3 = 0 + 1 + 1 = 2
-
 T_4 = 1 + 1 + 2 = 4
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 25
-
 <strong>Output:</strong> 1389537
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
-    <li><code>0 &lt;= n &lt;= 37</code></li>
-
-    <li>The answer is guaranteed to fit within a 32-bit integer, ie. <code>answer &lt;= 2^31 - 1</code>.</li>
-
+	<li><code>0 &lt;= n &lt;= 37</code></li>
+	<li>The answer is guaranteed to fit within a 32-bit integer, ie. <code>answer &lt;= 2^31 - 1</code>.</li>
 </ul>
 
 <!-- description:end -->
@@ -267,32 +253,24 @@ The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 #### Python3
 
 ```python
+import numpy as np
+
+
 class Solution:
     def tribonacci(self, n: int) -> int:
-        def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
-            m, n = len(a), len(b[0])
-            c = [[0] * n for _ in range(m)]
-            for i in range(m):
-                for j in range(n):
-                    for k in range(len(a[0])):
-                        c[i][j] = c[i][j] + a[i][k] * b[k][j]
-            return c
-
-        def pow(a: List[List[int]], n: int) -> List[List[int]]:
-            res = [[1, 1, 0]]
-            while n:
-                if n & 1:
-                    res = mul(res, a)
-                n >>= 1
-                a = mul(a, a)
-            return res
-
         if n == 0:
             return 0
         if n < 3:
             return 1
-        a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
-        return sum(pow(a, n - 3)[0])
+        factor = np.asmatrix([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
+        res = np.asmatrix([(1, 1, 0)], np.dtype("O"))
+        n -= 3
+        while n:
+            if n & 1:
+                res *= factor
+            factor *= factor
+            n >>= 1
+        return res.sum()
 ```
 
 #### Java
@@ -481,39 +459,6 @@ function pow(a, n) {
     }
     return res;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-import numpy as np
-
-
-class Solution:
-    def tribonacci(self, n: int) -> int:
-        if n == 0:
-            return 0
-        if n < 3:
-            return 1
-        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
-        res = np.mat([(1, 1, 0)], np.dtype("O"))
-        n -= 3
-        while n:
-            if n & 1:
-                res *= factor
-            factor *= factor
-            n >>= 1
-        return res.sum()
 ```
 
 <!-- tabs:end -->

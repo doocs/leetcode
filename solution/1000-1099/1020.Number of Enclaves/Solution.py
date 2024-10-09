@@ -1,6 +1,6 @@
 class Solution:
     def numEnclaves(self, grid: List[List[int]]) -> int:
-        def dfs(i, j):
+        def dfs(i: int, j: int):
             grid[i][j] = 0
             for a, b in pairwise(dirs):
                 x, y = i + a, j + b
@@ -9,8 +9,12 @@ class Solution:
 
         m, n = len(grid), len(grid[0])
         dirs = (-1, 0, 1, 0, -1)
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] and (i == 0 or i == m - 1 or j == 0 or j == n - 1):
+        for j in range(n):
+            for i in (0, m - 1):
+                if grid[i][j]:
                     dfs(i, j)
-        return sum(v for row in grid for v in row)
+        for i in range(m):
+            for j in (0, n - 1):
+                if grid[i][j]:
+                    dfs(i, j)
+        return sum(sum(row) for row in grid)

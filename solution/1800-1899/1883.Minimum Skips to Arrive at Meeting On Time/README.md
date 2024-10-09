@@ -91,7 +91,7 @@ tags:
 由于我们可以选择跳过或者不跳过第 $i$ 条道路的休息时间，因此我们可以列出状态转移方程：
 
 $$
-f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \text{不跳过第 $i$ 条道路的休息时间} \\ f[i-1][j-1]+\frac{d_i}{s} & \text{跳过第 $i$ 条道路的休息时间} \end{aligned}\right.
+f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \textit{不跳过第 $i$ 条道路的休息时间} \\ f[i-1][j-1]+\frac{d_i}{s} & \textit{跳过第 $i$ 条道路的休息时间} \end{aligned}\right.
 $$
 
 其中 $\lceil x\rceil$ 表示将 $x$ 向上取整。需要注意的是，由于我们需要保证恰好跳过 $j$ 次休息时间，因此我们必须有 $j\le i$；另外，如果 $j=0$，不能跳过任何休息时间。

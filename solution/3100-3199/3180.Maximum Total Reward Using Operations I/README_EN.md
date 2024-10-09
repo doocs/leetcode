@@ -73,12 +73,12 @@ tags:
 
 We can sort the `rewardValues` array and then use memoization to solve for the maximum total reward.
 
-We define a function $\text{dfs}(x)$, representing the maximum total reward that can be obtained when the current total reward is $x$. Thus, the answer is $\text{dfs}(0)$.
+We define a function $\textit{dfs}(x)$, representing the maximum total reward that can be obtained when the current total reward is $x$. Thus, the answer is $\textit{dfs}(0)$.
 
-The execution process of the function $\text{dfs}(x)$ is as follows:
+The execution process of the function $\textit{dfs}(x)$ is as follows:
 
 1. Perform a binary search in the `rewardValues` array for the index $i$ of the first element greater than $x$;
-2. Iterate over the elements in the `rewardValues` array starting from index $i$, and for each element $v$, calculate the maximum value of $v + \text{dfs}(x + v)$.
+2. Iterate over the elements in the `rewardValues` array starting from index $i$, and for each element $v$, calculate the maximum value of $v + \textit{dfs}(x + v)$.
 3. Return the result.
 
 To avoid repeated calculations, we use a memoization array `f` to record the results that have already been computed.
@@ -226,7 +226,7 @@ function maxTotalReward(rewardValues: number[]): number {
 
 ### Solution 2: Dynamic Programming
 
-We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \text{True}$, and all other values are $\text{False}$.
+We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \textit{True}$, and all other values are $\textit{False}$.
 
 We consider the $i$-th reward value $v$. If we do not choose it, then $f[i][j] = f[i - 1][j]$. If we choose it, then $f[i][j] = f[i - 1][j - v]$, where $0 \leq j - v < v$. Thus, the state transition equation is:
 
@@ -234,7 +234,7 @@ $$
 f[i][j] = f[i - 1][j] \vee f[i - 1][j - v]
 $$
 
-The final answer is $\max\{j \mid f[n][j] = \text{True}\}$.
+The final answer is $\max\{j \mid f[n][j] = \textit{True}\}$.
 
 Since $f[i][j]$ only depends on $f[i - 1][j]$ and $f[i - 1][j - v]$, we can optimize away the first dimension and use only a one-dimensional array for state transitions.
 

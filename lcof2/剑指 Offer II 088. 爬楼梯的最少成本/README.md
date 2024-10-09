@@ -141,6 +141,21 @@ function minCostClimbingStairs(cost: number[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func minCostClimbingStairs(_ cost: [Int]) -> Int {
+        let n = cost.count
+        var dp = Array(repeating: 0, count: n + 1)
+        for i in 2...n {
+            dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+        }
+        return dp[n]
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -217,6 +232,23 @@ function minCostClimbingStairs(cost: number[]): number {
         [a, b] = [b, Math.min(a + cost[i - 1], b + cost[i])];
     }
     return b;
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func minCostClimbingStairs(_ cost: [Int]) -> Int {
+        var a = 0
+        var b = 0
+        for i in 1..<cost.count {
+            let c = min(a + cost[i - 1], b + cost[i])
+            a = b
+            b = c
+        }
+        return b
+    }
 }
 ```
 

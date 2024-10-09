@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1967.Nu
 rating: 1231
 source: Weekly Contest 254 Q1
 tags:
+    - Array
     - String
 ---
 

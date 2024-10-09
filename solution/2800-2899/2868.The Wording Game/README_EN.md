@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2868.The%20Wording%20Game/README_EN.md
 tags:
+    - Greedy
     - Array
     - Math
     - Two Pointers

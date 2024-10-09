@@ -77,19 +77,19 @@ tags:
 
 ### 方法一：二分查找
 
-我们可以二分枚举乘积的值 $p$，定义二分的区间为 $[l, r]$，其中 $l = -\text{max}(|\text{nums1}[0]|, |\text{nums1}[n - 1]|) \times \text{max}(|\text{nums2}[0]|, |\text{nums2}[n - 1]|)$, $r = -l$。
+我们可以二分枚举乘积的值 $p$，定义二分的区间为 $[l, r]$，其中 $l = -\textit{max}(|\textit{nums1}[0]|, |\textit{nums1}[n - 1]|) \times \textit{max}(|\textit{nums2}[0]|, |\textit{nums2}[n - 1]|)$, $r = -l$。
 
 对于每个 $p$，我们计算出乘积小于等于 $p$ 的乘积的个数，如果这个个数大于等于 $k$，那么说明第 $k$ 小的乘积一定小于等于 $p$，我们就可以将区间右端点缩小到 $p$，否则我们将区间左端点增大到 $p + 1$。
 
-那么问题的关键就是如何计算乘积小于等于 $p$ 的乘积的个数。我们可以枚举 $\text{nums1}$ 中的每个数 $x$，分类讨论：
+那么问题的关键就是如何计算乘积小于等于 $p$ 的乘积的个数。我们可以枚举 $\textit{nums1}$ 中的每个数 $x$，分类讨论：
 
--   如果 $x > 0$，那么 $x \times \text{nums2}[i]$ 随着 $i$ 的增大是单调递增的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \text{nums2}[i] > p$，那么 $i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中；
--   如果 $x < 0$，那么 $x \times \text{nums2}[i]$ 随着 $i$ 的增大是单调递减的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \text{nums2}[i] \leq p$，那么 $n - i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中；
--   如果 $x = 0$，那么 $x \times \text{nums2}[i] = 0$，如果 $p \geq 0$，那么 $n$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中。
+-   如果 $x > 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递增的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] > p$，那么 $i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
+-   如果 $x < 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递减的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] \leq p$，那么 $n - i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
+-   如果 $x = 0$，那么 $x \times \textit{nums2}[i] = 0$，如果 $p \geq 0$，那么 $n$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中。
 
 这样我们就可以通过二分查找找到第 $k$ 小的乘积。
 
-时间复杂度 $O(m \times \log n \times \log M)$，其中 $m$ 和 $n$ 分别为 $\text{nums1}$ 和 $\text{nums2}$ 的长度，而 $M$ 为 $\text{nums1}$ 和 $\text{nums2}$ 中的最大值的绝对值。
+时间复杂度 $O(m \times \log n \times \log M)$，其中 $m$ 和 $n$ 分别为 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $M$ 为 $\textit{nums1}$ 和 $\textit{nums2}$ 中的最大值的绝对值。
 
 <!-- tabs:start -->
 

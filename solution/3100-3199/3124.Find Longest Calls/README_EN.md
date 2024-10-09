@@ -97,24 +97,24 @@ Each row of this table contains information about calls, comprising of contact_i
 +-----------+----------+-------------------+
 | first_name| type     | duration_formatted|
 +-----------+----------+-------------------+
-| Michael   | incoming | 00:07:00          |
-| Jane      | incoming | 00:05:00          |
-| Emily     | incoming | 00:03:00          |
 | Alice     | outgoing | 00:06:00          |
 | Emily     | outgoing | 00:04:40          |
 | Jane      | outgoing | 00:04:00          |
+| Michael   | incoming | 00:07:00          |
+| Jane      | incoming | 00:05:00          |
+| Emily     | incoming | 00:03:00          |
 +-----------+----------+-------------------+
         </pre>
 
 <p><strong>Explanation:</strong></p>
 
 <ul>
-	<li>Michael had an incoming call lasting 7 minutes.</li>
-	<li>Jane had an incoming call lasting 5 minutes.</li>
-	<li>Emily had an incoming call lasting 3 minutes.</li>
 	<li>Alice had an outgoing call lasting 6 minutes.</li>
 	<li>Emily had an outgoing call lasting 4 minutes and 40 seconds.</li>
 	<li>Jane had an outgoing call lasting 4 minutes.</li>
+	<li>Michael had an incoming call lasting 7 minutes.</li>
+	<li>Jane had an incoming call lasting 5 minutes.</li>
+	<li>Emily had an incoming call lasting 3 minutes.</li>
 </ul>
 
 <p><b>Note:</b> Output table is sorted by type, duration, and first_name in descending order.</p>

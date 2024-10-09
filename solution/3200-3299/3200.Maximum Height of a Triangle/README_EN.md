@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3200.Maximum%20Height%20of%20a%20Triangle/README_EN.md
+rating: 1451
+source: Weekly Contest 404 Q1
 tags:
     - Array
     - Enumeration

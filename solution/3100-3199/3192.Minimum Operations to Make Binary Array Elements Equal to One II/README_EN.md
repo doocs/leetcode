@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3192.Minimum%20Operations%20to%20Make%20Binary%20Array%20Elements%20Equal%20to%20One%20II/README_EN.md
+rating: 1432
+source: Biweekly Contest 133 Q3
 tags:
     - Greedy
     - Array
@@ -82,11 +84,11 @@ We can do the following operation:</p>
 
 We notice that whenever we change an element at a certain position to 1, all the elements to its right are flipped. Therefore, we can use a variable $v$ to record whether the current position and all elements to its right have been flipped. If flipped, the value of $v$ is 1, otherwise, it is 0.
 
-We iterate through the array $\text{nums}$. For each element $x$, we perform an XOR operation between $x$ and $v$. If $x$ is 0, then we need to change $x$ to 1, which requires a flip operation. We increment the answer by one and flip the value of $v$.
+We iterate through the array $\textit{nums}$. For each element $x$, we perform an XOR operation between $x$ and $v$. If $x$ is 0, then we need to change $x$ to 1, which requires a flip operation. We increment the answer by one and flip the value of $v$.
 
 After the iteration, we can obtain the minimum number of operations.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

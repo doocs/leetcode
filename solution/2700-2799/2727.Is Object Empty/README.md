@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2727.Is%20Object%20Empty/README.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

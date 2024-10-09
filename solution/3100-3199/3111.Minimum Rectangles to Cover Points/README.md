@@ -113,9 +113,11 @@ tags:
 
 根据题目描述，我们不需要考虑矩形的高度，只需要考虑矩形的宽度。
 
-我们可以将所有的点按照横坐标进行排序，用一个变量 $x_1$ 记录当前矩形的左下角的横坐标。然后遍历所有的点，如果当前点的横坐标 $x$ 比 $x_1 + w$ 大，说明当前点不能被当前的矩形覆盖，我们就需要增加一个新的矩形，然后更新 $x_1$ 为当前点的横坐标。
+我们可以将所有的点按照横坐标进行排序，用一个变量 $x_1$ 记录当前矩形所能覆盖的最右边的横坐标，初始时 $x_1 = -1$。
 
-遍历完成后，我们就得到了最少需要多少个矩形。
+接下来我们遍历所有的点，如果当前点的横坐标 $x$ 大于 $x_1$，说明已有的矩形无法覆盖当前点，我们就需要增加一个矩形，答案加一，然后我们更新 $x_1 = x + w$。
+
+遍历完成后，我们就得到了最少需要的矩形数目。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是点的数量。
 
@@ -127,11 +129,11 @@ tags:
 class Solution:
     def minRectanglesToCoverPoints(self, points: List[List[int]], w: int) -> int:
         points.sort()
-        ans, x1 = 0, -inf
+        ans, x1 = 0, -1
         for x, _ in points:
-            if x1 + w < x:
-                x1 = x
+            if x > x1:
                 ans += 1
+                x1 = x + w
         return ans
 ```
 
@@ -141,13 +143,12 @@ class Solution:
 class Solution {
     public int minRectanglesToCoverPoints(int[][] points, int w) {
         Arrays.sort(points, (a, b) -> a[0] - b[0]);
-        int ans = 0;
-        int x1 = -(1 << 30);
+        int ans = 0, x1 = -1;
         for (int[] p : points) {
             int x = p[0];
-            if (x1 + w < x) {
-                x1 = x;
+            if (x > x1) {
                 ++ans;
+                x1 = x + w;
             }
         }
         return ans;
@@ -162,12 +163,12 @@ class Solution {
 public:
     int minRectanglesToCoverPoints(vector<vector<int>>& points, int w) {
         sort(points.begin(), points.end());
-        int ans = 0, x1 = -(1 << 30);
-        for (auto& p : points) {
+        int ans = 0, x1 = -1;
+        for (const auto& p : points) {
             int x = p[0];
-            if (x1 + w < x) {
-                x1 = x;
+            if (x > x1) {
                 ++ans;
+                x1 = x + w;
             }
         }
         return ans;
@@ -180,11 +181,11 @@ public:
 ```go
 func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 	sort.Slice(points, func(i, j int) bool { return points[i][0] < points[j][0] })
-	x1 := -(1 << 30)
+	x1 := -1
 	for _, p := range points {
-		if x := p[0]; x1+w < x {
-			x1 = x
+		if x := p[0]; x > x1 {
 			ans++
+			x1 = x + w
 		}
 	}
 	return
@@ -196,15 +197,53 @@ func minRectanglesToCoverPoints(points [][]int, w int) (ans int) {
 ```ts
 function minRectanglesToCoverPoints(points: number[][], w: number): number {
     points.sort((a, b) => a[0] - b[0]);
-    let ans = 0;
-    let x1 = -Infinity;
+    let [ans, x1] = [0, -1];
     for (const [x, _] of points) {
-        if (x1 + w < x) {
-            x1 = x;
+        if (x > x1) {
             ++ans;
+            x1 = x + w;
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_rectangles_to_cover_points(mut points: Vec<Vec<i32>>, w: i32) -> i32 {
+        points.sort_by(|a, b| a[0].cmp(&b[0]));
+        let mut ans = 0;
+        let mut x1 = -1;
+        for p in points {
+            let x = p[0];
+            if x > x1 {
+                ans += 1;
+                x1 = x + w;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinRectanglesToCoverPoints(int[][] points, int w) {
+        Array.Sort(points, (a, b) => a[0] - b[0]);
+        int ans = 0, x1 = -1;
+        foreach (int[] p in points) {
+            int x = p[0];
+            if (x > x1) {
+                ans++;
+                x1 = x + w;
+            }
+        }
+        return ans;
+    }
 }
 ```
 

@@ -66,7 +66,7 @@ Since now the four &lt;b&gt;&#39;s are consecutive, we merge them: &quot;&lt;b&g
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Note:</strong> This question is the same as 758: <a href="https://leetcode.com/problems/bold-words-in-string/" target="_blank">https://leetcode.com/problems/bold-words-in-string/</a></p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/bold-words-in-string/description/" target="_blank">758. Bold Words in String</a>.</p>
 
 <!-- description:end -->
 

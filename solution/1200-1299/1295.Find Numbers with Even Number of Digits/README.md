@@ -6,6 +6,7 @@ rating: 1139
 source: 第 168 场周赛 Q1
 tags:
     - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
@@ -24,7 +25,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [12,345,2,6,7896]
+<pre>
+<strong>输入：</strong>nums = [12,345,2,6,7896]
 <strong>输出：</strong>2
 <strong>解释：
 </strong>12 是 2 位数字（位数为偶数）&nbsp;
@@ -37,7 +39,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [555,901,482,1771]
+<pre>
+<strong>输入：</strong>nums = [555,901,482,1771]
 <strong>输出：</strong>1 
 <strong>解释： </strong>
 只有 1771 是位数为偶数的数字。
@@ -49,7 +52,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 500</code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 <!-- description:end -->

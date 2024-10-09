@@ -1,25 +1,21 @@
 function findEvenNumbers(digits: number[]): number[] {
-    let record = new Array(10).fill(0);
-    for (let digit of digits) {
-        record[digit]++;
+    const cnt: number[] = Array(10).fill(0);
+    for (const x of digits) {
+        ++cnt[x];
     }
-    let ans = [];
-    for (let i = 100; i < 1000; i += 2) {
-        if (check(record, String(i))) {
-            ans.push(i);
+    const ans: number[] = [];
+    for (let x = 100; x < 1000; x += 2) {
+        const cnt1: number[] = Array(10).fill(0);
+        for (let y = x; y; y = Math.floor(y / 10)) {
+            ++cnt1[y % 10];
+        }
+        let ok = true;
+        for (let i = 0; i < 10 && ok; ++i) {
+            ok = cnt[i] >= cnt1[i];
+        }
+        if (ok) {
+            ans.push(x);
         }
     }
     return ans;
-}
-
-function check(target: Array<number>, digits: string): boolean {
-    let record = new Array(10).fill(0);
-    for (let digit of digits) {
-        record[digit]++;
-    }
-
-    for (let i = 0; i < 10; i++) {
-        if (record[i] > target[i]) return false;
-    }
-    return true;
 }

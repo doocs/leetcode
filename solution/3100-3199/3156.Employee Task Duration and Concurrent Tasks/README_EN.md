@@ -108,7 +108,13 @@ Each row in this table contains the task identifier, the employee identifier, an
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Merge + Join
+
+First, we merge the `start_time` and `end_time` for each `employee_id` into a new table `T`. Then, using the `LEAD` function, we calculate the start time of the next task for each employee. Next, we join table `T` with the `Tasks` table to compute the concurrent task count for each employee. Finally, we group by `employee_id` to calculate the total task duration and the maximum concurrent tasks for each employee.
+
+Similar Problem:
+
+-   [3268. Find Overlapping Shifts II 🔒](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)
 
 <!-- tabs:start -->
 

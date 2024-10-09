@@ -63,7 +63,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Prefix Sum + Binary Search
+
+According to the problem description, for each $queries[i]$, we need to find a subsequence such that the sum of its elements does not exceed $queries[i]$ and the length of this subsequence is maximized. Obviously, we should choose the smallest possible elements to maximize the length of the subsequence.
+
+Therefore, we can first sort the array $nums$ in ascending order. Then, for each $queries[i]$, we can use binary search to find the smallest index $j$ such that $nums[0] + nums[1] + \cdots + nums[j] \gt queries[i]$. At this point, $nums[0] + nums[1] + \cdots + nums[j - 1]$ is the sum of the elements of the subsequence that meets the condition, and the length of this subsequence is $j$. Therefore, we can add $j$ to the answer array.
+
+The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$ or $O(\log n)$. Here, $n$ and $m$ are the lengths of the arrays $nums$ and $queries$, respectively.
 
 <!-- tabs:start -->
 
@@ -229,7 +235,19 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Sorting + Offline Query + Two Pointers
+
+Similar to Solution 1, we can first sort the array $nums$ in ascending order.
+
+Next, we define an index array $idx$ of the same length as $queries$, where $idx[i] = i$. Then, we sort the array $idx$ in ascending order based on the values in $queries$. This way, we can process the elements in $queries$ in ascending order.
+
+We use a variable $s$ to record the sum of the currently selected elements and a variable $j$ to record the number of currently selected elements. Initially, $s = j = 0$.
+
+We traverse the index array $idx$, and for each index $i$ in it, we iteratively add elements from the array $nums$ to the current subsequence until $s + nums[j] \gt queries[i]$. At this point, $j$ is the length of the subsequence that meets the condition. We set the value of $ans[i]$ to $j$ and then continue to process the next index.
+
+After traversing the index array $idx$, we obtain the answer array $ans$, where $ans[i]$ is the length of the subsequence that satisfies $queries[i]$.
+
+The time complexity is $O(n \times \log n + m)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the lengths of the arrays $nums$ and $queries$, respectively.
 
 <!-- tabs:start -->
 

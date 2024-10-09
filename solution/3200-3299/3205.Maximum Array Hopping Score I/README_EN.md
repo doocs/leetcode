@@ -4,6 +4,7 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README_EN.md
 tags:
     - Stack
+    - Greedy
     - Array
     - Dynamic Programming
     - Monotonic Stack
@@ -71,13 +72,13 @@ tags:
 
 ### Solution 1: Memoization Search
 
-We design a function $\text{dfs}(i)$, which represents the maximum score that can be obtained starting from index $i$. Therefore, the answer is $\text{dfs}(0)$.
+We design a function $\textit{dfs}(i)$, which represents the maximum score that can be obtained starting from index $i$. Therefore, the answer is $\textit{dfs}(0)$.
 
-The execution process of the function $\text{dfs}(i)$ is as follows:
+The execution process of the function $\textit{dfs}(i)$ is as follows:
 
-We enumerate the next jump position $j$. Thus, the score that can be obtained starting from index $i$ is $(j - i) \times \text{nums}[j]$, plus the maximum score that can be obtained starting from index $j$, making the total score $(j - i) \times \text{nums}[j] + \text{dfs}(j)$. We enumerate all possible $j$ and take the maximum score.
+We enumerate the next jump position $j$. Thus, the score that can be obtained starting from index $i$ is $(j - i) \times \textit{nums}[j]$, plus the maximum score that can be obtained starting from index $j$, making the total score $(j - i) \times \textit{nums}[j] + \textit{dfs}(j)$. We enumerate all possible $j$ and take the maximum score.
 
-To avoid redundant calculations, we use memoization search. We save the calculated value of $\text{dfs}(i)$, so it can be directly returned next time.
+To avoid redundant calculations, we use memoization search. We save the calculated value of $\textit{dfs}(i)$, so it can be directly returned next time.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
@@ -201,7 +202,7 @@ Define $f[j]$ as the maximum score that can be obtained starting from index $0$ 
 The state transition equation is:
 
 $$
-f[j] = \max_{0 \leq i < j} \{ f[i] + (j - i) \times \text{nums}[j] \}
+f[j] = \max_{0 \leq i < j} \{ f[i] + (j - i) \times \textit{nums}[j] \}
 $$
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
@@ -296,11 +297,11 @@ function maxScore(nums: number[]): number {
 
 We observe that for the current position $i$, we should jump to the next position $j$ with the maximum value to obtain the maximum score.
 
-Therefore, we traverse the array $\text{nums}$, maintaining a stack $\text{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\text{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\text{nums}[i]$, and then push $i$ into the stack.
+Therefore, we traverse the array $\textit{nums}$, maintaining a stack $\textit{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\textit{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\textit{nums}[i]$, and then push $i$ into the stack.
 
-Next, we initialize the answer $\text{ans}$ and the current position $i = 0$, traverse the elements in the stack, each time taking out the top element $j$, updating the answer $\text{ans} += \text{nums}[j] \times (j - i)$, and then updating $i = j$.
+Next, we initialize the answer $\textit{ans}$ and the current position $i = 0$, traverse the elements in the stack, each time taking out the top element $j$, updating the answer $\textit{ans} += \textit{nums}[j] \times (j - i)$, and then updating $i = j$.
 
-Finally, return the answer $\text{ans}$.
+Finally, return the answer $\textit{ans}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 

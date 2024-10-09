@@ -71,15 +71,13 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 
 ### 方法一：优先队列（小根堆）
 
-我们可以使用优先队列（小根堆）来维护可预约座位的最小编号。
+我们定义一个优先队列（小根堆）$\textit{q}$，用于存储所有可预约的座位编号。初始时，我们将 $1$ 到 $n$ 的所有座位编号加入到 $\textit{q}$ 中。
 
-初始化时，将所有座位的编号放入优先队列中。
+调用 `reserve` 方法时，我们从 $\textit{q}$ 中弹出堆顶元素，即可预约的座位编号的最小值。
 
-当调用 `reserve` 方法时，从优先队列中取出最小编号的座位，即为可预约座位的最小编号。
+调用 `unreserve` 方法时，我们将座位编号加入到 $\textit{q}$ 中。
 
-当调用 `unreserve` 方法时，将座位编号放入优先队列中。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为座位的数量。
+时间复杂度方面，初始化的时间复杂度为 $O(n)$ 或 $O(n \times \log n)$，`reserve` 和 `unreserve` 方法的时间复杂度均为 $O(\log n)$。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -89,7 +87,6 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 class SeatManager:
     def __init__(self, n: int):
         self.q = list(range(1, n + 1))
-        heapify(self.q)
 
     def reserve(self) -> int:
         return heappop(self.q)
@@ -208,27 +205,53 @@ func (h *hp) Pop() any {
  */
 ```
 
+#### TypeScript
+
+```ts
+class SeatManager {
+    private q: typeof MinPriorityQueue;
+    constructor(n: number) {
+        this.q = new MinPriorityQueue();
+        for (let i = 1; i <= n; i++) {
+            this.q.enqueue(i);
+        }
+    }
+
+    reserve(): number {
+        return this.q.dequeue().element;
+    }
+
+    unreserve(seatNumber: number): void {
+        this.q.enqueue(seatNumber);
+    }
+}
+
+/**
+ * Your SeatManager object will be instantiated and called as such:
+ * var obj = new SeatManager(n)
+ * var param_1 = obj.reserve()
+ * obj.unreserve(seatNumber)
+ */
+```
+
 #### C#
 
 ```cs
 public class SeatManager {
-    private SortedSet<int> availableSeats;
+    private PriorityQueue<int, int> q = new PriorityQueue<int, int>();
 
     public SeatManager(int n) {
-        availableSeats = new SortedSet<int>();
-        for (int i = 1; i <= n; i++) {
-            availableSeats.Add(i);
+        for (int i = 1; i <= n; ++i) {
+            q.Enqueue(i, i);
         }
     }
 
     public int Reserve() {
-        int reservedSeat = availableSeats.Min;
-        availableSeats.Remove(reservedSeat);
-        return reservedSeat;
+        return q.Dequeue();
     }
 
     public void Unreserve(int seatNumber) {
-        availableSeats.Add(seatNumber);
+        q.Enqueue(seatNumber, seatNumber);
     }
 }
 

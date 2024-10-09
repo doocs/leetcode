@@ -31,7 +31,7 @@ id is column of unique values for this table.
 This table contains id, country, points, and winery.
 </pre>
 
-<p>Write a solution to find the <strong>top three wineries</strong> in <strong>each</strong> <strong>country</strong> based on their <strong>total points</strong>. If <strong>multiple wineries</strong> have the <strong>same</strong> total points, order them by <code>winery</code> name in <strong>ascending</strong> order. If there&#39;s <strong>no second winery</strong>, output &#39;No Second Winery,&#39; and if there&#39;s <strong>no third winery</strong>, output &#39;No Third Winery.&#39;</p>
+<p>Write a solution to find the <strong>top three wineries</strong> in <strong>each</strong> <strong>country</strong> based on their <strong>total points</strong>. If <strong>multiple wineries</strong> have the <strong>same</strong> total points, order them by <code>winery</code> name in <strong>ascending</strong> order. If there&#39;s <strong>no second winery</strong>, output &#39;No second winery,&#39; and if there&#39;s <strong>no third winery</strong>, output &#39;No third winery.&#39;</p>
 
 <p>Return <em>the result table ordered by </em><code>country</code><em> in <strong>ascending</strong> order</em><em>.</em></p>
 

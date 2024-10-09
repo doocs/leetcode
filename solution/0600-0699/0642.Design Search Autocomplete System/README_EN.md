@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README_EN.md
 tags:
+    - Depth-First Search
     - Design
     - Trie
     - String

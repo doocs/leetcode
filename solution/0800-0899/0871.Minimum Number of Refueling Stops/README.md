@@ -79,9 +79,9 @@ tags:
 
 ### 方法一：贪心 + 优先队列（大根堆）
 
-利用优先队列记录所有已经到达过的加油站的加油量，每次当油量不足时，从队列中取出最大加油量，并累计加油次数 ans。
+我们可以利用优先队列（大根堆） $\textit{pq}$ 记录所有已经到达过的加油站的加油量，每次当油量不足时，贪心地取出最大加油量，即 $\textit{pq}$ 的堆顶元素，并累计加油次数 $\textit{ans}$。如果 $\textit{pq}$ 为空并且当前油量仍然不足，说明无法到达目的地，返回 $-1$。
 
-时间复杂度 $O(nlogn)$。其中 $n$ 表示数组 `stations` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 表示加油站的数量。
 
 <!-- tabs:start -->
 
@@ -92,19 +92,19 @@ class Solution:
     def minRefuelStops(
         self, target: int, startFuel: int, stations: List[List[int]]
     ) -> int:
-        q = []
-        prev = ans = 0
+        pq = []
+        ans = pre = 0
         stations.append([target, 0])
-        for a, b in stations:
-            d = a - prev
-            startFuel -= d
-            while startFuel < 0 and q:
-                startFuel -= heappop(q)
+        for pos, fuel in stations:
+            dist = pos - pre
+            startFuel -= dist
+            while startFuel < 0 and pq:
+                startFuel -= heappop(pq)
                 ans += 1
             if startFuel < 0:
                 return -1
-            heappush(q, -b)
-            prev = a
+            heappush(pq, -fuel)
+            pre = pos
         return ans
 ```
 
@@ -113,22 +113,23 @@ class Solution:
 ```java
 class Solution {
     public int minRefuelStops(int target, int startFuel, int[][] stations) {
-        PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
         int n = stations.length;
-        int prev = 0, ans = 0;
-        for (int i = 0; i < n + 1; ++i) {
-            int d = (i < n ? stations[i][0] : target) - prev;
-            startFuel -= d;
-            while (startFuel < 0 && !q.isEmpty()) {
-                startFuel += q.poll();
+        int ans = 0, pre = 0;
+        for (int i = 0; i <= n; ++i) {
+            int pos = i < n ? stations[i][0] : target;
+            int dist = pos - pre;
+            startFuel -= dist;
+            while (startFuel < 0 && !pq.isEmpty()) {
+                startFuel += pq.poll();
                 ++ans;
             }
             if (startFuel < 0) {
                 return -1;
             }
             if (i < n) {
-                q.offer(stations[i][1]);
-                prev = stations[i][0];
+                pq.offer(stations[i][1]);
+                pre = stations[i][0];
             }
         }
         return ans;
@@ -142,20 +143,23 @@ class Solution {
 class Solution {
 public:
     int minRefuelStops(int target, int startFuel, vector<vector<int>>& stations) {
-        priority_queue<int> q;
+        priority_queue<int> pq;
         stations.push_back({target, 0});
-        int ans = 0, prev = 0;
-        for (auto& s : stations) {
-            int d = s[0] - prev;
-            startFuel -= d;
-            while (startFuel < 0 && !q.empty()) {
-                startFuel += q.top();
-                q.pop();
+        int ans = 0, pre = 0;
+        for (const auto& station : stations) {
+            int pos = station[0], fuel = station[1];
+            int dist = pos - pre;
+            startFuel -= dist;
+            while (startFuel < 0 && !pq.empty()) {
+                startFuel += pq.top();
+                pq.pop();
                 ++ans;
             }
-            if (startFuel < 0) return -1;
-            q.push(s[1]);
-            prev = s[0];
+            if (startFuel < 0) {
+                return -1;
+            }
+            pq.push(fuel);
+            pre = pos;
         }
         return ans;
     }
@@ -166,22 +170,22 @@ public:
 
 ```go
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
+	pq := &hp{}
+	ans, pre := 0, 0
 	stations = append(stations, []int{target, 0})
-	ans, prev := 0, 0
-	q := &hp{}
-	heap.Init(q)
-	for _, s := range stations {
-		d := s[0] - prev
-		startFuel -= d
-		for startFuel < 0 && q.Len() > 0 {
-			startFuel += q.pop()
+	for _, station := range stations {
+		pos, fuel := station[0], station[1]
+		dist := pos - pre
+		startFuel -= dist
+		for startFuel < 0 && pq.Len() > 0 {
+			startFuel += heap.Pop(pq).(int)
 			ans++
 		}
 		if startFuel < 0 {
 			return -1
 		}
-		q.push(s[1])
-		prev = s[0]
+		heap.Push(pq, fuel)
+		pre = pos
 	}
 	return ans
 }
@@ -196,8 +200,67 @@ func (h *hp) Pop() any {
 	h.IntSlice = a[:len(a)-1]
 	return v
 }
-func (h *hp) push(v int) { heap.Push(h, v) }
-func (h *hp) pop() int   { return heap.Pop(h).(int) }
+```
+
+#### TypeScript
+
+```ts
+function minRefuelStops(target: number, startFuel: number, stations: number[][]): number {
+    const pq = new MaxPriorityQueue();
+    let [ans, pre] = [0, 0];
+    stations.push([target, 0]);
+    for (const [pos, fuel] of stations) {
+        const dist = pos - pre;
+        startFuel -= dist;
+        while (startFuel < 0 && !pq.isEmpty()) {
+            startFuel += pq.dequeue().element;
+            ans++;
+        }
+        if (startFuel < 0) {
+            return -1;
+        }
+        pq.enqueue(fuel);
+        pre = pos;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn min_refuel_stops(target: i32, mut start_fuel: i32, mut stations: Vec<Vec<i32>>) -> i32 {
+        let mut pq = BinaryHeap::new();
+        let mut ans = 0;
+        let mut pre = 0;
+
+        stations.push(vec![target, 0]);
+
+        for station in stations {
+            let pos = station[0];
+            let fuel = station[1];
+            let dist = pos - pre;
+            start_fuel -= dist;
+
+            while start_fuel < 0 && !pq.is_empty() {
+                start_fuel += pq.pop().unwrap();
+                ans += 1;
+            }
+
+            if start_fuel < 0 {
+                return -1;
+            }
+
+            pq.push(fuel);
+            pre = pos;
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->

@@ -222,4 +222,61 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Simple Method
+
+Problems needed to solve：
+
+1. How do we maintain the link state between each node and the others? 如
+2. How can one determine whether multiple points form a connected graph?
+
+For the first one: we can maintain each node's connection set(including itself).
+
+For the second one: After solving the first one, we can see:
+
+-   the node itself includes every node in the connected graph(including itself).
+-   and only connected to the nodes in the connected graph.
+
+Take example 1 to explain：
+
+-   Node 5's connected node is itself, so it is a connected graph.
+-   Node 0's connected 0, 1, 2. Same as nodes 1, 2.
+-   Nodes 3 and 4 also include themselves and each other.
+
+<!-- tabs:start -->
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countCompleteComponents(int n, vector<vector<int>>& edges) {
+        int ans = 0;
+        vector<set<int>> m(n + 1, set<int>());
+        for (int i = 0; i < n; i++) {
+            m[i].insert(i);
+        }
+        for (auto x : edges) {
+            m[x[0]].insert(x[1]);
+            m[x[1]].insert(x[0]);
+        }
+        map<set<int>, int> s;
+        for (int i = 0; i < n; i++) {
+            s[m[i]]++;
+        }
+        for (auto& [x, y] : s) {
+            if (y == x.size()) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

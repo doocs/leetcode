@@ -1,22 +1,25 @@
 function numberOfWays(corridor: string): number {
-    const M: number = 1e9 + 7;
-    const seatNumbers: number[] = [];
-
-    for (let i = 0; i < corridor.length; i++) {
-        if (corridor.charAt(i) === 'S') {
-            seatNumbers.push(i);
+    const n = corridor.length;
+    const mod = 10 ** 9 + 7;
+    const f: number[][] = Array.from({ length: n }, () => Array(3).fill(-1));
+    const dfs = (i: number, k: number): number => {
+        if (i >= n) {
+            return k === 2 ? 1 : 0;
         }
-    }
-
-    if (seatNumbers.length % 2 !== 0 || seatNumbers.length === 0) {
-        return 0;
-    }
-
-    let result: number = 1;
-
-    for (let i = 2; i < seatNumbers.length; i += 2) {
-        result = (result * (seatNumbers[i] - seatNumbers[i - 1])) % M;
-    }
-
-    return result;
+        if (f[i][k] !== -1) {
+            return f[i][k];
+        }
+        if (corridor[i] === 'S') {
+            ++k;
+        }
+        if (k > 2) {
+            return (f[i][k] = 0);
+        }
+        f[i][k] = dfs(i + 1, k);
+        if (k === 2) {
+            f[i][k] = (f[i][k] + dfs(i + 1, 0)) % mod;
+        }
+        return f[i][k];
+    };
+    return dfs(0, 0);
 }

@@ -1,12 +1,12 @@
 class Solution {
 public:
     int numberOfArrays(vector<int>& differences, int lower, int upper) {
-        long long num = 0, mi = 0, mx = 0;
-        for (int& d : differences) {
-            num += d;
-            mi = min(mi, num);
-            mx = max(mx, num);
+        long long x = 0, mi = 0, mx = 0;
+        for (int d : differences) {
+            x += d;
+            mi = min(mi, x);
+            mx = max(mx, x);
         }
-        return max(0, (int) (upper - lower - (mx - mi) + 1));
+        return max(upper - lower - (mx - mi) + 1, 0LL);
     }
 };

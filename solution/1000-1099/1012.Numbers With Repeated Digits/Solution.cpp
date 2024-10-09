@@ -1,40 +1,31 @@
 class Solution {
 public:
     int numDupDigitsAtMostN(int n) {
-        return n - f(n);
-    }
-
-    int f(int n) {
-        int ans = 0;
-        vector<int> digits;
-        while (n) {
-            digits.push_back(n % 10);
-            n /= 10;
-        }
-        int m = digits.size();
-        vector<bool> vis(10);
-        for (int i = 1; i < m; ++i) {
-            ans += 9 * A(9, i - 1);
-        }
-        for (int i = m - 1; ~i; --i) {
-            int v = digits[i];
-            for (int j = i == m - 1 ? 1 : 0; j < v; ++j) {
-                if (!vis[j]) {
-                    ans += A(10 - (m - i), i);
+        string s = to_string(n);
+        int m = s.size();
+        int f[m][1 << 10];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i, int mask, bool lead, bool limit) -> int {
+            if (i >= m) {
+                return lead ^ 1;
+            }
+            if (!lead && !limit && f[i][mask] != -1) {
+                return f[i][mask];
+            }
+            int up = limit ? s[i] - '0' : 9;
+            int ans = 0;
+            for (int j = 0; j <= up; ++j) {
+                if (lead && j == 0) {
+                    ans += dfs(dfs, i + 1, mask, true, limit && j == up);
+                } else if (mask >> j & 1 ^ 1) {
+                    ans += dfs(dfs, i + 1, mask | (1 << j), false, limit && j == up);
                 }
             }
-            if (vis[v]) {
-                break;
+            if (!lead && !limit) {
+                f[i][mask] = ans;
             }
-            vis[v] = true;
-            if (i == 0) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
-
-    int A(int m, int n) {
-        return n == 0 ? 1 : A(m, n - 1) * (m - n + 1);
+            return ans;
+        };
+        return n - dfs(dfs, 0, 0, true, true);
     }
 };

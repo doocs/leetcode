@@ -67,8 +67,8 @@ The state transition equation is:
 $$
 dp[i + 1][j + 1] =
 \begin{cases}
-0 & \text{if } matrix[i][j] = '0' \\
-\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 & \text{if } matrix[i][j] = '1'
+0 & \textit{if } matrix[i][j] = '0' \\
+\min(dp[i][j], dp[i][j + 1], dp[i + 1][j]) + 1 & \textit{if } matrix[i][j] = '1'
 \end{cases}
 $$
 

@@ -304,4 +304,100 @@ function longestSubarray(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三：双指针（优化）
+
+方法二中，我们每次会循环移动左指针，直到 $cnt \leq 1$。由于题目求的是最长子数组，意味着我们不需要缩小子数组的长度，因此，如果 $\textit{cnt} \gt 1$，我们只移动左指针一次，右指针也继续向右移动。这样可以保证子数组的长度不会减小。
+
+最后，我们返回的答案即为 $n - l - 1$，其中 $l$ 为左指针的位置。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestSubarray(self, nums: List[int]) -> int:
+        cnt = l = 0
+        for x in nums:
+            cnt += x ^ 1
+            if cnt > 1:
+                cnt -= nums[l] ^ 1
+                l += 1
+        return len(nums) - l - 1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestSubarray(int[] nums) {
+        int ans = 0, cnt = 0, l = 0;
+        for (int x : nums) {
+            cnt += x ^ 1;
+            if (cnt > 1) {
+                cnt -= nums[l++] ^ 1;
+            }
+        }
+        return nums.length - l - 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        int ans = 0, cnt = 0, l = 0;
+        for (int x : nums) {
+            cnt += x ^ 1;
+            if (cnt > 1) {
+                cnt -= nums[l++] ^ 1;
+            }
+        }
+        return nums.size() - l - 1;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestSubarray(nums []int) (ans int) {
+	cnt, l := 0, 0
+	for _, x := range nums {
+		cnt += x ^ 1
+		if cnt > 1 {
+			cnt -= nums[l] ^ 1
+			l++
+		}
+	}
+	return len(nums) - l - 1
+}
+```
+
+#### TypeScript
+
+```ts
+function longestSubarray(nums: number[]): number {
+    let [cnt, l] = [0, 0];
+    for (const x of nums) {
+        cnt += x ^ 1;
+        if (cnt > 1) {
+            cnt -= nums[l++] ^ 1;
+        }
+    }
+    return nums.length - l - 1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

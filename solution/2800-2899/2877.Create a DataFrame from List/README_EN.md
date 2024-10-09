@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2877.Create%20a%20DataFrame%20from%20List/README_EN.md
+tags:
+    - Pandas
 ---
 
 <!-- problem:start -->

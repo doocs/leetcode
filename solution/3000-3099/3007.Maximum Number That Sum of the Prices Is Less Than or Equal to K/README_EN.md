@@ -249,7 +249,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search + Digit DP
+
+We notice that if $\textit{num}$ increases, the total value from $1$ to $\textit{num}$ also increases. Therefore, we can use a binary search method to find the largest cheap number.
+
+We define the left boundary of the binary search as $l = 1$. Since there is at least one valuable number in every $2^x + 1$ numbers, and the total value does not exceed $10^{15}$, we can set the right boundary of the binary search as $r = 10^{18}$.
+
+Next, we perform a binary search. For each $\textit{mid}$, we use the digit DP method to calculate the total value from $1$ to $\textit{mid}$. If the total value does not exceed $k$, it means $\textit{mid}$ is a cheap number, and we update the left boundary $l$ to $\textit{mid}$. Otherwise, we update the right boundary $r$ to $\textit{mid} - 1$.
+
+Finally, we return the left boundary $l$.
+
+The time complexity is $O(\log^2 k)$, and the space complexity is $O(\log k)$.
 
 <!-- tabs:start -->
 
@@ -336,7 +346,7 @@ public:
         ll l = 1, r = 1e17;
         ll num = 0;
         ll f[65][65];
-        function<ll(int, int, bool)> dfs = [&](int pos, int cnt, bool limit) -> ll {
+        auto dfs = [&](auto&& dfs, int pos, int cnt, bool limit) -> ll {
             if (pos == 0) {
                 return cnt;
             }
@@ -346,7 +356,7 @@ public:
             int up = limit ? num >> (pos - 1) & 1 : 1;
             ll ans = 0;
             for (int i = 0; i <= up; ++i) {
-                ans += dfs(pos - 1, cnt + (i == 1 && pos % x == 0), limit && i == up);
+                ans += dfs(dfs, pos - 1, cnt + (i == 1 && pos % x == 0), limit && i == up);
             }
             if (!limit) {
                 f[pos][cnt] = ans;
@@ -358,7 +368,7 @@ public:
             num = mid;
             memset(f, -1, sizeof(f));
             int pos = 64 - __builtin_clzll(mid);
-            if (dfs(pos, 0, true) <= k) {
+            if (dfs(dfs, pos, 0, true) <= k) {
                 l = mid;
             } else {
                 r = mid - 1;
@@ -417,6 +427,56 @@ func findMaximumNumber(k int64, x int) int64 {
 		}
 	}
 	return l
+}
+```
+
+#### TypeScript
+
+```ts
+function findMaximumNumber(k: number, x: number): number {
+    let [l, r] = [1n, 10n ** 17n];
+    let num: bigint;
+    const f: bigint[][] = Array.from({ length: 65 }, () => Array(65).fill(-1n));
+
+    const dfs = (pos: number, cnt: number, limit: boolean): bigint => {
+        if (pos === 0) {
+            return BigInt(cnt);
+        }
+        if (!limit && f[pos][cnt] !== -1n) {
+            return f[pos][cnt];
+        }
+        let ans: bigint = 0n;
+        let up: number = 1;
+        if (limit) {
+            up = Number((num >> BigInt(pos - 1)) & 1n);
+        }
+        for (let i = 0; i <= up; i++) {
+            let v: number = cnt;
+            if (i === 1 && pos % x === 0) {
+                v++;
+            }
+            ans += dfs(pos - 1, v, limit && i === up);
+        }
+        if (!limit) {
+            f[pos][cnt] = ans;
+        }
+        return ans;
+    };
+
+    while (l < r) {
+        let mid: bigint = (l + r + 1n) >> 1n;
+        num = mid;
+        let m: number = num.toString(2).length;
+        for (let i = 0; i < f.length; i++) {
+            f[i].fill(-1n);
+        }
+        if (dfs(m, 0, true) <= BigInt(k)) {
+            l = mid;
+        } else {
+            r = mid - 1n;
+        }
+    }
+    return Number(l);
 }
 ```
 

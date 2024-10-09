@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2878.Get%20the%20Size%20of%20a%20DataFrame/README.md
+tags:
+    - Pandas
 ---
 
 <!-- problem:start -->

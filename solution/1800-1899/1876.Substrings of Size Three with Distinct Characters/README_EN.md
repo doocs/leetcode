@@ -62,7 +62,17 @@ The good substrings are &quot;abc&quot;, &quot;bca&quot;, &quot;cab&quot;, and &
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We can maintain a sliding window such that the characters within the window are not repeated. Initially, we use a binary integer $\textit{mask}$ of length $26$ to represent the characters within the window, where the $i$-th bit being $1$ indicates that character $i$ has appeared in the window, otherwise it indicates that character $i$ has not appeared in the window.
+
+Then, we traverse the string $s$. For each position $r$, if $\textit{s}[r]$ has appeared in the window, we need to move the left boundary $l$ of the window to the right until there are no repeated characters in the window. After this, we add $\textit{s}[r]$ to the window. At this point, if the length of the window is greater than or equal to $3$, then we have found a good substring of length $3$ ending at $\textit{s}[r]$.
+
+After the traversal, we have found the number of all good substrings.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+> This solution can be extended to find the number of good substrings of length $k$.
 
 <!-- tabs:start -->
 
@@ -71,10 +81,15 @@ The good substrings are &quot;abc&quot;, &quot;bca&quot;, &quot;cab&quot;, and &
 ```python
 class Solution:
     def countGoodSubstrings(self, s: str) -> int:
-        count, n = 0, len(s)
-        for i in range(n - 2):
-            count += s[i] != s[i + 1] and s[i] != s[i + 2] and s[i + 1] != s[i + 2]
-        return count
+        ans = mask = l = 0
+        for r, x in enumerate(map(lambda c: ord(c) - 97, s)):
+            while mask >> x & 1:
+                y = ord(s[l]) - 97
+                mask ^= 1 << y
+                l += 1
+            mask |= 1 << x
+            ans += int(r - l + 1 >= 3)
+        return ans
 ```
 
 #### Java
@@ -82,15 +97,62 @@ class Solution:
 ```java
 class Solution {
     public int countGoodSubstrings(String s) {
-        int count = 0, n = s.length();
-        for (int i = 0; i < n - 2; ++i) {
-            char a = s.charAt(i), b = s.charAt(i + 1), c = s.charAt(i + 2);
-            if (a != b && a != c && b != c) {
-                ++count;
+        int ans = 0;
+        int n = s.length();
+        for (int l = 0, r = 0, mask = 0; r < n; ++r) {
+            int x = s.charAt(r) - 'a';
+            while ((mask >> x & 1) == 1) {
+                int y = s.charAt(l++) - 'a';
+                mask ^= 1 << y;
             }
+            mask |= 1 << x;
+            ans += r - l + 1 >= 3 ? 1 : 0;
         }
-        return count;
+        return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countGoodSubstrings(string s) {
+        int ans = 0;
+        int n = s.length();
+        for (int l = 0, r = 0, mask = 0; r < n; ++r) {
+            int x = s[r] - 'a';
+            while ((mask >> x & 1) == 1) {
+                int y = s[l++] - 'a';
+                mask ^= 1 << y;
+            }
+            mask |= 1 << x;
+            ans += r - l + 1 >= 3 ? 1 : 0;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countGoodSubstrings(s string) (ans int) {
+	mask, l := 0, 0
+	for r, c := range s {
+		x := int(c - 'a')
+		for (mask>>x)&1 == 1 {
+			y := int(s[l] - 'a')
+			l++
+			mask ^= 1 << y
+		}
+		mask |= 1 << x
+		if r-l+1 >= 3 {
+			ans++
+		}
+	}
+	return
 }
 ```
 
@@ -98,17 +160,18 @@ class Solution {
 
 ```ts
 function countGoodSubstrings(s: string): number {
-    const n: number = s.length;
-    let count: number = 0;
-    for (let i: number = 0; i < n - 2; ++i) {
-        let a: string = s.charAt(i),
-            b: string = s.charAt(i + 1),
-            c: string = s.charAt(i + 2);
-        if (a != b && a != c && b != c) {
-            ++count;
+    let ans = 0;
+    const n = s.length;
+    for (let l = 0, r = 0, mask = 0; r < n; ++r) {
+        const x = s.charCodeAt(r) - 'a'.charCodeAt(0);
+        while ((mask >> x) & 1) {
+            const y = s.charCodeAt(l++) - 'a'.charCodeAt(0);
+            mask ^= 1 << y;
         }
+        mask |= 1 << x;
+        ans += r - l + 1 >= 3 ? 1 : 0;
     }
-    return count;
+    return ans;
 }
 ```
 
@@ -121,13 +184,26 @@ class Solution {
      * @return Integer
      */
     function countGoodSubstrings($s) {
-        $cnt = 0;
-        for ($i = 0; $i < strlen($s) - 2; $i++) {
-            if ($s[$i] != $s[$i + 1] && $s[$i] != $s[$i + 2] && $s[$i + 1] != $s[$i + 2]) {
-                $cnt++;
+        $ans = 0;
+        $n = strlen($s);
+        $l = 0;
+        $r = 0;
+        $mask = 0;
+
+        while ($r < $n) {
+            $x = ord($s[$r]) - ord('a');
+            while (($mask >> $x) & 1) {
+                $y = ord($s[$l++]) - ord('a');
+                $mask ^= 1 << $y;
             }
+            $mask |= 1 << $x;
+            if ($r - $l + 1 >= 3) {
+                $ans++;
+            }
+            $r++;
         }
-        return $cnt++;
+
+        return $ans;
     }
 }
 ```

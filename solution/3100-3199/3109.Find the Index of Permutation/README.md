@@ -14,7 +14,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3109. Find the Index of Permutation 🔒](https://leetcode.cn/problems/find-the-index-of-permutation)
+# [3109. 查找排列的下标 🔒](https://leetcode.cn/problems/find-the-index-of-permutation)
 
 [English Version](/solution/3100-3199/3109.Find%20the%20Index%20of%20Permutation/README_EN.md)
 
@@ -22,49 +22,51 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an array <code>perm</code> of length <code>n</code> which is a permutation of <code>[1, 2, ..., n]</code>, return the index of <code>perm</code> in the <span data-keyword="lexicographically-sorted-array">lexicographically sorted</span> array of all of the permutations of <code>[1, 2, ..., n]</code>.</p>
+<p>给定一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>perm</code>，它是&nbsp;<code>[1, 2, ..., n]</code>&nbsp;的一个排列，将&nbsp;<code>[1, 2, ..., n]</code>&nbsp;所有的排列放在数组中，并以&nbsp;<span data-keyword="lexicographically-sorted-array">字典序</span>&nbsp;排序，返回这个数组中&nbsp;<code>perm</code>&nbsp;的下标。</p>
 
-<p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup>&nbsp;+ 7</code>.</p>
+<p>由于答案可能非常大，返回值对&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;<strong>取模</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">perm = [1,2]</span></p>
+<p><span class="example-io"><b>输入：</b>perm = [1,2]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+<p><span class="example-io"><b>输出：</b>0</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>There are only two permutations in the following order:</p>
+<p>按以下顺序只有 2 种排列：</p>
 
 <p><code>[1,2]</code>, <code>[2,1]</code><br />
 <br />
-And <code>[1,2]</code> is at index 0.</p>
+并且&nbsp;<code>[1,2]</code>&nbsp;在下标 0。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">perm = [3,1,2]</span></p>
+<p><span class="example-io"><b>输入：</b>perm = [3,1,2]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
+<p><span class="example-io"><b>输出：</b>4</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>There are only six permutations in the following order:</p>
+<p>按以下顺序只有 6 种排列：</p>
 
 <p><code>[1,2,3]</code>, <code>[1,3,2]</code>, <code>[2,1,3]</code>, <code>[2,3,1]</code>, <code>[3,1,2]</code>, <code>[3,2,1]</code><br />
 <br />
-And <code>[3,1,2]</code> is at index 4.</p>
+并且&nbsp;<code>[3,1,2]</code>&nbsp;在下标 4。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n == perm.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>perm</code> is a permutation of <code>[1, 2, ..., n]</code>.</li>
+	<li><code>perm</code>&nbsp;是&nbsp;<code>[1, 2, ..., n]</code>&nbsp;的一个排列。</li>
 </ul>
 
 <!-- description:end -->

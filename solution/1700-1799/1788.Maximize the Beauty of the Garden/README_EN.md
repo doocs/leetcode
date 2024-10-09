@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1788.Ma
 tags:
     - Greedy
     - Array
+    - Hash Table
     - Prefix Sum
 ---
 

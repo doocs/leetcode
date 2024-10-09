@@ -1,6 +1,6 @@
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
-        def dfs(i):
+        def dfs(i: int) -> bool:
             if i == len(nums):
                 return True
             for j in range(k):

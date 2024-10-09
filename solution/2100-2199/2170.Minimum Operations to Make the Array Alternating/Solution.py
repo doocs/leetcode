@@ -1,12 +1,17 @@
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        def get(i):
-            c = Counter(nums[i::2]).most_common(2)
-            if not c:
-                return [(0, 0), (0, 0)]
-            if len(c) == 1:
-                return [c[0], (0, 0)]
-            return c
+        def f(i: int) -> Tuple[int, int, int, int]:
+            k1 = k2 = 0
+            cnt = Counter(nums[i::2])
+            for k, v in cnt.items():
+                if cnt[k1] < v:
+                    k2, k1 = k1, k
+                elif cnt[k2] < v:
+                    k2 = k
+            return k1, cnt[k1], k2, cnt[k2]
 
+        a, b = f(0), f(1)
         n = len(nums)
-        return min(n - (n1 + n2) for a, n1 in get(0) for b, n2 in get(1) if a != b)
+        if a[0] != b[0]:
+            return n - (a[1] + b[1])
+        return n - max(a[1] + b[3], a[3] + b[1])

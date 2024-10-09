@@ -245,9 +245,9 @@ function tallestBillboard(rods: number[]): number {
 $$
 \begin{aligned}
 f[i][j] &= f[i-1][j] \\
-f[i][j] &= max(f[i][j], f[i-1][j-rods[i-1]]) & \text{if } j \geq rods[i-1] \\
-f[i][j] &= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) & \text{if } j + rods[i-1] \leq s \\
-f[i][j] &= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) & \text{if } j \lt rods[i-1]
+f[i][j] &= max(f[i][j], f[i-1][j-rods[i-1]]) & \textit{if } j \geq rods[i-1] \\
+f[i][j] &= max(f[i][j], f[i-1][j+rods[i-1]] + rods[i-1]) & \textit{if } j + rods[i-1] \leq s \\
+f[i][j] &= max(f[i][j], f[i-1][rods[i-1]-j] + rods[i-1]-j) & \textit{if } j \lt rods[i-1]
 \end{aligned}
 $$
 

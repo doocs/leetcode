@@ -76,11 +76,11 @@ tags:
 
 ### 方法一：模拟
 
-根据题目描述，我们可以先遍历一遍数组 $\text{nums}$，找出所有值为 $x$ 的元素的下标，记录在数组 $\text{ids}$ 中。
+根据题目描述，我们可以先遍历一遍数组 $\textit{nums}$，找出所有值为 $x$ 的元素的下标，记录在数组 $\textit{ids}$ 中。
 
-接着遍历数组 $\text{queries}$，对于每个查询 $i$，如果 $i - 1$ 小于 $\text{ids}$ 的长度，那么答案就是 $\text{ids}[i - 1]$，否则答案就是 $-1$。
+接着遍历数组 $\textit{queries}$，对于每个查询 $i$，如果 $i - 1$ 小于 $\textit{ids}$ 的长度，那么答案就是 $\textit{ids}[i - 1]$，否则答案就是 $-1$。
 
-时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是数组 $\text{nums}$ 和数组 $\text{queries}$ 的长度。
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和数组 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

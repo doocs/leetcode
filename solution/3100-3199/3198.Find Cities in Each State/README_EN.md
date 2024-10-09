@@ -31,7 +31,7 @@ Each row of this table contains the state name and the city name within that sta
 
 <p>Write a solution to find <strong>all the cities in each state</strong> and combine them into a <strong>single comma-separated</strong> string.</p>
 
-<p>Return <em>the result table ordered by</em> <code>state</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>Return <em>the result table ordered by</em> <code>state</code>&nbsp;<em>and</em> <code>city</code>&nbsp;<em>in <strong>ascending</strong> order</em>.</p>
 
 <p>The result format is in the following example.</p>
 

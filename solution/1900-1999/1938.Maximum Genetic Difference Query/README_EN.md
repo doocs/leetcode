@@ -6,8 +6,10 @@ rating: 2502
 source: Weekly Contest 250 Q4
 tags:
     - Bit Manipulation
+    - Depth-First Search
     - Trie
     - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

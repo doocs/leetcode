@@ -5,45 +5,37 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def boundaryOfBinaryTree(self, root: TreeNode) -> List[int]:
-        self.res = []
-        if not root:
-            return self.res
-        # root
-        if not self.is_leaf(root):
-            self.res.append(root.val)
+    def boundaryOfBinaryTree(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs(nums: List[int], root: Optional[TreeNode], i: int):
+            if root is None:
+                return
+            if i == 0:
+                if root.left != root.right:
+                    nums.append(root.val)
+                    if root.left:
+                        dfs(nums, root.left, i)
+                    else:
+                        dfs(nums, root.right, i)
+            elif i == 1:
+                if root.left == root.right:
+                    nums.append(root.val)
+                else:
+                    dfs(nums, root.left, i)
+                    dfs(nums, root.right, i)
+            else:
+                if root.left != root.right:
+                    nums.append(root.val)
+                    if root.right:
+                        dfs(nums, root.right, i)
+                    else:
+                        dfs(nums, root.left, i)
 
-        # left boundary
-        t = root.left
-        while t:
-            if not self.is_leaf(t):
-                self.res.append(t.val)
-            t = t.left if t.left else t.right
-
-        # leaves
-        self.add_leaves(root)
-
-        # right boundary(reverse order)
-        s = []
-        t = root.right
-        while t:
-            if not self.is_leaf(t):
-                s.append(t.val)
-            t = t.right if t.right else t.left
-        while s:
-            self.res.append(s.pop())
-
-        # output
-        return self.res
-
-    def add_leaves(self, root):
-        if self.is_leaf(root):
-            self.res.append(root.val)
-            return
-        if root.left:
-            self.add_leaves(root.left)
-        if root.right:
-            self.add_leaves(root.right)
-
-    def is_leaf(self, node) -> bool:
-        return node and node.left is None and node.right is None
+        ans = [root.val]
+        if root.left == root.right:
+            return ans
+        left, leaves, right = [], [], []
+        dfs(left, root.left, 0)
+        dfs(leaves, root, 1)
+        dfs(right, root.right, 2)
+        ans += left + leaves + right[::-1]
+        return ans

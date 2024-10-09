@@ -4,6 +4,8 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README.md
 tags:
     - 数组
+    - 二分查找
+    - 前缀和
     - 滑动窗口
 ---
 
@@ -26,7 +28,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [10,5,2,6], k = 100
 <strong>输出：</strong>8
-<strong>解释：</strong>8 个乘积小于 100 的子数组分别为：[10]、[5]、[2],、[6]、[10,5]、[5,2]、[2,6]、[5,2,6]。
+<strong>解释：</strong>8 个乘积小于 100 的子数组分别为：[10]、[5]、[2]、[6]、[10,5]、[5,2]、[2,6]、[5,2,6]。
 需要注意的是 [10,5,2] 并不是乘积小于 100 的子数组。
 </pre>
 
@@ -203,6 +205,26 @@ var numSubarrayProductLessThanK = function (nums, k) {
     }
     return ans;
 };
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun numSubarrayProductLessThanK(nums: IntArray, k: Int): Int {
+        var left = 0
+        var count = 0
+        var product = 1
+        nums.forEachIndexed { right, num ->
+            product *= num
+            while (product >= k && left <= right) {
+                product /= nums[left++]
+            }
+            count += right - left + 1
+        }
+        return count
+    }
+}
 ```
 
 <!-- tabs:end -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

@@ -1,39 +1,35 @@
 func displayTable(orders [][]string) [][]string {
-	tables := make(map[int]bool)
-	foods := make(map[string]bool)
-	mp := make(map[string]int)
+	tables := make(map[int]map[string]int)
+	items := make(map[string]bool)
 	for _, order := range orders {
-		table, food := order[1], order[2]
-		t, _ := strconv.Atoi(table)
-		tables[t] = true
-		foods[food] = true
-		key := table + "." + food
-		mp[key] += 1
-	}
-	var t []int
-	var f []string
-	for i := range tables {
-		t = append(t, i)
-	}
-	for i := range foods {
-		f = append(f, i)
-	}
-	sort.Ints(t)
-	sort.Strings(f)
-	var res [][]string
-	var title []string
-	title = append(title, "Table")
-	for _, e := range f {
-		title = append(title, e)
-	}
-	res = append(res, title)
-	for _, table := range t {
-		var tmp []string
-		tmp = append(tmp, strconv.Itoa(table))
-		for _, food := range f {
-			tmp = append(tmp, strconv.Itoa(mp[strconv.Itoa(table)+"."+food]))
+		table, _ := strconv.Atoi(order[1])
+		foodItem := order[2]
+		if tables[table] == nil {
+			tables[table] = make(map[string]int)
 		}
-		res = append(res, tmp)
+		tables[table][foodItem]++
+		items[foodItem] = true
 	}
-	return res
+	sortedItems := make([]string, 0, len(items))
+	for item := range items {
+		sortedItems = append(sortedItems, item)
+	}
+	sort.Strings(sortedItems)
+	ans := [][]string{}
+	header := append([]string{"Table"}, sortedItems...)
+	ans = append(ans, header)
+	tableNums := make([]int, 0, len(tables))
+	for table := range tables {
+		tableNums = append(tableNums, table)
+	}
+	sort.Ints(tableNums)
+	for _, table := range tableNums {
+		row := []string{strconv.Itoa(table)}
+		for _, item := range sortedItems {
+			count := tables[table][item]
+			row = append(row, strconv.Itoa(count))
+		}
+		ans = append(ans, row)
+	}
+	return ans
 }

@@ -1,20 +1,21 @@
 func splitString(s string) bool {
-	var dfs func(i, x, k int) bool
-	dfs = func(i, x, k int) bool {
-		if i == len(s) {
-			return k > 1
+	var dfs func(i, x int) bool
+	dfs = func(i, x int) bool {
+		if i >= len(s) {
+			return true
 		}
 		y := 0
-		for j := i; j < len(s); j++ {
+		r := len(s)
+		if x < 0 {
+			r--
+		}
+		for j := i; j < r; j++ {
 			y = y*10 + int(s[j]-'0')
-			if y > int(1e10) {
-				break
-			}
-			if (x == -1 || x-y == 1) && dfs(j+1, y, k+1) {
+			if (x < 0 || x-y == 1) && dfs(j+1, y) {
 				return true
 			}
 		}
 		return false
 	}
-	return dfs(0, -1, 0)
+	return dfs(0, -1)
 }

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2726.Calculator%20with%20Method%20Chaining/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

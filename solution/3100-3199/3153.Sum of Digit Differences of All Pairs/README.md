@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3153. 所有数对中数位不同之和](https://leetcode.cn/problems/sum-of-digit-differences-of-all-pairs)
+# [3153. 所有数对中数位差之和](https://leetcode.cn/problems/sum-of-digit-differences-of-all-pairs)
 
 [English Version](/solution/3100-3199/3153.Sum%20of%20Digit%20Differences%20of%20All%20Pairs/README_EN.md)
 
@@ -21,11 +21,11 @@ tags:
 
 <!-- description:start -->
 
-<p>车尔尼有一个数组&nbsp;<code>nums</code>&nbsp;，它只包含 <strong>正</strong>&nbsp;整数，所有正整数的数位长度都 <strong>相同</strong>&nbsp;。</p>
+<p>你有一个数组&nbsp;<code>nums</code>&nbsp;，它只包含 <strong>正</strong>&nbsp;整数，所有正整数的数位长度都 <strong>相同</strong>&nbsp;。</p>
 
-<p>两个整数的 <strong>数位不同</strong>&nbsp;指的是两个整数 <b>相同</b>&nbsp;位置上不同数字的数目。</p>
+<p>两个整数的 <strong>数位差</strong>&nbsp;指的是两个整数 <b>相同</b>&nbsp;位置上不同数字的数目。</p>
 
-<p>请车尔尼返回 <code>nums</code>&nbsp;中 <strong>所有</strong>&nbsp;整数对里，<strong>数位不同之和。</strong></p>
+<p>请你返回 <code>nums</code>&nbsp;中 <strong>所有</strong>&nbsp;整数对里，<strong>数位差之和。</strong></p>
 
 <p>&nbsp;</p>
 
@@ -38,10 +38,10 @@ tags:
 
 <p><strong>解释：</strong><br />
 计算过程如下：<br />
--&nbsp;<strong>1</strong>3 和&nbsp;<strong>2</strong>3 的数位不同为&nbsp;1 。<br />
-- 1<strong>3</strong> 和 1<strong>2</strong>&nbsp;的数位不同为&nbsp;1 。<br />
--&nbsp;<strong>23</strong> 和&nbsp;<strong>12</strong>&nbsp;的数位不同为&nbsp;2 。<br />
-所以所有整数数对的数位不同之和为&nbsp;<code>1 + 1 + 2 = 4</code>&nbsp;。</p>
+-&nbsp;<strong>1</strong>3 和&nbsp;<strong>2</strong>3 的数位差为&nbsp;1 。<br />
+- 1<strong>3</strong> 和 1<strong>2</strong>&nbsp;的数位差为&nbsp;1 。<br />
+-&nbsp;<strong>23</strong> 和&nbsp;<strong>12</strong>&nbsp;的数位差为&nbsp;2 。<br />
+所以所有整数数对的数位差之和为&nbsp;<code>1 + 1 + 2 = 4</code>&nbsp;。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -143,7 +143,7 @@ public:
                 nums[i] /= 10;
             }
             for (int i = 0; i < 10; ++i) {
-                ans += 1LL * (cnt[i] * (n - cnt[i]));
+                ans += 1LL * cnt[i] * (n - cnt[i]);
             }
         }
         return ans / 2;

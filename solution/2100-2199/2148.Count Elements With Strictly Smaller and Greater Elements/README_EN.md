@@ -6,6 +6,7 @@ rating: 1201
 source: Weekly Contest 277 Q1
 tags:
     - Array
+    - Counting
     - Sorting
 ---
 
@@ -55,7 +56,11 @@ Since there are two elements with the value 3, in total there are 2 elements hav
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Find Minimum and Maximum Values
+
+According to the problem description, we can first find the minimum value $\textit{mi}$ and the maximum value $\textit{mx}$ of the array $\textit{nums}$. Then, traverse the array $\textit{nums}$ and count the number of elements that satisfy $\textit{mi} < x < \textit{mx}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -65,24 +70,20 @@ Since there are two elements with the value 3, in total there are 2 elements hav
 class Solution:
     def countElements(self, nums: List[int]) -> int:
         mi, mx = min(nums), max(nums)
-        return sum(mi < num < mx for num in nums)
+        return sum(mi < x < mx for x in nums)
 ```
 
 #### Java
 
 ```java
 class Solution {
-
     public int countElements(int[] nums) {
-        int mi = 1000000, mx = -1000000;
-        for (int num : nums) {
-            mi = Math.min(mi, num);
-            mx = Math.max(mx, num);
-        }
+        int mi = Arrays.stream(nums).min().getAsInt();
+        int mx = Arrays.stream(nums).max().getAsInt();
         int ans = 0;
-        for (int num : nums) {
-            if (mi < num && num < mx) {
-                ++ans;
+        for (int x : nums) {
+            if (mi < x && x < mx) {
+                ans++;
             }
         }
         return ans;
@@ -96,16 +97,8 @@ class Solution {
 class Solution {
 public:
     int countElements(vector<int>& nums) {
-        int mi = 1e6, mx = -1e6;
-        for (int num : nums) {
-            mi = min(mi, num);
-            mx = max(mx, num);
-        }
-        int ans = 0;
-        for (int num : nums)
-            if (mi < num && num < mx)
-                ++ans;
-        return ans;
+        auto [mi, mx] = ranges::minmax_element(nums);
+        return ranges::count_if(nums, [mi, mx](int x) { return *mi < x && x < *mx; });
     }
 };
 ```
@@ -113,23 +106,15 @@ public:
 #### Go
 
 ```go
-func countElements(nums []int) int {
-	mi, mx := int(1e6), -int(1e6)
-	for _, num := range nums {
-		if num < mi {
-			mi = num
-		}
-		if num > mx {
-			mx = num
-		}
-	}
-	ans := 0
-	for _, num := range nums {
-		if mi < num && num < mx {
+func countElements(nums []int) (ans int) {
+	mi := slices.Min(nums)
+	mx := slices.Max(nums)
+	for _, x := range nums {
+		if mi < x && x < mx {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -137,16 +122,9 @@ func countElements(nums []int) int {
 
 ```ts
 function countElements(nums: number[]): number {
-    const min = Math.min(...nums),
-        max = Math.max(...nums);
-    let ans = 0;
-    for (let i = 0; i < nums.length; ++i) {
-        let cur = nums[i];
-        if (cur < max && cur > min) {
-            ++ans;
-        }
-    }
-    return ans;
+    const mi = Math.min(...nums);
+    const mx = Math.max(...nums);
+    return nums.filter(x => mi < x && x < mx).length;
 }
 ```
 

@@ -56,7 +56,7 @@ You can make 8 consecutive integer values starting from 0.</pre>
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,4,10,3,1]
+<strong>Input:</strong> coins = [1,4,10,3,1]
 <strong>Output:</strong> 20</pre>
 
 <p>&nbsp;</p>

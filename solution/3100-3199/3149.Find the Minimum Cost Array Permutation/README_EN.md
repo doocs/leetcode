@@ -72,20 +72,20 @@ tags:
 
 ### Solution 1: Memoization Search
 
-We notice that for any permutation $\text{perm}$, if we cyclically shift it to the left any number of times, the score of the permutation remains the same. Since the problem requires returning the lexicographically smallest permutation, we can determine that the first element of the permutation must be $0$.
+We notice that for any permutation $\textit{perm}$, if we cyclically shift it to the left any number of times, the score of the permutation remains the same. Since the problem requires returning the lexicographically smallest permutation, we can determine that the first element of the permutation must be $0$.
 
-Also, since the data range of the problem does not exceed $14$, we can consider using the method of state compression to represent the set of numbers selected in the current permutation. We use a binary number $\text{mask}$ of length $n$ to represent the set of numbers selected in the current permutation, where the $i$-th bit of $\text{mask}$ is $1$ indicates that the number $i$ has been selected, and $0$ indicates that the number $i$ has not been selected yet.
+Also, since the data range of the problem does not exceed $14$, we can consider using the method of state compression to represent the set of numbers selected in the current permutation. We use a binary number $\textit{mask}$ of length $n$ to represent the set of numbers selected in the current permutation, where the $i$-th bit of $\textit{mask}$ is $1$ indicates that the number $i$ has been selected, and $0$ indicates that the number $i$ has not been selected yet.
 
-We design a function $\text{dfs}(\text{mask}, \text{pre})$, which represents the minimum score of the permutation obtained when the set of numbers selected in the current permutation is $\text{mask}$ and the last selected number is $\text{pre}$. Initially, we add the number $0$ to the permutation.
+We design a function $\textit{dfs}(\textit{mask}, \textit{pre})$, which represents the minimum score of the permutation obtained when the set of numbers selected in the current permutation is $\textit{mask}$ and the last selected number is $\textit{pre}$. Initially, we add the number $0$ to the permutation.
 
-The calculation process of the function $\text{dfs}(\text{mask}, \text{pre})$ is as follows:
+The calculation process of the function $\textit{dfs}(\textit{mask}, \textit{pre})$ is as follows:
 
--   If the number of $1$s in the binary representation of $\text{mask}$ is $n$, that is, $\text{mask} = 2^n - 1$, it means that all numbers have been selected, then return $|\text{pre} - \text{nums}[0]|$;
--   Otherwise, we enumerate the next selected number $\text{cur}$. If the number $\text{cur}$ has not been selected yet, then we can add the number $\text{cur}$ to the permutation. At this time, the score of the permutation is $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 << \text{cur}, \text{cur})$. We need to take the minimum score among all $\text{cur}$.
+-   If the number of $1$s in the binary representation of $\textit{mask}$ is $n$, that is, $\textit{mask} = 2^n - 1$, it means that all numbers have been selected, then return $|\textit{pre} - \textit{nums}[0]|$;
+-   Otherwise, we enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, then we can add the number $\textit{cur}$ to the permutation. At this time, the score of the permutation is $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$. We need to take the minimum score among all $\textit{cur}$.
 
-Finally, we use a function $\text{g}(\text{mask}, \text{pre})$ to construct the permutation that gets the minimum score. We first add the number $\text{pre}$ to the permutation, and then enumerate the next selected number $\text{cur}$. If the number $\text{cur}$ has not been selected yet, and it satisfies that the value of $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 << \text{cur}, \text{cur})$ is equal to $\text{dfs}(\text{mask}, \text{pre})$, then we can add the number $\text{cur}$ to the permutation.
+Finally, we use a function $\textit{g}(\textit{mask}, \textit{pre})$ to construct the permutation that gets the minimum score. We first add the number $\textit{pre}$ to the permutation, and then enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, and it satisfies that the value of $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ is equal to $\textit{dfs}(\textit{mask}, \textit{pre})$, then we can add the number $\textit{cur}$ to the permutation.
 
-The time complexity is $(n^2 \times 2^n)$, and the space complexity is $O(n \times 2^n)$. Where $n$ is the length of the array $\text{nums}$.
+The time complexity is $(n^2 \times 2^n)$, and the space complexity is $O(n \times 2^n)$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

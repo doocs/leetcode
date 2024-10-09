@@ -1,35 +1,29 @@
 class Solution {
 public:
-    int a[33];
-    int dp[33][2];
-
     int findIntegers(int n) {
-        int len = 0;
-        while (n) {
-            a[++len] = n & 1;
-            n >>= 1;
-        }
-        memset(dp, -1, sizeof dp);
-        return dfs(len, 0, true);
-    }
-
-    int dfs(int pos, int pre, bool limit) {
-        if (pos <= 0) {
-            return 1;
-        }
-        if (!limit && dp[pos][pre] != -1) {
-            return dp[pos][pre];
-        }
-        int ans = 0;
-        int up = limit ? a[pos] : 1;
-        for (int i = 0; i <= up; ++i) {
-            if (!(pre == 1 && i == 1)) {
-                ans += dfs(pos - 1, i, limit && i == up);
+        int m = 32 - __builtin_clz(n);
+        int f[m][2];
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](auto&& dfs, int i, int pre, bool limit) -> int {
+            if (i < 0) {
+                return 1;
             }
-        }
-        if (!limit) {
-            dp[pos][pre] = ans;
-        }
-        return ans;
+            if (!limit && f[i][pre] != -1) {
+                return f[i][pre];
+            }
+            int up = limit ? (n >> i & 1) : 1;
+            int ans = 0;
+            for (int j = 0; j <= up; ++j) {
+                if (j && pre) {
+                    continue;
+                }
+                ans += dfs(dfs, i - 1, j, limit && j == up);
+            }
+            if (!limit) {
+                f[i][pre] = ans;
+            }
+            return ans;
+        };
+        return dfs(dfs, m - 1, 0, true);
     }
 };

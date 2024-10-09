@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2715.Timeout%20Cancellation/README.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

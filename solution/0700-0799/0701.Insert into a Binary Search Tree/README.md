@@ -65,7 +65,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：递归
+
+如果根节点为空，我们直接创建一个新节点，值为 $\textit{val}$，并返回。
+
+如果根节点的值大于 $\textit{val}$，我们递归地将 $\textit{val}$ 插入到左子树中，并将左子树的根节点更新为返回后的根节点。
+
+如果根节点的值小于 $\textit{val}$，我们递归地将 $\textit{val}$ 插入到右子树中，并将右子树的根节点更新为返回后的根节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
 <!-- tabs:start -->
 
@@ -79,17 +87,14 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def insertIntoBST(self, root: TreeNode, val: int) -> TreeNode:
-        def dfs(root):
-            if root is None:
-                return TreeNode(val)
-            if root.val < val:
-                root.right = dfs(root.right)
-            else:
-                root.left = dfs(root.left)
-            return root
-
-        return dfs(root)
+    def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if root is None:
+            return TreeNode(val)
+        if root.val > val:
+            root.left = self.insertIntoBST(root.left, val)
+        else:
+            root.right = self.insertIntoBST(root.right, val)
+        return root
 ```
 
 #### Java
@@ -111,15 +116,14 @@ class Solution:
  * }
  */
 class Solution {
-
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {
             return new TreeNode(val);
         }
-        if (root.val < val) {
-            root.right = insertIntoBST(root.right, val);
-        } else {
+        if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
+        } else {
+            root.right = insertIntoBST(root.right, val);
         }
         return root;
     }
@@ -143,11 +147,14 @@ class Solution {
 class Solution {
 public:
     TreeNode* insertIntoBST(TreeNode* root, int val) {
-        if (!root) return new TreeNode(val);
-        if (root->val < val)
-            root->right = insertIntoBST(root->right, val);
-        else
+        if (!root) {
+            return new TreeNode(val);
+        }
+        if (root->val > val) {
             root->left = insertIntoBST(root->left, val);
+        } else {
+            root->right = insertIntoBST(root->right, val);
+        }
         return root;
     }
 };
@@ -168,10 +175,10 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 	if root == nil {
 		return &TreeNode{Val: val}
 	}
-	if root.Val < val {
-		root.Right = insertIntoBST(root.Right, val)
-	} else {
+	if root.Val > val {
 		root.Left = insertIntoBST(root.Left, val)
+	} else {
+		root.Right = insertIntoBST(root.Right, val)
 	}
 	return root
 }
@@ -195,11 +202,14 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
  */
 
 function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
-    if (!root) return new TreeNode(val);
-
-    if (val < root.val) root.left = insertIntoBST(root.left, val);
-    else root.right = insertIntoBST(root.right, val);
-
+    if (!root) {
+        return new TreeNode(val);
+    }
+    if (root.val > val) {
+        root.left = insertIntoBST(root.left, val);
+    } else {
+        root.right = insertIntoBST(root.right, val);
+    }
     return root;
 }
 ```

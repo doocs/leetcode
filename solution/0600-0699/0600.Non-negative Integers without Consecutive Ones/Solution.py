@@ -1,21 +1,15 @@
 class Solution:
     def findIntegers(self, n: int) -> int:
         @cache
-        def dfs(pos, pre, limit):
-            if pos <= 0:
+        def dfs(i: int, pre: int, limit: bool) -> int:
+            if i < 0:
                 return 1
-            up = a[pos] if limit else 1
+            up = (n >> i & 1) if limit else 1
             ans = 0
-            for i in range(up + 1):
-                if pre == 1 and i == 1:
+            for j in range(up + 1):
+                if pre and j:
                     continue
-                ans += dfs(pos - 1, i, limit and i == up)
+                ans += dfs(i - 1, j, limit and j == up)
             return ans
 
-        a = [0] * 33
-        l = 0
-        while n:
-            l += 1
-            a[l] = n & 1
-            n >>= 1
-        return dfs(l, 0, True)
+        return dfs(n.bit_length() - 1, 0, True)

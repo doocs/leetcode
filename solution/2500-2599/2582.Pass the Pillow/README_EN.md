@@ -53,6 +53,9 @@ After two seconds, the 3<sup>r</sup><sup>d</sup> person is holding the pillow.
 	<li><code>1 &lt;= time &lt;= 1000</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/find-the-child-who-has-the-ball-after-k-seconds/description/" target="_blank"> 3178: Find the Child Who Has the Ball After K Seconds.</a></p>
+
 <!-- description:end -->
 
 ## Solutions

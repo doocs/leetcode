@@ -1,11 +1,20 @@
 class Solution {
+    private Integer[] f;
+    private int[] nums;
+
     public int rob(int[] nums) {
-        int n = nums.length;
-        int[] f = new int[n + 1];
-        f[1] = nums[0];
-        for (int i = 2; i <= n; ++i) {
-            f[i] = Math.max(f[i - 1], f[i - 2] + nums[i - 1]);
+        this.nums = nums;
+        f = new Integer[nums.length];
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (i >= nums.length) {
+            return 0;
         }
-        return f[n];
+        if (f[i] == null) {
+            f[i] = Math.max(nums[i] + dfs(i + 2), dfs(i + 1));
+        }
+        return f[i];
     }
 }

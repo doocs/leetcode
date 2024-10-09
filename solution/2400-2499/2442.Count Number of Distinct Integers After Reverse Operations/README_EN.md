@@ -8,6 +8,7 @@ tags:
     - Array
     - Hash Table
     - Math
+    - Counting
 ---
 
 <!-- problem:start -->

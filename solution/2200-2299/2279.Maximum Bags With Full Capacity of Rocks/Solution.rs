@@ -1,17 +1,15 @@
 impl Solution {
-    pub fn maximum_bags(capacity: Vec<i32>, rocks: Vec<i32>, mut additional_rocks: i32) -> i32 {
-        let n = capacity.len();
-        let mut diffs = vec![0; n];
-        for i in 0..n {
-            diffs[i] = capacity[i] - rocks[i];
+    pub fn maximum_bags(mut capacity: Vec<i32>, rocks: Vec<i32>, mut additional_rocks: i32) -> i32 {
+        for i in 0..rocks.len() {
+            capacity[i] -= rocks[i];
         }
-        diffs.sort();
-        for i in 0..n {
-            if diffs[i] > additional_rocks {
+        capacity.sort();
+        for i in 0..capacity.len() {
+            additional_rocks -= capacity[i];
+            if additional_rocks < 0 {
                 return i as i32;
             }
-            additional_rocks -= diffs[i];
         }
-        n as i32
+        capacity.len() as i32
     }
 }

@@ -21,6 +21,8 @@ tags:
 
 <p>给定一个区间的集合&nbsp;<code>intervals</code>&nbsp;，其中 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>&nbsp;。返回 <em>需要移除区间的最小数量，使剩余区间互不重叠&nbsp;</em>。</p>
 
+<p><strong>注意</strong>&nbsp;只在一点上接触的区间是&nbsp;<strong>不重叠的</strong>。例如&nbsp;<code>[1, 2]</code>&nbsp;和&nbsp;<code>[2, 3]</code>&nbsp;是不重叠的。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>

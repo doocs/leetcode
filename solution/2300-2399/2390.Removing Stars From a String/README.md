@@ -81,7 +81,7 @@ tags:
 
 最后我们将栈中元素拼接成字符串返回即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。忽略答案字符串的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -195,15 +195,17 @@ class Solution {
      * @return String
      */
     function removeStars($s) {
-        $rs = [];
-        for ($i = 0; $i < strlen($s); $i++) {
-            if ($s[$i] == '*') {
-                array_pop($rs);
+        $ans = [];
+        $n = strlen($s);
+        for ($i = 0; $i < $n; $i++) {
+            $c = $s[$i];
+            if ($c === '*') {
+                array_pop($ans);
             } else {
-                array_push($rs, $s[$i]);
+                $ans[] = $c;
             }
         }
-        return join($rs);
+        return implode('', $ans);
     }
 }
 ```

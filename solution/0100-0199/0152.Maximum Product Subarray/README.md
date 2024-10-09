@@ -17,7 +17,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组 <code>nums</code>&nbsp;，请你找出数组中乘积最大的非空连续<span data-keyword="subarray-nonempty">子数组</span>（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
+<p>给你一个整数数组 <code>nums</code>&nbsp;，请你找出数组中乘积最大的非空连续 <span data-keyword="subarray-nonempty">子数组</span>（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
 
 <p>测试用例的答案是一个&nbsp;<strong>32-位</strong> 整数。</p>
 
@@ -45,7 +45,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
-	<li><code>nums</code> 的任何前缀或后缀的乘积都 <strong>保证</strong>&nbsp;是一个 <strong>32-位</strong> 整数</li>
+	<li><code>nums</code> 的任何子数组的乘积都 <strong>保证</strong>&nbsp;是一个 <strong>32-位</strong> 整数</li>
 </ul>
 
 <!-- description:end -->

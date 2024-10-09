@@ -42,10 +42,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number
 
 $$
 \begin{aligned}
-0.8125 \times 2 &= 1.625 \quad \text{取整数部分} \quad 1 \\
-0.625 \times 2 &= 1.25 \quad \text{取整数部分} \quad 1 \\
-0.25 \times 2 &= 0.5 \quad \text{取整数部分} \quad 0 \\
-0.5 \times 2 &= 1 \quad \text{取整数部分} \quad 1 \\
+0.8125 \times 2 &= 1.625 \quad \textit{取整数部分} \quad 1 \\
+0.625 \times 2 &= 1.25 \quad \textit{取整数部分} \quad 1 \\
+0.25 \times 2 &= 0.5 \quad \textit{取整数部分} \quad 0 \\
+0.5 \times 2 &= 1 \quad \textit{取整数部分} \quad 1 \\
 \end{aligned}
 $$
 

@@ -78,10 +78,10 @@ tags:
 我们定义 $f[i][j]$ 表示从第一行出发，到达第 $i$ 行第 $j$ 列的最小路径代价。由于每次只能从上一行的某一列移动到当前行的某一列，因此 $f[i][j]$ 的值可以从 $f[i - 1][k]$ 转移而来，其中 $k$ 的取值范围为 $[0, n - 1]$。因此状态转移方程为：
 
 $$
-f[i][j] = \min_{0 \leq k < n} \{f[i - 1][k] + \text{moveCost}[grid[i - 1][k]][j] + grid[i][j]\}
+f[i][j] = \min_{0 \leq k < n} \{f[i - 1][k] + \textit{moveCost}[grid[i - 1][k]][j] + grid[i][j]\}
 $$
 
-其中 $\text{moveCost}[grid[i - 1][k]][j]$ 表示从第 $i - 1$ 行第 $k$ 列移动到第 $i$ 行第 $j$ 列的代价。
+其中 $\textit{moveCost}[grid[i - 1][k]][j]$ 表示从第 $i - 1$ 行第 $k$ 列移动到第 $i$ 行第 $j$ 列的代价。
 
 最终答案即为 $\min_{0 \leq j < n} \{f[m - 1][j]\}$。
 

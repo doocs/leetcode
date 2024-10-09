@@ -5,9 +5,9 @@ class Solution {
      * @return Integer
      */
     function isPrefixOfWord($sentence, $searchWord) {
-        $arr = explode(' ', $sentence);
-        for ($i = 0; $i < count($arr); $i++) {
-            if (strpos($arr[$i], $searchWord) === 0) {
+        $words = explode(' ', $sentence);
+        for ($i = 0; $i < count($words); ++$i) {
+            if (strpos($words[$i], $searchWord) === 0) {
                 return $i + 1;
             }
         }

@@ -65,92 +65,130 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Union-Find + Hash Table
+
+Based on the problem description, we can use a union-find data structure to merge accounts with the same email address. The specific steps are as follows:
+
+First, we iterate through all the accounts. For the $i$th account, we iterate through all its email addresses. If an email address appears in the hash table $\textit{d}$, we use the union-find to merge the account's index $i$ with the previously appeared account's index; otherwise, we map this email address to the account's index $i$.
+
+Next, we iterate through all the accounts again. For the $i$th account, we use the union-find to find its root node, and then add all the email addresses of that account to the hash table $\textit{g}$, where the key is the root node, and the value is the account's email addresses.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of accounts.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
+
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
+
+
 class Solution:
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
-        n = len(accounts)
-        p = list(range(n))
-        email_id = {}
-        for i, account in enumerate(accounts):
-            name = account[0]
-            for email in account[1:]:
-                if email in email_id:
-                    p[find(i)] = find(email_id[email])
+        uf = UnionFind(len(accounts))
+        d = {}
+        for i, (_, *emails) in enumerate(accounts):
+            for email in emails:
+                if email in d:
+                    uf.union(i, d[email])
                 else:
-                    email_id[email] = i
-        mp = defaultdict(set)
-        for i, account in enumerate(accounts):
-            for email in account[1:]:
-                mp[find(i)].add(email)
-
-        ans = []
-        for i, emails in mp.items():
-            t = [accounts[i][0]]
-            t.extend(sorted(emails))
-            ans.append(t)
-        return ans
+                    d[email] = i
+        g = defaultdict(set)
+        for i, (_, *emails) in enumerate(accounts):
+            root = uf.find(i)
+            g[root].update(emails)
+        return [[accounts[root][0]] + sorted(emails) for root, emails in g.items()]
 ```
 
 #### Java
 
 ```java
-class Solution {
-    private int[] p;
+class UnionFind {
+    private final int[] p;
+    private final int[] size;
 
-    public List<List<String>> accountsMerge(List<List<String>> accounts) {
-        int n = accounts.size();
+    public UnionFind(int n) {
         p = new int[n];
+        size = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
+            size[i] = 1;
         }
-        Map<String, Integer> emailId = new HashMap<>();
-        for (int i = 0; i < n; ++i) {
-            List<String> account = accounts.get(i);
-            String name = account.get(0);
-            for (int j = 1; j < account.size(); ++j) {
-                String email = account.get(j);
-                if (emailId.containsKey(email)) {
-                    p[find(i)] = find(emailId.get(email));
-                } else {
-                    emailId.put(email, i);
-                }
-            }
-        }
-        Map<Integer, Set<String>> mp = new HashMap<>();
-        for (int i = 0; i < n; ++i) {
-            List<String> account = accounts.get(i);
-            for (int j = 1; j < account.size(); ++j) {
-                String email = account.get(j);
-                mp.computeIfAbsent(find(i), k -> new HashSet<>()).add(email);
-            }
-        }
-        List<List<String>> res = new ArrayList<>();
-        for (Map.Entry<Integer, Set<String>> entry : mp.entrySet()) {
-            List<String> t = new LinkedList<>();
-            t.addAll(entry.getValue());
-            Collections.sort(t);
-            t.add(0, accounts.get(entry.getKey()).get(0));
-            res.add(t);
-        }
-        return res;
     }
 
-    private int find(int x) {
+    public int find(int x) {
         if (p[x] != x) {
             p[x] = find(p[x]);
         }
         return p[x];
+    }
+
+    public boolean union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+}
+
+class Solution {
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+        int n = accounts.size();
+        UnionFind uf = new UnionFind(n);
+        Map<String, Integer> d = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 1; j < accounts.get(i).size(); ++j) {
+                String email = accounts.get(i).get(j);
+                if (d.containsKey(email)) {
+                    uf.union(i, d.get(email));
+                } else {
+                    d.put(email, i);
+                }
+            }
+        }
+        Map<Integer, Set<String>> g = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            int root = uf.find(i);
+            g.computeIfAbsent(root, k -> new HashSet<>())
+                .addAll(accounts.get(i).subList(1, accounts.get(i).size()));
+        }
+        List<List<String>> ans = new ArrayList<>();
+        for (var e : g.entrySet()) {
+            List<String> emails = new ArrayList<>(e.getValue());
+            Collections.sort(emails);
+            ans.add(new ArrayList<>());
+            ans.get(ans.size() - 1).add(accounts.get(e.getKey()).get(0));
+            ans.get(ans.size() - 1).addAll(emails);
+        }
+        return ans;
     }
 }
 ```
@@ -158,43 +196,27 @@ class Solution {
 #### C++
 
 ```cpp
-class Solution {
+class UnionFind {
 public:
-    vector<int> p;
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
+        iota(p.begin(), p.end(), 0);
+    }
 
-    vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
-        int n = accounts.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        unordered_map<string, int> emailId;
-        for (int i = 0; i < n; ++i) {
-            auto account = accounts[i];
-            auto name = account[0];
-            for (int j = 1; j < account.size(); ++j) {
-                string email = account[j];
-                if (emailId.count(email))
-                    p[find(i)] = find(emailId[email]);
-                else
-                    emailId[email] = i;
-            }
+    bool unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
         }
-        unordered_map<int, unordered_set<string>> mp;
-        for (int i = 0; i < n; ++i) {
-            auto account = accounts[i];
-            for (int j = 1; j < account.size(); ++j) {
-                string email = account[j];
-                mp[find(i)].insert(email);
-            }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
         }
-        vector<vector<string>> ans;
-        for (auto& [i, emails] : mp) {
-            vector<string> t;
-            t.push_back(accounts[i][0]);
-            for (string email : emails) t.push_back(email);
-            sort(t.begin() + 1, t.end());
-            ans.push_back(t);
-        }
-        return ans;
+        return true;
     }
 
     int find(int x) {
@@ -203,7 +225,195 @@ public:
         }
         return p[x];
     }
+
+private:
+    vector<int> p, size;
 };
+
+class Solution {
+public:
+    vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
+        int n = accounts.size();
+        UnionFind uf(n);
+        unordered_map<string, int> d;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 1; j < accounts[i].size(); ++j) {
+                const string& email = accounts[i][j];
+                if (d.find(email) != d.end()) {
+                    uf.unite(i, d[email]);
+                } else {
+                    d[email] = i;
+                }
+            }
+        }
+        unordered_map<int, set<string>> g;
+        for (int i = 0; i < n; ++i) {
+            int root = uf.find(i);
+            g[root].insert(accounts[i].begin() + 1, accounts[i].end());
+        }
+        vector<vector<string>> ans;
+        for (const auto& [root, s] : g) {
+            vector<string> emails(s.begin(), s.end());
+            emails.insert(emails.begin(), accounts[root][0]);
+            ans.push_back(emails);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+type unionFind struct {
+	p, size []int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &unionFind{p, size}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	return true
+}
+
+func accountsMerge(accounts [][]string) (ans [][]string) {
+	n := len(accounts)
+	uf := newUnionFind(n)
+	d := make(map[string]int)
+	for i := 0; i < n; i++ {
+		for _, email := range accounts[i][1:] {
+			if j, ok := d[email]; ok {
+				uf.union(i, j)
+			} else {
+				d[email] = i
+			}
+		}
+	}
+	g := make(map[int]map[string]struct{})
+	for i := 0; i < n; i++ {
+		root := uf.find(i)
+		if _, ok := g[root]; !ok {
+			g[root] = make(map[string]struct{})
+		}
+		for _, email := range accounts[i][1:] {
+			g[root][email] = struct{}{}
+		}
+	}
+	for root, s := range g {
+		emails := []string{}
+		for email := range s {
+			emails = append(emails, email)
+		}
+		sort.Strings(emails)
+		account := append([]string{accounts[root][0]}, emails...)
+		ans = append(ans, account)
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+class UnionFind {
+    private p: number[];
+    private size: number[];
+
+    constructor(n: number) {
+        this.p = new Array(n);
+        this.size = new Array(n);
+        for (let i = 0; i < n; ++i) {
+            this.p[i] = i;
+            this.size[i] = 1;
+        }
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        let pa = this.find(a),
+            pb = this.find(b);
+        if (pa === pb) {
+            return false;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+function accountsMerge(accounts: string[][]): string[][] {
+    const n = accounts.length;
+    const uf = new UnionFind(n);
+    const d = new Map<string, number>();
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 1; j < accounts[i].length; ++j) {
+            const email = accounts[i][j];
+            if (d.has(email)) {
+                uf.union(i, d.get(email)!);
+            } else {
+                d.set(email, i);
+            }
+        }
+    }
+
+    const g = new Map<number, Set<string>>();
+    for (let i = 0; i < n; ++i) {
+        const root = uf.find(i);
+        if (!g.has(root)) {
+            g.set(root, new Set<string>());
+        }
+        const emailSet = g.get(root)!;
+        for (let j = 1; j < accounts[i].length; ++j) {
+            emailSet.add(accounts[i][j]);
+        }
+    }
+
+    const ans: string[][] = [];
+    for (const [root, emails] of g.entries()) {
+        const emailList = Array.from(emails).sort();
+        const mergedAccount = [accounts[root][0], ...emailList];
+        ans.push(mergedAccount);
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

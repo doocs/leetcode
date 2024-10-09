@@ -82,7 +82,41 @@ bms.scatter(5, 1); // return False
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Segment Tree
+
+From the problem description, we can deduce the following:
+
+-   For the `gather(k, maxRow)` operation, the goal is to seat $k$ people on the same row with consecutive seats. In other words, we need to find the smallest row where the remaining seats are greater than or equal to $k$.
+-   For the `scatter(k, maxRow)` operation, we just need to find $k$ seats in total, but we want to minimize the row number. Therefore, we need to find the first row that has more than $0$ seats remaining, allocate seats there, and continue searching for the rest.
+
+We can implement this using a segment tree. Each segment tree node contains the following information:
+
+-   `l`: The left endpoint of the node's interval
+-   `r`: The right endpoint of the node's interval
+-   `s`: The total remaining seats in the interval corresponding to the node
+-   `mx`: The maximum remaining seats in the interval corresponding to the node
+
+Note that the index range for the segment tree starts from $1$.
+
+The operations of the segment tree are as follows:
+
+-   `build(u, l, r)`: Builds node $u$, corresponding to the interval $[l, r]$, and recursively builds its left and right children.
+-   `modify(u, x, v)`: Starting from node $u$, finds the first node corresponding to the interval $[l, r]$ where $l = r = x$, and modifies the `s` and `mx` values of this node to $v$, then updates the tree upwards.
+-   `query_sum(u, l, r)`: Starting from node $u$, calculates the sum of `s` values in the interval $[l, r]$.
+-   `query_idx(u, l, r, k)`: Starting from node $u$, finds the first node in the interval $[l, r]$ where `mx` is greater than or equal to $k$, and returns the left endpoint `l` of this node. When searching, we start from the largest interval $[1, maxRow]$. Since we need to find the leftmost node with `mx` greater than or equal to $k$, we check whether the `mx` of the first half of the interval meets the condition. If so, the answer is in the first half, and we recursively search that half. Otherwise, the answer is in the second half, and we search that half recursively.
+-   `pushup(u)`: Updates the information of node $u$ using the information from its children.
+
+For the `gather(k, maxRow)` operation, we first use `query_idx(1, 1, n, k)` to find the first row where the remaining seats are greater than or equal to $k$, denoted as $i$. Then, we use `query_sum(1, i, i)` to get the remaining seats in this row, denoted as $s$. Next, we use `modify(1, i, s - k)` to modify the remaining seats of this row to $s - k$, and update the tree upwards. Finally, we return the result $[i - 1, m - s]$.
+
+For the `scatter(k, maxRow)` operation, we first use `query_sum(1, 1, maxRow)` to calculate the total remaining seats in the first $maxRow$ rows, denoted as $s$. If $s \lt k$, there are not enough seats, so we return `false`. Otherwise, we use `query_idx(1, 1, maxRow, 1)` to find the first row where the remaining seats are greater than or equal to $1$, denoted as $i$. Starting from this row, we use `query_sum(1, i, i)` to get the remaining seats in row $i$, denoted as $s_i$. If $s_i \geq k$, we directly use `modify(1, i, s_i - k)` to modify the remaining seats of this row to $s_i - k$, update the tree upwards, and return `true`. Otherwise, we update $k = k - s_i$, modify the remaining seats of this row to $0$, and update the tree upwards. Finally, we return `true`.
+
+Time complexity:
+
+-   The initialization time complexity is $O(n)$.
+-   The time complexity of `gather(k, maxRow)` is $O(\log n)$.
+-   The time complexity of `scatter(k, maxRow)` is $O((n + q) \times \log n)$.
+
+The overall time complexity is $O(n + q \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of rows, and $q$ is the number of operations.
 
 <!-- tabs:start -->
 
@@ -90,6 +124,8 @@ bms.scatter(5, 1); // return False
 
 ```python
 class Node:
+    __slots__ = "l", "r", "s", "mx"
+
     def __init__(self):
         self.l = self.r = 0
         self.s = self.mx = 0
@@ -591,6 +627,142 @@ func (t *segmentTree) pushup(u int) {
  * param_1 := obj.Gather(k,maxRow);
  * param_2 := obj.Scatter(k,maxRow);
  */
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    l: number;
+    r: number;
+    mx: number;
+    s: number;
+
+    constructor() {
+        this.l = 0;
+        this.r = 0;
+        this.mx = 0;
+        this.s = 0;
+    }
+}
+
+class SegmentTree {
+    private tr: Node[];
+    private m: number;
+
+    constructor(n: number, m: number) {
+        this.m = m;
+        this.tr = Array.from({ length: n << 2 }, () => new Node());
+        this.build(1, 1, n);
+    }
+
+    private build(u: number, l: number, r: number): void {
+        this.tr[u].l = l;
+        this.tr[u].r = r;
+        if (l === r) {
+            this.tr[u].s = this.m;
+            this.tr[u].mx = this.m;
+            return;
+        }
+        const mid = (l + r) >> 1;
+        this.build(u << 1, l, mid);
+        this.build((u << 1) | 1, mid + 1, r);
+        this.pushup(u);
+    }
+
+    public modify(u: number, x: number, v: number): void {
+        if (this.tr[u].l === x && this.tr[u].r === x) {
+            this.tr[u].s = v;
+            this.tr[u].mx = v;
+            return;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        if (x <= mid) {
+            this.modify(u << 1, x, v);
+        } else {
+            this.modify((u << 1) | 1, x, v);
+        }
+        this.pushup(u);
+    }
+
+    public querySum(u: number, l: number, r: number): number {
+        if (this.tr[u].l >= l && this.tr[u].r <= r) {
+            return this.tr[u].s;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        let v = 0;
+        if (l <= mid) {
+            v += this.querySum(u << 1, l, r);
+        }
+        if (r > mid) {
+            v += this.querySum((u << 1) | 1, l, r);
+        }
+        return v;
+    }
+
+    public queryIdx(u: number, l: number, r: number, k: number): number {
+        if (this.tr[u].mx < k) {
+            return 0;
+        }
+        if (this.tr[u].l === this.tr[u].r) {
+            return this.tr[u].l;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        if (this.tr[u << 1].mx >= k) {
+            return this.queryIdx(u << 1, l, r, k);
+        }
+        if (r > mid) {
+            return this.queryIdx((u << 1) | 1, l, r, k);
+        }
+        return 0;
+    }
+
+    private pushup(u: number): void {
+        this.tr[u].s = this.tr[u << 1].s + this.tr[(u << 1) | 1].s;
+        this.tr[u].mx = Math.max(this.tr[u << 1].mx, this.tr[(u << 1) | 1].mx);
+    }
+}
+
+class BookMyShow {
+    private n: number;
+    private m: number;
+    private tree: SegmentTree;
+
+    constructor(n: number, m: number) {
+        this.n = n;
+        this.m = m;
+        this.tree = new SegmentTree(n, m);
+    }
+
+    public gather(k: number, maxRow: number): number[] {
+        ++maxRow;
+        const i = this.tree.queryIdx(1, 1, maxRow, k);
+        if (i === 0) {
+            return [];
+        }
+        const s = this.tree.querySum(1, i, i);
+        this.tree.modify(1, i, s - k);
+        return [i - 1, this.m - s];
+    }
+
+    public scatter(k: number, maxRow: number): boolean {
+        ++maxRow;
+        if (this.tree.querySum(1, 1, maxRow) < k) {
+            return false;
+        }
+        let i = this.tree.queryIdx(1, 1, maxRow, 1);
+        for (let j = i; j <= this.n; ++j) {
+            const s = this.tree.querySum(1, j, j);
+            if (s >= k) {
+                this.tree.modify(1, j, s - k);
+                return true;
+            }
+            k -= s;
+            this.tree.modify(1, j, 0);
+        }
+        return true;
+    }
+}
 ```
 
 <!-- tabs:end -->

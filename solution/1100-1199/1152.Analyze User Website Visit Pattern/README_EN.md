@@ -36,7 +36,9 @@ tags:
 	<li>Also, if the pattern is <code>[&quot;luffy&quot;, &quot;luffy&quot;, &quot;luffy&quot;]</code>, the score is the number of users <code>x</code> such that <code>x</code> visited <code>&quot;luffy&quot;</code> three different times at different timestamps.</li>
 </ul>
 
-<p>Return <em>the <strong>pattern</strong> with the largest <strong>score</strong></em>. If there is more than one pattern with the same largest score, return the lexicographically smallest such pattern.</p>
+<p>Return the <strong>pattern</strong> with the largest <strong>score</strong>. If there is more than one pattern with the same largest score, return the lexicographically smallest such pattern.</p>
+
+<p>Note that the websites in a pattern <strong>do not</strong> need to be visited <em>contiguously</em>, they only need to be visited in the order they appeared in the pattern.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

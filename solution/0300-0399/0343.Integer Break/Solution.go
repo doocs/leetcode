@@ -1,10 +1,10 @@
 func integerBreak(n int) int {
-	dp := make([]int, n+1)
-	dp[1] = 1
+	f := make([]int, n+1)
+	f[1] = 1
 	for i := 2; i <= n; i++ {
 		for j := 1; j < i; j++ {
-			dp[i] = max(max(dp[i], dp[i-j]*j), (i-j)*j)
+			f[i] = max(max(f[i], f[i-j]*j), (i-j)*j)
 		}
 	}
-	return dp[n]
+	return f[n]
 }

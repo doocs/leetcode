@@ -135,6 +135,34 @@ func findValueOfPartition(nums []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function findValueOfPartition(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let ans = Infinity;
+    for (let i = 1; i < nums.length; ++i) {
+        ans = Math.min(ans, Math.abs(nums[i] - nums[i - 1]));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_value_of_partition(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let mut ans = i32::MAX;
+        for i in 1..nums.len() {
+            ans = ans.min(nums[i] - nums[i - 1]);
+        }
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

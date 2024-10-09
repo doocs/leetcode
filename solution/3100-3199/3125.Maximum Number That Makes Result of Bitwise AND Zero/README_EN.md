@@ -75,7 +75,7 @@ The bitwise <code>AND</code> of <code>[3, 4, 5, 6, 7]</code> is 0.</p>
 
 ### Solution 1: Bit Manipulation
 
-We can find the highest bit of $1$ in the binary representation of $n$. The maximum $x$ must be less than $n$ and this bit is $0$, and all other lower bits are $1$, i.e., $x = 2^{\text{number of the highest bit}} - 1$. This is because $x \text{ and } (x + 1) = 0$ must hold.
+We can find the highest bit of $1$ in the binary representation of $n$. The maximum $x$ must be less than $n$ and this bit is $0$, and all other lower bits are $1$, i.e., $x = 2^{\textit{number of the highest bit}} - 1$. This is because $x \textit{ and } (x + 1) = 0$ must hold.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

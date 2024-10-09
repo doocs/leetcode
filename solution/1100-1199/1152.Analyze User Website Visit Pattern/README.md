@@ -38,23 +38,25 @@ tags:
 
 <p>返回<em> <strong>得分</strong> 最大的 <strong>访问</strong><strong>模式</strong></em> 。如果有多个访问模式具有相同的最大分数，则返回字典序最小的。</p>
 
+<p>请注意，模式中的网站不需要连续访问，只需按照模式中出现的顺序访问即可。</p>
+
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>username = ["joe","joe","joe","james","james","james","james","mary","mary","mary"], timestamp = [1,2,3,4,5,6,7,8,9,10], website = ["home","about","career","home","cart","maps","home","home","about","career"]
 <strong>输出：</strong>["home","about","career"]
 <strong>解释：</strong>本例中的元组是:
-["joe","home",1],["joe","about",2],["joe","career",3],["james","home",4],["james","cart",5],["james","maps",6],["james","home",7],["mary","home",8],["mary","about",9], and ["mary","career",10].
-模式("home", "about", "career") has score 2 (joe and mary).
-模式("home", "cart", "maps") 的得分为 1 (james).
+["joe","home",1],["joe","about",2],["joe","career",3],["james","home",4],["james","cart",5],["james","maps",6],["james","home",7],["mary","home",8],["mary","about",9] 和 ["mary","career",10]。
+模式 ("home", "about", "career") 的得分为 2（joe 和 mary）。
+模式 ("home", "cart", "maps") 的得分为 1 (james).
 模式 ("home", "cart", "home") 的得分为 1 (james).
 模式 ("home", "maps", "home") 的得分为 1 (james).
 模式 ("cart", "maps", "home") 的得分为 1 (james).
-模式 ("home", "home", "home") 的得分为 0(没有用户访问过home 3次)。</pre>
+模式 ("home", "home", "home") 的得分为 0(没有用户访问过 home 3次)。</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入:</strong> username = ["ua","ua","ua","ub","ub","ub"], timestamp = [1,2,3,4,5,6], website = ["a","b","a","a","b","c"]

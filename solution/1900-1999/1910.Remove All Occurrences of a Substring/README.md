@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1910.Re
 rating: 1460
 source: 第 55 场双周赛 Q2
 tags:
+    - 栈
     - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

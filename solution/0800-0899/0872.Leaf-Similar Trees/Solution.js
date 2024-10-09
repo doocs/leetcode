@@ -1,15 +1,15 @@
 var leafSimilar = function (root1, root2) {
-    const dfs = root => {
-        if (!root) {
-            return [];
+    const l1 = [];
+    const l2 = [];
+    const dfs = (root, nums) => {
+        if (root.left === root.right) {
+            nums.push(root.val);
+            return;
         }
-        let ans = [...dfs(root.left), ...dfs(root.right)];
-        if (!ans.length) {
-            ans = [root.val];
-        }
-        return ans;
+        root.left && dfs(root.left, nums);
+        root.right && dfs(root.right, nums);
     };
-    const l1 = dfs(root1);
-    const l2 = dfs(root2);
-    return l1.toString() === l2.toString();
+    dfs(root1, l1);
+    dfs(root2, l2);
+    return l1.join(',') === l2.join(',');
 };

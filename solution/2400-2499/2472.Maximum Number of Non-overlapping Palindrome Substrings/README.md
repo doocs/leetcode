@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2472.Ma
 rating: 2013
 source: 第 319 场周赛 Q4
 tags:
+    - 贪心
+    - 双指针
     - 字符串
     - 动态规划
 ---

@@ -2,14 +2,14 @@ class Solution {
 public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
         stack<int> stk;
-        int j = 0;
-        for (int v : pushed) {
-            stk.push(v);
-            while (!stk.empty() && stk.top() == popped[j]) {
+        int i = 0;
+        for (int x : pushed) {
+            stk.push(x);
+            while (stk.size() && stk.top() == popped[i]) {
                 stk.pop();
-                ++j;
+                ++i;
             }
         }
-        return j == pushed.size();
+        return i == popped.size();
     }
 };

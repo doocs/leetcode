@@ -4,6 +4,7 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3205.Maximum%20Array%20Hopping%20Score%20I/README.md
 tags:
     - 栈
+    - 贪心
     - 数组
     - 动态规划
     - 单调栈
@@ -73,13 +74,13 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $\text{dfs}(i)$，表示从下标 $i$ 出发，能够获得的最大分数。那么答案就是 $\text{dfs}(0)$。
+我们设计一个函数 $\textit{dfs}(i)$，表示从下标 $i$ 出发，能够获得的最大分数。那么答案就是 $\textit{dfs}(0)$。
 
-函数 $\text{dfs}(i)$ 的执行过程如下：
+函数 $\textit{dfs}(i)$ 的执行过程如下：
 
-我们枚举下一个跳跃的位置 $j$，那么从下标 $i$ 出发，能够获得的分数就是 $(j - i) \times \text{nums}[j]$，加上从下标 $j$ 出发，能够获得的最大分数，总分数就是 $(j - i) \times \text{nums}[j] + \text{dfs}(j)$。我们枚举所有的 $j$，取分数的最大值即可。
+我们枚举下一个跳跃的位置 $j$，那么从下标 $i$ 出发，能够获得的分数就是 $(j - i) \times \textit{nums}[j]$，加上从下标 $j$ 出发，能够获得的最大分数，总分数就是 $(j - i) \times \textit{nums}[j] + \textit{dfs}(j)$。我们枚举所有的 $j$，取分数的最大值即可。
 
-为了避免重复计算，我们使用记忆化搜索的方法，将已经计算过的 $\text{dfs}(i)$ 的值保存起来，下次直接返回即可。
+为了避免重复计算，我们使用记忆化搜索的方法，将已经计算过的 $\textit{dfs}(i)$ 的值保存起来，下次直接返回即可。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
@@ -203,7 +204,7 @@ function maxScore(nums: number[]): number {
 状态转移方程为：
 
 $$
-f[j] = \max_{0 \leq i < j} \{ f[i] + (j - i) \times \text{nums}[j] \}
+f[j] = \max_{0 \leq i < j} \{ f[i] + (j - i) \times \textit{nums}[j] \}
 $$
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
@@ -298,11 +299,11 @@ function maxScore(nums: number[]): number {
 
 我们观察发现，对于当前位置 $i$，我们应该跳到下一个值最大的位置 $j$，这样才能获得最大的分数。
 
-因此，我们遍历数组 $\text{nums}$，维护一个从栈底到栈顶单调递减的栈 $\text{stk}$。对于当前遍历到的位置 $i$，如果栈顶元素对应的值小于等于 $\text{nums}[i]$，我们就不断地弹出栈顶元素，直到栈为空或者栈顶元素对应的值大于 $\text{nums}[i]$，然后将 $i$ 入栈。
+因此，我们遍历数组 $\textit{nums}$，维护一个从栈底到栈顶单调递减的栈 $\textit{stk}$。对于当前遍历到的位置 $i$，如果栈顶元素对应的值小于等于 $\textit{nums}[i]$，我们就不断地弹出栈顶元素，直到栈为空或者栈顶元素对应的值大于 $\textit{nums}[i]$，然后将 $i$ 入栈。
 
-然后，我们初始化答案 $\text{ans}$ 和当前位置 $i = 0$，遍历栈中的元素，每次取出栈顶元素 $j$，更新答案 $\text{ans} += \text{nums}[j] \times (j - i)$，然后更新 $i = j$。
+然后，我们初始化答案 $\textit{ans}$ 和当前位置 $i = 0$，遍历栈中的元素，每次取出栈顶元素 $j$，更新答案 $\textit{ans} += \textit{nums}[j] \times (j - i)$，然后更新 $i = j$。
 
-最后返回答案 $\text{ans}$。
+最后返回答案 $\textit{ans}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 

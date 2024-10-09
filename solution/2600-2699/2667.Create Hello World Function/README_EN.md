@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2667.Create%20Hello%20World%20Function/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

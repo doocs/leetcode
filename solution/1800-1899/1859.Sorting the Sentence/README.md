@@ -66,13 +66,9 @@ tags:
 
 ### 方法一：字符串分割
 
-我们先将字符串 $s$ 按照空格分割，得到字符串数组 $words$。然后，我们创建一个长度为 $|words|$ 的字符串数组 $ans$，用于存放答案。
+我们先将字符串 $s$ 按照空格分割，得到字符串数组 $\textit{ws}$，然后遍历数组 $\textit{ws}$，将每个单词的最后一个字符减去字符 '1'，得到的结果作为单词的索引，将单词的前缀作为单词的内容，最后将单词按照索引顺序拼接起来即可。
 
-接下来，遍历字符串数组 $words$ 中的每个字符串 $w$，找到 $w$ 的最后一个字符表示的位置 $i$，然后将 $w$ 的前 $|w|-1$ 个字符作为新的字符串 $w'$，将 $w'$ 放在数组 $ans$ 的第 $i$ 个位置。
-
-最后，将数组 $ans$ 按照空格连接成字符串，即为答案。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -170,28 +166,6 @@ var sortSentence = function (s) {
     }
     return ans.join(' ');
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def sortSentence(self, s: str) -> str:
-        ws = s.split()
-        ans = [None] * len(ws)
-        for w in ws:
-            ans[int(w[-1]) - 1] = w[:-1]
-        return ' '.join(ans)
 ```
 
 <!-- tabs:end -->

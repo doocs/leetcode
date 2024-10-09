@@ -155,6 +155,9 @@ tags:
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/pass-the-pillow/description/" target="_blank"> 2582: Pass the Pillow.</a></p>
+
 <!-- description:end -->
 
 ## Solutions

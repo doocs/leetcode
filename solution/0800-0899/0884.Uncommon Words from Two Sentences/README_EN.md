@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0884.Un
 tags:
     - Hash Table
     - String
+    - Counting
 ---
 
 <!-- problem:start -->
@@ -25,12 +26,25 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<pre><strong>Input:</strong> s1 = "this apple is sweet", s2 = "this apple is sour"
-<strong>Output:</strong> ["sweet","sour"]
-</pre><p><strong class="example">Example 2:</strong></p>
-<pre><strong>Input:</strong> s1 = "apple apple", s2 = "banana"
-<strong>Output:</strong> ["banana"]
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s1 = &quot;this apple is sweet&quot;, s2 = &quot;this apple is sour&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;sweet&quot;,&quot;sour&quot;]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The word <code>&quot;sweet&quot;</code> appears only in <code>s1</code>, while the word <code>&quot;sour&quot;</code> appears only in <code>s2</code>.</p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">s1 = &quot;apple apple&quot;, s2 = &quot;banana&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;banana&quot;]</span></p>
+</div>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

@@ -1,19 +1,50 @@
-class Solution {
+class UnionFind {
 public:
-    vector<int> p;
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
+        iota(p.begin(), p.end(), 0);
+    }
 
-    int removeStones(vector<vector<int>>& stones) {
-        int n = 10010;
-        p.resize(n << 1);
-        for (int i = 0; i < p.size(); ++i) p[i] = i;
-        for (auto& stone : stones) p[find(stone[0])] = find(stone[1] + n);
-        unordered_set<int> s;
-        for (auto& stone : stones) s.insert(find(stone[0]));
-        return stones.size() - s.size();
+    bool unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
     }
 
     int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
         return p[x];
+    }
+
+private:
+    vector<int> p, size;
+};
+
+class Solution {
+public:
+    int removeStones(vector<vector<int>>& stones) {
+        int n = stones.size();
+        UnionFind uf(n);
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1]) {
+                    ans += uf.unite(i, j);
+                }
+            }
+        }
+        return ans;
     }
 };

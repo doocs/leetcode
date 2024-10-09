@@ -20,39 +20,52 @@ tags:
 
 <!-- description:start -->
 
-<p>There exist <code>n</code> rectangles in a 2D plane. You are given two <strong>0-indexed</strong> 2D integer arrays <code>bottomLeft</code> and <code>topRight</code>, both of size <code>n x 2</code>, where <code>bottomLeft[i]</code> and <code>topRight[i]</code> represent the <strong>bottom-left</strong> and <strong>top-right</strong> coordinates of the <code>i<sup>th</sup></code> rectangle respectively.</p>
+<p>There exist <code>n</code> rectangles in a 2D plane with edges parallel to the x and y axis. You are given two 2D integer arrays&nbsp;<code>bottomLeft</code> and <code>topRight</code>&nbsp;where <code>bottomLeft[i] = [a_i, b_i]</code> and <code>topRight[i] = [c_i, d_i]</code> represent&nbsp;the <strong>bottom-left</strong> and <strong>top-right</strong> coordinates of the <code>i<sup>th</sup></code> rectangle, respectively.</p>
 
-<p>You can select a region formed from the <strong>intersection</strong> of&nbsp;two of the given rectangles. You need to find the <strong>largest </strong>area of a <strong>square</strong> that can fit <strong>inside</strong> this region if you select the region optimally.</p>
-
-<p>Return <em>the <strong>largest </strong>possible area of a square, or </em><code>0</code><em> if there <strong>do not</strong> exist any intersecting regions between the rectangles</em>.</p>
+<p>You need to find the <strong>maximum</strong> area of a <strong>square</strong> that can fit inside the intersecting region of at least two rectangles. Return <code>0</code> if such a square does not exist.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/images/example12.png" style="width: 443px; height: 364px; padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem;" />
-<pre>
-<strong>Input:</strong> bottomLeft = [[1,1],[2,2],[3,1]], topRight = [[3,3],[4,4],[6,6]]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> A square with side length 1 can fit inside either the intersecting region of rectangle 0 and rectangle 1, or the intersecting region of rectangle 1 and rectangle 2. Hence the largest area is side * side which is 1 * 1 == 1.
-It can be shown that a square with a greater side length can not fit inside any intersecting region.
-</pre>
+<p><strong>Input:</strong> bottomLeft = [[1,1],[2,2],[3,1]], topRight = [[3,3],[4,4],[6,6]]</p>
+
+<p><strong>Output:</strong> 1</p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>A square with side length 1 can fit inside either the intersecting region of rectangles 0 and 1 or the intersecting region of rectangles 1 and 2. Hence the maximum area is 1. It can be shown that a square with a greater side length can not fit inside any intersecting region of two rectangles.</p>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/images/rectanglesexample2.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 445px; height: 365px;" />
-<pre>
-<strong>Input:</strong> bottomLeft = [[1,1],[2,2],[1,2]], topRight = [[3,3],[4,4],[3,4]]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> A square with side length 1 can fit inside either the intersecting region of rectangle 0 and rectangle 1, the intersecting region of rectangle 1 and rectangle 2, or the intersection region of all 3 rectangles. Hence the largest area is side * side which is 1 * 1 == 1.
-It can be shown that a square with a greater side length can not fit inside any intersecting region.
-Note that the region can be formed by the intersection of more than 2 rectangles.
-</pre>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/images/diag.png" style="width: 451px; height: 470px; padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem;" />
+<p><strong>Input:</strong> bottomLeft = [[1,1],[1,3],[1,5]], topRight = [[5,5],[5,7],[5,9]]</p>
+
+<p><strong>Output:</strong> 4</p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>A square with side length 2 can fit inside either the intersecting region of rectangles 0 and 1 or the intersecting region of rectangles 1 and 2. Hence the maximum area is <code>2 * 2 = 4</code>. It can be shown that a square with a greater side length can not fit inside any intersecting region of two rectangles.</p>
 
 <p><strong class="example">Example 3:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/images/rectanglesexample3.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 444px; height: 364px;" />
-<pre>
-<strong>Input:</strong> bottomLeft = [[1,1],[3,3],[3,1]], topRight = [[2,2],[4,4],[4,2]]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> No pair of rectangles intersect, hence, we return 0.
-</pre>
+<code> <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/images/rectanglesexample2.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 445px; height: 365px;" /> </code>
+
+<p><strong>Input:</strong> bottomLeft = [[1,1],[2,2],[1,2]], topRight = [[3,3],[4,4],[3,4]]</p>
+
+<p><strong>Output:</strong> 1</p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>A square with side length 1 can fit inside the intersecting region of any two rectangles. Also, no larger square can, so the maximum area is 1. Note that the region can be formed by the intersection of more than 2 rectangles.</p>
+
+<p><strong class="example">Example 4:</strong></p>
+<code> <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3047.Find%20the%20Largest%20Area%20of%20Square%20Inside%20Two%20Rectangles/images/rectanglesexample3.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 444px; height: 364px;" /> </code>
+
+<p><strong>Input:&nbsp;</strong>bottomLeft = [[1,1],[3,3],[3,1]], topRight = [[2,2],[4,4],[4,2]]</p>
+
+<p><strong>Output:</strong> 0</p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>No pair of rectangles intersect, hence, the answer is 0.</p>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

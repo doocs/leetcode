@@ -1,14 +1,16 @@
 impl Solution {
     pub fn maximum_difference(nums: Vec<i32>) -> i32 {
-        let mut min = nums[0];
-        let mut res = -1;
-        for i in 1..nums.len() {
-            res = res.max(nums[i] - min);
-            min = min.min(nums[i]);
+        let mut mi = i32::MAX;
+        let mut ans = -1;
+
+        for &x in &nums {
+            if x > mi {
+                ans = ans.max(x - mi);
+            } else {
+                mi = x;
+            }
         }
-        match res {
-            0 => -1,
-            _ => res,
-        }
+
+        ans
     }
 }

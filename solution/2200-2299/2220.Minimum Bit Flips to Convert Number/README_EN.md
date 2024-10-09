@@ -57,6 +57,9 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 	<li><code>0 &lt;= start, goal &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/hamming-distance/description/" target="_blank">461: Hamming Distance.</a></p>
+
 <!-- description:end -->
 
 ## Solutions
@@ -168,6 +171,32 @@ int minBitFlips(int start, int goal) {
         tmp >>= 1;
     }
     return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minBitFlips(start: number, goal: number): number {
+    return (start ^ goal).toString(2).replace(/0/g, '').length;
+}
+```
+
+#### JavaScript
+
+```js
+function minBitFlips(start, goal) {
+    return (start ^ goal).toString(2).replace(/0/g, '').length;
 }
 ```
 

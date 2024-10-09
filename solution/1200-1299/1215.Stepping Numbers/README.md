@@ -6,6 +6,7 @@ rating: 1674
 source: 第 10 场双周赛 Q3
 tags:
     - 广度优先搜索
+    - 数学
     - 回溯
 ---
 
@@ -19,18 +20,26 @@ tags:
 
 <!-- description:start -->
 
-<p>如果一个整数上的每一位数字与其相邻位上的数字的绝对差都是 <code>1</code>，那么这个数就是一个「步进数」。</p>
+<p>如果一个整数上的每一位数字与其相邻位上的数字的绝对差都是 <code>1</code>，那么这个数就是一个「<strong>步进数</strong>」。</p>
 
-<p>例如，<code>321</code>&nbsp;是一个步进数，而&nbsp;<code>421</code>&nbsp;不是。</p>
+<p>例如，<code>321</code>&nbsp;是一个 <strong>步进数</strong>，而&nbsp;<code>421</code>&nbsp;不是。</p>
 
-<p>给你两个整数，<code>low</code>&nbsp;和&nbsp;<code>high</code>，请你找出在&nbsp;<code>[low, high]</code>&nbsp;范围内的所有步进数，并返回&nbsp;<strong>排序后</strong> 的结果。</p>
+<p>给你两个整数，<code>low</code>&nbsp;和&nbsp;<code>high</code>，请你找出在&nbsp;<code>[low, high]</code>&nbsp;范围内的所有 <strong>步进数</strong>，并返回&nbsp;<strong>排序后</strong> 的结果。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>low = 0, high = 21
+<pre>
+<strong>输入：</strong>low = 0, high = 21
 <strong>输出：</strong>[0,1,2,3,4,5,6,7,8,9,10,12,21]
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<b>输入：</b>low = 10, high = 15
+<b>输出：</b>[10,12]
 </pre>
 
 <p>&nbsp;</p>
@@ -38,7 +47,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 &lt;= low &lt;= high &lt;= 2 * 10^9</code></li>
+	<li><code>0 &lt;= low &lt;= high &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->

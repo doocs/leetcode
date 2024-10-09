@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README.md
+rating: 2170
+source: 第 405 场周赛 Q4
 tags:
     - 数组
     - 字符串
@@ -23,7 +25,7 @@ tags:
 
 <p>设想一个空字符串 <code>s</code>。</p>
 
-<p>你可以执行以下操作任意次数（包括<strong>零</strong>次）：</p>
+<p>你可以执行以下操作任意次数（包括&nbsp;<strong>零&nbsp;</strong>次）：</p>
 
 <ul>
 	<li>选择一个在范围&nbsp; <code>[0, words.length - 1]</code> 的索引 <code>i</code>。</li>
@@ -92,7 +94,7 @@ $$
 f[i] = \min(f[i], f[i - j] + \textit{cost}[k])
 $$
 
-其中 $textit{cost}[k]$ 表示长度为 $j$ 的单词且哈希值与 $\textit{target}[i - j + 1, i]$ 相同的单词的最小代价。
+其中 $\textit{cost}[k]$ 表示长度为 $j$ 的单词且哈希值与 $\textit{target}[i - j + 1, i]$ 相同的单词的最小代价。
 
 时间复杂度 $O(n \times \sqrt{L})$，空间复杂度 $O(n)$。其中 $n$ 是 $\textit{target}$ 的长度，而 $L$ 是数组 $\textit{words}$ 中所有单词的长度之和。
 

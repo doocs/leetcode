@@ -118,8 +118,8 @@ We can use dynamic programming to find the length $mx$ of the longest common sub
 
 $$
 f[i][j] = \begin{cases}
-f[i - 1][j - 1] + 1, & \text{if } \text{initial}[i - 1] = \text{target}[j - 1], \\
-0, & \text{otherwise}.
+f[i - 1][j - 1] + 1, & \textit{if } \textit{initial}[i - 1] = \textit{target}[j - 1], \\
+0, & \textit{otherwise}.
 \end{cases}
 $$
 

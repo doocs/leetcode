@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3197.Find%20the%20Minimum%20Area%20to%20Cover%20All%20Ones%20II/README.md
+rating: 2540
+source: 第 403 场周赛 Q4
 tags:
     - 数组
     - 枚举
@@ -91,7 +93,7 @@ tags:
 1. 先进行一次纵向分割，再对左部分进行一次横向分割
 1. 先进行一次纵向分割，再对右部分进行一次横向分割
 
-我们可以用一个函数 $\text{f}(i_1, j_1, i_2, j_2)$ 来计算矩形 $(i_1, j_1)$ 到 $(i_2, j_2)$ 包含所有 $1$ 的最小矩形面积。
+我们可以用一个函数 $\textit{f}(i_1, j_1, i_2, j_2)$ 来计算矩形 $(i_1, j_1)$ 到 $(i_2, j_2)$ 包含所有 $1$ 的最小矩形面积。
 
 时间复杂度 $O(m^2 \times n^2)$，其中 $m$ 和 $n$ 分别是矩形的行数和列数。空间复杂度 $O(1)$。
 

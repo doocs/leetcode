@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

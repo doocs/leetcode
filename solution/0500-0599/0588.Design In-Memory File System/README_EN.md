@@ -7,6 +7,7 @@ tags:
     - Trie
     - Hash Table
     - String
+    - Sorting
 ---
 
 <!-- problem:start -->

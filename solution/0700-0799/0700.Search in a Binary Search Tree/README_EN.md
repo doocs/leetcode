@@ -53,7 +53,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+We check if the current node is null or if the current node's value equals the target value. If so, we return the current node.
+
+Otherwise, if the current node's value is greater than the target value, we recursively search the left subtree; otherwise, we recursively search the right subtree.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -67,13 +73,13 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if root is None or root.val == val:
             return root
         return (
-            self.searchBST(root.right, val)
-            if root.val < val
-            else self.searchBST(root.left, val)
+            self.searchBST(root.left, val)
+            if root.val > val
+            else self.searchBST(root.right, val)
         )
 ```
 
@@ -100,7 +106,7 @@ class Solution {
         if (root == null || root.val == val) {
             return root;
         }
-        return root.val < val ? searchBST(root.right, val) : searchBST(root.left, val);
+        return root.val > val ? searchBST(root.left, val) : searchBST(root.right, val);
     }
 }
 ```
@@ -122,8 +128,10 @@ class Solution {
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
-        if (!root || root->val == val) return root;
-        return root->val < val ? searchBST(root->right, val) : searchBST(root->left, val);
+        if (!root || root->val == val) {
+            return root;
+        }
+        return root->val > val ? searchBST(root->left, val) : searchBST(root->right, val);
     }
 };
 ```
@@ -139,14 +147,39 @@ public:
  *     Right *TreeNode
  * }
  */
-func searchBST(root *TreeNode, val int) *TreeNode {
-	if root == nil || root.Val == val {
-		return root
-	}
-	if root.Val < val {
-		return searchBST(root.Right, val)
-	}
-	return searchBST(root.Left, val)
+ func searchBST(root *TreeNode, val int) *TreeNode {
+    if root == nil || root.Val == val {
+        return root
+    }
+    if root.Val > val {
+        return searchBST(root.Left, val)
+    }
+    return searchBST(root.Right, val)
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function searchBST(root: TreeNode | null, val: number): TreeNode | null {
+    if (root === null || root.val === val) {
+        return root;
+    }
+    return root.val > val ? searchBST(root.left, val) : searchBST(root.right, val);
 }
 ```
 

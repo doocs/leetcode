@@ -1,12 +1,12 @@
 class Solution {
     public int differenceOfSum(int[] nums) {
-        int a = 0, b = 0;
-        for (int x : nums) {
-            a += x;
-            for (; x > 0; x /= 10) {
-                b += x % 10;
+        int x = 0, y = 0;
+        for (int v : nums) {
+            x += v;
+            for (; v > 0; v /= 10) {
+                y += v % 10;
             }
         }
-        return Math.abs(a - b);
+        return x - y;
     }
 }

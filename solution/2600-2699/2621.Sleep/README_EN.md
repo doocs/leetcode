@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sleep/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->
@@ -58,6 +60,23 @@ sleep(100).then(() =&gt; {
 
 ```ts
 async function sleep(millis: number): Promise<void> {
+    return new Promise(r => setTimeout(r, millis));
+}
+
+/**
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
     return new Promise(r => setTimeout(r, millis));
 }
 

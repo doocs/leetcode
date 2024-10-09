@@ -73,7 +73,13 @@ There are no more stars, so we return &quot;lecoe&quot;.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Stack Simulation
+
+We can use a stack to simulate the operation process. Traverse the string $s$, and if the current character is not an asterisk, push it onto the stack; if the current character is an asterisk, pop the top element from the stack.
+
+Finally, concatenate the elements in the stack into a string and return it.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer string, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -187,15 +193,17 @@ class Solution {
      * @return String
      */
     function removeStars($s) {
-        $rs = [];
-        for ($i = 0; $i < strlen($s); $i++) {
-            if ($s[$i] == '*') {
-                array_pop($rs);
+        $ans = [];
+        $n = strlen($s);
+        for ($i = 0; $i < $n; $i++) {
+            $c = $s[$i];
+            if ($c === '*') {
+                array_pop($ans);
             } else {
-                array_push($rs, $s[$i]);
+                $ans[] = $c;
             }
         }
-        return join($rs);
+        return implode('', $ans);
     }
 }
 ```

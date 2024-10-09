@@ -1,9 +1,9 @@
 func validPath(n int, edges [][]int, source int, destination int) bool {
 	g := make([][]int, n)
 	for _, e := range edges {
-		a, b := e[0], e[1]
-		g[a] = append(g[a], b)
-		g[b] = append(g[b], a)
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
 	}
 	q := []int{source}
 	vis := make([]bool, n)

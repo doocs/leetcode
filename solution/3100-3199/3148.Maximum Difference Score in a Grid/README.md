@@ -81,7 +81,7 @@ $$
 f[i][j] = \min(f[i-1][j], f[i][j-1], grid[i][j])
 $$
 
-那么答案为 $\text{grid}[i][j] - \min(f[i-1][j], f[i][j-1])$ 的最大值。
+那么答案为 $\textit{grid}[i][j] - \min(f[i-1][j], f[i][j-1])$ 的最大值。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 

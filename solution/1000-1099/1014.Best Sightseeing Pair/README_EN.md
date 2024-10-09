@@ -55,7 +55,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate $j$ from left to right while maintaining the maximum value of $values[i] + i$ for elements to the left of $j$, denoted as $mx$. For each $j$, the maximum score is $mx + values[j] - j$. The answer is the maximum of these maximum scores for all positions.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{values}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -64,10 +68,10 @@ tags:
 ```python
 class Solution:
     def maxScoreSightseeingPair(self, values: List[int]) -> int:
-        ans, mx = 0, values[0]
-        for j in range(1, len(values)):
-            ans = max(ans, values[j] - j + mx)
-            mx = max(mx, values[j] + j)
+        ans = mx = 0
+        for j, x in enumerate(values):
+            ans = max(ans, mx + x - j)
+            mx = max(mx, x + j)
         return ans
 ```
 
@@ -76,9 +80,9 @@ class Solution:
 ```java
 class Solution {
     public int maxScoreSightseeingPair(int[] values) {
-        int ans = 0, mx = values[0];
-        for (int j = 1; j < values.length; ++j) {
-            ans = Math.max(ans, values[j] - j + mx);
+        int ans = 0, mx = 0;
+        for (int j = 0; j < values.length; ++j) {
+            ans = Math.max(ans, mx + values[j] - j);
             mx = Math.max(mx, values[j] + j);
         }
         return ans;
@@ -92,9 +96,9 @@ class Solution {
 class Solution {
 public:
     int maxScoreSightseeingPair(vector<int>& values) {
-        int ans = 0, mx = values[0];
-        for (int j = 1; j < values.size(); ++j) {
-            ans = max(ans, values[j] - j + mx);
+        int ans = 0, mx = 0;
+        for (int j = 0; j < values.size(); ++j) {
+            ans = max(ans, mx + values[j] - j);
             mx = max(mx, values[j] + j);
         }
         return ans;
@@ -106,9 +110,10 @@ public:
 
 ```go
 func maxScoreSightseeingPair(values []int) (ans int) {
-	for j, mx := 1, values[0]; j < len(values); j++ {
-		ans = max(ans, values[j]-j+mx)
-		mx = max(mx, values[j]+j)
+	mx := 0
+	for j, x := range values {
+		ans = max(ans, mx+x-j)
+		mx = max(mx, x+j)
 	}
 	return
 }
@@ -118,13 +123,28 @@ func maxScoreSightseeingPair(values []int) (ans int) {
 
 ```ts
 function maxScoreSightseeingPair(values: number[]): number {
-    let ans = 0;
-    let mx = values[0];
-    for (let j = 1; j < values.length; ++j) {
-        ans = Math.max(ans, values[j] - j + mx);
+    let [ans, mx] = [0, 0];
+    for (let j = 0; j < values.length; ++j) {
+        ans = Math.max(ans, mx + values[j] - j);
         mx = Math.max(mx, values[j] + j);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_score_sightseeing_pair(values: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let mut mx = 0;
+        for (j, &x) in values.iter().enumerate() {
+            ans = ans.max(mx + x - j as i32);
+            mx = mx.max(x + j as i32);
+        }
+        ans
+    }
 }
 ```
 

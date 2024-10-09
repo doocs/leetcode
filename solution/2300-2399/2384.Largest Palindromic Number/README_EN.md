@@ -8,6 +8,7 @@ tags:
     - Greedy
     - Hash Table
     - String
+    - Counting
 ---
 
 <!-- problem:start -->

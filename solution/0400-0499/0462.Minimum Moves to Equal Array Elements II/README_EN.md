@@ -57,7 +57,24 @@ Only two moves are needed (remember each move increments or decrements one eleme
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Median
+
+This problem can be abstracted to finding a point on a number line such that the sum of distances from $n$ points to this point is minimized. The answer is the median of the $n$ points.
+
+The median has the property that the sum of distances from all numbers to the median is minimized.
+
+Proof:
+
+First, given a sorted sequence $a_1, a_2, \cdots, a_n$, we assume $x$ is the point that minimizes the sum of distances from $a_1$ to $a_n$. Clearly, $x$ must lie between $a_1$ and $a_n$. Since the distances from $a_1$ and $a_n$ to $x$ are equal and both equal to $a_n - a_1$, we can ignore $a_1$ and $a_n$ and only consider $a_2, a_3, \cdots, a_{n-1}$. This reduces the problem to finding a point within $a_2, a_3, \cdots, a_{n-1}$ that minimizes the sum of distances. By iterating this process, we conclude that the median of a sequence minimizes the sum of distances to the other numbers.
+
+In this problem, we can first sort the array, then find the median, and finally calculate the sum of distances from all numbers to the median.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$.
+
+Similar problems:
+
+-   [296. Best Meeting Point](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
+-   [2448. Minimum Cost to Make Array Equal](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -96,7 +113,9 @@ public:
         sort(nums.begin(), nums.end());
         int k = nums[nums.size() >> 1];
         int ans = 0;
-        for (int& v : nums) ans += abs(v - k);
+        for (int& v : nums) {
+            ans += abs(v - k);
+        }
         return ans;
     }
 };
@@ -128,8 +147,8 @@ func abs(x int) int {
 ```ts
 function minMoves2(nums: number[]): number {
     nums.sort((a, b) => a - b);
-    const mid = nums[nums.length >> 1];
-    return nums.reduce((r, v) => r + Math.abs(v - mid), 0);
+    const k = nums[nums.length >> 1];
+    return nums.reduce((r, v) => r + Math.abs(v - k), 0);
 }
 ```
 
@@ -139,41 +158,14 @@ function minMoves2(nums: number[]): number {
 impl Solution {
     pub fn min_moves2(mut nums: Vec<i32>) -> i32 {
         nums.sort();
-        let mid = nums[nums.len() / 2];
-        let mut res = 0;
+        let k = nums[nums.len() / 2];
+        let mut ans = 0;
         for num in nums.iter() {
-            res += (num - mid).abs();
+            ans += (num - k).abs();
         }
-        res
+        ans
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minMoves2(self, nums: List[int]) -> int:
-        def move(i):
-            v = nums[i]
-            a = v * i - s[i]
-            b = s[-1] - s[i + 1] - v * (n - i - 1)
-            return a + b
-
-        nums.sort()
-        s = [0] + list(accumulate(nums))
-        n = len(nums)
-        return min(move(i) for i in range(n))
 ```
 
 <!-- tabs:end -->

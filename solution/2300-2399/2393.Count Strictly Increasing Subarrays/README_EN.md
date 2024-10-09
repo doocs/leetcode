@@ -59,7 +59,15 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate the number of strictly increasing subarrays ending at each element and then sum them up.
+
+We use a variable $\textit{cnt}$ to record the number of strictly increasing subarrays ending at the current element, initially $\textit{cnt} = 1$. Then we traverse the array starting from the second element. If the current element is greater than the previous element, then $\textit{cnt}$ can be incremented by $1$. Otherwise, $\textit{cnt}$ is reset to $1$. At this point, the number of strictly increasing subarrays ending at the current element is $\textit{cnt}$, and we add it to the answer.
+
+After the traversal, return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -68,14 +76,13 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 ```python
 class Solution:
     def countSubarrays(self, nums: List[int]) -> int:
-        ans = i = 0
-        while i < len(nums):
-            j = i + 1
-            while j < len(nums) and nums[j] > nums[j - 1]:
-                j += 1
-            cnt = j - i
-            ans += (1 + cnt) * cnt // 2
-            i = j
+        ans = cnt = 1
+        for x, y in pairwise(nums):
+            if x < y:
+                cnt += 1
+            else:
+                cnt = 1
+            ans += cnt
         return ans
 ```
 
@@ -84,16 +91,14 @@ class Solution:
 ```java
 class Solution {
     public long countSubarrays(int[] nums) {
-        long ans = 0;
-        int i = 0, n = nums.length;
-        while (i < n) {
-            int j = i + 1;
-            while (j < n && nums[j] > nums[j - 1]) {
-                ++j;
+        long ans = 1, cnt = 1;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i - 1] < nums[i]) {
+                ++cnt;
+            } else {
+                cnt = 1;
             }
-            long cnt = j - i;
-            ans += (1 + cnt) * cnt / 2;
-            i = j;
+            ans += cnt;
         }
         return ans;
     }
@@ -106,16 +111,14 @@ class Solution {
 class Solution {
 public:
     long long countSubarrays(vector<int>& nums) {
-        long long ans = 0;
-        int i = 0, n = nums.size();
-        while (i < n) {
-            int j = i + 1;
-            while (j < n && nums[j] > nums[j - 1]) {
-                ++j;
+        long long ans = 1, cnt = 1;
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i - 1] < nums[i]) {
+                ++cnt;
+            } else {
+                cnt = 1;
             }
-            int cnt = j - i;
-            ans += 1ll * (1 + cnt) * cnt / 2;
-            i = j;
+            ans += cnt;
         }
         return ans;
     }
@@ -126,16 +129,14 @@ public:
 
 ```go
 func countSubarrays(nums []int) int64 {
-	ans := 0
-	i, n := 0, len(nums)
-	for i < n {
-		j := i + 1
-		for j < n && nums[j] > nums[j-1] {
-			j++
+	ans, cnt := 1, 1
+	for i, x := range nums[1:] {
+		if nums[i] < x {
+			cnt++
+		} else {
+			cnt = 1
 		}
-		cnt := j - i
-		ans += (1 + cnt) * cnt / 2
-		i = j
+		ans += cnt
 	}
 	return int64(ans)
 }
@@ -145,124 +146,14 @@ func countSubarrays(nums []int) int64 {
 
 ```ts
 function countSubarrays(nums: number[]): number {
-    let ans = 0;
-    let i = 0;
-    const n = nums.length;
-    while (i < n) {
-        let j = i + 1;
-        while (j < n && nums[j] > nums[j - 1]) {
-            ++j;
-        }
-        const cnt = j - i;
-        ans += ((1 + cnt) * cnt) / 2;
-        i = j;
-    }
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def countSubarrays(self, nums: List[int]) -> int:
-        ans = pre = cnt = 0
-        for x in nums:
-            if pre < x:
-                cnt += 1
-            else:
-                cnt = 1
-            pre = x
-            ans += cnt
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    public long countSubarrays(int[] nums) {
-        long ans = 0;
-        int pre = 0, cnt = 0;
-        for (int x : nums) {
-            if (pre < x) {
-                ++cnt;
-            } else {
-                cnt = 1;
-            }
-            pre = x;
-            ans += cnt;
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    long long countSubarrays(vector<int>& nums) {
-        long long ans = 0;
-        int pre = 0, cnt = 0;
-        for (int x : nums) {
-            if (pre < x) {
-                ++cnt;
-            } else {
-                cnt = 1;
-            }
-            ans += cnt;
-            pre = x;
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func countSubarrays(nums []int) (ans int64) {
-	pre, cnt := 0, 0
-	for _, x := range nums {
-		if pre < x {
-			cnt++
-		} else {
-			cnt = 1
-		}
-		ans += int64(cnt)
-		pre = x
-	}
-	return
-}
-```
-
-#### TypeScript
-
-```ts
-function countSubarrays(nums: number[]): number {
-    let ans = 0;
-    let pre = 0;
-    let cnt = 0;
-    for (const x of nums) {
-        if (pre < x) {
+    let [ans, cnt] = [1, 1];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i - 1] < nums[i]) {
             ++cnt;
         } else {
             cnt = 1;
         }
         ans += cnt;
-        pre = x;
     }
     return ans;
 }

@@ -1,22 +1,24 @@
 function removeAnagrams(words: string[]): string[] {
-    const n = words.length;
-    let ans = [];
-    ans.push(words[0]);
-    let pre = countWord(words[0]).join('');
-    for (let i = 1; i < n; i++) {
-        let cur = countWord(words[i]).join('');
-        if (pre !== cur) {
+    const ans: string[] = [words[0]];
+    const check = (s: string, t: string): boolean => {
+        if (s.length !== t.length) {
+            return true;
+        }
+        const cnt: number[] = Array(26).fill(0);
+        for (const c of s) {
+            ++cnt[c.charCodeAt(0) - 97];
+        }
+        for (const c of t) {
+            if (--cnt[c.charCodeAt(0) - 97] < 0) {
+                return true;
+            }
+        }
+        return false;
+    };
+    for (let i = 1; i < words.length; ++i) {
+        if (check(words[i - 1], words[i])) {
             ans.push(words[i]);
-            pre = cur;
         }
     }
     return ans;
-}
-
-function countWord(word: string): number[] {
-    let count = new Array(128).fill(0);
-    for (let i = 0; i < word.length; i++) {
-        count[word.charCodeAt(i)]++;
-    }
-    return count;
 }

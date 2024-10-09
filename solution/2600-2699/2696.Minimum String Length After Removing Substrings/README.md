@@ -149,17 +149,31 @@ func minLength(s string) int {
 
 ```ts
 function minLength(s: string): number {
-    const stk: string[] = [''];
+    const stk: string[] = [];
     for (const c of s) {
-        if (c === 'B' && stk.at(-1)! === 'A') {
-            stk.pop();
-        } else if (c === 'D' && stk.at(-1)! === 'C') {
+        if ((stk.at(-1) === 'A' && c === 'B') || (stk.at(-1) === 'C' && c === 'D')) {
             stk.pop();
         } else {
             stk.push(c);
         }
     }
-    return stk.length - 1;
+    return stk.length;
+}
+```
+
+#### JavaScript
+
+```js
+function minLength(s) {
+    const stk = [];
+    for (const c of s) {
+        if ((stk.at(-1) === 'A' && c === 'B') || (stk.at(-1) === 'C' && c === 'D')) {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.length;
 }
 ```
 
@@ -187,6 +201,30 @@ impl Solution {
         ans.len() as i32
     }
 }
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：递归（一行代码）
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+const minLength = (s: string, n = s.length): number =>
+    ((s = s.replace(/AB|CD/g, '')), s.length === n) ? n : minLength(s);
+```
+
+#### JavaScript
+
+```js
+const minLength = (s, n = s.length) =>
+    ((s = s.replace(/AB|CD/g, '')), s.length === n) ? n : minLength(s);
 ```
 
 <!-- tabs:end -->

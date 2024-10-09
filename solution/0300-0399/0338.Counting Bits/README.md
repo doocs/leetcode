@@ -161,7 +161,7 @@ function bitCount(n: number): number {
 
 我们定义一个长度为 $n+1$ 的答案数组 $ans$，初始时 $ans[0]=0$。
 
-对于 $1 \leq i \leq n$，我们有 $ans[i] = ans[i \text{ and } (i-1)] + 1$。其中 $i \text{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \text{ and } (i-1) < i$，且 $ans[i \text{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $ans[i]$。
+对于 $1 \leq i \leq n$，我们有 $ans[i] = ans[i \textit{ and } (i-1)] + 1$。其中 $i \textit{ and } (i-1)$ 表示将 $i$ 的二进制表示中的最低位 $1$ 变成 $0$ 之后的数，显然 $i \textit{ and } (i-1) < i$，且 $ans[i \textit{ and } (i-1)]$ 已经被计算出来了，我们就能以 $O(1)$ 的时间得到 $ans[i]$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。
 

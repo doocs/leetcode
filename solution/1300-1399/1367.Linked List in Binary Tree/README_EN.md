@@ -7,7 +7,6 @@ source: Weekly Contest 178 Q3
 tags:
     - Tree
     - Depth-First Search
-    - Breadth-First Search
     - Linked List
     - Binary Tree
 ---

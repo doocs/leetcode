@@ -66,9 +66,13 @@ tags:
 
 ### 方法一：贪心 + 双指针
 
-按运动员的能力值从小到大排序，选择大于等于运动员能力值的，且自身能力值最小的训练师。
+根据题目描述，每位运动员应该尽可能匹配能力值最接近的训练师，因此我们可以对运动员和训练师的能力值进行排序，然后使用双指针的方法进行匹配。
 
-时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(\log n + \log m)$。其中 $n$ 和 $m$ 分别为运动员和训练师的数量。
+我们用两个指针 $i$ 和 $j$ 分别指向运动员和训练师的数组，初始时都指向数组的起始位置。然后我们逐个遍历运动员的能力值，如果当前训练师的能力值小于当前运动员的能力值，我们就将训练师的指针向右移动一位，直到找到一个能力值大于等于当前运动员的训练师。如果找不到这样的训练师，说明当前运动员无法匹配任何训练师，此时我们返回当前运动员的下标即可。否则，，我们可以将当前运动员和训练师匹配，然后将两个指针都向右移动一位。继续这个过程直到遍历完所有的运动员。
+
+如果我们遍历完所有的运动员，说明所有的运动员都能匹配到训练师，此时我们返回运动员的数量即可。
+
+时间复杂度 $O(m \times \log m + n \times \log n)$，空间复杂度 $O(\max(\log m, \log n))$。其中 $m$ 和 $n$ 分别为运动员和训练师的数量。
 
 <!-- tabs:start -->
 
@@ -79,14 +83,14 @@ class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
         players.sort()
         trainers.sort()
-        ans = j = 0
-        for p in players:
-            while j < len(trainers) and trainers[j] < p:
+        j, n = 0, len(trainers)
+        for i, p in enumerate(players):
+            while j < n and trainers[j] < p:
                 j += 1
-            if j < len(trainers):
-                ans += 1
-                j += 1
-        return ans
+            if j == n:
+                return i
+            j += 1
+        return len(players)
 ```
 
 #### Java
@@ -96,18 +100,16 @@ class Solution {
     public int matchPlayersAndTrainers(int[] players, int[] trainers) {
         Arrays.sort(players);
         Arrays.sort(trainers);
-        int ans = 0;
-        int j = 0;
-        for (int p : players) {
-            while (j < trainers.length && trainers[j] < p) {
+        int m = players.length, n = trainers.length;
+        for (int i = 0, j = 0; i < m; ++i, ++j) {
+            while (j < n && trainers[j] < players[i]) {
                 ++j;
             }
-            if (j < trainers.length) {
-                ++ans;
-                ++j;
+            if (j == n) {
+                return i;
             }
         }
-        return ans;
+        return m;
     }
 }
 ```
@@ -118,19 +120,18 @@ class Solution {
 class Solution {
 public:
     int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
-        sort(players.begin(), players.end());
-        sort(trainers.begin(), trainers.end());
-        int ans = 0, j = 0;
-        for (int p : players) {
-            while (j < trainers.size() && trainers[j] < p) {
+        ranges::sort(players);
+        ranges::sort(trainers);
+        int m = players.size(), n = trainers.size();
+        for (int i = 0, j = 0; i < m; ++i, ++j) {
+            while (j < n && trainers[j] < players[i]) {
                 ++j;
             }
-            if (j < trainers.size()) {
-                ++ans;
-                ++j;
+            if (j == n) {
+                return i;
             }
         }
-        return ans;
+        return m;
     }
 };
 ```
@@ -141,17 +142,35 @@ public:
 func matchPlayersAndTrainers(players []int, trainers []int) int {
 	sort.Ints(players)
 	sort.Ints(trainers)
-	ans, j := 0, 0
-	for _, p := range players {
-		for j < len(trainers) && trainers[j] < p {
+	m, n := len(players), len(trainers)
+	for i, j := 0, 0; i < m; i, j = i+1, j+1 {
+		for j < n && trainers[j] < players[i] {
 			j++
 		}
-		if j < len(trainers) {
-			ans++
-			j++
+		if j == n {
+			return i
 		}
 	}
-	return ans
+	return m
+}
+```
+
+#### TypeScript
+
+```ts
+function matchPlayersAndTrainers(players: number[], trainers: number[]): number {
+    players.sort((a, b) => a - b);
+    trainers.sort((a, b) => a - b);
+    const [m, n] = [players.length, trainers.length];
+    for (let i = 0, j = 0; i < m; ++i, ++j) {
+        while (j < n && trainers[j] < players[i]) {
+            ++j;
+        }
+        if (j === n) {
+            return i;
+        }
+    }
+    return m;
 }
 ```
 

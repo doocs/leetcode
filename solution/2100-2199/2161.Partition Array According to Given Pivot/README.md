@@ -72,7 +72,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以遍历数组 $\textit{nums}$，按顺序找出所有小于 $\textit{pivot}$ 的元素，所有等于 $\textit{pivot}$ 的元素，以及所有大于 $\textit{pivot}$ 的元素，然后将它们按照题目要求的顺序拼接起来。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -127,12 +131,21 @@ class Solution {
 public:
     vector<int> pivotArray(vector<int>& nums, int pivot) {
         vector<int> ans;
-        for (int& x : nums)
-            if (x < pivot) ans.push_back(x);
-        for (int& x : nums)
-            if (x == pivot) ans.push_back(x);
-        for (int& x : nums)
-            if (x > pivot) ans.push_back(x);
+        for (int& x : nums) {
+            if (x < pivot) {
+                ans.push_back(x);
+            }
+        }
+        for (int& x : nums) {
+            if (x == pivot) {
+                ans.push_back(x);
+            }
+        }
+        for (int& x : nums) {
+            if (x > pivot) {
+                ans.push_back(x);
+            }
+        }
         return ans;
     }
 };
@@ -159,6 +172,29 @@ func pivotArray(nums []int, pivot int) []int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function pivotArray(nums: number[], pivot: number): number[] {
+    const ans: number[] = [];
+    for (const x of nums) {
+        if (x < pivot) {
+            ans.push(x);
+        }
+    }
+        if (x === pivot) {
+            ans.push(x);
+        }
+    }
+    for (const x of nums) {
+        if (x > pivot) {
+            ans.push(x);
+        }
+    }
+    return ans;
 }
 ```
 

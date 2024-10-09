@@ -7,6 +7,7 @@ source: Weekly Contest 301 Q2
 tags:
     - Design
     - Hash Table
+    - Ordered Set
     - Heap (Priority Queue)
 ---
 

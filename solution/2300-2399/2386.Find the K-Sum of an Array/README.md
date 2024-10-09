@@ -79,7 +79,7 @@ tags:
 
 由于数组是从小到大排序，这种方式能够不重不漏地按序遍历完所有的子序列和。
 
-时间复杂度 $O(n \times \log n + k \times \log k)$。其中 $n$ 是数组 `nums` 的长度，而 $k$ 是题目中给定的 $k$。
+时间复杂度 $O(n \times \log n + k \times \log k)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 

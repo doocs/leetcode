@@ -68,7 +68,20 @@ The XOR values for queries are:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix XOR
+
+We can use a prefix XOR array $s$ of length $n+1$ to store the prefix XOR results of the array $\textit{arr}$, where $s[i] = s[i-1] \oplus \textit{arr}[i-1]$. That is, $s[i]$ represents the XOR result of the first $i$ elements of $\textit{arr}$.
+
+For a query $[l, r]$, we can obtain:
+
+$$
+\begin{aligned}
+\textit{arr}[l] \oplus \textit{arr}[l+1] \oplus \cdots \oplus \textit{arr}[r] &= (\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[l-1]) \oplus (\textit{arr}[0] \oplus \textit{arr}[1] \oplus \cdots \oplus \textit{arr}[r]) \\
+&= s[l] \oplus s[r+1]
+\end{aligned}
+$$
+
+Time complexity is $O(n+m)$, and space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array $\textit{arr}$ and the query array $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 
@@ -146,15 +159,11 @@ func xorQueries(arr []int, queries [][]int) (ans []int) {
 ```ts
 function xorQueries(arr: number[], queries: number[][]): number[] {
     const n = arr.length;
-    const s: number[] = new Array(n + 1).fill(0);
+    const s: number[] = Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
         s[i + 1] = s[i] ^ arr[i];
     }
-    const ans: number[] = [];
-    for (const [l, r] of queries) {
-        ans.push(s[r + 1] ^ s[l]);
-    }
-    return ans;
+    return queries.map(([l, r]) => s[r + 1] ^ s[l]);
 }
 ```
 
@@ -168,15 +177,11 @@ function xorQueries(arr: number[], queries: number[][]): number[] {
  */
 var xorQueries = function (arr, queries) {
     const n = arr.length;
-    const s = new Array(n + 1).fill(0);
+    const s = Array(n + 1).fill(0);
     for (let i = 0; i < n; ++i) {
         s[i + 1] = s[i] ^ arr[i];
     }
-    const ans = [];
-    for (const [l, r] of queries) {
-        ans.push(s[r + 1] ^ s[l]);
-    }
-    return ans;
+    return queries.map(([l, r]) => s[r + 1] ^ s[l]);
 };
 ```
 

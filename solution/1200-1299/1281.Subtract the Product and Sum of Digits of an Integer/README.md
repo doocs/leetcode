@@ -25,10 +25,10 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre><strong>输入：</strong>n = 234
-<strong>输出：</strong>15 
+<strong>输出：</strong>15
 <strong>解释：</strong>
-各位数之积 = 2 * 3 * 4 = 24 
-各位数之和 = 2 + 3 + 4 = 9 
+各位数之积 = 2 * 3 * 4 = 24
+各位数之和 = 2 + 3 + 4 = 9
 结果 = 24 - 9 = 15
 </pre>
 
@@ -36,9 +36,9 @@ tags:
 
 <pre><strong>输入：</strong>n = 4421
 <strong>输出：</strong>21
-<strong>解释： 
-</strong>各位数之积 = 4 * 4 * 2 * 1 = 32 
-各位数之和 = 4 + 4 + 2 + 1 = 11 
+<strong>解释：
+</strong>各位数之积 = 4 * 4 * 2 * 1 = 32
+各位数之和 = 4 + 4 + 2 + 1 = 11
 结果 = 32 - 11 = 21
 </pre>
 
@@ -73,12 +73,8 @@ tags:
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        x, y = 1, 0
-        while n:
-            n, v = divmod(n, 10)
-            x *= v
-            y += v
-        return x - y
+        nums = list(map(int, str(n)))
+        return prod(nums) - sum(nums)
 ```
 
 #### Java
@@ -190,25 +186,6 @@ int subtractProductAndSum(int n) {
     }
     return x - y;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def subtractProductAndSum(self, n: int) -> int:
-        nums = list(map(int, str(n)))
-        return prod(nums) - sum(nums)
 ```
 
 <!-- tabs:end -->

@@ -2,25 +2,21 @@ function minMoves(nums: number[], limit: number): number {
     const n = nums.length;
     const d: number[] = Array(limit * 2 + 2).fill(0);
     for (let i = 0; i < n >> 1; ++i) {
-        const a = Math.min(nums[i], nums[n - i - 1]);
-        const b = Math.max(nums[i], nums[n - i - 1]);
-
+        const x = Math.min(nums[i], nums[n - 1 - i]);
+        const y = Math.max(nums[i], nums[n - 1 - i]);
         d[2] += 2;
-        d[limit * 2 + 1] -= 2;
-
-        d[a + 1] -= 1;
-        d[b + limit + 1] += 1;
-
-        d[a + b] -= 1;
-        d[a + b + 1] += 1;
+        d[x + 1] -= 2;
+        d[x + 1] += 1;
+        d[x + y] -= 1;
+        d[x + y + 1] += 1;
+        d[y + limit + 1] -= 1;
+        d[y + limit + 1] += 2;
     }
     let ans = n;
     let s = 0;
-    for (let i = 2; i <= limit * 2; ++i) {
+    for (let i = 2; i < d.length; ++i) {
         s += d[i];
-        if (ans > s) {
-            ans = s;
-        }
+        ans = Math.min(ans, s);
     }
     return ans;
 }

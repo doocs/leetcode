@@ -78,19 +78,19 @@ The 3<sup>rd</sup> smallest product is -6.
 
 ### Solution 1: Binary Search
 
-We can use binary search to enumerate the value of the product $p$, defining the binary search interval as $[l, r]$, where $l = -\text{max}(|\text{nums1}[0]|, |\text{nums1}[n - 1]|) \times \text{max}(|\text{nums2}[0]|, |\text{nums2}[n - 1]|)$, $r = -l$.
+We can use binary search to enumerate the value of the product $p$, defining the binary search interval as $[l, r]$, where $l = -\textit{max}(|\textit{nums1}[0]|, |\textit{nums1}[n - 1]|) \times \textit{max}(|\textit{nums2}[0]|, |\textit{nums2}[n - 1]|)$, $r = -l$.
 
 For each $p$, we calculate the number of products less than or equal to $p$. If this number is greater than or equal to $k$, it means the $k$-th smallest product must be less than or equal to $p$, so we can reduce the right endpoint of the interval to $p$. Otherwise, we increase the left endpoint of the interval to $p + 1$.
 
-The key to the problem is how to calculate the number of products less than or equal to $p$. We can enumerate each number $x$ in $\text{nums1}$ and discuss in cases:
+The key to the problem is how to calculate the number of products less than or equal to $p$. We can enumerate each number $x$ in $\textit{nums1}$ and discuss in cases:
 
--   If $x > 0$, then $x \times \text{nums2}[i]$ is monotonically increasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \text{nums2}[i] > p$. Then, $i$ is the number of products less than or equal to $p$, which is accumulated into the count $\text{cnt}$;
--   If $x < 0$, then $x \times \text{nums2}[i]$ is monotonically decreasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \text{nums2}[i] \leq p$. Then, $n - i$ is the number of products less than or equal to $p$, which is accumulated into the count $\text{cnt}$;
--   If $x = 0$, then $x \times \text{nums2}[i] = 0$. If $p \geq 0$, then $n$ is the number of products less than or equal to $p$, which is accumulated into the count $\text{cnt}$.
+-   If $x > 0$, then $x \times \textit{nums2}[i]$ is monotonically increasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \textit{nums2}[i] > p$. Then, $i$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$;
+-   If $x < 0$, then $x \times \textit{nums2}[i]$ is monotonically decreasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \textit{nums2}[i] \leq p$. Then, $n - i$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$;
+-   If $x = 0$, then $x \times \textit{nums2}[i] = 0$. If $p \geq 0$, then $n$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$.
 
 This way, we can find the $k$-th smallest product through binary search.
 
-The time complexity is $O(m \times \log n \times \log M)$, where $m$ and $n$ are the lengths of $\text{nums1}$ and $\text{nums2}$, respectively, and $M$ is the maximum absolute value in $\text{nums1}$ and $\text{nums2}$.
+The time complexity is $O(m \times \log n \times \log M)$, where $m$ and $n$ are the lengths of $\textit{nums1}$ and $\textit{nums2}$, respectively, and $M$ is the maximum absolute value in $\textit{nums1}$ and $\textit{nums2}$.
 
 <!-- tabs:start -->
 

@@ -50,7 +50,7 @@ Each row of this table indicates the date, units, and product_id of each product
 
 <p>&nbsp;</p>
 
-<p>Write a solution to find the average selling price for each product. <code>average_price</code> should be <strong>rounded to 2 decimal places</strong>.</p>
+<p>Write a solution to find the average selling price for each product. <code>average_price</code> should be <strong>rounded to 2 decimal places</strong>. If a product does not have any sold units, its average selling price is assumed to be 0.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

@@ -39,7 +39,7 @@ title 是电影的名字。
 | name          | varchar |
 +---------------+---------+
 user_id 是表的主键(具有唯一值的列)。
-</pre>
+'name' 列具有唯一值。</pre>
 
 <p>表：<code>MovieRating</code></p>
 

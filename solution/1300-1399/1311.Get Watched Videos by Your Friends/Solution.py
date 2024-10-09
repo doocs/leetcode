@@ -6,23 +6,17 @@ class Solution:
         id: int,
         level: int,
     ) -> List[str]:
-        n = len(friends)
-        vis = [False] * n
         q = deque([id])
-        vis[id] = True
+        vis = {id}
         for _ in range(level):
-            size = len(q)
-            for _ in range(size):
-                u = q.popleft()
-                for v in friends[u]:
-                    if not vis[v]:
-                        q.append(v)
-                        vis[v] = True
-        freq = Counter()
-        for _ in range(len(q)):
-            u = q.pop()
-            for w in watchedVideos[u]:
-                freq[w] += 1
-        videos = list(freq.items())
-        videos.sort(key=lambda x: (x[1], x[0]))
-        return [v[0] for v in videos]
+            for _ in range(len(q)):
+                i = q.popleft()
+                for j in friends[i]:
+                    if j not in vis:
+                        vis.add(j)
+                        q.append(j)
+        cnt = Counter()
+        for i in q:
+            for v in watchedVideos[i]:
+                cnt[v] += 1
+        return sorted(cnt.keys(), key=lambda k: (cnt[k], k))

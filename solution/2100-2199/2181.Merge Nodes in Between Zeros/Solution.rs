@@ -15,19 +15,23 @@
 //   }
 // }
 impl Solution {
-    pub fn merge_nodes(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut dummy = Box::new(ListNode::new(-1));
-        let mut cur = &mut dummy;
-        let mut sum = 0;
-        while let Some(node) = head {
-            if node.val == 0 && sum != 0 {
-                cur.next = Some(Box::new(ListNode::new(sum)));
-                cur = cur.as_mut().next.as_mut().unwrap();
-                sum = 0;
+    pub fn merge_nodes(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut dummy = Box::new(ListNode::new(0));
+        let mut tail = &mut dummy;
+        let mut s = 0;
+        let mut cur = head.unwrap().next;
+
+        while let Some(mut node) = cur {
+            if node.val != 0 {
+                s += node.val;
+            } else {
+                tail.next = Some(Box::new(ListNode::new(s)));
+                tail = tail.next.as_mut().unwrap();
+                s = 0;
             }
-            sum += node.val;
-            head = node.next;
+            cur = node.next.take();
         }
-        dummy.next.take()
+
+        dummy.next
     }
 }

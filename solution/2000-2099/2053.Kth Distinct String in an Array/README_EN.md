@@ -73,7 +73,11 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Counting
+
+We can use a hash table $\textit{cnt}$ to record the number of occurrences of each string. Then, we traverse the array once more. For each string, if its occurrence count is $1$, we decrement $k$ by one. When $k$ reaches $0$, we return the current string.
+
+Time complexity is $O(L)$, and space complexity is $O(L)$, where $L$ is the total length of all strings in the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -82,13 +86,13 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 ```python
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
-        counter = Counter(arr)
-        for v in arr:
-            if counter[v] == 1:
+        cnt = Counter(arr)
+        for s in arr:
+            if cnt[s] == 1:
                 k -= 1
                 if k == 0:
-                    return v
-        return ''
+                    return s
+        return ""
 ```
 
 #### Java
@@ -96,16 +100,13 @@ class Solution:
 ```java
 class Solution {
     public String kthDistinct(String[] arr, int k) {
-        Map<String, Integer> counter = new HashMap<>();
-        for (String v : arr) {
-            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String s : arr) {
+            cnt.merge(s, 1, Integer::sum);
         }
-        for (String v : arr) {
-            if (counter.get(v) == 1) {
-                --k;
-                if (k == 0) {
-                    return v;
-                }
+        for (String s : arr) {
+            if (cnt.get(s) == 1 && --k == 0) {
+                return s;
             }
         }
         return "";
@@ -119,12 +120,13 @@ class Solution {
 class Solution {
 public:
     string kthDistinct(vector<string>& arr, int k) {
-        unordered_map<string, int> counter;
-        for (auto& v : arr) ++counter[v];
-        for (auto& v : arr) {
-            if (counter[v] == 1) {
-                --k;
-                if (k == 0) return v;
+        unordered_map<string, int> cnt;
+        for (const auto& s : arr) {
+            ++cnt[s];
+        }
+        for (const auto& s : arr) {
+            if (cnt[s] == 1 && --k == 0) {
+                return s;
             }
         }
         return "";
@@ -136,20 +138,86 @@ public:
 
 ```go
 func kthDistinct(arr []string, k int) string {
-	counter := make(map[string]int)
-	for _, v := range arr {
-		counter[v]++
+	cnt := map[string]int{}
+	for _, s := range arr {
+		cnt[s]++
 	}
-	for _, v := range arr {
-		if counter[v] == 1 {
+	for _, s := range arr {
+		if cnt[s] == 1 {
 			k--
 			if k == 0 {
-				return v
+				return s
 			}
 		}
 	}
 	return ""
 }
+```
+
+#### TypeScript
+
+```ts
+function kthDistinct(arr: string[], k: number): string {
+    const cnt = new Map<string, number>();
+    for (const s of arr) {
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+    }
+    for (const s of arr) {
+        if (cnt.get(s) === 1 && --k === 0) {
+            return s;
+        }
+    }
+    return '';
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn kth_distinct(arr: Vec<String>, mut k: i32) -> String {
+        let mut cnt = HashMap::new();
+
+        for s in &arr {
+            *cnt.entry(s).or_insert(0) += 1;
+        }
+
+        for s in &arr {
+            if *cnt.get(s).unwrap() == 1 {
+                k -= 1;
+                if k == 0 {
+                    return s.clone();
+                }
+            }
+        }
+
+        "".to_string()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string[]} arr
+ * @param {number} k
+ * @return {string}
+ */
+var kthDistinct = function (arr, k) {
+    const cnt = new Map();
+    for (const s of arr) {
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+    }
+    for (const s of arr) {
+        if (cnt.get(s) === 1 && --k === 0) {
+            return s;
+        }
+    }
+    return '';
+};
 ```
 
 <!-- tabs:end -->

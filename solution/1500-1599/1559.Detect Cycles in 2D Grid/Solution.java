@@ -1,35 +1,34 @@
 class Solution {
-    private int[] p;
-
     public boolean containsCycle(char[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
-        p = new int[m * n];
-        for (int i = 0; i < p.length; ++i) {
-            p[i] = i;
-        }
-        int[] dirs = {0, 1, 0};
+        int m = grid.length, n = grid[0].length;
+        boolean[][] vis = new boolean[m][n];
+        final int[] dirs = {-1, 0, 1, 0, -1};
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                for (int k = 0; k < 2; ++k) {
-                    int x = i + dirs[k];
-                    int y = j + dirs[k + 1];
-                    if (x < m && y < n && grid[i][j] == grid[x][y]) {
-                        if (find(x * n + y) == find(i * n + j)) {
-                            return true;
+                if (!vis[i][j]) {
+                    Deque<int[]> q = new ArrayDeque<>();
+                    q.offer(new int[] {i, j, -1, -1});
+                    vis[i][j] = true;
+                    while (!q.isEmpty()) {
+                        int[] p = q.poll();
+                        int x = p[0], y = p[1], px = p[2], py = p[3];
+                        for (int k = 0; k < 4; ++k) {
+                            int nx = x + dirs[k], ny = y + dirs[k + 1];
+                            if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                                if (grid[nx][ny] != grid[x][y] || (nx == px && ny == py)) {
+                                    continue;
+                                }
+                                if (vis[nx][ny]) {
+                                    return true;
+                                }
+                                q.offer(new int[] {nx, ny, x, y});
+                                vis[nx][ny] = true;
+                            }
                         }
-                        p[find(x * n + y)] = find(i * n + j);
                     }
                 }
             }
         }
         return false;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
     }
 }

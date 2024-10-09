@@ -42,8 +42,8 @@ tags:
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>arr = [1,2,3,4,5], k = 4, x = -1
-<strong>输出：</strong>[1,2,3,4]
+<strong>输入：</strong>arr = [1,1,2,3,4,5], k = 4, x = -1
+<strong>输出：</strong>[1,1,2,3]
 </pre>
 
 <p>&nbsp;</p>

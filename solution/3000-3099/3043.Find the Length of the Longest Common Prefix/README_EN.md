@@ -174,20 +174,47 @@ func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
 function longestCommonPrefix(arr1: number[], arr2: number[]): number {
     const s: Set<number> = new Set<number>();
     for (let x of arr1) {
-        for (; x; x = (x / 10) | 0) {
-            s.add(x % 10);
+        for (; x; x = Math.floor(x / 10)) {
+            s.add(x);
         }
     }
     let ans: number = 0;
     for (let x of arr2) {
-        for (; x; x = (x / 10) | 0) {
-            if (s.has(x % 10)) {
+        for (; x; x = Math.floor(x / 10)) {
+            if (s.has(x)) {
                 ans = Math.max(ans, Math.floor(Math.log10(x)) + 1);
             }
         }
     }
     return ans;
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} arr1
+ * @param {number[]} arr2
+ * @return {number}
+ */
+var longestCommonPrefix = function (arr1, arr2) {
+    const s = new Set();
+    for (let x of arr1) {
+        for (; x; x = Math.floor(x / 10)) {
+            s.add(x);
+        }
+    }
+    let ans = 0;
+    for (let x of arr2) {
+        for (; x; x = Math.floor(x / 10)) {
+            if (s.has(x)) {
+                ans = Math.max(ans, Math.floor(Math.log10(x)) + 1);
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

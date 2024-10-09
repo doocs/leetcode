@@ -4,7 +4,5 @@ function relocateMarbles(nums: number[], moveFrom: number[], moveTo: number[]): 
         pos.delete(moveFrom[i]);
         pos.add(moveTo[i]);
     }
-    const ans = [...pos];
-    ans.sort((a, b) => a - b);
-    return ans;
+    return [...pos].sort((a, b) => a - b);
 }

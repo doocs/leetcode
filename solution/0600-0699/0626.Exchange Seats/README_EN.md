@@ -27,7 +27,7 @@ tags:
 +-------------+---------+
 id is the primary key (unique value) column for this table.
 Each row of this table indicates the name and the ID of a student.
-id is a continuous increment.
+The ID sequence always starts from 1 and increments continuously.
 </pre>
 
 <p>&nbsp;</p>

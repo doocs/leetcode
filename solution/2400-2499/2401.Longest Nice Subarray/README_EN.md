@@ -66,19 +66,15 @@ It can be proven that no longer nice subarray can be obtained, so we return 3.</
 
 ### Solution 1: Two Pointers
 
-We define a variable $mask$ to record the bitwise OR result of the elements in the current subarray, initially $mask = 0$. Also, we use two pointers $j$ and $i$ to point to the left and right endpoints of the current subarray, initially $i = j = 0$.
+According to the problem description, the position of the binary $1$ in each element of the subarray must be unique to ensure that the bitwise AND result of any two elements is $0$.
 
-Next, we traverse the array $nums$ from left to right. For each element $x$ we encounter:
+Therefore, we can use two pointers, $l$ and $r$, to maintain a sliding window such that the elements within the window satisfy the problem's conditions.
 
-We perform a bitwise AND operation between it and $mask$. If the result is not $0$, it means that $x$ and at least one element in $mask$ have a binary representation where a certain bit is $1$, and the corresponding bit in the other element's binary representation is $0$. Such pairs of elements cannot satisfy the problem's requirements, so we need to move $j$ to the right until the bitwise AND result of $x$ and $mask$ is $0$.
+We use a variable $\textit{mask}$ to represent the bitwise OR result of the elements within the window. Next, we traverse each element of the array. For the current element $x$, if the bitwise AND result of $\textit{mask}$ and $x$ is not $0$, it means that the current element $x$ has overlapping binary bits with the elements in the window. At this point, we need to move the left pointer $l$ until the bitwise AND result of $\textit{mask}$ and $x$ is $0$. Then, we assign the bitwise OR result of $\textit{mask}$ and $x$ to $\textit{mask}$ and update the answer $\textit{ans} = \max(\textit{ans}, r - l + 1)$.
 
-At this point, we have found a subarray that satisfies the problem's requirements. Its length is $i - j + 1$. We compare it with the length of the current longest elegant subarray. If it is longer than the current longest elegant subarray, we update the length of the longest elegant subarray.
+After the traversal, return the answer $\textit{ans}$.
 
-Then we perform a bitwise OR operation between $mask$ and $x$, and continue to the next element.
-
-Finally, the length of the longest elegant subarray we obtain is the answer.
-
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -87,13 +83,13 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 ```python
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
-        ans = j = mask = 0
-        for i, x in enumerate(nums):
+        ans = mask = l = 0
+        for r, x in enumerate(nums):
             while mask & x:
-                mask ^= nums[j]
-                j += 1
-            ans = max(ans, i - j + 1)
+                mask ^= nums[l]
+                l += 1
             mask |= x
+            ans = max(ans, r - l + 1)
         return ans
 ```
 
@@ -103,12 +99,12 @@ class Solution:
 class Solution {
     public int longestNiceSubarray(int[] nums) {
         int ans = 0, mask = 0;
-        for (int i = 0, j = 0; i < nums.length; ++i) {
-            while ((mask & nums[i]) != 0) {
-                mask ^= nums[j++];
+        for (int l = 0, r = 0; r < nums.length; ++r) {
+            while ((mask & nums[r]) != 0) {
+                mask ^= nums[l++];
             }
-            ans = Math.max(ans, i - j + 1);
-            mask |= nums[i];
+            mask |= nums[r];
+            ans = Math.max(ans, r - l + 1);
         }
         return ans;
     }
@@ -122,12 +118,12 @@ class Solution {
 public:
     int longestNiceSubarray(vector<int>& nums) {
         int ans = 0, mask = 0;
-        for (int i = 0, j = 0; i < nums.size(); ++i) {
-            while (mask & nums[i]) {
-                mask ^= nums[j++];
+        for (int l = 0, r = 0; r < nums.size(); ++r) {
+            while (mask & nums[r]) {
+                mask ^= nums[l++];
             }
-            ans = max(ans, i - j + 1);
-            mask |= nums[i];
+            mask |= nums[r];
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }
@@ -138,15 +134,14 @@ public:
 
 ```go
 func longestNiceSubarray(nums []int) (ans int) {
-	mask, j := 0, 0
-	for i, x := range nums {
-		for ; mask&x != 0; j++ {
-			mask ^= nums[j]
-		}
-		if k := i - j + 1; ans < k {
-			ans = k
+	mask, l := 0, 0
+	for r, x := range nums {
+		for mask&x != 0 {
+			mask ^= nums[l]
+			l++
 		}
 		mask |= x
+		ans = max(ans, r-l+1)
 	}
 	return
 }
@@ -156,14 +151,13 @@ func longestNiceSubarray(nums []int) (ans int) {
 
 ```ts
 function longestNiceSubarray(nums: number[]): number {
-    let mask = 0;
-    let ans = 0;
-    for (let i = 0, j = 0; i < nums.length; ++i) {
-        while ((mask & nums[i]) !== 0) {
-            mask ^= nums[j++];
+    let [ans, mask] = [0, 0];
+    for (let l = 0, r = 0; r < nums.length; ++r) {
+        while (mask & nums[r]) {
+            mask ^= nums[l++];
         }
-        ans = Math.max(ans, i - j + 1);
-        mask |= nums[i];
+        mask |= nums[r];
+        ans = Math.max(ans, r - l + 1);
     }
     return ans;
 }
@@ -176,19 +170,16 @@ impl Solution {
     pub fn longest_nice_subarray(nums: Vec<i32>) -> i32 {
         let mut ans = 0;
         let mut mask = 0;
-        let mut j = 0;
-
-        for (i, &x) in nums.iter().enumerate() {
-            let mut x = x;
-            while (mask & x) != 0 {
-                mask ^= nums[j];
-                j += 1;
+        let mut l = 0;
+        for (r, &x) in nums.iter().enumerate() {
+            while mask & x != 0 {
+                mask ^= nums[l];
+                l += 1;
             }
-            ans = ans.max(i - j + 1);
             mask |= x;
+            ans = ans.max((r - l + 1) as i32);
         }
-
-        ans as i32
+        ans
     }
 }
 ```
@@ -199,12 +190,12 @@ impl Solution {
 public class Solution {
     public int LongestNiceSubarray(int[] nums) {
         int ans = 0, mask = 0;
-        for (int i = 0, j = 0; i < nums.Length; ++i) {
-            while ((mask & nums[i]) != 0) {
-                mask ^= nums[j++];
+        for (int l = 0, r = 0; r < nums.Length; ++r) {
+            while ((mask & nums[r]) != 0) {
+                mask ^= nums[l++];
             }
-            ans = Math.Max(ans, i - j + 1);
-            mask |= nums[i];
+            mask |= nums[r];
+            ans = Math.Max(ans, r - l + 1);
         }
         return ans;
     }

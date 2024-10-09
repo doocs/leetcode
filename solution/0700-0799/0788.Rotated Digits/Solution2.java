@@ -1,38 +1,31 @@
 class Solution {
-    private int[] a = new int[6];
-    private int[][] dp = new int[6][2];
+    private char[] s;
+    private Integer[][] f;
 
     public int rotatedDigits(int n) {
-        int len = 0;
-        for (var e : dp) {
-            Arrays.fill(e, -1);
-        }
-        while (n > 0) {
-            a[++len] = n % 10;
-            n /= 10;
-        }
-        return dfs(len, 0, true);
+        s = String.valueOf(n).toCharArray();
+        f = new Integer[s.length][2];
+        return dfs(0, 0, true);
     }
 
-    private int dfs(int pos, int ok, boolean limit) {
-        if (pos <= 0) {
+    private int dfs(int i, int ok, boolean limit) {
+        if (i >= s.length) {
             return ok;
         }
-        if (!limit && dp[pos][ok] != -1) {
-            return dp[pos][ok];
+        if (!limit && f[i][ok] != null) {
+            return f[i][ok];
         }
-        int up = limit ? a[pos] : 9;
+        int up = limit ? s[i] - '0' : 9;
         int ans = 0;
-        for (int i = 0; i <= up; ++i) {
-            if (i == 0 || i == 1 || i == 8) {
-                ans += dfs(pos - 1, ok, limit && i == up);
-            }
-            if (i == 2 || i == 5 || i == 6 || i == 9) {
-                ans += dfs(pos - 1, 1, limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            if (j == 0 || j == 1 || j == 8) {
+                ans += dfs(i + 1, ok, limit && j == up);
+            } else if (j == 2 || j == 5 || j == 6 || j == 9) {
+                ans += dfs(i + 1, 1, limit && j == up);
             }
         }
         if (!limit) {
-            dp[pos][ok] = ans;
+            f[i][ok] = ans;
         }
         return ans;
     }

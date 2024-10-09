@@ -7,6 +7,7 @@ source: Biweekly Contest 99 Q4
 tags:
     - Tree
     - Depth-First Search
+    - Array
     - Hash Table
     - Dynamic Programming
 ---

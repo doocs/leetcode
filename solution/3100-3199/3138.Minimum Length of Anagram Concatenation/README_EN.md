@@ -67,13 +67,13 @@ tags:
 
 ### Solution 1: Enumeration
 
-Based on the problem description, the length of string $\text{t}$ must be a factor of the length of string $\text{s}$. We can enumerate the length $k$ of string $\text{t}$ from small to large, and then check if it meets the requirements of the problem. If it does, we return. Thus, the problem is transformed into how to check whether the length $k$ of string $\text{t}$ meets the requirements.
+Based on the problem description, the length of string $\textit{t}$ must be a factor of the length of string $\textit{s}$. We can enumerate the length $k$ of string $\textit{t}$ from small to large, and then check if it meets the requirements of the problem. If it does, we return. Thus, the problem is transformed into how to check whether the length $k$ of string $\textit{t}$ meets the requirements.
 
-First, we count the occurrence of each character in string $\text{s}$ and record it in an array or hash table $\text{cnt}$.
+First, we count the occurrence of each character in string $\textit{s}$ and record it in an array or hash table $\textit{cnt}$.
 
-Next, we define a function $\text{check}(k)$ to check whether the length $k$ of string $\text{t}$ meets the requirements. We can traverse string $\text{s}$, taking a substring of length $k$ each time, and then count the occurrence of each character. If the occurrence of each character multiplied by $\frac{n}{k}$ does not equal the value in $\text{cnt}$, then return $\text{false}$. If all checks pass by the end of the traversal, return $\text{true}$.
+Next, we define a function $\textit{check}(k)$ to check whether the length $k$ of string $\textit{t}$ meets the requirements. We can traverse string $\textit{s}$, taking a substring of length $k$ each time, and then count the occurrence of each character. If the occurrence of each character multiplied by $\frac{n}{k}$ does not equal the value in $\textit{cnt}$, then return $\textit{false}$. If all checks pass by the end of the traversal, return $\textit{true}$.
 
-The time complexity is $O(n \times A)$, where $n$ is the length of string $\text{s}$, and $A$ is the number of factors of $n$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, which in this case is the set of lowercase letters.
+The time complexity is $O(n \times A)$, where $n$ is the length of string $\textit{s}$, and $A$ is the number of factors of $n$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, which in this case is the set of lowercase letters.
 
 <!-- tabs:start -->
 

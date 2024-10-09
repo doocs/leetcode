@@ -112,10 +112,10 @@ Therefore, we can enumerate the index $j$ of the last box transported in the las
 The state transition equation is:
 
 $$
-f[i] = \min_{j \in [i - maxBoxes, i - 1]} \left(f[j] + \sum_{k = j + 1}^i \text{cost}(k)\right)
+f[i] = \min_{j \in [i - maxBoxes, i - 1]} \left(f[j] + \sum_{k = j + 1}^i \textit{cost}(k)\right)
 $$
 
-Where $\sum_{k = j + 1}^i \text{cost}(k)$ represents the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks in one trip. This part of the trip count can be quickly calculated using prefix sums.
+Where $\sum_{k = j + 1}^i \textit{cost}(k)$ represents the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks in one trip. This part of the trip count can be quickly calculated using prefix sums.
 
 For example, suppose we take out boxes $1, 2, 3$ and need to deliver them to docks $4, 4, 5$. We first go from the warehouse to dock $4$, then from dock $4$ to dock $5$, and finally from dock $5$ back to the warehouse. It can be seen that it takes $2$ trips to go from the warehouse to the dock and from the dock back to the warehouse. The number of trips from dock to dock depends on whether the two adjacent docks are the same. If they are not the same, the number of trips will increase by $1$, otherwise it remains the same. Therefore, we can calculate the number of trips between docks using prefix sums, and add two trips for the start and end, to calculate the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks.
 

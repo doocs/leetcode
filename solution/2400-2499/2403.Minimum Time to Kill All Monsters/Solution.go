@@ -6,22 +6,20 @@ func minimumTime(power []int) int64 {
 	}
 	var dfs func(mask int) int64
 	dfs = func(mask int) int64 {
+		if mask == 0 {
+			return 0
+		}
 		if f[mask] != -1 {
 			return f[mask]
 		}
-		cnt := bits.OnesCount(uint(mask))
-		if cnt == n {
-			return 0
-		}
-		var ans int64 = math.MaxInt64
-		for i, v := range power {
-			if (mask >> i & 1) == 1 {
-				continue
+		f[mask] = 1e18
+		gain := 1 + (n - bits.OnesCount(uint(mask)))
+		for i, x := range power {
+			if mask>>i&1 == 1 {
+				f[mask] = min(f[mask], dfs(mask^(1<<i))+int64(x+gain-1)/int64(gain))
 			}
-			ans = min(ans, dfs(mask|1<<i)+int64((v+cnt)/(cnt+1)))
 		}
-		f[mask] = ans
-		return ans
+		return f[mask]
 	}
-	return dfs(0)
+	return dfs(1<<n - 1)
 }

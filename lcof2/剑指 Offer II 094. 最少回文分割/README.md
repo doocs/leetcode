@@ -71,7 +71,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 接下来，我们考虑 $f[i]$ 如何进行状态转移。我们可以枚举上一个分割点 $j$，如果子串 $s[j..i]$ 是一个回文串，那么 $f[i]$ 就可以从 $f[j]$ 转移而来。如果 $j=0$，那么说明 $s[0..i]$ 本身就是一个回文串，此时不需要进行分割，即 $f[i]=0$。因此，状态转移方程如下：
 
 $$
-f[i]=\min_{0\leq j \leq i}\begin{cases} f[j-1]+1, & \text{if}\ g[j][i]=\text{True} \\ 0, & \text{if}\ g[0][i]=\text{True} \end{cases}
+f[i]=\min_{0\leq j \leq i}\begin{cases} f[j-1]+1, & \textit{if}\ g[j][i]=\textit{True} \\ 0, & \textit{if}\ g[0][i]=\textit{True} \end{cases}
 $$
 
 答案即为 $f[n]$，其中 $n$ 是字符串 $s$ 的长度。
@@ -245,6 +245,40 @@ public class Solution {
             }
         }
         return f[n - 1];
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func minCut(_ s: String) -> Int {
+        let n = s.count
+        let sArray = Array(s)
+
+        var g = Array(repeating: Array(repeating: true, count: n), count: n)
+
+        for i in stride(from: n - 1, through: 0, by: -1) {
+            for j in i + 1..<n {
+                g[i][j] = sArray[i] == sArray[j] && g[i + 1][j - 1]
+            }
+        }
+
+        var f = Array(repeating: 0, count: n)
+        for i in 0..<n {
+            f[i] = i
+        }
+
+        for i in 1..<n {
+            for j in 0...i {
+                if g[j][i] {
+                    f[i] = min(f[i], j > 0 ? 1 + f[j - 1] : 0)
+                }
+            }
+        }
+
+        return f[n - 1]
     }
 }
 ```

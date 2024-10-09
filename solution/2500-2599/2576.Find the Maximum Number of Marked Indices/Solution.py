@@ -1,13 +1,8 @@
 class Solution:
     def maxNumOfMarkedIndices(self, nums: List[int]) -> int:
         nums.sort()
-        n = len(nums)
-        i, j = 0, (n + 1) // 2
-        ans = 0
-        while j < n:
-            while j < n and nums[i] * 2 > nums[j]:
-                j += 1
-            if j < n:
-                ans += 2
-            i, j = i + 1, j + 1
-        return ans
+        i, n = 0, len(nums)
+        for x in nums[(n + 1) // 2 :]:
+            if nums[i] * 2 <= x:
+                i += 1
+        return i * 2

@@ -1,14 +1,14 @@
 class Solution {
     public String findContestMatch(int n) {
-        String[] team = new String[n];
+        String[] s = new String[n];
         for (int i = 0; i < n; ++i) {
-            team[i] = "" + (i + 1);
+            s[i] = String.valueOf(i + 1);
         }
-        for (; n > 1; n /= 2) {
-            for (int i = 0; i < n / 2; ++i) {
-                team[i] = "(" + team[i] + "," + team[n - 1 - i] + ")";
+        for (; n > 1; n >>= 1) {
+            for (int i = 0; i < n >> 1; ++i) {
+                s[i] = String.format("(%s,%s)", s[i], s[n - i - 1]);
             }
         }
-        return team[0];
+        return s[0];
     }
 }

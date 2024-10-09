@@ -6,8 +6,11 @@ rating: 2023
 source: Weekly Contest 337 Q3
 tags:
     - Array
+    - Hash Table
+    - Math
     - Dynamic Programming
     - Backtracking
+    - Combinatorics
     - Sorting
 ---
 

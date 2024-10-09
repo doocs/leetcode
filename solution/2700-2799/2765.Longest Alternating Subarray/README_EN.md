@@ -34,19 +34,27 @@ tags:
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [2,3,4,3,4]
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> The alternating subarrays are [3,4], [3,4,3], and [3,4,3,4]. The longest of these is [3,4,3,4], which is of length 4.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [2,3,4,3,4]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">4</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>The alternating subarrays are <code>[2, 3]</code>, <code>[3,4]</code>, <code>[3,4,3]</code>, and <code>[3,4,3,4]</code>. The longest of these is <code>[3,4,3,4]</code>, which is of length 4.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> nums = [4,5,6]
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> [4,5] and [5,6] are the only two alternating subarrays. They are both of length 2.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [4,5,6]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p><code>[4,5]</code> and <code>[5,6]</code> are the only two alternating subarrays. They are both of length 2.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
