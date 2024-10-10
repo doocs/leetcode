@@ -65,11 +65,11 @@ The 5 good pairs are <code>(0, 0)</code>, <code>(1, 0)</code>, <code>(1, 1)</cod
 
 ### Solution 1: Brute Force Enumeration
 
-We directly enumerate all digits $(x, y)$, and check whether $x \mod (y \times k) = 0$. If it is, we increment the answer.
+We directly enumerate all digit pairs $(x, y)$ and check whether $x \bmod (y \times k) = 0$. If it satisfies the condition, increment the answer by one.
 
-After the enumeration ends, we return the answer.
+After the enumeration is complete, return the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of arrays `nums1` and `nums2` respectively. The space complexity is $O(1)$.
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

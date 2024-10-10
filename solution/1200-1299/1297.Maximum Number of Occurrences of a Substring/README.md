@@ -75,9 +75,9 @@ tags:
 
 ### 方法一：哈希表 + 枚举
 
-根据题目描述，如果一个长串满足条件，那么这个长串的子串（长度至少为 `minSize`）也一定满足条件。因此，我们只需要枚举 $s$ 中所有长度为 `minSize` 的子串，然后利用哈希表记录所有子串的出现次数，找出最大的次数作为答案即可。
+根据题目描述，如果一个长串满足条件，那么这个长串的长度为 $\textit{minSize}$ 的子串也一定满足条件。因此，我们只需要枚举 $s$ 中所有长度为 $\textit{minSize}$ 的子串，然后利用哈希表记录所有子串的出现次数，找出最大的次数作为答案即可。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 的长度以及 `minSize` 的大小。本题中 $m$ 不超过 $26$。
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 的长度以及 $\textit{minSize}$ 的大小。本题中 $m$ 不超过 $26$。
 
 <!-- tabs:start -->
 
@@ -159,6 +159,24 @@ func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxFreq(s: string, maxLetters: number, minSize: number, maxSize: number): number {
+    const cnt = new Map<string, number>();
+    let ans = 0;
+    for (let i = 0; i < s.length - minSize + 1; ++i) {
+        const t = s.slice(i, i + minSize);
+        const ss = new Set(t.split(''));
+        if (ss.size <= maxLetters) {
+            cnt.set(t, (cnt.get(t) || 0) + 1);
+            ans = Math.max(ans, cnt.get(t)!);
+        }
+    }
+    return ans;
 }
 ```
 
