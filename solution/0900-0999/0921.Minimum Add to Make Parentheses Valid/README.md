@@ -286,4 +286,39 @@ function minAddToMakeValid(s: string): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三：替换 + 递归
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minAddToMakeValid(s: string): number {
+    const l = s.length;
+    s = s.replace('()', '');
+
+    return s.length === l ? l : minAddToMakeValid(s);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minAddToMakeValid = function (s) {
+    const l = s.length;
+    s = s.replace('()', '');
+    return s.length === l ? l : minAddToMakeValid(s);
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
