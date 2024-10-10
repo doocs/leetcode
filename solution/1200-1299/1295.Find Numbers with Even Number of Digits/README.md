@@ -41,7 +41,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>nums = [555,901,482,1771]
-<strong>输出：</strong>1 
+<strong>输出：</strong>1
 <strong>解释： </strong>
 只有 1771 是位数为偶数的数字。
 </pre>
@@ -61,11 +61,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：枚举
+### 方法一：模拟
 
-枚举数组 `nums` 中的每个元素，将其转换为字符串，判断字符串长度是否为偶数，是则答案加一。
+我们遍历数组 $\textit{nums}$ 中的每个元素，对于当前遍历到的元素 $x$，我们直接将其转换为字符串，然后判断其长度是否为偶数即可。若是则将答案加一。
 
-时间复杂度 $O(n \times \log_{10} m)$，空间复杂度 $O(\log_{10} m)$，其中 $n$ 和 $m$ 分别为数组 `nums` 的长度以及数组 `nums` 中的最大元素。
+遍历结束后，我们返回答案即可。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的元素的最大值。
 
 <!-- tabs:start -->
 
@@ -74,7 +76,7 @@ tags:
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        return sum(len(str(v)) % 2 == 0 for v in nums)
+        return sum(len(str(x)) % 2 == 0 for x in nums)
 ```
 
 #### Java
@@ -83,8 +85,8 @@ class Solution:
 class Solution {
     public int findNumbers(int[] nums) {
         int ans = 0;
-        for (int v : nums) {
-            if (String.valueOf(v).length() % 2 == 0) {
+        for (int x : nums) {
+            if (String.valueOf(x).length() % 2 == 0) {
                 ++ans;
             }
         }
@@ -100,8 +102,8 @@ class Solution {
 public:
     int findNumbers(vector<int>& nums) {
         int ans = 0;
-        for (int& v : nums) {
-            ans += to_string(v).size() % 2 == 0;
+        for (int& x : nums) {
+            ans += to_string(x).size() % 2 == 0;
         }
         return ans;
     }
@@ -112,12 +114,20 @@ public:
 
 ```go
 func findNumbers(nums []int) (ans int) {
-	for _, v := range nums {
-		if len(strconv.Itoa(v))%2 == 0 {
+	for _, x := range nums {
+		if len(strconv.Itoa(x))%2 == 0 {
 			ans++
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function findNumbers(nums: number[]): number {
+    return nums.filter(x => x.toString().length % 2 === 0).length;
 }
 ```
 
@@ -129,11 +139,7 @@ func findNumbers(nums []int) (ans int) {
  * @return {number}
  */
 var findNumbers = function (nums) {
-    let ans = 0;
-    for (const v of nums) {
-        ans += String(v).length % 2 == 0;
-    }
-    return ans;
+    return nums.filter(x => x.toString().length % 2 === 0).length;
 };
 ```
 
