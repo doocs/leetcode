@@ -67,7 +67,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Sorting
+
+We use a hash table $\textit{cnt}$ to count the occurrences of each number in the array $\textit{nums}$, and then sort the array $\textit{nums}$.
+
+Next, we traverse the array $\textit{nums}$. For each number $v$ in the array, if the count of $v$ in the hash table $\textit{cnt}$ is not zero, we enumerate each number from $v$ to $v+k-1$. If the counts of these numbers in the hash table $\textit{cnt}$ are all non-zero, we decrement the counts of these numbers by 1. If the count becomes zero after decrementing, we remove these numbers from the hash table $\textit{cnt}$. Otherwise, it means we cannot divide the array into several subarrays of length $k$, and we return `false`. If we can divide the array into several subarrays of length $k$, we return `true` after the traversal.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -95,7 +101,7 @@ class Solution {
     public boolean isPossibleDivide(int[] nums, int k) {
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            cnt.merge(v, 1, Integer::sum);
         }
         Arrays.sort(nums);
         for (int v : nums) {
@@ -104,8 +110,7 @@ class Solution {
                     if (!cnt.containsKey(x)) {
                         return false;
                     }
-                    cnt.put(x, cnt.get(x) - 1);
-                    if (cnt.get(x) == 0) {
+                    if (cnt.merge(x, -1, Integer::sum) == 0) {
                         cnt.remove(x);
                     }
                 }
@@ -174,7 +179,13 @@ func isPossibleDivide(nums []int, k int) bool {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 1: Ordered Set
+
+We can also use an ordered set to count the occurrences of each number in the array $\textit{nums}$.
+
+Next, we loop to extract the minimum value $v$ from the ordered set, then enumerate each number from $v$ to $v+k-1$. If the occurrences of these numbers in the ordered set are all non-zero, we decrement the occurrence count of these numbers by 1. If the occurrence count becomes 0 after decrementing, we remove the number from the ordered set. Otherwise, it means we cannot divide the array into several subarrays of length $k$, and we return `false`. If we can divide the array into several subarrays of length $k$, we return `true` after the traversal.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -216,7 +227,7 @@ class Solution {
         }
         TreeMap<Integer, Integer> tm = new TreeMap<>();
         for (int h : nums) {
-            tm.put(h, tm.getOrDefault(h, 0) + 1);
+            tm.merge(h, 1, Integer::sum);
         }
         while (!tm.isEmpty()) {
             int v = tm.firstKey();
@@ -224,10 +235,8 @@ class Solution {
                 if (!tm.containsKey(i)) {
                     return false;
                 }
-                if (tm.get(i) == 1) {
+                if (tm.merge(i, -1, Integer::sum) == 0) {
                     tm.remove(i);
-                } else {
-                    tm.put(i, tm.get(i) - 1);
                 }
             }
         }
@@ -242,17 +251,22 @@ class Solution {
 class Solution {
 public:
     bool isPossibleDivide(vector<int>& nums, int k) {
-        if (nums.size() % k != 0) return false;
+        if (nums.size() % k) {
+            return false;
+        }
         map<int, int> mp;
-        for (int& h : nums) mp[h] += 1;
+        for (int& h : nums) {
+            mp[h] += 1;
+        }
         while (!mp.empty()) {
             int v = mp.begin()->first;
             for (int i = v; i < v + k; ++i) {
-                if (!mp.count(i)) return false;
-                if (mp[i] == 1)
+                if (!mp.contains(i)) {
+                    return false;
+                }
+                if (--mp[i] == 0) {
                     mp.erase(i);
-                else
-                    mp[i] -= 1;
+                }
             }
         }
         return true;

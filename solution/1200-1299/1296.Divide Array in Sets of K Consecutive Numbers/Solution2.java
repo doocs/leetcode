@@ -5,7 +5,7 @@ class Solution {
         }
         TreeMap<Integer, Integer> tm = new TreeMap<>();
         for (int h : nums) {
-            tm.put(h, tm.getOrDefault(h, 0) + 1);
+            tm.merge(h, 1, Integer::sum);
         }
         while (!tm.isEmpty()) {
             int v = tm.firstKey();
@@ -13,10 +13,8 @@ class Solution {
                 if (!tm.containsKey(i)) {
                     return false;
                 }
-                if (tm.get(i) == 1) {
+                if (tm.merge(i, -1, Integer::sum) == 0) {
                     tm.remove(i);
-                } else {
-                    tm.put(i, tm.get(i) - 1);
                 }
             }
         }
