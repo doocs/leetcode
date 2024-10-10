@@ -71,11 +71,11 @@ tags:
 
 ### 方法一：哈希表 + 排序
 
-我们先用哈希表 `cnt` 统计数组 `nums` 中每个数字出现的次数，然后对数组 `nums` 进行排序。
+我们用一个哈希表 $\textit{cnt}$ 统计数组 $\textit{nums}$ 中每个数字出现的次数，然后对数组 $\textit{nums}$ 进行排序。
 
-接下来，我们遍历数组 `nums`，对于数组中的每个数字 $v$，如果 $v$ 在哈希表 `cnt` 中出现的次数不为 $0$，则我们枚举 $v$ 到 $v+k-1$ 的每个数字，如果这些数字在哈希表 `cnt` 中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果减 $1$ 后这些数字的出现次数为 $0$，则我们在哈希表 `cnt` 中删除这些数字。否则说明无法将数组划分成若干个长度为 $k$ 的子数组，返回 `false`。如果可以将数组划分成若干个长度为 $k$ 的子数组，则遍历结束后返回 `true`。
+接下来，我们遍历数组 $\textit{nums}$，对于数组中的每个数字 $v$，如果 $v$ 在哈希表 $\textit{cnt}$ 中出现的次数不为 $0$，则我们枚举 $v$ 到 $v+k-1$ 的每个数字，如果这些数字在哈希表 $\textit{cnt}$ 中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果减 $1$ 后这些数字的出现次数为 $0$，则我们在哈希表 $\textit{cnt}$ 中删除这些数字。否则说明无法将数组划分成若干个长度为 $k$ 的子数组，返回 `false`。如果可以将数组划分成若干个长度为 $k$ 的子数组，则遍历结束后返回 `true`。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -103,7 +103,7 @@ class Solution {
     public boolean isPossibleDivide(int[] nums, int k) {
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            cnt.merge(v, 1, Integer::sum);
         }
         Arrays.sort(nums);
         for (int v : nums) {
@@ -112,8 +112,7 @@ class Solution {
                     if (!cnt.containsKey(x)) {
                         return false;
                     }
-                    cnt.put(x, cnt.get(x) - 1);
-                    if (cnt.get(x) == 0) {
+                    if (cnt.merge(x, -1, Integer::sum) == 0) {
                         cnt.remove(x);
                     }
                 }
@@ -184,11 +183,11 @@ func isPossibleDivide(nums []int, k int) bool {
 
 ### 方法二：有序集合
 
-我们也可以使用有序集合统计数组 `nums` 中每个数字出现的次数。
+我们也可以使用有序集合统计数组 $\textit{nums}$ 中每个数字出现的次数。
 
 接下来，循环取出有序集合中的最小值 $v$，然后枚举 $v$ 到 $v+k-1$ 的每个数字，如果这些数字在有序集合中出现的次数都不为 $0$，则我们将这些数字的出现次数减 $1$，如果出现次数减 $1$ 后为 $0$，则将该数字从有序集合中删除，否则说明无法将数组划分成若干个长度为 $k$ 的子数组，返回 `false`。如果可以将数组划分成若干个长度为 $k$ 的子数组，则遍历结束后返回 `true`。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -230,7 +229,7 @@ class Solution {
         }
         TreeMap<Integer, Integer> tm = new TreeMap<>();
         for (int h : nums) {
-            tm.put(h, tm.getOrDefault(h, 0) + 1);
+            tm.merge(h, 1, Integer::sum);
         }
         while (!tm.isEmpty()) {
             int v = tm.firstKey();
@@ -238,10 +237,8 @@ class Solution {
                 if (!tm.containsKey(i)) {
                     return false;
                 }
-                if (tm.get(i) == 1) {
+                if (tm.merge(i, -1, Integer::sum) == 0) {
                     tm.remove(i);
-                } else {
-                    tm.put(i, tm.get(i) - 1);
                 }
             }
         }
@@ -256,17 +253,22 @@ class Solution {
 class Solution {
 public:
     bool isPossibleDivide(vector<int>& nums, int k) {
-        if (nums.size() % k != 0) return false;
+        if (nums.size() % k) {
+            return false;
+        }
         map<int, int> mp;
-        for (int& h : nums) mp[h] += 1;
+        for (int& h : nums) {
+            mp[h] += 1;
+        }
         while (!mp.empty()) {
             int v = mp.begin()->first;
             for (int i = v; i < v + k; ++i) {
-                if (!mp.count(i)) return false;
-                if (mp[i] == 1)
+                if (!mp.contains(i)) {
+                    return false;
+                }
+                if (--mp[i] == 0) {
                     mp.erase(i);
-                else
-                    mp[i] -= 1;
+                }
             }
         }
         return true;
