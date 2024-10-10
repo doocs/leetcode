@@ -288,7 +288,7 @@ function minAddToMakeValid(s: string): number {
 
 <!-- solution:start -->
 
-### Solution 3: Replace + recursion
+### 方法三：替换 + 递归
 
 <!-- tabs:start -->
 
