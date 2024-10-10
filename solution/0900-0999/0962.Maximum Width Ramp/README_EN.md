@@ -53,7 +53,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Monotonic stack
 
 <!-- tabs:start -->
 
@@ -147,6 +147,96 @@ func maxWidthRamp(nums []int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxWidthRamp(nums: number[]): number {
+    let [ans, n] = [0, nums.length];
+    const stk: number[] = [];
+
+    for (let i = 0; i < n - 1; i++) {
+        if (stk.length === 0 || nums[stk.at(-1)!] > nums[i]) {
+            stk.push(i);
+        }
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+        while (stk.length && nums[stk.at(-1)!] <= nums[i]) {
+            ans = Math.max(ans, i - stk.pop()!);
+        }
+        if (stk.length === 0) break;
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function maxWidthRamp(nums) {
+    let [ans, n] = [0, nums.length];
+    const stk = [];
+
+    for (let i = 0; i < n - 1; i++) {
+        if (stk.length === 0 || nums[stk.at(-1)] > nums[i]) {
+            stk.push(i);
+        }
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+        while (stk.length && nums[stk.at(-1)] <= nums[i]) {
+            ans = Math.max(ans, i - stk.pop());
+        }
+        if (stk.length === 0) break;
+    }
+
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Sorting
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function maxWidthRamp(nums: number[]): number {
+    const idx = nums.map((x, i) => [x, i]).sort(([a], [b]) => a - b);
+    let [ans, j] = [0, nums.length];
+
+    for (const [_, i] of idx) {
+        ans = Math.max(ans, i - j);
+        j = Math.min(j, i);
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function maxWidthRamp(nums) {
+    const idx = nums.map((x, i) => [x, i]).sort(([a], [b]) => a - b);
+    let [ans, j] = [0, nums.length];
+
+    for (const [_, i] of idx) {
+        ans = Math.max(ans, i - j);
+        j = Math.min(j, i);
+    }
+
+    return ans;
 }
 ```
 
