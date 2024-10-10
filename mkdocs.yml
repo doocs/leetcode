@@ -63,8 +63,6 @@ theme:
         name: Switch to system preference
 
 plugins:
-  - search:
-      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - tags:
       tags_file: tags.md
   - glightbox:
@@ -80,6 +78,8 @@ plugins:
       caption_position: bottom
       background: white
       shadow: true
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
 hooks:
   - hooks/edit_url.py
