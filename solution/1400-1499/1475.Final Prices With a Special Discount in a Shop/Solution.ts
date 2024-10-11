@@ -1,14 +1,12 @@
 function finalPrices(prices: number[]): number[] {
-    const n = prices.length;
-    const ans = new Array(n);
-    for (let i = 0; i < n; ++i) {
-        ans[i] = prices[i];
-        for (let j = i + 1; j < n; ++j) {
-            if (prices[j] <= prices[i]) {
-                ans[i] -= prices[j];
-                break;
-            }
+    const stk: number[] = [];
+    for (let i = prices.length - 1; ~i; --i) {
+        const x = prices[i];
+        while (stk.length && stk.at(-1)! > x) {
+            stk.pop();
         }
+        prices[i] -= stk.at(-1) || 0;
+        stk.push(x);
     }
-    return ans;
+    return prices;
 }

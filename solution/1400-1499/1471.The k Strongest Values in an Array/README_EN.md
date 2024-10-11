@@ -76,7 +76,13 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We first sort the array $\textit{arr}$ and then find the median $m$ of the array.
+
+Next, we sort the array according to the rules described in the problem, and finally return the first $k$ elements of the array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -155,6 +161,16 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function getStrongest(arr: number[], k: number): number[] {
+    arr.sort((a, b) => a - b);
+    const m = arr[(arr.length - 1) >> 1];
+    return arr.sort((a, b) => Math.abs(b - m) - Math.abs(a - m) || b - a).slice(0, k);
 }
 ```
 
