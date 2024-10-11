@@ -13,15 +13,20 @@ class Solution {
 public:
     vector<int> getLonelyNodes(TreeNode* root) {
         vector<int> ans;
-        function<void(TreeNode * root)> dfs;
-        dfs = [&](TreeNode* root) {
-            if (!root || (!root->left && !root->right)) return;
-            if (!root->left) ans.push_back(root->right->val);
-            if (!root->right) ans.push_back(root->left->val);
-            dfs(root->left);
-            dfs(root->right);
+        auto dfs = [&](auto&& dfs, TreeNode* root) {
+            if (!root || (root->left == root->right)) {
+                return;
+            }
+            if (!root->left) {
+                ans.push_back(root->right->val);
+            }
+            if (!root->right) {
+                ans.push_back(root->left->val);
+            }
+            dfs(dfs, root->left);
+            dfs(dfs, root->right);
         };
-        dfs(root);
+        dfs(dfs, root);
         return ans;
     }
 };

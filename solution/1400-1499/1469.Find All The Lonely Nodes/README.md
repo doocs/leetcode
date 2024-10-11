@@ -74,11 +74,16 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：递归
+### 方法一：DFS
 
-递归搜索二叉树，如果当前节点的左右子节点都不为空，则继续递归搜索左右子树；如果当前节点的左右子节点有一个为空，则将不为空的子节点的值加入结果数组中，然后继续递归搜索左右子树。
+我们可以使用深度优先搜索遍历整棵树，设计一个函数 $\textit{dfs}$，它的作用是遍历树中的每个节点，如果当前节点是独生节点，那么将其值加入答案数组中。函数 $\textit{dfs}$ 的执行过程如下：
 
-时间复杂度 $O(n)$，其中 $n$ 为二叉树的节点个数。需要对二叉树进行一次遍历。
+1. 如果当前节点为空，或者当前节点是叶子节点，即当前节点的左右子节点都为空，那么直接返回。
+2. 如果当前节点的左子节点为空，那么将当前节点的右子节点是独生节点，将其值加入答案数组中。
+3. 如果当前节点的右子节点为空，那么将当前节点的左子节点是独生节点，将其值加入答案数组中。
+4. 递归遍历当前节点的左子节点和右子节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树中节点的个数。
 
 <!-- tabs:start -->
 
@@ -93,8 +98,8 @@ tags:
 #         self.right = right
 class Solution:
     def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
-        def dfs(root):
-            if root is None or (root.left is None and root.right is None):
+        def dfs(root: Optional[TreeNode]):
+            if root is None or root.left == root.right:
                 return
             if root.left is None:
                 ans.append(root.right.val)
@@ -135,7 +140,7 @@ class Solution {
     }
 
     private void dfs(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) {
+        if (root == null || (root.left == root.right)) {
             return;
         }
         if (root.left == null) {
@@ -168,15 +173,20 @@ class Solution {
 public:
     vector<int> getLonelyNodes(TreeNode* root) {
         vector<int> ans;
-        function<void(TreeNode * root)> dfs;
-        dfs = [&](TreeNode* root) {
-            if (!root || (!root->left && !root->right)) return;
-            if (!root->left) ans.push_back(root->right->val);
-            if (!root->right) ans.push_back(root->left->val);
-            dfs(root->left);
-            dfs(root->right);
+        auto dfs = [&](auto&& dfs, TreeNode* root) {
+            if (!root || (root->left == root->right)) {
+                return;
+            }
+            if (!root->left) {
+                ans.push_back(root->right->val);
+            }
+            if (!root->right) {
+                ans.push_back(root->left->val);
+            }
+            dfs(dfs, root->left);
+            dfs(dfs, root->right);
         };
-        dfs(root);
+        dfs(dfs, root);
         return ans;
     }
 };
@@ -193,11 +203,10 @@ public:
  *     Right *TreeNode
  * }
  */
-func getLonelyNodes(root *TreeNode) []int {
-	ans := []int{}
+ func getLonelyNodes(root *TreeNode) (ans []int) {
 	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
-		if root == nil || (root.Left == nil && root.Right == nil) {
+		if root == nil || (root.Left == root.Right) {
 			return
 		}
 		if root.Left == nil {
@@ -210,7 +219,44 @@ func getLonelyNodes(root *TreeNode) []int {
 		dfs(root.Right)
 	}
 	dfs(root)
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function getLonelyNodes(root: TreeNode | null): number[] {
+    const ans: number[] = [];
+    const dfs = (root: TreeNode | null) => {
+        if (!root || root.left === root.right) {
+            return;
+        }
+        if (!root.left) {
+            ans.push(root.right.val);
+        }
+        if (!root.right) {
+            ans.push(root.left.val);
+        }
+        dfs(root.left);
+        dfs(root.right);
+    };
+    dfs(root);
+    return ans;
 }
 ```
 
