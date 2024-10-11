@@ -30,7 +30,7 @@ tags:
 
 <strong>Input:</strong> nums = [2,5,1,3,4,7], n = 3
 
-<strong>Output:</strong> [2,3,5,4,1,7]
+<strong>Output:</strong> [2,3,5,4,1,7] 
 
 <strong>Explanation:</strong> Since x<sub>1</sub>=2, x<sub>2</sub>=5, x<sub>3</sub>=1, y<sub>1</sub>=3, y<sub>2</sub>=4, y<sub>3</sub>=7 then the answer is [2,3,5,4,1,7].
 

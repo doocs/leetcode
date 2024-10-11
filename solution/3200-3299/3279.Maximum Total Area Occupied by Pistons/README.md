@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3279. 活塞占据的最大总面积 🔒](https://leetcode.cn/problems/maximum-total-area-occupied-by-pistons)
+# [3279. 活塞占据的最大总区域 🔒](https://leetcode.cn/problems/maximum-total-area-occupied-by-pistons)
 
 [English Version](/solution/3200-3299/3279.Maximum%20Total%20Area%20Occupied%20by%20Pistons/README_EN.md)
 
@@ -21,13 +21,13 @@ tags:
 
 <!-- description:start -->
 
-<p>一台旧车的引擎中有一些活塞，我们想要计算活塞 <strong>下方</strong> 的 <strong>最大</strong> 面积。</p>
+<p>一台旧车的引擎中有一些活塞，我们想要计算活塞 <strong>下方</strong> 的 <strong>最大</strong> 区域。</p>
 
 <p>给定：</p>
 
 <ul>
 	<li>一个整数&nbsp;<code>height</code>，表示活塞 <strong>最大</strong> 可到达的高度。</li>
-	<li>一个整数数组&nbsp;<code>positions</code>，其中&nbsp;<code>positions[i]</code>&nbsp;是活塞&nbsp;<code>i</code>&nbsp;的当前位置，等于其 <strong>下方</strong>&nbsp;的当前面积。</li>
+	<li>一个整数数组&nbsp;<code>positions</code>，其中&nbsp;<code>positions[i]</code>&nbsp;是活塞&nbsp;<code>i</code>&nbsp;的当前位置，等于其 <strong>下方</strong>&nbsp;的当前区域。</li>
 	<li>一个字符串&nbsp;<code>directions</code>，其中&nbsp;<code>directions[i]</code>&nbsp;是活塞&nbsp;<code>i</code>&nbsp;的当前移动方向，<code>'U'</code> 表示向上，<code>'D'</code> 表示向下。</li>
 </ul>
 
@@ -38,7 +38,7 @@ tags:
 	<li>如果一个活塞到达了其中一个终点，即&nbsp;<code>positions[i] == 0</code> 或&nbsp;<code>positions[i] == height</code>，它的方向将会改变。</li>
 </ul>
 
-<p>返回所有活塞下方的最大可能面积。</p>
+<p>返回所有活塞下方的最大可能区域。</p>
 
 <p>&nbsp;</p>
 
@@ -51,7 +51,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>当前活塞的位置下方面积最大。</p>
+<p>当前活塞的位置下方区域最大。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -63,7 +63,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>三秒后，活塞将会位于&nbsp;<code>[3, 3, 3, 6]</code>，此时下方面积最大。</p>
+<p>三秒后，活塞将会位于&nbsp;<code>[3, 3, 3, 6]</code>，此时下方区域最大。</p>
 </div>
 
 <p>&nbsp;</p>

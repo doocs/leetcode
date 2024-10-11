@@ -29,7 +29,7 @@ tags:
 
 <pre>
 <strong>输入:</strong> p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
-<strong>输出:</strong> True
+<strong>输出:</strong> true
 </pre>
 
 <p><strong>示例 2:</strong></p>

@@ -27,7 +27,7 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre><strong>输入：</strong>nums = [2,5,1,3,4,7], n = 3
-<strong>输出：</strong>[2,3,5,4,1,7]
+<strong>输出：</strong>[2,3,5,4,1,7] 
 <strong>解释：</strong>由于 x<sub>1</sub>=2, x<sub>2</sub>=5, x<sub>3</sub>=1, y<sub>1</sub>=3, y<sub>2</sub>=4, y<sub>3</sub>=7 ，所以答案为 [2,3,5,4,1,7]
 </pre>
 

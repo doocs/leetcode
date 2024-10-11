@@ -27,11 +27,11 @@ tags:
 	<li>例如，第 <code>1</code> 趟列车需要 <code>1.5</code> 小时，那你必须再等待 <code>0.5</code> 小时，搭乘在第 2 小时发车的第 <code>2</code> 趟列车。</li>
 </ul>
 
-<p>返回能满足你准时到达办公室所要求全部列车的<strong> 最小正整数 </strong>时速（单位：千米每小时），如果无法准时到达，则返回 <code>-1</code> 。</p>
+<p>返回能满足你在时限前到达办公室所要求全部列车的<strong> 最小正整数 </strong>时速（单位：千米每小时），如果无法准时到达，则返回 <code>-1</code> 。</p>
 
 <p>生成的测试用例保证答案不超过 <code>10<sup>7</sup></code> ，且 <code>hour</code> 的 <strong>小数点后最多存在两位数字</strong> 。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -63,15 +63,15 @@ tags:
 <strong>输出：</strong>-1
 <strong>解释：</strong>不可能准时到达，因为第 3 趟列车最早是在第 2 小时发车。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>n == dist.length</code></li>
-	<li><code>1 <= n <= 10<sup>5</sup></code></li>
-	<li><code>1 <= dist[i] <= 10<sup>5</sup></code></li>
-	<li><code>1 <= hour <= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= dist[i] &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= hour &lt;= 10<sup>9</sup></code></li>
 	<li><code>hours</code> 中，小数点后最多存在两位数字</li>
 </ul>
 

@@ -53,7 +53,7 @@ Cost of paint all houses (1 + 1 + 1 + 1 + 5) = 9.
 <strong>Input:</strong> houses = [0,2,1,2,0], cost = [[1,10],[10,1],[10,1],[1,10],[5,1]], m = 5, n = 2, target = 3
 <strong>Output:</strong> 11
 <strong>Explanation:</strong> Some houses are already painted, Paint the houses of this way [2,2,1,2,2]
-This array contains target = 3 neighborhoods, [{2,2}, {1}, {2,2}].
+This array contains target = 3 neighborhoods, [{2,2}, {1}, {2,2}]. 
 Cost of paint the first and last house (10 + 1) = 11.
 </pre>
 
