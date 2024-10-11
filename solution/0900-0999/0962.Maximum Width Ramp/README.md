@@ -216,7 +216,7 @@ function maxWidthRamp(nums) {
 
 <!-- solution:start -->
 
-### Solution 2: Sorting
+### 方法二：排序
 
 <!-- tabs:start -->
 
