@@ -22,7 +22,7 @@ class Solution {
     }
 
     private void dfs(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) {
+        if (root == null || (root.left == root.right)) {
             return;
         }
         if (root.left == null) {
