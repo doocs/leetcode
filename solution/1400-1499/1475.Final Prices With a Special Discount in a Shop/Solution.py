@@ -1,10 +1,11 @@
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
-        ans = []
-        for i, v in enumerate(prices):
-            ans.append(v)
-            for j in range(i + 1, len(prices)):
-                if prices[j] <= v:
-                    ans[-1] -= prices[j]
-                    break
-        return ans
+        stk = []
+        for i in reversed(range(len(prices))):
+            x = prices[i]
+            while stk and x < stk[-1]:
+                stk.pop()
+            if stk:
+                prices[i] -= stk[-1]
+            stk.append(x)
+        return prices

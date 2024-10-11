@@ -90,9 +90,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：自定义排序
+### 方法一：排序
 
-时间复杂度 $O(2nlogn)$。
+我们首先对数组 $\textit{arr}$ 进行排序，然后找到数组的中位数 $m$。
+
+接下来，我们按照题目描述的规则对数组进行排序，最后返回数组的前 $k$ 个元素即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -171,6 +175,16 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function getStrongest(arr: number[], k: number): number[] {
+    arr.sort((a, b) => a - b);
+    const m = arr[(arr.length - 1) >> 1];
+    return arr.sort((a, b) => Math.abs(b - m) - Math.abs(a - m) || b - a).slice(0, k);
 }
 ```
 

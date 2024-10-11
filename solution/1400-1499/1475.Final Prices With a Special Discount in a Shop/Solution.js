@@ -3,13 +3,14 @@
  * @return {number[]}
  */
 var finalPrices = function (prices) {
-    for (let i = 0; i < prices.length; i++) {
-        for (let j = i + 1; j < prices.length; j++) {
-            if (prices[i] >= prices[j]) {
-                prices[i] -= prices[j];
-                break;
-            }
+    const stk = [];
+    for (let i = prices.length - 1; ~i; --i) {
+        const x = prices[i];
+        while (stk.length && stk.at(-1) > x) {
+            stk.pop();
         }
+        prices[i] -= stk.at(-1) || 0;
+        stk.push(x);
     }
     return prices;
 };

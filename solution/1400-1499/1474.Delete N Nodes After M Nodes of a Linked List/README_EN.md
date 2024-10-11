@@ -67,7 +67,11 @@ Head of the linked list after removing nodes is returned.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can simulate the entire deletion process. First, use a pointer $\textit{pre}$ to point to the head of the linked list, then traverse the linked list, moving $m - 1$ steps. If $\textit{pre}$ is null, it means the number of nodes from the current node is less than $m$, so we directly return the head. Otherwise, use a pointer $\textit{cur}$ to point to $\textit{pre}$, then move $n$ steps. If $\textit{cur}$ is null, it means the number of nodes from $\textit{pre}$ is less than $m + n$, so we directly set the $\textit{next}$ of $\textit{pre}$ to null. Otherwise, set the $\textit{next}$ of $\textit{pre}$ to the $\textit{next}$ of $\textit{cur}$, then move $\textit{pre}$ to its $\textit{next}$. Continue traversing the linked list until $\textit{pre}$ is null, then return the head.
+
+The time complexity is $O(n)$, where $n$ is the number of nodes in the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -198,6 +202,41 @@ func deleteNodes(head *ListNode, m int, n int) *ListNode {
 		pre = pre.Next
 	}
 	return head
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function deleteNodes(head: ListNode | null, m: number, n: number): ListNode | null {
+    let pre = head;
+    while (pre) {
+        for (let i = 0; i < m - 1 && pre; ++i) {
+            pre = pre.next;
+        }
+        if (!pre) {
+            break;
+        }
+        let cur = pre;
+        for (let i = 0; i < n && cur; ++i) {
+            cur = cur.next;
+        }
+        pre.next = cur?.next || null;
+        pre = pre.next;
+    }
+    return head;
 }
 ```
 
