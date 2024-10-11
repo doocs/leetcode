@@ -41,7 +41,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>nums = [555,901,482,1771]
-<strong>输出：</strong>1
+<strong>输出：</strong>1 
 <strong>解释： </strong>
 只有 1771 是位数为偶数的数字。
 </pre>

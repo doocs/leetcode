@@ -25,10 +25,10 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre><strong>输入：</strong>n = 234
-<strong>输出：</strong>15
+<strong>输出：</strong>15 
 <strong>解释：</strong>
-各位数之积 = 2 * 3 * 4 = 24
-各位数之和 = 2 + 3 + 4 = 9
+各位数之积 = 2 * 3 * 4 = 24 
+各位数之和 = 2 + 3 + 4 = 9 
 结果 = 24 - 9 = 15
 </pre>
 
@@ -36,9 +36,9 @@ tags:
 
 <pre><strong>输入：</strong>n = 4421
 <strong>输出：</strong>21
-<strong>解释：
-</strong>各位数之积 = 4 * 4 * 2 * 1 = 32
-各位数之和 = 4 + 4 + 2 + 1 = 11
+<strong>解释： 
+</strong>各位数之积 = 4 * 4 * 2 * 1 = 32 
+各位数之和 = 4 + 4 + 2 + 1 = 11 
 结果 = 32 - 11 = 21
 </pre>
 

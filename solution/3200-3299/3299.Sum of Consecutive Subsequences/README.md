@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>如果一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>arr</code>&nbsp;符合下面条件，可以称它 <strong>连续</strong>：</p>
+<p>如果一个长度为&nbsp;<code>n</code>&nbsp;的数组&nbsp;<code>arr</code>&nbsp;符合下面其中一个条件，可以称它 <strong>连续</strong>：</p>
 
 <ul>
 	<li>对于所有的&nbsp;<code>1 &lt;= i &lt; n</code>，<code>arr[i] - arr[i - 1] == 1</code>。</li>
@@ -27,7 +27,7 @@ tags:
 
 <p>数组的 <strong>值</strong> 是其元素的和。</p>
 
-<p>例如，<code>[3, 4, 5]</code>&nbsp;是一个值为 12 的连续数组，并且&nbsp;<code>[9, 8]</code>&nbsp;是另一个值为 17 的子数组。而&nbsp;<code>[3, 4, 3]</code> 和&nbsp;<code>[8, 6]</code>&nbsp;都不连续。</p>
+<p>例如，<code>[3, 4, 5]</code>&nbsp;是一个值为 12 的连续数组，并且&nbsp;<code>[9, 8]</code>&nbsp;是另一个值为 17 的连续数组。而&nbsp;<code>[3, 4, 3]</code> 和&nbsp;<code>[8, 6]</code>&nbsp;都不连续。</p>
 
 <p>给定一个整数数组&nbsp;<code>nums</code>，返回所有 <strong>连续</strong>&nbsp;非空&nbsp;<span data-keyword="subsequence-array">子序列</span>&nbsp;的 <strong>值</strong>&nbsp;之和。</p>
 

@@ -31,7 +31,7 @@ session_status 是 ('start', 'stop') 的 ENUM (category)。
 这张表的每一行包含 server_id, status_time 和 session_status。
 </pre>
 
-<p>编写一个解决方案来查找服务器 <strong>运行</strong> 的 <strong>总时间</strong>。输出应四舍五入为最接近的 <strong>整天数</strong>。</p>
+<p>编写一个解决方案来查找服务器 <strong>运行</strong> 的 <strong>总时间</strong>。输出应向下舍入为最接近的 <strong>整天数</strong>。</p>
 
 <p>以 <strong>任意</strong> 顺序返回结果表。</p>
 

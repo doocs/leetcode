@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> 
 actions = [&quot;EventEmitter&quot;, &quot;emit&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;emit&quot;], 
-values = [[], [&quot;firstEvent&quot;, &quot;function cb1() { return 5; }&quot;],  [&quot;firstEvent&quot;, &quot;function cb1() { return 6; }&quot;], [&quot;firstEvent&quot;]]
+values = [[], [&quot;firstEvent&quot;], [&quot;firstEvent&quot;, &quot;function cb1() { return 5; }&quot;],&nbsp; [&quot;firstEvent&quot;, &quot;function cb1() { return 6; }&quot;], [&quot;firstEvent&quot;]]
 <strong>Output:</strong> [[],[&quot;emitted&quot;,[]],[&quot;subscribed&quot;],[&quot;subscribed&quot;],[&quot;emitted&quot;,[5,6]]]
 <strong>Explanation:</strong> 
 const emitter = new EventEmitter();

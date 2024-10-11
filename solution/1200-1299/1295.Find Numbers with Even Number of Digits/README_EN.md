@@ -27,7 +27,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [12,345,2,6,7896]
 <strong>Output:</strong> 2
-<strong>Explanation:
+<strong>Explanation: 
 </strong>12 contains 2 digits (even number of digits).&nbsp;
 345 contains 3 digits (odd number of digits).&nbsp;
 2 contains 1 digit (odd number of digits).&nbsp;
@@ -40,7 +40,7 @@ Therefore only 12 and 7896 contain an even number of digits.
 
 <pre>
 <strong>Input:</strong> nums = [555,901,482,1771]
-<strong>Output:</strong> 1
+<strong>Output:</strong> 1 
 <strong>Explanation: </strong>
 Only 1771 contains an even number of digits.
 </pre>

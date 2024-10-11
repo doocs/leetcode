@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> arr = [17,18,5,4,6,1]
 <strong>Output:</strong> [18,6,6,6,1,-1]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - index 0 --&gt; the greatest element to the right of index 0 is index 1 (18).
 - index 1 --&gt; the greatest element to the right of index 1 is index 4 (6).
 - index 2 --&gt; the greatest element to the right of index 2 is index 4 (6).

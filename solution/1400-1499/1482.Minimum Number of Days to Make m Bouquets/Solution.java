@@ -1,31 +1,30 @@
 class Solution {
+    private int[] bloomDay;
+    private int m, k;
+
     public int minDays(int[] bloomDay, int m, int k) {
-        if (m * k > bloomDay.length) {
-            return -1;
-        }
-        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
-        for (int bd : bloomDay) {
-            min = Math.min(min, bd);
-            max = Math.max(max, bd);
-        }
-        int left = min, right = max;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (check(bloomDay, m, k, mid)) {
-                right = mid;
+        this.bloomDay = bloomDay;
+        this.m = m;
+        this.k = k;
+        final int mx = (int) 1e9;
+        int l = 1, r = mx + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l > mx ? -1 : l;
     }
 
-    private boolean check(int[] bloomDay, int m, int k, int day) {
+    private boolean check(int days) {
         int cnt = 0, cur = 0;
-        for (int bd : bloomDay) {
-            cur = bd <= day ? cur + 1 : 0;
+        for (int x : bloomDay) {
+            cur = x <= days ? cur + 1 : 0;
             if (cur == k) {
-                cnt++;
+                ++cnt;
                 cur = 0;
             }
         }

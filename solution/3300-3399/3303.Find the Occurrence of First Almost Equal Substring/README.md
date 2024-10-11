@@ -73,7 +73,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= pattern.length &lt; s.length &lt;= 3 * 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= pattern.length &lt; s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> 和&nbsp;<code>pattern</code>&nbsp;都只包含小写英文字母。</li>
 </ul>
 
