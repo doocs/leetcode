@@ -77,9 +77,9 @@ tags:
 
 ### 方法一：计数
 
-我们可以用一维数组 $cnt$ 记录每个城市的度，用二维数组 $g$ 记录每对城市之间是否有道路相连，如果城市 $a$ 和城市 $b$ 之间有道路相连，则 $g[a][b] = g[b][a] = 1$，否则 $g[a][b] = g[b][a] = 0$。
+我们可以用一维数组 $\textit{cnt}$ 记录每个城市的度，用二维数组 $\textit{g}$ 记录每对城市之间是否有道路相连，如果城市 $a$ 和城市 $b$ 之间有道路相连，则 $\textit{g}[a][b] = \textit{g}[b][a] = 1$，否则 $\textit{g}[a][b] = \textit{g}[b][a] = 0$。
 
-接下来，我们枚举每对城市 $(a, b)$，其中 $a \lt b$，计算它们的网络秩，即 $cnt[a] + cnt[b] - g[a][b]$，取其中的最大值即为答案。
+接下来，我们枚举每对城市 $(a, b)$，其中 $a \lt b$，计算它们的网络秩，即 $\textit{cnt}[a] + \textit{cnt}[b] - \textit{g}[a][b]$，取其中的最大值即为答案。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是城市的数量。
 
@@ -90,16 +90,13 @@ tags:
 ```python
 class Solution:
     def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
-        g = defaultdict(set)
+        g = [[0] * n for _ in range(n)]
+        cnt = [0] * n
         for a, b in roads:
-            g[a].add(b)
-            g[b].add(a)
-        ans = 0
-        for a in range(n):
-            for b in range(a + 1, n):
-                if (t := len(g[a]) + len(g[b]) - (a in g[b])) > ans:
-                    ans = t
-        return ans
+            g[a][b] = g[b][a] = 1
+            cnt[a] += 1
+            cnt[b] += 1
+        return max(cnt[a] + cnt[b] - g[a][b] for a in range(n) for b in range(a + 1, n))
 ```
 
 #### Java
@@ -182,8 +179,8 @@ func maximalNetworkRank(n int, roads [][]int) (ans int) {
 
 ```ts
 function maximalNetworkRank(n: number, roads: number[][]): number {
-    const g: number[][] = Array.from(new Array(n), () => new Array(n).fill(0));
-    const cnt: number[] = new Array(n).fill(0);
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const cnt: number[] = Array(n).fill(0);
     for (const [a, b] of roads) {
         g[a][b] = 1;
         g[b][a] = 1;
@@ -198,30 +195,6 @@ function maximalNetworkRank(n: number, roads: number[][]): number {
     }
     return ans;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
-        g = [[0] * n for _ in range(n)]
-        cnt = [0] * n
-        for a, b in roads:
-            g[a][b] = g[b][a] = 1
-            cnt[a] += 1
-            cnt[b] += 1
-        return max(cnt[a] + cnt[b] - g[a][b] for a in range(n) for b in range(a + 1, n))
 ```
 
 <!-- tabs:end -->
