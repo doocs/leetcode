@@ -1,6 +1,6 @@
 function maximalNetworkRank(n: number, roads: number[][]): number {
-    const g: number[][] = Array.from(new Array(n), () => new Array(n).fill(0));
-    const cnt: number[] = new Array(n).fill(0);
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const cnt: number[] = Array(n).fill(0);
     for (const [a, b] of roads) {
         g[a][b] = 1;
         g[b][a] = 1;

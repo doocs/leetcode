@@ -69,7 +69,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal
+
+We use a variable $d$ to record the current depth, initially $d = 0$.
+
+Traverse the string $s$. When encountering a left parenthesis, increment the depth $d$ by one and update the answer to be the maximum of the current depth $d$ and the answer. When encountering a right parenthesis, decrement the depth $d$ by one.
+
+Finally, return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
