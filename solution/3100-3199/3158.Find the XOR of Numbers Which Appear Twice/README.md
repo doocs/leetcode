@@ -168,4 +168,110 @@ function duplicateNumbersXOR(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：位运算
+
+由于题目中给出的数字范围是 $1 \leq \textit{nums}[i] \leq 50$，我们可以使用一个 $64$ 位的整数来存储每个数字的出现次数。
+
+我们定义一个整数 $\textit{mask}$ 来记录每个数字是否出现过。
+
+接下来，遍历数组 $\textit{nums}$，当某个数字出现两次时，即 $\textit{mask}$ 的二进制表示中第 $x$ 位为 $1$ 时，我们将其与答案进行异或运算。否则，我们将 $\textit{mask}$ 的第 $x$ 位设置为 $1$。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        ans = mask = 0
+        for x in nums:
+            if mask >> x & 1:
+                ans ^= x
+            else:
+                mask |= 1 << x
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int duplicateNumbersXOR(int[] nums) {
+        int ans = 0;
+        long mask = 0;
+        for (int x : nums) {
+            if ((mask >> x & 1) == 1) {
+                ans ^= x;
+            } else {
+                mask |= 1L << x;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int duplicateNumbersXOR(vector<int>& nums) {
+        int ans = 0;
+        long long mask = 0;
+        for (int x : nums) {
+            if (mask >> x & 1) {
+                ans ^= x;
+            } else {
+                mask |= 1LL << x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func duplicateNumbersXOR(nums []int) (ans int) {
+	mask := 0
+	for _, x := range nums {
+		if mask>>x&1 == 1 {
+			ans ^= x
+		} else {
+			mask |= 1 << x
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function duplicateNumbersXOR(nums: number[]): number {
+    let ans = 0;
+    let mask = 0n;
+    for (const x of nums) {
+        if ((mask >> BigInt(x)) & 1n) {
+            ans ^= x;
+        } else {
+            mask |= 1n << BigInt(x);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

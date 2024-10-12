@@ -68,7 +68,11 @@ It can be shown that every subsequence of length 4 is not a square streak.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We first use a hash table to record all elements in the array. Then, we enumerate each element in the array as the first element of the subsequence, square this element continuously, and check whether the squared result is in the hash table. If it is, we use the squared result as the next element and continue checking until the squared result is not in the hash table. At this point, we check whether the length of the subsequence is greater than $1$. If it is, we update the answer.
+
+The time complexity is $O(n \times \log \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value of the elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -165,7 +169,18 @@ func longestSquareStreak(nums []int) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Memoization Search
+
+Similar to Solution 1, we first use a hash table to record all elements in the array. Then, we design a function $\textit{dfs}(x)$, which represents the length of the square wave starting with $x$. The answer is $\max(\textit{dfs}(x))$, where $x$ is an element in the array $\textit{nums}$.
+
+The calculation process of the function $\textit{dfs}(x)$ is as follows:
+
+-   If $x$ is not in the hash table, return $0$.
+-   Otherwise, return $1 + \textit{dfs}(x^2)$.
+
+During the process, we can use memoization, i.e., use a hash table to record the value of the function $\textit{dfs}(x)$ to avoid redundant calculations.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

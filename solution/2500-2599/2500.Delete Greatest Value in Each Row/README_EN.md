@@ -74,7 +74,13 @@ The final answer = 10.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+Since each operation involves removing the maximum value from each row and then adding the maximum value to the answer, we can first sort each row.
+
+Next, we traverse each column, take the maximum value from each column, and add it to the answer.
+
+The time complexity is $O(m \times n \times \log n)$, and the space complexity is $O(\log n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -115,7 +121,9 @@ class Solution {
 class Solution {
 public:
     int deleteGreatestValue(vector<vector<int>>& grid) {
-        for (auto& row : grid) sort(row.begin(), row.end());
+        for (auto& row : grid) {
+            ranges::sort(row);
+        }
         int ans = 0;
         for (int j = 0; j < grid[0].size(); ++j) {
             int t = 0;

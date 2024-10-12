@@ -1,17 +1,17 @@
-func threeSumSmaller(nums []int, target int) int {
+func threeSumSmaller(nums []int, target int) (ans int) {
 	sort.Ints(nums)
-	ans := 0
-	for i, n := 0, len(nums); i < n; i++ {
+	n := len(nums)
+	for i := 0; i < n-2; i++ {
 		j, k := i+1, n-1
 		for j < k {
-			s := nums[i] + nums[j] + nums[k]
-			if s >= target {
-				k--
-			} else {
+			x := nums[i] + nums[j] + nums[k]
+			if x < target {
 				ans += k - j
 				j++
+			} else {
+				k--
 			}
 		}
 	}
-	return ans
+	return
 }
