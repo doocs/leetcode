@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var threeSumSmaller = function (nums, target) {
+function threeSumSmaller(nums: number[], target: number): number {
     nums.sort((a, b) => a - b);
     const n = nums.length;
     let ans = 0;
@@ -20,4 +15,4 @@ var threeSumSmaller = function (nums, target) {
         }
     }
     return ans;
-};
+}

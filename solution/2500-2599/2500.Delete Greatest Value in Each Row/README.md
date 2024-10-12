@@ -127,7 +127,9 @@ class Solution {
 class Solution {
 public:
     int deleteGreatestValue(vector<vector<int>>& grid) {
-        for (auto& row : grid) sort(row.begin(), row.end());
+        for (auto& row : grid) {
+            ranges::sort(row);
+        }
         int ans = 0;
         for (int j = 0; j < grid[0].size(); ++j) {
             int t = 0;
