@@ -80,7 +80,7 @@ tags:
 	<li><code>1 &lt;= edges.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code></li>
 	<li><code>0 &lt;= u<sub>i</sub> &lt; v<sub>i</sub> &lt; n</code></li>
-	<li>树中的边互不相同。</li>
+	<li>图中的边互不相同。</li>
 	<li>输入保证&nbsp;<code>edges</code>&nbsp;可以形成一个符合上述条件的二维矩阵。</li>
 </ul>
 
