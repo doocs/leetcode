@@ -27,8 +27,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3316.Fi
 
 <p>Return the <strong>maximum</strong> number of <em>operations</em> that can be performed.</p>
 
-<p>A <strong>subsequence</strong> is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

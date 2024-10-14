@@ -49,7 +49,7 @@ It can be shown that no other mapping can provide a lower cost.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/images/keypadv2e2.png" style="width: 329px; height: 313px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/images/edited.png" style="width: 329px; height: 313px;" />
 <pre>
 <strong>Input:</strong> word = &quot;xyzxyzxyzxyz&quot;
 <strong>Output:</strong> 12

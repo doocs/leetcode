@@ -37,7 +37,7 @@ tags:
 <pre>
 <strong>Input:</strong> root = [1,2,3], targetSum = 5
 <strong>Output:</strong> false
-<strong>Explanation:</strong> There two root-to-leaf paths in the tree:
+<strong>Explanation:</strong> There are two root-to-leaf paths in the tree:
 (1 --&gt; 2): The sum is 3.
 (1 --&gt; 3): The sum is 4.
 There is no root-to-leaf path with sum = 5.

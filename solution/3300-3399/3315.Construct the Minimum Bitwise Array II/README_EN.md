@@ -22,8 +22,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3315.Co
 
 <p>If it is <em>not possible</em> to find such a value for <code>ans[i]</code> that satisfies the <strong>condition</strong>, then set <code>ans[i] = -1</code>.</p>
 
-<p>A <strong>prime number</strong> is a natural number greater than 1 with only two factors, 1 and itself.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
