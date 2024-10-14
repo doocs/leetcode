@@ -37,6 +37,8 @@ tags:
 <p><strong>Explanation:</strong></p>
 
 <p>The subarray <code>[3]</code> has <code>OR</code> value of <code>3</code>. Hence, we return <code>1</code>.</p>
+
+<p>Note that <code>[2]</code> is also a special subarray.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>

@@ -3332,6 +3332,7 @@
 |  3319  |  [第 K 大的完美二叉子树的大小](/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/README.md)  |    |  中等  |  第 419 场周赛  |
 |  3320  |  [统计能获胜的出招序列数](/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README.md)  |    |  困难  |  第 419 场周赛  |
 |  3321  |  [计算子数组的 x-sum II](/solution/3300-3399/3321.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20II/README.md)  |    |  困难  |  第 419 场周赛  |
+|  3322  |  [英超积分榜排名 III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

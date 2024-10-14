@@ -3330,6 +3330,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3319  |  [K-th Largest Perfect Subtree Size in Binary Tree](/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 419  |
 |  3320  |  [Count The Number of Winning Sequences](/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README_EN.md)  |    |  Hard  |  Weekly Contest 419  |
 |  3321  |  [Find X-Sum of All K-Long Subarrays II](/solution/3300-3399/3321.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 419  |
+|  3322  |  [Premier League Table Ranking III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
