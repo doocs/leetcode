@@ -77,7 +77,19 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：有序集合
+
+题目需要我们将数组 $\textit{nums}$ 分割成 $k$ 个连续且不相交的子数组，并且第二个子数组的第一个元素与第 $k$ 个子数组的第一个元素的下标距离不超过 $\textit{dist}$，这等价于让我们从 $\textit{nums}$ 下标为 $1$ 的元素开始，找到一个窗口大小为 $\textit{dist}+1$ 的子数组，求其中前 $k-1$ 的最小元素之和。我们将 $k$ 减 $1$，这样我们只需要求出 $k$ 个最小元素之和，再加上 $\textit{nums}[0]$ 即可。
+
+我们可以使用两个有序集合 $\textit{l}$ 和 $\textit{r}$ 分别维护大小为 $\textit{dist} + 1$ 的窗口元素，其中 $\textit{l}$ 维护最小的 $k$ 个元素，而 $\textit{r}$ 维护窗口的剩余元素。我们维护一个变量 $\textit{s}$ 表示 $\textit{nums}[0]$ 与 $l$ 中元素之和。初始时，我们将前 $\textit{dist}+2$ 个元素之和累加到 $\textit{s}$ 中，并将下标为 $[1, \textit{dist} + 1]$ 的所有元素加入到 $\textit{l}$ 中。如果 $\textit{l}$ 的大小大于 $k$，我们循环将 $\textit{l}$ 中的最大元素移动到 $\textit{r}$ 中，直到 $\textit{l}$ 的大小等于 $k$，过程中更新 $\textit{s}$ 的值。
+
+那么此时初始答案 $\textit{ans} = \textit{s}$。
+
+接下来我们从 $\textit{dist}+2$ 开始遍历 $\textit{nums}$，对于每一个元素 $\textit{nums}[i]$，我们需要将 $\textit{nums}[i-\textit{dist}-1]$ 从 $\textit{l}$ 或 $\textit{r}$ 中移除，然后将 $\textit{nums}[i]$ 加入到 $\textit{l}$ 或 $\textit{r}$ 中。如果 $\textit{nums}[i]$ 小于 $\textit{l}$ 中的最大元素，我们将 $\textit{nums}[i]$ 加入到 $\textit{l}$ 中，否则加入到 $\textit{r}$ 中。如果此时 $\textit{l}$ 的大小小于 $k$，我们将 $\textit{r}$ 中的最小元素移动到 $\textit{l}$ 中，直到 $\textit{l}$ 的大小等于 $k$。如果此时 $\textit{l}$ 的大小大于 $k$，我们将 $\textit{l}$ 中的最大元素移动到 $\textit{r}$ 中，直到 $\textit{l}$ 的大小等于 $k$。过程中更新 $\textit{s}$ 的值，并更新 $\textit{ans} = \min(\textit{ans}, \textit{s})$。
+
+最终答案即为 $\textit{ans}$。
+
+时间复杂度 $O(n \times \log \textit{dist})$，空间复杂度 $O(\textit{dist})$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -89,76 +101,115 @@ from sortedcontainers import SortedList
 
 class Solution:
     def minimumCost(self, nums: List[int], k: int, dist: int) -> int:
-        n = len(nums)
+        def l2r():
+            nonlocal s
+            x = l.pop()
+            s -= x
+            r.add(x)
 
-        sl = SortedList()
-        y = nums[0]
-        ans = float("inf")
-        i = 1
-        running_sum = 0
+        def r2l():
+            nonlocal s
+            x = r.pop(0)
+            l.add(x)
+            s += x
 
-        for j in range(1, n):
-            pos = bisect.bisect_left(sl, nums[j])
-            sl.add(nums[j])
-
-            if pos < k - 1:
-                running_sum += nums[j]
-                if len(sl) > k - 1:
-                    running_sum -= sl[k - 1]
-
-            while j - i > dist:
-                removed_pos = sl.index(nums[i])
-                removed_element = nums[i]
-                sl.remove(removed_element)
-
-                if removed_pos < k - 1:
-                    running_sum -= removed_element
-                    if len(sl) >= k - 1:
-                        running_sum += sl[k - 2]
-                i += 1
-
-            if j - i + 1 >= k - 1:
-                ans = min(ans, running_sum)
-
-        return ans + y
+        k -= 1
+        s = sum(nums[: dist + 2])
+        l = SortedList(nums[1 : dist + 2])
+        r = SortedList()
+        while len(l) > k:
+            l2r()
+        ans = s
+        for i in range(dist + 2, len(nums)):
+            x = nums[i - dist - 1]
+            if x in l:
+                l.remove(x)
+                s -= x
+            else:
+                r.remove(x)
+            y = nums[i]
+            if y < l[-1]:
+                l.add(y)
+                s += y
+            else:
+                r.add(y)
+            while len(l) < k:
+                r2l()
+            while len(l) > k:
+                l2r()
+            ans = min(ans, s)
+        return ans
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private final TreeMap<Integer, Integer> l = new TreeMap<>();
+    private final TreeMap<Integer, Integer> r = new TreeMap<>();
+    private long s;
+    private int size;
+
     public long minimumCost(int[] nums, int k, int dist) {
-        long result = Long.MAX_VALUE, sum = 0L;
-        int n = nums.length;
-        TreeSet<Integer> set1
-            = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
-        TreeSet<Integer> set2
-            = new TreeSet<>((a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]);
-        for (int i = 1; i < n; i++) {
-            set1.add(i);
-            sum += nums[i];
-            if (set1.size() >= k) {
-                int x = set1.pollLast();
-                sum -= nums[x];
-                set2.add(x);
-            }
-            if (i - dist > 0) {
-                result = Math.min(result, sum);
-                int temp = i - dist;
-                if (set1.contains(temp)) {
-                    set1.remove(temp);
-                    sum -= nums[temp];
-                    if (set2.size() > 0) {
-                        int y = set2.pollFirst();
-                        sum += nums[y];
-                        set1.add(y);
-                    }
-                } else {
-                    set2.remove(i - dist);
-                }
-            }
+        --k;
+        s = nums[0];
+        for (int i = 1; i < dist + 2; ++i) {
+            s += nums[i];
+            l.merge(nums[i], 1, Integer::sum);
         }
-        return result + nums[0];
+        size = dist + 1;
+        while (size > k) {
+            l2r();
+        }
+        long ans = s;
+        for (int i = dist + 2; i < nums.length; ++i) {
+            int x = nums[i - dist - 1];
+            if (l.containsKey(x)) {
+                if (l.merge(x, -1, Integer::sum) == 0) {
+                    l.remove(x);
+                }
+                s -= x;
+                --size;
+            } else if (r.merge(x, -1, Integer::sum) == 0) {
+                r.remove(x);
+            }
+            int y = nums[i];
+            if (y < l.lastKey()) {
+                l.merge(y, 1, Integer::sum);
+                ++size;
+                s += y;
+            } else {
+                r.merge(y, 1, Integer::sum);
+            }
+            while (size < k) {
+                r2l();
+            }
+            while (size > k) {
+                l2r();
+            }
+            ans = Math.min(ans, s);
+        }
+        return ans;
+    }
+
+    private void l2r() {
+        int x = l.lastKey();
+        s -= x;
+        if (l.merge(x, -1, Integer::sum) == 0) {
+            l.remove(x);
+        }
+        --size;
+        r.merge(x, 1, Integer::sum);
+    }
+
+    private void r2l() {
+        int x = r.firstKey();
+        if (r.merge(x, -1, Integer::sum) == 0) {
+            r.remove(x);
+        }
+        l.merge(x, 1, Integer::sum);
+        s += x;
+        ++size;
     }
 }
 ```
@@ -169,50 +220,47 @@ class Solution {
 class Solution {
 public:
     long long minimumCost(vector<int>& nums, int k, int dist) {
-        multiset<int> sml, big;
-        int sz = dist + 1;
-        long long sum = 0, ans = 0;
-        for (int i = 1; i <= sz; i++) {
-            sml.insert(nums[i]);
-            sum += nums[i];
+        --k;
+        multiset<int> l(nums.begin() + 1, nums.begin() + dist + 2), r;
+        long long s = accumulate(nums.begin(), nums.begin() + dist + 2, 0LL);
+        while (l.size() > k) {
+            int x = *l.rbegin();
+            l.erase(l.find(x));
+            s -= x;
+            r.insert(x);
         }
-        while (sml.size() > k - 1) {
-            big.insert(*sml.rbegin());
-            sum -= *sml.rbegin();
-            sml.erase(sml.find(*sml.rbegin()));
-        }
-        ans = sum;
-        for (int i = sz + 1; i < nums.size(); i++) {
-            sum += nums[i];
-            sml.insert(nums[i]);
-            if (big.find(nums[i - sz]) != big.end()) {
-                big.erase(big.find(nums[i - sz]));
+        long long ans = s;
+        for (int i = dist + 2; i < nums.size(); ++i) {
+            int x = nums[i - dist - 1];
+            auto it = l.find(x);
+            if (it != l.end()) {
+                l.erase(it);
+                s -= x;
             } else {
-                sum -= nums[i - sz];
-                sml.erase(sml.find(nums[i - sz]));
+                r.erase(r.find(x));
             }
-
-            while (sml.size() > k - 1) {
-                sum -= *sml.rbegin();
-                big.insert(*sml.rbegin());
-                sml.erase(sml.find(*sml.rbegin()));
+            int y = nums[i];
+            if (y < *l.rbegin()) {
+                l.insert(y);
+                s += y;
+            } else {
+                r.insert(y);
             }
-            while (sml.size() < k - 1) {
-                sum += *big.begin();
-                sml.insert(*big.begin());
-                big.erase(big.begin());
+            while (l.size() == k - 1) {
+                int x = *r.begin();
+                r.erase(r.find(x));
+                l.insert(x);
+                s += x;
             }
-            while (!sml.empty() && !big.empty() && *sml.rbegin() > *big.begin()) {
-                sum -= *sml.rbegin() - *big.begin();
-                sml.insert(*big.begin());
-                big.insert(*sml.rbegin());
-                sml.erase(sml.find(*sml.rbegin()));
-                big.erase(big.begin());
+            while (l.size() == k + 1) {
+                int x = *l.rbegin();
+                l.erase(l.find(x));
+                s -= x;
+                r.insert(x);
             }
-            ans = min(ans, sum);
+            ans = min(ans, s);
         }
-        int p = 0;
-        return nums[0] + ans;
+        return ans;
     }
 };
 ```
@@ -221,198 +269,72 @@ public:
 
 ```go
 func minimumCost(nums []int, k int, dist int) int64 {
-	res := nums[0] + slices.Min(windowTopKSum(nums[1:], dist+1, k-1, true))
-	return int64(res)
-}
-
-func windowTopKSum(nums []int, windowSize, k int, min bool) []int {
-	n := len(nums)
-	ts := NewTopKSum(k, min)
-	res := []int{}
-	for right := 0; right < n; right++ {
-		ts.Add(nums[right])
-		if right >= windowSize {
-			ts.Discard(nums[right-windowSize])
-		}
-		if right >= windowSize-1 {
-			res = append(res, ts.Query())
-		}
-	}
-	return res
-}
-
-type TopKSum struct {
-	sum     int
-	k       int
-	in      *Heap
-	out     *Heap
-	dIn     *Heap
-	dOut    *Heap
-	counter map[int]int
-}
-
-func NewTopKSum(k int, min bool) *TopKSum {
-	var less func(a, b int) bool
-	if min {
-		less = func(a, b int) bool { return a < b }
-	} else {
-		less = func(a, b int) bool { return a > b }
-	}
-	return &TopKSum{
-		k:       k,
-		in:      NewHeap(less),
-		out:     NewHeap(less),
-		dIn:     NewHeap(less),
-		dOut:    NewHeap(less),
-		counter: map[int]int{},
-	}
-}
-
-func (t *TopKSum) Query() int {
-	return t.sum
-}
-
-func (t *TopKSum) Add(x int) {
-	t.counter[x]++
-	t.in.Push(-x)
-	t.sum += x
-	t.modify()
-}
-
-func (t *TopKSum) Discard(x int) bool {
-	if t.counter[x] == 0 {
-		return false
-	}
-	t.counter[x]--
-	if t.in.Len() > 0 && -t.in.Top() == x {
-		t.sum -= x
-		t.in.Pop()
-	} else if t.in.Len() > 0 && -t.in.Top() > x {
-		t.sum -= x
-		t.dIn.Push(-x)
-	} else {
-		t.dOut.Push(x)
-	}
-	t.modify()
-	return true
-}
-
-func (t *TopKSum) SetK(k int) {
-	t.k = k
-	t.modify()
-}
-
-func (t *TopKSum) GetK() int {
-	return t.k
-}
-
-func (t *TopKSum) Len() int {
-	return t.in.Len() + t.out.Len() - t.dIn.Len() - t.dOut.Len()
-}
-
-func (t *TopKSum) Has(x int) bool {
-	return t.counter[x] > 0
-}
-
-func (t *TopKSum) modify() {
-	for t.out.Len() > 0 && (t.in.Len()-t.dIn.Len() < t.k) {
-		p := t.out.Pop()
-		if t.dOut.Len() > 0 && p == t.dOut.Top() {
-			t.dOut.Pop()
+	k--
+	l := redblacktree.New[int, int]()
+	r := redblacktree.New[int, int]()
+	merge := func(st *redblacktree.Tree[int, int], x, v int) {
+		c, _ := st.Get(x)
+		if c+v == 0 {
+			st.Remove(x)
 		} else {
-			t.sum += p
-			t.in.Push(-p)
+			st.Put(x, c+v)
 		}
 	}
 
-	for t.in.Len()-t.dIn.Len() > t.k {
-		p := -t.in.Pop()
-		if t.dIn.Len() > 0 && p == -t.dIn.Top() {
-			t.dIn.Pop()
+	s := nums[0]
+	for _, x := range nums[1 : dist+2] {
+		s += x
+		merge(l, x, 1)
+	}
+	size := dist + 1
+
+	l2r := func() {
+		x := l.Right().Key
+		merge(l, x, -1)
+		s -= x
+		size--
+		merge(r, x, 1)
+	}
+	r2l := func() {
+		x := r.Left().Key
+		merge(r, x, -1)
+		merge(l, x, 1)
+		s += x
+		size++
+	}
+
+	for size > k {
+		l2r()
+	}
+
+	ans := s
+	for i := dist + 2; i < len(nums); i++ {
+		x := nums[i-dist-1]
+		if _, ok := l.Get(x); ok {
+			merge(l, x, -1)
+			s -= x
+			size--
 		} else {
-			t.sum -= p
-			t.out.Push(p)
+			merge(r, x, -1)
 		}
-	}
-
-	for t.dIn.Len() > 0 && t.in.Top() == t.dIn.Top() {
-		t.in.Pop()
-		t.dIn.Pop()
-	}
-}
-
-type H = int
-
-func NewHeap(less func(a, b H) bool, nums ...H) *Heap {
-	nums = append(nums[:0:0], nums...)
-	heap := &Heap{less: less, data: nums}
-	heap.heapify()
-	return heap
-}
-
-type Heap struct {
-	data []H
-	less func(a, b H) bool
-}
-
-func (h *Heap) Push(value H) {
-	h.data = append(h.data, value)
-	h.pushUp(h.Len() - 1)
-}
-
-func (h *Heap) Pop() (value H) {
-	if h.Len() == 0 {
-		panic("heap is empty")
-	}
-
-	value = h.data[0]
-	h.data[0] = h.data[h.Len()-1]
-	h.data = h.data[:h.Len()-1]
-	h.pushDown(0)
-	return
-}
-
-func (h *Heap) Top() (value H) {
-	value = h.data[0]
-	return
-}
-
-func (h *Heap) Len() int { return len(h.data) }
-
-func (h *Heap) heapify() {
-	n := h.Len()
-	for i := (n >> 1) - 1; i > -1; i-- {
-		h.pushDown(i)
-	}
-}
-
-func (h *Heap) pushUp(root int) {
-	for parent := (root - 1) >> 1; parent >= 0 && h.less(h.data[root], h.data[parent]); parent = (root - 1) >> 1 {
-		h.data[root], h.data[parent] = h.data[parent], h.data[root]
-		root = parent
-	}
-}
-
-func (h *Heap) pushDown(root int) {
-	n := h.Len()
-	for left := (root<<1 + 1); left < n; left = (root<<1 + 1) {
-		right := left + 1
-		minIndex := root
-
-		if h.less(h.data[left], h.data[minIndex]) {
-			minIndex = left
+		y := nums[i]
+		if y < l.Right().Key {
+			merge(l, y, 1)
+			s += y
+			size++
+		} else {
+			merge(r, y, 1)
 		}
-
-		if right < n && h.less(h.data[right], h.data[minIndex]) {
-			minIndex = right
+		for size < k {
+			r2l()
 		}
-
-		if minIndex == root {
-			return
+		for size > k {
+			l2r()
 		}
-		h.data[root], h.data[minIndex] = h.data[minIndex], h.data[root]
-		root = minIndex
+		ans = min(ans, s)
+
 	}
+	return int64(ans)
 }
 ```
 
