@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3316.Find%20Maximum%20Removals%20From%20Source%20String/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 双指针
+    - 字符串
+    - 动态规划
 ---
 
 <!-- problem:start -->

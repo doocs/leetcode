@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3317.Find%20the%20Number%20of%20Possible%20Ways%20for%20an%20Event/README.md
+tags:
+    - 数学
+    - 动态规划
+    - 组合数学
 ---
 
 <!-- problem:start -->

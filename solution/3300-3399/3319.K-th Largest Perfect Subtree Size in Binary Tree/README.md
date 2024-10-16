@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 二叉树
+    - 排序
 ---
 
 <!-- problem:start -->
@@ -33,9 +38,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3319.K-
 
 <p><strong>解释：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/image.jpg" style="width: 300px; height: 175px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/tmpresl95rp-1.png" style="width: 400px; height: 173px;" /></p>
 
-<p>完美二叉子树的根节点在图中以黑色突出显示。它们的大小按降序排列为 <code>[3, 3, 1, 1, 1, 1, 1, 1]</code>。<br />
+<p>完美二叉子树的根节点在图中以黑色突出显示。它们的大小按非递增顺序排列为 <code>[3, 3, 1, 1, 1, 1, 1, 1]</code>。<br />
 第 <code>2</code> 大的完美二叉子树的大小是 3。</p>
 </div>
 
@@ -48,9 +53,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3319.K-
 
 <p><strong>解释：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/image1.jpg" style="width: 300px; height: 149px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/tmp_s508x9e-1.png" style="width: 300px; height: 189px;" /></p>
 
-<p>完美二叉子树的大小按降序排列为 <code>[7, 3, 3, 1, 1, 1, 1]</code>。最大的完美二叉子树的大小是 7。</p>
+<p>完美二叉子树的大小按非递增顺序排列为 <code>[7, 3, 3, 1, 1, 1, 1]</code>。最大的完美二叉子树的大小是 7。</p>
 </div>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -62,9 +67,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3319.K-
 
 <p><strong>解释：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/image4.jpg" style="width: 150px; height: 130px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/tmp74xnmpj4-1.png" style="width: 250px; height: 225px;" /></p>
 
-<p>完美二叉子树的大小按降序排列为 <code>[1, 1]</code>。完美二叉子树的数量少于 3。</p>
+<p>完美二叉子树的大小按非递增顺序排列为 <code>[1, 1]</code>。完美二叉子树的数量少于 3。</p>
 </div>
 
 <p>&nbsp;</p>

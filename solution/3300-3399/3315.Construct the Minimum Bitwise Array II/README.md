@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3315.Construct%20the%20Minimum%20Bitwise%20Array%20II/README.md
+tags:
+    - 位运算
+    - 数组
 ---
 
 <!-- problem:start -->

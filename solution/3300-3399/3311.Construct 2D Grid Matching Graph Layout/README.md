@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README.md
+rating: 2664
+source: 第 418 场周赛 Q3
 tags:
     - 图
     - 数组

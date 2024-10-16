@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README.md
+tags:
+    - 字符串
+    - 动态规划
 ---
 
 <!-- problem:start -->

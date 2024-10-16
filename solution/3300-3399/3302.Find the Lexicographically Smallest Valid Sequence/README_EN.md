@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README_EN.md
+rating: 2473
+source: Biweekly Contest 140 Q3
 tags:
     - Greedy
     - Two Pointers

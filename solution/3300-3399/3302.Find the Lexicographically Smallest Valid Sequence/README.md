@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3302.Find%20the%20Lexicographically%20Smallest%20Valid%20Sequence/README.md
+rating: 2473
+source: 第 140 场双周赛 Q3
 tags:
     - 贪心
     - 双指针
