@@ -3322,15 +3322,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3311  |  [Construct 2D Grid Matching Graph Layout](/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README_EN.md)  |  `Graph`,`Array`,`Hash Table`,`Matrix`  |  Hard  |  Weekly Contest 418  |
 |  3312  |  [Sorted GCD Pair Queries](/solution/3300-3399/3312.Sorted%20GCD%20Pair%20Queries/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Binary Search`,`Combinatorics`,`Counting`,`Number Theory`,`Prefix Sum`  |  Hard  |  Weekly Contest 418  |
 |  3313  |  [Find the Last Marked Nodes in Tree](/solution/3300-3399/3313.Find%20the%20Last%20Marked%20Nodes%20in%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`  |  Hard  |  🔒  |
-|  3314  |  [Construct the Minimum Bitwise Array I](/solution/3300-3399/3314.Construct%20the%20Minimum%20Bitwise%20Array%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 141  |
-|  3315  |  [Construct the Minimum Bitwise Array II](/solution/3300-3399/3315.Construct%20the%20Minimum%20Bitwise%20Array%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 141  |
-|  3316  |  [Find Maximum Removals From Source String](/solution/3300-3399/3316.Find%20Maximum%20Removals%20From%20Source%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 141  |
-|  3317  |  [Find the Number of Possible Ways for an Event](/solution/3300-3399/3317.Find%20the%20Number%20of%20Possible%20Ways%20for%20an%20Event/README_EN.md)  |    |  Hard  |  Biweekly Contest 141  |
-|  3318  |  [Find X-Sum of All K-Long Subarrays I](/solution/3300-3399/3318.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 419  |
-|  3319  |  [K-th Largest Perfect Subtree Size in Binary Tree](/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 419  |
-|  3320  |  [Count The Number of Winning Sequences](/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README_EN.md)  |    |  Hard  |  Weekly Contest 419  |
-|  3321  |  [Find X-Sum of All K-Long Subarrays II](/solution/3300-3399/3321.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 419  |
-|  3322  |  [Premier League Table Ranking III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README_EN.md)  |    |  Medium  |  🔒  |
+|  3314  |  [Construct the Minimum Bitwise Array I](/solution/3300-3399/3314.Construct%20the%20Minimum%20Bitwise%20Array%20I/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Easy  |  Biweekly Contest 141  |
+|  3315  |  [Construct the Minimum Bitwise Array II](/solution/3300-3399/3315.Construct%20the%20Minimum%20Bitwise%20Array%20II/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |  Biweekly Contest 141  |
+|  3316  |  [Find Maximum Removals From Source String](/solution/3300-3399/3316.Find%20Maximum%20Removals%20From%20Source%20String/README_EN.md)  |  `Array`,`Hash Table`,`Two Pointers`,`String`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 141  |
+|  3317  |  [Find the Number of Possible Ways for an Event](/solution/3300-3399/3317.Find%20the%20Number%20of%20Possible%20Ways%20for%20an%20Event/README_EN.md)  |  `Math`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Biweekly Contest 141  |
+|  3318  |  [Find X-Sum of All K-Long Subarrays I](/solution/3300-3399/3318.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20I/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 419  |
+|  3319  |  [K-th Largest Perfect Subtree Size in Binary Tree](/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`,`Sorting`  |  Medium  |  Weekly Contest 419  |
+|  3320  |  [Count The Number of Winning Sequences](/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 419  |
+|  3321  |  [Find X-Sum of All K-Long Subarrays II](/solution/3300-3399/3321.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20II/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 419  |
+|  3322  |  [Premier League Table Ranking III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
+|  3323  |  [Minimize Connected Groups by Inserting Interval](/solution/3300-3399/3323.Minimize%20Connected%20Groups%20by%20Inserting%20Interval/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3303.Find%20the%20Occurrence%20of%20First%20Almost%20Equal%20Substring/README_EN.md
+rating: 2509
+source: Biweekly Contest 140 Q4
 tags:
     - String
     - String Matching

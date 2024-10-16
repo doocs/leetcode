@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Tree
+    - Sorting
 ---
 
 <!-- problem:start -->
@@ -30,9 +35,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3319.K-
 
 <p><strong>Explanation:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/image.jpg" style="width: 300px; height: 175px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/tmpresl95rp-1.png" style="width: 400px; height: 173px;" /></p>
 
-<p>The roots of the perfect binary subtrees are highlighted in black. Their sizes, in decreasing order are <code>[3, 3, 1, 1, 1, 1, 1, 1]</code>.<br />
+<p>The roots of the perfect binary subtrees are highlighted in black. Their sizes, in non-increasing order are <code>[3, 3, 1, 1, 1, 1, 1, 1]</code>.<br />
 The <code>2<sup>nd</sup></code> largest size is 3.</p>
 </div>
 
@@ -45,9 +50,9 @@ The <code>2<sup>nd</sup></code> largest size is 3.</p>
 
 <p><strong>Explanation:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/image1.jpg" style="width: 300px; height: 149px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/tmp_s508x9e-1.png" style="width: 300px; height: 189px;" /></p>
 
-<p>The sizes of the perfect binary subtrees in decreasing order are <code>[7, 3, 3, 1, 1, 1, 1]</code>. The size of the largest perfect binary subtree is 7.</p>
+<p>The sizes of the perfect binary subtrees in non-increasing order are <code>[7, 3, 3, 1, 1, 1, 1]</code>. The size of the largest perfect binary subtree is 7.</p>
 </div>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -59,9 +64,9 @@ The <code>2<sup>nd</sup></code> largest size is 3.</p>
 
 <p><strong>Explanation:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/image4.jpg" style="width: 150px; height: 130px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3319.K-th%20Largest%20Perfect%20Subtree%20Size%20in%20Binary%20Tree/images/tmp74xnmpj4-1.png" style="width: 250px; height: 225px;" /></p>
 
-<p>The sizes of the perfect binary subtrees in decreasing order are <code>[1, 1]</code>. There are fewer than 3 perfect binary subtrees.</p>
+<p>The sizes of the perfect binary subtrees in non-increasing order are <code>[1, 1]</code>. There are fewer than 3 perfect binary subtrees.</p>
 </div>
 
 <p>&nbsp;</p>

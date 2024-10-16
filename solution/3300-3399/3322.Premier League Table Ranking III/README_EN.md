@@ -85,20 +85,20 @@ This table contains season id, team id, team name, matches played, wins, draws, 
 <p><strong>Output:</strong></p>
 
 <pre>
-+------------+---------+-------------------+--------+-----------------+------+
-| season_id  | team_id | team_name         | points | goal_difference | rank |
-+------------+---------+-------------------+--------+-----------------+------+
-| 2021       | 1       | Manchester City   | 93     | 73              | 1    |
-| 2021       | 2       | Liverpool         | 92     | 68              | 2    |
-| 2021       | 3       | Chelsea           | 74     | 43              | 3    |
-| 2021       | 4       | Tottenham         | 71     | 29              | 4    |
-| 2021       | 5       | Arsenal           | 69     | 13              | 5    |
-| 2022       | 1       | Manchester City   | 89     | 61              | 1    |
-| 2022       | 2       | Arsenal           | 84     | 45              | 2    |
-| 2022       | 3       | Manchester United | 75     | 15              | 3    |
-| 2022       | 4       | Newcastle         | 71     | 35              | 4    |
-| 2022       | 5       | Liverpool         | 67     | 28              | 5    |
-+------------+---------+-------------------+--------+-----------------+------+
++------------+---------+-------------------+--------+-----------------+----------+
+| season_id  | team_id | team_name         | points | goal_difference | position |
++------------+---------+-------------------+--------+-----------------+----------+
+| 2021       | 1       | Manchester City   | 93     | 73              | 1        |
+| 2021       | 2       | Liverpool         | 92     | 68              | 2        |
+| 2021       | 3       | Chelsea           | 74     | 43              | 3        |
+| 2021       | 4       | Tottenham         | 71     | 29              | 4        |
+| 2021       | 5       | Arsenal           | 69     | 13              | 5        |
+| 2022       | 1       | Manchester City   | 89     | 61              | 1        |
+| 2022       | 2       | Arsenal           | 84     | 45              | 2        |
+| 2022       | 3       | Manchester United | 75     | 15              | 3        |
+| 2022       | 4       | Newcastle         | 71     | 35              | 4        |
+| 2022       | 5       | Liverpool         | 67     | 28              | 5        | 
++------------+---------+-------------------+--------+-----------------+----------+
 </pre>
 
 <p><strong>Explanation:</strong></p>

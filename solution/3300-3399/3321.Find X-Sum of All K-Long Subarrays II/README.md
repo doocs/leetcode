@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3321.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20II/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 滑动窗口
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README_EN.md
+rating: 1710
+source: Weekly Contest 418 Q2
 tags:
     - Depth-First Search
     - Breadth-First Search

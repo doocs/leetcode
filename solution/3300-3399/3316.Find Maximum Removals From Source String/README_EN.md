@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3316.Find%20Maximum%20Removals%20From%20Source%20String/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Two Pointers
+    - String
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

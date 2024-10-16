@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3301.Maximize%20the%20Total%20Height%20of%20Unique%20Towers/README.md
+rating: 1448
+source: 第 140 场双周赛 Q2
 tags:
     - 贪心
     - 数组

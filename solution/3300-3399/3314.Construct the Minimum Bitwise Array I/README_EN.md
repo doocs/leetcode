@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3314.Construct%20the%20Minimum%20Bitwise%20Array%20I/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
 ---
 
 <!-- problem:start -->

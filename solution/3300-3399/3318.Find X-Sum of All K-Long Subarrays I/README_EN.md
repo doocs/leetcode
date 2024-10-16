@@ -2,6 +2,11 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3318.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20I/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->
@@ -67,7 +70,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3320.Co
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-	<li><code>s[i]</code> is either <code>&#39;F&#39;</code>, <code>&#39;W&#39;</code>, or <code>&#39;E&#39;</code>.</li>
+	<li><code>s[i]</code> is one of <code>&#39;F&#39;</code>, <code>&#39;W&#39;</code>, or <code>&#39;E&#39;</code>.</li>
 </ul>
 
 <!-- description:end -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README_EN.md
+rating: 2200
+source: Weekly Contest 417 Q3
 tags:
     - Hash Table
     - String
