@@ -25,8 +25,6 @@ tags:
 
 <p><strong>完美二叉树 </strong>是指所有叶子节点都在同一层级的树，且每个父节点恰有两个子节点。</p>
 
-<p><strong>子树 </strong>是指树中的某一个节点及其所有后代形成的树。</p>
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>

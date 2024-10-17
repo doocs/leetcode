@@ -59,7 +59,7 @@ tags:
 SORTracker tracker = new SORTracker(); // 初始化系统
 tracker.add("bradford", 2); // 添加 name="bradford" 且 score=2 的景点。
 tracker.add("branford", 3); // 添加 name="branford" 且 score=3 的景点。
-tracker.get();              // 从好带坏的景点为：branford ，bradford 。
+tracker.get();              // 从好到坏的景点为：branford ，bradford 。
                             // 注意到 branford 比 bradford 好，因为它的 <strong>评分更高</strong> (3 &gt; 2) 。
                             // 这是第 1 次调用 get() ，所以返回最好的景点："branford" 。
 tracker.add("alps", 2);     // 添加 name="alps" 且 score=2 的景点。
