@@ -30,7 +30,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3323.Mi
 	<li>然而，区间组&nbsp;<code>[[1, 2], [3, 4]]</code>&nbsp;不是连通的，因为&nbsp;<code>(2, 3)</code>&nbsp;段没有被覆盖。</li>
 </ul>
 
-<p>返回在添加&nbsp;<strong>恰好一个</strong>&nbsp;新区间到数组后连通组的 <strong>最小</strong>&nbsp;数量。</p>
+<p>返回在数组添加 <strong>恰好一个</strong> 新区间后，连通组的 <strong>最小</strong> 数量。</p>
 
 <p>&nbsp;</p>
 

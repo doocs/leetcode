@@ -38,6 +38,8 @@ tags:
 <p><strong>解释：</strong></p>
 
 <p>子数组&nbsp;<code>[3]</code>&nbsp;的按位&nbsp;<code>OR</code> 值为&nbsp;<code>3</code>&nbsp;，所以我们返回 <code>1</code>&nbsp;。</p>
+
+<p>注意，<code>[2]</code> 也是一个特别子数组。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
