@@ -289,7 +289,7 @@ function longestDiverseString(a: number, b: number, c: number): string {
 
 <!-- solution:start -->
 
-### Solution 2: Greedy + Priority Queue
+### 方法二：贪心 + 优先队列（另一种写法）
 
 <!-- tabs:start -->
 
