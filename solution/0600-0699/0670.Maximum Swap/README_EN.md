@@ -239,4 +239,58 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Space Optimized Greedy
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function maximumSwap(num: number): number {
+    const ans = [...String(num)];
+    let [min, max, maybeMax, n] = [-1, -1, -1, ans.length];
+
+    for (let i = n - 1; i >= 0; i--) {
+        if (ans[i] > (ans[maybeMax] ?? -1)) maybeMax = i;
+        if (i < maybeMax && ans[i] < ans[maybeMax]) {
+            [min, max] = [i, maybeMax];
+        }
+    }
+
+    if (~min && ~max && min < max) {
+        [ans[min], ans[max]] = [ans[max], ans[min]];
+    }
+
+    return +ans.join('');
+}
+```
+
+#### JavaScript
+
+```js
+function maximumSwap(num) {
+    const ans = [...String(num)];
+    let [min, max, maybeMax, n] = [-1, -1, -1, ans.length];
+
+    for (let i = n - 1; i >= 0; i--) {
+        if (ans[i] > (ans[maybeMax] ?? -1)) maybeMax = i;
+        if (i < maybeMax && ans[i] < ans[maybeMax]) {
+            [min, max] = [i, maybeMax];
+        }
+    }
+
+    if (~min && ~max && min < max) {
+        [ans[min], ans[max]] = [ans[max], ans[min]];
+    }
+
+    return +ans.join('');
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
