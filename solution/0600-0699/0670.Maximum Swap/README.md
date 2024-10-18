@@ -237,7 +237,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Space Optimized Greedy
+### 方法二：贪心 + 空间优化
 
 <!-- tabs:start -->
 
