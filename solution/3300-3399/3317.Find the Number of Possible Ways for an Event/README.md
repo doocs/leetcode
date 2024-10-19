@@ -90,32 +90,142 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[i][j]$ 表示前 $i$ 个表演者安排到 $j$ 个节目的方案数。初始时 $f[0][0] = 1$，其余 $f[i][j] = 0$。
+
+对于 $f[i][j]$，其中 $1 \leq i \leq n$, $1 \leq j \leq x$，我们考虑第 $i$ 个表演者：
+
+-   如果被安排到了一个已经有表演者的节目，一共有 $j$ 种选择，即 $f[i - 1][j] \times j$；
+-   如果被安排到了一个没有表演者的节目，一共有 $x - (j - 1)$ 种选择，即 $f[i - 1][j - 1] \times (x - (j - 1))$。
+
+所以状态转移方程为：
+
+$$
+f[i][j] = f[i - 1][j] \times j + f[i - 1][j - 1] \times (x - (j - 1))
+$$
+
+对于每个 $j$，一共有 $y^j$ 种选择，所以最终答案为：
+
+$$
+\sum_{j = 1}^{x} f[n][j] \times y^j
+$$
+
+注意，由于答案可能很大，我们需要对 $10^9 + 7$ 取模。
+
+时间复杂度 $O(n \times x)$，空间复杂度 $O(n \times x)$。其中 $n$ 和 $x$ 分别为表演者的数量和节目的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numberOfWays(self, n: int, x: int, y: int) -> int:
+        mod = 10**9 + 7
+        f = [[0] * (x + 1) for _ in range(n + 1)]
+        f[0][0] = 1
+        for i in range(1, n + 1):
+            for j in range(1, x + 1):
+                f[i][j] = (f[i - 1][j] * j + f[i - 1][j - 1] * (x - (j - 1))) % mod
+        ans, p = 0, 1
+        for j in range(1, x + 1):
+            p = p * y % mod
+            ans = (ans + f[n][j] * p) % mod
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numberOfWays(int n, int x, int y) {
+        final int mod = (int) 1e9 + 7;
+        long[][] f = new long[n + 1][x + 1];
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= x; ++j) {
+                f[i][j] = (f[i - 1][j] * j % mod + f[i - 1][j - 1] * (x - (j - 1) % mod)) % mod;
+            }
+        }
+        long ans = 0, p = 1;
+        for (int j = 1; j <= x; ++j) {
+            p = p * y % mod;
+            ans = (ans + f[n][j] * p) % mod;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfWays(int n, int x, int y) {
+        const int mod = 1e9 + 7;
+        long long f[n + 1][x + 1];
+        memset(f, 0, sizeof(f));
+        f[0][0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= x; ++j) {
+                f[i][j] = (f[i - 1][j] * j % mod + f[i - 1][j - 1] * (x - (j - 1) % mod)) % mod;
+            }
+        }
+        long long ans = 0, p = 1;
+        for (int j = 1; j <= x; ++j) {
+            p = p * y % mod;
+            ans = (ans + f[n][j] * p) % mod;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func numberOfWays(n int, x int, y int) int {
+	const mod int = 1e9 + 7
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, x+1)
+	}
+	f[0][0] = 1
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= x; j++ {
+			f[i][j] = (f[i-1][j]*j%mod + f[i-1][j-1]*(x-(j-1))%mod) % mod
+		}
+	}
+	ans, p := 0, 1
+	for j := 1; j <= x; j++ {
+		p = p * y % mod
+		ans = (ans + f[n][j]*p%mod) % mod
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function numberOfWays(n: number, x: number, y: number): number {
+    const mod = BigInt(10 ** 9 + 7);
+    const f: bigint[][] = Array.from({ length: n + 1 }, () => Array(x + 1).fill(0n));
+    f[0][0] = 1n;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= x; ++j) {
+            f[i][j] = (f[i - 1][j] * BigInt(j) + f[i - 1][j - 1] * BigInt(x - (j - 1))) % mod;
+        }
+    }
+    let [ans, p] = [0n, 1n];
+    for (let j = 1; j <= x; ++j) {
+        p = (p * BigInt(y)) % mod;
+        ans = (ans + f[n][j] * p) % mod;
+    }
+    return Number(ans);
+}
 ```
 
 <!-- tabs:end -->
