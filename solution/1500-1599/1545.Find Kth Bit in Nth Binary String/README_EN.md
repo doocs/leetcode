@@ -201,4 +201,27 @@ function findKthBit(n: number, k: number): string {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Bit Manipulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+const findKthBit = (n: number, k: number): string =>
+    String((((k / (k & -k)) >> 1) & 1) ^ (k & 1) ^ 1);
+```
+
+#### JavaScript
+
+```js
+const findKthBit = (n, k) => String((((k / (k & -k)) >> 1) & 1) ^ (k & 1) ^ 1);
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
