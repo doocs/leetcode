@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 420
+
+- [3324. Find the Sequence of Strings Appeared on the Screen](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README_EN.md)
+- [3325. Count Substrings With K-Frequency Characters I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README_EN.md)
+- [3326. Minimum Division Operations to Make Array Non Decreasing](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)
+- [3327. Check if DFS Strings Are Palindromes](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md)
+
 #### Weekly Contest 419
 
 - [3318. Find X-Sum of All K-Long Subarrays I](/solution/3300-3399/3318.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20I/README_EN.md)

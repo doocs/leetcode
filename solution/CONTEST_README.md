@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 420 场周赛(2024-10-20 10:30, 90 分钟) 参赛人数 2921
+
+- [3324. 出现在屏幕上的字符串序列](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README.md)
+- [3325. 字符至少出现 K 次的子字符串 I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README.md)
+- [3326. 使数组非递减的最少除法操作次数](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)
+- [3327. 判断 DFS 字符串是否是回文串](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README.md)
+
 #### 第 419 场周赛(2024-10-13 10:30, 90 分钟) 参赛人数 2924
 
 - [3318. 计算子数组的 x-sum I](/solution/3300-3399/3318.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20I/README.md)

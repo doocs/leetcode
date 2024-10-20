@@ -16,7 +16,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3323.Mi
 
 <p>给定一个 2 维数组&nbsp;<code>intervals</code>，其中&nbsp;<code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>&nbsp;表示区间&nbsp;<code>i</code>&nbsp;的开头和结尾。另外还给定一个整数&nbsp;<code>k</code>。</p>
 
-<p>你必须向数组添加 <strong>恰好一个</strong>&nbsp;新的区间&nbsp;<code>[start<sub>new</sub>, end<sub>new</sub>]</code>&nbsp;使得：</p>
+<p>你必须向数组 <strong>恰好添加一个</strong>&nbsp;新的区间&nbsp;<code>[start<sub>new</sub>, end<sub>new</sub>]</code>&nbsp;使得：</p>
 
 <ul>
 	<li>新区间的长度，<code>end<sub>new</sub> - start<sub>new</sub></code>&nbsp;最多为&nbsp;<code>k</code>。</li>
@@ -30,7 +30,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3323.Mi
 	<li>然而，区间组&nbsp;<code>[[1, 2], [3, 4]]</code>&nbsp;不是连通的，因为&nbsp;<code>(2, 3)</code>&nbsp;段没有被覆盖。</li>
 </ul>
 
-<p>返回在数组添加 <strong>恰好一个</strong> 新区间后，连通组的 <strong>最小</strong> 数量。</p>
+<p>返回在数组&nbsp;<strong>恰好添加一个</strong> 新区间后，连通组的 <strong>最小</strong> 数量。</p>
 
 <p>&nbsp;</p>
 
