@@ -217,7 +217,7 @@ function findKthBit(n: number, k: number): string {
 
 <!-- solution:start -->
 
-### Solution 2: Bit Manipulation
+### 方法二：位运算
 
 <!-- tabs:start -->
 
