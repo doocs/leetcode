@@ -3332,6 +3332,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3321  |  [Find X-Sum of All K-Long Subarrays II](/solution/3300-3399/3321.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20II/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 419  |
 |  3322  |  [Premier League Table Ranking III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  3323  |  [Minimize Connected Groups by Inserting Interval](/solution/3300-3399/3323.Minimize%20Connected%20Groups%20by%20Inserting%20Interval/README_EN.md)  |    |  Medium  |  🔒  |
+|  3324  |  [Find the Sequence of Strings Appeared on the Screen](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
+|  3325  |  [Count Substrings With K-Frequency Characters I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
+|  3326  |  [Minimum Division Operations to Make Array Non Decreasing](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
+|  3327  |  [Check if DFS Strings Are Palindromes](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md)  |    |  Hard  |  Weekly Contest 420  |
 
 ## Copyright
 
