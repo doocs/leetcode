@@ -199,12 +199,14 @@ https://doocs.github.io/leetcode
 
 ## Stars 趋势
 
-<!-- 使用 https://starchart.cc/ 自动刷新 stars 数据，若有问题，可以使用 GitHub Action: starcharts.yml -->
-<!-- <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://starchart.cc/doocs/leetcode.svg" alt="Stargazers over time" /></a> -->
-
-<!-- [![Star History Chart](https://api.star-history.com/svg?repos=doocs/leetcode&type=Date)](https://star-history.com/#doocs/leetcode) -->
-
 <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="./images/starcharts.svg" alt="Stargazers over time" /></a>
+
+<a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank" style="display: block" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark" width="721" height="auto">
+    <img alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721" height="auto">
+  </picture>
+</a>
 
 ## 贡献者
 
