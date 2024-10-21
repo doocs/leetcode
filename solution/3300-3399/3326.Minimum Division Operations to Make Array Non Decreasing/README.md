@@ -70,32 +70,171 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3326.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：预处理 + 贪心
+
+根据题目描述，
+
+如果整数 $x$ 是质数，那么它的最大真因数是 $1$，那么 $x / 1 = x$，即 $x$ 不能再被除了；
+
+如果整数 $x$ 不是质数，我们假设 $x$ 的最大真因数为 $y$，那么 $x / y$ 一定是质数，因此，我们寻找最小质数 $\textit{lpf}[x]$，使得 $x \bmod \textit{lpf}[x] = 0$，使得 $x$ 变成 $\textit{lpf}[x]$，此时无法再被除了。
+
+因此，我们可以预处理出 $1$ 到 $10^6$ 的每个整数的最小质因数，然后从右往左遍历数组，如果当前元素大于下一个元素，我们将当前元素变为它的最小质因数，如果当前元素变为它的最小质因数后，仍然大于下一个元素，说明无法将数组变成非递减的，返回 $-1$。否则，操作次数加一。继续遍历，直到遍历完整个数组。
+
+预处理的时间复杂度为 $O(M \times \log \log M)$，其中 $M = 10^6$，遍历数组的时间复杂度为 $O(n)$，其中 $n$ 为数组的长度。空间复杂度为 $O(M)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+mx = 10**6 + 1
+lpf = [0] * (mx + 1)
+for i in range(2, mx + 1):
+    if lpf[i] == 0:
+        for j in range(i, mx + 1, i):
+            if lpf[j] == 0:
+                lpf[j] = i
 
+
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        ans = 0
+        for i in range(len(nums) - 2, -1, -1):
+            if nums[i] > nums[i + 1]:
+                nums[i] = lpf[nums[i]]
+                if nums[i] > nums[i + 1]:
+                    return -1
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    private static final int MX = (int) 1e6 + 1;
+    private static final int[] LPF = new int[MX + 1];
+    static {
+        for (int i = 2; i <= MX; ++i) {
+            for (int j = i; j <= MX; j += i) {
+                if (LPF[j] == 0) {
+                    LPF[j] = i;
+                }
+            }
+        }
+    }
+    public int minOperations(int[] nums) {
+        int ans = 0;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            if (nums[i] > nums[i + 1]) {
+                nums[i] = LPF[nums[i]];
+                if (nums[i] > nums[i + 1]) {
+                    return -1;
+                }
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+const int MX = 1e6;
+int LPF[MX + 1];
 
+auto init = [] {
+    for (int i = 2; i <= MX; i++) {
+        if (LPF[i] == 0) {
+            for (int j = i; j <= MX; j += i) {
+                if (LPF[j] == 0) {
+                    LPF[j] = i;
+                }
+            }
+        }
+    }
+    return 0;
+}();
+
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        int ans = 0;
+        for (int i = nums.size() - 2; i >= 0; i--) {
+            if (nums[i] > nums[i + 1]) {
+                nums[i] = LPF[nums[i]];
+                if (nums[i] > nums[i + 1]) {
+                    return -1;
+                }
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+const mx int = 1e6
 
+var lpf = [mx + 1]int{}
+
+func init() {
+	for i := 2; i <= mx; i++ {
+		if lpf[i] == 0 {
+			for j := i; j <= mx; j += i {
+				if lpf[j] == 0 {
+					lpf[j] = i
+				}
+			}
+		}
+	}
+}
+
+func minOperations(nums []int) (ans int) {
+	for i := len(nums) - 2; i >= 0; i-- {
+		if nums[i] > nums[i+1] {
+			nums[i] = lpf[nums[i]]
+			if nums[i] > nums[i+1] {
+				return -1
+			}
+			ans++
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+const mx = 10 ** 6;
+const lpf = Array(mx + 1).fill(0);
+for (let i = 2; i <= mx; ++i) {
+    for (let j = i; j <= mx; j += i) {
+        if (lpf[j] === 0) {
+            lpf[j] = i;
+        }
+    }
+}
+
+function minOperations(nums: number[]): number {
+    let ans = 0;
+    for (let i = nums.length - 2; ~i; --i) {
+        if (nums[i] > nums[i + 1]) {
+            nums[i] = lpf[nums[i]];
+            if (nums[i] > nums[i + 1]) {
+                return -1;
+            }
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
