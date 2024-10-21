@@ -3338,6 +3338,7 @@
 |  3325  |  [字符至少出现 K 次的子字符串 I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README.md)  |    |  中等  |  第 420 场周赛  |
 |  3326  |  [使数组非递减的最少除法操作次数](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)  |    |  中等  |  第 420 场周赛  |
 |  3327  |  [判断 DFS 字符串是否是回文串](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README.md)  |    |  困难  |  第 420 场周赛  |
+|  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

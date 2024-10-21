@@ -298,6 +298,7 @@
 | 3293 | [计算产品最终价格](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README.md)                                                                   | `数据库` | 中等 | 🔒   |
 | 3308 | [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README.md)                                                            | `数据库` | 中等 | 🔒   |
 | 3322 | [英超积分榜排名 III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README.md)                                                            | `数据库` | 中等 | 🔒   |
+| 3328 | [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README.md)                                                    |          | 中等 | 🔒   |
 
 ## 版权
 

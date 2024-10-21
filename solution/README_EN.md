@@ -3336,6 +3336,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3325  |  [Count Substrings With K-Frequency Characters I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
 |  3326  |  [Minimum Division Operations to Make Array Non Decreasing](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
 |  3327  |  [Check if DFS Strings Are Palindromes](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md)  |    |  Hard  |  Weekly Contest 420  |
+|  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
