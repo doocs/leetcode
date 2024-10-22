@@ -58,6 +58,6 @@ class Solution {
         }
         dfsStr.append(s[i]);
         int r = dfsStr.length();
-        pos[i] = new int[]{l, r};
+        pos[i] = new int[] {l, r};
     }
 }

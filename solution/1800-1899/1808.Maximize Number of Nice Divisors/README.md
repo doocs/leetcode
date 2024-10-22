@@ -7,6 +7,7 @@ source: 第 234 场周赛 Q4
 tags:
     - 递归
     - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

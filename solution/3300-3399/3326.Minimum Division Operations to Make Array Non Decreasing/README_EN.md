@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sliding Window
 ---
 
 <!-- problem:start -->
@@ -14,9 +18,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3325.Co
 
 <!-- description:start -->
 
-<p>Given a string <code>s</code> and an integer <code>k</code>, return the total number of substrings of <code>s</code> where <strong>at least one</strong> character appears <strong>at least</strong> <code>k</code> times.</p>
-
-<p>A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of characters within a string.</p>
+<p>Given a string <code>s</code> and an integer <code>k</code>, return the total number of <span data-keyword="substring-nonempty">substrings</span> of <code>s</code> where <strong>at least one</strong> character appears <strong>at least</strong> <code>k</code> times.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

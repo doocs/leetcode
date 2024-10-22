@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 哈希表
+    - 字符串
+    - 哈希函数
 ---
 
 <!-- problem:start -->
@@ -217,7 +224,7 @@ class Solution {
         }
         dfsStr.append(s[i]);
         int r = dfsStr.length();
-        pos[i] = new int[]{l, r};
+        pos[i] = new int[] {l, r};
     }
 }
 ```
