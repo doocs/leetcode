@@ -92,7 +92,11 @@ class CommitterPlugin:
         authors = []
         print(f"Getting contributors to {path}")
         for _ in range(5):
-            r = requests.get(url=path, headers=get_header())
+            try:
+                r = requests.get(url=path, headers=get_header())
+            except Exception as e:
+                print(f"Got an exception: {e}")
+                continue
             self.last_request_return_code = r.status_code
             if r.status_code == 200:
                 # Get login, url and avatar for each author. Ensure no duplicates.
