@@ -79,7 +79,7 @@ plugins:
       background: white
       shadow: true
   - search:
-      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+      enabled: false
 
 hooks:
   - hooks/edit_url.py
