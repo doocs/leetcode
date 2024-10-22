@@ -2,6 +2,13 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Hash Table
+    - String
+    - Hash Function
 ---
 
 <!-- problem:start -->
@@ -31,12 +38,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3327.Ch
 
 <ul>
 	<li>Empty the string <code>dfsStr</code> and call <code>dfs(i)</code>.</li>
-	<li>If the resulting string <code>dfsStr</code> is a <strong>palindrome</strong>, then set <code>answer[i]</code> to <code>true</code>. Otherwise, set <code>answer[i]</code> to <code>false</code>.</li>
+	<li>If the resulting string <code>dfsStr</code> is a <span data-keyword="palindrome-string">palindrome</span>, then set <code>answer[i]</code> to <code>true</code>. Otherwise, set <code>answer[i]</code> to <code>false</code>.</li>
 </ul>
 
 <p>Return the array <code>answer</code>.</p>
-
-<p>A <strong>palindrome</strong> is a string that reads the same forward and backward.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -210,7 +215,7 @@ class Solution {
         }
         dfsStr.append(s[i]);
         int r = dfsStr.length();
-        pos[i] = new int[]{l, r};
+        pos[i] = new int[] {l, r};
     }
 }
 ```

@@ -77,8 +77,8 @@ Explanation: The two lists do not intersect, so return null.
 	<li>The number of nodes of <code>listB</code> is in the <code>n</code>.</li>
 	<li><code>1 &lt;= m, n &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
-	<li><code>0 &lt;= skipA &lt;&nbsp;m</code></li>
-	<li><code>0 &lt;= skipB &lt;&nbsp;n</code></li>
+	<li><code>0 &lt;= skipA &lt;= m</code></li>
+	<li><code>0 &lt;= skipB &lt;= n</code></li>
 	<li><code>intersectVal</code> is <code>0</code> if <code>listA</code> and <code>listB</code> do not intersect.</li>
 	<li><code>intersectVal == listA[skipA] == listB[skipB]</code> if <code>listA</code> and <code>listB</code> intersect.</li>
 </ul>

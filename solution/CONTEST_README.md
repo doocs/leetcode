@@ -26,7 +26,7 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 420 场周赛(2024-10-20 10:30, 90 分钟) 参赛人数 2921
+#### 第 420 场周赛(2024-10-20 10:30, 90 分钟) 参赛人数 2995
 
 - [3324. 出现在屏幕上的字符串序列](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README.md)
 - [3325. 字符至少出现 K 次的子字符串 I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README.md)

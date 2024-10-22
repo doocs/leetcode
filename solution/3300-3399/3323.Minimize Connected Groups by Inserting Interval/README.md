@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3323.Minimize%20Connected%20Groups%20by%20Inserting%20Interval/README.md
+tags:
+    - 数组
+    - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

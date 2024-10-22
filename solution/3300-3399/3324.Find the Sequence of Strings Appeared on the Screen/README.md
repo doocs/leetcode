@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README.md
+tags:
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

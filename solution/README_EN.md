@@ -1816,7 +1816,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1805  |  [Number of Different Integers in a String](/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 234  |
 |  1806  |  [Minimum Number of Operations to Reinitialize a Permutation](/solution/1800-1899/1806.Minimum%20Number%20of%20Operations%20to%20Reinitialize%20a%20Permutation/README_EN.md)  |  `Array`,`Math`,`Simulation`  |  Medium  |  Weekly Contest 234  |
 |  1807  |  [Evaluate the Bracket Pairs of a String](/solution/1800-1899/1807.Evaluate%20the%20Bracket%20Pairs%20of%20a%20String/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Medium  |  Weekly Contest 234  |
-|  1808  |  [Maximize Number of Nice Divisors](/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README_EN.md)  |  `Recursion`,`Math`  |  Hard  |  Weekly Contest 234  |
+|  1808  |  [Maximize Number of Nice Divisors](/solution/1800-1899/1808.Maximize%20Number%20of%20Nice%20Divisors/README_EN.md)  |  `Recursion`,`Math`,`Number Theory`  |  Hard  |  Weekly Contest 234  |
 |  1809  |  [Ad-Free Sessions](/solution/1800-1899/1809.Ad-Free%20Sessions/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  1810  |  [Minimum Path Cost in a Hidden Grid](/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Interactive`,`Heap (Priority Queue)`  |  Medium  |  🔒  |
 |  1811  |  [Find Interview Candidates](/solution/1800-1899/1811.Find%20Interview%20Candidates/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
@@ -3331,12 +3331,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3320  |  [Count The Number of Winning Sequences](/solution/3300-3399/3320.Count%20The%20Number%20of%20Winning%20Sequences/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 419  |
 |  3321  |  [Find X-Sum of All K-Long Subarrays II](/solution/3300-3399/3321.Find%20X-Sum%20of%20All%20K-Long%20Subarrays%20II/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 419  |
 |  3322  |  [Premier League Table Ranking III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
-|  3323  |  [Minimize Connected Groups by Inserting Interval](/solution/3300-3399/3323.Minimize%20Connected%20Groups%20by%20Inserting%20Interval/README_EN.md)  |    |  Medium  |  🔒  |
-|  3324  |  [Find the Sequence of Strings Appeared on the Screen](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
-|  3325  |  [Count Substrings With K-Frequency Characters I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
-|  3326  |  [Minimum Division Operations to Make Array Non Decreasing](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)  |    |  Medium  |  Weekly Contest 420  |
-|  3327  |  [Check if DFS Strings Are Palindromes](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md)  |    |  Hard  |  Weekly Contest 420  |
-|  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  3323  |  [Minimize Connected Groups by Inserting Interval](/solution/3300-3399/3323.Minimize%20Connected%20Groups%20by%20Inserting%20Interval/README_EN.md)  |  `Array`,`Binary Search`,`Sorting`  |  Medium  |  🔒  |
+|  3324  |  [Find the Sequence of Strings Appeared on the Screen](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README_EN.md)  |  `String`,`Simulation`  |  Medium  |  Weekly Contest 420  |
+|  3325  |  [Count Substrings With K-Frequency Characters I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 420  |
+|  3326  |  [Minimum Division Operations to Make Array Non Decreasing](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 420  |
+|  3327  |  [Check if DFS Strings Are Palindromes](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Hash Table`,`String`,`Hash Function`  |  Hard  |  Weekly Contest 420  |
+|  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 
 ## Copyright
 

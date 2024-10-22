@@ -20,7 +20,7 @@ tags:
 
 <pre>
 +-------------+---------+
-| Column Name | Type    |
+| Column Name | Type    | 
 +-------------+---------+
 | state       | varchar |
 | city        | varchar |
