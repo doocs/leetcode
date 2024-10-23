@@ -157,7 +157,7 @@ class Solution {
         for (int i = 1; i <= m; ++i) {
             for (int j = 0; j <= n; ++j) {
                 f[i][j] = f[i - 1][j] + s[i - 1];
-                if (j >  0 && source.charAt(i - 1) == pattern.charAt(j - 1)) {
+                if (j > 0 && source.charAt(i - 1) == pattern.charAt(j - 1)) {
                     f[i][j] = Math.max(f[i][j], f[i - 1][j - 1]);
                 }
             }
