@@ -80,32 +80,123 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
+
+对于一个整数 $a$，满足 $a \lor (a + 1)$ 的结果一定为奇数，因此，如果 $\text{nums[i]}$ 是偶数，那么 $\text{ans}[i]$ 一定不存在，直接返回 $-1$。本题中 $\textit{nums}[i]$ 是质数，判断是否是偶数，只需要判断是否等于 $2$ 即可。
+
+如果 $\text{nums[i]}$ 是奇数，假设 $\text{nums[i]} = \text{0b1101101}$，由于 $a \lor (a + 1) = \text{nums[i]}$，等价于将 $a$ 的最后一个为 $0$ 的二进制位变为 $1$。那么求解 $a$，就等价于将 $\text{nums[i]}$ 的最后一个 $0$ 的下一位 $1$ 变为 $0$。我们只需要从低位（下标为 $1$）开始遍历，找到第一个为 $0$ 的二进制位，如果是第 $i$ 位，那么我们就将 $\text{nums[i]}$ 的第 $i - 1$ 位变为 $1$，即 $\text{ans}[i] = \text{nums[i]} \oplus 2^{i - 1}$。
+
+遍历所有的 $\text{nums[i]}$，即可得到答案。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组 $\text{nums}$ 的长度和数组中的最大值。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minBitwiseArray(self, nums: List[int]) -> List[int]:
+        ans = []
+        for x in nums:
+            if x == 2:
+                ans.append(-1)
+            else:
+                for i in range(1, 32):
+                    if x >> i & 1 ^ 1:
+                        ans.append(x ^ 1 << (i - 1))
+                        break
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] minBitwiseArray(List<Integer> nums) {
+        int n = nums.size();
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int x = nums.get(i);
+            if (x == 2) {
+                ans[i] = -1;
+            } else {
+                for (int j = 1; j < 32; ++j) {
+                    if ((x >> j & 1) == 0) {
+                        ans[i] = x ^ 1 << (j - 1);
+                        break;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minBitwiseArray(vector<int>& nums) {
+        vector<int> ans;
+        for (int x : nums) {
+            if (x == 2) {
+                ans.push_back(-1);
+            } else {
+                for (int i = 1; i < 32; ++i) {
+                    if (x >> i & 1 ^ 1) {
+                        ans.push_back(x ^ 1 << (i - 1));
+                        break;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minBitwiseArray(nums []int) (ans []int) {
+	for _, x := range nums {
+		if x == 2 {
+			ans = append(ans, -1)
+		} else {
+			for i := 1; i < 32; i++ {
+				if x>>i&1 == 0 {
+					ans = append(ans, x^1<<(i-1))
+					break
+				}
+			}
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minBitwiseArray(nums: number[]): number[] {
+    const ans: number[] = [];
+    for (const x of nums) {
+        if (x === 2) {
+            ans.push(-1);
+        } else {
+            for (let i = 1; i < 32; ++i) {
+                if (((x >> i) & 1) ^ 1) {
+                    ans.push(x ^ (1 << (i - 1)));
+                    break;
+                }
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
