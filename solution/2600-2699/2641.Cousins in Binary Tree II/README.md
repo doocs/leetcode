@@ -554,32 +554,66 @@ func replaceValueInTree(root *TreeNode) *TreeNode {
  */
 
 function replaceValueInTree(root: TreeNode | null): TreeNode | null {
-    root.val = 0;
-    const q: TreeNode[] = [root];
-    while (q.length > 0) {
-        const t: TreeNode[] = [];
-        let s = 0;
-        for (const { left, right } of q) {
-            if (left) {
-                t.push(left);
-                s += left.val;
+    let q = [root];
+    let [sum, nextSum] = [0, root.val];
+
+    while (q.length) {
+        const qNext: TreeNode[] = [];
+        [sum, nextSum] = [nextSum, 0];
+
+        for (const node of q) {
+            const x = (node.left?.val ?? 0) + (node.right?.val ?? 0);
+            node.val = sum - node.val;
+            nextSum += x;
+
+            if (node.left) {
+                node.left.val = x;
+                qNext.push(node.left);
             }
-            if (right) {
-                t.push(right);
-                s += right.val;
-            }
-        }
-        for (const { left, right } of q) {
-            const sub = (left?.val || 0) + (right?.val || 0);
-            if (left) {
-                left.val = s - sub;
-            }
-            if (right) {
-                right.val = s - sub;
+
+            if (node.right) {
+                node.right.val = x;
+                qNext.push(node.right);
             }
         }
-        q.splice(0, q.length, ...t);
+
+        q = qNext;
     }
+
+    return root;
+}
+```
+
+#### JavaScript
+
+```js
+function replaceValueInTree(root) {
+    let q = [root];
+    let [sum, nextSum] = [0, root.val];
+
+    while (q.length) {
+        const qNext = [];
+        [sum, nextSum] = [nextSum, 0];
+
+        for (const node of q) {
+            const x = (node.left?.val ?? 0) + (node.right?.val ?? 0);
+            node.val = sum - node.val;
+            nextSum += x;
+
+            if (node.left) {
+                node.left.val = x;
+                qNext.push(node.left);
+            }
+
+            if (node.right) {
+                node.right.val = x;
+                qNext.push(node.right);
+            }
+        }
+
+        q = qNext;
+    }
+
     return root;
 }
 ```
