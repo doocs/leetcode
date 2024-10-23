@@ -3339,6 +3339,7 @@
 |  3326  |  [使数组非递减的最少除法操作次数](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)  |  `贪心`,`数组`,`数学`,`数论`  |  中等  |  第 420 场周赛  |
 |  3327  |  [判断 DFS 字符串是否是回文串](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README.md)  |  `树`,`深度优先搜索`,`数组`,`哈希表`,`字符串`,`哈希函数`  |  困难  |  第 420 场周赛  |
 |  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3329  |  [Count Substrings With K-Frequency Characters II](/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README.md)  |  `滑动窗口`  |  困难  |  🔒  |
 
 ## 版权
 
