@@ -78,8 +78,6 @@ plugins:
       caption_position: bottom
       background: white
       shadow: true
-  - search:
-      enabled: false
 
 hooks:
   - hooks/edit_url.py
