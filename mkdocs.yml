@@ -78,6 +78,8 @@ plugins:
       caption_position: bottom
       background: white
       shadow: true
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
 hooks:
   - hooks/edit_url.py
