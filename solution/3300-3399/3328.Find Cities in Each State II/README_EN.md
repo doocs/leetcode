@@ -78,7 +78,7 @@ Each row of this table contains the state name and the city name within that sta
 | state       | cities                                    | matching_letter_count |
 +-------------+-------------------------------------------+-----------------------+
 | Pennsylvania| Philadelphia, Pittsburgh, Pottstown       | 3                     |
-| Texas       | Dallas, Taylor, Temple, Tyler             | 2                     |
+| Texas       | Dallas, Taylor, Temple, Tyler             | 3                     |
 | New York    | Buffalo, Newark, New York City, Rochester | 2                     |
 +-------------+-------------------------------------------+-----------------------+
 </pre>
@@ -97,8 +97,8 @@ Each row of this table contains the state name and the city name within that sta
     <li><strong>Texas</strong>:
     <ul>
     	<li>Has 4 cities (meets minimum requirement)</li>
-    	<li>2 cities (Temple, Tyler) start with &#39;T&#39; (same as state)</li>
-    	<li>matching_letter_count = 2</li>
+    	<li>3 cities (Taylor, Temple, Tyler) start with &#39;T&#39; (same as state)</li>
+    	<li>matching_letter_count = 3</li>
     </ul>
     </li>
     <li><strong>New York</strong>:

@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3329. Count Substrings With K-Frequency Characters II 🔒](https://leetcode.cn/problems/count-substrings-with-k-frequency-characters-ii)
+# [3329. 字符至少出现 K 次的子字符串 II 🔒](https://leetcode.cn/problems/count-substrings-with-k-frequency-characters-ii)
 
 [English Version](/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README_EN.md)
 
@@ -16,48 +16,52 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a string <code>s</code> and an integer <code>k</code>, return the total number of <span data-keyword="substring-nonempty">substrings</span> of <code>s</code> where <strong>at least one</strong> character appears <strong>at least</strong> <code>k</code> times.</p>
+<p>给你一个字符串 <code>s</code> 和一个整数 <code>k</code>，在 <code>s</code> 的所有 <span data-keyword="substring-nonempty">子字符串</span> 中，请你统计并返回 <strong>至少有一个 </strong>字符 <strong>至少出现</strong> <code>k</code> 次的子字符串总数。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
 
+<p><strong>示例 1：</strong></p>
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;abacb&quot;, k = 2</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
+<p><strong>输入：</strong> s = "abacb", k = 2</p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>输出：</strong> 4</p>
 
-<p>The valid substrings are:</p>
+<p><strong>解释：</strong></p>
+
+<p>符合条件的子字符串如下：</p>
 
 <ul>
-	<li>&quot;<code>aba&quot;</code> (character <code>&#39;a&#39;</code> appears 2 times).</li>
-	<li><code>&quot;abac&quot;</code> (character <code>&#39;a&#39;</code> appears 2 times).</li>
-	<li><code>&quot;abacb&quot;</code> (character <code>&#39;a&#39;</code> appears 2 times).</li>
-	<li><code>&quot;bacb&quot;</code> (character <code>&#39;b&#39;</code> appears 2 times).</li>
+	<li><code>"aba"</code>（字符 <code>'a'</code> 出现 2 次）。</li>
+	<li><code>"abac"</code>（字符 <code>'a'</code> 出现 2 次）。</li>
+	<li><code>"abacb"</code>（字符 <code>'a'</code> 出现 2 次）。</li>
+	<li><code>"bacb"</code>（字符 <code>'b'</code> 出现 2 次）。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
-
+<p><strong>示例 2：</strong></p>
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;abcde&quot;, k = 1</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">15</span></p>
+<p><strong>输入：</strong> s = "abcde", k = 1</p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>输出：</strong> 15</p>
 
-<p>All substrings are valid because every character appears at least once.</p>
+<p><strong>解释：</strong></p>
+
+<p>所有子字符串都有效，因为每个字符至少出现一次。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= s.length</code></li>
-	<li><code>s</code> consists only of lowercase English letters.</li>
+	<li><code>s</code> 仅由小写英文字母组成。</li>
 </ul>
+
+<p>&nbsp;</p>
 
 <!-- description:end -->
 
