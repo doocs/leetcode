@@ -39,12 +39,10 @@ tags:
 
 <ul>
 	<li>清空字符串&nbsp;<code>dfsStr</code>&nbsp;并调用&nbsp;<code>dfs(i)</code>&nbsp;。</li>
-	<li>如果结果字符串&nbsp;<code>dfsStr</code>&nbsp;是一个 <strong>回文串</strong>&nbsp;，<code>answer[i]</code>&nbsp;为&nbsp;<code>true</code>&nbsp;，否则&nbsp;<code>answer[i]</code>&nbsp;为&nbsp;<code>false</code>&nbsp;。</li>
+	<li>如果结果字符串&nbsp;<code>dfsStr</code>&nbsp;是一个 <span data-keyword="palindrome-string">回文串</span>&nbsp;，<code>answer[i]</code>&nbsp;为&nbsp;<code>true</code>&nbsp;，否则&nbsp;<code>answer[i]</code>&nbsp;为&nbsp;<code>false</code>&nbsp;。</li>
 </ul>
 
 <p>请你返回字符串&nbsp;<code>answer</code>&nbsp;。</p>
-
-<p><strong>回文串</strong>&nbsp;指的是一个字符串从前往后与从后往前是一模一样的。</p>
 
 <p>&nbsp;</p>
 

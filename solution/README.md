@@ -3318,7 +3318,7 @@
 |  3305  |  [元音辅音字符串计数 I](/solution/3300-3399/3305.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20I/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  中等  |  第 417 场周赛  |
 |  3306  |  [元音辅音字符串计数 II](/solution/3300-3399/3306.Count%20of%20Substrings%20Containing%20Every%20Vowel%20and%20K%20Consonants%20II/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  中等  |  第 417 场周赛  |
 |  3307  |  [找出第 K 个字符 II](/solution/3300-3399/3307.Find%20the%20K-th%20Character%20in%20String%20Game%20II/README.md)  |  `位运算`,`递归`,`数学`  |  困难  |  第 417 场周赛  |
-|  3308  |  [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3308  |  [寻找表现最佳的司机](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  3309  |  [连接二进制表示可形成的最大数值](/solution/3300-3399/3309.Maximum%20Possible%20Number%20by%20Binary%20Concatenation/README.md)  |  `位运算`,`数组`,`枚举`  |  中等  |  第 418 场周赛  |
 |  3310  |  [移除可疑的方法](/solution/3300-3399/3310.Remove%20Methods%20From%20Project/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`  |  中等  |  第 418 场周赛  |
 |  3311  |  [构造符合图结构的二维矩阵](/solution/3300-3399/3311.Construct%202D%20Grid%20Matching%20Graph%20Layout/README.md)  |  `图`,`数组`,`哈希表`,`矩阵`  |  困难  |  第 418 场周赛  |
@@ -3338,8 +3338,8 @@
 |  3325  |  [字符至少出现 K 次的子字符串 I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README.md)  |  `哈希表`,`字符串`,`滑动窗口`  |  中等  |  第 420 场周赛  |
 |  3326  |  [使数组非递减的最少除法操作次数](/solution/3300-3399/3326.Minimum%20Division%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)  |  `贪心`,`数组`,`数学`,`数论`  |  中等  |  第 420 场周赛  |
 |  3327  |  [判断 DFS 字符串是否是回文串](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README.md)  |  `树`,`深度优先搜索`,`数组`,`哈希表`,`字符串`,`哈希函数`  |  困难  |  第 420 场周赛  |
-|  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README.md)  |  `数据库`  |  中等  |  🔒  |
-|  3329  |  [Count Substrings With K-Frequency Characters II](/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README.md)  |  `滑动窗口`  |  困难  |  🔒  |
+|  3328  |  [查找每个州的城市 II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  3329  |  [字符至少出现 K 次的子字符串 II](/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README.md)  |  `滑动窗口`  |  困难  |  🔒  |
 
 ## 版权
 

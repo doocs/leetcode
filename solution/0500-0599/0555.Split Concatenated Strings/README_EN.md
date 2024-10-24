@@ -37,7 +37,7 @@ tags:
 <pre>
 <strong>Input:</strong> strs = [&quot;abc&quot;,&quot;xyz&quot;]
 <strong>Output:</strong> &quot;zyxcba&quot;
-<strong>Explanation:</strong> You can get the looped string &quot;-abcxyz-&quot;, &quot;-abczyx-&quot;, &quot;-cbaxyz-&quot;, &quot;-cbazyx-&quot;, where &#39;-&#39; represents the looped status.
+<strong>Explanation:</strong> You can get the looped string &quot;-abcxyz-&quot;, &quot;-abczyx-&quot;, &quot;-cbaxyz-&quot;, &quot;-cbazyx-&quot;, where &#39;-&#39; represents the looped status. 
 The answer string came from the fourth looped one, where you could cut from the middle character &#39;a&#39; and get &quot;zyxcba&quot;.
 </pre>
 
