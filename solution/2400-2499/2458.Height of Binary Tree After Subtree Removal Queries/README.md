@@ -291,7 +291,7 @@ func treeQueries(root *TreeNode, queries []int) (ans []int) {
 
 <!-- solution:start -->
 
-### Solution 2: One DFS + Sorting
+### 方法二：一次 DFS + 排序
 
 <!-- tabs:start -->
 
