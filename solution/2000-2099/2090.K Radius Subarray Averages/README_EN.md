@@ -61,7 +61,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [8], k = 100000
 <strong>Output:</strong> [-1]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - avg[0] is -1 because there are less than k elements before and after index 0.
 </pre>
 

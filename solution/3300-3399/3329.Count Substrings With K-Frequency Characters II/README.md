@@ -3,6 +3,8 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README.md
 tags:
+    - 哈希表
+    - 字符串
     - 滑动窗口
 ---
 

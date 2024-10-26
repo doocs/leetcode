@@ -26,7 +26,10 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 420 场周赛(2024-10-20 10:30, 90 分钟) 参赛人数 2995
+#### 第 142 场双周赛(2024-10-26 22:30, 90 分钟) 参赛人数 1900
+
+
+#### 第 420 场周赛(2024-10-20 10:30, 90 分钟) 参赛人数 2996
 
 - [3324. 出现在屏幕上的字符串序列](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README.md)
 - [3325. 字符至少出现 K 次的子字符串 I](/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README.md)
@@ -2338,7 +2341,6 @@ comments: true
 
 #### 第 200 场周赛(2020-08-02 10:30, 90 分钟) 参赛人数 5476
 
-- [1534. 统计好三元组](/solution/1500-1599/1534.Count%20Good%20Triplets/README.md)
 - [1535. 找出数组游戏的赢家](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)
 - [1536. 排布二进制网格的最少交换次数](/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README.md)
 - [1537. 最大得分](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README.md)
