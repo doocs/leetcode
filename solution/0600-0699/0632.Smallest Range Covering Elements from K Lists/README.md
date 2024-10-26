@@ -271,7 +271,7 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Priority Queue (Heap)
+### 方法二：优先队列（小根堆）
 
 <!-- tabs:start -->
 
