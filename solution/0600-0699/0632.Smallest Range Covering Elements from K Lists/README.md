@@ -32,7 +32,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [[4,10,15,24,26], [0,9,12,20], [5,18,22,30]]
 <strong>输出：</strong>[20,24]
-<strong>解释：</strong> 
+<strong>解释：</strong>
 列表 1：[4, 10, 15, 24, 26]，24 在区间 [20,24] 中。
 列表 2：[0, 9, 12, 20]，20 在区间 [20,24] 中。
 列表 3：[5, 18, 22, 30]，22 在区间 [20,24] 中。
@@ -263,6 +263,82 @@ impl Solution {
         ans
     }
 }
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：优先队列（小根堆）
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+const smallestRange = (nums: number[][]): number[] => {
+    const pq = new MinPriorityQueue<[number, number, number]>({ priority: ([x]) => x });
+    const n = nums.length;
+    let [l, r, max] = [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+
+    for (let j = 0; j < n; j++) {
+        const x = nums[j][0];
+        pq.enqueue([x, j, 0]);
+        max = Math.max(max, x);
+    }
+
+    while (pq.size() === n) {
+        const [min, j, i] = pq.dequeue().element;
+
+        if (max - min < r - l) {
+            [l, r] = [min, max];
+        }
+
+        const iNext = i + 1;
+        if (iNext < nums[j].length) {
+            const next = nums[j][iNext];
+            pq.enqueue([next, j, iNext]);
+            max = Math.max(max, next);
+        }
+    }
+
+    return [l, r];
+};
+```
+
+#### JavaScript
+
+```js
+const smallestRange = nums => {
+    const pq = new MinPriorityQueue({ priority: ([x]) => x });
+    const n = nums.length;
+    let [l, r, max] = [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+
+    for (let j = 0; j < n; j++) {
+        const x = nums[j][0];
+        pq.enqueue([x, j, 0]);
+        max = Math.max(max, x);
+    }
+
+    while (pq.size() === n) {
+        const [min, j, i] = pq.dequeue().element;
+
+        if (max - min < r - l) {
+            [l, r] = [min, max];
+        }
+
+        const iNext = i + 1;
+        if (iNext < nums[j].length) {
+            const next = nums[j][iNext];
+            pq.enqueue([next, j, iNext]);
+            max = Math.max(max, next);
+        }
+    }
+
+    return [l, r];
+};
 ```
 
 <!-- tabs:end -->
