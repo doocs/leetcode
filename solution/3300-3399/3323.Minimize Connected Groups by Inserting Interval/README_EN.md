@@ -6,6 +6,7 @@ tags:
     - Array
     - Binary Search
     - Sorting
+    - Sliding Window
 ---
 
 <!-- problem:start -->

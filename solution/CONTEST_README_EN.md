@@ -29,6 +29,9 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 142
+
+
 #### Weekly Contest 420
 
 - [3324. Find the Sequence of Strings Appeared on the Screen](/solution/3300-3399/3324.Find%20the%20Sequence%20of%20Strings%20Appeared%20on%20the%20Screen/README_EN.md)
@@ -2341,7 +2344,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Weekly Contest 200
 
-- [1534. Count Good Triplets](/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md)
 - [1535. Find the Winner of an Array Game](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)
 - [1536. Minimum Swaps to Arrange a Binary Grid](/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README_EN.md)
 - [1537. Get the Maximum Score](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)

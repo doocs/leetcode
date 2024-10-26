@@ -8,12 +8,11 @@ class Solution {
         }
         int cnt = 0;
         for (int[] e : connections) {
-            int a = e[0];
-            int b = e[1];
-            if (find(a) == find(b)) {
+            int pa = find(e[0]), pb = find(e[1]);
+            if (pa == pb) {
                 ++cnt;
             } else {
-                p[find(a)] = find(b);
+                p[pa] = pb;
                 --n;
             }
         }

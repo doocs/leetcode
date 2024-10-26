@@ -1,25 +1,24 @@
 class Solution {
 public:
-    vector<int> p;
-
     int makeConnected(int n, vector<vector<int>>& connections) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
         int cnt = 0;
-        for (auto& e : connections) {
-            int a = e[0], b = e[1];
-            if (find(a) == find(b))
+        function<int(int)> find = [&](int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        for (const auto& c : connections) {
+            int pa = find(c[0]), pb = find(c[1]);
+            if (pa == pb) {
                 ++cnt;
-            else {
-                p[find(a)] = find(b);
+            } else {
+                p[pa] = pb;
                 --n;
             }
         }
-        return n - 1 > cnt ? -1 : n - 1;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        return cnt >= n - 1 ? n - 1 : -1;
     }
 };

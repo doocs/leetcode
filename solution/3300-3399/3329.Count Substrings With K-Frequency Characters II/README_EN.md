@@ -3,6 +3,8 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README_EN.md
 tags:
+    - Hash Table
+    - String
     - Sliding Window
 ---
 

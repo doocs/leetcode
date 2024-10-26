@@ -66,7 +66,7 @@
 | 1077 | [项目员工 III](/solution/1000-1099/1077.Project%20Employees%20III/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
 | 1082 | [销售分析 I ](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)                                                                                       | `数据库` | 简单 | 🔒   |
 | 1083 | [销售分析 II](/solution/1000-1099/1083.Sales%20Analysis%20II/README.md)                                                                                      | `数据库` | 简单 | 🔒   |
-| 1084 | [销售分析III](/solution/1000-1099/1084.Sales%20Analysis%20III/README.md)                                                                                     | `数据库` | 简单 |      |
+| 1084 | [销售分析 III](/solution/1000-1099/1084.Sales%20Analysis%20III/README.md)                                                                                    | `数据库` | 简单 |      |
 | 1097 | [游戏玩法分析 V](/solution/1000-1099/1097.Game%20Play%20Analysis%20V/README.md)                                                                              | `数据库` | 困难 | 🔒   |
 | 1098 | [小众书籍](/solution/1000-1099/1098.Unpopular%20Books/README.md)                                                                                             | `数据库` | 中等 | 🔒   |
 | 1107 | [每日新用户统计](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)                                                                             | `数据库` | 中等 | 🔒   |
