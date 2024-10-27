@@ -37,7 +37,7 @@ class Solution {
     private List<String> t = new ArrayList<>();
     private List<String> words;
     private Map<String, Integer> d;
-    private UnionFind uf;
+    private Solution2 uf;
     private List<Integer>[] g;
     private String[] sentence;
 
@@ -52,7 +52,7 @@ class Solution {
         for (int i = 0; i < words.size(); ++i) {
             d.put(words.get(i), i);
         }
-        uf = new UnionFind(n);
+        uf = new Solution2(n);
         for (List<String> pairs : synonyms) {
             uf.union(d.get(pairs.get(0)), d.get(pairs.get(1)));
         }

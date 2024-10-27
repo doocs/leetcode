@@ -1,11 +1,7 @@
-/**
- * @param {number[][]} edges
- * @return {number[]}
- */
-var findRedundantConnection = function (edges) {
+function findRedundantConnection(edges: number[][]): number[] {
     const n = edges.length;
-    const p = Array.from({ length: n }, (_, i) => i);
-    const find = x => {
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const find = (x: number): number => {
         if (p[x] !== x) {
             p[x] = find(p[x]);
         }
@@ -19,4 +15,4 @@ var findRedundantConnection = function (edges) {
         }
         p[pa] = pb;
     }
-};
+}
