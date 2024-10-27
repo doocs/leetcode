@@ -29,8 +29,19 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 421
+
+- [3334. Find the Maximum Factor Score of Array](/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README_EN.md)
+- [3335. Total Characters in String After Transformations I](/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README_EN.md)
+- [3336. Find the Number of Subsequences With Equal GCD](/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README_EN.md)
+- [3337. Total Characters in String After Transformations II](/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README_EN.md)
+
 #### Biweekly Contest 142
 
+- [3330. Find the Original Typed String I](/solution/3300-3399/3330.Find%20the%20Original%20Typed%20String%20I/README_EN.md)
+- [3331. Find Subtree Sizes After Changes](/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README_EN.md)
+- [3332. Maximum Points Tourist Can Earn](/solution/3300-3399/3332.Maximum%20Points%20Tourist%20Can%20Earn/README_EN.md)
+- [3333. Find the Original Typed String II](/solution/3300-3399/3333.Find%20the%20Original%20Typed%20String%20II/README_EN.md)
 
 #### Weekly Contest 420
 
@@ -2344,6 +2355,7 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Weekly Contest 200
 
+- [1534. Count Good Triplets](/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md)
 - [1535. Find the Winner of an Array Game](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)
 - [1536. Minimum Swaps to Arrange a Binary Grid](/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README_EN.md)
 - [1537. Get the Maximum Score](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)

@@ -1542,6 +1542,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1531  |  [String Compression II](/solution/1500-1599/1531.String%20Compression%20II/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 199  |
 |  1532  |  [The Most Recent Three Orders](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1533  |  [Find the Index of the Large Integer](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README_EN.md)  |  `Array`,`Binary Search`,`Interactive`  |  Medium  |  🔒  |
+|  1534  |  [Count Good Triplets](/solution/1500-1599/1534.Count%20Good%20Triplets/README_EN.md)  |  `Array`,`Enumeration`  |  Easy  |  Weekly Contest 200  |
 |  1535  |  [Find the Winner of an Array Game](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)  |  `Array`,`Simulation`  |  Medium  |  Weekly Contest 200  |
 |  1536  |  [Minimum Swaps to Arrange a Binary Grid](/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README_EN.md)  |  `Greedy`,`Array`,`Matrix`  |  Medium  |  Weekly Contest 200  |
 |  1537  |  [Get the Maximum Score](/solution/1500-1599/1537.Get%20the%20Maximum%20Score/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`Dynamic Programming`  |  Hard  |  Weekly Contest 200  |
@@ -3337,6 +3338,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3327  |  [Check if DFS Strings Are Palindromes](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Hash Table`,`String`,`Hash Function`  |  Hard  |  Weekly Contest 420  |
 |  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  3329  |  [Count Substrings With K-Frequency Characters II](/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Hard  |  🔒  |
+|  3330  |  [Find the Original Typed String I](/solution/3300-3399/3330.Find%20the%20Original%20Typed%20String%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 142  |
+|  3331  |  [Find Subtree Sizes After Changes](/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README_EN.md)  |    |  Medium  |  Biweekly Contest 142  |
+|  3332  |  [Maximum Points Tourist Can Earn](/solution/3300-3399/3332.Maximum%20Points%20Tourist%20Can%20Earn/README_EN.md)  |    |  Medium  |  Biweekly Contest 142  |
+|  3333  |  [Find the Original Typed String II](/solution/3300-3399/3333.Find%20the%20Original%20Typed%20String%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 142  |
+|  3334  |  [Find the Maximum Factor Score of Array](/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 421  |
+|  3335  |  [Total Characters in String After Transformations I](/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 421  |
+|  3336  |  [Find the Number of Subsequences With Equal GCD](/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README_EN.md)  |    |  Hard  |  Weekly Contest 421  |
+|  3337  |  [Total Characters in String After Transformations II](/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 421  |
 
 ## Copyright
 
