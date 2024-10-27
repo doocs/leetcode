@@ -33,7 +33,7 @@ tags:
 &nbsp; [0,1,1,1]
 ]
 <strong>输出：</strong>15
-<strong>解释：</strong> 
+<strong>解释：</strong>
 边长为 1 的正方形有 <strong>10</strong> 个。
 边长为 2 的正方形有 <strong>4</strong> 个。
 边长为 3 的正方形有 <strong>1</strong> 个。
@@ -42,7 +42,7 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>matrix = 
+<pre><strong>输入：</strong>matrix =
 [
   [1,0,1],
   [1,1,0],
@@ -50,7 +50,7 @@ tags:
 ]
 <strong>输出：</strong>7
 <strong>解释：</strong>
-边长为 1 的正方形有 <strong>6</strong> 个。 
+边长为 1 的正方形有 <strong>6</strong> 个。
 边长为 2 的正方形有 <strong>1</strong> 个。
 正方形的总数 = 6 + 1 = <strong>7</strong>.
 </pre>
@@ -169,6 +169,52 @@ func countSquares(matrix [][]int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSquares(matrix: number[][]): number {
+    const [m, n] = [matrix.length, matrix[0].length];
+    const f = Array.from({ length: m }, () => Array(n));
+    const dfs = (i: number, j: number): number => {
+        if (i === m || j === n || !matrix[i][j]) return 0;
+        f[i][j] ??= 1 + Math.min(dfs(i + 1, j), dfs(i, j + 1), dfs(i + 1, j + 1));
+        return f[i][j];
+    };
+    let ans = 0;
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            ans += dfs(i, j);
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function countSquares(matrix) {
+    const [m, n] = [matrix.length, matrix[0].length];
+    const f = Array.from({ length: m }, () => Array(n));
+    const dfs = (i, j) => {
+        if (i === m || j === n || !matrix[i][j]) return 0;
+        f[i][j] ??= 1 + Math.min(dfs(i + 1, j), dfs(i, j + 1), dfs(i + 1, j + 1));
+        return f[i][j];
+    };
+    let ans = 0;
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            ans += dfs(i, j);
+        }
+    }
+
+    return ans;
 }
 ```
 
