@@ -33,7 +33,7 @@ tags:
 &nbsp; [0,1,1,1]
 ]
 <strong>Output:</strong> 15
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There are <strong>10</strong> squares of side 1.
 There are <strong>4</strong> squares of side 2.
 There is  <strong>1</strong> square of side 3.
@@ -43,16 +43,16 @@ Total number of squares = 10 + 4 + 1 = <strong>15</strong>.
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> matrix = 
+<strong>Input:</strong> matrix =
 [
   [1,0,1],
   [1,1,0],
   [1,1,0]
 ]
 <strong>Output:</strong> 7
-<strong>Explanation:</strong> 
-There are <b>6</b> squares of side 1.  
-There is <strong>1</strong> square of side 2. 
+<strong>Explanation:</strong>
+There are <b>6</b> squares of side 1.
+There is <strong>1</strong> square of side 2.
 Total number of squares = 6 + 1 = <b>7</b>.
 </pre>
 
@@ -169,6 +169,52 @@ func countSquares(matrix [][]int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSquares(matrix: number[][]): number {
+    const [m, n] = [matrix.length, matrix[0].length];
+    const f = Array.from({ length: m }, () => Array(n));
+    const dfs = (i: number, j: number): number => {
+        if (i === m || j === n || !matrix[i][j]) return 0;
+        f[i][j] ??= 1 + Math.min(dfs(i + 1, j), dfs(i, j + 1), dfs(i + 1, j + 1));
+        return f[i][j];
+    };
+    let ans = 0;
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            ans += dfs(i, j);
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function countSquares(matrix) {
+    const [m, n] = [matrix.length, matrix[0].length];
+    const f = Array.from({ length: m }, () => Array(n));
+    const dfs = (i, j) => {
+        if (i === m || j === n || !matrix[i][j]) return 0;
+        f[i][j] ??= 1 + Math.min(dfs(i + 1, j), dfs(i, j + 1), dfs(i + 1, j + 1));
+        return f[i][j];
+    };
+    let ans = 0;
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            ans += dfs(i, j);
+        }
+    }
+
+    return ans;
 }
 ```
 
