@@ -1,8 +1,8 @@
 public class Solution {
     public int longestSquareStreak(int[] nums) {
-        int maxStreak = -1; // Track the maximum streak
-        final int MAX_NUM = (int) Math.pow(10, 5); // Maximum value for nums
-        boolean[] exists = new boolean[MAX_NUM + 1]; // Track existence of numbers
+        int maxStreak = -1;                           // Track the maximum streak
+        final int MAX_NUM = (int)Math.pow(10, 5);     // Maximum value for nums
+        boolean[] exists = new boolean[MAX_NUM + 1];  // Track existence of numbers
         boolean[] visited = new boolean[MAX_NUM + 1]; // Track visited numbers
 
         // Mark existing numbers
@@ -15,15 +15,15 @@ public class Solution {
             if (!exists[i] || visited[i]) {
                 continue; // Skip if number doesn't exist or is already visited
             }
-            visited[i] = true; // Mark as visited
+            visited[i] = true;    // Mark as visited
             int streakLength = 1; // Start streak length
-            long j = (long) i * i; // Calculate square (use long to avoid overflow)
+            long j = (long)i * i; // Calculate square (use long to avoid overflow)
 
             // Continue while j is valid and exists
-            while (j >= 0 && j <= MAX_NUM && exists[(int) j]) {
-                visited[(int) j] = true; // Mark as visited
-                streakLength++; // Increase streak length
-                j = j * j; // Move to next square
+            while (j >= 0 && j <= MAX_NUM && exists[(int)j]) {
+                visited[(int)j] = true; // Mark as visited
+                streakLength++;         // Increase streak length
+                j = j * j;              // Move to next square
             }
 
             // Update maximum streak if valid

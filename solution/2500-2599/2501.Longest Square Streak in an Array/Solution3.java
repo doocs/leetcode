@@ -1,6 +1,6 @@
 class Solution {
     private Map<Integer, Integer> memo = new HashMap<>(); // Memoization map
-    private Set<Integer> numSet = new HashSet<>(); // Set of numbers
+    private Set<Integer> numSet = new HashSet<>();        // Set of numbers
 
     public int longestSquareStreak(int[] nums) {
         // Early exit if the array length is less than 2
@@ -33,7 +33,7 @@ class Solution {
         }
 
         // Calculate the next number in the square streak
-        long next = (long) x * x; // Use long to avoid overflow
+        long next = (long)x * x; // Use long to avoid overflow
         // If the next number exceeds the maximum allowed value, return 0
         if (next > 100000) {
             memo.put(x, 1); // Only count this number itself
@@ -41,8 +41,8 @@ class Solution {
         }
 
         // Recursively calculate the streak
-        int streak = 1 + dfs((int) next); // Include the current number in the streak
-        memo.put(x, streak); // Cache the result
+        int streak = 1 + dfs((int)next); // Include the current number in the streak
+        memo.put(x, streak);             // Cache the result
         return streak;
     }
 }
