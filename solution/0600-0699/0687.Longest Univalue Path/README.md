@@ -60,9 +60,19 @@ tags:
 
 ### 方法一：DFS
 
-相似题目：
+我们设计一个函数 $\textit{dfs}(root)$，表示以 $\textit{root}$ 节点作为路径的其中一个端点，向下延伸的最长同值路径长度。
 
--   [543. 二叉树的直径](https://github.com/doocs/leetcode/blob/main/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/README.md)
+在 $\textit{dfs}(root)$ 中，我们首先递归调用 $\textit{dfs}(root.\textit{left})$ 和 $\textit{dfs}(root.\textit{right})$，得到两个返回值 $\textit{l}$ 和 $\textit{r}$。这两个返回值分别代表了以 $\textit{root}$ 节点的左孩子和右孩子为路径的其中一个端点，向下延伸的最长同值路径长度。
+
+如果 $\textit{root}$ 存在左孩子且 $\textit{root}.\textit{val} = \textit{root}.\textit{left}.\textit{val}$，那么在 $\textit{root}$ 的左孩子为路径的其中一个端点，向下延伸的最长同值路径长度应为 $\textit{l} + 1$；否则，这个长度为 $0$。如果 $\textit{root}$ 存在右孩子且 $\textit{root}.\textit{val} = \textit{root}.\textit{right}.\textit{val}$，那么在 $\textit{root}$ 的右孩子为路径的其中一个端点，向下延伸的最长同值路径长度应为 $\textit{r} + 1$；否则，这个长度为 $0$。
+
+在递归调用完左右孩子之后，我们更新答案为 $\max(\textit{ans}, \textit{l} + \textit{r})$，即以 $\textit{root}$ 为端点的路径经过 $\textit{root}$ 的最长同值路径长度。
+
+最后，$\textit{dfs}(root)$ 函数返回以 $\textit{root}$ 为端点的向下延伸的最长同值路径长度，即 $\max(\textit{l}, \textit{r})$。
+
+在主函数中，我们调用 $\textit{dfs}(root)$，即可得到答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -76,16 +86,16 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def longestUnivaluePath(self, root: TreeNode) -> int:
-        def dfs(root):
+    def longestUnivaluePath(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
-            left, right = dfs(root.left), dfs(root.right)
-            left = left + 1 if root.left and root.left.val == root.val else 0
-            right = right + 1 if root.right and root.right.val == root.val else 0
+            l, r = dfs(root.left), dfs(root.right)
+            l = l + 1 if root.left and root.left.val == root.val else 0
+            r = r + 1 if root.right and root.right.val == root.val else 0
             nonlocal ans
-            ans = max(ans, left + right)
-            return max(left, right)
+            ans = max(ans, l + r)
+            return max(l, r)
 
         ans = 0
         dfs(root)
@@ -114,7 +124,6 @@ class Solution {
     private int ans;
 
     public int longestUnivaluePath(TreeNode root) {
-        ans = 0;
         dfs(root);
         return ans;
     }
@@ -123,12 +132,12 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        int left = dfs(root.left);
-        int right = dfs(root.right);
-        left = root.left != null && root.left.val == root.val ? left + 1 : 0;
-        right = root.right != null && root.right.val == root.val ? right + 1 : 0;
-        ans = Math.max(ans, left + right);
-        return Math.max(left, right);
+        int l = dfs(root.left);
+        int r = dfs(root.right);
+        l = root.left != null && root.left.val == root.val ? l + 1 : 0;
+        r = root.right != null && root.right.val == root.val ? r + 1 : 0;
+        ans = Math.max(ans, l + r);
+        return Math.max(l, r);
     }
 }
 ```
@@ -149,21 +158,21 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-
     int longestUnivaluePath(TreeNode* root) {
-        ans = 0;
-        dfs(root);
+        int ans = 0;
+        auto dfs = [&](auto&& dfs, TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(dfs, root->left);
+            int r = dfs(dfs, root->right);
+            l = root->left && root->left->val == root->val ? l + 1 : 0;
+            r = root->right && root->right->val == root->val ? r + 1 : 0;
+            ans = max(ans, l + r);
+            return max(l, r);
+        };
+        dfs(dfs, root);
         return ans;
-    }
-
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        int left = dfs(root->left), right = dfs(root->right);
-        left = root->left && root->left->val == root->val ? left + 1 : 0;
-        right = root->right && root->right->val == root->val ? right + 1 : 0;
-        ans = max(ans, left + right);
-        return max(left, right);
     }
 };
 ```
@@ -179,29 +188,28 @@ public:
  *     Right *TreeNode
  * }
  */
-func longestUnivaluePath(root *TreeNode) int {
-	ans := 0
-	var dfs func(root *TreeNode) int
+func longestUnivaluePath(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) int
 	dfs = func(root *TreeNode) int {
 		if root == nil {
 			return 0
 		}
-		left, right := dfs(root.Left), dfs(root.Right)
+		l, r := dfs(root.Left), dfs(root.Right)
 		if root.Left != nil && root.Left.Val == root.Val {
-			left++
+			l++
 		} else {
-			left = 0
+			l = 0
 		}
 		if root.Right != nil && root.Right.Val == root.Val {
-			right++
+			r++
 		} else {
-			right = 0
+			r = 0
 		}
-		ans = max(ans, left+right)
-		return max(left, right)
+		ans = max(ans, l+r)
+		return max(l, r)
 	}
 	dfs(root)
-	return ans
+	return
 }
 ```
 
@@ -223,28 +231,19 @@ func longestUnivaluePath(root *TreeNode) int {
  */
 
 function longestUnivaluePath(root: TreeNode | null): number {
-    if (root == null) {
-        return 0;
-    }
-
-    let res = 0;
-    const dfs = (root: TreeNode | null, target: number) => {
-        if (root == null) {
+    let ans: number = 0;
+    const dfs = (root: TreeNode | null): number => {
+        if (!root) {
             return 0;
         }
-
-        const { val, left, right } = root;
-
-        let l = dfs(left, val);
-        let r = dfs(right, val);
-        res = Math.max(res, l + r);
-        if (val === target) {
-            return Math.max(l, r) + 1;
-        }
-        return 0;
+        let [l, r] = [dfs(root.left), dfs(root.right)];
+        l = root.left && root.left.val === root.val ? l + 1 : 0;
+        r = root.right && root.right.val === root.val ? r + 1 : 0;
+        ans = Math.max(ans, l + r);
+        return Math.max(l, r);
     };
-    dfs(root, root.val);
-    return res;
+    dfs(root);
+    return ans;
 }
 ```
 
@@ -271,19 +270,23 @@ function longestUnivaluePath(root: TreeNode | null): number {
 // }
 use std::cell::RefCell;
 use std::rc::Rc;
+
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, target: i32, res: &mut i32) -> i32 {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, target: i32, ans: &mut i32) -> i32 {
         if root.is_none() {
             return 0;
         }
 
-        let root = root.as_ref().unwrap().as_ref().borrow();
-        let left = Self::dfs(&root.left, root.val, res);
-        let right = Self::dfs(&root.right, root.val, res);
-        *res = (*res).max(left + right);
+        let root = root.as_ref().unwrap().borrow();
+        let left = Self::dfs(&root.left, root.val, ans);
+        let right = Self::dfs(&root.right, root.val, ans);
+
+        *ans = (*ans).max(left + right);
+
         if root.val == target {
             return left.max(right) + 1;
         }
+
         0
     }
 
@@ -292,13 +295,9 @@ impl Solution {
             return 0;
         }
 
-        let mut res = 0;
-        Self::dfs(
-            &root,
-            root.as_ref().unwrap().as_ref().borrow().val,
-            &mut res,
-        );
-        res
+        let mut ans = 0;
+        Self::dfs(&root, root.as_ref().unwrap().borrow().val, &mut ans);
+        ans
     }
 }
 ```
@@ -320,16 +319,15 @@ impl Solution {
  */
 var longestUnivaluePath = function (root) {
     let ans = 0;
-    let dfs = function (root) {
+    const dfs = root => {
         if (!root) {
             return 0;
         }
-        let left = dfs(root.left),
-            right = dfs(root.right);
-        left = root.left?.val == root.val ? left + 1 : 0;
-        right = root.right?.val == root.val ? right + 1 : 0;
-        ans = Math.max(ans, left + right);
-        return Math.max(left, right);
+        let [l, r] = [dfs(root.left), dfs(root.right)];
+        l = root.left && root.left.val === root.val ? l + 1 : 0;
+        r = root.right && root.right.val === root.val ? r + 1 : 0;
+        ans = Math.max(ans, l + r);
+        return Math.max(l, r);
     };
     dfs(root);
     return ans;
@@ -347,29 +345,24 @@ var longestUnivaluePath = function (root) {
  *     struct TreeNode *right;
  * };
  */
-
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int dfs(struct TreeNode* root, int target, int* res) {
+int dfs(struct TreeNode* root, int* ans) {
     if (!root) {
         return 0;
     }
-    int left = dfs(root->left, root->val, res);
-    int right = dfs(root->right, root->val, res);
-    *res = max(*res, left + right);
-    if (root->val == target) {
-        return max(left, right) + 1;
-    }
-    return 0;
+    int l = dfs(root->left, ans);
+    int r = dfs(root->right, ans);
+    l = root->left && root->left->val == root->val ? l + 1 : 0;
+    r = root->right && root->right->val == root->val ? r + 1 : 0;
+    *ans = max(*ans, l + r);
+    return max(l, r);
 }
 
 int longestUnivaluePath(struct TreeNode* root) {
-    if (!root) {
-        return 0;
-    }
-    int res = 0;
-    dfs(root, root->val, &res);
-    return res;
+    int ans = 0;
+    dfs(root, &ans);
+    return ans;
 }
 ```
 

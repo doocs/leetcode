@@ -18,19 +18,23 @@
 // }
 use std::cell::RefCell;
 use std::rc::Rc;
+
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, target: i32, res: &mut i32) -> i32 {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, target: i32, ans: &mut i32) -> i32 {
         if root.is_none() {
             return 0;
         }
 
-        let root = root.as_ref().unwrap().as_ref().borrow();
-        let left = Self::dfs(&root.left, root.val, res);
-        let right = Self::dfs(&root.right, root.val, res);
-        *res = (*res).max(left + right);
+        let root = root.as_ref().unwrap().borrow();
+        let left = Self::dfs(&root.left, root.val, ans);
+        let right = Self::dfs(&root.right, root.val, ans);
+
+        *ans = (*ans).max(left + right);
+
         if root.val == target {
             return left.max(right) + 1;
         }
+
         0
     }
 
@@ -39,12 +43,8 @@ impl Solution {
             return 0;
         }
 
-        let mut res = 0;
-        Self::dfs(
-            &root,
-            root.as_ref().unwrap().as_ref().borrow().val,
-            &mut res,
-        );
-        res
+        let mut ans = 0;
+        Self::dfs(&root, root.as_ref().unwrap().borrow().val, &mut ans);
+        ans
     }
 }
