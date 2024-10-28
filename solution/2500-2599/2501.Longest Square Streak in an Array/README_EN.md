@@ -151,6 +151,7 @@ class Solution {
 ```
 
 #### Java3
+
 ```java3
 class Solution {
     private Map<Integer, Integer> memo = new HashMap<>(); // Memoization map
@@ -203,6 +204,7 @@ class Solution {
 ```
 
 #### Java4
+
 ```java4
 public class Solution {
     public int longestSquareStreak(int[] nums) {
@@ -241,7 +243,6 @@ public class Solution {
     }
 }
 ```
-
 
 #### C++
 
