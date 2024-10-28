@@ -12,16 +12,15 @@
  */
 var longestUnivaluePath = function (root) {
     let ans = 0;
-    let dfs = function (root) {
+    const dfs = root => {
         if (!root) {
             return 0;
         }
-        let left = dfs(root.left),
-            right = dfs(root.right);
-        left = root.left?.val == root.val ? left + 1 : 0;
-        right = root.right?.val == root.val ? right + 1 : 0;
-        ans = Math.max(ans, left + right);
-        return Math.max(left, right);
+        let [l, r] = [dfs(root.left), dfs(root.right)];
+        l = root.left && root.left.val === root.val ? l + 1 : 0;
+        r = root.right && root.right.val === root.val ? r + 1 : 0;
+        ans = Math.max(ans, l + r);
+        return Math.max(l, r);
     };
     dfs(root);
     return ans;
