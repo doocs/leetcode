@@ -33,7 +33,7 @@ comments: true
 - [3336. 最大公约数相等的子序列数量](/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README.md)
 - [3337. 字符串转换后的长度 II](/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README.md)
 
-#### 第 142 场双周赛(2024-10-26 22:30, 90 分钟) 参赛人数 1900
+#### 第 142 场双周赛(2024-10-26 22:30, 90 分钟) 参赛人数 1940
 
 - [3330. 找到初始输入字符串 I](/solution/3300-3399/3330.Find%20the%20Original%20Typed%20String%20I/README.md)
 - [3331. 修改后子树的大小](/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README.md)

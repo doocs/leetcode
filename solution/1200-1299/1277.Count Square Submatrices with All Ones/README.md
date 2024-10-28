@@ -33,7 +33,7 @@ tags:
 &nbsp; [0,1,1,1]
 ]
 <strong>输出：</strong>15
-<strong>解释：</strong>
+<strong>解释：</strong> 
 边长为 1 的正方形有 <strong>10</strong> 个。
 边长为 2 的正方形有 <strong>4</strong> 个。
 边长为 3 的正方形有 <strong>1</strong> 个。
@@ -42,7 +42,7 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>matrix =
+<pre><strong>输入：</strong>matrix = 
 [
   [1,0,1],
   [1,1,0],
@@ -50,7 +50,7 @@ tags:
 ]
 <strong>输出：</strong>7
 <strong>解释：</strong>
-边长为 1 的正方形有 <strong>6</strong> 个。
+边长为 1 的正方形有 <strong>6</strong> 个。 
 边长为 2 的正方形有 <strong>1</strong> 个。
 正方形的总数 = 6 + 1 = <strong>7</strong>.
 </pre>
