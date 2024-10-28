@@ -118,6 +118,131 @@ class Solution {
 }
 ```
 
+#### Java2
+
+```java
+class Solution {
+    private Map<Integer, Integer> f = new HashMap<>();
+    private Set<Integer> s = new HashSet<>();
+
+    public int longestSquareStreak(int[] nums) {
+        for (int v : nums) {
+            s.add(v);
+        }
+        int ans = 0;
+        for (int v : nums) {
+            ans = Math.max(ans, dfs(v));
+        }
+        return ans < 2 ? -1 : ans;
+    }
+
+    private int dfs(int x) {
+        if (!s.contains(x)) {
+            return 0;
+        }
+        if (f.containsKey(x)) {
+            return f.get(x);
+        }
+        int ans = 1 + dfs(x * x);
+        f.put(x, ans);
+        return ans;
+    }
+}
+```
+
+#### Java3
+```java3
+class Solution {
+    private Map<Integer, Integer> memo = new HashMap<>(); // Memoization map
+    private Set<Integer> numSet = new HashSet<>(); // Set of numbers
+
+    public int longestSquareStreak(int[] nums) {
+        // Early exit if the array length is less than 2
+        if (nums.length < 2)
+            return -1;
+
+        // Add numbers to the set for quick lookup
+        for (int n : nums) {
+            numSet.add(n);
+        }
+
+        int maxStreak = 0; // Track the maximum streak
+        // Calculate the longest square streak for each number
+        for (int n : nums) {
+            maxStreak = Math.max(maxStreak, dfs(n));
+        }
+
+        return maxStreak < 2 ? -1 : maxStreak; // Return result
+    }
+
+    private int dfs(int x) {
+        // Base case: if x is not in the set, return 0
+        if (!numSet.contains(x)) {
+            return 0;
+        }
+
+        // Return cached result if already computed
+        if (memo.containsKey(x)) {
+            return memo.get(x);
+        }
+
+        // Calculate the next number in the square streak
+        long next = (long) x * x; // Use long to avoid overflow
+        // If the next number exceeds the maximum allowed value, return 0
+        if (next > 100000) {
+            memo.put(x, 1); // Only count this number itself
+            return 1;
+        }
+
+        // Recursively calculate the streak
+        int streak = 1 + dfs((int) next); // Include the current number in the streak
+        memo.put(x, streak); // Cache the result
+        return streak;
+    }
+}
+```
+
+#### Java4
+```java4
+public class Solution {
+    public int longestSquareStreak(int[] nums) {
+        int maxStreak = -1; // Track the maximum streak
+        final int MAX_NUM = (int) Math.pow(10, 5); // Maximum value for nums
+        boolean[] exists = new boolean[MAX_NUM + 1]; // Track existence of numbers
+        boolean[] visited = new boolean[MAX_NUM + 1]; // Track visited numbers
+
+        // Mark existing numbers
+        for (int num : nums) {
+            exists[num] = true;
+        }
+
+        // Check for square streaks
+        for (int i = 2; i * i <= MAX_NUM; i++) {
+            if (!exists[i] || visited[i]) {
+                continue; // Skip if number doesn't exist or is already visited
+            }
+            visited[i] = true; // Mark as visited
+            int streakLength = 1; // Start streak length
+            long j = (long) i * i; // Calculate square (use long to avoid overflow)
+
+            // Continue while j is valid and exists
+            while (j >= 0 && j <= MAX_NUM && exists[(int) j]) {
+                visited[(int) j] = true; // Mark as visited
+                streakLength++; // Increase streak length
+                j = j * j; // Move to next square
+            }
+
+            // Update maximum streak if valid
+            if (streakLength > 1) {
+                maxStreak = Math.max(maxStreak, streakLength);
+            }
+        }
+        return maxStreak; // Return the maximum streak found
+    }
+}
+```
+
+
 #### C++
 
 ```cpp
@@ -198,38 +323,6 @@ class Solution:
         s = set(nums)
         ans = max(dfs(x) for x in nums)
         return -1 if ans < 2 else ans
-```
-
-#### Java
-
-```java
-class Solution {
-    private Map<Integer, Integer> f = new HashMap<>();
-    private Set<Integer> s = new HashSet<>();
-
-    public int longestSquareStreak(int[] nums) {
-        for (int v : nums) {
-            s.add(v);
-        }
-        int ans = 0;
-        for (int v : nums) {
-            ans = Math.max(ans, dfs(v));
-        }
-        return ans < 2 ? -1 : ans;
-    }
-
-    private int dfs(int x) {
-        if (!s.contains(x)) {
-            return 0;
-        }
-        if (f.containsKey(x)) {
-            return f.get(x);
-        }
-        int ans = 1 + dfs(x * x);
-        f.put(x, ans);
-        return ans;
-    }
-}
 ```
 
 #### C++
