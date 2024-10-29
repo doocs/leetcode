@@ -293,7 +293,7 @@ func longestSquareStreak(nums []int) (ans int) {
 
 <!-- solution:start -->
 
-### Solution 3: Counting
+### 方法三：计数
 
 <!-- tabs:start -->
 
