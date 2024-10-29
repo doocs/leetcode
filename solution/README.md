@@ -3348,6 +3348,7 @@
 |  3335  |  [字符串转换后的长度 I](/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README.md)  |    |  中等  |  第 421 场周赛  |
 |  3336  |  [最大公约数相等的子序列数量](/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README.md)  |    |  困难  |  第 421 场周赛  |
 |  3337  |  [字符串转换后的长度 II](/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README.md)  |    |  困难  |  第 421 场周赛  |
+|  3338  |  [Second Highest Salary II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README.md)  |  `数据库`  |  中等  |  🔒  |
 
 ## 版权
 

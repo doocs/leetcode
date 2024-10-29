@@ -3346,6 +3346,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3335  |  [Total Characters in String After Transformations I](/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 421  |
 |  3336  |  [Find the Number of Subsequences With Equal GCD](/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README_EN.md)  |    |  Hard  |  Weekly Contest 421  |
 |  3337  |  [Total Characters in String After Transformations II](/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 421  |
+|  3338  |  [Second Highest Salary II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 
 ## Copyright
 

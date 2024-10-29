@@ -297,6 +297,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3308 | [Find Top Performing Driver](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README_EN.md)                                                                                         | `Database` | Medium     | 🔒     |
 | 3322 | [Premier League Table Ranking III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README_EN.md)                                                                           | `Database` | Medium     | 🔒     |
 | 3328 | [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README_EN.md)                                                                                 | `Database` | Medium     | 🔒     |
+| 3338 | [Second Highest Salary II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README_EN.md)                                                                                             | `Database` | Medium     | 🔒     |
 
 ## Copyright
 
