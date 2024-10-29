@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Number Theory
 ---
 
 <!-- problem:start -->
@@ -16,20 +21,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3336.Fi
 
 <p>You are given an integer array <code>nums</code>.</p>
 
-<p>Your task is to find the number of pairs of <strong>non-empty</strong> subsequences <code>(seq1, seq2)</code> of <code>nums</code> that satisfy the following conditions:</p>
+<p>Your task is to find the number of pairs of <strong>non-empty</strong> <span data-keyword="subsequence-array">subsequences</span> <code>(seq1, seq2)</code> of <code>nums</code> that satisfy the following conditions:</p>
 
 <ul>
 	<li>The subsequences <code>seq1</code> and <code>seq2</code> are <strong>disjoint</strong>, meaning <strong>no index</strong> of <code>nums</code> is common between them.</li>
-	<li>The GCD of the elements of <code>seq1</code> is equal to the GCD of the elements of <code>seq2</code>.</li>
+	<li>The <span data-keyword="gcd-function">GCD</span> of the elements of <code>seq1</code> is equal to the GCD of the elements of <code>seq2</code>.</li>
 </ul>
 
 <p>Return the total number of such pairs.</p>
 
 <p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
-
-<p>The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</strong> of <code>a</code> and <code>b</code>.</p>
-
-<p>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

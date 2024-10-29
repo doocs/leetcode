@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3333.Find%20the%20Original%20Typed%20String%20II/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->
