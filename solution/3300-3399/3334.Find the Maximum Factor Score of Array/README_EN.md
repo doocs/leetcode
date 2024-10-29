@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README_EN.md
+tags:
+    - Array
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->
@@ -20,11 +24,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3334.Fi
 
 <p>Return the <strong>maximum factor score</strong> of <code>nums</code> after removing <strong>at most</strong> one element from it.</p>
 
-<p><strong>Note</strong> that <em>both</em> the LCM and GCD of a single number are the number itself, and the <em>factor score</em> of an <strong>empty</strong> array is 0.</p>
-
-<p>The term <code>lcm(a, b)</code> denotes the <strong>least common multiple</strong> of <code>a</code> and <code>b</code>.</p>
-
-<p>The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</strong> of <code>a</code> and <code>b</code>.</p>
+<p><strong>Note</strong> that <em>both</em> the <span data-keyword="lcm-function">LCM</span> and <span data-keyword="gcd-function">GCD</span> of a single number are the number itself, and the <em>factor score</em> of an <strong>empty</strong> array is 0.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

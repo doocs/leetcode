@@ -3338,14 +3338,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3327  |  [Check if DFS Strings Are Palindromes](/solution/3300-3399/3327.Check%20if%20DFS%20Strings%20Are%20Palindromes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Hash Table`,`String`,`Hash Function`  |  Hard  |  Weekly Contest 420  |
 |  3328  |  [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  3329  |  [Count Substrings With K-Frequency Characters II](/solution/3300-3399/3329.Count%20Substrings%20With%20K-Frequency%20Characters%20II/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Hard  |  🔒  |
-|  3330  |  [Find the Original Typed String I](/solution/3300-3399/3330.Find%20the%20Original%20Typed%20String%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 142  |
-|  3331  |  [Find Subtree Sizes After Changes](/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README_EN.md)  |    |  Medium  |  Biweekly Contest 142  |
-|  3332  |  [Maximum Points Tourist Can Earn](/solution/3300-3399/3332.Maximum%20Points%20Tourist%20Can%20Earn/README_EN.md)  |    |  Medium  |  Biweekly Contest 142  |
-|  3333  |  [Find the Original Typed String II](/solution/3300-3399/3333.Find%20the%20Original%20Typed%20String%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 142  |
-|  3334  |  [Find the Maximum Factor Score of Array](/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 421  |
-|  3335  |  [Total Characters in String After Transformations I](/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 421  |
-|  3336  |  [Find the Number of Subsequences With Equal GCD](/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README_EN.md)  |    |  Hard  |  Weekly Contest 421  |
-|  3337  |  [Total Characters in String After Transformations II](/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 421  |
+|  3330  |  [Find the Original Typed String I](/solution/3300-3399/3330.Find%20the%20Original%20Typed%20String%20I/README_EN.md)  |  `String`  |  Easy  |  Biweekly Contest 142  |
+|  3331  |  [Find Subtree Sizes After Changes](/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Hash Table`,`String`  |  Medium  |  Biweekly Contest 142  |
+|  3332  |  [Maximum Points Tourist Can Earn](/solution/3300-3399/3332.Maximum%20Points%20Tourist%20Can%20Earn/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Biweekly Contest 142  |
+|  3333  |  [Find the Original Typed String II](/solution/3300-3399/3333.Find%20the%20Original%20Typed%20String%20II/README_EN.md)  |  `String`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |  Biweekly Contest 142  |
+|  3334  |  [Find the Maximum Factor Score of Array](/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 421  |
+|  3335  |  [Total Characters in String After Transformations I](/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Dynamic Programming`,`Counting`  |  Medium  |  Weekly Contest 421  |
+|  3336  |  [Find the Number of Subsequences With Equal GCD](/solution/3300-3399/3336.Find%20the%20Number%20of%20Subsequences%20With%20Equal%20GCD/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`,`Number Theory`  |  Hard  |  Weekly Contest 421  |
+|  3337  |  [Total Characters in String After Transformations II](/solution/3300-3399/3337.Total%20Characters%20in%20String%20After%20Transformations%20II/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Dynamic Programming`,`Counting`  |  Hard  |  Weekly Contest 421  |
 |  3338  |  [Second Highest Salary II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 
 ## Copyright

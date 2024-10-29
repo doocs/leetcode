@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Hash Table
+    - String
 ---
 
 <!-- problem:start -->
@@ -26,9 +32,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3331.Fi
 	<li>Otherwise, <strong>remove</strong> the edge between <code>x</code> and its current parent and make node <code>y</code> the new parent of <code>x</code> by adding an edge between them.</li>
 </ul>
 
-<p>Return an array <code>answer</code> of size <code>n</code> where <code>answer[i]</code> is the <strong>size</strong> of the subtree rooted at node <code>i</code> in the <strong>final</strong> tree.</p>
-
-<p>A <strong>subtree</strong> of <code>treeName</code> is a tree consisting of a node in <code>treeName</code> and all of its descendants.</p>
+<p>Return an array <code>answer</code> of size <code>n</code> where <code>answer[i]</code> is the <strong>size</strong> of the <span data-keyword="subtree">subtree</span> rooted at node <code>i</code> in the <strong>final</strong> tree.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

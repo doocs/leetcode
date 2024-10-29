@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 动态规划
+    - 计数
 ---
 
 <!-- problem:start -->

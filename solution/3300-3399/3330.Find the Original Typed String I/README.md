@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3330.Find%20the%20Original%20Typed%20String%20I/README.md
+tags:
+    - 字符串
 ---
 
 <!-- problem:start -->
