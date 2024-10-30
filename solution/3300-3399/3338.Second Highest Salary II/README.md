@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3338. Second Highest Salary II 🔒](https://leetcode.cn/problems/second-highest-salary-ii)
+# [3338. 第二高的薪水 II 🔒](https://leetcode.cn/problems/second-highest-salary-ii)
 
 [English Version](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>employees</code></p>
+<p>表：<code>employees</code></p>
 
 <pre>
 +------------------+---------+
@@ -26,23 +26,24 @@ tags:
 | salary           | int     |
 | dept             | varchar |
 +------------------+---------+
-emp_id is the unique key for this table.
-Each row of this table contains information about an employee including their ID, name, manager, salary, department, start date, and building assignment.
+emp_id 是这张表的唯一主键。
+这张表的每一行包含雇员信息，包括他们的 ID，薪水和部门。
 </pre>
 
-<p>Write a solution to find the employees who earn the <strong>second-highest salary</strong> in each department. If <strong>multiple employees have the second-highest salary</strong>, <strong>include</strong> <strong>all employees</strong> with <strong>that salary</strong>.</p>
+<p>编写一个解决方案来找到每个部门中 <strong>薪水第二高</strong> 的雇员。如果 <strong>有多个雇员有第二高的薪水，在结果中包含所有获得该薪水的雇员</strong>。</p>
 
-<p>Return <em>the result table</em> <em>ordered by</em> <code>emp_id</code> <em>in</em> <em><strong>ascending</strong></em> <em>order</em>.</p>
+<p>返回结果表以&nbsp;<code>emp_id</code> <strong>升序&nbsp;</strong>排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>employees table:</p>
+<p>employees 表：</p>
 
 <pre class="example-io">
 +--------+--------+-----------+
@@ -61,7 +62,7 @@ Each row of this table contains information about an employee including their ID
 +--------+--------+-----------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +--------+-----------+
@@ -74,35 +75,35 @@ Each row of this table contains information about an employee including their ID
 +--------+-----------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Sales Department</strong>:
+	<li><b>销售部门：</b>
 
     <ul>
-    	<li>Highest salary is 90000 (emp_id: 4)</li>
-    	<li>Second-highest salary is 80000 (emp_id: 2, 3)</li>
-    	<li>Both employees with salary 80000 are included</li>
+    	<li>最高薪水为 90000 (emp_id: 4)</li>
+    	<li>第二高的薪水为 80000 (emp_id: 2, 3)</li>
+    	<li>两个薪水为 80000 的雇员都被包含</li>
     </ul>
     </li>
-    <li><strong>IT Department</strong>:
+    <li><strong>IT 部门：</strong>
     <ul>
-    	<li>Highest salary is 65000 (emp_id: 6, 7)</li>
-    	<li>Second-highest salary is 55000 (emp_id: 5)</li>
-    	<li>Only emp_id 5 is included as they have the second-highest salary</li>
+    	<li>最高薪水为 65000 (emp_id: 6, 7)</li>
+    	<li>第二高的薪水为 55000 (emp_id: 5)</li>
+    	<li>只有 emp_id 为 5 的雇员被包含，因为他的薪水第二高</li>
     </ul>
     </li>
-    <li><strong>Marketing Department</strong>:
+    <li><b>市场部门：</b>
     <ul>
-    	<li>Highest salary is 55000 (emp_id: 9)</li>
-    	<li>Second-highest salary is 50000 (emp_id: 8)</li>
-    	<li>Employee 8&nbsp;is included</li>
+    	<li>最高薪水为 55000 (emp_id: 9)</li>
+    	<li>第二高的薪水为 50000 (emp_id: 8)</li>
+    	<li>雇员 8 被包含</li>
     </ul>
     </li>
-    <li><strong>HR Department</strong>:
+    <li><b>人力资源部门：</b>
     <ul>
-    	<li>Only has one employee</li>
-    	<li>Not included in the result as it has fewer than 2 employees</li>
+    	<li>只有一个雇员</li>
+    	<li>因为少于 2 个雇员，所以没有包含在结果中</li>
     </ul>
     </li>
 

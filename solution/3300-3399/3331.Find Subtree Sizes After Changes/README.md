@@ -32,9 +32,7 @@ tags:
 	<li>否则，将节点 <code>x</code>&nbsp;与它父亲节点之间的边 <strong>删除</strong>&nbsp;，在 <code>x</code>&nbsp;与 <code>y</code>&nbsp;之间连接一条边，使&nbsp;<code>y</code>&nbsp;变为 <code>x</code>&nbsp;新的父节点。</li>
 </ul>
 
-<p>请你返回一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>answer</code>&nbsp;，其中&nbsp;<code>answer[i]</code>&nbsp;是 <strong>最终</strong>&nbsp;树中，节点 <code>i</code>&nbsp;为根的子树的 <strong>大小</strong>&nbsp;。</p>
-
-<p>一个 <strong>子树</strong>&nbsp;<code>subtree</code>&nbsp;指的是节点 <code>subtree</code>&nbsp;和它所有的后代节点。</p>
+<p>请你返回一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>answer</code>&nbsp;，其中&nbsp;<code>answer[i]</code>&nbsp;是 <strong>最终</strong>&nbsp;树中，节点 <code>i</code>&nbsp;为根的 <span data-keyword="subtree">子树</span> 的 <strong>大小</strong>&nbsp;。</p>
 
 <p>&nbsp;</p>
 

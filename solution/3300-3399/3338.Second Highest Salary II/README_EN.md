@@ -27,7 +27,7 @@ tags:
 | dept             | varchar |
 +------------------+---------+
 emp_id is the unique key for this table.
-Each row of this table contains information about an employee including their ID, name, manager, salary, department, start date, and building assignment.
+Each row of this table contains information about an employee including their ID, salary, and department.
 </pre>
 
 <p>Write a solution to find the employees who earn the <strong>second-highest salary</strong> in each department. If <strong>multiple employees have the second-highest salary</strong>, <strong>include</strong> <strong>all employees</strong> with <strong>that salary</strong>.</p>
