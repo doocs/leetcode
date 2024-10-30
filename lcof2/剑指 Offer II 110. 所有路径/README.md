@@ -208,7 +208,7 @@ class Solution {
             results.append(Array(path))
             return
         }
-        
+
         for next in graph[node] {
             path.append(next)
             dfs(next, &path)

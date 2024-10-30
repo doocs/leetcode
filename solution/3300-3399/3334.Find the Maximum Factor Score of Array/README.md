@@ -24,11 +24,7 @@ tags:
 
 <p>在 <strong>最多</strong> 移除一个元素的情况下，返回 <code>nums</code> 的<strong> 最大因子得分</strong>。</p>
 
-<p><strong>注意</strong>，单个数字的 LCM 和 GCD 都是其本身，而<strong> </strong><strong>空数组</strong> 的因子得分为 0。</p>
-
-<p><code>lcm(a, b)</code> 表示 <code>a</code> 和 <code>b</code> 的 <strong>最小公倍数</strong>。</p>
-
-<p><code>gcd(a, b)</code> 表示 <code>a</code> 和 <code>b</code> 的<strong> 最大公约数</strong>。</p>
+<p><strong>注意</strong>，单个数字的 <span data-keyword="lcm-function">LCM</span> 和 <span data-keyword="gcd-function">GCD</span> 都是其本身，而<strong> </strong><strong>空数组</strong> 的因子得分为 0。</p>
 
 <p>&nbsp;</p>
 

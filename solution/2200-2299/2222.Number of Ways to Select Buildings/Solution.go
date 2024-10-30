@@ -1,17 +1,14 @@
-func numberOfWays(s string) int64 {
+func numberOfWays(s string) (ans int64) {
 	n := len(s)
-	cnt0 := strings.Count(s, "0")
-	cnt1 := n - cnt0
-	c0, c1 := 0, 0
-	ans := 0
+	l := [2]int{}
+	r := [2]int{}
+	r[0] = strings.Count(s, "0")
+	r[1] = n - r[0]
 	for _, c := range s {
-		if c == '0' {
-			ans += c1 * (cnt1 - c1)
-			c0++
-		} else {
-			ans += c0 * (cnt0 - c0)
-			c1++
-		}
+		x := int(c - '0')
+		r[x]--
+		ans += int64(l[x^1] * r[x^1])
+		l[x]++
 	}
-	return int64(ans)
+	return
 }

@@ -289,12 +289,12 @@ class Solution {
         if target == "0000" {
             return 0
         }
-        
+
         var visited = Set<String>()
         var queue = ["0000"]
         visited.insert("0000")
         var step = 0
-        
+
         while !queue.isEmpty {
             step += 1
             for _ in 0..<queue.count {
@@ -311,10 +311,10 @@ class Solution {
                 }
             }
         }
-        
+
         return -1
     }
-    
+
     private func getNeighbors(_ lock: String) -> [String] {
         var neighbors = [String]()
         var chars = Array(lock)
@@ -328,7 +328,7 @@ class Solution {
         }
         return neighbors
     }
-    
+
     private func prevChar(_ c: Character) -> Character {
         return c == "0" ? "9" : Character(UnicodeScalar(c.asciiValue! - 1))
     }

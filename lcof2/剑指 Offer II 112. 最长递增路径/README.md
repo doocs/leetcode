@@ -219,7 +219,7 @@ class Solution {
         m = matrix.count
         n = matrix[0].count
         memo = Array(repeating: Array(repeating: -1, count: n), count: m)
-        
+
         var ans = 0
         for i in 0..<m {
             for j in 0..<n {
@@ -235,7 +235,7 @@ class Solution {
         }
         var ans = 1
         let dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-        
+
         for (dx, dy) in dirs {
             let x = i + dx, y = j + dy
             if x >= 0, x < m, y >= 0, y < n, matrix[x][y] > matrix[i][j] {
