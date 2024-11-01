@@ -156,6 +156,34 @@ function makeFancyString(s: string): string {
 }
 ```
 
+#### TypeScript
+
+```ts
+function makeFancyString(s: string): string {
+    let [n, ans] = [s.length, ''];
+    for (let i = 0; i < n; i++) {
+        if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
+            ans += s[i];
+        }
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function makeFancyString(s) {
+    let [n, ans] = [s.length, ''];
+    for (let i = 0; i < n; i++) {
+        if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
+            ans += s[i];
+        }
+    }
+    return ans;
+}
+```
+
 #### PHP
 
 ```php
