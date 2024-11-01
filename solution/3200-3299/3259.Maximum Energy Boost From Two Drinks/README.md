@@ -180,4 +180,90 @@ function maxEnergyBoost(energyDrinkA: number[], energyDrinkB: number[]): number 
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：动态规划（空间优化）
+
+我们注意到，状态 $f[i]$ 至于 $f[i - 1]$ 有关，而与 $f[i - 2]$ 无关。因此我们可以只使用两个变量 $f$ 和 $g$ 来维护状态，从而将空间复杂度优化到 $O(1)$。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxEnergyBoost(self, energyDrinkA: List[int], energyDrinkB: List[int]) -> int:
+        f, g = energyDrinkA[0], energyDrinkB[0]
+        for a, b in zip(energyDrinkA[1:], energyDrinkB[1:]):
+            f, g = max(f + a, g), max(g + b, f)
+        return max(f, g)
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxEnergyBoost(int[] energyDrinkA, int[] energyDrinkB) {
+        int n = energyDrinkA.length;
+        long f = energyDrinkA[0], g = energyDrinkB[0];
+        for (int i = 1; i < n; ++i) {
+            long ff = Math.max(f + energyDrinkA[i], g);
+            g = Math.max(g + energyDrinkB[i], f);
+            f = ff;
+        }
+        return Math.max(f, g);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxEnergyBoost(vector<int>& energyDrinkA, vector<int>& energyDrinkB) {
+        int n = energyDrinkA.size();
+        long long f = energyDrinkA[0], g = energyDrinkB[0];
+        for (int i = 1; i < n; ++i) {
+            long long ff = max(f + energyDrinkA[i], g);
+            g = max(g + energyDrinkB[i], f);
+            f = ff;
+        }
+        return max(f, g);
+    }
+};
+```
+
+#### Go
+
+```go
+func maxEnergyBoost(energyDrinkA []int, energyDrinkB []int) int64 {
+	n := len(energyDrinkA)
+	f, g := energyDrinkA[0], energyDrinkB[0]
+	for i := 1; i < n; i++ {
+		f, g = max(f+energyDrinkA[i], g), max(g+energyDrinkB[i], f)
+	}
+	return int64(max(f, g))
+}
+```
+
+#### TypeScript
+
+```ts
+function maxEnergyBoost(energyDrinkA: number[], energyDrinkB: number[]): number {
+    const n = energyDrinkA.length;
+    let [f, g] = [energyDrinkA[0], energyDrinkB[0]];
+    for (let i = 1; i < n; ++i) {
+        [f, g] = [Math.max(f + energyDrinkA[i], g), Math.max(g + energyDrinkB[i], f)];
+    }
+    return Math.max(f, g);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
