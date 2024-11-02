@@ -100,7 +100,43 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS + Mathematics
+
+According to the problem description, we discuss the following cases:
+
+When there is only one circle in `circles`:
+
+1. If the starting point $(0, 0)$ is inside the circle (including the boundary), or the ending point $(\textit{xCorner}, \textit{yCorner})$ is inside the circle, then it is impossible to satisfy the condition of "not touching the circle".
+2. If the circle intersects with the left or top side of the rectangle and also intersects with the right or bottom side of the rectangle, then the circle will block the path from the bottom-left corner to the top-right corner of the rectangle, making it impossible to satisfy the condition of "not touching the circle".
+
+When there are multiple circles in `circles`:
+
+1. Similar to the above case, if the starting point or ending point is inside a circle, it is impossible to satisfy the condition of "not touching the circle".
+2. If there are multiple circles, they may intersect within the rectangle, forming a larger obstacle area. As long as this obstacle area intersects with the left or top side of the rectangle and also intersects with the right or bottom side of the rectangle, it is impossible to satisfy the condition of "not touching the circle". If the intersecting area is not inside the rectangle, it cannot be merged because the intersecting area cannot block the path inside the rectangle. Additionally, if part of the intersecting area is inside the rectangle and part is outside, these circles can be used as starting or ending points and can be merged or not. We only need to choose one of the intersecting points. If this point is inside the rectangle, we can merge these circles.
+
+Based on the above analysis, we traverse all circles. For the current circle, if the starting point or ending point is inside the circle, we directly return `false`. Otherwise, if this point has not been visited and the circle intersects with the left or top side of the rectangle, we start a depth-first search (DFS) from this circle. During the search, if we find a circle that intersects with the right or bottom side of the rectangle, it means the obstacle area formed by the circles blocks the path from the bottom-left corner to the top-right corner of the rectangle, and we return `false`.
+
+We define $\textit{dfs}(i)$ to represent starting a DFS from the $i$-th circle. If we find a circle that intersects with the right or bottom side of the rectangle, we return `true`; otherwise, we return `false`.
+
+The execution process of the function $\textit{dfs}(i)$ is as follows:
+
+1. If the current circle intersects with the right or bottom side of the rectangle, return `true`;
+2. Otherwise, mark the current circle as visited;
+3. Next, traverse all other circles. If circle $j$ has not been visited, and circle $i$ intersects with circle $j$, and one of the intersection points of these two circles is inside the rectangle, continue the DFS from circle $j$. If we find a circle that intersects with the right or bottom side of the rectangle, return `true`;
+4. If no such circle is found, return `false`.
+
+In the above process, we need to determine whether two circles $O_1 = (x_1, y_1, r_1)$ and $O_2 = (x_2, y_2, r_2)$ intersect. If the distance between the centers of the two circles does not exceed the sum of their radii, i.e., $(x_1 - x_2)^2 + (y_1 - y_2)^2 \le (r_1 + r_2)^2$, then they intersect.
+
+We also need to find an intersection point of the two circles. We take a point $A = (x, y)$ such that $\frac{O_1 A}{O_1 O_2} = \frac{r_1}{r_1 + r_2}$. If the two circles intersect, point $A$ must be in the intersection. In this case, $\frac{x - x_1}{x_2 - x_1} = \frac{r_1}{r_1 + r_2}$, solving for $x = \frac{x_1 r_2 + x_2 r_1}{r_1 + r_2}$. Similarly, $y = \frac{y_1 r_2 + y_2 r_1}{r_1 + r_2}$. As long as this point is inside the rectangle, we can continue the DFS, satisfying:
+
+$$
+\begin{cases}
+x_1 r_2 + x_2 r_1 < (r_1 + r_2) \times \textit{xCorner} \\
+y_1 r_2 + y_2 r_1 < (r_1 + r_2) \times \textit{yCorner}
+\end{cases}
+$$
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of circles.
 
 <!-- tabs:start -->
 
@@ -411,6 +447,96 @@ function canReachCorner(xCorner: number, yCorner: number, circles: number[][]): 
     }
 
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_reach_corner(x_corner: i32, y_corner: i32, circles: Vec<Vec<i32>>) -> bool {
+        let n = circles.len();
+        let mut vis = vec![false; n];
+
+        let in_circle = |x: i64, y: i64, cx: i64, cy: i64, r: i64| -> bool {
+            (x - cx) * (x - cx) + (y - cy) * (y - cy) <= r * r
+        };
+
+        let cross_left_top = |cx: i64, cy: i64, r: i64| -> bool {
+            let a = cx.abs() <= r && (cy >= 0 && cy <= y_corner as i64);
+            let b = (cy - y_corner as i64).abs() <= r && (cx >= 0 && cx <= x_corner as i64);
+            a || b
+        };
+
+        let cross_right_bottom = |cx: i64, cy: i64, r: i64| -> bool {
+            let a = (cx - x_corner as i64).abs() <= r && (cy >= 0 && cy <= y_corner as i64);
+            let b = cy.abs() <= r && (cx >= 0 && cx <= x_corner as i64);
+            a || b
+        };
+        fn dfs(
+            circles: &Vec<Vec<i32>>,
+            vis: &mut Vec<bool>,
+            i: usize,
+            x_corner: i32,
+            y_corner: i32,
+            cross_right_bottom: &dyn Fn(i64, i64, i64) -> bool,
+        ) -> bool {
+            let c = &circles[i];
+            let (x1, y1, r1) = (c[0] as i64, c[1] as i64, c[2] as i64);
+
+            if cross_right_bottom(x1, y1, r1) {
+                return true;
+            }
+
+            vis[i] = true;
+
+            for j in 0..circles.len() {
+                if vis[j] {
+                    continue;
+                }
+
+                let c2 = &circles[j];
+                let (x2, y2, r2) = (c2[0] as i64, c2[1] as i64, c2[2] as i64);
+
+                if (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) > (r1 + r2) * (r1 + r2) {
+                    continue;
+                }
+
+                if x1 * r2 + x2 * r1 < (r1 + r2) * x_corner as i64
+                    && y1 * r2 + y2 * r1 < (r1 + r2) * y_corner as i64
+                    && dfs(circles, vis, j, x_corner, y_corner, cross_right_bottom)
+                {
+                    return true;
+                }
+            }
+            false
+        }
+
+        for i in 0..n {
+            let c = &circles[i];
+            let (x, y, r) = (c[0] as i64, c[1] as i64, c[2] as i64);
+
+            if in_circle(0, 0, x, y, r) || in_circle(x_corner as i64, y_corner as i64, x, y, r) {
+                return false;
+            }
+
+            if !vis[i]
+                && cross_left_top(x, y, r)
+                && dfs(
+                    &circles,
+                    &mut vis,
+                    i,
+                    x_corner,
+                    y_corner,
+                    &cross_right_bottom,
+                )
+            {
+                return false;
+            }
+        }
+
+        true
+    }
 }
 ```
 

@@ -102,7 +102,43 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS + 数学
+
+根据题意，我们分情况讨论：
+
+当 `circles` 中只有一个圆时：
+
+1. 如果起点 $(0, 0)$ 在圆内（包括边界），或者终点 $(\textit{xCorner}, \textit{yCorner})$ 在圆内，那么无法满足“不触碰圆”的条件；
+1. 如果圆与矩形的左侧或上侧有交点，且与矩形的右侧或下侧有交点，这种情况下，圆会阻断从矩形左下角到右上角的路径，也无法满足“不触碰圆”的条件。
+
+当 `circles` 中有多个圆时：
+
+1. 与上述情况类似，如果起点或终点在圆内时，无法满足“不触碰圆”的条件。
+2. 如果有多个圆，多个圆之间可能在矩形内相交，合并形成更大的障碍区域。只要这个障碍区域与矩形的左侧或上侧有交点，且与矩形的右侧或下侧有交点，那么无法满足“不触碰圆”的条件。如果相交区域不在矩形内部，不能进行合并，因为相交的区域无法阻断矩形内部路径。另外，如果相交的区域有一部分在矩形内，有一部分在矩形外，这些圆都可以作为搜索的起点或终点，可以合并，也可以不合并。我们只要任选相交的其中一个点，如果这个点在矩形内，我们就可以将这些圆合并。
+
+根据上述分析，我们遍历所有圆，对于当前遍历到的圆，如果起点或终点在圆内，我们直接返回 `false`。否则，如果这个点没有被访问过，且这个圆与矩形的左侧或上侧有交点，我们就从这个圆开始进行深度优先搜索，搜索过程中，如果找到了一个圆，它与矩形的右侧或下侧有交点，说明圆形成的障碍区域阻断了从矩形左下角到右上角的路径，我们就返回 `false`。
+
+我们定义 $\textit{dfs}(i)$ 表示从第 $i$ 个圆开始进行深度优先搜索，如果找到了一个圆，它与矩形的右侧或下侧有交点，返回 `true`，否则返回 `false`。
+
+函数 $\textit{dfs}(i)$ 的执行过程如下：
+
+1. 如果当前圆与矩形的右侧或下侧有交点，返回 `true`；
+1. 否则，我们将当前圆标记为已访问；
+1. 接下来，遍历其它所有圆，如果圆 $j$ 没被访问过，且圆 $i$ 和圆 $j$ 相交，且这两个圆的其中一个交点在矩形内，我们就继续从圆 $j$ 开始进行深度优先搜索，如果找到了一个圆，它与矩形的右侧或下侧有交点，返回 `true`；
+1. 如果没有找到这样的圆，返回 `false`。
+
+上面的过程中，我们需要在圆 $O_1 = (x_1, y_1, r_1)$ 和 $O_2 = (x_2, y_2, r_2)$ 之间判断是否相交，如果两个圆相交，那么它们的圆心之间的距离不超过两个圆的半径之和，即 $(x_1 - x_2)^2 + (y_1 - y_2)^2 \le (r_1 + r_2)^2$。
+
+我们还需要寻找两个圆的一个交点，我们取一个点 $A = (x, y)$，满足 $\frac{O_1 A}{O_1 O_2} = \frac{r_1}{r_1 + r_2}$，如果两圆相交，那么点 $A$ 一定在交集中，此时 $\frac{x - x_1}{x_2 - x_1} = \frac{r_1}{r_1 + r_2}$，解得 $x = \frac{x_1 r_2 + x_2 r_1}{r_1 + r_2}$，同理，有 $y = \frac{y_1 r_2 + y_2 r_1}{r_1 + r_2}$。只要这个点在矩形内，我们就可以继续进行深度优先搜索，即满足：
+
+$$
+\begin{cases}
+x_1 r_2 + x_2 r_1 < (r_1 + r_2) \times \textit{xCorner} \\
+y_1 r_2 + y_2 r_1 < (r_1 + r_2) \times \textit{yCorner}
+\end{cases}
+$$
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为圆的数量。
 
 <!-- tabs:start -->
 
@@ -413,6 +449,96 @@ function canReachCorner(xCorner: number, yCorner: number, circles: number[][]): 
     }
 
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_reach_corner(x_corner: i32, y_corner: i32, circles: Vec<Vec<i32>>) -> bool {
+        let n = circles.len();
+        let mut vis = vec![false; n];
+
+        let in_circle = |x: i64, y: i64, cx: i64, cy: i64, r: i64| -> bool {
+            (x - cx) * (x - cx) + (y - cy) * (y - cy) <= r * r
+        };
+
+        let cross_left_top = |cx: i64, cy: i64, r: i64| -> bool {
+            let a = cx.abs() <= r && (cy >= 0 && cy <= y_corner as i64);
+            let b = (cy - y_corner as i64).abs() <= r && (cx >= 0 && cx <= x_corner as i64);
+            a || b
+        };
+
+        let cross_right_bottom = |cx: i64, cy: i64, r: i64| -> bool {
+            let a = (cx - x_corner as i64).abs() <= r && (cy >= 0 && cy <= y_corner as i64);
+            let b = cy.abs() <= r && (cx >= 0 && cx <= x_corner as i64);
+            a || b
+        };
+        fn dfs(
+            circles: &Vec<Vec<i32>>,
+            vis: &mut Vec<bool>,
+            i: usize,
+            x_corner: i32,
+            y_corner: i32,
+            cross_right_bottom: &dyn Fn(i64, i64, i64) -> bool,
+        ) -> bool {
+            let c = &circles[i];
+            let (x1, y1, r1) = (c[0] as i64, c[1] as i64, c[2] as i64);
+
+            if cross_right_bottom(x1, y1, r1) {
+                return true;
+            }
+
+            vis[i] = true;
+
+            for j in 0..circles.len() {
+                if vis[j] {
+                    continue;
+                }
+
+                let c2 = &circles[j];
+                let (x2, y2, r2) = (c2[0] as i64, c2[1] as i64, c2[2] as i64);
+
+                if (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) > (r1 + r2) * (r1 + r2) {
+                    continue;
+                }
+
+                if x1 * r2 + x2 * r1 < (r1 + r2) * x_corner as i64
+                    && y1 * r2 + y2 * r1 < (r1 + r2) * y_corner as i64
+                    && dfs(circles, vis, j, x_corner, y_corner, cross_right_bottom)
+                {
+                    return true;
+                }
+            }
+            false
+        }
+
+        for i in 0..n {
+            let c = &circles[i];
+            let (x, y, r) = (c[0] as i64, c[1] as i64, c[2] as i64);
+
+            if in_circle(0, 0, x, y, r) || in_circle(x_corner as i64, y_corner as i64, x, y, r) {
+                return false;
+            }
+
+            if !vis[i]
+                && cross_left_top(x, y, r)
+                && dfs(
+                    &circles,
+                    &mut vis,
+                    i,
+                    x_corner,
+                    y_corner,
+                    &cross_right_bottom,
+                )
+            {
+                return false;
+            }
+        }
+
+        true
+    }
 }
 ```
 
