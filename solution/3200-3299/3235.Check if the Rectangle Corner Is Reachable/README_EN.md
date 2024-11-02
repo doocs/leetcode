@@ -100,7 +100,43 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS + Mathematics
+
+According to the problem description, we discuss the following cases:
+
+When there is only one circle in `circles`:
+
+1. If the starting point $(0, 0)$ is inside the circle (including the boundary), or the ending point $(\textit{xCorner}, \textit{yCorner})$ is inside the circle, then it is impossible to satisfy the condition of "not touching the circle".
+2. If the circle intersects with the left or top side of the rectangle and also intersects with the right or bottom side of the rectangle, then the circle will block the path from the bottom-left corner to the top-right corner of the rectangle, making it impossible to satisfy the condition of "not touching the circle".
+
+When there are multiple circles in `circles`:
+
+1. Similar to the above case, if the starting point or ending point is inside a circle, it is impossible to satisfy the condition of "not touching the circle".
+2. If there are multiple circles, they may intersect within the rectangle, forming a larger obstacle area. As long as this obstacle area intersects with the left or top side of the rectangle and also intersects with the right or bottom side of the rectangle, it is impossible to satisfy the condition of "not touching the circle". If the intersecting area is not inside the rectangle, it cannot be merged because the intersecting area cannot block the path inside the rectangle. Additionally, if part of the intersecting area is inside the rectangle and part is outside, these circles can be used as starting or ending points and can be merged or not. We only need to choose one of the intersecting points. If this point is inside the rectangle, we can merge these circles.
+
+Based on the above analysis, we traverse all circles. For the current circle, if the starting point or ending point is inside the circle, we directly return `false`. Otherwise, if this point has not been visited and the circle intersects with the left or top side of the rectangle, we start a depth-first search (DFS) from this circle. During the search, if we find a circle that intersects with the right or bottom side of the rectangle, it means the obstacle area formed by the circles blocks the path from the bottom-left corner to the top-right corner of the rectangle, and we return `false`.
+
+We define $\textit{dfs}(i)$ to represent starting a DFS from the $i$-th circle. If we find a circle that intersects with the right or bottom side of the rectangle, we return `true`; otherwise, we return `false`.
+
+The execution process of the function $\textit{dfs}(i)$ is as follows:
+
+1. If the current circle intersects with the right or bottom side of the rectangle, return `true`;
+2. Otherwise, mark the current circle as visited;
+3. Next, traverse all other circles. If circle $j$ has not been visited, and circle $i$ intersects with circle $j$, and one of the intersection points of these two circles is inside the rectangle, continue the DFS from circle $j$. If we find a circle that intersects with the right or bottom side of the rectangle, return `true`;
+4. If no such circle is found, return `false`.
+
+In the above process, we need to determine whether two circles $O_1 = (x_1, y_1, r_1)$ and $O_2 = (x_2, y_2, r_2)$ intersect. If the distance between the centers of the two circles does not exceed the sum of their radii, i.e., $(x_1 - x_2)^2 + (y_1 - y_2)^2 \le (r_1 + r_2)^2$, then they intersect.
+
+We also need to find an intersection point of the two circles. We take a point $A = (x, y)$ such that $\frac{O_1 A}{O_1 O_2} = \frac{r_1}{r_1 + r_2}$. If the two circles intersect, point $A$ must be in the intersection. In this case, $\frac{x - x_1}{x_2 - x_1} = \frac{r_1}{r_1 + r_2}$, solving for $x = \frac{x_1 r_2 + x_2 r_1}{r_1 + r_2}$. Similarly, $y = \frac{y_1 r_2 + y_2 r_1}{r_1 + r_2}$. As long as this point is inside the rectangle, we can continue the DFS, satisfying:
+
+$$
+\begin{cases}
+x_1 r_2 + x_2 r_1 < (r_1 + r_2) \times \textit{xCorner} \\
+y_1 r_2 + y_2 r_1 < (r_1 + r_2) \times \textit{yCorner}
+\end{cases}
+$$
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the number of circles.
 
 <!-- tabs:start -->
 
