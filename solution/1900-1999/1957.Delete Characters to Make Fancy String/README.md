@@ -145,21 +145,6 @@ func makeFancyString(s string) string {
 
 ```ts
 function makeFancyString(s: string): string {
-    const ans: string[] = [];
-    for (const c of s) {
-        const n = ans.length;
-        if (n < 2 || c !== ans[n - 1] || c !== ans[n - 2]) {
-            ans.push(c);
-        }
-    }
-    return ans.join('');
-}
-```
-
-#### TypeScript
-
-```ts
-function makeFancyString(s: string): string {
     let [n, ans] = [s.length, ''];
     for (let i = 0; i < n; i++) {
         if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
