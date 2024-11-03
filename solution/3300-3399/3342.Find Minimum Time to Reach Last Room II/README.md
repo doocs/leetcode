@@ -92,25 +92,196 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3342.Fi
 #### Python3
 
 ```python
-
+class Solution:
+    def minTimeToReach(self, moveTime: List[List[int]]) -> int:
+        n, m = len(moveTime), len(moveTime[0])
+        dist = [[inf] * m for _ in range(n)]
+        dist[0][0] = 0
+        pq = [(0, 0, 0)]
+        dirs = (-1, 0, 1, 0, -1)
+        while 1:
+            d, i, j = heappop(pq)
+            if i == n - 1 and j == m - 1:
+                return d
+            if d > dist[i][j]:
+                continue
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < n and 0 <= y < m:
+                    t = max(moveTime[x][y], dist[i][j]) + (i + j) % 2 + 1
+                    if dist[x][y] > t:
+                        dist[x][y] = t
+                        heappush(pq, (t, x, y))
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minTimeToReach(int[][] moveTime) {
+        int n = moveTime.length;
+        int m = moveTime[0].length;
+        int[][] dist = new int[n][m];
+        for (var row : dist) {
+            Arrays.fill(row, Integer.MAX_VALUE);
+        }
+        dist[0][0] = 0;
 
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        pq.offer(new int[] {0, 0, 0});
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (true) {
+            int[] p = pq.poll();
+            int d = p[0], i = p[1], j = p[2];
+
+            if (i == n - 1 && j == m - 1) {
+                return d;
+            }
+            if (d > dist[i][j]) {
+                continue;
+            }
+
+            for (int k = 0; k < 4; k++) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < n && y >= 0 && y < m) {
+                    int t = Math.max(moveTime[x][y], dist[i][j]) + (i + j) % 2 + 1;
+                    if (dist[x][y] > t) {
+                        dist[x][y] = t;
+                        pq.offer(new int[] {t, x, y});
+                    }
+                }
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minTimeToReach(vector<vector<int>>& moveTime) {
+        int n = moveTime.size();
+        int m = moveTime[0].size();
+        vector<vector<int>> dist(n, vector<int>(m, INT_MAX));
+        dist[0][0] = 0;
+        priority_queue<array<int, 3>, vector<array<int, 3>>, greater<>> pq;
+        pq.push({0, 0, 0});
+        int dirs[5] = {-1, 0, 1, 0, -1};
 
+        while (1) {
+            auto [d, i, j] = pq.top();
+            pq.pop();
+
+            if (i == n - 1 && j == m - 1) {
+                return d;
+            }
+            if (d > dist[i][j]) {
+                continue;
+            }
+
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+
+                if (x >= 0 && x < n && y >= 0 && y < m) {
+                    int t = max(moveTime[x][y], dist[i][j]) + (i + j) % 2 + 1;
+                    if (dist[x][y] > t) {
+                        dist[x][y] = t;
+                        pq.push({t, x, y});
+                    }
+                }
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minTimeToReach(moveTime [][]int) int {
+	n, m := len(moveTime), len(moveTime[0])
+	dist := make([][]int, n)
+	for i := range dist {
+		dist[i] = make([]int, m)
+		for j := range dist[i] {
+			dist[i][j] = math.MaxInt32
+		}
+	}
+	dist[0][0] = 0
 
+	pq := &hp{}
+	heap.Init(pq)
+	heap.Push(pq, tuple{0, 0, 0})
+
+	dirs := []int{-1, 0, 1, 0, -1}
+	for {
+		p := heap.Pop(pq).(tuple)
+		d, i, j := p.dis, p.x, p.y
+
+		if i == n-1 && j == m-1 {
+			return d
+		}
+		if d > dist[i][j] {
+			continue
+		}
+
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < n && y >= 0 && y < m {
+				t := max(moveTime[x][y], dist[i][j]) + (i+j)%2 + 1
+				if dist[x][y] > t {
+					dist[x][y] = t
+					heap.Push(pq, tuple{t, x, y})
+				}
+			}
+		}
+	}
+}
+
+type tuple struct{ dis, x, y int }
+type hp []tuple
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].dis < h[j].dis }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
+func (h *hp) Pop() (v any)      { a := *h; *h, v = a[:len(a)-1], a[len(a)-1]; return }
+```
+
+#### TypeScript
+
+```ts
+function minTimeToReach(moveTime: number[][]): number {
+    const [n, m] = [moveTime.length, moveTime[0].length];
+    const dist: number[][] = Array.from({ length: n }, () => Array(m).fill(Infinity));
+    dist[0][0] = 0;
+    const pq = new PriorityQueue({ compare: (a, b) => a[0] - b[0] });
+    pq.enqueue([0, 0, 0]);
+    const dirs = [-1, 0, 1, 0, -1];
+    while (1) {
+        const [d, i, j] = pq.dequeue();
+        if (i === n - 1 && j === m - 1) {
+            return d;
+        }
+        if (d > dist[i][j]) {
+            continue;
+        }
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < n && y >= 0 && y < m) {
+                const t = Math.max(moveTime[x][y], dist[i][j]) + ((i + j) % 2) + 1;
+                if (dist[x][y] > t) {
+                    dist[x][y] = t;
+                    pq.enqueue([t, x, y]);
+                }
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
