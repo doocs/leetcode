@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;001101&quot;
 <strong>Output:</strong> 6
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The following sets of indices selected are valid:
 - [0,2,4] from &quot;<u><strong>0</strong></u>0<strong><u>1</u></strong>1<strong><u>0</u></strong>1&quot; forms &quot;010&quot;
 - [0,3,4] from &quot;<u><strong>0</strong></u>01<u><strong>10</strong></u>1&quot; forms &quot;010&quot;

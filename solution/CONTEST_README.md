@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 422 场周赛(2024-11-03 10:30, 90 分钟) 参赛人数 2511
+
+- [3340. 检查平衡字符串](/solution/3300-3399/3340.Check%20Balanced%20String/README.md)
+- [3341. 到达最后一个房间的最少时间 I](/solution/3300-3399/3341.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20I/README.md)
+- [3342. 到达最后一个房间的最少时间 II](/solution/3300-3399/3342.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20II/README.md)
+- [3343. 统计平衡排列的数目](/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README.md)
+
 #### 第 421 场周赛(2024-10-27 10:30, 90 分钟) 参赛人数 2777
 
 - [3334. 数组的最大因子得分](/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README.md)

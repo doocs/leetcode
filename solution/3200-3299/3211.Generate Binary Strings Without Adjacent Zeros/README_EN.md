@@ -6,8 +6,8 @@ rating: 1352
 source: Weekly Contest 405 Q2
 tags:
     - Bit Manipulation
-    - Recursion
     - String
+    - Backtracking
 ---
 
 <!-- problem:start -->

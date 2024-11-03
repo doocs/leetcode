@@ -6,8 +6,8 @@ rating: 1352
 source: 第 405 场周赛 Q2
 tags:
     - 位运算
-    - 递归
     - 字符串
+    - 回溯
 ---
 
 <!-- problem:start -->

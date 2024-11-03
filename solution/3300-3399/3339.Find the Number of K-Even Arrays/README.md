@@ -24,7 +24,7 @@ tags:
 	<li><code>(arr[i] * arr[i + 1]) - arr[i] - arr[i + 1]</code>&nbsp;是偶数。</li>
 </ul>
 
-<p>返回大小为 <code>n</code>&nbsp;的满足&nbsp;<strong>K 偶数</strong> 的数组的数量，其中所有元素的范围在&nbsp;<code>[1, m]</code>。</p>
+<p>返回长度为 <code>n</code>&nbsp;的满足&nbsp;<strong>K 偶数</strong> 的数组的数量，其中所有元素的范围在&nbsp;<code>[1, m]</code>。</p>
 
 <p>因为答案可能很大，返回答案对&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;取模。</p>
 
