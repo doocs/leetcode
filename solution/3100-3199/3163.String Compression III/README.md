@@ -215,7 +215,7 @@ function compressedString(word: string): string {
 
 <!-- solution:start -->
 
-### Solution 2: Two Pointers
+### 方法二：双指针
 
 <!-- tabs:start -->
 
@@ -259,7 +259,7 @@ function compressedString(word) {
 
 <!-- solution:start -->
 
-### Solution 3: RegExp
+### 方法三：正则匹配
 
 <!-- tabs:start -->
 
