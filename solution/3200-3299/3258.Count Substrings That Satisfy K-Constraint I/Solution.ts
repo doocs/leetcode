@@ -1,13 +1,10 @@
 function countKConstraintSubstrings(s: string, k: number): number {
-    let [cnt0, cnt1, ans, l] = [0, 0, 0, 0];
+    const cnt: [number, number] = [0, 0];
+    let [ans, l] = [0, 0];
     for (let r = 0; r < s.length; ++r) {
-        const x = s[r] === '1' ? 1 : 0;
-        cnt0 += x ^ 1;
-        cnt1 += x;
-        while (cnt0 > k && cnt1 > k) {
-            const y = s[l++] === '1' ? 1 : 0;
-            cnt0 -= y ^ 1;
-            cnt1 -= y;
+        cnt[s.charCodeAt(r) - 48]++;
+        while (cnt[0] > k && cnt[1] > k) {
+            cnt[s.charCodeAt(l++) - 48]--;
         }
         ans += r - l + 1;
     }

@@ -101,14 +101,12 @@ tags:
 ```python
 class Solution:
     def countKConstraintSubstrings(self, s: str, k: int) -> int:
-        cnt0 = cnt1 = 0
+        cnt = [0, 0]
         ans = l = 0
-        for r, c in enumerate(s):
-            cnt0 += int(c) ^ 1
-            cnt1 += int(c)
-            while cnt0 > k and cnt1 > k:
-                cnt0 -= int(s[l]) ^ 1
-                cnt1 -= int(s[l])
+        for r, x in enumerate(map(int, s)):
+            cnt[x] += 1
+            while cnt[0] > k and cnt[1] > k:
+                cnt[int(s[l])] -= 1
                 l += 1
             ans += r - l + 1
         return ans
@@ -119,16 +117,12 @@ class Solution:
 ```java
 class Solution {
     public int countKConstraintSubstrings(String s, int k) {
-        int cnt0 = 0, cnt1 = 0;
+        int[] cnt = new int[2];
         int ans = 0, l = 0;
         for (int r = 0; r < s.length(); ++r) {
-            int x = s.charAt(r) - '0';
-            cnt0 += x ^ 1;
-            cnt1 += x;
-            while (cnt0 > k && cnt1 > k) {
-                int y = s.charAt(l++) - '0';
-                cnt0 -= y ^ 1;
-                cnt1 -= y;
+            ++cnt[s.charAt(r) - '0'];
+            while (cnt[0] > k && cnt[1] > k) {
+                cnt[s.charAt(l++) - '0']--;
             }
             ans += r - l + 1;
         }
@@ -143,16 +137,12 @@ class Solution {
 class Solution {
 public:
     int countKConstraintSubstrings(string s, int k) {
-        int cnt0 = 0, cnt1 = 0;
+        int cnt[2]{};
         int ans = 0, l = 0;
         for (int r = 0; r < s.length(); ++r) {
-            int x = s[r] - '0';
-            cnt0 += x ^ 1;
-            cnt1 += x;
-            while (cnt0 > k && cnt1 > k) {
-                int y = s[l++] - '0';
-                cnt0 -= y ^ 1;
-                cnt1 -= y;
+            cnt[s[r] - '0']++;
+            while (cnt[0] > k && cnt[1] > k) {
+                cnt[s[l++] - '0']--;
             }
             ans += r - l + 1;
         }
@@ -165,16 +155,12 @@ public:
 
 ```go
 func countKConstraintSubstrings(s string, k int) (ans int) {
-	cnt0, cnt1, l := 0, 0, 0
+	cnt := [2]int{}
+	l := 0
 	for r, c := range s {
-		x := int(c - '0')
-		cnt0 += x ^ 1
-		cnt1 += x
-		for cnt0 > k && cnt1 > k {
-			y := int(s[l] - '0')
-			cnt0 -= y ^ 1
-			cnt1 -= y
-			l++
+		cnt[c-'0']++
+		for ; cnt[0] > k && cnt[1] > k; l++ {
+			cnt[s[l]-'0']--
 		}
 		ans += r - l + 1
 	}
@@ -186,19 +172,40 @@ func countKConstraintSubstrings(s string, k int) (ans int) {
 
 ```ts
 function countKConstraintSubstrings(s: string, k: number): number {
-    let [cnt0, cnt1, ans, l] = [0, 0, 0, 0];
+    const cnt: [number, number] = [0, 0];
+    let [ans, l] = [0, 0];
     for (let r = 0; r < s.length; ++r) {
-        const x = s[r] === '1' ? 1 : 0;
-        cnt0 += x ^ 1;
-        cnt1 += x;
-        while (cnt0 > k && cnt1 > k) {
-            const y = s[l++] === '1' ? 1 : 0;
-            cnt0 -= y ^ 1;
-            cnt1 -= y;
+        cnt[s.charCodeAt(r) - 48]++;
+        while (cnt[0] > k && cnt[1] > k) {
+            cnt[s.charCodeAt(l++) - 48]--;
         }
         ans += r - l + 1;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_k_constraint_substrings(s: String, k: i32) -> i32 {
+        let mut cnt = [0; 2];
+        let mut l = 0;
+        let mut ans = 0;
+        let s = s.as_bytes();
+
+        for (r, &c) in s.iter().enumerate() {
+            cnt[(c - b'0') as usize] += 1;
+            while cnt[0] > k && cnt[1] > k {
+                cnt[(s[l] - b'0') as usize] -= 1;
+                l += 1;
+            }
+            ans += r - l + 1;
+        }
+
+        ans as i32
+    }
 }
 ```
 
