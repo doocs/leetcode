@@ -1,13 +1,11 @@
 class Solution:
     def countKConstraintSubstrings(self, s: str, k: int) -> int:
-        cnt0 = cnt1 = 0
+        cnt = [0, 0]
         ans = l = 0
-        for r, c in enumerate(s):
-            cnt0 += int(c) ^ 1
-            cnt1 += int(c)
-            while cnt0 > k and cnt1 > k:
-                cnt0 -= int(s[l]) ^ 1
-                cnt1 -= int(s[l])
+        for r, x in enumerate(map(int, s)):
+            cnt[x] += 1
+            while cnt[0] > k and cnt[1] > k:
+                cnt[int(s[l])] -= 1
                 l += 1
             ans += r - l + 1
         return ans
