@@ -84,7 +84,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3341.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：Dijkstra 算法
+
+我们定义一个二维数组 $\textit{dist}$，其中 $\textit{dist}[i][j]$ 表示从起点到达房间 $(i, j)$ 所需的最少时间。初始时，我们将 $\textit{dist}$ 数组中的所有元素设为无穷大，然后将起点 $(0, 0)$ 的 $\textit{dist}$ 值设为 $0$。
+
+我们使用优先队列 $\textit{pq}$ 存储每一个状态，其中每个状态由三个值 $(d, i, j)$ 组成，表示从起点到达房间 $(i, j)$ 所需的时间为 $d$。初始时，我们将起点 $(0, 0, 0)$ 加入到 $\textit{pq}$ 中。
+
+在每一次迭代中，我们取出 $\textit{pq}$ 中的队首元素 $(d, i, j)$，如果 $(i, j)$ 是终点，那么我们返回 $d$。如果 $d$ 大于 $\textit{dist}[i][j]$，那么我们跳过这个状态。否则，我们枚举 $(i, j)$ 的四个相邻位置 $(x, y)$，如果 $(x, y)$ 在地图内，那么我们计算从 $(i, j)$ 到 $(x, y)$ 的最终时间 $t = \max(\textit{moveTime}[x][y], \textit{dist}[i][j]) + 1$，如果 $t$ 小于 $\textit{dist}[x][y]$，那么我们更新 $\textit{dist}[x][y]$ 的值，并将 $(t, x, y)$ 加入到 $\textit{pq}$ 中。
+
+时间复杂度 $O(n \times m \times \log (n \times m))$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别是地图的行数和列数。
 
 <!-- tabs:start -->
 
