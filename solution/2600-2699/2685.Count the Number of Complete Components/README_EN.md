@@ -7,6 +7,7 @@ source: Weekly Contest 345 Q4
 tags:
     - Depth-First Search
     - Breadth-First Search
+    - Union Find
     - Graph
 ---
 
