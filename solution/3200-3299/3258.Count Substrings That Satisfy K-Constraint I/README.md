@@ -88,7 +88,7 @@ tags:
 
 我们用两个变量 $\textit{cnt0}$ 和 $\textit{cnt1}$ 分别记录当前窗口内的 $0$ 和 $1$ 的个数，用 $\textit{ans}$ 记录满足 $k$ 约束的子字符串的个数，用 $l$ 记录窗口的左边界。
 
-当我们右移窗口时，如果窗口内的 $0$ 和 $1$ 的个数都大于 $k$，我们就需要左移窗口，直到窗口内的 $0$ 和 $1$ 的个数都不大于 $k$。此时，窗口内的所有子字符串都满足 $k$ 约束，个数为 $r - l + 1$，其中 $r$ 是窗口的右边界。我们将这个个数累加到 $\textit{ans}$ 中。
+当我们右移窗口时，如果窗口内的 $0$ 和 $1$ 的个数都大于 $k$，我们就需要左移窗口，直到窗口内的 $0$ 和 $1$ 的个数都不大于 $k$。此时，窗口内所有以 $r$ 作为右端点的子字符串都满足 $k$ 约束，个数为 $r - l + 1$，其中 $r$ 是窗口的右边界。我们将这个个数累加到 $\textit{ans}$ 中。
 
 最后，我们返回 $\textit{ans}$ 即可。
 
@@ -175,9 +175,9 @@ function countKConstraintSubstrings(s: string, k: number): number {
     const cnt: [number, number] = [0, 0];
     let [ans, l] = [0, 0];
     for (let r = 0; r < s.length; ++r) {
-        cnt[s.charCodeAt(r) - 48]++;
+        cnt[+s[r]]++;
         while (cnt[0] > k && cnt[1] > k) {
-            cnt[s.charCodeAt(l++) - 48]--;
+            cnt[+s[l++]]--;
         }
         ans += r - l + 1;
     }

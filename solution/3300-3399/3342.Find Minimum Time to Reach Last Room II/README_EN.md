@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3342.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20II/README_EN.md
+tags:
+    - Graph
+    - Array
+    - Matrix
+    - Shortest Path
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->
