@@ -42,11 +42,11 @@ tags:
 [null, false, false, true, false]
 
 <strong>Explanation</strong>
-DataStream dataStream = new DataStream(4, 3); //value = 4, k = 3 
-dataStream.consec(4); // Only 1 integer is parsed, so returns False. 
+DataStream dataStream = new DataStream(4, 3); //value = 4, k = 3
+dataStream.consec(4); // Only 1 integer is parsed, so returns False.
 dataStream.consec(4); // Only 2 integers are parsed.
-                      // Since 2 is less than k, returns False. 
-dataStream.consec(4); // The 3 integers parsed are all equal to value, so returns True. 
+                      // Since 2 is less than k, returns False.
+dataStream.consec(4); // The 3 integers parsed are all equal to value, so returns True.
 dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
                       // Since 3 is not equal to value, it returns False.
 </pre>
@@ -66,7 +66,13 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We can maintain a counter $\textit{cnt}$ to record the current number of consecutive integers equal to $\textit{value}$.
+
+When calling the `consec` method, if $\textit{num}$ is equal to $\textit{value}$, we increment $\textit{cnt}$ by 1; otherwise, we reset $\textit{cnt}$ to 0. Then we check whether $\textit{cnt}$ is greater than or equal to $\textit{k}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
