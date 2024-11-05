@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3341.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20I/README.md
+tags:
+    - 图
+    - 数组
+    - 矩阵
+    - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

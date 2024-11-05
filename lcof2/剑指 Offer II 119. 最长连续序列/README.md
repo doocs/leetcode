@@ -230,11 +230,11 @@ class Solution {
         if n < 2 {
             return n
         }
-        
+
         let sortedNums = Array(Set(nums)).sorted()
         var ans = 1
         var currentStreak = 1
-        
+
         for i in 1..<sortedNums.count {
             if sortedNums[i] == sortedNums[i - 1] + 1 {
                 currentStreak += 1
@@ -243,7 +243,7 @@ class Solution {
                 currentStreak = 1
             }
         }
-        
+
         return ans
     }
 }
@@ -395,21 +395,21 @@ class Solution {
     func longestConsecutive(_ nums: [Int]) -> Int {
         let numSet: Set<Int> = Set(nums)
         var longestStreak = 0
-        
+
         for num in nums {
             if !numSet.contains(num - 1) {
                 var currentNum = num
                 var currentStreak = 1
-                
+
                 while numSet.contains(currentNum + 1) {
                     currentNum += 1
                     currentStreak += 1
                 }
-                
+
                 longestStreak = max(longestStreak, currentStreak)
             }
         }
-        
+
         return longestStreak
     }
 }
