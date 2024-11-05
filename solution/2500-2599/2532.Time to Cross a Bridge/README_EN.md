@@ -107,7 +107,30 @@ From 49 to 50: worker 0 crosses the bridge to the left.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Priority Queue (Max-Heap and Min-Heap) + Simulation
+
+First, we sort the workers by efficiency in descending order, so the worker with the highest index has the lowest efficiency.
+
+Next, we use four priority queues to simulate the state of the workers:
+
+-   `wait_in_left`: Max-heap, storing the indices of workers currently waiting on the left bank;
+-   `wait_in_right`: Max-heap, storing the indices of workers currently waiting on the right bank;
+-   `work_in_left`: Min-heap, storing the time when workers currently working on the left bank finish placing boxes and the indices of the workers;
+-   `work_in_right`: Min-heap, storing the time when workers currently working on the right bank finish picking up boxes and the indices of the workers.
+
+Initially, all workers are on the left bank, so `wait_in_left` stores the indices of all workers. We use the variable `cur` to record the current time.
+
+Then, we simulate the entire process. First, we check if any worker in `work_in_left` has finished placing boxes at the current time. If so, we move the worker to `wait_in_left` and remove the worker from `work_in_left`. Similarly, we check if any worker in `work_in_right` has finished picking up boxes. If so, we move the worker to `wait_in_right` and remove the worker from `work_in_right`.
+
+Next, we check if there are any workers waiting on the left bank at the current time, denoted as `left_to_go`. At the same time, we check if there are any workers waiting on the right bank, denoted as `right_to_go`. If there are no workers waiting to cross the river, we directly update `cur` to the next time when a worker finishes placing boxes and continue the simulation.
+
+If `right_to_go` is `true`, we take a worker from `wait_in_right`, update `cur` to the current time plus the time it takes for the worker to cross from the right bank to the left bank. If all workers have crossed to the right bank at this point, we directly return `cur` as the answer; otherwise, we move the worker to `work_in_left`.
+
+If `left_to_go` is `true`, we take a worker from `wait_in_left`, update `cur` to the current time plus the time it takes for the worker to cross from the left bank to the right bank, then move the worker to `work_in_right` and decrement the number of boxes.
+
+Repeat the above process until the number of boxes is zero. At this point, `cur` is the answer.
+
+The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ and $k$ are the number of workers and the number of boxes, respectively.
 
 <!-- tabs:start -->
 
