@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README.md
 tags:
+    - 栈
     - 数组
     - 哈希表
     - 数学
