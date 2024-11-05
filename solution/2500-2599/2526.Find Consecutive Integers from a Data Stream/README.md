@@ -43,7 +43,7 @@ tags:
 [null, false, false, true, false]
 
 <strong>解释：</strong>
-DataStream dataStream = new DataStream(4, 3); // value = 4, k = 3 
+DataStream dataStream = new DataStream(4, 3); // value = 4, k = 3
 dataStream.consec(4); // 数据流中只有 1 个整数，所以返回 False 。
 dataStream.consec(4); // 数据流中只有 2 个整数
                       // 由于 2 小于 k ，返回 False 。
@@ -70,9 +70,9 @@ dataStream.consec(3); // 最后 k 个整数分别是 [4,4,3] 。
 
 ### 方法一：计数
 
-维护一个计数器 $cnt$，记录当前连续整数为 `value` 的个数。
+我们可以维护一个计数器 $\textit{cnt}$，记录当前连续整数为 $\textit{value}$ 的个数。
 
-当 `num` 与 `value` 相等时，$cnt$ 自增 1，否则 $cnt$ 重置为 0。然后判断 $cnt$ 是否大于等于 `k` 即可。
+调用 `consec` 方法时，如果 $\textit{num}$ 与 $\textit{value}$ 相等，我们将 $\textit{cnt}$ 自增 1，否则将 $\textit{cnt}$ 重置为 0。然后判断 $\textit{cnt}$ 是否大于等于 $\textit{k}$ 即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
