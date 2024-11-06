@@ -11,20 +11,22 @@
  */
 class Solution {
 public:
-    int ans;
     int averageOfSubtree(TreeNode* root) {
-        ans = 0;
-        dfs(root);
+        int ans = 0;
+        auto dfs = [&](auto&& dfs, TreeNode* root) -> pair<int, int> {
+            if (!root) {
+                return {0, 0};
+            }
+            auto [ls, ln] = dfs(dfs, root->left);
+            auto [rs, rn] = dfs(dfs, root->right);
+            int s = ls + rs + root->val;
+            int n = ln + rn + 1;
+            if (s / n == root->val) {
+                ++ans;
+            }
+            return {s, n};
+        };
+        dfs(dfs, root);
         return ans;
-    }
-
-    vector<int> dfs(TreeNode* root) {
-        if (!root) return {0, 0};
-        auto l = dfs(root->left);
-        auto r = dfs(root->right);
-        int s = l[0] + r[0] + root->val;
-        int n = l[1] + r[1] + 1;
-        if (s / n == root->val) ++ans;
-        return {s, n};
     }
 };

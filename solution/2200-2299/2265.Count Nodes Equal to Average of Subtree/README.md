@@ -65,31 +65,36 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+我们设计一个函数 $\textit{dfs}$，它的作用是计算以当前节点为根的子树的和以及节点个数。
+
+函数 $\textit{dfs}$ 的执行过程如下：
+
+-   如果当前节点为空，返回 $(0, 0)$。
+-   否则，我们递归计算左右子树的和以及节点个数，分别记为 $(\textit{ls}, \textit{ln})$ 和 $(\textit{rs}, \textit{rn})$。那么，以当前节点为根的子树的和 $\textit{s}$ 和节点个数 $\textit{n}$ 分别为 $\textit{ls} + \textit{rs} + \textit{root.val}$ 和 $\textit{ln} + \textit{rn} + 1$。如果 $\textit{s} / \textit{n} = \textit{root.val}$，则说明当前节点满足题目要求，我们将答案 $\textit{ans}$ 自增 $1$。
+-   最后，函数 $\textit{dfs}$ 返回 $\textit{s}$ 和 $\textit{n}$。
+
+我们初始化答案 $\textit{ans}$ 为 $0$，然后调用 $\textit{dfs}$ 函数，最后返回答案 $\textit{ans}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示二叉树的节点个数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
-    def averageOfSubtree(self, root: Optional[TreeNode]) -> int:
-        def dfs(root):
-            if root is None:
+    def averageOfSubtree(self, root: TreeNode) -> int:
+        def dfs(root) -> tuple:
+            if not root:
                 return 0, 0
             ls, ln = dfs(root.left)
             rs, rn = dfs(root.right)
             s = ls + rs + root.val
             n = ln + rn + 1
-            if s // n == root.val:
-                nonlocal ans
-                ans += 1
+            nonlocal ans
+            ans += int(s // n == root.val)
             return s, n
 
         ans = 0
@@ -119,17 +124,16 @@ class Solution {
     private int ans;
 
     public int averageOfSubtree(TreeNode root) {
-        ans = 0;
         dfs(root);
         return ans;
     }
 
     private int[] dfs(TreeNode root) {
         if (root == null) {
-            return new int[] {0, 0};
+            return new int[2];
         }
-        int[] l = dfs(root.left);
-        int[] r = dfs(root.right);
+        var l = dfs(root.left);
+        var r = dfs(root.right);
         int s = l[0] + r[0] + root.val;
         int n = l[1] + r[1] + 1;
         if (s / n == root.val) {
@@ -156,21 +160,23 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
     int averageOfSubtree(TreeNode* root) {
-        ans = 0;
-        dfs(root);
+        int ans = 0;
+        auto dfs = [&](auto&& dfs, TreeNode* root) -> pair<int, int> {
+            if (!root) {
+                return {0, 0};
+            }
+            auto [ls, ln] = dfs(dfs, root->left);
+            auto [rs, rn] = dfs(dfs, root->right);
+            int s = ls + rs + root->val;
+            int n = ln + rn + 1;
+            if (s / n == root->val) {
+                ++ans;
+            }
+            return {s, n};
+        };
+        dfs(dfs, root);
         return ans;
-    }
-
-    vector<int> dfs(TreeNode* root) {
-        if (!root) return {0, 0};
-        auto l = dfs(root->left);
-        auto r = dfs(root->right);
-        int s = l[0] + r[0] + root->val;
-        int n = l[1] + r[1] + 1;
-        if (s / n == root->val) ++ans;
-        return {s, n};
     }
 };
 ```
@@ -186,24 +192,59 @@ public:
  *     Right *TreeNode
  * }
  */
-func averageOfSubtree(root *TreeNode) int {
-	ans := 0
-	var dfs func(*TreeNode) (int, int)
+func averageOfSubtree(root *TreeNode) (ans int) {
+	var dfs func(root *TreeNode) (int, int)
 	dfs = func(root *TreeNode) (int, int) {
 		if root == nil {
 			return 0, 0
 		}
 		ls, ln := dfs(root.Left)
 		rs, rn := dfs(root.Right)
-		s := ls + rs + root.Val
-		n := ln + rn + 1
+		s, n := ls+rs+root.Val, ln+rn+1
 		if s/n == root.Val {
 			ans++
 		}
 		return s, n
 	}
 	dfs(root)
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function averageOfSubtree(root: TreeNode | null): number {
+    let ans: number = 0;
+    const dfs = (root: TreeNode | null): [number, number] => {
+        if (!root) {
+            return [0, 0];
+        }
+        const [ls, ln] = dfs(root.left);
+        const [rs, rn] = dfs(root.right);
+        const s = ls + rs + root.val;
+        const n = ln + rn + 1;
+        if (Math.floor(s / n) === root.val) {
+            ++ans;
+        }
+        return [s, n];
+    };
+    dfs(root);
+    return ans;
 }
 ```
 

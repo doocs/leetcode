@@ -6,22 +6,20 @@
  *     Right *TreeNode
  * }
  */
-func averageOfSubtree(root *TreeNode) int {
-	ans := 0
-	var dfs func(*TreeNode) (int, int)
+func averageOfSubtree(root *TreeNode) (ans int) {
+	var dfs func(root *TreeNode) (int, int)
 	dfs = func(root *TreeNode) (int, int) {
 		if root == nil {
 			return 0, 0
 		}
 		ls, ln := dfs(root.Left)
 		rs, rn := dfs(root.Right)
-		s := ls + rs + root.Val
-		n := ln + rn + 1
+		s, n := ls+rs+root.Val, ln+rn+1
 		if s/n == root.Val {
 			ans++
 		}
 		return s, n
 	}
 	dfs(root)
-	return ans
+	return
 }
