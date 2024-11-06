@@ -1,5 +1,8 @@
 func hasValidPath(grid [][]byte) bool {
 	m, n := len(grid), len(grid[0])
+	if (m+n-1)%2 == 1 || grid[0][0] == ')' || grid[m-1][n-1] == '(' {
+		return false
+	}
 	vis := make([][][]bool, m)
 	for i := range vis {
 		vis[i] = make([][]bool, n)
@@ -7,27 +10,27 @@ func hasValidPath(grid [][]byte) bool {
 			vis[i][j] = make([]bool, m+n)
 		}
 	}
-	var dfs func(int, int, int) bool
-	dfs = func(i, j, t int) bool {
-		if vis[i][j][t] {
+	dirs := [3]int{1, 0, 1}
+	var dfs func(i, j, k int) bool
+	dfs = func(i, j, k int) bool {
+		if vis[i][j][k] {
 			return false
 		}
-		vis[i][j][t] = true
+		vis[i][j][k] = true
 		if grid[i][j] == '(' {
-			t += 1
+			k++
 		} else {
-			t -= 1
+			k--
 		}
-		if t < 0 {
+		if k < 0 || k > m-i+n-j {
 			return false
 		}
 		if i == m-1 && j == n-1 {
-			return t == 0
+			return k == 0
 		}
-		dirs := []int{1, 0, 1}
-		for k := 0; k < 2; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x < m && y < n && dfs(x, y, t) {
+		for d := 0; d < 2; d++ {
+			x, y := i+dirs[d], j+dirs[d+1]
+			if x >= 0 && x < m && y >= 0 && y < n && dfs(x, y, k) {
 				return true
 			}
 		}

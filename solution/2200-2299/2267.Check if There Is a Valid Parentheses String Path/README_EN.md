@@ -75,7 +75,17 @@ Note that there may be other valid parentheses string paths.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS + Pruning
+
+Let $m$ be the number of rows and $n$ be the number of columns in the matrix.
+
+If $m + n - 1$ is odd, or the parentheses in the top-left and bottom-right corners do not match, then there is no valid path, and we directly return $\text{false}$.
+
+Otherwise, we design a function $\textit{dfs}(i, j, k)$, which represents whether there is a valid path starting from $(i, j)$ with the current balance of parentheses being $k$. The balance $k$ is defined as the number of left parentheses minus the number of right parentheses in the path from $(0, 0)$ to $(i, j)$.
+
+If the balance $k$ is less than $0$ or greater than $m + n - i - j$, then there is no valid path, and we directly return $\text{false}$. If $(i, j)$ is the bottom-right cell, then there is a valid path only if $k = 0$. Otherwise, we enumerate the next cell $(x, y)$ of $(i, j)$. If $(x, y)$ is a valid cell and $\textit{dfs}(x, y, k)$ is $\text{true}$, then there is a valid path.
+
+The time complexity is $O(m \times n \times (m + n))$, and the space complexity is $O(m \times n \times (m + n))$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -85,21 +95,22 @@ Note that there may be other valid parentheses string paths.
 class Solution:
     def hasValidPath(self, grid: List[List[str]]) -> bool:
         @cache
-        def dfs(i, j, t):
-            if grid[i][j] == '(':
-                t += 1
-            else:
-                t -= 1
-            if t < 0:
+        def dfs(i: int, j: int, k: int) -> bool:
+            d = 1 if grid[i][j] == "(" else -1
+            k += d
+            if k < 0 or k > m - i + n - j:
                 return False
             if i == m - 1 and j == n - 1:
-                return t == 0
-            for x, y in [(i + 1, j), (i, j + 1)]:
-                if x < m and y < n and dfs(x, y, t):
+                return k == 0
+            for a, b in pairwise((0, 1, 0)):
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and dfs(x, y, k):
                     return True
             return False
 
         m, n = len(grid), len(grid[0])
+        if (m + n - 1) % 2 or grid[0][0] == ")" or grid[m - 1][n - 1] == "(":
+            return False
         return dfs(0, 0, 0)
 ```
 
@@ -107,35 +118,37 @@ class Solution:
 
 ```java
 class Solution {
-    private boolean[][][] vis;
+    private int m, n;
     private char[][] grid;
-    private int m;
-    private int n;
+    private boolean[][][] vis;
 
     public boolean hasValidPath(char[][] grid) {
         m = grid.length;
         n = grid[0].length;
+        if ((m + n - 1) % 2 == 1 || grid[0][0] == ')' || grid[m - 1][n - 1] == '(') {
+            return false;
+        }
         this.grid = grid;
         vis = new boolean[m][n][m + n];
         return dfs(0, 0, 0);
     }
 
-    private boolean dfs(int i, int j, int t) {
-        if (vis[i][j][t]) {
+    private boolean dfs(int i, int j, int k) {
+        if (vis[i][j][k]) {
             return false;
         }
-        vis[i][j][t] = true;
-        t += grid[i][j] == '(' ? 1 : -1;
-        if (t < 0) {
+        vis[i][j][k] = true;
+        k += grid[i][j] == '(' ? 1 : -1;
+        if (k < 0 || k > m - i + n - j) {
             return false;
         }
         if (i == m - 1 && j == n - 1) {
-            return t == 0;
+            return k == 0;
         }
-        int[] dirs = {0, 1, 0};
-        for (int k = 0; k < 2; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x < m && y < n && dfs(x, y, t)) {
+        final int[] dirs = {1, 0, 1};
+        for (int d = 0; d < 2; ++d) {
+            int x = i + dirs[d], y = j + dirs[d + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && dfs(x, y, k)) {
                 return true;
             }
         }
@@ -147,28 +160,37 @@ class Solution {
 #### C++
 
 ```cpp
-bool vis[100][100][200];
-int dirs[3] = {1, 0, 1};
-
 class Solution {
 public:
     bool hasValidPath(vector<vector<char>>& grid) {
-        memset(vis, 0, sizeof(vis));
-        return dfs(0, 0, 0, grid);
-    }
-
-    bool dfs(int i, int j, int t, vector<vector<char>>& grid) {
-        if (vis[i][j][t]) return false;
-        vis[i][j][t] = true;
-        t += grid[i][j] == '(' ? 1 : -1;
-        if (t < 0) return false;
         int m = grid.size(), n = grid[0].size();
-        if (i == m - 1 && j == n - 1) return t == 0;
-        for (int k = 0; k < 2; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x < m && y < n && dfs(x, y, t, grid)) return true;
+        if ((m + n - 1) % 2 || grid[0][0] == ')' || grid[m - 1][n - 1] == '(') {
+            return false;
         }
-        return false;
+        bool vis[m][n][m + n];
+        memset(vis, false, sizeof(vis));
+        int dirs[3] = {1, 0, 1};
+        auto dfs = [&](auto&& dfs, int i, int j, int k) -> bool {
+            if (vis[i][j][k]) {
+                return false;
+            }
+            vis[i][j][k] = true;
+            k += grid[i][j] == '(' ? 1 : -1;
+            if (k < 0 || k > m - i + n - j) {
+                return false;
+            }
+            if (i == m - 1 && j == n - 1) {
+                return k == 0;
+            }
+            for (int d = 0; d < 2; ++d) {
+                int x = i + dirs[d], y = j + dirs[d + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && dfs(dfs, x, y, k)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        return dfs(dfs, 0, 0, 0);
     }
 };
 ```
@@ -178,6 +200,9 @@ public:
 ```go
 func hasValidPath(grid [][]byte) bool {
 	m, n := len(grid), len(grid[0])
+	if (m+n-1)%2 == 1 || grid[0][0] == ')' || grid[m-1][n-1] == '(' {
+		return false
+	}
 	vis := make([][][]bool, m)
 	for i := range vis {
 		vis[i] = make([][]bool, n)
@@ -185,33 +210,80 @@ func hasValidPath(grid [][]byte) bool {
 			vis[i][j] = make([]bool, m+n)
 		}
 	}
-	var dfs func(int, int, int) bool
-	dfs = func(i, j, t int) bool {
-		if vis[i][j][t] {
+	dirs := [3]int{1, 0, 1}
+	var dfs func(i, j, k int) bool
+	dfs = func(i, j, k int) bool {
+		if vis[i][j][k] {
 			return false
 		}
-		vis[i][j][t] = true
+		vis[i][j][k] = true
 		if grid[i][j] == '(' {
-			t += 1
+			k++
 		} else {
-			t -= 1
+			k--
 		}
-		if t < 0 {
+		if k < 0 || k > m-i+n-j {
 			return false
 		}
 		if i == m-1 && j == n-1 {
-			return t == 0
+			return k == 0
 		}
-		dirs := []int{1, 0, 1}
-		for k := 0; k < 2; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x < m && y < n && dfs(x, y, t) {
+		for d := 0; d < 2; d++ {
+			x, y := i+dirs[d], j+dirs[d+1]
+			if x >= 0 && x < m && y >= 0 && y < n && dfs(x, y, k) {
 				return true
 			}
 		}
 		return false
 	}
 	return dfs(0, 0, 0)
+}
+```
+
+#### TypeScript
+
+```ts
+function hasValidPath(grid: string[][]): boolean {
+    const m = grid.length,
+        n = grid[0].length;
+
+    if ((m + n - 1) % 2 || grid[0][0] === ')' || grid[m - 1][n - 1] === '(') {
+        return false;
+    }
+
+    const vis: boolean[][][] = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => Array(m + n).fill(false)),
+    );
+    const dirs = [1, 0, 1];
+
+    const dfs = (i: number, j: number, k: number): boolean => {
+        if (vis[i][j][k]) {
+            return false;
+        }
+
+        vis[i][j][k] = true;
+        k += grid[i][j] === '(' ? 1 : -1;
+
+        if (k < 0 || k > m - i + n - j) {
+            return false;
+        }
+
+        if (i === m - 1 && j === n - 1) {
+            return k === 0;
+        }
+
+        for (let d = 0; d < 2; ++d) {
+            const x = i + dirs[d],
+                y = j + dirs[d + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && dfs(x, y, k)) {
+                return true;
+            }
+        }
+
+        return false;
+    };
+
+    return dfs(0, 0, 0);
 }
 ```
 
