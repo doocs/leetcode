@@ -1,14 +1,13 @@
-func waysToSplitArray(nums []int) int {
-	s := 0
-	for _, v := range nums {
-		s += v
+func waysToSplitArray(nums []int) (ans int) {
+	var s, t int
+	for _, x := range nums {
+		s += x
 	}
-	ans, t := 0, 0
-	for _, v := range nums[:len(nums)-1] {
-		t += v
+	for _, x := range nums[:len(nums)-1] {
+		t += x
 		if t >= s-t {
 			ans++
 		}
 	}
-	return ans
+	return
 }
