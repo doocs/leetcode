@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [10,4,-8,7]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There are three ways of splitting nums into two non-empty parts:
 - Split nums at index 0. Then, the first part is [10], and its sum is 10. The second part is [4,-8,7], and its sum is 3. Since 10 &gt;= 3, i = 0 is a valid split.
 - Split nums at index 1. Then, the first part is [10,4], and its sum is 14. The second part is [-8,7], and its sum is -1. Since 14 &gt;= -1, i = 1 is a valid split.
@@ -49,9 +49,9 @@ Thus, the number of valid splits in nums is 2.
 <pre>
 <strong>Input:</strong> nums = [2,3,1,0]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There are two valid splits in nums:
-- Split nums at index 1. Then, the first part is [2,3], and its sum is 5. The second part is [1,0], and its sum is 1. Since 5 &gt;= 1, i = 1 is a valid split. 
+- Split nums at index 1. Then, the first part is [2,3], and its sum is 5. The second part is [1,0], and its sum is 1. Since 5 &gt;= 1, i = 1 is a valid split.
 - Split nums at index 2. Then, the first part is [2,3,1], and its sum is 6. The second part is [0], and its sum is 0. Since 6 &gt;= 0, i = 2 is a valid split.
 </pre>
 
@@ -69,7 +69,13 @@ There are two valid splits in nums:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+First, we calculate the total sum $s$ of the array $\textit{nums}$. Then, we traverse the first $n-1$ elements of the array $\textit{nums}$, using the variable $t$ to record the prefix sum. If $t \geq s - t$, we increment the answer by one.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -80,10 +86,9 @@ class Solution:
     def waysToSplitArray(self, nums: List[int]) -> int:
         s = sum(nums)
         ans = t = 0
-        for v in nums[:-1]:
-            t += v
-            if t >= s - t:
-                ans += 1
+        for x in nums[:-1]:
+            t += x
+            ans += t >= s - t
         return ans
 ```
 
@@ -93,16 +98,14 @@ class Solution:
 class Solution {
     public int waysToSplitArray(int[] nums) {
         long s = 0;
-        for (int v : nums) {
-            s += v;
+        for (int x : nums) {
+            s += x;
         }
-        int ans = 0;
         long t = 0;
-        for (int i = 0; i < nums.length - 1; ++i) {
+        int ans = 0;
+        for (int i = 0; i + 1 < nums.length; ++i) {
             t += nums[i];
-            if (t >= s - t) {
-                ++ans;
-            }
+            ans += t >= s - t ? 1 : 0;
         }
         return ans;
     }
@@ -115,10 +118,10 @@ class Solution {
 class Solution {
 public:
     int waysToSplitArray(vector<int>& nums) {
-        long long s = accumulate(nums.begin(), nums.end(), 0ll);
+        long long s = accumulate(nums.begin(), nums.end(), 0LL);
         long long t = 0;
         int ans = 0;
-        for (int i = 0; i < nums.size() - 1; ++i) {
+        for (int i = 0; i + 1 < nums.size(); ++i) {
             t += nums[i];
             ans += t >= s - t;
         }
@@ -130,19 +133,34 @@ public:
 #### Go
 
 ```go
-func waysToSplitArray(nums []int) int {
-	s := 0
-	for _, v := range nums {
-		s += v
+func waysToSplitArray(nums []int) (ans int) {
+	var s, t int
+	for _, x := range nums {
+		s += x
 	}
-	ans, t := 0, 0
-	for _, v := range nums[:len(nums)-1] {
-		t += v
+	for _, x := range nums[:len(nums)-1] {
+		t += x
 		if t >= s-t {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function waysToSplitArray(nums: number[]): number {
+    const s = nums.reduce((acc, cur) => acc + cur, 0);
+    let [ans, t] = [0, 0];
+    for (const x of nums.slice(0, -1)) {
+        t += x;
+        if (t >= s - t) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
