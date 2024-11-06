@@ -1,24 +1,33 @@
-bool vis[100][100][200];
-int dirs[3] = {1, 0, 1};
-
 class Solution {
 public:
     bool hasValidPath(vector<vector<char>>& grid) {
-        memset(vis, 0, sizeof(vis));
-        return dfs(0, 0, 0, grid);
-    }
-
-    bool dfs(int i, int j, int t, vector<vector<char>>& grid) {
-        if (vis[i][j][t]) return false;
-        vis[i][j][t] = true;
-        t += grid[i][j] == '(' ? 1 : -1;
-        if (t < 0) return false;
         int m = grid.size(), n = grid[0].size();
-        if (i == m - 1 && j == n - 1) return t == 0;
-        for (int k = 0; k < 2; ++k) {
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x < m && y < n && dfs(x, y, t, grid)) return true;
+        if ((m + n - 1) % 2 || grid[0][0] == ')' || grid[m - 1][n - 1] == '(') {
+            return false;
         }
-        return false;
+        bool vis[m][n][m + n];
+        memset(vis, false, sizeof(vis));
+        int dirs[3] = {1, 0, 1};
+        auto dfs = [&](auto&& dfs, int i, int j, int k) -> bool {
+            if (vis[i][j][k]) {
+                return false;
+            }
+            vis[i][j][k] = true;
+            k += grid[i][j] == '(' ? 1 : -1;
+            if (k < 0 || k > m - i + n - j) {
+                return false;
+            }
+            if (i == m - 1 && j == n - 1) {
+                return k == 0;
+            }
+            for (int d = 0; d < 2; ++d) {
+                int x = i + dirs[d], y = j + dirs[d + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && dfs(dfs, x, y, k)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        return dfs(dfs, 0, 0, 0);
     }
 };
