@@ -83,7 +83,19 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：队列 + 模拟
+
+我们定义两个队列，其中 $q[0]$ 存放想要进入的人的编号，而 $q[1]$ 存放想要离开的人的编号。
+
+我们维护一个时间 $t$，表示当前时间，一个状态 $st$，表示当前门的状态，当 $st = 1$ 表示门没使用或者上一秒有人离开，当 $st = 0$ 表示上一秒有人进入。初始时 $t = 0$，而 $st = 1$。
+
+我们遍历数组 $\textit{arrival}$，对于每个人，如果当前时间 $t$ 小于等于该人到达门前的时间 $arrival[i]$，我们将该人的编号加入对应的队列 $q[\text{state}[i]]$ 中。
+
+然后我们判断当前队列 $q[0]$ 和 $q[1]$ 是否都不为空，如果都不为空，我们将 $q[st]$ 队列的队首元素出队，并将当前时间 $t$ 赋值给该人的通过时间；如果只有一个队列不为空，我们根据哪个队列不为空，更新 $st$ 的值，然后将该队列的队首元素出队，并将当前时间 $t$ 赋值给该人的通过时间；如果两个队列都为空，我们将 $st$ 的值更新为 $1$，表示门没使用。
+
+接下来，我们将时间 $t$ 自增 $1$，继续遍历数组 $\textit{arrival}$，直到所有人都通过门。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示数组 $\textit{arrival}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -242,6 +254,45 @@ function timeTaken(arrival: number[], state: number[]): number[] {
     }
 
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn time_taken(arrival: Vec<i32>, state: Vec<i32>) -> Vec<i32> {
+        let n = arrival.len();
+        let mut q = vec![VecDeque::new(), VecDeque::new()];
+        let mut t = 0;
+        let mut i = 0;
+        let mut st = 1;
+        let mut ans = vec![-1; n];
+
+        while i < n || !q[0].is_empty() || !q[1].is_empty() {
+            while i < n && arrival[i] <= t {
+                q[state[i] as usize].push_back(i);
+                i += 1;
+            }
+
+            if !q[0].is_empty() && !q[1].is_empty() {
+                ans[*q[st].front().unwrap()] = t;
+                q[st].pop_front();
+            } else if !q[0].is_empty() || !q[1].is_empty() {
+                st = if q[0].is_empty() { 1 } else { 0 };
+                ans[*q[st].front().unwrap()] = t;
+                q[st].pop_front();
+            } else {
+                st = 1;
+            }
+
+            t += 1;
+        }
+
+        ans
+    }
 }
 ```
 
