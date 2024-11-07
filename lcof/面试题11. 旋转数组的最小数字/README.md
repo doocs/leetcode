@@ -46,7 +46,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 -   `numbers[mid] > numbers[r]`：中间元素一定不是最小值，因此 $l = mid + 1$；
 -   `numbers[mid] < numbers[r]`：中间元素可能是最小值，因此 $r = mid$；
--   `numbers[mid] == numbers[r]`：中间元素一定不是最小值，因此 $r = r - 1$。
+-   `numbers[mid] == numbers[r]`：无法确定最小值的位置，但可以简单地缩小搜索范围，因此 $r = r - 1$。
 
 循环结束时，指针 $l$ 和 $r$ 指向同一个元素，即为最小值。
 
