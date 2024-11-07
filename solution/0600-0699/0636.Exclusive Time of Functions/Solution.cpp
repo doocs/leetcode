@@ -3,20 +3,21 @@ public:
     vector<int> exclusiveTime(int n, vector<string>& logs) {
         vector<int> ans(n);
         stack<int> stk;
-        int curr = -1;
-        for (auto& log : logs) {
-            char type[10];
-            int fid, ts;
-            sscanf(log.c_str(), "%d:%[^:]:%d", &fid, type, &ts);
-            if (type[0] == 's') {
-                if (!stk.empty()) ans[stk.top()] += ts - curr;
-                curr = ts;
-                stk.push(fid);
+        int pre = 0;
+        for (const auto& log : logs) {
+            int i, cur;
+            char c[10];
+            sscanf(log.c_str(), "%d:%[^:]:%d", &i, c, &cur);
+            if (c[0] == 's') {
+                if (stk.size()) {
+                    ans[stk.top()] += cur - pre;
+                }
+                stk.push(i);
+                pre = cur;
             } else {
-                fid = stk.top();
+                ans[stk.top()] += cur - pre + 1;
                 stk.pop();
-                ans[fid] += ts - curr + 1;
-                curr = ts + 1;
+                pre = cur + 1;
             }
         }
         return ans;

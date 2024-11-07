@@ -2,21 +2,20 @@ class Solution {
     public int[] exclusiveTime(int n, List<String> logs) {
         int[] ans = new int[n];
         Deque<Integer> stk = new ArrayDeque<>();
-        int curr = -1;
-        for (String log : logs) {
-            String[] t = log.split(":");
-            int fid = Integer.parseInt(t[0]);
-            int ts = Integer.parseInt(t[2]);
-            if ("start".equals(t[1])) {
+        int pre = 0;
+        for (var log : logs) {
+            var parts = log.split(":");
+            int i = Integer.parseInt(parts[0]);
+            int cur = Integer.parseInt(parts[2]);
+            if (parts[1].charAt(0) == 's') {
                 if (!stk.isEmpty()) {
-                    ans[stk.peek()] += ts - curr;
+                    ans[stk.peek()] += cur - pre;
                 }
-                stk.push(fid);
-                curr = ts;
+                stk.push(i);
+                pre = cur;
             } else {
-                fid = stk.pop();
-                ans[fid] += ts - curr + 1;
-                curr = ts + 1;
+                ans[stk.pop()] += cur - pre + 1;
+                pre = cur + 1;
             }
         }
         return ans;
