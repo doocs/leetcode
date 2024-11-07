@@ -1,25 +1,19 @@
 function exclusiveTime(n: number, logs: string[]): number[] {
-    const res = new Array(n).fill(0);
-    const stack: [number, number][] = [];
-
+    const ans: number[] = Array(n).fill(0);
+    let pre = 0;
+    const stk: number[] = [];
     for (const log of logs) {
-        const t = log.split(':');
-        const [id, state, time] = [Number(t[0]), t[1], Number(t[2])];
-
-        if (state === 'start') {
-            if (stack.length !== 0) {
-                const pre = stack[stack.length - 1];
-                res[pre[0]] += time - pre[1];
+        const [i, op, cur] = log.split(':');
+        if (op[0] === 's') {
+            if (stk.length) {
+                ans[stk.at(-1)!] += +cur - pre;
             }
-            stack.push([id, time]);
+            stk.push(+i);
+            pre = +cur;
         } else {
-            const pre = stack.pop();
-            res[pre[0]] += time - pre[1] + 1;
-            if (stack.length !== 0) {
-                stack[stack.length - 1][1] = time + 1;
-            }
+            ans[stk.pop()!] += +cur - pre + 1;
+            pre = +cur + 1;
         }
     }
-
-    return res;
+    return ans;
 }
