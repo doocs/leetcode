@@ -3352,6 +3352,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3341  |  [Find Minimum Time to Reach Last Room I](/solution/3300-3399/3341.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20I/README_EN.md)  |  `Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 422  |
 |  3342  |  [Find Minimum Time to Reach Last Room II](/solution/3300-3399/3342.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20II/README_EN.md)  |  `Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 422  |
 |  3343  |  [Count Number of Balanced Permutations](/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 422  |
+|  3344  |  [Maximum Sized Array](/solution/3300-3399/3344.Maximum%20Sized%20Array/README_EN.md)  |  `Bit Manipulation`,`Binary Search`  |  Medium  |  🔒  |
 
 ## Copyright
 

@@ -3354,6 +3354,7 @@
 |  3341  |  [到达最后一个房间的最少时间 I](/solution/3300-3399/3341.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20I/README.md)  |  `图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  中等  |  第 422 场周赛  |
 |  3342  |  [到达最后一个房间的最少时间 II](/solution/3300-3399/3342.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20II/README.md)  |  `图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  中等  |  第 422 场周赛  |
 |  3343  |  [统计平衡排列的数目](/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README.md)  |  `数学`,`字符串`,`动态规划`,`组合数学`  |  困难  |  第 422 场周赛  |
+|  3344  |  [最大尺寸数组](/solution/3300-3399/3344.Maximum%20Sized%20Array/README.md)  |  `位运算`,`二分查找`  |  中等  |  🔒  |
 
 ## 版权
 

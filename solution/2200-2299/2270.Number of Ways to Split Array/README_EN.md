@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [10,4,-8,7]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 There are three ways of splitting nums into two non-empty parts:
 - Split nums at index 0. Then, the first part is [10], and its sum is 10. The second part is [4,-8,7], and its sum is 3. Since 10 &gt;= 3, i = 0 is a valid split.
 - Split nums at index 1. Then, the first part is [10,4], and its sum is 14. The second part is [-8,7], and its sum is -1. Since 14 &gt;= -1, i = 1 is a valid split.
@@ -49,9 +49,9 @@ Thus, the number of valid splits in nums is 2.
 <pre>
 <strong>Input:</strong> nums = [2,3,1,0]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 There are two valid splits in nums:
-- Split nums at index 1. Then, the first part is [2,3], and its sum is 5. The second part is [1,0], and its sum is 1. Since 5 &gt;= 1, i = 1 is a valid split.
+- Split nums at index 1. Then, the first part is [2,3], and its sum is 5. The second part is [1,0], and its sum is 1. Since 5 &gt;= 1, i = 1 is a valid split. 
 - Split nums at index 2. Then, the first part is [2,3,1], and its sum is 6. The second part is [0], and its sum is 0. Since 6 &gt;= 0, i = 2 is a valid split.
 </pre>
 

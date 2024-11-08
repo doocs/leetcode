@@ -20,9 +20,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个非负整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，你需要将这个数组分成&nbsp;<code>k</code><em>&nbsp;</em>个非空的连续子数组。</p>
+<p>给定一个非负整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，你需要将这个数组分成&nbsp;<code>k</code><em>&nbsp;</em>个非空的连续子数组，使得这&nbsp;<code>k</code><em>&nbsp;</em>个子数组各自和的最大值 <strong>最小</strong>。</p>
 
-<p>设计一个算法使得这&nbsp;<code>k</code><em>&nbsp;</em>个子数组各自和的最大值最小。</p>
+<p>返回分割后最小的和的最大值。</p>
+
+<p><strong>子数组</strong> 是数组中连续的部份。</p>
 
 <p>&nbsp;</p>
 

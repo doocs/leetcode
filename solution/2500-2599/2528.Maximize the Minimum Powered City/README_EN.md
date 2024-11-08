@@ -45,8 +45,8 @@ tags:
 <pre>
 <strong>Input:</strong> stations = [1,2,4,5,0], r = 1, k = 2
 <strong>Output:</strong> 5
-<strong>Explanation:</strong>
-One of the optimal ways is to install both the power stations at city 1.
+<strong>Explanation:</strong> 
+One of the optimal ways is to install both the power stations at city 1. 
 So stations will become [1,4,4,5,0].
 - City 0 is provided by 1 + 4 = 5 power stations.
 - City 1 is provided by 1 + 4 + 4 = 9 power stations.
@@ -62,7 +62,7 @@ Since it is not possible to obtain a larger power, we return 5.
 <pre>
 <strong>Input:</strong> stations = [4,4,4,4], r = 0, k = 3
 <strong>Output:</strong> 4
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 It can be proved that we cannot make the minimum power of a city greater than 4.
 </pre>
 
