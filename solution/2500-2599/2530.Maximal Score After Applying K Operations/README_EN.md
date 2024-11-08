@@ -51,7 +51,7 @@ tags:
 <strong>Explanation: </strong>You can do the following operations:
 Operation 1: Select i = 1, so nums becomes [1,<strong><u>4</u></strong>,3,3,3]. Your score increases by 10.
 Operation 2: Select i = 1, so nums becomes [1,<strong><u>2</u></strong>,3,3,3]. Your score increases by 4.
-Operation 3: Select i = 2, so nums becomes [1,1,<u><strong>1</strong></u>,3,3]. Your score increases by 3.
+Operation 3: Select i = 2, so nums becomes [1,2,<u><strong>1</strong></u>,3,3]. Your score increases by 3.
 The final score is 10 + 4 + 3 = 17.
 </pre>
 

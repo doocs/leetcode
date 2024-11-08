@@ -21,7 +21,7 @@ tags:
 
 <p>给你一个整数数组 <code>nums</code>。</p>
 
-<p>请你统计所有满足一下条件的 <strong>非空</strong> <span data-keyword="subsequence-array">子序列</span> 对 <code>(seq1, seq2)</code> 的数量：</p>
+<p>请你统计所有满足以下条件的 <strong>非空</strong> <span data-keyword="subsequence-array">子序列</span> 对 <code>(seq1, seq2)</code> 的数量：</p>
 
 <ul>
 	<li>子序列 <code>seq1</code> 和 <code>seq2</code> <strong>不相交</strong>，意味着 <code>nums</code> 中 <strong>不存在 </strong>同时出现在两个序列中的下标。</li>

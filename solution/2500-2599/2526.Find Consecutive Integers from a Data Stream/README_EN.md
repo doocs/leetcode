@@ -42,11 +42,11 @@ tags:
 [null, false, false, true, false]
 
 <strong>Explanation</strong>
-DataStream dataStream = new DataStream(4, 3); //value = 4, k = 3
-dataStream.consec(4); // Only 1 integer is parsed, so returns False.
+DataStream dataStream = new DataStream(4, 3); //value = 4, k = 3 
+dataStream.consec(4); // Only 1 integer is parsed, so returns False. 
 dataStream.consec(4); // Only 2 integers are parsed.
-                      // Since 2 is less than k, returns False.
-dataStream.consec(4); // The 3 integers parsed are all equal to value, so returns True.
+                      // Since 2 is less than k, returns False. 
+dataStream.consec(4); // The 3 integers parsed are all equal to value, so returns True. 
 dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
                       // Since 3 is not equal to value, it returns False.
 </pre>

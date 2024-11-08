@@ -43,7 +43,7 @@ tags:
 [null, false, false, true, false]
 
 <strong>解释：</strong>
-DataStream dataStream = new DataStream(4, 3); // value = 4, k = 3
+DataStream dataStream = new DataStream(4, 3); // value = 4, k = 3 
 dataStream.consec(4); // 数据流中只有 1 个整数，所以返回 False 。
 dataStream.consec(4); // 数据流中只有 2 个整数
                       // 由于 2 小于 k ，返回 False 。
