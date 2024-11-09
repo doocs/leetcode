@@ -1,10 +1,10 @@
-type neighborSum struct {
+type NeighborSum struct {
 	grid [][]int
 	d    map[int][2]int
 	dirs [2][5]int
 }
 
-func Constructor(grid [][]int) neighborSum {
+func Constructor(grid [][]int) NeighborSum {
 	d := map[int][2]int{}
 	for i, row := range grid {
 		for j, x := range row {
@@ -12,18 +12,18 @@ func Constructor(grid [][]int) neighborSum {
 		}
 	}
 	dirs := [2][5]int{{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}}
-	return neighborSum{grid, d, dirs}
+	return NeighborSum{grid, d, dirs}
 }
 
-func (this *neighborSum) AdjacentSum(value int) int {
+func (this *NeighborSum) AdjacentSum(value int) int {
 	return this.cal(value, 0)
 }
 
-func (this *neighborSum) DiagonalSum(value int) int {
+func (this *NeighborSum) DiagonalSum(value int) int {
 	return this.cal(value, 1)
 }
 
-func (this *neighborSum) cal(value, k int) int {
+func (this *NeighborSum) cal(value, k int) int {
 	p := this.d[value]
 	s := 0
 	for q := 0; q < 4; q++ {
@@ -36,7 +36,7 @@ func (this *neighborSum) cal(value, k int) int {
 }
 
 /**
- * Your neighborSum object will be instantiated and called as such:
+ * Your NeighborSum object will be instantiated and called as such:
  * obj := Constructor(grid);
  * param_1 := obj.AdjacentSum(value);
  * param_2 := obj.DiagonalSum(value);

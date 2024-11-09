@@ -1,4 +1,4 @@
-class neighborSum {
+class NeighborSum {
     private grid: number[][];
     private d: Map<number, [number, number]> = new Map();
     private dirs: number[][] = [
@@ -36,8 +36,8 @@ class neighborSum {
 }
 
 /**
- * Your neighborSum object will be instantiated and called as such:
- * var obj = new neighborSum(grid)
+ * Your NeighborSum object will be instantiated and called as such:
+ * var obj = new NeighborSum(grid)
  * var param_1 = obj.adjacentSum(value)
  * var param_2 = obj.diagonalSum(value)
  */

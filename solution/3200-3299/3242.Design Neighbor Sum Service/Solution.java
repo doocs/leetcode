@@ -1,9 +1,9 @@
-class neighborSum {
+class NeighborSum {
     private int[][] grid;
     private final Map<Integer, int[]> d = new HashMap<>();
     private final int[][] dirs = {{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}};
 
-    public neighborSum(int[][] grid) {
+    public NeighborSum(int[][] grid) {
         this.grid = grid;
         int m = grid.length, n = grid[0].length;
         for (int i = 0; i < m; ++i) {
@@ -35,8 +35,8 @@ class neighborSum {
 }
 
 /**
- * Your neighborSum object will be instantiated and called as such:
- * neighborSum obj = new neighborSum(grid);
+ * Your NeighborSum object will be instantiated and called as such:
+ * NeighborSum obj = new NeighborSum(grid);
  * int param_1 = obj.adjacentSum(value);
  * int param_2 = obj.diagonalSum(value);
  */
