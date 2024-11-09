@@ -1,6 +1,6 @@
-class neighborSum {
+class NeighborSum {
 public:
-    neighborSum(vector<vector<int>>& grid) {
+    NeighborSum(vector<vector<int>>& grid) {
         this->grid = grid;
         int m = grid.size(), n = grid[0].size();
         for (int i = 0; i < m; ++i) {
@@ -37,8 +37,8 @@ private:
 };
 
 /**
- * Your neighborSum object will be instantiated and called as such:
- * neighborSum* obj = new neighborSum(grid);
+ * Your NeighborSum object will be instantiated and called as such:
+ * NeighborSum* obj = new NeighborSum(grid);
  * int param_1 = obj->adjacentSum(value);
  * int param_2 = obj->diagonalSum(value);
  */
