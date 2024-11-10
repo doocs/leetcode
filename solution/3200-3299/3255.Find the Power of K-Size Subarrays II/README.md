@@ -24,7 +24,7 @@ tags:
 <p>一个数组的 <strong>能量值</strong> 定义为：</p>
 
 <ul>
-	<li>如果 <strong>所有</strong>&nbsp;元素都是依次&nbsp;<strong>连续</strong> 且 <strong>上升</strong> 的，那么能量值为 <strong>最大</strong>&nbsp;的元素。</li>
+	<li>如果 <strong>所有</strong>&nbsp;元素都是依次&nbsp;<strong>连续</strong>（即 <code>nums[i] + 1 = nums[i + 1]</code>，<code>i &lt; n</code>）且 <strong>上升</strong> 的，那么能量值为 <strong>最大</strong>&nbsp;的元素。</li>
 	<li>否则为 -1 。</li>
 </ul>
 

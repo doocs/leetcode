@@ -64,6 +64,7 @@ region2 = &quot;New York&quot;
 	<li><code>1 &lt;= regions[i][j].length, region1.length, region2.length &lt;= 20</code></li>
 	<li><code>region1 != region2</code></li>
 	<li><code>regions[i][j]</code>, <code>region1</code>, and <code>region2</code> consist of English letters.</li>
+	<li>The input is generated such that there exists a region which contains all the other regions, either directly or indirectly.</li>
 </ul>
 
 <!-- description:end -->

@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 423 场周赛(2024-11-10 10:30, 90 分钟) 参赛人数 2550
+
+- [3349. 检测相邻递增子数组 I](/solution/3300-3399/3349.Adjacent%20Increasing%20Subarrays%20Detection%20I/README.md)
+- [3350. 检测相邻递增子数组 II](/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README.md)
+- [3351. 好子序列的元素之和](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README.md)
+- [3352. 统计小于 N 的 K 可约简整数](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README.md)
+
+#### 第 143 场双周赛(2024-11-09 22:30, 90 分钟) 参赛人数 1849
+
+- [3345. 最小可整除数位乘积 I](/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README.md)
+- [3346. 执行操作后元素的最高频率 I](/solution/3300-3399/3346.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20I/README.md)
+- [3347. 执行操作后元素的最高频率 II](/solution/3300-3399/3347.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20II/README.md)
+- [3348. 最小可整除数位乘积 II](/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README.md)
+
 #### 第 422 场周赛(2024-11-03 10:30, 90 分钟) 参赛人数 2511
 
 - [3340. 检查平衡字符串](/solution/3300-3399/3340.Check%20Balanced%20String/README.md)
