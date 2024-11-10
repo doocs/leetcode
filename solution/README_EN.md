@@ -3353,6 +3353,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3342  |  [Find Minimum Time to Reach Last Room II](/solution/3300-3399/3342.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20II/README_EN.md)  |  `Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 422  |
 |  3343  |  [Count Number of Balanced Permutations](/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 422  |
 |  3344  |  [Maximum Sized Array](/solution/3300-3399/3344.Maximum%20Sized%20Array/README_EN.md)  |  `Bit Manipulation`,`Binary Search`  |  Medium  |  🔒  |
+|  3345  |  [Smallest Divisible Digit Product I](/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 143  |
+|  3346  |  [Maximum Frequency of an Element After Performing Operations I](/solution/3300-3399/3346.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 143  |
+|  3347  |  [Maximum Frequency of an Element After Performing Operations II](/solution/3300-3399/3347.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 143  |
+|  3348  |  [Smallest Divisible Digit Product II](/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 143  |
+|  3349  |  [Adjacent Increasing Subarrays Detection I](/solution/3300-3399/3349.Adjacent%20Increasing%20Subarrays%20Detection%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 423  |
+|  3350  |  [Adjacent Increasing Subarrays Detection II](/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 423  |
+|  3351  |  [Sum of Good Subsequences](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 423  |
+|  3352  |  [Count K-Reducible Numbers Less Than N](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README_EN.md)  |    |  Hard  |  Weekly Contest 423  |
 
 ## Copyright
 

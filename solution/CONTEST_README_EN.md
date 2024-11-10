@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 423
+
+- [3349. Adjacent Increasing Subarrays Detection I](/solution/3300-3399/3349.Adjacent%20Increasing%20Subarrays%20Detection%20I/README_EN.md)
+- [3350. Adjacent Increasing Subarrays Detection II](/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README_EN.md)
+- [3351. Sum of Good Subsequences](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README_EN.md)
+- [3352. Count K-Reducible Numbers Less Than N](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README_EN.md)
+
+#### Biweekly Contest 143
+
+- [3345. Smallest Divisible Digit Product I](/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README_EN.md)
+- [3346. Maximum Frequency of an Element After Performing Operations I](/solution/3300-3399/3346.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20I/README_EN.md)
+- [3347. Maximum Frequency of an Element After Performing Operations II](/solution/3300-3399/3347.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20II/README_EN.md)
+- [3348. Smallest Divisible Digit Product II](/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README_EN.md)
+
 #### Weekly Contest 422
 
 - [3340. Check Balanced String](/solution/3300-3399/3340.Check%20Balanced%20String/README_EN.md)
