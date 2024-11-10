@@ -58,41 +58,15 @@ tags:
 
 ### 方法一：二分查找
 
-给与的数组是有序的，由此可以使用二分查找，那条件该如何判断呢。
+题目给定的数组 $\textit{nums}$ 是有序的，且要求在 $\textit{O}(\log n)$ 时间找到只出现一次的元素，因此我们考虑使用二分查找解决。
 
-先观察一下线性遍历是如何确定目标的：
+我们定义二分查找的左边界 $\textit{l} = 0$，右边界 $\textit{r} = n - 1$，其中 $n$ 是数组的长度。
 
-```c
-for (int i = 0; i < n - 1; i += 2) {
-    if (nums[i] != nums[i + 1]) {
-        return nums[i];
-    }
-}
-return nums[n - 1];
-```
+在每一步中，我们取中间位置 $\textit{mid} = (l + r) / 2$，如果下标 $\textit{mid}$ 为偶数，那么我们应该将 $\textit{nums}[\textit{mid}]$ 与 $\textit{nums}[\textit{mid} + 1]$ 进行比较；如果下标 $\textit{mid}$ 为奇数，那么我们应该将 $\textit{nums}[\textit{mid}]$ 与 $\textit{nums}[\textit{mid} - 1]$ 进行比较。因此，我们可以统一将 $\textit{nums}[\textit{mid}]$ 与 $\textit{nums}[\textit{mid} \oplus 1]$ 进行比较，其中 $\oplus$ 表示异或运算。
 
-偶数下标：当 `nums[i] != nums[i + 1] && i % 2 == 0` 成立，结果便是 `nums[i]`。
-奇数下标：当 `nums[i] != nums[i - 1] && i % 2 == 1` 成立，结果便是 `nums[i - 1]`。
+如果 $\textit{nums}[\textit{mid}] \neq \textit{nums}[\textit{mid} \oplus 1]$，那么答案在 $[\textit{l}, \textit{mid}]$ 中，我们令 $\textit{r} = \textit{mid}$；如果 $\textit{nums}[\textit{mid}] = \textit{nums}[\textit{mid} \oplus 1]$，那么答案在 $[\textit{mid} + 1, \textit{r}]$ 中，我们令 $\textit{l} = \textit{mid} + 1$。继续二分查找，直到 $\textit{l} = \textit{r}$，此时 $\textit{nums}[\textit{l}]$ 即为只出现一次的元素。
 
-于是二分模板就有了：
-
-```txt
-l = 0
-r = n - 1
-while l < r
-    m = l + (r - l) / 2
-    if m % 2 == 0
-        if nums[m] == nums[m + 1]
-            l = m + 1
-        else
-            r = m
-    else
-        if nums[m] == nums[m - 1]
-            l = m + 1
-        else
-            r = m
-return nums[l]
-```
+时间复杂度 $\textit{O}(\log n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $\textit{O}(1)$。
 
 <!-- tabs:start -->
 
@@ -101,15 +75,14 @@ return nums[l]
 ```python
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
-        left, right = 0, len(nums) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            # Equals to: if (mid % 2 == 0 and nums[mid] != nums[mid + 1]) or (mid % 2 == 1 and nums[mid] != nums[mid - 1]):
+        l, r = 0, len(nums) - 1
+        while l < r:
+            mid = (l + r) >> 1
             if nums[mid] != nums[mid ^ 1]:
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        return nums[left]
+                l = mid + 1
+        return nums[l]
 ```
 
 #### Java
@@ -117,18 +90,16 @@ class Solution:
 ```java
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            // if ((mid % 2 == 0 && nums[mid] != nums[mid + 1]) || (mid % 2 == 1 && nums[mid] !=
-            // nums[mid - 1])) {
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (nums[mid] != nums[mid ^ 1]) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return nums[left];
+        return nums[l];
     }
 }
 ```
@@ -139,15 +110,16 @@ class Solution {
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
-        int left = 0, right = nums.size() - 1;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (nums[mid] != nums[mid ^ 1])
-                right = mid;
-            else
-                left = mid + 1;
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] != nums[mid ^ 1]) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        return nums[left];
+        return nums[l];
     }
 };
 ```
@@ -156,16 +128,16 @@ public:
 
 ```go
 func singleNonDuplicate(nums []int) int {
-	left, right := 0, len(nums)-1
-	for left < right {
-		mid := (left + right) >> 1
+	l, r := 0, len(nums)-1
+	for l < r {
+		mid := (l + r) >> 1
 		if nums[mid] != nums[mid^1] {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	return nums[left]
+	return nums[l]
 }
 ```
 
@@ -173,17 +145,16 @@ func singleNonDuplicate(nums []int) int {
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
-    let left = 0,
-        right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] != nums[mid ^ 1]) {
-            right = mid;
+    let [l, r] = [0, nums.length - 1];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] !== nums[mid ^ 1]) {
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return nums[left];
+    return nums[l];
 }
 ```
 
@@ -196,10 +167,10 @@ impl Solution {
         let mut r = nums.len() - 1;
         while l < r {
             let mid = (l + r) >> 1;
-            if nums[mid] == nums[mid ^ 1] {
-                l = mid + 1;
-            } else {
+            if nums[mid] != nums[mid ^ 1] {
                 r = mid;
+            } else {
+                l = mid + 1;
             }
         }
         nums[l]
@@ -211,17 +182,16 @@ impl Solution {
 
 ```c
 int singleNonDuplicate(int* nums, int numsSize) {
-    int left = 0;
-    int right = numsSize - 1;
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] == nums[mid ^ 1]) {
-            left = mid + 1;
+    int l = 0, r = numsSize - 1;
+    while (l < r) {
+        int mid = (l + r) >> 1;
+        if (nums[mid] != nums[mid ^ 1]) {
+            r = mid;
         } else {
-            right = mid;
+            l = mid + 1;
         }
     }
-    return nums[left];
+    return nums[l];
 }
 ```
 
