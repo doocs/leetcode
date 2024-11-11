@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3350.Ad
 
 <!-- description:start -->
 
-<p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code> ，请你找出 <code>k</code> 的 <strong>最大值</strong>，使得存在 <strong>两个</strong> <strong>相邻</strong> 且长度为 <code>k</code> 的 <strong>严格递增</strong> 子数组。具体来说，需要检查是否存在从下标 <code>a</code> 和 <code>b</code> (<code>a &lt; b</code>) 开始的 <strong>两个</strong> 子数组，并满足下述全部条件：</p>
+<p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code> ，请你找出 <code>k</code> 的 <strong>最大值</strong>，使得存在 <strong>两个</strong> <strong>相邻</strong> 且长度为 <code>k</code> 的 <strong>严格递增</strong> <span data-keyword="subarray-nonempty">子数组</span>。具体来说，需要检查是否存在从下标 <code>a</code> 和 <code>b</code> (<code>a &lt; b</code>) 开始的 <strong>两个</strong> 子数组，并满足下述全部条件：</p>
 
 <ul>
 	<li>这两个子数组 <code>nums[a..a + k - 1]</code> 和 <code>nums[b..b + k - 1]</code> 都是 <strong>严格递增</strong> 的。</li>
@@ -81,25 +81,89 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3350.Ad
 #### Python3
 
 ```python
-
+class Solution:
+    def maxIncreasingSubarrays(self, nums: List[int]) -> int:
+        ans = pre = cur = 0
+        for i, x in enumerate(nums):
+            cur += 1
+            if i == len(nums) - 1 or x >= nums[i + 1]:
+                ans = max(ans, cur // 2, min(pre, cur))
+                pre, cur = cur, 0
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxIncreasingSubarrays(List<Integer> nums) {
+        int ans = 0, pre = 0, cur = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            ++cur;
+            if (i == n - 1 || nums.get(i) >= nums.get(i + 1)) {
+                ans = Math.max(ans, Math.max(cur / 2, Math.min(pre, cur)));
+                pre = cur;
+                cur = 0;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxIncreasingSubarrays(vector<int>& nums) {
+        int ans = 0, pre = 0, cur = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            ++cur;
+            if (i == n - 1 || nums[i] >= nums[i + 1]) {
+                ans = max({ans, cur / 2, min(pre, cur)});
+                pre = cur;
+                cur = 0;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxIncreasingSubarrays(nums []int) (ans int) {
+	pre, cur := 0, 0
+	for i, x := range nums {
+		cur++
+		if i == len(nums)-1 || x >= nums[i+1] {
+			ans = max(ans, max(cur/2, min(pre, cur)))
+			pre, cur = cur, 0
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxIncreasingSubarrays(nums: number[]): number {
+    let [ans, pre, cur] = [0, 0, 0];
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        ++cur;
+        if (i === n - 1 || nums[i] >= nums[i + 1]) {
+            ans = Math.max(ans, (cur / 2) | 0, Math.min(pre, cur));
+            [pre, cur] = [cur, 0];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
