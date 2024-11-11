@@ -64,23 +64,23 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
-We define $f[i]$ to represent the maximum sum of the continuous subarray ending with the element $nums[i]$. Initially, $f[0] = nums[0]$. The final answer we are looking for is $\max_{0 \leq i < n} f[i]$.
+We define $f[i]$ to represent the maximum sum of a contiguous subarray ending at element $\textit{nums}[i]$. Initially, $f[0] = \textit{nums}[0]$. The final answer we seek is $\max_{0 \leq i < n} f[i]$.
 
-Consider $f[i]$, where $i \geq 1$, its state transition equation is:
-
-$$
-f[i] = \max \{ f[i - 1] + nums[i], nums[i] \}
-$$
-
-Which is also:
+Consider $f[i]$ for $i \geq 1$. Its state transition equation is:
 
 $$
-f[i] = \max \{ f[i - 1], 0 \} + nums[i]
+f[i] = \max(f[i - 1] + \textit{nums}[i], \textit{nums}[i])
 $$
 
-Since $f[i]$ is only related to $f[i - 1]$, we can use a single variable $f$ to maintain the current value of $f[i]$, and then perform state transition. The answer is $\max_{0 \leq i < n} f$.
+That is:
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. We only need to traverse the array once to get the answer. The space complexity is $O(1)$, we only need constant space to store several variables.
+$$
+f[i] = \max(f[i - 1], 0) + \textit{nums}[i]
+$$
+
+Since $f[i]$ is only related to $f[i - 1]$, we can use a single variable $f$ to maintain the current value of $f[i]$ and perform the state transition. The answer is $\max_{0 \leq i < n} f$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
