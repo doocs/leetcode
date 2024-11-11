@@ -21,7 +21,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3352.Co
 <p>An integer <code>x</code> is called <strong>k-reducible</strong> if performing the following operation <strong>at most</strong> <code>k</code> times reduces it to 1:</p>
 
 <ul>
-	<li>Replace <code>x</code> with the <strong>count</strong> of set bits in its binary representation.</li>
+	<li>Replace <code>x</code> with the <strong>count</strong> of <span data-keyword="set-bit">set bits</span> in its binary representation.</li>
 </ul>
 
 <p>For example, the binary representation of 6 is <code>&quot;110&quot;</code>. Applying the operation once reduces it to 2 (since <code>&quot;110&quot;</code> has two set bits). Applying the operation again to 2 (binary <code>&quot;10&quot;</code>) reduces it to 1 (since <code>&quot;10&quot;</code> has one set bit).</p>
@@ -29,8 +29,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3352.Co
 <p>Return an integer denoting the number of positive integers <strong>less</strong> than <code>n</code> that are <strong>k-reducible</strong>.</p>
 
 <p>Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
-
-<p>A set bit refers to a bit in the binary representation of a number that has a value of <code>1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
