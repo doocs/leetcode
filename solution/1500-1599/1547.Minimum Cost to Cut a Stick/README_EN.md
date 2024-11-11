@@ -68,17 +68,17 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 
 ### Solution 1: Dynamic Programming (Interval DP)
 
-We can add two elements to the cut array $cuts$, which are $0$ and $n$, representing the two ends of the stick. Then we sort the $cuts$ array, so that we can cut the entire stick into several intervals, each interval has two cut points. Suppose the length of the $cuts$ array at this time is $m$.
+We can add two elements to the array $\textit{cuts}$, namely $0$ and $n$, representing the two ends of the stick. Then we sort the $\textit{cuts}$ array, so we can divide the entire stick into several intervals, each with two cut points. Let the length of the $\textit{cuts}$ array be $m$.
 
-Next, we define $f[i][j]$ to represent the minimum cost of cutting the interval $[cuts[i],..cuts[j]]$.
+Next, we define $\textit{f}[i][j]$ to represent the minimum cost to cut the interval $[\textit{cuts}[i], \textit{cuts}[j]]$.
 
-If an interval only has two cut points, that is, we do not need to cut this interval, then $f[i][j] = 0$.
+If an interval has only two cut points, meaning we do not need to cut this interval, then $\textit{f}[i][j] = 0$.
 
-Otherwise, we enumerate the length of the interval $l$, where $l$ is the number of cut points minus $1$. Then we enumerate the left endpoint $i$ of the interval, and the right endpoint $j$ can be obtained by $i + l$. For each interval, we enumerate its cut point $k$, where $i \lt k \lt j$, then we can cut the interval $[i, j]$ into $[i, k]$ and $[k, j]$, the cost at this time is $f[i][k] + f[k][j] + cuts[j] - cuts[i]$, we take the minimum value of all possible $k$, which is the value of $f[i][j]$.
+Otherwise, we enumerate the length $l$ of the interval, where $l$ is equal to the number of cut points minus $1$. Then we enumerate the left endpoint $i$ of the interval, and the right endpoint $j$ can be obtained by $i + l$. For each interval, we enumerate its cut point $k$, where $i \lt k \lt j$. We can then divide the interval $[i, j]$ into $[i, k]$ and $[k, j]$. The cost at this point is $\textit{f}[i][k] + \textit{f}[k][j] + \textit{cuts}[j] - \textit{cuts}[i]$. We take the minimum value among all possible $k$, which is the value of $\textit{f}[i][j]$.
 
-Finally, we return $f[0][m - 1]$.
+Finally, we return $\textit{f}[0][m - 1]$.
 
-The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the modified $cuts$ array.
+The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the modified $\textit{cuts}$ array.
 
 <!-- tabs:start -->
 
@@ -181,15 +181,15 @@ func minCost(n int, cuts []int) int {
 
 ```ts
 function minCost(n: number, cuts: number[]): number {
-    cuts.push(0);
-    cuts.push(n);
+    cuts.push(0, n);
     cuts.sort((a, b) => a - b);
     const m = cuts.length;
-    const f: number[][] = new Array(m).fill(0).map(() => new Array(m).fill(0));
-    for (let i = m - 2; i >= 0; --i) {
-        for (let j = i + 2; j < m; ++j) {
-            f[i][j] = 1 << 30;
-            for (let k = i + 1; k < j; ++k) {
+    const f: number[][] = Array.from({ length: m }, () => Array(m).fill(0));
+    for (let l = 2; l < m; l++) {
+        for (let i = 0; i < m - l; i++) {
+            const j = i + l;
+            f[i][j] = Infinity;
+            for (let k = i + 1; k < j; k++) {
                 f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
             }
         }
@@ -204,7 +204,11 @@ function minCost(n: number, cuts: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Another Enumeration Method)
+
+We can also enumerate $i$ from large to small and $j$ from small to large. This ensures that when calculating $f[i][j]$, the states $f[i][k]$ and $f[k][j]$ have already been computed, where $i \lt k \lt j$.
+
+The time complexity is $O(m^3)$, and the space complexity is $O(m^2)$. Here, $m$ is the length of the modified $\textit{cuts}$ array.
 
 <!-- tabs:start -->
 
@@ -296,6 +300,27 @@ func minCost(n int, cuts []int) int {
 		}
 	}
 	return f[0][m-1]
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(n: number, cuts: number[]): number {
+    cuts.push(0);
+    cuts.push(n);
+    cuts.sort((a, b) => a - b);
+    const m = cuts.length;
+    const f: number[][] = Array.from({ length: m }, () => Array(m).fill(0));
+    for (let i = m - 2; i >= 0; --i) {
+        for (let j = i + 2; j < m; ++j) {
+            f[i][j] = 1 << 30;
+            for (let k = i + 1; k < j; ++k) {
+                f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
+            }
+        }
+    }
+    return f[0][m - 1];
 }
 ```
 

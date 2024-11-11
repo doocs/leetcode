@@ -73,17 +73,17 @@ tags:
 
 ### 方法一：动态规划（区间 DP）
 
-我们可以往切割点数组 $cuts$ 中添加两个元素，分别是 $0$ 和 $n$，表示棍子的两端。然后我们对 $cuts$ 数组进行排序，这样我们就可以将整个棍子切割为若干个区间，每个区间都有两个切割点。不妨设此时 $cuts$ 数组的长度为 $m$。
+我们可以往切割点数组 $\textit{cuts}$ 中添加两个元素，分别是 $0$ 和 $n$，表示棍子的两端。然后我们对 $\textit{cuts}$ 数组进行排序，这样我们就可以将整个棍子切割为若干个区间，每个区间都有两个切割点。不妨设此时 $\textit{cuts}$ 数组的长度为 $m$。
 
-接下来，我们定义 $f[i][j]$ 表示切割区间 $[cuts[i],..cuts[j]]$ 的最小成本。
+接下来，我们定义 $\textit{f}[i][j]$ 表示切割区间 $[\textit{cuts}[i],..\textit{cuts}[j]]$ 的最小成本。
 
-如果一个区间只有两个切割点，也就是说，我们无需切割这个区间，那么 $f[i][j] = 0$。
+如果一个区间只有两个切割点，也就是说，我们无需切割这个区间，那么 $\textit{f}[i][j] = 0$。
 
-否则，我们枚举区间的长度 $l$，其中 $l$ 等于切割点的数量减去 $1$。然后我们枚举区间的左端点 $i$，右端点 $j$ 可以由 $i + l$ 得到。对于每个区间，我们枚举它的切割点 $k$，其中 $i \lt k \lt j$，那么我们可以将区间 $[i, j]$ 切割为 $[i, k]$ 和 $[k, j]$，此时的成本为 $f[i][k] + f[k][j] + cuts[j] - cuts[i]$，我们取所有可能的 $k$ 中的最小值，即为 $f[i][j]$ 的值。
+否则，我们枚举区间的长度 $l$，其中 $l$ 等于切割点的数量减去 $1$。然后我们枚举区间的左端点 $i$，右端点 $j$ 可以由 $i + l$ 得到。对于每个区间，我们枚举它的切割点 $k$，其中 $i \lt k \lt j$，那么我们可以将区间 $[i, j]$ 切割为 $[i, k]$ 和 $[k, j]$，此时的成本为 $\textit{f}[i][k] + \textit{f}[k][j] + \textit{cuts}[j] - \textit{cuts}[i]$，我们取所有可能的 $k$ 中的最小值，即为 $\textit{f}[i][j]$ 的值。
 
-最后，我们返回 $f[0][m - 1]$。
+最后，我们返回 $\textit{f}[0][m - 1]$。
 
-时间复杂度 $O(m^3)$，空间复杂度 $O(m^2)$。其中 $m$ 为修改后的 $cuts$ 数组的长度。
+时间复杂度 $O(m^3)$，空间复杂度 $O(m^2)$。其中 $m$ 为修改后的 $\textit{cuts}$ 数组的长度。
 
 <!-- tabs:start -->
 
@@ -186,15 +186,15 @@ func minCost(n int, cuts []int) int {
 
 ```ts
 function minCost(n: number, cuts: number[]): number {
-    cuts.push(0);
-    cuts.push(n);
+    cuts.push(0, n);
     cuts.sort((a, b) => a - b);
     const m = cuts.length;
-    const f: number[][] = new Array(m).fill(0).map(() => new Array(m).fill(0));
-    for (let i = m - 2; i >= 0; --i) {
-        for (let j = i + 2; j < m; ++j) {
-            f[i][j] = 1 << 30;
-            for (let k = i + 1; k < j; ++k) {
+    const f: number[][] = Array.from({ length: m }, () => Array(m).fill(0));
+    for (let l = 2; l < m; l++) {
+        for (let i = 0; i < m - l; i++) {
+            const j = i + l;
+            f[i][j] = Infinity;
+            for (let k = i + 1; k < j; k++) {
                 f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
             }
         }
@@ -209,7 +209,11 @@ function minCost(n: number, cuts: number[]): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（另一种枚举方式）
+
+我们也可以从大到小枚举 $i$，从小到大枚举 $j$，这样可以保证在计算 $f[i][j]$ 时，状态 $f[i][k]$ 和 $f[k][j]$ 都已经被计算过了，其中 $i \lt k \lt j$。
+
+时间复杂度 $O(m^3)$，空间复杂度 $O(m^2)$。其中 $m$ 为修改后的 $\textit{cuts}$ 数组的长度。
 
 <!-- tabs:start -->
 
@@ -301,6 +305,27 @@ func minCost(n int, cuts []int) int {
 		}
 	}
 	return f[0][m-1]
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(n: number, cuts: number[]): number {
+    cuts.push(0);
+    cuts.push(n);
+    cuts.sort((a, b) => a - b);
+    const m = cuts.length;
+    const f: number[][] = Array.from({ length: m }, () => Array(m).fill(0));
+    for (let i = m - 2; i >= 0; --i) {
+        for (let j = i + 2; j < m; ++j) {
+            f[i][j] = 1 << 30;
+            for (let k = i + 1; k < j; ++k) {
+                f[i][j] = Math.min(f[i][j], f[i][k] + f[k][j] + cuts[j] - cuts[i]);
+            }
+        }
+    }
+    return f[0][m - 1];
 }
 ```
 
