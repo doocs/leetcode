@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README.md
+tags:
+    - 贪心
+    - 数学
+    - 字符串
+    - 回溯
+    - 数论
 ---
 
 <!-- problem:start -->

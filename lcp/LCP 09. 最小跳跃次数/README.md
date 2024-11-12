@@ -189,24 +189,24 @@ class Solution {
         vis[0] = true
         var ans = 0
         var maxReach = 1
-        
+
         while !queue.isEmpty {
             ans += 1
             let size = queue.count
-            
+
             for _ in 0..<size {
                 let i = queue.removeFirst()
-                
+
                 let forwardJump = i + jump[i]
                 if forwardJump >= n {
                     return ans
                 }
-                
+
                 if !vis[forwardJump] {
                     queue.append(forwardJump)
                     vis[forwardJump] = true
                 }
-                
+
                 while maxReach < i {
                     if !vis[maxReach] {
                         queue.append(maxReach)
@@ -216,7 +216,7 @@ class Solution {
                 }
             }
         }
-        
+
         return -1
     }
 }

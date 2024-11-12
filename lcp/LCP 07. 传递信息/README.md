@@ -162,7 +162,7 @@ class Solution {
     func numWays(_ n: Int, _ relation: [[Int]], _ k: Int) -> Int {
         var f = Array(repeating: Array(repeating: 0, count: n), count: k + 1)
         f[0][0] = 1
-        
+
         for i in 1...k {
             for r in relation {
                 let a = r[0], b = r[1]
@@ -282,7 +282,7 @@ class Solution {
         var f = Array(repeating: 0, count: n)
         f[0] = 1
         var steps = k
-        
+
         while steps > 0 {
             var g = Array(repeating: 0, count: n)
             for r in relation {
@@ -292,7 +292,7 @@ class Solution {
             f = g
             steps -= 1
         }
-        
+
         return f[n - 1]
     }
 }
