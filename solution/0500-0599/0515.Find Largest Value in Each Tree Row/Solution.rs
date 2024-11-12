@@ -21,26 +21,26 @@ use std::collections::VecDeque;
 use std::rc::Rc;
 impl Solution {
     pub fn largest_values(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = Vec::new();
-        let mut queue = VecDeque::new();
+        let mut ans = Vec::new();
+        let mut q = VecDeque::new();
         if root.is_some() {
-            queue.push_back(root.clone());
+            q.push_back(root.clone());
         }
-        while !queue.is_empty() {
-            let mut max = i32::MIN;
-            for _ in 0..queue.len() {
-                let node = queue.pop_front().unwrap();
+        while !q.is_empty() {
+            let mut x = i32::MIN;
+            for _ in 0..q.len() {
+                let node = q.pop_front().unwrap();
                 let node = node.as_ref().unwrap().borrow();
-                max = max.max(node.val);
+                x = x.max(node.val);
                 if node.left.is_some() {
-                    queue.push_back(node.left.clone());
+                    q.push_back(node.left.clone());
                 }
                 if node.right.is_some() {
-                    queue.push_back(node.right.clone());
+                    q.push_back(node.right.clone());
                 }
             }
-            res.push(max);
+            ans.push(x);
         }
-        res
+        ans
     }
 }
