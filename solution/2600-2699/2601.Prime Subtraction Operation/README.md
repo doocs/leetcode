@@ -276,7 +276,7 @@ function primeSubOperation(nums: number[]): boolean {
 
 <!-- solution:start -->
 
-### Solution 2: Preprocessing prime numbers
+### 方法二：预处理素数
 
 <!-- tabs:start -->
 
