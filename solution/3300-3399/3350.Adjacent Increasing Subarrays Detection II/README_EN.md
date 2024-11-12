@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README_EN.md
+tags:
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

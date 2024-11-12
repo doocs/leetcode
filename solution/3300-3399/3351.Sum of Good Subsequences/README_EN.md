@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

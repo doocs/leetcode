@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3346.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20I/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sorting
+    - Sliding Window
 ---
 
 <!-- problem:start -->

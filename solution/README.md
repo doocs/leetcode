@@ -3355,14 +3355,14 @@
 |  3342  |  [到达最后一个房间的最少时间 II](/solution/3300-3399/3342.Find%20Minimum%20Time%20to%20Reach%20Last%20Room%20II/README.md)  |  `图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  中等  |  第 422 场周赛  |
 |  3343  |  [统计平衡排列的数目](/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README.md)  |  `数学`,`字符串`,`动态规划`,`组合数学`  |  困难  |  第 422 场周赛  |
 |  3344  |  [最大尺寸数组](/solution/3300-3399/3344.Maximum%20Sized%20Array/README.md)  |  `位运算`,`二分查找`  |  中等  |  🔒  |
-|  3345  |  [最小可整除数位乘积 I](/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README.md)  |    |  简单  |  第 143 场双周赛  |
-|  3346  |  [执行操作后元素的最高频率 I](/solution/3300-3399/3346.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20I/README.md)  |    |  中等  |  第 143 场双周赛  |
-|  3347  |  [执行操作后元素的最高频率 II](/solution/3300-3399/3347.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20II/README.md)  |    |  困难  |  第 143 场双周赛  |
-|  3348  |  [最小可整除数位乘积 II](/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README.md)  |    |  困难  |  第 143 场双周赛  |
-|  3349  |  [检测相邻递增子数组 I](/solution/3300-3399/3349.Adjacent%20Increasing%20Subarrays%20Detection%20I/README.md)  |    |  简单  |  第 423 场周赛  |
-|  3350  |  [检测相邻递增子数组 II](/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README.md)  |    |  中等  |  第 423 场周赛  |
-|  3351  |  [好子序列的元素之和](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README.md)  |    |  困难  |  第 423 场周赛  |
-|  3352  |  [统计小于 N 的 K 可约简整数](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README.md)  |    |  困难  |  第 423 场周赛  |
+|  3345  |  [最小可整除数位乘积 I](/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README.md)  |  `数学`,`枚举`  |  简单  |  第 143 场双周赛  |
+|  3346  |  [执行操作后元素的最高频率 I](/solution/3300-3399/3346.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20I/README.md)  |  `数组`,`二分查找`,`前缀和`,`排序`,`滑动窗口`  |  中等  |  第 143 场双周赛  |
+|  3347  |  [执行操作后元素的最高频率 II](/solution/3300-3399/3347.Maximum%20Frequency%20of%20an%20Element%20After%20Performing%20Operations%20II/README.md)  |  `数组`,`二分查找`,`前缀和`,`排序`,`滑动窗口`  |  困难  |  第 143 场双周赛  |
+|  3348  |  [最小可整除数位乘积 II](/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README.md)  |  `贪心`,`数学`,`字符串`,`回溯`,`数论`  |  困难  |  第 143 场双周赛  |
+|  3349  |  [检测相邻递增子数组 I](/solution/3300-3399/3349.Adjacent%20Increasing%20Subarrays%20Detection%20I/README.md)  |  `数组`  |  简单  |  第 423 场周赛  |
+|  3350  |  [检测相邻递增子数组 II](/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README.md)  |  `数组`,`二分查找`  |  中等  |  第 423 场周赛  |
+|  3351  |  [好子序列的元素之和](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README.md)  |  `数组`,`哈希表`,`动态规划`  |  困难  |  第 423 场周赛  |
+|  3352  |  [统计小于 N 的 K 可约简整数](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README.md)  |  `数学`,`字符串`,`动态规划`,`组合数学`  |  困难  |  第 423 场周赛  |
 
 ## 版权
 
