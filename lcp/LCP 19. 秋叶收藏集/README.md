@@ -209,9 +209,9 @@ class Solution {
         let inf = Int.max / 2
         var f = Array(repeating: [inf, inf, inf], count: n)
         let leavesArray = Array(leaves)
-        
+
         f[0][0] = leavesArray[0] == "r" ? 0 : 1
-        
+
         for i in 1..<n {
             if leavesArray[i] == "r" {
                 f[i][0] = f[i - 1][0]
@@ -223,7 +223,7 @@ class Solution {
                 f[i][2] = min(f[i - 1][1], f[i - 1][2]) + 1
             }
         }
-        
+
         return f[n - 1][2]
     }
 }
