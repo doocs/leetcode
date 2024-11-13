@@ -56,7 +56,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search
+
+We notice that if each child can receive $v$ candies, then for any $v' \lt v$, each child can also receive $v'$ candies. Therefore, we can use binary search to find the maximum $v$ such that each child can receive $v$ candies.
+
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \max(\text{candies})$, where $\max(\text{candies})$ represents the maximum value in the array $\text{candies}$. During the binary search, we take the middle value $v = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ each time, and then calculate the total number of candies each child can receive. If the total is greater than or equal to $k$, it means each child can receive $v$ candies, so we update the left boundary $l = v$. Otherwise, we update the right boundary $r = v - 1$. Finally, when $l = r$, we have found the maximum $v$.
+
+The time complexity is $O(n \times \log M)$, where $n$ is the length of the array $\text{candies}$, and $M$ is the maximum value in the array $\text{candies}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -65,15 +71,14 @@ tags:
 ```python
 class Solution:
     def maximumCandies(self, candies: List[int], k: int) -> int:
-        left, right = 0, max(candies)
-        while left < right:
-            mid = (left + right + 1) >> 1
-            cnt = sum(v // mid for v in candies)
-            if cnt >= k:
-                left = mid
+        l, r = 0, max(candies)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if sum(x // mid for x in candies) >= k:
+                l = mid
             else:
-                right = mid - 1
-        return left
+                r = mid - 1
+        return l
 ```
 
 #### Java
@@ -81,20 +86,20 @@ class Solution:
 ```java
 class Solution {
     public int maximumCandies(int[] candies, long k) {
-        int left = 0, right = (int) 1e7;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
+        int l = 0, r = Arrays.stream(candies).max().getAsInt();
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
             long cnt = 0;
-            for (int v : candies) {
-                cnt += v / mid;
+            for (int x : candies) {
+                cnt += x / mid;
             }
             if (cnt >= k) {
-                left = mid;
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -105,17 +110,20 @@ class Solution {
 class Solution {
 public:
     int maximumCandies(vector<int>& candies, long long k) {
-        int left = 0, right = 1e7;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
+        int l = 0, r = ranges::max(candies);
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
             long long cnt = 0;
-            for (int& v : candies) cnt += v / mid;
-            if (cnt >= k)
-                left = mid;
-            else
-                right = mid - 1;
+            for (int x : candies) {
+                cnt += x / mid;
+            }
+            if (cnt >= k) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -124,20 +132,32 @@ public:
 
 ```go
 func maximumCandies(candies []int, k int64) int {
-	left, right := 0, int(1e7)
-	for left < right {
-		mid := (left + right + 1) >> 1
+	return sort.Search(1e7, func(v int) bool {
+		v++
 		var cnt int64
-		for _, v := range candies {
-			cnt += int64(v / mid)
+		for _, x := range candies {
+			cnt += int64(x / v)
 		}
-		if cnt >= k {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
+		return cnt < k
+	})
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumCandies(candies: number[], k: number): number {
+    let [l, r] = [0, Math.max(...candies)];
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        const cnt = candies.reduce((acc, cur) => acc + Math.floor(cur / mid), 0);
+        if (cnt >= k) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
 }
 ```
 
