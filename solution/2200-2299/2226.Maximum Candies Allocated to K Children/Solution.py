@@ -1,11 +1,10 @@
 class Solution:
     def maximumCandies(self, candies: List[int], k: int) -> int:
-        left, right = 0, max(candies)
-        while left < right:
-            mid = (left + right + 1) >> 1
-            cnt = sum(v // mid for v in candies)
-            if cnt >= k:
-                left = mid
+        l, r = 0, max(candies)
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if sum(x // mid for x in candies) >= k:
+                l = mid
             else:
-                right = mid - 1
-        return left
+                r = mid - 1
+        return l
