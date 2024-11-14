@@ -2,13 +2,17 @@ class Solution {
 public:
     vector<string> topKFrequent(vector<string>& words, int k) {
         unordered_map<string, int> cnt;
-        for (auto& v : words) ++cnt[v];
+        for (const auto& w : words) {
+            ++cnt[w];
+        }
         vector<string> ans;
-        for (auto& [key, _] : cnt) ans.emplace_back(key);
-        sort(ans.begin(), ans.end(), [&](const string& a, const string& b) -> bool {
-            return cnt[a] == cnt[b] ? a < b : cnt[a] > cnt[b];
+        for (const auto& [w, _] : cnt) {
+            ans.push_back(w);
+        }
+        ranges::sort(ans, [&](const string& a, const string& b) {
+            return cnt[a] > cnt[b] || (cnt[a] == cnt[b] && a < b);
         });
-        ans.erase(ans.begin() + k, ans.end());
+        ans.resize(k);
         return ans;
     }
 };
