@@ -69,6 +69,12 @@ tags:
 
 ### 方法一：哈希表 + 排序
 
+我们可以用一个哈希表 $\textit{cnt}$ 记录每一个单词出现的次数，然后对哈希表中的键值对按照值进行排序，如果值相同，按照键进行排序。
+
+最后取出前 $k$ 个键即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为单词的个数。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -86,22 +92,18 @@ class Solution:
 class Solution {
     public List<String> topKFrequent(String[] words, int k) {
         Map<String, Integer> cnt = new HashMap<>();
-        for (String v : words) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        for (String w : words) {
+            cnt.merge(w, 1, Integer::sum);
         }
-        PriorityQueue<String> q = new PriorityQueue<>((a, b) -> {
-            int d = cnt.get(a) - cnt.get(b);
-            return d == 0 ? b.compareTo(a) : d;
+        Arrays.sort(words, (a, b) -> {
+            int c1 = cnt.get(a), c2 = cnt.get(b);
+            return c1 == c2 ? a.compareTo(b) : c2 - c1;
         });
-        for (String v : cnt.keySet()) {
-            q.offer(v);
-            if (q.size() > k) {
-                q.poll();
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < words.length && ans.size() < k; ++i) {
+            if (i == 0 || !words[i].equals(words[i - 1])) {
+                ans.add(words[i]);
             }
-        }
-        LinkedList<String> ans = new LinkedList<>();
-        while (!q.isEmpty()) {
-            ans.addFirst(q.poll());
         }
         return ans;
     }
@@ -115,13 +117,17 @@ class Solution {
 public:
     vector<string> topKFrequent(vector<string>& words, int k) {
         unordered_map<string, int> cnt;
-        for (auto& v : words) ++cnt[v];
+        for (const auto& w : words) {
+            ++cnt[w];
+        }
         vector<string> ans;
-        for (auto& [key, _] : cnt) ans.emplace_back(key);
-        sort(ans.begin(), ans.end(), [&](const string& a, const string& b) -> bool {
-            return cnt[a] == cnt[b] ? a < b : cnt[a] > cnt[b];
+        for (const auto& [w, _] : cnt) {
+            ans.push_back(w);
+        }
+        ranges::sort(ans, [&](const string& a, const string& b) {
+            return cnt[a] > cnt[b] || (cnt[a] == cnt[b] && a < b);
         });
-        ans.erase(ans.begin() + k, ans.end());
+        ans.resize(k);
         return ans;
     }
 };
@@ -130,20 +136,32 @@ public:
 #### Go
 
 ```go
-func topKFrequent(words []string, k int) []string {
+func topKFrequent(words []string, k int) (ans []string) {
 	cnt := map[string]int{}
-	for _, v := range words {
-		cnt[v]++
+	for _, w := range words {
+		cnt[w]++
 	}
-	ans := []string{}
-	for v := range cnt {
-		ans = append(ans, v)
+	for w := range cnt {
+		ans = append(ans, w)
 	}
-	sort.Slice(ans, func(i, j int) bool {
-		a, b := ans[i], ans[j]
-		return cnt[a] > cnt[b] || cnt[a] == cnt[b] && a < b
-	})
+	sort.Slice(ans, func(i, j int) bool { a, b := ans[i], ans[j]; return cnt[a] > cnt[b] || cnt[a] == cnt[b] && a < b })
 	return ans[:k]
+}
+```
+
+#### TypeScript
+
+```ts
+function topKFrequent(words: string[], k: number): string[] {
+    const cnt: Map<string, number> = new Map();
+    for (const w of words) {
+        cnt.set(w, (cnt.get(w) || 0) + 1);
+    }
+    const ans: string[] = Array.from(cnt.keys());
+    ans.sort((a, b) => {
+        return cnt.get(a) === cnt.get(b) ? a.localeCompare(b) : cnt.get(b)! - cnt.get(a)!;
+    });
+    return ans.slice(0, k);
 }
 ```
 
