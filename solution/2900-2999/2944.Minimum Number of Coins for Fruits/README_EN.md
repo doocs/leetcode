@@ -22,12 +22,12 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>prices</code> where <code>prices[i]</code> denotes the number of coins needed to purchase the <code>i<sup>th</sup></code> fruit.</p>
+<p>You are given an <strong>1-indexed</strong> integer array <code>prices</code> where <code>prices[i]</code> denotes the number of coins needed to purchase the <code>i<sup>th</sup></code> fruit.</p>
 
 <p>The fruit market has the following reward for each fruit:</p>
 
 <ul>
-	<li>If you purchase the <code>i<sup>th</sup></code> fruit at <code>prices[i]</code> coins, you can get any number of the next <code>(i + 1)</code> fruits for free.</li>
+	<li>If you purchase the <code>i<sup>th</sup></code> fruit at <code>prices[i]</code> coins, you can get any number of the next <code>i</code> fruits for free.</li>
 </ul>
 
 <p><strong>Note</strong> that even if you <strong>can</strong> take fruit <code>j</code> for free, you can still purchase it for <code>prices[j]</code> coins to receive its reward.</p>

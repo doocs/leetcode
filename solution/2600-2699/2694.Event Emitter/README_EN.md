@@ -79,7 +79,7 @@ emitter.emit(&quot;firstEvent&quot;, [4, 5, 6]); // [], there are no subscriptio
 <strong>Input:</strong> 
 actions = [&quot;EventEmitter&quot;, &quot;subscribe&quot;, &quot;subscribe&quot;, &quot;unsubscribe&quot;, &quot;emit&quot;], 
 values = [[], [&quot;firstEvent&quot;, &quot;x =&gt; x + 1&quot;], [&quot;firstEvent&quot;, &quot;x =&gt; x + 2&quot;], [0], [&quot;firstEvent&quot;, [5]]]
-<strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;emitted&quot;,[&quot;1,2,3&quot;]],[&quot;unsubscribed&quot;,0],[&quot;emitted&quot;,[7]]]
+<strong>Output:</strong> [[],[&quot;subscribed&quot;],[&quot;subscribed&quot;],[&quot;unsubscribed&quot;,0],[&quot;emitted&quot;,[7]]]
 <strong>Explanation:</strong>
 const emitter = new EventEmitter();
 const sub1 = emitter.subscribe(&quot;firstEvent&quot;, x =&gt; x + 1);

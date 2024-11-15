@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3317.Find%20the%20Number%20of%20Possible%20Ways%20for%20an%20Event/README.md
+rating: 2413
+source: 第 141 场双周赛 Q4
 tags:
     - 数学
     - 动态规划

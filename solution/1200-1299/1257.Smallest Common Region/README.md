@@ -25,13 +25,13 @@ tags:
 
 <p>给你一些区域列表&nbsp;<code>regions</code> ，每个列表的第一个区域都包含这个列表内所有其他区域。</p>
 
-<p>很自然地，如果区域&nbsp;<code>X</code> 包含区域&nbsp;<code>Y</code> ，那么区域&nbsp;<code>X</code> &nbsp;比区域&nbsp;<code>Y</code> 大。</p>
+<p>很自然地，如果区域&nbsp;<code>x</code> 包含区域&nbsp;<code>y</code> ，那么区域&nbsp;<code>x</code> &nbsp;比区域&nbsp;<code>y</code> 大。同时根据定义，区域&nbsp;<code>x</code> 包含自身。</p>
 
 <p>给定两个区域&nbsp;<code>region1</code>&nbsp;和&nbsp;<code>region2</code> ，找到同时包含这两个区域的&nbsp;<strong>最小&nbsp;</strong>区域。</p>
 
-<p>如果区域列表中&nbsp;<code>r1</code>&nbsp;包含&nbsp;<code>r2</code>&nbsp;和&nbsp;<code>r3</code> ，那么数据保证&nbsp;<code>r2</code> 不会包含&nbsp;<code>r3</code>&nbsp;。</p>
+<p>如果给定区域&nbsp;<code>r1</code>，<code>r2</code>&nbsp;和&nbsp;<code>r3</code>，使得&nbsp;<code>r1</code>&nbsp;包含&nbsp;<code>r3</code>，那么数据保证&nbsp;<code>r2</code> 不会包含&nbsp;<code>r3</code>&nbsp;。</p>
 
-<p>数据同样保证最小公共区域一定存在。</p>
+<p>数据同样保证最小区域一定存在。</p>
 
 <p>&nbsp;</p>
 
@@ -39,14 +39,21 @@ tags:
 
 <pre>
 <strong>输入：
-</strong>regions = [[&quot;Earth&quot;,&quot;North America&quot;,&quot;South America&quot;],
-[&quot;North America&quot;,&quot;United States&quot;,&quot;Canada&quot;],
-[&quot;United States&quot;,&quot;New York&quot;,&quot;Boston&quot;],
-[&quot;Canada&quot;,&quot;Ontario&quot;,&quot;Quebec&quot;],
-[&quot;South America&quot;,&quot;Brazil&quot;]],
-region1 = &quot;Quebec&quot;,
-region2 = &quot;New York&quot;
-<strong>输出：</strong>&quot;North America&quot;
+</strong>regions = [["Earth","North America","South America"],
+["North America","United States","Canada"],
+["United States","New York","Boston"],
+["Canada","Ontario","Quebec"],
+["South America","Brazil"]],
+region1 = "Quebec",
+region2 = "New York"
+<strong>输出：</strong>"North America"
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<b>输入：</b>regions = [["Earth", "North America", "South America"],["North America", "United States", "Canada"],["United States", "New York", "Boston"],["Canada", "Ontario", "Quebec"],["South America", "Brazil"]], region1 = "Canada", region2 = "South America"
+<b>输出：</b>"Earth"
 </pre>
 
 <p>&nbsp;</p>
@@ -54,9 +61,12 @@ region2 = &quot;New York&quot;
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>2 &lt;= regions.length &lt;= 10^4</code></li>
+	<li><code>2 &lt;= regions.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>2 &lt;= regions[i].length &lt;= 20</code></li>
+	<li><code>1 &lt;= regions[i][j].length, region1.length, region2.length &lt;= 20</code></li>
 	<li><code>region1 != region2</code></li>
-	<li>所有字符串只包含英文字母和空格，且最多只有&nbsp;20 个字母。</li>
+	<li><code>regions[i][j]</code>，<code>region1</code>&nbsp;和&nbsp;<code>region2</code> 由英语字母组成。</li>
+	<li>输入保证存在一个区域直接或间接包含所有其他区域。</li>
 </ul>
 
 <!-- description:end -->

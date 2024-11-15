@@ -78,7 +78,7 @@ emitter.emit("firstEvent", [4, 5, 6]); // [], 没有订阅者
 <b>输入：
 </b>actions = ["EventEmitter", "subscribe", "subscribe", "unsubscribe", "emit"], 
 values = [[], ["firstEvent", "x =&gt; x + 1"], ["firstEvent", "x =&gt; x + 2"], [0], ["firstEvent", [5]]]
-<b>输出：</b>[[],["subscribed"],["emitted",["1,2,3"]],["unsubscribed",0],["emitted",[7]]]
+<b>输出：</b>[[],["subscribed"],["subscribed"],["unsubscribed",0],["emitted",[7]]]
 <b>解释：</b>
 const emitter = new EventEmitter();
 const sub1 = emitter.subscribe("firstEvent", x =&gt; x + 1);

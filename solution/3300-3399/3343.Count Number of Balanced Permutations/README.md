@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README.md
+rating: 2614
+source: 第 422 场周赛 Q4
 tags:
     - 数学
     - 字符串

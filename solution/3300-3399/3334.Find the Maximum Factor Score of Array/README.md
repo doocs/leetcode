@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3334.Find%20the%20Maximum%20Factor%20Score%20of%20Array/README.md
+rating: 1518
+source: 第 421 场周赛 Q1
 tags:
     - 数组
     - 数学

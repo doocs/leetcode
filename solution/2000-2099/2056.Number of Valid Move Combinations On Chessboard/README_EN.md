@@ -77,7 +77,7 @@ tags:
 	<li><code>1 &lt;= n &lt;= 4</code></li>
 	<li><code>pieces</code> only contains the strings <code>&quot;rook&quot;</code>, <code>&quot;queen&quot;</code>, and <code>&quot;bishop&quot;</code>.</li>
 	<li>There will be at most one queen on the chessboard.</li>
-	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 8</code></li>
+	<li><code>1 &lt;= r<sub>i</sub>, c<sub>i</sub> &lt;= 8</code></li>
 	<li>Each <code>positions[i]</code> is distinct.</li>
 </ul>
 

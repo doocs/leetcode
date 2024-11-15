@@ -53,14 +53,14 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>array = [1,2,3,4,5,3,1], target = 3
+<strong>输入：</strong>mountainArr = [1,2,3,4,5,3,1], target = 3
 <strong>输出：</strong>2
 <strong>解释：</strong>3 在数组中出现了两次，下标分别为 2 和 5，我们返回最小的下标 2。</pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>array = [0,1,2,4,2,1], target = 3
+<strong>输入：</strong>mountainArr = [0,1,2,4,2,1], target = 3
 <strong>输出：</strong>-1
 <strong>解释：</strong>3 在数组中没有出现，返回 -1。
 </pre>
@@ -70,9 +70,9 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>3 &lt;= mountain_arr.length() &lt;= 10<sup>4</sup></code></li>
+	<li><code>3 &lt;= mountainArr.length() &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= target &lt;= 10<sup>9</sup></code></li>
-	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10<sup>9</sup></code></li>
+	<li><code>0 &lt;= mountainArr.get(index) &lt;=&nbsp;10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->

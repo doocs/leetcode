@@ -28,14 +28,14 @@ tags:
 
 <p>你可以 <strong>假定迷宫的边缘都是墙壁</strong>（参考示例）。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0490.The%20Maze/images/maze1-1-grid.jpg" style="width: 573px; height: 573px;" />
 <pre>
 <strong>输入：</strong>maze = [[0,0,1,0,0],[0,0,0,0,0],[0,0,0,1,0],[1,1,0,1,1],[0,0,0,0,0]], start = [0,4], destination = [4,4]
 <strong>输出：</strong>true
-<strong>解释：</strong>一种可能的路径是 : 左 -> 下 -> 左 -> 下 -> 右 -> 下 -> 右。
+<strong>解释：</strong>一种可能的路径是 : 左 -&gt; 下 -&gt; 左 -&gt; 下 -&gt; 右 -&gt; 下 -&gt; 右。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -53,19 +53,19 @@ tags:
 <strong>输出：</strong>false
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>m == maze.length</code></li>
 	<li><code>n == maze[i].length</code></li>
-	<li><code>1 <= m, n <= 100</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 	<li><code>maze[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 	<li><code>start.length == 2</code></li>
 	<li><code>destination.length == 2</code></li>
-	<li><code>0 <= start<sub>row</sub>, destination<sub>row</sub> <= m</code></li>
-	<li><code>0 <= start<sub>col</sub>, destination<sub>col</sub> <= n</code></li>
+	<li><code>0 &lt;= start<sub>row</sub>, destination<sub>row</sub> &lt;&nbsp;m</code></li>
+	<li><code>0 &lt;= start<sub>col</sub>, destination<sub>col</sub> &lt;&nbsp;n</code></li>
 	<li>球和目的地都在空地上，且初始时它们不在同一位置</li>
 	<li>迷宫 <strong>至少包括 2 块空地</strong></li>
 </ul>

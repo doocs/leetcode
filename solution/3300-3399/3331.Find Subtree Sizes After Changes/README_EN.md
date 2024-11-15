@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README_EN.md
+rating: 2045
+source: Biweekly Contest 142 Q2
 tags:
     - Tree
     - Depth-First Search
