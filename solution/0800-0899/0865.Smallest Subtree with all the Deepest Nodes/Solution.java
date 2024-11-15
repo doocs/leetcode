@@ -22,15 +22,15 @@ class Solution {
         if (root == null) {
             return new Pair<>(null, 0);
         }
-        Pair<TreeNode, Integer> l = dfs(root.left);
-        Pair<TreeNode, Integer> r = dfs(root.right);
-        int d1 = l.getValue(), d2 = r.getValue();
-        if (d1 > d2) {
-            return new Pair<>(l.getKey(), d1 + 1);
+        var l = dfs(root.left);
+        var r = dfs(root.right);
+        int ld = l.getValue(), rd = r.getValue();
+        if (ld > rd) {
+            return new Pair<>(l.getKey(), ld + 1);
         }
-        if (d1 < d2) {
-            return new Pair<>(r.getKey(), d2 + 1);
+        if (ld < rd) {
+            return new Pair<>(r.getKey(), rd + 1);
         }
-        return new Pair<>(root, d1 + 1);
+        return new Pair<>(root, ld + 1);
     }
 }
