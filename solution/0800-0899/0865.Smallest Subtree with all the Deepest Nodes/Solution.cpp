@@ -9,20 +9,24 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-using pti = pair<TreeNode*, int>;
 class Solution {
 public:
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
-        return dfs(root).first;
-    }
-
-    pti dfs(TreeNode* root) {
-        if (!root) return {nullptr, 0};
-        pti l = dfs(root->left);
-        pti r = dfs(root->right);
-        int d1 = l.second, d2 = r.second;
-        if (d1 > d2) return {l.first, d1 + 1};
-        if (d1 < d2) return {r.first, d2 + 1};
-        return {root, d1 + 1};
+        using pti = pair<TreeNode*, int>;
+        auto dfs = [&](auto&& dfs, TreeNode* root) -> pti {
+            if (!root) {
+                return {nullptr, 0};
+            }
+            auto [l, ld] = dfs(dfs, root->left);
+            auto [r, rd] = dfs(dfs, root->right);
+            if (ld > rd) {
+                return {l, ld + 1};
+            }
+            if (ld < rd) {
+                return {r, rd + 1};
+            }
+            return {root, ld + 1};
+        };
+        return dfs(dfs, root).first;
     }
 };
