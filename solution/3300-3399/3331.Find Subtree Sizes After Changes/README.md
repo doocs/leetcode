@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3331.Find%20Subtree%20Sizes%20After%20Changes/README.md
+rating: 2045
+source: 第 142 场双周赛 Q2
 tags:
     - 树
     - 深度优先搜索

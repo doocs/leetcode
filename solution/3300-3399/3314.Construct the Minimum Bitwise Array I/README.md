@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3314.Construct%20the%20Minimum%20Bitwise%20Array%20I/README.md
+rating: 1378
+source: 第 141 场双周赛 Q1
 tags:
     - 位运算
     - 数组

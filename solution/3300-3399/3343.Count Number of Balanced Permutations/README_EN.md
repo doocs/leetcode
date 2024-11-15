@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3343.Count%20Number%20of%20Balanced%20Permutations/README_EN.md
+rating: 2614
+source: Weekly Contest 422 Q4
 tags:
     - Math
     - String

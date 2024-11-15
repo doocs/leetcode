@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3333.Find%20the%20Original%20Typed%20String%20II/README_EN.md
+rating: 2628
+source: Biweekly Contest 142 Q4
 tags:
     - String
     - Dynamic Programming

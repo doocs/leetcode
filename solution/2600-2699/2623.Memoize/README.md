@@ -87,9 +87,10 @@ values = [[5],[]]
 <ul>
 	<li><code>0 &lt;= a, b &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= n &lt;= 10</code></li>
+	<li><code>1 &lt;= actions.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>actions.length === values.length</code></li>
 	<li><code>actions[i]</code> 为&nbsp;"call" 和 "getCallCount" 中的一个</li>
-	<li><code>fnName </code>为 "sum", "factorial" 和 "fib" 中的一个</li>
+	<li><code>fnName</code> 为 "sum", "factorial" 和 "fib" 中的一个</li>
 </ul>
 
 <!-- description:end -->

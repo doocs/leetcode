@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3340.Check%20Balanced%20String/README_EN.md
+rating: 1190
+source: Weekly Contest 422 Q1
 tags:
     - String
 ---

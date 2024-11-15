@@ -45,7 +45,7 @@ Both a and b are no-zero integers, and a + b = 2 = n.
 <strong>Input:</strong> n = 11
 <strong>Output:</strong> [2,9]
 <strong>Explanation:</strong> Let a = 2 and b = 9.
-Both a and b are no-zero integers, and a + b = 9 = n.
+Both a and b are no-zero integers, and a + b = 11 = n.
 Note that there are other valid answers as [8, 3] that can be accepted.
 </pre>
 

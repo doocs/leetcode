@@ -116,7 +116,7 @@ tags:
 	<li><code>1 &lt;= n &lt;= 4</code></li>
 	<li><code>pieces</code>&nbsp;只包含字符串&nbsp;<code>"rook"</code>&nbsp;，<code>"queen"</code>&nbsp;和&nbsp;<code>"bishop"</code>&nbsp;。</li>
 	<li>棋盘上总共最多只有一个后。</li>
-	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 8</code></li>
+	<li><code>1 &lt;= r<sub>i</sub>, c<sub>i</sub> &lt;= 8</code></li>
 	<li>每一个&nbsp;<code>positions[i]</code>&nbsp;互不相同。</li>
 </ul>
 

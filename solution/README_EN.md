@@ -392,7 +392,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0381  |  [Insert Delete GetRandom O(1) - Duplicates allowed](/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README_EN.md)  |  `Design`,`Array`,`Hash Table`,`Math`,`Randomized`  |  Hard  |    |
 |  0382  |  [Linked List Random Node](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README_EN.md)  |  `Reservoir Sampling`,`Linked List`,`Math`,`Randomized`  |  Medium  |    |
 |  0383  |  [Ransom Note](/solution/0300-0399/0383.Ransom%20Note/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |    |
-|  0384  |  [Shuffle an Array](/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md)  |  `Array`,`Math`,`Randomized`  |  Medium  |    |
+|  0384  |  [Shuffle an Array](/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md)  |  `Design`,`Array`,`Math`,`Randomized`  |  Medium  |    |
 |  0385  |  [Mini Parser](/solution/0300-0399/0385.Mini%20Parser/README_EN.md)  |  `Stack`,`Depth-First Search`,`String`  |  Medium  |    |
 |  0386  |  [Lexicographical Numbers](/solution/0300-0399/0386.Lexicographical%20Numbers/README_EN.md)  |  `Depth-First Search`,`Trie`  |  Medium  |    |
 |  0387  |  [First Unique Character in a String](/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README_EN.md)  |  `Queue`,`Hash Table`,`String`,`Counting`  |  Easy  |    |
@@ -3361,6 +3361,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3350  |  [Adjacent Increasing Subarrays Detection II](/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 423  |
 |  3351  |  [Sum of Good Subsequences](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README_EN.md)  |  `Array`,`Hash Table`,`Dynamic Programming`  |  Hard  |  Weekly Contest 423  |
 |  3352  |  [Count K-Reducible Numbers Less Than N](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 423  |
+|  3353  |  [Minimum Total Operations](/solution/3300-3399/3353.Minimum%20Total%20Operations/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3335.Total%20Characters%20in%20String%20After%20Transformations%20I/README.md
+rating: 1806
+source: 第 421 场周赛 Q2
 tags:
     - 哈希表
     - 数学
