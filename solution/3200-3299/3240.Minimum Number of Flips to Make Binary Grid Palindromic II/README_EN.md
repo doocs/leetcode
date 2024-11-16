@@ -94,8 +94,8 @@ Next, we discuss the parity of $m$ and $n$:
 
 For the latter two cases, we need to count the number of differing pairs of cells $\text{diff}$ in the middle row or column, and the number of cells that are the same and equal to $1$ $\text{cnt1}$. Then we discuss the following cases:
 
--   If $\text{cnt1} \bmod 4 = 0$, we only need to change the $\text{diff}$ cells to $0$, and the number of operations is $\text{diff}$.
--   Otherwise, if $\text{cnt1} = 2$, if $\text{diff} \lt 0$, we can change one of the cells to $1$ to make $\text{cnt1} = 4$, and then change the remaining $\text{diff} - 1$ cells to $0$. The total number of operations is $\text{diff}$.
+-   If $\text{cnt1} \bmod 4 = 0$, we only need to change the $\text{diff}$ cells to $0$, and the number of operations is $\text{diff                }$.
+-   Otherwise, if $\text{cnt1} = 2$, if $\text{diff} \gt 0$, we can change one of the cells to $1$ to make $\text{cnt1} = 4$, and then change the remaining $\text{diff} - 1$ cells to $0$. The total number of operations is $\text{diff}$.
 -   Otherwise, if $\text{diff} = 0$, we change the $2$ cells to $0$ to make $\text{cnt1} \bmod 4 = 0$, and the number of operations is $2$.
 
 We add the number of operations to the answer and finally return the answer.
