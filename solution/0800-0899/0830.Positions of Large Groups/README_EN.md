@@ -65,7 +65,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We use two pointers $i$ and $j$ to find the start and end positions of each group, then check if the group length is greater than or equal to $3$. If so, we add it to the result array.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -100,7 +104,7 @@ class Solution {
                 ++j;
             }
             if (j - i >= 3) {
-                ans.add(Arrays.asList(i, j - 1));
+                ans.add(List.of(i, j - 1));
             }
             i = j;
         }
@@ -150,6 +154,28 @@ func largeGroupPositions(s string) [][]int {
 		i = j
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function largeGroupPositions(s: string): number[][] {
+    const n = s.length;
+    const ans: number[][] = [];
+
+    for (let i = 0; i < n; ) {
+        let j = i;
+        while (j < n && s[j] === s[i]) {
+            ++j;
+        }
+        if (j - i >= 3) {
+            ans.push([i, j - 1]);
+        }
+        i = j;
+    }
+
+    return ans;
 }
 ```
 
