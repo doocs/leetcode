@@ -204,4 +204,50 @@ function resultsArray(nums: number[], k: number): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+export function resultsArray(nums: number[], k: number): number[] {
+    const n = nums.length;
+    const ans: number[] = [];
+
+    for (let i = 0, j = 0; i < n; i++) {
+        if (i && nums[i - 1] + 1 !== nums[i]) j = i;
+        if (i >= k - 1) {
+            ans.push(i - k + 1 < j ? -1 : nums[i]);
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+export function resultsArray(nums, k) {
+    const n = nums.length;
+    const ans = [];
+
+    for (let i = 0, j = 0; i < n; i++) {
+        if (i && nums[i - 1] + 1 !== nums[i]) j = i;
+        if (i >= k - 1) {
+            ans.push(i - k + 1 < j ? -1 : nums[i]);
+        }
+    }
+
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
