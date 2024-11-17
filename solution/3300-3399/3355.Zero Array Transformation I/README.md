@@ -97,32 +97,124 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3355.Ze
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：差分数组
+
+我们可以使用差分数组来解决这个问题。
+
+定义一个长度为 $n + 1$ 的数组 $d$，初始值全部为 $0$。对于每个查询 $[l, r]$，我们将 $d[l]$ 加 $1$，将 $d[r + 1]$ 减 $1$。
+
+然后我们遍历数组 $d$ 在 $[0, n - 1]$ 范围内的每个元素，累加前缀和 $s$，如果 $\textit{nums}[i] > s$，说明 $\textit{nums}$ 不能转换为零数组，返回 $\textit{false}$。
+
+遍历结束后，返回 $\textit{true}$。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isZeroArray(self, nums: List[int], queries: List[List[int]]) -> bool:
+        d = [0] * (len(nums) + 1)
+        for l, r in queries:
+            d[l] += 1
+            d[r + 1] -= 1
+        s = 0
+        for x, y in zip(nums, d):
+            s += y
+            if x > s:
+                return False
+        return True
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isZeroArray(int[] nums, int[][] queries) {
+        int n = nums.length;
+        int[] d = new int[n + 1];
+        for (var q : queries) {
+            int l = q[0], r = q[1];
+            ++d[l];
+            --d[r + 1];
+        }
+        for (int i = 0, s = 0; i < n; ++i) {
+            s += d[i];
+            if (nums[i] > s) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        int d[n + 1];
+        memset(d, 0, sizeof(d));
+        for (const auto& q : queries) {
+            int l = q[0], r = q[1];
+            ++d[l];
+            --d[r + 1];
+        }
+        for (int i = 0, s = 0; i < n; ++i) {
+            s += d[i];
+            if (nums[i] > s) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isZeroArray(nums []int, queries [][]int) bool {
+	d := make([]int, len(nums)+1)
+	for _, q := range queries {
+		l, r := q[0], q[1]
+		d[l]++
+		d[r+1]--
+	}
+	s := 0
+	for i, x := range nums {
+		s += d[i]
+		if x > s {
+			return false
+		}
+	}
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function isZeroArray(nums: number[], queries: number[][]): boolean {
+    const n = nums.length;
+    const d: number[] = Array(n + 1).fill(0);
+    for (const [l, r] of queries) {
+        ++d[l];
+        --d[r + 1];
+    }
+    for (let i = 0, s = 0; i < n; ++i) {
+        s += d[i];
+        if (nums[i] > s) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
