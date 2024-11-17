@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 424 场周赛(2024-11-17 10:30, 90 分钟) 参赛人数 2622
+
+- [3354. 使数组元素等于零](/solution/3300-3399/3354.Make%20Array%20Elements%20Equal%20to%20Zero/README.md)
+- [3355. 零数组变换 I](/solution/3300-3399/3355.Zero%20Array%20Transformation%20I/README.md)
+- [3356. 零数组变换 II](/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README.md)
+- [3357. 最小化相邻元素的最大差值](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README.md)
+
 #### 第 423 场周赛(2024-11-10 10:30, 90 分钟) 参赛人数 2550
 
 - [3349. 检测相邻递增子数组 I](/solution/3300-3399/3349.Adjacent%20Increasing%20Subarrays%20Detection%20I/README.md)

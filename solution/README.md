@@ -3364,6 +3364,10 @@
 |  3351  |  [好子序列的元素之和](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README.md)  |  `数组`,`哈希表`,`动态规划`  |  困难  |  第 423 场周赛  |
 |  3352  |  [统计小于 N 的 K 可约简整数](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README.md)  |  `数学`,`字符串`,`动态规划`,`组合数学`  |  困难  |  第 423 场周赛  |
 |  3353  |  [Minimum Total Operations](/solution/3300-3399/3353.Minimum%20Total%20Operations/README.md)  |    |  简单  |  🔒  |
+|  3354  |  [使数组元素等于零](/solution/3300-3399/3354.Make%20Array%20Elements%20Equal%20to%20Zero/README.md)  |    |  简单  |  第 424 场周赛  |
+|  3355  |  [零数组变换 I](/solution/3300-3399/3355.Zero%20Array%20Transformation%20I/README.md)  |    |  中等  |  第 424 场周赛  |
+|  3356  |  [零数组变换 II](/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README.md)  |    |  中等  |  第 424 场周赛  |
+|  3357  |  [最小化相邻元素的最大差值](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README.md)  |    |  困难  |  第 424 场周赛  |
 
 ## 版权
 
