@@ -95,32 +95,124 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3355.Ze
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+We can use a difference array to solve this problem.
+
+Define an array $d$ of length $n + 1$, with all initial values set to $0$. For each query $[l, r]$, we add $1$ to $d[l]$ and subtract $1$ from $d[r + 1]$.
+
+Then we traverse the array $d$ within the range $[0, n - 1]$, accumulating the prefix sum $s$. If $\textit{nums}[i] > s$, it means $\textit{nums}$ cannot be converted to a zero array, so we return $\textit{false}$.
+
+After traversing, return $\textit{true}$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array $\textit{nums}$ and the number of queries, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isZeroArray(self, nums: List[int], queries: List[List[int]]) -> bool:
+        d = [0] * (len(nums) + 1)
+        for l, r in queries:
+            d[l] += 1
+            d[r + 1] -= 1
+        s = 0
+        for x, y in zip(nums, d):
+            s += y
+            if x > s:
+                return False
+        return True
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isZeroArray(int[] nums, int[][] queries) {
+        int n = nums.length;
+        int[] d = new int[n + 1];
+        for (var q : queries) {
+            int l = q[0], r = q[1];
+            ++d[l];
+            --d[r + 1];
+        }
+        for (int i = 0, s = 0; i < n; ++i) {
+            s += d[i];
+            if (nums[i] > s) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        int d[n + 1];
+        memset(d, 0, sizeof(d));
+        for (const auto& q : queries) {
+            int l = q[0], r = q[1];
+            ++d[l];
+            --d[r + 1];
+        }
+        for (int i = 0, s = 0; i < n; ++i) {
+            s += d[i];
+            if (nums[i] > s) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isZeroArray(nums []int, queries [][]int) bool {
+	d := make([]int, len(nums)+1)
+	for _, q := range queries {
+		l, r := q[0], q[1]
+		d[l]++
+		d[r+1]--
+	}
+	s := 0
+	for i, x := range nums {
+		s += d[i]
+		if x > s {
+			return false
+		}
+	}
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function isZeroArray(nums: number[], queries: number[][]): boolean {
+    const n = nums.length;
+    const d: number[] = Array(n + 1).fill(0);
+    for (const [l, r] of queries) {
+        ++d[l];
+        --d[r + 1];
+    }
+    for (let i = 0, s = 0; i < n; ++i) {
+        s += d[i];
+        if (nums[i] > s) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->

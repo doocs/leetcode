@@ -91,32 +91,121 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3354.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Prefix Sum
+
+Suppose we initially move to the left and encounter a non-zero element. In that case, we need to decrement this element by one, then change the direction of movement and continue moving.
+
+Therefore, we can maintain the sum of elements to the left of each zero-value element as $l$, and the sum of elements to the right as $s - l$. If $l = s - l$, meaning the sum of elements on the left equals the sum of elements on the right, we can choose the current zero-value element and move either left or right, adding $2$ to the answer. If $|l - (s - l)| = 1$, and the sum of elements on the left is greater, we can choose the current zero-value element and move left, adding $1$ to the answer. If the sum of elements on the right is greater, we can choose the current zero-value element and move right, adding $1$ to the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countValidSelections(self, nums: List[int]) -> int:
+        s = sum(nums)
+        ans = l = 0
+        for x in nums:
+            if x:
+                l += x
+            elif l * 2 == s:
+                ans += 2
+            elif abs(l * 2 - s) == 1:
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countValidSelections(int[] nums) {
+        int s = Arrays.stream(nums).sum();
+        int ans = 0, l = 0;
+        for (int x : nums) {
+            if (x != 0) {
+                l += x;
+            } else if (l * 2 == s) {
+                ans += 2;
+            } else if (Math.abs(l * 2 - s) <= 1) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countValidSelections(vector<int>& nums) {
+        int s = accumulate(nums.begin(), nums.end(), 0);
+        int ans = 0, l = 0;
+        for (int x : nums) {
+            if (x) {
+                l += x;
+            } else if (l * 2 == s) {
+                ans += 2;
+            } else if (abs(l * 2 - s) <= 1) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countValidSelections(nums []int) (ans int) {
+	l, s := 0, 0
+	for _, x := range nums {
+		s += x
+	}
+	for _, x := range nums {
+		if x != 0 {
+			l += x
+		} else if l*2 == s {
+			ans += 2
+		} else if abs(l*2-s) <= 1 {
+			ans++
+		}
+	}
+	return
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function countValidSelections(nums: number[]): number {
+    const s = nums.reduce((acc, x) => acc + x, 0);
+    let [ans, l] = [0, 0];
+    for (const x of nums) {
+        if (x) {
+            l += x;
+        } else if (l * 2 === s) {
+            ans += 2;
+        } else if (Math.abs(l * 2 - s) <= 1) {
+            ++ans;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
