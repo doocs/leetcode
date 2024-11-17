@@ -1,20 +1,20 @@
-func numFriendRequests(ages []int) int {
-	counter := make([]int, 121)
-	for _, age := range ages {
-		counter[age]++
+func numFriendRequests(ages []int) (ans int) {
+	cnt := [121]int{}
+	for _, x := range ages {
+		cnt[x]++
 	}
-	ans := 0
-	for i := 1; i < 121; i++ {
-		n1 := counter[i]
-		for j := 1; j < 121; j++ {
-			n2 := counter[j]
-			if !(j <= i/2+7 || j > i || (j > 100 && i < 100)) {
-				ans += n1 * n2
-				if i == j {
-					ans -= n2
-				}
+	for ax, x := range cnt {
+		for ay, y := range cnt {
+			if ay <= ax/2+7 || ay > ax || (ay > 100 && ax < 100) {
+				continue
+			}
+			if ax == ay {
+				ans += x * (x - 1)
+			} else {
+				ans += x * y
 			}
 		}
 	}
-	return ans
+
+	return
 }
