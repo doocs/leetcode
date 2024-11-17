@@ -1,13 +1,11 @@
 class Solution:
     def numFriendRequests(self, ages: List[int]) -> int:
-        counter = Counter(ages)
+        cnt = [0] * 121
+        for x in ages:
+            cnt[x] += 1
         ans = 0
-        for i in range(1, 121):
-            n1 = counter[i]
-            for j in range(1, 121):
-                n2 = counter[j]
-                if not (j <= 0.5 * i + 7 or j > i or (j > 100 and i < 100)):
-                    ans += n1 * n2
-                    if i == j:
-                        ans -= n2
+        for ax, x in enumerate(cnt):
+            for ay, y in enumerate(cnt):
+                if not (ay <= 0.5 * ax + 7 or ay > ax or (ay > 100 and ax < 100)):
+                    ans += x * (y - int(ax == ay))
         return ans
