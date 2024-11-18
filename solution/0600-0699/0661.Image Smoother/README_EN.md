@@ -60,7 +60,15 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Direct Traversal
+
+We create a 2D array $\textit{ans}$ of size $m \times n$, where $\textit{ans}[i][j]$ represents the smoothed value of the cell in the $i$-th row and $j$-th column of the image.
+
+For $\textit{ans}[i][j]$, we traverse the cell in the $i$-th row and $j$-th column of $\textit{img}$ and its surrounding 8 cells, calculate their sum $s$ and count $cnt$, then compute the average value $s / cnt$ and store it in $\textit{ans}[i][j]$.
+
+After the traversal, we return $\textit{ans}$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of $\textit{img}$, respectively. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -124,7 +132,9 @@ public:
                 int s = 0, cnt = 0;
                 for (int x = i - 1; x <= i + 1; ++x) {
                     for (int y = j - 1; y <= j + 1; ++y) {
-                        if (x < 0 || x >= m || y < 0 || y >= n) continue;
+                        if (x < 0 || x >= m || y < 0 || y >= n) {
+                            continue;
+                        }
                         ++cnt;
                         s += img[x][y];
                     }
@@ -168,34 +178,23 @@ func imageSmoother(img [][]int) [][]int {
 function imageSmoother(img: number[][]): number[][] {
     const m = img.length;
     const n = img[0].length;
-    const locations = [
-        [-1, -1],
-        [-1, 0],
-        [-1, 1],
-        [0, -1],
-        [0, 0],
-        [0, 1],
-        [1, -1],
-        [1, 0],
-        [1, 1],
-    ];
-
-    const res = [];
-    for (let i = 0; i < m; i++) {
-        res.push([]);
-        for (let j = 0; j < n; j++) {
-            let sum = 0;
-            let count = 0;
-            for (const [y, x] of locations) {
-                if ((img[i + y] || [])[j + x] != null) {
-                    sum += img[i + y][j + x];
-                    count++;
+    const ans: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            let s = 0;
+            let cnt = 0;
+            for (let x = i - 1; x <= i + 1; ++x) {
+                for (let y = j - 1; y <= j + 1; ++y) {
+                    if (x >= 0 && x < m && y >= 0 && y < n) {
+                        ++cnt;
+                        s += img[x][y];
+                    }
                 }
             }
-            res[i].push(Math.floor(sum / count));
+            ans[i][j] = Math.floor(s / cnt);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -206,37 +205,21 @@ impl Solution {
     pub fn image_smoother(img: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         let m = img.len();
         let n = img[0].len();
-        let locations = [
-            [-1, -1],
-            [-1, 0],
-            [-1, 1],
-            [0, -1],
-            [0, 0],
-            [0, 1],
-            [1, -1],
-            [1, 0],
-            [1, 1],
-        ];
-
-        let mut res = vec![];
+        let mut ans = vec![vec![0; n]; m];
         for i in 0..m {
-            res.push(vec![]);
             for j in 0..n {
-                let mut sum = 0;
-                let mut count = 0;
-                for [y, x] in locations.iter() {
-                    let i = (i as i32) + y;
-                    let j = (j as i32) + x;
-                    if i < 0 || i == (m as i32) || j < 0 || j == (n as i32) {
-                        continue;
+                let mut s = 0;
+                let mut cnt = 0;
+                for x in i.saturating_sub(1)..=(i + 1).min(m - 1) {
+                    for y in j.saturating_sub(1)..=(j + 1).min(n - 1) {
+                        s += img[x][y];
+                        cnt += 1;
                     }
-                    count += 1;
-                    sum += img[i as usize][j as usize];
                 }
-                res[i].push(sum / count);
+                ans[i][j] = s / cnt;
             }
         }
-        res
+        ans
     }
 }
 ```

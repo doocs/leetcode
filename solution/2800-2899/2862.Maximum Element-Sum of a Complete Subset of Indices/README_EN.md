@@ -34,7 +34,7 @@ tags:
 
 <p><strong>Explanation:</strong></p>
 
-<p>We select elements at indices 2 and 8 and 2<code>&nbsp;* 8</code>&nbsp;is a perfect square.</p>
+<p>We select elements at indices 2 and 8 and <code>2 * 8</code> is a perfect square.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>
