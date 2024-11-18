@@ -133,7 +133,7 @@ class Solution {
         var res = 0
         var i = 0
         var j = nums.count - 1
-        
+
         while i < j {
             if nums[i] + nums[j] > target {
                 j -= 1
@@ -142,7 +142,7 @@ class Solution {
                 i += 1
             }
         }
-        
+
         return res
     }
 }
