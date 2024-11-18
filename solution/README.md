@@ -3368,6 +3368,7 @@
 |  3355  |  [零数组变换 I](/solution/3300-3399/3355.Zero%20Array%20Transformation%20I/README.md)  |    |  中等  |  第 424 场周赛  |
 |  3356  |  [零数组变换 II](/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README.md)  |    |  中等  |  第 424 场周赛  |
 |  3357  |  [最小化相邻元素的最大差值](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README.md)  |    |  困难  |  第 424 场周赛  |
+|  3358  |  [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 

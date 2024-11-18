@@ -8,7 +8,9 @@ public:
                 int s = 0, cnt = 0;
                 for (int x = i - 1; x <= i + 1; ++x) {
                     for (int y = j - 1; y <= j + 1; ++y) {
-                        if (x < 0 || x >= m || y < 0 || y >= n) continue;
+                        if (x < 0 || x >= m || y < 0 || y >= n) {
+                            continue;
+                        }
                         ++cnt;
                         s += img[x][y];
                     }

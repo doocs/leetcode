@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p><strong>丑数 </strong>就是只包含质因数&nbsp;<code>2</code>、<code>3</code> 和 <code>5</code>&nbsp;的正整数。</p>
+<p><strong>丑数 </strong>就是只包含质因数&nbsp;<code>2</code>、<code>3</code> 和 <code>5</code>&nbsp;的&nbsp;<em>正&nbsp;</em>整数。</p>
 
 <p>给你一个整数 <code>n</code> ，请你判断 <code>n</code> 是否为 <strong>丑数</strong> 。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -34,7 +34,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 1
 <strong>输出：</strong>true
-<strong>解释：</strong>1 没有质因数，因此它的全部质因数是 {2, 3, 5} 的空集。习惯上将其视作第一个丑数。</pre>
+<strong>解释：</strong>1 没有质因数。</pre>
 
 <p><strong>示例 3：</strong></p>
 
