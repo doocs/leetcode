@@ -298,7 +298,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3322 | [Premier League Table Ranking III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README_EN.md)                                                                           | `Database` | Medium     | 🔒     |
 | 3328 | [Find Cities in Each State II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README_EN.md)                                                                                 | `Database` | Medium     | 🔒     |
 | 3338 | [Second Highest Salary II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README_EN.md)                                                                                             | `Database` | Medium     | 🔒     |
-| 3358 | [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md)                                                                                               |            | Easy       | 🔒     |
+| 3358 | [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md)                                                                                               | `Database` | Easy       | 🔒     |
 
 ## Copyright
 

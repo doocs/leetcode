@@ -320,12 +320,12 @@ class MedianFinder {
     init() {}
 
     func addNum(_ num: Int) {
-    
+
         upperHeap.append(num)
         sumUpper += num
         upperHeap.sort()
 
-    
+
         if let minUpper = upperHeap.first {
             upperHeap.removeFirst()
             lowerHeap.append(minUpper)
@@ -334,7 +334,7 @@ class MedianFinder {
             lowerHeap.sort(by: >)
         }
 
-    
+
         if lowerHeap.count > upperHeap.count + 1 {
             if let maxLower = lowerHeap.first {
                 lowerHeap.removeFirst()

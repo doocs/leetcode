@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3354.Make%20Array%20Elements%20Equal%20to%20Zero/README_EN.md
+tags:
+    - Array
+    - Prefix Sum
+    - Simulation
 ---
 
 <!-- problem:start -->
