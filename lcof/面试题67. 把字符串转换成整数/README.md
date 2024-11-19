@@ -148,7 +148,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int StrToInt(string str) {
+    int strToInt(string str) {
         int res = 0, bndry = INT_MAX / 10;
         int i = 0, sign = 1, length = str.size();
         if (length == 0) {
