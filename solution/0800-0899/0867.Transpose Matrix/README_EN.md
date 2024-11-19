@@ -56,7 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+Let $m$ be the number of rows and $n$ be the number of columns in the matrix $\textit{matrix}$. According to the definition of transpose, the transposed matrix $\textit{ans}$ will have $n$ rows and $m$ columns.
+
+For any position $(i, j)$ in $\textit{ans}$, it corresponds to the position $(j, i)$ in the matrix $\textit{matrix}$. Therefore, we traverse each element in the matrix $\textit{matrix}$ and transpose it to the corresponding position in $\textit{ans}$.
+
+After the traversal, we return $\textit{ans}$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix $\textit{matrix}$, respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -93,9 +101,11 @@ public:
     vector<vector<int>> transpose(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
         vector<vector<int>> ans(n, vector<int>(m));
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j < m; ++j)
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
                 ans[i][j] = matrix[j][i];
+            }
+        }
         return ans;
     }
 };
@@ -117,6 +127,21 @@ func transpose(matrix [][]int) [][]int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function transpose(matrix: number[][]): number[][] {
+    const [m, n] = [matrix.length, matrix[0].length];
+    const ans: number[][] = Array.from({ length: n }, () => Array(m).fill(0));
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < m; ++j) {
+            ans[i][j] = matrix[j][i];
+        }
+    }
+    return ans;
+}
+```
+
 #### JavaScript
 
 ```js
@@ -125,9 +150,8 @@ func transpose(matrix [][]int) [][]int {
  * @return {number[][]}
  */
 var transpose = function (matrix) {
-    const m = matrix.length;
-    const n = matrix[0].length;
-    const ans = new Array(n).fill(0).map(() => new Array(m).fill(0));
+    const [m, n] = [matrix.length, matrix[0].length];
+    const ans = Array.from({ length: n }, () => Array(m).fill(0));
     for (let i = 0; i < n; ++i) {
         for (let j = 0; j < m; ++j) {
             ans[i][j] = matrix[j][i];

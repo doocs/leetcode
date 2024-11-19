@@ -68,7 +68,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
+
+我们用两个指针 $\textit{pre}$ 和 $\textit{cur}$ 分别表示上一个和当前的 $1$ 的位置，初始时 $\textit{pre} = 100$, $\textit{cur} = 0$，然后遍历 $n$ 的二进制表示，当遇到 $1$ 时，计算当前位置和上一个 $1$ 的位置之间的距离，并更新答案。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是题目给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -77,12 +81,13 @@ tags:
 ```python
 class Solution:
     def binaryGap(self, n: int) -> int:
-        ans, j = 0, -1
-        for i in range(32):
+        ans = 0
+        pre, cur = inf, 0
+        while n:
             if n & 1:
-                if j != -1:
-                    ans = max(ans, i - j)
-                j = i
+                ans = max(ans, cur - pre)
+                pre = cur
+            cur += 1
             n >>= 1
         return ans
 ```
@@ -93,13 +98,12 @@ class Solution:
 class Solution {
     public int binaryGap(int n) {
         int ans = 0;
-        for (int i = 0, j = -1; n != 0; ++i, n >>= 1) {
-            if ((n & 1) == 1) {
-                if (j != -1) {
-                    ans = Math.max(ans, i - j);
-                }
-                j = i;
+        for (int pre = 100, cur = 0; n != 0; n >>= 1) {
+            if (n % 2 == 1) {
+                ans = Math.max(ans, cur - pre);
+                pre = cur;
             }
+            ++cur;
         }
         return ans;
     }
@@ -113,11 +117,12 @@ class Solution {
 public:
     int binaryGap(int n) {
         int ans = 0;
-        for (int i = 0, j = -1; n; ++i, n >>= 1) {
+        for (int pre = 100, cur = 0; n != 0; n >>= 1) {
             if (n & 1) {
-                if (j != -1) ans = max(ans, i - j);
-                j = i;
+                ans = max(ans, cur - pre);
+                pre = cur;
             }
+            ++cur;
         }
         return ans;
     }
@@ -127,17 +132,15 @@ public:
 #### Go
 
 ```go
-func binaryGap(n int) int {
-	ans := 0
-	for i, j := 0, -1; n != 0; i, n = i+1, n>>1 {
-		if (n & 1) == 1 {
-			if j != -1 && ans < i-j {
-				ans = i - j
-			}
-			j = i
+func binaryGap(n int) (ans int) {
+	for pre, cur := 100, 0; n != 0; n >>= 1 {
+		if n&1 == 1 {
+			ans = max(ans, cur-pre)
+			pre = cur
 		}
+		cur++
 	}
-	return ans
+	return
 }
 ```
 
@@ -145,18 +148,15 @@ func binaryGap(n int) int {
 
 ```ts
 function binaryGap(n: number): number {
-    let res = 0;
-    let j = -1;
-    for (let i = 0; n !== 0; i++) {
+    let ans = 0;
+    for (let pre = 100, cur = 0; n; n >>= 1) {
         if (n & 1) {
-            if (j !== -1) {
-                res = Math.max(res, i - j);
-            }
-            j = i;
+            ans = Math.max(ans, cur - pre);
+            pre = cur;
         }
-        n >>= 1;
+        ++cur;
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -165,20 +165,18 @@ function binaryGap(n: number): number {
 ```rust
 impl Solution {
     pub fn binary_gap(mut n: i32) -> i32 {
-        let mut res = 0;
-        let mut i = 0;
-        let mut j = -1;
+        let mut ans = 0;
+        let mut pre = 100;
+        let mut cur = 0;
         while n != 0 {
-            if (n & 1) == 1 {
-                if j != -1 {
-                    res = res.max(i - j);
-                }
-                j = i;
+            if n % 2 == 1 {
+                ans = ans.max(cur - pre);
+                pre = cur;
             }
+            cur += 1;
             n >>= 1;
-            i += 1;
         }
-        res
+        ans
     }
 }
 ```

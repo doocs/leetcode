@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

@@ -2,11 +2,13 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3353.Minimum%20Total%20Operations/README.md
+tags:
+    - 数组
 ---
 
 <!-- problem:start -->
 
-# [3353. Minimum Total Operations 🔒](https://leetcode.cn/problems/minimum-total-operations)
+# [3353. 最小总操作数 🔒](https://leetcode.cn/problems/minimum-total-operations)
 
 [English Version](/solution/3300-3399/3353.Minimum%20Total%20Operations/README_EN.md)
 
@@ -14,52 +16,54 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3353.Mi
 
 <!-- description:start -->
 
-<p>Given an array of integers <code><font face="monospace">nums</font></code>, you can perform <em>any</em> number of operations on this array.</p>
+<p>给定一个整数数组&nbsp;<code><font face="monospace">nums</font></code>，你可以在这个数组上进行&nbsp;<em>任意</em>&nbsp;次操作。</p>
 
-<p>In each <strong>operation</strong>, you can:</p>
+<p>在每次 <strong>操作</strong>&nbsp;中，你可以：</p>
 
 <ul>
-	<li>Choose a <strong>prefix</strong> of the array.</li>
-	<li>Choose an integer <code><font face="monospace">k</font></code><font face="monospace"> </font>(which can be negative) and add <code><font face="monospace">k</font></code> to each element in the chosen prefix.</li>
+	<li>选择这个数组的一个 <strong>前缀</strong>。</li>
+	<li>选择一个整数&nbsp;<code><font face="monospace">k</font></code>（可以为负）并且对选中前缀的每一个元素加&nbsp;<code><font face="monospace">k</font></code>。</li>
 </ul>
 
-<p>A <strong>prefix</strong> of an array is a subarray that starts from the beginning of the array and extends to any point within it.</p>
+<p>数组的 <strong>前缀</strong> 是一个子数组，从数组的开头开始并延伸到数组内的任何位置。</p>
 
-<p>Return the <strong>minimum</strong> number of operations required to make all elements in <code>arr</code> equal.</p>
+<p>返回使&nbsp;<code>arr</code>&nbsp;中的所有元素都相等的 <strong>最小</strong>&nbsp;操作数。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,4,2]</span></p>
+<p><strong>输入：</strong><span class="example-io">nums = [1,4,2]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">2</span></p>
+<p><strong>输出：</strong><span class="example-io">2</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Operation 1</strong>: Choose the prefix <code>[1, 4]</code> of length 2 and add -2 to each element of the prefix. The array becomes <code>[-1, 2, 2]</code>.</li>
-	<li><strong>Operation 2</strong>: Choose the prefix <code>[-1]</code> of length 1 and add 3 to it. The array becomes <code>[2, 2, 2]</code>.</li>
-	<li>Thus, the minimum number of required operations is 2.</li>
+	<li><strong>操作 1</strong>：选择长度为 2 的前缀&nbsp;<code>[1, 4]</code>&nbsp;并且对其中的所有元素加&nbsp;-2。数组变为&nbsp;<code>[-1, 2, 2]</code>。</li>
+	<li><strong>操作 2</strong>：选择长度为 1 的前缀&nbsp;<code>[-1]</code>&nbsp;并且对其中的所有元素加 3。数组变为&nbsp;<code>[2, 2, 2]</code>。</li>
+	<li>因此，所需的最小操作数为 2。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [10,10,10]</span></p>
+<p><strong>输入：</strong><span class="example-io">nums = [10,10,10]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+<p><strong>输出：</strong><span class="example-io">0</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>All elements are already equal, so no operations are needed.</li>
+	<li>所有元素已经相等，所以不需要操作。</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>

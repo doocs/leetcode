@@ -3361,12 +3361,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3350  |  [Adjacent Increasing Subarrays Detection II](/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 423  |
 |  3351  |  [Sum of Good Subsequences](/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README_EN.md)  |  `Array`,`Hash Table`,`Dynamic Programming`  |  Hard  |  Weekly Contest 423  |
 |  3352  |  [Count K-Reducible Numbers Less Than N](/solution/3300-3399/3352.Count%20K-Reducible%20Numbers%20Less%20Than%20N/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 423  |
-|  3353  |  [Minimum Total Operations](/solution/3300-3399/3353.Minimum%20Total%20Operations/README_EN.md)  |    |  Easy  |  🔒  |
-|  3354  |  [Make Array Elements Equal to Zero](/solution/3300-3399/3354.Make%20Array%20Elements%20Equal%20to%20Zero/README_EN.md)  |    |  Easy  |  Weekly Contest 424  |
-|  3355  |  [Zero Array Transformation I](/solution/3300-3399/3355.Zero%20Array%20Transformation%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 424  |
-|  3356  |  [Zero Array Transformation II](/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 424  |
-|  3357  |  [Minimize the Maximum Adjacent Element Difference](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README_EN.md)  |    |  Hard  |  Weekly Contest 424  |
-|  3358  |  [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md)  |    |  Easy  |  🔒  |
+|  3353  |  [Minimum Total Operations](/solution/3300-3399/3353.Minimum%20Total%20Operations/README_EN.md)  |  `Array`  |  Easy  |  🔒  |
+|  3354  |  [Make Array Elements Equal to Zero](/solution/3300-3399/3354.Make%20Array%20Elements%20Equal%20to%20Zero/README_EN.md)  |  `Array`,`Prefix Sum`,`Simulation`  |  Easy  |  Weekly Contest 424  |
+|  3355  |  [Zero Array Transformation I](/solution/3300-3399/3355.Zero%20Array%20Transformation%20I/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |  Weekly Contest 424  |
+|  3356  |  [Zero Array Transformation II](/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`  |  Medium  |  Weekly Contest 424  |
+|  3357  |  [Minimize the Maximum Adjacent Element Difference](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 424  |
+|  3358  |  [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 
 ## Copyright
 
