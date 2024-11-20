@@ -76,7 +76,15 @@ Hence, the maximum k is 2.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search
+
+We notice that if removing the characters at the first $k$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$, then removing the characters at $k \lt k' \leq \textit{removable.length}$ indices will also satisfy the condition. This monotonicity allows us to use binary search to find the maximum $k$.
+
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \textit{removable.length}$. Then we perform binary search. In each search, we take the middle value $mid = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ and check if removing the characters at the first $mid$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$. If it does, we update the left boundary $l = mid$; otherwise, we update the right boundary $r = mid - 1$.
+
+After the binary search ends, we return the left boundary $l$.
+
+The time complexity is $O(k \times \log k)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$, and $k$ is the length of $\textit{removable}$.
 
 <!-- tabs:start -->
 
@@ -85,56 +93,64 @@ Hence, the maximum k is 2.
 ```python
 class Solution:
     def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
-        def check(k):
+        def check(k: int) -> bool:
+            rem = [False] * len(s)
+            for i in removable[:k]:
+                rem[i] = True
             i = j = 0
-            ids = set(removable[:k])
-            while i < m and j < n:
-                if i not in ids and s[i] == p[j]:
+            while i < len(s) and j < len(p):
+                if not rem[i] and p[j] == s[i]:
                     j += 1
                 i += 1
-            return j == n
+            return j == len(p)
 
-        m, n = len(s), len(p)
-        left, right = 0, len(removable)
-        while left < right:
-            mid = (left + right + 1) >> 1
+        l, r = 0, len(removable)
+        while l < r:
+            mid = (l + r + 1) >> 1
             if check(mid):
-                left = mid
+                l = mid
             else:
-                right = mid - 1
-        return left
+                r = mid - 1
+        return l
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private char[] s;
+    private char[] p;
+    private int[] removable;
+
     public int maximumRemovals(String s, String p, int[] removable) {
-        int left = 0, right = removable.length;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(s, p, removable, mid)) {
-                left = mid;
+        int l = 0, r = removable.length;
+        this.s = s.toCharArray();
+        this.p = p.toCharArray();
+        this.removable = removable;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 
-    private boolean check(String s, String p, int[] removable, int mid) {
-        int m = s.length(), n = p.length(), i = 0, j = 0;
-        Set<Integer> ids = new HashSet<>();
-        for (int k = 0; k < mid; ++k) {
-            ids.add(removable[k]);
+    private boolean check(int k) {
+        boolean[] rem = new boolean[s.length];
+        for (int i = 0; i < k; ++i) {
+            rem[removable[i]] = true;
         }
-        while (i < m && j < n) {
-            if (!ids.contains(i) && s.charAt(i) == p.charAt(j)) {
+        int i = 0, j = 0;
+        while (i < s.length && j < p.length) {
+            if (!rem[i] && p[j] == s[i]) {
                 ++j;
             }
             ++i;
         }
-        return j == n;
+        return j == p.length;
     }
 }
 ```
@@ -145,31 +161,33 @@ class Solution {
 class Solution {
 public:
     int maximumRemovals(string s, string p, vector<int>& removable) {
-        int left = 0, right = removable.size();
-        while (left < right) {
-            int mid = left + right + 1 >> 1;
-            if (check(s, p, removable, mid)) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left;
-    }
+        int m = s.size(), n = p.size();
+        int l = 0, r = removable.size();
+        bool rem[m];
 
-    bool check(string s, string p, vector<int>& removable, int mid) {
-        int m = s.size(), n = p.size(), i = 0, j = 0;
-        unordered_set<int> ids;
-        for (int k = 0; k < mid; ++k) {
-            ids.insert(removable[k]);
-        }
-        while (i < m && j < n) {
-            if (ids.count(i) == 0 && s[i] == p[j]) {
-                ++j;
+        auto check = [&](int k) {
+            memset(rem, false, sizeof(rem));
+            for (int i = 0; i < k; i++) {
+                rem[removable[i]] = true;
             }
-            ++i;
+            int i = 0, j = 0;
+            while (i < m && j < n) {
+                if (!rem[i] && s[i] == p[j]) {
+                    ++j;
+                }
+                ++i;
+            }
+            return j == n;
+        };
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
         }
-        return j == n;
+        return l;
     }
 };
 ```
@@ -178,31 +196,31 @@ public:
 
 ```go
 func maximumRemovals(s string, p string, removable []int) int {
+	m, n := len(s), len(p)
+	l, r := 0, len(removable)
 	check := func(k int) bool {
-		ids := make(map[int]bool)
-		for _, r := range removable[:k] {
-			ids[r] = true
+		rem := make([]bool, m)
+		for i := 0; i < k; i++ {
+			rem[removable[i]] = true
 		}
-		var i, j int
-		for i < len(s) && j < len(p) {
-			if !ids[i] && s[i] == p[j] {
+		i, j := 0, 0
+		for i < m && j < n {
+			if !rem[i] && s[i] == p[j] {
 				j++
 			}
 			i++
 		}
-		return j == len(p)
+		return j == n
 	}
-
-	left, right := 0, len(removable)
-	for left < right {
-		mid := (left + right + 1) >> 1
+	for l < r {
+		mid := (l + r + 1) >> 1
 		if check(mid) {
-			left = mid
+			l = mid
 		} else {
-			right = mid - 1
+			r = mid - 1
 		}
 	}
-	return left
+	return l
 }
 ```
 
@@ -210,52 +228,61 @@ func maximumRemovals(s string, p string, removable []int) int {
 
 ```ts
 function maximumRemovals(s: string, p: string, removable: number[]): number {
-    let left = 0,
-        right = removable.length;
-    while (left < right) {
-        let mid = (left + right + 1) >> 1;
-        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
+    const [m, n] = [s.length, p.length];
+    let [l, r] = [0, removable.length];
+    const rem: boolean[] = Array(m);
 
-function isSub(str: string, sub: string, idxes: Set<number>): boolean {
-    let m = str.length,
-        n = sub.length;
-    let i = 0,
-        j = 0;
-    while (i < m && j < n) {
-        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
-            ++j;
+    const check = (k: number): boolean => {
+        rem.fill(false);
+        for (let i = 0; i < k; i++) {
+            rem[removable[i]] = true;
         }
-        ++i;
+
+        let i = 0,
+            j = 0;
+        while (i < m && j < n) {
+            if (!rem[i] && s[i] === p[j]) {
+                j++;
+            }
+            i++;
+        }
+        return j === n;
+    };
+
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
     }
-    return j == n;
+
+    return l;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::collections::HashSet;
-
 impl Solution {
     pub fn maximum_removals(s: String, p: String, removable: Vec<i32>) -> i32 {
         let m = s.len();
         let n = p.len();
-        let s = s.as_bytes();
-        let p = p.as_bytes();
+        let s: Vec<char> = s.chars().collect();
+        let p: Vec<char> = p.chars().collect();
+        let mut l = 0;
+        let mut r = removable.len();
 
-        let check = |k| {
+        let check = |k: usize| -> bool {
+            let mut rem = vec![false; m];
+            for i in 0..k {
+                rem[removable[i] as usize] = true;
+            }
             let mut i = 0;
             let mut j = 0;
-            let ids: HashSet<i32> = removable[..k].iter().cloned().collect();
             while i < m && j < n {
-                if !ids.contains(&(i as i32)) && s[i] == p[j] {
+                if !rem[i] && s[i] == p[j] {
                     j += 1;
                 }
                 i += 1;
@@ -263,21 +290,16 @@ impl Solution {
             j == n
         };
 
-        let mut left = 0;
-        let mut right = removable.len();
-        while left + 1 < right {
-            let mid = left + (right - left) / 2;
+        while l < r {
+            let mid = (l + r + 1) / 2;
             if check(mid) {
-                left = mid;
+                l = mid;
             } else {
-                right = mid;
+                r = mid - 1;
             }
         }
 
-        if check(right) {
-            return right as i32;
-        }
-        left as i32
+        l as i32
     }
 }
 ```
@@ -291,81 +313,78 @@ impl Solution {
  * @param {number[]} removable
  * @return {number}
  */
-function maximumRemovals(s, p, removable) {
-    const str_len = s.length;
-    const sub_len = p.length;
+var maximumRemovals = function (s, p, removable) {
+    const [m, n] = [s.length, p.length];
+    let [l, r] = [0, removable.length];
+    const rem = Array(m);
 
-    /**
-     * @param {number} k
-     * @return {boolean}
-     */
-    function isSub(k) {
-        const removed = new Set(removable.slice(0, k));
+    const check = k => {
+        rem.fill(false);
+        for (let i = 0; i < k; i++) {
+            rem[removable[i]] = true;
+        }
 
-        let sub_i = 0;
-        for (let str_i = 0; str_i < str_len; ++str_i) {
-            if (s.charAt(str_i) === p.charAt(sub_i) && !removed.has(str_i)) {
-                ++sub_i;
-                if (sub_i >= sub_len) {
-                    break;
-                }
+        let i = 0,
+            j = 0;
+        while (i < m && j < n) {
+            if (!rem[i] && s[i] === p[j]) {
+                j++;
             }
+            i++;
         }
-        return sub_i === sub_len;
-    }
+        return j === n;
+    };
 
-    let left = 0;
-    let right = removable.length;
-
-    while (left < right) {
-        const middle = (left + right) >> 1;
-        if (isSub(middle + 1)) {
-            left = middle + 1;
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
         } else {
-            right = middle;
+            r = mid - 1;
         }
     }
-    return left;
-}
+
+    return l;
+};
 ```
 
 #### Kotlin
 
 ```kotlin
 class Solution {
-  fun maximumRemovals(s: String, p: String, removable: IntArray): Int {
-      val strLen = s.length
-      val subLen = p.length
+    fun maximumRemovals(s: String, p: String, removable: IntArray): Int {
+        val m = s.length
+        val n = p.length
+        var l = 0
+        var r = removable.size
 
-      fun isSub(k: Int): Boolean {
-          val removed = removable.sliceArray(0 ..< k).toHashSet()
+        fun check(k: Int): Boolean {
+            val rem = BooleanArray(m)
+            for (i in 0 until k) {
+                rem[removable[i]] = true
+            }
+            var i = 0
+            var j = 0
+            while (i < m && j < n) {
+                if (!rem[i] && s[i] == p[j]) {
+                    j++
+                }
+                i++
+            }
+            return j == n
+        }
 
-          var subIndex = 0
-          for (strIndex in 0 ..< strLen) {
-              if (s[strIndex] == p[subIndex] && !removed.contains(strIndex)) {
-                  ++subIndex
-                  if (subIndex >= subLen) {
-                      break
-                  }
-              }
-          }
+        while (l < r) {
+            val mid = (l + r + 1) / 2
+            if (check(mid)) {
+                l = mid
+            } else {
+                r = mid - 1
+            }
+        }
 
-          return subIndex == subLen
-      }
-
-      var left = 0
-      var right = removable.size
-
-      while (left < right) {
-          val middle = (left + right) / 2
-          if (isSub(middle + 1)) {
-              left = middle + 1
-          } else {
-              right = middle
-          }
-      }
-      return left
-  }
+        return l
+    }
 }
 ```
 

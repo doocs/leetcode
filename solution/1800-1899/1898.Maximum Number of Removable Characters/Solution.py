@@ -1,20 +1,21 @@
 class Solution:
     def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
-        def check(k):
+        def check(k: int) -> bool:
+            rem = [False] * len(s)
+            for i in removable[:k]:
+                rem[i] = True
             i = j = 0
-            ids = set(removable[:k])
-            while i < m and j < n:
-                if i not in ids and s[i] == p[j]:
+            while i < len(s) and j < len(p):
+                if not rem[i] and p[j] == s[i]:
                     j += 1
                 i += 1
-            return j == n
+            return j == len(p)
 
-        m, n = len(s), len(p)
-        left, right = 0, len(removable)
-        while left < right:
-            mid = (left + right + 1) >> 1
+        l, r = 0, len(removable)
+        while l < r:
+            mid = (l + r + 1) >> 1
             if check(mid):
-                left = mid
+                l = mid
             else:
-                right = mid - 1
-        return left
+                r = mid - 1
+        return l

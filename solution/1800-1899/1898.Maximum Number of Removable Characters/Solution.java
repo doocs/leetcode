@@ -1,29 +1,36 @@
 class Solution {
+    private char[] s;
+    private char[] p;
+    private int[] removable;
+
     public int maximumRemovals(String s, String p, int[] removable) {
-        int left = 0, right = removable.length;
-        while (left < right) {
-            int mid = (left + right + 1) >> 1;
-            if (check(s, p, removable, mid)) {
-                left = mid;
+        int l = 0, r = removable.length;
+        this.s = s.toCharArray();
+        this.p = p.toCharArray();
+        this.removable = removable;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
             } else {
-                right = mid - 1;
+                r = mid - 1;
             }
         }
-        return left;
+        return l;
     }
 
-    private boolean check(String s, String p, int[] removable, int mid) {
-        int m = s.length(), n = p.length(), i = 0, j = 0;
-        Set<Integer> ids = new HashSet<>();
-        for (int k = 0; k < mid; ++k) {
-            ids.add(removable[k]);
+    private boolean check(int k) {
+        boolean[] rem = new boolean[s.length];
+        for (int i = 0; i < k; ++i) {
+            rem[removable[i]] = true;
         }
-        while (i < m && j < n) {
-            if (!ids.contains(i) && s.charAt(i) == p.charAt(j)) {
+        int i = 0, j = 0;
+        while (i < s.length && j < p.length) {
+            if (!rem[i] && p[j] == s[i]) {
                 ++j;
             }
             ++i;
         }
-        return j == n;
+        return j == p.length;
     }
 }
