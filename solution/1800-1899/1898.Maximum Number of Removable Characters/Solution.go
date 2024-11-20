@@ -1,27 +1,27 @@
 func maximumRemovals(s string, p string, removable []int) int {
+	m, n := len(s), len(p)
+	l, r := 0, len(removable)
 	check := func(k int) bool {
-		ids := make(map[int]bool)
-		for _, r := range removable[:k] {
-			ids[r] = true
+		rem := make([]bool, m)
+		for i := 0; i < k; i++ {
+			rem[removable[i]] = true
 		}
-		var i, j int
-		for i < len(s) && j < len(p) {
-			if !ids[i] && s[i] == p[j] {
+		i, j := 0, 0
+		for i < m && j < n {
+			if !rem[i] && s[i] == p[j] {
 				j++
 			}
 			i++
 		}
-		return j == len(p)
+		return j == n
 	}
-
-	left, right := 0, len(removable)
-	for left < right {
-		mid := (left + right + 1) >> 1
+	for l < r {
+		mid := (l + r + 1) >> 1
 		if check(mid) {
-			left = mid
+			l = mid
 		} else {
-			right = mid - 1
+			r = mid - 1
 		}
 	}
-	return left
+	return l
 }

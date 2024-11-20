@@ -1,27 +1,33 @@
 function maximumRemovals(s: string, p: string, removable: number[]): number {
-    let left = 0,
-        right = removable.length;
-    while (left < right) {
-        let mid = (left + right + 1) >> 1;
-        if (isSub(s, p, new Set(removable.slice(0, mid)))) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
+    const [m, n] = [s.length, p.length];
+    let [l, r] = [0, removable.length];
+    const rem: boolean[] = Array(m);
 
-function isSub(str: string, sub: string, idxes: Set<number>): boolean {
-    let m = str.length,
-        n = sub.length;
-    let i = 0,
-        j = 0;
-    while (i < m && j < n) {
-        if (!idxes.has(i) && str.charAt(i) == sub.charAt(j)) {
-            ++j;
+    const check = (k: number): boolean => {
+        rem.fill(false);
+        for (let i = 0; i < k; i++) {
+            rem[removable[i]] = true;
         }
-        ++i;
+
+        let i = 0,
+            j = 0;
+        while (i < m && j < n) {
+            if (!rem[i] && s[i] === p[j]) {
+                j++;
+            }
+            i++;
+        }
+        return j === n;
+    };
+
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
     }
-    return j == n;
+
+    return l;
 }
