@@ -63,7 +63,11 @@ For each person, we return the number of flowers in full bloom during their arri
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Binary Search
+
+We sort the flowers by their start and end times. Then, for each person, we can use binary search to find the number of flowers in bloom when they arrive. This means finding the number of flowers that have started blooming by the time each person arrives, minus the number of flowers that have wilted by that time, to get the answer.
+
+The time complexity is $O((m + n) \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{flowers}$ and $\textit{people}$, respectively.
 
 <!-- tabs:start -->
 
@@ -255,7 +259,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Difference Array + Sorting + Offline Query
+
+We can use a difference array to maintain the number of flowers at each time point. Next, we sort $people$ by their arrival times in ascending order. When each person arrives, we perform a prefix sum operation on the difference array to get the answer.
+
+The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{flowers}$ and $\textit{people}$, respectively.
 
 <!-- tabs:start -->
 
