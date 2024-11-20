@@ -52,60 +52,9 @@ tags:
 
 ### Solution 1: Binary Search
 
-We can perform binary search twice to find the left and right boundaries respectively.
+We can perform two binary searches to find the left boundary and the right boundary.
 
-The time complexity is $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
-
-Below are two general templates for binary search:
-
-Template 1:
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right) >> 1;
-        if (check(mid)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-Template 2:
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-When doing binary search problems, you can follow the following routine:
-
-1. Write out the loop condition $left < right$;
-2. Inside the loop, you might as well write $mid = \lfloor \frac{left + right}{2} \rfloor$ first;
-3. According to the specific problem, implement the $check()$ function (sometimes the logic is very simple, you can not define $check$), think about whether to use $right = mid$ (Template $1$) or $left = mid$ (Template $2$);
-    - If $right = mid$, then write the else statement $left = mid + 1$, and there is no need to change the calculation of $mid$, that is, keep $mid = \lfloor \frac{left + right}{2} \rfloor$;
-    - If $left = mid$, then write the else statement $right = mid - 1$, and add +1 when calculating $mid$, that is, $mid = \lfloor \frac{left + right + 1}{2} \rfloor$;
-4. When the loop ends, $left$ equals $right$.
-
-Note that the advantage of these two templates is that they always keep the answer within the binary search interval, and the value corresponding to the end condition of the binary search is exactly at the position of the answer. For the case that may have no solution, just check whether the $left$ or $right$ after the binary search ends satisfies the problem.
+The time complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -152,7 +101,9 @@ public:
     vector<int> searchRange(vector<int>& nums, int target) {
         int l = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
         int r = lower_bound(nums.begin(), nums.end(), target + 1) - nums.begin();
-        if (l == r) return {-1, -1};
+        if (l == r) {
+            return {-1, -1};
+        }
         return {l, r - 1};
     }
 };
@@ -255,26 +206,28 @@ var searchRange = function (nums, target) {
 ```php
 class Solution {
     /**
-     * @param integer[] $nums
-     * @param integer $target
-     * @return integer[]
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer[]
      */
-
     function searchRange($nums, $target) {
-        $min = -1;
-        $max = -1;
-        foreach ($nums as $key => $value) {
-            if ($value == $target) {
-                if ($min == -1) {
-                    $min = $key;
-                }
-
-                if ($key > $max) {
-                    $max = $key;
+        $search = function ($x) use ($nums) {
+            $left = 0;
+            $right = count($nums);
+            while ($left < $right) {
+                $mid = intdiv($left + $right, 2);
+                if ($nums[$mid] >= $x) {
+                    $right = $mid;
+                } else {
+                    $left = $mid + 1;
                 }
             }
-        }
-        return [$min, $max];
+            return $left;
+        };
+
+        $l = $search($target);
+        $r = $search($target + 1);
+        return $l === $r ? [-1, -1] : [$l, $r - 1];
     }
 }
 ```

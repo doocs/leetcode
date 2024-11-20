@@ -64,58 +64,7 @@ tags:
 
 我们可以进行两次二分查找，分别查找出左边界和右边界。
 
-时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $nums$ 的长度。
-
-以下是二分查找的两个通用模板：
-
-模板 1：
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right) >> 1;
-        if (check(mid)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-}
-```
-
-模板 2：
-
-```java
-boolean check(int x) {
-}
-
-int search(int left, int right) {
-    while (left < right) {
-        int mid = (left + right + 1) >> 1;
-        if (check(mid)) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left;
-}
-```
-
-做二分题目时，可以按照以下套路：
-
-1. 写出循环条件 $left < right$；
-1. 循环体内，不妨先写 $mid = \lfloor \frac{left + right}{2} \rfloor$；
-1. 根据具体题目，实现 $check()$ 函数（有时很简单的逻辑，可以不定义 $check$），想一下究竟要用 $right = mid$（模板 $1$） 还是 $left = mid$（模板 $2$）；
-       - 如果 $right = mid$，那么写出 else 语句 $left = mid + 1$，并且不需要更改 mid 的计算，即保持 $mid = \lfloor \frac{left + right}{2} \rfloor$；
-       - 如果 $left = mid$，那么写出 else 语句 $right = mid - 1$，并且在 $mid$ 计算时补充 +1，即 $mid = \lfloor \frac{left + right + 1}{2} \rfloor$；
-1. 循环结束时， $left$ 与 $right$ 相等。
-
-注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 $left$ 或者 $right$ 是否满足题意即可。
+时间复杂度 $O(\log n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -162,7 +111,9 @@ public:
     vector<int> searchRange(vector<int>& nums, int target) {
         int l = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
         int r = lower_bound(nums.begin(), nums.end(), target + 1) - nums.begin();
-        if (l == r) return {-1, -1};
+        if (l == r) {
+            return {-1, -1};
+        }
         return {l, r - 1};
     }
 };
@@ -265,26 +216,28 @@ var searchRange = function (nums, target) {
 ```php
 class Solution {
     /**
-     * @param integer[] $nums
-     * @param integer $target
-     * @return integer[]
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer[]
      */
-
     function searchRange($nums, $target) {
-        $min = -1;
-        $max = -1;
-        foreach ($nums as $key => $value) {
-            if ($value == $target) {
-                if ($min == -1) {
-                    $min = $key;
-                }
-
-                if ($key > $max) {
-                    $max = $key;
+        $search = function ($x) use ($nums) {
+            $left = 0;
+            $right = count($nums);
+            while ($left < $right) {
+                $mid = intdiv($left + $right, 2);
+                if ($nums[$mid] >= $x) {
+                    $right = $mid;
+                } else {
+                    $left = $mid + 1;
                 }
             }
-        }
-        return [$min, $max];
+            return $left;
+        };
+
+        $l = $search($target);
+        $r = $search($target + 1);
+        return $l === $r ? [-1, -1] : [$l, $r - 1];
     }
 }
 ```
