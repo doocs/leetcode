@@ -1,30 +1,25 @@
 class BinaryIndexedTree {
-public:
+private:
     int n;
     vector<int> c;
 
-    BinaryIndexedTree(int _n)
-        : n(_n)
-        , c(_n + 1) {}
+public:
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1) {}
 
     void update(int x, int delta) {
-        while (x <= n) {
+        for (; x <= n; x += x & -x) {
             c[x] += delta;
-            x += lowbit(x);
         }
     }
 
     int query(int x) {
         int s = 0;
-        while (x > 0) {
+        for (; x > 0; x -= x & -x) {
             s += c[x];
-            x -= lowbit(x);
         }
         return s;
-    }
-
-    int lowbit(int x) {
-        return x & -x;
     }
 };
 
@@ -32,13 +27,15 @@ class Solution {
 public:
     vector<int> getModifiedArray(int length, vector<vector<int>>& updates) {
         BinaryIndexedTree* tree = new BinaryIndexedTree(length);
-        for (auto& e : updates) {
-            int start = e[0], end = e[1], inc = e[2];
-            tree->update(start + 1, inc);
-            tree->update(end + 2, -inc);
+        for (const auto& e : updates) {
+            int l = e[0], r = e[1], c = e[2];
+            tree->update(l + 1, c);
+            tree->update(r + 2, -c);
         }
         vector<int> ans;
-        for (int i = 0; i < length; ++i) ans.push_back(tree->query(i + 1));
+        for (int i = 0; i < length; ++i) {
+            ans.push_back(tree->query(i + 1));
+        }
         return ans;
     }
 };
