@@ -1,29 +1,27 @@
 class BinaryIndexedTree:
-    def __init__(self, n):
+    __slots__ = "n", "c"
+
+    def __init__(self, n: int):
         self.n = n
         self.c = [0] * (n + 1)
 
-    @staticmethod
-    def lowbit(x):
-        return x & -x
-
-    def update(self, x, delta):
+    def update(self, x: int, delta: int) -> None:
         while x <= self.n:
             self.c[x] += delta
-            x += BinaryIndexedTree.lowbit(x)
+            x += x & -x
 
-    def query(self, x):
+    def query(self, x: int) -> int:
         s = 0
         while x:
             s += self.c[x]
-            x -= BinaryIndexedTree.lowbit(x)
+            x -= x & -x
         return s
 
 
 class Solution:
     def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
         tree = BinaryIndexedTree(length)
-        for start, end, inc in updates:
-            tree.update(start + 1, inc)
-            tree.update(end + 2, -inc)
+        for l, r, c in updates:
+            tree.update(l + 1, c)
+            tree.update(r + 2, -c)
         return [tree.query(i + 1) for i in range(length)]

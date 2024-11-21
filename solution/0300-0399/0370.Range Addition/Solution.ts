@@ -1,10 +1,5 @@
-/**
- * @param {number} length
- * @param {number[][]} updates
- * @return {number[]}
- */
-var getModifiedArray = function (length, updates) {
-    const d = Array(length).fill(0);
+function getModifiedArray(length: number, updates: number[][]): number[] {
+    const d: number[] = Array(length).fill(0);
     for (const [l, r, c] of updates) {
         d[l] += c;
         if (r + 1 < length) {
@@ -15,4 +10,4 @@ var getModifiedArray = function (length, updates) {
         d[i] += d[i - 1];
     }
     return d;
-};
+}
