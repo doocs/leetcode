@@ -4,13 +4,14 @@
  * @return {number[]}
  */
 var nextGreaterElement = function (nums1, nums2) {
-    let stk = [];
-    let m = {};
-    for (let v of nums2) {
-        while (stk && stk[stk.length - 1] < v) {
-            m[stk.pop()] = v;
+    const stk = [];
+    const d = {};
+    for (const x of nums2.reverse()) {
+        while (stk.length && stk.at(-1) < x) {
+            stk.pop();
         }
-        stk.push(v);
+        d[x] = stk.length ? stk.at(-1) : -1;
+        stk.push(x);
     }
-    return nums1.map(e => m[e] || -1);
+    return nums1.map(x => d[x]);
 };
