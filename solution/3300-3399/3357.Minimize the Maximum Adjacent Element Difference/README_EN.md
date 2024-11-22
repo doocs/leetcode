@@ -16,8 +16,6 @@ tags:
 
 ## Description
 
-<!-- description:start -->
-
 <p>You are given an array of integers <code>nums</code>. Some values in <code>nums</code> are <strong>missing</strong> and are denoted by -1.</p>
 
 <p>You can choose a pair of <strong>positive</strong> integers <code>(x, y)</code> <strong>exactly once</strong> and replace each&nbsp;<strong>missing</strong> element with <em>either</em> <code>x</code> or <code>y</code>.</p>
@@ -88,12 +86,46 @@ tags:
 
 ### Solution 1
 
-<!-- tabs:start -->
+#### Approach:
+
+1. **Greedy Replacement Strategy**:
+   - Traverse the array and determine the missing (-1) positions.
+   - Identify the potential minimum and maximum values needed to replace the missing positions such that the absolute difference between adjacent elements is minimized.
+   - Use binary search to minimize the maximum absolute difference.
+
+2. **Binary Search for Optimization**:
+   - Apply binary search to determine the best pair `(x, y)` that minimizes the maximum adjacent difference.
 
 #### Python3
 
 ```python
+def minimize_max_diff(nums):
+    def is_valid(max_diff, x, y):
+        prev = nums[0] if nums[0] != -1 else x
+        for i in range(1, len(nums)):
+            current = nums[i]
+            if current == -1:
+                current = x if abs(prev - x) <= max_diff else y
+            if abs(current - prev) > max_diff:
+                return False
+            prev = current
+        return True
 
+    missing_positions = [i for i, val in enumerate(nums) if val == -1]
+    
+    left, right = 0, 10**9
+    result = 10**9
+
+    while left <= right:
+        mid = (left + right) // 2
+        x, y = mid, mid + 1  # Candidates for missing values
+        if is_valid(mid, x, y):
+            result = mid
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return result
 ```
 
 #### Java
@@ -105,6 +137,36 @@ tags:
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minimizeMaxDifference(vector<int>& nums, int k) {
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        
+        int l = 0, r = nums[n - 1] - nums[0];
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (canMinimize(nums, k, mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+
+private:
+    bool canMinimize(vector<int>& nums, int k, int target) {
+        int ops = 0;
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] - nums[i - 1] > target) {
+                ops += (nums[i] - nums[i - 1] - 1) / target;
+                if (ops > k) return false;
+            }
+        }
+        return true;
+    }
+};
 
 ```
 
