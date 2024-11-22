@@ -242,6 +242,117 @@ function countUnguarded(m: number, n: number, guards: number[][], walls: number[
 }
 ```
 
+#### JavaScript
+
+```js
+function countUnguarded(m, n, guards, walls) {
+    const g = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (const [i, j] of guards) {
+        g[i][j] = 2;
+    }
+    for (const [i, j] of walls) {
+        g[i][j] = 2;
+    }
+    const dirs = [-1, 0, 1, 0, -1];
+    for (const [i, j] of guards) {
+        for (let k = 0; k < 4; ++k) {
+            let [x, y] = [i, j];
+            let [a, b] = [dirs[k], dirs[k + 1]];
+            while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a][y + b] < 2) {
+                x += a;
+                y += b;
+                g[x][y] = 1;
+            }
+        }
+    }
+    let ans = 0;
+    for (const row of g) {
+        for (const v of row) {
+            ans += v === 0 ? 1 : 0;
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: DFS + Simulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function countUnguarded(m: number, n: number, guards: number[][], walls: number[][]): number {
+    let c = 0;
+    const mtx = Array.from({ length: m }, () => Array(n).fill(0));
+    for (const [i, j] of guards) mtx[i][j] = 2;
+    for (const [i, j] of walls) mtx[i][j] = 2;
+
+    const dfs = (i: number, j: number, dx: number, dy: number) => {
+        [i, j] = [i + dx, j + dy];
+
+        if (i < 0 || m <= i || j < 0 || n <= j || mtx[i][j] === 2) return;
+
+        if (mtx[i][j] === 0) {
+            mtx[i][j] = 1;
+            c++;
+        }
+
+        dfs(i, j, dx, dy);
+    };
+
+    const DIRS = [-1, 0, 1, 0, -1];
+    for (const [i, j] of guards) {
+        for (let k = 0; k < 4; k++) {
+            const [dx, dy] = [DIRS[k], DIRS[k + 1]];
+            dfs(i, j, dx, dy);
+        }
+    }
+
+    return m * n - guards.length - walls.length - c;
+}
+```
+
+#### JavaScript
+
+```js
+function countUnguarded(m, n, guards, walls) {
+    let c = 0;
+    const mtx = Array.from({ length: m }, () => Array(n).fill(0));
+    for (const [i, j] of guards) mtx[i][j] = 2;
+    for (const [i, j] of walls) mtx[i][j] = 2;
+
+    const dfs = (i, j, dx, dy) => {
+        [i, j] = [i + dx, j + dy];
+
+        if (i < 0 || m <= i || j < 0 || n <= j || mtx[i][j] === 2) return;
+
+        if (mtx[i][j] === 0) {
+            mtx[i][j] = 1;
+            c++;
+        }
+
+        dfs(i, j, dx, dy);
+    };
+
+    const DIRS = [-1, 0, 1, 0, -1];
+    for (const [i, j] of guards) {
+        for (let k = 0; k < 4; k++) {
+            const [dx, dy] = [DIRS[k], DIRS[k + 1]];
+            dfs(i, j, dx, dy);
+        }
+    }
+
+    return m * n - guards.length - walls.length - c;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
