@@ -89,12 +89,13 @@ tags:
 #### Approach:
 
 1. **Greedy Replacement Strategy**:
-   - Traverse the array and determine the missing (-1) positions.
-   - Identify the potential minimum and maximum values needed to replace the missing positions such that the absolute difference between adjacent elements is minimized.
-   - Use binary search to minimize the maximum absolute difference.
+
+    - Traverse the array and determine the missing (-1) positions.
+    - Identify the potential minimum and maximum values needed to replace the missing positions such that the absolute difference between adjacent elements is minimized.
+    - Use binary search to minimize the maximum absolute difference.
 
 2. **Binary Search for Optimization**:
-   - Apply binary search to determine the best pair `(x, y)` that minimizes the maximum adjacent difference.
+    - Apply binary search to determine the best pair `(x, y)` that minimizes the maximum adjacent difference.
 
 #### Python3
 
@@ -112,7 +113,7 @@ def minimize_max_diff(nums):
         return True
 
     missing_positions = [i for i, val in enumerate(nums) if val == -1]
-    
+
     left, right = 0, 10**9
     result = 10**9
 
@@ -190,7 +191,7 @@ public:
     int minimizeMaxDifference(vector<int>& nums, int k) {
         int n = nums.size();
         sort(nums.begin(), nums.end());
-        
+
         int l = 0, r = nums[n - 1] - nums[0];
         while (l < r) {
             int mid = l + (r - l) / 2;
