@@ -281,7 +281,7 @@ function countUnguarded(m, n, guards, walls) {
 
 <!-- solution:start -->
 
-### Solution 2: Simulation
+### Solution 2: DFS + Simulation
 
 <!-- tabs:start -->
 
