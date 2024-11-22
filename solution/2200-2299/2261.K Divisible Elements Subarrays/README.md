@@ -82,11 +82,11 @@ nums 中的所有元素都可以被 p = 1 整除。
 
 <!-- solution:start -->
 
-### 方法一：哈希表 + 枚举
+### 方法一：枚举 + 字符串哈希
 
-我们可以枚举子数组的左右端点 $i$ 和 $j$，其中 $0 \leq i \leq j < n$。对于每个子数组 $nums[i,..j]$，我们可以统计其中可以被 $p$ 整除的元素的个数 $cnt$，如果 $cnt \leq k$，则该子数组满足条件。我们将所有满足条件的子数组的元素序列作为字符串存入哈希表中，最后哈希表中的元素个数即为答案。
+我们可以枚举子数组的左端点 $i$，再在 $[i, n)$ 的范围内枚举子数组的右端点 $j$，在枚举右端点的过程中，我们通过双哈希的方式，将子数组的哈希值存入集合中，最后返回集合的大小即可。
 
-时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -95,15 +95,19 @@ nums 中的所有元素都可以被 p = 1 整除。
 ```python
 class Solution:
     def countDistinct(self, nums: List[int], k: int, p: int) -> int:
-        n = len(nums)
         s = set()
+        n = len(nums)
+        base1, base2 = 131, 13331
+        mod1, mod2 = 10**9 + 7, 10**9 + 9
         for i in range(n):
-            cnt = 0
+            h1 = h2 = cnt = 0
             for j in range(i, n):
                 cnt += nums[j] % p == 0
                 if cnt > k:
                     break
-                s.add(tuple(nums[i : j + 1]))
+                h1 = (h1 * base1 + nums[j]) % mod1
+                h2 = (h2 * base2 + nums[j]) % mod2
+                s.add(h1 << 32 | h2)
         return len(s)
 ```
 
@@ -112,17 +116,21 @@ class Solution:
 ```java
 class Solution {
     public int countDistinct(int[] nums, int k, int p) {
+        Set<Long> s = new HashSet<>();
         int n = nums.length;
-        Set<String> s = new HashSet<>();
+        int base1 = 131, base2 = 13331;
+        int mod1 = (int) 1e9 + 7, mod2 = (int) 1e9 + 9;
         for (int i = 0; i < n; ++i) {
+            long h1 = 0, h2 = 0;
             int cnt = 0;
-            String t = "";
             for (int j = i; j < n; ++j) {
-                if (nums[j] % p == 0 && ++cnt > k) {
+                cnt += nums[j] % p == 0 ? 1 : 0;
+                if (cnt > k) {
                     break;
                 }
-                t += nums[j] + ",";
-                s.add(t);
+                h1 = (h1 * base1 + nums[j]) % mod1;
+                h2 = (h2 * base2 + nums[j]) % mod2;
+                s.add(h1 << 32 | h2);
             }
         }
         return s.size();
@@ -136,17 +144,21 @@ class Solution {
 class Solution {
 public:
     int countDistinct(vector<int>& nums, int k, int p) {
-        unordered_set<string> s;
+        unordered_set<long long> s;
         int n = nums.size();
+        int base1 = 131, base2 = 13331;
+        int mod1 = 1e9 + 7, mod2 = 1e9 + 9;
         for (int i = 0; i < n; ++i) {
+            long long h1 = 0, h2 = 0;
             int cnt = 0;
-            string t;
             for (int j = i; j < n; ++j) {
-                if (nums[j] % p == 0 && ++cnt > k) {
+                cnt += nums[j] % p == 0;
+                if (cnt > k) {
                     break;
                 }
-                t += to_string(nums[j]) + ",";
-                s.insert(t);
+                h1 = (h1 * base1 + nums[j]) % mod1;
+                h2 = (h2 * base2 + nums[j]) % mod2;
+                s.insert(h1 << 32 | h2);
             }
         }
         return s.size();
@@ -158,18 +170,21 @@ public:
 
 ```go
 func countDistinct(nums []int, k int, p int) int {
-	s := map[string]struct{}{}
+	s := map[int]bool{}
+	base1, base2 := 131, 13331
+	mod1, mod2 := 1000000007, 1000000009
 	for i := range nums {
-		cnt, t := 0, ""
-		for _, x := range nums[i:] {
-			if x%p == 0 {
+		h1, h2, cnt := 0, 0, 0
+		for j := i; j < len(nums); j++ {
+			if nums[j]%p == 0 {
 				cnt++
 				if cnt > k {
 					break
 				}
 			}
-			t += string(x) + ","
-			s[t] = struct{}{}
+			h1 = (h1*base1 + nums[j]) % mod1
+			h2 = (h2*base2 + nums[j]) % mod2
+			s[h1<<32|h2] = true
 		}
 	}
 	return len(s)
@@ -180,17 +195,21 @@ func countDistinct(nums []int, k int, p int) int {
 
 ```ts
 function countDistinct(nums: number[], k: number, p: number): number {
-    const n = nums.length;
-    const s = new Set();
-    for (let i = 0; i < n; ++i) {
-        let cnt = 0;
-        let t = '';
-        for (let j = i; j < n; ++j) {
-            if (nums[j] % p === 0 && ++cnt > k) {
-                break;
+    const s = new Set<bigint>();
+    const [base1, base2] = [131, 13331];
+    const [mod1, mod2] = [1000000007, 1000000009];
+    for (let i = 0; i < nums.length; i++) {
+        let [h1, h2, cnt] = [0, 0, 0];
+        for (let j = i; j < nums.length; j++) {
+            if (nums[j] % p === 0) {
+                cnt++;
+                if (cnt > k) {
+                    break;
+                }
             }
-            t += nums[j].toString() + ',';
-            s.add(t);
+            h1 = (h1 * base1 + nums[j]) % mod1;
+            h2 = (h2 * base2 + nums[j]) % mod2;
+            s.add((BigInt(h1) << 32n) | BigInt(h2));
         }
     }
     return s.size;
