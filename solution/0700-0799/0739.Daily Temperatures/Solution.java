@@ -1,12 +1,14 @@
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
-        int[] ans = new int[n];
         Deque<Integer> stk = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            while (!stk.isEmpty() && temperatures[stk.peek()] < temperatures[i]) {
-                int j = stk.pop();
-                ans[j] = i - j;
+        int[] ans = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && temperatures[stk.peek()] <= temperatures[i]) {
+                stk.pop();
+            }
+            if (!stk.isEmpty()) {
+                ans[i] = stk.peek() - i;
             }
             stk.push(i);
         }
