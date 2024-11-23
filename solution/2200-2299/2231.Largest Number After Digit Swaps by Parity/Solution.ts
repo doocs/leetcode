@@ -1,19 +1,22 @@
 function largestInteger(num: number): number {
-    const arrs: number[] = String(num).split('').map(Number);
-    const odds: number[] = []; // 奇数
-    const evens: number[] = [];
-    for (const i of arrs) {
-        if ((i & 1) == 1) {
-            odds.push(i);
-        } else {
-            evens.push(i);
+    const s = num.toString().split('');
+    const cnt = Array(10).fill(0);
+
+    for (const c of s) {
+        cnt[+c]++;
+    }
+
+    const idx = [8, 9];
+    let ans = 0;
+
+    for (const c of s) {
+        const x = +c;
+        while (cnt[idx[x % 2]] === 0) {
+            idx[x % 2] -= 2;
         }
+        ans = ans * 10 + idx[x % 2];
+        cnt[idx[x % 2]]--;
     }
-    odds.sort((a, b) => a - b);
-    evens.sort((a, b) => a - b);
-    const ans: number[] = [];
-    for (const i of arrs) {
-        ans.push((i & 1) === 1 ? odds.pop() : evens.pop());
-    }
-    return Number(ans.join(''));
+
+    return ans;
 }

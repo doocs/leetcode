@@ -22,15 +22,13 @@ tags:
 <p>For each <code>queries[i]</code>:</p>
 
 <ul>
-	<li>Select a subset of indices within the range <code>[l<sub>i</sub>, r<sub>i</sub>]</code> in <code>nums</code>.</li>
+	<li>Select a <span data-keyword="subset">subset</span> of indices within the range <code>[l<sub>i</sub>, r<sub>i</sub>]</code> in <code>nums</code>.</li>
 	<li>Decrement the values at the selected indices by 1.</li>
 </ul>
 
 <p>A <strong>Zero Array</strong> is an array where all elements are equal to 0.</p>
 
 <p>Return <code>true</code> if it is <em>possible</em> to transform <code>nums</code> into a <strong>Zero Array </strong>after processing all the queries sequentially, otherwise return <code>false</code>.</p>
-
-<p>A <strong>subset</strong> of an array is a selection of elements (possibly none) of the array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

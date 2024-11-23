@@ -1,25 +1,19 @@
 class Solution {
     public int largestInteger(int num) {
+        char[] s = String.valueOf(num).toCharArray();
         int[] cnt = new int[10];
-        int x = num;
-        while (x != 0) {
-            cnt[x % 10]++;
-            x /= 10;
+        for (char c : s) {
+            ++cnt[c - '0'];
         }
-        x = num;
+        int[] idx = {8, 9};
         int ans = 0;
-        int t = 1;
-        while (x != 0) {
-            int v = x % 10;
-            x /= 10;
-            for (int y = 0; y < 10; ++y) {
-                if (((v ^ y) & 1) == 0 && cnt[y] > 0) {
-                    cnt[y]--;
-                    ans += y * t;
-                    t *= 10;
-                    break;
-                }
+        for (char c : s) {
+            int x = c - '0';
+            while (cnt[idx[x & 1]] == 0) {
+                idx[x & 1] -= 2;
             }
+            ans = ans * 10 + idx[x & 1];
+            cnt[idx[x & 1]]--;
         }
         return ans;
     }
