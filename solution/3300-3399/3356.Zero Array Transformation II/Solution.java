@@ -28,7 +28,6 @@ class Solution {
             return true;
         }
 
-        // Binary search for the minimum maximum difference
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (isValid(mid)) {
