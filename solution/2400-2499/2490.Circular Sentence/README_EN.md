@@ -29,7 +29,7 @@ tags:
 <p>A sentence is <strong>circular </strong>if:</p>
 
 <ul>
-	<li>The last character of a word is equal to the first character of the next word.</li>
+	<li>The last character of each word in the sentence is equal to the first character of its next word.</li>
 	<li>The last character of the last word is equal to the first character of the first word.</li>
 </ul>
 

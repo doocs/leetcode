@@ -177,10 +177,10 @@ class Solution {
         if maxVat == 0 {
             return 0
         }
-        
+
         let n = vat.count
         var ans = Int.max
-        
+
         for x in 1...maxVat {
             var y = 0
             for i in 0..<n {
@@ -190,7 +190,7 @@ class Solution {
             }
             ans = min(ans, x + y)
         }
-        
+
         return ans
     }
 }

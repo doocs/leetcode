@@ -176,12 +176,12 @@ func dfs(root *TreeNode) {
 
 class Solution {
     private var uniqueColors: Set<Int> = []
-    
+
     func numColor(_ root: TreeNode?) -> Int {
         dfs(root)
         return uniqueColors.count
     }
-    
+
     private func dfs(_ node: TreeNode?) {
         guard let node = node else { return }
         uniqueColors.insert(node.val)

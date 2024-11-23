@@ -1,19 +1,12 @@
 class Solution:
     def largestInteger(self, num: int) -> int:
-        cnt = Counter()
-        x = num
-        while x:
-            x, v = divmod(x, 10)
-            cnt[v] += 1
-        x = num
+        nums = [int(c) for c in str(num)]
+        cnt = Counter(nums)
+        idx = [8, 9]
         ans = 0
-        t = 1
-        while x:
-            x, v = divmod(x, 10)
-            for y in range(10):
-                if ((v ^ y) & 1) == 0 and cnt[y]:
-                    ans += y * t
-                    t *= 10
-                    cnt[y] -= 1
-                    break
+        for x in nums:
+            while cnt[idx[x & 1]] == 0:
+                idx[x & 1] -= 2
+            ans = ans * 10 + idx[x & 1]
+            cnt[idx[x & 1]] -= 1
         return ans
