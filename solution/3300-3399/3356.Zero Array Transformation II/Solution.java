@@ -1,38 +1,45 @@
 class Solution {
-    private int n;
-    private int[] nums;
-    private int[][] queries;
+    private int x, y;
 
-    public int minZeroArray(int[] nums, int[][] queries) {
-        this.nums = nums;
-        this.queries = queries;
-        n = nums.length;
-        int m = queries.length;
-        int l = 0, r = m + 1;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (check(mid)) {
-                r = mid;
+    public int minimizeMaxDifference(int[] nums) {
+        int left = 0, right = (int) 1e9, result = (int) 1e9;
+
+        boolean isValid(int maxDiff) {
+            int prev = nums[0];
+            int minVal = 1, maxVal = (int) 1e9;
+
+            for (int i = 1; i < nums.length; i++) {
+                if (nums[i] == -1) {
+                    minVal = Math.max(prev - maxDiff, 1);
+                    maxVal = Math.min(prev + maxDiff, (int) 1e9);
+                    if (minVal > maxVal) {
+                        return false;
+                    }
+                    prev = (minVal + maxVal) / 2; 
+                } else {
+                    if (prev != -1 && Math.abs(nums[i] - prev) > maxDiff) {
+                        return false;
+                    }
+                    prev = nums[i];
+                }
+            }
+            x = minVal;
+            y = maxVal;
+            return true;
+        }
+
+        // Binary search for the minimum maximum difference
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (isValid(mid)) {
+                result = mid;
+                right = mid - 1;
             } else {
-                l = mid + 1;
+                left = mid + 1;
             }
         }
-        return l > m ? -1 : l;
-    }
 
-    private boolean check(int k) {
-        int[] d = new int[n + 1];
-        for (int i = 0; i < k; ++i) {
-            int l = queries[i][0], r = queries[i][1], val = queries[i][2];
-            d[l] += val;
-            d[r + 1] -= val;
-        }
-        for (int i = 0, s = 0; i < n; ++i) {
-            s += d[i];
-            if (nums[i] > s) {
-                return false;
-            }
-        }
-        return true;
+        System.out.println("Optimal pair: x=" + x + ", y=" + y);
+        return result;
     }
 }
