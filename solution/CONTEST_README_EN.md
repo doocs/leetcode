@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 425
+
+- [3364. Minimum Positive Sum Subarray](/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README_EN.md)
+- [3365. Rearrange K Substrings to Form Target String](/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README_EN.md)
+- [3366. Minimum Array Sum](/solution/3300-3399/3366.Minimum%20Array%20Sum/README_EN.md)
+- [3367. Maximize Sum of Weights after Edge Removals](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README_EN.md)
+
 #### Biweekly Contest 144
 
 - [3360. Stone Removal Game](/solution/3300-3399/3360.Stone%20Removal%20Game/README_EN.md)

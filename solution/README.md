@@ -3374,6 +3374,10 @@
 |  3361  |  [两个字符串的切换距离](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md)  |    |  中等  |  第 144 场双周赛  |
 |  3362  |  [零数组转化 III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md)  |    |  中等  |  第 144 场双周赛  |
 |  3363  |  [最多可收集的水果数目](/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README.md)  |    |  困难  |  第 144 场双周赛  |
+|  3364  |  [最小正和子数组](/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README.md)  |    |  简单  |  第 425 场周赛  |
+|  3365  |  [重排子字符串以形成目标字符串](/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README.md)  |    |  中等  |  第 425 场周赛  |
+|  3366  |  [最小数组和](/solution/3300-3399/3366.Minimum%20Array%20Sum/README.md)  |    |  中等  |  第 425 场周赛  |
+|  3367  |  [移除边之后的权重最大和](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README.md)  |    |  困难  |  第 425 场周赛  |
 
 ## 版权
 
