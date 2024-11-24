@@ -18,7 +18,7 @@ class Solution {
         for (int[] e : t) {
             int b = e[0];
             int v = e[1];
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            cnt.merge(v, 1, Integer::sum);
             while (cnt.size() == k) {
                 int a = t[j][0];
                 int w = t[j][1];
@@ -27,8 +27,7 @@ class Solution {
                     ans[0] = a;
                     ans[1] = b;
                 }
-                cnt.put(w, cnt.get(w) - 1);
-                if (cnt.get(w) == 0) {
+                if (cnt.merge(w, -1, Integer::sum) == 0) {
                     cnt.remove(w);
                 }
                 ++j;

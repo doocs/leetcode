@@ -28,6 +28,10 @@ comments: true
 
 #### 第 144 场双周赛(2024-11-23 22:30, 90 分钟) 参赛人数 1636
 
+- [3360. 移除石头游戏](/solution/3300-3399/3360.Stone%20Removal%20Game/README.md)
+- [3361. 两个字符串的切换距离](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md)
+- [3362. 零数组转化 III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md)
+- [3363. 最多可收集的水果数目](/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README.md)
 
 #### 第 424 场周赛(2024-11-17 10:30, 90 分钟) 参赛人数 2622
 

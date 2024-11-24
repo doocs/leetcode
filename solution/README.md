@@ -3370,6 +3370,10 @@
 |  3357  |  [最小化相邻元素的最大差值](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README.md)  |  `贪心`,`数组`,`二分查找`  |  困难  |  第 424 场周赛  |
 |  3358  |  [评分为 NULL 的图书](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  3359  |  [Find Sorted Submatrices With Maximum Element at Most K](/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README.md)  |    |  困难  |  🔒  |
+|  3360  |  [移除石头游戏](/solution/3300-3399/3360.Stone%20Removal%20Game/README.md)  |    |  简单  |  第 144 场双周赛  |
+|  3361  |  [两个字符串的切换距离](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md)  |    |  中等  |  第 144 场双周赛  |
+|  3362  |  [零数组转化 III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md)  |    |  中等  |  第 144 场双周赛  |
+|  3363  |  [最多可收集的水果数目](/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README.md)  |    |  困难  |  第 144 场双周赛  |
 
 ## 版权
 
