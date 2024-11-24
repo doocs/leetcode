@@ -87,32 +87,114 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3365.Re
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+Let the length of the string $s$ be $n$, then the length of each substring is $m = n / k$.
+
+We use a hash table $\textit{cnt}$ to record the difference between the number of occurrences of each substring of length $m$ in string $s$ and in string $t$.
+
+We traverse the string $s$, extracting substrings of length $m$ each time, and update the hash table $\textit{cnt}$.
+
+Finally, we check whether all values in the hash table $\textit{cnt}$ are $0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isPossibleToRearrange(self, s: str, t: str, k: int) -> bool:
+        cnt = Counter()
+        n = len(s)
+        m = n // k
+        for i in range(0, n, m):
+            cnt[s[i : i + m]] += 1
+            cnt[t[i : i + m]] -= 1
+        return all(v == 0 for v in cnt.values())
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isPossibleToRearrange(String s, String t, int k) {
+        Map<String, Integer> cnt = new HashMap<>(k);
+        int n = s.length();
+        int m = n / k;
+        for (int i = 0; i < n; i += m) {
+            cnt.merge(s.substring(i, i + m), 1, Integer::sum);
+            cnt.merge(t.substring(i, i + m), -1, Integer::sum);
+        }
+        for (int v : cnt.values()) {
+            if (v != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isPossibleToRearrange(string s, string t, int k) {
+        unordered_map<string, int> cnt;
+        int n = s.size();
+        int m = n / k;
+        for (int i = 0; i < n; i += m) {
+            cnt[s.substr(i, m)]++;
+            cnt[t.substr(i, m)]--;
+        }
+        for (auto& [_, v] : cnt) {
+            if (v) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isPossibleToRearrange(s string, t string, k int) bool {
+	n := len(s)
+	m := n / k
+	cnt := map[string]int{}
+	for i := 0; i < n; i += m {
+		cnt[s[i:i+m]]++
+		cnt[t[i:i+m]]--
+	}
+	for _, v := range cnt {
+		if v != 0 {
+			return false
+		}
+	}
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function isPossibleToRearrange(s: string, t: string, k: number): boolean {
+    const cnt: Record<string, number> = {};
+    const n = s.length;
+    const m = Math.floor(n / k);
+    for (let i = 0; i < n; i += m) {
+        const a = s.slice(i, i + m);
+        cnt[a] = (cnt[a] || 0) + 1;
+        const b = t.slice(i, i + m);
+        cnt[b] = (cnt[b] || 0) - 1;
+    }
+    return Object.values(cnt).every(x => x === 0);
+}
 ```
 
 <!-- tabs:end -->

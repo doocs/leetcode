@@ -89,32 +89,114 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3365.Re
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们记字符串 $s$ 的长度为 $n$，那么每个子字符串的长度为 $m = n / k$。
+
+用一个哈希表 $\textit{cnt}$ 记录每个长度为 $m$ 的子字符串在字符串 $s$ 中出现的次数与在字符串 $t$ 中出现的次数之差。
+
+遍历字符串 $s$，每次取出长度为 $m$ 的子字符串，更新哈希表 $\textit{cnt}$。
+
+最后判断哈希表 $\textit{cnt}$ 中的所有值是否都为 $0$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isPossibleToRearrange(self, s: str, t: str, k: int) -> bool:
+        cnt = Counter()
+        n = len(s)
+        m = n // k
+        for i in range(0, n, m):
+            cnt[s[i : i + m]] += 1
+            cnt[t[i : i + m]] -= 1
+        return all(v == 0 for v in cnt.values())
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isPossibleToRearrange(String s, String t, int k) {
+        Map<String, Integer> cnt = new HashMap<>(k);
+        int n = s.length();
+        int m = n / k;
+        for (int i = 0; i < n; i += m) {
+            cnt.merge(s.substring(i, i + m), 1, Integer::sum);
+            cnt.merge(t.substring(i, i + m), -1, Integer::sum);
+        }
+        for (int v : cnt.values()) {
+            if (v != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isPossibleToRearrange(string s, string t, int k) {
+        unordered_map<string, int> cnt;
+        int n = s.size();
+        int m = n / k;
+        for (int i = 0; i < n; i += m) {
+            cnt[s.substr(i, m)]++;
+            cnt[t.substr(i, m)]--;
+        }
+        for (auto& [_, v] : cnt) {
+            if (v) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isPossibleToRearrange(s string, t string, k int) bool {
+	n := len(s)
+	m := n / k
+	cnt := map[string]int{}
+	for i := 0; i < n; i += m {
+		cnt[s[i:i+m]]++
+		cnt[t[i:i+m]]--
+	}
+	for _, v := range cnt {
+		if v != 0 {
+			return false
+		}
+	}
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function isPossibleToRearrange(s: string, t: string, k: number): boolean {
+    const cnt: Record<string, number> = {};
+    const n = s.length;
+    const m = Math.floor(n / k);
+    for (let i = 0; i < n; i += m) {
+        const a = s.slice(i, i + m);
+        cnt[a] = (cnt[a] || 0) + 1;
+        const b = t.slice(i, i + m);
+        cnt[b] = (cnt[b] || 0) - 1;
+    }
+    return Object.values(cnt).every(x => x === 0);
+}
 ```
 
 <!-- tabs:end -->
