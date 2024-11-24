@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 425 场周赛(2024-11-24 10:30, 90 分钟) 参赛人数 2497
+
+- [3364. 最小正和子数组](/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README.md)
+- [3365. 重排子字符串以形成目标字符串](/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README.md)
+- [3366. 最小数组和](/solution/3300-3399/3366.Minimum%20Array%20Sum/README.md)
+- [3367. 移除边之后的权重最大和](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README.md)
+
 #### 第 144 场双周赛(2024-11-23 22:30, 90 分钟) 参赛人数 1636
 
 - [3360. 移除石头游戏](/solution/3300-3399/3360.Stone%20Removal%20Game/README.md)
