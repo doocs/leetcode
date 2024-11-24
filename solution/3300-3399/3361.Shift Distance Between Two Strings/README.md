@@ -87,25 +87,130 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3361.Sh
 #### Python3
 
 ```python
-
+class Solution:
+    def shiftDistance(
+        self, s: str, t: str, nextCost: List[int], previousCost: List[int]
+    ) -> int:
+        m = 26
+        s1 = [0] * (m << 1 | 1)
+        s2 = [0] * (m << 1 | 1)
+        for i in range(m << 1):
+            s1[i + 1] = s1[i] + nextCost[i % m]
+            s2[i + 1] = s2[i] + previousCost[(i + 1) % m]
+        ans = 0
+        for a, b in zip(s, t):
+            x, y = ord(a) - ord("a"), ord(b) - ord("a")
+            c1 = s1[y + m if y < x else y] - s1[x]
+            c2 = s2[x + m if x < y else x] - s2[y]
+            ans += min(c1, c2)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long shiftDistance(String s, String t, int[] nextCost, int[] previousCost) {
+        int m = 26;
+        long[] s1 = new long[(m << 1) + 1];
+        long[] s2 = new long[(m << 1) + 1];
+        for (int i = 0; i < (m << 1); i++) {
+            s1[i + 1] = s1[i] + nextCost[i % m];
+            s2[i + 1] = s2[i] + previousCost[(i + 1) % m];
+        }
+        long ans = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int x = s.charAt(i) - 'a';
+            int y = t.charAt(i) - 'a';
+            long c1 = s1[y + (y < x ? m : 0)] - s1[x];
+            long c2 = s2[x + (x < y ? m : 0)] - s2[y];
+            ans += Math.min(c1, c2);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long shiftDistance(string s, string t, vector<int>& nextCost, vector<int>& previousCost) {
+        int m = 26;
+        vector<long long> s1((m << 1) + 1);
+        vector<long long> s2((m << 1) + 1);
+        for (int i = 0; i < (m << 1); ++i) {
+            s1[i + 1] = s1[i] + nextCost[i % m];
+            s2[i + 1] = s2[i] + previousCost[(i + 1) % m];
+        }
 
+        long long ans = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            int x = s[i] - 'a';
+            int y = t[i] - 'a';
+            long long c1 = s1[y + (y < x ? m : 0)] - s1[x];
+            long long c2 = s2[x + (x < y ? m : 0)] - s2[y];
+            ans += min(c1, c2);
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func shiftDistance(s string, t string, nextCost []int, previousCost []int) (ans int64) {
+	m := 26
+	s1 := make([]int64, (m<<1)+1)
+	s2 := make([]int64, (m<<1)+1)
+	for i := 0; i < (m << 1); i++ {
+		s1[i+1] = s1[i] + int64(nextCost[i%m])
+		s2[i+1] = s2[i] + int64(previousCost[(i+1)%m])
+	}
+	for i := 0; i < len(s); i++ {
+		x := int(s[i] - 'a')
+		y := int(t[i] - 'a')
+		z := y
+		if y < x {
+			z += m
+		}
+		c1 := s1[z] - s1[x]
+		z = x
+		if x < y {
+			z += m
+		}
+		c2 := s2[z] - s2[y]
+		ans += min(c1, c2)
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function shiftDistance(s: string, t: string, nextCost: number[], previousCost: number[]): number {
+    const m = 26;
+    const s1: number[] = Array((m << 1) + 1).fill(0);
+    const s2: number[] = Array((m << 1) + 1).fill(0);
+    for (let i = 0; i < m << 1; i++) {
+        s1[i + 1] = s1[i] + nextCost[i % m];
+        s2[i + 1] = s2[i] + previousCost[(i + 1) % m];
+    }
+    let ans = 0;
+    const a = 'a'.charCodeAt(0);
+    for (let i = 0; i < s.length; i++) {
+        const x = s.charCodeAt(i) - a;
+        const y = t.charCodeAt(i) - a;
+        const c1 = s1[y + (y < x ? m : 0)] - s1[x];
+        const c2 = s2[x + (x < y ? m : 0)] - s2[y];
+        ans += Math.min(c1, c2);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
