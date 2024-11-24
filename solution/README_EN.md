@@ -3368,6 +3368,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3357  |  [Minimize the Maximum Adjacent Element Difference](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 424  |
 |  3358  |  [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  3359  |  [Find Sorted Submatrices With Maximum Element at Most K](/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README_EN.md)  |    |  Hard  |  🔒  |
+|  3360  |  [Stone Removal Game](/solution/3300-3399/3360.Stone%20Removal%20Game/README_EN.md)  |    |  Easy  |  Biweekly Contest 144  |
+|  3361  |  [Shift Distance Between Two Strings](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README_EN.md)  |    |  Medium  |  Biweekly Contest 144  |
+|  3362  |  [Zero Array Transformation III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README_EN.md)  |    |  Medium  |  Biweekly Contest 144  |
+|  3363  |  [Find the Maximum Number of Fruits Collected](/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README_EN.md)  |    |  Hard  |  Biweekly Contest 144  |
 
 ## Copyright
 

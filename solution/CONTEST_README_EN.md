@@ -31,6 +31,10 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Biweekly Contest 144
 
+- [3360. Stone Removal Game](/solution/3300-3399/3360.Stone%20Removal%20Game/README_EN.md)
+- [3361. Shift Distance Between Two Strings](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README_EN.md)
+- [3362. Zero Array Transformation III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README_EN.md)
+- [3363. Find the Maximum Number of Fruits Collected](/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README_EN.md)
 
 #### Weekly Contest 424
 

@@ -61,7 +61,13 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Sliding Window
+
+We construct a data item $(x, i)$ for each number $x$ and its group $i$, and store these items in a new array $t$. Then, we sort $t$ by the value of the numbers (similar to merging multiple sorted arrays into a new sorted array).
+
+Next, we traverse each data item in $t$, focusing on the group to which each number belongs. We use a hash table to record the groups of numbers within the sliding window. If the number of groups is $k$, it means the current window meets the problem's requirements. At this point, we calculate the start and end positions of the window and update the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of numbers in all arrays.
 
 <!-- tabs:start -->
 
@@ -113,7 +119,7 @@ class Solution {
         for (int[] e : t) {
             int b = e[0];
             int v = e[1];
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            cnt.merge(v, 1, Integer::sum);
             while (cnt.size() == k) {
                 int a = t[j][0];
                 int w = t[j][1];
@@ -122,8 +128,7 @@ class Solution {
                     ans[0] = a;
                     ans[1] = b;
                 }
-                cnt.put(w, cnt.get(w) - 1);
-                if (cnt.get(w) == 0) {
+                if (cnt.merge(w, -1, Integer::sum) == 0) {
                     cnt.remove(w);
                 }
                 ++j;
