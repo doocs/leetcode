@@ -3369,7 +3369,7 @@
 |  3356  |  [零数组变换 II](/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README.md)  |  `数组`,`二分查找`,`前缀和`  |  中等  |  第 424 场周赛  |
 |  3357  |  [最小化相邻元素的最大差值](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README.md)  |  `贪心`,`数组`,`二分查找`  |  困难  |  第 424 场周赛  |
 |  3358  |  [评分为 NULL 的图书](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README.md)  |  `数据库`  |  简单  |  🔒  |
-|  3359  |  [Find Sorted Submatrices With Maximum Element at Most K](/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README.md)  |    |  困难  |  🔒  |
+|  3359  |  [查找最大元素不超过 K 的有序子矩阵](/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README.md)  |    |  困难  |  🔒  |
 |  3360  |  [移除石头游戏](/solution/3300-3399/3360.Stone%20Removal%20Game/README.md)  |    |  简单  |  第 144 场双周赛  |
 |  3361  |  [两个字符串的切换距离](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md)  |    |  中等  |  第 144 场双周赛  |
 |  3362  |  [零数组变换 III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md)  |    |  中等  |  第 144 场双周赛  |
@@ -3378,7 +3378,7 @@
 |  3365  |  [重排子字符串以形成目标字符串](/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README.md)  |    |  中等  |  第 425 场周赛  |
 |  3366  |  [最小数组和](/solution/3300-3399/3366.Minimum%20Array%20Sum/README.md)  |    |  中等  |  第 425 场周赛  |
 |  3367  |  [移除边之后的权重最大和](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README.md)  |    |  困难  |  第 425 场周赛  |
-|  3368  |  [First Letter Capitalization](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)  |    |  困难  |  🔒  |
+|  3368  |  [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

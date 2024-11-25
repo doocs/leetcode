@@ -22,15 +22,13 @@ tags:
 <p>对于每个查询&nbsp;<code>queries[i]</code>：</p>
 
 <ul>
-	<li>在&nbsp;<code>nums</code>&nbsp;的下标范围&nbsp;<code>[l<sub>i</sub>, r<sub>i</sub>]</code>&nbsp;内选择一个下标子集。</li>
+	<li>在&nbsp;<code>nums</code>&nbsp;的下标范围&nbsp;<code>[l<sub>i</sub>, r<sub>i</sub>]</code>&nbsp;内选择一个下标 <span data-keyword="subset">子集</span>。</li>
 	<li>将选中的每个下标对应的元素值减 1。</li>
 </ul>
 
 <p><strong>零数组&nbsp;</strong>是指所有元素都等于 0 的数组。</p>
 
 <p>如果在按顺序处理所有查询后，可以将 <code>nums</code> 转换为&nbsp;<strong>零数组&nbsp;</strong>，则返回 <code>true</code>，否则返回 <code>false</code>。</p>
-
-<p>数组的&nbsp;<strong>子集&nbsp;</strong>是对数组元素的选择（可能为空）。</p>
 
 <p>&nbsp;</p>
 
