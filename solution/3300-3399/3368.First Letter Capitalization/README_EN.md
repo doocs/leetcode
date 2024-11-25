@@ -115,7 +115,59 @@ Each row contains a unique ID and the corresponding text content.
 #### MySQL
 
 ```sql
+WITH RECURSIVE
+    capitalized_words AS (
+        SELECT
+            content_id,
+            content_text,
+            SUBSTRING_INDEX(content_text, ' ', 1) AS word,
+            SUBSTRING(
+                content_text,
+                LENGTH(SUBSTRING_INDEX(content_text, ' ', 1)) + 2
+            ) AS remaining_text,
+            CONCAT(
+                UPPER(LEFT(SUBSTRING_INDEX(content_text, ' ', 1), 1)),
+                LOWER(SUBSTRING(SUBSTRING_INDEX(content_text, ' ', 1), 2))
+            ) AS processed_word
+        FROM user_content
+        UNION ALL
+        SELECT
+            c.content_id,
+            c.content_text,
+            SUBSTRING_INDEX(c.remaining_text, ' ', 1),
+            SUBSTRING(c.remaining_text, LENGTH(SUBSTRING_INDEX(c.remaining_text, ' ', 1)) + 2),
+            CONCAT(
+                c.processed_word,
+                ' ',
+                CONCAT(
+                    UPPER(LEFT(SUBSTRING_INDEX(c.remaining_text, ' ', 1), 1)),
+                    LOWER(SUBSTRING(SUBSTRING_INDEX(c.remaining_text, ' ', 1), 2))
+                )
+            )
+        FROM capitalized_words c
+        WHERE c.remaining_text != ''
+    )
+SELECT
+    content_id,
+    content_text AS original_text,
+    MAX(processed_word) AS converted_text
+FROM capitalized_words
+GROUP BY 1, 2;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def process_text(user_content: pd.DataFrame) -> pd.DataFrame:
+    user_content["converted_text"] = user_content["content_text"].apply(
+        lambda text: " ".join(word.capitalize() for word in text.split(" "))
+    )
+    return user_content[["content_id", "content_text", "converted_text"]].rename(
+        columns={"content_text": "original_text"}
+    )
 ```
 
 <!-- tabs:end -->
