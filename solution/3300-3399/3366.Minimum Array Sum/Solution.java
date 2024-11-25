@@ -26,7 +26,8 @@ class Solution {
                             f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j - 1][k - 1] + (y - d));
                         }
                         if (x >= d) {
-                            f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j - 1][k - 1] + (x - d + 1) / 2);
+                            f[i][j][k]
+                                = Math.min(f[i][j][k], f[i - 1][j - 1][k - 1] + (x - d + 1) / 2);
                         }
                     }
                 }
