@@ -80,7 +80,19 @@ We can build the buildings with heights [0,1,2,3,3,4,4,5,4,3], and the tallest b
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Mathematics
+
+First, we sort all the constraints by the building number in ascending order.
+
+Then we traverse all the constraints from left to right. For each constraint, we can get an upper bound on the maximum height, i.e., $r_i[1] = \min(r_i[1], r_{i-1}[1] + r_i[0] - r_{i-1}[0])$, where $r_i$ represents the $i$-th constraint, and $r_i[0]$ and $r_i[1]$ represent the building number and the upper bound on the maximum height of the building, respectively.
+
+Next, we traverse all the constraints from right to left. For each constraint, we can get an upper bound on the maximum height, i.e., $r_i[1] = \min(r_i[1], r_{i+1}[1] + r_{i+1}[0] - r_i[0])$.
+
+In this way, we obtain the upper bound on the maximum height for each constrained building.
+
+The problem asks for the height of the tallest building. We can enumerate the buildings between two adjacent constraints $i$ and $i+1$. To maximize the height, the height should first increase and then decrease. Suppose the maximum height is $t$, then $t - r_i[1] + t - r_{i+1}[1] \leq r_{i+1}[0] - r_i[0]$, i.e., $t \leq \frac{r_i[1] + r_{i+1}[1] + r_{i+1}[0] - r_{i}[0]}{2}$. We take the maximum value of all such $t$.
+
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(m)$. Here, $m$ is the number of constraints.
 
 <!-- tabs:start -->
 
@@ -146,8 +158,10 @@ public:
     int maxBuilding(int n, vector<vector<int>>& restrictions) {
         auto&& r = restrictions;
         r.push_back({1, 0});
-        sort(r.begin(), r.end());
-        if (r[r.size() - 1][0] != n) r.push_back({n, n - 1});
+        ranges::sort(r);
+        if (r[r.size() - 1][0] != n) {
+            r.push_back({n, n - 1});
+        }
         int m = r.size();
         for (int i = 1; i < m; ++i) {
             r[i][1] = min(r[i][1], r[i - 1][1] + r[i][0] - r[i - 1][0]);
@@ -187,6 +201,47 @@ func maxBuilding(n int, restrictions [][]int) (ans int) {
 		ans = max(ans, t)
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxBuilding(n: number, restrictions: number[][]): number {
+    restrictions.push([1, 0]);
+    restrictions.sort((a, b) => a[0] - b[0]);
+    if (restrictions[restrictions.length - 1][0] !== n) {
+        restrictions.push([n, n - 1]);
+    }
+
+    const m = restrictions.length;
+    for (let i = 1; i < m; ++i) {
+        restrictions[i][1] = Math.min(
+            restrictions[i][1],
+            restrictions[i - 1][1] + restrictions[i][0] - restrictions[i - 1][0],
+        );
+    }
+
+    for (let i = m - 2; i >= 0; --i) {
+        restrictions[i][1] = Math.min(
+            restrictions[i][1],
+            restrictions[i + 1][1] + restrictions[i + 1][0] - restrictions[i][0],
+        );
+    }
+
+    let ans = 0;
+    for (let i = 0; i < m - 1; ++i) {
+        const t = Math.floor(
+            (restrictions[i][1] +
+                restrictions[i + 1][1] +
+                restrictions[i + 1][0] -
+                restrictions[i][0]) /
+                2,
+        );
+        ans = Math.max(ans, t);
+    }
+
+    return ans;
 }
 ```
 
