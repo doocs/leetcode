@@ -1,13 +1,14 @@
 class Solution {
 public:
-    const int inf = 0x3f3f;
-
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        const int inf = 1 << 29;
         vector<vector<int>> g(n, vector<int>(n, inf));
-        for (auto& t : times) g[t[0] - 1][t[1] - 1] = t[2];
-        vector<bool> vis(n);
+        for (const auto& e : times) {
+            g[e[0] - 1][e[1] - 1] = e[2];
+        }
         vector<int> dist(n, inf);
         dist[k - 1] = 0;
+        vector<bool> vis(n);
         for (int i = 0; i < n; ++i) {
             int t = -1;
             for (int j = 0; j < n; ++j) {
@@ -20,7 +21,7 @@ public:
                 dist[j] = min(dist[j], dist[t] + g[t][j]);
             }
         }
-        int ans = *max_element(dist.begin(), dist.end());
+        int ans = ranges::max(dist);
         return ans == inf ? -1 : ans;
     }
 };

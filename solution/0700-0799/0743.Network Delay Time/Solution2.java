@@ -1,34 +1,31 @@
 class Solution {
-    private static final int INF = 0x3f3f;
-
     public int networkDelayTime(int[][] times, int n, int k) {
+        final int inf = 1 << 29;
         List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : times) {
+            g[e[0] - 1].add(new int[] {e[1] - 1, e[2]});
+        }
         int[] dist = new int[n];
-        for (int i = 0; i < n; ++i) {
-            dist[i] = INF;
-            g[i] = new ArrayList<>();
-        }
-        for (int[] t : times) {
-            g[t[0] - 1].add(new int[] {t[1] - 1, t[2]});
-        }
+        Arrays.fill(dist, inf);
         dist[k - 1] = 0;
-        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        q.offer(new int[] {0, k - 1});
-        while (!q.isEmpty()) {
-            int[] p = q.poll();
-            int u = p[1];
-            for (int[] ne : g[u]) {
-                int v = ne[0], w = ne[1];
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        pq.offer(new int[] {0, k - 1});
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int d = p[0], u = p[1];
+            if (d > dist[u]) {
+                continue;
+            }
+            for (var e : g[u]) {
+                int v = e[0], w = e[1];
                 if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
-                    q.offer(new int[] {dist[v], v});
+                    pq.offer(new int[] {dist[v], v});
                 }
             }
         }
-        int ans = 0;
-        for (int d : dist) {
-            ans = Math.max(ans, d);
-        }
-        return ans == INF ? -1 : ans;
+        int ans = Arrays.stream(dist).max().getAsInt();
+        return ans == inf ? -1 : ans;
     }
 }
