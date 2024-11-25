@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3362.Ze
 
 <!-- problem:start -->
 
-# [3362. 零数组转化 III](https://leetcode.cn/problems/zero-array-transformation-iii)
+# [3362. 零数组变换 III](https://leetcode.cn/problems/zero-array-transformation-iii)
 
 [English Version](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README_EN.md)
 

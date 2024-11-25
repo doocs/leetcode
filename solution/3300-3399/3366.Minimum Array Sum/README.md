@@ -80,32 +80,246 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3366.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+为了方便描述，我们将题目给定的 $k$ 记为 $d$。
+
+接下来，定义 $f[i][j][k]$ 表示前 $i$ 个数中，使用了 $j$ 次操作 1 和 $k$ 次操作 2 的最小和。初始时 $f[0][0][0] = 0$，其余 $f[i][j][k] = +\infty$。
+
+考虑 $f[i][j][k]$ 如何进行状态转移，我们可以枚举第 $i$ 个数 $x$，然后考虑 $x$ 的取值对 $f[i][j][k]$ 的影响：
+
+-   如果 $x$ 不使用操作 1 和操作 2，那么 $f[i][j][k] = f[i-1][j][k] + x$；
+-   如果 $j \gt 0$，那么可以使用操作 1，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k] + \lceil \frac{x+1}{2} \rceil)$；
+-   如果 $k \gt 0$ 并且 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j][k-1] + (x - d))$；
+-   如果 $j \gt 0$ 并且 $k \gt 0$，那么可以同时使用操作 1 和操作 2。如果先使用操作 1，那么 $x$ 变为 $\lceil \frac{x+1}{2} \rceil$，如果 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x+1}{2} \rceil - d)$；如果先使用操作 2，那么 $x$ 变为 $x - d$，如果 $x \geq d$，那么可以使用操作 1，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x-d+1}{2} \rceil)$。
+
+最终答案为 $\min_{j=0}^{op1} \min_{k=0}^{op2} f[n][j][k]$，如果为 $+\infty$，则输出 $-1$。
+
+时间复杂度 $O(n \times \textit{op1} \times \textit{op2})$，空间复杂度 $O(n \times \textit{op1} \times \textit{op2})$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minArraySum(self, nums: List[int], d: int, op1: int, op2: int) -> int:
+        n = len(nums)
+        f = [[[inf] * (op2 + 1) for _ in range(op1 + 1)] for _ in range(n + 1)]
+        f[0][0][0] = 0
+        for i, x in enumerate(nums, 1):
+            for j in range(op1 + 1):
+                for k in range(op2 + 1):
+                    f[i][j][k] = f[i - 1][j][k] + x
+                    if j > 0:
+                        f[i][j][k] = min(f[i][j][k], f[i - 1][j - 1][k] + (x + 1) // 2)
+                    if k > 0 and x >= d:
+                        f[i][j][k] = min(f[i][j][k], f[i - 1][j][k - 1] + (x - d))
+                    if j > 0 and k > 0:
+                        y = (x + 1) // 2
+                        if y >= d:
+                            f[i][j][k] = min(f[i][j][k], f[i - 1][j - 1][k - 1] + y - d)
+                        if x >= d:
+                            f[i][j][k] = min(
+                                f[i][j][k], f[i - 1][j - 1][k - 1] + (x - d + 1) // 2
+                            )
+        ans = inf
+        for j in range(op1 + 1):
+            for k in range(op2 + 1):
+                ans = min(ans, f[n][j][k])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minArraySum(int[] nums, int d, int op1, int op2) {
+        int n = nums.length;
+        int[][][] f = new int[n + 1][op1 + 1][op2 + 1];
+        final int inf = 1 << 29;
+        for (var g : f) {
+            for (var h : g) {
+                Arrays.fill(h, inf);
+            }
+        }
+        f[0][0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = nums[i - 1];
+            for (int j = 0; j <= op1; ++j) {
+                for (int k = 0; k <= op2; ++k) {
+                    f[i][j][k] = f[i - 1][j][k] + x;
+                    if (j > 0) {
+                        f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j - 1][k] + (x + 1) / 2);
+                    }
+                    if (k > 0 && x >= d) {
+                        f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j][k - 1] + (x - d));
+                    }
+                    if (j > 0 && k > 0) {
+                        int y = (x + 1) / 2;
+                        if (y >= d) {
+                            f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j - 1][k - 1] + (y - d));
+                        }
+                        if (x >= d) {
+                            f[i][j][k]
+                                = Math.min(f[i][j][k], f[i - 1][j - 1][k - 1] + (x - d + 1) / 2);
+                        }
+                    }
+                }
+            }
+        }
+        int ans = inf;
+        for (int j = 0; j <= op1; ++j) {
+            for (int k = 0; k <= op2; ++k) {
+                ans = Math.min(ans, f[n][j][k]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minArraySum(vector<int>& nums, int d, int op1, int op2) {
+        int n = nums.size();
+        int f[n + 1][op1 + 1][op2 + 1];
+        memset(f, 0x3f, sizeof f);
+        f[0][0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = nums[i - 1];
+            for (int j = 0; j <= op1; ++j) {
+                for (int k = 0; k <= op2; ++k) {
+                    f[i][j][k] = f[i - 1][j][k] + x;
+                    if (j > 0) {
+                        f[i][j][k] = min(f[i][j][k], f[i - 1][j - 1][k] + (x + 1) / 2);
+                    }
+                    if (k > 0 && x >= d) {
+                        f[i][j][k] = min(f[i][j][k], f[i - 1][j][k - 1] + (x - d));
+                    }
+                    if (j > 0 && k > 0) {
+                        int y = (x + 1) / 2;
+                        if (y >= d) {
+                            f[i][j][k] = min(f[i][j][k], f[i - 1][j - 1][k - 1] + (y - d));
+                        }
+                        if (x >= d) {
+                            f[i][j][k] = min(f[i][j][k], f[i - 1][j - 1][k - 1] + (x - d + 1) / 2);
+                        }
+                    }
+                }
+            }
+        }
+        int ans = INT_MAX;
+        for (int j = 0; j <= op1; ++j) {
+            for (int k = 0; k <= op2; ++k) {
+                ans = min(ans, f[n][j][k]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minArraySum(nums []int, d int, op1 int, op2 int) int {
+	n := len(nums)
+	const inf = int(1e9)
+	f := make([][][]int, n+1)
+	for i := range f {
+		f[i] = make([][]int, op1+1)
+		for j := range f[i] {
+			f[i][j] = make([]int, op2+1)
+			for k := range f[i][j] {
+				f[i][j][k] = inf
+			}
+		}
+	}
+	f[0][0][0] = 0
+	for i := 1; i <= n; i++ {
+		x := nums[i-1]
+		for j := 0; j <= op1; j++ {
+			for k := 0; k <= op2; k++ {
+				f[i][j][k] = f[i-1][j][k] + x
+				if j > 0 {
+					f[i][j][k] = min(f[i][j][k], f[i-1][j-1][k]+(x+1)/2)
+				}
+				if k > 0 && x >= d {
+					f[i][j][k] = min(f[i][j][k], f[i-1][j][k-1]+(x-d))
+				}
+				if j > 0 && k > 0 {
+					y := (x + 1) / 2
+					if y >= d {
+						f[i][j][k] = min(f[i][j][k], f[i-1][j-1][k-1]+(y-d))
+					}
+					if x >= d {
+						f[i][j][k] = min(f[i][j][k], f[i-1][j-1][k-1]+(x-d+1)/2)
+					}
+				}
+			}
+		}
+	}
+	ans := inf
+	for j := 0; j <= op1; j++ {
+		for k := 0; k <= op2; k++ {
+			ans = min(ans, f[n][j][k])
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minArraySum(nums: number[], d: number, op1: number, op2: number): number {
+    const n = nums.length;
+    const inf = Number.MAX_SAFE_INTEGER;
+
+    const f: number[][][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: op1 + 1 }, () => Array(op2 + 1).fill(inf)),
+    );
+    f[0][0][0] = 0;
+
+    for (let i = 1; i <= n; i++) {
+        const x = nums[i - 1];
+        for (let j = 0; j <= op1; j++) {
+            for (let k = 0; k <= op2; k++) {
+                f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j][k] + x);
+                if (j > 0) {
+                    f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j - 1][k] + Math.floor((x + 1) / 2));
+                }
+                if (k > 0 && x >= d) {
+                    f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j][k - 1] + (x - d));
+                }
+                if (j > 0 && k > 0) {
+                    const y = Math.floor((x + 1) / 2);
+                    if (y >= d) {
+                        f[i][j][k] = Math.min(f[i][j][k], f[i - 1][j - 1][k - 1] + (y - d));
+                    }
+                    if (x >= d) {
+                        f[i][j][k] = Math.min(
+                            f[i][j][k],
+                            f[i - 1][j - 1][k - 1] + Math.floor((x - d + 1) / 2),
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    let ans = inf;
+    for (let j = 0; j <= op1; j++) {
+        for (let l = 0; l <= op2; l++) {
+            ans = Math.min(ans, f[n][j][l]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

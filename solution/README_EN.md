@@ -3376,6 +3376,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3365  |  [Rearrange K Substrings to Form Target String](/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 425  |
 |  3366  |  [Minimum Array Sum](/solution/3300-3399/3366.Minimum%20Array%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 425  |
 |  3367  |  [Maximize Sum of Weights after Edge Removals](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README_EN.md)  |    |  Hard  |  Weekly Contest 425  |
+|  3368  |  [First Letter Capitalization](/solution/3300-3399/3368.First%20Letter%20Capitalization/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

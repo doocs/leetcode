@@ -50,7 +50,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3363.Fi
 	<li>The 3<sup>rd</sup> child (blue) moves on the path <code>(3,0) -&gt; (3,1) -&gt; (3,2) -&gt; (3, 3)</code>.</li>
 </ul>
 
-<p>In total they collect <code>1 + 6 + 11 + 1 + 4 + 8 + 12 + 13 + 14 + 15 = 100</code> fruits.</p>
+<p>In total they collect <code>1 + 6 + 11 + 16 + 4 + 8 + 12 + 13 + 14 + 15 = 100</code> fruits.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>
