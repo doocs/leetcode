@@ -24,13 +24,13 @@ public:
                 }
             }
             ranges::sort(t, greater<>());
-            for (int i = 0; i < min((int) t.size(), k - 1); ++i) {
+            for (int i = 0; i < min((int)t.size(), k - 1); ++i) {
                 s += t[i];
             }
             return {s + (t.size() >= k ? t[k - 1] : 0), s};
         };
 
-        auto ans = dfs(dfs, 0, -1);
-        return max(ans.first, ans.second);
+        auto [x, y] = dfs(dfs, 0, -1);
+        return max(x, y);
     }
 };
