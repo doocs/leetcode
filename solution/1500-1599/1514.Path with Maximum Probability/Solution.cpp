@@ -1,32 +1,32 @@
 class Solution {
 public:
-    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
-        vector<vector<pair<int, double>>> g(n);
+    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start_node, int end_node) {
+        using pdi = pair<double, int>;
+        vector<pdi> g[n];
         for (int i = 0; i < edges.size(); ++i) {
             int a = edges[i][0], b = edges[i][1];
-            double s = succProb[i];
-            g[a].push_back({b, s});
-            g[b].push_back({a, s});
+            double p = succProb[i];
+            g[a].emplace_back(p, b);
+            g[b].emplace_back(p, a);
         }
-        vector<double> d(n);
-        d[start] = 1.0;
-        queue<pair<double, int>> q;
-        q.push({1.0, start});
-        while (!q.empty()) {
-            auto p = q.front();
-            q.pop();
-            double w = p.first;
-            int u = p.second;
-            if (d[u] > w) continue;
-            for (auto& e : g[u]) {
-                int v = e.first;
-                double t = e.second;
-                if (d[v] < d[u] * t) {
-                    d[v] = d[u] * t;
-                    q.push({d[v], v});
+        vector<double> dist(n);
+        dist[start_node] = 1;
+        priority_queue<pdi> pq;
+        pq.emplace(1, start_node);
+        while (!pq.empty()) {
+            auto [w, a] = pq.top();
+            pq.pop();
+            if (dist[a] > w) {
+                continue;
+            }
+            for (auto [p, b] : g[a]) {
+                auto nw = w * p;
+                if (nw > dist[b]) {
+                    dist[b] = nw;
+                    pq.emplace(nw, b);
                 }
             }
         }
-        return d[end];
+        return dist[end_node];
     }
 };

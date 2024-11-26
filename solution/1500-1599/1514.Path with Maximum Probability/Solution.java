@@ -1,32 +1,37 @@
 class Solution {
-    public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
+    public double maxProbability(
+        int n, int[][] edges, double[] succProb, int start_node, int end_node) {
         List<Pair<Integer, Double>>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < edges.length; ++i) {
-            int a = edges[i][0], b = edges[i][1];
-            double s = succProb[i];
-            g[a].add(new Pair<>(b, s));
-            g[b].add(new Pair<>(a, s));
+            var e = edges[i];
+            int a = e[0], b = e[1];
+            double p = succProb[i];
+            g[a].add(new Pair<>(b, p));
+            g[b].add(new Pair<>(a, p));
         }
-        PriorityQueue<Pair<Double, Integer>> q
-            = new PriorityQueue<>(Comparator.comparingDouble(Pair::getKey));
-        double[] d = new double[n];
-        d[start] = 1.0;
-        q.offer(new Pair<>(-1.0, start));
-        while (!q.isEmpty()) {
-            Pair<Double, Integer> p = q.poll();
-            double w = p.getKey();
-            w *= -1;
-            int u = p.getValue();
-            for (Pair<Integer, Double> ne : g[u]) {
-                int v = ne.getKey();
-                double t = ne.getValue();
-                if (d[v] < d[u] * t) {
-                    d[v] = d[u] * t;
-                    q.offer(new Pair<>(-d[v], v));
+        double[] dist = new double[n];
+        dist[start_node] = 1;
+        PriorityQueue<Pair<Integer, Double>> pq
+            = new PriorityQueue<>(Comparator.comparingDouble(p -> - p.getValue()));
+        pq.offer(new Pair<>(start_node, 1.0));
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int a = p.getKey();
+            double w = p.getValue();
+            if (dist[a] > w) {
+                continue;
+            }
+            for (var e : g[a]) {
+                int b = e.getKey();
+                double pab = e.getValue();
+                double wab = w * pab;
+                if (wab > dist[b]) {
+                    dist[b] = wab;
+                    pq.offer(new Pair<>(b, wab));
                 }
             }
         }
-        return d[end];
+        return dist[end_node];
     }
 }
