@@ -207,7 +207,7 @@ function findChampion(n, edges) {
 
 <!-- solution:start -->
 
-### Solution 2
+### 方法二
 
 <!-- tabs:start -->
 
