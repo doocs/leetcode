@@ -68,7 +68,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+First, we traverse the string $s$ and count the number of characters $1$, denoted as $cnt$. If $cnt$ cannot be divided by $3$, then it is impossible to split the string, so we directly return $0$. If $cnt$ is $0$, it means there are no characters $1$ in the string. We can choose any two positions out of $n-1$ positions to split the string into three substrings, so the number of ways is $C_{n-1}^2$.
+
+If $cnt \gt 0$, we update $cnt$ to $\frac{cnt}{3}$, which is the number of characters $1$ in each substring.
+
+Next, we find the minimum index of the right boundary of the first substring, denoted as $i_1$, and the maximum index of the right boundary of the first substring (exclusive), denoted as $i_2$. Similarly, we find the minimum index of the right boundary of the second substring, denoted as $j_1$, and the maximum index of the right boundary of the second substring (exclusive), denoted as $j_2$. Then the number of ways is $(i_2 - i_1) \times (j_2 - j_1)$.
+
+Note that the answer may be very large, so we need to take the modulo $10^9+7$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
+
+Similar problems:
+
+-   [927. Three Equal Parts](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0927.Three%20Equal%20Parts/README_EN.md)
 
 <!-- tabs:start -->
 

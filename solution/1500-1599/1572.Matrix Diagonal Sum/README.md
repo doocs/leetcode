@@ -73,11 +73,10 @@ tags:
 
 ### 方法一：逐行遍历
 
-我们可以遍历矩阵的每一行 $row[i]$，对于每一行，我们可以计算出两个对角线上的元素，即 $row[i][i]$ 和 $row[i][n - i - 1]$，其中 $n$ 是矩阵的行数。如果 $i = n - i - 1$，则说明当前行的对角线上只有一个元素，否则有两个元素。我们将其加到答案中即可。
-
+我们可以遍历矩阵的每一行 $\textit{row}[i]$，对于每一行，我们可以计算出两个对角线上的元素，即 $\textit{row}[i][i]$ 和 $\textit{row}[i][n - i - 1]$，其中 $n$ 是矩阵的行数。如果 $i = n - i - 1$，则说明当前行的对角线上只有一个元素，否则有两个元素。我们将其加到答案中即可。
 遍历完所有行后，即可得到答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是矩阵的行数。
+时间复杂度 $O(n)$，其中 $n$ 是矩阵的行数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -163,12 +162,15 @@ impl Solution {
     pub fn diagonal_sum(mat: Vec<Vec<i32>>) -> i32 {
         let n = mat.len();
         let mut ans = 0;
+
         for i in 0..n {
-            ans += mat[i][i] + mat[n - 1 - i][i];
+            ans += mat[i][i];
+            let j = n - i - 1;
+            if j != i {
+                ans += mat[i][j];
+            }
         }
-        if (n & 1) == 1 {
-            ans -= mat[n >> 1][n >> 1];
-        }
+
         ans
     }
 }
@@ -179,37 +181,12 @@ impl Solution {
 ```c
 int diagonalSum(int** mat, int matSize, int* matColSize) {
     int ans = 0;
-    for (int i = 0; i < matSize; i++) {
-        ans += mat[i][i] + mat[i][matSize - 1 - i];
-    }
-    if (matSize & 1) {
-        ans -= mat[matSize >> 1][matSize >> 1];
-    }
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function diagonalSum(mat: number[][]): number {
-    const n = mat.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        ans += mat[i][i] + mat[i][n - 1 - i];
-    }
-    if (n & 1) {
-        ans -= mat[n >> 1][n >> 1];
+    for (int i = 0; i < matSize; ++i) {
+        ans += mat[i][i];
+        int j = matSize - i - 1;
+        if (j != i) {
+            ans += mat[i][j];
+        }
     }
     return ans;
 }
