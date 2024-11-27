@@ -67,7 +67,13 @@ Notice that element mat[1][1] = 5 is counted only once.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Row-by-Row Traversal
+
+We can traverse each row $\textit{row}[i]$ of the matrix. For each row, we calculate the elements on the two diagonals, i.e., $\textit{row}[i][i]$ and $\textit{row}[i][n - i - 1]$, where $n$ is the number of rows in the matrix. If $i = n - i - 1$, it means there is only one element on the diagonals of the current row; otherwise, there are two elements. We add these elements to the answer.
+
+After traversing all rows, we get the answer.
+
+The time complexity is $O(n)$, where $n$ is the number of rows in the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -153,12 +159,15 @@ impl Solution {
     pub fn diagonal_sum(mat: Vec<Vec<i32>>) -> i32 {
         let n = mat.len();
         let mut ans = 0;
+
         for i in 0..n {
-            ans += mat[i][i] + mat[n - 1 - i][i];
+            ans += mat[i][i];
+            let j = n - i - 1;
+            if j != i {
+                ans += mat[i][j];
+            }
         }
-        if (n & 1) == 1 {
-            ans -= mat[n >> 1][n >> 1];
-        }
+
         ans
     }
 }
@@ -169,37 +178,12 @@ impl Solution {
 ```c
 int diagonalSum(int** mat, int matSize, int* matColSize) {
     int ans = 0;
-    for (int i = 0; i < matSize; i++) {
-        ans += mat[i][i] + mat[i][matSize - 1 - i];
-    }
-    if (matSize & 1) {
-        ans -= mat[matSize >> 1][matSize >> 1];
-    }
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function diagonalSum(mat: number[][]): number {
-    const n = mat.length;
-    let ans = 0;
-    for (let i = 0; i < n; i++) {
-        ans += mat[i][i] + mat[i][n - 1 - i];
-    }
-    if (n & 1) {
-        ans -= mat[n >> 1][n >> 1];
+    for (int i = 0; i < matSize; ++i) {
+        ans += mat[i][i];
+        int j = matSize - i - 1;
+        if (j != i) {
+            ans += mat[i][j];
+        }
     }
     return ans;
 }
