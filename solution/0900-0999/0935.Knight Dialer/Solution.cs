@@ -1,24 +1,25 @@
 public class Solution {
     public int KnightDialer(int n) {
-        if (n == 1) return 10;
-        int A = 4;
-        int B = 2;
-        int C = 2;
-        int D = 1;
-        int MOD = (int)1e9 + 7;
-        for (int i = 0; i < n - 1; i++) {
-            int tempA = A;
-            int tempB = B;
-            int tempC = C;
-            int tempD = D;
-            A = ((2 * tempB) % MOD + (2 * tempC) % MOD) % MOD;
-            B = tempA;
-            C = (tempA + (2 * tempD) % MOD) % MOD;
-            D = tempC;
+        const int mod = 1000000007;
+        long[] f = new long[10];
+        for (int i = 0; i < 10; i++) {
+            f[i] = 1;
         }
 
-        int ans = (A + B) % MOD;
-        ans = (ans + C) % MOD;
-        return (ans + D) % MOD;
+        while (--n > 0) {
+            long[] g = new long[10];
+            g[0] = (f[4] + f[6]) % mod;
+            g[1] = (f[6] + f[8]) % mod;
+            g[2] = (f[7] + f[9]) % mod;
+            g[3] = (f[4] + f[8]) % mod;
+            g[4] = (f[0] + f[3] + f[9]) % mod;
+            g[6] = (f[0] + f[1] + f[7]) % mod;
+            g[7] = (f[2] + f[6]) % mod;
+            g[8] = (f[1] + f[3]) % mod;
+            g[9] = (f[2] + f[4]) % mod;
+            f = g;
+        }
+
+        return (int)(f.Sum() % mod);
     }
 }
