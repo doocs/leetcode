@@ -182,6 +182,61 @@ function findChampion(n: number, edges: number[][]): number {
 }
 ```
 
+#### JavaScript
+
+```js
+function findChampion(n, edges) {
+    const indeg = Array(n).fill(0);
+    for (const [_, v] of edges) {
+        ++indeg[v];
+    }
+    let [ans, cnt] = [-1, 0];
+    for (let i = 0; i < n; ++i) {
+        if (indeg[i] === 0) {
+            ++cnt;
+            ans = i;
+        }
+    }
+    return cnt === 1 ? ans : -1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findChampion(n: number, edges: number[][]): number {
+    const vertexes = new Set<number>(Array.from({ length: n }, (_, i) => i));
+
+    for (const [_, v] of edges) {
+        vertexes.delete(v);
+    }
+
+    return vertexes.size === 1 ? vertexes[Symbol.iterator]().next().value! : -1;
+}
+```
+
+#### JavaScript
+
+```js
+function findChampion(n, edges) {
+    const vertexes = new Set(Array.from({ length: n }, (_, i) => i));
+    for (const [_, v] of edges) {
+        vertexes.delete(v);
+    }
+    return vertexes.size === 1 ? vertexes[Symbol.iterator]().next().value : -1;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
