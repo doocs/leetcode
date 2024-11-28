@@ -1,15 +1,12 @@
 class Solution:
     def freqAlphabets(self, s: str) -> str:
-        def get(s):
-            return chr(ord('a') + int(s) - 1)
-
+        ans = []
         i, n = 0, len(s)
-        res = []
         while i < n:
-            if i + 2 < n and s[i + 2] == '#':
-                res.append(get(s[i : i + 2]))
+            if i + 2 < n and s[i + 2] == "#":
+                ans.append(chr(int(s[i : i + 2]) + ord("a") - 1))
                 i += 3
             else:
-                res.append(get(s[i]))
+                ans.append(chr(int(s[i]) + ord("a") - 1))
                 i += 1
-        return ''.join(res)
+        return "".join(ans)
