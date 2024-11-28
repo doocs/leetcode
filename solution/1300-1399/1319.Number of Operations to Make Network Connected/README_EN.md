@@ -70,7 +70,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Union-Find
+
+We can use a union-find data structure to maintain the connectivity between computers. Traverse all connections, and for each connection $(a, b)$, if $a$ and $b$ are already connected, then this connection is redundant, and we increment the count of redundant connections. Otherwise, we connect $a$ and $b$, and decrement the number of connected components.
+
+Finally, if the number of connected components minus one is greater than the number of redundant connections, it means we cannot connect all computers, so we return -1. Otherwise, we return the number of connected components minus one.
+
+The time complexity is $O(m \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the number of computers and the number of connections, respectively.
 
 <!-- tabs:start -->
 
