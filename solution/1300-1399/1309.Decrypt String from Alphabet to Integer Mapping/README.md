@@ -62,7 +62,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们直接模拟即可。
+
+遍历字符串 $s$，对于当前遍历到的下标 $i$，如果 $i + 2 < n$ 且 $s[i + 2]$ 为 `#`，则将 $s[i]$ 和 $s[i + 1]$ 组成的字符串转换为整数，加上 `a` 的 ASCII 码值减去 1，然后转换为字符，添加到结果数组中，并将 $i$ 增加 3；否则，将 $s[i]$ 转换为整数，加上 `a` 的 ASCII 码值减去 1，然后转换为字符，添加到结果数组中，并将 $i$ 增加 1。
+
+最后将结果数组转换为字符串返回即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -71,19 +79,16 @@ tags:
 ```python
 class Solution:
     def freqAlphabets(self, s: str) -> str:
-        def get(s):
-            return chr(ord('a') + int(s) - 1)
-
+        ans = []
         i, n = 0, len(s)
-        res = []
         while i < n:
-            if i + 2 < n and s[i + 2] == '#':
-                res.append(get(s[i : i + 2]))
+            if i + 2 < n and s[i + 2] == "#":
+                ans.append(chr(int(s[i : i + 2]) + ord("a") - 1))
                 i += 3
             else:
-                res.append(get(s[i]))
+                ans.append(chr(int(s[i]) + ord("a") - 1))
                 i += 1
-        return ''.join(res)
+        return "".join(ans)
 ```
 
 #### Java
@@ -92,22 +97,60 @@ class Solution:
 class Solution {
     public String freqAlphabets(String s) {
         int i = 0, n = s.length();
-        StringBuilder res = new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         while (i < n) {
             if (i + 2 < n && s.charAt(i + 2) == '#') {
-                res.append(get(s.substring(i, i + 2)));
+                ans.append((char) ('a' + Integer.parseInt(s.substring(i, i + 2)) - 1));
                 i += 3;
             } else {
-                res.append(get(s.substring(i, i + 1)));
+                ans.append((char) ('a' + Integer.parseInt(s.substring(i, i + 1)) - 1));
+                i++;
+            }
+        }
+        return ans.toString();
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string freqAlphabets(string s) {
+        string ans = "";
+        int i = 0, n = s.size();
+        while (i < n) {
+            if (i + 2 < n && s[i + 2] == '#') {
+                ans += char(stoi(s.substr(i, 2)) + 'a' - 1);
+                i += 3;
+            } else {
+                ans += char(s[i] - '0' + 'a' - 1);
                 i += 1;
             }
         }
-        return res.toString();
+        return ans;
     }
+};
+```
 
-    private char get(String s) {
-        return (char) ('a' + Integer.parseInt(s) - 1);
-    }
+#### Go
+
+```go
+func freqAlphabets(s string) string {
+	var ans []byte
+	for i, n := 0, len(s); i < n; {
+		if i+2 < n && s[i+2] == '#' {
+			num := (int(s[i])-'0')*10 + int(s[i+1]) - '0'
+			ans = append(ans, byte(num+int('a')-1))
+			i += 3
+		} else {
+			num := int(s[i]) - '0'
+			ans = append(ans, byte(num+int('a')-1))
+			i += 1
+		}
+	}
+	return string(ans)
 }
 ```
 
@@ -115,19 +158,17 @@ class Solution {
 
 ```ts
 function freqAlphabets(s: string): string {
-    const n = s.length;
-    const ans = [];
-    let i = 0;
-    while (i < n) {
-        if (s[i + 2] == '#') {
-            ans.push(s.slice(i, i + 2));
+    const ans: string[] = [];
+    for (let i = 0, n = s.length; i < n; ) {
+        if (i + 2 < n && s[i + 2] === '#') {
+            ans.push(String.fromCharCode(96 + +s.slice(i, i + 2)));
             i += 3;
         } else {
-            ans.push(s[i]);
-            i += 1;
+            ans.push(String.fromCharCode(96 + +s[i]));
+            i++;
         }
     }
-    return ans.map(c => String.fromCharCode('a'.charCodeAt(0) + Number(c) - 1)).join('');
+    return ans.join('');
 }
 ```
 
@@ -137,21 +178,21 @@ function freqAlphabets(s: string): string {
 impl Solution {
     pub fn freq_alphabets(s: String) -> String {
         let s = s.as_bytes();
-        let n = s.len();
-        let mut res = String::new();
+        let mut ans = String::new();
         let mut i = 0;
+        let n = s.len();
         while i < n {
-            let code: u8;
-            if s.get(i + 2).is_some() && s[i + 2] == b'#' {
-                code = (s[i] - b'0') * 10 + s[i + 1];
+            if i + 2 < n && s[i + 2] == b'#' {
+                let num = (s[i] - b'0') * 10 + (s[i + 1] - b'0');
+                ans.push((96 + num) as char);
                 i += 3;
             } else {
-                code = s[i];
+                let num = s[i] - b'0';
+                ans.push((96 + num) as char);
                 i += 1;
             }
-            res.push(char::from(('a' as u8) + code - b'1'));
         }
-        res
+        ans
     }
 }
 ```
