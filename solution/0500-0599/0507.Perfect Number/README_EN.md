@@ -50,7 +50,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+First, we check if $\textit{num}$ is 1. If it is, then $\textit{num}$ is not a perfect number, and we return $\text{false}$.
+
+Next, we enumerate all positive divisors of $\textit{num}$ starting from 2. If $\textit{num}$ is divisible by a positive divisor $i$, we add $i$ to the sum $\textit{s}$. If the quotient of $\textit{num}$ divided by $i$ is not equal to $i$, we also add the quotient to the sum $\textit{s}$.
+
+Finally, we check if $\textit{s}$ is equal to $\textit{num}$.
+
+The time complexity is $O(\sqrt{n})$, where $n$ is the value of $\textit{num}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -62,7 +70,7 @@ class Solution:
         if num == 1:
             return False
         s, i = 1, 2
-        while i * i <= num:
+        while i <= num // i:
             if num % i == 0:
                 s += i
                 if i != num // i:
@@ -75,13 +83,12 @@ class Solution:
 
 ```java
 class Solution {
-
     public boolean checkPerfectNumber(int num) {
         if (num == 1) {
             return false;
         }
         int s = 1;
-        for (int i = 2; i * i <= num; ++i) {
+        for (int i = 2; i <= num / i; ++i) {
             if (num % i == 0) {
                 s += i;
                 if (i != num / i) {
@@ -100,12 +107,16 @@ class Solution {
 class Solution {
 public:
     bool checkPerfectNumber(int num) {
-        if (num == 1) return false;
+        if (num == 1) {
+            return false;
+        }
         int s = 1;
-        for (int i = 2; i * i <= num; ++i) {
+        for (int i = 2; i <= num / i; ++i) {
             if (num % i == 0) {
                 s += i;
-                if (i != num / i) s += num / i;
+                if (i != num / i) {
+                    s += num / i;
+                }
             }
         }
         return s == num;
@@ -121,15 +132,35 @@ func checkPerfectNumber(num int) bool {
 		return false
 	}
 	s := 1
-	for i := 2; i*i <= num; i++ {
+	for i := 2; i <= num/i; i++ {
 		if num%i == 0 {
 			s += i
-			if i != num/i {
-				s += num / i
+			if j := num / i; i != j {
+				s += j
 			}
 		}
 	}
 	return s == num
+}
+```
+
+#### TypeScript
+
+```ts
+function checkPerfectNumber(num: number): boolean {
+    if (num <= 1) {
+        return false;
+    }
+    let s = 1;
+    for (let i = 2; i <= num / i; ++i) {
+        if (num % i === 0) {
+            s += i;
+            if (i * i !== num) {
+                s += num / i;
+            }
+        }
+    }
+    return s === num;
 }
 ```
 
