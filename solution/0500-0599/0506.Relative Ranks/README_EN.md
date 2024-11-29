@@ -64,7 +64,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We use an array $\textit{idx}$ to store the indices from $0$ to $n-1$, then sort $\textit{idx}$ based on the values in $\textit{score}$ in descending order.
+
+Next, we define an array $\textit{top3} = [\text{Gold Medal}, \text{Silver Medal}, \text{Bronze Medal}]$. We traverse $\textit{idx}$, and for each index $j$, if $j$ is less than $3$, then $\textit{ans}[j]$ is $\textit{top3}[j]$; otherwise, it is $j+1$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{score}$.
 
 <!-- tabs:start -->
 
@@ -76,10 +82,10 @@ class Solution:
         n = len(score)
         idx = list(range(n))
         idx.sort(key=lambda x: -score[x])
-        top3 = ['Gold Medal', 'Silver Medal', 'Bronze Medal']
+        top3 = ["Gold Medal", "Silver Medal", "Bronze Medal"]
         ans = [None] * n
-        for i in range(n):
-            ans[idx[i]] = top3[i] if i < 3 else str(i + 1)
+        for i, j in enumerate(idx):
+            ans[j] = top3[i] if i < 3 else str(i + 1)
         return ans
 ```
 
@@ -111,15 +117,16 @@ class Solution {
 public:
     vector<string> findRelativeRanks(vector<int>& score) {
         int n = score.size();
-        vector<pair<int, int>> idx;
-        for (int i = 0; i < n; ++i)
-            idx.push_back(make_pair(score[i], i));
-        sort(idx.begin(), idx.end(),
-            [&](const pair<int, int>& x, const pair<int, int>& y) { return x.first > y.first; });
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
+        sort(idx.begin(), idx.end(), [&score](int a, int b) {
+            return score[a] > score[b];
+        });
         vector<string> ans(n);
         vector<string> top3 = {"Gold Medal", "Silver Medal", "Bronze Medal"};
-        for (int i = 0; i < n; ++i)
-            ans[idx[i].second] = i < 3 ? top3[i] : to_string(i + 1);
+        for (int i = 0; i < n; ++i) {
+            ans[idx[i]] = i < 3 ? top3[i] : to_string(i + 1);
+        }
         return ans;
     }
 };
@@ -147,6 +154,26 @@ func findRelativeRanks(score []int) []string {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findRelativeRanks(score: number[]): string[] {
+    const n = score.length;
+    const idx = Array.from({ length: n }, (_, i) => i);
+    idx.sort((a, b) => score[b] - score[a]);
+    const top3 = ['Gold Medal', 'Silver Medal', 'Bronze Medal'];
+    const ans: string[] = Array(n);
+    for (let i = 0; i < n; i++) {
+        if (i < 3) {
+            ans[idx[i]] = top3[i];
+        } else {
+            ans[idx[i]] = (i + 1).toString();
+        }
+    }
+    return ans;
 }
 ```
 

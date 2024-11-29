@@ -3,7 +3,7 @@ class Solution:
         if num == 1:
             return False
         s, i = 1, 2
-        while i * i <= num:
+        while i <= num // i:
             if num % i == 0:
                 s += i
                 if i != num // i:
