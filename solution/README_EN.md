@@ -781,7 +781,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0770  |  [Basic Calculator IV](/solution/0700-0799/0770.Basic%20Calculator%20IV/README_EN.md)  |  `Stack`,`Recursion`,`Hash Table`,`Math`,`String`  |  Hard  |    |
 |  0771  |  [Jewels and Stones](/solution/0700-0799/0771.Jewels%20and%20Stones/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |    |
 |  0772  |  [Basic Calculator III](/solution/0700-0799/0772.Basic%20Calculator%20III/README_EN.md)  |  `Stack`,`Recursion`,`Math`,`String`  |  Hard  |  🔒  |
-|  0773  |  [Sliding Puzzle](/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md)  |  `Breadth-First Search`,`Array`,`Matrix`  |  Hard  |    |
+|  0773  |  [Sliding Puzzle](/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md)  |  `Breadth-First Search`,`Memoization`,`Array`,`Dynamic Programming`,`Backtracking`,`Matrix`  |  Hard  |    |
 |  0774  |  [Minimize Max Distance to Gas Station](/solution/0700-0799/0774.Minimize%20Max%20Distance%20to%20Gas%20Station/README_EN.md)  |  `Array`,`Binary Search`  |  Hard  |  🔒  |
 |  0775  |  [Global and Local Inversions](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README_EN.md)  |  `Array`,`Math`  |  Medium  |    |
 |  0776  |  [Split BST](/solution/0700-0799/0776.Split%20BST/README_EN.md)  |  `Tree`,`Binary Search Tree`,`Recursion`,`Binary Tree`  |  Medium  |  🔒  |
@@ -2072,7 +2072,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2061  |  [Number of Spaces Cleaning Robot Cleaned](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README_EN.md)  |  `Array`,`Matrix`,`Simulation`  |  Medium  |  🔒  |
 |  2062  |  [Count Vowel Substrings of a String](/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 266  |
 |  2063  |  [Vowels of All Substrings](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`,`Combinatorics`  |  Medium  |  Weekly Contest 266  |
-|  2064  |  [Minimized Maximum of Products Distributed to Any Store](/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 266  |
+|  2064  |  [Minimized Maximum of Products Distributed to Any Store](/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Medium  |  Weekly Contest 266  |
 |  2065  |  [Maximum Path Quality of a Graph](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README_EN.md)  |  `Graph`,`Array`,`Backtracking`  |  Hard  |  Weekly Contest 266  |
 |  2066  |  [Account Balance](/solution/2000-2099/2066.Account%20Balance/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  2067  |  [Number of Equal Count Substrings](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md)  |  `String`,`Counting`,`Prefix Sum`  |  Medium  |  🔒  |

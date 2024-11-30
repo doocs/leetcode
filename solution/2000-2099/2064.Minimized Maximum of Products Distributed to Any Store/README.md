@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2064.Mi
 rating: 1885
 source: 第 266 场周赛 Q3
 tags:
+    - 贪心
     - 数组
     - 二分查找
 ---

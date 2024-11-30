@@ -52,6 +52,7 @@ tags:
 	<li><code>1 &lt;= nestedList.length &lt;= 50</code></li>
 	<li>The values of the integers in the nested list is in the range <code>[-100, 100]</code>.</li>
 	<li>The maximum <strong>depth</strong> of any integer is less than or equal to <code>50</code>.</li>
+	<li>There are no empty lists.</li>
 </ul>
 
 <!-- description:end -->
