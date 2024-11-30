@@ -78,7 +78,7 @@ tags:
 
 ### Solution 1: Summation
 
-According to the problem description, as long as the sum of the units digits is not equal to the sum of the tens digits, Xiaohong can always choose a larger sum to win.
+According to the problem description, as long as the sum of the units digits is not equal to the sum of the tens digits, Alice can always choose a larger sum to win.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 

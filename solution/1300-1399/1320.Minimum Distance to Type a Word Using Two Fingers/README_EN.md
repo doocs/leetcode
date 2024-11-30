@@ -38,11 +38,11 @@ tags:
 <pre>
 <strong>Input:</strong> word = &quot;CAKE&quot;
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> Using two fingers, one optimal way to type &quot;CAKE&quot; is:
-Finger 1 on letter &#39;C&#39; -&gt; cost = 0
-Finger 1 on letter &#39;A&#39; -&gt; cost = Distance from letter &#39;C&#39; to letter &#39;A&#39; = 2
-Finger 2 on letter &#39;K&#39; -&gt; cost = 0
-Finger 2 on letter &#39;E&#39; -&gt; cost = Distance from letter &#39;K&#39; to letter &#39;E&#39; = 1
+<strong>Explanation:</strong> Using two fingers, one optimal way to type &quot;CAKE&quot; is: 
+Finger 1 on letter &#39;C&#39; -&gt; cost = 0 
+Finger 1 on letter &#39;A&#39; -&gt; cost = Distance from letter &#39;C&#39; to letter &#39;A&#39; = 2 
+Finger 2 on letter &#39;K&#39; -&gt; cost = 0 
+Finger 2 on letter &#39;E&#39; -&gt; cost = Distance from letter &#39;K&#39; to letter &#39;E&#39; = 1 
 Total distance = 3
 </pre>
 

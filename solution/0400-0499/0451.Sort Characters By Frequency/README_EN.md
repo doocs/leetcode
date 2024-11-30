@@ -67,7 +67,11 @@ Note that &#39;A&#39; and &#39;a&#39; are treated as two different characters.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Sorting
+
+We use a hash table $\textit{cnt}$ to count the occurrences of each character in the string $s$. Then, we sort the key-value pairs in $\textit{cnt}$ in descending order by the number of occurrences. Finally, we concatenate the characters according to the sorted order.
+
+The time complexity is $O(n + k \times \log k)$, and the space complexity is $O(n + k)$, where $n$ is the length of the string $s$, and $k$ is the number of distinct characters.
 
 <!-- tabs:start -->
 
@@ -194,15 +198,16 @@ class Solution {
      * @return String
      */
     function frequencySort($s) {
-        for ($i = 0; $i < strlen($s); $i++) {
-            $hashtable[$s[$i]] += 1;
+        $cnt = array_count_values(str_split($s));
+        $cs = array_keys($cnt);
+        usort($cs, function ($a, $b) use ($cnt) {
+            return $cnt[$b] <=> $cnt[$a];
+        });
+        $ans = '';
+        foreach ($cs as $c) {
+            $ans .= str_repeat($c, $cnt[$c]);
         }
-        arsort($hashtable);
-        $keys = array_keys($hashtable);
-        for ($j = 0; $j < count($keys); $j++) {
-            $rs = $rs . str_repeat($keys[$j], $hashtable[$keys[$j]]);
-        }
-        return $rs;
+        return $ans;
     }
 }
 ```
