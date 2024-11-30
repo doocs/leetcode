@@ -16,7 +16,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3359.Fi
 
 <p>给定一个大小为&nbsp;<code>m x n</code>&nbsp;的二维矩阵&nbsp;<code>grid</code>。同时给定一个 <strong>非负整数</strong>&nbsp;<code>k</code>。</p>
 
-<p>返回满足下列条件的&nbsp;<code>grid</code>&nbsp;的子矩阵：</p>
+<p>返回满足下列条件的&nbsp;<code>grid</code>&nbsp;的子矩阵数量：</p>
 
 <ul>
 	<li>子矩阵中最大的元素 <b>小于等于</b>&nbsp;<code>k</code>。</li>

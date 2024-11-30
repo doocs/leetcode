@@ -22,9 +22,11 @@ tags:
 
 <p>Now you want to find out who the celebrity is or verify that there is not one. You are only allowed to ask questions like: &quot;Hi, A. Do you know B?&quot; to get information about whether A knows B. You need to find out the celebrity (or verify there is not one) by asking as few questions as possible (in the asymptotic sense).</p>
 
-<p>You are given a helper function <code>bool knows(a, b)</code> that tells you whether <code>a</code> knows <code>b</code>. Implement a function <code>int findCelebrity(n)</code>. There will be exactly one celebrity if they are at the party.</p>
+<p>You are given an integer <code>n</code> and a helper function <code>bool knows(a, b)</code> that tells you whether <code>a</code> knows <code>b</code>. Implement a function <code>int findCelebrity(n)</code>. There will be exactly one celebrity if they are at the party.</p>
 
 <p>Return <em>the celebrity&#39;s label if there is a celebrity at the party</em>. If there is no celebrity, return <code>-1</code>.</p>
+
+<p><strong>Note</strong> that the <code>n x n</code> 2D array <code>graph</code> given as input is <strong>not</strong> directly available to you, and instead <strong>only</strong> accessible through the helper function <code>knows</code>. <code>graph[i][j] == 1</code> represents person <code>i</code> knows person <code>j</code>, wherease <code>graph[i][j] == 0</code> represents person <code>j</code> does not know person <code>i</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

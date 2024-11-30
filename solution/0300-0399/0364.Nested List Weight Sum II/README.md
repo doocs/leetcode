@@ -54,6 +54,7 @@ tags:
 	<li><code>1 &lt;= nestedList.length &lt;= 50</code></li>
 	<li>嵌套列表中整数的值在范围 <code>[-100, 100]</code></li>
 	<li>任意整数的最大 <strong>深度</strong> 小于等于 <code>50</code></li>
+	<li>没有空列表</li>
 </ul>
 
 <!-- description:end -->

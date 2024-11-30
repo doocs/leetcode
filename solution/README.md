@@ -783,7 +783,7 @@
 |  0770  |  [基本计算器 IV](/solution/0700-0799/0770.Basic%20Calculator%20IV/README.md)  |  `栈`,`递归`,`哈希表`,`数学`,`字符串`  |  困难  |    |
 |  0771  |  [宝石与石头](/solution/0700-0799/0771.Jewels%20and%20Stones/README.md)  |  `哈希表`,`字符串`  |  简单  |    |
 |  0772  |  [基本计算器 III](/solution/0700-0799/0772.Basic%20Calculator%20III/README.md)  |  `栈`,`递归`,`数学`,`字符串`  |  困难  |  🔒  |
-|  0773  |  [滑动谜题](/solution/0700-0799/0773.Sliding%20Puzzle/README.md)  |  `广度优先搜索`,`数组`,`矩阵`  |  困难  |    |
+|  0773  |  [滑动谜题](/solution/0700-0799/0773.Sliding%20Puzzle/README.md)  |  `广度优先搜索`,`记忆化搜索`,`数组`,`动态规划`,`回溯`,`矩阵`  |  困难  |    |
 |  0774  |  [最小化去加油站的最大距离](/solution/0700-0799/0774.Minimize%20Max%20Distance%20to%20Gas%20Station/README.md)  |  `数组`,`二分查找`  |  困难  |  🔒  |
 |  0775  |  [全局倒置与局部倒置](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README.md)  |  `数组`,`数学`  |  中等  |    |
 |  0776  |  [拆分二叉搜索树](/solution/0700-0799/0776.Split%20BST/README.md)  |  `树`,`二叉搜索树`,`递归`,`二叉树`  |  中等  |  🔒  |
@@ -2074,7 +2074,7 @@
 |  2061  |  [扫地机器人清扫过的空间个数](/solution/2000-2099/2061.Number%20of%20Spaces%20Cleaning%20Robot%20Cleaned/README.md)  |  `数组`,`矩阵`,`模拟`  |  中等  |  🔒  |
 |  2062  |  [统计字符串中的元音子字符串](/solution/2000-2099/2062.Count%20Vowel%20Substrings%20of%20a%20String/README.md)  |  `哈希表`,`字符串`  |  简单  |  第 266 场周赛  |
 |  2063  |  [所有子字符串中的元音](/solution/2000-2099/2063.Vowels%20of%20All%20Substrings/README.md)  |  `数学`,`字符串`,`动态规划`,`组合数学`  |  中等  |  第 266 场周赛  |
-|  2064  |  [分配给商店的最多商品的最小值](/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README.md)  |  `数组`,`二分查找`  |  中等  |  第 266 场周赛  |
+|  2064  |  [分配给商店的最多商品的最小值](/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README.md)  |  `贪心`,`数组`,`二分查找`  |  中等  |  第 266 场周赛  |
 |  2065  |  [最大化一张图中的路径价值](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README.md)  |  `图`,`数组`,`回溯`  |  困难  |  第 266 场周赛  |
 |  2066  |  [账户余额](/solution/2000-2099/2066.Account%20Balance/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2067  |  [等计数子串的数量](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README.md)  |  `字符串`,`计数`,`前缀和`  |  中等  |  🔒  |

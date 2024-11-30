@@ -20,33 +20,33 @@ tags:
 
 <!-- description:start -->
 
-<p>共有 <code>k</code> 位工人计划将 <code>n</code> 个箱子从旧仓库移动到新仓库。给你两个整数 <code>n</code> 和 <code>k</code>，以及一个二维整数数组 <code>time</code> ，数组的大小为 <code>k x 4</code> ，其中 <code>time[i] = [leftToRight<sub>i</sub>, pickOld<sub>i</sub>, rightToLeft<sub>i</sub>, putNew<sub>i</sub>]</code> 。</p>
+<p>共有 <code>k</code> 位工人计划将 <code>n</code> 个箱子从右侧的（旧）仓库移动到左侧的（新）仓库。给你两个整数 <code>n</code> 和 <code>k</code>，以及一个二维整数数组 <code>time</code> ，数组的大小为 <code>k x 4</code> ，其中 <code>time[i] = [right<sub>i</sub>, pick<sub>i</sub>, left<sub>i</sub>, put<sub>i</sub>]</code> 。</p>
 
 <p>一条河将两座仓库分隔，只能通过一座桥通行。旧仓库位于河的右岸，新仓库在河的左岸。开始时，所有 <code>k</code> 位工人都在桥的左侧等待。为了移动这些箱子，第 <code>i</code> 位工人（下标从 <strong>0</strong> 开始）可以：</p>
 
 <ul>
-	<li>从左岸（新仓库）跨过桥到右岸（旧仓库），用时 <code>leftToRight<sub>i</sub></code> 分钟。</li>
-	<li>从旧仓库选择一个箱子，并返回到桥边，用时 <code>pickOld<sub>i</sub></code> 分钟。不同工人可以同时搬起所选的箱子。</li>
-	<li>从右岸（旧仓库）跨过桥到左岸（新仓库），用时 <code>rightToLeft<sub>i</sub></code> 分钟。</li>
-	<li>将箱子放入新仓库，并返回到桥边，用时 <code>putNew<sub>i</sub></code> 分钟。不同工人可以同时放下所选的箱子。</li>
+	<li>从左岸（新仓库）跨过桥到右岸（旧仓库），用时 <code>right<sub>i</sub></code> 分钟。</li>
+	<li>从旧仓库选择一个箱子，并返回到桥边，用时 <code>pick<sub>i</sub></code> 分钟。不同工人可以同时搬起所选的箱子。</li>
+	<li>从右岸（旧仓库）跨过桥到左岸（新仓库），用时 <code>left<sub>i</sub></code> 分钟。</li>
+	<li>将箱子放入新仓库，并返回到桥边，用时 <code>put<sub>i</sub></code> 分钟。不同工人可以同时放下所选的箱子。</li>
 </ul>
 
 <p>如果满足下面任一条件，则认为工人 <code>i</code> 的 <strong>效率低于</strong> 工人 <code>j</code> ：</p>
 
 <ul>
-	<li><code>leftToRight<sub>i</sub> + rightToLeft<sub>i</sub> &gt; leftToRight<sub>j</sub> + rightToLeft<sub>j</sub></code></li>
-	<li><code>leftToRight<sub>i</sub> + rightToLeft<sub>i</sub> == leftToRight<sub>j</sub> + rightToLeft<sub>j</sub></code> 且 <code>i &gt; j</code></li>
+	<li><code>left<sub>i</sub> + right<sub>i</sub> &gt; left<sub>j</sub> + right<sub>j</sub></code></li>
+	<li><code>left<sub>i</sub> + right<sub>i</sub> == left<sub>j</sub> + right<sub>j</sub></code> 且 <code>i &gt; j</code></li>
 </ul>
 
 <p>工人通过桥时需要遵循以下规则：</p>
 
 <ul>
-	<li>如果工人 <code>x</code> 到达桥边时，工人 <code>y</code> 正在过桥，那么工人 <code>x</code> 需要在桥边等待。</li>
+	<li>同时只能有一名工人过桥。</li>
 	<li>当桥梁未被使用时，优先让右侧 <strong>效率最低</strong> 的工人（已经拿起盒子的工人）过桥。如果不是，优先让左侧 <strong>效率最低</strong> 的工人通过。</li>
 	<li>如果左侧已经派出足够的工人来拾取所有剩余的箱子，则 <strong>不会</strong> 再从左侧派出工人。</li>
 </ul>
 
-<p>所有 <code>n</code> 个盒子都需要放入新仓库，<span class="text-only" data-eleid="8" style="white-space: pre;">请你返回最后一个搬运箱子的工人 </span><strong><span class="text-only" data-eleid="9" style="white-space: pre;">到达河左岸</span></strong><span class="text-only" data-eleid="10" style="white-space: pre;"> 的时间。</span></p>
+<p><span class="text-only" data-eleid="8" style="white-space: pre;">请你返回最后一个箱子 </span><strong><span class="text-only" data-eleid="9" style="white-space: pre;">到达桥左侧</span></strong><span class="text-only" data-eleid="10" style="white-space: pre;"> 的时间。</span></p>
 
 <p>&nbsp;</p>
 
@@ -92,7 +92,7 @@ tags:
 	<li><code>1 &lt;= n, k &lt;= 10<sup>4</sup></code></li>
 	<li><code>time.length == k</code></li>
 	<li><code>time[i].length == 4</code></li>
-	<li><code>1 &lt;= leftToRight<sub>i</sub>, pickOld<sub>i</sub>, rightToLeft<sub>i</sub>, putNew<sub>i</sub> &lt;= 1000</code></li>
+	<li><code>1 &lt;= left<sub>i</sub>, pick<sub>i</sub>, right<sub>i</sub>, put<sub>i</sub> &lt;= 1000</code></li>
 </ul>
 
 <!-- description:end -->

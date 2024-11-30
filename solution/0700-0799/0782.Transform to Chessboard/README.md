@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>一个&nbsp;<code>n x n</code>&nbsp;的二维网络&nbsp;<code>board</code>&nbsp;仅由&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;组成&nbsp;。每次移动，你能任意交换两列或是两行的位置。</p>
+<p>一个&nbsp;<code>n x n</code>&nbsp;的二维网络&nbsp;<code>board</code>&nbsp;仅由&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;组成&nbsp;。每次移动，你能交换任意两列或是两行的位置。</p>
 
 <p>返回 <em>将这个矩阵变为<strong>&nbsp; “棋盘”&nbsp;&nbsp;</strong>所需的最小移动次数&nbsp;</em>。如果不存在可行的变换，输出 <code>-1</code>。</p>
 

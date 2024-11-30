@@ -62,7 +62,7 @@ tags:
 <p><strong>提示:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= candies.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= candies.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= candies[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= k &lt;= candies.length</code></li>
 </ul>
