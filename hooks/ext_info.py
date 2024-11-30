@@ -24,6 +24,7 @@ code_dict = {
     "nim": ("Nim", "nim"),
     "sql": ("MySQL", "sql"),
     "sh": ("Shell", "bash"),
+    "cj": ("Cangjie", "cj"),
 }
 
 mapping = {lang: name for name, lang in code_dict.values()}
