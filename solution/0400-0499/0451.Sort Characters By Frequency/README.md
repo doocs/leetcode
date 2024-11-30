@@ -71,7 +71,7 @@ tags:
 
 ### 方法一：哈希表 + 排序
 
-我们用哈希表 $cnt$ 统计字符串 $s$ 中每个字符出现的次数，然后将 $cnt$ 中的键值对按照出现次数降序排序，最后按照排序后的顺序拼接字符串即可。
+我们用哈希表 $\textit{cnt}$ 统计字符串 $s$ 中每个字符出现的次数，然后将 $\textit{cnt}$ 中的键值对按照出现次数降序排序，最后按照排序后的顺序拼接字符串即可。
 
 时间复杂度 $O(n + k \times \log k)$，空间复杂度 $O(n + k)$，其中 $n$ 为字符串 $s$ 的长度，而 $k$ 为不同字符的个数。
 
@@ -200,15 +200,16 @@ class Solution {
      * @return String
      */
     function frequencySort($s) {
-        for ($i = 0; $i < strlen($s); $i++) {
-            $hashtable[$s[$i]] += 1;
+        $cnt = array_count_values(str_split($s));
+        $cs = array_keys($cnt);
+        usort($cs, function ($a, $b) use ($cnt) {
+            return $cnt[$b] <=> $cnt[$a];
+        });
+        $ans = '';
+        foreach ($cs as $c) {
+            $ans .= str_repeat($c, $cnt[$c]);
         }
-        arsort($hashtable);
-        $keys = array_keys($hashtable);
-        for ($j = 0; $j < count($keys); $j++) {
-            $rs = $rs . str_repeat($keys[$j], $hashtable[$keys[$j]]);
-        }
-        return $rs;
+        return $ans;
     }
 }
 ```

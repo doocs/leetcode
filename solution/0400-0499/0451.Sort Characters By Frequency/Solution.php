@@ -4,14 +4,15 @@ class Solution {
      * @return String
      */
     function frequencySort($s) {
-        for ($i = 0; $i < strlen($s); $i++) {
-            $hashtable[$s[$i]] += 1;
+        $cnt = array_count_values(str_split($s));
+        $cs = array_keys($cnt);
+        usort($cs, function ($a, $b) use ($cnt) {
+            return $cnt[$b] <=> $cnt[$a];
+        });
+        $ans = '';
+        foreach ($cs as $c) {
+            $ans .= str_repeat($c, $cnt[$c]);
         }
-        arsort($hashtable);
-        $keys = array_keys($hashtable);
-        for ($j = 0; $j < count($keys); $j++) {
-            $rs = $rs . str_repeat($keys[$j], $hashtable[$keys[$j]]);
-        }
-        return $rs;
+        return $ans;
     }
 }
