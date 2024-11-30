@@ -299,22 +299,6 @@ def two_sum(nums, target)
 end
 ```
 
-#### Nim
-
-```nim
-import std/enumerate
-import std/tables
-
-proc twoSum(nums: seq[int], target: int): seq[int] =
-  var d = initTable[int, int]()
-  for i, x in nums.pairs():
-    let y = target - x
-    if d.hasKey(y):
-      return @[d[y], i]
-    d[x] = i
-  return @[]
-```
-
 #### Kotlin
 
 ```kotlin
@@ -332,6 +316,39 @@ class Solution {
         return intArrayOf()
     }
 }
+```
+
+#### Cangjie
+
+```cj
+class Solution {
+    func twoSum(nums: Array<Int64>, target: Int64): Array<Int64> {
+        let d = HashMap<Int64, Int64>()
+        for (i in 0..nums.size) {
+            if (d.contains(target - nums[i])) {
+                return [d[target - nums[i]], i]
+            }
+            d[nums[i]] = i
+        }
+        []
+    }
+}
+```
+
+#### Nim
+
+```nim
+import std/enumerate
+import std/tables
+
+proc twoSum(nums: seq[int], target: int): seq[int] =
+  var d = initTable[int, int]()
+  for i, x in nums.pairs():
+    let y = target - x
+    if d.hasKey(y):
+      return @[d[y], i]
+    d[x] = i
+  return @[]
 ```
 
 <!-- tabs:end -->
