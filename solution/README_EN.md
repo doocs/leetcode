@@ -3377,6 +3377,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3366  |  [Minimum Array Sum](/solution/3300-3399/3366.Minimum%20Array%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 425  |
 |  3367  |  [Maximize Sum of Weights after Edge Removals](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README_EN.md)  |    |  Hard  |  Weekly Contest 425  |
 |  3368  |  [First Letter Capitalization](/solution/3300-3399/3368.First%20Letter%20Capitalization/README_EN.md)  |    |  Hard  |  🔒  |
+|  3370  |  [Smallest Number With All Set Bits](/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README_EN.md)  |    |  Easy  |  Weekly Contest 426  |
+|  3371  |  [Identify the Largest Outlier in an Array](/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 426  |
+|  3372  |  [Maximize the Number of Target Nodes After Connecting Trees I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 426  |
+|  3373  |  [Maximize the Number of Target Nodes After Connecting Trees II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 426  |
 
 ## Copyright
 

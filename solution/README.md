@@ -3379,6 +3379,10 @@
 |  3366  |  [最小数组和](/solution/3300-3399/3366.Minimum%20Array%20Sum/README.md)  |    |  中等  |  第 425 场周赛  |
 |  3367  |  [移除边之后的权重最大和](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README.md)  |    |  困难  |  第 425 场周赛  |
 |  3368  |  [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)  |    |  困难  |  🔒  |
+|  3370  |  [仅含置位位的最小整数](/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README.md)  |    |  简单  |  第 426 场周赛  |
+|  3371  |  [识别数组中的最大异常值](/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README.md)  |    |  中等  |  第 426 场周赛  |
+|  3372  |  [连接两棵树后最大目标节点数目 I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README.md)  |    |  中等  |  第 426 场周赛  |
+|  3373  |  [连接两棵树后最大目标节点数目 II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README.md)  |    |  困难  |  第 426 场周赛  |
 
 ## 版权
 
