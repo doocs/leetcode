@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 426 场周赛(2024-12-01 10:30, 90 分钟) 参赛人数 2447
+
+- [3370. 仅含置位位的最小整数](/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README.md)
+- [3371. 识别数组中的最大异常值](/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README.md)
+- [3372. 连接两棵树后最大目标节点数目 I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README.md)
+- [3373. 连接两棵树后最大目标节点数目 II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README.md)
+
 #### 第 425 场周赛(2024-11-24 10:30, 90 分钟) 参赛人数 2497
 
 - [3364. 最小正和子数组](/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README.md)
