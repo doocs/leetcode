@@ -56,7 +56,7 @@ content_id 是这张表的唯一主键。
 +------------+-----------------------------------+
 | content_id | content_text                      |
 +------------+-----------------------------------+
-| 1          | hello world of SQL                |
+| 1          | hello world of Sql                |
 | 2          | the QUICK brown fox               |
 | 3          | data science AND machine learning |
 | 4          | TOP rated programming BOOKS       |
@@ -69,7 +69,7 @@ content_id 是这张表的唯一主键。
 +------------+-----------------------------------+-----------------------------------+
 | content_id | original_text                     | converted_text                    |
 +------------+-----------------------------------+-----------------------------------+
-| 1          | hello world of SQL                | Hello World Of SQL                |
+| 1          | hello world of Sql                | Hello World Of Sql                |
 | 2          | the QUICK brown fox               | The Quick Brown Fox               |
 | 3          | data science AND machine learning | Data Science And Machine Learning |
 | 4          | TOP rated programming BOOKS       | Top Rated Programming Books       |
@@ -81,7 +81,7 @@ content_id 是这张表的唯一主键。
 <ul>
 	<li>对于 content_id = 1:
 	<ul>
-		<li>每个单词的首字母都已经大写：Hello World Of SQL</li>
+		<li>每个单词的首字母都已经大写：Hello World Of Sql</li>
 	</ul>
 	</li>
 	<li>对于 content_id = 2:

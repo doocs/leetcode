@@ -22,9 +22,11 @@ tags:
 
 <p>现在你想要确认这个 “名人” 是谁，或者确定这里没有&nbsp;“名人”。而你唯一能做的就是问诸如 “A&nbsp;你好呀，请问你认不认识&nbsp;B呀？”&nbsp;的问题，以确定 A 是否认识 B。你需要在（渐近意义上）尽可能少的问题内来确定这位 “名人” 是谁（或者确定这里没有 “名人”）。</p>
 
-<p>在本题中，你可以使用辅助函数&nbsp;<code>bool knows(a, b)</code>&nbsp;获取到 A&nbsp;是否认识 B。请你来实现一个函数&nbsp;<code>int findCelebrity(n)</code>。</p>
+<p>给定整数&nbsp;<code>n</code>&nbsp;和一个辅助函数&nbsp;<code>bool knows(a, b)</code>&nbsp;用来获取&nbsp;<code>a</code> 是否认识&nbsp;<code>b</code>。实现一个函数&nbsp;<code>int findCelebrity(n)</code>。派对最多只会有一个 “名人” 参加。</p>
 
-<p>派对最多只会有一个 “名人” 参加。若&nbsp;“名人” 存在，请返回他/她的编号；若&nbsp;“名人”&nbsp;不存在，请返回&nbsp;<code>-1</code>。</p>
+<p>若&nbsp;“名人” 存在，请返回他/她的编号；若&nbsp;“名人”&nbsp;不存在，请返回&nbsp;<code>-1</code>。</p>
+
+<p><strong>注意</strong>&nbsp;<code>n x n</code>&nbsp;的二维数组&nbsp;<code>graph</code>&nbsp;给定的输入并不是&nbsp;<strong>直接</strong>&nbsp;提供给你的，而是&nbsp;<strong>只能</strong>&nbsp;通过辅助函数 <code>knows</code>&nbsp;获取。<code>graph[i][j] == 1</code>&nbsp;表示&nbsp;<code>i</code> 认识 <code>j</code>，而&nbsp;<code>graph[i][j] == 0</code>&nbsp;表示&nbsp;<code>j</code>&nbsp;不认识&nbsp;<code>i</code>。</p>
 
 <p>&nbsp;</p>
 

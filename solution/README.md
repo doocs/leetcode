@@ -3383,6 +3383,7 @@
 |  3371  |  [识别数组中的最大异常值](/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README.md)  |    |  中等  |  第 426 场周赛  |
 |  3372  |  [连接两棵树后最大目标节点数目 I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README.md)  |    |  中等  |  第 426 场周赛  |
 |  3373  |  [连接两棵树后最大目标节点数目 II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README.md)  |    |  困难  |  第 426 场周赛  |
+|  3374  |  [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)  |    |  困难  |    |
 
 ## 版权
 

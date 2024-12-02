@@ -300,6 +300,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3338 | [Second Highest Salary II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README_EN.md)                                                                                             | `Database` | Medium     | 🔒     |
 | 3358 | [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md)                                                                                               | `Database` | Easy       | 🔒     |
 | 3368 | [First Letter Capitalization](/solution/3300-3399/3368.First%20Letter%20Capitalization/README_EN.md)                                                                                         |            | Hard       | 🔒     |
+| 3374 | [First Letter Capitalization II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README_EN.md)                                                                                 |            | Hard       |        |
 
 ## Copyright
 

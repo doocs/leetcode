@@ -3381,6 +3381,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3371  |  [Identify the Largest Outlier in an Array](/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 426  |
 |  3372  |  [Maximize the Number of Target Nodes After Connecting Trees I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 426  |
 |  3373  |  [Maximize the Number of Target Nodes After Connecting Trees II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 426  |
+|  3374  |  [First Letter Capitalization II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
