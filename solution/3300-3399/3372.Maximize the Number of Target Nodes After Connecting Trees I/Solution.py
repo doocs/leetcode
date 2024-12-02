@@ -4,11 +4,11 @@ class Solution:
     ) -> List[int]:
         def build(edges: List[List[int]]) -> List[List[int]]:
             n = len(edges) + 1
-            tree = [[] for _ in range(n)]
+            g = [[] for _ in range(n)]
             for a, b in edges:
-                tree[a].append(b)
-                tree[b].append(a)
-            return tree
+                g[a].append(b)
+                g[b].append(a)
+            return g
 
         def dfs(g: List[List[int]], a: int, fa: int, d: int) -> int:
             if d < 0:

@@ -88,25 +88,270 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3373.Ma
 #### Python3
 
 ```python
+class Solution:
+    def maxTargetNodes(
+        self, edges1: List[List[int]], edges2: List[List[int]]
+    ) -> List[int]:
+        def build(edges: List[List[int]]) -> List[List[int]]:
+            n = len(edges) + 1
+            g = [[] for _ in range(n)]
+            for a, b in edges:
+                g[a].append(b)
+                g[b].append(a)
+            return g
 
+        def dfs(
+            g: List[List[int]], a: int, fa: int, c: List[int], d: int, cnt: List[int]
+        ):
+            c[a] = d
+            cnt[d] += 1
+            for b in g[a]:
+                if b != fa:
+                    dfs(g, b, a, c, d ^ 1, cnt)
+
+        g1 = build(edges1)
+        g2 = build(edges2)
+        n, m = len(g1), len(g2)
+        c1 = [0] * n
+        c2 = [0] * m
+        cnt1 = [0, 0]
+        cnt2 = [0, 0]
+        dfs(g2, 0, -1, c2, 0, cnt2)
+        dfs(g1, 0, -1, c1, 0, cnt1)
+        t = max(cnt2)
+        return [t + cnt1[c1[i]] for i in range(n)]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int[] maxTargetNodes(int[][] edges1, int[][] edges2) {
+        var g1 = build(edges1);
+        var g2 = build(edges2);
+        int n = g1.length, m = g2.length;
+        int[] c1 = new int[n];
+        int[] c2 = new int[m];
+        int[] cnt1 = new int[2];
+        int[] cnt2 = new int[2];
+        dfs(g2, 0, -1, c2, 0, cnt2);
+        dfs(g1, 0, -1, c1, 0, cnt1);
+        int t = Math.max(cnt2[0], cnt2[1]);
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = t + cnt1[c1[i]];
+        }
+        return ans;
+    }
 
+    private List<Integer>[] build(int[][] edges) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        return g;
+    }
+
+    private void dfs(List<Integer>[] g, int a, int fa, int[] c, int d, int[] cnt) {
+        c[a] = d;
+        cnt[d]++;
+        for (int b : g[a]) {
+            if (b != fa) {
+                dfs(g, b, a, c, d ^ 1, cnt);
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> maxTargetNodes(vector<vector<int>>& edges1, vector<vector<int>>& edges2) {
+        auto g1 = build(edges1);
+        auto g2 = build(edges2);
+        int n = g1.size(), m = g2.size();
+        vector<int> c1(n, 0), c2(m, 0);
+        vector<int> cnt1(2, 0), cnt2(2, 0);
 
+        dfs(g2, 0, -1, c2, 0, cnt2);
+        dfs(g1, 0, -1, c1, 0, cnt1);
+
+        int t = max(cnt2[0], cnt2[1]);
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = t + cnt1[c1[i]];
+        }
+        return ans;
+    }
+
+private:
+    vector<vector<int>> build(const vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        return g;
+    }
+
+    void dfs(const vector<vector<int>>& g, int a, int fa, vector<int>& c, int d, vector<int>& cnt) {
+        c[a] = d;
+        cnt[d]++;
+        for (int b : g[a]) {
+            if (b != fa) {
+                dfs(g, b, a, c, d ^ 1, cnt);
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxTargetNodes(edges1 [][]int, edges2 [][]int) []int {
+    g1 := build(edges1)
+    g2 := build(edges2)
+    n, m := len(g1), len(g2)
+    c1 := make([]int, n)
+    c2 := make([]int, m)
+    cnt1 := make([]int, 2)
+    cnt2 := make([]int, 2)
 
+    dfs(g2, 0, -1, c2, 0, cnt2)
+    dfs(g1, 0, -1, c1, 0, cnt1)
+
+    t := max(cnt2[0], cnt2[1])
+    ans := make([]int, n)
+    for i := 0; i < n; i++ {
+        ans[i] = t + cnt1[c1[i]]
+    }
+    return ans
+}
+
+func build(edges [][]int) [][]int {
+    n := len(edges) + 1
+    g := make([][]int, n)
+    for _, e := range edges {
+        a, b := e[0], e[1]
+        g[a] = append(g[a], b)
+        g[b] = append(g[b], a)
+    }
+    return g
+}
+
+func dfs(g [][]int, a, fa int, c []int, d int, cnt []int) {
+    c[a] = d
+    cnt[d]++
+    for _, b := range g[a] {
+        if b != fa {
+            dfs(g, b, a, c, d^1, cnt)
+        }
+    }
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTargetNodes(edges1: number[][], edges2: number[][]): number[] {
+    const g1 = build(edges1);
+    const g2 = build(edges2);
+    const [n, m] = [g1.length, g2.length];
+    const c1 = Array(n).fill(0);
+    const c2 = Array(m).fill(0);
+    const cnt1 = [0, 0];
+    const cnt2 = [0, 0];
+
+    dfs(g2, 0, -1, c2, 0, cnt2);
+    dfs(g1, 0, -1, c1, 0, cnt1);
+
+    const t = Math.max(...cnt2);
+    const ans = Array(n);
+    for (let i = 0; i < n; i++) {
+        ans[i] = t + cnt1[c1[i]];
+    }
+    return ans;
+}
+
+function build(edges: number[][]): number[][] {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    return g;
+}
+
+function dfs(g: number[][], a: number, fa: number, c: number[], d: number, cnt: number[]): void {
+    c[a] = d;
+    cnt[d]++;
+    for (const b of g[a]) {
+        if (b !== fa) {
+            dfs(g, b, a, c, d ^ 1, cnt);
+        }
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] MaxTargetNodes(int[][] edges1, int[][] edges2) {
+        var g1 = Build(edges1);
+        var g2 = Build(edges2);
+        int n = g1.Length, m = g2.Length;
+        var c1 = new int[n];
+        var c2 = new int[m];
+        var cnt1 = new int[2];
+        var cnt2 = new int[2];
+
+        Dfs(g2, 0, -1, c2, 0, cnt2);
+        Dfs(g1, 0, -1, c1, 0, cnt1);
+
+        int t = Math.Max(cnt2[0], cnt2[1]);
+        var ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = t + cnt1[c1[i]];
+        }
+        return ans;
+    }
+
+    private List<int>[] Build(int[][] edges) {
+        int n = edges.Length + 1;
+        var g = new List<int>[n];
+        for (int i = 0; i < n; i++) {
+            g[i] = new List<int>();
+        }
+        foreach (var e in edges) {
+            int a = e[0], b = e[1];
+            g[a].Add(b);
+            g[b].Add(a);
+        }
+        return g;
+    }
+
+    private void Dfs(List<int>[] g, int a, int fa, int[] c, int d, int[] cnt) {
+        c[a] = d;
+        cnt[d]++;
+        foreach (var b in g[a]) {
+            if (b != fa) {
+                Dfs(g, b, a, c, d ^ 1, cnt);
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
