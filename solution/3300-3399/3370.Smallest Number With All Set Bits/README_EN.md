@@ -73,7 +73,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+We start with $x = 1$ and continuously left shift $x$ until $x - 1 \geq n$. At this point, $x - 1$ is the answer we are looking for.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

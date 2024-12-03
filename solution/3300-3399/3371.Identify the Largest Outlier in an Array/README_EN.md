@@ -79,7 +79,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We use a hash table $\textit{cnt}$ to record the frequency of each element in the array $\textit{nums}$.
+
+Next, we enumerate each element $x$ in the array $\textit{nums}$ as a possible outlier. For each $x$, we calculate the sum $t$ of all elements in the array $\textit{nums}$ except $x$. If $t$ is not even, or half of $t$ is not in $\textit{cnt}$, then $x$ does not meet the condition, and we skip this $x$. Otherwise, if $x$ is not equal to half of $t$, or $x$ appears more than once in $\textit{cnt}$, then $x$ is a possible outlier, and we update the answer.
+
+After enumerating all elements, we return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
