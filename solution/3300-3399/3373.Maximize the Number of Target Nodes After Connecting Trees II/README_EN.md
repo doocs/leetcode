@@ -80,7 +80,16 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+The number of target nodes for node $i$ can be divided into two parts:
+
+-   The number of nodes in the first tree with the same depth parity as node $i$.
+-   The maximum number of nodes in the second tree with the same depth parity.
+
+First, we use Depth-First Search (DFS) to calculate the number of nodes in the second tree with the same depth parity, denoted as $\textit{cnt2}$. Then, we calculate the number of nodes in the first tree with the same depth parity as node $i$, denoted as $\textit{cnt1}$. Therefore, the number of target nodes for node $i$ is $\max(\textit{cnt2}) + \textit{cnt1}$.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the number of nodes in the first and second trees, respectively.
 
 <!-- tabs:start -->
 

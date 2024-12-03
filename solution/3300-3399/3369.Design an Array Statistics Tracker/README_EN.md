@@ -100,7 +100,23 @@ statisticsTracker.getMode(); // return 5</div>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Queue + Hash Table + Ordered Set
+
+We define a queue $\textit{q}$ to store the added numbers, a variable $\textit{s}$ to store the sum of all numbers, a hash table $\textit{cnt}$ to store the occurrence count of each number, an ordered set $\textit{sl}$ to store all numbers, and an ordered set $\textit{sl2}$ to store all numbers and their occurrence counts, sorted by occurrence count in descending order and by value in ascending order.
+
+In the `addNumber` method, we add the number to the queue $\textit{q}$, add the number to the ordered set $\textit{sl}$, then remove the number and its occurrence count from the ordered set $\textit{sl2}$, update the occurrence count of the number, and finally add the number and its updated occurrence count to the ordered set $\textit{sl2}$, and update the sum of all numbers. The time complexity is $O(\log n)$.
+
+In the `removeFirstAddedNumber` method, we remove the earliest added number from the queue $\textit{q}$, remove the number from the ordered set $\textit{sl}$, then remove the number and its occurrence count from the ordered set $\textit{sl2}$, update the occurrence count of the number, and finally add the number and its updated occurrence count to the ordered set $\textit{sl2}$, and update the sum of all numbers. The time complexity is $O(\log n)$.
+
+In the `getMean` method, we return the sum of all numbers divided by the number of numbers. The time complexity is $O(1)$.
+
+In the `getMedian` method, we return the $\textit{len}(\textit{q}) / 2$-th number in the ordered set $\textit{sl}$. The time complexity is $O(1)$ or $O(\log n)$.
+
+In the `getMode` method, we return the first number in the ordered set $\textit{sl2}$. The time complexity is $O(1)$.
+
+> In Python, we can directly access elements in an ordered set by index. In other languages, we can implement this using a heap.
+
+The space complexity is $O(n)$, where $n$ is the number of added numbers.
 
 <!-- tabs:start -->
 
@@ -157,13 +173,225 @@ class StatisticsTracker:
 #### Java
 
 ```java
+class MedianFinder {
+    private final PriorityQueue<Integer> small = new PriorityQueue<>(Comparator.reverseOrder());
+    private final PriorityQueue<Integer> large = new PriorityQueue<>();
+    private final Map<Integer, Integer> delayed = new HashMap<>();
+    private int smallSize;
+    private int largeSize;
 
+    public void addNum(int num) {
+        if (small.isEmpty() || num <= small.peek()) {
+            small.offer(num);
+            ++smallSize;
+        } else {
+            large.offer(num);
+            ++largeSize;
+        }
+        rebalance();
+    }
+
+    public Integer findMedian() {
+        return smallSize == largeSize ? large.peek() : small.peek();
+    }
+
+    public void removeNum(int num) {
+        delayed.merge(num, 1, Integer::sum);
+        if (num <= small.peek()) {
+            --smallSize;
+            if (num == small.peek()) {
+                prune(small);
+            }
+        } else {
+            --largeSize;
+            if (num == large.peek()) {
+                prune(large);
+            }
+        }
+        rebalance();
+    }
+
+    private void prune(PriorityQueue<Integer> pq) {
+        while (!pq.isEmpty() && delayed.containsKey(pq.peek())) {
+            if (delayed.merge(pq.peek(), -1, Integer::sum) == 0) {
+                delayed.remove(pq.peek());
+            }
+            pq.poll();
+        }
+    }
+
+    private void rebalance() {
+        if (smallSize > largeSize + 1) {
+            large.offer(small.poll());
+            --smallSize;
+            ++largeSize;
+            prune(small);
+        } else if (smallSize < largeSize) {
+            small.offer(large.poll());
+            --largeSize;
+            ++smallSize;
+            prune(large);
+        }
+    }
+}
+
+class StatisticsTracker {
+    private final Deque<Integer> q = new ArrayDeque<>();
+    private long s;
+    private final Map<Integer, Integer> cnt = new HashMap<>();
+    private final MedianFinder medianFinder = new MedianFinder();
+    private final TreeSet<int[]> ts
+        = new TreeSet<>((a, b) -> a[1] == b[1] ? a[0] - b[0] : b[1] - a[1]);
+
+    public StatisticsTracker() {
+    }
+
+    public void addNumber(int number) {
+        q.offerLast(number);
+        s += number;
+        ts.remove(new int[] {number, cnt.getOrDefault(number, 0)});
+        cnt.merge(number, 1, Integer::sum);
+        medianFinder.addNum(number);
+        ts.add(new int[] {number, cnt.get(number)});
+    }
+
+    public void removeFirstAddedNumber() {
+        int number = q.pollFirst();
+        s -= number;
+        ts.remove(new int[] {number, cnt.get(number)});
+        cnt.merge(number, -1, Integer::sum);
+        medianFinder.removeNum(number);
+        ts.add(new int[] {number, cnt.get(number)});
+    }
+
+    public int getMean() {
+        return (int) (s / q.size());
+    }
+
+    public int getMedian() {
+        return medianFinder.findMedian();
+    }
+
+    public int getMode() {
+        return ts.first()[0];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class MedianFinder {
+public:
+    void addNum(int num) {
+        if (small.empty() || num <= small.top()) {
+            small.push(num);
+            ++smallSize;
+        } else {
+            large.push(num);
+            ++largeSize;
+        }
+        reblance();
+    }
 
+    void removeNum(int num) {
+        ++delayed[num];
+        if (num <= small.top()) {
+            --smallSize;
+            if (num == small.top()) {
+                prune(small);
+            }
+        } else {
+            --largeSize;
+            if (num == large.top()) {
+                prune(large);
+            }
+        }
+        reblance();
+    }
+
+    int findMedian() {
+        return smallSize == largeSize ? large.top() : small.top();
+    }
+
+private:
+    priority_queue<int> small;
+    priority_queue<int, vector<int>, greater<int>> large;
+    unordered_map<int, int> delayed;
+    int smallSize = 0;
+    int largeSize = 0;
+
+    template <typename T>
+    void prune(T& pq) {
+        while (!pq.empty() && delayed[pq.top()]) {
+            if (--delayed[pq.top()] == 0) {
+                delayed.erase(pq.top());
+            }
+            pq.pop();
+        }
+    }
+
+    void reblance() {
+        if (smallSize > largeSize + 1) {
+            large.push(small.top());
+            small.pop();
+            --smallSize;
+            ++largeSize;
+            prune(small);
+        } else if (smallSize < largeSize) {
+            small.push(large.top());
+            large.pop();
+            ++smallSize;
+            --largeSize;
+            prune(large);
+        }
+    }
+};
+
+class StatisticsTracker {
+private:
+    queue<int> q;
+    long long s = 0;
+    unordered_map<int, int> cnt;
+    MedianFinder medianFinder;
+    set<pair<int, int>> ts;
+
+public:
+    StatisticsTracker() {}
+
+    void addNumber(int number) {
+        q.push(number);
+        s += number;
+        ts.erase({-cnt[number], number});
+        cnt[number]++;
+        medianFinder.addNum(number);
+        ts.insert({-cnt[number], number});
+    }
+
+    void removeFirstAddedNumber() {
+        int number = q.front();
+        q.pop();
+        s -= number;
+        ts.erase({-cnt[number], number});
+        cnt[number]--;
+        if (cnt[number] > 0) {
+            ts.insert({-cnt[number], number});
+        }
+        medianFinder.removeNum(number);
+    }
+
+    int getMean() {
+        return static_cast<int>(s / q.size());
+    }
+
+    int getMedian() {
+        return medianFinder.findMedian();
+    }
+
+    int getMode() {
+        return ts.begin()->second;
+    }
+};
 ```
 
 #### Go
