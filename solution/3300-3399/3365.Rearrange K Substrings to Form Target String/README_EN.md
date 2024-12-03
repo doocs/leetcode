@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Sorting
 ---
 
 <!-- problem:start -->

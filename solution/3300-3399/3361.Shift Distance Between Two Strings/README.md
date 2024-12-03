@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md
+tags:
+    - 数组
+    - 字符串
+    - 前缀和
 ---
 
 <!-- problem:start -->

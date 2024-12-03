@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README_EN.md
+tags:
+    - Stack
+    - Array
+    - Matrix
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

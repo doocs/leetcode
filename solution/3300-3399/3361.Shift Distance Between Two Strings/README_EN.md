@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README_EN.md
+tags:
+    - Array
+    - String
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

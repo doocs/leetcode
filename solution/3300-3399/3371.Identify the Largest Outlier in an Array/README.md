@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 枚举
 ---
 
 <!-- problem:start -->

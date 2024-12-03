@@ -301,8 +301,8 @@
 | 3328 | [查找每个州的城市 II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README.md)                                                             | `数据库` | 中等 | 🔒   |
 | 3338 | [第二高的薪水 II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README.md)                                                                         | `数据库` | 中等 | 🔒   |
 | 3358 | [评分为 NULL 的图书](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README.md)                                                                       | `数据库` | 简单 | 🔒   |
-| 3368 | [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)                                                                             |          | 困难 | 🔒   |
-| 3374 | [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)                                                                     |          | 困难 |      |
+| 3368 | [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)                                                                             | `数据库` | 困难 | 🔒   |
+| 3374 | [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)                                                                     | `数据库` | 困难 |      |
 
 ## 版权
 

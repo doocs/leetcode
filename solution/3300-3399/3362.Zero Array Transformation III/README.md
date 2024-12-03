@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md
+tags:
+    - 贪心
+    - 数组
+    - 前缀和
+    - 排序
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
