@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;heeellooo&quot;, words = [&quot;hello&quot;, &quot;hi&quot;, &quot;helo&quot;]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 We can extend &quot;e&quot; and &quot;o&quot; in the word &quot;hello&quot; to get &quot;heeellooo&quot;.
 We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the group &quot;ll&quot; is not size 3 or more.
 </pre>
@@ -68,7 +68,19 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal Counting + Two Pointers
+
+We can traverse the array $\textit{words}$, and for each word $t$ in the array, check if $t$ can be expanded to obtain $s$. If it can, increment the answer by one.
+
+Therefore, the key problem is to determine if the word $t$ can be expanded to obtain $s$. We use a function $\textit{check}(s, t)$ to determine this. The implementation logic of the function is as follows:
+
+First, check the length relationship between $s$ and $t$. If the length of $t$ is greater than $s$, return $\textit{false}$ directly. Otherwise, use two pointers $i$ and $j$ to point to $s$ and $t$, respectively, both initially set to $0$.
+
+If the characters pointed to by $i$ and $j$ are different, then $t$ cannot be expanded to obtain $s$, and we return $\textit{false}$. Otherwise, we need to check the relationship between the consecutive occurrence counts of the characters pointed to by $i$ and $j$, denoted as $c_1$ and $c_2$. If $c_1 \lt c_2$ or $c_1 \lt 3$ and $c_1 \neq c_2$, then $t$ cannot be expanded to obtain $s$, and we return $\textit{false}$. Otherwise, move $i$ and $j$ to the right by $c_1$ and $c_2$ times, respectively, and continue checking.
+
+If both $i$ and $j$ reach the end of the strings, then $t$ can be expanded to obtain $s$, and we return $\textit{true}$. Otherwise, we return $\textit{false}$.
+
+The time complexity is $O(n \times m + \sum_{i=0}^{m-1} w_i)$, where $n$ and $m$ are the lengths of the string $s$ and the array $\textit{words}$, respectively, and $w_i$ is the length of the $i$-th word in the array $\textit{words}$.
 
 <!-- tabs:start -->
 
