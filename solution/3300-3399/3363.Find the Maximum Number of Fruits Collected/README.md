@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

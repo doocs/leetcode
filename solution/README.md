@@ -3369,21 +3369,22 @@
 |  3356  |  [零数组变换 II](/solution/3300-3399/3356.Zero%20Array%20Transformation%20II/README.md)  |  `数组`,`二分查找`,`前缀和`  |  中等  |  第 424 场周赛  |
 |  3357  |  [最小化相邻元素的最大差值](/solution/3300-3399/3357.Minimize%20the%20Maximum%20Adjacent%20Element%20Difference/README.md)  |  `贪心`,`数组`,`二分查找`  |  困难  |  第 424 场周赛  |
 |  3358  |  [评分为 NULL 的图书](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README.md)  |  `数据库`  |  简单  |  🔒  |
-|  3359  |  [查找最大元素不超过 K 的有序子矩阵](/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README.md)  |    |  困难  |  🔒  |
-|  3360  |  [移除石头游戏](/solution/3300-3399/3360.Stone%20Removal%20Game/README.md)  |    |  简单  |  第 144 场双周赛  |
-|  3361  |  [两个字符串的切换距离](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md)  |    |  中等  |  第 144 场双周赛  |
-|  3362  |  [零数组变换 III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md)  |    |  中等  |  第 144 场双周赛  |
-|  3363  |  [最多可收集的水果数目](/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README.md)  |    |  困难  |  第 144 场双周赛  |
-|  3364  |  [最小正和子数组](/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README.md)  |    |  简单  |  第 425 场周赛  |
-|  3365  |  [重排子字符串以形成目标字符串](/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README.md)  |    |  中等  |  第 425 场周赛  |
-|  3366  |  [最小数组和](/solution/3300-3399/3366.Minimum%20Array%20Sum/README.md)  |    |  中等  |  第 425 场周赛  |
-|  3367  |  [移除边之后的权重最大和](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README.md)  |    |  困难  |  第 425 场周赛  |
-|  3368  |  [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)  |    |  困难  |  🔒  |
-|  3370  |  [仅含置位位的最小整数](/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README.md)  |    |  简单  |  第 426 场周赛  |
-|  3371  |  [识别数组中的最大异常值](/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README.md)  |    |  中等  |  第 426 场周赛  |
-|  3372  |  [连接两棵树后最大目标节点数目 I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README.md)  |    |  中等  |  第 426 场周赛  |
-|  3373  |  [连接两棵树后最大目标节点数目 II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README.md)  |    |  困难  |  第 426 场周赛  |
-|  3374  |  [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)  |    |  困难  |    |
+|  3359  |  [查找最大元素不超过 K 的有序子矩阵](/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README.md)  |  `栈`,`数组`,`矩阵`,`单调栈`  |  困难  |  🔒  |
+|  3360  |  [移除石头游戏](/solution/3300-3399/3360.Stone%20Removal%20Game/README.md)  |  `数学`,`模拟`  |  简单  |  第 144 场双周赛  |
+|  3361  |  [两个字符串的切换距离](/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md)  |  `数组`,`字符串`,`前缀和`  |  中等  |  第 144 场双周赛  |
+|  3362  |  [零数组变换 III](/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md)  |  `贪心`,`数组`,`前缀和`,`排序`,`堆（优先队列）`  |  中等  |  第 144 场双周赛  |
+|  3363  |  [最多可收集的水果数目](/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/README.md)  |  `数组`,`动态规划`,`矩阵`  |  困难  |  第 144 场双周赛  |
+|  3364  |  [最小正和子数组](/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README.md)  |  `数组`,`前缀和`,`滑动窗口`  |  简单  |  第 425 场周赛  |
+|  3365  |  [重排子字符串以形成目标字符串](/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README.md)  |  `哈希表`,`字符串`,`排序`  |  中等  |  第 425 场周赛  |
+|  3366  |  [最小数组和](/solution/3300-3399/3366.Minimum%20Array%20Sum/README.md)  |  `数组`,`动态规划`  |  中等  |  第 425 场周赛  |
+|  3367  |  [移除边之后的权重最大和](/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README.md)  |  `树`,`深度优先搜索`,`动态规划`  |  困难  |  第 425 场周赛  |
+|  3368  |  [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)  |  `数据库`  |  困难  |  🔒  |
+|  3369  |  [Design an Array Statistics Tracker](/solution/3300-3399/3369.Design%20an%20Array%20Statistics%20Tracker/README.md)  |  `队列`,`哈希表`,`二分查找`  |  困难  |  🔒  |
+|  3370  |  [仅含置位位的最小整数](/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README.md)  |  `位运算`,`数学`  |  简单  |  第 426 场周赛  |
+|  3371  |  [识别数组中的最大异常值](/solution/3300-3399/3371.Identify%20the%20Largest%20Outlier%20in%20an%20Array/README.md)  |  `数组`,`哈希表`,`计数`,`枚举`  |  中等  |  第 426 场周赛  |
+|  3372  |  [连接两棵树后最大目标节点数目 I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`  |  中等  |  第 426 场周赛  |
+|  3373  |  [连接两棵树后最大目标节点数目 II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`  |  困难  |  第 426 场周赛  |
+|  3374  |  [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)  |  `数据库`  |  困难  |    |
 
 ## 版权
 

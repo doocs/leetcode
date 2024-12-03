@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README.md
+tags:
+    - 数组
+    - 前缀和
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

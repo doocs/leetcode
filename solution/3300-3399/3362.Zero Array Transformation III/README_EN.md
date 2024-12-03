@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Prefix Sum
+    - Sorting
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

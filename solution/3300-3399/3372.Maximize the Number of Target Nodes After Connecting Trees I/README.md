@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
 ---
 
 <!-- problem:start -->

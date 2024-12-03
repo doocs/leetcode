@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3359.Find%20Sorted%20Submatrices%20With%20Maximum%20Element%20at%20Most%20K/README.md
+tags:
+    - 栈
+    - 数组
+    - 矩阵
+    - 单调栈
 ---
 
 <!-- problem:start -->
