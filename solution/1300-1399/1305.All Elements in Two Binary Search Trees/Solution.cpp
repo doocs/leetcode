@@ -12,31 +12,34 @@
 class Solution {
 public:
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
-        vector<int> t1;
-        vector<int> t2;
-        dfs(root1, t1);
-        dfs(root2, t2);
-        return merge(t1, t2);
-    }
+        vector<int> a, b, ans;
+        dfs(root1, a);
+        dfs(root2, b);
 
-    void dfs(TreeNode* root, vector<int>& t) {
-        if (!root) return;
-        dfs(root->left, t);
-        t.push_back(root->val);
-        dfs(root->right, t);
-    }
-
-    vector<int> merge(vector<int>& t1, vector<int>& t2) {
-        vector<int> ans;
         int i = 0, j = 0;
-        while (i < t1.size() && j < t2.size()) {
-            if (t1[i] <= t2[j])
-                ans.push_back(t1[i++]);
-            else
-                ans.push_back(t2[j++]);
+        while (i < a.size() && j < b.size()) {
+            if (a[i] <= b[j]) {
+                ans.push_back(a[i++]);
+            } else {
+                ans.push_back(b[j++]);
+            }
         }
-        while (i < t1.size()) ans.push_back(t1[i++]);
-        while (j < t2.size()) ans.push_back(t2[j++]);
+        while (i < a.size()) {
+            ans.push_back(a[i++]);
+        }
+        while (j < b.size()) {
+            ans.push_back(b[j++]);
+        }
         return ans;
+    }
+
+private:
+    void dfs(TreeNode* root, vector<int>& nums) {
+        if (root == nullptr) {
+            return;
+        }
+        dfs(root->left, nums);
+        nums.push_back(root->val);
+        dfs(root->right, nums);
     }
 };
