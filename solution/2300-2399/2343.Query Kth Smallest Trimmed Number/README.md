@@ -98,7 +98,7 @@ tags:
 
 根据题意，我们可以模拟裁剪过程，然后对裁剪后的字符串进行排序，最后根据下标找到对应的数字即可。
 
-时间复杂度 $O(m \times \ n \times \log n \times s)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为 `nums` 和 `queries` 的长度，而 $s$ 为 $nums[i]$ 字符串的长度。
+时间复杂度 $O(m \times \ n \times \log n \times s)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为 $\textit{nums}$ 和 $\textit{queries}$ 的长度，而 $s$ 为 $\textit{nums}[i]$ 字符串的长度。
 
 <!-- tabs:start -->
 
