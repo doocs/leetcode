@@ -91,7 +91,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+According to the problem description, we can simulate the cropping process, then sort the cropped strings, and finally find the corresponding number based on the index.
+
+The time complexity is $O(m \times n \times \log n \times s)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the lengths of $\textit{nums}$ and $\textit{queries}$ respectively, and $s$ is the length of the string $\textit{nums}[i]$.
 
 <!-- tabs:start -->
 
