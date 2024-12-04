@@ -13,29 +13,33 @@
  */
 
 function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[] {
-    const res = [];
-    const stacks = [[], []];
-    while (root1 != null || stacks[0].length !== 0 || root2 != null || stacks[1].length !== 0) {
-        if (root1 != null) {
-            stacks[0].push(root1);
-            root1 = root1.left;
-        } else if (root2 != null) {
-            stacks[1].push(root2);
-            root2 = root2.left;
+    const dfs = (root: TreeNode | null, nums: number[]) => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left, nums);
+        nums.push(root.val);
+        dfs(root.right, nums);
+    };
+    const a: number[] = [];
+    const b: number[] = [];
+    dfs(root1, a);
+    dfs(root2, b);
+    const [m, n] = [a.length, b.length];
+    const ans: number[] = [];
+    let [i, j] = [0, 0];
+    while (i < m && j < n) {
+        if (a[i] < b[j]) {
+            ans.push(a[i++]);
         } else {
-            if (
-                (stacks[0][stacks[0].length - 1] ?? { val: Infinity }).val <
-                (stacks[1][stacks[1].length - 1] ?? { val: Infinity }).val
-            ) {
-                const { val, right } = stacks[0].pop();
-                res.push(val);
-                root1 = right;
-            } else {
-                const { val, right } = stacks[1].pop();
-                res.push(val);
-                root2 = right;
-            }
+            ans.push(b[j++]);
         }
     }
-    return res;
+    while (i < m) {
+        ans.push(a[i++]);
+    }
+    while (j < n) {
+        ans.push(b[j++]);
+    }
+    return ans;
 }

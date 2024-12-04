@@ -6,40 +6,35 @@
  *     Right *TreeNode
  * }
  */
-func getAllElements(root1 *TreeNode, root2 *TreeNode) []int {
-	var dfs func(root *TreeNode) []int
-	dfs = func(root *TreeNode) []int {
+func getAllElements(root1 *TreeNode, root2 *TreeNode) (ans []int) {
+	var dfs func(*TreeNode, *[]int)
+	dfs = func(root *TreeNode, nums *[]int) {
 		if root == nil {
-			return []int{}
+			return
 		}
-		left := dfs(root.Left)
-		right := dfs(root.Right)
-		left = append(left, root.Val)
-		left = append(left, right...)
-		return left
+		dfs(root.Left, nums)
+		*nums = append(*nums, root.Val)
+		dfs(root.Right, nums)
 	}
-	merge := func(t1, t2 []int) []int {
-		var ans []int
-		i, j := 0, 0
-		for i < len(t1) && j < len(t2) {
-			if t1[i] <= t2[j] {
-				ans = append(ans, t1[i])
-				i++
-			} else {
-				ans = append(ans, t2[j])
-				j++
-			}
-		}
-		for i < len(t1) {
-			ans = append(ans, t1[i])
+	a, b := []int{}, []int{}
+	dfs(root1, &a)
+	dfs(root2, &b)
+	i, j := 0, 0
+	m, n := len(a), len(b)
+	for i < m && j < n {
+		if a[i] < b[j] {
+			ans = append(ans, a[i])
 			i++
-		}
-		for j < len(t2) {
-			ans = append(ans, t2[j])
+		} else {
+			ans = append(ans, b[j])
 			j++
 		}
-		return ans
 	}
-	t1, t2 := dfs(root1), dfs(root2)
-	return merge(t1, t2)
+	for ; i < m; i++ {
+		ans = append(ans, a[i])
+	}
+	for ; j < n; j++ {
+		ans = append(ans, b[j])
+	}
+	return
 }

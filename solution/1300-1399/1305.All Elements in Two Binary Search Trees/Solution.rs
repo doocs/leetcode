@@ -23,39 +23,44 @@ impl Solution {
         root1: Option<Rc<RefCell<TreeNode>>>,
         root2: Option<Rc<RefCell<TreeNode>>>,
     ) -> Vec<i32> {
-        fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, t: &mut Vec<i32>) {
-            if let Some(root) = root {
-                dfs(&root.borrow().left, t);
-                t.push(root.borrow().val);
-                dfs(&root.borrow().right, t);
-            }
-        }
+        let mut a = Vec::new();
+        let mut b = Vec::new();
 
-        let mut t1 = Vec::new();
-        let mut t2 = Vec::new();
-        dfs(&root1, &mut t1);
-        dfs(&root2, &mut t2);
+        Solution::dfs(&root1, &mut a);
+        Solution::dfs(&root2, &mut b);
 
         let mut ans = Vec::new();
-        let mut i = 0;
-        let mut j = 0;
-        while i < t1.len() && j < t2.len() {
-            if t1[i] < t2[j] {
-                ans.push(t1[i]);
+        let (mut i, mut j) = (0, 0);
+
+        while i < a.len() && j < b.len() {
+            if a[i] <= b[j] {
+                ans.push(a[i]);
                 i += 1;
             } else {
-                ans.push(t2[j]);
+                ans.push(b[j]);
                 j += 1;
             }
         }
-        while i < t1.len() {
-            ans.push(t1[i]);
+
+        while i < a.len() {
+            ans.push(a[i]);
             i += 1;
         }
-        while j < t2.len() {
-            ans.push(t2[j]);
+
+        while j < b.len() {
+            ans.push(b[j]);
             j += 1;
         }
+
         ans
+    }
+
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, nums: &mut Vec<i32>) {
+        if let Some(node) = root {
+            let node = node.borrow();
+            Solution::dfs(&node.left, nums);
+            nums.push(node.val);
+            Solution::dfs(&node.right, nums);
+        }
     }
 }
