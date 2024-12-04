@@ -76,7 +76,13 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：遍历
+
+我们直接遍历数组，对于每个下标 $i$，我们判断是否满足 $i \bmod 10 = \textit{nums}[i]$，如果满足则返回当前下标 $i$。
+
+如果遍历完数组都没有找到满足条件的下标，则返回 $-1$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -85,8 +91,8 @@ i=3: 3 mod 10 = 3 != nums[3].
 ```python
 class Solution:
     def smallestEqual(self, nums: List[int]) -> int:
-        for i, v in enumerate(nums):
-            if i % 10 == v:
+        for i, x in enumerate(nums):
+            if i % 10 == x:
                 return i
         return -1
 ```
@@ -112,9 +118,11 @@ class Solution {
 class Solution {
 public:
     int smallestEqual(vector<int>& nums) {
-        for (int i = 0; i < nums.size(); ++i)
-            if (i % 10 == nums[i])
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i % 10 == nums[i]) {
                 return i;
+            }
+        }
         return -1;
     }
 };
@@ -124,8 +132,8 @@ public:
 
 ```go
 func smallestEqual(nums []int) int {
-	for i, v := range nums {
-		if i%10 == v {
+	for i, x := range nums {
+		if i%10 == x {
 			return i
 		}
 	}
@@ -137,10 +145,42 @@ func smallestEqual(nums []int) int {
 
 ```ts
 function smallestEqual(nums: number[]): number {
-    for (let i = 0; i < nums.length; i++) {
-        if (i % 10 == nums[i]) return i;
+    for (let i = 0; i < nums.length; ++i) {
+        if (i % 10 === nums[i]) {
+            return i;
+        }
     }
     return -1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_equal(nums: Vec<i32>) -> i32 {
+        for (i, &x) in nums.iter().enumerate() {
+            if i % 10 == x as usize {
+                return i as i32;
+            }
+        }
+        -1
+    }
+}
+```
+
+#### Cangjie
+
+```cj
+class Solution {
+    func smallestEqual(nums: Array<Int64>): Int64 {
+        for (i in 0..nums.size) {
+            if (i % 10 == nums[i]) {
+                return i
+            }
+        }
+        -1
+    }
 }
 ```
 
