@@ -3,17 +3,10 @@ class Solution {
         if (n == 0) {
             return 1;
         }
-        int ans = 0;
-        boolean find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = n & (1 << i);
-            if (!find && b == 0) {
-                continue;
-            }
-            find = true;
-            if (b == 0) {
-                ans |= (1 << i);
-            }
+        int ans = 0, i = 0;
+        while (n != 0) {
+            ans |= (n & 1 ^ 1) << (i++);
+            n >>= 1;
         }
         return ans;
     }
