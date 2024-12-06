@@ -70,7 +70,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Counting
+
+We observe that to maximize the sum of the array, we should try to turn the smallest negative numbers into positive numbers.
+
+Given that the range of elements is $[-100, 100]$, we can use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums}$. Then, starting from $-100$, we iterate through $x$. If $x$ exists in the hash table, we take $m = \min(\textit{cnt}[x], k)$ as the number of times to negate the element $x$. We then subtract $m$ from $\textit{cnt}[x]$, add $m$ to $\textit{cnt}[-x]$, and subtract $m$ from $k$. If $k$ becomes $0$, the operation is complete, and we exit the loop.
+
+If $k$ is still odd and $\textit{cnt}[0] = 0$, we need to take the smallest positive number $x$ in $\textit{cnt}$, subtract $1$ from $\textit{cnt}[x]$, and add $1$ to $\textit{cnt}[-x]$.
+
+Finally, we traverse the hash table $\textit{cnt}$ and sum the products of $x$ and $\textit{cnt}[x]$ to get the answer.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ and $M$ are the length of the array $\textit{nums}$ and the size of the data range of $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 
@@ -225,11 +235,7 @@ function largestSumAfterKNegations(nums: number[], k: number): number {
             }
         }
     }
-    let ans = 0;
-    for (const [key, value] of cnt.entries()) {
-        ans += key * value;
-    }
-    return ans;
+    return Array.from(cnt.entries()).reduce((acc, [k, v]) => acc + k * v, 0);
 }
 ```
 

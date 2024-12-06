@@ -67,37 +67,39 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS + 二分查找
+
+我们设计一个函数 $\textit{dfs}(i, j)$，表示构造出从 $\textit{preorder}[i]$ 到 $\textit{preorder}[j]$ 这些节点构成的二叉搜索树。那么答案就是 $\textit{dfs}(0, n - 1)$。
+
+在 $\textit{dfs}(i, j)$ 中，我们首先构造根节点，即 $\textit{preorder}[i]$。然后使用二分查找的方法找到第一个大于 $\textit{preorder}[i]$ 的节点的下标 $\textit{mid}$，将 $\textit{dfs}(i + 1, \textit{mid} - 1)$ 作为根节点的左子树，将 $\textit{dfs}(\textit{mid}, j)$ 作为根节点的右子树。
+
+最后返回根节点即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{preorder}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
-        def dfs(preorder):
-            if not preorder:
+        def dfs(i: int, j: int) -> Optional[TreeNode]:
+            if i > j:
                 return None
-            root = TreeNode(preorder[0])
-            left, right = 1, len(preorder)
-            while left < right:
-                mid = (left + right) >> 1
-                if preorder[mid] > preorder[0]:
-                    right = mid
+            root = TreeNode(preorder[i])
+            l, r = i + 1, j + 1
+            while l < r:
+                mid = (l + r) >> 1
+                if preorder[mid] > preorder[i]:
+                    r = mid
                 else:
-                    left = mid + 1
-            root.left = dfs(preorder[1:left])
-            root.right = dfs(preorder[left:])
+                    l = mid + 1
+            root.left = dfs(i + 1, l - 1)
+            root.right = dfs(l, j)
             return root
 
-        return dfs(preorder)
+        return dfs(0, len(preorder) - 1)
 ```
 
 #### Java
@@ -119,27 +121,29 @@ class Solution:
  * }
  */
 class Solution {
+    private int[] preorder;
 
     public TreeNode bstFromPreorder(int[] preorder) {
-        return dfs(preorder, 0, preorder.length - 1);
+        this.preorder = preorder;
+        return dfs(0, preorder.length - 1);
     }
 
-    private TreeNode dfs(int[] preorder, int i, int j) {
-        if (i > j || i >= preorder.length) {
+    private TreeNode dfs(int i, int j) {
+        if (i > j) {
             return null;
         }
         TreeNode root = new TreeNode(preorder[i]);
-        int left = i + 1, right = j + 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = i + 1, r = j + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (preorder[mid] > preorder[i]) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        root.left = dfs(preorder, i + 1, left - 1);
-        root.right = dfs(preorder, left, j);
+        root.left = dfs(i + 1, l - 1);
+        root.right = dfs(l, j);
         return root;
     }
 }
@@ -162,23 +166,25 @@ class Solution {
 class Solution {
 public:
     TreeNode* bstFromPreorder(vector<int>& preorder) {
-        return dfs(preorder, 0, preorder.size() - 1);
-    }
-
-    TreeNode* dfs(vector<int>& preorder, int i, int j) {
-        if (i > j || i >= preorder.size()) return nullptr;
-        TreeNode* root = new TreeNode(preorder[i]);
-        int left = i + 1, right = j + 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (preorder[mid] > preorder[i])
-                right = mid;
-            else
-                left = mid + 1;
-        }
-        root->left = dfs(preorder, i + 1, left - 1);
-        root->right = dfs(preorder, left, j);
-        return root;
+        auto dfs = [&](auto&& dfs, int i, int j) -> TreeNode* {
+            if (i > j) {
+                return nullptr;
+            }
+            TreeNode* root = new TreeNode(preorder[i]);
+            int l = i + 1, r = j + 1;
+            while (l < r) {
+                int mid = (l + r) >> 1;
+                if (preorder[mid] > preorder[i]) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            root->left = dfs(dfs, i + 1, l - 1);
+            root->right = dfs(dfs, l, j);
+            return root;
+        };
+        return dfs(dfs, 0, preorder.size() - 1);
     }
 };
 ```
@@ -197,21 +203,21 @@ public:
 func bstFromPreorder(preorder []int) *TreeNode {
 	var dfs func(i, j int) *TreeNode
 	dfs = func(i, j int) *TreeNode {
-		if i > j || i >= len(preorder) {
+		if i > j {
 			return nil
 		}
 		root := &TreeNode{Val: preorder[i]}
-		left, right := i+1, len(preorder)
-		for left < right {
-			mid := (left + right) >> 1
+		l, r := i+1, j+1
+		for l < r {
+			mid := (l + r) >> 1
 			if preorder[mid] > preorder[i] {
-				right = mid
+				r = mid
 			} else {
-				left = mid + 1
+				l = mid + 1
 			}
 		}
-		root.Left = dfs(i+1, left-1)
-		root.Right = dfs(left, j)
+		root.Left = dfs(i+1, l-1)
+		root.Right = dfs(l, j)
 		return root
 	}
 	return dfs(0, len(preorder)-1)
@@ -236,24 +242,25 @@ func bstFromPreorder(preorder []int) *TreeNode {
  */
 
 function bstFromPreorder(preorder: number[]): TreeNode | null {
-    const n = preorder.length;
-    const next = new Array(n);
-    const stack = [];
-    for (let i = n - 1; i >= 0; i--) {
-        while (stack.length !== 0 && preorder[stack[stack.length - 1]] < preorder[i]) {
-            stack.pop();
-        }
-        next[i] = stack[stack.length - 1] ?? n;
-        stack.push(i);
-    }
-
-    const dfs = (left: number, right: number) => {
-        if (left >= right) {
+    const dfs = (i: number, j: number): TreeNode | null => {
+        if (i > j) {
             return null;
         }
-        return new TreeNode(preorder[left], dfs(left + 1, next[left]), dfs(next[left], right));
+        const root = new TreeNode(preorder[i]);
+        let [l, r] = [i + 1, j + 1];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (preorder[mid] > preorder[i]) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        root.left = dfs(i + 1, l - 1);
+        root.right = dfs(l, j);
+        return root;
     };
-    return dfs(0, n);
+    return dfs(0, preorder.length - 1);
 }
 ```
 
@@ -281,36 +288,29 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(
-        preorder: &Vec<i32>,
-        next: &Vec<usize>,
-        left: usize,
-        right: usize,
-    ) -> Option<Rc<RefCell<TreeNode>>> {
-        if left >= right {
-            return None;
-        }
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: preorder[left],
-            left: Self::dfs(preorder, next, left + 1, next[left]),
-            right: Self::dfs(preorder, next, next[left], right),
-        })))
-    }
-
     pub fn bst_from_preorder(preorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        let n = preorder.len();
-        let mut stack = Vec::new();
-        let mut next = vec![n; n];
-        for i in (0..n).rev() {
-            while !stack.is_empty() && preorder[*stack.last().unwrap()] < preorder[i] {
-                stack.pop();
+        fn dfs(preorder: &Vec<i32>, i: usize, j: usize) -> Option<Rc<RefCell<TreeNode>>> {
+            if i > j {
+                return None;
             }
-            if !stack.is_empty() {
-                next[i] = *stack.last().unwrap();
+            let root = Rc::new(RefCell::new(TreeNode::new(preorder[i])));
+            let mut l = i + 1;
+            let mut r = j + 1;
+            while l < r {
+                let mid = (l + r) >> 1;
+                if preorder[mid] > preorder[i] {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
             }
-            stack.push(i);
+            let mut root_ref = root.borrow_mut();
+            root_ref.left = dfs(preorder, i + 1, l - 1);
+            root_ref.right = dfs(preorder, l, j);
+            Some(root.clone())
         }
-        Self::dfs(&preorder, &next, 0, n)
+
+        dfs(&preorder, 0, preorder.len() - 1)
     }
 }
 ```
