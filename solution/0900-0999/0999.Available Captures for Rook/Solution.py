@@ -1,17 +1,16 @@
 class Solution:
     def numRookCaptures(self, board: List[List[str]]) -> int:
-        ans = 0
         dirs = (-1, 0, 1, 0, -1)
-        for i in range(8):
-            for j in range(8):
+        n = len(board)
+        for i in range(n):
+            for j in range(n):
                 if board[i][j] == "R":
+                    ans = 0
                     for a, b in pairwise(dirs):
-                        x, y = i, j
-                        while 0 <= x + a < 8 and 0 <= y + b < 8:
-                            x, y = x + a, y + b
+                        x, y = i + a, j + b
+                        while 0 <= x < n and 0 <= y < n and board[x][y] != "B":
                             if board[x][y] == "p":
                                 ans += 1
                                 break
-                            if board[x][y] == "B":
-                                break
-        return ans
+                            x, y = x + a, y + b
+                    return ans

@@ -80,11 +80,10 @@ tags:
 
 ### 方法一：模拟
 
-我们先遍历棋盘，找到车的位置 $(x, y)$，然后从 $(x, y)$ 出发，向上下左右四个方向遍历：
+我们先遍历棋盘，找到车的位置 $(i, j)$，然后从 $(i, j)$ 出发，向上下左右四个方向遍历：
 
--   如果遇到象或者边界，那么该方向停止遍历；
--   如果遇到卒，那么答案加一，然后该方向停止遍历；
--   否则，继续遍历。
+-   如果不是边界且不是象，则继续向前走；
+-   如果是卒，则答案加一，并停止该方向的遍历。
 
 遍历完四个方向后，即可得到答案。
 
@@ -97,21 +96,20 @@ tags:
 ```python
 class Solution:
     def numRookCaptures(self, board: List[List[str]]) -> int:
-        ans = 0
         dirs = (-1, 0, 1, 0, -1)
-        for i in range(8):
-            for j in range(8):
+        n = len(board)
+        for i in range(n):
+            for j in range(n):
                 if board[i][j] == "R":
+                    ans = 0
                     for a, b in pairwise(dirs):
-                        x, y = i, j
-                        while 0 <= x + a < 8 and 0 <= y + b < 8:
-                            x, y = x + a, y + b
+                        x, y = i + a, j + b
+                        while 0 <= x < n and 0 <= y < n and board[x][y] != "B":
                             if board[x][y] == "p":
                                 ans += 1
                                 break
-                            if board[x][y] == "B":
-                                break
-        return ans
+                            x, y = x + a, y + b
+                    return ans
 ```
 
 #### Java
@@ -119,28 +117,28 @@ class Solution:
 ```java
 class Solution {
     public int numRookCaptures(char[][] board) {
-        int ans = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
+        final int[] dirs = {-1, 0, 1, 0, -1};
+        int n = board.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (board[i][j] == 'R') {
+                    int ans = 0;
                     for (int k = 0; k < 4; ++k) {
-                        int x = i, y = j;
-                        int a = dirs[k], b = dirs[k + 1];
-                        while (x + a >= 0 && x + a < 8 && y + b >= 0 && y + b < 8
-                            && board[x + a][y + b] != 'B') {
-                            x += a;
-                            y += b;
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        while (x >= 0 && x < n && y >= 0 && y < n && board[x][y] != 'B') {
                             if (board[x][y] == 'p') {
                                 ++ans;
                                 break;
                             }
+                            x += dirs[k];
+                            y += dirs[k + 1];
                         }
                     }
+                    return ans;
                 }
             }
         }
-        return ans;
+        return 0;
     }
 }
 ```
@@ -151,27 +149,28 @@ class Solution {
 class Solution {
 public:
     int numRookCaptures(vector<vector<char>>& board) {
-        int ans = 0;
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
+        const int dirs[5] = {-1, 0, 1, 0, -1};
+        int n = board.size();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (board[i][j] == 'R') {
+                    int ans = 0;
                     for (int k = 0; k < 4; ++k) {
-                        int x = i, y = j;
-                        int a = dirs[k], b = dirs[k + 1];
-                        while (x + a >= 0 && x + a < 8 && y + b >= 0 && y + b < 8 && board[x + a][y + b] != 'B') {
-                            x += a;
-                            y += b;
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        while (x >= 0 && x < n && y >= 0 && y < n && board[x][y] != 'B') {
                             if (board[x][y] == 'p') {
                                 ++ans;
                                 break;
                             }
+                            x += dirs[k];
+                            y += dirs[k + 1];
                         }
                     }
+                    return ans;
                 }
             }
         }
-        return ans;
+        return 0;
     }
 };
 ```
@@ -180,25 +179,93 @@ public:
 
 ```go
 func numRookCaptures(board [][]byte) (ans int) {
-	dirs := [5]int{-1, 0, 1, 0, -1}
-	for i := 0; i < 8; i++ {
-		for j := 0; j < 8; j++ {
-			if board[i][j] == 'R' {
-				for k := 0; k < 4; k++ {
-					x, y := i, j
-					a, b := dirs[k], dirs[k+1]
-					for x+a >= 0 && x+a < 8 && y+b >= 0 && y+b < 8 && board[x+a][y+b] != 'B' {
-						x, y = x+a, y+b
-						if board[x][y] == 'p' {
-							ans++
-							break
-						}
-					}
-				}
-			}
-		}
-	}
-	return
+    dirs := []int{-1, 0, 1, 0, -1}
+    n := len(board)
+    for i := 0; i < n; i++ {
+        for j := 0; j < n; j++ {
+            if board[i][j] == 'R' {
+                for k := 0; k < 4; k++ {
+                    x, y := i + dirs[k], j + dirs[k+1]
+                    for x >= 0 && x < n && y >= 0 && y < n && board[x][y] != 'B' {
+                        if board[x][y] == 'p' {
+                            ans++
+                            break
+                        }
+                        x += dirs[k]
+                        y += dirs[k+1]
+                    }
+                }
+                return
+            }
+        }
+    }
+    return
+}
+```
+
+#### TypeScript
+
+```ts
+function numRookCaptures(board: string[][]): number {
+    const dirs = [-1, 0, 1, 0, -1];
+    const n = board.length;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (board[i][j] === 'R') {
+                let ans = 0;
+                for (let k = 0; k < 4; k++) {
+                    let [x, y] = [i + dirs[k], j + dirs[k + 1]];
+                    while (x >= 0 && x < n && y >= 0 && y < n && board[x][y] !== 'B') {
+                        if (board[x][y] === 'p') {
+                            ans++;
+                            break;
+                        }
+                        x += dirs[k];
+                        y += dirs[k + 1];
+                    }
+                }
+                return ans;
+            }
+        }
+    }
+    return 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_rook_captures(board: Vec<Vec<char>>) -> i32 {
+        let dirs = [-1, 0, 1, 0, -1];
+        let n = board.len();
+        for i in 0..n {
+            for j in 0..n {
+                if board[i][j] == 'R' {
+                    let mut ans = 0;
+                    for k in 0..4 {
+                        let mut x = i as i32 + dirs[k];
+                        let mut y = j as i32 + dirs[k + 1];
+                        while x >= 0
+                            && x < n as i32
+                            && y >= 0
+                            && y < n as i32
+                            && board[x as usize][y as usize] != 'B'
+                        {
+                            if board[x as usize][y as usize] == 'p' {
+                                ans += 1;
+                                break;
+                            }
+                            x += dirs[k];
+                            y += dirs[k + 1];
+                        }
+                    }
+                    return ans;
+                }
+            }
+        }
+        0
+    }
 }
 ```
 
