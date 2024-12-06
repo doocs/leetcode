@@ -61,7 +61,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal and Summation
+
+First, we calculate the sum of the entire array and check if the sum is divisible by 3. If it is not, we directly return $\textit{false}$.
+
+Otherwise, let $\textit{s}$ represent the sum of each part. We use a variable $\textit{cnt}$ to record the number of parts found so far, and another variable $\textit{t}$ to record the current part's sum. Initially, $\textit{cnt} = 0$ and $\textit{t} = 0$.
+
+Then we traverse the array. For each element $x$, we add $x$ to $\textit{t}$. If $\textit{t}$ equals $s$, it means we have found one part, so we increment $\textit{cnt}$ by one and reset $\textit{t}$ to 0.
+
+Finally, we check if $\textit{cnt}$ is greater than or equal to 3.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -70,22 +80,16 @@ tags:
 ```python
 class Solution:
     def canThreePartsEqualSum(self, arr: List[int]) -> bool:
-        s = sum(arr)
-        if s % 3 != 0:
+        s, mod = divmod(sum(arr), 3)
+        if mod:
             return False
-        i, j = 0, len(arr) - 1
-        a = b = 0
-        while i < len(arr):
-            a += arr[i]
-            if a == s // 3:
-                break
-            i += 1
-        while ~j:
-            b += arr[j]
-            if b == s // 3:
-                break
-            j -= 1
-        return i < j - 1
+        cnt = t = 0
+        for x in arr:
+            t += x
+            if t == s:
+                cnt += 1
+                t = 0
+        return cnt >= 3
 ```
 
 #### Java
@@ -93,30 +97,20 @@ class Solution:
 ```java
 class Solution {
     public boolean canThreePartsEqualSum(int[] arr) {
-        int s = 0;
-        for (int v : arr) {
-            s += v;
-        }
+        int s = Arrays.stream(arr).sum();
         if (s % 3 != 0) {
             return false;
         }
-        int i = 0, j = arr.length - 1;
-        int a = 0, b = 0;
-        while (i < arr.length) {
-            a += arr[i];
-            if (a == s / 3) {
-                break;
+        s /= 3;
+        int cnt = 0, t = 0;
+        for (int x : arr) {
+            t += x;
+            if (t == s) {
+                cnt++;
+                t = 0;
             }
-            ++i;
         }
-        while (j >= 0) {
-            b += arr[j];
-            if (b == s / 3) {
-                break;
-            }
-            --j;
-        }
-        return i < j - 1;
+        return cnt >= 3;
     }
 }
 ```
@@ -127,26 +121,20 @@ class Solution {
 class Solution {
 public:
     bool canThreePartsEqualSum(vector<int>& arr) {
-        int s = 0;
-        for (int v : arr) s += v;
-        if (s % 3) return false;
-        int i = 0, j = arr.size() - 1;
-        int a = 0, b = 0;
-        while (i < arr.size()) {
-            a += arr[i];
-            if (a == s / 3) {
-                break;
-            }
-            ++i;
+        int s = accumulate(arr.begin(), arr.end(), 0);
+        if (s % 3) {
+            return false;
         }
-        while (~j) {
-            b += arr[j];
-            if (b == s / 3) {
-                break;
+        s /= 3;
+        int cnt = 0, t = 0;
+        for (int x : arr) {
+            t += x;
+            if (t == s) {
+                t = 0;
+                cnt++;
             }
-            --j;
         }
-        return i < j - 1;
+        return cnt >= 3;
     }
 };
 ```
@@ -156,29 +144,70 @@ public:
 ```go
 func canThreePartsEqualSum(arr []int) bool {
 	s := 0
-	for _, v := range arr {
-		s += v
+	for _, x := range arr {
+		s += x
 	}
 	if s%3 != 0 {
 		return false
 	}
-	i, j := 0, len(arr)-1
-	a, b := 0, 0
-	for i < len(arr) {
-		a += arr[i]
-		if a == s/3 {
-			break
+	s /= 3
+	cnt, t := 0, 0
+	for _, x := range arr {
+		t += x
+		if t == s {
+			cnt++
+			t = 0
 		}
-		i++
 	}
-	for j >= 0 {
-		b += arr[j]
-		if b == s/3 {
-			break
-		}
-		j--
-	}
-	return i < j-1
+	return cnt >= 3
+}
+```
+
+#### TypeScript
+
+```ts
+function canThreePartsEqualSum(arr: number[]): boolean {
+    let s = arr.reduce((a, b) => a + b);
+    if (s % 3) {
+        return false;
+    }
+    s = (s / 3) | 0;
+    let [cnt, t] = [0, 0];
+    for (const x of arr) {
+        t += x;
+        if (t == s) {
+            cnt++;
+            t = 0;
+        }
+    }
+    return cnt >= 3;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_three_parts_equal_sum(arr: Vec<i32>) -> bool {
+        let sum: i32 = arr.iter().sum();
+        let s = sum / 3;
+        let mod_val = sum % 3;
+        if mod_val != 0 {
+            return false;
+        }
+
+        let mut cnt = 0;
+        let mut t = 0;
+        for &x in &arr {
+            t += x;
+            if t == s {
+                cnt += 1;
+                t = 0;
+            }
+        }
+
+        cnt >= 3
+    }
 }
 ```
 

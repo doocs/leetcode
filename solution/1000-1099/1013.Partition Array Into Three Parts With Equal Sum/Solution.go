@@ -1,26 +1,19 @@
 func canThreePartsEqualSum(arr []int) bool {
 	s := 0
-	for _, v := range arr {
-		s += v
+	for _, x := range arr {
+		s += x
 	}
 	if s%3 != 0 {
 		return false
 	}
-	i, j := 0, len(arr)-1
-	a, b := 0, 0
-	for i < len(arr) {
-		a += arr[i]
-		if a == s/3 {
-			break
+	s /= 3
+	cnt, t := 0, 0
+	for _, x := range arr {
+		t += x
+		if t == s {
+			cnt++
+			t = 0
 		}
-		i++
 	}
-	for j >= 0 {
-		b += arr[j]
-		if b == s/3 {
-			break
-		}
-		j--
-	}
-	return i < j-1
+	return cnt >= 3
 }
