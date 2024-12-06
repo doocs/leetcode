@@ -19,35 +19,28 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(
-        preorder: &Vec<i32>,
-        next: &Vec<usize>,
-        left: usize,
-        right: usize,
-    ) -> Option<Rc<RefCell<TreeNode>>> {
-        if left >= right {
-            return None;
-        }
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: preorder[left],
-            left: Self::dfs(preorder, next, left + 1, next[left]),
-            right: Self::dfs(preorder, next, next[left], right),
-        })))
-    }
-
     pub fn bst_from_preorder(preorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        let n = preorder.len();
-        let mut stack = Vec::new();
-        let mut next = vec![n; n];
-        for i in (0..n).rev() {
-            while !stack.is_empty() && preorder[*stack.last().unwrap()] < preorder[i] {
-                stack.pop();
+        fn dfs(preorder: &Vec<i32>, i: usize, j: usize) -> Option<Rc<RefCell<TreeNode>>> {
+            if i > j {
+                return None;
             }
-            if !stack.is_empty() {
-                next[i] = *stack.last().unwrap();
+            let root = Rc::new(RefCell::new(TreeNode::new(preorder[i])));
+            let mut l = i + 1;
+            let mut r = j + 1;
+            while l < r {
+                let mid = (l + r) >> 1;
+                if preorder[mid] > preorder[i] {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
             }
-            stack.push(i);
+            let mut root_ref = root.borrow_mut();
+            root_ref.left = dfs(preorder, i + 1, l - 1);
+            root_ref.right = dfs(preorder, l, j);
+            Some(root.clone())
         }
-        Self::dfs(&preorder, &next, 0, n)
+
+        dfs(&preorder, 0, preorder.len() - 1)
     }
 }

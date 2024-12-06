@@ -14,27 +14,29 @@
  * }
  */
 class Solution {
+    private int[] preorder;
 
     public TreeNode bstFromPreorder(int[] preorder) {
-        return dfs(preorder, 0, preorder.length - 1);
+        this.preorder = preorder;
+        return dfs(0, preorder.length - 1);
     }
 
-    private TreeNode dfs(int[] preorder, int i, int j) {
-        if (i > j || i >= preorder.length) {
+    private TreeNode dfs(int i, int j) {
+        if (i > j) {
             return null;
         }
         TreeNode root = new TreeNode(preorder[i]);
-        int left = i + 1, right = j + 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
+        int l = i + 1, r = j + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
             if (preorder[mid] > preorder[i]) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        root.left = dfs(preorder, i + 1, left - 1);
-        root.right = dfs(preorder, left, j);
+        root.left = dfs(i + 1, l - 1);
+        root.right = dfs(l, j);
         return root;
     }
 }

@@ -13,22 +13,23 @@
  */
 
 function bstFromPreorder(preorder: number[]): TreeNode | null {
-    const n = preorder.length;
-    const next = new Array(n);
-    const stack = [];
-    for (let i = n - 1; i >= 0; i--) {
-        while (stack.length !== 0 && preorder[stack[stack.length - 1]] < preorder[i]) {
-            stack.pop();
-        }
-        next[i] = stack[stack.length - 1] ?? n;
-        stack.push(i);
-    }
-
-    const dfs = (left: number, right: number) => {
-        if (left >= right) {
+    const dfs = (i: number, j: number): TreeNode | null => {
+        if (i > j) {
             return null;
         }
-        return new TreeNode(preorder[left], dfs(left + 1, next[left]), dfs(next[left], right));
+        const root = new TreeNode(preorder[i]);
+        let [l, r] = [i + 1, j + 1];
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (preorder[mid] > preorder[i]) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        root.left = dfs(i + 1, l - 1);
+        root.right = dfs(l, j);
+        return root;
     };
-    return dfs(0, n);
+    return dfs(0, preorder.length - 1);
 }
