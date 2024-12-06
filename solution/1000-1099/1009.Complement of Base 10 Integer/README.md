@@ -65,7 +65,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
+
+我们首先判断 $n$ 是否为 $0$，如果是，则返回 $1$。
+
+接着我们定义两个变量 $\textit{ans}$ 和 $i$，初始化为 $0$。然后我们遍历 $n$，在每次遍历中，我们将 $\textit{ans}$ 的第 $i$ 位设置为 $n$ 的第 $i$ 位取反，然后将 $i$ 加 $1$，并且$n$ 右移 $1$ 位。
+
+最后返回 $\textit{ans}$ 即可。
+
+时间复杂度 $O(\log n)$，其中 $n$ 为给定的十进制数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -76,15 +84,11 @@ class Solution:
     def bitwiseComplement(self, n: int) -> int:
         if n == 0:
             return 1
-        ans = 0
-        find = False
-        for i in range(30, -1, -1):
-            b = n & (1 << i)
-            if not find and b == 0:
-                continue
-            find = True
-            if b == 0:
-                ans |= 1 << i
+        ans = i = 0
+        while n:
+            ans |= ((n & 1 ^ 1) << i)
+            i += 1
+            n >>= 1
         return ans
 ```
 
@@ -96,17 +100,10 @@ class Solution {
         if (n == 0) {
             return 1;
         }
-        int ans = 0;
-        boolean find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = n & (1 << i);
-            if (!find && b == 0) {
-                continue;
-            }
-            find = true;
-            if (b == 0) {
-                ans |= (1 << i);
-            }
+        int ans = 0, i = 0;
+        while (n != 0) {
+            ans |= (n & 1 ^ 1) << (i++);
+            n >>= 1;
         }
         return ans;
     }
@@ -119,14 +116,13 @@ class Solution {
 class Solution {
 public:
     int bitwiseComplement(int n) {
-        if (n == 0) return 1;
-        int ans = 0;
-        bool find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = n & (1 << i);
-            if (!find && b == 0) continue;
-            find = true;
-            if (b == 0) ans |= (1 << i);
+        if (n == 0) {
+            return 1;
+        }
+        int ans = 0, i = 0;
+        while (n != 0) {
+            ans |= (n & 1 ^ 1) << (i++);
+            n >>= 1;
         }
         return ans;
     }
@@ -136,23 +132,50 @@ public:
 #### Go
 
 ```go
-func bitwiseComplement(n int) int {
+func bitwiseComplement(n int) (ans int) {
 	if n == 0 {
 		return 1
 	}
-	ans := 0
-	find := false
-	for i := 30; i >= 0; i-- {
-		b := n & (1 << i)
-		if !find && b == 0 {
-			continue
-		}
-		find = true
-		if b == 0 {
-			ans |= (1 << i)
-		}
+	for i := 0; n != 0; n >>= 1 {
+		ans |= (n&1 ^ 1) << i
+		i++
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function bitwiseComplement(n: number): number {
+    if (n === 0) {
+        return 1;
+    }
+    let ans = 0;
+    for (let i = 0; n; n >>= 1) {
+        ans |= ((n & 1) ^ 1) << i++;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn bitwise_complement(mut n: i32) -> i32 {
+        if n == 0 {
+            return 1;
+        }
+        let mut ans = 0;
+        let mut i = 0;
+        while n != 0 {
+            ans |= ((n & 1) ^ 1) << i;
+            n >>= 1;
+            i += 1;
+        }
+        ans
+    }
 }
 ```
 
