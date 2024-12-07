@@ -1,7 +1,7 @@
 function knightProbability(n: number, k: number, row: number, column: number): number {
-    const f = new Array(k + 1)
-        .fill(0)
-        .map(() => new Array(n).fill(0).map(() => new Array(n).fill(0)));
+    const f = Array.from({ length: k + 1 }, () =>
+        Array.from({ length: n }, () => Array(n).fill(0)),
+    );
     for (let i = 0; i < n; ++i) {
         for (let j = 0; j < n; ++j) {
             f[0][i][j] = 1;
