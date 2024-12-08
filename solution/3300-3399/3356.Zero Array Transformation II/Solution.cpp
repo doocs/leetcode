@@ -1,33 +1,34 @@
 class Solution {
 public:
-    int minZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
-        int n = nums.size();
-        int d[n + 1];
-        int m = queries.size();
-        int l = 0, r = m + 1;
-        auto check = [&](int k) -> bool {
-            memset(d, 0, sizeof(d));
-            for (int i = 0; i < k; ++i) {
-                int l = queries[i][0], r = queries[i][1], val = queries[i][2];
-                d[l] += val;
-                d[r + 1] -= val;
-            }
-            for (int i = 0, s = 0; i < n; ++i) {
-                s += d[i];
-                if (nums[i] > s) {
+    int minimizeMaxDifference(vector<int>& nums) {
+        int left = 0, right = 1e9, result = 1e9;
+
+        auto isValid = [&](int maxDiff) {
+            int n = nums.size();
+            int prev = nums[0];
+            for (int i = 1; i < n; ++i) {
+                if (nums[i] == -1) {
+                    continue;
+                }
+                if (prev != -1 && abs(nums[i] - prev) > maxDiff) {
                     return false;
                 }
+                prev = nums[i];
             }
             return true;
         };
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (check(mid)) {
-                r = mid;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (isValid(mid)) {
+                result = mid;
+                right = mid - 1;
             } else {
-                l = mid + 1;
+                left = mid + 1;
             }
         }
-        return l > m ? -1 : l;
+
+        return result;
     }
 };
