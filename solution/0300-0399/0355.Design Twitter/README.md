@@ -61,6 +61,7 @@ twitter.getNewsFeed(1);  // 用户 1 获取推文应当返回一个列表，其�
 	<li><code>0 &lt;= tweetId &lt;= 10<sup>4</sup></code></li>
 	<li>所有推特的 ID 都互不相同</li>
 	<li><code>postTweet</code>、<code>getNewsFeed</code>、<code>follow</code> 和 <code>unfollow</code> 方法最多调用 <code>3 * 10<sup>4</sup></code> 次</li>
+	<li>用户不能关注自己</li>
 </ul>
 
 <!-- description:end -->

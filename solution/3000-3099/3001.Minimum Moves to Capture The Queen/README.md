@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Mi
 rating: 1796
 source: 第 379 场周赛 Q2
 tags:
-    - 数组
+    - 数学
     - 枚举
 ---
 

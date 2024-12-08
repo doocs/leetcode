@@ -60,6 +60,7 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 	<li><code>0 &lt;= tweetId &lt;= 10<sup>4</sup></code></li>
 	<li>All the tweets have <strong>unique</strong> IDs.</li>
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>postTweet</code>, <code>getNewsFeed</code>, <code>follow</code>, and <code>unfollow</code>.</li>
+	<li>A user cannot follow himself.</li>
 </ul>
 
 <!-- description:end -->

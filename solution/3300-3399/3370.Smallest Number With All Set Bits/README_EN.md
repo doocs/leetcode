@@ -19,9 +19,7 @@ tags:
 
 <p>You are given a <em>positive</em> number <code>n</code>.</p>
 
-<p>Return the <strong>smallest</strong> number <code>x</code> <strong>greater than</strong> or <strong>equal to</strong> <code>n</code>, such that the binary representation of <code>x</code> contains only <strong>set</strong> bits.</p>
-
-<p>A <strong>set</strong> bit refers to a bit in the binary representation of a number that has a value of <code>1</code>.</p>
+<p>Return the <strong>smallest</strong> number <code>x</code> <strong>greater than</strong> or <strong>equal to</strong> <code>n</code>, such that the binary representation of <code>x</code> contains only <span data-keyword="set-bit">set bits</span></p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

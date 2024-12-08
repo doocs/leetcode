@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [0,1,2]
 <strong>Output:</strong> 0
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 i=0: 0 mod 10 = 0 == nums[0].
 i=1: 1 mod 10 = 1 == nums[1].
 i=2: 2 mod 10 = 2 == nums[2].
@@ -40,7 +40,7 @@ All indices have i mod 10 == nums[i], so we return the smallest index 0.
 <pre>
 <strong>Input:</strong> nums = [4,3,2,1]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 i=0: 0 mod 10 = 0 != nums[0].
 i=1: 1 mod 10 = 1 != nums[1].
 i=2: 2 mod 10 = 2 == nums[2].
