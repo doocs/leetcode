@@ -108,7 +108,65 @@ A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of charac
 #### Go
 
 ```go
+func zAlgorithm(s string) []int {
+    n := len(s)
+    z := make([]int, n)
+    l, r := -1, -1
+    for i := 1; i < n; i++ {
+        if i > r {
+            l, r = i, i
+            for r < n && s[r-l] == s[r] {
+                r++
+            }
+            z[i] = r - l
+            r--
+        } else {
+            k := i - l
+            if z[k] < r-i+1 {
+                z[i] = z[k]
+            } else {
+                l = i
+                for r < n && s[r-l] == s[r] {
+                    r++
+                }
+                z[i] = r - l
+                r--
+            }
+        }
+    }
+    z[0] = n
+    return z
+}
 
+func minStartingIndex(s string, pattern string) int {
+    n, m := len(s), len(pattern)
+    z1 := zAlgorithm(pattern + s)
+    z2 := zAlgorithm(reverse(pattern) + reverse(s))
+    for i := 0; i < n; i++ {
+        if i+m > n {
+            break
+        }
+        c1 := z1[i+m]
+        if c1 >= m {
+            return i
+        }
+        j := i + m - 1
+        c2 := z2[n-j-1+m]
+        if c1+c2 == m-1 {
+            return i
+        }
+    }
+    return -1
+}
+
+func reverse(s string) string {
+    n := len(s)
+    runes := []rune(s)
+    for i := 0; i < n/2; i++ {
+        runes[i], runes[n-i-1] = runes[n-i-1], runes[i]
+    }
+    return string(runes)
+}
 ```
 
 <!-- tabs:end -->
