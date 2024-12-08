@@ -31,7 +31,7 @@ tags:
 <p><strong>示例：</strong></p>
 
 <pre>
-<strong>输入：</strong>
+<strong>输入：</strong> 
 s = "heeellooo"
 words = ["hello", "hi", "helo"]
 <strong>输出：</strong>1

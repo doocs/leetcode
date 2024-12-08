@@ -31,16 +31,16 @@ tags:
 <pre>
 <strong>Input:</strong> arr1 = [4,5,8], arr2 = [10,9,1,8], d = 2
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
-For arr1[0]=4 we have:
-|4-10|=6 &gt; d=2
-|4-9|=5 &gt; d=2
-|4-1|=3 &gt; d=2
-|4-8|=4 &gt; d=2
-For arr1[1]=5 we have:
-|5-10|=5 &gt; d=2
-|5-9|=4 &gt; d=2
-|5-1|=4 &gt; d=2
+<strong>Explanation:</strong> 
+For arr1[0]=4 we have: 
+|4-10|=6 &gt; d=2 
+|4-9|=5 &gt; d=2 
+|4-1|=3 &gt; d=2 
+|4-8|=4 &gt; d=2 
+For arr1[1]=5 we have: 
+|5-10|=5 &gt; d=2 
+|5-9|=4 &gt; d=2 
+|5-1|=4 &gt; d=2 
 |5-8|=3 &gt; d=2
 For arr1[2]=8 we have:
 <strong>|8-10|=2 &lt;= d=2</strong>

@@ -24,7 +24,7 @@ tags:
 
 <p>注意：车不能穿过其它棋子，比如象和卒。这意味着如果有其它棋子挡住了路径，车就不能够吃掉棋子。</p>
 
-<p>返回白车将能 <strong>吃掉</strong> 的 <strong>卒的数量</strong>。</p>
+<p>返回白车 <strong>攻击</strong>&nbsp;范围内 <strong>兵的数量</strong>。</p>
 
 <p>&nbsp;</p>
 

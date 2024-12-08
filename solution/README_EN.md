@@ -367,7 +367,6 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0356  |  [Line Reflection](/solution/0300-0399/0356.Line%20Reflection/README_EN.md)  |  `Array`,`Hash Table`,`Math`  |  Medium  |  🔒  |
 |  0357  |  [Count Numbers with Unique Digits](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)  |  `Math`,`Dynamic Programming`,`Backtracking`  |  Medium  |    |
 |  0358  |  [Rearrange String k Distance Apart](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Counting`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
-|  0359  |  [Logger Rate Limiter](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README_EN.md)  |  `Design`,`Hash Table`,`Data Stream`  |  Easy  |  🔒  |
 |  0360  |  [Sort Transformed Array](/solution/0300-0399/0360.Sort%20Transformed%20Array/README_EN.md)  |  `Array`,`Math`,`Two Pointers`,`Sorting`  |  Medium  |  🔒  |
 |  0361  |  [Bomb Enemy](/solution/0300-0399/0361.Bomb%20Enemy/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  🔒  |
 |  0362  |  [Design Hit Counter](/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md)  |  `Design`,`Queue`,`Array`,`Binary Search`,`Data Stream`  |  Medium  |  🔒  |
@@ -3009,7 +3008,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2998  |  [Minimum Number of Operations to Make X and Y Equal](/solution/2900-2999/2998.Minimum%20Number%20of%20Operations%20to%20Make%20X%20and%20Y%20Equal/README_EN.md)  |  `Breadth-First Search`,`Memoization`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 121  |
 |  2999  |  [Count the Number of Powerful Integers](/solution/2900-2999/2999.Count%20the%20Number%20of%20Powerful%20Integers/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 121  |
 |  3000  |  [Maximum Area of Longest Diagonal Rectangle](/solution/3000-3099/3000.Maximum%20Area%20of%20Longest%20Diagonal%20Rectangle/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 379  |
-|  3001  |  [Minimum Moves to Capture The Queen](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)  |  `Array`,`Enumeration`  |  Medium  |  Weekly Contest 379  |
+|  3001  |  [Minimum Moves to Capture The Queen](/solution/3000-3099/3001.Minimum%20Moves%20to%20Capture%20The%20Queen/README_EN.md)  |  `Math`,`Enumeration`  |  Medium  |  Weekly Contest 379  |
 |  3002  |  [Maximum Size of a Set After Removals](/solution/3000-3099/3002.Maximum%20Size%20of%20a%20Set%20After%20Removals/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Medium  |  Weekly Contest 379  |
 |  3003  |  [Maximize the Number of Partitions After Operations](/solution/3000-3099/3003.Maximize%20the%20Number%20of%20Partitions%20After%20Operations/README_EN.md)  |  `Bit Manipulation`,`String`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Weekly Contest 379  |
 |  3004  |  [Maximum Subtree of the Same Color](/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Medium  |  🔒  |
@@ -3383,6 +3382,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3372  |  [Maximize the Number of Target Nodes After Connecting Trees I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`  |  Medium  |  Weekly Contest 426  |
 |  3373  |  [Maximize the Number of Target Nodes After Connecting Trees II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`  |  Hard  |  Weekly Contest 426  |
 |  3374  |  [First Letter Capitalization II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README_EN.md)  |  `Database`  |  Hard  |    |
+|  3375  |  [Minimum Operations to Make Array Values Equal to K](/solution/3300-3399/3375.Minimum%20Operations%20to%20Make%20Array%20Values%20Equal%20to%20K/README_EN.md)  |    |  Easy  |  Biweekly Contest 145  |
+|  3376  |  [Minimum Time to Break Locks I](/solution/3300-3399/3376.Minimum%20Time%20to%20Break%20Locks%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 145  |
+|  3377  |  [Digit Operations to Make Two Integers Equal](/solution/3300-3399/3377.Digit%20Operations%20to%20Make%20Two%20Integers%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 145  |
+|  3378  |  [Count Connected Components in LCM Graph](/solution/3300-3399/3378.Count%20Connected%20Components%20in%20LCM%20Graph/README_EN.md)  |    |  Hard  |  Biweekly Contest 145  |
+|  3379  |  [Transformed Array](/solution/3300-3399/3379.Transformed%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 427  |
+|  3380  |  [Maximum Area Rectangle With Point Constraints I](/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 427  |
+|  3381  |  [Maximum Subarray Sum With Length Divisible by K](/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 427  |
+|  3382  |  [Maximum Area Rectangle With Point Constraints II](/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 427  |
 
 ## Copyright
 

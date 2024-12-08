@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;heeellooo&quot;, words = [&quot;hello&quot;, &quot;hi&quot;, &quot;helo&quot;]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 We can extend &quot;e&quot; and &quot;o&quot; in the word &quot;hello&quot; to get &quot;heeellooo&quot;.
 We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the group &quot;ll&quot; is not size 3 or more.
 </pre>

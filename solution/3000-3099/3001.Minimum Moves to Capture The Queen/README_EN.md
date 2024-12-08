@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Mi
 rating: 1796
 source: Weekly Contest 379 Q2
 tags:
-    - Array
+    - Math
     - Enumeration
 ---
 
@@ -55,7 +55,7 @@ It is impossible to capture the black queen in less than two moves since it is n
 <pre>
 <strong>Input:</strong> a = 5, b = 3, c = 3, d = 4, e = 5, f = 2
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> We can capture the black queen in a single move by doing one of the following:
+<strong>Explanation:</strong> We can capture the black queen in a single move by doing one of the following: 
 - Move the white rook to (5, 2).
 - Move the white bishop to (5, 2).
 </pre>

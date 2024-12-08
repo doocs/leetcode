@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 427 场周赛(2024-12-08 10:30, 90 分钟) 参赛人数 2369
+
+- [3379. 转换数组](/solution/3300-3399/3379.Transformed%20Array/README.md)
+- [3380. 用点构造面积最大的矩形 I](/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README.md)
+- [3381. 长度可被 K 整除的子数组的最大元素和](/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README.md)
+- [3382. 用点构造面积最大的矩形 II](/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README.md)
+
+#### 第 145 场双周赛(2024-12-07 22:30, 90 分钟) 参赛人数 1898
+
+- [3375. 使数组的值全部为 K 的最少操作次数](/solution/3300-3399/3375.Minimum%20Operations%20to%20Make%20Array%20Values%20Equal%20to%20K/README.md)
+- [3376. 破解锁的最少时间 I](/solution/3300-3399/3376.Minimum%20Time%20to%20Break%20Locks%20I/README.md)
+- [3377. 使两个整数相等的数位操作](/solution/3300-3399/3377.Digit%20Operations%20to%20Make%20Two%20Integers%20Equal/README.md)
+- [3378. 统计最小公倍数图中的连通块数目](/solution/3300-3399/3378.Count%20Connected%20Components%20in%20LCM%20Graph/README.md)
+
 #### 第 426 场周赛(2024-12-01 10:30, 90 分钟) 参赛人数 2447
 
 - [3370. 仅含置位位的最小整数](/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README.md)

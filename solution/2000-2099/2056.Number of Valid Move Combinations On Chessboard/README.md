@@ -23,7 +23,7 @@ tags:
 
 <p>有一个&nbsp;<code>8 x 8</code>&nbsp;的棋盘，它包含&nbsp;<code>n</code>&nbsp;个棋子（棋子包括车，后和象三种）。给你一个长度为 <code>n</code>&nbsp;的字符串数组&nbsp;<code>pieces</code>&nbsp;，其中&nbsp;<code>pieces[i]</code>&nbsp;表示第 <code>i</code>&nbsp;个棋子的类型（车，后或象）。除此以外，还给你一个长度为 <code>n</code>&nbsp;的二维整数数组&nbsp;<code>positions</code>&nbsp;，其中 <code>positions[i] = [r<sub>i</sub>, c<sub>i</sub>]</code>&nbsp;表示第 <code>i</code>&nbsp;个棋子现在在棋盘上的位置为&nbsp;<code>(r<sub>i</sub>, c<sub>i</sub>)</code>&nbsp;，棋盘下标从 <strong>1</strong>&nbsp;开始。</p>
 
-<p>棋盘上每个棋子都可以移动 <b>至多一次</b>&nbsp;。每个棋子的移动中，首先选择移动的 <strong>方向</strong>&nbsp;，然后选择 <strong>移动的步数</strong>&nbsp;，同时你要确保移动过程中棋子不能移到棋盘以外的地方。棋子需按照以下规则移动：</p>
+<p>每个棋子的移动中，首先选择移动的 <strong>方向</strong>&nbsp;，然后选择 <strong>移动的步数</strong>&nbsp;，同时你要确保移动过程中棋子不能移到棋盘以外的地方。棋子需按照以下规则移动：</p>
 
 <ul>
 	<li>车可以 <strong>水平或者竖直</strong>&nbsp;从&nbsp;<code>(r, c)</code>&nbsp;沿着方向&nbsp;<code>(r+1, c)</code>，<code>(r-1, c)</code>，<code>(r, c+1)</code>&nbsp;或者&nbsp;<code>(r, c-1)</code>&nbsp;移动。</li>
@@ -31,7 +31,7 @@ tags:
 	<li>象可以 <strong>斜对角</strong>&nbsp;从&nbsp;<code>(r, c)</code>&nbsp;沿着方向&nbsp;<code>(r+1, c+1)</code>，<code>(r+1, c-1)</code>，<code>(r-1, c+1)</code>，<code>(r-1, c-1)</code>&nbsp;移动。</li>
 </ul>
 
-<p><strong>移动组合</strong>&nbsp;包含所有棋子的 <strong>移动</strong>&nbsp;。每一秒，每个棋子都沿着它们选择的方向往前移动 <strong>一步</strong>&nbsp;，直到它们到达目标位置。所有棋子从时刻 <code>0</code>&nbsp;开始移动。如果在某个时刻，两个或者更多棋子占据了同一个格子，那么这个移动组合 <strong>不有效</strong>&nbsp;。</p>
+<p>你必须同时 <strong>移动</strong> 棋盘上的每一个棋子。<strong>移动组合</strong>&nbsp;包含所有棋子的 <strong>移动</strong>&nbsp;。每一秒，每个棋子都沿着它们选择的方向往前移动 <strong>一步</strong>&nbsp;，直到它们到达目标位置。所有棋子从时刻 <code>0</code>&nbsp;开始移动。如果在某个时刻，两个或者更多棋子占据了同一个格子，那么这个移动组合 <strong>不有效</strong>&nbsp;。</p>
 
 <p>请你返回 <strong>有效</strong>&nbsp;移动组合的数目。</p>
 

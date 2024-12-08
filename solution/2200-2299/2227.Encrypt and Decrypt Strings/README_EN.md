@@ -78,7 +78,7 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 	<li><code>1 &lt;= dictionary[i].length &lt;= 100</code></li>
 	<li>All <code>keys[i]</code> and <code>dictionary[i]</code> are <strong>unique</strong>.</li>
 	<li><code>1 &lt;= word1.length &lt;= 2000</code></li>
-	<li><code>1 &lt;= word2.length &lt;= 200</code></li>
+	<li><code>2 &lt;= word2.length &lt;= 200</code></li>
 	<li>All <code>word1[i]</code> appear in <code>keys</code>.</li>
 	<li><code>word2.length</code> is even.</li>
 	<li><code>keys</code>, <code>values[i]</code>, <code>dictionary[i]</code>, <code>word1</code>, and <code>word2</code> only contain lowercase English letters.</li>
