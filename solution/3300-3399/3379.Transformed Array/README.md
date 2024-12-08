@@ -84,25 +84,72 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3379.Tr
 #### Python3
 
 ```python
-
+class Solution:
+    def constructTransformedArray(self, nums: List[int]) -> List[int]:
+        ans = []
+        n = len(nums)
+        for i, x in enumerate(nums):
+            ans.append(nums[(i + x + n) % n] if x else 0)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] constructTransformedArray(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = nums[i] != 0 ? nums[(i + nums[i] % n + n) % n] : 0;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> constructTransformedArray(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = nums[i] ? nums[(i + nums[i] % n + n) % n] : 0;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func constructTransformedArray(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	for i, x := range nums {
+		if x != 0 {
+			ans[i] = nums[(i+x%n+n)%n]
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function constructTransformedArray(nums: number[]): number[] {
+    const n = nums.length;
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        ans.push(nums[i] ? nums[(i + (nums[i] % n) + n) % n] : 0);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
