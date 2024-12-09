@@ -33,7 +33,7 @@ tags:
 
 </ul>
 
-<p>Your task is to determine the <strong>maximum</strong> length of ribbon, <code>x</code>, that allows you to cut <em>exactly</em> <code>k</code> ribbons, each of length <code>x</code>. You can discard any leftover ribbon from the cuts. If it is <strong>impossible</strong> to cut <code>k</code> ribbons of the same length, return 0.</p>
+<p>Your task is to determine the <strong>maximum</strong> length of ribbon, <code>x</code>, that allows you to cut <em>at least</em> <code>k</code> ribbons, each of length <code>x</code>. You can discard any leftover ribbon from the cuts. If it is <strong>impossible</strong> to cut <code>k</code> ribbons of the same length, return 0.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -26,7 +26,7 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 427 场周赛(2024-12-08 10:30, 90 分钟) 参赛人数 2369
+#### 第 427 场周赛(2024-12-08 10:30, 90 分钟) 参赛人数 2376
 
 - [3379. 转换数组](/solution/3300-3399/3379.Transformed%20Array/README.md)
 - [3380. 用点构造面积最大的矩形 I](/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README.md)

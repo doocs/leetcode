@@ -3392,6 +3392,8 @@
 |  3380  |  [用点构造面积最大的矩形 I](/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README.md)  |    |  中等  |  第 427 场周赛  |
 |  3381  |  [长度可被 K 整除的子数组的最大元素和](/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README.md)  |    |  中等  |  第 427 场周赛  |
 |  3382  |  [用点构造面积最大的矩形 II](/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README.md)  |    |  困难  |  第 427 场周赛  |
+|  3383  |  [Minimum Runes to Add to Cast Spell](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README.md)  |    |  困难  |  🔒  |
+|  3384  |  [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

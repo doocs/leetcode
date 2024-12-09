@@ -66,11 +66,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Find the Pattern
+### Solution 1: Pattern Recognition
 
-By observing the chessboard, we find that two squares $(x_1, y_1)$ and $(x_2, y_2)$ with the same color satisfy that both $x_1 + y_1$ and $x_2 + y_2$ are either odd or even.
+Observing the chessboard, we find that two squares $(x_1, y_1)$ and $(x_2, y_2)$ with the same color satisfy that both $x_1 + y_1$ and $x_2 + y_2$ are either odd or even.
 
-Therefore, we can get the corresponding coordinates $(x, y)$ from `coordinates`. If $x + y$ is odd, then the square is white, return `true`, otherwise return `false`.
+Therefore, we can get the corresponding coordinates $(x, y)$ from $\textit{coordinates}$. If $x + y$ is odd, the square is white, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
@@ -140,9 +140,7 @@ impl Solution {
  * @return {boolean}
  */
 var squareIsWhite = function (coordinates) {
-    const x = coordinates.charAt(0).charCodeAt();
-    const y = coordinates.charAt(1).charCodeAt();
-    return (x + y) % 2 == 1;
+    return (coordinates[0].charCodeAt() + coordinates[1].charCodeAt()) % 2 == 1;
 };
 ```
 
