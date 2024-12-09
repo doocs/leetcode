@@ -3390,6 +3390,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3380  |  [Maximum Area Rectangle With Point Constraints I](/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 427  |
 |  3381  |  [Maximum Subarray Sum With Length Divisible by K](/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 427  |
 |  3382  |  [Maximum Area Rectangle With Point Constraints II](/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 427  |
+|  3383  |  [Minimum Runes to Add to Cast Spell](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README_EN.md)  |    |  Hard  |  🔒  |
+|  3384  |  [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

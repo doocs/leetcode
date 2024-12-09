@@ -46,7 +46,7 @@ tags:
 <strong>Input:</strong> banned = [4,3,5,6], n = 7, maxSum = 18
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> You can choose the integers 1, 2, and 7.
-All these integers are in the range [1, 7], all do not appear in banned, and their sum is 18, which does not exceed maxSum.
+All these integers are in the range [1, 7], all do not appear in banned, and their sum is 10, which does not exceed maxSum.
 </pre>
 
 <p>&nbsp;</p>

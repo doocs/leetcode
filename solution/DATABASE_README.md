@@ -303,6 +303,7 @@
 | 3358 | [评分为 NULL 的图书](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README.md)                                                                       | `数据库` | 简单 | 🔒   |
 | 3368 | [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)                                                                             | `数据库` | 困难 | 🔒   |
 | 3374 | [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)                                                                     | `数据库` | 困难 |      |
+| 3384 | [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md)                                                  |          | 困难 | 🔒   |
 
 ## 版权
 

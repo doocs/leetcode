@@ -301,6 +301,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3358 | [Books with NULL Ratings](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README_EN.md)                                                                                               | `Database` | Easy       | 🔒     |
 | 3368 | [First Letter Capitalization](/solution/3300-3399/3368.First%20Letter%20Capitalization/README_EN.md)                                                                                         | `Database` | Hard       | 🔒     |
 | 3374 | [First Letter Capitalization II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README_EN.md)                                                                                 | `Database` | Hard       |        |
+| 3384 | [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README_EN.md)                                                                               |            | Hard       | 🔒     |
 
 ## Copyright
 
