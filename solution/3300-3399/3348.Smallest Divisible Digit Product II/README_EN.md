@@ -104,7 +104,7 @@ tags:
 #### Go
 
 ```go
-smallestNumber(num string, t int64) string {
+func smallestNumber(num string, t int64) string {
 	primeCount, isDivisible := getPrimeCount(t)
 	if !isDivisible {
 		return "-1"
@@ -236,14 +236,6 @@ func sumValues(count map[int]int) int {
 	}
 	return sum
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 ```
 
 <!-- tabs:end -->
