@@ -95,32 +95,189 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举矩形的左下角下标 $(x_3, y_3)$ 和右上角下标 $(x_4, y_4)$，然后枚举所有的点 $(x, y)$，判断点是否在矩形的内部或边界上，如果是，说明不满足条件，否则，我们排除掉在矩形外部的点，然后判断剩下的点是否有 4 个，如果有，说明这 4 个点可以构成一个矩形，计算矩形的面积，取最大值即可。
+
+时间复杂度 $O(n^3)$，其中 $n$ 是数组 $\textit{points}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maxRectangleArea(self, points: List[List[int]]) -> int:
+        def check(x1: int, y1: int, x2: int, y2: int) -> bool:
+            cnt = 0
+            for x, y in points:
+                if x < x1 or x > x2 or y < y1 or y > y2:
+                    continue
+                if (x == x1 or x == x2) and (y == y1 or y == y2):
+                    cnt += 1
+                    continue
+                return False
+            return cnt == 4
 
+        ans = -1
+        for i, (x1, y1) in enumerate(points):
+            for x2, y2 in points[:i]:
+                x3, y3 = min(x1, x2), min(y1, y2)
+                x4, y4 = max(x1, x2), max(y1, y2)
+                if check(x3, y3, x4, y4):
+                    ans = max(ans, (x4 - x3) * (y4 - y3))
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int maxRectangleArea(int[][] points) {
+        int ans = -1;
+        for (int i = 0; i < points.length; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = 0; j < i; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                int x3 = Math.min(x1, x2), y3 = Math.min(y1, y2);
+                int x4 = Math.max(x1, x2), y4 = Math.max(y1, y2);
+                if (check(points, x3, y3, x4, y4)) {
+                    ans = Math.max(ans, (x4 - x3) * (y4 - y3));
+                }
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(int[][] points, int x1, int y1, int x2, int y2) {
+        int cnt = 0;
+        for (var p : points) {
+            int x = p[0];
+            int y = p[1];
+            if (x < x1 || x > x2 || y < y1 || y > y2) {
+                continue;
+            }
+            if ((x == x1 || x == x2) && (y == y1 || y == y2)) {
+                cnt++;
+                continue;
+            }
+            return false;
+        }
+        return cnt == 4;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maxRectangleArea(vector<vector<int>>& points) {
+        auto check = [&](int x1, int y1, int x2, int y2) -> bool {
+            int cnt = 0;
+            for (const auto& point : points) {
+                int x = point[0];
+                int y = point[1];
+                if (x < x1 || x > x2 || y < y1 || y > y2) {
+                    continue;
+                }
+                if ((x == x1 || x == x2) && (y == y1 || y == y2)) {
+                    cnt++;
+                    continue;
+                }
+                return false;
+            }
+            return cnt == 4;
+        };
 
+        int ans = -1;
+        for (int i = 0; i < points.size(); i++) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j = 0; j < i; j++) {
+                int x2 = points[j][0], y2 = points[j][1];
+                int x3 = min(x1, x2), y3 = min(y1, y2);
+                int x4 = max(x1, x2), y4 = max(y1, y2);
+                if (check(x3, y3, x4, y4)) {
+                    ans = max(ans, (x4 - x3) * (y4 - y3));
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxRectangleArea(points [][]int) int {
+	check := func(x1, y1, x2, y2 int) bool {
+		cnt := 0
+		for _, point := range points {
+			x, y := point[0], point[1]
+			if x < x1 || x > x2 || y < y1 || y > y2 {
+				continue
+			}
+			if (x == x1 || x == x2) && (y == y1 || y == y2) {
+				cnt++
+				continue
+			}
+			return false
+		}
+		return cnt == 4
+	}
 
+	ans := -1
+	for i := 0; i < len(points); i++ {
+		x1, y1 := points[i][0], points[i][1]
+		for j := 0; j < i; j++ {
+			x2, y2 := points[j][0], points[j][1]
+			x3, y3 := min(x1, x2), min(y1, y2)
+			x4, y4 := max(x1, x2), max(y1, y2)
+			if check(x3, y3, x4, y4) {
+				ans = max(ans, (x4-x3)*(y4-y3))
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxRectangleArea(points: number[][]): number {
+    const check = (x1: number, y1: number, x2: number, y2: number): boolean => {
+        let cnt = 0;
+        for (const point of points) {
+            const [x, y] = point;
+            if (x < x1 || x > x2 || y < y1 || y > y2) {
+                continue;
+            }
+            if ((x === x1 || x === x2) && (y === y1 || y === y2)) {
+                cnt++;
+                continue;
+            }
+            return false;
+        }
+        return cnt === 4;
+    };
+
+    let ans = -1;
+    for (let i = 0; i < points.length; i++) {
+        const [x1, y1] = points[i];
+        for (let j = 0; j < i; j++) {
+            const [x2, y2] = points[j];
+            const [x3, y3] = [Math.min(x1, x2), Math.min(y1, y2)];
+            const [x4, y4] = [Math.max(x1, x2), Math.max(y1, y2)];
+            if (check(x3, y3, x4, y4)) {
+                ans = Math.max(ans, (x4 - x3) * (y4 - y3));
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
