@@ -367,6 +367,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0356  |  [Line Reflection](/solution/0300-0399/0356.Line%20Reflection/README_EN.md)  |  `Array`,`Hash Table`,`Math`  |  Medium  |  🔒  |
 |  0357  |  [Count Numbers with Unique Digits](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)  |  `Math`,`Dynamic Programming`,`Backtracking`  |  Medium  |    |
 |  0358  |  [Rearrange String k Distance Apart](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Counting`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
+|  0359  |  [Logger Rate Limiter](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README_EN.md)  |  `Design`,`Hash Table`,`Data Stream`  |  Easy  |  🔒  |
 |  0360  |  [Sort Transformed Array](/solution/0300-0399/0360.Sort%20Transformed%20Array/README_EN.md)  |  `Array`,`Math`,`Two Pointers`,`Sorting`  |  Medium  |  🔒  |
 |  0361  |  [Bomb Enemy](/solution/0300-0399/0361.Bomb%20Enemy/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  🔒  |
 |  0362  |  [Design Hit Counter](/solution/0300-0399/0362.Design%20Hit%20Counter/README_EN.md)  |  `Design`,`Queue`,`Array`,`Binary Search`,`Data Stream`  |  Medium  |  🔒  |
@@ -3382,16 +3383,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3372  |  [Maximize the Number of Target Nodes After Connecting Trees I](/solution/3300-3399/3372.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20I/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`  |  Medium  |  Weekly Contest 426  |
 |  3373  |  [Maximize the Number of Target Nodes After Connecting Trees II](/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`  |  Hard  |  Weekly Contest 426  |
 |  3374  |  [First Letter Capitalization II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README_EN.md)  |  `Database`  |  Hard  |    |
-|  3375  |  [Minimum Operations to Make Array Values Equal to K](/solution/3300-3399/3375.Minimum%20Operations%20to%20Make%20Array%20Values%20Equal%20to%20K/README_EN.md)  |    |  Easy  |  Biweekly Contest 145  |
-|  3376  |  [Minimum Time to Break Locks I](/solution/3300-3399/3376.Minimum%20Time%20to%20Break%20Locks%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 145  |
-|  3377  |  [Digit Operations to Make Two Integers Equal](/solution/3300-3399/3377.Digit%20Operations%20to%20Make%20Two%20Integers%20Equal/README_EN.md)  |    |  Medium  |  Biweekly Contest 145  |
-|  3378  |  [Count Connected Components in LCM Graph](/solution/3300-3399/3378.Count%20Connected%20Components%20in%20LCM%20Graph/README_EN.md)  |    |  Hard  |  Biweekly Contest 145  |
-|  3379  |  [Transformed Array](/solution/3300-3399/3379.Transformed%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 427  |
-|  3380  |  [Maximum Area Rectangle With Point Constraints I](/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 427  |
-|  3381  |  [Maximum Subarray Sum With Length Divisible by K](/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 427  |
-|  3382  |  [Maximum Area Rectangle With Point Constraints II](/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 427  |
-|  3383  |  [Minimum Runes to Add to Cast Spell](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README_EN.md)  |    |  Hard  |  🔒  |
-|  3384  |  [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README_EN.md)  |    |  Hard  |  🔒  |
+|  3375  |  [Minimum Operations to Make Array Values Equal to K](/solution/3300-3399/3375.Minimum%20Operations%20to%20Make%20Array%20Values%20Equal%20to%20K/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  Biweekly Contest 145  |
+|  3376  |  [Minimum Time to Break Locks I](/solution/3300-3399/3376.Minimum%20Time%20to%20Break%20Locks%20I/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Backtracking`,`Bitmask`  |  Medium  |  Biweekly Contest 145  |
+|  3377  |  [Digit Operations to Make Two Integers Equal](/solution/3300-3399/3377.Digit%20Operations%20to%20Make%20Two%20Integers%20Equal/README_EN.md)  |  `Graph`,`Math`,`Number Theory`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 145  |
+|  3378  |  [Count Connected Components in LCM Graph](/solution/3300-3399/3378.Count%20Connected%20Components%20in%20LCM%20Graph/README_EN.md)  |  `Union Find`,`Array`,`Hash Table`,`Math`,`Number Theory`  |  Hard  |  Biweekly Contest 145  |
+|  3379  |  [Transformed Array](/solution/3300-3399/3379.Transformed%20Array/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Weekly Contest 427  |
+|  3380  |  [Maximum Area Rectangle With Point Constraints I](/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Geometry`,`Array`,`Math`,`Enumeration`,`Sorting`  |  Medium  |  Weekly Contest 427  |
+|  3381  |  [Maximum Subarray Sum With Length Divisible by K](/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 427  |
+|  3382  |  [Maximum Area Rectangle With Point Constraints II](/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Geometry`,`Array`,`Math`,`Sorting`  |  Hard  |  Weekly Contest 427  |
+|  3383  |  [Minimum Runes to Add to Cast Spell](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Topological Sort`,`Array`  |  Hard  |  🔒  |
+|  3384  |  [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 
 ## Copyright
 

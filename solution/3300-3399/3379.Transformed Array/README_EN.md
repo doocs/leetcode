@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3379.Transformed%20Array/README_EN.md
+tags:
+    - Array
+    - Simulation
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3381.Maximum%20Subarray%20Sum%20With%20Length%20Divisible%20by%20K/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
 ---
 
 <!-- problem:start -->

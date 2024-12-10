@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3377.Digit%20Operations%20to%20Make%20Two%20Integers%20Equal/README.md
+tags:
+    - 图
+    - 数学
+    - 数论
+    - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

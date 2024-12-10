@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 几何
+    - 数组
+    - 数学
+    - 排序
 ---
 
 <!-- problem:start -->

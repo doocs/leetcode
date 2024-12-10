@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3378.Count%20Connected%20Components%20in%20LCM%20Graph/README.md
+tags:
+    - 并查集
+    - 数组
+    - 哈希表
+    - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

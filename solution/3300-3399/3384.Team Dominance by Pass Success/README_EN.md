@@ -23,7 +23,7 @@ tags:
 | Column Name | Type    |
 +-------------+---------+
 | player_id   | int     |
-| team_name   | varchar | 
+| team_name   | varchar |
 +-------------+---------+
 player_id is the unique key for this table.
 Each row contains the unique identifier for player and the name of one of the teams participating in that match.
@@ -162,7 +162,9 @@ pass_to is the player_id of the player receiving the pass.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Equi-Join + Group By and Sum
+
+We can use an equi-join to find the teams of both the passer and the receiver for each pass. Then, based on the timestamp, we determine whether the pass occurred in the first half or the second half. By checking if the passer and receiver belong to the same team, we calculate the advantage value for each pass. Finally, we group by team name and half number, and sum the advantage values to get the advantage value for each team in the first and second halves.
 
 <!-- tabs:start -->
 
