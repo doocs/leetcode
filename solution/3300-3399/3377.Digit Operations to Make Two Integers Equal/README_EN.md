@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3377.Digit%20Operations%20to%20Make%20Two%20Integers%20Equal/README_EN.md
+tags:
+    - Graph
+    - Math
+    - Number Theory
+    - Shortest Path
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

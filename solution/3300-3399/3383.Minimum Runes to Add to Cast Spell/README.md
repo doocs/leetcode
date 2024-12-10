@@ -2,11 +2,17 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 拓扑排序
+    - 数组
 ---
 
 <!-- problem:start -->
 
-# [3383. Minimum Runes to Add to Cast Spell 🔒](https://leetcode.cn/problems/minimum-runes-to-add-to-cast-spell)
+# [3383. 施法所需最低符文数量 🔒](https://leetcode.cn/problems/minimum-runes-to-add-to-cast-spell)
 
 [English Version](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README_EN.md)
 
@@ -14,55 +20,57 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3383.Mi
 
 <!-- description:start -->
 
-<p>Alice has just graduated from wizard school, and wishes to cast a magic spell to celebrate. The magic spell contains certain <strong>focus points</strong> where magic needs to be concentrated, and some of these focus points contain <strong>magic crystals</strong> which serve as the spell&#39;s energy source. Focus points can be linked through <strong>directed runes</strong>, which channel magic flow from one focus point to another.</p>
+<p>Alice 刚刚从巫师学校毕业，并且希望施展一个魔法咒语来庆祝。魔法咒语包含某些需要集中魔力的焦点，其中一些焦点含有作为咒语能量源的魔法水晶。焦点可以通过 <strong>有向符文</strong>&nbsp;进行连接，这些符文将魔力流从一个焦点传输到另一个焦点。</p>
 
-<p>You are given a integer <code>n</code> denoting the <em>number</em> of focus points and an array of integers <code>crystals</code> where <code>crystals[i]</code> indicates a focus point which holds a magic crystal. You are also given two integer arrays <code>flowFrom</code> and <code>flowTo</code>, which represent the existing <strong>directed runes</strong>. The <code>i<sup>th</sup></code> rune allows magic to freely flow from focus point <code>flowFrom[i]</code> to focus point <code>flowTo[i]</code>.</p>
+<p>给定一个整数&nbsp;<code>n</code>&nbsp;表示焦点的数量，以及一个整数数组&nbsp;<code>crystals</code>，其中&nbsp;<code>crystals[i]</code>&nbsp;表示有魔法水晶的焦点。同时给定两个整数数组&nbsp;<code>flowFrom</code> 和&nbsp;<code>flowTo</code>，表示存在的 <strong>有向符文</strong>。第&nbsp;<code>i<sup>th</sup></code>&nbsp;个符文允许魔力流从焦点&nbsp;<code>flowFrom[i]</code>&nbsp;传输到焦点&nbsp;<code>flowTo[i]</code>。</p>
 
-<p>You need to find the number of directed runes Alice must add to her spell, such that <em>each</em> focus point either:</p>
+<p>你需要找到 Alice 必须添加到她的咒语中的定向符文数量，使得每个焦点要么：</p>
 
 <ul>
-	<li><strong>Contains</strong> a magic crystal.</li>
-	<li><strong>Receives</strong> magic flow <em>from</em> another focus point.</li>
+	<li><strong>包含</strong>&nbsp;一个魔法水晶。</li>
+	<li>从其它焦点&nbsp;<strong>接收</strong>&nbsp;魔力流。</li>
 </ul>
 
-<p>Return the <strong>minimum</strong> number of directed runes that she should add.</p>
+<p>返回她所需要添加的 <strong>最少</strong>&nbsp;有向符文数量。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 6, crystals = [0], flowFrom = [0,1,2,3], flowTo = [1,2,3,0]</span></p>
+<p><strong>输入：</strong><span class="example-io">n = 6, crystals = [0], flowFrom = [0,1,2,3], flowTo = [1,2,3,0]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">2</span></p>
+<p><span class="example-io"><b>输出：</b>2</span></p>
 
-<p><strong>Explanation:</strong>&nbsp;</p>
+<p><b>解释：</b></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/images/runesexample0.png" style="width: 250px; height: 252px;" /></p>
 
-<p>Add two directed runes:</p>
+<p>添加两个有向符文：</p>
 
 <ul>
-	<li>From focus point&nbsp;0 to focus point&nbsp;4.</li>
-	<li>From focus point 0 to focus point 5.</li>
+	<li>从焦点 0 到焦点 4。</li>
+	<li>从焦点 0 到焦点 5。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 7, crystals = [3,5], flowFrom = [0,1,2,3,5], flowTo = [1,2,0,4,6]</span></p>
+<p><span class="example-io"><b>输入：</b>n = 7, crystals = [3,5], flowFrom = [0,1,2,3,5], flowTo = [1,2,0,4,6]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">1</span></p>
+<p><span class="example-io"><b>输出：</b>1</span></p>
 
-<p><strong>Explanation:</strong>&nbsp;</p>
+<p><b>解释：</b></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/images/runesexample1.png" style="width: 250px; height: 250px;" /></p>
 
-<p>Add a directed rune from focus point 4 to focus point 2.</p>
+<p>添加从焦点 4 到焦点 2 的有向符文。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
@@ -71,7 +79,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3383.Mi
 	<li><code>1 &lt;= flowFrom.length == flowTo.length &lt;= min(2 * 10<sup>5</sup>, (n * (n - 1)) / 2)</code></li>
 	<li><code>0 &lt;= flowFrom[i], flowTo[i] &lt;= n - 1</code></li>
 	<li><code>flowFrom[i] != flowTo[i]</code></li>
-	<li>All pre-existing directed runes are <strong>distinct</strong>.</li>
+	<li>所有的有向符文 <strong>互不相同</strong>。</li>
 </ul>
 
 <!-- description:end -->
