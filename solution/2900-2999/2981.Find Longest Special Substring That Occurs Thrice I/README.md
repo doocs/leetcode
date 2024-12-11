@@ -271,9 +271,9 @@ function maximumLength(s: string): number {
 
 <!-- solution:start -->
 
-### Solution 2: Counting
+### 方法二：计数
 
-The time complexity is $O(n)$
+时间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
