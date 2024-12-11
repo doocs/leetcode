@@ -23,7 +23,7 @@ tags:
 | Column Name | Type    |
 +-------------+---------+
 | player_id   | int     |
-| team_name   | varchar |
+| team_name   | varchar | 
 +-------------+---------+
 player_id is the unique key for this table.
 Each row contains the unique identifier for player and the name of one of the teams participating in that match.
