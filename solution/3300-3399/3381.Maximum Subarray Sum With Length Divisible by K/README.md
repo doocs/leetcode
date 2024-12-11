@@ -85,25 +85,99 @@ tags:
 #### Python3
 
 ```python
-
+class Solution:
+    def maxSubarraySum(self, nums: List[int], k: int) -> int:
+        f = [inf] * k
+        ans = -inf
+        s = f[-1] = 0
+        for i, x in enumerate(nums):
+            s += x
+            ans = max(ans, s - f[i % k])
+            f[i % k] = min(f[i % k], s)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxSubarraySum(int[] nums, int k) {
+        long[] f = new long[k];
+        final long inf = 1L << 62;
+        Arrays.fill(f, inf);
+        f[k - 1] = 0;
+        long s = 0;
+        long ans = -inf;
+        for (int i = 0; i < nums.length; ++i) {
+            s += nums[i];
+            ans = Math.max(ans, s - f[i % k]);
+            f[i % k] = Math.min(f[i % k], s);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxSubarraySum(vector<int>& nums, int k) {
+        using ll = long long;
+        ll inf = 1e18;
+        vector<ll> f(k, inf);
+        ll ans = -inf;
+        ll s = 0;
+        f[k - 1] = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            s += nums[i];
+            ans = max(ans, s - f[i % k]);
+            f[i % k] = min(f[i % k], s);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxSubarraySum(nums []int, k int) int64 {
+	inf := int64(1) << 62
+	f := make([]int64, k)
+	for i := range f {
+		f[i] = inf
+	}
+	f[k-1] = 0
 
+	var s, ans int64
+	ans = -inf
+	for i := 0; i < len(nums); i++ {
+		s += int64(nums[i])
+		ans = max(ans, s-f[i%k])
+		f[i%k] = min(f[i%k], s)
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxSubarraySum(nums: number[], k: number): number {
+    const f: number[] = Array(k).fill(Infinity);
+    f[k - 1] = 0;
+    let ans = -Infinity;
+    let s = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        s += nums[i];
+        ans = Math.max(ans, s - f[i % k]);
+        f[i % k] = Math.min(f[i % k], s);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
