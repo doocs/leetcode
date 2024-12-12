@@ -187,25 +187,155 @@ tags:
 #### Python3
 
 ```python
+class Solution:
+    def findMinimumTime(self, strength: List[int], K: int) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i == (1 << len(strength)) - 1:
+                return 0
+            cnt = i.bit_count()
+            x = 1 + cnt * K
+            ans = inf
+            for j, s in enumerate(strength):
+                if i >> j & 1 ^ 1:
+                    ans = min(ans, dfs(i | 1 << j) + (s + x - 1) // x)
+            return ans
 
+        return dfs(0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<Integer> strength;
+    private Integer[] f;
+    private int k;
+    private int n;
 
+    public int findMinimumTime(List<Integer> strength, int K) {
+        n = strength.size();
+        f = new Integer[1 << n];
+        k = K;
+        this.strength = strength;
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (i == (1 << n) - 1) {
+            return 0;
+        }
+        if (f[i] != null) {
+            return f[i];
+        }
+        int cnt = Integer.bitCount(i);
+        int x = 1 + cnt * k;
+        f[i] = 1 << 30;
+        for (int j = 0; j < n; ++j) {
+            if ((i >> j & 1) == 0) {
+                f[i] = Math.min(f[i], dfs(i | 1 << j) + (strength.get(j) + x - 1) / x);
+            }
+        }
+        return f[i];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int findMinimumTime(vector<int>& strength, int K) {
+        int n = strength.size();
+        int f[1 << n];
+        memset(f, -1, sizeof(f));
+        int k = K;
+        auto dfs = [&](auto&& dfs, int i) -> int {
+            if (i == (1 << n) - 1) {
+                return 0;
+            }
+            if (f[i] != -1) {
+                return f[i];
+            }
+            int cnt = __builtin_popcount(i);
+            int x = 1 + k * cnt;
+            f[i] = INT_MAX;
+            for (int j = 0; j < n; ++j) {
+                if (i >> j & 1 ^ 1) {
+                    f[i] = min(f[i], dfs(dfs, i | 1 << j) + (strength[j] + x - 1) / x);
+                }
+            }
+            return f[i];
+        };
+        return dfs(dfs, 0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findMinimumTime(strength []int, K int) int {
+	n := len(strength)
+	f := make([]int, 1<<n)
+	for i := range f {
+		f[i] = -1
+	}
+	var dfs func(int) int
+	dfs = func(i int) int {
+		if i == 1<<n-1 {
+			return 0
+		}
+		if f[i] != -1 {
+			return f[i]
+		}
+		x := 1 + K*bits.OnesCount(uint(i))
+		f[i] = 1 << 30
+		for j, s := range strength {
+			if i>>j&1 == 0 {
+				f[i] = min(f[i], dfs(i|1<<j)+(s+x-1)/x)
+			}
+		}
+		return f[i]
+	}
+	return dfs(0)
+}
+```
 
+#### TypeScript
+
+```ts
+function findMinimumTime(strength: number[], K: number): number {
+    const n = strength.length;
+    const f: number[] = Array(1 << n).fill(-1);
+    const dfs = (i: number): number => {
+        if (i === (1 << n) - 1) {
+            return 0;
+        }
+        if (f[i] !== -1) {
+            return f[i];
+        }
+        f[i] = Infinity;
+        const x = 1 + K * bitCount(i);
+        for (let j = 0; j < n; ++j) {
+            if (((i >> j) & 1) == 0) {
+                f[i] = Math.min(f[i], dfs(i | (1 << j)) + Math.ceil(strength[j] / x));
+            }
+        }
+        return f[i];
+    };
+    return dfs(0);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
 ```
 
 <!-- tabs:end -->
