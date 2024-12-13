@@ -20,9 +20,7 @@ tags:
 
 <p>You are given an array of integers <code>nums</code> and an integer <code>k</code>.</p>
 
-<p>Return the <strong>maximum</strong> sum of a <strong>non-empty subarray</strong> of <code>nums</code>, such that the size of the subarray is <strong>divisible</strong> by <code>k</code>.</p>
-
-<p>A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of elements within an array.</p>
+<p>Return the <strong>maximum</strong> sum of a <span data-keyword="subarray-nonempty">subarray</span> of <code>nums</code>, such that the size of the subarray is <strong>divisible</strong> by <code>k</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -3395,7 +3395,7 @@
 |  3382  |  [用点构造面积最大的矩形 II](/solution/3300-3399/3382.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20II/README.md)  |  `树状数组`,`线段树`,`几何`,`数组`,`数学`,`排序`  |  困难  |  第 427 场周赛  |
 |  3383  |  [施法所需最低符文数量](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`拓扑排序`,`数组`  |  困难  |  🔒  |
 |  3384  |  [球队传球成功的优势得分](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  3385  |  [Minimum Time to Break Locks II](/solution/3300-3399/3385.Minimum%20Time%20to%20Break%20Locks%20II/README.md)  |    |  困难  |  🔒  |
+|  3385  |  [破解锁的最少时间 II](/solution/3300-3399/3385.Minimum%20Time%20to%20Break%20Locks%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
