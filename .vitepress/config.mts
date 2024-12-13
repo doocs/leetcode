@@ -21,6 +21,32 @@ const isDir = async (path: string) => {
 // 获取根目录
 const rootPath = resolve(import.meta.dirname, '../');
 
+const getQuestionNo = (title: string, dir: string): string => {
+    let dot = dir !== 'lcci' ? title.indexOf('.') : title.lastIndexOf('.');
+    let num = title
+        .slice(0, dot)
+        .replace('面试题', '')
+        .replace('剑指 Offer II', '')
+        .replace('LCP', '')
+        .replace('LCS', '')
+        .trim()
+        .replace(/^0+/, ''); // Remove leading zeros
+
+    if (num.endsWith('- III')) {
+        num = num.slice(0, -5) + '.3';
+    } else if (num.endsWith('- II')) {
+        num = num.slice(0, -4) + '.2';
+    } else if (num.endsWith('- I')) {
+        num = num.slice(0, -3) + '.1';
+    }
+
+    num = num
+        .split('.')
+        .map(x => x.trim().replace(/^0+/, ''))
+        .join('.');
+    return num;
+};
+
 // TODO 对于 solution，需要递归读取
 // const questions = ['lcci', 'lcof', 'lcof2', 'lcp', 'solution'];
 // FIXME lcof 较为特殊，似乎中文名加上空格，导致服务崩溃
@@ -37,7 +63,7 @@ for (const question of questions) {
             continue;
         }
         items[question].push({ text: file, link: `${question}/${file}/README.md` });
-        rewrites[`${question}/${file}/README.md`] = `${question}/${file}`;
+        rewrites[`${question}/${file}/README.md`] = `${question}/${getQuestionNo(file, question)}`;
     }
 }
 
