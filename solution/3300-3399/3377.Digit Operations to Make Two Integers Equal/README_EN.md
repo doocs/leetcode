@@ -29,13 +29,11 @@ tags:
 	<li>Choose <strong>any</strong> digit from <code>n</code> that is not 0 and <strong>decrease</strong> it by 1.</li>
 </ul>
 
-<p>The integer <code>n</code> must not be a <strong>prime</strong> number at any point, including its original value and after each operation.</p>
+<p>The integer <code>n</code> must not be a <span data-keyword="prime-number">prime</span> number at any point, including its original value and after each operation.</p>
 
 <p>The cost of a transformation is the sum of <strong>all</strong> values that <code>n</code> takes throughout the operations performed.</p>
 
 <p>Return the <strong>minimum</strong> cost to transform <code>n</code> into <code>m</code>. If it is impossible, return -1.</p>
-
-<p>A prime number is a natural number greater than 1 with only two factors, 1 and itself.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
