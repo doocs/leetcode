@@ -60,7 +60,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+根据题目描述，只要每个字符的出现次数能被字符串数组的长度整除，就可以通过移动字符使所有字符串相等。
+
+因此，我们用哈希表或者一个长度为 $26$ 的整数数组 $\textit{cnt}$ 统计每个字符出现的次数，最后判断是否每个字符的出现次数能被字符串数组的长度整除即可。
+
+时间复杂度 $O(L)$，空间复杂度 $O(|\Sigma|)$。其中 $L$ 为数组 $\textit{words}$ 中所有字符串的长度之和，而 $\Sigma$ 为字符集，这里为小写字母集合，所以 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -69,12 +75,12 @@ tags:
 ```python
 class Solution:
     def makeEqual(self, words: List[str]) -> bool:
-        counter = Counter()
-        for word in words:
-            for c in word:
-                counter[c] += 1
+        cnt = Counter()
+        for w in words:
+            for c in w:
+                cnt[c] += 1
         n = len(words)
-        return all(count % n == 0 for count in counter.values())
+        return all(v % n == 0 for v in cnt.values())
 ```
 
 #### Java
@@ -82,15 +88,15 @@ class Solution:
 ```java
 class Solution {
     public boolean makeEqual(String[] words) {
-        int[] counter = new int[26];
-        for (String word : words) {
-            for (char c : word.toCharArray()) {
-                ++counter[c - 'a'];
+        int[] cnt = new int[26];
+        for (var w : words) {
+            for (char c : w.toCharArray()) {
+                ++cnt[c - 'a'];
             }
         }
         int n = words.length;
-        for (int i = 0; i < 26; ++i) {
-            if (counter[i] % n != 0) {
+        for (int v : cnt) {
+            if (v % n != 0) {
                 return false;
             }
         }
@@ -105,15 +111,17 @@ class Solution {
 class Solution {
 public:
     bool makeEqual(vector<string>& words) {
-        vector<int> counter(26, 0);
-        for (string word : words) {
-            for (char c : word) {
-                ++counter[c - 'a'];
+        int cnt[26]{};
+        for (const auto& w : words) {
+            for (const auto& c : w) {
+                ++cnt[c - 'a'];
             }
         }
         int n = words.size();
-        for (int count : counter) {
-            if (count % n != 0) return false;
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] % n != 0) {
+                return false;
+            }
         }
         return true;
     }
@@ -124,15 +132,15 @@ public:
 
 ```go
 func makeEqual(words []string) bool {
-	counter := [26]int{}
-	for _, word := range words {
-		for _, c := range word {
-			counter[c-'a']++
+	cnt := [26]int{}
+	for _, w := range words {
+		for _, c := range w {
+			cnt[c-'a']++
 		}
 	}
 	n := len(words)
-	for _, count := range counter {
-		if count%n != 0 {
+	for _, v := range cnt {
+		if v%n != 0 {
 			return false
 		}
 	}
@@ -144,20 +152,33 @@ func makeEqual(words []string) bool {
 
 ```ts
 function makeEqual(words: string[]): boolean {
-    let n = words.length;
-    let letters = new Array(26).fill(0);
-    for (let word of words) {
-        for (let i = 0; i < word.length; ++i) {
-            ++letters[word.charCodeAt(i) - 97];
+    const cnt: Record<string, number> = {};
+    for (const w of words) {
+        for (const c of w) {
+            cnt[c] = (cnt[c] || 0) + 1;
         }
     }
+    const n = words.length;
+    return Object.values(cnt).every(v => v % n === 0);
+}
+```
 
-    for (let i = 0; i < letters.length; ++i) {
-        if (letters[i] % n != 0) {
-            return false;
+#### Rust
+
+```rust
+impl Solution {
+    pub fn make_equal(words: Vec<String>) -> bool {
+        let mut cnt = std::collections::HashMap::new();
+
+        for word in words.iter() {
+            for c in word.chars() {
+                *cnt.entry(c).or_insert(0) += 1;
+            }
         }
+
+        let n = words.len();
+        cnt.values().all(|&v| v % n == 0)
     }
-    return true;
 }
 ```
 
