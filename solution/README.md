@@ -3396,6 +3396,10 @@
 |  3383  |  [施法所需最低符文数量](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`拓扑排序`,`数组`  |  困难  |  🔒  |
 |  3384  |  [球队传球成功的优势得分](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  3385  |  [破解锁的最少时间 II](/solution/3300-3399/3385.Minimum%20Time%20to%20Break%20Locks%20II/README.md)  |    |  困难  |  🔒  |
+|  3386  |  [按下时间最长的按钮](/solution/3300-3399/3386.Button%20with%20Longest%20Push%20Time/README.md)  |    |  简单  |  第 428 场周赛  |
+|  3387  |  [两天自由外汇交易后的最大货币数](/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README.md)  |    |  中等  |  第 428 场周赛  |
+|  3388  |  [统计数组中的美丽分割](/solution/3300-3399/3388.Count%20Beautiful%20Splits%20in%20an%20Array/README.md)  |    |  中等  |  第 428 场周赛  |
+|  3389  |  [使字符频率相等的最少操作次数](/solution/3300-3399/3389.Minimum%20Operations%20to%20Make%20Character%20Frequencies%20Equal/README.md)  |    |  困难  |  第 428 场周赛  |
 
 ## 版权
 

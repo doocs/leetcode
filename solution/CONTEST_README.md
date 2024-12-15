@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 428 场周赛(2024-12-15 10:30, 90 分钟) 参赛人数 2414
+
+- [3386. 按下时间最长的按钮](/solution/3300-3399/3386.Button%20with%20Longest%20Push%20Time/README.md)
+- [3387. 两天自由外汇交易后的最大货币数](/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README.md)
+- [3388. 统计数组中的美丽分割](/solution/3300-3399/3388.Count%20Beautiful%20Splits%20in%20an%20Array/README.md)
+- [3389. 使字符频率相等的最少操作次数](/solution/3300-3399/3389.Minimum%20Operations%20to%20Make%20Character%20Frequencies%20Equal/README.md)
+
 #### 第 427 场周赛(2024-12-08 10:30, 90 分钟) 参赛人数 2376
 
 - [3379. 转换数组](/solution/3300-3399/3379.Transformed%20Array/README.md)

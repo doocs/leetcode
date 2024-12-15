@@ -3394,6 +3394,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3383  |  [Minimum Runes to Add to Cast Spell](/solution/3300-3399/3383.Minimum%20Runes%20to%20Add%20to%20Cast%20Spell/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Topological Sort`,`Array`  |  Hard  |  🔒  |
 |  3384  |  [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  3385  |  [Minimum Time to Break Locks II](/solution/3300-3399/3385.Minimum%20Time%20to%20Break%20Locks%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  3386  |  [Button with Longest Push Time](/solution/3300-3399/3386.Button%20with%20Longest%20Push%20Time/README_EN.md)  |    |  Easy  |  Weekly Contest 428  |
+|  3387  |  [Maximize Amount After Two Days of Conversions](/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README_EN.md)  |    |  Medium  |  Weekly Contest 428  |
+|  3388  |  [Count Beautiful Splits in an Array](/solution/3300-3399/3388.Count%20Beautiful%20Splits%20in%20an%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 428  |
+|  3389  |  [Minimum Operations to Make Character Frequencies Equal](/solution/3300-3399/3389.Minimum%20Operations%20to%20Make%20Character%20Frequencies%20Equal/README_EN.md)  |    |  Hard  |  Weekly Contest 428  |
 
 ## Copyright
 

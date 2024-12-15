@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 428
+
+- [3386. Button with Longest Push Time](/solution/3300-3399/3386.Button%20with%20Longest%20Push%20Time/README_EN.md)
+- [3387. Maximize Amount After Two Days of Conversions](/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README_EN.md)
+- [3388. Count Beautiful Splits in an Array](/solution/3300-3399/3388.Count%20Beautiful%20Splits%20in%20an%20Array/README_EN.md)
+- [3389. Minimum Operations to Make Character Frequencies Equal](/solution/3300-3399/3389.Minimum%20Operations%20to%20Make%20Character%20Frequencies%20Equal/README_EN.md)
+
 #### Weekly Contest 427
 
 - [3379. Transformed Array](/solution/3300-3399/3379.Transformed%20Array/README_EN.md)
