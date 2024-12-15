@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [5,4,2,4]
 <strong>Output:</strong> 8
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Continuous subarray of size 1: [5], [4], [2], [4].
 Continuous subarray of size 2: [5,4], [4,2], [2,4].
 Continuous subarray of size 3: [4,2,4].
@@ -55,7 +55,7 @@ It can be shown that there are no more continuous subarrays.
 <pre>
 <strong>Input:</strong> nums = [1,2,3]
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Continuous subarray of size 1: [1], [2], [3].
 Continuous subarray of size 2: [1,2], [2,3].
 Continuous subarray of size 3: [1,2,3].
@@ -181,6 +181,80 @@ func continuousSubarrays(nums []int) (ans int64) {
 		ans += int64(j - i + 1)
 	}
 	return
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Monotonic queue + Two Pointers
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function continuousSubarrays(nums: number[]): number {
+    const [minQ, maxQ]: [number[], number[]] = [[], []];
+    const n = nums.length;
+    let res = 0;
+
+    for (let r = 0, l = 0; r < n; r++) {
+        const x = nums[r];
+        while (minQ.length && nums[minQ.at(-1)!] > x) minQ.pop();
+        while (maxQ.length && nums[maxQ.at(-1)!] < x) maxQ.pop();
+        minQ.push(r);
+        maxQ.push(r);
+
+        while (minQ.length && maxQ.length && nums[maxQ[0]] - nums[minQ[0]] > 2) {
+            if (maxQ[0] < minQ[0]) {
+                l = maxQ[0] + 1;
+                maxQ.shift();
+            } else {
+                l = minQ[0] + 1;
+                minQ.shift();
+            }
+        }
+
+        res += r - l + 1;
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function continuousSubarrays(nums) {
+    const [minQ, maxQ] = [[], []];
+    const n = nums.length;
+    let res = 0;
+
+    for (let r = 0, l = 0; r < n; r++) {
+        const x = nums[r];
+        while (minQ.length && nums[minQ.at(-1)] > x) minQ.pop();
+        while (maxQ.length && nums[maxQ.at(-1)] < x) maxQ.pop();
+        minQ.push(r);
+        maxQ.push(r);
+
+        while (minQ.length && maxQ.length && nums[maxQ[0]] - nums[minQ[0]] > 2) {
+            if (maxQ[0] < minQ[0]) {
+                l = maxQ[0] + 1;
+                maxQ.shift();
+            } else {
+                l = minQ[0] + 1;
+                minQ.shift();
+            }
+        }
+
+        res += r - l + 1;
+    }
+
+    return res;
 }
 ```
 
