@@ -29,7 +29,7 @@ tags:
 	<li>切割成四条长度为 <code>1</code>&nbsp;的绳子。</li>
 </ul>
 
-<p>你的任务是找出最大 <code>x</code> 值，要求满足可以裁切出恰好 <code>k</code> 条长度均为 <code>x</code> 的绳子。你可以丢弃裁切后剩余的任意长度的绳子。如果不可能切割出&nbsp;<code>k</code> 条相同长度的绳子，返回 0。</p>
+<p>你的任务是找出最大 <code>x</code> 值，要求满足可以裁切出至少&nbsp;<code>k</code> 条长度均为 <code>x</code> 的绳子。你可以丢弃裁切后剩余的任意长度的绳子。如果不可能切割出&nbsp;<code>k</code> 条相同长度的绳子，返回 0。</p>
 
 <p>&nbsp;</p>
 
