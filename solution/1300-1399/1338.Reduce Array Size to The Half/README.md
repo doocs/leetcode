@@ -64,9 +64,9 @@ tags:
 
 ### 方法一：计数 + 排序
 
-我们可以用哈希表或数组 $cnt$ 统计数组 $arr$ 中每个数字出现的次数，然后将 $cnt$ 中的数字从大到小排序，从大到小遍历 $cnt$，每次遍历将当前数字 $x$ 加入答案，并将 $m$ 加上 $x$，如果 $m \geq \frac{n}{2}$，则返回答案。
+我们可以用哈希表或数组 $cnt$ 统计数组 $\textit{arr}$ 中每个数字出现的次数，然后将 $cnt$ 中的数字从大到小排序，从大到小遍历 $\textit{cnt}$，每次遍历将当前数字 $x$ 加入答案，并将 $m$ 加上 $x$，如果 $m \geq \frac{n}{2}$，则返回答案。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -120,7 +120,7 @@ class Solution {
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        int mx = *max_element(arr.begin(), arr.end());
+        int mx = ranges::max(arr);
         int cnt[mx + 1];
         memset(cnt, 0, sizeof(cnt));
         for (int& x : arr) {
@@ -169,18 +169,15 @@ func minSetSize(arr []int) (ans int) {
 
 ```ts
 function minSetSize(arr: number[]): number {
-    const counter = new Map<number, number>();
+    const cnt = new Map<number, number>();
     for (const v of arr) {
-        counter.set(v, (counter.get(v) ?? 0) + 1);
+        cnt.set(v, (cnt.get(v) ?? 0) + 1);
     }
-    const t = Array.from(counter.values());
-    t.sort((a, b) => b - a);
-    let ans = 0;
-    let n = 0;
-    for (const cnt of t) {
-        n += cnt;
+    let [ans, m] = [0, 0];
+    for (const v of Array.from(cnt.values()).sort((a, b) => b - a)) {
+        m += v;
         ++ans;
-        if (n * 2 >= arr.length) {
+        if (m * 2 >= arr.length) {
             break;
         }
     }

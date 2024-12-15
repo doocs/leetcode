@@ -60,7 +60,11 @@ Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5]
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting + Sorting
+
+We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each number in the array $\textit{arr}$. Then, we sort the numbers in $\textit{cnt}$ in descending order. We traverse $\textit{cnt}$ from largest to smallest, adding the current number $x$ to the answer and adding $x$ to $m$. If $m \geq \frac{n}{2}$, we return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -114,7 +118,7 @@ class Solution {
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        int mx = *max_element(arr.begin(), arr.end());
+        int mx = ranges::max(arr);
         int cnt[mx + 1];
         memset(cnt, 0, sizeof(cnt));
         for (int& x : arr) {
@@ -163,18 +167,15 @@ func minSetSize(arr []int) (ans int) {
 
 ```ts
 function minSetSize(arr: number[]): number {
-    const counter = new Map<number, number>();
+    const cnt = new Map<number, number>();
     for (const v of arr) {
-        counter.set(v, (counter.get(v) ?? 0) + 1);
+        cnt.set(v, (cnt.get(v) ?? 0) + 1);
     }
-    const t = Array.from(counter.values());
-    t.sort((a, b) => b - a);
-    let ans = 0;
-    let n = 0;
-    for (const cnt of t) {
-        n += cnt;
+    let [ans, m] = [0, 0];
+    for (const v of Array.from(cnt.values()).sort((a, b) => b - a)) {
+        m += v;
         ++ans;
-        if (n * 2 >= arr.length) {
+        if (m * 2 >= arr.length) {
             break;
         }
     }
