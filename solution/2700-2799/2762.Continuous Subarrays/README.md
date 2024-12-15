@@ -180,9 +180,6 @@ func continuousSubarrays(nums []int) (ans int64) {
 		}
 		ans += int64(j - i + 1)
 	}
-feat: add solutions to lc problem: No.0929 (#3857)
-
-No.0929.Unique Email Addresses	return
 }
 ```
 
@@ -192,7 +189,7 @@ No.0929.Unique Email Addresses	return
 
 <!-- solution:start -->
 
-### Solution 2: Monotonic queue + Two Pointers
+### 方法二：单调队列 + 双指针
 
 <!-- tabs:start -->
 
