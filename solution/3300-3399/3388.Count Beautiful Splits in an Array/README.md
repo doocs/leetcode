@@ -76,32 +76,165 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3388.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：LCP + 枚举
+
+我们可以预处理 $\text{LCP}[i][j]$ 表示 $\textit{nums}[i:]$ 和 $\textit{nums}[j:]$ 的最长公共前缀长度。初始时 $\text{LCP}[i][j] = 0$。
+
+接下来，我们倒序枚举 $i$ 和 $j$，对于每一对 $i$ 和 $j$，如果 $\textit{nums}[i] = \textit{nums}[j]$，那么我们可以得到 $\text{LCP}[i][j] = \text{LCP}[i + 1][j + 1] + 1$。
+
+最后，我们枚举第一个子数组的结尾位置 $i$（不包括位置 $i$），以及第二个子数组的结尾位置 $j$（不包括位置 $j$），那么第一个子数组的长度为 $i$，第二个子数组的长度为 $j - i$，第三个子数组的长度为 $n - j$。如果 $i \leq j - i$ 且 $\text{LCP}[0][i] \geq i$，或者 $j - i \leq n - j$ 且 $\text{LCP}[i][j] \geq j - i$，那么这个分割是美丽的，答案加一。
+
+枚举结束后，答案即为美丽的分割数目。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def beautifulSplits(self, nums: List[int]) -> int:
+        n = len(nums)
+        lcp = [[0] * (n + 1) for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(n - 1, i - 1, -1):
+                if nums[i] == nums[j]:
+                    lcp[i][j] = lcp[i + 1][j + 1] + 1
+        ans = 0
+        for i in range(1, n - 1):
+            for j in range(i + 1, n):
+                a = i <= j - i and lcp[0][i] >= i
+                b = j - i <= n - j and lcp[i][j] >= j - i
+                ans += int(a or b)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int beautifulSplits(int[] nums) {
+        int n = nums.length;
+        int[][] lcp = new int[n + 1][n + 1];
 
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = n - 1; j > i; j--) {
+                if (nums[i] == nums[j]) {
+                    lcp[i][j] = lcp[i + 1][j + 1] + 1;
+                }
+            }
+        }
+
+        int ans = 0;
+        for (int i = 1; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                boolean a = (i <= j - i) && (lcp[0][i] >= i);
+                boolean b = (j - i <= n - j) && (lcp[i][j] >= j - i);
+                if (a || b) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int beautifulSplits(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> lcp(n + 1, vector<int>(n + 1, 0));
 
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = n - 1; j > i; j--) {
+                if (nums[i] == nums[j]) {
+                    lcp[i][j] = lcp[i + 1][j + 1] + 1;
+                }
+            }
+        }
+
+        int ans = 0;
+        for (int i = 1; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                bool a = (i <= j - i) && (lcp[0][i] >= i);
+                bool b = (j - i <= n - j) && (lcp[i][j] >= j - i);
+                if (a || b) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func beautifulSplits(nums []int) (ans int) {
+    n := len(nums)
+    lcp := make([][]int, n+1)
+    for i := range lcp {
+        lcp[i] = make([]int, n+1)
+    }
 
+    for i := n - 1; i >= 0; i-- {
+        for j := n - 1; j > i; j-- {
+            if nums[i] == nums[j] {
+                lcp[i][j] = lcp[i+1][j+1] + 1
+            }
+        }
+    }
+
+    for i := 1; i < n-1; i++ {
+        for j := i + 1; j < n; j++ {
+            a := i <= j-i && lcp[0][i] >= i
+            b := j-i <= n-j && lcp[i][j] >= j-i
+            if a || b {
+                ans++
+            }
+        }
+    }
+
+    return
+}
+```
+
+#### TypeScript
+
+```ts
+function beautifulSplits(nums: number[]): number {
+    const n = nums.length;
+    const lcp: number[][] = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0));
+
+    for (let i = n - 1; i >= 0; i--) {
+        for (let j = n - 1; j > i; j--) {
+            if (nums[i] === nums[j]) {
+                lcp[i][j] = lcp[i + 1][j + 1] + 1;
+            }
+        }
+    }
+
+    let ans = 0;
+    for (let i = 1; i < n - 1; i++) {
+        for (let j = i + 1; j < n; j++) {
+            const a = i <= j - i && lcp[0][i] >= i;
+            const b = j - i <= n - j && lcp[i][j] >= j - i;
+            if (a || b) {
+                ans++;
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
