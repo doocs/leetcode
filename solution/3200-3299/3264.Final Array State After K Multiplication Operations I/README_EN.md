@@ -257,4 +257,42 @@ function getFinalState(nums: number[], k: number, multiplier: number): number[] 
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Brute Force
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function getFinalState(nums: number[], k: number, multiplier: number): number[] {
+    while (k--) {
+        const min = Math.min(...nums);
+        const i = nums.indexOf(min);
+        nums[i] *= multiplier;
+    }
+
+    return nums;
+}
+```
+
+#### JavaScript
+
+```js
+function getFinalState(nums, k, multiplier) {
+    while (k--) {
+        const min = Math.min(...nums);
+        const i = nums.indexOf(min);
+        nums[i] *= multiplier;
+    }
+
+    return nums;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
