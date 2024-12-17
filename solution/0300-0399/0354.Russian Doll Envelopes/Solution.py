@@ -7,7 +7,5 @@ class Solution:
                 d.append(h)
             else:
                 idx = bisect_left(d, h)
-                if idx == len(d):
-                    idx = 0
                 d[idx] = h
         return len(d)
