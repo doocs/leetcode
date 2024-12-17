@@ -100,25 +100,286 @@ tags:
 #### Python3
 
 ```python
+class Hashing:
+    __slots__ = ["mod", "h", "p"]
 
+    def __init__(self, s: List[str], base: int, mod: int):
+        self.mod = mod
+        self.h = [0] * (len(s) + 1)
+        self.p = [1] * (len(s) + 1)
+        for i in range(1, len(s) + 1):
+            self.h[i] = (self.h[i - 1] * base + ord(s[i - 1])) % mod
+            self.p[i] = (self.p[i - 1] * base) % mod
+
+    def query(self, l: int, r: int) -> int:
+        return (self.h[r] - self.h[l - 1] * self.p[r - l + 1]) % self.mod
+
+
+class Solution:
+    def minValidStrings(self, words: List[str], target: str) -> int:
+        def f(i: int) -> int:
+            l, r = 0, min(n - i, m)
+            while l < r:
+                mid = (l + r + 1) >> 1
+                sub = hashing.query(i + 1, i + mid)
+                if sub in s[mid]:
+                    l = mid
+                else:
+                    r = mid - 1
+            return l
+
+        base, mod = 13331, 998244353
+        hashing = Hashing(target, base, mod)
+        m = max(len(w) for w in words)
+        s = [set() for _ in range(m + 1)]
+        for w in words:
+            h = 0
+            for j, c in enumerate(w, 1):
+                h = (h * base + ord(c)) % mod
+                s[j].add(h)
+        ans = last = mx = 0
+        n = len(target)
+        for i in range(n):
+            dist = f(i)
+            mx = max(mx, i + dist)
+            if i == last:
+                if i == mx:
+                    return -1
+                last = mx
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Hashing {
+    private final long[] p;
+    private final long[] h;
+    private final long mod;
 
+    public Hashing(String word, long base, int mod) {
+        int n = word.length();
+        p = new long[n + 1];
+        h = new long[n + 1];
+        p[0] = 1;
+        this.mod = mod;
+        for (int i = 1; i <= n; i++) {
+            p[i] = p[i - 1] * base % mod;
+            h[i] = (h[i - 1] * base + word.charAt(i - 1)) % mod;
+        }
+    }
+
+    public long query(int l, int r) {
+        return (h[r] - h[l - 1] * p[r - l + 1] % mod + mod) % mod;
+    }
+}
+
+class Solution {
+    private Hashing hashing;
+    private Set<Long>[] s;
+
+    public int minValidStrings(String[] words, String target) {
+        int base = 13331, mod = 998244353;
+        hashing = new Hashing(target, base, mod);
+        int m = Arrays.stream(words).mapToInt(String::length).max().orElse(0);
+        s = new Set[m + 1];
+        Arrays.setAll(s, k -> new HashSet<>());
+        for (String w : words) {
+            long h = 0;
+            for (int j = 0; j < w.length(); j++) {
+                h = (h * base + w.charAt(j)) % mod;
+                s[j + 1].add(h);
+            }
+        }
+
+        int ans = 0;
+        int last = 0;
+        int mx = 0;
+        int n = target.length();
+        for (int i = 0; i < n; i++) {
+            int dist = f(i, n, m);
+            mx = Math.max(mx, i + dist);
+            if (i == last) {
+                if (i == mx) {
+                    return -1;
+                }
+                last = mx;
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    private int f(int i, int n, int m) {
+        int l = 0, r = Math.min(n - i, m);
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            long sub = hashing.query(i + 1, i + mid);
+            if (s[mid].contains(sub)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Hashing {
+private:
+    vector<long long> p;
+    vector<long long> h;
+    long long mod;
 
+public:
+    Hashing(const string& word, long long base, int mod) {
+        int n = word.size();
+        p.resize(n + 1);
+        h.resize(n + 1);
+        p[0] = 1;
+        this->mod = mod;
+        for (int i = 1; i <= n; i++) {
+            p[i] = (p[i - 1] * base) % mod;
+            h[i] = (h[i - 1] * base + word[i - 1]) % mod;
+        }
+    }
+
+    long long query(int l, int r) {
+        return (h[r] - h[l - 1] * p[r - l + 1] % mod + mod) % mod;
+    }
+};
+
+class Solution {
+public:
+    int minValidStrings(vector<string>& words, string target) {
+        int base = 13331, mod = 998244353;
+        Hashing hashing(target, base, mod);
+        int m = 0, n = target.size();
+        for (const string& word : words) {
+            m = max(m, (int) word.size());
+        }
+
+        vector<unordered_set<long long>> s(m + 1);
+        for (const string& w : words) {
+            long long h = 0;
+            for (int j = 0; j < w.size(); j++) {
+                h = (h * base + w[j]) % mod;
+                s[j + 1].insert(h);
+            }
+        }
+
+        auto f = [&](int i) -> int {
+            int l = 0, r = min(n - i, m);
+            while (l < r) {
+                int mid = (l + r + 1) >> 1;
+                long long sub = hashing.query(i + 1, i + mid);
+                if (s[mid].count(sub)) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            return l;
+        };
+
+        int ans = 0, last = 0, mx = 0;
+        for (int i = 0; i < n; i++) {
+            int dist = f(i);
+            mx = max(mx, i + dist);
+            if (i == last) {
+                if (i == mx) {
+                    return -1;
+                }
+                last = mx;
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type Hashing struct {
+	p   []int64
+	h   []int64
+	mod int64
+}
 
+func NewHashing(word string, base int64, mod int64) *Hashing {
+	n := len(word)
+	p := make([]int64, n+1)
+	h := make([]int64, n+1)
+	p[0] = 1
+	for i := 1; i <= n; i++ {
+		p[i] = (p[i-1] * base) % mod
+		h[i] = (h[i-1]*base + int64(word[i-1])) % mod
+	}
+	return &Hashing{p, h, mod}
+}
+
+func (hashing *Hashing) Query(l, r int) int64 {
+	return (hashing.h[r] - hashing.h[l-1]*hashing.p[r-l+1]%hashing.mod + hashing.mod) % hashing.mod
+}
+
+func minValidStrings(words []string, target string) (ans int) {
+	base, mod := int64(13331), int64(998244353)
+	hashing := NewHashing(target, base, mod)
+
+	m, n := 0, len(target)
+	for _, w := range words {
+		m = max(m, len(w))
+	}
+
+	s := make([]map[int64]bool, m+1)
+
+	f := func(i int) int {
+		l, r := 0, int(math.Min(float64(n-i), float64(m)))
+		for l < r {
+			mid := (l + r + 1) >> 1
+			sub := hashing.Query(i+1, i+mid)
+			if s[mid][sub] {
+				l = mid
+			} else {
+				r = mid - 1
+			}
+		}
+		return l
+	}
+
+	for _, w := range words {
+		h := int64(0)
+		for j := 0; j < len(w); j++ {
+			h = (h*base + int64(w[j])) % mod
+			if s[j+1] == nil {
+				s[j+1] = make(map[int64]bool)
+			}
+			s[j+1][h] = true
+		}
+	}
+
+	var last, mx int
+
+	for i := 0; i < n; i++ {
+		dist := f(i)
+		mx = max(mx, i+dist)
+		if i == last {
+			if i == mx {
+				return -1
+			}
+			last = mx
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
