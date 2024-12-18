@@ -95,7 +95,25 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：字符串哈希 + 二分查找 + 贪心
+
+由于本题数据规模较大，使用“字典树 + 记忆化搜索”的方法将会超时，我们需要寻找一种更高效的解法。
+
+考虑从字符串 $\textit{target}$ 的第 $i$ 个字符开始，最远能够匹配的字符串长度，假设为 $\textit{dist}$，那么对于任意 $j \in [i, i + \textit{dist}-1]$，我们都能够在 $\textit{words}$ 中找到一个字符串，使得 $\textit{target}[i..j]$ 是这个字符串的前缀。这存在着单调性，我们可以使用二分查找来确定 $\textit{dist}$。
+
+具体地，我们首先预处理出 $\textit{words}$ 中所有字符串的每个前缀的哈希值，按照前缀长度分组存储在 $\textit{s}$ 数组中。另外，将 $\textit{target}$ 的哈希值也预处理出来，存储在 $\textit{hashing}$ 中，便于我们查询任意 $\textit{target}[l..r]$ 的哈希值。
+
+接下来，我们设计一个函数 $\textit{f}(i)$，表示从字符串 $\textit{target}$ 的第 $i$ 个字符开始，最远能够匹配的字符串长度。我们可以通过二分查找的方式确定 $\textit{f}(i)$。
+
+定义二分查找的左边界 $l = 0$，右边界 $r = \min(n - i, m)$，其中 $n$ 是字符串 $\textit{target}$ 的长度，而 $m$ 是 $\textit{words}$ 中字符串的最大长度。在二分查找的过程中，我们需要判断 $\textit{target}[i..i+\textit{mid}-1]$ 是否是 $\textit{s}[\textit{mid}]$ 中的某个哈希值，如果是，则将左边界 $l$ 更新为 $\textit{mid}$，否则将右边界 $r$ 更新为 $\textit{mid}-1$。二分结束后，返回 $l$ 即可。
+
+算出 $\textit{f}(i)$ 后，问题就转化为了一个经典的贪心问题，我们从 $i = 0$ 开始，对于每个位置 $i$，最远可以移动到的位置为 $i + \textit{f}(i)$，求最少需要多少次移动即可到达终点。
+
+我们定义 $\textit{last}$ 表示上一次移动的位置，变量 $\textit{mx}$ 表示当前位置能够移动到的最远位置，初始时 $\textit{last} = \textit{mx} = 0$。我们从 $i = 0$ 开始遍历，如果 $i$ 等于 $\textit{last}$，说明我们需要再次移动，此时如果 $\textit{last} = \textit{mx}$，说明我们无法再移动，返回 $-1$；否则，我们将 $\textit{last}$ 更新为 $\textit{mx}$，并将答案加一。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n \times \log n + L)$，空间复杂度 $O(n + L)$。其中 $n$ 是字符串 $\textit{target}$ 的长度，而 $L$ 是所有有效字符串的总长度。
 
 <!-- tabs:start -->
 

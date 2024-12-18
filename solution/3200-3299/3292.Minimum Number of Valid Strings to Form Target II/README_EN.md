@@ -93,7 +93,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: String Hashing + Binary Search + Greedy
+
+Due to the large data scale of this problem, using the "Trie + Memoization" method will time out. We need to find a more efficient solution.
+
+Consider starting from the $i$-th character of the string $\textit{target}$ and finding the maximum matching substring length, denoted as $\textit{dist}$. For any $j \in [i, i + \textit{dist} - 1]$, we can find a string in $\textit{words}$ such that $\textit{target}[i..j]$ is a prefix of this string. This has a monotonic property, so we can use binary search to determine $\textit{dist}$.
+
+Specifically, we first preprocess the hash values of all prefixes of strings in $\textit{words}$ and store them in the array $\textit{s}$ grouped by prefix length. Additionally, we preprocess the hash values of $\textit{target}$ and store them in $\textit{hashing}$ to facilitate querying the hash value of any $\textit{target}[l..r]$.
+
+Next, we design a function $\textit{f}(i)$ to represent the maximum matching substring length starting from the $i$-th character of the string $\textit{target}$. We can determine $\textit{f}(i)$ using binary search.
+
+Define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \min(n - i, m)$, where $n$ is the length of the string $\textit{target}$ and $m$ is the maximum length of strings in $\textit{words}$. During the binary search, we need to check if $\textit{target}[i..i+\textit{mid}-1]$ is one of the hash values in $\textit{s}[\textit{mid}]$. If it is, update the left boundary $l$ to $\textit{mid}$; otherwise, update the right boundary $r$ to $\textit{mid} - 1$. After the binary search, return $l$.
+
+After calculating $\textit{f}(i)$, the problem becomes a classic greedy problem. Starting from $i = 0$, for each position $i$, the farthest position we can move to is $i + \textit{f}(i)$. We need to find the minimum number of moves to reach the end.
+
+We define $\textit{last}$ to represent the last moved position and $\textit{mx}$ to represent the farthest position we can move to from the current position. Initially, $\textit{last} = \textit{mx} = 0$. We traverse from $i = 0$. If $i$ equals $\textit{last}$, it means we need to move again. If $\textit{last} = \textit{mx}$, it means we cannot move further, so we return $-1$. Otherwise, we update $\textit{last}$ to $\textit{mx}$ and increment the answer by one.
+
+After the traversal, return the answer.
+
+The time complexity is $O(n \times \log n + L)$, and the space complexity is $O(n + L)$. Here, $n$ is the length of the string $\textit{target}$, and $L$ is the total length of all valid strings.
 
 <!-- tabs:start -->
 
