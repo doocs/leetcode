@@ -64,7 +64,19 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：前缀异或 + 数组或哈希表
+
+根据题目描述，如果我们用一个数字表示字符串 $\textit{s}$ 的某个前缀中每个元音字母出现的次数的奇偶性，那么当两个前缀的这个数字相同时，这两个前缀的交集就是一个符合条件的子字符串。
+
+我们可以用一个二进制数的低五位分别表示五个元音字母的奇偶性，其中第 $i$ 位为 $1$ 表示该元音字母在子字符串中出现了奇数次，为 $0$ 表示该元音字母在子字符串中出现了偶数次。
+
+我们用 $\textit{mask}$ 表示这个二进制数，用一个数组或哈希表 $\textit{d}$ 记录每个 $\textit{mask}$ 第一次出现的位置。初始时，我们将 $\textit{d}[0] = -1$，表示空字符串的开始位置为 $-1$。
+
+遍历字符串 $\textit{s}$，如果遇到元音字母，就将 $\textit{mask}$ 的对应位取反。接下来，我们判断 $\textit{mask}$ 是否在之前出现过，如果出现过，那么我们就找到了一个符合条件的子字符串，其长度为当前位置减去 $\textit{mask}$ 上一次出现的位置。否则，我们将 $\textit{mask}$ 的当前位置存入 $\textit{d}$。
+
+遍历结束后，我们就找到了最长的符合条件的子字符串。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{s}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -73,16 +85,16 @@ tags:
 ```python
 class Solution:
     def findTheLongestSubstring(self, s: str) -> int:
-        pos = [inf] * 32
-        pos[0] = -1
-        vowels = 'aeiou'
-        state = ans = 0
+        d = {0: -1}
+        ans = mask = 0
         for i, c in enumerate(s):
-            for j, v in enumerate(vowels):
-                if c == v:
-                    state ^= 1 << j
-            ans = max(ans, i - pos[state])
-            pos[state] = min(pos[state], i)
+            if c in "aeiou":
+                mask ^= 1 << (ord(c) - ord("a"))
+            if mask in d:
+                j = d[mask]
+                ans = max(ans, i - j)
+            else:
+                d[mask] = i
         return ans
 ```
 
@@ -90,23 +102,22 @@ class Solution:
 
 ```java
 class Solution {
-
     public int findTheLongestSubstring(String s) {
-        int[] pos = new int[32];
-        Arrays.fill(pos, Integer.MAX_VALUE);
-        pos[0] = -1;
         String vowels = "aeiou";
-        int state = 0;
-        int ans = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
+        int[] d = new int[32];
+        Arrays.fill(d, 1 << 29);
+        d[0] = 0;
+        int ans = 0, mask = 0;
+        for (int i = 1; i <= s.length(); ++i) {
+            char c = s.charAt(i - 1);
             for (int j = 0; j < 5; ++j) {
                 if (c == vowels.charAt(j)) {
-                    state ^= (1 << j);
+                    mask ^= 1 << j;
+                    break;
                 }
             }
-            ans = Math.max(ans, i - pos[state]);
-            pos[state] = Math.min(pos[state], i);
+            ans = Math.max(ans, i - d[mask]);
+            d[mask] = Math.min(d[mask], i);
         }
         return ans;
     }
@@ -119,16 +130,20 @@ class Solution {
 class Solution {
 public:
     int findTheLongestSubstring(string s) {
-        vector<int> pos(32, INT_MAX);
-        pos[0] = -1;
         string vowels = "aeiou";
-        int state = 0, ans = 0;
-        for (int i = 0; i < s.size(); ++i) {
-            for (int j = 0; j < 5; ++j)
-                if (s[i] == vowels[j])
-                    state ^= (1 << j);
-            ans = max(ans, i - pos[state]);
-            pos[state] = min(pos[state], i);
+        vector<int> d(32, INT_MAX);
+        d[0] = 0;
+        int ans = 0, mask = 0;
+        for (int i = 1; i <= s.length(); ++i) {
+            char c = s[i - 1];
+            for (int j = 0; j < 5; ++j) {
+                if (c == vowels[j]) {
+                    mask ^= 1 << j;
+                    break;
+                }
+            }
+            ans = max(ans, i - d[mask]);
+            d[mask] = min(d[mask], i);
         }
         return ans;
     }
@@ -138,24 +153,49 @@ public:
 #### Go
 
 ```go
-func findTheLongestSubstring(s string) int {
-	pos := make([]int, 32)
-	for i := range pos {
-		pos[i] = math.MaxInt32
-	}
-	pos[0] = -1
-	vowels := "aeiou"
-	state, ans := 0, 0
-	for i, c := range s {
-		for j, v := range vowels {
-			if c == v {
-				state ^= (1 << j)
-			}
-		}
-		ans = max(ans, i-pos[state])
-		pos[state] = min(pos[state], i)
-	}
-	return ans
+func findTheLongestSubstring(s string) (ans int) {
+    vowels := "aeiou"
+    d := [32]int{}
+    for i := range d {
+        d[i] = 1 << 29
+    }
+    d[0] = 0
+    mask := 0
+    for i := 1; i <= len(s); i++ {
+        c := s[i-1]
+        for j := 0; j < 5; j++ {
+            if c == vowels[j] {
+                mask ^= 1 << j
+                break
+            }
+        }
+        ans = max(ans, i-d[mask])
+        d[mask] = min(d[mask], i)
+    }
+    return
+}
+```
+
+#### TypeScript
+
+```ts
+function findTheLongestSubstring(s: string): number {
+    const vowels = 'aeiou';
+    const d: number[] = Array(32).fill(1 << 29);
+    d[0] = 0;
+    let [ans, mask] = [0, 0];
+    for (let i = 1; i <= s.length; i++) {
+        const c = s[i - 1];
+        for (let j = 0; j < 5; j++) {
+            if (c === vowels[j]) {
+                mask ^= 1 << j;
+                break;
+            }
+        }
+        ans = Math.max(ans, i - d[mask]);
+        d[mask] = Math.min(d[mask], i);
+    }
+    return ans;
 }
 ```
 
