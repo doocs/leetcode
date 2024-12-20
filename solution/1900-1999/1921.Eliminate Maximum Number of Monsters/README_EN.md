@@ -79,7 +79,19 @@ You can only eliminate 1 monster.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Greedy
+
+We use the $\textit{times}$ array to record the latest time each monster can be eliminated. For the $i$-th monster, the latest time it can be eliminated is:
+
+$$\textit{times}[i] = \left\lfloor \frac{\textit{dist}[i]-1}{\textit{speed}[i]} \right\rfloor$$
+
+Next, we sort the $\textit{times}$ array in ascending order.
+
+Then, we traverse the $\textit{times}$ array. For the $i$-th monster, if $\textit{times}[i] \geq i$, it means the $i$-th monster can be eliminated. Otherwise, it means the $i$-th monster cannot be eliminated, and we return $i$ immediately.
+
+If all monsters can be eliminated, we return $n$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -162,7 +174,7 @@ func eliminateMaximum(dist []int, speed []int) int {
 ```ts
 function eliminateMaximum(dist: number[], speed: number[]): number {
     const n = dist.length;
-    const times = new Array(n).fill(0);
+    const times: number[] = Array(n).fill(0);
     for (let i = 0; i < n; ++i) {
         times[i] = Math.floor((dist[i] - 1) / speed[i]);
     }
@@ -185,21 +197,22 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
  * @return {number}
  */
 var eliminateMaximum = function (dist, speed) {
-    let arr = [];
-    for (let i = 0; i < dist.length; i++) {
-        arr[i] = dist[i] / speed[i];
+    const n = dist.length;
+    const times = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        times[i] = Math.floor((dist[i] - 1) / speed[i]);
     }
-    arr.sort((a, b) => a - b);
-    let ans = 0;
-    while (arr[0] > ans) {
-        arr.shift();
-        ++ans;
+    times.sort((a, b) => a - b);
+    for (let i = 0; i < n; ++i) {
+        if (times[i] < i) {
+            return i;
+        }
     }
-    return ans;
+    return n;
 };
 ```
 
-#### C#
+#### C
 
 ```cs
 public class Solution {
