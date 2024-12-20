@@ -73,9 +73,9 @@ nums 中最大的数是 3
 
 ### 方法一：模拟
 
-根据题意模拟即可，即先找出数组 `nums` 中的最大值和最小值，然后求最大值和最小值的最大公约数。
+我们根据题意模拟即可，即先找出数组 $\textit{nums}$ 中的最大值和最小值，然后求最大值和最小值的最大公约数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -112,9 +112,8 @@ class Solution {
 class Solution {
 public:
     int findGCD(vector<int>& nums) {
-        int a = *max_element(nums.begin(), nums.end());
-        int b = *min_element(nums.begin(), nums.end());
-        return gcd(a, b);
+        auto [min, max] = ranges::minmax_element(nums);
+        return gcd(*min, *max);
     }
 };
 ```
@@ -139,13 +138,9 @@ func gcd(a, b int) int {
 
 ```ts
 function findGCD(nums: number[]): number {
-    let a = 1;
-    let b = 1000;
-    for (const x of nums) {
-        a = Math.max(a, x);
-        b = Math.min(b, x);
-    }
-    return gcd(a, b);
+    const min = Math.min(...nums);
+    const max = Math.max(...nums);
+    return gcd(min, max);
 }
 
 function gcd(a: number, b: number): number {
@@ -153,6 +148,27 @@ function gcd(a: number, b: number): number {
         return a;
     }
     return gcd(b, a % b);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_gcd(nums: Vec<i32>) -> i32 {
+        let min_val = *nums.iter().min().unwrap();
+        let max_val = *nums.iter().max().unwrap();
+        gcd(min_val, max_val)
+    }
+}
+
+fn gcd(mut a: i32, mut b: i32) -> i32 {
+    while b != 0 {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    a
 }
 ```
 
