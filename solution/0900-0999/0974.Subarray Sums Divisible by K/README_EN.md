@@ -54,7 +54,31 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Prefix Sum
+
+1. **Key Insight**:
+
+    - If there exist indices $i$ and $j$ such that $i \leq j$, and the sum of the subarray $nums[i, ..., j]$ is divisible by $k$, then $(s_j - s_i) \bmod k = 0$, this implies: $s_j \bmod k = s_i \bmod k$
+    - We can use a hash table to count the occurrences of prefix sums modulo $k$ to efficiently check for subarrays satisfying the condition.
+
+2. **Prefix Sum Modulo**:
+
+    - Use a hash table $cnt$ to count occurrences of each prefix sum modulo $k$.
+    - $cnt[i]$ represents the number of prefix sums with modulo $k$ equal to $i$.
+    - Initialize $cnt[0] = 1$ to account for subarrays directly divisible by $k$.
+
+3. **Algorithm**:
+    - Let a variable $s$ represent the running prefix sum, starting with $s = 0$.
+    - Traverse the array $nums$ from left to right.
+        - For each element $x$:
+            - Compute $s = (s + x) \bmod k$.
+            - Update the result: $ans += cnt[s]$.
+            - Increment $cnt[s]$ by $1$.
+    - Return the result $ans$.
+
+> Note: if $s$ is negative, adjust it to be non-negative by adding $k$ and taking modulo $k$ again.
+
+The time complexity is $O(n)$ and space complexity is $O(n)$ where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
