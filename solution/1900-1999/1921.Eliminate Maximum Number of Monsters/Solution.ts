@@ -1,6 +1,6 @@
 function eliminateMaximum(dist: number[], speed: number[]): number {
     const n = dist.length;
-    const times = new Array(n).fill(0);
+    const times: number[] = Array(n).fill(0);
     for (let i = 0; i < n; ++i) {
         times[i] = Math.floor((dist[i] - 1) / speed[i]);
     }
