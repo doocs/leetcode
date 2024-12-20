@@ -3,9 +3,13 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3369.Design%20an%20Array%20Statistics%20Tracker/README_EN.md
 tags:
+    - Design
     - Queue
     - Hash Table
     - Binary Search
+    - Data Stream
+    - Ordered Set
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

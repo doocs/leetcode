@@ -304,7 +304,7 @@
 | 3368 | [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)                                                                             | `数据库` | 困难 | 🔒   |
 | 3374 | [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)                                                                     | `数据库` | 困难 |      |
 | 3384 | [球队传球成功的优势得分](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md)                                                          | `数据库` | 困难 | 🔒   |
-| 3390 | [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README.md)                                                                |          | 困难 | 🔒   |
+| 3390 | [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README.md)                                                                | `数据库` | 困难 | 🔒   |
 
 ## 版权
 

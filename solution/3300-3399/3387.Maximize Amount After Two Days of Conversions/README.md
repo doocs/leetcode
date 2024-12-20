@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 数组
+    - 字符串
 ---
 
 <!-- problem:start -->
