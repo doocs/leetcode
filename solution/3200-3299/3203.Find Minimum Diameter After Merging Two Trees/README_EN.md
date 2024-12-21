@@ -185,10 +185,10 @@ public:
             g[b].push_back(a);
         }
         int ans = 0, a = 0;
-        auto dfs = [&](auto&& dfs, int i, int fa, int t) -> void {
+        auto dfs = [&](this auto&& dfs, int i, int fa, int t) -> void {
             for (int j : g[i]) {
                 if (j != fa) {
-                    dfs(dfs, j, i, t + 1);
+                    dfs(j, i, t + 1);
                 }
             }
             if (ans < t) {
@@ -196,8 +196,8 @@ public:
                 a = i;
             }
         };
-        dfs(dfs, 0, -1, 0);
-        dfs(dfs, a, -1, 0);
+        dfs(0, -1, 0);
+        dfs(a, -1, 0);
         return ans;
     }
 };

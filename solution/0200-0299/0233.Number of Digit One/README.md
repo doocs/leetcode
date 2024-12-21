@@ -158,7 +158,7 @@ public:
         int m = s.size();
         int f[m][m];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int cnt, bool limit) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int cnt, bool limit) -> int {
             if (i >= m) {
                 return cnt;
             }
@@ -168,14 +168,14 @@ public:
             int up = limit ? s[i] - '0' : 9;
             int ans = 0;
             for (int j = 0; j <= up; ++j) {
-                ans += dfs(dfs, i + 1, cnt + (j == 1), limit && j == up);
+                ans += dfs(i + 1, cnt + (j == 1), limit && j == up);
             }
             if (!limit) {
                 f[i][cnt] = ans;
             }
             return ans;
         };
-        return dfs(dfs, 0, 0, true);
+        return dfs(0, 0, true);
     }
 };
 ```

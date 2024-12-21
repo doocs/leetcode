@@ -249,7 +249,7 @@ public:
         int f[1 << n];
         memset(f, -1, sizeof(f));
         int k = K;
-        auto dfs = [&](auto&& dfs, int i) -> int {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (i == (1 << n) - 1) {
                 return 0;
             }
@@ -261,12 +261,12 @@ public:
             f[i] = INT_MAX;
             for (int j = 0; j < n; ++j) {
                 if (i >> j & 1 ^ 1) {
-                    f[i] = min(f[i], dfs(dfs, i | 1 << j) + (strength[j] + x - 1) / x);
+                    f[i] = min(f[i], dfs(i | 1 << j) + (strength[j] + x - 1) / x);
                 }
             }
             return f[i];
         };
-        return dfs(dfs, 0);
+        return dfs(0);
     }
 };
 ```

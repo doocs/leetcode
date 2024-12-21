@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> piles = [5,3,4,5]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Alice starts first, and can only take the first 5 or the last 5.
 Say she takes the first 5, so that the row becomes [3, 4, 5].
 If Bob takes 3, then the board is [4, 5], and Alice takes 5 to win with 10 points.
@@ -117,16 +117,16 @@ public:
         int n = piles.size();
         int f[n][n];
         memset(f, 0, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int j) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i > j) {
                 return 0;
             }
             if (f[i][j]) {
                 return f[i][j];
             }
-            return f[i][j] = max(piles[i] - dfs(dfs, i + 1, j), piles[j] - dfs(dfs, i, j - 1));
+            return f[i][j] = max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1));
         };
-        return dfs(dfs, 0, n - 1) > 0;
+        return dfs(0, n - 1) > 0;
     }
 };
 ```

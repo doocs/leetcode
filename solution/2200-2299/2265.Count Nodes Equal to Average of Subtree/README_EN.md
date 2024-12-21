@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> root = [4,8,5,0,1,null,6]
 <strong>Output:</strong> 5
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 For the node with value 4: The average of its subtree is (4 + 8 + 5 + 0 + 1 + 6) / 6 = 24 / 6 = 4.
 For the node with value 5: The average of its subtree is (5 + 6) / 2 = 11 / 2 = 5.
 For the node with value 0: The average of its subtree is 0 / 1 = 0.
@@ -162,12 +162,12 @@ class Solution {
 public:
     int averageOfSubtree(TreeNode* root) {
         int ans = 0;
-        auto dfs = [&](auto&& dfs, TreeNode* root) -> pair<int, int> {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> pair<int, int> {
             if (!root) {
                 return {0, 0};
             }
-            auto [ls, ln] = dfs(dfs, root->left);
-            auto [rs, rn] = dfs(dfs, root->right);
+            auto [ls, ln] = dfs(root->left);
+            auto [rs, rn] = dfs(root->right);
             int s = ls + rs + root->val;
             int n = ln + rn + 1;
             if (s / n == root->val) {
@@ -175,7 +175,7 @@ public:
             }
             return {s, n};
         };
-        dfs(dfs, root);
+        dfs(root);
         return ans;
     }
 };

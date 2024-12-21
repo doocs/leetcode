@@ -25,7 +25,6 @@ tags:
 <p>每次操作，你可以取一枚没有碎的鸡蛋并把它从任一楼层 <code>x</code> 扔下（满足 <code>1 <= x <= n</code>）。如果鸡蛋碎了，你就不能再次使用它。如果某枚鸡蛋扔下后没有摔碎，则可以在之后的操作中 <strong>重复使用</strong> 这枚鸡蛋。</p>
 
 <p>请你计算并返回要确定 <code>f</code> <strong>确切的值</strong> 的 <strong>最小操作次数</strong> 是多少？</p>
- 
 
 <p><strong>示例 1：</strong></p>
 
@@ -33,10 +32,10 @@ tags:
 <strong>输入：</strong>k = 1, n = 2
 <strong>输出：</strong>2
 <strong>解释：</strong>
-鸡蛋从 1 楼掉落。如果它碎了，肯定能得出 f = 0 。 
-否则，鸡蛋从 2 楼掉落。如果它碎了，肯定能得出 f = 1 。 
-如果它没碎，那么肯定能得出 f = 2 。 
-因此，在最坏的情况下我们需要移动 2 次以确定 f 是多少。 
+鸡蛋从 1 楼掉落。如果它碎了，肯定能得出 f = 0 。
+否则，鸡蛋从 2 楼掉落。如果它碎了，肯定能得出 f = 1 。
+如果它没碎，那么肯定能得出 f = 2 。
+因此，在最坏的情况下我们需要移动 2 次以确定 f 是多少。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -158,7 +157,7 @@ public:
     int superEggDrop(int k, int n) {
         int f[n + 1][k + 1];
         memset(f, 0, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int j) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i < 1) {
                 return 0;
             }
@@ -171,17 +170,17 @@ public:
             int l = 1, r = i;
             while (l < r) {
                 int mid = (l + r + 1) >> 1;
-                int a = dfs(dfs, mid - 1, j - 1);
-                int b = dfs(dfs, i - mid, j);
+                int a = dfs(mid - 1, j - 1);
+                int b = dfs(i - mid, j);
                 if (a <= b) {
                     l = mid;
                 } else {
                     r = mid - 1;
                 }
             }
-            return f[i][j] = max(dfs(dfs, l - 1, j - 1), dfs(dfs, i - l, j)) + 1;
+            return f[i][j] = max(dfs(l - 1, j - 1), dfs(i - l, j)) + 1;
         };
-        return dfs(dfs, n, k);
+        return dfs(n, k);
     }
 };
 ```

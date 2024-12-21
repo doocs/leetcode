@@ -162,12 +162,12 @@ class Solution {
 public:
     int averageOfSubtree(TreeNode* root) {
         int ans = 0;
-        auto dfs = [&](auto&& dfs, TreeNode* root) -> pair<int, int> {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> pair<int, int> {
             if (!root) {
                 return {0, 0};
             }
-            auto [ls, ln] = dfs(dfs, root->left);
-            auto [rs, rn] = dfs(dfs, root->right);
+            auto [ls, ln] = dfs(root->left);
+            auto [rs, rn] = dfs(root->right);
             int s = ls + rs + root->val;
             int n = ln + rn + 1;
             if (s / n == root->val) {
@@ -175,7 +175,7 @@ public:
             }
             return {s, n};
         };
-        dfs(dfs, root);
+        dfs(root);
         return ans;
     }
 };

@@ -174,12 +174,12 @@ public:
             g[parent[i]].push_back(i);
         }
         vector<int> ans(n);
-        auto dfs = [&](auto&& dfs, int i, int fa) -> void {
+        auto dfs = [&](this auto&& dfs, int i, int fa) -> void {
             ans[i] = 1;
             int idx = s[i] - 'a';
             d[idx].push_back(i);
             for (int j : g[i]) {
-                dfs(dfs, j, i);
+                dfs(j, i);
             }
             int k = d[idx].size() > 1 ? d[idx][d[idx].size() - 2] : fa;
             if (k >= 0) {
@@ -187,7 +187,7 @@ public:
             }
             d[idx].pop_back();
         };
-        dfs(dfs, 0, -1);
+        dfs(0, -1);
         return ans;
     }
 };

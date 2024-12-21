@@ -279,7 +279,7 @@ public:
 
         int n = circles.size();
         vector<bool> vis(n);
-        auto dfs = [&](auto&& dfs, int i) -> bool {
+        auto dfs = [&](this auto&& dfs, int i) -> bool {
             auto c = circles[i];
             ll x1 = c[0], y1 = c[1], r1 = c[2];
             if (crossRightBottom(x1, y1, r1)) {
@@ -296,7 +296,7 @@ public:
                     continue;
                 }
                 if (x1 * r2 + x2 * r1 < (r1 + r2) * xCorner && y1 * r2 + y2 * r1 < (r1 + r2) * yCorner
-                    && dfs(dfs, j)) {
+                    && dfs(j)) {
                     return true;
                 }
             }
@@ -309,7 +309,7 @@ public:
             if (inCircle(0, 0, x, y, r) || inCircle(xCorner, yCorner, x, y, r)) {
                 return false;
             }
-            if (!vis[i] && crossLeftTop(x, y, r) && dfs(dfs, i)) {
+            if (!vis[i] && crossLeftTop(x, y, r) && dfs(i)) {
                 return false;
             }
         }

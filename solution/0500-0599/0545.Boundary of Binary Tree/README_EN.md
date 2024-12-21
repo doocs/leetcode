@@ -219,7 +219,7 @@ class Solution {
 class Solution {
 public:
     vector<int> boundaryOfBinaryTree(TreeNode* root) {
-        auto dfs = [&](auto&& dfs, vector<int>& nums, TreeNode* root, int i) -> void {
+        auto dfs = [&](this auto&& dfs, vector<int>& nums, TreeNode* root, int i) -> void {
             if (!root) {
                 return;
             }
@@ -227,25 +227,25 @@ public:
                 if (root->left != root->right) {
                     nums.push_back(root->val);
                     if (root->left) {
-                        dfs(dfs, nums, root->left, i);
+                        dfs(nums, root->left, i);
                     } else {
-                        dfs(dfs, nums, root->right, i);
+                        dfs(nums, root->right, i);
                     }
                 }
             } else if (i == 1) {
                 if (root->left == root->right) {
                     nums.push_back(root->val);
                 } else {
-                    dfs(dfs, nums, root->left, i);
-                    dfs(dfs, nums, root->right, i);
+                    dfs(nums, root->left, i);
+                    dfs(nums, root->right, i);
                 }
             } else {
                 if (root->left != root->right) {
                     nums.push_back(root->val);
                     if (root->right) {
-                        dfs(dfs, nums, root->right, i);
+                        dfs(nums, root->right, i);
                     } else {
-                        dfs(dfs, nums, root->left, i);
+                        dfs(nums, root->left, i);
                     }
                 }
             }
@@ -255,9 +255,9 @@ public:
             return ans;
         }
         vector<int> left, right, leaves;
-        dfs(dfs, left, root->left, 0);
-        dfs(dfs, leaves, root, 1);
-        dfs(dfs, right, root->right, 2);
+        dfs(left, root->left, 0);
+        dfs(leaves, root, 1);
+        dfs(right, root->right, 2);
         ans.insert(ans.end(), left.begin(), left.end());
         ans.insert(ans.end(), leaves.begin(), leaves.end());
         ans.insert(ans.end(), right.rbegin(), right.rend());

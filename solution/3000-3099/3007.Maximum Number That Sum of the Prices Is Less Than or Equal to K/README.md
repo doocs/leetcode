@@ -342,7 +342,7 @@ public:
         ll l = 1, r = 1e17;
         ll num = 0;
         ll f[65][65];
-        auto dfs = [&](auto&& dfs, int pos, int cnt, bool limit) -> ll {
+        auto dfs = [&](this auto&& dfs, int pos, int cnt, bool limit) -> ll {
             if (pos == 0) {
                 return cnt;
             }
@@ -352,7 +352,7 @@ public:
             int up = limit ? num >> (pos - 1) & 1 : 1;
             ll ans = 0;
             for (int i = 0; i <= up; ++i) {
-                ans += dfs(dfs, pos - 1, cnt + (i == 1 && pos % x == 0), limit && i == up);
+                ans += dfs(pos - 1, cnt + (i == 1 && pos % x == 0), limit && i == up);
             }
             if (!limit) {
                 f[pos][cnt] = ans;
@@ -364,7 +364,7 @@ public:
             num = mid;
             memset(f, -1, sizeof(f));
             int pos = 64 - __builtin_clzll(mid);
-            if (dfs(dfs, pos, 0, true) <= k) {
+            if (dfs(pos, 0, true) <= k) {
                 l = mid;
             } else {
                 r = mid - 1;

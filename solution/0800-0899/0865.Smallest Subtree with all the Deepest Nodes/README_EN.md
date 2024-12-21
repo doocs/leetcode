@@ -172,12 +172,12 @@ class Solution {
 public:
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
         using pti = pair<TreeNode*, int>;
-        auto dfs = [&](auto&& dfs, TreeNode* root) -> pti {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> pti {
             if (!root) {
                 return {nullptr, 0};
             }
-            auto [l, ld] = dfs(dfs, root->left);
-            auto [r, rd] = dfs(dfs, root->right);
+            auto [l, ld] = dfs(root->left);
+            auto [r, rd] = dfs(root->right);
             if (ld > rd) {
                 return {l, ld + 1};
             }
@@ -186,7 +186,7 @@ public:
             }
             return {root, ld + 1};
         };
-        return dfs(dfs, root).first;
+        return dfs(root).first;
     }
 };
 ```

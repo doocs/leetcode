@@ -28,7 +28,7 @@ public:
         int n = target.length();
         int f[n];
         memset(f, 0, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i) -> int {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (i >= n) {
                 return 0;
             }
@@ -43,11 +43,11 @@ public:
                     return f[i];
                 }
                 node = node->children[idx];
-                f[i] = min(f[i], node->cost + dfs(dfs, j + 1));
+                f[i] = min(f[i], node->cost + dfs(j + 1));
             }
             return f[i];
         };
-        int ans = dfs(dfs, 0);
+        int ans = dfs(0);
         return ans < inf ? ans : -1;
     }
 };

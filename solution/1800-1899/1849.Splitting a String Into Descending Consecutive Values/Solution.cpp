@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool splitString(string s) {
-        auto dfs = [&](auto&& dfs, int i, long long x) -> bool {
+        auto dfs = [&](this auto&& dfs, int i, long long x) -> bool {
             if (i >= s.size()) {
                 return true;
             }
@@ -12,12 +12,12 @@ public:
                 if (y > 1e10) {
                     break;
                 }
-                if ((x < 0 || x - y == 1) && dfs(dfs, j + 1, y)) {
+                if ((x < 0 || x - y == 1) && dfs(j + 1, y)) {
                     return true;
                 }
             }
             return false;
         };
-        return dfs(dfs, 0, -1);
+        return dfs(0, -1);
     }
 };

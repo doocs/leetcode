@@ -338,7 +338,7 @@ public:
         int m = s.size();
         int f[m][2];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int ok, bool limit) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int ok, bool limit) -> int {
             if (i >= m) {
                 return ok;
             }
@@ -349,9 +349,9 @@ public:
             int ans = 0;
             for (int j = 0; j <= up; ++j) {
                 if (j == 0 || j == 1 || j == 8) {
-                    ans += dfs(dfs, i + 1, ok, limit && j == up);
+                    ans += dfs(i + 1, ok, limit && j == up);
                 } else if (j == 2 || j == 5 || j == 6 || j == 9) {
-                    ans += dfs(dfs, i + 1, 1, limit && j == up);
+                    ans += dfs(i + 1, 1, limit && j == up);
                 }
             }
             if (!limit) {
@@ -359,7 +359,7 @@ public:
             }
             return ans;
         };
-        return dfs(dfs, 0, 0, true);
+        return dfs(0, 0, true);
     }
 };
 ```

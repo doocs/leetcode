@@ -236,7 +236,7 @@ private:
             g[b].push_back({a, 1 / r});
         }
 
-        auto dfs = [&](auto&& dfs, const string& a, double v) -> void {
+        auto dfs = [&](this auto&& dfs, const string& a, double v) -> void {
             if (d.find(a) != d.end()) {
                 return;
             }
@@ -244,11 +244,11 @@ private:
             d[a] = v;
             for (const auto& [b, r] : g[a]) {
                 if (d.find(b) == d.end()) {
-                    dfs(dfs, b, v * r);
+                    dfs(b, v * r);
                 }
             }
         };
-        dfs(dfs, init, 1.0);
+        dfs(init, 1.0);
         return d;
     }
 };
