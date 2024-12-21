@@ -225,13 +225,13 @@ public:
             for (int j : f[i]) {
                 if (!vis[j]) {
                     suspicious[j] = false;
-                    dfs2(dfs2, j);
+                    dfs2(j);
                 }
             }
         };
         for (int i = 0; i < n; ++i) {
             if (!suspicious[i] && !vis[i]) {
-                dfs2(dfs2, i);
+                dfs2(i);
             }
         }
         vector<int> ans;
