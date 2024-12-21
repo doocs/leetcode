@@ -9,14 +9,14 @@ public:
             g[v].emplace_back(u, w);
         }
         using ll = long long;
-        auto dfs = [&](auto&& dfs, int u, int fa) -> pair<ll, ll> {
+        auto dfs = [&](this auto&& dfs, int u, int fa) -> pair<ll, ll> {
             ll s = 0;
             vector<ll> t;
             for (auto& [v, w] : g[u]) {
                 if (v == fa) {
                     continue;
                 }
-                auto [a, b] = dfs(dfs, v, u);
+                auto [a, b] = dfs(v, u);
                 s += a;
                 ll d = w + b - a;
                 if (d > 0) {
@@ -30,7 +30,7 @@ public:
             return {s + (t.size() >= k ? t[k - 1] : 0), s};
         };
 
-        auto [x, y] = dfs(dfs, 0, -1);
+        auto [x, y] = dfs(0, -1);
         return max(x, y);
     }
 };

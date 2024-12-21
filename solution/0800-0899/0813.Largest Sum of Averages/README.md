@@ -31,9 +31,9 @@ tags:
 <pre>
 <strong>输入:</strong> nums = [9,1,2,3,9], k = 3
 <strong>输出:</strong> 20.00000
-<strong>解释:</strong> 
-nums 的最优分组是[9], [1, 2, 3], [9]. 得到的分数是 9 + (1 + 2 + 3) / 3 + 9 = 20. 
-我们也可以把 nums 分成[9, 1], [2], [3, 9]. 
+<strong>解释:</strong>
+nums 的最优分组是[9], [1, 2, 3], [9]. 得到的分数是 9 + (1 + 2 + 3) / 3 + 9 = 20.
+我们也可以把 nums 分成[9, 1], [2], [3, 9].
 这样的分组得到的分数为 5 + 2 + 6 = 13, 但不是最大值.
 </pre>
 
@@ -150,7 +150,7 @@ public:
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + nums[i];
         }
-        auto dfs = [&](auto&& dfs, int i, int k) -> double {
+        auto dfs = [&](this auto&& dfs, int i, int k) -> double {
             if (i == n) {
                 return 0;
             }
@@ -162,11 +162,11 @@ public:
             }
             double ans = 0;
             for (int j = i + 1; j < n; ++j) {
-                ans = max(ans, (s[j] - s[i]) * 1.0 / (j - i) + dfs(dfs, j, k - 1));
+                ans = max(ans, (s[j] - s[i]) * 1.0 / (j - i) + dfs(j, k - 1));
             }
             return f[i][k] = ans;
         };
-        return dfs(dfs, 0, k);
+        return dfs(0, k);
     }
 };
 ```

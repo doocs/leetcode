@@ -25,7 +25,7 @@ tags:
 <pre>
 <strong>输入:</strong> n = 5
 <strong>输出:</strong> 5
-<strong>解释:</strong> 
+<strong>解释:</strong>
 下面列出范围在 [0, 5] 的非负整数与其对应的二进制表示：
 0 : 0
 1 : 1
@@ -171,7 +171,7 @@ public:
         int m = 32 - __builtin_clz(n);
         int f[m][2];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int pre, bool limit) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int pre, bool limit) -> int {
             if (i < 0) {
                 return 1;
             }
@@ -184,14 +184,14 @@ public:
                 if (j && pre) {
                     continue;
                 }
-                ans += dfs(dfs, i - 1, j, limit && j == up);
+                ans += dfs(i - 1, j, limit && j == up);
             }
             if (!limit) {
                 f[i][pre] = ans;
             }
             return ans;
         };
-        return dfs(dfs, m - 1, 0, true);
+        return dfs(m - 1, 0, true);
     }
 };
 ```

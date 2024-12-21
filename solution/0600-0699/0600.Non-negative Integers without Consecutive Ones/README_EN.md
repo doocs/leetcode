@@ -32,7 +32,7 @@ Here are the non-negative integers &lt;= 5 with their corresponding binary repre
 3 : 11
 4 : 100
 5 : 101
-Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule. 
+Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -170,7 +170,7 @@ public:
         int m = 32 - __builtin_clz(n);
         int f[m][2];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int pre, bool limit) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int pre, bool limit) -> int {
             if (i < 0) {
                 return 1;
             }
@@ -183,14 +183,14 @@ public:
                 if (j && pre) {
                     continue;
                 }
-                ans += dfs(dfs, i - 1, j, limit && j == up);
+                ans += dfs(i - 1, j, limit && j == up);
             }
             if (!limit) {
                 f[i][pre] = ans;
             }
             return ans;
         };
-        return dfs(dfs, m - 1, 0, true);
+        return dfs(m - 1, 0, true);
     }
 };
 ```

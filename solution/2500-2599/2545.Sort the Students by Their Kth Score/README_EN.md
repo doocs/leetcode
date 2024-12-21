@@ -68,9 +68,9 @@ tags:
 
 ### Solution 1: Sorting
 
-We sort score in descending order based on the scores in the $k^{th}$ column, and then return it.
+We directly sort $\textit{score}$ in descending order based on the scores in the $k$-th column, and then return the result.
 
-The time complexity is $O(m \times \log m)$, and the space complexity is $O(1)$. Here, $m$ is the number of rows in score.
+The time complexity is $O(m \times \log m)$, and the space complexity is $O(\log m)$. Here, $m$ is the number of rows in $\textit{score}$.
 
 <!-- tabs:start -->
 
@@ -99,7 +99,7 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> sortTheStudents(vector<vector<int>>& score, int k) {
-        sort(score.begin(), score.end(), [&](const auto& a, const auto& b) { return a[k] > b[k]; });
+        ranges::sort(score, [k](const auto& a, const auto& b) { return a[k] > b[k]; });
         return score;
     }
 };

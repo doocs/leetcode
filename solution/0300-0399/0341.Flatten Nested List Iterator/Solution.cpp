@@ -19,16 +19,16 @@
 class NestedIterator {
 public:
     NestedIterator(vector<NestedInteger>& nestedList) {
-        auto dfs = [&](auto&& dfs, vector<NestedInteger>& ls) -> void {
+        auto dfs = [&](this auto&& dfs, vector<NestedInteger>& ls) -> void {
             for (auto& x : ls) {
                 if (x.isInteger()) {
                     nums.push_back(x.getInteger());
                 } else {
-                    dfs(dfs, x.getList());
+                    dfs(x.getList());
                 }
             }
         };
-        dfs(dfs, nestedList);
+        dfs(nestedList);
     }
 
     int next() {

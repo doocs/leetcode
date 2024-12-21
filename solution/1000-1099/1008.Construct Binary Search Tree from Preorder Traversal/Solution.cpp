@@ -12,7 +12,7 @@
 class Solution {
 public:
     TreeNode* bstFromPreorder(vector<int>& preorder) {
-        auto dfs = [&](auto&& dfs, int i, int j) -> TreeNode* {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> TreeNode* {
             if (i > j) {
                 return nullptr;
             }
@@ -26,10 +26,10 @@ public:
                     l = mid + 1;
                 }
             }
-            root->left = dfs(dfs, i + 1, l - 1);
-            root->right = dfs(dfs, l, j);
+            root->left = dfs(i + 1, l - 1);
+            root->right = dfs(l, j);
             return root;
         };
-        return dfs(dfs, 0, preorder.size() - 1);
+        return dfs(0, preorder.size() - 1);
     }
 };

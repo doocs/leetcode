@@ -369,7 +369,7 @@ public:
             return queenDirs;
         };
 
-        auto dfs = [&](auto&& dfs, int i) -> void {
+        auto dfs = [&](this auto&& dfs, int i) -> void {
             if (i >= n) {
                 ans++;
                 return;
@@ -381,7 +381,7 @@ public:
             end[i] = {x, y, 0};
 
             if (checkStop(i, x, y, 0)) {
-                dfs(dfs, i + 1);
+                dfs(i + 1);
             }
 
             const int(*dirs)[2] = getDirs(pieces[i]);
@@ -396,7 +396,7 @@ public:
                     dist[i][nx][ny] = nt;
                     end[i] = {nx, ny, nt};
                     if (checkStop(i, nx, ny, nt)) {
-                        dfs(dfs, i + 1);
+                        dfs(i + 1);
                     }
                     nx += dirs[d][0];
                     ny += dirs[d][1];
@@ -405,7 +405,7 @@ public:
             }
         };
 
-        dfs(dfs, 0);
+        dfs(0);
         return ans;
     }
 };

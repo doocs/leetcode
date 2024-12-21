@@ -14,16 +14,16 @@ public:
     int minDiffInBST(TreeNode* root) {
         const int inf = 1 << 30;
         int ans = inf, pre = -inf;
-        auto dfs = [&](auto&& dfs, TreeNode* root) -> void {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> void {
             if (!root) {
                 return;
             }
-            dfs(dfs, root->left);
+            dfs(root->left);
             ans = min(ans, root->val - pre);
             pre = root->val;
-            dfs(dfs, root->right);
+            dfs(root->right);
         };
-        dfs(dfs, root);
+        dfs(root);
         return ans;
     }
 };

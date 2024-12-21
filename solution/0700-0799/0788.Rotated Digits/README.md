@@ -29,7 +29,7 @@ tags:
 
 <pre><strong>输入:</strong> 10
 <strong>输出:</strong> 4
-<strong>解释:</strong> 
+<strong>解释:</strong>
 在[1, 10]中有四个好数： 2, 5, 6, 9。
 注意 1 和 10 不是好数, 因为他们在旋转之后不变。
 </pre>
@@ -319,7 +319,7 @@ public:
         int m = s.size();
         int f[m][2];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int ok, bool limit) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int ok, bool limit) -> int {
             if (i >= m) {
                 return ok;
             }
@@ -330,9 +330,9 @@ public:
             int ans = 0;
             for (int j = 0; j <= up; ++j) {
                 if (j == 0 || j == 1 || j == 8) {
-                    ans += dfs(dfs, i + 1, ok, limit && j == up);
+                    ans += dfs(i + 1, ok, limit && j == up);
                 } else if (j == 2 || j == 5 || j == 6 || j == 9) {
-                    ans += dfs(dfs, i + 1, 1, limit && j == up);
+                    ans += dfs(i + 1, 1, limit && j == up);
                 }
             }
             if (!limit) {
@@ -340,7 +340,7 @@ public:
             }
             return ans;
         };
-        return dfs(dfs, 0, 0, true);
+        return dfs(0, 0, true);
     }
 };
 ```

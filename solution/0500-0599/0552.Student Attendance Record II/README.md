@@ -42,7 +42,7 @@ tags:
 <strong>输出：</strong>8
 <strong>解释：
 </strong>有 8 种长度为 2 的记录将被视为可奖励：
-"PP" , "AP", "PA", "LP", "PL", "AL", "LA", "LL" 
+"PP" , "AP", "PA", "LP", "PL", "AL", "LA", "LL"
 只有"AA"不会被视为可奖励，因为缺勤次数为 2 次（需要少于 2 次）。
 </pre>
 
@@ -158,23 +158,23 @@ public:
         int f[n][2][3];
         memset(f, -1, sizeof(f));
         const int mod = 1e9 + 7;
-        auto dfs = [&](auto&& dfs, int i, int j, int k) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> int {
             if (i >= n) {
                 return 1;
             }
             if (f[i][j][k] != -1) {
                 return f[i][j][k];
             }
-            int ans = dfs(dfs, i + 1, j, 0);
+            int ans = dfs(i + 1, j, 0);
             if (j == 0) {
-                ans = (ans + dfs(dfs, i + 1, j + 1, 0)) % mod;
+                ans = (ans + dfs(i + 1, j + 1, 0)) % mod;
             }
             if (k < 2) {
-                ans = (ans + dfs(dfs, i + 1, j, k + 1)) % mod;
+                ans = (ans + dfs(i + 1, j, k + 1)) % mod;
             }
             return f[i][j][k] = ans;
         };
-        return dfs(dfs, 0, 0, 0);
+        return dfs(0, 0, 0);
     }
 };
 ```

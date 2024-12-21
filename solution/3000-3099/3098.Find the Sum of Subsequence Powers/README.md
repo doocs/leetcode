@@ -175,7 +175,7 @@ public:
         const int mod = 1e9 + 7;
         int n = nums.size();
         sort(nums.begin(), nums.end());
-        auto dfs = [&](auto&& dfs, int i, int j, int k, int mi) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j, int k, int mi) -> int {
             if (i >= n) {
                 return k == 0 ? mi : 0;
             }
@@ -186,17 +186,17 @@ public:
             if (f.contains(key)) {
                 return f[key];
             }
-            long long ans = dfs(dfs, i + 1, j, k, mi);
+            long long ans = dfs(i + 1, j, k, mi);
             if (j == n) {
-                ans += dfs(dfs, i + 1, i, k - 1, mi);
+                ans += dfs(i + 1, i, k - 1, mi);
             } else {
-                ans += dfs(dfs, i + 1, i, k - 1, min(mi, nums[i] - nums[j]));
+                ans += dfs(i + 1, i, k - 1, min(mi, nums[i] - nums[j]));
             }
             ans %= mod;
             f[key] = ans;
             return f[key];
         };
-        return dfs(dfs, 0, n, k, INT_MAX);
+        return dfs(0, n, k, INT_MAX);
     }
 };
 ```

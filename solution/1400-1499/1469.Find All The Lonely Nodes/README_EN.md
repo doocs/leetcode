@@ -166,7 +166,7 @@ class Solution {
 public:
     vector<int> getLonelyNodes(TreeNode* root) {
         vector<int> ans;
-        auto dfs = [&](auto&& dfs, TreeNode* root) {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) {
             if (!root || (root->left == root->right)) {
                 return;
             }
@@ -176,10 +176,10 @@ public:
             if (!root->right) {
                 ans.push_back(root->left->val);
             }
-            dfs(dfs, root->left);
-            dfs(dfs, root->right);
+            dfs(root->left);
+            dfs(root->right);
         };
-        dfs(dfs, root);
+        dfs(root);
         return ans;
     }
 };

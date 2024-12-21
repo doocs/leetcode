@@ -13,12 +13,12 @@ class Solution {
 public:
     int kthLargestPerfectSubtree(TreeNode* root, int k) {
         vector<int> nums;
-        auto dfs = [&](auto&& dfs, TreeNode* root) -> int {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> int {
             if (!root) {
                 return 0;
             }
-            int l = dfs(dfs, root->left);
-            int r = dfs(dfs, root->right);
+            int l = dfs(root->left);
+            int r = dfs(root->right);
             if (l < 0 || l != r) {
                 return -1;
             }
@@ -26,7 +26,7 @@ public:
             nums.push_back(cnt);
             return cnt;
         };
-        dfs(dfs, root);
+        dfs(root);
         if (nums.size() < k) {
             return -1;
         }

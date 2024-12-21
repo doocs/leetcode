@@ -182,7 +182,7 @@ public:
         int n = s.size() - 1;
         int f[n];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i) -> int {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (s[n] - s[i] + n - i - 1 <= k) {
                 return 0;
             }
@@ -192,11 +192,11 @@ public:
             int ans = INT_MAX;
             for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
                 int m = s[j] - s[i] + j - i - 1;
-                ans = min(ans, dfs(dfs, j) + (k - m) * (k - m));
+                ans = min(ans, dfs(j) + (k - m) * (k - m));
             }
             return f[i] = ans;
         };
-        return dfs(dfs, 0);
+        return dfs(0);
     }
 };
 ```

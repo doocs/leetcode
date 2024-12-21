@@ -203,7 +203,7 @@ public:
             return x == 2 && y == 0 ? -1 : 1;
         };
         const int mod = 1e9 + 7;
-        auto dfs = [&](auto&& dfs, int i, int j, int k) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> int {
             if (n - i <= j - n) {
                 return 0;
             }
@@ -218,11 +218,11 @@ public:
                 if (l == k) {
                     continue;
                 }
-                ans = (ans + dfs(dfs, i + 1, j + calc(d[s[i] - 'A'], l), l)) % mod;
+                ans = (ans + dfs(i + 1, j + calc(d[s[i] - 'A'], l), l)) % mod;
             }
             return f[i][j][k] = ans;
         };
-        return dfs(dfs, 0, n, 3);
+        return dfs(0, n, 3);
     }
 };
 ```

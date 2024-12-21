@@ -385,7 +385,7 @@ class Solution {
 public:
     int deepestLeavesSum(TreeNode* root) {
         int mx = 0, ans = 0;
-        auto dfs = [&](auto&& dfs, TreeNode* root, int i) {
+        auto dfs = [&](this auto&& dfs, TreeNode* root, int i) {
             if (!root) {
                 return;
             }
@@ -395,10 +395,10 @@ public:
                 mx = i;
                 ans = root->val;
             }
-            dfs(dfs, root->left, i + 1);
-            dfs(dfs, root->right, i + 1);
+            dfs(root->left, i + 1);
+            dfs(root->right, i + 1);
         };
-        dfs(dfs, root, 1);
+        dfs(root, 1);
         return ans;
     }
 };

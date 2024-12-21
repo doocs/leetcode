@@ -215,23 +215,23 @@ public:
         memset(vis, false, sizeof(vis));
         vis[0] = true;
         int ans = 0;
-        auto dfs = [&](auto&& dfs, int u, int cost, int value) -> void {
+        auto dfs = [&](this auto&& dfs, int u, int cost, int value) -> void {
             if (u == 0) {
                 ans = max(ans, value);
             }
             for (auto& [v, t] : g[u]) {
                 if (cost + t <= maxTime) {
                     if (vis[v]) {
-                        dfs(dfs, v, cost + t, value);
+                        dfs(v, cost + t, value);
                     } else {
                         vis[v] = true;
-                        dfs(dfs, v, cost + t, value + values[v]);
+                        dfs(v, cost + t, value + values[v]);
                         vis[v] = false;
                     }
                 }
             }
         };
-        dfs(dfs, 0, 0, values[0]);
+        dfs(0, 0, values[0]);
         return ans;
     }
 };

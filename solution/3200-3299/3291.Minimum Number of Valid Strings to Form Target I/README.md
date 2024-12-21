@@ -243,7 +243,7 @@ public:
         const int inf = 1 << 30;
         int f[n];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i) -> int {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (i >= n) {
                 return 0;
             }
@@ -258,11 +258,11 @@ public:
                     break;
                 }
                 node = node->children[k];
-                f[i] = min(f[i], 1 + dfs(dfs, j + 1));
+                f[i] = min(f[i], 1 + dfs(j + 1));
             }
             return f[i];
         };
-        int ans = dfs(dfs, 0);
+        int ans = dfs(0);
         return ans < inf ? ans : -1;
     }
 };

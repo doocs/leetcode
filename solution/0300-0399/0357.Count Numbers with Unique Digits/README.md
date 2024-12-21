@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 2
 <strong>输出：</strong>91
-<strong>解释：</strong>答案应为除去 <code>11、22、33、44、55、66、77、88、99 </code>外，在 0 ≤ x &lt; 100 范围内的所有数字。 
+<strong>解释：</strong>答案应为除去 <code>11、22、33、44、55、66、77、88、99 </code>外，在 0 ≤ x &lt; 100 范围内的所有数字。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -171,7 +171,7 @@ public:
     int countNumbersWithUniqueDigits(int n) {
         int f[n + 1][1 << 10];
         memset(f, -1, sizeof(f));
-        auto dfs = [&](auto&& dfs, int i, int mask, bool lead) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int mask, bool lead) -> int {
             if (i < 0) {
                 return 1;
             }
@@ -184,9 +184,9 @@ public:
                     continue;
                 }
                 if (lead && j == 0) {
-                    ans += dfs(dfs, i - 1, mask, true);
+                    ans += dfs(i - 1, mask, true);
                 } else {
-                    ans += dfs(dfs, i - 1, mask | 1 << i, false);
+                    ans += dfs(i - 1, mask | 1 << i, false);
                 }
             }
             if (!lead) {
@@ -194,7 +194,7 @@ public:
             }
             return ans;
         };
-        return dfs(dfs, n - 1, 0, true);
+        return dfs(n - 1, 0, true);
     }
 };
 ```

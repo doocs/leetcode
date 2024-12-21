@@ -171,7 +171,7 @@ public:
         const int mod = 1e9 + 7;
         int cnt0 = m / 2;
         int cnt1 = m - cnt0;
-        auto dfs = [&](auto&& dfs, int i, int j, int k) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> int {
             if (j < 0) {
                 return 0;
             }
@@ -181,11 +181,11 @@ public:
             if (f[i][j][k] != -1) {
                 return f[i][j][k];
             }
-            int a = 1LL * cnt1 * dfs(dfs, i + 1, j, 1) % mod;
-            int b = 1LL * cnt0 * dfs(dfs, i + 1, j - (k & 1 ^ 1), 0) % mod;
+            int a = 1LL * cnt1 * dfs(i + 1, j, 1) % mod;
+            int b = 1LL * cnt0 * dfs(i + 1, j - (k & 1 ^ 1), 0) % mod;
             return f[i][j][k] = (a + b) % mod;
         };
-        return dfs(dfs, 0, k, 1);
+        return dfs(0, k, 1);
     }
 };
 ```

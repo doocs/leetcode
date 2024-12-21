@@ -32,16 +32,16 @@ public:
         }
         string dfsStr;
         vector<pair<int, int>> pos(n);
-        auto dfs = [&](auto&& dfs, int i) -> void {
+        auto dfs = [&](this auto&& dfs, int i) -> void {
             int l = dfsStr.size() + 1;
             for (int j : g[i]) {
-                dfs(dfs, j);
+                dfs(j);
             }
             dfsStr.push_back(s[i]);
             int r = dfsStr.size();
             pos[i] = {l, r};
         };
-        dfs(dfs, 0);
+        dfs(0);
 
         const int base = 13331;
         const int mod = 998244353;
