@@ -32,7 +32,7 @@ Here are the non-negative integers &lt;= 5 with their corresponding binary repre
 3 : 11
 4 : 100
 5 : 101
-Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule.
+Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule. 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

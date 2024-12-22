@@ -42,7 +42,7 @@ tags:
 <strong>输出：</strong>8
 <strong>解释：
 </strong>有 8 种长度为 2 的记录将被视为可奖励：
-"PP" , "AP", "PA", "LP", "PL", "AL", "LA", "LL"
+"PP" , "AP", "PA", "LP", "PL", "AL", "LA", "LL" 
 只有"AA"不会被视为可奖励，因为缺勤次数为 2 次（需要少于 2 次）。
 </pre>
 

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 146 场双周赛(2024-12-21 22:30, 90 分钟) 参赛人数 1868
+
+- [3392. 统计符合条件长度为 3 的子数组数目](/solution/3300-3399/3392.Count%20Subarrays%20of%20Length%20Three%20With%20a%20Condition/README.md)
+- [3393. 统计异或值为给定值的路径数目](/solution/3300-3399/3393.Count%20Paths%20With%20the%20Given%20XOR%20Value/README.md)
+- [3394. 判断网格图能否被切割成块](/solution/3300-3399/3394.Check%20if%20Grid%20can%20be%20Cut%20into%20Sections/README.md)
+- [3395. 唯一中间众数子序列 I](/solution/3300-3399/3395.Subsequences%20with%20a%20Unique%20Middle%20Mode%20I/README.md)
+
 #### 第 428 场周赛(2024-12-15 10:30, 90 分钟) 参赛人数 2414
 
 - [3386. 按下时间最长的按钮](/solution/3300-3399/3386.Button%20with%20Longest%20Push%20Time/README.md)

@@ -43,7 +43,7 @@ tags:
 - Day 2: Gain 2 mana points to get a total of 2 mana points.
 - Day 3: Gain 2 mana points to get a total of 4 mana points. Spend all mana points to kill the 3<sup>rd</sup> monster.
 - Day 4: Gain 3 mana points to get a total of 3 mana points. Spend all mana points to kill the 1<sup>st</sup> monster.
-It can be proven that 4 is the minimum number of days needed.
+It can be proven that 4 is the minimum number of days needed. 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -56,7 +56,7 @@ It can be proven that 4 is the minimum number of days needed.
 - Day 2: Gain 2 mana points to get a total of 2 mana points. Spend all mana points to kill the 2<sup>nd</sup> monster.
 - Day 3: Gain 3 mana points to get a total of 3 mana points.
 - Day 4: Gain 3 mana points to get a total of 6 mana points. Spend all mana points to kill the 3<sup>rd</sup> monster.
-It can be proven that 4 is the minimum number of days needed.
+It can be proven that 4 is the minimum number of days needed. 
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

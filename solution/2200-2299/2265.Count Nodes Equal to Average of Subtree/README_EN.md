@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> root = [4,8,5,0,1,null,6]
 <strong>Output:</strong> 5
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 For the node with value 4: The average of its subtree is (4 + 8 + 5 + 0 + 1 + 6) / 6 = 24 / 6 = 4.
 For the node with value 5: The average of its subtree is (5 + 6) / 2 = 11 / 2 = 5.
 For the node with value 0: The average of its subtree is 0 / 1 = 0.
