@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 429 场周赛(2024-12-22 10:30, 90 分钟) 参赛人数 2308
+
+- [3396. 使数组元素互不相同所需的最少操作次数](/solution/3300-3399/3396.Minimum%20Number%20of%20Operations%20to%20Make%20Elements%20in%20Array%20Distinct/README.md)
+- [3397. 执行操作后不同元素的最大数量](/solution/3300-3399/3397.Maximum%20Number%20of%20Distinct%20Elements%20After%20Operations/README.md)
+- [3398. 字符相同的最短子字符串 I](/solution/3300-3399/3398.Smallest%20Substring%20With%20Identical%20Characters%20I/README.md)
+- [3399. 字符相同的最短子字符串 II](/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README.md)
+
 #### 第 146 场双周赛(2024-12-21 22:30, 90 分钟) 参赛人数 1868
 
 - [3392. 统计符合条件长度为 3 的子数组数目](/solution/3300-3399/3392.Count%20Subarrays%20of%20Length%20Three%20With%20a%20Condition/README.md)
