@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 2
 <strong>输出：</strong>91
-<strong>解释：</strong>答案应为除去 <code>11、22、33、44、55、66、77、88、99 </code>外，在 0 ≤ x &lt; 100 范围内的所有数字。
+<strong>解释：</strong>答案应为除去 <code>11、22、33、44、55、66、77、88、99 </code>外，在 0 ≤ x &lt; 100 范围内的所有数字。 
 </pre>
 
 <p><strong>示例 2：</strong></p>

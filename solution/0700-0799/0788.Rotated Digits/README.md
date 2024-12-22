@@ -29,7 +29,7 @@ tags:
 
 <pre><strong>输入:</strong> 10
 <strong>输出:</strong> 4
-<strong>解释:</strong>
+<strong>解释:</strong> 
 在[1, 10]中有四个好数： 2, 5, 6, 9。
 注意 1 和 10 不是好数, 因为他们在旋转之后不变。
 </pre>
