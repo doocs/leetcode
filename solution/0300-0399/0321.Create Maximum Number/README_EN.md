@@ -57,6 +57,7 @@ tags:
 	<li><code>1 &lt;= m, n &lt;= 500</code></li>
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 9</code></li>
 	<li><code>1 &lt;= k &lt;= m + n</code></li>
+	<li><code>nums1</code> and <code>nums2</code> do not have leading zeros.</li>
 </ul>
 
 <!-- description:end -->

@@ -25,7 +25,7 @@ tags:
 <ul>
 	<li>Choose the pile with the maximum number of gifts.</li>
 	<li>If there is more than one pile with the maximum number of gifts, choose any.</li>
-	<li>Leave behind the floor of the square root of the number of gifts in the pile. Take the rest of the gifts.</li>
+	<li>Reduce the number of gifts in the pile to the floor of the square root of the original number of gifts in the pile.</li>
 </ul>
 
 <p>Return <em>the number of gifts remaining after </em><code>k</code><em> seconds.</em></p>

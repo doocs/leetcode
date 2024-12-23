@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>We are given an array <code>asteroids</code> of integers representing asteroids in a row.</p>
+<p>We are given an array <code>asteroids</code> of integers representing asteroids in a row. The indices of the asteriod in the array represent their relative position in space.</p>
 
 <p>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.</p>
 

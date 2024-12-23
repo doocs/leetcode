@@ -644,7 +644,7 @@
 |  0631  |  [设计 Excel 求和公式](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README.md)  |  `图`,`设计`,`拓扑排序`,`数组`,`矩阵`  |  困难  |  🔒  |
 |  0632  |  [最小区间](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README.md)  |  `贪心`,`数组`,`哈希表`,`排序`,`滑动窗口`,`堆（优先队列）`  |  困难  |    |
 |  0633  |  [平方数之和](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README.md)  |  `数学`,`双指针`,`二分查找`  |  中等  |    |
-|  0634  |  [寻找数组的错位排列](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md)  |  `数学`,`动态规划`  |  中等  |  🔒  |
+|  0634  |  [寻找数组的错位排列](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md)  |  `数学`,`动态规划`,`组合数学`  |  中等  |  🔒  |
 |  0635  |  [设计日志存储系统](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README.md)  |  `设计`,`哈希表`,`字符串`,`有序集合`  |  中等  |  🔒  |
 |  0636  |  [函数的独占时间](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README.md)  |  `栈`,`数组`  |  中等  |    |
 |  0637  |  [二叉树的层平均值](/solution/0600-0699/0637.Average%20of%20Levels%20in%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`二叉树`  |  简单  |    |
@@ -3401,7 +3401,7 @@
 |  3388  |  [统计数组中的美丽分割](/solution/3300-3399/3388.Count%20Beautiful%20Splits%20in%20an%20Array/README.md)  |  `数组`,`动态规划`  |  中等  |  第 428 场周赛  |
 |  3389  |  [使字符频率相等的最少操作次数](/solution/3300-3399/3389.Minimum%20Operations%20to%20Make%20Character%20Frequencies%20Equal/README.md)  |  `哈希表`,`字符串`,`动态规划`,`计数`,`枚举`  |  困难  |  第 428 场周赛  |
 |  3390  |  [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  3391  |  [Design a 3D Binary Matrix with Efficient Layer Tracking](/solution/3300-3399/3391.Design%20a%203D%20Binary%20Matrix%20with%20Efficient%20Layer%20Tracking/README.md)  |    |  中等  |  🔒  |
+|  3391  |  [设计一个高效的层跟踪三维二进制矩阵](/solution/3300-3399/3391.Design%20a%203D%20Binary%20Matrix%20with%20Efficient%20Layer%20Tracking/README.md)  |    |  中等  |  🔒  |
 |  3392  |  [统计符合条件长度为 3 的子数组数目](/solution/3300-3399/3392.Count%20Subarrays%20of%20Length%20Three%20With%20a%20Condition/README.md)  |    |  简单  |  第 146 场双周赛  |
 |  3393  |  [统计异或值为给定值的路径数目](/solution/3300-3399/3393.Count%20Paths%20With%20the%20Given%20XOR%20Value/README.md)  |    |  中等  |  第 146 场双周赛  |
 |  3394  |  [判断网格图能否被切割成块](/solution/3300-3399/3394.Check%20if%20Grid%20can%20be%20Cut%20into%20Sections/README.md)  |    |  中等  |  第 146 场双周赛  |
