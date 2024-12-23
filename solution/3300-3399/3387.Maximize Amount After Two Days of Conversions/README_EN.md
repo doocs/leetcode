@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
+    - Array
+    - String
 ---
 
 <!-- problem:start -->
@@ -99,6 +105,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3387.Ma
 	<li><code>rates2.length == m</code></li>
 	<li><code>1.0 &lt;= rates1[i], rates2[i] &lt;= 10.0</code></li>
 	<li>The input is generated such that there are no contradictions or cycles in the conversion graphs for either day.</li>
+	<li>The input is generated such that the output is <strong>at most</strong> <code>5 * 10<sup>10</sup></code>.</li>
 </ul>
 
 <!-- description:end -->

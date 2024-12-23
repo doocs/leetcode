@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3387.Maximize%20Amount%20After%20Two%20Days%20of%20Conversions/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 数组
+    - 字符串
 ---
 
 <!-- problem:start -->
@@ -103,6 +109,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3387.Ma
 	<li><code>rates2.length == m</code></li>
 	<li><code>1.0 &lt;= rates1[i], rates2[i] &lt;= 10.0</code></li>
 	<li>输入保证两个转换图在各自的天数中没有矛盾或循环。</li>
+	<li>输入保证输出&nbsp;<strong>最大</strong>&nbsp;为&nbsp;<code>5 * 10<sup>10</sup></code>。</li>
 </ul>
 
 <!-- description:end -->
