@@ -642,7 +642,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0631  |  [Design Excel Sum Formula](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README_EN.md)  |  `Graph`,`Design`,`Topological Sort`,`Array`,`Matrix`  |  Hard  |  🔒  |
 |  0632  |  [Smallest Range Covering Elements from K Lists](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Sorting`,`Sliding Window`,`Heap (Priority Queue)`  |  Hard  |    |
 |  0633  |  [Sum of Square Numbers](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README_EN.md)  |  `Math`,`Two Pointers`,`Binary Search`  |  Medium  |    |
-|  0634  |  [Find the Derangement of An Array](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Medium  |  🔒  |
+|  0634  |  [Find the Derangement of An Array](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md)  |  `Math`,`Dynamic Programming`,`Combinatorics`  |  Medium  |  🔒  |
 |  0635  |  [Design Log Storage System](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README_EN.md)  |  `Design`,`Hash Table`,`String`,`Ordered Set`  |  Medium  |  🔒  |
 |  0636  |  [Exclusive Time of Functions](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md)  |  `Stack`,`Array`  |  Medium  |    |
 |  0637  |  [Average of Levels in Binary Tree](/solution/0600-0699/0637.Average%20of%20Levels%20in%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Easy  |    |
