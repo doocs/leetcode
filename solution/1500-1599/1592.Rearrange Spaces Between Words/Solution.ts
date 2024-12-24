@@ -1,18 +1,11 @@
 function reorderSpaces(text: string): string {
-    let count = 0;
-    for (const c of text) {
-        if (c === ' ') {
-            count++;
-        }
+    const spaces = (text.match(/ /g) || []).length;
+    const words = text.split(/\s+/).filter(Boolean);
+    if (words.length === 1) {
+        return words[0] + ' '.repeat(spaces);
     }
-
-    const words = text.trim().split(/\s+/g);
-    const n = words.length;
-    if (n === 1) {
-        return words.join('') + ''.padStart(count);
-    }
-
-    const rest = count % (words.length - 1);
-    const per = (count - rest) / (words.length - 1);
-    return words.join(''.padStart(per)) + ''.padStart(rest);
+    const cnt = Math.floor(spaces / (words.length - 1));
+    const mod = spaces % (words.length - 1);
+    const result = words.join(' '.repeat(cnt));
+    return result + ' '.repeat(mod);
 }
