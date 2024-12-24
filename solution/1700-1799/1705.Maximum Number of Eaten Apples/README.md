@@ -73,7 +73,7 @@ tags:
 
 因此，我们可以用优先队列（小根堆）存储苹果的腐烂时间以及对应苹果的数量，每次从优先队列中取出腐烂时间最小的苹果，然后将其数量减一，若减一后苹果的数量不为零，则将其重新放入优先队列中。若苹果已经腐烂，则从优先队列中弹出。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `apples` 或 `days` 的长度。
+时间复杂度 $O(n \times \log n + M)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{days}$ 的长度，而 $M = \max(\textit{days})$。
 
 <!-- tabs:start -->
 
@@ -132,23 +132,28 @@ class Solution {
 #### C++
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     int eatenApples(vector<int>& apples, vector<int>& days) {
+        using pii = pair<int, int>;
         priority_queue<pii, vector<pii>, greater<pii>> q;
         int n = days.size();
         int ans = 0, i = 0;
         while (i < n || !q.empty()) {
-            if (i < n && apples[i]) q.emplace(i + days[i] - 1, apples[i]);
-            while (!q.empty() && q.top().first < i) q.pop();
+            if (i < n && apples[i]) {
+                q.emplace(i + days[i] - 1, apples[i]);
+            }
+            while (!q.empty() && q.top().first < i) {
+                q.pop();
+            }
             if (!q.empty()) {
                 auto [t, v] = q.top();
                 q.pop();
                 --v;
                 ++ans;
-                if (v && t > i) q.emplace(t, v);
+                if (v && t > i) {
+                    q.emplace(t, v);
+                }
             }
             ++i;
         }

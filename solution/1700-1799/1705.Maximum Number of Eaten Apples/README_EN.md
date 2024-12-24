@@ -68,11 +68,11 @@ tags:
 
 ### Solution 1: Greedy + Priority Queue
 
-We can greedily choose the apple that is most likely to rot among the unrotten apples, so that we can eat as many apples as possible.
+We can greedily choose the apples that are closest to rotting among the unrotten apples, so that we can eat as many apples as possible.
 
-Therefore, we can use a priority queue (min heap) to store the rotting time of the apples and the corresponding number of apples. Each time we take out the apple with the smallest rotting time from the priority queue, then reduce its quantity by one. If the quantity of the apple is not zero after reduction, we put it back into the priority queue. If the apple has rotted, we pop it out from the priority queue.
+Therefore, we can use a priority queue (min-heap) to store the rotting time of the apples and the corresponding number of apples. Each time, we take out the apples with the smallest rotting time from the priority queue, then decrement their quantity by one. If the quantity is not zero after decrementing, we put them back into the priority queue. If the apples have already rotted, we remove them from the priority queue.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `apples` or `days`.
+The time complexity is $O(n \times \log n + M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{days}$, and $M = \max(\textit{days})$.
 
 <!-- tabs:start -->
 
@@ -131,23 +131,28 @@ class Solution {
 #### C++
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     int eatenApples(vector<int>& apples, vector<int>& days) {
+        using pii = pair<int, int>;
         priority_queue<pii, vector<pii>, greater<pii>> q;
         int n = days.size();
         int ans = 0, i = 0;
         while (i < n || !q.empty()) {
-            if (i < n && apples[i]) q.emplace(i + days[i] - 1, apples[i]);
-            while (!q.empty() && q.top().first < i) q.pop();
+            if (i < n && apples[i]) {
+                q.emplace(i + days[i] - 1, apples[i]);
+            }
+            while (!q.empty() && q.top().first < i) {
+                q.pop();
+            }
             if (!q.empty()) {
                 auto [t, v] = q.top();
                 q.pop();
                 --v;
                 ++ans;
-                if (v && t > i) q.emplace(t, v);
+                if (v && t > i) {
+                    q.emplace(t, v);
+                }
             }
             ++i;
         }
