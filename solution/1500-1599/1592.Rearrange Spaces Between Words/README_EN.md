@@ -56,7 +56,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: String Simulation
+
+First, we count the number of spaces in the string $\textit{text}$, denoted as $\textit{spaces}$. Then, we split $\textit{text}$ by spaces into an array of strings $\textit{words}$. Next, we calculate the number of spaces that need to be inserted between adjacent words and perform the concatenation. Finally, we append the remaining spaces to the end.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of the string $\textit{text}$.
 
 <!-- tabs:start -->
 
@@ -65,12 +69,12 @@ tags:
 ```python
 class Solution:
     def reorderSpaces(self, text: str) -> str:
-        cnt = text.count(' ')
+        spaces = text.count(" ")
         words = text.split()
-        m = len(words) - 1
-        if m == 0:
-            return words[0] + ' ' * cnt
-        return (' ' * (cnt // m)).join(words) + ' ' * (cnt % m)
+        if len(words) == 1:
+            return words[0] + " " * spaces
+        cnt, mod = divmod(spaces, len(words) - 1)
+        return (" " * cnt).join(words) + " " * mod
 ```
 
 #### Java
@@ -78,28 +82,75 @@ class Solution:
 ```java
 class Solution {
     public String reorderSpaces(String text) {
-        int cnt = 0;
+        int spaces = 0;
         for (char c : text.toCharArray()) {
             if (c == ' ') {
-                ++cnt;
+                ++spaces;
             }
         }
-        String[] words = text.split("\\s+");
-        List<String> res = new ArrayList<>();
-        for (String w : words) {
-            if (!"".equals(w)) {
-                res.add(w);
+        String[] words = text.trim().split("\\s+");
+        if (words.length == 1) {
+            return words[0] + " ".repeat(spaces);
+        }
+        int cnt = spaces / (words.length - 1);
+        int mod = spaces % (words.length - 1);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < words.length; ++i) {
+            sb.append(words[i]);
+            if (i < words.length - 1) {
+                sb.append(" ".repeat(cnt));
             }
         }
-        int m = res.size() - 1;
-        if (m == 0) {
-            return res.get(0) + " ".repeat(cnt);
-        }
-        String ans = String.join(" ".repeat(cnt / m), res);
-        ans += " ".repeat(cnt % m);
-        return ans;
+        sb.append(" ".repeat(mod));
+        return sb.toString();
     }
 }
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string reorderSpaces(string text) {
+        int spaces = ranges::count(text, ' ');
+        auto words = split(text);
+
+        if (words.size() == 1) {
+            return words[0] + string(spaces, ' ');
+        }
+
+        int cnt = spaces / (words.size() - 1);
+        int mod = spaces % (words.size() - 1);
+
+        string result = join(words, string(cnt, ' '));
+        result += string(mod, ' ');
+
+        return result;
+    }
+
+private:
+    vector<string> split(const string& text) {
+        vector<string> words;
+        istringstream stream(text);
+        string word;
+        while (stream >> word) {
+            words.push_back(word);
+        }
+        return words;
+    }
+
+    string join(const vector<string>& words, const string& separator) {
+        ostringstream result;
+        for (size_t i = 0; i < words.size(); ++i) {
+            result << words[i];
+            if (i < words.size() - 1) {
+                result << separator;
+            }
+        }
+        return result.str();
+    }
+};
 ```
 
 #### Go
@@ -120,22 +171,15 @@ func reorderSpaces(text string) string {
 
 ```ts
 function reorderSpaces(text: string): string {
-    let count = 0;
-    for (const c of text) {
-        if (c === ' ') {
-            count++;
-        }
+    const spaces = (text.match(/ /g) || []).length;
+    const words = text.split(/\s+/).filter(Boolean);
+    if (words.length === 1) {
+        return words[0] + ' '.repeat(spaces);
     }
-
-    const words = text.trim().split(/\s+/g);
-    const n = words.length;
-    if (n === 1) {
-        return words.join('') + ''.padStart(count);
-    }
-
-    const rest = count % (words.length - 1);
-    const per = (count - rest) / (words.length - 1);
-    return words.join(''.padStart(per)) + ''.padStart(rest);
+    const cnt = Math.floor(spaces / (words.length - 1));
+    const mod = spaces % (words.length - 1);
+    const result = words.join(' '.repeat(cnt));
+    return result + ' '.repeat(mod);
 }
 ```
 
@@ -143,31 +187,16 @@ function reorderSpaces(text: string): string {
 
 ```rust
 impl Solution {
-    fn create_spaces(n: usize) -> String {
-        let mut res = String::new();
-        for _ in 0..n {
-            res.push(' ');
-        }
-        res
-    }
-
     pub fn reorder_spaces(text: String) -> String {
-        let count = {
-            let mut res = 0;
-            for c in text.as_bytes() {
-                if c == &b' ' {
-                    res += 1;
-                }
-            }
-            res
-        };
-
-        let works = text.split_whitespace().collect::<Vec<&str>>();
-        let n = works.len();
-        if n == 1 {
-            return works[0].to_string() + &Self::create_spaces(count);
+        let spaces = text.chars().filter(|&c| c == ' ').count();
+        let words: Vec<&str> = text.split_whitespace().collect();
+        if words.len() == 1 {
+            return format!("{}{}", words[0], " ".repeat(spaces));
         }
-        works.join(&Self::create_spaces(count / (n - 1))) + &Self::create_spaces(count % (n - 1))
+        let cnt = spaces / (words.len() - 1);
+        let mod_spaces = spaces % (words.len() - 1);
+        let result = words.join(&" ".repeat(cnt));
+        result + &" ".repeat(mod_spaces)
     }
 }
 ```
