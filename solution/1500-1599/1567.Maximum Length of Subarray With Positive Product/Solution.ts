@@ -1,22 +1,27 @@
 function getMaxLen(nums: number[]): number {
-    // 连续正数计数n1, 连续负数计数n2
-    let n1 = nums[0] > 0 ? 1 : 0,
-        n2 = nums[0] < 0 ? 1 : 0;
-    let ans = n1;
-    for (let i = 1; i < nums.length; ++i) {
-        let cur = nums[i];
-        if (cur == 0) {
-            (n1 = 0), (n2 = 0);
-        } else if (cur > 0) {
-            ++n1;
-            n2 = n2 > 0 ? n2 + 1 : 0;
-        } else {
-            let t1 = n1,
-                t2 = n2;
-            n1 = t2 > 0 ? t2 + 1 : 0;
-            n2 = t1 + 1;
-        }
-        ans = Math.max(ans, n1);
+    const n = nums.length;
+    const f: number[] = Array(n).fill(0);
+    const g: number[] = Array(n).fill(0);
+
+    if (nums[0] > 0) {
+        f[0] = 1;
     }
+    if (nums[0] < 0) {
+        g[0] = 1;
+    }
+
+    let ans = f[0];
+    for (let i = 1; i < n; i++) {
+        if (nums[i] > 0) {
+            f[i] = f[i - 1] + 1;
+            g[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
+        } else if (nums[i] < 0) {
+            f[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
+            g[i] = f[i - 1] + 1;
+        }
+
+        ans = Math.max(ans, f[i]);
+    }
+
     return ans;
 }
