@@ -5,4 +5,4 @@ SELECT
     COUNT(DISTINCT customer_id) AS customer_count
 FROM Orders
 WHERE invoice > 20
-GROUP BY month;
+GROUP BY 1;
