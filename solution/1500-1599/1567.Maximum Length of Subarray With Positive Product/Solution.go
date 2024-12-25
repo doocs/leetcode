@@ -1,32 +1,32 @@
 func getMaxLen(nums []int) int {
-	f1, f2 := 0, 0
+	n := len(nums)
+	f := make([]int, n)
+	g := make([]int, n)
 	if nums[0] > 0 {
-		f1 = 1
+		f[0] = 1
 	}
 	if nums[0] < 0 {
-		f2 = 1
+		g[0] = 1
 	}
-	res := f1
-	for i := 1; i < len(nums); i++ {
+	ans := f[0]
+
+	for i := 1; i < n; i++ {
 		if nums[i] > 0 {
-			f1++
-			if f2 > 0 {
-				f2++
+			f[i] = f[i-1] + 1
+			if g[i-1] > 0 {
+				g[i] = g[i-1] + 1
 			} else {
-				f2 = 0
+				g[i] = 0
 			}
 		} else if nums[i] < 0 {
-			pf1, pf2 := f1, f2
-			f2 = pf1 + 1
-			if pf2 > 0 {
-				f1 = pf2 + 1
+			if g[i-1] > 0 {
+				f[i] = g[i-1] + 1
 			} else {
-				f1 = 0
+				f[i] = 0
 			}
-		} else {
-			f1, f2 = 0, 0
+			g[i] = f[i-1] + 1
 		}
-		res = max(res, f1)
+		ans = max(ans, f[i])
 	}
-	return res
+	return ans
 }
