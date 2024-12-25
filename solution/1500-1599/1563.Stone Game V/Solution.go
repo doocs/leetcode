@@ -7,31 +7,34 @@ func stoneGameV(stoneValue []int) int {
 	f := make([][]int, n)
 	for i := range f {
 		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
 	}
-	var dfs func(i, j int) int
+	var dfs func(int, int) int
 	dfs = func(i, j int) int {
-		if i == j {
+		if i >= j {
 			return 0
 		}
-		if f[i][j] != 0 {
+		if f[i][j] != -1 {
 			return f[i][j]
 		}
-		ans, a := 0, 0
+		ans, l, r := 0, 0, s[j+1]-s[i]
 		for k := i; k < j; k++ {
-			a += stoneValue[k]
-			b := s[j+1] - s[i] - a
-			if a < b {
-				if ans >= a*2 {
+			l += stoneValue[k]
+			r -= stoneValue[k]
+			if l < r {
+				if ans > l*2 {
 					continue
 				}
-				ans = max(ans, a+dfs(i, k))
-			} else if a > b {
-				if ans >= b*2 {
+				ans = max(ans, dfs(i, k)+l)
+			} else if l > r {
+				if ans > r*2 {
 					break
 				}
-				ans = max(ans, b+dfs(k+1, j))
+				ans = max(ans, dfs(k+1, j)+r)
 			} else {
-				ans = max(ans, max(a+dfs(i, k), b+dfs(k+1, j)))
+				ans = max(ans, max(dfs(i, k), dfs(k+1, j))+l)
 			}
 		}
 		f[i][j] = ans

@@ -68,33 +68,55 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization + Pruning
+
+First, we preprocess the prefix sum array $\textit{s}$, where $\textit{s}[i]$ represents the sum of the first $i$ elements of the array $\textit{stoneValue}$.
+
+Next, we design a function $\textit{dfs}(i, j)$, which represents the maximum score Alice can get from the stones in the subarray $\textit{stoneValue}$ within the index range $[i, j]$. The answer is $\textit{dfs}(0, n - 1)$.
+
+The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
+
+-   If $i \geq j$, it means there is only one stone left, and Alice cannot split it, so return $0$.
+-   Otherwise, we enumerate the split point $k$, i.e., $i \leq k < j$, splitting the stones in the subarray $\textit{stoneValue}$ within the index range $[i, j]$ into two parts: $[i, k]$ and $[k + 1, j]$. We calculate $a$ and $b$, which represent the total sum of the stones in the two parts, respectively. Then we calculate $\textit{dfs}(i, k)$ and $\textit{dfs}(k + 1, j)$, and update the answer.
+
+Note that if $a < b$ and $\textit{ans} \geq a \times 2$, this enumeration can be skipped; if $a > b$ and $\textit{ans} \geq b \times 2$, all subsequent enumerations can be skipped, and the loop can be exited directly.
+
+Finally, we return the answer.
+
+To avoid repeated calculations, we can use memoization and pruning to optimize the enumeration efficiency.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array $\textit{stoneValue}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+def max(a: int, b: int) -> int:
+    return a if a > b else b
+
+
 class Solution:
     def stoneGameV(self, stoneValue: List[int]) -> int:
         @cache
-        def dfs(i, j):
-            if i == j:
+        def dfs(i: int, j: int) -> int:
+            if i >= j:
                 return 0
-            ans = a = 0
+            ans = l = 0
+            r = s[j + 1] - s[i]
             for k in range(i, j):
-                a += stoneValue[k]
-                b = s[j + 1] - s[i] - a
-                if a < b:
-                    if ans >= a * 2:
+                l += stoneValue[k]
+                r -= stoneValue[k]
+                if l < r:
+                    if ans >= l * 2:
                         continue
-                    ans = max(ans, a + dfs(i, k))
-                elif a > b:
-                    if ans >= b * 2:
+                    ans = max(ans, l + dfs(i, k))
+                elif l > r:
+                    if ans >= r * 2:
                         break
-                    ans = max(ans, b + dfs(k + 1, j))
+                    ans = max(ans, r + dfs(k + 1, j))
                 else:
-                    ans = max(ans, a + dfs(i, k), b + dfs(k + 1, j))
+                    ans = max(ans, max(l + dfs(i, k), r + dfs(k + 1, j)))
             return ans
 
         s = list(accumulate(stoneValue, initial=0))
@@ -107,44 +129,43 @@ class Solution:
 class Solution {
     private int n;
     private int[] s;
-    private int[] stoneValue;
+    private int[] nums;
     private Integer[][] f;
 
     public int stoneGameV(int[] stoneValue) {
         n = stoneValue.length;
-        this.stoneValue = stoneValue;
         s = new int[n + 1];
-        for (int i = 1; i <= n; ++i) {
-            s[i] = s[i - 1] + stoneValue[i - 1];
-        }
+        nums = stoneValue;
         f = new Integer[n][n];
+        for (int i = 1; i <= n; ++i) {
+            s[i] = s[i - 1] + nums[i - 1];
+        }
         return dfs(0, n - 1);
     }
 
     private int dfs(int i, int j) {
-        if (i == j) {
+        if (i >= j) {
             return 0;
         }
         if (f[i][j] != null) {
             return f[i][j];
         }
-        int ans = 0;
-        int a = 0;
+        int ans = 0, l = 0, r = s[j + 1] - s[i];
         for (int k = i; k < j; ++k) {
-            a += stoneValue[k];
-            int b = s[j + 1] - s[i] - a;
-            if (a < b) {
-                if (ans >= a * 2) {
+            l += nums[k];
+            r -= nums[k];
+            if (l < r) {
+                if (ans > l * 2) {
                     continue;
                 }
-                ans = Math.max(ans, a + dfs(i, k));
-            } else if (a > b) {
-                if (ans >= b * 2) {
+                ans = Math.max(ans, l + dfs(i, k));
+            } else if (l > r) {
+                if (ans > r * 2) {
                     break;
                 }
-                ans = Math.max(ans, b + dfs(k + 1, j));
+                ans = Math.max(ans, r + dfs(k + 1, j));
             } else {
-                ans = Math.max(ans, Math.max(a + dfs(i, k), b + dfs(k + 1, j)));
+                ans = Math.max(ans, Math.max(l + dfs(i, k), r + dfs(k + 1, j)));
             }
         }
         return f[i][j] = ans;
@@ -161,35 +182,34 @@ public:
         int n = stoneValue.size();
         int s[n + 1];
         s[0] = 0;
-        for (int i = 1; i <= n; ++i) {
-            s[i] = s[i - 1] + stoneValue[i - 1];
+        for (int i = 0; i < n; i++) {
+            s[i + 1] = s[i] + stoneValue[i];
         }
         int f[n][n];
-        memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
-            if (i == j) {
+        memset(f, -1, sizeof(f));
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
+            if (i >= j) {
                 return 0;
             }
-            if (f[i][j]) {
+            if (f[i][j] != -1) {
                 return f[i][j];
             }
-            int ans = 0;
-            int a = 0;
+            int ans = 0, l = 0, r = s[j + 1] - s[i];
             for (int k = i; k < j; ++k) {
-                a += stoneValue[k];
-                int b = s[j + 1] - s[i] - a;
-                if (a < b) {
-                    if (ans >= a * 2) {
+                l += stoneValue[k];
+                r -= stoneValue[k];
+                if (l < r) {
+                    if (ans > l * 2) {
                         continue;
                     }
-                    ans = max(ans, a + dfs(i, k));
-                } else if (a > b) {
-                    if (ans >= b * 2) {
+                    ans = max(ans, l + dfs(i, k));
+                } else if (l > r) {
+                    if (ans > r * 2) {
                         break;
                     }
-                    ans = max(ans, b + dfs(k + 1, j));
+                    ans = max(ans, r + dfs(k + 1, j));
                 } else {
-                    ans = max({ans, a + dfs(i, k), b + dfs(k + 1, j)});
+                    ans = max({ans, l + dfs(i, k), r + dfs(k + 1, j)});
                 }
             }
             return f[i][j] = ans;
@@ -211,37 +231,83 @@ func stoneGameV(stoneValue []int) int {
 	f := make([][]int, n)
 	for i := range f {
 		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -1
+		}
 	}
-	var dfs func(i, j int) int
+	var dfs func(int, int) int
 	dfs = func(i, j int) int {
-		if i == j {
+		if i >= j {
 			return 0
 		}
-		if f[i][j] != 0 {
+		if f[i][j] != -1 {
 			return f[i][j]
 		}
-		ans, a := 0, 0
+		ans, l, r := 0, 0, s[j+1]-s[i]
 		for k := i; k < j; k++ {
-			a += stoneValue[k]
-			b := s[j+1] - s[i] - a
-			if a < b {
-				if ans >= a*2 {
+			l += stoneValue[k]
+			r -= stoneValue[k]
+			if l < r {
+				if ans > l*2 {
 					continue
 				}
-				ans = max(ans, a+dfs(i, k))
-			} else if a > b {
-				if ans >= b*2 {
+				ans = max(ans, dfs(i, k)+l)
+			} else if l > r {
+				if ans > r*2 {
 					break
 				}
-				ans = max(ans, b+dfs(k+1, j))
+				ans = max(ans, dfs(k+1, j)+r)
 			} else {
-				ans = max(ans, max(a+dfs(i, k), b+dfs(k+1, j)))
+				ans = max(ans, max(dfs(i, k), dfs(k+1, j))+l)
 			}
 		}
 		f[i][j] = ans
 		return ans
 	}
 	return dfs(0, n-1)
+}
+```
+
+#### TypeScript
+
+```ts
+function stoneGameV(stoneValue: number[]): number {
+    const n = stoneValue.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; i++) {
+        s[i + 1] = s[i] + stoneValue[i];
+    }
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(-1));
+
+    const dfs = (i: number, j: number): number => {
+        if (i >= j) {
+            return 0;
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+        let [ans, l, r] = [0, 0, s[j + 1] - s[i]];
+        for (let k = i; k < j; ++k) {
+            l += stoneValue[k];
+            r -= stoneValue[k];
+            if (l < r) {
+                if (ans > l * 2) {
+                    continue;
+                }
+                ans = Math.max(ans, l + dfs(i, k));
+            } else if (l > r) {
+                if (ans > r * 2) {
+                    break;
+                }
+                ans = Math.max(ans, r + dfs(k + 1, j));
+            } else {
+                ans = Math.max(ans, l + dfs(i, k), r + dfs(k + 1, j));
+            }
+        }
+        return (f[i][j] = ans);
+    };
+
+    return dfs(0, n - 1);
 }
 ```
 
