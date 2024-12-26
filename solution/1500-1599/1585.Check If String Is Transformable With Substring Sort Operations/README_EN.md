@@ -79,7 +79,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bubble Sort
+
+The problem is essentially equivalent to determining whether any substring of length 2 in string $s$ can be swapped using bubble sort to obtain $t$.
+
+Therefore, we use an array $pos$ of length 10 to record the indices of each digit in string $s$, where $pos[i]$ represents the list of indices where digit $i$ appears, sorted in ascending order.
+
+Next, we iterate through string $t$. For each character $t[i]$ in $t$, we convert it to the digit $x$. We check if $pos[x]$ is empty. If it is, it means that the digit in $t$ does not exist in $s$, so we return `false`. Otherwise, to swap the character at the first index of $pos[x]$ to index $i$, all indices of digits less than $x$ must be greater than or equal to the first index of $pos[x]. If this condition is not met, we return `false`. Otherwise, we pop the first index from $pos[x]$ and continue iterating through string $t$.
+
+After the iteration, we return `true`.
+
+The time complexity is $O(n \times C)$, and the space complexity is $O(n)$. Here, $n$ is the length of string $s$, and $C$ is the size of the digit set, which is 10 in this problem.
 
 <!-- tabs:start -->
 
