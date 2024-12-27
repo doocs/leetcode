@@ -1,10 +1,10 @@
 func maxSlidingWindow(nums []int, k int) (ans []int) {
 	q := []int{}
-	for i, v := range nums {
-		if len(q) > 0 && i-k+1 > q[0] {
+	for i, x := range nums {
+		if len(q) > 0 && i-q[0] >= k {
 			q = q[1:]
 		}
-		for len(q) > 0 && nums[q[len(q)-1]] <= v {
+		for len(q) > 0 && nums[q[len(q)-1]] <= x {
 			q = q[:len(q)-1]
 		}
 		q = append(q, i)
@@ -12,5 +12,5 @@ func maxSlidingWindow(nums []int, k int) (ans []int) {
 			ans = append(ans, nums[q[0]])
 		}
 	}
-	return ans
+	return
 }
