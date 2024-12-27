@@ -34,7 +34,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums1 = [7,4], nums2 = [5,2,8,9]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> Type 1: (1, 1, 2), nums1[1]<sup>2</sup> = nums2[1] * nums2[2]. (4<sup>2</sup> = 2 * 8).
+<strong>Explanation:</strong> Type 1: (1, 1, 2), nums1[1]<sup>2</sup> = nums2[1] * nums2[2]. (4<sup>2</sup> = 2 * 8). 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

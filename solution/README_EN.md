@@ -3408,6 +3408,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3397  |  [Maximum Number of Distinct Elements After Operations](/solution/3300-3399/3397.Maximum%20Number%20of%20Distinct%20Elements%20After%20Operations/README_EN.md)  |    |  Medium  |  Weekly Contest 429  |
 |  3398  |  [Smallest Substring With Identical Characters I](/solution/3300-3399/3398.Smallest%20Substring%20With%20Identical%20Characters%20I/README_EN.md)  |    |  Hard  |  Weekly Contest 429  |
 |  3399  |  [Smallest Substring With Identical Characters II](/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 429  |
+|  3400  |  [Maximum Number of Matching Indices After Right Shifts](/solution/3400-3499/3400.Maximum%20Number%20of%20Matching%20Indices%20After%20Right%20Shifts/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
