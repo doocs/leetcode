@@ -43,7 +43,7 @@ This table contains information about the orders made by customer_id.
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>Input:</strong> 
 Orders table:
 +----------+------------+-------------+------------+
 | order_id | order_date | customer_id | invoice    |
@@ -59,7 +59,7 @@ Orders table:
 | 9        | 2021-01-07 | 3           | 31         |
 | 10       | 2021-01-15 | 2           | 20         |
 +----------+------------+-------------+------------+
-<strong>Output:</strong>
+<strong>Output:</strong> 
 +---------+-------------+----------------+
 | month   | order_count | customer_count |
 +---------+-------------+----------------+
@@ -68,7 +68,7 @@ Orders table:
 | 2020-12 | 2           | 1              |
 | 2021-01 | 1           | 1              |
 +---------+-------------+----------------+
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 In September 2020 we have two orders from 2 different customers with invoices &gt; $20.
 In October 2020 we have two orders from 1 customer, and only one of the two orders has invoice &gt; $20.
 In November 2020 we have two orders from 2 different customers but invoices &lt; $20, so we don&#39;t include that month.

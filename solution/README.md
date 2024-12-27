@@ -3410,6 +3410,7 @@
 |  3397  |  [执行操作后不同元素的最大数量](/solution/3300-3399/3397.Maximum%20Number%20of%20Distinct%20Elements%20After%20Operations/README.md)  |    |  中等  |  第 429 场周赛  |
 |  3398  |  [字符相同的最短子字符串 I](/solution/3300-3399/3398.Smallest%20Substring%20With%20Identical%20Characters%20I/README.md)  |    |  困难  |  第 429 场周赛  |
 |  3399  |  [字符相同的最短子字符串 II](/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README.md)  |    |  困难  |  第 429 场周赛  |
+|  3400  |  [右移后的最大匹配索引数](/solution/3400-3499/3400.Maximum%20Number%20of%20Matching%20Indices%20After%20Right%20Shifts/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4,5], requests = [[1,3],[0,1]]
 <strong>Output:</strong> 19
-<strong>Explanation:</strong> One permutation of nums is [2,1,3,4,5] with the following result:
+<strong>Explanation:</strong> One permutation of nums is [2,1,3,4,5] with the following result: 
 requests[0] -&gt; nums[1] + nums[2] + nums[3] = 1 + 3 + 4 = 8
 requests[1] -&gt; nums[0] + nums[1] = 2 + 1 = 3
 Total sum: 8 + 3 = 11.
