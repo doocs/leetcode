@@ -1,20 +1,14 @@
 function longestConsecutive(nums: number[]): number {
-    const n = nums.length;
-    if (n < 2) {
-        return n;
-    }
-    let ans = 1;
-    let t = 1;
-    nums.sort((a, b) => a - b);
-    for (let i = 1; i < n; ++i) {
-        if (nums[i] === nums[i - 1]) {
-            continue;
+    const s = new Set(nums);
+    let ans = 0;
+    const d = new Map<number, number>();
+    for (const x of nums) {
+        let y = x;
+        while (s.has(y)) {
+            s.delete(y++);
         }
-        if (nums[i] === nums[i - 1] + 1) {
-            ans = Math.max(ans, ++t);
-        } else {
-            t = 1;
-        }
+        d.set(x, (d.get(y) || 0) + (y - x));
+        ans = Math.max(ans, d.get(x)!);
     }
     return ans;
 }

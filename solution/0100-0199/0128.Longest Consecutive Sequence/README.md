@@ -53,19 +53,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：排序
+### 方法一：哈希表
 
-我们先将数组排序，然后用一个变量 $t$ 记录当前连续序列的长度，用一个变量 $ans$ 记录最长连续序列的长度。
+我们可以用一个哈希表 $\textit{s}$ 存储数组中所有的元素，用一个变量 $\textit{ans}$ 记录最长连续序列的长度，用一个哈希表 $\textit{d}$ 记录每个元素 $x$ 所在的连续序列的长度。
 
-接下来，我们从下标 $i=1$ 开始遍历数组，对于当前遍历到的元素 $nums[i]$：
+接下来，我们遍历数组中每个元素 $x$，用一个临时变量 $y$ 记录当前连续序列的最大值，初始时 $y = x$。然后，我们不断尝试匹配 $y+1, y+2, y+3, \dots$，直到匹配不到为止，过程中将匹配到的元素从哈希表 $\textit{s}$ 中移除。那么，当前元素 $x$ 所在的连续序列的长度即为 $d[x] = d[y] + y - x$，然后更新答案 $\textit{ans} = \max(\textit{ans}, d[x])$。
 
--   如果 $nums[i]=nums[i-1]$，则说明当前元素重复，无需考虑；
--   如果 $nums[i]=nums[i-1]+1$，则说明当前元素可以接在上一个连续序列后面以形成更长的连续序列，我们更新 $t = t + 1$，然后更新答案 $ans = \max(ans, t)$；
--   否则，说明当前元素无法接在上一个连续序列后面，我们将 $t$ 重新置为 $1$。
+遍历结束后，返回答案 $\textit{ans}$ 即可。
 
-最终，我们返回答案 $ans$ 即可。
-
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -74,19 +70,16 @@ tags:
 ```python
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        n = len(nums)
-        if n < 2:
-            return n
-        nums.sort()
-        ans = t = 1
-        for a, b in pairwise(nums):
-            if a == b:
-                continue
-            if a + 1 == b:
-                t += 1
-                ans = max(ans, t)
-            else:
-                t = 1
+        s = set(nums)
+        ans = 0
+        d = defaultdict(int)
+        for x in nums:
+            y = x
+            while y in s:
+                s.remove(y)
+                y += 1
+            d[x] = d[y] + y - x
+            ans = max(ans, d[x])
         return ans
 ```
 
@@ -95,21 +88,19 @@ class Solution:
 ```java
 class Solution {
     public int longestConsecutive(int[] nums) {
-        int n = nums.length;
-        if (n < 2) {
-            return n;
+        Set<Integer> s = new HashSet<>();
+        for (int x : nums) {
+            s.add(x);
         }
-        Arrays.sort(nums);
-        int ans = 1, t = 1;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1]) {
-                continue;
+        int ans = 0;
+        Map<Integer, Integer> d = new HashMap<>();
+        for (int x : nums) {
+            int y = x;
+            while (s.contains(y)) {
+                s.remove(y++);
             }
-            if (nums[i] == nums[i - 1] + 1) {
-                ans = Math.max(ans, ++t);
-            } else {
-                t = 1;
-            }
+            d.put(x, d.getOrDefault(y, 0) + y - x);
+            ans = Math.max(ans, d.get(x));
         }
         return ans;
     }
@@ -122,21 +113,16 @@ class Solution {
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        int n = nums.size();
-        if (n < 2) {
-            return n;
-        }
-        sort(nums.begin(), nums.end());
-        int ans = 1, t = 1;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1]) {
-                continue;
+        unordered_set<int> s(nums.begin(), nums.end());
+        int ans = 0;
+        unordered_map<int, int> d;
+        for (int x : nums) {
+            int y = x;
+            while (s.contains(y)) {
+                s.erase(y++);
             }
-            if (nums[i] == nums[i - 1] + 1) {
-                ans = max(ans, ++t);
-            } else {
-                t = 1;
-            }
+            d[x] = (d.contains(y) ? d[y] : 0) + y - x;
+            ans = max(ans, d[x]);
         }
         return ans;
     }
@@ -146,25 +132,22 @@ public:
 #### Go
 
 ```go
-func longestConsecutive(nums []int) int {
-	n := len(nums)
-	if n < 2 {
-		return n
+func longestConsecutive(nums []int) (ans int) {
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
 	}
-	sort.Ints(nums)
-	ans, t := 1, 1
-	for i, x := range nums[1:] {
-		if x == nums[i] {
-			continue
+	d := map[int]int{}
+	for _, x := range nums {
+		y := x
+		for s[y] {
+			delete(s, y)
+			y++
 		}
-		if x == nums[i]+1 {
-			t++
-			ans = max(ans, t)
-		} else {
-			t = 1
-		}
+		d[x] = d[y] + y - x
+		ans = max(ans, d[x])
 	}
-	return ans
+	return
 }
 ```
 
@@ -172,22 +155,16 @@ func longestConsecutive(nums []int) int {
 
 ```ts
 function longestConsecutive(nums: number[]): number {
-    const n = nums.length;
-    if (n < 2) {
-        return n;
-    }
-    let ans = 1;
-    let t = 1;
-    nums.sort((a, b) => a - b);
-    for (let i = 1; i < n; ++i) {
-        if (nums[i] === nums[i - 1]) {
-            continue;
+    const s = new Set(nums);
+    let ans = 0;
+    const d = new Map<number, number>();
+    for (const x of nums) {
+        let y = x;
+        while (s.has(y)) {
+            s.delete(y++);
         }
-        if (nums[i] === nums[i - 1] + 1) {
-            ans = Math.max(ans, ++t);
-        } else {
-            t = 1;
-        }
+        d.set(x, (d.get(y) || 0) + (y - x));
+        ans = Math.max(ans, d.get(x)!);
     }
     return ans;
 }
@@ -196,32 +173,24 @@ function longestConsecutive(nums: number[]): number {
 #### Rust
 
 ```rust
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
-        let mut s = HashSet::new();
-        let mut ret = 0;
-
-        // Initialize the set
-        for num in &nums {
-            s.insert(*num);
-        }
-
-        for num in &nums {
-            if s.contains(&(*num - 1)) {
-                continue;
+        let mut s: HashSet<i32> = nums.iter().cloned().collect();
+        let mut ans = 0;
+        let mut d: HashMap<i32, i32> = HashMap::new();
+        for &x in &nums {
+            let mut y = x;
+            while s.contains(&y) {
+                s.remove(&y);
+                y += 1;
             }
-            let mut cur_num = num.clone();
-            while s.contains(&cur_num) {
-                cur_num += 1;
-            }
-            // Update the answer
-            ret = std::cmp::max(ret, cur_num - num);
+            let length = d.get(&(y)).unwrap_or(&0) + y - x;
+            d.insert(x, length);
+            ans = ans.max(length);
         }
-
-        ret
+        ans
     }
 }
 ```
@@ -234,22 +203,16 @@ impl Solution {
  * @return {number}
  */
 var longestConsecutive = function (nums) {
-    const n = nums.length;
-    if (n < 2) {
-        return n;
-    }
-    nums.sort((a, b) => a - b);
-    let ans = 1;
-    let t = 1;
-    for (let i = 1; i < n; ++i) {
-        if (nums[i] === nums[i - 1]) {
-            continue;
+    const s = new Set(nums);
+    let ans = 0;
+    const d = new Map();
+    for (const x of nums) {
+        let y = x;
+        while (s.has(y)) {
+            s.delete(y++);
         }
-        if (nums[i] === nums[i - 1] + 1) {
-            ans = Math.max(ans, ++t);
-        } else {
-            t = 1;
-        }
+        d.set(x, (d.get(y) || 0) + (y - x));
+        ans = Math.max(ans, d.get(x));
     }
     return ans;
 };
@@ -261,11 +224,11 @@ var longestConsecutive = function (nums) {
 
 <!-- solution:start -->
 
-### 方法二：哈希表
+### 方法二：哈希表（优化）
 
-我们用哈希表存储数组中的所有元素，然后遍历数组中的每个元素 $x$，如果当前元素的前驱 $x-1$ 不在哈希表中，那么我们以当前元素为起点，不断尝试匹配 $x+1, x+2, x+3, \dots$，直到匹配不到为止，此时的匹配长度即为以 $x$ 为起点的最长连续序列长度，我们更新答案即可。
+与方法一类似，我们用一个哈希表 $\textit{s}$ 存储数组中所有的元素，用一个变量 $\textit{ans}$ 记录最长连续序列的长度。但是，我们不再使用哈希表 $\textit{d}$ 记录每个元素 $x$ 所在的连续序列的长度，在遍历的过程中，跳过那些 $x-1$ 也在哈希表 $\textit{s}$ 中的元素，如果 $x-1$ 在哈希表 $\textit{s}$ 中，那么 $x$ 一定不是连续序列的起点，因此我们可以直接跳过 $x$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -276,7 +239,7 @@ class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         s = set(nums)
         ans = 0
-        for x in nums:
+        for x in s:
             if x - 1 not in s:
                 y = x + 1
                 while y in s:
@@ -295,7 +258,7 @@ class Solution {
             s.add(x);
         }
         int ans = 0;
-        for (int x : nums) {
+        for (int x : s) {
             if (!s.contains(x - 1)) {
                 int y = x + 1;
                 while (s.contains(y)) {
@@ -317,10 +280,10 @@ public:
     int longestConsecutive(vector<int>& nums) {
         unordered_set<int> s(nums.begin(), nums.end());
         int ans = 0;
-        for (int x : nums) {
-            if (!s.count(x - 1)) {
+        for (int x : s) {
+            if (!s.contains(x - 1)) {
                 int y = x + 1;
-                while (s.count(y)) {
+                while (s.contains(y)) {
                     y++;
                 }
                 ans = max(ans, y - x);
@@ -339,7 +302,7 @@ func longestConsecutive(nums []int) (ans int) {
 	for _, x := range nums {
 		s[x] = true
 	}
-	for _, x := range nums {
+	for x, _ := range s {
 		if !s[x-1] {
 			y := x + 1
 			for s[y] {
@@ -356,7 +319,7 @@ func longestConsecutive(nums []int) (ans int) {
 
 ```ts
 function longestConsecutive(nums: number[]): number {
-    const s: Set<number> = new Set(nums);
+    const s = new Set<number>(nums);
     let ans = 0;
     for (const x of s) {
         if (!s.has(x - 1)) {
@@ -368,6 +331,29 @@ function longestConsecutive(nums: number[]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
+        let s: HashSet<i32> = nums.iter().cloned().collect();
+        let mut ans = 0;
+        for &x in &s {
+            if !s.contains(&(x - 1)) {
+                let mut y = x + 1;
+                while s.contains(&y) {
+                    y += 1;
+                }
+                ans = ans.max(y - x);
+            }
+        }
+        ans
+    }
 }
 ```
 

@@ -1,20 +1,17 @@
-func longestConsecutive(nums []int) int {
-	n := len(nums)
-	if n < 2 {
-		return n
+func longestConsecutive(nums []int) (ans int) {
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
 	}
-	sort.Ints(nums)
-	ans, t := 1, 1
-	for i, x := range nums[1:] {
-		if x == nums[i] {
-			continue
+	d := map[int]int{}
+	for _, x := range nums {
+		y := x
+		for s[y] {
+			delete(s, y)
+			y++
 		}
-		if x == nums[i]+1 {
-			t++
-			ans = max(ans, t)
-		} else {
-			t = 1
-		}
+		d[x] = d[y] + y - x
+		ans = max(ans, d[x])
 	}
-	return ans
+	return
 }
