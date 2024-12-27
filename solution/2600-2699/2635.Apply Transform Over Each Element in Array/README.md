@@ -57,7 +57,7 @@ const newArray = map(arr, plusone); // [2,3,4]
 <ul>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></font></code></li>
-	<li><font face="monospace"><code>fn</code> 返回一个数</font></li>
+	<li><font face="monospace"><code>fn</code> 返回一个整数。</font></li>
 </ul>
 <span style="display:block"><span style="height:0px"><span style="position:absolute">​​​​​​</span></span></span>
 

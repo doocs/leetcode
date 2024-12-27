@@ -59,13 +59,15 @@ tags:
 
 ### Solution 1: Two Pointers
 
-Initially, we consider the capacity of the water that the two farthest pillars can hold. The width of the water is the distance between the two pillars, and the height of the water depends on the shorter one between the two pillars.
+We use two pointers $l$ and $r$ to point to the left and right ends of the array, respectively, i.e., $l = 0$ and $r = n - 1$, where $n$ is the length of the array.
 
-The current pillars are the pillars on the farthest sides, so the width of the water is the largest. For other combinations, the width of the water is smaller. Suppose the height of the left pillar is less than or equal to the height of the right pillar, then the height of the water is the height of the left pillar. If we move the right pillar, the width of the water will decrease, but the height of the water will not increase, so the capacity of the water will definitely decrease. Therefore, we move the left pillar and update the maximum capacity.
+Next, we use a variable $\textit{ans}$ to record the maximum capacity of the container, initially set to $0$.
 
-Repeat this process until the two pillars meet.
+Then, we start a loop. In each iteration, we calculate the current capacity of the container, i.e., $\textit{min}(height[l], height[r]) \times (r - l)$, and compare it with $\textit{ans}$, assigning the larger value to $\textit{ans}$. Then, we compare the values of $height[l]$ and $height[r]$. If $\textit{height}[l] < \textit{height}[r]$, moving the $r$ pointer will not improve the result because the height of the container is determined by the shorter vertical line, so we move the $l$ pointer. Otherwise, we move the $r$ pointer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `height`. The space complexity is $O(1)$.
+After the iteration, we return $\textit{ans}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{height}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -74,15 +76,15 @@ The time complexity is $O(n)$, where $n$ is the length of the array `height`. Th
 ```python
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        i, j = 0, len(height) - 1
+        l, r = 0, len(height) - 1
         ans = 0
-        while i < j:
-            t = (j - i) * min(height[i], height[j])
+        while l < r:
+            t = min(height[l], height[r]) * (r - l)
             ans = max(ans, t)
-            if height[i] < height[j]:
-                i += 1
+            if height[l] < height[r]:
+                l += 1
             else:
-                j -= 1
+                r -= 1
         return ans
 ```
 
@@ -91,15 +93,15 @@ class Solution:
 ```java
 class Solution {
     public int maxArea(int[] height) {
-        int i = 0, j = height.length - 1;
+        int l = 0, r = height.length - 1;
         int ans = 0;
-        while (i < j) {
-            int t = Math.min(height[i], height[j]) * (j - i);
+        while (l < r) {
+            int t = Math.min(height[l], height[r]) * (r - l);
             ans = Math.max(ans, t);
-            if (height[i] < height[j]) {
-                ++i;
+            if (height[l] < height[r]) {
+                ++l;
             } else {
-                --j;
+                --r;
             }
         }
         return ans;
@@ -113,15 +115,15 @@ class Solution {
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        int i = 0, j = height.size() - 1;
+        int l = 0, r = height.size() - 1;
         int ans = 0;
-        while (i < j) {
-            int t = min(height[i], height[j]) * (j - i);
+        while (l < r) {
+            int t = min(height[l], height[r]) * (r - l);
             ans = max(ans, t);
-            if (height[i] < height[j]) {
-                ++i;
+            if (height[l] < height[r]) {
+                ++l;
             } else {
-                --j;
+                --r;
             }
         }
         return ans;
@@ -133,14 +135,14 @@ public:
 
 ```go
 func maxArea(height []int) (ans int) {
-	i, j := 0, len(height)-1
-	for i < j {
-		t := min(height[i], height[j]) * (j - i)
+	l, r := 0, len(height)-1
+	for l < r {
+		t := min(height[l], height[r]) * (r - l)
 		ans = max(ans, t)
-		if height[i] < height[j] {
-			i++
+		if height[l] < height[r] {
+			l++
 		} else {
-			j--
+			r--
 		}
 	}
 	return
@@ -151,16 +153,15 @@ func maxArea(height []int) (ans int) {
 
 ```ts
 function maxArea(height: number[]): number {
-    let i = 0;
-    let j = height.length - 1;
+    let [l, r] = [0, height.length - 1];
     let ans = 0;
-    while (i < j) {
-        const t = Math.min(height[i], height[j]) * (j - i);
+    while (l < r) {
+        const t = Math.min(height[l], height[r]) * (r - l);
         ans = Math.max(ans, t);
-        if (height[i] < height[j]) {
-            ++i;
+        if (height[l] < height[r]) {
+            ++l;
         } else {
-            --j;
+            --r;
         }
     }
     return ans;
@@ -172,15 +173,15 @@ function maxArea(height: number[]): number {
 ```rust
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = height.len() - 1;
+        let mut l = 0;
+        let mut r = height.len() - 1;
         let mut ans = 0;
-        while i < j {
-            ans = ans.max(height[i].min(height[j]) * ((j - i) as i32));
-            if height[i] <= height[j] {
-                i += 1;
+        while l < r {
+            ans = ans.max(height[l].min(height[r]) * ((r - l) as i32));
+            if height[l] < height[r] {
+                l += 1;
             } else {
-                j -= 1;
+                r -= 1;
             }
         }
         ans
@@ -196,16 +197,15 @@ impl Solution {
  * @return {number}
  */
 var maxArea = function (height) {
-    let i = 0;
-    let j = height.length - 1;
+    let [l, r] = [0, height.length - 1];
     let ans = 0;
-    while (i < j) {
-        const t = Math.min(height[i], height[j]) * (j - i);
+    while (l < r) {
+        const t = Math.min(height[l], height[r]) * (r - l);
         ans = Math.max(ans, t);
-        if (height[i] < height[j]) {
-            ++i;
+        if (height[l] < height[r]) {
+            ++l;
         } else {
-            --j;
+            --r;
         }
     }
     return ans;
@@ -217,15 +217,15 @@ var maxArea = function (height) {
 ```cs
 public class Solution {
     public int MaxArea(int[] height) {
-        int i = 0, j = height.Length - 1;
+        int l = 0, r = height.Length - 1;
         int ans = 0;
-        while (i < j) {
-            int t = Math.Min(height[i], height[j]) * (j - i);
+        while (l < r) {
+            int t = Math.Min(height[l], height[r]) * (r - l);
             ans = Math.Max(ans, t);
-            if (height[i] < height[j]) {
-                ++i;
+            if (height[l] < height[r]) {
+                ++l;
             } else {
-                --j;
+                --r;
             }
         }
         return ans;
@@ -242,16 +242,16 @@ class Solution {
      * @return Integer
      */
     function maxArea($height) {
-        $i = 0;
-        $j = count($height) - 1;
+        $l = 0;
+        $r = count($height) - 1;
         $ans = 0;
-        while ($i < $j) {
-            $t = min($height[$i], $height[$j]) * ($j - $i);
+        while ($l < $r) {
+            $t = min($height[$l], $height[$r]) * ($r - $l);
             $ans = max($ans, $t);
-            if ($height[$i] < $height[$j]) {
-                ++$i;
+            if ($height[$l] < $height[$r]) {
+                ++$l;
             } else {
-                --$j;
+                --$r;
             }
         }
         return $ans;
