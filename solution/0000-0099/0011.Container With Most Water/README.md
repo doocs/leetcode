@@ -62,13 +62,15 @@ tags:
 
 ### 方法一：双指针
 
-一开始，我们考虑相距最远的两个柱子所能容纳水的容量。水的宽度是两根柱子之间的距离，而水的高度取决于两根柱子之间较短的那个。
+我们使用两个指针 $l$ 和 $r$ 分别指向数组的左右两端，即 $l = 0$，而 $r = n - 1$，其中 $n$ 是数组的长度。
 
-当前柱子是最两侧的柱子，水的宽度最大，其他的组合，水的宽度都比这个小。不妨假设左侧柱子的高度小于等于右侧柱子的高度，那么水的高度就是左侧柱子的高度。如果我们移动右侧柱子，那么水的宽度就减小了，而水的高度却不会增加，因此水的容量一定减少。所以我们移动左侧柱子，更新最大容量。
+接下来，我们使用变量 $\textit{ans}$ 记录容器的最大容量，初始化为 $0$。
 
-循环此过程，直到两个柱子相遇。
+然后，我们开始进行循环，每次循环中，我们计算当前容器的容量，即 $\textit{min}(height[l], height[r]) \times (r - l)$，并将其与 $\textit{ans}$ 进行比较，将较大值赋给 $\textit{ans}$。然后，我们判断 $height[l]$ 和 $height[r]$ 的大小，如果 $\textit{height}[l] < \textit{height}[r]$，移动 $r$ 指针不会使得结果变得更好，因为容器的高度由较短的那根垂直线决定，所以我们移动 $l$ 指针。反之，我们移动 $r$ 指针。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 `height` 的长度。空间复杂度 $O(1)$。
+遍历结束后，返回 $\textit{ans}$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{height}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -77,15 +79,15 @@ tags:
 ```python
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        i, j = 0, len(height) - 1
+        l, r = 0, len(height) - 1
         ans = 0
-        while i < j:
-            t = (j - i) * min(height[i], height[j])
+        while l < r:
+            t = min(height[l], height[r]) * (r - l)
             ans = max(ans, t)
-            if height[i] < height[j]:
-                i += 1
+            if height[l] < height[r]:
+                l += 1
             else:
-                j -= 1
+                r -= 1
         return ans
 ```
 
@@ -94,15 +96,15 @@ class Solution:
 ```java
 class Solution {
     public int maxArea(int[] height) {
-        int i = 0, j = height.length - 1;
+        int l = 0, r = height.length - 1;
         int ans = 0;
-        while (i < j) {
-            int t = Math.min(height[i], height[j]) * (j - i);
+        while (l < r) {
+            int t = Math.min(height[l], height[r]) * (r - l);
             ans = Math.max(ans, t);
-            if (height[i] < height[j]) {
-                ++i;
+            if (height[l] < height[r]) {
+                ++l;
             } else {
-                --j;
+                --r;
             }
         }
         return ans;
@@ -116,15 +118,15 @@ class Solution {
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        int i = 0, j = height.size() - 1;
+        int l = 0, r = height.size() - 1;
         int ans = 0;
-        while (i < j) {
-            int t = min(height[i], height[j]) * (j - i);
+        while (l < r) {
+            int t = min(height[l], height[r]) * (r - l);
             ans = max(ans, t);
-            if (height[i] < height[j]) {
-                ++i;
+            if (height[l] < height[r]) {
+                ++l;
             } else {
-                --j;
+                --r;
             }
         }
         return ans;
@@ -136,14 +138,14 @@ public:
 
 ```go
 func maxArea(height []int) (ans int) {
-	i, j := 0, len(height)-1
-	for i < j {
-		t := min(height[i], height[j]) * (j - i)
+	l, r := 0, len(height)-1
+	for l < r {
+		t := min(height[l], height[r]) * (r - l)
 		ans = max(ans, t)
-		if height[i] < height[j] {
-			i++
+		if height[l] < height[r] {
+			l++
 		} else {
-			j--
+			r--
 		}
 	}
 	return
@@ -154,16 +156,15 @@ func maxArea(height []int) (ans int) {
 
 ```ts
 function maxArea(height: number[]): number {
-    let i = 0;
-    let j = height.length - 1;
+    let [l, r] = [0, height.length - 1];
     let ans = 0;
-    while (i < j) {
-        const t = Math.min(height[i], height[j]) * (j - i);
+    while (l < r) {
+        const t = Math.min(height[l], height[r]) * (r - l);
         ans = Math.max(ans, t);
-        if (height[i] < height[j]) {
-            ++i;
+        if (height[l] < height[r]) {
+            ++l;
         } else {
-            --j;
+            --r;
         }
     }
     return ans;
@@ -175,15 +176,15 @@ function maxArea(height: number[]): number {
 ```rust
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = height.len() - 1;
+        let mut l = 0;
+        let mut r = height.len() - 1;
         let mut ans = 0;
-        while i < j {
-            ans = ans.max(height[i].min(height[j]) * ((j - i) as i32));
-            if height[i] <= height[j] {
-                i += 1;
+        while l < r {
+            ans = ans.max(height[l].min(height[r]) * ((r - l) as i32));
+            if height[l] < height[r] {
+                l += 1;
             } else {
-                j -= 1;
+                r -= 1;
             }
         }
         ans
@@ -199,16 +200,15 @@ impl Solution {
  * @return {number}
  */
 var maxArea = function (height) {
-    let i = 0;
-    let j = height.length - 1;
+    let [l, r] = [0, height.length - 1];
     let ans = 0;
-    while (i < j) {
-        const t = Math.min(height[i], height[j]) * (j - i);
+    while (l < r) {
+        const t = Math.min(height[l], height[r]) * (r - l);
         ans = Math.max(ans, t);
-        if (height[i] < height[j]) {
-            ++i;
+        if (height[l] < height[r]) {
+            ++l;
         } else {
-            --j;
+            --r;
         }
     }
     return ans;
@@ -220,15 +220,15 @@ var maxArea = function (height) {
 ```cs
 public class Solution {
     public int MaxArea(int[] height) {
-        int i = 0, j = height.Length - 1;
+        int l = 0, r = height.Length - 1;
         int ans = 0;
-        while (i < j) {
-            int t = Math.Min(height[i], height[j]) * (j - i);
+        while (l < r) {
+            int t = Math.Min(height[l], height[r]) * (r - l);
             ans = Math.Max(ans, t);
-            if (height[i] < height[j]) {
-                ++i;
+            if (height[l] < height[r]) {
+                ++l;
             } else {
-                --j;
+                --r;
             }
         }
         return ans;
@@ -245,16 +245,16 @@ class Solution {
      * @return Integer
      */
     function maxArea($height) {
-        $i = 0;
-        $j = count($height) - 1;
+        $l = 0;
+        $r = count($height) - 1;
         $ans = 0;
-        while ($i < $j) {
-            $t = min($height[$i], $height[$j]) * ($j - $i);
+        while ($l < $r) {
+            $t = min($height[$l], $height[$r]) * ($r - $l);
             $ans = max($ans, $t);
-            if ($height[$i] < $height[$j]) {
-                ++$i;
+            if ($height[$l] < $height[$r]) {
+                ++$l;
             } else {
-                --$j;
+                --$r;
             }
         }
         return $ans;

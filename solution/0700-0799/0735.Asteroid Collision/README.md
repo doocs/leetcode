@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个整数数组 <code>asteroids</code>，表示在同一行的小行星。</p>
+<p>给定一个整数数组 <code>asteroids</code>，表示在同一行的小行星。数组中小行星的索引表示它们在空间中的相对位置。</p>
 
 <p>对于数组中的每一个元素，其绝对值表示小行星的大小，正负表示小行星的移动方向（正表示向右移动，负表示向左移动）。每一颗小行星以相同的速度移动。</p>
 
@@ -26,21 +26,21 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>asteroids = [5,10,-5]
 <strong>输出：</strong>[5,10]
 <b>解释：</b>10 和 -5 碰撞后只剩下 10 。 5 和 10 永远不会发生碰撞。</pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>asteroids = [8,-8]
 <strong>输出：</strong>[]
 <b>解释：</b>8 和 -8 碰撞后，两者都发生爆炸。</pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>asteroids = [10,2,-5]

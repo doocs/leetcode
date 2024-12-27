@@ -58,11 +58,13 @@ tags:
 
 ### 方法一：双指针
 
-我们使用两个指针 $i$ 和 $j$，其中指针 $i$ 指向当前已经处理好的序列的尾部，而指针 $j$ 指向待处理序列的头部。初始时 $i=-1$。
+我们用一个指针 $k$ 记录当前待插入的位置，初始时 $k = 0$。
 
-接下来，我们遍历 $j \in [0,n)$，如果 $nums[j] \neq 0$，那么我们就将指针 $i$ 指向的下一个数与 $nums[j]$ 交换，同时将 $i$ 后移。继续遍历，直至 $j$ 到达数组的尾部，该数组的所有非零元素就按照原有顺序被移动到数组的头部，而所有零元素都被移动到了数组的尾部。
+然后我们遍历数组 $\textit{nums}$，每次遇到一个非零数，就将其与 $\textit{nums}[k]$ 交换，同时将 $k$ 的值加 $1$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
+这样我们就可以保证 $\textit{nums}$ 的前 $k$ 个元素都是非零的，且它们的相对顺序与原数组一致。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -71,11 +73,11 @@ tags:
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        i = -1
-        for j, x in enumerate(nums):
+        k = 0
+        for i, x in enumerate(nums):
             if x:
-                i += 1
-                nums[i], nums[j] = nums[j], nums[i]
+                nums[k], nums[i] = nums[i], nums[k]
+                k += 1
 ```
 
 #### Java
@@ -83,12 +85,12 @@ class Solution:
 ```java
 class Solution {
     public void moveZeroes(int[] nums) {
-        int i = -1, n = nums.length;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] != 0) {
-                int t = nums[++i];
-                nums[i] = nums[j];
-                nums[j] = t;
+        int k = 0, n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] != 0) {
+                int t = nums[i];
+                nums[i] = nums[k];
+                nums[k++] = t;
             }
         }
     }
@@ -101,10 +103,10 @@ class Solution {
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int i = -1, n = nums.size();
-        for (int j = 0; j < n; ++j) {
-            if (nums[j]) {
-                swap(nums[++i], nums[j]);
+        int k = 0, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (nums[i]) {
+                swap(nums[i], nums[k++]);
             }
         }
     }
@@ -115,11 +117,11 @@ public:
 
 ```go
 func moveZeroes(nums []int) {
-	i := -1
-	for j, x := range nums {
+	k := 0
+	for i, x := range nums {
 		if x != 0 {
-			i++
-			nums[i], nums[j] = nums[j], nums[i]
+			nums[i], nums[k] = nums[k], nums[i]
+			k++
 		}
 	}
 }
@@ -132,14 +134,11 @@ func moveZeroes(nums []int) {
  Do not return anything, modify nums in-place instead.
  */
 function moveZeroes(nums: number[]): void {
-    const n = nums.length;
-    let i = 0;
-    for (let j = 0; j < n; j++) {
-        if (nums[j]) {
-            if (j > i) {
-                [nums[i], nums[j]] = [nums[j], 0];
-            }
-            i++;
+    let k = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i]) {
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+            ++k;
         }
     }
 }
@@ -150,14 +149,12 @@ function moveZeroes(nums: number[]): void {
 ```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
-        let mut i = 0;
-        for j in 0..nums.len() {
-            if nums[j] != 0 {
-                if j > i {
-                    nums[i] = nums[j];
-                    nums[j] = 0;
-                }
-                i += 1;
+        let mut k = 0;
+        let n = nums.len();
+        for i in 0..n {
+            if nums[i] != 0 {
+                nums.swap(i, k);
+                k += 1;
             }
         }
     }
@@ -172,12 +169,11 @@ impl Solution {
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function (nums) {
-    let i = -1;
-    for (let j = 0; j < nums.length; ++j) {
-        if (nums[j]) {
-            const t = nums[++i];
-            nums[i] = nums[j];
-            nums[j] = t;
+    let k = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i]) {
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+            ++k;
         }
     }
 };
@@ -187,14 +183,12 @@ var moveZeroes = function (nums) {
 
 ```c
 void moveZeroes(int* nums, int numsSize) {
-    int i = 0;
-    for (int j = 0; j < numsSize; j++) {
-        if (nums[j] != 0) {
-            if (j > i) {
-                nums[i] = nums[j];
-                nums[j] = 0;
-            }
-            i++;
+    int k = 0;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] != 0) {
+            int t = nums[i];
+            nums[i] = nums[k];
+            nums[k++] = t;
         }
     }
 }

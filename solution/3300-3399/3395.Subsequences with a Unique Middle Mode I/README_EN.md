@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3395.Su
 
 <!-- description:start -->
 
-<p>Given an integer array <code>nums</code>, find the number of subsequences of size 5 of&nbsp;<code>nums</code> with a <strong>unique middle mode</strong>.</p>
+<p>Given an integer array <code>nums</code>, find the number of <span data-keyword="subsequence-array">subsequences</span> of size 5 of&nbsp;<code>nums</code> with a <strong>unique middle mode</strong>.</p>
 
 <p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
@@ -23,8 +23,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3395.Su
 <p>A sequence of numbers contains a<strong> unique mode</strong> if it has only one mode.</p>
 
 <p>A sequence of numbers <code>seq</code> of size 5 contains a <strong>unique middle mode</strong> if the <em>middle element</em> (<code>seq[2]</code>) is a <strong>unique mode</strong>.</p>
-
-<p>A <strong>subsequence</strong> is a <b>non-empty</b> array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -19,14 +19,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3398.Sm
 <p>You are allowed to perform the following operation on <code>s</code> <strong>at most</strong> <code>numOps</code> times:</p>
 
 <ul>
-	<li>Select any index <code>i</code> (where <code>0 &lt;= i &lt; n</code>) and <strong>flip</strong> <code>s[i]</code>, i.e., if <code>s[i] == &#39;1&#39;</code>, change <code>s[i]</code> to <code>&#39;0&#39;</code> and vice versa.</li>
+	<li>Select any index <code>i</code> (where <code>0 &lt;= i &lt; n</code>) and <strong>flip</strong> <code>s[i]</code>. If <code>s[i] == &#39;1&#39;</code>, change <code>s[i]</code> to <code>&#39;0&#39;</code> and vice versa.</li>
 </ul>
 
-<p>You need to <strong>minimize</strong> the length of the <strong>longest</strong> substring of <code>s</code> such that all the characters in the substring are <strong>identical</strong>.</p>
+<p>You need to <strong>minimize</strong> the length of the <strong>longest</strong> <span data-keyword="substring-nonempty">substring</span> of <code>s</code> such that all the characters in the substring are <strong>identical</strong>.</p>
 
 <p>Return the <strong>minimum</strong> length after the operations.</p>
-
-<p>A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of characters within a string.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

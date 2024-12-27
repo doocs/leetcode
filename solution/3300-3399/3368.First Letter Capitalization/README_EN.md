@@ -68,7 +68,7 @@ Each row contains a unique ID and the corresponding text content.
 +------------+-----------------------------------+-----------------------------------+
 | content_id | original_text                     | converted_text                    |
 +------------+-----------------------------------+-----------------------------------+
-| 1          | hello world of SQL                | Hello World Of SQL                |
+| 1          | hello world of SQL                | Hello World Of Sql                |
 | 2          | the QUICK brown fox               | The Quick Brown Fox               |
 | 3          | data science AND machine learning | Data Science And Machine Learning |
 | 4          | TOP rated programming BOOKS       | Top Rated Programming Books       |
@@ -80,7 +80,7 @@ Each row contains a unique ID and the corresponding text content.
 <ul>
 	<li>For content_id = 1:
 	<ul>
-		<li>Each word&#39;s first letter is capitalized: Hello World Of SQL</li>
+		<li>Each word&#39;s first letter is capitalized: Hello World Of Sql</li>
 	</ul>
 	</li>
 	<li>For content_id = 2:

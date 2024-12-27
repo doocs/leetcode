@@ -4,16 +4,16 @@ class Solution {
      * @return Integer
      */
     function maxArea($height) {
-        $i = 0;
-        $j = count($height) - 1;
+        $l = 0;
+        $r = count($height) - 1;
         $ans = 0;
-        while ($i < $j) {
-            $t = min($height[$i], $height[$j]) * ($j - $i);
+        while ($l < $r) {
+            $t = min($height[$l], $height[$r]) * ($r - $l);
             $ans = max($ans, $t);
-            if ($height[$i] < $height[$j]) {
-                ++$i;
+            if ($height[$l] < $height[$r]) {
+                ++$l;
             } else {
-                --$j;
+                --$r;
             }
         }
         return $ans;

@@ -48,11 +48,13 @@ tags:
 
 ### Solution 1: Two Pointers
 
-We use two pointers $i$ and $j$, where pointer $i$ points to the end of the sequence that has been processed, and pointer $j$ points to the head of the sequence to be processed. Initially, $i=-1$.
+We use a pointer $k$ to record the current position to insert, initially $k = 0$.
 
-Next, we traverse $j \in [0,n)$, if $nums[j] \neq 0$, then we swap the next number pointed by pointer $i$ with $nums[j]$, and move $i$ forward. Continue to traverse until $j$ reaches the end of the array, all non-zero elements of the array are moved to the front of the array in the original order, and all zero elements are moved to the end of the array.
+Then we iterate through the array $\textit{nums}$, and each time we encounter a non-zero number, we swap it with $\textit{nums}[k]$ and increment $k$ by 1.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+This way, we can ensure that the first $k$ elements of $\textit{nums}$ are non-zero, and their relative order is the same as in the original array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -61,11 +63,11 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        i = -1
-        for j, x in enumerate(nums):
+        k = 0
+        for i, x in enumerate(nums):
             if x:
-                i += 1
-                nums[i], nums[j] = nums[j], nums[i]
+                nums[k], nums[i] = nums[i], nums[k]
+                k += 1
 ```
 
 #### Java
@@ -73,12 +75,12 @@ class Solution:
 ```java
 class Solution {
     public void moveZeroes(int[] nums) {
-        int i = -1, n = nums.length;
-        for (int j = 0; j < n; ++j) {
-            if (nums[j] != 0) {
-                int t = nums[++i];
-                nums[i] = nums[j];
-                nums[j] = t;
+        int k = 0, n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] != 0) {
+                int t = nums[i];
+                nums[i] = nums[k];
+                nums[k++] = t;
             }
         }
     }
@@ -91,10 +93,10 @@ class Solution {
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int i = -1, n = nums.size();
-        for (int j = 0; j < n; ++j) {
-            if (nums[j]) {
-                swap(nums[++i], nums[j]);
+        int k = 0, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (nums[i]) {
+                swap(nums[i], nums[k++]);
             }
         }
     }
@@ -105,11 +107,11 @@ public:
 
 ```go
 func moveZeroes(nums []int) {
-	i := -1
-	for j, x := range nums {
+	k := 0
+	for i, x := range nums {
 		if x != 0 {
-			i++
-			nums[i], nums[j] = nums[j], nums[i]
+			nums[i], nums[k] = nums[k], nums[i]
+			k++
 		}
 	}
 }
@@ -122,14 +124,11 @@ func moveZeroes(nums []int) {
  Do not return anything, modify nums in-place instead.
  */
 function moveZeroes(nums: number[]): void {
-    const n = nums.length;
-    let i = 0;
-    for (let j = 0; j < n; j++) {
-        if (nums[j]) {
-            if (j > i) {
-                [nums[i], nums[j]] = [nums[j], 0];
-            }
-            i++;
+    let k = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i]) {
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+            ++k;
         }
     }
 }
@@ -140,14 +139,12 @@ function moveZeroes(nums: number[]): void {
 ```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
-        let mut i = 0;
-        for j in 0..nums.len() {
-            if nums[j] != 0 {
-                if j > i {
-                    nums[i] = nums[j];
-                    nums[j] = 0;
-                }
-                i += 1;
+        let mut k = 0;
+        let n = nums.len();
+        for i in 0..n {
+            if nums[i] != 0 {
+                nums.swap(i, k);
+                k += 1;
             }
         }
     }
@@ -162,12 +159,11 @@ impl Solution {
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function (nums) {
-    let i = -1;
-    for (let j = 0; j < nums.length; ++j) {
-        if (nums[j]) {
-            const t = nums[++i];
-            nums[i] = nums[j];
-            nums[j] = t;
+    let k = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i]) {
+            [nums[i], nums[k]] = [nums[k], nums[i]];
+            ++k;
         }
     }
 };
@@ -177,14 +173,12 @@ var moveZeroes = function (nums) {
 
 ```c
 void moveZeroes(int* nums, int numsSize) {
-    int i = 0;
-    for (int j = 0; j < numsSize; j++) {
-        if (nums[j] != 0) {
-            if (j > i) {
-                nums[i] = nums[j];
-                nums[j] = 0;
-            }
-            i++;
+    int k = 0;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] != 0) {
+            int t = nums[i];
+            nums[i] = nums[k];
+            nums[k++] = t;
         }
     }
 }

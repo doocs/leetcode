@@ -24,7 +24,7 @@ tags:
 
 <p>请你返回字符串 <code>t</code>&nbsp;的 <strong>最小</strong>&nbsp;可能长度。</p>
 
-<p><strong>同位字符串</strong>&nbsp;指的是重新排列一个单词得到的另外一个字符串，原来字符串中的每个字符在新字符串中都恰好只使用一次。</p>
+<p><strong>同位字符串</strong>&nbsp;指的是重新排列一个字符串的字母得到的另外一个字符串。例如，"aab"，"aba" 和 "baa" 是 "aab" 的同位字符串。</p>
 
 <p>&nbsp;</p>
 
