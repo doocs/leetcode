@@ -5,7 +5,7 @@ class Solution {
             s.add(x);
         }
         int ans = 0;
-        for (int x : nums) {
+        for (int x : s) {
             if (!s.contains(x - 1)) {
                 int y = x + 1;
                 while (s.contains(y)) {
