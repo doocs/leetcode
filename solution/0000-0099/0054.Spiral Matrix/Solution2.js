@@ -18,10 +18,10 @@ var spiralOrder = function (matrix) {
         i += dirs[k];
         j += dirs[k + 1];
     }
-    // for (let i = 0; i < m; ++i) {
-    //     for (let j = 0; j < n; ++j) {
-    //         matrix[i][j] -= 300;
-    //     }
-    // }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            matrix[i][j] -= 300;
+        }
+    }
     return ans;
 };

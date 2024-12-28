@@ -1,18 +1,17 @@
 func setZeroes(matrix [][]int) {
-	m, n := len(matrix), len(matrix[0])
-	rows := make([]bool, m)
-	cols := make([]bool, n)
-	for i, row := range matrix {
-		for j, v := range row {
-			if v == 0 {
-				rows[i] = true
-				cols[j] = true
+	row := make([]bool, len(matrix))
+	col := make([]bool, len(matrix[0]))
+	for i := range matrix {
+		for j, x := range matrix[i] {
+			if x == 0 {
+				row[i] = true
+				col[j] = true
 			}
 		}
 	}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if rows[i] || cols[j] {
+	for i := range matrix {
+		for j := range matrix[i] {
+			if row[i] || col[j] {
 				matrix[i][j] = 0
 			}
 		}

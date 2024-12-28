@@ -2,7 +2,7 @@ function spiralOrder(matrix: number[][]): number[] {
     const m = matrix.length;
     const n = matrix[0].length;
     const ans: number[] = [];
-    const vis = new Array(m).fill(0).map(() => new Array(n).fill(false));
+    const vis: boolean[][] = Array.from({ length: m }, () => Array(n).fill(false));
     const dirs = [0, 1, 0, -1, 0];
     for (let h = m * n, i = 0, j = 0, k = 0; h > 0; --h) {
         ans.push(matrix[i][j]);
