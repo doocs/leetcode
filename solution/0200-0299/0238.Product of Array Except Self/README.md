@@ -61,15 +61,15 @@ tags:
 
 ### 方法一：两次遍历
 
-我们定义两个变量 $left$ 和 $right$，分别表示当前元素左边所有元素的乘积和右边所有元素的乘积。初始时 $left=1$, $right=1$。定义一个长度为 $n$ 的答案数组 $ans$。
+我们定义两个变量 $\textit{left}$ 和 $\textit{right}$，分别表示当前元素左边所有元素的乘积和右边所有元素的乘积。初始时 $\textit{left}=1$, $\textit{right}=1$。定义一个长度为 $n$ 的答案数组 $\textit{ans}$。
 
-我们先从左到右遍历数组，对于遍历到的第 $i$ 个元素，我们用 $left$ 更新 $ans[i]$，然后 $left$ 乘以 $nums[i]$。
+我们先从左到右遍历数组，对于遍历到的第 $i$ 个元素，我们用 $\textit{left}$ 更新 $\textit{ans}[i]$，然后 $\textit{left}$ 乘以 $\textit{nums}[i]$。
 
-然后，我们从右到左遍历数组，对于遍历到的第 $i$ 个元素，我们更新 $ans[i]$ 为 $ans[i] \times right$，然后 $right$ 乘以 $nums[i]$。
+然后，我们从右到左遍历数组，对于遍历到的第 $i$ 个元素，我们更新 $\textit{ans}[i]$ 为 $\textit{ans}[i] \times \textit{right}$，然后 $\textit{right}$ 乘以 $\textit{nums}[i]$。
 
-遍历结束后，数组 `ans` 即为所求的答案。
+遍历结束后，返回答案数组 $\textit{ans}$。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 `nums` 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -251,24 +251,6 @@ class Solution {
         }
         return $ans;
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function productExceptSelf(nums: number[]): number[] {
-    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
 }
 ```
 

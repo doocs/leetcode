@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [-1,-100,3,99], k = 2
 <strong>输出：</strong>[3,99,-1,-100]
-<strong>解释:</strong> 
+<strong>解释:</strong>
 向右轮转 1 步: [99,-1,-100,3]
 向右轮转 2 步: [3,99,-1,-100]</pre>
 
@@ -242,25 +242,6 @@ public class Solution {
         }
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def rotate(self, nums: List[int], k: int) -> None:
-        k %= len(nums)
-        nums[:] = nums[-k:] + nums[:-k]
 ```
 
 <!-- tabs:end -->

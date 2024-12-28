@@ -1,15 +1,15 @@
 function firstMissingPositive(nums: number[]): number {
     const n = nums.length;
-    let i = 0;
-    while (i < n) {
-        const j = nums[i] - 1;
-        if (j === i || j < 0 || j >= n || nums[i] === nums[j]) {
-            i++;
-        } else {
+    for (let i = 0; i < n; i++) {
+        while (nums[i] >= 1 && nums[i] <= n && nums[i] !== nums[nums[i] - 1]) {
+            const j = nums[i] - 1;
             [nums[i], nums[j]] = [nums[j], nums[i]];
         }
     }
-
-    const res = nums.findIndex((v, i) => v !== i + 1);
-    return (res === -1 ? n : res) + 1;
+    for (let i = 0; i < n; i++) {
+        if (nums[i] !== i + 1) {
+            return i + 1;
+        }
+    }
+    return n + 1;
 }
