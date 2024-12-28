@@ -54,9 +54,9 @@ tags:
 
 ### Solution 1: In-place Rotation
 
-According to the problem requirements, we actually need to rotate $matrix[i][j]$ to $matrix[j][n - i - 1]$.
+According to the problem requirements, we need to rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.
 
-We can first flip the matrix upside down, that is, swap $matrix[i][j]$ and $matrix[n - i - 1][j]$, and then flip the matrix along the main diagonal, that is, swap $matrix[i][j]$ and $matrix[j][i]$. This way, we can rotate $matrix[i][j]$ to $matrix[j][n - i - 1]$.
+We can first flip the matrix upside down, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[n - i - 1][j]$, and then flip the matrix along the main diagonal, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[j][i]$. This way, we can rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.
 
 The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. The space complexity is $O(1)$.
 

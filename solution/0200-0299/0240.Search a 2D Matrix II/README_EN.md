@@ -62,11 +62,11 @@ tags:
 
 ### Solution 1: Binary Search
 
-Since all elements in each row are sorted in ascending order, we can use binary search to find the first element that is greater than or equal to `target` for each row, and then check if this element is equal to `target`. If it equals `target`, it means the target value has been found, and we directly return `true`. If it does not equal `target`, it means all elements in this row are less than `target`, and we should continue to search the next row.
+Since all elements in each row are sorted in ascending order, for each row, we can use binary search to find the first element greater than or equal to $\textit{target}$, and then check if that element is equal to $\textit{target}$. If it is equal to $\textit{target}$, it means the target value is found, and we return $\text{true}$. If it is not equal to $\textit{target}$, it means all elements in this row are less than $\textit{target}$, and we should continue searching the next row.
 
-If all rows have been searched and the target value has not been found, it means the target value does not exist, so we return `false`.
+If all rows have been searched and the target value is not found, it means the target value does not exist, and we return $\text{false}$.
 
-The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -135,17 +135,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 function searchMatrix(matrix: number[][], target: number): boolean {
     const n = matrix[0].length;
     for (const row of matrix) {
-        let left = 0,
-            right = n;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (row[mid] >= target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        if (left != n && row[left] == target) {
+        const j = _.sortedIndex(row, target);
+        if (j < n && row[j] === target) {
             return true;
         }
     }
@@ -193,17 +184,8 @@ impl Solution {
 var searchMatrix = function (matrix, target) {
     const n = matrix[0].length;
     for (const row of matrix) {
-        let left = 0,
-            right = n;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (row[mid] >= target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        if (left != n && row[left] == target) {
+        const j = _.sortedIndex(row, target);
+        if (j < n && row[j] == target) {
             return true;
         }
     }
@@ -233,17 +215,17 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2: Search from the Bottom Left or Top Right
+### Solution 2: Search from Bottom-Left or Top-Right
 
-Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:
+We start the search from the bottom-left or top-right corner and move towards the top-right or bottom-left direction. Compare the current element $\textit{matrix}[i][j]$ with $\textit{target}$:
 
--   If $\textit{matrix}[i][j] = \textit{target}$, it means the target value has been found, and we directly return `true`.
--   If $\textit{matrix}[i][j] > \textit{target}$, it means all elements in this column from the current position upwards are greater than `target`, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
--   If $\textit{matrix}[i][j] < \textit{target}$, it means all elements in this row from the current position to the right are less than `target`, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
+-   If $\textit{matrix}[i][j] = \textit{target}$, it means the target value is found, and we return $\text{true}$.
+-   If $\textit{matrix}[i][j] > \textit{target}$, it means all elements in this column from the current position upwards are greater than $\textit{target}$, so we move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.
+-   If $\textit{matrix}[i][j] < \textit{target}$, it means all elements in this row from the current position to the right are less than $\textit{target}$, so we move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.
 
-If the search ends and the `target` is still not found, return `false`.
+If the search ends and the $\textit{target}$ is not found, return $\text{false}$.
 
-The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -346,6 +328,33 @@ function searchMatrix(matrix: number[][], target: number): boolean {
         }
     }
     return false;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
+        let m = matrix.len();
+        let n = matrix[0].len();
+        let mut i = m - 1;
+        let mut j = 0;
+        while i >= 0 && j < n {
+            if matrix[i][j] == target {
+                return true;
+            }
+            if matrix[i][j] > target {
+                if i == 0 {
+                    break;
+                }
+                i -= 1;
+            } else {
+                j += 1;
+            }
+        }
+        false
+    }
 }
 ```
 
