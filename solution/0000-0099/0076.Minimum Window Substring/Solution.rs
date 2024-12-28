@@ -1,33 +1,43 @@
+use std::collections::HashMap;
+
 impl Solution {
     pub fn min_window(s: String, t: String) -> String {
-        let (mut need, mut window, mut cnt) = ([0; 256], [0; 256], 0);
+        let mut need: HashMap<char, usize> = HashMap::new();
+        let mut window: HashMap<char, usize> = HashMap::new();
         for c in t.chars() {
-            need[c as usize] += 1;
+            *need.entry(c).or_insert(0) += 1;
         }
-        let (mut j, mut k, mut mi) = (0, -1, 1 << 31);
-        for (i, c) in s.chars().enumerate() {
-            window[c as usize] += 1;
-            if need[c as usize] >= window[c as usize] {
+        let m = s.len();
+        let n = t.len();
+        let mut k = -1;
+        let mut mi = m + 1;
+        let mut cnt = 0;
+
+        let s_bytes = s.as_bytes();
+        let mut l = 0;
+        for r in 0..m {
+            let c = s_bytes[r] as char;
+            *window.entry(c).or_insert(0) += 1;
+            if window[&c] <= *need.get(&c).unwrap_or(&0) {
                 cnt += 1;
             }
-
-            while cnt == t.len() {
-                if i - j + 1 < mi {
-                    k = j as i32;
-                    mi = i - j + 1;
+            while cnt == n {
+                if r - l + 1 < mi {
+                    mi = r - l + 1;
+                    k = l as i32;
                 }
-                let l = s.chars().nth(j).unwrap() as usize;
-                if need[l] >= window[l] {
+
+                let c = s_bytes[l] as char;
+                if window[&c] <= *need.get(&c).unwrap_or(&0) {
                     cnt -= 1;
                 }
-                window[l] -= 1;
-                j += 1;
+                *window.entry(c).or_insert(0) -= 1;
+                l += 1;
             }
         }
         if k < 0 {
-            return "".to_string();
+            return String::new();
         }
-        let k = k as usize;
-        s[k..k + mi].to_string()
+        s[k as usize..(k as usize + mi)].to_string()
     }
 }

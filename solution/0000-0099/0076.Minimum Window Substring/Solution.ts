@@ -1,28 +1,29 @@
 function minWindow(s: string, t: string): string {
-    const need: number[] = new Array(128).fill(0);
-    const window: number[] = new Array(128).fill(0);
-    for (const c of t) {
-        ++need[c.charCodeAt(0)];
+    const need: number[] = Array(128).fill(0);
+    const window: number[] = Array(128).fill(0);
+    for (let i = 0; i < t.length; i++) {
+        need[t.charCodeAt(i)]++;
     }
-    let cnt = 0;
-    let j = 0;
-    let k = -1;
-    let mi = 1 << 30;
-    for (let i = 0; i < s.length; ++i) {
-        ++window[s.charCodeAt(i)];
-        if (need[s.charCodeAt(i)] >= window[s.charCodeAt(i)]) {
-            ++cnt;
+    const [m, n] = [s.length, t.length];
+    let [k, mi, cnt] = [-1, m + 1, 0];
+    for (let l = 0, r = 0; r < m; r++) {
+        let c = s.charCodeAt(r);
+        if (++window[c] <= need[c]) {
+            cnt++;
         }
-        while (cnt === t.length) {
-            if (i - j + 1 < mi) {
-                mi = i - j + 1;
-                k = j;
+        while (cnt === n) {
+            if (r - l + 1 < mi) {
+                mi = r - l + 1;
+                k = l;
             }
-            if (need[s.charCodeAt(j)] >= window[s.charCodeAt(j)]) {
-                --cnt;
+
+            c = s.charCodeAt(l);
+            if (window[c] <= need[c]) {
+                cnt--;
             }
-            --window[s.charCodeAt(j++)];
+            window[c]--;
+            l++;
         }
     }
-    return k < 0 ? '' : s.slice(k, k + mi);
+    return k < 0 ? '' : s.substring(k, k + mi);
 }

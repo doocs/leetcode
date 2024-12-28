@@ -2,26 +2,38 @@ public class Solution {
     public string MinWindow(string s, string t) {
         int[] need = new int[128];
         int[] window = new int[128];
+
         foreach (var c in t) {
-            ++need[c];
+            need[c]++;
         }
-        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
-        for (int i = 0; i < s.Length; ++i) {
-            ++window[s[i]];
-            if (need[s[i]] >= window[s[i]]) {
-                ++cnt;
+
+        int m = s.Length, n = t.Length;
+        int k = -1, mi = m + 1, cnt = 0;
+
+        int l = 0;
+        for (int r = 0; r < m; r++) {
+            char c = s[r];
+            window[c]++;
+
+            if (window[c] <= need[c]) {
+                cnt++;
             }
-            while (cnt == t.Length) {
-                if (i - j + 1 < mi) {
-                    mi = i - j + 1;
-                    k = j;
+
+            while (cnt == n) {
+                if (r - l + 1 < mi) {
+                    mi = r - l + 1;
+                    k = l;
                 }
-                if (need[s[j]] >= window[s[j]]) {
-                    --cnt;
+
+                c = s[l];
+                if (window[c] <= need[c]) {
+                    cnt--;
                 }
-                --window[s[j++]];
+                window[c]--;
+                l++;
             }
         }
+
         return k < 0 ? "" : s.Substring(k, mi);
     }
 }
