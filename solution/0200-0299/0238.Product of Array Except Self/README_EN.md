@@ -51,15 +51,15 @@ tags:
 
 ### Solution 1: Two Passes
 
-We define two variables $left$ and $right$, which represent the product of all elements to the left and right of the current element respectively. Initially, $left=1$, $right=1$. Define an answer array $ans$ of length $n$.
+We define two variables $\textit{left}$ and $\textit{right}$ to represent the product of all elements to the left and right of the current element, respectively. Initially, $\textit{left} = 1$ and $\textit{right} = 1$. We define an answer array $\textit{ans}$ of length $n$.
 
-We first traverse the array from left to right, for the $i$th element we update $ans[i]$ with $left$, then $left$ multiplied by $nums[i]$.
+First, we traverse the array from left to right. For the $i$-th element, we update $\textit{ans}[i]$ with $\textit{left}$, then multiply $\textit{left}$ by $\textit{nums}[i]$.
 
-Then, we traverse the array from right to left, for the $i$th element, we update $ans[i]$ to $ans[i] \times right$, then $right$ multiplied by $nums[i]$.
+Next, we traverse the array from right to left. For the $i$-th element, we update $\textit{ans}[i]$ to $\textit{ans}[i] \times \textit{right}$, then multiply $\textit{right}$ by $\textit{nums}[i]$.
 
-After the traversal, the array `ans` is the answer.
+After the traversal, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `nums`. Ignore the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -241,24 +241,6 @@ class Solution {
         }
         return $ans;
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function productExceptSelf(nums: number[]): number[] {
-    return nums.map((_, i) => nums.reduce((pre, val, j) => pre * (i === j ? 1 : val), 1));
 }
 ```
 
