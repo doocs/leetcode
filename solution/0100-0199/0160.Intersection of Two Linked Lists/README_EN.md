@@ -94,13 +94,13 @@ Explanation: The two lists do not intersect, so return null.
 
 ### Solution 1: Two Pointers
 
-We use two pointers $a$ and $b$ to point to two linked lists $headA$ and $headB$ respectively.
+We use two pointers $a$ and $b$ to point to the heads of the two linked lists $\textit{headA}$ and $\textit{headB}$, respectively.
 
-We traverse the linked lists simultaneously. When $a$ reaches the end of the linked list $headA$, it is repositioned to the head node of the linked list $headB$. When $b$ reaches the end of the linked list $headB$, it is repositioned to the head node of the linked list $headA$.
+Traverse the linked lists simultaneously. When $a$ reaches the end of $\textit{headA}$, redirect it to the head of $\textit{headB}$. Similarly, when $b$ reaches the end of $\textit{headB}$, redirect it to the head of $\textit{headA}$.
 
-If the two pointers meet, the node they point to is the first common node. If they don't meet, it means that the two linked lists have no common nodes. At this time, both pointers point to `null`, and we can return either one.
+If the two pointers meet, the node they point to is the first common node. If they do not meet, it means the two linked lists have no common nodes, and both pointers will point to `null`. Return either pointer.
 
-The time complexity is $O(m+n)$, where $m$ and $n$ are the lengths of the linked lists $headA$ and $headB$ respectively. The space complexity is $O(1)$.
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the linked lists $\textit{headA}$ and $\textit{headB}$, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -217,9 +217,8 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
  */
 
 function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
-    let a = headA;
-    let b = headB;
-    while (a != b) {
+    let [a, b] = [headA, headB];
+    while (a !== b) {
         a = a ? a.next : headB;
         b = b ? b.next : headA;
     }
@@ -244,9 +243,8 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
  * @return {ListNode}
  */
 var getIntersectionNode = function (headA, headB) {
-    let a = headA;
-    let b = headB;
-    while (a != b) {
+    let [a, b] = [headA, headB];
+    while (a !== b) {
         a = a ? a.next : headB;
         b = b ? b.next : headA;
     }
