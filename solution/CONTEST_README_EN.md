@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 430
+
+- [3402. Minimum Operations to Make Columns Strictly Increasing](/solution/3400-3499/3402.Minimum%20Operations%20to%20Make%20Columns%20Strictly%20Increasing/README_EN.md)
+- [3403. Find the Lexicographically Largest String From the Box I](/solution/3400-3499/3403.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20I/README_EN.md)
+- [3404. Count Special Subsequences](/solution/3400-3499/3404.Count%20Special%20Subsequences/README_EN.md)
+- [3405. Count the Number of Arrays with K Matching Adjacent Elements](/solution/3400-3499/3405.Count%20the%20Number%20of%20Arrays%20with%20K%20Matching%20Adjacent%20Elements/README_EN.md)
+
 #### Weekly Contest 429
 
 - [3396. Minimum Number of Operations to Make Elements in Array Distinct](/solution/3300-3399/3396.Minimum%20Number%20of%20Operations%20to%20Make%20Elements%20in%20Array%20Distinct/README_EN.md)

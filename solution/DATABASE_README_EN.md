@@ -303,6 +303,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3374 | [First Letter Capitalization II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README_EN.md)                                                                                 | `Database` | Hard       |        |
 | 3384 | [Team Dominance by Pass Success](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README_EN.md)                                                                               | `Database` | Hard       | 🔒     |
 | 3390 | [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README_EN.md)                                                                                             | `Database` | Hard       | 🔒     |
+| 3401 | [Find Circular Gift Exchange Chains](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README_EN.md)                                                                       |            | Hard       | 🔒     |
 
 ## Copyright
 

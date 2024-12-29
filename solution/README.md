@@ -3411,6 +3411,11 @@
 |  3398  |  [字符相同的最短子字符串 I](/solution/3300-3399/3398.Smallest%20Substring%20With%20Identical%20Characters%20I/README.md)  |    |  困难  |  第 429 场周赛  |
 |  3399  |  [字符相同的最短子字符串 II](/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README.md)  |    |  困难  |  第 429 场周赛  |
 |  3400  |  [右移后的最大匹配索引数](/solution/3400-3499/3400.Maximum%20Number%20of%20Matching%20Indices%20After%20Right%20Shifts/README.md)  |    |  中等  |  🔒  |
+|  3401  |  [Find Circular Gift Exchange Chains](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README.md)  |    |  困难  |  🔒  |
+|  3402  |  [使每一列严格递增的最少操作次数](/solution/3400-3499/3402.Minimum%20Operations%20to%20Make%20Columns%20Strictly%20Increasing/README.md)  |    |  简单  |  第 430 场周赛  |
+|  3403  |  [从盒子中找出字典序最大的字符串 I](/solution/3400-3499/3403.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20I/README.md)  |    |  中等  |  第 430 场周赛  |
+|  3404  |  [统计特殊子序列的数目](/solution/3400-3499/3404.Count%20Special%20Subsequences/README.md)  |    |  中等  |  第 430 场周赛  |
+|  3405  |  [统计恰好有 K 个相等相邻元素的数组数目](/solution/3400-3499/3405.Count%20the%20Number%20of%20Arrays%20with%20K%20Matching%20Adjacent%20Elements/README.md)  |    |  困难  |  第 430 场周赛  |
 
 ## 版权
 

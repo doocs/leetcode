@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [-1,-100,3,99], k = 2
 <strong>输出：</strong>[3,99,-1,-100]
-<strong>解释:</strong>
+<strong>解释:</strong> 
 向右轮转 1 步: [99,-1,-100,3]
 向右轮转 2 步: [3,99,-1,-100]</pre>
 

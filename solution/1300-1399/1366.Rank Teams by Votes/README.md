@@ -55,7 +55,7 @@ C 队获得三票「排位第二」，两票「排位第三」。
 <strong>输入：</strong>votes = ["WXYZ","XYZW"]
 <strong>输出：</strong>"XWYZ"
 <strong>解释：</strong>
-X 队在并列僵局打破后成为排名第一的团队。X 队和 W 队的「排位第一」票数一样，但是 X 队有一票「排位第二」，而 W 没有获得「排位第二」。
+X 队在并列僵局打破后成为排名第一的团队。X 队和 W 队的「排位第一」票数一样，但是 X 队有一票「排位第二」，而 W 没有获得「排位第二」。 
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
