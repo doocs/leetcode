@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> votes = [&quot;ABC&quot;,&quot;ACB&quot;,&quot;ABC&quot;,&quot;ACB&quot;,&quot;ACB&quot;]
 <strong>Output:</strong> &quot;ACB&quot;
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Team A was ranked first place by 5 voters. No other team was voted as first place, so team A is the first team.
 Team B was ranked second by 2 voters and ranked third by 3 voters.
 Team C was ranked second by 3 voters and ranked third by 2 voters.
@@ -49,7 +49,7 @@ As most of the voters ranked C second, team C is the second team, and team B is 
 <strong>Input:</strong> votes = [&quot;WXYZ&quot;,&quot;XYZW&quot;]
 <strong>Output:</strong> &quot;XWYZ&quot;
 <strong>Explanation:</strong>
-X is the winner due to the tie-breaking rule. X has the same votes as W for the first position, but X has one vote in the second position, while W does not have any votes in the second position.
+X is the winner due to the tie-breaking rule. X has the same votes as W for the first position, but X has one vote in the second position, while W does not have any votes in the second position. 
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

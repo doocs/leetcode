@@ -3409,6 +3409,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3398  |  [Smallest Substring With Identical Characters I](/solution/3300-3399/3398.Smallest%20Substring%20With%20Identical%20Characters%20I/README_EN.md)  |    |  Hard  |  Weekly Contest 429  |
 |  3399  |  [Smallest Substring With Identical Characters II](/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 429  |
 |  3400  |  [Maximum Number of Matching Indices After Right Shifts](/solution/3400-3499/3400.Maximum%20Number%20of%20Matching%20Indices%20After%20Right%20Shifts/README_EN.md)  |    |  Medium  |  🔒  |
+|  3401  |  [Find Circular Gift Exchange Chains](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README_EN.md)  |    |  Hard  |  🔒  |
+|  3402  |  [Minimum Operations to Make Columns Strictly Increasing](/solution/3400-3499/3402.Minimum%20Operations%20to%20Make%20Columns%20Strictly%20Increasing/README_EN.md)  |    |  Easy  |  Weekly Contest 430  |
+|  3403  |  [Find the Lexicographically Largest String From the Box I](/solution/3400-3499/3403.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 430  |
+|  3404  |  [Count Special Subsequences](/solution/3400-3499/3404.Count%20Special%20Subsequences/README_EN.md)  |    |  Medium  |  Weekly Contest 430  |
+|  3405  |  [Count the Number of Arrays with K Matching Adjacent Elements](/solution/3400-3499/3405.Count%20the%20Number%20of%20Arrays%20with%20K%20Matching%20Adjacent%20Elements/README_EN.md)  |    |  Hard  |  Weekly Contest 430  |
 
 ## Copyright
 

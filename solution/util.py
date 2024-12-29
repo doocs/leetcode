@@ -161,6 +161,7 @@ def generate_readme(result):
 def generate_question_readme(result):
     for item in result:
         if not item["content_cn"] and not item["content_en"]:
+            print(f"Skip {item['frontend_question_id']} {item['title_cn']}")
             continue
         path = (
             f'./{item["sub_folder"]}/{item["frontend_question_id"]}.{item["title_en"]}'
@@ -356,10 +357,18 @@ def refresh(result):
         path_cn = unquote(str(question["relative_path_cn"]).replace("/solution", "."))
         path_en = unquote(str(question["relative_path_en"]).replace("/solution", "."))
 
-        with open(path_cn, "r", encoding="utf-8") as f1:
-            cn_content = f1.read()
-        with open(path_en, "r", encoding="utf-8") as f2:
-            en_content = f2.read()
+        try:
+            with open(path_cn, "r", encoding="utf-8") as f1:
+                cn_content = f1.read()
+        except Exception as e:
+            print(f"Failed to open {path_cn}: {e}")
+            continue
+        try:
+            with open(path_en, "r", encoding="utf-8") as f2:
+                en_content = f2.read()
+        except Exception as e:
+            print(f"Failed to open {path_en}: {e}")
+            continue
 
         category = question["category"]
 

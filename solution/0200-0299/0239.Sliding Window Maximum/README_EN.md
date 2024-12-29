@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,3,-1,-3,5,3,6,7], k = 3
 <strong>Output:</strong> [3,3,5,5,6,7]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Window position                Max
 ---------------               -----
 [1  3  -1] -3  5  3  6  7       <strong>3</strong>

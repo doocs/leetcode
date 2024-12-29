@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 430 场周赛(2024-12-29 10:30, 90 分钟) 参赛人数 2198
+
+- [3402. 使每一列严格递增的最少操作次数](/solution/3400-3499/3402.Minimum%20Operations%20to%20Make%20Columns%20Strictly%20Increasing/README.md)
+- [3403. 从盒子中找出字典序最大的字符串 I](/solution/3400-3499/3403.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20I/README.md)
+- [3404. 统计特殊子序列的数目](/solution/3400-3499/3404.Count%20Special%20Subsequences/README.md)
+- [3405. 统计恰好有 K 个相等相邻元素的数组数目](/solution/3400-3499/3405.Count%20the%20Number%20of%20Arrays%20with%20K%20Matching%20Adjacent%20Elements/README.md)
+
 #### 第 429 场周赛(2024-12-22 10:30, 90 分钟) 参赛人数 2308
 
 - [3396. 使数组元素互不相同所需的最少操作次数](/solution/3300-3399/3396.Minimum%20Number%20of%20Operations%20to%20Make%20Elements%20in%20Array%20Distinct/README.md)
