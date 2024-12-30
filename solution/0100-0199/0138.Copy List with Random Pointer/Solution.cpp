@@ -13,21 +13,21 @@ public:
     }
 };
 */
+
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
-        unordered_map<Node*, Node*> d;
         Node* dummy = new Node(0);
         Node* tail = dummy;
-        for (auto cur = head; cur; cur = cur->next) {
-            tail->next = new Node(cur->val);
-            tail = tail->next;
-            d[cur] = tail;
+        unordered_map<Node*, Node*> d;
+        for (Node* cur = head; cur; cur = cur->next) {
+            Node* node = new Node(cur->val);
+            tail->next = node;
+            tail = node;
+            d[cur] = node;
         }
-        tail = dummy->next;
-        for (auto cur = head; cur; cur = cur->next) {
-            tail->random = d[cur->random];
-            tail = tail->next;
+        for (Node* cur = head; cur; cur = cur->next) {
+            d[cur]->random = cur->random ? d[cur->random] : nullptr;
         }
         return dummy->next;
     }

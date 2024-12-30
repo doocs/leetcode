@@ -1,17 +1,19 @@
 /**
- * // Definition for a _Node.
- * function _Node(val, next, random) {
- *    this.val = val;
- *    this.next = next;
- *    this.random = random;
- * };
+ * Definition for _Node.
+ * class _Node {
+ *     val: number
+ *     next: _Node | null
+ *     random: _Node | null
+ *
+ *     constructor(val?: number, next?: _Node, random?: _Node) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *         this.random = (random===undefined ? null : random)
+ *     }
+ * }
  */
 
-/**
- * @param {_Node} head
- * @return {_Node}
- */
-var copyRandomList = function (head) {
+function copyRandomList(head: _Node | null): _Node | null {
     if (head === null) {
         return null;
     }
@@ -35,4 +37,4 @@ var copyRandomList = function (head) {
         cur = node;
     }
     return ans;
-};
+}
