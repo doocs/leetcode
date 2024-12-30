@@ -1,51 +1,59 @@
-# Definition for singly-linked list.
-# class ListNode {
-#     public $val;
-#     public $next;
-#     public function __construct($val = 0, $next = null)
-#     {
-#         $this->val = $val;
-#         $this->next = $next;
-#     }
-# }
-
+/**
+ * Definition for a singly-linked list.
+ * class ListNode {
+ *     public $val = 0;
+ *     public $next = null;
+ *     function __construct($val = 0, $next = null) {
+ *         $this->val = $val;
+ *         $this->next = $next;
+ *     }
+ * }
+ */
 class Solution {
     /**
      * @param ListNode $head
-     * @param int $k
+     * @param Integer $k
      * @return ListNode
      */
-
     function reverseKGroup($head, $k) {
         $dummy = new ListNode(0);
         $dummy->next = $head;
-        $prevGroupTail = $dummy;
+        $pre = $dummy;
 
-        while ($head !== null) {
-            $count = 0;
-            $groupHead = $head;
-            $groupTail = $head;
-
-            while ($count < $k && $head !== null) {
-                $head = $head->next;
-                $count++;
-            }
-            if ($count < $k) {
-                $prevGroupTail->next = $groupHead;
-                break;
-            }
-
-            $prev = null;
+        while ($pre !== null) {
+            $cur = $pre;
             for ($i = 0; $i < $k; $i++) {
-                $next = $groupHead->next;
-                $groupHead->next = $prev;
-                $prev = $groupHead;
-                $groupHead = $next;
+                if ($cur->next === null) {
+                    return $dummy->next;
+                }
+                $cur = $cur->next;
             }
-            $prevGroupTail->next = $prev;
-            $prevGroupTail = $groupTail;
+
+            $node = $pre->next;
+            $nxt = $cur->next;
+            $cur->next = null;
+            $pre->next = $this->reverse($node);
+            $node->next = $nxt;
+            $pre = $node;
         }
 
         return $dummy->next;
+    }
+
+    /**
+     * Helper function to reverse a linked list.
+     * @param ListNode $head
+     * @return ListNode
+     */
+    function reverse($head) {
+        $prev = null;
+        $cur = $head;
+        while ($cur !== null) {
+            $nxt = $cur->next;
+            $cur->next = $prev;
+            $prev = $cur;
+            $cur = $nxt;
+        }
+        return $prev;
     }
 }

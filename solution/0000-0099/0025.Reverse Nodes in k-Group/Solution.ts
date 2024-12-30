@@ -11,38 +11,38 @@
  */
 
 function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
-    let dummy = new ListNode(0, head);
+    const dummy = new ListNode(0, head);
     let pre = dummy;
-    // pre->head-> ... ->tail-> next
-    while (head != null) {
-        let tail = pre;
-        for (let i = 0; i < k; ++i) {
-            tail = tail.next;
-            if (tail == null) {
+    while (pre !== null) {
+        let cur: ListNode | null = pre;
+        for (let i = 0; i < k; i++) {
+            cur = cur?.next || null;
+            if (cur === null) {
                 return dummy.next;
             }
         }
-        let t = tail.next;
-        [head, tail] = reverse(head, tail);
-        // set next
-        pre.next = head;
-        tail.next = t;
-        // set new pre and new head
-        pre = tail;
-        head = t;
+
+        const node = pre.next;
+        const nxt = cur?.next || null;
+        cur!.next = null;
+        pre.next = reverse(node);
+        node!.next = nxt;
+        pre = node!;
     }
+
     return dummy.next;
 }
 
-function reverse(head: ListNode, tail: ListNode) {
+function reverse(head: ListNode | null): ListNode | null {
+    let dummy: ListNode | null = null;
     let cur = head;
-    let pre = tail.next;
-    // head -> next -> ... -> tail -> pre
-    while (pre != tail) {
-        let t = cur.next;
-        cur.next = pre;
-        pre = cur;
-        cur = t;
+
+    while (cur !== null) {
+        const nxt = cur.next;
+        cur.next = dummy;
+        dummy = cur;
+        cur = nxt;
     }
-    return [tail, head];
+
+    return dummy;
 }
