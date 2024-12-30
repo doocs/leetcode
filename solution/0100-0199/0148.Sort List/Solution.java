@@ -18,23 +18,23 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode t = slow.next;
+        ListNode l1 = head, l2 = slow.next;
         slow.next = null;
-        ListNode l1 = sortList(head);
-        ListNode l2 = sortList(t);
+        l1 = sortList(l1);
+        l2 = sortList(l2);
         ListNode dummy = new ListNode();
-        ListNode cur = dummy;
+        ListNode tail = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
-                cur.next = l1;
+                tail.next = l1;
                 l1 = l1.next;
             } else {
-                cur.next = l2;
+                tail.next = l2;
                 l2 = l2.next;
             }
-            cur = cur.next;
+            tail = tail.next;
         }
-        cur.next = l1 == null ? l2 : l1;
+        tail.next = l1 != null ? l1 : l2;
         return dummy.next;
     }
 }
