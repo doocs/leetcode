@@ -18,23 +18,24 @@ public class Solution {
         if (head == null) {
             return null;
         }
-        for (Node cur = head; cur != null; ) {
-            Node node = new Node(cur.val, cur.next);
+        Node cur = head;
+        while (cur != null) {
+            Node node = new Node(cur.val);
+            node.next = cur.next;
             cur.next = node;
             cur = node.next;
         }
-        for (Node cur = head; cur != null; cur = cur.next.next) {
-            if (cur.random != null) {
-                cur.next.random = cur.random.next;
-            }
+        cur = head;
+        while (cur != null) {
+            cur.next.random = cur.random == null ? null : cur.random.next;
+            cur = cur.next.next;
         }
+        cur = head;
         Node ans = head.next;
-        for (Node cur = head; cur != null; ) {
-            Node nxt = cur.next;
-            if (nxt != null) {
-                cur.next = nxt.next;
-            }
-            cur = nxt;
+        while (cur.next != null) {
+            Node node = cur.next;
+            cur.next = node.next;
+            cur = node;
         }
         return ans;
     }

@@ -18,16 +18,20 @@ public class Solution {
         Dictionary<Node, Node> d = new Dictionary<Node, Node>();
         Node dummy = new Node(0);
         Node tail = dummy;
+
         for (Node cur = head; cur != null; cur = cur.next) {
-            tail.next = new Node(cur.val);
-            tail = tail.next;
-            d[cur] = tail;
+            Node node = new Node(cur.val);
+            tail.next = node;
+            tail = node;
+            d[cur] = node;
         }
-        tail = dummy.next;
+
         for (Node cur = head; cur != null; cur = cur.next) {
-            tail.random = cur.random == null ? null : d[cur.random];
-            tail = tail.next;
+            if (cur.random != null) {
+                d[cur].random = d[cur.random];
+            }
         }
+
         return dummy.next;
     }
 }
