@@ -10,31 +10,30 @@
  * @return {ListNode}
  */
 var sortList = function (head) {
-    if (!head || !head.next) {
+    if (head === null || head.next === null) {
         return head;
     }
-    let slow = head;
-    let fast = head.next;
-    while (fast && fast.next) {
+    let [slow, fast] = [head, head.next];
+    while (fast !== null && fast.next !== null) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    let t = slow.next;
+    let [l1, l2] = [head, slow.next];
     slow.next = null;
-    let l1 = sortList(head);
-    let l2 = sortList(t);
+    l1 = sortList(l1);
+    l2 = sortList(l2);
     const dummy = new ListNode();
-    let cur = dummy;
-    while (l1 && l2) {
+    let tail = dummy;
+    while (l1 !== null && l2 !== null) {
         if (l1.val <= l2.val) {
-            cur.next = l1;
+            tail.next = l1;
             l1 = l1.next;
         } else {
-            cur.next = l2;
+            tail.next = l2;
             l2 = l2.next;
         }
-        cur = cur.next;
+        tail = tail.next;
     }
-    cur.next = l1 || l2;
+    tail.next = l1 ?? l2;
     return dummy.next;
 };
