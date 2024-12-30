@@ -37,9 +37,9 @@ tags:
 <pre>
 <strong>Input:</strong> low = 3, high = 3, zero = 1, one = 1
 <strong>Output:</strong> 8
-<strong>Explanation:</strong> 
-One possible valid good string is &quot;011&quot;. 
-It can be constructed as follows: &quot;&quot; -&gt; &quot;0&quot; -&gt; &quot;01&quot; -&gt; &quot;011&quot;. 
+<strong>Explanation:</strong>
+One possible valid good string is &quot;011&quot;.
+It can be constructed as follows: &quot;&quot; -&gt; &quot;0&quot; -&gt; &quot;01&quot; -&gt; &quot;011&quot;.
 All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in this example.
 </pre>
 
@@ -189,6 +189,56 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 		return ans
 	}
 	return dfs(0)
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic programming
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function countGoodStrings(low: number, high: number, zero: number, one: number): number {
+    const mod = 10 ** 9 + 7;
+    const f: number[] = new Array(high + 1).fill(0);
+    f[0] = 1;
+
+    for (let i = 1; i <= high; i++) {
+        if (i >= zero) f[i] += f[i - zero];
+        if (i >= one) f[i] += f[i - one];
+        f[i] %= mod;
+    }
+
+    const ans = f.slice(low, high + 1).reduce((acc, cur) => acc + cur, 0);
+
+    return ans % mod;
+}
+```
+
+#### JavaScript
+
+```js
+function countGoodStrings(low, high, zero, one) {
+    const mod = 10 ** 9 + 7;
+    const f[] = new Array(high + 1).fill(0);
+    f[0] = 1;
+
+    for (let i = 1; i <= high; i++) {
+        if (i >= zero) f[i] += f[i - zero];
+        if (i >= one) f[i] += f[i - one];
+        f[i] %= mod;
+    }
+
+    const ans = f.slice(low, high + 1).reduce((acc, cur) => acc + cur, 0);
+
+    return ans % mod;
 }
 ```
 
