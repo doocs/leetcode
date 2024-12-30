@@ -4,28 +4,28 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
-        def reverseList(head):
-            pre, p = None, head
-            while p:
-                q = p.next
-                p.next = pre
-                pre = p
-                p = q
-            return pre
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        def reverse(head: Optional[ListNode]) -> Optional[ListNode]:
+            dummy = ListNode()
+            cur = head
+            while cur:
+                nxt = cur.next
+                cur.next = dummy.next
+                dummy.next = cur
+                cur = nxt
+            return dummy.next
 
-        dummy = ListNode(next=head)
-        pre = cur = dummy
-        while cur.next:
+        dummy = pre = ListNode(next=head)
+        while pre:
+            cur = pre
             for _ in range(k):
                 cur = cur.next
                 if cur is None:
                     return dummy.next
-            t = cur.next
+            node = pre.next
+            nxt = cur.next
             cur.next = None
-            start = pre.next
-            pre.next = reverseList(start)
-            start.next = t
-            pre = start
-            cur = pre
+            pre.next = reverse(node)
+            node.next = nxt
+            pre = node
         return dummy.next

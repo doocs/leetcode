@@ -6,28 +6,36 @@
  * }
  */
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	var dummy *ListNode = &ListNode{}
-	p, cur := dummy, head
-	for cur != nil {
-		start := cur
+	dummy := &ListNode{Next: head}
+	pre := dummy
+
+	for pre != nil {
+		cur := pre
 		for i := 0; i < k; i++ {
+			cur = cur.Next
 			if cur == nil {
-				p.Next = start
 				return dummy.Next
 			}
-			cur = cur.Next
 		}
-		p.Next, p = reverse(start, cur), start
+
+		node := pre.Next
+		nxt := cur.Next
+		cur.Next = nil
+		pre.Next = reverse(node)
+		node.Next = nxt
+		pre = node
 	}
 	return dummy.Next
 }
 
-func reverse(start, end *ListNode) *ListNode {
-	var pre *ListNode = nil
-	for start != end {
-		tmp := start.Next
-		start.Next, pre = pre, start
-		start = tmp
+func reverse(head *ListNode) *ListNode {
+	var dummy *ListNode
+	cur := head
+	for cur != nil {
+		nxt := cur.Next
+		cur.Next = dummy
+		dummy = cur
+		cur = nxt
 	}
-	return pre
+	return dummy
 }
