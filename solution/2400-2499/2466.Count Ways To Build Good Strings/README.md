@@ -198,7 +198,7 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 
 <!-- solution:start -->
 
-### Solution 2: Dynamic programming
+### 方法二：动态规划
 
 <!-- tabs:start -->
 
