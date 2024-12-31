@@ -13,9 +13,8 @@ public:
                 }
             }
         }
-        int ans = 0;
         const int dirs[5] = {-1, 0, 1, 0, -1};
-        for (; q.size() && cnt; ++ans) {
+        for (int ans = 1; q.size() && cnt; ++ans) {
             for (int k = q.size(); k; --k) {
                 auto [i, j] = q.front();
                 q.pop();
@@ -24,11 +23,13 @@ public:
                     if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
                         grid[x][y] = 2;
                         q.emplace(x, y);
-                        --cnt;
+                        if (--cnt == 0) {
+                            return ans;
+                        }
                     }
                 }
             }
         }
-        return cnt > 0 ? -1 : ans;
+        return cnt > 0 ? -1 : 0;
     }
 };

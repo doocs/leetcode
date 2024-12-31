@@ -13,8 +13,7 @@ class Solution {
             }
         }
         final int[] dirs = {-1, 0, 1, 0, -1};
-        int ans = 0;
-        for (; !q.isEmpty() && cnt > 0; ++ans) {
+        for (int ans = 1; !q.isEmpty() && cnt > 0; ++ans) {
             for (int k = q.size(); k > 0; --k) {
                 var p = q.poll();
                 for (int d = 0; d < 4; ++d) {
@@ -22,11 +21,13 @@ class Solution {
                     if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
                         grid[x][y] = 2;
                         q.offer(new int[] {x, y});
-                        --cnt;
+                        if (--cnt == 0) {
+                            return ans;
+                        }
                     }
                 }
             }
         }
-        return cnt > 0 ? -1 : ans;
+        return cnt > 0 ? -1 : 0;
     }
 }
