@@ -12,11 +12,7 @@
 
 function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     const pq = new MinPriorityQueue({ priority: (node: ListNode) => node.val });
-    for (const head of lists) {
-        if (head) {
-            pq.enqueue(head);
-        }
-    }
+    lists.filter(head => head).forEach(head => pq.enqueue(head));
     const dummy: ListNode = new ListNode();
     let cur: ListNode = dummy;
     while (!pq.isEmpty()) {

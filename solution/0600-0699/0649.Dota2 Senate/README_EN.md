@@ -39,9 +39,9 @@ tags:
 <pre>
 <strong>Input:</strong> senate = &quot;RD&quot;
 <strong>Output:</strong> &quot;Radiant&quot;
-<strong>Explanation:</strong> 
-The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1. 
-And the second senator can&#39;t exercise any rights anymore since his right has been banned. 
+<strong>Explanation:</strong>
+The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1.
+And the second senator can&#39;t exercise any rights anymore since his right has been banned.
 And in round 2, the first senator can just announce the victory since he is the only guy in the senate who can vote.
 </pre>
 
@@ -50,10 +50,10 @@ And in round 2, the first senator can just announce the victory since he is the 
 <pre>
 <strong>Input:</strong> senate = &quot;RDD&quot;
 <strong>Output:</strong> &quot;Dire&quot;
-<strong>Explanation:</strong> 
-The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1. 
-And the second senator can&#39;t exercise any rights anymore since his right has been banned. 
-And the third senator comes from Dire and he can ban the first senator&#39;s right in round 1. 
+<strong>Explanation:</strong>
+The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1.
+And the second senator can&#39;t exercise any rights anymore since his right has been banned.
+And the third senator comes from Dire and he can ban the first senator&#39;s right in round 1.
 And in round 2, the third senator can just announce the victory since he is the only guy in the senate who can vote.
 </pre>
 
@@ -72,7 +72,16 @@ And in round 2, the third senator can just announce the victory since he is the 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Queue + Simulation
+
+We create two queues $qr$ and $qd$ to record the indices of the Radiant and Dire senators, respectively. Then we start the simulation, where in each round we dequeue one senator from each queue and perform different operations based on their factions:
+
+-   If the Radiant senator's index is less than the Dire senator's index, the Radiant senator can permanently ban the voting rights of the Dire senator. We add $n$ to the Radiant senator's index and enqueue it back to the end of the queue, indicating that this senator will participate in the next round of voting.
+-   If the Dire senator's index is less than the Radiant senator's index, the Dire senator can permanently ban the voting rights of the Radiant senator. We add $n$ to the Dire senator's index and enqueue it back to the end of the queue, indicating that this senator will participate in the next round of voting.
+
+Finally, when there are only senators from one faction left in the queues, the senators from that faction win.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of senators.
 
 <!-- tabs:start -->
 

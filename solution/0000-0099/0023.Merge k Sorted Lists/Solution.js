@@ -11,11 +11,7 @@
  */
 var mergeKLists = function (lists) {
     const pq = new MinPriorityQueue({ priority: node => node.val });
-    for (const head of lists) {
-        if (head) {
-            pq.enqueue(head);
-        }
-    }
+    lists.filter(head => head).forEach(head => pq.enqueue(head));
     const dummy = new ListNode();
     let cur = dummy;
     while (!pq.isEmpty()) {
