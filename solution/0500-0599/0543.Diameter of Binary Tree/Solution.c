@@ -6,21 +6,20 @@
  *     struct TreeNode *right;
  * };
  */
-
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-
-int dfs(struct TreeNode* root, int* res) {
-    if (!root) {
+int dfs(struct TreeNode* root, int* ans) {
+    if (root == NULL) {
         return 0;
     }
-    int left = dfs(root->left, res);
-    int right = dfs(root->right, res);
-    *res = max(*res, left + right);
-    return max(left, right) + 1;
+    int l = dfs(root->left, ans);
+    int r = dfs(root->right, ans);
+    if (l + r > *ans) {
+        *ans = l + r;
+    }
+    return 1 + (l > r ? l : r);
 }
 
 int diameterOfBinaryTree(struct TreeNode* root) {
-    int res = 0;
-    dfs(root, &res);
-    return res;
+    int ans = 0;
+    dfs(root, &ans);
+    return ans;
 }
