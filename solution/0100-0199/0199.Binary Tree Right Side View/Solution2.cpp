@@ -13,15 +13,15 @@ class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
         vector<int> ans;
-        function<void(TreeNode*, int)> dfs = [&](TreeNode* node, int depth) {
-            if (!node) {
+        auto dfs = [&](this auto&& dfs, TreeNode* root, int depth) -> void {
+            if (!root) {
                 return;
             }
-            if (depth == ans.size()) {
-                ans.emplace_back(node->val);
+            if (ans.size() == depth) {
+                ans.push_back(root->val);
             }
-            dfs(node->right, depth + 1);
-            dfs(node->left, depth + 1);
+            dfs(root->right, depth + 1);
+            dfs(root->left, depth + 1);
         };
         dfs(root, 0);
         return ans;

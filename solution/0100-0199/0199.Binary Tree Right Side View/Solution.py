@@ -11,11 +11,11 @@ class Solution:
             return ans
         q = deque([root])
         while q:
-            ans.append(q[-1].val)
+            ans.append(q[0].val)
             for _ in range(len(q)):
                 node = q.popleft()
-                if node.left:
-                    q.append(node.left)
                 if node.right:
                     q.append(node.right)
+                if node.left:
+                    q.append(node.left)
         return ans

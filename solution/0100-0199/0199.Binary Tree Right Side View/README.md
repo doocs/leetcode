@@ -80,7 +80,7 @@ tags:
 
 ### 方法一：BFS
 
-使用 BFS 层序遍历二叉树，每层最后一个节点即为该层的右视图节点。
+我们可以使用广度优先搜索，定义一个队列 $\textit{q}$，将根节点放入队列中。每次从队列中取出当前层的所有节点，对于当前节点，我们先判断右子树是否存在，若存在则将右子树放入队列中；再判断左子树是否存在，若存在则将左子树放入队列中。这样每次取出队列中的第一个节点即为该层的右视图节点。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树节点个数。
 
@@ -102,13 +102,13 @@ class Solution:
             return ans
         q = deque([root])
         while q:
-            ans.append(q[-1].val)
+            ans.append(q[0].val)
             for _ in range(len(q)):
                 node = q.popleft()
-                if node.left:
-                    q.append(node.left)
                 if node.right:
                     q.append(node.right)
+                if node.left:
+                    q.append(node.left)
         return ans
 ```
 
@@ -139,14 +139,14 @@ class Solution {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            ans.add(q.peekLast().val);
-            for (int n = q.size(); n > 0; --n) {
+            ans.add(q.peekFirst().val);
+            for (int k = q.size(); k > 0; --k) {
                 TreeNode node = q.poll();
-                if (node.left != null) {
-                    q.offer(node.left);
-                }
                 if (node.right != null) {
                     q.offer(node.right);
+                }
+                if (node.left != null) {
+                    q.offer(node.left);
                 }
             }
         }
@@ -177,16 +177,16 @@ public:
             return ans;
         }
         queue<TreeNode*> q{{root}};
-        while (!q.empty()) {
-            ans.emplace_back(q.back()->val);
-            for (int n = q.size(); n; --n) {
-                TreeNode* node = q.front();
+        while (q.size()) {
+            ans.push_back(q.front()->val);
+            for (int k = q.size(); k; --k) {
+                auto node = q.front();
                 q.pop();
-                if (node->left) {
-                    q.push(node->left);
-                }
                 if (node->right) {
                     q.push(node->right);
+                }
+                if (node->left) {
+                    q.push(node->left);
                 }
             }
         }
@@ -212,15 +212,15 @@ func rightSideView(root *TreeNode) (ans []int) {
 	}
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		ans = append(ans, q[len(q)-1].Val)
-		for n := len(q); n > 0; n-- {
+		ans = append(ans, q[0].Val)
+		for k := len(q); k > 0; k-- {
 			node := q[0]
 			q = q[1:]
-			if node.Left != nil {
-				q = append(q, node.Left)
-			}
 			if node.Right != nil {
 				q = append(q, node.Right)
+			}
+			if node.Left != nil {
+				q = append(q, node.Left)
 			}
 		}
 	}
@@ -246,23 +246,24 @@ func rightSideView(root *TreeNode) (ans []int) {
  */
 
 function rightSideView(root: TreeNode | null): number[] {
-    if (!root) {
-        return [];
-    }
-    let q = [root];
     const ans: number[] = [];
-    while (q.length) {
-        const nextq: TreeNode[] = [];
-        ans.push(q.at(-1)!.val);
+    if (!root) {
+        return ans;
+    }
+    const q: TreeNode[] = [root];
+    while (q.length > 0) {
+        ans.push(q[0].val);
+        const nq: TreeNode[] = [];
         for (const { left, right } of q) {
-            if (left) {
-                nextq.push(left);
-            }
             if (right) {
-                nextq.push(right);
+                nq.push(right);
+            }
+            if (left) {
+                nq.push(left);
             }
         }
-        q = nextq;
+        q.length = 0;
+        q.push(...nq);
     }
     return ans;
 }
@@ -294,30 +295,69 @@ use std::collections::VecDeque;
 use std::rc::Rc;
 impl Solution {
     pub fn right_side_view(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = vec![];
+        let mut ans = vec![];
         if root.is_none() {
-            return res;
+            return ans;
         }
         let mut q = VecDeque::new();
         q.push_back(root);
         while !q.is_empty() {
-            let n = q.len();
-            res.push(q[n - 1].as_ref().unwrap().borrow().val);
-            for _ in 0..n {
+            let k = q.len();
+            ans.push(q[0].as_ref().unwrap().borrow().val);
+            for _ in 0..k {
                 if let Some(node) = q.pop_front().unwrap() {
                     let mut node = node.borrow_mut();
-                    if node.left.is_some() {
-                        q.push_back(node.left.take());
-                    }
                     if node.right.is_some() {
                         q.push_back(node.right.take());
+                    }
+                    if node.left.is_some() {
+                        q.push_back(node.left.take());
                     }
                 }
             }
         }
-        res
+        ans
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var rightSideView = function (root) {
+    const ans = [];
+    if (!root) {
+        return ans;
+    }
+    const q = [root];
+    while (q.length > 0) {
+        ans.push(q[0].val);
+        const nq = [];
+        for (const { left, right } of q) {
+            if (right) {
+                nq.push(right);
+            }
+            if (left) {
+                nq.push(left);
+            }
+        }
+        q.length = 0;
+        q.push(...nq);
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
@@ -345,13 +385,13 @@ impl Solution {
 #         self.right = right
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        def dfs(node, depth):
-            if node is None:
+        def dfs(root: Optional[TreeNode], depth: int) -> None:
+            if root is None:
                 return
-            if depth == len(ans):
-                ans.append(node.val)
-            dfs(node.right, depth + 1)
-            dfs(node.left, depth + 1)
+            if len(ans) == depth:
+                ans.append(root.val)
+            dfs(root.right, depth + 1)
+            dfs(root.left, depth + 1)
 
         ans = []
         dfs(root, 0)
@@ -384,15 +424,15 @@ class Solution {
         return ans;
     }
 
-    private void dfs(TreeNode node, int depth) {
-        if (node == null) {
+    private void dfs(TreeNode root, int depth) {
+        if (root == null) {
             return;
         }
-        if (depth == ans.size()) {
-            ans.add(node.val);
+        if (ans.size() == depth) {
+            ans.add(root.val);
         }
-        dfs(node.right, depth + 1);
-        dfs(node.left, depth + 1);
+        dfs(root.right, depth + 1);
+        dfs(root.left, depth + 1);
     }
 }
 ```
@@ -415,15 +455,15 @@ class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
         vector<int> ans;
-        function<void(TreeNode*, int)> dfs = [&](TreeNode* node, int depth) {
-            if (!node) {
+        auto dfs = [&](this auto&& dfs, TreeNode* root, int depth) -> void {
+            if (!root) {
                 return;
             }
-            if (depth == ans.size()) {
-                ans.emplace_back(node->val);
+            if (ans.size() == depth) {
+                ans.push_back(root->val);
             }
-            dfs(node->right, depth + 1);
-            dfs(node->left, depth + 1);
+            dfs(root->right, depth + 1);
+            dfs(root->left, depth + 1);
         };
         dfs(root, 0);
         return ans;
@@ -444,15 +484,15 @@ public:
  */
 func rightSideView(root *TreeNode) (ans []int) {
 	var dfs func(*TreeNode, int)
-	dfs = func(node *TreeNode, depth int) {
-		if node == nil {
+	dfs = func(root *TreeNode, depth int) {
+		if root == nil {
 			return
 		}
-		if depth == len(ans) {
-			ans = append(ans, node.Val)
+		if len(ans) == depth {
+			ans = append(ans, root.Val)
 		}
-		dfs(node.Right, depth+1)
-		dfs(node.Left, depth+1)
+		dfs(root.Right, depth+1)
+		dfs(root.Left, depth+1)
 	}
 	dfs(root, 0)
 	return
@@ -478,19 +518,93 @@ func rightSideView(root *TreeNode) (ans []int) {
 
 function rightSideView(root: TreeNode | null): number[] {
     const ans = [];
-    const dfs = (node: TreeNode | null, depth: number) => {
-        if (!node) {
+    const dfs = (root: TreeNode | null, depth: number) => {
+        if (!root) {
             return;
         }
-        if (depth == ans.length) {
-            ans.push(node.val);
+        if (ans.length == depth) {
+            ans.push(root.val);
         }
-        dfs(node.right, depth + 1);
-        dfs(node.left, depth + 1);
+        dfs(root.right, depth + 1);
+        dfs(root.left, depth + 1);
     };
     dfs(root, 0);
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::rc::Rc;
+impl Solution {
+    pub fn right_side_view(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut ans = Vec::new();
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, depth: usize, ans: &mut Vec<i32>) {
+            if let Some(node_ref) = node {
+                let node = node_ref.borrow();
+                if ans.len() == depth {
+                    ans.push(node.val);
+                }
+                dfs(node.right.clone(), depth + 1, ans);
+                dfs(node.left.clone(), depth + 1, ans);
+            }
+        }
+        dfs(root, 0, &mut ans);
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var rightSideView = function (root) {
+    const ans = [];
+    const dfs = (root, depth) => {
+        if (!root) {
+            return;
+        }
+        if (ans.length == depth) {
+            ans.push(root.val);
+        }
+        dfs(root.right, depth + 1);
+        dfs(root.left, depth + 1);
+    };
+    dfs(root, 0);
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
