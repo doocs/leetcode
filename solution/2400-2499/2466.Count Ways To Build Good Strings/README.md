@@ -225,9 +225,16 @@ function countGoodStrings(low: number, high: number, zero: number, one: number):
 #### JavaScript
 
 ```js
+/**
+ * @param {number} low
+ * @param {number} high
+ * @param {number} zero
+ * @param {number} one
+ * @return {number}
+ */
 function countGoodStrings(low, high, zero, one) {
     const mod = 10 ** 9 + 7;
-    const f[] = new Array(high + 1).fill(0);
+    const f = Array(high + 1).fill(0);
     f[0] = 1;
 
     for (let i = 1; i <= high; i++) {
