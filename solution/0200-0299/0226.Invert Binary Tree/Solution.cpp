@@ -12,15 +12,13 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-        function<void(TreeNode*)> dfs = [&](TreeNode* root) {
-            if (!root) {
-                return;
-            }
-            swap(root->left, root->right);
-            dfs(root->left);
-            dfs(root->right);
-        };
-        dfs(root);
+        if (!root) {
+            return root;
+        }
+        TreeNode* l = invertTree(root->left);
+        TreeNode* r = invertTree(root->right);
+        root->left = r;
+        root->right = l;
         return root;
     }
 };
