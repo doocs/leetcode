@@ -19,19 +19,20 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn to_bst(nums: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
-        if start >= end {
-            return None;
-        }
-        let mid = start + (end - start) / 2;
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: nums[mid],
-            left: Self::to_bst(nums, start, mid),
-            right: Self::to_bst(nums, mid + 1, end),
-        })))
-    }
-
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        Self::to_bst(&nums, 0, nums.len())
+        fn dfs(nums: &Vec<i32>, l: usize, r: usize) -> Option<Rc<RefCell<TreeNode>>> {
+            if l > r {
+                return None;
+            }
+            let mid = (l + r) / 2;
+            if mid >= nums.len() {
+                return None;
+            }
+            let mut node = Rc::new(RefCell::new(TreeNode::new(nums[mid])));
+            node.borrow_mut().left = dfs(nums, l, mid - 1);
+            node.borrow_mut().right = dfs(nums, mid + 1, r);
+            Some(node)
+        }
+        dfs(&nums, 0, nums.len() - 1)
     }
 }
