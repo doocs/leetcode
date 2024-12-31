@@ -26,8 +26,6 @@ class Solution {
             return null;
         }
         int mid = (l + r) >> 1;
-        TreeNode left = dfs(l, mid - 1);
-        TreeNode right = dfs(mid + 1, r);
-        return new TreeNode(nums[mid], left, right);
+        return new TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r));
     }
 }
