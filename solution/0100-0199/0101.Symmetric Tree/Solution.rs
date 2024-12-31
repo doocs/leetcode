@@ -19,22 +19,24 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(root1: &Option<Rc<RefCell<TreeNode>>>, root2: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if root1.is_none() && root2.is_none() {
-            return true;
-        }
-        if root1.is_none() || root2.is_none() {
-            return false;
-        }
-        let node1 = root1.as_ref().unwrap().borrow();
-        let node2 = root2.as_ref().unwrap().borrow();
-        node1.val == node2.val
-            && Self::dfs(&node1.left, &node2.right)
-            && Self::dfs(&node1.right, &node2.left)
-    }
-
     pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        let node = root.as_ref().unwrap().borrow();
-        Self::dfs(&node.left, &node.right)
+        fn dfs(root1: Option<Rc<RefCell<TreeNode>>>, root2: Option<Rc<RefCell<TreeNode>>>) -> bool {
+            match (root1, root2) {
+                (Some(node1), Some(node2)) => {
+                    let node1 = node1.borrow();
+                    let node2 = node2.borrow();
+                    node1.val == node2.val
+                        && dfs(node1.left.clone(), node2.right.clone())
+                        && dfs(node1.right.clone(), node2.left.clone())
+                }
+                (None, None) => true,
+                _ => false,
+            }
+        }
+
+        match root {
+            Some(root) => dfs(root.borrow().left.clone(), root.borrow().right.clone()),
+            None => true,
+        }
     }
 }

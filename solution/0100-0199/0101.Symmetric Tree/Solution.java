@@ -15,11 +15,11 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        return dfs(root, root);
+        return dfs(root.left, root.right);
     }
 
     private boolean dfs(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null) {
+        if (root1 == root2) {
             return true;
         }
         if (root1 == null || root2 == null || root1.val != root2.val) {
