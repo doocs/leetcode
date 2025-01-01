@@ -16,16 +16,15 @@ public class Solution {
                 q.Enqueue(i);
             }
         }
-        var cnt = 0;
         while (q.Count > 0) {
             int i = q.Dequeue();
-            ++cnt;
+            --numCourses;
             foreach (int j in g[i]) {
                 if (--indeg[j] == 0) {
                     q.Enqueue(j);
                 }
             }
         }
-        return cnt == numCourses;
+        return numCourses == 0;
     }
 }
