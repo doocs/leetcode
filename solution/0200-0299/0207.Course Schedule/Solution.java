@@ -14,16 +14,15 @@ class Solution {
                 q.offer(i);
             }
         }
-        int cnt = 0;
         while (!q.isEmpty()) {
             int i = q.poll();
-            ++cnt;
+            --numCourses;
             for (int j : g[i]) {
                 if (--indeg[j] == 0) {
                     q.offer(j);
                 }
             }
         }
-        return cnt == numCourses;
+        return numCourses == 0;
     }
 }

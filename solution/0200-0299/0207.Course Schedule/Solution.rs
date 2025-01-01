@@ -1,47 +1,35 @@
 use std::collections::VecDeque;
 
 impl Solution {
-    #[allow(dead_code)]
-    pub fn can_finish(num_course: i32, prerequisites: Vec<Vec<i32>>) -> bool {
-        let num_course = num_course as usize;
-        // The graph representation
-        let mut graph: Vec<Vec<i32>> = vec![vec![]; num_course];
-        // Record the in degree for each node
-        let mut in_degree_vec: Vec<i32> = vec![0; num_course];
-        let mut q: VecDeque<usize> = VecDeque::new();
-        let mut count = 0;
+    pub fn can_finish(mut num_courses: i32, prerequisites: Vec<Vec<i32>>) -> bool {
+        let mut g: Vec<Vec<i32>> = vec![vec![]; num_courses as usize];
+        let mut indeg: Vec<i32> = vec![0; num_courses as usize];
 
-        // Initialize the graph & in degree vector
-        for p in &prerequisites {
-            let (from, to) = (p[0], p[1]);
-            graph[from as usize].push(to);
-            in_degree_vec[to as usize] += 1;
+        for p in prerequisites {
+            let a = p[0] as usize;
+            let b = p[1] as usize;
+            g[b].push(a as i32);
+            indeg[a] += 1;
         }
 
-        // Enqueue the first batch of nodes with in degree 0
-        for i in 0..num_course {
-            if in_degree_vec[i] == 0 {
-                q.push_back(i);
+        let mut q: VecDeque<usize> = VecDeque::new();
+        for i in 0..num_courses {
+            if indeg[i as usize] == 0 {
+                q.push_back(i as usize);
             }
         }
 
-        // Begin the traverse & update through the graph
-        while !q.is_empty() {
-            // Get the current node index
-            let index = q.front().unwrap().clone();
-            // This course can be finished
-            count += 1;
-            q.pop_front();
-            for i in &graph[index] {
-                // Update the in degree for the current node
-                in_degree_vec[*i as usize] -= 1;
-                // See if can be enqueued
-                if in_degree_vec[*i as usize] == 0 {
-                    q.push_back(*i as usize);
+        while let Some(i) = q.pop_front() {
+            num_courses -= 1;
+            for &j in &g[i] {
+                let j = j as usize;
+                indeg[j] -= 1;
+                if indeg[j] == 0 {
+                    q.push_back(j);
                 }
             }
         }
 
-        count == num_course
+        num_courses == 0
     }
 }
