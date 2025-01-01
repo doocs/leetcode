@@ -62,22 +62,14 @@ Similar problems:
 ```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        return list(permutations(nums))
-```
-
-#### Python3
-
-```python
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        def dfs(i):
-            if i == n:
+        def dfs(i: int):
+            if i >= n:
                 ans.append(t[:])
                 return
-            for j in range(n):
+            for j, x in enumerate(nums):
                 if not vis[j]:
                     vis[j] = True
-                    t[i] = nums[j]
+                    t[i] = x
                     dfs(i + 1)
                     vis[j] = False
 
@@ -133,7 +125,7 @@ public:
         vector<vector<int>> ans;
         vector<int> t(n);
         vector<bool> vis(n);
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> void {
             if (i == n) {
                 ans.emplace_back(t);
                 return;
@@ -166,10 +158,10 @@ func permute(nums []int) (ans [][]int) {
 			ans = append(ans, slices.Clone(t))
 			return
 		}
-		for j, v := range nums {
+		for j, x := range nums {
 			if !vis[j] {
 				vis[j] = true
-				t[i] = v
+				t[i] = x
 				dfs(i + 1)
 				vis[j] = false
 			}
@@ -185,19 +177,25 @@ func permute(nums []int) (ans [][]int) {
 ```ts
 function permute(nums: number[]): number[][] {
     const n = nums.length;
-    const res: number[][] = [];
+    const ans: number[][] = [];
+    const vis: boolean[] = Array(n).fill(false);
+    const t: number[] = Array(n).fill(0);
     const dfs = (i: number) => {
-        if (i === n) {
-            res.push([...nums]);
+        if (i >= n) {
+            ans.push(t.slice());
+            return;
         }
-        for (let j = i; j < n; j++) {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-            dfs(i + 1);
-            [nums[i], nums[j]] = [nums[j], nums[i]];
+        for (let j = 0; j < n; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                t[i] = nums[j];
+                dfs(i + 1);
+                vis[j] = false;
+            }
         }
     };
     dfs(0);
-    return res;
+    return ans;
 }
 ```
 
@@ -205,23 +203,34 @@ function permute(nums: number[]): number[][] {
 
 ```rust
 impl Solution {
-    fn dfs(i: usize, nums: &mut Vec<i32>, res: &mut Vec<Vec<i32>>) {
+    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
         let n = nums.len();
-        if i == n {
-            res.push(nums.clone());
-            return;
+        let mut ans = Vec::new();
+        let mut t = vec![0; n];
+        let mut vis = vec![false; n];
+        fn dfs(
+            nums: &Vec<i32>,
+            n: usize,
+            t: &mut Vec<i32>,
+            vis: &mut Vec<bool>,
+            ans: &mut Vec<Vec<i32>>,
+            i: usize
+        ) {
+            if i == n {
+                ans.push(t.clone());
+                return;
+            }
+            for j in 0..n {
+                if !vis[j] {
+                    vis[j] = true;
+                    t[i] = nums[j];
+                    dfs(nums, n, t, vis, ans, i + 1);
+                    vis[j] = false;
+                }
+            }
         }
-        for j in i..n {
-            nums.swap(i, j);
-            Self::dfs(i + 1, nums, res);
-            nums.swap(i, j);
-        }
-    }
-
-    pub fn permute(mut nums: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        Self::dfs(0, &mut nums, &mut res);
-        res
+        dfs(&nums, n, &mut t, &mut vis, &mut ans, 0);
+        ans
     }
 }
 ```
@@ -236,23 +245,22 @@ impl Solution {
 var permute = function (nums) {
     const n = nums.length;
     const ans = [];
-    const t = [];
-    const vis = new Array(n).fill(false);
-    function dfs(i) {
+    const vis = Array(n).fill(false);
+    const t = Array(n).fill(0);
+    const dfs = i => {
         if (i >= n) {
-            ans.push([...t]);
+            ans.push(t.slice());
             return;
         }
         for (let j = 0; j < n; ++j) {
             if (!vis[j]) {
                 vis[j] = true;
-                t.push(nums[j]);
+                t[i] = nums[j];
                 dfs(i + 1);
                 vis[j] = false;
-                t.pop();
             }
         }
-    }
+    };
     dfs(0);
     return ans;
 };
