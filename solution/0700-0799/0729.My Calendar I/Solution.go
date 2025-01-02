@@ -8,19 +8,16 @@ func Constructor() MyCalendar {
 	}
 }
 
-func (this *MyCalendar) Book(start int, end int) bool {
-	if p, ok := this.rbt.Floor(start); ok && p.Value.(int) > start {
+func (this *MyCalendar) Book(startTime int, endTime int) bool {
+	if p, ok := this.rbt.Ceiling(startTime + 1); ok && p.Value.(int) < endTime {
 		return false
 	}
-	if p, ok := this.rbt.Ceiling(start); ok && p.Key.(int) < end {
-		return false
-	}
-	this.rbt.Put(start, end)
+	this.rbt.Put(endTime, startTime)
 	return true
 }
 
 /**
  * Your MyCalendar object will be instantiated and called as such:
  * obj := Constructor();
- * param_1 := obj.Book(start,end);
+ * param_1 := obj.Book(startTime,endTime);
  */
