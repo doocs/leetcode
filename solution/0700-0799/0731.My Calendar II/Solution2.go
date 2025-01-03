@@ -88,16 +88,16 @@ func Constructor() MyCalendarTwo {
 	return MyCalendarTwo{newSegmentTree()}
 }
 
-func (this *MyCalendarTwo) Book(start int, end int) bool {
-	if this.tree.query(start+1, end, this.tree.root) >= 2 {
+func (this *MyCalendarTwo) Book(startTime int, endTime int) bool {
+	if this.tree.query(startTime+1, endTime, this.tree.root) >= 2 {
 		return false
 	}
-	this.tree.modify(start+1, end, 1, this.tree.root)
+	this.tree.modify(startTime+1, endTime, 1, this.tree.root)
 	return true
 }
 
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * obj := Constructor();
- * param_1 := obj.Book(start,end);
+ * param_1 := obj.Book(startTime,endTime);
  */

@@ -1,28 +1,30 @@
 type MyCalendarTwo struct {
-	*redblacktree.Tree
+	rbt *redblacktree.Tree[int, int]
 }
 
 func Constructor() MyCalendarTwo {
-	return MyCalendarTwo{redblacktree.NewWithIntComparator()}
+	return MyCalendarTwo{rbt: redblacktree.New[int, int]()}
 }
 
-func (this *MyCalendarTwo) Book(start int, end int) bool {
-	add := func(key, val int) {
-		if v, ok := this.Get(key); ok {
-			this.Put(key, v.(int)+val)
+func (this *MyCalendarTwo) Book(startTime int, endTime int) bool {
+	merge := func(x, v int) {
+		c, _ := this.rbt.Get(x)
+		if c+v == 0 {
+			this.rbt.Remove(x)
 		} else {
-			this.Put(key, val)
+			this.rbt.Put(x, c+v)
 		}
 	}
-	add(start, 1)
-	add(end, -1)
+
+	merge(startTime, 1)
+	merge(endTime, -1)
+
 	s := 0
-	it := this.Iterator()
-	for it.Next() {
-		s += it.Value().(int)
+	for _, v := range this.rbt.Values() {
+		s += v
 		if s > 2 {
-			add(start, -1)
-			add(end, 1)
+			merge(startTime, -1)
+			merge(endTime, 1)
 			return false
 		}
 	}
@@ -32,5 +34,5 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * obj := Constructor();
- * param_1 := obj.Book(start,end);
+ * param_1 := obj.Book(startTime,endTime);
  */

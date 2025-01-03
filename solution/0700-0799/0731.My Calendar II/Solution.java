@@ -1,18 +1,18 @@
 class MyCalendarTwo {
-    private Map<Integer, Integer> tm = new TreeMap<>();
+    private final Map<Integer, Integer> tm = new TreeMap<>();
 
     public MyCalendarTwo() {
     }
 
-    public boolean book(int start, int end) {
-        tm.put(start, tm.getOrDefault(start, 0) + 1);
-        tm.put(end, tm.getOrDefault(end, 0) - 1);
+    public boolean book(int startTime, int endTime) {
+        tm.merge(startTime, 1, Integer::sum);
+        tm.merge(endTime, -1, Integer::sum);
         int s = 0;
         for (int v : tm.values()) {
             s += v;
             if (s > 2) {
-                tm.put(start, tm.get(start) - 1);
-                tm.put(end, tm.get(end) + 1);
+                tm.merge(startTime, -1, Integer::sum);
+                tm.merge(endTime, 1, Integer::sum);
                 return false;
             }
         }
@@ -23,5 +23,5 @@ class MyCalendarTwo {
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * MyCalendarTwo obj = new MyCalendarTwo();
- * boolean param_1 = obj.book(start,end);
+ * boolean param_1 = obj.book(startTime,endTime);
  */
