@@ -1,32 +1,34 @@
 var MyCalendarTwo = function () {
-    this.events = [];
-    this.overlaps = [];
+    this.tm = {};
 };
 
 /**
- * @param {number} start
- * @param {number} end
+ * @param {number} startTime
+ * @param {number} endTime
  * @return {boolean}
  */
-MyCalendarTwo.prototype.book = function (start, end) {
-    for (let [s, e] of this.overlaps) {
-        if (Math.max(start, s) < Math.min(end, e)) {
+MyCalendarTwo.prototype.book = function (startTime, endTime) {
+    this.tm[startTime] = (this.tm[startTime] || 0) + 1;
+    this.tm[endTime] = (this.tm[endTime] || 0) - 1;
+    let s = 0;
+
+    for (const v of Object.values(this.tm)) {
+        s += v;
+        if (s > 2) {
+            if (--this.tm[startTime] === 0) {
+                delete this.tm[startTime];
+            }
+            if (++this.tm[endTime] === 0) {
+                delete this.tm[endTime];
+            }
             return false;
         }
     }
-
-    for (let [s, e] of this.events) {
-        if (Math.max(start, s) < Math.min(end, e)) {
-            this.overlaps.push([Math.max(start, s), Math.min(end, e)]);
-        }
-    }
-
-    this.events.push([start, end]);
     return true;
 };
 
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * var obj = new MyCalendarTwo()
- * var param_1 = obj.book(start,end)
+ * var param_1 = obj.book(startTime,endTime)
  */
