@@ -6,7 +6,7 @@ public:
         for (auto& e : graph) {
             g[e[0]].push_back(e[1]);
         }
-        function<bool(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> bool {
             if (i == target) {
                 return true;
             }

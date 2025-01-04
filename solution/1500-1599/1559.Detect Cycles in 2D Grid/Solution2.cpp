@@ -4,7 +4,7 @@ public:
         int m = grid.size(), n = grid[0].size();
         vector<vector<bool>> vis(m, vector<bool>(n));
         const vector<int> dirs = {-1, 0, 1, 0, -1};
-        function<bool(int, int, int, int)> dfs = [&](int x, int y, int px, int py) {
+        auto dfs = [&](this auto&& dfs, int x, int y, int px, int py) -> bool {
             vis[x][y] = true;
             for (int k = 0; k < 4; ++k) {
                 int nx = x + dirs[k], ny = y + dirs[k + 1];

@@ -149,14 +149,14 @@ public:
         }
         vector<vector<string>> ans;
         vector<string> t;
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> void {
             if (i == n) {
-                ans.push_back(t);
+                ans.emplace_back(t);
                 return;
             }
             for (int j = i; j < n; ++j) {
                 if (f[i][j]) {
-                    t.push_back(s.substr(i, j - i + 1));
+                    t.emplace_back(s.substr(i, j - i + 1));
                     dfs(j + 1);
                     t.pop_back();
                 }
