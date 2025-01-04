@@ -24,19 +24,19 @@ Given sorted array: [-10,-3,0,5,9],
 
 
 
-One possible answer is: [0,-3,9,-10,null,5]，which represents the following tree: 
+One possible answer is: [0,-3,9,-10,null,5]，which represents the following tree:
 
 
 
-          0 
+          0
 
-         / \ 
+         / \
 
-       -3   9 
+       -3   9
 
-       /   / 
+       /   /
 
-     -10  5 
+     -10  5
 
 </pre>
 
@@ -127,7 +127,7 @@ class Solution {
 class Solution {
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        function<TreeNode*(int, int)> dfs = [&](int l, int r) -> TreeNode* {
+        auto dfs = [&](this auto&& dfs, int l, int r) -> TreeNode* {
             if (l > r) {
                 return nullptr;
             }

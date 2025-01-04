@@ -32,7 +32,7 @@ tags:
 <pre>
 <strong>Input:</strong> root = [5,6,1]
 <strong>Output:</strong> 6.00000
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 For the node with value = 5 we have an average of (5 + 6 + 1) / 3 = 4.
 For the node with value = 6 we have an average of 6 / 1 = 6.
 For the node with value = 1 we have an average of 1 / 1 = 1.
@@ -163,7 +163,7 @@ class Solution {
 public:
     double maximumAverageSubtree(TreeNode* root) {
         double ans = 0;
-        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> pair<int, int> {
             if (!root) {
                 return {0, 0};
             }

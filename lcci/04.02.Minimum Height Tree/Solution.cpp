@@ -10,7 +10,7 @@
 class Solution {
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        function<TreeNode*(int, int)> dfs = [&](int l, int r) -> TreeNode* {
+        auto dfs = [&](this auto&& dfs, int l, int r) -> TreeNode* {
             if (l > r) {
                 return nullptr;
             }
