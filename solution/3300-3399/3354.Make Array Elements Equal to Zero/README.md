@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3354.Make%20Array%20Elements%20Equal%20to%20Zero/README.md
+rating: 1397
+source: 第 424 场周赛 Q1
 tags:
     - 数组
     - 前缀和

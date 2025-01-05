@@ -87,7 +87,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0076  |  [Minimum Window Substring](/solution/0000-0099/0076.Minimum%20Window%20Substring/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Hard  |    |
 |  0077  |  [Combinations](/solution/0000-0099/0077.Combinations/README_EN.md)  |  `Backtracking`  |  Medium  |    |
 |  0078  |  [Subsets](/solution/0000-0099/0078.Subsets/README_EN.md)  |  `Bit Manipulation`,`Array`,`Backtracking`  |  Medium  |    |
-|  0079  |  [Word Search](/solution/0000-0099/0079.Word%20Search/README_EN.md)  |  `Array`,`String`,`Backtracking`,`Matrix`  |  Medium  |    |
+|  0079  |  [Word Search](/solution/0000-0099/0079.Word%20Search/README_EN.md)  |  `Depth-First Search`,`Array`,`String`,`Backtracking`,`Matrix`  |  Medium  |    |
 |  0080  |  [Remove Duplicates from Sorted Array II](/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |    |
 |  0081  |  [Search in Rotated Sorted Array II](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |    |
 |  0082  |  [Remove Duplicates from Sorted List II](/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |    |
@@ -970,7 +970,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0959  |  [Regions Cut By Slashes](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 115  |
 |  0960  |  [Delete Columns to Make Sorted III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md)  |  `Array`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 115  |
 |  0961  |  [N-Repeated Element in Size 2N Array](/solution/0900-0999/0961.N-Repeated%20Element%20in%20Size%202N%20Array/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  Weekly Contest 116  |
-|  0962  |  [Maximum Width Ramp](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md)  |  `Stack`,`Array`,`Monotonic Stack`  |  Medium  |  Weekly Contest 116  |
+|  0962  |  [Maximum Width Ramp](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README_EN.md)  |  `Stack`,`Array`,`Two Pointers`,`Monotonic Stack`  |  Medium  |  Weekly Contest 116  |
 |  0963  |  [Minimum Area Rectangle II](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README_EN.md)  |  `Geometry`,`Array`,`Math`  |  Medium  |  Weekly Contest 116  |
 |  0964  |  [Least Operators to Express Number](/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README_EN.md)  |  `Memoization`,`Math`,`Dynamic Programming`  |  Hard  |  Weekly Contest 116  |
 |  0965  |  [Univalued Binary Tree](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Easy  |  Weekly Contest 117  |
@@ -994,7 +994,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0983  |  [Minimum Cost For Tickets](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 121  |
 |  0984  |  [String Without AAA or BBB](/solution/0900-0999/0984.String%20Without%20AAA%20or%20BBB/README_EN.md)  |  `Greedy`,`String`  |  Medium  |  Weekly Contest 121  |
 |  0985  |  [Sum of Even Numbers After Queries](/solution/0900-0999/0985.Sum%20of%20Even%20Numbers%20After%20Queries/README_EN.md)  |  `Array`,`Simulation`  |  Medium  |  Weekly Contest 122  |
-|  0986  |  [Interval List Intersections](/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |  Weekly Contest 122  |
+|  0986  |  [Interval List Intersections](/solution/0900-0999/0986.Interval%20List%20Intersections/README_EN.md)  |  `Array`,`Two Pointers`,`Line Sweep`  |  Medium  |  Weekly Contest 122  |
 |  0987  |  [Vertical Order Traversal of a Binary Tree](/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Hash Table`,`Binary Tree`,`Sorting`  |  Hard  |  Weekly Contest 122  |
 |  0988  |  [Smallest String Starting From Leaf](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README_EN.md)  |  `Tree`,`Depth-First Search`,`String`,`Backtracking`,`Binary Tree`  |  Medium  |  Weekly Contest 122  |
 |  0989  |  [Add to Array-Form of Integer](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 123  |
@@ -3414,6 +3414,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3403  |  [Find the Lexicographically Largest String From the Box I](/solution/3400-3499/3403.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 430  |
 |  3404  |  [Count Special Subsequences](/solution/3400-3499/3404.Count%20Special%20Subsequences/README_EN.md)  |    |  Medium  |  Weekly Contest 430  |
 |  3405  |  [Count the Number of Arrays with K Matching Adjacent Elements](/solution/3400-3499/3405.Count%20the%20Number%20of%20Arrays%20with%20K%20Matching%20Adjacent%20Elements/README_EN.md)  |    |  Hard  |  Weekly Contest 430  |
+|  3406  |  [Find the Lexicographically Largest String From the Box II](/solution/3400-3499/3406.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  3407  |  [Substring Matching Pattern](/solution/3400-3499/3407.Substring%20Matching%20Pattern/README_EN.md)  |    |  Easy  |  Biweekly Contest 147  |
+|  3408  |  [Design Task Manager](/solution/3400-3499/3408.Design%20Task%20Manager/README_EN.md)  |    |  Medium  |  Biweekly Contest 147  |
+|  3409  |  [Longest Subsequence With Decreasing Adjacent Difference](/solution/3400-3499/3409.Longest%20Subsequence%20With%20Decreasing%20Adjacent%20Difference/README_EN.md)  |    |  Medium  |  Biweekly Contest 147  |
+|  3410  |  [Maximize Subarray Sum After Removing All Occurrences of One Element](/solution/3400-3499/3410.Maximize%20Subarray%20Sum%20After%20Removing%20All%20Occurrences%20of%20One%20Element/README_EN.md)  |    |  Hard  |  Biweekly Contest 147  |
+|  3411  |  [Maximum Subarray With Equal Products](/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README_EN.md)  |    |  Easy  |  Weekly Contest 431  |
+|  3412  |  [Find Mirror Score of a String](/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 431  |
+|  3413  |  [Maximum Coins From K Consecutive Bags](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README_EN.md)  |    |  Medium  |  Weekly Contest 431  |
+|  3414  |  [Maximum Score of Non-overlapping Intervals](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README_EN.md)  |    |  Hard  |  Weekly Contest 431  |
 
 ## Copyright
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README.md
+rating: 2085
+source: 第 423 场周赛 Q3
 tags:
     - 数组
     - 哈希表

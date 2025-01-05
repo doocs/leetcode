@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/README_EN.md
+rating: 1743
+source: Weekly Contest 427 Q2
 tags:
     - Binary Indexed Tree
     - Segment Tree

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3360.Stone%20Removal%20Game/README_EN.md
+rating: 1267
+source: Biweekly Contest 144 Q1
 tags:
     - Math
     - Simulation

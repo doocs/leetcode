@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 431 场周赛(2025-01-05 10:30, 90 分钟) 参赛人数 1989
+
+- [3411. 最长乘积等价子数组](/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README.md)
+- [3412. 计算字符串的镜像分数](/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README.md)
+- [3413. 收集连续 K 个袋子可以获得的最多硬币数量](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README.md)
+- [3414. 不重叠区间的最大得分](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README.md)
+
+#### 第 147 场双周赛(2025-01-04 22:30, 90 分钟) 参赛人数 1519
+
+- [3407. 子字符串匹配模式](/solution/3400-3499/3407.Substring%20Matching%20Pattern/README.md)
+- [3408. 设计任务管理器](/solution/3400-3499/3408.Design%20Task%20Manager/README.md)
+- [3409. 最长相邻绝对差递减子序列](/solution/3400-3499/3409.Longest%20Subsequence%20With%20Decreasing%20Adjacent%20Difference/README.md)
+- [3410. 删除所有值为某个元素后的最大子数组和](/solution/3400-3499/3410.Maximize%20Subarray%20Sum%20After%20Removing%20All%20Occurrences%20of%20One%20Element/README.md)
+
 #### 第 430 场周赛(2024-12-29 10:30, 90 分钟) 参赛人数 2198
 
 - [3402. 使每一列严格递增的最少操作次数](/solution/3400-3499/3402.Minimum%20Operations%20to%20Make%20Columns%20Strictly%20Increasing/README.md)

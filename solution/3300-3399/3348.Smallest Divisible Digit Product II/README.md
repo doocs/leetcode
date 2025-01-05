@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README.md
+rating: 3101
+source: 第 143 场双周赛 Q4
 tags:
     - 贪心
     - 数学

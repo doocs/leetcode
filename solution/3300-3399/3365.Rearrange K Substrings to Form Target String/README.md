@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3365.Rearrange%20K%20Substrings%20to%20Form%20Target%20String/README.md
+rating: 1513
+source: 第 425 场周赛 Q2
 tags:
     - 哈希表
     - 字符串

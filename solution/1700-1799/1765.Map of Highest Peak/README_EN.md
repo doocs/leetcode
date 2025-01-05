@@ -73,6 +73,9 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 	<li>There is at least <strong>one</strong> water cell.</li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as 542: <a href="https://leetcode.com/problems/01-matrix/description/" target="_blank">https://leetcode.com/problems/01-matrix/</a></p>
+
 <!-- description:end -->
 
 ## Solutions

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README_EN.md
+rating: 1198
+source: Weekly Contest 426 Q1
 tags:
     - Bit Manipulation
     - Math

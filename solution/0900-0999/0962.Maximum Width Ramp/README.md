@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0962.Ma
 tags:
     - 栈
     - 数组
+    - 双指针
     - 单调栈
 ---
 

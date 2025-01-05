@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README.md
+rating: 1235
+source: 第 143 场双周赛 Q1
 tags:
     - 数学
     - 枚举

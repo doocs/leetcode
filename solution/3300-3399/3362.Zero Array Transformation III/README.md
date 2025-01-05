@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3362.Zero%20Array%20Transformation%20III/README.md
+rating: 2423
+source: 第 144 场双周赛 Q3
 tags:
     - 贪心
     - 数组

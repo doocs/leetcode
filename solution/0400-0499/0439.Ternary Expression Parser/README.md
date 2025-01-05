@@ -22,7 +22,7 @@ tags:
 
 <p>你可以总是假设给定的表达式是有效的，并且只包含数字，&nbsp;<code>'?'</code>&nbsp;，&nbsp;&nbsp;<code>':'</code>&nbsp;，&nbsp;&nbsp;<code>'T'</code>&nbsp;和 <code>'F'</code> ，其中 <code>'T'</code> 为真， <code>'F'</code> 为假。表达式中的所有数字都是 <strong>一位</strong> 数(即在 <strong>[0,9] </strong>范围内)。</p>
 
-<p>条件表达式从右到左分组(大多数语言中都是这样)，表达式的结果总是为数字 <code>'T'</code> 或 <code>'F'</code> 。</p>
+<p>条件表达式从右到左分组(大多数语言中都是这样)，表达式的结果总是为数字，<code>'T'</code> 或 <code>'F'</code> 。</p>
 
 <p>&nbsp;</p>
 

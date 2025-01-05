@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3345.Smallest%20Divisible%20Digit%20Product%20I/README_EN.md
+rating: 1235
+source: Biweekly Contest 143 Q1
 tags:
     - Math
     - Enumeration
