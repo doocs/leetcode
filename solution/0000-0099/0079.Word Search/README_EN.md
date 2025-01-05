@@ -3,6 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0079.Word%20Search/README_EN.md
 tags:
+    - Depth-First Search
     - Array
     - String
     - Backtracking

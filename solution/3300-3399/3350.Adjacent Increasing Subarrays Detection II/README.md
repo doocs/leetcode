@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3350.Adjacent%20Increasing%20Subarrays%20Detection%20II/README.md
+rating: 1600
+source: 第 423 场周赛 Q2
 tags:
     - 数组
     - 二分查找

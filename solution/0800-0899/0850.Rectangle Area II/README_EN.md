@@ -53,6 +53,7 @@ From (1,0) to (2,3), all three rectangles overlap.
 	<li><code>0 &lt;= x<sub>i1</sub>, y<sub>i1</sub>, x<sub>i2</sub>, y<sub>i2</sub> &lt;= 10<sup>9</sup></code></li>
 	<li><code>x<sub>i1 &lt;= </sub>x<sub>i2</sub></code></li>
 	<li><code>y<sub>i1 &lt;=</sub> y<sub>i2</sub></code></li>
+	<li>All rectangles have non zero area.</li>
 </ul>
 
 <!-- description:end -->

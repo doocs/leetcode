@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3367.Maximize%20Sum%20of%20Weights%20after%20Edge%20Removals/README.md
+rating: 2601
+source: 第 425 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

@@ -23,10 +23,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3403.Fi
 	<li>All the split words are put into a box.</li>
 </ul>
 
-<p>Find the <strong>lexicographically largest</strong> string from the box after all the rounds are finished.</p>
-
-<p>A string <code>a</code> is <strong>lexicographically smaller</strong> than a string <code>b</code> if in the first position where <code>a</code> and <code>b</code> differ, string <code>a</code> has a letter that appears earlier in the alphabet than the corresponding letter in <code>b</code>.<br />
-If the first <code>min(a.length, b.length)</code> characters do not differ, then the shorter string is the lexicographically smaller one.</p>
+<p>Find the <span data-keyword="lexicographically-smaller-string">lexicographically largest</span> string from the box after all the rounds are finished.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

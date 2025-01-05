@@ -30,8 +30,8 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "<code>the sky is blue</code>"
-<strong>输出：</strong>"<code>blue is sky the</code>"
+<strong>输入：</strong>s = "the sky is blue"
+<strong>输出：</strong>"blue is sky the"
 </pre>
 
 <p><strong>示例 2：</strong></p>

@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0079.Word%20Search/README.md
 tags:
+    - 深度优先搜索
     - 数组
     - 字符串
     - 回溯

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3389.Minimum%20Operations%20to%20Make%20Character%20Frequencies%20Equal/README.md
+rating: 2940
+source: 第 428 场周赛 Q4
 tags:
     - 哈希表
     - 字符串

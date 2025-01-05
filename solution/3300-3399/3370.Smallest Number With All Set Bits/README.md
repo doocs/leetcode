@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3370.Smallest%20Number%20With%20All%20Set%20Bits/README.md
+rating: 1198
+source: 第 426 场周赛 Q1
 tags:
     - 位运算
     - 数学

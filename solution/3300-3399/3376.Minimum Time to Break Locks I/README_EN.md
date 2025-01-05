@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3376.Minimum%20Time%20to%20Break%20Locks%20I/README_EN.md
+rating: 1793
+source: Biweekly Contest 145 Q2
 tags:
     - Bit Manipulation
     - Array

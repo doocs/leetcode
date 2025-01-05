@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 431
+
+- [3411. Maximum Subarray With Equal Products](/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README_EN.md)
+- [3412. Find Mirror Score of a String](/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README_EN.md)
+- [3413. Maximum Coins From K Consecutive Bags](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README_EN.md)
+- [3414. Maximum Score of Non-overlapping Intervals](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README_EN.md)
+
+#### Biweekly Contest 147
+
+- [3407. Substring Matching Pattern](/solution/3400-3499/3407.Substring%20Matching%20Pattern/README_EN.md)
+- [3408. Design Task Manager](/solution/3400-3499/3408.Design%20Task%20Manager/README_EN.md)
+- [3409. Longest Subsequence With Decreasing Adjacent Difference](/solution/3400-3499/3409.Longest%20Subsequence%20With%20Decreasing%20Adjacent%20Difference/README_EN.md)
+- [3410. Maximize Subarray Sum After Removing All Occurrences of One Element](/solution/3400-3499/3410.Maximize%20Subarray%20Sum%20After%20Removing%20All%20Occurrences%20of%20One%20Element/README_EN.md)
+
 #### Weekly Contest 430
 
 - [3402. Minimum Operations to Make Columns Strictly Increasing](/solution/3400-3499/3402.Minimum%20Operations%20to%20Make%20Columns%20Strictly%20Increasing/README_EN.md)

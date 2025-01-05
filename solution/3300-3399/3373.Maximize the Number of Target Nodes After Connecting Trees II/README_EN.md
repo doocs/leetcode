@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3373.Maximize%20the%20Number%20of%20Target%20Nodes%20After%20Connecting%20Trees%20II/README_EN.md
+rating: 2161
+source: Weekly Contest 426 Q4
 tags:
     - Tree
     - Depth-First Search

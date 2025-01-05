@@ -37,9 +37,9 @@ tags:
 <pre>
 <strong>Input:</strong> low = 3, high = 3, zero = 1, one = 1
 <strong>Output:</strong> 8
-<strong>Explanation:</strong>
-One possible valid good string is &quot;011&quot;.
-It can be constructed as follows: &quot;&quot; -&gt; &quot;0&quot; -&gt; &quot;01&quot; -&gt; &quot;011&quot;.
+<strong>Explanation:</strong> 
+One possible valid good string is &quot;011&quot;. 
+It can be constructed as follows: &quot;&quot; -&gt; &quot;0&quot; -&gt; &quot;01&quot; -&gt; &quot;011&quot;. 
 All binary strings from &quot;000&quot; to &quot;111&quot; are good strings in this example.
 </pre>
 

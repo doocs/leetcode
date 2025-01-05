@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README_EN.md
+rating: 1300
+source: Weekly Contest 425 Q1
 tags:
     - Array
     - Prefix Sum

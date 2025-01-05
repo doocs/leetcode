@@ -56,7 +56,7 @@ tags:
 <ul>
 	<li><code>0 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li>输入字符串中只包含&nbsp;<code>'('</code>, <code>')'</code>, <code>'-'</code>&nbsp;和&nbsp;<code>'0'</code> ~ <code>'9'</code>&nbsp;</li>
-	<li>空树由&nbsp;<code>""</code>&nbsp;而非<code>"()"</code>表示。</li>
+	<li>树中所有数字的值 <strong>最多</strong> 不超过&nbsp;<code>2<sup>30</sup></code>。</li>
 </ul>
 
 <!-- description:end -->

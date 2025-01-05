@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3388.Count%20Beautiful%20Splits%20in%20an%20Array/README.md
+rating: 2364
+source: 第 428 场周赛 Q3
 tags:
     - 数组
     - 动态规划

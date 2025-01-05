@@ -39,9 +39,9 @@ tags:
 <pre>
 <strong>Input:</strong> senate = &quot;RD&quot;
 <strong>Output:</strong> &quot;Radiant&quot;
-<strong>Explanation:</strong>
-The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1.
-And the second senator can&#39;t exercise any rights anymore since his right has been banned.
+<strong>Explanation:</strong> 
+The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1. 
+And the second senator can&#39;t exercise any rights anymore since his right has been banned. 
 And in round 2, the first senator can just announce the victory since he is the only guy in the senate who can vote.
 </pre>
 
@@ -50,10 +50,10 @@ And in round 2, the first senator can just announce the victory since he is the 
 <pre>
 <strong>Input:</strong> senate = &quot;RDD&quot;
 <strong>Output:</strong> &quot;Dire&quot;
-<strong>Explanation:</strong>
-The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1.
-And the second senator can&#39;t exercise any rights anymore since his right has been banned.
-And the third senator comes from Dire and he can ban the first senator&#39;s right in round 1.
+<strong>Explanation:</strong> 
+The first senator comes from Radiant and he can just ban the next senator&#39;s right in round 1. 
+And the second senator can&#39;t exercise any rights anymore since his right has been banned. 
+And the third senator comes from Dire and he can ban the first senator&#39;s right in round 1. 
 And in round 2, the third senator can just announce the victory since he is the only guy in the senate who can vote.
 </pre>
 

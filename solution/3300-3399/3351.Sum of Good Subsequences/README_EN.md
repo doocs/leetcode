@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3351.Sum%20of%20Good%20Subsequences/README_EN.md
+rating: 2085
+source: Weekly Contest 423 Q3
 tags:
     - Array
     - Hash Table

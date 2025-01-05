@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README_EN.md
+rating: 1553
+source: Biweekly Contest 144 Q2
 tags:
     - Array
     - String

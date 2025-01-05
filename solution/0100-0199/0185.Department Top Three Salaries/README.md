@@ -104,6 +104,14 @@ Department  表:
 - 山姆的薪水第二高
 - 没有第三高的工资，因为只有两名员工</pre>
 
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>没有姓名、薪资和部门 <strong>完全</strong> 相同的员工。</li>
+</ul>
+
 <!-- description:end -->
 
 ## 解法

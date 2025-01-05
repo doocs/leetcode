@@ -55,6 +55,9 @@ tags:
 	<li><code>1 &lt;= rectangles.length &lt;= 200</code></li>
 	<li><code>rectanges[i].length = 4</code><meta charset="UTF-8" /></li>
 	<li><code>0 &lt;= x<sub>i1</sub>, y<sub>i1</sub>, x<sub>i2</sub>, y<sub>i2</sub>&nbsp;&lt;= 10<sup>9</sup></code></li>
+	<li><code>x<sub>i1&nbsp;</sub>&lt;= x<sub>i2</sub></code></li>
+	<li><code>y<sub>i1&nbsp;</sub>&lt;= y<sub>i2</sub></code></li>
+	<li>所有矩阵面积不为 0。</li>
 </ul>
 
 <!-- description:end -->

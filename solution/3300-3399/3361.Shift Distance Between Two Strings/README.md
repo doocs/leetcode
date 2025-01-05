@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3361.Shift%20Distance%20Between%20Two%20Strings/README.md
+rating: 1553
+source: 第 144 场双周赛 Q2
 tags:
     - 数组
     - 字符串

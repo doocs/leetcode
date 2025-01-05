@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README.md
+rating: 2375
+source: 第 429 场周赛 Q4
 ---
 
 <!-- problem:start -->

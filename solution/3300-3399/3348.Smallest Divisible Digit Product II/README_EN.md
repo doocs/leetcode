@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3348.Smallest%20Divisible%20Digit%20Product%20II/README_EN.md
+rating: 3101
+source: Biweekly Contest 143 Q4
 tags:
     - Greedy
     - Math
