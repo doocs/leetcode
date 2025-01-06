@@ -2095,7 +2095,6 @@ comments: true
 
 - [1812. 判断国际象棋棋盘中一个格子的颜色](/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README.md)
 - [1813. 句子相似性 III](/solution/1800-1899/1813.Sentence%20Similarity%20III/README.md)
-- [1814. 统计一个数组中好对子的数目](/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README.md)
 - [1815. 得到新鲜甜甜圈的最多组数](/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README.md)
 
 #### 第 234 场周赛(2021-03-28 10:30, 90 分钟) 参赛人数 4998

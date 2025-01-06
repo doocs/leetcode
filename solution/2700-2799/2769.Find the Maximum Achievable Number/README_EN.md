@@ -18,13 +18,13 @@ tags:
 
 <!-- description:start -->
 
-<p>Given two integers, <code>num</code> and <code>t</code>. A <strong>number is achievable</strong> if it can become equal to <code>num</code> after applying the following operation:</p>
+<p>Given two integers, <code>num</code> and <code>t</code>. A <strong>number </strong><code>x</code><strong> </strong>is<strong> achievable</strong> if it can become equal to <code>num</code> after applying the following operation <strong>at most</strong> <code>t</code> times:</p>
 
 <ul>
-	<li>Increase or decrease the number by <code>1</code>, and simultaneously increase or decrease <code>num</code> by <code>1</code>.</li>
+	<li>Increase or decrease <code>x</code> by <code>1</code>, and <em>simultaneously</em> increase or decrease <code>num</code> by <code>1</code>.</li>
 </ul>
 
-<p>Return the <strong>maximum achievable number</strong> after applying the operation at most <code>t</code> times.</p>
+<p>Return the <strong>maximum </strong>possible value of <code>x</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

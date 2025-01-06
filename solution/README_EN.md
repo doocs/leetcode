@@ -1822,7 +1822,6 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1811  |  [Find Interview Candidates](/solution/1800-1899/1811.Find%20Interview%20Candidates/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1812  |  [Determine Color of a Chessboard Square](/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README_EN.md)  |  `Math`,`String`  |  Easy  |  Biweekly Contest 49  |
 |  1813  |  [Sentence Similarity III](/solution/1800-1899/1813.Sentence%20Similarity%20III/README_EN.md)  |  `Array`,`Two Pointers`,`String`  |  Medium  |  Biweekly Contest 49  |
-|  1814  |  [Count Nice Pairs in an Array](/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`  |  Medium  |  Biweekly Contest 49  |
 |  1815  |  [Maximum Number of Groups Getting Fresh Donuts](/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README_EN.md)  |  `Bit Manipulation`,`Memoization`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Biweekly Contest 49  |
 |  1816  |  [Truncate Sentence](/solution/1800-1899/1816.Truncate%20Sentence/README_EN.md)  |  `Array`,`String`  |  Easy  |  Weekly Contest 235  |
 |  1817  |  [Finding the Users Active Minutes](/solution/1800-1899/1817.Finding%20the%20Users%20Active%20Minutes/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 235  |
@@ -3423,6 +3422,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3412  |  [Find Mirror Score of a String](/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 431  |
 |  3413  |  [Maximum Coins From K Consecutive Bags](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README_EN.md)  |    |  Medium  |  Weekly Contest 431  |
 |  3414  |  [Maximum Score of Non-overlapping Intervals](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README_EN.md)  |    |  Hard  |  Weekly Contest 431  |
+|  3415  |  [Find Products with Three Consecutive Digits](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 
