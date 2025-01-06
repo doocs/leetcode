@@ -306,6 +306,7 @@
 | 3384 | [球队传球成功的优势得分](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md)                                                          | `数据库` | 困难 | 🔒   |
 | 3390 | [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README.md)                                                                | `数据库` | 困难 | 🔒   |
 | 3401 | [Find Circular Gift Exchange Chains](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README.md)                                          |          | 困难 | 🔒   |
+| 3415 | [Find Products with Three Consecutive Digits](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)                      |          | 简单 | 🔒   |
 
 ## 版权
 
