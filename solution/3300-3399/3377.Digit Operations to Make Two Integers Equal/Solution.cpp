@@ -45,10 +45,11 @@ private:
         }
         return -1;
     }
+
 public:
     int minOperations(int n, int m) {
         runSieve();
         if (sieve[n] || sieve[m]) return -1;
         return solve(n, m);
-    }   
+    }
 };

@@ -17,7 +17,7 @@ class Solution {
 
     private int solve(int n, int m) {
         PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        pq.add(new int[]{n, n});
+        pq.add(new int[] {n, n});
         Set<Integer> visited = new HashSet<>();
 
         while (!pq.isEmpty()) {
@@ -41,7 +41,7 @@ class Solution {
                     s[i] = (char) (s[i] + 1);
                     int next = Integer.parseInt(new String(s));
                     if (!sieve[next] && !visited.contains(next)) {
-                        pq.add(new int[]{sum + next, next});
+                        pq.add(new int[] {sum + next, next});
                     }
                     s[i] = c;
                 }
@@ -50,7 +50,7 @@ class Solution {
                     s[i] = (char) (s[i] - 1);
                     int next = Integer.parseInt(new String(s));
                     if (!sieve[next] && !visited.contains(next)) {
-                        pq.add(new int[]{sum + next, next});
+                        pq.add(new int[] {sum + next, next});
                     }
                     s[i] = c;
                 }
