@@ -2098,6 +2098,7 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 - [1812. Determine Color of a Chessboard Square](/solution/1800-1899/1812.Determine%20Color%20of%20a%20Chessboard%20Square/README_EN.md)
 - [1813. Sentence Similarity III](/solution/1800-1899/1813.Sentence%20Similarity%20III/README_EN.md)
+- [1814. Count Nice Pairs in an Array](/solution/1800-1899/1814.Count%20Nice%20Pairs%20in%20an%20Array/README_EN.md)
 - [1815. Maximum Number of Groups Getting Fresh Donuts](/solution/1800-1899/1815.Maximum%20Number%20of%20Groups%20Getting%20Fresh%20Donuts/README_EN.md)
 
 #### Weekly Contest 234
