@@ -75,32 +75,138 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3412.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We can use a hash table $\textit{d}$ to store the index list of each unmarked character, where the key is the character and the value is the list of indices.
+
+We traverse the string $\textit{s}$, and for each character $\textit{x}$, we find its mirror character $\textit{y}$. If $\textit{d}$ contains $\textit{y}$, we take out the index list $\textit{ls}$ corresponding to $\textit{y}$, take out the last element $\textit{j}$ from $\textit{ls}$, and remove $\textit{j}$ from $\textit{ls}$. If $\textit{ls}$ becomes empty, we remove $\textit{y}$ from $\textit{d}$. At this point, we have found a pair of indices $(\textit{j}, \textit{i})$ that meet the condition, and we add $\textit{i} - \textit{j}$ to the answer. Otherwise, we add $\textit{x}$ to $\textit{d}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def calculateScore(self, s: str) -> int:
+        d = defaultdict(list)
+        ans = 0
+        for i, x in enumerate(s):
+            y = chr(ord("a") + ord("z") - ord(x))
+            if d[y]:
+                j = d[y].pop()
+                ans += i - j
+            else:
+                d[x].append(i)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long calculateScore(String s) {
+        Map<Character, List<Integer>> d = new HashMap<>(26);
+        int n = s.length();
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            char x = s.charAt(i);
+            char y = (char) ('a' + 'z' - x);
+            if (d.containsKey(y)) {
+                var ls = d.get(y);
+                int j = ls.remove(ls.size() - 1);
+                if (ls.isEmpty()) {
+                    d.remove(y);
+                }
+                ans += i - j;
+            } else {
+                d.computeIfAbsent(x, k -> new ArrayList<>()).add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long calculateScore(string s) {
+        unordered_map<char, vector<int>> d;
+        int n = s.length();
+        long long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            char x = s[i];
+            char y = 'a' + 'z' - x;
+            if (d.contains(y)) {
+                vector<int>& ls = d[y];
+                int j = ls.back();
+                ls.pop_back();
+                if (ls.empty()) {
+                    d.erase(y);
+                }
+                ans += i - j;
+            } else {
+                d[x].push_back(i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func calculateScore(s string) (ans int64) {
+	d := make(map[rune][]int)
+	for i, x := range s {
+		y := 'a' + 'z' - x
+		if ls, ok := d[y]; ok {
+			j := ls[len(ls)-1]
+			d[y] = ls[:len(ls)-1]
+			if len(d[y]) == 0 {
+				delete(d, y)
+			}
+			ans += int64(i - j)
+		} else {
+			d[x] = append(d[x], i)
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function calculateScore(s: string): number {
+    const d: Map<string, number[]> = new Map();
+    const n = s.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        const x = s[i];
+        const y = String.fromCharCode('a'.charCodeAt(0) + 'z'.charCodeAt(0) - x.charCodeAt(0));
+
+        if (d.has(y)) {
+            const ls = d.get(y)!;
+            const j = ls.pop()!;
+            if (ls.length === 0) {
+                d.delete(y);
+            }
+            ans += i - j;
+        } else {
+            if (!d.has(x)) {
+                d.set(x, []);
+            }
+            d.get(x)!.push(i);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

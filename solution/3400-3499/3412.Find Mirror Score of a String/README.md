@@ -77,32 +77,138 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3412.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们可以用一个哈希表 $\textit{d}$ 来存储每个未标记的字符的下标列表，其中键是字符，值是下标列表。
+
+我们遍历字符串 $\textit{s}$，对于每个字符 $\textit{x}$，我们找到其镜像字符 $\textit{y}$，如果 $\textit{d}$ 中存在 $\textit{y}$，我们就取出 $\textit{y}$ 对应的下标列表 $\textit{ls}$，取出 $\textit{ls}$ 的最后一个元素 $\textit{j}$，并将 $\textit{j}$ 从 $\textit{ls}$ 中移除。如果 $\textit{ls}$ 变为空，我们就将 $\textit{y}$ 从 $\textit{d}$ 中移除。此时，我们就找到了一个满足条件的下标对 $(\textit{j}, \textit{i})$，并将 $\textit{i} - \textit{j}$ 加到答案中。否则，我们将 $\textit{x}$ 加入到 $\textit{d}$ 中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{s}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def calculateScore(self, s: str) -> int:
+        d = defaultdict(list)
+        ans = 0
+        for i, x in enumerate(s):
+            y = chr(ord("a") + ord("z") - ord(x))
+            if d[y]:
+                j = d[y].pop()
+                ans += i - j
+            else:
+                d[x].append(i)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long calculateScore(String s) {
+        Map<Character, List<Integer>> d = new HashMap<>(26);
+        int n = s.length();
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            char x = s.charAt(i);
+            char y = (char) ('a' + 'z' - x);
+            if (d.containsKey(y)) {
+                var ls = d.get(y);
+                int j = ls.remove(ls.size() - 1);
+                if (ls.isEmpty()) {
+                    d.remove(y);
+                }
+                ans += i - j;
+            } else {
+                d.computeIfAbsent(x, k -> new ArrayList<>()).add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long calculateScore(string s) {
+        unordered_map<char, vector<int>> d;
+        int n = s.length();
+        long long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            char x = s[i];
+            char y = 'a' + 'z' - x;
+            if (d.contains(y)) {
+                vector<int>& ls = d[y];
+                int j = ls.back();
+                ls.pop_back();
+                if (ls.empty()) {
+                    d.erase(y);
+                }
+                ans += i - j;
+            } else {
+                d[x].push_back(i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func calculateScore(s string) (ans int64) {
+	d := make(map[rune][]int)
+	for i, x := range s {
+		y := 'a' + 'z' - x
+		if ls, ok := d[y]; ok {
+			j := ls[len(ls)-1]
+			d[y] = ls[:len(ls)-1]
+			if len(d[y]) == 0 {
+				delete(d, y)
+			}
+			ans += int64(i - j)
+		} else {
+			d[x] = append(d[x], i)
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function calculateScore(s: string): number {
+    const d: Map<string, number[]> = new Map();
+    const n = s.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        const x = s[i];
+        const y = String.fromCharCode('a'.charCodeAt(0) + 'z'.charCodeAt(0) - x.charCodeAt(0));
+
+        if (d.has(y)) {
+            const ls = d.get(y)!;
+            const j = ls.pop()!;
+            if (ls.length === 0) {
+                d.delete(y);
+            }
+            ans += i - j;
+        } else {
+            if (!d.has(x)) {
+                d.set(x, []);
+            }
+            d.get(x)!.push(i);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
