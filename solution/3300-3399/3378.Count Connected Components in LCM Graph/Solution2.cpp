@@ -1,19 +1,19 @@
 class Solution {
 private:
-    void dfs(int node, vector<vector<int>> &adj, vector<bool> &vis) {
+    void dfs(int node, vector<vector<int>>& adj, vector<bool>& vis) {
         if (vis[node]) return;
         vis[node] = true;
-        for (auto &u : adj[node]) {
+        for (auto& u : adj[node]) {
             dfs(u, adj, vis);
         }
     }
 
 public:
-    int countComponents(vector<int> &nums, int threshold) {
+    int countComponents(vector<int>& nums, int threshold) {
         vector<vector<int>> adj(threshold + 1);
         vector<bool> vis(threshold + 1, false);
         int ans = 0;
-        for (auto &num : nums) {
+        for (auto& num : nums) {
             if (num > threshold) {
                 ++ans;
                 continue;
@@ -23,7 +23,7 @@ public:
                 adj[j].push_back(num);
             }
         }
-        for (auto &num : nums) {
+        for (auto& num : nums) {
             if (num <= threshold && !vis[num]) {
                 dfs(num, adj, vis);
                 ++ans;

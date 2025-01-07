@@ -32,15 +32,15 @@ typedef struct DSU {
 
 class Solution {
 public:
-    int countComponents(vector<int> &nums, int threshold) {
+    int countComponents(vector<int>& nums, int threshold) {
         DSU dsu(threshold);
-        for (auto &num : nums) {
+        for (auto& num : nums) {
             for (int j = num; j <= threshold; j += num) {
                 dsu.unionSet(num, j);
             }
         }
         unordered_set<int> par;
-        for (auto &num : nums) {
+        for (auto& num : nums) {
             if (num > threshold) {
                 par.insert(num);
             } else {
