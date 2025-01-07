@@ -79,7 +79,15 @@ It can be shown that 2 is the minimum possible size of a valid set.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math + Enumeration
+
+Each number that meets the splitting condition can be represented as $10x_i + k$. If there are $n$ such numbers, then $\textit{num} - n \times k$ must be a multiple of $10$.
+
+We enumerate $n$ from small to large, and find the first $n$ that satisfies $\textit{num} - n \times k$ being a multiple of $10$. Since $n$ cannot exceed $\textit{num}$, the maximum value of $n$ is $\textit{num}$.
+
+We can also only consider the units digit. If the units digit satisfies the condition, the higher digits can be arbitrary.
+
+The time complexity is $O(n)$, where $n$ is the size of $\textit{num}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
