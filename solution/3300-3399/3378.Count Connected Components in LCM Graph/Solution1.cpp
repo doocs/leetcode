@@ -1,5 +1,4 @@
-typedef struct DSU
-{
+typedef struct DSU {
     unordered_map<int, int> par, rank;
     DSU(int n) {
         for (int i = 0; i < n; ++i) {
@@ -29,23 +28,22 @@ typedef struct DSU
             if (rank[u] == rank[v]) rank[u]++;
         }
     }
-}DSU;
+} DSU;
 
 class Solution {
 public:
-    int countComponents(vector<int>& nums, int threshold) {
+    int countComponents(vector<int> &nums, int threshold) {
         DSU dsu(threshold);
-        for(auto& num : nums) {
+        for (auto &num : nums) {
             for (int j = num; j <= threshold; j += num) {
                 dsu.unionSet(num, j);
             }
         }
         unordered_set<int> par;
-        for (auto& num : nums) {
+        for (auto &num : nums) {
             if (num > threshold) {
                 par.insert(num);
-            }
-            else {
+            } else {
                 par.insert(dsu.find(num));
             }
         }

@@ -203,8 +203,7 @@ class Solution {
 #### C++
 
 ```cpp
-typedef struct DSU
-{
+typedef struct DSU {
     unordered_map<int, int> par, rank;
     DSU(int n) {
         for (int i = 0; i < n; ++i) {
@@ -234,23 +233,22 @@ typedef struct DSU
             if (rank[u] == rank[v]) rank[u]++;
         }
     }
-}DSU;
+} DSU;
 
 class Solution {
 public:
-    int countComponents(vector<int>& nums, int threshold) {
+    int countComponents(vector<int> &nums, int threshold) {
         DSU dsu(threshold);
-        for(auto& num : nums) {
+        for (auto &num : nums) {
             for (int j = num; j <= threshold; j += num) {
                 dsu.unionSet(num, j);
             }
         }
         unordered_set<int> par;
-        for (auto& num : nums) {
+        for (auto &num : nums) {
             if (num > threshold) {
                 par.insert(num);
-            }
-            else {
+            } else {
                 par.insert(dsu.find(num));
             }
         }
@@ -414,29 +412,30 @@ class Solution {
 ```cpp
 class Solution {
 private:
-    void dfs(int node, vector<vector<int>>& adj, vector<bool>& vis) {
+    void dfs(int node, vector<vector<int>> &adj, vector<bool> &vis) {
         if (vis[node]) return;
         vis[node] = true;
-        for (auto& u : adj[node]) {
+        for (auto &u : adj[node]) {
             dfs(u, adj, vis);
         }
     }
+
 public:
-    int countComponents(vector<int>& nums, int threshold) {
+    int countComponents(vector<int> &nums, int threshold) {
         vector<vector<int>> adj(threshold + 1);
         vector<bool> vis(threshold + 1, false);
         int ans = 0;
-        for (auto& num : nums) {
+        for (auto &num : nums) {
             if (num > threshold) {
                 ++ans;
                 continue;
             }
-            for (int j = 2*num; j <= threshold; j += num) {
+            for (int j = 2 * num; j <= threshold; j += num) {
                 adj[num].push_back(j);
                 adj[j].push_back(num);
             }
         }
-        for (auto& num : nums) {
+        for (auto &num : nums) {
             if (num <= threshold && !vis[num]) {
                 dfs(num, adj, vis);
                 ++ans;
