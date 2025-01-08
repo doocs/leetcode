@@ -56,7 +56,13 @@ Thus, the closest number to 0 in the array is 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: One Pass
+
+We define a variable $d$ to record the current minimum distance, initially $d=\infty$. Then we traverse the array, for each element $x$, we calculate $y=|x|$. If $y \lt d$ or $y=d$ and $x \gt ans$, we update the answer $ans=x$ and $d=y$.
+
+After the traversal, return the answer.
+
+Time complexity is $O(n)$, where $n$ is the length of the array. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
