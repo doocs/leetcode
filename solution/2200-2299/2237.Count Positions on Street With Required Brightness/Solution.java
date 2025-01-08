@@ -1,6 +1,6 @@
 class Solution {
     public int meetRequirement(int n, int[][] lights, int[] requirement) {
-        int[] d = new int[100010];
+        int[] d = new int[n + 1];
         for (int[] e : lights) {
             int i = Math.max(0, e[0] - e[1]);
             int j = Math.min(n - 1, e[0] + e[1]);
