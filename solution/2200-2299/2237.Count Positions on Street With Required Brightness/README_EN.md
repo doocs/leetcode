@@ -73,7 +73,17 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+To add a value $v$ to a continuous interval $[i, j]$ simultaneously, we can use a difference array.
+
+We define an array $\textit{d}$ of length $n + 1$. For each streetlight, we calculate its left boundary $i = \max(0, p - r)$ and right boundary $j = \min(n - 1, p + r)$, then add $1$ to $\textit{d}[i]$ and subtract $1$ from $\textit{d}[j + 1]$.
+
+Next, we perform a prefix sum operation on $\textit{d}$. For each position $i$, if the prefix sum of $\textit{d}[i]$ is greater than or equal to $\textit{requirement}[i]$, it means that the position meets the requirement, and we increment the answer by one.
+
+Finally, return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of streetlights.
 
 <!-- tabs:start -->
 
@@ -84,7 +94,7 @@ class Solution:
     def meetRequirement(
         self, n: int, lights: List[List[int]], requirement: List[int]
     ) -> int:
-        d = [0] * 100010
+        d = [0] * (n + 1)
         for p, r in lights:
             i, j = max(0, p - r), min(n - 1, p + r)
             d[i] += 1
@@ -97,7 +107,7 @@ class Solution:
 ```java
 class Solution {
     public int meetRequirement(int n, int[][] lights, int[] requirement) {
-        int[] d = new int[100010];
+        int[] d = new int[n + 1];
         for (int[] e : lights) {
             int i = Math.max(0, e[0] - e[1]);
             int j = Math.min(n - 1, e[0] + e[1]);
@@ -123,8 +133,8 @@ class Solution {
 class Solution {
 public:
     int meetRequirement(int n, vector<vector<int>>& lights, vector<int>& requirement) {
-        vector<int> d(100010);
-        for (auto& e : lights) {
+        vector<int> d(n + 1);
+        for (const auto& e : lights) {
             int i = max(0, e[0] - e[1]), j = min(n - 1, e[0] + e[1]);
             ++d[i];
             --d[j + 1];
@@ -132,7 +142,9 @@ public:
         int s = 0, ans = 0;
         for (int i = 0; i < n; ++i) {
             s += d[i];
-            if (s >= requirement[i]) ++ans;
+            if (s >= requirement[i]) {
+                ++ans;
+            }
         }
         return ans;
     }
@@ -142,21 +154,42 @@ public:
 #### Go
 
 ```go
-func meetRequirement(n int, lights [][]int, requirement []int) int {
-	d := make([]int, 100010)
+func meetRequirement(n int, lights [][]int, requirement []int) (ans int) {
+	d := make([]int, n+1)
 	for _, e := range lights {
 		i, j := max(0, e[0]-e[1]), min(n-1, e[0]+e[1])
 		d[i]++
 		d[j+1]--
 	}
-	var s, ans int
+	s := 0
 	for i, r := range requirement {
 		s += d[i]
 		if s >= r {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function meetRequirement(n: number, lights: number[][], requirement: number[]): number {
+    const d: number[] = Array(n + 1).fill(0);
+    for (const [p, r] of lights) {
+        const [i, j] = [Math.max(0, p - r), Math.min(n - 1, p + r)];
+        ++d[i];
+        --d[j + 1];
+    }
+    let [ans, s] = [0, 0];
+    for (let i = 0; i < n; ++i) {
+        s += d[i];
+        if (s >= requirement[i]) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 
