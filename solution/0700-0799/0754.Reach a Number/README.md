@@ -68,15 +68,15 @@ tags:
 
 ### 方法一：数学分析
 
-由于对称性，每次可以选择向左或向右移动，因此，我们可以将 $target$ 统一取绝对值。
+由于对称性，每次可以选择向左或向右移动，因此，我们可以将 $\textit{target}$ 统一取绝对值。
 
 定义 $s$ 表示当前所处的位置，用变量 $k$ 记录移动的次数。初始时 $s$ 和 $k$ 均为 $0$。
 
-我们将 $s$ 一直循环累加，直到满足 $s\ge target$ 并且 $(s-target)\mod 2 = 0$，此时的移动次数 $k$ 就是答案，直接返回。
+我们将 $s$ 一直循环累加，直到满足 $s\ge \textit{target}$ 并且 $(s-\textit{target}) \bmod 2 = 0$，此时的移动次数 $k$ 就是答案，直接返回。
 
-为什么？因为如果 $s\ge target$ 且 $(s-target)\mod 2 = 0$，我们只需要把前面 $\frac{s-target}{2}$ 这个正整数变为负数，就能使得 $s$ 与 $target$ 相等。正整数变负数的过程，实际上是将移动的方向改变，但实际移动次数仍然不变。
+为什么？因为如果 $s\ge \textit{target}$ 且 $(s-\textit{target})\mod 2 = 0$，我们只需要把前面 $\frac{s-\textit{target}}{2}$ 这个正整数变为负数，就能使得 $s$ 与 $\textit{target}$ 相等。正整数变负数的过程，实际上是将移动的方向改变，但实际移动次数仍然不变。
 
-时间复杂度 $O(\sqrt{\left | target \right | })$，空间复杂度 $O(1)$。
+时间复杂度 $O(\sqrt{\left | \textit{target} \right | })$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
