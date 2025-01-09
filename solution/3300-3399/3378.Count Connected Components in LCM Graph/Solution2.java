@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     private void dfs(int node, List<List<Integer>> adj, boolean[] visited) {
         if (visited[node]) return;

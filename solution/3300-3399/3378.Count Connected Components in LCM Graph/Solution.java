@@ -1,5 +1,3 @@
-import java.util.*;
-
 class DSU {
     private Map<Integer, Integer> parent;
     private Map<Integer, Integer> rank;

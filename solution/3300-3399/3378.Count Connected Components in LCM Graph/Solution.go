@@ -1,9 +1,3 @@
-package main
-
-import (
-	"fmt"
-)
-
 type DSU struct {
 	parent map[int]int
 	rank   map[int]int

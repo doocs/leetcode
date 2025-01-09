@@ -1,7 +1,3 @@
-package main
-
-import "fmt"
-
 func dfs(node int, adj [][]int, visited []bool) {
 	if visited[node] {
 		return

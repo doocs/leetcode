@@ -79,7 +79,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1 (DSU)
+### Solution 1: Union Find
 
 <!-- tabs:start -->
 
@@ -132,8 +132,6 @@ class Solution:
 #### Java
 
 ```java
-import java.util.*;
-
 class DSU {
     private Map<Integer, Integer> parent;
     private Map<Integer, Integer> rank;
@@ -260,12 +258,6 @@ public:
 #### Go
 
 ```go
-package main
-
-import (
-	"fmt"
-)
-
 type DSU struct {
 	parent map[int]int
 	rank   map[int]int
@@ -326,7 +318,13 @@ func countComponents(nums []int, threshold int) int {
 }
 ```
 
-### Solution 2 (DFS)
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: DFS
 
 <!-- tabs:start -->
 
@@ -365,8 +363,6 @@ class Solution:
 #### Java
 
 ```java
-import java.util.*;
-
 class Solution {
     private void dfs(int node, List<List<Integer>> adj, boolean[] visited) {
         if (visited[node]) return;
@@ -449,10 +445,6 @@ public:
 #### Go
 
 ```go
-package main
-
-import "fmt"
-
 func dfs(node int, adj [][]int, visited []bool) {
 	if visited[node] {
 		return
