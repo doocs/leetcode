@@ -3426,6 +3426,7 @@
 |  3413  |  [收集连续 K 个袋子可以获得的最多硬币数量](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README.md)  |    |  中等  |  第 431 场周赛  |
 |  3414  |  [不重叠区间的最大得分](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README.md)  |    |  困难  |  第 431 场周赛  |
 |  3415  |  [Find Products with Three Consecutive Digits](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)  |    |  简单  |  🔒  |
+|  3416  |  [Subsequences with a Unique Middle Mode II](/solution/3400-3499/3416.Subsequences%20with%20a%20Unique%20Middle%20Mode%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
