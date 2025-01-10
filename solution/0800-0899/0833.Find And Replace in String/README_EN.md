@@ -81,7 +81,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We iterate through each replacement operation. For the current $k$-th replacement operation $(i, \text{src})$, if $s[i..i+|\text{src}|-1]$ is equal to $\text{src}$, we record that the string at index $i$ needs to be replaced with the $k$-th string in $\text{targets}$; otherwise, no replacement is needed.
+
+Next, we only need to iterate through the original string $s$ and perform the replacements based on the recorded information.
+
+The time complexity is $O(L)$, and the space complexity is $O(n)$, where $L$ is the sum of the lengths of all strings, and $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -69,7 +69,13 @@ Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We can traverse the matrix, and for each row $\textit{row}$, we use two pointers $i$ and $j$ pointing to the first and last elements of the row, respectively. If $\textit{row}[i] = \textit{row}[j]$, swapping them will keep their values unchanged, so we only need to XOR invert $\textit{row}[i]$ and $\textit{row}[j]$, then move $i$ and $j$ one position towards the center until $i \geq j$. If $\textit{row}[i] \neq \textit{row}[j]$, swapping and then inverting their values will also keep them unchanged, so no operation is needed.
+
+Finally, if $i = j$, we directly invert $\textit{row}[i]$.
+
+The time complexity is $O(n^2)$, where $n$ is the number of rows or columns in the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
