@@ -69,7 +69,17 @@ Hence, answer[0] = 8, and so on.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Tree DP (Re-rooting)
+
+First, we run a DFS to calculate the size of each node's subtree, recorded in the array $size$, and compute the sum of distances from node $0$ to all other nodes, recorded in $ans[0]$.
+
+Next, we run another DFS to enumerate the sum of distances from each node when it is considered as the root. Suppose the answer for the current node $i$ is $t$. When we move from node $i$ to node $j$, the sum of distances changes to $t - size[j] + n - size[j]$, meaning the sum of distances to node $j$ and its subtree nodes decreases by $size[j]$, while the sum of distances to other nodes increases by $n - size[j]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+Similar problems:
+
+-   [2581. Count Number of Possible Root Nodes](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -65,16 +65,16 @@ tags:
 
 ### 方法一：判断不重叠的情况
 
-我们记矩形 $rec1$ 的坐标点为 $(x_1, y_1, x_2, y_2)$，矩形 $rec2$ 的坐标点为 $(x_3, y_3, x_4, y_4)$。
+我们记矩形 $\text{rec1}$ 的坐标点为 $(x_1, y_1, x_2, y_2)$，矩形 $\text{rec2}$ 的坐标点为 $(x_3, y_3, x_4, y_4)$。
 
-那么当满足以下任一条件时，矩形 $rec1$ 和 $rec2$ 不重叠：
+那么当满足以下任一条件时，矩形 $\text{rec1}$ 和 $\text{rec2}$ 不重叠：
 
--   满足 $y_3 \geq y_2$，即 $rec2$ 在 $rec1$ 的上方；
--   满足 $y_4 \leq y_1$，即 $rec2$ 在 $rec1$ 的下方；
--   满足 $x_3 \geq x_2$，即 $rec2$ 在 $rec1$ 的右方；
--   满足 $x_4 \leq x_1$，即 $rec2$ 在 $rec1$ 的左方。
+-   满足 $y_3 \geq y_2$，即 $\text{rec2}$ 在 $\text{rec1}$ 的上方；
+-   满足 $y_4 \leq y_1$，即 $\text{rec2}$ 在 $\text{rec1}$ 的下方；
+-   满足 $x_3 \geq x_2$，即 $\text{rec2}$ 在 $\text{rec1}$ 的右方；
+-   满足 $x_4 \leq x_1$，即 $\text{rec2}$ 在 $\text{rec1}$ 的左方。
 
-当以上条件都不满足时，矩形 $rec1$ 和 $rec2$ 重叠。
+当以上条件都不满足时，矩形 $\text{rec1}$ 和 $\text{rec2}$ 重叠。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -122,6 +122,16 @@ func isRectangleOverlap(rec1 []int, rec2 []int) bool {
 	x1, y1, x2, y2 := rec1[0], rec1[1], rec1[2], rec1[3]
 	x3, y3, x4, y4 := rec2[0], rec2[1], rec2[2], rec2[3]
 	return !(y3 >= y2 || y4 <= y1 || x3 >= x2 || x4 <= x1)
+}
+```
+
+#### TypeScript
+
+```ts
+function isRectangleOverlap(rec1: number[], rec2: number[]): boolean {
+    const [x1, y1, x2, y2] = rec1;
+    const [x3, y3, x4, y4] = rec2;
+    return !(y3 >= y2 || y4 <= y1 || x3 >= x2 || x4 <= x1);
 }
 ```
 

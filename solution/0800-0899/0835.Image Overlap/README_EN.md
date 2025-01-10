@@ -68,7 +68,11 @@ The number of positions that have a 1 in both images is 3 (shown in red).
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate each position of $1$ in $\textit{img1}$ and $\textit{img2}$, denoted as $(i, j)$ and $(h, k)$ respectively. Then we calculate the offset $(i - h, j - k)$, denoted as $(dx, dy)$, and use a hash table $\textit{cnt}$ to record the number of occurrences of each offset. Finally, we traverse the hash table $\textit{cnt}$ to find the offset that appears the most, which is the answer.
+
+The time complexity is $O(n^4)$, and the space complexity is $O(n^2)$, where $n$ is the side length of $\textit{img1}$.
 
 <!-- tabs:start -->
 
