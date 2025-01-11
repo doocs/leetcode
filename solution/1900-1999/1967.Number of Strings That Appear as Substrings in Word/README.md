@@ -77,11 +77,11 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 
 ### 方法一：模拟
 
-遍历字符串数组 $patterns$ 中的每个字符串 $p$，判断其是否为 $word$ 的子字符串，如果是，答案加一。
+遍历字符串数组 $\textit{patterns}$ 中的每个字符串 $p$，判断其是否为 $\textit{word}$ 的子字符串，如果是，答案加一。
 
 遍历结束后，返回答案。
 
-时间复杂度 $O(n \times m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为 $patterns$ 和 $word$ 的长度。
+时间复杂度 $O(n \times m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别为 $\textit{patterns}$ 和 $\textit{word}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -141,13 +141,17 @@ func numOfStrings(patterns []string, word string) (ans int) {
 
 ```ts
 function numOfStrings(patterns: string[], word: string): number {
-    let ans = 0;
-    for (const p of patterns) {
-        if (word.includes(p)) {
-            ++ans;
-        }
+    return patterns.filter(p => word.includes(p)).length;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_of_strings(patterns: Vec<String>, word: String) -> i32 {
+        patterns.iter().filter(|p| word.contains(&**p)).count() as i32
     }
-    return ans;
 }
 ```
 
