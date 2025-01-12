@@ -85,32 +85,171 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3418.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoized Search
+
+We design a function $\textit{dfs}(i, j, k)$, which represents the maximum amount of coins the robot can collect starting from $(i, j)$ with $k$ conversion opportunities left. The robot can only move right or down, so the value of $\textit{dfs}(i, j, k)$ depends only on $\textit{dfs}(i + 1, j, k)$ and $\textit{dfs}(i, j + 1, k)$.
+
+-   If $i \geq m$ or $j \geq n$, it means the robot has moved out of the grid, so we return a very small value.
+-   If $i = m - 1$ and $j = n - 1$, it means the robot has reached the bottom-right corner of the grid. If $k > 0$, the robot can choose to convert the bandit at the current position, so we return $\max(0, \textit{coins}[i][j])$. If $k = 0$, the robot cannot convert the bandit at the current position, so we return $\textit{coins}[i][j]$.
+-   If $\textit{coins}[i][j] < 0$, it means there is a bandit at the current position. If $k > 0$, the robot can choose to convert the bandit at the current position, so we return $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$. If $k = 0$, the robot cannot convert the bandit at the current position, so we return $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$.
+
+Based on the above analysis, we can write the code for memoized search.
+
+The time complexity is $O(m \times n \times k)$, and the space complexity is $O(m \times n \times k)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{coins}$, and $k$ is the number of conversion opportunities, which is $3$ in this problem.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maximumAmount(self, coins: List[List[int]]) -> int:
+        @cache
+        def dfs(i: int, j: int, k: int) -> int:
+            if i >= m or j >= n:
+                return -inf
+            if i == m - 1 and j == n - 1:
+                return max(coins[i][j], 0) if k else coins[i][j]
+            ans = coins[i][j] + max(dfs(i + 1, j, k), dfs(i, j + 1, k))
+            if coins[i][j] < 0 and k:
+                ans = max(ans, dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1))
+            return ans
 
+        m, n = len(coins), len(coins[0])
+        return dfs(0, 0, 2)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private Integer[][][] f;
+    private int[][] coins;
+    private int m;
+    private int n;
 
+    public int maximumAmount(int[][] coins) {
+        m = coins.length;
+        n = coins[0].length;
+        this.coins = coins;
+        f = new Integer[m][n][3];
+        return dfs(0, 0, 2);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i >= m || j >= n) {
+            return Integer.MIN_VALUE / 2;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        if (i == m - 1 && j == n - 1) {
+            return k > 0 ? Math.max(0, coins[i][j]) : coins[i][j];
+        }
+        int ans = coins[i][j] + Math.max(dfs(i + 1, j, k), dfs(i, j + 1, k));
+        if (coins[i][j] < 0 && k > 0) {
+            ans = Math.max(ans, Math.max(dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1)));
+        }
+        return f[i][j][k] = ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maximumAmount(vector<vector<int>>& coins) {
+        int m = coins.size(), n = coins[0].size();
+        vector<vector<vector<int>>> f(m, vector<vector<int>>(n, vector<int>(3, -1)));
+        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> int {
+            if (i >= m || j >= n) {
+                return INT_MIN / 2;
+            }
+            if (f[i][j][k] != -1) {
+                return f[i][j][k];
+            }
+            if (i == m - 1 && j == n - 1) {
+                return k > 0 ? max(0, coins[i][j]) : coins[i][j];
+            }
+            int ans = coins[i][j] + max(dfs(i + 1, j, k), dfs(i, j + 1, k));
+            if (coins[i][j] < 0 && k > 0) {
+                ans = max({ans, dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1)});
+            }
+            return f[i][j][k] = ans;
+        };
+        return dfs(0, 0, 2);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumAmount(coins [][]int) int {
+	m, n := len(coins), len(coins[0])
+	f := make([][][]int, m)
+	for i := range f {
+		f[i] = make([][]int, n)
+		for j := range f[i] {
+			f[i][j] = make([]int, 3)
+			for k := range f[i][j] {
+				f[i][j][k] = math.MinInt32
+			}
+		}
+	}
+	var dfs func(i, j, k int) int
+	dfs = func(i, j, k int) int {
+		if i >= m || j >= n {
+			return math.MinInt32 / 2
+		}
+		if f[i][j][k] != math.MinInt32 {
+			return f[i][j][k]
+		}
+		if i == m-1 && j == n-1 {
+			if k > 0 {
+				return max(0, coins[i][j])
+			}
+			return coins[i][j]
+		}
+		ans := coins[i][j] + max(dfs(i+1, j, k), dfs(i, j+1, k))
+		if coins[i][j] < 0 && k > 0 {
+			ans = max(ans, max(dfs(i+1, j, k-1), dfs(i, j+1, k-1)))
+		}
+		f[i][j][k] = ans
+		return ans
+	}
+	return dfs(0, 0, 2)
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumAmount(coins: number[][]): number {
+    const [m, n] = [coins.length, coins[0].length];
+    const f = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => Array(3).fill(-Infinity)),
+    );
+    const dfs = (i: number, j: number, k: number): number => {
+        if (i >= m || j >= n) {
+            return -Infinity;
+        }
+        if (f[i][j][k] !== -Infinity) {
+            return f[i][j][k];
+        }
+        if (i === m - 1 && j === n - 1) {
+            return k > 0 ? Math.max(0, coins[i][j]) : coins[i][j];
+        }
+        let ans = coins[i][j] + Math.max(dfs(i + 1, j, k), dfs(i, j + 1, k));
+        if (coins[i][j] < 0 && k > 0) {
+            ans = Math.max(ans, dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1));
+        }
+        return (f[i][j][k] = ans);
+    };
+    return dfs(0, 0, 2);
+}
 ```
 
 <!-- tabs:end -->
