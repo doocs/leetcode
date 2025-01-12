@@ -87,32 +87,171 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3418.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：记忆化搜索
+
+我们设计一个函数 $\textit{dfs}(i, j, k)$，表示机器人从 $(i, j)$ 出发，还剩下 $k$ 次感化机会时，能够获得的最大金币数。机器人只能向右或向下移动，因此 $\textit{dfs}(i, j, k)$ 的值只与 $\textit{dfs}(i + 1, j, k)$ 和 $\textit{dfs}(i, j + 1, k)$ 有关。
+
+-   如果 $i \geq m$ 或 $j \geq n$，表示机器人走出了网格，此时返回一个极小值。
+-   如果 $i = m - 1$ 且 $j = n - 1$，表示机器人到达了网格的右下角，此时如果 $k > 0$，则机器人可以选择感化当前位置的强盗，因此返回 $\max(0, \textit{coins}[i][j])$；如果 $k = 0$，则机器人不能感化当前位置的强盗，因此返回 $\textit{coins}[i][j]$。
+-   如果 $\textit{coins}[i][j] < 0$，表示当前位置有强盗，此时如果 $k > 0$，则机器人可以选择感化当前位置的强盗，因此返回 $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$；如果 $k = 0$，则机器人不能感化当前位置的强盗，因此返回 $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$。
+
+根据上述分析，我们可以编写出记忆化搜索的代码。
+
+时间复杂度 $O(m \times n \times k)$，空间复杂度 $O(m \times n \times k)$。其中 $m$ 和 $n$ 分别是二维数组 $\textit{coins}$ 的行数和列数，而 $k$ 是感化机会的状态数，本题中 $k = 3$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maximumAmount(self, coins: List[List[int]]) -> int:
+        @cache
+        def dfs(i: int, j: int, k: int) -> int:
+            if i >= m or j >= n:
+                return -inf
+            if i == m - 1 and j == n - 1:
+                return max(coins[i][j], 0) if k else coins[i][j]
+            ans = coins[i][j] + max(dfs(i + 1, j, k), dfs(i, j + 1, k))
+            if coins[i][j] < 0 and k:
+                ans = max(ans, dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1))
+            return ans
 
+        m, n = len(coins), len(coins[0])
+        return dfs(0, 0, 2)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private Integer[][][] f;
+    private int[][] coins;
+    private int m;
+    private int n;
 
+    public int maximumAmount(int[][] coins) {
+        m = coins.length;
+        n = coins[0].length;
+        this.coins = coins;
+        f = new Integer[m][n][3];
+        return dfs(0, 0, 2);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i >= m || j >= n) {
+            return Integer.MIN_VALUE / 2;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        if (i == m - 1 && j == n - 1) {
+            return k > 0 ? Math.max(0, coins[i][j]) : coins[i][j];
+        }
+        int ans = coins[i][j] + Math.max(dfs(i + 1, j, k), dfs(i, j + 1, k));
+        if (coins[i][j] < 0 && k > 0) {
+            ans = Math.max(ans, Math.max(dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1)));
+        }
+        return f[i][j][k] = ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maximumAmount(vector<vector<int>>& coins) {
+        int m = coins.size(), n = coins[0].size();
+        vector<vector<vector<int>>> f(m, vector<vector<int>>(n, vector<int>(3, -1)));
+        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> int {
+            if (i >= m || j >= n) {
+                return INT_MIN / 2;
+            }
+            if (f[i][j][k] != -1) {
+                return f[i][j][k];
+            }
+            if (i == m - 1 && j == n - 1) {
+                return k > 0 ? max(0, coins[i][j]) : coins[i][j];
+            }
+            int ans = coins[i][j] + max(dfs(i + 1, j, k), dfs(i, j + 1, k));
+            if (coins[i][j] < 0 && k > 0) {
+                ans = max({ans, dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1)});
+            }
+            return f[i][j][k] = ans;
+        };
+        return dfs(0, 0, 2);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumAmount(coins [][]int) int {
+	m, n := len(coins), len(coins[0])
+	f := make([][][]int, m)
+	for i := range f {
+		f[i] = make([][]int, n)
+		for j := range f[i] {
+			f[i][j] = make([]int, 3)
+			for k := range f[i][j] {
+				f[i][j][k] = math.MinInt32
+			}
+		}
+	}
+	var dfs func(i, j, k int) int
+	dfs = func(i, j, k int) int {
+		if i >= m || j >= n {
+			return math.MinInt32 / 2
+		}
+		if f[i][j][k] != math.MinInt32 {
+			return f[i][j][k]
+		}
+		if i == m-1 && j == n-1 {
+			if k > 0 {
+				return max(0, coins[i][j])
+			}
+			return coins[i][j]
+		}
+		ans := coins[i][j] + max(dfs(i+1, j, k), dfs(i, j+1, k))
+		if coins[i][j] < 0 && k > 0 {
+			ans = max(ans, max(dfs(i+1, j, k-1), dfs(i, j+1, k-1)))
+		}
+		f[i][j][k] = ans
+		return ans
+	}
+	return dfs(0, 0, 2)
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumAmount(coins: number[][]): number {
+    const [m, n] = [coins.length, coins[0].length];
+    const f = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => Array(3).fill(-Infinity)),
+    );
+    const dfs = (i: number, j: number, k: number): number => {
+        if (i >= m || j >= n) {
+            return -Infinity;
+        }
+        if (f[i][j][k] !== -Infinity) {
+            return f[i][j][k];
+        }
+        if (i === m - 1 && j === n - 1) {
+            return k > 0 ? Math.max(0, coins[i][j]) : coins[i][j];
+        }
+        let ans = coins[i][j] + Math.max(dfs(i + 1, j, k), dfs(i, j + 1, k));
+        if (coins[i][j] < 0 && k > 0) {
+            ans = Math.max(ans, dfs(i + 1, j, k - 1), dfs(i, j + 1, k - 1));
+        }
+        return (f[i][j][k] = ans);
+    };
+    return dfs(0, 0, 2);
+}
 ```
 
 <!-- tabs:end -->
