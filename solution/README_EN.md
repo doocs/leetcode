@@ -3423,8 +3423,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3412  |  [Find Mirror Score of a String](/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 431  |
 |  3413  |  [Maximum Coins From K Consecutive Bags](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README_EN.md)  |    |  Medium  |  Weekly Contest 431  |
 |  3414  |  [Maximum Score of Non-overlapping Intervals](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README_EN.md)  |    |  Hard  |  Weekly Contest 431  |
-|  3415  |  [Find Products with Three Consecutive Digits](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README_EN.md)  |    |  Easy  |  🔒  |
+|  3415  |  [Find Products with Three Consecutive Digits](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  3416  |  [Subsequences with a Unique Middle Mode II](/solution/3400-3499/3416.Subsequences%20with%20a%20Unique%20Middle%20Mode%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  3417  |  [Zigzag Grid Traversal With Skip](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README_EN.md)  |    |  Easy  |  Weekly Contest 432  |
+|  3418  |  [Maximum Amount of Money Robot Can Earn](/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README_EN.md)  |    |  Medium  |  Weekly Contest 432  |
+|  3419  |  [Minimize the Maximum Edge Weight of Graph](/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README_EN.md)  |    |  Medium  |  Weekly Contest 432  |
+|  3420  |  [Count Non-Decreasing Subarrays After K Operations](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 432  |
 
 ## Copyright
 

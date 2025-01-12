@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 432 场周赛(2025-01-12 10:30, 90 分钟) 参赛人数 2199
+
+- [3417. 跳过交替单元格的之字形遍历](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README.md)
+- [3418. 机器人可以获得的最大金币数](/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README.md)
+- [3419. 图的最大边权的最小值](/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README.md)
+- [3420. 统计 K 次操作以内得到非递减子数组的数目](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README.md)
+
 #### 第 431 场周赛(2025-01-05 10:30, 90 分钟) 参赛人数 1989
 
 - [3411. 最长乘积等价子数组](/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README.md)

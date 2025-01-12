@@ -3425,8 +3425,12 @@
 |  3412  |  [计算字符串的镜像分数](/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README.md)  |    |  中等  |  第 431 场周赛  |
 |  3413  |  [收集连续 K 个袋子可以获得的最多硬币数量](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README.md)  |    |  中等  |  第 431 场周赛  |
 |  3414  |  [不重叠区间的最大得分](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README.md)  |    |  困难  |  第 431 场周赛  |
-|  3415  |  [Find Products with Three Consecutive Digits](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)  |    |  简单  |  🔒  |
-|  3416  |  [Subsequences with a Unique Middle Mode II](/solution/3400-3499/3416.Subsequences%20with%20a%20Unique%20Middle%20Mode%20II/README.md)  |    |  困难  |  🔒  |
+|  3415  |  [查找具有三个连续数字的产品](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  3416  |  [唯一中间众数子序列 II](/solution/3400-3499/3416.Subsequences%20with%20a%20Unique%20Middle%20Mode%20II/README.md)  |    |  困难  |  🔒  |
+|  3417  |  [跳过交替单元格的之字形遍历](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README.md)  |    |  简单  |  第 432 场周赛  |
+|  3418  |  [机器人可以获得的最大金币数](/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README.md)  |    |  中等  |  第 432 场周赛  |
+|  3419  |  [图的最大边权的最小值](/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README.md)  |    |  中等  |  第 432 场周赛  |
+|  3420  |  [统计 K 次操作以内得到非递减子数组的数目](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README.md)  |    |  困难  |  第 432 场周赛  |
 
 ## 版权
 
