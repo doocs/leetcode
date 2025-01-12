@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3415. Find Products with Three Consecutive Digits 🔒](https://leetcode.cn/problems/find-products-with-three-consecutive-digits)
+# [3415. 查找具有三个连续数字的产品 🔒](https://leetcode.cn/problems/find-products-with-three-consecutive-digits)
 
 [English Version](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>Products</code></p>
+<p>表：<code>Products</code></p>
 
 <pre>
 +-------------+---------+
@@ -25,23 +25,24 @@ tags:
 | product_id  | int     |
 | name        | varchar |
 +-------------+---------+
-product_id is the unique key for this table.
-Each row of this table contains the ID and name of a product.
+product_id 是这张表的唯一主键。
+这张表的每一行包含产品的 ID 和名字。
 </pre>
 
-<p>Write a solution to find all <strong>products</strong> whose names contain a <strong>sequence of exactly three digits in a row</strong>.&nbsp;</p>
+<p>编写一个解决方案来找到所有名字中包含 <strong>三位连续数字</strong>&nbsp;且无连续三位以上数字的所有 <strong>产品</strong>。</p>
 
-<p>Return <em>the result table ordered by</em> <code>product_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>返回结果表以&nbsp;<code>product_id</code> <strong>升序&nbsp;</strong>排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>products table:</p>
+<p>products 表：</p>
 
 <pre class="example-io">
 +-------------+--------------------+
@@ -57,7 +58,7 @@ Each row of this table contains the ID and name of a product.
 +-------------+--------------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+--------------------+
@@ -69,19 +70,19 @@ Each row of this table contains the ID and name of a product.
 +-------------+--------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Product 1: ABC123XYZ contains the digits 123.</li>
-	<li>Product 5: 789Product&nbsp;contains the digits 789.</li>
-	<li>Product 6: Item003Description&nbsp;contains 003, which is exactly three digits.</li>
+	<li>产品 1：ABC123XYZ 包含数字 123。</li>
+	<li>产品 5：789Product&nbsp;包含数字 789。</li>
+	<li>产品 6：Item003Description 包含数字 003，恰好是三个数字。</li>
 </ul>
 
-<p><strong>Note:</strong></p>
+<p><strong>注意：</strong></p>
 
 <ul>
-	<li>Results are ordered by <code>product_id</code> in ascending order.</li>
-	<li>Only products with exactly three consecutive digits in their names are included in the result.</li>
+	<li>结果以&nbsp;<code>product_id</code>&nbsp;升序排序。</li>
+	<li>只有名称中恰好具有三个连续数字的产品才会包含在结果中。</li>
 </ul>
 </div>
 
