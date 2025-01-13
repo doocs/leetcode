@@ -17,18 +17,16 @@ class Solution {
     private int ans;
 
     public int findTilt(TreeNode root) {
-        ans = 0;
-        sum(root);
+        dfs(root);
         return ans;
     }
 
-    private int sum(TreeNode root) {
+    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int left = sum(root.left);
-        int right = sum(root.right);
-        ans += Math.abs(left - right);
-        return root.val + left + right;
+        int l = dfs(root.left), r = dfs(root.right);
+        ans += Math.abs(l - r);
+        return l + r + root.val;
     }
 }

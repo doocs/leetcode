@@ -54,7 +54,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j][k]$ to represent the length of the longest consecutive $1$s ending at $(i, j)$ in direction $k$. The value range of $k$ is $0, 1, 2, 3$, representing horizontal, vertical, diagonal, and anti-diagonal directions, respectively.
+
+> We can also use four 2D arrays to represent the length of the longest consecutive $1$s in the four directions.
+
+We traverse the matrix, and when we encounter $1$, we update the value of $f[i][j][k]$. For each position $(i, j)$, we only need to update the values in its four directions. Then we update the answer.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 

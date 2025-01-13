@@ -10,9 +10,9 @@ func maxDepth(root *Node) int {
 	if root == nil {
 		return 0
 	}
-	ans := 1
+	mx := 0
 	for _, child := range root.Children {
-		ans = max(ans, 1+maxDepth(child))
+		mx = max(mx, maxDepth(child))
 	}
-	return ans
+	return 1 + mx
 }
