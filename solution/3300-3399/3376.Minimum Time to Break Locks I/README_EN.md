@@ -6,6 +6,7 @@ rating: 1793
 source: Biweekly Contest 145 Q2
 tags:
     - Bit Manipulation
+    - Depth-First Search
     - Array
     - Dynamic Programming
     - Backtracking

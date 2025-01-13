@@ -2,6 +2,12 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README.md
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 数论
+    - 滑动窗口
 ---
 
 <!-- problem:start -->
@@ -20,17 +26,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3411.Ma
 
 <ul>
 	<li><code>prod(arr)</code> 表示 <code>arr</code> 中所有元素的乘积。</li>
-	<li><code>gcd(arr)</code> 表示 <code>arr</code> 中所有元素的最大公因数 (GCD)。</li>
-	<li><code>lcm(arr)</code> 表示 <code>arr</code> 中所有元素的最小公倍数 (LCM)。</li>
+	<li><code>gcd(arr)</code> 表示 <code>arr</code> 中所有元素的最大公因数 (<span data-keyword="gcd-function">GCD</span>)。</li>
+	<li><code>lcm(arr)</code> 表示 <code>arr</code> 中所有元素的最小公倍数 (<span data-keyword="lcm-function">LCM</span>)。</li>
 </ul>
 
-<p>返回数组 <code>nums</code> 的&nbsp;<strong>最长</strong> <strong>乘积等价子数组&nbsp;</strong>的长度。</p>
-
-<p><strong>子数组&nbsp;</strong>是数组中连续的、非空的元素序列。</p>
-
-<p>术语 <code>gcd(a, b)</code> 表示 <code>a</code> 和 <code>b</code> 的&nbsp;<strong>最大公因数&nbsp;</strong>。</p>
-
-<p>术语 <code>lcm(a, b)</code> 表示 <code>a</code> 和 <code>b</code> 的&nbsp;<strong>最小公倍数&nbsp;</strong>。</p>
+<p>返回数组 <code>nums</code> 的&nbsp;<strong>最长</strong> <strong>乘积等价 <span data-keyword="subarray-nonempty">子数组</span>&nbsp;</strong>的长度。</p>
 
 <p>&nbsp;</p>
 

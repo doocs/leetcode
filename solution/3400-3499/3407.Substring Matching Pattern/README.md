@@ -2,6 +2,9 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3407.Substring%20Matching%20Pattern/README.md
+tags:
+    - 字符串
+    - 字符串匹配
 ---
 
 <!-- problem:start -->
@@ -18,9 +21,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3407.Su
 
 <p><code>p</code>&nbsp;中的 <code>'*'</code>&nbsp;符号可以被替换为零个或多个字符组成的任意字符序列。</p>
 
-<p>如果 <code>p</code>&nbsp;可以变成 <code>s</code>&nbsp;的子字符串，那么返回&nbsp;<code>true</code>&nbsp;，否则返回 <code>false</code>&nbsp;。</p>
-
-<p><strong>子字符串</strong>&nbsp;指的是字符串中一段连续 <strong>非空</strong>&nbsp;的字符序列。</p>
+<p>如果 <code>p</code>&nbsp;可以变成 <code>s</code>&nbsp;的 <span data-keyword="substring-nonempty">子字符串</span>，那么返回&nbsp;<code>true</code>&nbsp;，否则返回 <code>false</code>&nbsp;。</p>
 
 <p>&nbsp;</p>
 

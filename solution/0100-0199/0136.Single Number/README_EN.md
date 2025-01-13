@@ -23,15 +23,29 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<pre><strong>Input:</strong> nums = [2,2,1]
-<strong>Output:</strong> 1
-</pre><p><strong class="example">Example 2:</strong></p>
-<pre><strong>Input:</strong> nums = [4,1,2,1,2]
-<strong>Output:</strong> 4
-</pre><p><strong class="example">Example 3:</strong></p>
-<pre><strong>Input:</strong> nums = [1]
-<strong>Output:</strong> 1
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [2,2,1]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [4,1,2,1,2]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">4</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
+</div>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

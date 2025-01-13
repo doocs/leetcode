@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3393.Count%20Paths%20With%20the%20Given%20XOR%20Value/README.md
 rating: 1573
 source: 第 146 场双周赛 Q2
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

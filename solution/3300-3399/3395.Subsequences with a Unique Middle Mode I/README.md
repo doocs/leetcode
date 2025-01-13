@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3395.Subsequences%20with%20a%20Unique%20Middle%20Mode%20I/README.md
 rating: 2799
 source: 第 146 场双周赛 Q4
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 组合数学
 ---
 
 <!-- problem:start -->

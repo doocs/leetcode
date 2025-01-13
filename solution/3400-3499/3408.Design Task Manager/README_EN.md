@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3408.Design%20Task%20Manager/README_EN.md
+tags:
+    - Design
+    - Hash Table
+    - Ordered Set
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->
@@ -68,6 +73,7 @@ taskManager.execTop(); // return 5. Executes task 105 for User 5.</div>
 	<li><code>0 &lt;= priority &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= newPriority &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made in <strong>total</strong> to <code>add</code>, <code>edit</code>, <code>rmv</code>, and <code>execTop</code> methods.</li>
+	<li>The input is generated such that <code>taskId</code> will be valid.</li>
 </ul>
 
 <!-- description:end -->

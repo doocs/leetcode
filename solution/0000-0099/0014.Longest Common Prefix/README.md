@@ -44,7 +44,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= strs.length &lt;= 200</code></li>
 	<li><code>0 &lt;= strs[i].length &lt;= 200</code></li>
-	<li><code>strs[i]</code> 仅由小写英文字母组成</li>
+	<li><code>strs[i]</code>&nbsp;如果非空，则仅由小写英文字母组成</li>
 </ul>
 
 <!-- description:end -->

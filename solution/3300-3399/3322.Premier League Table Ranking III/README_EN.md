@@ -36,7 +36,7 @@ tags:
 This table contains season id, team id, team name, matches played, wins, draws, losses, goals scored (goals_for), and goals conceded (goals_against) for each team in each season.
 </pre>
 
-<p>Write a solution to calculate the <strong>points</strong>, <strong>goal difference</strong>, and <strong>rank</strong> for <strong>each team</strong> in <strong>each season</strong>. The ranking should be determined as follows:</p>
+<p>Write a solution to calculate the <strong>points</strong>, <strong>goal difference</strong>, and <b>position&nbsp;</b>for <strong>each team</strong> in <strong>each season</strong>. The position ranking should be determined as follows:</p>
 
 <ul>
 	<li>Teams are first ranked by their total points (highest to lowest)</li>
@@ -54,7 +54,7 @@ This table contains season id, team id, team name, matches played, wins, draws, 
 
 <p>Goal difference is calculated as: <code>goals_for - goals_against</code></p>
 
-<p>Return <em>the result table ordered&nbsp;by</em> <code>season_id</code> <em>in <strong>ascending</strong> order, then by</em> <code>rank</code> <em>in <strong>ascending</strong> order, and finally by</em> <code>team_name</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>Return <em>the result table ordered&nbsp;by</em> <code>season_id</code> <em>in <strong>ascending</strong> order, then by</em>&nbsp;<font face="monospace">position&nbsp;</font><em>in <strong>ascending</strong> order, and finally by</em> <code>team_name</code> <em>in <strong>ascending</strong> order.</em></p>
 
 <p>The query result format is in the following example.</p>
 

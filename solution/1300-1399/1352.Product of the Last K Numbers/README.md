@@ -6,10 +6,10 @@ rating: 1473
 source: 第 176 场周赛 Q2
 tags:
     - 设计
-    - 队列
     - 数组
     - 数学
     - 数据流
+    - 前缀和
 ---
 
 <!-- problem:start -->

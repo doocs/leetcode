@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3403.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20I/README.md
+tags:
+    - 双指针
+    - 字符串
+    - 枚举
 ---
 
 <!-- problem:start -->
@@ -23,10 +27,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3403.Fi
 	<li>所有分割出的字符串都会被放入一个盒子中。</li>
 </ul>
 
-<p>在所有回合结束后，找出盒子中&nbsp;<strong>字典序最大的&nbsp;</strong>字符串。</p>
-
-<p>字符串 <code>a</code> 的字典序&nbsp;<strong>小于&nbsp;</strong>字符串 <code>b</code> 的前提是：在两个字符串上第一处不同的位置上，<code>a</code> 的字母在字母表中的顺序早于 <code>b</code> 中对应的字母。<br />
-如果前 <code>min(a.length, b.length)</code> 个字符都相同，那么较短的字符串字典序更小。</p>
+<p>在所有回合结束后，找出盒子中&nbsp;<span data-keyword="lexicographically-smaller-string">字典序最大的&nbsp;</span>字符串。</p>
 
 <p>&nbsp;</p>
 

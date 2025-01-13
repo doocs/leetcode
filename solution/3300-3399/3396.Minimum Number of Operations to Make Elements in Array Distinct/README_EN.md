@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3396.Minimum%20Number%20of%20Operations%20to%20Make%20Elements%20in%20Array%20Distinct/README_EN.md
 rating: 1299
 source: Weekly Contest 429 Q1
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

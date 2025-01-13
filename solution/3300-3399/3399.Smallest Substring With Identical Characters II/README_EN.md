@@ -4,6 +4,9 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3399.Smallest%20Substring%20With%20Identical%20Characters%20II/README_EN.md
 rating: 2375
 source: Weekly Contest 429 Q4
+tags:
+    - String
+    - Binary Search
 ---
 
 <!-- problem:start -->
