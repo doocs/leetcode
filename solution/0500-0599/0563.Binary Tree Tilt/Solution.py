@@ -5,17 +5,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findTilt(self, root: TreeNode) -> int:
-        ans = 0
-
-        def sum(root):
+    def findTilt(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
+            l, r = dfs(root.left), dfs(root.right)
             nonlocal ans
-            left = sum(root.left)
-            right = sum(root.right)
-            ans += abs(left - right)
-            return root.val + left + right
+            ans += abs(l - r)
+            return l + r + root.val
 
-        sum(root)
+        ans = 0
+        dfs(root)
         return ans

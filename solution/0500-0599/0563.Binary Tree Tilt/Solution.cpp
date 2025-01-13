@@ -11,18 +11,17 @@
  */
 class Solution {
 public:
-    int ans;
-
     int findTilt(TreeNode* root) {
-        ans = 0;
-        sum(root);
+        int ans = 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left), r = dfs(root->right);
+            ans += abs(l - r);
+            return l + r + root->val;
+        };
+        dfs(root);
         return ans;
-    }
-
-    int sum(TreeNode* root) {
-        if (!root) return 0;
-        int left = sum(root->left), right = sum(root->right);
-        ans += abs(left - right);
-        return root->val + left + right;
     }
 };

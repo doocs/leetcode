@@ -58,7 +58,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+First, we get the number of rows and columns of the original matrix, denoted as $m$ and $n$ respectively. If $m \times n \neq r \times c$, then the matrix cannot be reshaped, and we return the original matrix directly.
+
+Otherwise, we create a new matrix with $r$ rows and $c$ columns. Starting from the first element of the original matrix, we traverse all elements in row-major order and place the traversed elements into the new matrix in order.
+
+After traversing all elements of the original matrix, we get the answer.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the original matrix, respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

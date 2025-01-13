@@ -75,7 +75,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：递归
+
+我们设计一个函数 $\text{dfs}$，用来计算以当前节点为根节点的子树的节点之和。在 $\text{dfs}$ 函数中，我们首先判断当前节点是否为空，若为空则返回 0。然后递归调用 $\text{dfs}$ 函数计算左子树的节点之和 $l$ 和右子树的节点之和 $r$。接着计算当前节点的坡度，即 $|l - r|$，并将其加到答案中。最后返回当前节点的节点之和 $l + r + \textit{root.val}$。
+
+在主函数中，我们初始化答案为 0，然后调用 $\text{dfs}$ 函数计算整个树的坡度，并返回答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点的数量。
 
 <!-- tabs:start -->
 
@@ -89,19 +95,17 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findTilt(self, root: TreeNode) -> int:
-        ans = 0
-
-        def sum(root):
+    def findTilt(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
+            l, r = dfs(root.left), dfs(root.right)
             nonlocal ans
-            left = sum(root.left)
-            right = sum(root.right)
-            ans += abs(left - right)
-            return root.val + left + right
+            ans += abs(l - r)
+            return l + r + root.val
 
-        sum(root)
+        ans = 0
+        dfs(root)
         return ans
 ```
 
@@ -127,19 +131,17 @@ class Solution {
     private int ans;
 
     public int findTilt(TreeNode root) {
-        ans = 0;
-        sum(root);
+        dfs(root);
         return ans;
     }
 
-    private int sum(TreeNode root) {
+    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int left = sum(root.left);
-        int right = sum(root.right);
-        ans += Math.abs(left - right);
-        return root.val + left + right;
+        int l = dfs(root.left), r = dfs(root.right);
+        ans += Math.abs(l - r);
+        return l + r + root.val;
     }
 }
 ```
@@ -160,19 +162,18 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-
     int findTilt(TreeNode* root) {
-        ans = 0;
-        sum(root);
+        int ans = 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left), r = dfs(root->right);
+            ans += abs(l - r);
+            return l + r + root->val;
+        };
+        dfs(root);
         return ans;
-    }
-
-    int sum(TreeNode* root) {
-        if (!root) return 0;
-        int left = sum(root->left), right = sum(root->right);
-        ans += abs(left - right);
-        return root->val + left + right;
     }
 };
 ```
@@ -188,28 +189,57 @@ public:
  *     Right *TreeNode
  * }
  */
-var ans int
-
-func findTilt(root *TreeNode) int {
-	ans = 0
-	sum(root)
-	return ans
-}
-
-func sum(root *TreeNode) int {
-	if root == nil {
-		return 0
+func findTilt(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		ans += abs(l - r)
+		return l + r + root.Val
 	}
-	left, right := sum(root.Left), sum(root.Right)
-	ans += abs(left - right)
-	return root.Val + left + right
+	dfs(root)
+	return
 }
 
 func abs(x int) int {
-	if x > 0 {
-		return x
+	if x < 0 {
+		return -x
 	}
-	return -x
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function findTilt(root: TreeNode | null): number {
+    let ans: number = 0;
+    const dfs = (root: TreeNode | null): number => {
+        if (!root) {
+            return 0;
+        }
+        const [l, r] = [dfs(root.left), dfs(root.right)];
+        ans += Math.abs(l - r);
+        return l + r + root.val;
+    };
+    dfs(root);
+    return ans;
 }
 ```
 
