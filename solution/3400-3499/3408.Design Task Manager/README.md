@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3408.Design%20Task%20Manager/README.md
+tags:
+    - 设计
+    - 哈希表
+    - 有序集合
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
@@ -70,6 +75,7 @@ taskManager.execTop(); // 返回 5 。执行用户 5 的任务 105 。</div>
 	<li><code>0 &lt;= priority &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= newPriority &lt;= 10<sup>9</sup></code></li>
 	<li><code>add</code>&nbsp;，<code>edit</code>&nbsp;，<code>rmv</code>&nbsp;和&nbsp;<code>execTop</code>&nbsp;的总操作次数 <strong>加起来</strong>&nbsp;不超过&nbsp;<code>2 * 10<sup>5</sup></code> 次。</li>
+	<li>输入保证&nbsp;<code>taskId</code> 是合法的。</li>
 </ul>
 
 <!-- description:end -->

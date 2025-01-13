@@ -33,17 +33,27 @@ tags:
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;e&quot;,&quot;o&quot;]
-<strong>Output:</strong> [&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;e&quot;,&quot;o&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;]</span></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;l&quot;,&quot;e&quot;]
-<strong>Output:</strong> [&quot;apple&quot;,&quot;google&quot;,&quot;leetcode&quot;]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;lc&quot;,&quot;eo&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;leetcode&quot;]</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">words1 = [&quot;acaac&quot;,&quot;cccbb&quot;,&quot;aacbb&quot;,&quot;caacc&quot;,&quot;bcbbb&quot;], words2 = [&quot;c&quot;,&quot;cc&quot;,&quot;b&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;cccbb&quot;]</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

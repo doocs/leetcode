@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3395.Subsequences%20with%20a%20Unique%20Middle%20Mode%20I/README_EN.md
 rating: 2799
 source: Biweekly Contest 146 Q4
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Combinatorics
 ---
 
 <!-- problem:start -->

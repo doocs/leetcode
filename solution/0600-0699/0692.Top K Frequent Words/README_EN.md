@@ -4,6 +4,7 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md
 tags:
     - Trie
+    - Array
     - Hash Table
     - String
     - Bucket Sort

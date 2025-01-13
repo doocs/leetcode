@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3409.Longest%20Subsequence%20With%20Decreasing%20Adjacent%20Difference/README.md
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->
@@ -16,11 +19,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3409.Lo
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。</p>
 
-<p>你的任务是找到 <code>nums</code>&nbsp;中的 <strong>最长子序列</strong>&nbsp;<code>seq</code>&nbsp;，这个子序列中相邻元素的 <strong>绝对差</strong>&nbsp;构成一个 <strong>非递增</strong>&nbsp;整数序列。换句话说，<code>nums</code>&nbsp;中的序列&nbsp;<code>seq<sub>0</sub></code>, <code>seq<sub>1</sub></code>, <code>seq<sub>2</sub></code>, ..., <code>seq<sub>m</sub></code>&nbsp;满足&nbsp;<code>|seq<sub>1</sub> - seq<sub>0</sub>| &gt;= |seq<sub>2</sub> - seq<sub>1</sub>| &gt;= ... &gt;= |seq<sub>m</sub> - seq<sub>m - 1</sub>|</code>&nbsp;。</p>
+<p>你的任务是找到 <code>nums</code>&nbsp;中的 <strong>最长 <span data-keyword="subsequence-array">子序列</span></strong>&nbsp;<code>seq</code>&nbsp;，这个子序列中相邻元素的 <strong>绝对差</strong>&nbsp;构成一个 <strong>非递增</strong>&nbsp;整数序列。换句话说，<code>nums</code>&nbsp;中的序列&nbsp;<code>seq<sub>0</sub></code>, <code>seq<sub>1</sub></code>, <code>seq<sub>2</sub></code>, ..., <code>seq<sub>m</sub></code>&nbsp;满足&nbsp;<code>|seq<sub>1</sub> - seq<sub>0</sub>| &gt;= |seq<sub>2</sub> - seq<sub>1</sub>| &gt;= ... &gt;= |seq<sub>m</sub> - seq<sub>m - 1</sub>|</code>&nbsp;。</p>
 
 <p>请你返回这个子序列的长度。</p>
-
-<p>一个&nbsp;<strong>子序列</strong>&nbsp;指的是从一个数组中删除零个或多个元素后，剩下元素不改变顺序得到的&nbsp;<strong>非空</strong>&nbsp;数组。</p>
 
 <p>&nbsp;</p>
 

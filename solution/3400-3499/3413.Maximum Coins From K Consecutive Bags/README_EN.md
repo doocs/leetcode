@@ -2,6 +2,13 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sorting
+    - Sliding Window
 ---
 
 <!-- problem:start -->

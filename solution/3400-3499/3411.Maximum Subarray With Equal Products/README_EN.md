@@ -2,6 +2,12 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README_EN.md
+tags:
+    - Array
+    - Math
+    - Enumeration
+    - Number Theory
+    - Sliding Window
 ---
 
 <!-- problem:start -->
@@ -20,17 +26,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3411.Ma
 
 <ul>
 	<li><code>prod(arr)</code> is the product of all elements of <code>arr</code>.</li>
-	<li><code>gcd(arr)</code> is the GCD of all elements of <code>arr</code>.</li>
-	<li><code>lcm(arr)</code> is the LCM of all elements of <code>arr</code>.</li>
+	<li><code>gcd(arr)</code> is the <span data-keyword="gcd-function">GCD</span> of all elements of <code>arr</code>.</li>
+	<li><code>lcm(arr)</code> is the <span data-keyword="lcm-function">LCM</span> of all elements of <code>arr</code>.</li>
 </ul>
 
-<p>Return the length of the <strong>longest</strong> <strong>product equivalent</strong> subarray of <code>nums</code>.</p>
-
-<p>A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of elements within an array.</p>
-
-<p>The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</strong> of <code>a</code> and <code>b</code>.</p>
-
-<p>The term <code>lcm(a, b)</code> denotes the <strong>least common multiple</strong> of <code>a</code> and <code>b</code>.</p>
+<p>Return the length of the <strong>longest</strong> <strong>product equivalent</strong> <span data-keyword="subarray-nonempty">subarray</span> of <code>nums</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3402.Minimum%20Operations%20to%20Make%20Columns%20Strictly%20Increasing/README.md
+tags:
+    - 贪心
+    - 数组
+    - 矩阵
 ---
 
 <!-- problem:start -->

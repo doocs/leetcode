@@ -6,10 +6,10 @@ rating: 1473
 source: Weekly Contest 176 Q2
 tags:
     - Design
-    - Queue
     - Array
     - Math
     - Data Stream
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

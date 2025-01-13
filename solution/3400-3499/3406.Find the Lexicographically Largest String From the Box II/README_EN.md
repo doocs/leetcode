@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3406.Find%20the%20Lexicographically%20Largest%20String%20From%20the%20Box%20II/README_EN.md
+tags:
+    - Two Pointers
+    - String
 ---
 
 <!-- problem:start -->

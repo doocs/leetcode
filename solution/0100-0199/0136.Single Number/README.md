@@ -27,24 +27,27 @@ tags:
 
 <p><strong class="example">示例 1 ：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [2,2,1]
-<strong>输出：</strong>1
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>nums = [2,2,1]</p>
+
+<p><strong>输出：</strong>1</p>
+</div>
 
 <p><strong class="example">示例 2 ：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [4,1,2,1,2]
-<strong>输出：</strong>4
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>nums = [4,1,2,1,2]</p>
+
+<p><strong>输出：</strong>4</p>
+</div>
 
 <p><strong class="example">示例 3 ：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [1]
-<strong>输出：</strong>1
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>nums = [1]</p>
+
+<p><strong>输出：</strong>1</p>
+</div>
 
 <p>&nbsp;</p>
 

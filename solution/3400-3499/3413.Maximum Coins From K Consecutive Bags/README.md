@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README.md
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 排序
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

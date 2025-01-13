@@ -18,36 +18,47 @@ tags:
 
 <!-- description:start -->
 
-<p>给你两个整数 <code>num</code> 和 <code>t</code> 。</p>
-
-<p>如果整数 <code>x</code> 可以在执行下述操作不超过 <code>t</code> 次的情况下变为与 <code>num</code> 相等，则称其为 <strong>可达成数字</strong> ：</p>
+<p>给你两个整数 <code>num</code> 和 <code>t</code> 。如果整数 <code>x</code> 可以在执行下述操作 <strong>不超过</strong> <code>t</code> 次的情况下变为与 <code>num</code> 相等，则称其为 <strong>可达成数字</strong> ：</p>
 
 <ul>
 	<li>每次操作将 <code>x</code> 的值增加或减少 <code>1</code> ，同时可以选择将 <code>num</code> 的值增加或减少 <code>1</code> 。</li>
 </ul>
 
-<p>返回所有可达成数字中的最大值。可以证明至少存在一个可达成数字。</p>
+<p>返回所有可达成数字中的 <strong>最大</strong> 值 <code>x</code>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>num = 4, t = 1
-<strong>输出：</strong>6
-<strong>解释：</strong>最大可达成数字是 x = 6 ，执行下述操作可以使其等于 num ：
-- x 减少 1 ，同时 num 增加 1 。此时，x = 5 且 num = 5 。 
-可以证明不存在大于 6 的可达成数字。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>num = 4, t = 1</p>
+
+<p><strong>输出：</strong>6</p>
+
+<p><strong>解释：</strong></p>
+
+<p>执行下述操作可以使最大可达成数字等于 <code>num</code> ：</p>
+
+<ul>
+	<li>最大可达成数字减少 1 ，同时 <code>num</code> 增加 1 。</li>
+</ul>
+</div>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>num = 3, t = 2
-<strong>输出：</strong>7
-<strong>解释：</strong>最大的可达成数字是 x = 7 ，执行下述操作可以使其等于 num ：
-- x 减少 1 ，同时 num 增加 1 。此时，x = 6 且 num = 4 。 
-- x 减少 1 ，同时 num 增加 1 。此时，x = 5 且 num = 5 。 
-可以证明不存在大于 7 的可达成数字。
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>num = 3, t = 2</p>
+
+<p><strong>输出：</strong>7</p>
+
+<p><strong>解释：</strong></p>
+
+<p>执行两次下述操作可以使最大可达成数字等于 num ：</p>
+
+<ul>
+	<li>最大可达成数字减少 1 ，同时 <code>num</code> 增加 1。</li>
+</ul>
+</div>
 
 <p>&nbsp;</p>
 

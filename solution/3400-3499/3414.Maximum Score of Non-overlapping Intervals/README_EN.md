@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->
@@ -16,12 +21,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3414.Ma
 
 <p>You are given a 2D integer array <code>intervals</code>, where <code>intervals[i] = [l<sub>i</sub>, r<sub>i</sub>, weight<sub>i</sub>]</code>. Interval <code>i</code> starts at position <code>l<sub>i</sub></code> and ends at <code>r<sub>i</sub></code>, and has a weight of <code>weight<sub>i</sub></code>. You can choose <em>up to</em> 4 <strong>non-overlapping</strong> intervals. The <strong>score</strong> of the chosen intervals is defined as the total sum of their weights.</p>
 
-<p>Return the <b>lexicographically smallest</b> array of at most 4 indices from <code>intervals</code> with <strong>maximum</strong> score, representing your choice of non-overlapping intervals.</p>
+<p>Return the <span data-keyword="lexicographically-smaller-array">lexicographically smallest</span> array of at most 4 indices from <code>intervals</code> with <strong>maximum</strong> score, representing your choice of non-overlapping intervals.</p>
 
 <p>Two intervals are said to be <strong>non-overlapping</strong> if they do not share any points. In particular, intervals sharing a left or right boundary are considered overlapping.</p>
-
-<p>An array <code>a</code> is <strong>lexicographically smaller</strong> than an array <code>b</code> if in the first position where <code>a</code> and <code>b</code> differ, array <code>a</code> has an element that is less than the corresponding element in <code>b</code>.<br />
-If the first <code>min(a.length, b.length)</code> elements do not differ, then the shorter array is the lexicographically smaller one.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

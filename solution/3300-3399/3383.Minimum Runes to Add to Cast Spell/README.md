@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3383.Mi
 tags:
     - 深度优先搜索
     - 广度优先搜索
+    - 并查集
     - 图
     - 拓扑排序
     - 数组
