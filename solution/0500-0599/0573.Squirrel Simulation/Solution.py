@@ -7,11 +7,12 @@ class Solution:
         squirrel: List[int],
         nuts: List[List[int]],
     ) -> int:
-        x, y, a, b = *tree, *squirrel
-        s = sum(abs(i - x) + abs(j - y) for i, j in nuts) * 2
+        tr, tc = tree
+        sr, sc = squirrel
+        s = sum(abs(r - tr) + abs(c - tc) for r, c in nuts) * 2
         ans = inf
-        for i, j in nuts:
-            c = abs(i - x) + abs(j - y)
-            d = abs(i - a) + abs(j - b) + c
-            ans = min(ans, s + d - c * 2)
+        for r, c in nuts:
+            a = abs(r - tr) + abs(c - tc)
+            b = abs(r - sr) + abs(c - sc)
+            ans = min(ans, s - a + b)
         return ans

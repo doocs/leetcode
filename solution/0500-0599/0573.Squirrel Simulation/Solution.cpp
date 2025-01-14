@@ -1,21 +1,19 @@
 class Solution {
 public:
     int minDistance(int height, int width, vector<int>& tree, vector<int>& squirrel, vector<vector<int>>& nuts) {
-        int ans = INT_MAX;
+        int tr = tree[0], tc = tree[1];
+        int sr = squirrel[0], sc = squirrel[1];
         int s = 0;
-        for (auto& a : nuts) {
-            s += f(a, tree);
+        for (const auto& e : nuts) {
+            s += abs(e[0] - tr) + abs(e[1] - tc);
         }
-        s *= 2;
-        for (auto& a : nuts) {
-            int c = f(a, tree);
-            int d = f(a, squirrel) + c;
-            ans = min(ans, s + d - c * 2);
+        s <<= 1;
+        int ans = INT_MAX;
+        for (const auto& e : nuts) {
+            int a = abs(e[0] - tr) + abs(e[1] - tc);
+            int b = abs(e[0] - sr) + abs(e[1] - sc);
+            ans = min(ans, s - a + b);
         }
         return ans;
-    }
-
-    int f(vector<int>& a, vector<int>& b) {
-        return abs(a[0] - b[0]) + abs(a[1] - b[1]);
     }
 };
