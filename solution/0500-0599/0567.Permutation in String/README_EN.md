@@ -53,7 +53,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We use an array $\textit{cnt}$ to record the characters and their counts that need to be matched, and a variable $\textit{need}$ to record the number of different characters that still need to be matched. Initially, $\textit{cnt}$ contains the character counts from the string $\textit{s1}$, and $\textit{need}$ is the number of different characters in $\textit{s1}$.
+
+Then we traverse the string $\textit{s2}$. For each character, we decrement its corresponding value in $\textit{cnt}$. If the decremented value equals $0$, it means the current character's count in $\textit{s1}$ is satisfied, and we decrement $\textit{need}$. If the current index $i$ is greater than or equal to the length of $\textit{s1}$, we need to increment the corresponding value in $\textit{cnt}$ for $\textit{s2}[i-\textit{s1}]$. If the incremented value equals $1$, it means the current character's count in $\textit{s1}$ is no longer satisfied, and we increment $\textit{need}$. During the traversal, if the value of $\textit{need}$ equals $0$, it means all character counts are satisfied, and we have found a valid substring, so we return $\text{true}$.
+
+Otherwise, if the traversal ends without finding a valid substring, we return $\text{false}$.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of strings $\textit{s1}$ and $\textit{s2}$, respectively. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this problem, the character set is lowercase letters, so the space complexity is constant.
 
 <!-- tabs:start -->
 
@@ -62,15 +70,18 @@ tags:
 ```python
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        n = len(s1)
-        cnt1 = Counter(s1)
-        cnt2 = Counter(s2[:n])
-        if cnt1 == cnt2:
-            return True
-        for i in range(n, len(s2)):
-            cnt2[s2[i]] += 1
-            cnt2[s2[i - n]] -= 1
-            if cnt1 == cnt2:
+        cnt = Counter(s1)
+        need = len(cnt)
+        m = len(s1)
+        for i, c in enumerate(s2):
+            cnt[c] -= 1
+            if cnt[c] == 0:
+                need -= 1
+            if i >= m:
+                cnt[s2[i - m]] += 1
+                if cnt[s2[i - m]] == 1:
+                    need += 1
+            if need == 0:
                 return True
         return False
 ```
@@ -80,24 +91,26 @@ class Solution:
 ```java
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        int n = s1.length();
-        int m = s2.length();
-        if (n > m) {
-            return false;
+        int need = 0;
+        int[] cnt = new int[26];
+        for (char c : s1.toCharArray()) {
+            if (++cnt[c - 'a'] == 1) {
+                ++need;
+            }
         }
-        int[] cnt1 = new int[26];
-        int[] cnt2 = new int[26];
+        int m = s1.length(), n = s2.length();
         for (int i = 0; i < n; ++i) {
-            ++cnt1[s1.charAt(i) - 'a'];
-            ++cnt2[s2.charAt(i) - 'a'];
-        }
-        if (Arrays.equals(cnt1, cnt2)) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            ++cnt2[s2.charAt(i) - 'a'];
-            --cnt2[s2.charAt(i - n) - 'a'];
-            if (Arrays.equals(cnt1, cnt2)) {
+            int c = s2.charAt(i) - 'a';
+            if (--cnt[c] == 0) {
+                --need;
+            }
+            if (i >= m) {
+                c = s2.charAt(i - m) - 'a';
+                if (++cnt[c] == 1) {
+                    ++need;
+                }
+            }
+            if (need == 0) {
                 return true;
             }
         }
@@ -112,22 +125,26 @@ class Solution {
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-        int n = s1.size(), m = s2.size();
-        if (n > m) {
-            return false;
+        int need = 0;
+        int cnt[26]{};
+        for (char c : s1) {
+            if (++cnt[c - 'a'] == 1) {
+                ++need;
+            }
         }
-        vector<int> cnt1(26), cnt2(26);
+        int m = s1.size(), n = s2.size();
         for (int i = 0; i < n; ++i) {
-            ++cnt1[s1[i] - 'a'];
-            ++cnt2[s2[i] - 'a'];
-        }
-        if (cnt1 == cnt2) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            ++cnt2[s2[i] - 'a'];
-            --cnt2[s2[i - n] - 'a'];
-            if (cnt1 == cnt2) {
+            int c = s2[i] - 'a';
+            if (--cnt[c] == 0) {
+                --need;
+            }
+            if (i >= m) {
+                c = s2[i - m] - 'a';
+                if (++cnt[c] == 1) {
+                    ++need;
+                }
+            }
+            if (need == 0) {
                 return true;
             }
         }
@@ -140,23 +157,28 @@ public:
 
 ```go
 func checkInclusion(s1 string, s2 string) bool {
-	n, m := len(s1), len(s2)
-	if n > m {
-		return false
+	need := 0
+	cnt := [26]int{}
+
+	for _, c := range s1 {
+		if cnt[c-'a']++; cnt[c-'a'] == 1 {
+			need++
+		}
 	}
-	cnt1 := [26]int{}
-	cnt2 := [26]int{}
-	for i := range s1 {
-		cnt1[s1[i]-'a']++
-		cnt2[s2[i]-'a']++
-	}
-	if cnt1 == cnt2 {
-		return true
-	}
-	for i := n; i < m; i++ {
-		cnt2[s2[i]-'a']++
-		cnt2[s2[i-n]-'a']--
-		if cnt1 == cnt2 {
+
+	m, n := len(s1), len(s2)
+	for i := 0; i < n; i++ {
+		c := s2[i] - 'a'
+		if cnt[c]--; cnt[c] == 0 {
+			need--
+		}
+		if i >= m {
+			c = s2[i-m] - 'a'
+			if cnt[c]++; cnt[c] == 1 {
+				need++
+			}
+		}
+		if need == 0 {
 			return true
 		}
 	}
@@ -168,186 +190,109 @@ func checkInclusion(s1 string, s2 string) bool {
 
 ```ts
 function checkInclusion(s1: string, s2: string): boolean {
-    // 滑动窗口方案
-    if (s1.length > s2.length) {
-        return false;
+    let need = 0;
+    const cnt: number[] = Array(26).fill(0);
+    const a = 'a'.charCodeAt(0);
+    for (const c of s1) {
+        if (++cnt[c.charCodeAt(0) - a] === 1) {
+            need++;
+        }
     }
 
-    const n = s1.length;
-    const m = s2.length;
-
-    const toCode = (s: string) => s.charCodeAt(0) - 97;
-    const isMatch = () => {
-        for (let i = 0; i < 26; i++) {
-            if (arr1[i] !== arr2[i]) {
-                return false;
+    const [m, n] = [s1.length, s2.length];
+    for (let i = 0; i < n; i++) {
+        let c = s2.charCodeAt(i) - a;
+        if (--cnt[c] === 0) {
+            need--;
+        }
+        if (i >= m) {
+            c = s2.charCodeAt(i - m) - a;
+            if (++cnt[c] === 1) {
+                need++;
             }
         }
-        return true;
-    };
-
-    const arr1 = new Array(26).fill(0);
-    for (const s of s1) {
-        const index = toCode(s);
-        arr1[index]++;
-    }
-
-    const arr2 = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        const index = toCode(s2[i]);
-        arr2[index]++;
-    }
-
-    for (let l = 0, r = n; r < m; l++, r++) {
-        if (isMatch()) {
+        if (need === 0) {
             return true;
         }
-
-        const i = toCode(s2[l]);
-        const j = toCode(s2[r]);
-        arr2[i]--;
-        arr2[j]++;
     }
-    return isMatch();
+    return false;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::collections::HashMap;
-
 impl Solution {
-    // 测试两个哈希表是否匹配
-    fn is_match(m1: &HashMap<char, i32>, m2: &HashMap<char, i32>) -> bool {
-        for (k, v) in m1.iter() {
-            if m2.get(k).unwrap_or(&0) != v {
-                return false;
-            }
-        }
-        true
-    }
     pub fn check_inclusion(s1: String, s2: String) -> bool {
-        if s1.len() > s2.len() {
-            return false;
-        }
-        let mut m1 = HashMap::new();
-        let mut m2 = HashMap::new();
-        // 初始化表 1
+        let mut need = 0;
+        let mut cnt = vec![0; 26];
+
         for c in s1.chars() {
-            m1.insert(c, m1.get(&c).unwrap_or(&0) + 1);
+            let index = (c as u8 - b'a') as usize;
+            if cnt[index] == 0 {
+                need += 1;
+            }
+            cnt[index] += 1;
         }
-        let cs: Vec<char> = s2.chars().collect();
-        // 初始化窗口
-        let mut i = 0;
-        while i < s1.len() {
-            m2.insert(cs[i], m2.get(&cs[i]).unwrap_or(&0) + 1);
-            i += 1;
-        }
-        if Self::is_match(&m1, &m2) {
-            return true;
-        }
-        // 持续滑动窗口，直到匹配或超出边界
-        let mut j = 0;
-        while i < cs.len() {
-            m2.insert(cs[j], m2.get(&cs[j]).unwrap_or(&1) - 1);
-            m2.insert(cs[i], m2.get(&cs[i]).unwrap_or(&0) + 1);
-            j += 1;
-            i += 1;
-            if Self::is_match(&m1, &m2) {
+
+        let m = s1.len();
+        let n = s2.len();
+        let s2_bytes = s2.as_bytes();
+
+        for i in 0..n {
+            let c = (s2_bytes[i] - b'a') as usize;
+            cnt[c] -= 1;
+            if cnt[c] == 0 {
+                need -= 1;
+            }
+
+            if i >= m {
+                let c = (s2_bytes[i - m] - b'a') as usize;
+                cnt[c] += 1;
+                if cnt[c] == 1 {
+                    need += 1;
+                }
+            }
+
+            if need == 0 {
                 return true;
             }
         }
+
         false
     }
 }
 ```
 
-<!-- tabs:end -->
+#### C#
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def checkInclusion(self, s1: str, s2: str) -> bool:
-        n, m = len(s1), len(s2)
-        if n > m:
-            return False
-        cnt = Counter()
-        for a, b in zip(s1, s2):
-            cnt[a] -= 1
-            cnt[b] += 1
-        diff = sum(x != 0 for x in cnt.values())
-        if diff == 0:
-            return True
-        for i in range(n, m):
-            a, b = s2[i - n], s2[i]
-
-            if cnt[b] == 0:
-                diff += 1
-            cnt[b] += 1
-            if cnt[b] == 0:
-                diff -= 1
-
-            if cnt[a] == 0:
-                diff += 1
-            cnt[a] -= 1
-            if cnt[a] == 0:
-                diff -= 1
-
-            if diff == 0:
-                return True
-        return False
-```
-
-#### Java
-
-```java
-class Solution {
-    public boolean checkInclusion(String s1, String s2) {
-        int n = s1.length();
-        int m = s2.length();
-        if (n > m) {
-            return false;
-        }
+```cs
+public class Solution {
+    public bool CheckInclusion(string s1, string s2) {
+        int need = 0;
         int[] cnt = new int[26];
-        for (int i = 0; i < n; ++i) {
-            --cnt[s1.charAt(i) - 'a'];
-            ++cnt[s2.charAt(i) - 'a'];
-        }
-        int diff = 0;
-        for (int x : cnt) {
-            if (x != 0) {
-                ++diff;
+
+        foreach (char c in s1) {
+            if (++cnt[c - 'a'] == 1) {
+                need++;
             }
         }
-        if (diff == 0) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            int a = s2.charAt(i - n) - 'a';
-            int b = s2.charAt(i) - 'a';
-            if (cnt[b] == 0) {
-                ++diff;
+
+        int m = s1.Length, n = s2.Length;
+        for (int i = 0; i < n; i++) {
+            int c = s2[i] - 'a';
+            if (--cnt[c] == 0) {
+                need--;
             }
-            if (++cnt[b] == 0) {
-                --diff;
+
+            if (i >= m) {
+                c = s2[i - m] - 'a';
+                if (++cnt[c] == 1) {
+                    need++;
+                }
             }
-            if (cnt[a] == 0) {
-                ++diff;
-            }
-            if (--cnt[a] == 0) {
-                --diff;
-            }
-            if (diff == 0) {
+
+            if (need == 0) {
                 return true;
             }
         }
@@ -356,138 +301,49 @@ class Solution {
 }
 ```
 
-#### C++
+#### PHP
 
-```cpp
+```php
 class Solution {
-public:
-    bool checkInclusion(string s1, string s2) {
-        int n = s1.size(), m = s2.size();
-        if (n > m) {
-            return false;
-        }
-        vector<int> cnt(26);
-        for (int i = 0; i < n; ++i) {
-            --cnt[s1[i] - 'a'];
-            ++cnt[s2[i] - 'a'];
-        }
-        int diff = 0;
-        for (int x : cnt) {
-            if (x) {
-                ++diff;
+    /**
+     * @param String $s1
+     * @param String $s2
+     * @return Boolean
+     */
+    function checkInclusion($s1, $s2) {
+        $need = 0;
+        $cnt = array_fill(0, 26, 0);
+
+        for ($i = 0; $i < strlen($s1); $i++) {
+            $index = ord($s1[$i]) - ord('a');
+            if (++$cnt[$index] == 1) {
+                $need++;
             }
         }
-        if (diff == 0) {
-            return true;
-        }
-        for (int i = n; i < m; ++i) {
-            int a = s2[i - n] - 'a';
-            int b = s2[i] - 'a';
-            if (cnt[b] == 0) {
-                ++diff;
+
+        $m = strlen($s1);
+        $n = strlen($s2);
+
+        for ($i = 0; $i < $n; $i++) {
+            $c = ord($s2[$i]) - ord('a');
+            if (--$cnt[$c] == 0) {
+                $need--;
             }
-            if (++cnt[b] == 0) {
-                --diff;
+
+            if ($i >= $m) {
+                $c = ord($s2[$i - $m]) - ord('a');
+                if (++$cnt[$c] == 1) {
+                    $need++;
+                }
             }
-            if (cnt[a] == 0) {
-                ++diff;
-            }
-            if (--cnt[a] == 0) {
-                --diff;
-            }
-            if (diff == 0) {
+
+            if ($need == 0) {
                 return true;
             }
         }
+
         return false;
     }
-};
-```
-
-#### Go
-
-```go
-func checkInclusion(s1 string, s2 string) bool {
-	n, m := len(s1), len(s2)
-	if n > m {
-		return false
-	}
-	cnt := [26]int{}
-	for i := range s1 {
-		cnt[s1[i]-'a']--
-		cnt[s2[i]-'a']++
-	}
-	diff := 0
-	for _, x := range cnt {
-		if x != 0 {
-			diff++
-		}
-	}
-	if diff == 0 {
-		return true
-	}
-	for i := n; i < m; i++ {
-		a, b := s2[i-n]-'a', s2[i]-'a'
-		if cnt[b] == 0 {
-			diff++
-		}
-		cnt[b]++
-		if cnt[b] == 0 {
-			diff--
-		}
-		if cnt[a] == 0 {
-			diff++
-		}
-		cnt[a]--
-		if cnt[a] == 0 {
-			diff--
-		}
-		if diff == 0 {
-			return true
-		}
-	}
-	return false
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### Go
-
-```go
-func checkInclusion(s1 string, s2 string) bool {
-	need, window := make(map[byte]int), make(map[byte]int)
-	validate, left, right := 0, 0, 0
-	for i := range s1 {
-		need[s1[i]] += 1
-	}
-	for ; right < len(s2); right++ {
-		c := s2[right]
-		window[c] += 1
-		if need[c] == window[c] {
-			validate++
-		}
-		for right-left+1 >= len(s1) {
-			if validate == len(need) {
-				return true
-			}
-			d := s2[left]
-			if need[d] == window[d] {
-				validate--
-			}
-			window[d] -= 1
-			left++
-		}
-	}
-	return false
 }
 ```
 

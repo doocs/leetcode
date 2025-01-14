@@ -1,43 +1,28 @@
 function checkInclusion(s1: string, s2: string): boolean {
-    // 滑动窗口方案
-    if (s1.length > s2.length) {
-        return false;
+    let need = 0;
+    const cnt: number[] = Array(26).fill(0);
+    const a = 'a'.charCodeAt(0);
+    for (const c of s1) {
+        if (++cnt[c.charCodeAt(0) - a] === 1) {
+            need++;
+        }
     }
 
-    const n = s1.length;
-    const m = s2.length;
-
-    const toCode = (s: string) => s.charCodeAt(0) - 97;
-    const isMatch = () => {
-        for (let i = 0; i < 26; i++) {
-            if (arr1[i] !== arr2[i]) {
-                return false;
+    const [m, n] = [s1.length, s2.length];
+    for (let i = 0; i < n; i++) {
+        let c = s2.charCodeAt(i) - a;
+        if (--cnt[c] === 0) {
+            need--;
+        }
+        if (i >= m) {
+            c = s2.charCodeAt(i - m) - a;
+            if (++cnt[c] === 1) {
+                need++;
             }
         }
-        return true;
-    };
-
-    const arr1 = new Array(26).fill(0);
-    for (const s of s1) {
-        const index = toCode(s);
-        arr1[index]++;
-    }
-
-    const arr2 = new Array(26).fill(0);
-    for (let i = 0; i < n; i++) {
-        const index = toCode(s2[i]);
-        arr2[index]++;
-    }
-
-    for (let l = 0, r = n; r < m; l++, r++) {
-        if (isMatch()) {
+        if (need === 0) {
             return true;
         }
-
-        const i = toCode(s2[l]);
-        const j = toCode(s2[r]);
-        arr2[i]--;
-        arr2[j]++;
     }
-    return isMatch();
+    return false;
 }
