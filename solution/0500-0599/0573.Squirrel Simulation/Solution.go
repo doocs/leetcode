@@ -1,17 +1,16 @@
 func minDistance(height int, width int, tree []int, squirrel []int, nuts [][]int) int {
-	f := func(a, b []int) int {
-		return abs(a[0]-b[0]) + abs(a[1]-b[1])
-	}
-	ans := math.MaxInt32
+	tr, tc := tree[0], tree[1]
+	sr, sc := squirrel[0], squirrel[1]
 	s := 0
-	for _, a := range nuts {
-		s += f(a, tree)
+	for _, e := range nuts {
+		s += abs(e[0]-tr) + abs(e[1]-tc)
 	}
-	s *= 2
-	for _, a := range nuts {
-		c := f(a, tree)
-		d := f(a, squirrel) + c
-		ans = min(ans, s+d-c*2)
+	s <<= 1
+	ans := math.MaxInt32
+	for _, e := range nuts {
+		a := abs(e[0]-tr) + abs(e[1]-tc)
+		b := abs(e[0]-sr) + abs(e[1]-sc)
+		ans = min(ans, s-a+b)
 	}
 	return ans
 }
