@@ -3429,6 +3429,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3418  |  [Maximum Amount of Money Robot Can Earn](/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README_EN.md)  |    |  Medium  |  Weekly Contest 432  |
 |  3419  |  [Minimize the Maximum Edge Weight of Graph](/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README_EN.md)  |    |  Medium  |  Weekly Contest 432  |
 |  3420  |  [Count Non-Decreasing Subarrays After K Operations](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 432  |
+|  3421  |  [Find Students Who Improved](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 

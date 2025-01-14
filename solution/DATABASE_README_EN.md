@@ -305,6 +305,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3390 | [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README_EN.md)                                                                                             | `Database` | Hard       | 🔒     |
 | 3401 | [Find Circular Gift Exchange Chains](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README_EN.md)                                                                       | `Database` | Hard       | 🔒     |
 | 3415 | [Find Products with Three Consecutive Digits](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README_EN.md)                                                   | `Database` | Easy       | 🔒     |
+| 3421 | [Find Students Who Improved](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README_EN.md)                                                                                         |            | Medium     |        |
 
 ## Copyright
 
