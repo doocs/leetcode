@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> root = [1,2,3]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Tilt of node 2 : |0-0| = 0 (no children)
 Tilt of node 3 : |0-0| = 0 (no children)
 Tilt of node 1 : |2-3| = 1 (left subtree is just left child, so sum is 2; right subtree is just right child, so sum is 3)
@@ -40,7 +40,7 @@ Sum of every tilt : 0 + 0 + 1 = 1
 <pre>
 <strong>Input:</strong> root = [4,2,9,3,5,null,7]
 <strong>Output:</strong> 15
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Tilt of node 3 : |0-0| = 0 (no children)
 Tilt of node 5 : |0-0| = 0 (no children)
 Tilt of node 7 : |0-0| = 0 (no children)

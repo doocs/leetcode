@@ -3431,6 +3431,7 @@
 |  3418  |  [机器人可以获得的最大金币数](/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README.md)  |    |  中等  |  第 432 场周赛  |
 |  3419  |  [图的最大边权的最小值](/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README.md)  |    |  中等  |  第 432 场周赛  |
 |  3420  |  [统计 K 次操作以内得到非递减子数组的数目](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README.md)  |    |  困难  |  第 432 场周赛  |
+|  3421  |  [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)  |    |  中等  |    |
 
 ## 版权
 
