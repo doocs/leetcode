@@ -7,7 +7,7 @@ function minOperations(nums: number[], k: number): number {
     for (; pq.size() > 1 && pq.front().element < k; ++ans) {
         const x = pq.dequeue().element;
         const y = pq.dequeue().element;
-        pq.enqueue(Math.min(x, y) * 2 + Math.max(x, y));
+        pq.enqueue(x * 2 + y);
     }
     return ans;
 }
