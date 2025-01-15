@@ -54,7 +54,29 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming (Tree DP)
+
+For each node, we define three states:
+
+-   `a`: The current node has a camera
+-   `b`: The current node does not have a camera, but is monitored by its children
+-   `c`: The current node does not have a camera and is not monitored by its children
+
+Next, we design a function $dfs(root)$, which will return an array of length 3, representing the minimum number of cameras in the subtree rooted at `root` for the three states. The answer is $\min(dfs(root)[0], dfs(root)[1])$.
+
+The calculation process of the function $dfs(root)$ is as follows:
+
+If `root` is null, return $[inf, 0, 0]$, where `inf` represents a very large number, used to indicate an impossible situation.
+
+Otherwise, we recursively calculate the left and right subtrees of `root`, obtaining $[la, lb, lc]$ and $[ra, rb, rc]$ respectively.
+
+-   If the current node has a camera, then its left and right children must be in a monitored state, i.e., $a = \min(la, lb, lc) + \min(ra, rb, rc) + 1$.
+-   If the current node does not have a camera but is monitored by its children, then one or both of the children must have a camera, i.e., $b = \min(la + rb, lb + ra, la + ra)$.
+-   If the current node does not have a camera and is not monitored by its children, then the children must be monitored by their children, i.e., $c = lb + rb$.
+
+Finally, we return $[a, b, c]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 

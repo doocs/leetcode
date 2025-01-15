@@ -81,13 +81,13 @@ tags:
 
 ### 方法一：动态规划
 
-我们定义 $f[i]$ 表示以 $nums[i]$ 结尾且结尾处于上升状态的最长湍流子数组的长度，定义 $g[i]$ 表示以 $nums[i]$ 结尾且结尾处于下降状态的最长湍流子数组的长度。初始时 $f[0] = 1$, $g[0] = 1$。答案为 $max(f[i], g[i])$。
+我们定义 $f[i]$ 表示以 $\textit{nums}[i]$ 结尾且结尾处于上升状态的最长湍流子数组的长度，定义 $g[i]$ 表示以 $\textit{nums}[i]$ 结尾且结尾处于下降状态的最长湍流子数组的长度。初始时 $f[0] = 1$, $g[0] = 1$。答案为 $\max(f[i], g[i])$。
 
-对于 $i \gt 0$，若 $nums[i] \gt nums[i - 1]$，则 $f[i] = g[i - 1] + 1$，否则 $f[i] = 1$；若 $nums[i] \lt nums[i - 1]$，则 $g[i] = f[i - 1] + 1$，否则 $g[i] = 1$。
+对于 $i \gt 0$，若 $\textit{nums}[i] \gt \textit{nums}[i - 1]$，则 $f[i] = g[i - 1] + 1$，否则 $f[i] = 1$；若 $\textit{nums}[i] \lt \textit{nums}[i - 1]$，则 $g[i] = f[i - 1] + 1$，否则 $g[i] = 1$。
 
 由于 $f[i]$ 和 $g[i]$ 只与 $f[i - 1]$ 和 $g[i - 1]$ 有关，因此可以使用两个变量代替数组。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -177,6 +177,28 @@ function maxTurbulenceSize(arr: number[]): number {
         ans = Math.max(ans, f, g);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_turbulence_size(arr: Vec<i32>) -> i32 {
+        let mut ans = 1;
+        let mut f = 1;
+        let mut g = 1;
+
+        for i in 1..arr.len() {
+            let ff = if arr[i - 1] < arr[i] { g + 1 } else { 1 };
+            let gg = if arr[i - 1] > arr[i] { f + 1 } else { 1 };
+            f = ff;
+            g = gg;
+            ans = ans.max(f.max(g));
+        }
+
+        ans
+    }
 }
 ```
 

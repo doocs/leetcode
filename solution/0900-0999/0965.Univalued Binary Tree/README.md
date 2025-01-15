@@ -56,7 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+我们记根节点的值为 $x$，然后设计一个函数 $\text{dfs}(\text{root})$，它表示当前节点的值是否等于 $x$，并且它的左右子树也是单值二叉树。
+
+在函数 $\text{dfs}(\text{root})$ 中，如果当前节点为空，那么返回 $\text{true}$，否则，如果当前节点的值等于 $x$，并且它的左右子树也是单值二叉树，那么返回 $\text{true}$，否则返回 $\text{false}$。
+
+在主函数中，我们调用 $\text{dfs}(\text{root})$，并返回结果。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中的节点数目。
 
 <!-- tabs:start -->
 
@@ -70,12 +78,13 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isUnivalTree(self, root: TreeNode) -> bool:
-        def dfs(node):
-            if node is None:
+    def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
+        def dfs(root: Optional[TreeNode]) -> bool:
+            if root is None:
                 return True
-            return node.val == root.val and dfs(node.left) and dfs(node.right)
+            return root.val == x and dfs(root.left) and dfs(root.right)
 
+        x = root.val
         return dfs(root)
 ```
 
@@ -98,15 +107,18 @@ class Solution:
  * }
  */
 class Solution {
+    private int x;
+
     public boolean isUnivalTree(TreeNode root) {
-        return dfs(root, root.val);
+        x = root.val;
+        return dfs(root);
     }
 
-    private boolean dfs(TreeNode root, int val) {
+    private boolean dfs(TreeNode root) {
         if (root == null) {
             return true;
         }
-        return root.val == val && dfs(root.left, val) && dfs(root.right, val);
+        return root.val == x && dfs(root.left) && dfs(root.right);
     }
 }
 ```
@@ -128,12 +140,14 @@ class Solution {
 class Solution {
 public:
     bool isUnivalTree(TreeNode* root) {
-        return dfs(root, root->val);
-    }
-
-    bool dfs(TreeNode* root, int val) {
-        if (!root) return true;
-        return root->val == val && dfs(root->left, val) && dfs(root->right, val);
+        int x = root->val;
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> bool {
+            if (!root) {
+                return true;
+            }
+            return root->val == x && dfs(root->left) && dfs(root->right);
+        };
+        return dfs(root);
     }
 };
 ```
@@ -150,12 +164,13 @@ public:
  * }
  */
 func isUnivalTree(root *TreeNode) bool {
+	x := root.Val
 	var dfs func(*TreeNode) bool
-	dfs = func(node *TreeNode) bool {
-		if node == nil {
+	dfs = func(root *TreeNode) bool {
+		if root == nil {
 			return true
 		}
-		return node.Val == root.Val && dfs(node.Left) && dfs(node.Right)
+		return root.Val == x && dfs(root.Left) && dfs(root.Right)
 	}
 	return dfs(root)
 }
@@ -179,14 +194,14 @@ func isUnivalTree(root *TreeNode) bool {
  */
 
 function isUnivalTree(root: TreeNode | null): boolean {
-    const val = root.val;
-    const dfs = (root: TreeNode | null) => {
-        if (root == null) {
+    const x = root!.val;
+    const dfs = (root: TreeNode | null): boolean => {
+        if (!root) {
             return true;
         }
-        return root.val === val && dfs(root.left) && dfs(root.right);
+        return root.val === x && dfs(root.left) && dfs(root.right);
     };
-    return dfs(root.left) && dfs(root.right);
+    return dfs(root);
 }
 ```
 
@@ -214,16 +229,19 @@ function isUnivalTree(root: TreeNode | null): boolean {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(val: i32, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if root.is_none() {
-            return true;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        root.val == val && Self::dfs(val, &root.left) && Self::dfs(val, &root.right)
-    }
     pub fn is_unival_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        let root = root.as_ref().unwrap().borrow();
-        Self::dfs(root.val, &root.left) && Self::dfs(root.val, &root.right)
+        let x = root.as_ref().unwrap().borrow().val;
+
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, x: i32) -> bool {
+            if let Some(n) = node {
+                let n = n.borrow();
+                n.val == x && dfs(n.left.clone(), x) && dfs(n.right.clone(), x)
+            } else {
+                true
+            }
+        }
+
+        dfs(root, x)
     }
 }
 ```
