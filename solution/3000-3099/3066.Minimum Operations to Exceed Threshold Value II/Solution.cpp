@@ -12,7 +12,7 @@ public:
             pq.pop();
             ll y = pq.top();
             pq.pop();
-            pq.push(min(x, y) * 2 + max(x, y));
+            pq.push(x * 2 + y);
         }
         return ans;
     }

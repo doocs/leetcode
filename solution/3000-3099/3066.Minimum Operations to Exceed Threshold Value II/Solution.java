@@ -7,7 +7,7 @@ class Solution {
         int ans = 0;
         for (; pq.size() > 1 && pq.peek() < k; ++ans) {
             long x = pq.poll(), y = pq.poll();
-            pq.offer(Math.min(x, y) * 2 + Math.max(x, y));
+            pq.offer(x * 2 + y);
         }
         return ans;
     }

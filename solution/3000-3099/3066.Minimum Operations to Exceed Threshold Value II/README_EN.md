@@ -93,7 +93,7 @@ class Solution:
         ans = 0
         while len(nums) > 1 and nums[0] < k:
             x, y = heappop(nums), heappop(nums)
-            heappush(nums, min(x, y) * 2 + max(x, y))
+            heappush(nums, x * 2 + y)
             ans += 1
         return ans
 ```
@@ -110,7 +110,7 @@ class Solution {
         int ans = 0;
         for (; pq.size() > 1 && pq.peek() < k; ++ans) {
             long x = pq.poll(), y = pq.poll();
-            pq.offer(Math.min(x, y) * 2 + Math.max(x, y));
+            pq.offer(x * 2 + y);
         }
         return ans;
     }
@@ -134,7 +134,7 @@ public:
             pq.pop();
             ll y = pq.top();
             pq.pop();
-            pq.push(min(x, y) * 2 + max(x, y));
+            pq.push(x * 2 + y);
         }
         return ans;
     }
@@ -149,7 +149,7 @@ func minOperations(nums []int, k int) (ans int) {
 	heap.Init(pq)
 	for ; pq.Len() > 1 && pq.IntSlice[0] < k; ans++ {
 		x, y := heap.Pop(pq).(int), heap.Pop(pq).(int)
-		heap.Push(pq, min(x, y)*2+max(x, y))
+		heap.Push(pq, x*2+y)
 	}
 	return
 }
@@ -181,9 +181,36 @@ function minOperations(nums: number[], k: number): number {
     for (; pq.size() > 1 && pq.front().element < k; ++ans) {
         const x = pq.dequeue().element;
         const y = pq.dequeue().element;
-        pq.enqueue(Math.min(x, y) * 2 + Math.max(x, y));
+        pq.enqueue(x * 2 + y);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>, k: i32) -> i32 {
+        let mut pq = BinaryHeap::new();
+
+        for &x in &nums {
+            pq.push(-(x as i64));
+        }
+
+        let mut ans = 0;
+
+        while pq.len() > 1 && -pq.peek().unwrap() < k as i64 {
+            let x = -pq.pop().unwrap();
+            let y = -pq.pop().unwrap();
+            pq.push(-(x * 2 + y));
+            ans += 1;
+        }
+
+        ans
+    }
 }
 ```
 
