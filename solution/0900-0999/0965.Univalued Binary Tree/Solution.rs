@@ -19,15 +19,18 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(val: i32, root: &Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if root.is_none() {
-            return true;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        root.val == val && Self::dfs(val, &root.left) && Self::dfs(val, &root.right)
-    }
     pub fn is_unival_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        let root = root.as_ref().unwrap().borrow();
-        Self::dfs(root.val, &root.left) && Self::dfs(root.val, &root.right)
+        let x = root.as_ref().unwrap().borrow().val;
+
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, x: i32) -> bool {
+            if let Some(n) = node {
+                let n = n.borrow();
+                n.val == x && dfs(n.left.clone(), x) && dfs(n.right.clone(), x)
+            } else {
+                true
+            }
+        }
+
+        dfs(root, x)
     }
 }

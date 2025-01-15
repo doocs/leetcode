@@ -13,12 +13,12 @@
  */
 
 function isUnivalTree(root: TreeNode | null): boolean {
-    const val = root.val;
-    const dfs = (root: TreeNode | null) => {
-        if (root == null) {
+    const x = root!.val;
+    const dfs = (root: TreeNode | null): boolean => {
+        if (!root) {
             return true;
         }
-        return root.val === val && dfs(root.left) && dfs(root.right);
+        return root.val === x && dfs(root.left) && dfs(root.right);
     };
-    return dfs(root.left) && dfs(root.right);
+    return dfs(root);
 }
