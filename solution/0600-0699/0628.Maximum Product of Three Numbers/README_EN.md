@@ -45,7 +45,16 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Case Analysis
+
+First, we sort the array $\textit{nums}$, and then discuss two cases:
+
+-   If $\textit{nums}$ contains all non-negative or all non-positive numbers, the answer is the product of the last three numbers, i.e., $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$;
+-   If $\textit{nums}$ contains both positive and negative numbers, the answer could be the product of the two smallest negative numbers and the largest positive number, i.e., $\textit{nums}[n-1] \times \textit{nums}[0] \times \textit{nums}[1]$, or the product of the last three numbers, i.e., $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$.
+
+Finally, return the maximum of the two cases.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -122,7 +131,13 @@ function maximumProduct(nums: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Single Pass
+
+We can avoid sorting the array by maintaining five variables: $\textit{mi1}$ and $\textit{mi2}$ represent the two smallest numbers in the array, while $\textit{mx1}$, $\textit{mx2}$, and $\textit{mx3}$ represent the three largest numbers in the array.
+
+Finally, return $\max(\textit{mi1} \times \textit{mi2} \times \textit{mx1}, \textit{mx1} \times \textit{mx2} \times \textit{mx3})$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
