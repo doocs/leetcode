@@ -72,7 +72,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3422.Mi
 
 ### 方法一：有序集合
 
-根据题目描述，我们需要找到一个长度为 $k$ 的子数组，通过最少的操作使得子数组中的所有元素相等，即我们需要找到一个长度为 $k$ 的子数组，使得子数组中所有元素变成这 $k$ 个元素的中位数所需的最少操作次数最小。
+根据题目描述，我们需要找到一个长度为 $k$ 的子数组，通过最少的操作使得子数组中的所有元素相等，即我们需要找到一个长度为 $k$ 的子数组，使得子数组中所有元素变成这 $k$ 个元素的中位数所需的操作次数最小。
 
 我们可以使用两个有序集合 $l$ 和 $r$ 分别维护 $k$ 个元素的左右两部分，其中 $l$ 用于存储 $k$ 个元素中较小的一部分，$r$ 用于存储 $k$ 个元素中较大的一部分，并且 $l$ 的元素个数要么等于 $r$ 的元素个数，要么比 $r$ 的元素个数少一个，这样 $r$ 的最小值就是 $k$ 个元素中的中位数。
 
@@ -214,7 +214,52 @@ public:
 #### Go
 
 ```go
-
+func minOperations(nums []int, k int) int64 {
+	l := redblacktree.New[int, int]()
+	r := redblacktree.New[int, int]()
+	merge := func(st *redblacktree.Tree[int, int], x, v int) {
+		c, _ := st.Get(x)
+		if c+v == 0 {
+			st.Remove(x)
+		} else {
+			st.Put(x, c+v)
+		}
+	}
+	var s1, s2, sz1, sz2 int
+	ans := math.MaxInt64
+	for i, x := range nums {
+		merge(l, x, 1)
+		s1 += x
+		y := l.Right().Key
+		merge(l, y, -1)
+		s1 -= y
+		merge(r, y, 1)
+		s2 += y
+		sz2++
+		if sz2-sz1 > 1 {
+			y = r.Left().Key
+			merge(r, y, -1)
+			s2 -= y
+			sz2--
+			merge(l, y, 1)
+			s1 += y
+			sz1++
+		}
+		if j := i - k + 1; j >= 0 {
+			ans = min(ans, s2-r.Left().Key*sz2+r.Left().Key*sz1-s1)
+			if _, ok := r.Get(nums[j]); ok {
+				merge(r, nums[j], -1)
+				s2 -= nums[j]
+				sz2--
+			} else {
+				merge(l, nums[j], -1)
+				s1 -= nums[j]
+				sz1--
+			}
+		}
+	}
+	return int64(ans)
+}
 ```
 
 <!-- tabs:end -->
