@@ -1,11 +1,12 @@
-func numSubarrayProductLessThanK(nums []int, k int) int {
-	ans := 0
-	for i, j, s := 0, 0, 1; i < len(nums); i++ {
-		s *= nums[i]
-		for ; j <= i && s >= k; j++ {
-			s /= nums[j]
-		}
-		ans += i - j + 1
-	}
-	return ans
+func numSubarrayProductLessThanK(nums []int, k int) (ans int) {
+    l, p := 0, 1
+    for r, x := range nums {
+        p *= x
+        for l <= r && p >= k {
+            p /= nums[l]
+            l++
+        }
+        ans += r - l + 1
+    }
+    return
 }
