@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [5,4,2,4]
 <strong>Output:</strong> 8
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Continuous subarray of size 1: [5], [4], [2], [4].
 Continuous subarray of size 2: [5,4], [4,2], [2,4].
 Continuous subarray of size 3: [4,2,4].
@@ -55,7 +55,7 @@ It can be shown that there are no more continuous subarrays.
 <pre>
 <strong>Input:</strong> nums = [1,2,3]
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Continuous subarray of size 1: [1], [2], [3].
 Continuous subarray of size 2: [1,2], [2,3].
 Continuous subarray of size 3: [1,2,3].
@@ -91,9 +91,6 @@ The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, 
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def continuousSubarrays(self, nums: List[int]) -> int:
         ans = i = 0

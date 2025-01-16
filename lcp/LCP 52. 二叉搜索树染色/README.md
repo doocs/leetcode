@@ -89,9 +89,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2052.%20%E4%BA%8C%
 #         self.left = None
 #         self.right = None
 
-from sortedcontainers import SortedList
-
-
 class Solution:
     def getNumber(self, root: Optional[TreeNode], ops: List[List[int]]) -> int:
         def dfs(root):

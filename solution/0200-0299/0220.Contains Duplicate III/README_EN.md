@@ -82,9 +82,6 @@ The time complexity is $O(n \times \log k)$, where $n$ is the length of the arra
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def containsNearbyAlmostDuplicate(
         self, nums: List[int], indexDiff: int, valueDiff: int

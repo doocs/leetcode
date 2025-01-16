@@ -106,9 +106,6 @@ stockPrice.minimum();     // 返回 2 ，最低价格时间戳为 4 ，价格为
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class StockPrice:
     def __init__(self):
         self.d = {}

@@ -69,9 +69,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
         s = SortedSet()

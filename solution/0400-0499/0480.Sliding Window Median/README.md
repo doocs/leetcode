@@ -466,9 +466,6 @@ func (h *hp) Pop() any {
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
         l = SortedList()

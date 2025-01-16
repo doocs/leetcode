@@ -32,10 +32,10 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre><strong>输入：</strong>nums = [8,2,4,7], limit = 4
-<strong>输出：</strong>2 
+<strong>输出：</strong>2
 <strong>解释：</strong>所有子数组如下：
 [8] 最大绝对差 |8-8| = 0 &lt;= 4.
-[8,2] 最大绝对差 |8-2| = 6 &gt; 4. 
+[8,2] 最大绝对差 |8-2| = 6 &gt; 4.
 [8,2,4] 最大绝对差 |8-2| = 6 &gt; 4.
 [8,2,4,7] 最大绝对差 |8-2| = 6 &gt; 4.
 [2] 最大绝对差 |2-2| = 0 &lt;= 4.
@@ -43,14 +43,14 @@ tags:
 [2,4,7] 最大绝对差 |2-7| = 5 &gt; 4.
 [4] 最大绝对差 |4-4| = 0 &lt;= 4.
 [4,7] 最大绝对差 |4-7| = 3 &lt;= 4.
-[7] 最大绝对差 |7-7| = 0 &lt;= 4. 
+[7] 最大绝对差 |7-7| = 0 &lt;= 4.
 因此，满足题意的最长子数组的长度为 2 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre><strong>输入：</strong>nums = [10,1,2,4,7,2], limit = 5
-<strong>输出：</strong>4 
+<strong>输出：</strong>4
 <strong>解释：</strong>满足题意的最长子数组是 [2,4,7,2]，其最大绝对差 |2-7| = 5 &lt;= 5 。
 </pre>
 
@@ -87,9 +87,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
         sl = SortedList()

@@ -194,9 +194,6 @@ func isPossibleDivide(nums []int, k int) bool {
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class Solution:
     def isPossibleDivide(self, nums: List[int], k: int) -> bool:
         if len(nums) % k != 0:

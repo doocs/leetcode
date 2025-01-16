@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class Solution:
     def avoidFlood(self, rains: List[int]) -> List[int]:
         n = len(rains)

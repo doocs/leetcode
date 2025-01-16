@@ -70,9 +70,6 @@ myCalendar.book(20, 30); // return True, The event can be booked, as the first e
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class MyCalendar:
 
     def __init__(self):

@@ -102,9 +102,6 @@ In terms of time complexity, the `setCell` and `unsetCell` methods both have a t
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class matrix3D:
 
     def __init__(self, n: int):

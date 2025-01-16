@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class matrix3D:
     def __init__(self, n: int):
         self.g = [[[0] * n for _ in range(n)] for _ in range(n)]

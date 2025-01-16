@@ -81,9 +81,6 @@ examRoom.seat(); // 返回 5，学生最后坐在 5 号座位。
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class ExamRoom:
     def __init__(self, n: int):
         def dist(x):

@@ -101,9 +101,6 @@ The time complexity is $O(m \times n \times \min(m, n))$, and the space complexi
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def getBiggestThree(self, grid: List[List[int]]) -> List[int]:
         m, n = len(grid), len(grid[0])

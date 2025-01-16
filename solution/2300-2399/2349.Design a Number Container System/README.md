@@ -89,9 +89,6 @@ nc.find(10); // 数字 10 所在下标为 2 ，3 和 5 。最小下标为 2 ，�
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class NumberContainers:
 
     def __init__(self):

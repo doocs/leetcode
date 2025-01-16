@@ -1,8 +1,4 @@
-from sortedcontainers import SortedList
-
-
 class SORTracker:
-
     def __init__(self):
         self.sl = SortedList()
         self.i = -1

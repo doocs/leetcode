@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class Solution:
     def maximumTripletValue(self, nums: List[int]) -> int:
         n = len(nums)

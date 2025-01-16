@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class TodoList:
     def __init__(self):
         self.i = 1

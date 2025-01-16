@@ -83,9 +83,6 @@ summaryRanges.getIntervals(); // 返回 [[1, 3], [6, 7]]
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class SummaryRanges:
     def __init__(self):
         self.mp = SortedDict()

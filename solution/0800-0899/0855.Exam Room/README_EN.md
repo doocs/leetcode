@@ -81,9 +81,6 @@ The time complexity is $O(\log n)$, and the space complexity is $O(n)$. Here, $n
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class ExamRoom:
     def __init__(self, n: int):
         def dist(x):

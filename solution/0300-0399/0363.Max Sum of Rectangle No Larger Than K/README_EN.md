@@ -73,9 +73,6 @@ The time complexity is $O(m^2 \times n \times \log n)$, and the space complexity
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def maxSumSubmatrix(self, matrix: List[List[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])

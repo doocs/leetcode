@@ -80,9 +80,6 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Node:
     def __init__(self, val=0):
         self.val = val

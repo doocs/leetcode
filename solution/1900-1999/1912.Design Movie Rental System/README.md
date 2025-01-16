@@ -94,9 +94,6 @@ movieRentingSystem.search(2);  // 返回 [0, 1] 。商店 0 和 1 有未借出�
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class MovieRentingSystem:
     def __init__(self, n: int, entries: List[List[int]]):
         self.unrented = collections.defaultdict(SortedList)  # {movie: (price, shop)}

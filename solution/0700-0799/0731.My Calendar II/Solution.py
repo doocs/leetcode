@@ -1,6 +1,3 @@
-from sortedcontainers import SortedDict
-
-
 class MyCalendarTwo:
     def __init__(self):
         self.sd = SortedDict()

@@ -105,9 +105,6 @@ $$
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def getBiggestThree(self, grid: List[List[int]]) -> List[int]:
         m, n = len(grid), len(grid[0])

@@ -87,9 +87,6 @@ The space complexity is $O(n)$, where $n$ is the number of players.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Leaderboard:
     def __init__(self):
         self.d = defaultdict(int)
