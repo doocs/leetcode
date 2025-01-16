@@ -89,9 +89,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def minAbsoluteDifference(self, nums: List[int], x: int) -> int:
         sl = SortedList()

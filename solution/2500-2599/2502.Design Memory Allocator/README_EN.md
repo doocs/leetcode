@@ -293,9 +293,6 @@ The time complexity is $O(q \log n)$, and the space complexity is $O(n)$, where 
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Allocator:
     def __init__(self, n: int):
         self.sl = SortedList([(-1, -1), (n, n)])

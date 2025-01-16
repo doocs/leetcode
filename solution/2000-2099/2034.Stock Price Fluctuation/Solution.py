@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class StockPrice:
     def __init__(self):
         self.d = {}

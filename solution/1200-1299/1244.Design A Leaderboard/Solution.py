@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class Leaderboard:
     def __init__(self):
         self.d = defaultdict(int)

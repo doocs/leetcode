@@ -84,9 +84,6 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def containsNearbyAlmostDuplicate(
         self, nums: List[int], indexDiff: int, valueDiff: int

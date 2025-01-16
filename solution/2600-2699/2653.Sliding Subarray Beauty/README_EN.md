@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,-1,-3,-2,3], k = 3, x = 2
 <strong>Output:</strong> [-1,-2,-2]
-<strong>Explanation:</strong> There are 3 subarrays with size k = 3. 
+<strong>Explanation:</strong> There are 3 subarrays with size k = 3.
 The first subarray is <code>[1, -1, -3]</code> and the 2<sup>nd</sup> smallest negative integer is -1.&nbsp;
 The second subarray is <code>[-1, -3, -2]</code> and the 2<sup>nd</sup> smallest negative integer is -2.&nbsp;
 The third subarray is <code>[-3, -2, 3]&nbsp;</code>and the 2<sup>nd</sup> smallest negative integer is -2.</pre>
@@ -120,9 +120,6 @@ class Solution:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
         sl = SortedList(nums[:k])

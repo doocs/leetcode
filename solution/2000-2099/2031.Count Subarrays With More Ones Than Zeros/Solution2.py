@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class Solution:
     def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
         sl = SortedList([0])

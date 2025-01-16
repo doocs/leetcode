@@ -1,6 +1,3 @@
-from sortedcontainers import SortedSet
-
-
 class DinnerPlates:
     def __init__(self, capacity: int):
         self.capacity = capacity

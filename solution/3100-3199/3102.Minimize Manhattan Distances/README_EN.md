@@ -112,9 +112,6 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, 
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def minimumDistance(self, points: List[List[int]]) -> int:
         sl1 = SortedList()

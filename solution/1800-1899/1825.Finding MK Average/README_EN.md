@@ -51,7 +51,7 @@ tags:
 [null, null, null, -1, null, 3, null, null, null, 5]
 
 <strong>Explanation</strong>
-<code>MKAverage obj = new MKAverage(3, 1); 
+<code>MKAverage obj = new MKAverage(3, 1);
 obj.addElement(3);        // current elements are [3]
 obj.addElement(1);        // current elements are [3,1]
 obj.calculateMKAverage(); // return -1, because m = 3 and only 2 elements exist.
@@ -110,9 +110,6 @@ In terms of time complexity, each call to the $addElement(num)$ function has a t
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class MKAverage:
     def __init__(self, m: int, k: int):
         self.m = m
@@ -452,9 +449,6 @@ func (this *MKAverage) CalculateMKAverage() int {
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class MKAverage:
     def __init__(self, m: int, k: int):
         self.m = m

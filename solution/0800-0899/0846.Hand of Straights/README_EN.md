@@ -198,9 +198,6 @@ function isNStraightHand(hand: number[], groupSize: number) {
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class Solution:
     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
         if len(hand) % groupSize != 0:

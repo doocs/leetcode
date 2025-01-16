@@ -98,9 +98,6 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Leaderboard:
     def __init__(self):
         self.d = defaultdict(int)

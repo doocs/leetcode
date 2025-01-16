@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class StatisticsTracker:
     def __init__(self):
         self.q = deque()

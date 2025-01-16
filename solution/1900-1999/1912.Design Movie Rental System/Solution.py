@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class MovieRentingSystem:
     def __init__(self, n: int, entries: List[List[int]]):
         self.unrented = collections.defaultdict(SortedList)  # {movie: (price, shop)}

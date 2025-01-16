@@ -34,8 +34,8 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [4,3,2,4], x = 2
 <strong>Output:</strong> 0
-<strong>Explanation:</strong> We can select nums[0] = 4 and nums[3] = 4. 
-They are at least 2 indices apart, and their absolute difference is the minimum, 0. 
+<strong>Explanation:</strong> We can select nums[0] = 4 and nums[3] = 4.
+They are at least 2 indices apart, and their absolute difference is the minimum, 0.
 It can be shown that 0 is the optimal answer.
 </pre>
 
@@ -87,9 +87,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def minAbsoluteDifference(self, nums: List[int], x: int) -> int:
         sl = SortedList()

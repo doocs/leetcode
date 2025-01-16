@@ -90,9 +90,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class Solution:
     def maxDepthBST(self, order: List[int]) -> int:
         sd = SortedDict({0: 0, inf: 0, order[0]: 1})

@@ -90,9 +90,6 @@ The space complexity is $O(n)$.
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class SmallestInfiniteSet:
     def __init__(self):
         self.s = SortedSet(range(1, 1001))

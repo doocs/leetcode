@@ -192,9 +192,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class Solution:
     def isPossibleDivide(self, nums: List[int], k: int) -> bool:
         if len(nums) % k != 0:

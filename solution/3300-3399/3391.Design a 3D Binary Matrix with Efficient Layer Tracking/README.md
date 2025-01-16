@@ -104,9 +104,6 @@ matrix3D.largestMatrix(); // 返回 3。0 到 3 的对应值都有相同数量�
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class matrix3D:
 
     def __init__(self, n: int):

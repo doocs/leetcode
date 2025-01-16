@@ -96,9 +96,6 @@ The space complexity is $O(n)$. Where $n$ is the number of all tasks.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class TodoList:
     def __init__(self):
         self.i = 1

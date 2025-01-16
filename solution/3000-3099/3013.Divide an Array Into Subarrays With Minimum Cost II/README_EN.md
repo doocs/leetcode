@@ -94,9 +94,6 @@ The time complexity is $O(n \times \log \textit{dist})$, and the space complexit
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def minimumCost(self, nums: List[int], k: int, dist: int) -> int:
         def l2r():

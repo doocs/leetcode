@@ -127,9 +127,6 @@ The space complexity is $O(n)$, where $n$ is the number of added numbers.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class StatisticsTracker:
 
     def __init__(self):

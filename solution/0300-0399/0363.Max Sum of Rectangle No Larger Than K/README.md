@@ -76,9 +76,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def maxSumSubmatrix(self, matrix: List[List[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])

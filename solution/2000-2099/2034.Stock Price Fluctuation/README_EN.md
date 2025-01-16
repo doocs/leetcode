@@ -105,9 +105,6 @@ The space complexity is $O(n)$, where $n$ is the number of `update` operations.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class StockPrice:
     def __init__(self):
         self.d = {}

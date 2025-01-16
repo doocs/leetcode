@@ -129,9 +129,6 @@ statisticsTracker.getMode(); // return 5</div>
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class StatisticsTracker:
 
     def __init__(self):

@@ -89,9 +89,6 @@ taskManager.execTop(); // return 5. Executes task 105 for User 5.</div>
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class TaskManager:
 
     def __init__(self, tasks: List[List[int]]):
