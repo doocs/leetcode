@@ -54,7 +54,15 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We can use two pointers to maintain a sliding window, where the product of all elements in the window is less than $k$.
+
+Define two pointers $l$ and $r$ pointing to the left and right boundaries of the sliding window, initially $l = r = 0$. We use a variable $p$ to record the product of all elements in the window, initially $p = 1$.
+
+Each time, we move $r$ one step to the right, adding the element $x$ pointed to by $r$ to the window, and update $p = p \times x$. Then, if $p \geq k$, we move $l$ one step to the right in a loop and update $p = p \div \text{nums}[l]$ until $p < k$ or $l \gt r$. Thus, the number of contiguous subarrays ending at $r$ with a product less than $k$ is $r - l + 1$. We then add this number to the answer and continue moving $r$ until $r$ reaches the end of the array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -63,13 +71,14 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 ```python
 class Solution:
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
-        ans, s, j = 0, 1, 0
-        for i, v in enumerate(nums):
-            s *= v
-            while j <= i and s >= k:
-                s //= nums[j]
-                j += 1
-            ans += i - j + 1
+        ans = l = 0
+        p = 1
+        for r, x in enumerate(nums):
+            p *= x
+            while l <= r and p >= k:
+                p //= nums[l]
+                l += 1
+            ans += r - l + 1
         return ans
 ```
 
@@ -78,13 +87,14 @@ class Solution:
 ```java
 class Solution {
     public int numSubarrayProductLessThanK(int[] nums, int k) {
-        int ans = 0;
-        for (int i = 0, j = 0, s = 1; i < nums.length; ++i) {
-            s *= nums[i];
-            while (j <= i && s >= k) {
-                s /= nums[j++];
+        int ans = 0, l = 0;
+        int p = 1;
+        for (int r = 0; r < nums.length; ++r) {
+            p *= nums[r];
+            while (l <= r && p >= k) {
+                p /= nums[l++];
             }
-            ans += i - j + 1;
+            ans += r - l + 1;
         }
         return ans;
     }
@@ -97,11 +107,14 @@ class Solution {
 class Solution {
 public:
     int numSubarrayProductLessThanK(vector<int>& nums, int k) {
-        int ans = 0;
-        for (int i = 0, j = 0, s = 1; i < nums.size(); ++i) {
-            s *= nums[i];
-            while (j <= i && s >= k) s /= nums[j++];
-            ans += i - j + 1;
+        int ans = 0, l = 0;
+        int p = 1;
+        for (int r = 0; r < nums.size(); ++r) {
+            p *= nums[r];
+            while (l <= r && p >= k) {
+                p /= nums[l++];
+            }
+            ans += r - l + 1;
         }
         return ans;
     }
@@ -111,16 +124,17 @@ public:
 #### Go
 
 ```go
-func numSubarrayProductLessThanK(nums []int, k int) int {
-	ans := 0
-	for i, j, s := 0, 0, 1; i < len(nums); i++ {
-		s *= nums[i]
-		for ; j <= i && s >= k; j++ {
-			s /= nums[j]
-		}
-		ans += i - j + 1
-	}
-	return ans
+func numSubarrayProductLessThanK(nums []int, k int) (ans int) {
+    l, p := 0, 1
+    for r, x := range nums {
+        p *= x
+        for l <= r && p >= k {
+            p /= nums[l]
+            l++
+        }
+        ans += r - l + 1
+    }
+    return
 }
 ```
 
@@ -128,13 +142,14 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 
 ```ts
 function numSubarrayProductLessThanK(nums: number[], k: number): number {
-    let ans = 0;
-    for (let i = 0, j = 0, s = 1; i < nums.length; ++i) {
-        s *= nums[i];
-        while (j <= i && s >= k) {
-            s /= nums[j++];
+    const n = nums.length;
+    let [ans, l, p] = [0, 0, 1];
+    for (let r = 0; r < n; ++r) {
+        p *= nums[r];
+        while (l <= r && p >= k) {
+            p /= nums[l++];
         }
-        ans += i - j + 1;
+        ans += r - l + 1;
     }
     return ans;
 }
@@ -145,22 +160,20 @@ function numSubarrayProductLessThanK(nums: number[], k: number): number {
 ```rust
 impl Solution {
     pub fn num_subarray_product_less_than_k(nums: Vec<i32>, k: i32) -> i32 {
-        if k <= 1 {
-            return 0;
+        let mut ans = 0;
+        let mut l = 0;
+        let mut p = 1;
+
+        for (r, &x) in nums.iter().enumerate() {
+            p *= x;
+            while l <= r && p >= k {
+                p /= nums[l];
+                l += 1;
+            }
+            ans += (r - l + 1) as i32;
         }
 
-        let mut res = 0;
-        let mut product = 1;
-        let mut i = 0;
-        nums.iter().enumerate().for_each(|(j, v)| {
-            product *= v;
-            while product >= k {
-                product /= nums[i];
-                i += 1;
-            }
-            res += j - i + 1;
-        });
-        res as i32
+        ans
     }
 }
 ```
@@ -175,14 +188,13 @@ impl Solution {
  */
 var numSubarrayProductLessThanK = function (nums, k) {
     const n = nums.length;
-    let ans = 0;
-    let s = 1;
-    for (let i = 0, j = 0; i < n; ++i) {
-        s *= nums[i];
-        while (j <= i && s >= k) {
-            s = Math.floor(s / nums[j++]);
+    let [ans, l, p] = [0, 0, 1];
+    for (let r = 0; r < n; ++r) {
+        p *= nums[r];
+        while (l <= r && p >= k) {
+            p /= nums[l++];
         }
-        ans += i - j + 1;
+        ans += r - l + 1;
     }
     return ans;
 };
@@ -193,17 +205,39 @@ var numSubarrayProductLessThanK = function (nums, k) {
 ```kotlin
 class Solution {
     fun numSubarrayProductLessThanK(nums: IntArray, k: Int): Int {
-        var left = 0
-        var count = 0
-        var product = 1
-        nums.forEachIndexed { right, num ->
-            product *= num
-            while (product >= k && left <= right) {
-                product /= nums[left++]
+        var ans = 0
+        var l = 0
+        var p = 1
+
+        for (r in nums.indices) {
+            p *= nums[r]
+            while (l <= r && p >= k) {
+                p /= nums[l]
+                l++
             }
-            count += right - left + 1
+            ans += r - l + 1
         }
-        return count
+
+        return ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int NumSubarrayProductLessThanK(int[] nums, int k) {
+        int ans = 0, l = 0;
+        int p = 1;
+        for (int r = 0; r < nums.Length; ++r) {
+            p *= nums[r];
+            while (l <= r && p >= k) {
+                p /= nums[l++];
+            }
+            ans += r - l + 1;
+        }
+        return ans;
     }
 }
 ```
