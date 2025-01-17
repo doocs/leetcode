@@ -1,28 +1,31 @@
 func findSubstring(s string, words []string) (ans []int) {
-	cnt := map[string]int{}
+	cnt := make(map[string]int)
 	for _, w := range words {
 		cnt[w]++
 	}
 	m, n, k := len(s), len(words), len(words[0])
 	for i := 0; i < k; i++ {
-		cnt1 := map[string]int{}
-		l, r, t := i, i, 0
+		l, r := i, i
+		cnt1 := make(map[string]int)
 		for r+k <= m {
-			w := s[r : r+k]
+			t := s[r : r+k]
 			r += k
-			if _, ok := cnt[w]; !ok {
-				l, t = r, 0
-				cnt1 = map[string]int{}
+
+			if _, exists := cnt[t]; !exists {
+				cnt1 = make(map[string]int)
+				l = r
 				continue
 			}
-			cnt1[w]++
-			t++
-			for cnt1[w] > cnt[w] {
-				cnt1[s[l:l+k]]--
+			cnt1[t]++
+			for cnt1[t] > cnt[t] {
+				w := s[l : l+k]
+				cnt1[w]--
+				if cnt1[w] == 0 {
+					delete(cnt1, w)
+				}
 				l += k
-				t--
 			}
-			if t == n {
+			if r-l == n*k {
 				ans = append(ans, l)
 			}
 		}

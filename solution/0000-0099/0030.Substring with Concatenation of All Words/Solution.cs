@@ -2,40 +2,50 @@ public class Solution {
     public IList<int> FindSubstring(string s, string[] words) {
         var cnt = new Dictionary<string, int>();
         foreach (var w in words) {
-            if (!cnt.ContainsKey(w)) {
-                cnt[w] = 0;
+            if (cnt.ContainsKey(w)) {
+                cnt[w]++;
+            } else {
+                cnt[w] = 1;
             }
-            ++cnt[w];
         }
-        int m = s.Length, n = words.Length, k = words[0].Length;
+
         var ans = new List<int>();
+        int m = s.Length, n = words.Length, k = words[0].Length;
+
         for (int i = 0; i < k; ++i) {
+            int l = i, r = i;
             var cnt1 = new Dictionary<string, int>();
-            int l = i, r = i, t = 0;
             while (r + k <= m) {
-                var w = s.Substring(r, k);
+                var t = s.Substring(r, k);
                 r += k;
-                if (!cnt.ContainsKey(w)) {
+
+                if (!cnt.ContainsKey(t)) {
                     cnt1.Clear();
-                    t = 0;
                     l = r;
                     continue;
                 }
-                if (!cnt1.ContainsKey(w)) {
-                    cnt1[w] = 0;
+
+                if (cnt1.ContainsKey(t)) {
+                    cnt1[t]++;
+                } else {
+                    cnt1[t] = 1;
                 }
-                ++cnt1[w];
-                ++t;
-                while (cnt1[w] > cnt[w]) {
-                    --cnt1[s.Substring(l, k)];
+
+                while (cnt1[t] > cnt[t]) {
+                    var w = s.Substring(l, k);
+                    cnt1[w]--;
+                    if (cnt1[w] == 0) {
+                        cnt1.Remove(w);
+                    }
                     l += k;
-                    --t;
                 }
-                if (t == n) {
+
+                if (r - l == n * k) {
                     ans.Add(l);
                 }
             }
         }
+
         return ans;
     }
 }
