@@ -51,7 +51,7 @@ tags:
 [null, null, null, -1, null, 3, null, null, null, 5]
 
 <strong>Explanation</strong>
-<code>MKAverage obj = new MKAverage(3, 1);
+<code>MKAverage obj = new MKAverage(3, 1); 
 obj.addElement(3);        // current elements are [3]
 obj.addElement(1);        // current elements are [3,1]
 obj.calculateMKAverage(); // return -1, because m = 3 and only 2 elements exist.

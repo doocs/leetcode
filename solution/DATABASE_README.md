@@ -307,7 +307,7 @@
 | 3390 | [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README.md)                                                                | `数据库` | 困难 | 🔒   |
 | 3401 | [Find Circular Gift Exchange Chains](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README.md)                                          | `数据库` | 困难 | 🔒   |
 | 3415 | [查找具有三个连续数字的产品](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)                                       | `数据库` | 简单 | 🔒   |
-| 3421 | [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)                                                                        |          | 中等 |      |
+| 3421 | [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)                                                                        | `数据库` | 中等 |      |
 
 ## 版权
 

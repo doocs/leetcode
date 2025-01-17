@@ -53,6 +53,7 @@ Each row includes project_id, required skill, and its importance (1-5) for the p
 		<li><strong>Start</strong> with <code>100</code> points</li>
 		<li><strong>Add</strong> <code>10</code> points for each skill where <strong>proficiency &gt; importance</strong></li>
 		<li><strong>Subtract</strong> <code>5</code> points for each skill where <strong>proficiency &lt; importance</strong></li>
+		<li>If the candidate&#39;s skill proficiency <strong>equal </strong>to the project&#39;s skill importance, the score remains unchanged</li>
 	</ul>
 	</li>
 </ol>

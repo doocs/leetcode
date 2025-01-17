@@ -34,9 +34,9 @@ tags:
 <strong>Input:</strong> num1 = 3, num2 = -2
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> We can make 3 equal to 0 with the following operations:
-- We choose i = 2 and substract 2<sup>2</sup> + (-2) from 3, 3 - (4 + (-2)) = 1.
-- We choose i = 2 and substract 2<sup>2</sup>&nbsp;+ (-2) from 1, 1 - (4 + (-2)) = -1.
-- We choose i = 0 and substract 2<sup>0</sup>&nbsp;+ (-2) from -1, (-1) - (1 + (-2)) = 0.
+- We choose i = 2 and subtract 2<sup>2</sup> + (-2) from 3, 3 - (4 + (-2)) = 1.
+- We choose i = 2 and subtract 2<sup>2</sup>&nbsp;+ (-2) from 1, 1 - (4 + (-2)) = -1.
+- We choose i = 0 and subtract 2<sup>0</sup>&nbsp;+ (-2) from -1, (-1) - (1 + (-2)) = 0.
 It can be proven, that 3 is the minimum number of operations that we need to perform.
 </pre>
 

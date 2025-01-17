@@ -30,10 +30,10 @@ tags:
 
 <pre>
 <strong>Input:</strong> nums = [8,2,4,7], limit = 4
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> All subarrays are:
+<strong>Output:</strong> 2 
+<strong>Explanation:</strong> All subarrays are: 
 [8] with maximum absolute diff |8-8| = 0 &lt;= 4.
-[8,2] with maximum absolute diff |8-2| = 6 &gt; 4.
+[8,2] with maximum absolute diff |8-2| = 6 &gt; 4. 
 [8,2,4] with maximum absolute diff |8-2| = 6 &gt; 4.
 [8,2,4,7] with maximum absolute diff |8-2| = 6 &gt; 4.
 [2] with maximum absolute diff |2-2| = 0 &lt;= 4.
@@ -41,7 +41,7 @@ tags:
 [2,4,7] with maximum absolute diff |2-7| = 5 &gt; 4.
 [4] with maximum absolute diff |4-4| = 0 &lt;= 4.
 [4,7] with maximum absolute diff |4-7| = 3 &lt;= 4.
-[7] with maximum absolute diff |7-7| = 0 &lt;= 4.
+[7] with maximum absolute diff |7-7| = 0 &lt;= 4. 
 Therefore, the size of the longest subarray is 2.
 </pre>
 
@@ -49,7 +49,7 @@ Therefore, the size of the longest subarray is 2.
 
 <pre>
 <strong>Input:</strong> nums = [10,1,2,4,7,2], limit = 5
-<strong>Output:</strong> 4
+<strong>Output:</strong> 4 
 <strong>Explanation:</strong> The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 &lt;= 5.
 </pre>
 

@@ -2,6 +2,14 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README.md
+tags:
+    - 栈
+    - 线段树
+    - 队列
+    - 数组
+    - 双指针
+    - 单调队列
+    - 单调栈
 ---
 
 <!-- problem:start -->

@@ -28,47 +28,36 @@ tags:
 
 <p>如果对 <code>words2</code> 中的每一个单词&nbsp;<code>b</code>，<code>b</code> 都是 <code>a</code> 的子集，那么我们称&nbsp;<code>words1</code> 中的单词 <code>a</code> 是<em> </em><strong>通用单词</strong><em> </em>。</p>
 
-<p>以数组形式返回&nbsp;<code>words1</code> 中所有的通用单词。你可以按 <strong>任意顺序</strong> 返回答案。</p>
+<p>以数组形式返回&nbsp;<code>words1</code> 中所有的 <strong>通用</strong> 单词。你可以按 <strong>任意顺序</strong> 返回答案。</p>
 
 <p>&nbsp;</p>
 
 <ol>
 </ol>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>words1 = ["amazon","apple","facebook","google","leetcode"], words2 = ["e","o"]
-<strong>输出：</strong>["facebook","google","leetcode"]
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>words1 = ["amazon","apple","facebook","google","leetcode"], words2 = ["e","o"]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>["facebook","google","leetcode"]</span></p>
+</div>
 
-<pre>
-<strong>输入：</strong>words1 = ["amazon","apple","facebook","google","leetcode"], words2 = ["l","e"]
-<strong>输出：</strong>["apple","google","leetcode"]
-</pre>
+<p><strong class="example">示例 2：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">words1 = ["amazon","apple","facebook","google","leetcode"], words2 = ["lc","eo"]</span></p>
 
-<pre>
-<strong>输入：</strong>words1 = ["amazon","apple","facebook","google","leetcode"], words2 = ["e","oo"]
-<strong>输出：</strong>["facebook","google"]
-</pre>
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">["leetcode"]</span></p>
+</div>
 
-<p><strong>示例 4：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>words1 = ["amazon","apple","facebook","google","leetcode"], words2 = ["lo","eo"]
-<strong>输出：</strong>["google","leetcode"]
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b></span><span class="example-io">words1 = ["acaac","cccbb","aacbb","caacc","bcbbb"], words2 = ["c","cc","b"]</span></p>
 
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>words1 = ["amazon","apple","facebook","google","leetcode"], words2 = ["ec","oc","ceo"]
-<strong>输出：</strong>["facebook","leetcode"]
-</pre>
+<p><span class="example-io"><b>输出：</b></span><span class="example-io">["cccbb"]</span></p>
+</div>
 
 <p>&nbsp;</p>
 

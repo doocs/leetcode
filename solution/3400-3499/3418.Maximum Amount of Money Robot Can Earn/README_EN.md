@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
 ---
 
 <!-- problem:start -->

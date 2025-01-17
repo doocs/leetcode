@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,3,-1,-3,5,3,6,7], k = 3
 <strong>Output:</strong> [1.00000,-1.00000,-1.00000,3.00000,5.00000,6.00000]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Window position                Median
 ---------------                -----
 [<strong>1  3  -1</strong>] -3  5  3  6  7        1
