@@ -43,7 +43,7 @@ tags:
 - Subarray [3, 1] with an imbalance number of 1.
 - Subarray [3, 1, 4] with an imbalance number of 1.
 - Subarray [1, 4] with an imbalance number of 1.
-The imbalance number of all other subarrays is 0. Hence, the sum of imbalance numbers of all the subarrays of nums is 3.
+The imbalance number of all other subarrays is 0. Hence, the sum of imbalance numbers of all the subarrays of nums is 3. 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -55,8 +55,8 @@ The imbalance number of all other subarrays is 0. Hence, the sum of imbalance nu
 - Subarray [1, 3] with an imbalance number of 1.
 - Subarray [1, 3, 3] with an imbalance number of 1.
 - Subarray [1, 3, 3, 3] with an imbalance number of 1.
-- Subarray [1, 3, 3, 3, 5] with an imbalance number of 2.
-- Subarray [3, 3, 3, 5] with an imbalance number of 1.
+- Subarray [1, 3, 3, 3, 5] with an imbalance number of 2. 
+- Subarray [3, 3, 3, 5] with an imbalance number of 1. 
 - Subarray [3, 3, 5] with an imbalance number of 1.
 - Subarray [3, 5] with an imbalance number of 1.
 The imbalance number of all other subarrays is 0. Hence, the sum of imbalance numbers of all the subarrays of nums is 8. </pre>

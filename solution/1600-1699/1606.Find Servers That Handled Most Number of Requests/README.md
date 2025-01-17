@@ -41,8 +41,8 @@ tags:
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/images/load-1.png" style="height: 221px; width: 389px;" /></p>
 
 <pre>
-<strong>输入：</strong>k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3]
-<strong>输出：</strong>[1]
+<strong>输入：</strong>k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 
+<strong>输出：</strong>[1] 
 <strong>解释：</strong>
 所有服务器一开始都是空闲的。
 前 3 个请求分别由前 3 台服务器依次处理。

@@ -53,6 +53,7 @@ tags:
 		<li>从&nbsp;<code>100</code>&nbsp;分<strong>&nbsp;开始。</strong></li>
 		<li>对于每一个技能，当 <b>熟练程度 &gt; 重要性 加</b>&nbsp;<code>10</code>&nbsp;分。</li>
 		<li>对于每一个技能，当&nbsp;<strong>熟练程度 &lt; 重要性 减</strong>&nbsp;<code>5</code>&nbsp;分。</li>
+		<li>如果候选人的技能熟练程度 <strong>等于</strong> 项目的技能重要性，则分数保持不变</li>
 	</ul>
 	</li>
 </ol>

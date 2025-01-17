@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3416.Subsequences%20with%20a%20Unique%20Middle%20Mode%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Combinatorics
 ---
 
 <!-- problem:start -->

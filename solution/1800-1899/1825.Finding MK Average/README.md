@@ -52,7 +52,7 @@ tags:
 [null, null, null, -1, null, 3, null, null, null, 5]
 
 <strong>解释：</strong>
-MKAverage obj = new MKAverage(3, 1);
+MKAverage obj = new MKAverage(3, 1); 
 obj.addElement(3);        // 当前元素为 [3]
 obj.addElement(1);        // 当前元素为 [3,1]
 obj.calculateMKAverage(); // 返回 -1 ，因为 m = 3 ，但数据流中只有 2 个元素

@@ -42,7 +42,7 @@ tags:
 <strong>Output</strong>
 [null, null, null, null, null, null, 2, null, null, 20, 21, 5, 4, 3, 1, -1]
 
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 DinnerPlates D = DinnerPlates(2);  // Initialize with capacity = 2
 D.push(1);
 D.push(2);
@@ -65,14 +65,14 @@ D.popAtStack(0);   // Returns 20.  The stacks are now:     4 21
                                                         ﹈ ﹈ ﹈
 D.popAtStack(2);   // Returns 21.  The stacks are now:     4
                                                         1  3  5
-                                                        ﹈ ﹈ ﹈
+                                                        ﹈ ﹈ ﹈ 
 D.pop()            // Returns 5.  The stacks are now:      4
-                                                        1  3
-                                                        ﹈ ﹈
-D.pop()            // Returns 4.  The stacks are now:   1  3
-                                                        ﹈ ﹈
-D.pop()            // Returns 3.  The stacks are now:   1
-                                                        ﹈
+                                                        1  3 
+                                                        ﹈ ﹈  
+D.pop()            // Returns 4.  The stacks are now:   1  3 
+                                                        ﹈ ﹈   
+D.pop()            // Returns 3.  The stacks are now:   1 
+                                                        ﹈   
 D.pop()            // Returns 1.  There are no stacks.
 D.pop()            // Returns -1.  There are still no stacks.
 </pre>

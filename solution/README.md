@@ -3426,13 +3426,13 @@
 |  3413  |  [收集连续 K 个袋子可以获得的最多硬币数量](/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README.md)  |  `贪心`,`数组`,`二分查找`,`前缀和`,`排序`,`滑动窗口`  |  中等  |  第 431 场周赛  |
 |  3414  |  [不重叠区间的最大得分](/solution/3400-3499/3414.Maximum%20Score%20of%20Non-overlapping%20Intervals/README.md)  |  `数组`,`二分查找`,`动态规划`,`排序`  |  困难  |  第 431 场周赛  |
 |  3415  |  [查找具有三个连续数字的产品](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)  |  `数据库`  |  简单  |  🔒  |
-|  3416  |  [唯一中间众数子序列 II](/solution/3400-3499/3416.Subsequences%20with%20a%20Unique%20Middle%20Mode%20II/README.md)  |    |  困难  |  🔒  |
-|  3417  |  [跳过交替单元格的之字形遍历](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README.md)  |    |  简单  |  第 432 场周赛  |
-|  3418  |  [机器人可以获得的最大金币数](/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README.md)  |    |  中等  |  第 432 场周赛  |
-|  3419  |  [图的最大边权的最小值](/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README.md)  |    |  中等  |  第 432 场周赛  |
-|  3420  |  [统计 K 次操作以内得到非递减子数组的数目](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README.md)  |    |  困难  |  第 432 场周赛  |
-|  3421  |  [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)  |    |  中等  |    |
-|  3422  |  [Minimum Operations to Make Subarray Elements Equal](/solution/3400-3499/3422.Minimum%20Operations%20to%20Make%20Subarray%20Elements%20Equal/README.md)  |    |  中等  |  🔒  |
+|  3416  |  [唯一中间众数子序列 II](/solution/3400-3499/3416.Subsequences%20with%20a%20Unique%20Middle%20Mode%20II/README.md)  |  `数组`,`哈希表`,`数学`,`组合数学`  |  困难  |  🔒  |
+|  3417  |  [跳过交替单元格的之字形遍历](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README.md)  |  `数组`,`矩阵`,`模拟`  |  简单  |  第 432 场周赛  |
+|  3418  |  [机器人可以获得的最大金币数](/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README.md)  |  `数组`,`动态规划`,`矩阵`  |  中等  |  第 432 场周赛  |
+|  3419  |  [图的最大边权的最小值](/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`二分查找`,`最短路`  |  中等  |  第 432 场周赛  |
+|  3420  |  [统计 K 次操作以内得到非递减子数组的数目](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README.md)  |  `栈`,`线段树`,`队列`,`数组`,`双指针`,`单调队列`,`单调栈`  |  困难  |  第 432 场周赛  |
+|  3421  |  [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)  |  `数据库`  |  中等  |    |
+|  3422  |  [将子数组元素变为相等所需的最小操作数](/solution/3400-3499/3422.Minimum%20Operations%20to%20Make%20Subarray%20Elements%20Equal/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

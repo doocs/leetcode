@@ -44,17 +44,17 @@ tags:
 [null, 1, 2, ["Task1", "Task2"], [], 3, ["Task3", "Task2"], null, null, ["Task3"], ["Task3", "Task1"]]
 
 <strong>解释</strong>
-TodoList todoList = new TodoList();
-todoList.addTask(1, "Task1", 50, []); // 返回1。为ID为1的用户添加一个新任务。
-todoList.addTask(1, "Task2", 100, ["P1"]); // 返回2。为ID为1的用户添加另一个任务，并给它添加标签“P1”。
-todoList.getAllTasks(1); // 返回["Task1", "Task2"]。用户1目前有两个未完成的任务。
-todoList.getAllTasks(5); // 返回[]。用户5目前没有任务。
-todoList.addTask(1, "Task3", 30, ["P1"]); // 返回3。为ID为1的用户添加另一个任务，并给它添加标签“P1”。
-todoList.getTasksForTag(1, "P1"); // 返回["Task3", "Task2"]。返回ID为1的用户未完成的带有“P1”标签的任务。
-todoList.completeTask(5, 1); // 不做任何操作，因为任务1不属于用户5。
-todoList.completeTask(1, 2); // 将任务2标记为已完成。
-todoList.getTasksForTag(1, "P1"); // 返回["Task3"]。返回ID为1的用户未完成的带有“P1”标签的任务。
-                                  // 注意，现在不包括 “Task2” ，因为它已经被标记为已完成。
+TodoList todoList = new TodoList(); 
+todoList.addTask(1, "Task1", 50, []); // 返回1。为ID为1的用户添加一个新任务。 
+todoList.addTask(1, "Task2", 100, ["P1"]); // 返回2。为ID为1的用户添加另一个任务，并给它添加标签“P1”。 
+todoList.getAllTasks(1); // 返回["Task1", "Task2"]。用户1目前有两个未完成的任务。 
+todoList.getAllTasks(5); // 返回[]。用户5目前没有任务。 
+todoList.addTask(1, "Task3", 30, ["P1"]); // 返回3。为ID为1的用户添加另一个任务，并给它添加标签“P1”。 
+todoList.getTasksForTag(1, "P1"); // 返回["Task3", "Task2"]。返回ID为1的用户未完成的带有“P1”标签的任务。 
+todoList.completeTask(5, 1); // 不做任何操作，因为任务1不属于用户5。 
+todoList.completeTask(1, 2); // 将任务2标记为已完成。 
+todoList.getTasksForTag(1, "P1"); // 返回["Task3"]。返回ID为1的用户未完成的带有“P1”标签的任务。 
+                                  // 注意，现在不包括 “Task2” ，因为它已经被标记为已完成。 
 todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未完成的任务。
 
 </pre>
