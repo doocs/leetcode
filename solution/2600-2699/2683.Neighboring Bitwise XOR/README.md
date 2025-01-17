@@ -43,7 +43,7 @@ tags:
 <pre><strong>输入：</strong>derived = [1,1,0]
 <strong>输出：</strong>true
 <strong>解释：</strong>能够派生得到 [1,1,0] 的有效原始二进制数组是 [0,1,0] ：
-derived[0] = original[0] ⊕ original[1] = 0 ⊕ 1 = 1 
+derived[0] = original[0] ⊕ original[1] = 0 ⊕ 1 = 1
 derived[1] = original[1] ⊕ original[2] = 1 ⊕ 0 = 1
 derived[2] = original[2] ⊕ original[0] = 0 ⊕ 0 = 0
 </pre>
@@ -157,6 +157,32 @@ func doesValidArrayExist(derived []int) bool {
 ```ts
 function doesValidArrayExist(derived: number[]): boolean {
     return derived.reduce((acc, x) => acc ^ x) === 0;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Counting
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function doesValidArrayExist(derived: number[]): boolean {
+    return derived.reduce((a, b) => a + b, 0) % 2 === 0;
+}
+```
+
+#### JavaScript
+
+```js
+function doesValidArrayExist(derived: number[]): boolean {
+    return derived.reduce((a, b) => a + b, 0) % 2 === 0;
 }
 ```
 
