@@ -5,24 +5,20 @@ class Solution:
         k = len(words[0])
         ans = []
         for i in range(k):
-            cnt1 = Counter()
             l = r = i
-            t = 0
+            cnt1 = Counter()
             while r + k <= m:
-                w = s[r : r + k]
+                t = s[r : r + k]
                 r += k
-                if w not in cnt:
+                if cnt[t] == 0:
                     l = r
                     cnt1.clear()
-                    t = 0
                     continue
-                cnt1[w] += 1
-                t += 1
-                while cnt1[w] > cnt[w]:
-                    remove = s[l : l + k]
+                cnt1[t] += 1
+                while cnt1[t] > cnt[t]:
+                    rem = s[l : l + k]
                     l += k
-                    cnt1[remove] -= 1
-                    t -= 1
-                if t == n:
+                    cnt1[rem] -= 1
+                if r - l == n * k:
                     ans.append(l)
         return ans

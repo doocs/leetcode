@@ -100,25 +100,21 @@ class Solution:
         k = len(words[0])
         ans = []
         for i in range(k):
-            cnt1 = Counter()
             l = r = i
-            t = 0
+            cnt1 = Counter()
             while r + k <= m:
-                w = s[r : r + k]
+                t = s[r : r + k]
                 r += k
-                if w not in cnt:
+                if cnt[t] == 0:
                     l = r
                     cnt1.clear()
-                    t = 0
                     continue
-                cnt1[w] += 1
-                t += 1
-                while cnt1[w] > cnt[w]:
-                    remove = s[l : l + k]
+                cnt1[t] += 1
+                while cnt1[t] > cnt[t]:
+                    rem = s[l : l + k]
                     l += k
-                    cnt1[remove] -= 1
-                    t -= 1
-                if t == n:
+                    cnt1[rem] -= 1
+                if r - l == n * k:
                     ans.append(l)
         return ans
 ```
@@ -129,34 +125,31 @@ class Solution:
 class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
         Map<String, Integer> cnt = new HashMap<>();
-        for (String w : words) {
+        for (var w : words) {
             cnt.merge(w, 1, Integer::sum);
         }
-        int m = s.length(), n = words.length;
-        int k = words[0].length();
         List<Integer> ans = new ArrayList<>();
+        int m = s.length(), n = words.length, k = words[0].length();
         for (int i = 0; i < k; ++i) {
-            Map<String, Integer> cnt1 = new HashMap<>();
             int l = i, r = i;
-            int t = 0;
+            Map<String, Integer> cnt1 = new HashMap<>();
             while (r + k <= m) {
-                String w = s.substring(r, r + k);
+                var t = s.substring(r, r + k);
                 r += k;
-                if (!cnt.containsKey(w)) {
+                if (!cnt.containsKey(t)) {
                     cnt1.clear();
                     l = r;
-                    t = 0;
                     continue;
                 }
-                cnt1.merge(w, 1, Integer::sum);
-                ++t;
-                while (cnt1.get(w) > cnt.get(w)) {
-                    String remove = s.substring(l, l + k);
+                cnt1.merge(t, 1, Integer::sum);
+                while (cnt1.get(t) > cnt.get(t)) {
+                    String w = s.substring(l, l + k);
+                    if (cnt1.merge(w, -1, Integer::sum) == 0) {
+                        cnt1.remove(w);
+                    }
                     l += k;
-                    cnt1.merge(remove, -1, Integer::sum);
-                    --t;
                 }
-                if (t == n) {
+                if (r - l == n * k) {
                     ans.add(l);
                 }
             }
@@ -173,37 +166,42 @@ class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
         unordered_map<string, int> cnt;
-        for (auto& w : words) {
-            ++cnt[w];
+        for (const auto& w : words) {
+            cnt[w]++;
         }
-        int m = s.size(), n = words.size(), k = words[0].size();
+
         vector<int> ans;
+        int m = s.length(), n = words.size(), k = words[0].length();
+
         for (int i = 0; i < k; ++i) {
-            unordered_map<string, int> cnt1;
             int l = i, r = i;
-            int t = 0;
+            unordered_map<string, int> cnt1;
             while (r + k <= m) {
-                string w = s.substr(r, k);
+                string t = s.substr(r, k);
                 r += k;
-                if (!cnt.count(w)) {
+
+                if (!cnt.contains(t)) {
                     cnt1.clear();
                     l = r;
-                    t = 0;
                     continue;
                 }
-                ++cnt1[w];
-                ++t;
-                while (cnt1[w] > cnt[w]) {
-                    string remove = s.substr(l, k);
+
+                cnt1[t]++;
+
+                while (cnt1[t] > cnt[t]) {
+                    string w = s.substr(l, k);
+                    if (--cnt1[w] == 0) {
+                        cnt1.erase(w);
+                    }
                     l += k;
-                    --cnt1[remove];
-                    --t;
                 }
-                if (t == n) {
+
+                if (r - l == n * k) {
                     ans.push_back(l);
                 }
             }
         }
+
         return ans;
     }
 };
@@ -213,30 +211,33 @@ public:
 
 ```go
 func findSubstring(s string, words []string) (ans []int) {
-	cnt := map[string]int{}
+	cnt := make(map[string]int)
 	for _, w := range words {
 		cnt[w]++
 	}
 	m, n, k := len(s), len(words), len(words[0])
 	for i := 0; i < k; i++ {
-		cnt1 := map[string]int{}
-		l, r, t := i, i, 0
+		l, r := i, i
+		cnt1 := make(map[string]int)
 		for r+k <= m {
-			w := s[r : r+k]
+			t := s[r : r+k]
 			r += k
-			if _, ok := cnt[w]; !ok {
-				l, t = r, 0
-				cnt1 = map[string]int{}
+
+			if _, exists := cnt[t]; !exists {
+				cnt1 = make(map[string]int)
+				l = r
 				continue
 			}
-			cnt1[w]++
-			t++
-			for cnt1[w] > cnt[w] {
-				cnt1[s[l:l+k]]--
+			cnt1[t]++
+			for cnt1[t] > cnt[t] {
+				w := s[l : l+k]
+				cnt1[w]--
+				if cnt1[w] == 0 {
+					delete(cnt1, w)
+				}
 				l += k
-				t--
 			}
-			if t == n {
+			if r-l == n*k {
 				ans = append(ans, l)
 			}
 		}
@@ -253,33 +254,29 @@ function findSubstring(s: string, words: string[]): number[] {
     for (const w of words) {
         cnt.set(w, (cnt.get(w) || 0) + 1);
     }
-    const m = s.length;
-    const n = words.length;
-    const k = words[0].length;
     const ans: number[] = [];
-    for (let i = 0; i < k; ++i) {
+    const [m, n, k] = [s.length, words.length, words[0].length];
+    for (let i = 0; i < k; i++) {
+        let [l, r] = [i, i];
         const cnt1: Map<string, number> = new Map();
-        let l = i;
-        let r = i;
-        let t = 0;
         while (r + k <= m) {
-            const w = s.slice(r, r + k);
+            const t = s.substring(r, r + k);
             r += k;
-            if (!cnt.has(w)) {
+            if (!cnt.has(t)) {
                 cnt1.clear();
                 l = r;
-                t = 0;
                 continue;
             }
-            cnt1.set(w, (cnt1.get(w) || 0) + 1);
-            ++t;
-            while (cnt1.get(w)! - cnt.get(w)! > 0) {
-                const remove = s.slice(l, l + k);
-                cnt1.set(remove, cnt1.get(remove)! - 1);
+            cnt1.set(t, (cnt1.get(t) || 0) + 1);
+            while (cnt1.get(t)! > cnt.get(t)!) {
+                const w = s.substring(l, l + k);
+                cnt1.set(w, cnt1.get(w)! - 1);
+                if (cnt1.get(w) === 0) {
+                    cnt1.delete(w);
+                }
                 l += k;
-                --t;
             }
-            if (t === n) {
+            if (r - l === n * k) {
                 ans.push(l);
             }
         }
@@ -295,40 +292,50 @@ public class Solution {
     public IList<int> FindSubstring(string s, string[] words) {
         var cnt = new Dictionary<string, int>();
         foreach (var w in words) {
-            if (!cnt.ContainsKey(w)) {
-                cnt[w] = 0;
+            if (cnt.ContainsKey(w)) {
+                cnt[w]++;
+            } else {
+                cnt[w] = 1;
             }
-            ++cnt[w];
         }
-        int m = s.Length, n = words.Length, k = words[0].Length;
+
         var ans = new List<int>();
+        int m = s.Length, n = words.Length, k = words[0].Length;
+
         for (int i = 0; i < k; ++i) {
+            int l = i, r = i;
             var cnt1 = new Dictionary<string, int>();
-            int l = i, r = i, t = 0;
             while (r + k <= m) {
-                var w = s.Substring(r, k);
+                var t = s.Substring(r, k);
                 r += k;
-                if (!cnt.ContainsKey(w)) {
+
+                if (!cnt.ContainsKey(t)) {
                     cnt1.Clear();
-                    t = 0;
                     l = r;
                     continue;
                 }
-                if (!cnt1.ContainsKey(w)) {
-                    cnt1[w] = 0;
+
+                if (cnt1.ContainsKey(t)) {
+                    cnt1[t]++;
+                } else {
+                    cnt1[t] = 1;
                 }
-                ++cnt1[w];
-                ++t;
-                while (cnt1[w] > cnt[w]) {
-                    --cnt1[s.Substring(l, k)];
+
+                while (cnt1[t] > cnt[t]) {
+                    var w = s.Substring(l, k);
+                    cnt1[w]--;
+                    if (cnt1[w] == 0) {
+                        cnt1.Remove(w);
+                    }
                     l += k;
-                    --t;
                 }
-                if (t == n) {
+
+                if (r - l == n * k) {
                     ans.Add(l);
                 }
             }
         }
+
         return ans;
     }
 }
@@ -346,90 +353,56 @@ class Solution {
     function findSubstring($s, $words) {
         $cnt = [];
         foreach ($words as $w) {
-            if (!isset($cnt[$w])) {
-                $cnt[$w] = 1;
-            } else {
+            if (isset($cnt[$w])) {
                 $cnt[$w]++;
+            } else {
+                $cnt[$w] = 1;
             }
         }
+
+        $ans = [];
         $m = strlen($s);
         $n = count($words);
         $k = strlen($words[0]);
-        $ans = [];
-        for ($i = 0; $i < $k; ++$i) {
-            $cnt1 = [];
+
+        for ($i = 0; $i < $k; $i++) {
             $l = $i;
             $r = $i;
-            $t = 0;
+            $cnt1 = [];
             while ($r + $k <= $m) {
-                $w = substr($s, $r, $k);
+                $t = substr($s, $r, $k);
                 $r += $k;
-                if (!array_key_exists($w, $cnt)) {
+
+                if (!isset($cnt[$t])) {
                     $cnt1 = [];
                     $l = $r;
-                    $t = 0;
                     continue;
                 }
-                if (!isset($cnt1[$w])) {
-                    $cnt1[$w] = 1;
+
+                if (isset($cnt1[$t])) {
+                    $cnt1[$t]++;
                 } else {
-                    $cnt1[$w]++;
+                    $cnt1[$t] = 1;
                 }
-                ++$t;
-                while ($cnt1[$w] > $cnt[$w]) {
-                    $remove = substr($s, $l, $k);
+
+                while ($cnt1[$t] > $cnt[$t]) {
+                    $w = substr($s, $l, $k);
+                    $cnt1[$w]--;
+                    if ($cnt1[$w] == 0) {
+                        unset($cnt1[$w]);
+                    }
                     $l += $k;
-                    $cnt1[$remove]--;
-                    $t--;
                 }
-                if ($t == $n) {
+
+                if ($r - $l == $n * $k) {
                     $ans[] = $l;
                 }
             }
         }
+
         return $ans;
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    vector<int> findSubstring(string s, vector<string>& words) {
-        unordered_map<string, int> d;
-        for (auto& w : words) ++d[w];
-        vector<int> ans;
-        int n = s.size(), m = words.size(), k = words[0].size();
-        for (int i = 0; i < k; ++i) {
-            int cnt = 0;
-            unordered_map<string, int> t;
-            for (int j = i; j <= n; j += k) {
-                if (j - i >= m * k) {
-                    auto s1 = s.substr(j - m * k, k);
-                    --t[s1];
-                    cnt -= d[s1] > t[s1];
-                }
-                auto s2 = s.substr(j, k);
-                ++t[s2];
-                cnt += d[s2] >= t[s2];
-                if (cnt == m) ans.emplace_back(j - (m - 1) * k);
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 <!-- tabs:end -->
