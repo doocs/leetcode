@@ -55,9 +55,9 @@ tags:
 
 ### 方法一：模拟
 
-我们创建两个链表，一个存放小于 $x$ 的节点，另一个存放大于等于 $x$ 的节点，之后进行拼接即可。
+我们创建两个链表 $l$ 和 $r$，一个用来存储小于 $x$ 的节点，另一个用来存储大于等于 $x$ 的节点。然后我们将它们拼接起来。
 
-时间复杂度 $O(n)，其中 $n$ 是原链表的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是原链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -71,19 +71,20 @@ tags:
 #         self.next = next
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
-        d1, d2 = ListNode(), ListNode()
-        t1, t2 = d1, d2
+        l = ListNode()
+        r = ListNode()
+        tl, tr = l, r
         while head:
             if head.val < x:
-                t1.next = head
-                t1 = t1.next
+                tl.next = head
+                tl = tl.next
             else:
-                t2.next = head
-                t2 = t2.next
+                tr.next = head
+                tr = tr.next
             head = head.next
-        t1.next = d2.next
-        t2.next = None
-        return d1.next
+        tr.next = None
+        tl.next = r.next
+        return l.next
 ```
 
 #### Java
@@ -101,22 +102,21 @@ class Solution:
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode d1 = new ListNode();
-        ListNode d2 = new ListNode();
-        ListNode t1 = d1, t2 = d2;
-        while (head != null) {
+        ListNode l = new ListNode();
+        ListNode r = new ListNode();
+        ListNode tl = l, tr = r;
+        for (; head != null; head = head.next) {
             if (head.val < x) {
-                t1.next = head;
-                t1 = t1.next;
+                tl.next = head;
+                tl = tl.next;
             } else {
-                t2.next = head;
-                t2 = t2.next;
+                tr.next = head;
+                tr = tr.next;
             }
-            head = head.next;
         }
-        t1.next = d2.next;
-        t2.next = null;
-        return d1.next;
+        tr.next = null;
+        tl.next = r.next;
+        return l.next;
     }
 }
 ```
@@ -137,23 +137,22 @@ class Solution {
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode* d1 = new ListNode();
-        ListNode* d2 = new ListNode();
-        ListNode* t1 = d1;
-        ListNode* t2 = d2;
-        while (head) {
+        ListNode* l = new ListNode();
+        ListNode* r = new ListNode();
+        ListNode* tl = l;
+        ListNode* tr = r;
+        for (; head; head = head->next) {
             if (head->val < x) {
-                t1->next = head;
-                t1 = t1->next;
+                tl->next = head;
+                tl = tl->next;
             } else {
-                t2->next = head;
-                t2 = t2->next;
+                tr->next = head;
+                tr = tr->next;
             }
-            head = head->next;
         }
-        t1->next = d2->next;
-        t2->next = nullptr;
-        return d1->next;
+        tr->next = nullptr;
+        tl->next = r->next;
+        return l->next;
     }
 };
 ```
@@ -169,21 +168,53 @@ public:
  * }
  */
 func partition(head *ListNode, x int) *ListNode {
-	d1, d2 := &ListNode{}, &ListNode{}
-	t1, t2 := d1, d2
-	for head != nil {
+	l, r := &ListNode{}, &ListNode{}
+	tl, tr := l, r
+	for ; head != nil; head = head.Next {
 		if head.Val < x {
-			t1.Next = head
-			t1 = t1.Next
+			tl.Next = head
+			tl = tl.Next
 		} else {
-			t2.Next = head
-			t2 = t2.Next
+			tr.Next = head
+			tr = tr.Next
 		}
-		head = head.Next
 	}
-	t1.Next = d2.Next
-	t2.Next = nil
-	return d1.Next
+	tr.Next = nil
+	tl.Next = r.Next
+	return l.Next
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function partition(head: ListNode | null, x: number): ListNode | null {
+    const [l, r] = [new ListNode(), new ListNode()];
+    let [tl, tr] = [l, r];
+    for (; head; head = head.next) {
+        if (head.val < x) {
+            tl.next = head;
+            tl = tl.next;
+        } else {
+            tr.next = head;
+            tr = tr.next;
+        }
+    }
+    tr.next = null;
+    tl.next = r.next;
+    return l.next;
 }
 ```
 
@@ -208,22 +239,24 @@ func partition(head *ListNode, x int) *ListNode {
 // }
 impl Solution {
     pub fn partition(head: Option<Box<ListNode>>, x: i32) -> Option<Box<ListNode>> {
-        let mut head = head;
-        let mut d1 = Some(Box::new(ListNode::new(0)));
-        let mut d2 = Some(Box::new(ListNode::new(0)));
-        let (mut t1, mut t2) = (&mut d1, &mut d2);
-        while let Some(mut node) = head {
-            head = node.next.take();
+        let mut l = ListNode::new(0);
+        let mut r = ListNode::new(0);
+        let mut tl = &mut l;
+        let mut tr = &mut r;
+        let mut current = head;
+        while let Some(mut node) = current {
+            current = node.next.take();
             if node.val < x {
-                t1.as_mut().unwrap().next = Some(node);
-                t1 = &mut t1.as_mut().unwrap().next;
+                tl.next = Some(node);
+                tl = tl.next.as_mut().unwrap();
             } else {
-                t2.as_mut().unwrap().next = Some(node);
-                t2 = &mut t2.as_mut().unwrap().next;
+                tr.next = Some(node);
+                tr = tr.next.as_mut().unwrap();
             }
         }
-        t1.as_mut().unwrap().next = d2.unwrap().next;
-        d1.unwrap().next
+        tr.next = None;
+        tl.next = r.next;
+        l.next
     }
 }
 ```
@@ -244,24 +277,56 @@ impl Solution {
  * @return {ListNode}
  */
 var partition = function (head, x) {
-    const d1 = new ListNode();
-    const d2 = new ListNode();
-    let t1 = d1,
-        t2 = d2;
-    while (head) {
+    const [l, r] = [new ListNode(), new ListNode()];
+    let [tl, tr] = [l, r];
+    for (; head; head = head.next) {
         if (head.val < x) {
-            t1.next = head;
-            t1 = t1.next;
+            tl.next = head;
+            tl = tl.next;
         } else {
-            t2.next = head;
-            t2 = t2.next;
+            tr.next = head;
+            tr = tr.next;
         }
-        head = head.next;
     }
-    t1.next = d2.next;
-    t2.next = null;
-    return d1.next;
+    tr.next = null;
+    tl.next = r.next;
+    return l.next;
 };
+```
+
+#### C#
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode Partition(ListNode head, int x) {
+        ListNode l = new ListNode();
+        ListNode r = new ListNode();
+        ListNode tl = l, tr = r;
+        for (; head != null; head = head.next) {
+            if (head.val < x) {
+                tl.next = head;
+                tl = tl.next;
+            } else {
+                tr.next = head;
+                tr = tr.next;
+            }
+        }
+        tr.next = null;
+        tl.next = r.next;
+        return l.next;
+    }
+}
 ```
 
 <!-- tabs:end -->

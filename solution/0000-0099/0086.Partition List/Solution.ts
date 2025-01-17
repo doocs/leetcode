@@ -1,16 +1,16 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
  * }
  */
-/**
- * @param {ListNode} head
- * @param {number} x
- * @return {ListNode}
- */
-var partition = function (head, x) {
+
+function partition(head: ListNode | null, x: number): ListNode | null {
     const [l, r] = [new ListNode(), new ListNode()];
     let [tl, tr] = [l, r];
     for (; head; head = head.next) {
@@ -25,4 +25,4 @@ var partition = function (head, x) {
     tr.next = null;
     tl.next = r.next;
     return l.next;
-};
+}

@@ -10,21 +10,20 @@
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode d1 = new ListNode();
-        ListNode d2 = new ListNode();
-        ListNode t1 = d1, t2 = d2;
-        while (head != null) {
+        ListNode l = new ListNode();
+        ListNode r = new ListNode();
+        ListNode tl = l, tr = r;
+        for (; head != null; head = head.next) {
             if (head.val < x) {
-                t1.next = head;
-                t1 = t1.next;
+                tl.next = head;
+                tl = tl.next;
             } else {
-                t2.next = head;
-                t2 = t2.next;
+                tr.next = head;
+                tr = tr.next;
             }
-            head = head.next;
         }
-        t1.next = d2.next;
-        t2.next = null;
-        return d1.next;
+        tr.next = null;
+        tl.next = r.next;
+        return l.next;
     }
 }
