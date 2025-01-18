@@ -1,9 +1,5 @@
-/**
- * @param {number[][]} wall
- * @return {number}
- */
-var leastBricks = function (wall) {
-    const cnt = new Map();
+function leastBricks(wall: number[][]): number {
+    const cnt: Map<number, number> = new Map();
     for (const row of wall) {
         let s = 0;
         for (let i = 0; i + 1 < row.length; ++i) {
@@ -13,4 +9,4 @@ var leastBricks = function (wall) {
     }
     const mx = Math.max(...cnt.values(), 0);
     return wall.length - mx;
-};
+}
