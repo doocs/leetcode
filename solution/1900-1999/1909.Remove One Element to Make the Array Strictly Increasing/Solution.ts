@@ -1,20 +1,21 @@
 function canBeIncreasing(nums: number[]): boolean {
-    const check = (p: number) => {
-        let prev = undefined;
-        for (let j = 0; j < nums.length; j++) {
-            if (p != j) {
-                if (prev !== undefined && prev >= nums[j]) {
-                    return false;
-                }
-                prev = nums[j];
+    const n = nums.length;
+    const check = (k: number): boolean => {
+        let pre = 0;
+        for (let i = 0; i < n; ++i) {
+            if (i === k) {
+                continue;
             }
+            if (pre >= nums[i]) {
+                return false;
+            }
+            pre = nums[i];
         }
         return true;
     };
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i - 1] >= nums[i]) {
-            return check(i - 1) || check(i);
-        }
+    let i = 0;
+    while (i + 1 < n && nums[i] < nums[i + 1]) {
+        ++i;
     }
-    return true;
+    return check(i) || check(i + 1);
 }

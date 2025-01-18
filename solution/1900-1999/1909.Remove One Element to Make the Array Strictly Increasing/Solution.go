@@ -1,21 +1,20 @@
 func canBeIncreasing(nums []int) bool {
-	i, n := 1, len(nums)
-	for ; i < n && nums[i-1] < nums[i]; i++ {
-
-	}
-	return check(nums, i-1) || check(nums, i)
-}
-
-func check(nums []int, i int) bool {
-	prev := 0
-	for j := 0; j < len(nums); j++ {
-		if i == j {
-			continue
+	check := func(k int) bool {
+		pre := 0
+		for i, x := range nums {
+			if i == k {
+				continue
+			}
+			if pre >= x {
+				return false
+			}
+			pre = x
 		}
-		if prev >= nums[j] {
-			return false
-		}
-		prev = nums[j]
+		return true
 	}
-	return true
+	i := 0
+	for i+1 < len(nums) && nums[i] < nums[i+1] {
+		i++
+	}
+	return check(i) || check(i+1)
 }
