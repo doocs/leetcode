@@ -1,17 +1,15 @@
 func leastBricks(wall [][]int) int {
-	cnt := make(map[int]int)
+	cnt := map[int]int{}
 	for _, row := range wall {
-		width := 0
-		for _, brick := range row[:len(row)-1] {
-			width += brick
-			cnt[width]++
+		s := 0
+		for _, x := range row[:len(row)-1] {
+			s += x
+			cnt[s]++
 		}
 	}
-	max := 0
-	for _, v := range cnt {
-		if v > max {
-			max = v
-		}
+	mx := 0
+	for _, x := range cnt {
+		mx = max(mx, x)
 	}
-	return len(wall) - max
+	return len(wall) - mx
 }
