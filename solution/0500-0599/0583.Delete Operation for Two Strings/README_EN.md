@@ -51,7 +51,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the minimum number of deletions required to make the first $i$ characters of the string $\textit{word1}$ and the first $j$ characters of the string $\textit{word2}$ the same. The answer is $f[m][n]$, where $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$, respectively.
+
+Initially, if $j = 0$, then $f[i][0] = i$; if $i = 0$, then $f[0][j] = j$.
+
+When $i, j > 0$, if $\textit{word1}[i - 1] = \textit{word2}[j - 1]$, then $f[i][j] = f[i - 1][j - 1]$; otherwise, $f[i][j] = \min(f[i - 1][j], f[i][j - 1]) + 1$.
+
+Finally, return $f[m][n]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$, respectively.
 
 <!-- tabs:start -->
 
@@ -61,18 +71,18 @@ tags:
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         m, n = len(word1), len(word2)
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        f = [[0] * (n + 1) for _ in range(m + 1)]
         for i in range(1, m + 1):
-            dp[i][0] = i
+            f[i][0] = i
         for j in range(1, n + 1):
-            dp[0][j] = j
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                if word1[i - 1] == word2[j - 1]:
-                    dp[i][j] = dp[i - 1][j - 1]
+            f[0][j] = j
+        for i, a in enumerate(word1, 1):
+            for j, b in enumerate(word2, 1):
+                if a == b:
+                    f[i][j] = f[i - 1][j - 1]
                 else:
-                    dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1])
-        return dp[-1][-1]
+                    f[i][j] = min(f[i - 1][j], f[i][j - 1]) + 1
+        return f[m][n]
 ```
 
 #### Java
@@ -81,23 +91,25 @@ class Solution:
 class Solution {
     public int minDistance(String word1, String word2) {
         int m = word1.length(), n = word2.length();
-        int[][] dp = new int[m + 1][n + 1];
-        for (int i = 1; i <= m; ++i) {
-            dp[i][0] = i;
+        int[][] f = new int[m + 1][n + 1];
+        for (int i = 0; i <= m; ++i) {
+            f[i][0] = i;
         }
-        for (int j = 1; j <= n; ++j) {
-            dp[0][j] = j;
+        for (int j = 0; j <= n; ++j) {
+            f[0][j] = j;
         }
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+                char a = word1.charAt(i - 1);
+                char b = word2.charAt(j - 1);
+                if (a == b) {
+                    f[i][j] = f[i - 1][j - 1];
                 } else {
-                    dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1]);
+                    f[i][j] = Math.min(f[i - 1][j], f[i][j - 1]) + 1;
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -108,19 +120,26 @@ class Solution {
 class Solution {
 public:
     int minDistance(string word1, string word2) {
-        int m = word1.size(), n = word2.size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-        for (int i = 1; i <= m; ++i) dp[i][0] = i;
-        for (int j = 1; j <= n; ++j) dp[0][j] = j;
+        int m = word1.length(), n = word2.length();
+        vector<vector<int>> f(m + 1, vector<int>(n + 1));
+        for (int i = 0; i <= m; ++i) {
+            f[i][0] = i;
+        }
+        for (int j = 0; j <= n; ++j) {
+            f[0][j] = j;
+        }
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                if (word1[i - 1] == word2[j - 1])
-                    dp[i][j] = dp[i - 1][j - 1];
-                else
-                    dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1]);
+                char a = word1[i - 1];
+                char b = word2[j - 1];
+                if (a == b) {
+                    f[i][j] = f[i - 1][j - 1];
+                } else {
+                    f[i][j] = min(f[i - 1][j], f[i][j - 1]) + 1;
+                }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -130,24 +149,25 @@ public:
 ```go
 func minDistance(word1 string, word2 string) int {
 	m, n := len(word1), len(word2)
-	dp := make([][]int, m+1)
-	for i := range dp {
-		dp[i] = make([]int, n+1)
-		dp[i][0] = i
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+        f[i][0] = i
 	}
-	for j := range dp[0] {
-		dp[0][j] = j
+	for j := 1; j <= n; j++ {
+		f[0][j] = j
 	}
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
-			if word1[i-1] == word2[j-1] {
-				dp[i][j] = dp[i-1][j-1]
+			a, b := word1[i-1], word2[j-1]
+			if a == b {
+				f[i][j] = f[i-1][j-1]
 			} else {
-				dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1])
+				f[i][j] = 1 + min(f[i-1][j], f[i][j-1])
 			}
 		}
 	}
-	return dp[m][n]
+	return f[m][n]
 }
 ```
 
@@ -157,18 +177,23 @@ func minDistance(word1 string, word2 string) int {
 function minDistance(word1: string, word2: string): number {
     const m = word1.length;
     const n = word2.length;
-    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
-    for (let i = 1; i <= m; i++) {
-        for (let j = 1; j <= n; j++) {
+    const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        f[i][0] = i;
+    }
+    for (let j = 1; j <= n; ++j) {
+        f[0][j] = j;
+    }
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
             if (word1[i - 1] === word2[j - 1]) {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
+                f[i][j] = f[i - 1][j - 1];
             } else {
-                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                f[i][j] = Math.min(f[i - 1][j], f[i][j - 1]) + 1;
             }
         }
     }
-    const max = dp[m][n];
-    return m - max + n - max;
+    return f[m][n];
 }
 ```
 
@@ -177,20 +202,31 @@ function minDistance(word1: string, word2: string): number {
 ```rust
 impl Solution {
     pub fn min_distance(word1: String, word2: String) -> i32 {
-        let (m, n) = (word1.len(), word2.len());
-        let (word1, word2) = (word1.as_bytes(), word2.as_bytes());
-        let mut dp = vec![vec![0; n + 1]; m + 1];
+        let m = word1.len();
+        let n = word2.len();
+        let s: Vec<char> = word1.chars().collect();
+        let t: Vec<char> = word2.chars().collect();
+        let mut f = vec![vec![0; n + 1]; m + 1];
+
+        for i in 0..=m {
+            f[i][0] = i as i32;
+        }
+        for j in 0..=n {
+            f[0][j] = j as i32;
+        }
+
         for i in 1..=m {
             for j in 1..=n {
-                dp[i][j] = if word1[i - 1] == word2[j - 1] {
-                    dp[i - 1][j - 1] + 1
+                let a = s[i - 1];
+                let b = t[j - 1];
+                if a == b {
+                    f[i][j] = f[i - 1][j - 1];
                 } else {
-                    dp[i - 1][j].max(dp[i][j - 1])
-                };
+                    f[i][j] = std::cmp::min(f[i - 1][j], f[i][j - 1]) + 1;
+                }
             }
         }
-        let max = dp[m][n];
-        (m - max + (n - max)) as i32
+        f[m][n]
     }
 }
 ```
