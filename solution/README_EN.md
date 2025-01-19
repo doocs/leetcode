@@ -2867,7 +2867,6 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2856  |  [Minimum Array Length After Pair Removals](/solution/2800-2899/2856.Minimum%20Array%20Length%20After%20Pair%20Removals/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Two Pointers`,`Binary Search`,`Counting`  |  Medium  |  Biweekly Contest 113  |
 |  2857  |  [Count Pairs of Points With Distance k](/solution/2800-2899/2857.Count%20Pairs%20of%20Points%20With%20Distance%20k/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`  |  Medium  |  Biweekly Contest 113  |
 |  2858  |  [Minimum Edge Reversals So Every Node Is Reachable](/solution/2800-2899/2858.Minimum%20Edge%20Reversals%20So%20Every%20Node%20Is%20Reachable/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 113  |
-|  2859  |  [Sum of Values at Indices With K Set Bits](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Easy  |  Weekly Contest 363  |
 |  2860  |  [Happy Students](/solution/2800-2899/2860.Happy%20Students/README_EN.md)  |  `Array`,`Enumeration`,`Sorting`  |  Medium  |  Weekly Contest 363  |
 |  2861  |  [Maximum Number of Alloys](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 363  |
 |  2862  |  [Maximum Element-Sum of a Complete Subset of Indices](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Hard  |  Weekly Contest 363  |
@@ -3431,6 +3430,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3420  |  [Count Non-Decreasing Subarrays After K Operations](/solution/3400-3499/3420.Count%20Non-Decreasing%20Subarrays%20After%20K%20Operations/README_EN.md)  |  `Stack`,`Segment Tree`,`Queue`,`Array`,`Two Pointers`,`Monotonic Queue`,`Monotonic Stack`  |  Hard  |  Weekly Contest 432  |
 |  3421  |  [Find Students Who Improved](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README_EN.md)  |  `Database`  |  Medium  |    |
 |  3422  |  [Minimum Operations to Make Subarray Elements Equal](/solution/3400-3499/3422.Minimum%20Operations%20to%20Make%20Subarray%20Elements%20Equal/README_EN.md)  |    |  Medium  |  🔒  |
+|  3423  |  [Maximum Difference Between Adjacent Elements in a Circular Array](/solution/3400-3499/3423.Maximum%20Difference%20Between%20Adjacent%20Elements%20in%20a%20Circular%20Array/README_EN.md)  |    |  Easy  |  Biweekly Contest 148  |
+|  3424  |  [Minimum Cost to Make Arrays Identical](/solution/3400-3499/3424.Minimum%20Cost%20to%20Make%20Arrays%20Identical/README_EN.md)  |    |  Medium  |  Biweekly Contest 148  |
+|  3425  |  [Longest Special Path](/solution/3400-3499/3425.Longest%20Special%20Path/README_EN.md)  |    |  Hard  |  Biweekly Contest 148  |
+|  3426  |  [Manhattan Distances of All Arrangements of Pieces](/solution/3400-3499/3426.Manhattan%20Distances%20of%20All%20Arrangements%20of%20Pieces/README_EN.md)  |    |  Hard  |  Biweekly Contest 148  |
+|  3427  |  [Sum of Variable Length Subarrays](/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README_EN.md)  |    |  Easy  |  Weekly Contest 433  |
+|  3428  |  [Maximum and Minimum Sums of at Most Size K Subsequences](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README_EN.md)  |    |  Medium  |  Weekly Contest 433  |
+|  3429  |  [Paint House IV](/solution/3400-3499/3429.Paint%20House%20IV/README_EN.md)  |    |  Medium  |  Weekly Contest 433  |
+|  3430  |  [Maximum and Minimum Sums of at Most Size K Subarrays](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 433  |
 
 ## Copyright
 

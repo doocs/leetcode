@@ -9,7 +9,7 @@ for _ in range(100000):
 class Solution:
     def countTexts(self, pressedKeys: str) -> int:
         ans = 1
-        for ch, s in groupby(pressedKeys):
+        for c, s in groupby(pressedKeys):
             m = len(list(s))
-            ans = ans * (g[m] if ch in "79" else f[m]) % mod
+            ans = ans * (g[m] if c in "79" else f[m]) % mod
         return ans

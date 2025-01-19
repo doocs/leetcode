@@ -34,8 +34,8 @@ tags:
 <p>编写一个解决方案来查找 <strong>进步的学生</strong>。如果 <strong>同时</strong> 满足以下两个条件，则该学生被认为是进步的：</p>
 
 <ul>
-	<li>在 <strong>同一科目</strong>&nbsp;至少有两个不同日期的考试。</li>
-	<li>他们在该学科&nbsp;<strong>最近的分数</strong>&nbsp;比他们 <strong>第一次的分数更高。</strong></li>
+	<li>在 <strong>同一科目</strong> 至少参加过两个不同日期的考试。</li>
+	<li>他们在该学科<strong> 最近的分数 </strong>比他们 第一次该学科考试的分数更高。</li>
 </ul>
 
 <p>返回结果表以&nbsp;<code>student_id</code>，<code>subject</code> <strong>升序</strong>&nbsp;排序。</p>
