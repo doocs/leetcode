@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 433 场周赛(2025-01-19 10:30, 90 分钟) 参赛人数 1969
+
+- [3427. 变长子数组求和](/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README.md)
+- [3428. 最多 K 个元素的子序列的最值之和](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README.md)
+- [3429. 粉刷房子 IV](/solution/3400-3499/3429.Paint%20House%20IV/README.md)
+- [3430. 最多 K 个元素的子数组的最值之和](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README.md)
+
+#### 第 148 场双周赛(2025-01-18 22:30, 90 分钟) 参赛人数 1655
+
+- [3423. 循环数组中相邻元素的最大差值](/solution/3400-3499/3423.Maximum%20Difference%20Between%20Adjacent%20Elements%20in%20a%20Circular%20Array/README.md)
+- [3424. 将数组变相同的最小代价](/solution/3400-3499/3424.Minimum%20Cost%20to%20Make%20Arrays%20Identical/README.md)
+- [3425. 最长特殊路径](/solution/3400-3499/3425.Longest%20Special%20Path/README.md)
+- [3426. 所有安放棋子方案的曼哈顿距离](/solution/3400-3499/3426.Manhattan%20Distances%20of%20All%20Arrangements%20of%20Pieces/README.md)
+
 #### 第 432 场周赛(2025-01-12 10:30, 90 分钟) 参赛人数 2199
 
 - [3417. 跳过交替单元格的之字形遍历](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README.md)
@@ -749,7 +763,6 @@ comments: true
 
 #### 第 363 场周赛(2023-09-17 10:30, 90 分钟) 参赛人数 4768
 
-- [2859. 计算 K 置位下标对应元素的和](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README.md)
 - [2860. 让所有学生保持开心的分组方法数](/solution/2800-2899/2860.Happy%20Students/README.md)
 - [2861. 最大合金数](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README.md)
 - [2862. 完全子集的最大元素和](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README.md)

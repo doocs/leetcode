@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 433
+
+- [3427. Sum of Variable Length Subarrays](/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README_EN.md)
+- [3428. Maximum and Minimum Sums of at Most Size K Subsequences](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README_EN.md)
+- [3429. Paint House IV](/solution/3400-3499/3429.Paint%20House%20IV/README_EN.md)
+- [3430. Maximum and Minimum Sums of at Most Size K Subarrays](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README_EN.md)
+
+#### Biweekly Contest 148
+
+- [3423. Maximum Difference Between Adjacent Elements in a Circular Array](/solution/3400-3499/3423.Maximum%20Difference%20Between%20Adjacent%20Elements%20in%20a%20Circular%20Array/README_EN.md)
+- [3424. Minimum Cost to Make Arrays Identical](/solution/3400-3499/3424.Minimum%20Cost%20to%20Make%20Arrays%20Identical/README_EN.md)
+- [3425. Longest Special Path](/solution/3400-3499/3425.Longest%20Special%20Path/README_EN.md)
+- [3426. Manhattan Distances of All Arrangements of Pieces](/solution/3400-3499/3426.Manhattan%20Distances%20of%20All%20Arrangements%20of%20Pieces/README_EN.md)
+
 #### Weekly Contest 432
 
 - [3417. Zigzag Grid Traversal With Skip](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README_EN.md)
@@ -752,7 +766,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 #### Weekly Contest 363
 
-- [2859. Sum of Values at Indices With K Set Bits](/solution/2800-2899/2859.Sum%20of%20Values%20at%20Indices%20With%20K%20Set%20Bits/README_EN.md)
 - [2860. Happy Students](/solution/2800-2899/2860.Happy%20Students/README_EN.md)
 - [2861. Maximum Number of Alloys](/solution/2800-2899/2861.Maximum%20Number%20of%20Alloys/README_EN.md)
 - [2862. Maximum Element-Sum of a Complete Subset of Indices](/solution/2800-2899/2862.Maximum%20Element-Sum%20of%20a%20Complete%20Subset%20of%20Indices/README_EN.md)
