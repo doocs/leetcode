@@ -17,15 +17,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3424.Mi
 <p>You are given two integer arrays <code>arr</code> and <code>brr</code> of length <code>n</code>, and an integer <code>k</code>. You can perform the following operations on <code>arr</code> <em>any</em> number of times:</p>
 
 <ul>
-	<li>Split <code>arr</code> into <em>any</em> number of <strong>contiguous</strong> subarrays and rearrange these subarrays in <em>any order</em>. This operation has a fixed cost of <code>k</code>.</li>
+	<li>Split <code>arr</code> into <em>any</em> number of <strong>contiguous</strong> <span data-keyword="subarray-nonempty">subarrays</span> and rearrange these subarrays in <em>any order</em>. This operation has a fixed cost of <code>k</code>.</li>
 	<li>
 	<p>Choose any element in <code>arr</code> and add or subtract a positive integer <code>x</code> to it. The cost of this operation is <code>x</code>.</p>
 	</li>
 </ul>
 
 <p>Return the <strong>minimum </strong>total cost to make <code>arr</code> <strong>equal</strong> to <code>brr</code>.</p>
-
-<p>A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of elements within an array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

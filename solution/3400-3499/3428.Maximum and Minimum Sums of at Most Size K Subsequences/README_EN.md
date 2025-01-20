@@ -14,9 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3428.Ma
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code> and a positive integer <code>k</code>. Return the sum of the <strong>maximum</strong> and <strong>minimum</strong> elements of all <strong>subsequences</strong> of <code>nums</code> with <strong>at most</strong> <code>k</code> elements.</p>
-
-<p>A <strong>non-empty subsequence </strong>is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>
+<p>You are given an integer array <code>nums</code> and a positive integer <code>k</code>. Return the sum of the <strong>maximum</strong> and <strong>minimum</strong> elements of all <strong><span data-keyword="subsequence-sequence-nonempty">subsequences</span></strong> of <code>nums</code> with <strong>at most</strong> <code>k</code> elements.</p>
 
 <p>Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
@@ -118,7 +116,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3428.Ma
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
-	<li><code><font face="monospace">1 &lt;= k &lt;= min(100, nums.length)</font></code></li>
+	<li><code><font face="monospace">1 &lt;= k &lt;= min(70, nums.length)</font></code></li>
 </ul>
 
 <!-- description:end -->
