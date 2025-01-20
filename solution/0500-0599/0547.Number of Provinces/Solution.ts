@@ -1,6 +1,6 @@
 function findCircleNum(isConnected: number[][]): number {
     const n = isConnected.length;
-    const vis: boolean[] = new Array(n).fill(false);
+    const vis: boolean[] = Array(n).fill(false);
     const dfs = (i: number) => {
         vis[i] = true;
         for (let j = 0; j < n; ++j) {
