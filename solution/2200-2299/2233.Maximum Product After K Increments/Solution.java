@@ -1,17 +1,16 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int maximumProduct(int[] nums, int k) {
-        PriorityQueue<Integer> q = new PriorityQueue<>();
-        for (int v : nums) {
-            q.offer(v);
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int x : nums) {
+            pq.offer(x);
         }
         while (k-- > 0) {
-            q.offer(q.poll() + 1);
+            pq.offer(pq.poll() + 1);
         }
+        final int mod = (int) 1e9 + 7;
         long ans = 1;
-        while (!q.isEmpty()) {
-            ans = (ans * q.poll()) % MOD;
+        for (int x : pq) {
+            ans = (ans * x) % mod;
         }
         return (int) ans;
     }

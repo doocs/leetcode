@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
- */
-var maximumProduct = function (nums, k) {
+function maximumProduct(nums: number[], k: number): number {
     const pq = new MinPriorityQueue();
     nums.forEach(x => pq.enqueue(x));
     while (k--) {
@@ -16,4 +11,4 @@ var maximumProduct = function (nums, k) {
         ans = (ans * pq.dequeue().element) % mod;
     }
     return ans;
-};
+}
