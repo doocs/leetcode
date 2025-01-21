@@ -5,7 +5,7 @@ public:
         int ans = 0;
         bool vis[n];
         memset(vis, false, sizeof(vis));
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> void {
             vis[i] = true;
             for (int j = 0; j < n; ++j) {
                 if (!vis[j] && isConnected[i][j]) {
