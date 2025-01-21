@@ -68,7 +68,15 @@ The maximum sum score of nums is -3.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+We can use two variables $l$ and $r$ to represent the prefix sum and suffix sum of the array, respectively. Initially, $l = 0$ and $r = \sum_{i=0}^{n-1} \textit{nums}[i]$.
+
+Next, we traverse the array $\textit{nums}$. For each element $x$, we add $x$ to $l$ and update the answer $\textit{ans} = \max(\textit{ans}, l, r)$, then subtract $x$ from $r$.
+
+After the traversal, return the answer $\textit{ans}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -77,8 +85,13 @@ The maximum sum score of nums is -3.
 ```python
 class Solution:
     def maximumSumScore(self, nums: List[int]) -> int:
-        s = [0] + list(accumulate(nums))
-        return max(max(s[i + 1], s[-1] - s[i]) for i in range(len(nums)))
+        l, r = 0, sum(nums)
+        ans = -inf
+        for x in nums:
+            l += x
+            ans = max(ans, l, r)
+            r -= x
+        return ans
 ```
 
 #### Java
@@ -86,14 +99,15 @@ class Solution:
 ```java
 class Solution {
     public long maximumSumScore(int[] nums) {
-        int n = nums.length;
-        long[] s = new long[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + nums[i];
+        long l = 0, r = 0;
+        for (int x : nums) {
+            r += x;
         }
         long ans = Long.MIN_VALUE;
-        for (int i = 0; i < n; ++i) {
-            ans = Math.max(ans, Math.max(s[i + 1], s[n] - s[i]));
+        for (int x : nums) {
+            l += x;
+            ans = Math.max(ans, Math.max(l, r));
+            r -= x;
         }
         return ans;
     }
@@ -106,11 +120,13 @@ class Solution {
 class Solution {
 public:
     long long maximumSumScore(vector<int>& nums) {
-        int n = nums.size();
-        vector<long long> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
-        long long ans = INT_MIN;
-        for (int i = 0; i < n; ++i) ans = max(ans, max(s[i + 1], s[n] - s[i]));
+        long long l = 0, r = accumulate(nums.begin(), nums.end(), 0LL);
+        long long ans = -1e18;
+        for (int x : nums) {
+            l += x;
+            ans = max({ans, l, r});
+            r -= x;
+        }
         return ans;
     }
 };
@@ -120,16 +136,17 @@ public:
 
 ```go
 func maximumSumScore(nums []int) int64 {
-	n := len(nums)
-	s := make([]int64, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + int64(v)
+	l, r := 0, 0
+	for _, x := range nums {
+		r += x
 	}
-	var ans int64 = math.MinInt64
-	for i := 0; i < n; i++ {
-		ans = max(ans, max(s[i+1], s[n]-s[i]))
+	ans := math.MinInt64
+	for _, x := range nums {
+		l += x
+		ans = max(ans, max(l, r))
+		r -= x
 	}
-	return ans
+	return int64(ans)
 }
 ```
 
@@ -137,16 +154,33 @@ func maximumSumScore(nums []int) int64 {
 
 ```ts
 function maximumSumScore(nums: number[]): number {
-    const n = nums.length;
-    let s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
-    }
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
     let ans = -Infinity;
-    for (let i = 0; i < n; ++i) {
-        ans = Math.max(ans, Math.max(s[i + 1], s[n] - s[i]));
+    for (const x of nums) {
+        l += x;
+        ans = Math.max(ans, l, r);
+        r -= x;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_sum_score(nums: Vec<i32>) -> i64 {
+        let mut l = 0;
+        let mut r: i64 = nums.iter().map(|&x| x as i64).sum();
+        let mut ans = std::i64::MIN;
+        for &x in &nums {
+            l += x as i64;
+            ans = ans.max(l).max(r);
+            r -= x as i64;
+        }
+        ans
+    }
 }
 ```
 
@@ -158,14 +192,13 @@ function maximumSumScore(nums: number[]): number {
  * @return {number}
  */
 var maximumSumScore = function (nums) {
-    const n = nums.length;
-    let s = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        s[i + 1] = s[i] + nums[i];
-    }
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
     let ans = -Infinity;
-    for (let i = 0; i < n; ++i) {
-        ans = Math.max(ans, Math.max(s[i + 1], s[n] - s[i]));
+    for (const x of nums) {
+        l += x;
+        ans = Math.max(ans, l, r);
+        r -= x;
     }
     return ans;
 };
