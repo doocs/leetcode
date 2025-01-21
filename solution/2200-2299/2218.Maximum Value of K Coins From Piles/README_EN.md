@@ -204,7 +204,11 @@ function maxValueOfCoins(piles: number[][], k: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We can observe that for the $i$-th pile, we only need to use $f[i - 1][j]$ and $f[i][j - h]$, so we can optimize the two-dimensional array to a one-dimensional array.
+
+The time complexity is $O(k \times L)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 

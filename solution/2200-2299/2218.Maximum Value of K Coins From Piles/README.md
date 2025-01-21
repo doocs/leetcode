@@ -208,7 +208,11 @@ function maxValueOfCoins(piles: number[][], k: number): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+我们可以发现，对于第 $i$ 组，我们只需要用到 $f[i - 1][j]$ 和 $f[i][j - h]$，因此我们可以将二维数组优化为一维数组。
+
+时间复杂度 $O(k \times L)$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
 
