@@ -69,7 +69,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
+
+根据题目描述，我们只需要计算 $\textit{start} \oplus \textit{goal}$ 的二进制表示中有多少个 1 即可。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是题目中整数的大小。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -78,12 +82,7 @@ tags:
 ```python
 class Solution:
     def minBitFlips(self, start: int, goal: int) -> int:
-        t = start ^ goal
-        ans = 0
-        while t:
-            ans += t & 1
-            t >>= 1
-        return ans
+        return (start ^ goal).bit_count()
 ```
 
 #### Java
@@ -91,13 +90,7 @@ class Solution:
 ```java
 class Solution {
     public int minBitFlips(int start, int goal) {
-        int t = start ^ goal;
-        int ans = 0;
-        while (t != 0) {
-            ans += t & 1;
-            t >>= 1;
-        }
-        return ans;
+        return Integer.bitCount(start ^ goal);
     }
 }
 ```
@@ -108,13 +101,7 @@ class Solution {
 class Solution {
 public:
     int minBitFlips(int start, int goal) {
-        int t = start ^ goal;
-        int ans = 0;
-        while (t) {
-            ans += t & 1;
-            t >>= 1;
-        }
-        return ans;
+        return __builtin_popcount(start ^ goal);
     }
 };
 ```
@@ -123,13 +110,7 @@ public:
 
 ```go
 func minBitFlips(start int, goal int) int {
-	t := start ^ goal
-	ans := 0
-	for t != 0 {
-		ans += t & 1
-		t >>= 1
-	}
-	return ans
+	return bits.OnesCount(uint(start ^ goal))
 }
 ```
 
@@ -137,13 +118,16 @@ func minBitFlips(start int, goal int) int {
 
 ```ts
 function minBitFlips(start: number, goal: number): number {
-    let tmp = start ^ goal;
-    let ans = 0;
-    while (tmp !== 0) {
-        ans += tmp & 1;
-        tmp >>= 1;
-    }
-    return ans;
+    return bitCount(start ^ goal);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -152,14 +136,30 @@ function minBitFlips(start: number, goal: number): number {
 ```rust
 impl Solution {
     pub fn min_bit_flips(start: i32, goal: i32) -> i32 {
-        let mut tmp = start ^ goal;
-        let mut ans = 0;
-        while tmp != 0 {
-            ans += tmp & 1;
-            tmp >>= 1;
-        }
-        ans
+        (start ^ goal).count_ones() as i32
     }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} start
+ * @param {number} goal
+ * @return {number}
+ */
+var minBitFlips = function (start, goal) {
+    return bitCount(start ^ goal);
+};
+
+function bitCount(i) {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -167,39 +167,13 @@ impl Solution {
 
 ```c
 int minBitFlips(int start, int goal) {
-    int tmp = start ^ goal;
+    int x = start ^ goal;
     int ans = 0;
-    while (tmp) {
-        ans += tmp & 1;
-        tmp >>= 1;
+    while (x) {
+        ans += (x & 1);
+        x >>= 1;
     }
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function minBitFlips(start: number, goal: number): number {
-    return (start ^ goal).toString(2).replace(/0/g, '').length;
-}
-```
-
-#### JavaScript
-
-```js
-function minBitFlips(start, goal) {
-    return (start ^ goal).toString(2).replace(/0/g, '').length;
 }
 ```
 
