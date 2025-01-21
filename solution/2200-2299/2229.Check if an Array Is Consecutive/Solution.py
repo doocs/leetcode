@@ -1,5 +1,4 @@
 class Solution:
     def isConsecutive(self, nums: List[int]) -> bool:
         mi, mx = min(nums), max(nums)
-        n = len(nums)
-        return len(set(nums)) == n and mx == mi + n - 1
+        return len(set(nums)) == mx - mi + 1 == len(nums)
