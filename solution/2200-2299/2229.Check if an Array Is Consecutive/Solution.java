@@ -1,14 +1,14 @@
 class Solution {
     public boolean isConsecutive(int[] nums) {
-        int mi = nums[0];
-        int mx = nums[0];
+        int mi = nums[0], mx = 0;
         Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            mi = Math.min(mi, v);
-            mx = Math.max(mx, v);
-            s.add(v);
+        for (int x : nums) {
+            if (!s.add(x)) {
+                return false;
+            }
+            mi = Math.min(mi, x);
+            mx = Math.max(mx, x);
         }
-        int n = nums.length;
-        return s.size() == n && mx == mi + n - 1;
+        return mx - mi + 1 == nums.length;
     }
 }
