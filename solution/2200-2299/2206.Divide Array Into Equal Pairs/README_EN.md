@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [3,2,3,2,2,2]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There are 6 elements in nums, so they should be divided into 6 / 2 = 3 pairs.
 If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy all the conditions.
 </pre>
@@ -48,7 +48,7 @@ If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy al
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4]
 <strong>Output:</strong> false
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy every condition.
 </pre>
 
@@ -67,7 +67,13 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+According to the problem description, as long as each element in the array appears an even number of times, the array can be divided into $n$ pairs.
+
+Therefore, we can use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each element, then traverse $\textit{cnt}$. If any element appears an odd number of times, return $\textit{false}$; otherwise, return $\textit{true}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -105,11 +111,15 @@ class Solution {
 class Solution {
 public:
     bool divideArray(vector<int>& nums) {
-        vector<int> cnt(510);
-        for (int& v : nums) ++cnt[v];
-        for (int& v : cnt)
-            if (v % 2)
+        int cnt[510]{};
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        for (int i = 1; i <= 500; ++i) {
+            if (cnt[i] % 2) {
                 return false;
+            }
+        }
         return true;
     }
 };
@@ -119,17 +129,61 @@ public:
 
 ```go
 func divideArray(nums []int) bool {
-	cnt := make([]int, 510)
-	for _, v := range nums {
-		cnt[v]++
+	cnt := [510]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
 	for _, v := range cnt {
-		if v%2 == 1 {
+		if v%2 != 0 {
 			return false
 		}
 	}
 	return true
 }
+```
+
+#### TypeScript
+
+```ts
+function divideArray(nums: number[]): boolean {
+    const cnt: Record<number, number> = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    return Object.values(cnt).every(x => x % 2 === 0);
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn divide_array(nums: Vec<i32>) -> bool {
+        let mut cnt = HashMap::new();
+        for x in nums {
+            *cnt.entry(x).or_insert(0) += 1;
+        }
+        cnt.values().all(|&v| v % 2 == 0)
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var divideArray = function (nums) {
+    const cnt = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    return Object.values(cnt).every(x => x % 2 === 0);
+};
 ```
 
 <!-- tabs:end -->
