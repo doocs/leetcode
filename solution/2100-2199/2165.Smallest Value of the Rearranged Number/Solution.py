@@ -1,26 +1,26 @@
 class Solution:
     def smallestNumber(self, num: int) -> int:
-        if num == 0:
-            return 0
-        cnt = [0] * 10
         neg = num < 0
         num = abs(num)
+        cnt = [0] * 10
         while num:
-            num, v = divmod(num, 10)
-            cnt[v] += 1
-        ans = ""
+            cnt[num % 10] += 1
+            num //= 10
+        ans = 0
         if neg:
-            for i in range(9, -1, -1):
-                if cnt[i]:
-                    ans += str(i) * cnt[i]
-            return -int(ans)
+            for i in reversed(range(10)):
+                for _ in range(cnt[i]):
+                    ans *= 10
+                    ans += i
+            return -ans
         if cnt[0]:
             for i in range(1, 10):
                 if cnt[i]:
-                    ans += str(i)
+                    ans = i
                     cnt[i] -= 1
                     break
         for i in range(10):
-            if cnt[i]:
-                ans += str(i) * cnt[i]
-        return int(ans)
+            for _ in range(cnt[i]):
+                ans *= 10
+                ans += i
+        return ans

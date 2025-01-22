@@ -69,7 +69,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以直接模拟这个过程，循环执行以下操作：
+
+-   如果 $\textit{num1} \ge \textit{num2}$，则 $\textit{num1} = \textit{num1} - \textit{num2}$；
+-   否则，$\textit{num2} = \textit{num2} - \textit{num1}$。
+-   每执行一次操作，操作数加一。
+
+当 $\textit{num1}$ 或 $\textit{num2}$ 有一个为 $0$ 时，停止循环，返回操作数。
+
+时间复杂度 $O(m)$，其中 $m$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -81,9 +91,148 @@ class Solution:
         ans = 0
         while num1 and num2:
             if num1 >= num2:
-                num1, num2 = num2, num1
-            num2 -= num1
+                num1 -= num2
+            else:
+                num2 -= num1
             ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countOperations(int num1, int num2) {
+        int ans = 0;
+        for (; num1 != 0 && num2 != 0; ++ans) {
+            if (num1 >= num2) {
+                num1 -= num2;
+            } else {
+                num2 -= num1;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countOperations(int num1, int num2) {
+        int ans = 0;
+        for (; num1 && num2; ++ans) {
+            if (num1 >= num2) {
+                num1 -= num2;
+            } else {
+                num2 -= num1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countOperations(num1 int, num2 int) (ans int) {
+	for ; num1 != 0 && num2 != 0; ans++ {
+		if num1 >= num2 {
+			num1 -= num2
+		} else {
+			num2 -= num1
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countOperations(num1: number, num2: number): number {
+    let ans = 0;
+    for (; num1 && num2; ++ans) {
+        if (num1 >= num2) {
+            num1 -= num2;
+        } else {
+            num2 -= num1;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_operations(mut num1: i32, mut num2: i32) -> i32 {
+        let mut ans = 0;
+        while num1 != 0 && num2 != 0 {
+            ans += 1;
+            if num1 >= num2 {
+                num1 -= num2;
+            } else {
+                num2 -= num1;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num1
+ * @param {number} num2
+ * @return {number}
+ */
+var countOperations = function (num1, num2) {
+    let ans = 0;
+    for (; num1 && num2; ++ans) {
+        if (num1 >= num2) {
+            num1 -= num2;
+        } else {
+            num2 -= num1;
+        }
+    }
+    return ans;
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：数学
+
+如果按照方法一的模拟过程，我们会发现，如果 $\textit{num1}$ 远大于 $\textit{num2}$，那么每次操作我们都会减少 $\textit{num1}$ 的值，这样会导致操作数过多。我们可以优化这个过程，每次操作时，我们可以直接将 $\textit{num1}$ 除以 $\textit{num2}$ 的商加到答案中，然后将 $\textit{num1}$ 对 $\textit{num2}$ 取余，这样可以减少操作数。
+
+时间复杂度 $O(\log m)$，其中 $m$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countOperations(self, num1: int, num2: int) -> int:
+        ans = 0
+        while num1 and num2:
+            if num1 >= num2:
+                ans += num1 // num2
+                num1 %= num2
+            else:
+                ans += num2 // num1
+                num2 %= num1
         return ans
 ```
 
@@ -95,11 +244,12 @@ class Solution {
         int ans = 0;
         while (num1 != 0 && num2 != 0) {
             if (num1 >= num2) {
-                num1 -= num2;
+                ans += num1 / num2;
+                num1 %= num2;
             } else {
-                num2 -= num1;
+                ans += num2 / num1;
+                num2 %= num1;
             }
-            ++ans;
         }
         return ans;
     }
@@ -114,9 +264,13 @@ public:
     int countOperations(int num1, int num2) {
         int ans = 0;
         while (num1 && num2) {
-            if (num1 > num2) swap(num1, num2);
-            num2 -= num1;
-            ++ans;
+            if (num1 >= num2) {
+                ans += num1 / num2;
+                num1 %= num2;
+            } else {
+                ans += num2 / num1;
+                num2 %= num1;
+            }
         }
         return ans;
     }
@@ -126,16 +280,17 @@ public:
 #### Go
 
 ```go
-func countOperations(num1 int, num2 int) int {
-	ans := 0
+func countOperations(num1 int, num2 int) (ans int) {
 	for num1 != 0 && num2 != 0 {
-		if num1 > num2 {
-			num1, num2 = num2, num1
+		if num1 >= num2 {
+			ans += num1 / num2
+			num1 %= num2
+		} else {
+			ans += num2 / num1
+			num2 %= num1
 		}
-		num2 -= num1
-		ans++
 	}
-	return ans
+	return
 }
 ```
 
@@ -145,11 +300,59 @@ func countOperations(num1 int, num2 int) int {
 function countOperations(num1: number, num2: number): number {
     let ans = 0;
     while (num1 && num2) {
-        [num1, num2] = [Math.min(num1, num2), Math.abs(num1 - num2)];
-        ans++;
+        if (num1 >= num2) {
+            ans += (num1 / num2) | 0;
+            num1 %= num2;
+        } else {
+            ans += (num2 / num1) | 0;
+            num2 %= num1;
+        }
     }
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_operations(mut num1: i32, mut num2: i32) -> i32 {
+        let mut ans = 0;
+        while num1 != 0 && num2 != 0 {
+            if num1 >= num2 {
+                ans += num1 / num2;
+                num1 %= num2;
+            } else {
+                ans += num2 / num1;
+                num2 %= num1;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num1
+ * @param {number} num2
+ * @return {number}
+ */
+var countOperations = function (num1, num2) {
+    let ans = 0;
+    while (num1 && num2) {
+        if (num1 >= num2) {
+            ans += (num1 / num2) | 0;
+            num1 %= num2;
+        } else {
+            ans += (num2 / num1) | 0;
+            num2 %= num1;
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
