@@ -1,7 +1,3 @@
 function finalValueAfterOperations(operations: string[]): number {
-    let ans = 0;
-    for (let operation of operations) {
-        ans += operation.includes('+') ? 1 : -1;
-    }
-    return ans;
+    return operations.reduce((acc, op) => acc + (op[1] === '+' ? 1 : -1), 0);
 }

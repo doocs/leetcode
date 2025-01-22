@@ -69,15 +69,15 @@ The longest subarray with that value is [4], so we return 1.
 
 <!-- solution:start -->
 
-### Solution 1: Quick Thinking
+### Solution 1: Brain Teaser
 
-Due to the bitwise AND operation, the number will not get larger, so the maximum value is the maximum value in the array.
+Since the bitwise AND operation does not increase the number, the maximum value is the maximum value in the array.
 
-The problem can be transformed into finding the maximum number of consecutive occurrences of the maximum value in the array.
+The problem can be converted to finding the maximum number of consecutive occurrences of the maximum value in the array.
 
-First, traverse the array once to find the maximum value, then traverse the array again to find the number of consecutive occurrences of the maximum value, and finally return this count.
+First, traverse the array $\textit{nums}$ to find the maximum value $\textit{mx}$, then traverse the array again to find the maximum number of consecutive occurrences of the maximum value. Finally, return this count.
 
-The time complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -88,8 +88,8 @@ class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
         mx = max(nums)
         ans = cnt = 0
-        for v in nums:
-            if v == mx:
+        for x in nums:
+            if x == mx:
                 cnt += 1
                 ans = max(ans, cnt)
             else:
@@ -102,15 +102,11 @@ class Solution:
 ```java
 class Solution {
     public int longestSubarray(int[] nums) {
-        int mx = 0;
-        for (int v : nums) {
-            mx = Math.max(mx, v);
-        }
+        int mx = Arrays.stream(nums).max().getAsInt();
         int ans = 0, cnt = 0;
-        for (int v : nums) {
-            if (v == mx) {
-                ++cnt;
-                ans = Math.max(ans, cnt);
+        for (int x : nums) {
+            if (x == mx) {
+                ans = Math.max(ans, ++cnt);
             } else {
                 cnt = 0;
             }
@@ -126,12 +122,11 @@ class Solution {
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        int mx = *max_element(nums.begin(), nums.end());
+        int mx = ranges::max(nums);
         int ans = 0, cnt = 0;
-        for (int v : nums) {
-            if (v == mx) {
-                ++cnt;
-                ans = max(ans, cnt);
+        for (int x : nums) {
+            if (x == mx) {
+                ans = max(ans, ++cnt);
             } else {
                 cnt = 0;
             }
@@ -144,18 +139,18 @@ public:
 #### Go
 
 ```go
-func longestSubarray(nums []int) int {
+func longestSubarray(nums []int) (ans int) {
 	mx := slices.Max(nums)
-	ans, cnt := 0, 0
-	for _, v := range nums {
-		if v == mx {
+	cnt := 0
+	for _, x := range nums {
+		if x == mx {
 			cnt++
 			ans = max(ans, cnt)
 		} else {
 			cnt = 0
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -165,38 +160,59 @@ func longestSubarray(nums []int) int {
 function longestSubarray(nums: number[]): number {
     const mx = Math.max(...nums);
     let [ans, cnt] = [0, 0];
-
     for (const x of nums) {
         if (x === mx) {
-            cnt++;
-            ans = Math.max(ans, cnt);
+            ans = Math.max(ans, ++cnt);
         } else {
             cnt = 0;
         }
     }
-
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_subarray(nums: Vec<i32>) -> i32 {
+        let mx = *nums.iter().max().unwrap();
+        let mut ans = 0;
+        let mut cnt = 0;
+
+        for &x in nums.iter() {
+            if x == mx {
+                cnt += 1;
+                ans = ans.max(cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
 #### JavaScript
 
 ```js
-function longestSubarray(nums) {
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestSubarray = function (nums) {
     const mx = Math.max(...nums);
     let [ans, cnt] = [0, 0];
-
     for (const x of nums) {
         if (x === mx) {
-            cnt++;
-            ans = Math.max(ans, cnt);
+            ans = Math.max(ans, ++cnt);
         } else {
             cnt = 0;
         }
     }
-
     return ans;
-}
+};
 ```
 
 <!-- tabs:end -->

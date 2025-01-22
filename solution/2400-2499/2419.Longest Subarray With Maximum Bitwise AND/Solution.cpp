@@ -1,12 +1,11 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        int mx = *max_element(nums.begin(), nums.end());
+        int mx = ranges::max(nums);
         int ans = 0, cnt = 0;
-        for (int v : nums) {
-            if (v == mx) {
-                ++cnt;
-                ans = max(ans, cnt);
+        for (int x : nums) {
+            if (x == mx) {
+                ans = max(ans, ++cnt);
             } else {
                 cnt = 0;
             }
