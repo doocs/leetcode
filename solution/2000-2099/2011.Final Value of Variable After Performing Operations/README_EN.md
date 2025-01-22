@@ -83,11 +83,11 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 
 <!-- solution:start -->
 
-### Solution 1: Simulation
+### Solution 1: Counting
 
-Traverse the array `operations`. For each operation $operations[i]$, if it contains `'+'`, then the answer increases by $1$, otherwise the answer decreases by $1$.
+We traverse the array $\textit{operations}$. For each operation $\textit{operations}[i]$, if it contains `'+'`, we increment the answer by $1$, otherwise, we decrement the answer by $1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `operations`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{operations}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -120,7 +120,9 @@ class Solution {
 public:
     int finalValueAfterOperations(vector<string>& operations) {
         int ans = 0;
-        for (auto& s : operations) ans += (s[1] == '+' ? 1 : -1);
+        for (auto& s : operations) {
+            ans += s[1] == '+' ? 1 : -1;
+        }
         return ans;
     }
 };
@@ -145,11 +147,7 @@ func finalValueAfterOperations(operations []string) (ans int) {
 
 ```ts
 function finalValueAfterOperations(operations: string[]): number {
-    let ans = 0;
-    for (let operation of operations) {
-        ans += operation.includes('+') ? 1 : -1;
-    }
-    return ans;
+    return operations.reduce((acc, op) => acc + (op[1] === '+' ? 1 : -1), 0);
 }
 ```
 
@@ -175,11 +173,7 @@ impl Solution {
  * @return {number}
  */
 var finalValueAfterOperations = function (operations) {
-    let ans = 0;
-    for (const s of operations) {
-        ans += s[1] === '+' ? 1 : -1;
-    }
-    return ans;
+    return operations.reduce((acc, op) => acc + (op[1] === '+' ? 1 : -1), 0);
 };
 ```
 
@@ -192,24 +186,6 @@ int finalValueAfterOperations(char** operations, int operationsSize) {
         ans += operations[i][1] == '+' ? 1 : -1;
     }
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function finalValueAfterOperations(operations: string[]): number {
-    return operations.reduce((r, v) => r + (v[1] === '+' ? 1 : -1), 0);
 }
 ```
 
