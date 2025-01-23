@@ -1,12 +1,12 @@
 class Solution:
     def maximumEvenSplit(self, finalSum: int) -> List[int]:
-        if finalSum % 2:
+        if finalSum & 1:
             return []
-        i = 2
         ans = []
+        i = 2
         while i <= finalSum:
-            ans.append(i)
             finalSum -= i
+            ans.append(i)
             i += 2
         ans[-1] += finalSum
         return ans
