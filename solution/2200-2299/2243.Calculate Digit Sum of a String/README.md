@@ -39,11 +39,11 @@ tags:
 <strong>输出：</strong>"135"
 <strong>解释：</strong>
 - 第一轮，将 s 分成："111"、"112"、"222" 和 "23" 。
-  接着，计算每一组的数字和：1 + 1 + 1 = 3、1 + 1 + 2 = 4、2 + 2 + 2 = 6 和 2 + 3 = 5 。 
+  接着，计算每一组的数字和：1 + 1 + 1 = 3、1 + 1 + 2 = 4、2 + 2 + 2 = 6 和 2 + 3 = 5 。
 &nbsp; 这样，s 在第一轮之后变成 "3" + "4" + "6" + "5" = "3465" 。
 - 第二轮，将 s 分成："346" 和 "5" 。
 &nbsp; 接着，计算每一组的数字和：3 + 4 + 6 = 13 、5 = 5 。
-&nbsp; 这样，s 在第二轮之后变成 "13" + "5" = "135" 。 
+&nbsp; 这样，s 在第二轮之后变成 "13" + "5" = "135" 。
 现在，s.length &lt;= k ，所以返回 "135" 作为答案。
 </pre>
 
@@ -53,7 +53,7 @@ tags:
 <strong>输出：</strong>"000"
 <strong>解释：</strong>
 将 "000", "000", and "00".
-接着，计算每一组的数字和：0 + 0 + 0 = 0 、0 + 0 + 0 = 0 和 0 + 0 = 0 。 
+接着，计算每一组的数字和：0 + 0 + 0 = 0 、0 + 0 + 0 = 0 和 0 + 0 = 0 。
 s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 </pre>
 
@@ -178,30 +178,6 @@ function digitSum(s: string, k: number): string {
     }
     return s;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def digitSum(self, s: str, k: int) -> str:
-        if len(s) <= k:
-            return s
-        t = []
-        while s:
-            t.append(str(sum(int(v) for v in s[:k])))
-            s = s[k:]
-        return self.digitSum(''.join(t), k)
 ```
 
 <!-- tabs:end -->

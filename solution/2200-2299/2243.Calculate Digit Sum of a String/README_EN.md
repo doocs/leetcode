@@ -37,13 +37,13 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;11111222223&quot;, k = 3
 <strong>Output:</strong> &quot;135&quot;
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - For the first round, we divide s into groups of size 3: &quot;111&quot;, &quot;112&quot;, &quot;222&quot;, and &quot;23&quot;.
-  ​​​​​Then we calculate the digit sum of each group: 1 + 1 + 1 = 3, 1 + 1 + 2 = 4, 2 + 2 + 2 = 6, and 2 + 3 = 5. 
+  ​​​​​Then we calculate the digit sum of each group: 1 + 1 + 1 = 3, 1 + 1 + 2 = 4, 2 + 2 + 2 = 6, and 2 + 3 = 5.
 &nbsp; So, s becomes &quot;3&quot; + &quot;4&quot; + &quot;6&quot; + &quot;5&quot; = &quot;3465&quot; after the first round.
 - For the second round, we divide s into &quot;346&quot; and &quot;5&quot;.
-&nbsp; Then we calculate the digit sum of each group: 3 + 4 + 6 = 13, 5 = 5. 
-&nbsp; So, s becomes &quot;13&quot; + &quot;5&quot; = &quot;135&quot; after second round. 
+&nbsp; Then we calculate the digit sum of each group: 3 + 4 + 6 = 13, 5 = 5.
+&nbsp; So, s becomes &quot;13&quot; + &quot;5&quot; = &quot;135&quot; after second round.
 Now, s.length &lt;= k, so we return &quot;135&quot; as the answer.
 </pre>
 
@@ -52,9 +52,9 @@ Now, s.length &lt;= k, so we return &quot;135&quot; as the answer.
 <pre>
 <strong>Input:</strong> s = &quot;00000000&quot;, k = 3
 <strong>Output:</strong> &quot;000&quot;
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 We divide s into &quot;000&quot;, &quot;000&quot;, and &quot;00&quot;.
-Then we calculate the digit sum of each group: 0 + 0 + 0 = 0, 0 + 0 + 0 = 0, and 0 + 0 = 0. 
+Then we calculate the digit sum of each group: 0 + 0 + 0 = 0, 0 + 0 + 0 = 0, and 0 + 0 = 0.
 s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose length is equal to k, so we return &quot;000&quot;.
 </pre>
 
@@ -174,30 +174,6 @@ function digitSum(s: string, k: number): string {
     }
     return s;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def digitSum(self, s: str, k: int) -> str:
-        if len(s) <= k:
-            return s
-        t = []
-        while s:
-            t.append(str(sum(int(v) for v in s[:k])))
-            s = s[k:]
-        return self.digitSum(''.join(t), k)
 ```
 
 <!-- tabs:end -->
