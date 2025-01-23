@@ -40,13 +40,13 @@ tags:
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/images/ex1-copy.png" style="width: 60px; height: 316px; padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem;" />
 <pre>
 <strong>Input:</strong> edges = [[0,1],[1,2],[2,3]], coins = [10,10,3,3], k = 5
-<strong>Output:</strong> 11                        
-<strong>Explanation:</strong> 
+<strong>Output:</strong> 11
+<strong>Explanation:</strong>
 Collect all the coins from node 0 using the first way. Total points = 10 - 5 = 5.
 Collect all the coins from node 1 using the first way. Total points = 5 + (10 - 5) = 10.
 Collect all the coins from node 2 using the second way so coins left at node 3 will be floor(3 / 2) = 1. Total points = 10 + floor(3 / 2) = 11.
 Collect all the coins from node 3 using the second way. Total points = 11 + floor(1 / 2) = 11.
-It can be shown that the maximum points we can get after collecting coins from all the nodes is 11. 
+It can be shown that the maximum points we can get after collecting coins from all the nodes is 11.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -55,7 +55,7 @@ It can be shown that the maximum points we can get after collecting coins from a
 <pre>
 <strong>Input:</strong> edges = [[0,1],[0,2]], coins = [8,4,4], k = 0
 <strong>Output:</strong> 16
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Coins will be collected from all the nodes using the first way. Therefore, total points = (8 - 0) + (4 - 0) + (4 - 0) = 16.
 </pre>
 
@@ -181,7 +181,7 @@ public:
             g[a].emplace_back(b);
             g[b].emplace_back(a);
         }
-        function<int(int, int, int)> dfs = [&](int i, int fa, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int fa, int j) -> int {
             if (f[i][j] != -1) {
                 return f[i][j];
             }
