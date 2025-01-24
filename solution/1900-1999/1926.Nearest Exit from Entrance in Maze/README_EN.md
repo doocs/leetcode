@@ -80,7 +80,15 @@ Thus, the nearest exit is [1,2], which is 2 steps away.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+We can start from the entrance and perform a breadth-first search (BFS). Each time we reach a new empty cell, we mark it as visited and add it to the queue until we find an empty cell on the boundary, then return the number of steps.
+
+Specifically, we define a queue $q$, initially adding $\textit{entrance}$ to the queue. We define a variable $\textit{ans}$ to record the number of steps, initially set to $1$. Then we start the BFS. In each round, we take out all elements from the queue and traverse them. For each element, we try to move in four directions. If the new position is an empty cell, we add it to the queue and mark it as visited. If the new position is an empty cell on the boundary, we return $\textit{ans}$. If the queue is empty, we return $-1$. After this round of search, we increment $\textit{ans}$ by one and continue to the next round of search.
+
+If we finish the traversal without finding an empty cell on the boundary, we return $-1$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the maze, respectively.
 
 <!-- tabs:start -->
 
@@ -92,7 +100,7 @@ class Solution:
         m, n = len(maze), len(maze[0])
         i, j = entrance
         q = deque([(i, j)])
-        maze[i][j] = '+'
+        maze[i][j] = "+"
         ans = 0
         while q:
             ans += 1
@@ -100,11 +108,11 @@ class Solution:
                 i, j = q.popleft()
                 for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
                     x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and maze[x][y] == '.':
+                    if 0 <= x < m and 0 <= y < n and maze[x][y] == ".":
                         if x == 0 or x == m - 1 or y == 0 or y == n - 1:
                             return ans
                         q.append((x, y))
-                        maze[x][y] = '+'
+                        maze[x][y] = "+"
         return -1
 ```
 
@@ -113,26 +121,22 @@ class Solution:
 ```java
 class Solution {
     public int nearestExit(char[][] maze, int[] entrance) {
-        int m = maze.length;
-        int n = maze[0].length;
+        int m = maze.length, n = maze[0].length;
+        final int[] dirs = {-1, 0, 1, 0, -1};
         Deque<int[]> q = new ArrayDeque<>();
         q.offer(entrance);
         maze[entrance[0]][entrance[1]] = '+';
-        int ans = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        while (!q.isEmpty()) {
-            ++ans;
+        for (int ans = 1; !q.isEmpty(); ++ans) {
             for (int k = q.size(); k > 0; --k) {
-                int[] p = q.poll();
-                int i = p[0], j = p[1];
-                for (int l = 0; l < 4; ++l) {
-                    int x = i + dirs[l], y = j + dirs[l + 1];
+                var p = q.poll();
+                for (int d = 0; d < 4; ++d) {
+                    int x = p[0] + dirs[d], y = p[1] + dirs[d + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == '.') {
                         if (x == 0 || x == m - 1 || y == 0 || y == n - 1) {
                             return ans;
                         }
-                        q.offer(new int[] {x, y});
                         maze[x][y] = '+';
+                        q.offer(new int[] {x, y});
                     }
                 }
             }
@@ -149,21 +153,22 @@ class Solution {
 public:
     int nearestExit(vector<vector<char>>& maze, vector<int>& entrance) {
         int m = maze.size(), n = maze[0].size();
-        queue<vector<int>> q{{entrance}};
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        queue<pair<int, int>> q;
+        q.emplace(entrance[0], entrance[1]);
         maze[entrance[0]][entrance[1]] = '+';
-        int ans = 0;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty()) {
-            ++ans;
-            for (int k = q.size(); k > 0; --k) {
-                auto p = q.front();
+        for (int ans = 1; !q.empty(); ++ans) {
+            for (int k = q.size(); k; --k) {
+                auto [i, j] = q.front();
                 q.pop();
-                for (int l = 0; l < 4; ++l) {
-                    int x = p[0] + dirs[l], y = p[1] + dirs[l + 1];
+                for (int d = 0; d < 4; ++d) {
+                    int x = i + dirs[d], y = j + dirs[d + 1];
                     if (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == '.') {
-                        if (x == 0 || x == m - 1 || y == 0 || y == n - 1) return ans;
-                        q.push({x, y});
+                        if (x == 0 || x == m - 1 || y == 0 || y == n - 1) {
+                            return ans;
+                        }
                         maze[x][y] = '+';
+                        q.emplace(x, y);
                     }
                 }
             }
@@ -178,12 +183,10 @@ public:
 ```go
 func nearestExit(maze [][]byte, entrance []int) int {
 	m, n := len(maze), len(maze[0])
-	q := [][]int{entrance}
+	q := [][2]int{{entrance[0], entrance[1]}}
 	maze[entrance[0]][entrance[1]] = '+'
-	ans := 0
 	dirs := []int{-1, 0, 1, 0, -1}
-	for len(q) > 0 {
-		ans++
+	for ans := 1; len(q) > 0; ans++ {
 		for k := len(q); k > 0; k-- {
 			p := q[0]
 			q = q[1:]
@@ -193,7 +196,7 @@ func nearestExit(maze [][]byte, entrance []int) int {
 					if x == 0 || x == m-1 || y == 0 || y == n-1 {
 						return ans
 					}
-					q = append(q, []int{x, y})
+					q = append(q, [2]int{x, y})
 					maze[x][y] = '+'
 				}
 			}
@@ -207,8 +210,6 @@ func nearestExit(maze [][]byte, entrance []int) int {
 
 ```ts
 function nearestExit(maze: string[][], entrance: number[]): number {
-    const m = maze.length;
-    const n = maze[0].length;
     const dir = [0, 1, 0, -1, 0];
     const q = [[...entrance, 0]];
     maze[entrance[0]][entrance[1]] = '+';
