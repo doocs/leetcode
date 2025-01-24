@@ -1,8 +1,4 @@
-/**
- * @param {number[][]} matrix
- * @return {number}
- */
-var maxMatrixSum = function (matrix) {
+function maxMatrixSum(matrix: number[][]): number {
     let [s, cnt, mi] = [0, 0, Infinity];
     for (const row of matrix) {
         for (const x of row) {
@@ -15,4 +11,4 @@ var maxMatrixSum = function (matrix) {
         }
     }
     return cnt % 2 === 0 ? s : s - 2 * mi;
-};
+}
