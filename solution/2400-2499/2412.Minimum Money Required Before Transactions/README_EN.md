@@ -65,7 +65,7 @@ Thus, starting with money = 3, the transactions can be performed in any order.
 
 ### Solution 1: Greedy
 
-First, we accumulate all the negative profits, denoted as $s$. Then we enumerate each transaction as the last transaction. If `transactions[i].x > transactions[i].y`, it means the current transaction is losing money, and this transaction has been calculated when we previously accumulated negative profits, so we update the answer with `s + transactions[i].y`; otherwise, we update the answer with `s + transactions[i].x`.
+First, we accumulate all negative profits, denoted as $s$. Then, we enumerate each transaction $\text{transactions}[i] = [a, b]$ as the last transaction. If $a > b$, it means the current transaction is a loss, and this transaction has already been included when we accumulated the negative profits earlier. Therefore, we update the answer with $s + b$. Otherwise, we update the answer with $s + a$.
 
 The time complexity is $O(n)$, where $n$ is the number of transactions. The space complexity is $O(1)$.
 
@@ -147,6 +147,68 @@ func minimumMoney(transactions [][]int) int64 {
 	}
 	return int64(ans)
 }
+```
+
+#### TypeScript
+
+```ts
+function minimumMoney(transactions: number[][]): number {
+    const s = transactions.reduce((acc, [a, b]) => acc + Math.max(0, a - b), 0);
+    let ans = 0;
+    for (const [a, b] of transactions) {
+        if (a > b) {
+            ans = Math.max(ans, s + b);
+        } else {
+            ans = Math.max(ans, s + a);
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_money(transactions: Vec<Vec<i32>>) -> i64 {
+        let mut s: i64 = 0;
+        for transaction in &transactions {
+            let (a, b) = (transaction[0], transaction[1]);
+            s += (a - b).max(0) as i64;
+        }
+        let mut ans = 0;
+        for transaction in &transactions {
+            let (a, b) = (transaction[0], transaction[1]);
+            if a > b {
+                ans = ans.max(s + b as i64);
+            } else {
+                ans = ans.max(s + a as i64);
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} transactions
+ * @return {number}
+ */
+var minimumMoney = function (transactions) {
+    const s = transactions.reduce((acc, [a, b]) => acc + Math.max(0, a - b), 0);
+    let ans = 0;
+    for (const [a, b] of transactions) {
+        if (a > b) {
+            ans = Math.max(ans, s + b);
+        } else {
+            ans = Math.max(ans, s + a);
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
