@@ -3441,6 +3441,7 @@
 |  3428  |  [最多 K 个元素的子序列的最值之和](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README.md)  |    |  中等  |  第 433 场周赛  |
 |  3429  |  [粉刷房子 IV](/solution/3400-3499/3429.Paint%20House%20IV/README.md)  |    |  中等  |  第 433 场周赛  |
 |  3430  |  [最多 K 个元素的子数组的最值之和](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README.md)  |    |  困难  |  第 433 场周赛  |
+|  3431  |  [Minimum Unlocked Indices to Sort Nums](/solution/3400-3499/3431.Minimum%20Unlocked%20Indices%20to%20Sort%20Nums/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

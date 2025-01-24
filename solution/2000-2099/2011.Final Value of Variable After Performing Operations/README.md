@@ -50,7 +50,7 @@ X++：X 加 1 ，X =  0 + 1 =  1
 <pre>
 <strong>输入：</strong>operations = ["++X","++X","X++"]
 <strong>输出：</strong>3
-<strong>解释：</strong>操作按下述步骤执行：
+<strong>解释：</strong>操作按下述步骤执行： 
 最初，X = 0
 ++X：X 加 1 ，X = 0 + 1 = 1
 ++X：X 加 1 ，X = 1 + 1 = 2

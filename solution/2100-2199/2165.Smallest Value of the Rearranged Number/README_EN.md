@@ -31,7 +31,7 @@ tags:
 <pre>
 <strong>Input:</strong> num = 310
 <strong>Output:</strong> 103
-<strong>Explanation:</strong> The possible arrangements for the digits of 310 are 013, 031, 103, 130, 301, 310.
+<strong>Explanation:</strong> The possible arrangements for the digits of 310 are 013, 031, 103, 130, 301, 310. 
 The arrangement with the smallest value that does not contain any leading zeros is 103.
 </pre>
 

@@ -41,9 +41,9 @@ tags:
 <strong>输入：</strong>nums = [1,3]
 <strong>输出：</strong>false
 <strong>解释：
-</strong>最小值是 1 ，数组长度为 2 。
-范围 [x, x + n - 1] 中的所有值没有都出现在 nums 中：[1, 1 + 2 - 1] = [1, 2] = (1, 2) 。
-因此，nums 不是一个连贯数组。
+</strong>最小值是 1 ，数组长度为 2 。 
+范围 [x, x + n - 1] 中的所有值没有都出现在 nums 中：[1, 1 + 2 - 1] = [1, 2] = (1, 2) 。 
+因此，nums 不是一个连贯数组。 
 </pre>
 
 <p><strong>示例 3：</strong></p>
