@@ -86,7 +86,7 @@ tags:
             - <strong>在认为 0 是坏人但说真话的情况下，这组玩家中没有一个好人。</strong>
         - 说假话。在这种情况下，1 是好人。
             - <strong>在认为 0 是坏人且说假话的情况下，这组玩家中只有一个好人。</strong>
-在最佳情况下，至多有一个好人，所以返回 1 。 
+在最佳情况下，至多有一个好人，所以返回 1 。
 注意，能得到此结论的方法不止一种。
 </pre>
 
@@ -120,17 +120,17 @@ tags:
 ```python
 class Solution:
     def maximumGood(self, statements: List[List[int]]) -> int:
-        def check(mask):
+        def check(mask: int) -> int:
             cnt = 0
-            for i, s in enumerate(statements):
-                if (mask >> i) & 1:
-                    for j, v in enumerate(s):
-                        if v < 2 and ((mask >> j) & 1) != v:
+            for i, row in enumerate(statements):
+                if mask >> i & 1:
+                    for j, x in enumerate(row):
+                        if x < 2 and (mask >> j & 1) != x:
                             return 0
                     cnt += 1
             return cnt
 
-        return max(check(mask) for mask in range(1, 1 << len(statements)))
+        return max(check(i) for i in range(1, 1 << len(statements)))
 ```
 
 #### Java
