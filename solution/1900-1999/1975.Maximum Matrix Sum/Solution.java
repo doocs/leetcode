@@ -1,20 +1,15 @@
 class Solution {
     public long maxMatrixSum(int[][] matrix) {
         long s = 0;
-        int cnt = 0;
-        int mi = Integer.MAX_VALUE;
+        int mi = 1 << 30, cnt = 0;
         for (var row : matrix) {
-            for (var v : row) {
-                s += Math.abs(v);
-                mi = Math.min(mi, Math.abs(v));
-                if (v < 0) {
-                    ++cnt;
-                }
+            for (int x : row) {
+                cnt += x < 0 ? 1 : 0;
+                int y = Math.abs(x);
+                mi = Math.min(mi, y);
+                s += y;
             }
         }
-        if (cnt % 2 == 0 || mi == 0) {
-            return s;
-        }
-        return s - mi * 2;
+        return cnt % 2 == 0 ? s : s - mi * 2;
     }
 }
