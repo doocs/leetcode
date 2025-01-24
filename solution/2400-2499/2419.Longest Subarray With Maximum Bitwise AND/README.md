@@ -52,7 +52,7 @@ tags:
 <strong>输入：</strong>nums = [1,2,3,4]
 <strong>输出：</strong>1
 <strong>解释：</strong>
-子数组按位与运算的最大值是 4 。
+子数组按位与运算的最大值是 4 。 
 能得到此结果的最长子数组是 [4]，所以返回 1 。
 </pre>
 

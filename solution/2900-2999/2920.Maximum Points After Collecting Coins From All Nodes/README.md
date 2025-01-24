@@ -41,13 +41,13 @@ tags:
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2920.Maximum%20Points%20After%20Collecting%20Coins%20From%20All%20Nodes/images/ex1-copy.png" style="width: 60px; height: 316px; padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem;" />
 <pre>
 <strong>输入：</strong>edges = [[0,1],[1,2],[2,3]], coins = [10,10,3,3], k = 5
-<strong>输出：</strong>11
+<strong>输出：</strong>11                        
 <strong>解释：</strong>
 使用第一种方法收集节点 0 上的所有金币。总积分 = 10 - 5 = 5 。
 使用第一种方法收集节点 1 上的所有金币。总积分 = 5 + (10 - 5) = 10 。
 使用第二种方法收集节点 2 上的所有金币。所以节点 3 上的金币将会变为 floor(3 / 2) = 1 ，总积分 = 10 + floor(3 / 2) = 11 。
 使用第二种方法收集节点 3 上的所有金币。总积分 =  11 + floor(1 / 2) = 11.
-可以证明收集所有节点上的金币能获得的最大积分是 11 。
+可以证明收集所有节点上的金币能获得的最大积分是 11 。 
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>

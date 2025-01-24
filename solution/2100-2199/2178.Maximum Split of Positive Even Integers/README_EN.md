@@ -53,7 +53,7 @@ Thus, we return an empty array.
 <pre>
 <strong>Input:</strong> finalSum = 28
 <strong>Output:</strong> [6,8,2,12]
-<strong>Explanation:</strong> The following are valid splits: <code>(2 + 26)</code>, <code>(6 + 8 + 2 + 12)</code>, and <code>(4 + 24)</code>.
+<strong>Explanation:</strong> The following are valid splits: <code>(2 + 26)</code>, <code>(6 + 8 + 2 + 12)</code>, and <code>(4 + 24)</code>. 
 <code>(6 + 8 + 2 + 12)</code> has the maximum number of integers, which is 4. Thus, we return [6,8,2,12].
 Note that [10,2,4,12], [6,2,4,16], etc. are also accepted.
 </pre>

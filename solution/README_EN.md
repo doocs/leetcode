@@ -3439,6 +3439,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3428  |  [Maximum and Minimum Sums of at Most Size K Subsequences](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README_EN.md)  |    |  Medium  |  Weekly Contest 433  |
 |  3429  |  [Paint House IV](/solution/3400-3499/3429.Paint%20House%20IV/README_EN.md)  |    |  Medium  |  Weekly Contest 433  |
 |  3430  |  [Maximum and Minimum Sums of at Most Size K Subarrays](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 433  |
+|  3431  |  [Minimum Unlocked Indices to Sort Nums](/solution/3400-3499/3431.Minimum%20Unlocked%20Indices%20to%20Sort%20Nums/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

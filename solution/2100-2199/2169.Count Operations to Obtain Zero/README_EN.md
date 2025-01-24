@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> num1 = 2, num2 = 3
 <strong>Output:</strong> 3
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - Operation 1: num1 = 2, num2 = 3. Since num1 &lt; num2, we subtract num1 from num2 and get num1 = 2, num2 = 3 - 2 = 1.
 - Operation 2: num1 = 2, num2 = 1. Since num1 &gt; num2, we subtract num2 from num1.
 - Operation 3: num1 = 1, num2 = 1. Since num1 == num2, we subtract num2 from num1.
@@ -48,7 +48,7 @@ So the total number of operations required is 3.
 <pre>
 <strong>Input:</strong> num1 = 10, num2 = 10
 <strong>Output:</strong> 1
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - Operation 1: num1 = 10, num2 = 10. Since num1 == num2, we subtract num2 from num1 and get num1 = 10 - 10 = 0.
 Now num1 = 0 and num2 = 10. Since num1 == 0, we are done.
 So the total number of operations required is 1.

@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [3,2,3,2,2,2]
 <strong>Output:</strong> true
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 There are 6 elements in nums, so they should be divided into 6 / 2 = 3 pairs.
 If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy all the conditions.
 </pre>
@@ -48,7 +48,7 @@ If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy al
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4]
 <strong>Output:</strong> false
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy every condition.
 </pre>
 
