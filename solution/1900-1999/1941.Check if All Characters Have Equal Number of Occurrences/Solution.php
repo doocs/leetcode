@@ -4,10 +4,20 @@ class Solution {
      * @return Boolean
      */
     function areOccurrencesEqual($s) {
+        $cnt = array_fill(0, 26, 0);
         for ($i = 0; $i < strlen($s); $i++) {
-            $hashtable[$s[$i]] += 1;
+            $cnt[ord($s[$i]) - ord('a')]++;
         }
-        $rs = array_unique($hashtable);
-        return count($rs) === 1;
+        $v = 0;
+        foreach ($cnt as $x) {
+            if ($x == 0) {
+                continue;
+            }
+            if ($v && $v != $x) {
+                return false;
+            }
+            $v = $x;
+        }
+        return true;
     }
 }

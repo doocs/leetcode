@@ -3,15 +3,15 @@ func areOccurrencesEqual(s string) bool {
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	x := 0
-	for _, v := range cnt {
-		if v > 0 {
-			if x == 0 {
-				x = v
-			} else if x != v {
-				return false
-			}
+	v := 0
+	for _, x := range cnt {
+		if x == 0 {
+			continue
 		}
+		if v > 0 && v != x {
+			return false
+		}
+		v = x
 	}
 	return true
 }
