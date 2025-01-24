@@ -76,7 +76,11 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting or Quickselect
+
+We can sort the strings in the $\textit{nums}$ array in descending order as integers, and then take the $k$-th element. Alternatively, we can use the quickselect algorithm to find the $k$-th largest integer.
+
+The time complexity is $O(n \times \log n)$ or $O(n)$, where $n$ is the length of the $\textit{nums}$ array. The space complexity is $O(\log n)$ or $O(1)$.
 
 <!-- tabs:start -->
 
@@ -85,13 +89,7 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 ```python
 class Solution:
     def kthLargestNumber(self, nums: List[str], k: int) -> str:
-        def cmp(a, b):
-            if len(a) != len(b):
-                return len(b) - len(a)
-            return 1 if b > a else -1
-
-        nums.sort(key=cmp_to_key(cmp))
-        return nums[k - 1]
+        return nlargest(k, nums, key=lambda x: int(x))[k - 1]
 ```
 
 #### Java
@@ -112,8 +110,9 @@ class Solution {
 class Solution {
 public:
     string kthLargestNumber(vector<string>& nums, int k) {
-        auto cmp = [](const string& a, const string& b) { return a.size() == b.size() ? a > b : a.size() > b.size(); };
-        sort(nums.begin(), nums.end(), cmp);
+        nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), [](const string& a, const string& b) {
+            return a.size() == b.size() ? a > b : a.size() > b.size();
+        });
         return nums[k - 1];
     }
 };

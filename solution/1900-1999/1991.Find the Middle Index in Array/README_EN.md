@@ -71,7 +71,20 @@ The sum of the numbers after index 2 is: 0
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+We define two variables $l$ and $r$, representing the sum of elements to the left and right of index $i$ in the array $\textit{nums}$, respectively. Initially, $l = 0$ and $r = \sum_{i = 0}^{n - 1} \textit{nums}[i]$.
+
+We traverse the array $\textit{nums}$, and for the current number $x$, we update $r = r - x$. If $l = r$ at this point, it means the current index $i$ is the middle index, and we return it directly. Otherwise, we update $l = l + x$ and continue to the next number.
+
+If the traversal ends without finding a middle index, return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [0724. Find Pivot Index](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
+-   [2574. Left and Right Sum Differences](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2574.Left%20and%20Right%20Sum%20Differences/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -80,12 +93,12 @@ The sum of the numbers after index 2 is: 0
 ```python
 class Solution:
     def findMiddleIndex(self, nums: List[int]) -> int:
-        left, right = 0, sum(nums)
+        l, r = 0, sum(nums)
         for i, x in enumerate(nums):
-            right -= x
-            if left == right:
+            r -= x
+            if l == r:
                 return i
-            left += x
+            l += x
         return -1
 ```
 
@@ -94,13 +107,13 @@ class Solution:
 ```java
 class Solution {
     public int findMiddleIndex(int[] nums) {
-        int left = 0, right = Arrays.stream(nums).sum();
+        int l = 0, r = Arrays.stream(nums).sum();
         for (int i = 0; i < nums.length; ++i) {
-            right -= nums[i];
-            if (left == right) {
+            r -= nums[i];
+            if (l == r) {
                 return i;
             }
-            left += nums[i];
+            l += nums[i];
         }
         return -1;
     }
@@ -113,13 +126,13 @@ class Solution {
 class Solution {
 public:
     int findMiddleIndex(vector<int>& nums) {
-        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
+        int l = 0, r = accumulate(nums.begin(), nums.end(), 0);
         for (int i = 0; i < nums.size(); ++i) {
-            right -= nums[i];
-            if (left == right) {
+            r -= nums[i];
+            if (l == r) {
                 return i;
             }
-            left += nums[i];
+            l += nums[i];
         }
         return -1;
     }
@@ -130,16 +143,16 @@ public:
 
 ```go
 func findMiddleIndex(nums []int) int {
-	s := 0
-	for _, num := range nums {
-		s += num
+	l, r := 0, 0
+	for _, x := range nums {
+		r += x
 	}
-	total := 0
-	for i, num := range nums {
-		total += num
-		if total-num == s-total {
+	for i, x := range nums {
+		r -= x
+		if l == r {
 			return i
 		}
+		l += x
 	}
 	return -1
 }
@@ -149,16 +162,37 @@ func findMiddleIndex(nums []int) int {
 
 ```ts
 function findMiddleIndex(nums: number[]): number {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
     for (let i = 0; i < nums.length; ++i) {
-        right -= nums[i];
-        if (left == right) {
+        r -= nums[i];
+        if (l === r) {
             return i;
         }
-        left += nums[i];
+        l += nums[i];
     }
     return -1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_middle_index(nums: Vec<i32>) -> i32 {
+        let mut l = 0;
+        let mut r: i32 = nums.iter().sum();
+
+        for (i, &x) in nums.iter().enumerate() {
+            r -= x;
+            if l == r {
+                return i as i32;
+            }
+            l += x;
+        }
+
+        -1
+    }
 }
 ```
 
@@ -170,14 +204,14 @@ function findMiddleIndex(nums: number[]): number {
  * @return {number}
  */
 var findMiddleIndex = function (nums) {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
     for (let i = 0; i < nums.length; ++i) {
-        right -= nums[i];
-        if (left == right) {
+        r -= nums[i];
+        if (l === r) {
             return i;
         }
-        left += nums[i];
+        l += nums[i];
     }
     return -1;
 };
