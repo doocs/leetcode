@@ -58,11 +58,11 @@ tags:
 
 ### 方法一：计数
 
-我们用一个哈希表或一个长度为 $26$ 的数组 $cnt$ 记录字符串 $s$ 中每个字符出现的次数。
+我们用一个哈希表或者一个长度为 $26$ 的数组 $\textit{cnt}$ 记录字符串 $s$ 中每个字符出现的次数。
 
-接下来遍历 $cnt$ 中的每个值，判断所有非零值是否相等即可。
+接下来遍历 $\textit{cnt}$ 中的每个值，判断所有非零值是否相等即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度；而 $C$ 是字符集大小，本题中字符集为小写英文字母，因此 $C=26$。
+时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度；而 $\Sigma$ 是字符集大小，本题中字符集为小写英文字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -71,8 +71,7 @@ tags:
 ```python
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
-        cnt = Counter(s)
-        return len(set(cnt.values())) == 1
+        return len(set(Counter(s).values())) == 1
 ```
 
 #### Java
@@ -81,18 +80,18 @@ class Solution:
 class Solution {
     public boolean areOccurrencesEqual(String s) {
         int[] cnt = new int[26];
-        for (int i = 0; i < s.length(); ++i) {
-            ++cnt[s.charAt(i) - 'a'];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
         }
-        int x = 0;
-        for (int v : cnt) {
-            if (v > 0) {
-                if (x == 0) {
-                    x = v;
-                } else if (x != v) {
-                    return false;
-                }
+        int v = 0;
+        for (int x : cnt) {
+            if (x == 0) {
+                continue;
             }
+            if (v > 0 && v != x) {
+                return false;
+            }
+            v = x;
         }
         return true;
     }
@@ -105,19 +104,19 @@ class Solution {
 class Solution {
 public:
     bool areOccurrencesEqual(string s) {
-        int cnt[26]{};
-        for (char& c : s) {
+        vector<int> cnt(26);
+        for (char c : s) {
             ++cnt[c - 'a'];
         }
-        int x = 0;
-        for (int& v : cnt) {
-            if (v) {
-                if (!x) {
-                    x = v;
-                } else if (x != v) {
-                    return false;
-                }
+        int v = 0;
+        for (int x : cnt) {
+            if (x == 0) {
+                continue;
             }
+            if (v && v != x) {
+                return false;
+            }
+            v = x;
         }
         return true;
     }
@@ -132,15 +131,15 @@ func areOccurrencesEqual(s string) bool {
 	for _, c := range s {
 		cnt[c-'a']++
 	}
-	x := 0
-	for _, v := range cnt {
-		if v > 0 {
-			if x == 0 {
-				x = v
-			} else if x != v {
-				return false
-			}
+	v := 0
+	for _, x := range cnt {
+		if x == 0 {
+			continue
 		}
+		if v > 0 && v != x {
+			return false
+		}
+		v = x
 	}
 	return true
 }
@@ -150,21 +149,12 @@ func areOccurrencesEqual(s string) bool {
 
 ```ts
 function areOccurrencesEqual(s: string): boolean {
-    const cnt: number[] = new Array(26).fill(0);
+    const cnt: number[] = Array(26).fill(0);
     for (const c of s) {
         ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
     }
-    let x = 0;
-    for (const v of cnt) {
-        if (v) {
-            if (!x) {
-                x = v;
-            } else if (x !== v) {
-                return false;
-            }
-        }
-    }
-    return true;
+    const v = cnt.find(v => v);
+    return cnt.every(x => !x || v === x);
 }
 ```
 
@@ -177,35 +167,22 @@ class Solution {
      * @return Boolean
      */
     function areOccurrencesEqual($s) {
+        $cnt = array_fill(0, 26, 0);
         for ($i = 0; $i < strlen($s); $i++) {
-            $hashtable[$s[$i]] += 1;
+            $cnt[ord($s[$i]) - ord('a')]++;
         }
-        $rs = array_unique($hashtable);
-        return count($rs) === 1;
+        $v = 0;
+        foreach ($cnt as $x) {
+            if ($x == 0) {
+                continue;
+            }
+            if ($v && $v != $x) {
+                return false;
+            }
+            $v = $x;
+        }
+        return true;
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function areOccurrencesEqual(s: string): boolean {
-    const cnt: number[] = new Array(26).fill(0);
-    for (const c of s) {
-        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
-    }
-    const x = cnt.find(v => v);
-    return cnt.every(v => !v || v === x);
 }
 ```
 
