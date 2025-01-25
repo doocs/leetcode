@@ -1,10 +1,13 @@
 class Solution {
 public:
     int minimumTime(vector<int>& jobs, vector<int>& workers) {
-        sort(jobs.begin(), jobs.end());
-        sort(workers.begin(), workers.end());
+        ranges::sort(jobs);
+        ranges::sort(workers);
         int ans = 0;
-        for (int i = 0; i < jobs.size(); ++i) ans = max(ans, (jobs[i] + workers[i] - 1) / workers[i]);
+        int n = jobs.size();
+        for (int i = 0; i < n; ++i) {
+            ans = max(ans, (jobs[i] + workers[i] - 1) / workers[i]);
+        }
         return ans;
     }
 };
