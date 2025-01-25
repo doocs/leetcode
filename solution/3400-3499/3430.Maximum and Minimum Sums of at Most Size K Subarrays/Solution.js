@@ -3,13 +3,13 @@
  * @param {number} k
  * @return {number}
  */
-var minMaxSubarraySum = function(nums, k) {
+var minMaxSubarraySum = function (nums, k) {
     const computeSum = (nums, k, isMin) => {
         const n = nums.length;
         const prev = new Array(n).fill(-1);
         const next = new Array(n).fill(n);
         let stack = [];
-        
+
         if (isMin) {
             for (let i = 0; i < n; i++) {
                 while (stack.length > 0 && nums[stack[stack.length - 1]] >= nums[i]) {
