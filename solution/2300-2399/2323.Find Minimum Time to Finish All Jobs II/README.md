@@ -69,7 +69,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+为了使得完成所有工作所需的最少天数尽可能小，我们可以尽量让工作时间较长的工人去完成工作时间较长的工作。
+
+因此，我们可以先对 $\textit{jobs}$ 和 $\textit{workers}$ 进行排序，然后依次将工作分配给对应下标的工人，求最大的工作时间和工人时间的比值即可。
+
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为工作数。
 
 <!-- tabs:start -->
 
@@ -105,10 +111,13 @@ class Solution {
 class Solution {
 public:
     int minimumTime(vector<int>& jobs, vector<int>& workers) {
-        sort(jobs.begin(), jobs.end());
-        sort(workers.begin(), workers.end());
+        ranges::sort(jobs);
+        ranges::sort(workers);
         int ans = 0;
-        for (int i = 0; i < jobs.size(); ++i) ans = max(ans, (jobs[i] + workers[i] - 1) / workers[i]);
+        int n = jobs.size();
+        for (int i = 0; i < n; ++i) {
+            ans = max(ans, (jobs[i] + workers[i] - 1) / workers[i]);
+        }
         return ans;
     }
 };
@@ -117,16 +126,66 @@ public:
 #### Go
 
 ```go
-func minimumTime(jobs []int, workers []int) int {
+func minimumTime(jobs []int, workers []int) (ans int) {
 	sort.Ints(jobs)
 	sort.Ints(workers)
-	ans := 0
 	for i, a := range jobs {
 		b := workers[i]
 		ans = max(ans, (a+b-1)/b)
 	}
-	return ans
+	return
 }
+```
+
+#### TypeScript
+
+```ts
+function minimumTime(jobs: number[], workers: number[]): number {
+    jobs.sort((a, b) => a - b);
+    workers.sort((a, b) => a - b);
+    let ans = 0;
+    const n = jobs.length;
+    for (let i = 0; i < n; ++i) {
+        ans = Math.max(ans, Math.ceil(jobs[i] / workers[i]));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_time(mut jobs: Vec<i32>, mut workers: Vec<i32>) -> i32 {
+        jobs.sort();
+        workers.sort();
+        jobs.iter()
+            .zip(workers.iter())
+            .map(|(a, b)| (a + b - 1) / b)
+            .max()
+            .unwrap()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} jobs
+ * @param {number[]} workers
+ * @return {number}
+ */
+var minimumTime = function (jobs, workers) {
+    jobs.sort((a, b) => a - b);
+    workers.sort((a, b) => a - b);
+    let ans = 0;
+    const n = jobs.length;
+    for (let i = 0; i < n; ++i) {
+        ans = Math.max(ans, Math.ceil(jobs[i] / workers[i]));
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
