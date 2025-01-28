@@ -60,13 +60,13 @@ tags:
 
 ### 方法一：哈希表
 
-我们用哈希表 $d$ 存放最近遍历到的数以及对应的下标。
+我们用一个哈希表 $\textit{d}$ 存放最近遍历到的数以及对应的下标。
 
-遍历数组 `nums`，对于当前遍历到的元素 $nums[i]$，如果在哈希表中存在，并且下标与当前元素的下标之差不超过 $k$，则返回 `true`，否则将当前元素加入哈希表中。
+遍历数组 $\textit{nums}$，对于当前遍历到的元素 $\textit{nums}[i]$，如果在哈希表中存在，并且下标与当前元素的下标之差不超过 $k$，则返回 $\text{true}$，否则将当前元素加入哈希表中。
 
-遍历结束后，返回 `false`。
+遍历结束后，返回 $\text{false}$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -195,13 +195,12 @@ class Solution {
      * @return Boolean
      */
     function containsNearbyDuplicate($nums, $k) {
-        $hashtable = [];
-        for ($i = 0; $i < count($nums); $i++) {
-            $tmp = $nums[$i];
-            if (array_key_exists($tmp, $hashtable) && $k >= $i - $hashtable[$tmp]) {
+        $d = [];
+        for ($i = 0; $i < count($nums); ++$i) {
+            if (array_key_exists($nums[$i], $d) && $i - $d[$nums[$i]] <= $k) {
                 return true;
             }
-            $hashtable[$tmp] = $i;
+            $d[$nums[$i]] = $i;
         }
         return false;
     }
