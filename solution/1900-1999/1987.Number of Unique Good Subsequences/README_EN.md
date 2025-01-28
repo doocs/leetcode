@@ -54,7 +54,7 @@ The unique good subsequences are &quot;1&quot; and &quot;11&quot;.</pre>
 <pre>
 <strong>Input:</strong> binary = &quot;101&quot;
 <strong>Output:</strong> 5
-<strong>Explanation:</strong> The good subsequences of binary are [&quot;1&quot;, &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &quot;11&quot;, &quot;101&quot;].
+<strong>Explanation:</strong> The good subsequences of binary are [&quot;1&quot;, &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &quot;11&quot;, &quot;101&quot;]. 
 The unique good subsequences are &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &quot;11&quot;, and &quot;101&quot;.
 </pre>
 
