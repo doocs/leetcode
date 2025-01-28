@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 434 场周赛(2025-01-26 10:30, 90 分钟) 参赛人数 1681
+
+- [3432. 统计元素和差值为偶数的分区方案](/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README.md)
+- [3433. 统计用户被提及情况](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README.md)
+- [3434. 子数组操作后的最大频率](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README.md)
+- [3435. 最短公共超序列的字母出现频率](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README.md)
+
 #### 第 433 场周赛(2025-01-19 10:30, 90 分钟) 参赛人数 1969
 
 - [3427. 变长子数组求和](/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README.md)

@@ -3441,7 +3441,11 @@
 |  3428  |  [最多 K 个元素的子序列的最值之和](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README.md)  |    |  中等  |  第 433 场周赛  |
 |  3429  |  [粉刷房子 IV](/solution/3400-3499/3429.Paint%20House%20IV/README.md)  |    |  中等  |  第 433 场周赛  |
 |  3430  |  [最多 K 个元素的子数组的最值之和](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README.md)  |    |  困难  |  第 433 场周赛  |
-|  3431  |  [Minimum Unlocked Indices to Sort Nums](/solution/3400-3499/3431.Minimum%20Unlocked%20Indices%20to%20Sort%20Nums/README.md)  |    |  中等  |  🔒  |
+|  3431  |  [对数字排序的最小解锁下标](/solution/3400-3499/3431.Minimum%20Unlocked%20Indices%20to%20Sort%20Nums/README.md)  |  `数组`,`哈希表`  |  中等  |  🔒  |
+|  3432  |  [统计元素和差值为偶数的分区方案](/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README.md)  |  `数组`,`数学`,`前缀和`  |  简单  |  第 434 场周赛  |
+|  3433  |  [统计用户被提及情况](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README.md)  |  `数组`,`数学`,`排序`,`模拟`  |  中等  |  第 434 场周赛  |
+|  3434  |  [子数组操作后的最大频率](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README.md)  |  `贪心`,`数组`,`哈希表`,`动态规划`,`前缀和`  |  中等  |  第 434 场周赛  |
+|  3435  |  [最短公共超序列的字母出现频率](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README.md)  |  `位运算`,`图`,`拓扑排序`,`数组`,`字符串`,`枚举`  |  困难  |  第 434 场周赛  |
 
 ## 版权
 

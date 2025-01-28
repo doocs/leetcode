@@ -3439,7 +3439,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3428  |  [Maximum and Minimum Sums of at Most Size K Subsequences](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README_EN.md)  |    |  Medium  |  Weekly Contest 433  |
 |  3429  |  [Paint House IV](/solution/3400-3499/3429.Paint%20House%20IV/README_EN.md)  |    |  Medium  |  Weekly Contest 433  |
 |  3430  |  [Maximum and Minimum Sums of at Most Size K Subarrays](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 433  |
-|  3431  |  [Minimum Unlocked Indices to Sort Nums](/solution/3400-3499/3431.Minimum%20Unlocked%20Indices%20to%20Sort%20Nums/README_EN.md)  |    |  Medium  |  🔒  |
+|  3431  |  [Minimum Unlocked Indices to Sort Nums](/solution/3400-3499/3431.Minimum%20Unlocked%20Indices%20to%20Sort%20Nums/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  🔒  |
+|  3432  |  [Count Partitions with Even Sum Difference](/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README_EN.md)  |  `Array`,`Math`,`Prefix Sum`  |  Easy  |  Weekly Contest 434  |
+|  3433  |  [Count Mentions Per User](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README_EN.md)  |  `Array`,`Math`,`Sorting`,`Simulation`  |  Medium  |  Weekly Contest 434  |
+|  3434  |  [Maximum Frequency After Subarray Operation](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 434  |
+|  3435  |  [Frequencies of Shortest Supersequences](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Topological Sort`,`Array`,`String`,`Enumeration`  |  Hard  |  Weekly Contest 434  |
 
 ## Copyright
 
