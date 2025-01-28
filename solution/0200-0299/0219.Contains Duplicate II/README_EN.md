@@ -59,13 +59,13 @@ tags:
 
 ### Solution 1: Hash Table
 
-We use a hash table $d$ to store the nearest index of the number it has visited.
+We use a hash table $\textit{d}$ to store the recently traversed numbers and their corresponding indices.
 
-We traverse the array `nums`. For the current element $nums[i]$, if it exists in the hash table, and the difference between its index and the current index is no larger than $k$, then return `true`. Otherwise, we add the current element into the hash table.
+Traverse the array $\textit{nums}$. For the current element $\textit{nums}[i]$, if it exists in the hash table and the difference between the indices is no more than $k$, return $\text{true}$. Otherwise, add the current element to the hash table.
 
-After the traversal, return `false`.
+After traversing, return $\text{false}$.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$. Here $n$ is the length of array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -194,13 +194,12 @@ class Solution {
      * @return Boolean
      */
     function containsNearbyDuplicate($nums, $k) {
-        $hashtable = [];
-        for ($i = 0; $i < count($nums); $i++) {
-            $tmp = $nums[$i];
-            if (array_key_exists($tmp, $hashtable) && $k >= $i - $hashtable[$tmp]) {
+        $d = [];
+        for ($i = 0; $i < count($nums); ++$i) {
+            if (array_key_exists($nums[$i], $d) && $i - $d[$nums[$i]] <= $k) {
                 return true;
             }
-            $hashtable[$tmp] = $i;
+            $d[$nums[$i]] = $i;
         }
         return false;
     }
