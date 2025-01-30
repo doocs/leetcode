@@ -3444,6 +3444,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3433  |  [Count Mentions Per User](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README_EN.md)  |  `Array`,`Math`,`Sorting`,`Simulation`  |  Medium  |  Weekly Contest 434  |
 |  3434  |  [Maximum Frequency After Subarray Operation](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 434  |
 |  3435  |  [Frequencies of Shortest Supersequences](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Topological Sort`,`Array`,`String`,`Enumeration`  |  Hard  |  Weekly Contest 434  |
+|  3436  |  [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md)  |    |  Easy  |    |
 
 ## Copyright
 

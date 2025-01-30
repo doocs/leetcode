@@ -3446,6 +3446,7 @@
 |  3433  |  [统计用户被提及情况](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README.md)  |  `数组`,`数学`,`排序`,`模拟`  |  中等  |  第 434 场周赛  |
 |  3434  |  [子数组操作后的最大频率](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README.md)  |  `贪心`,`数组`,`哈希表`,`动态规划`,`前缀和`  |  中等  |  第 434 场周赛  |
 |  3435  |  [最短公共超序列的字母出现频率](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README.md)  |  `位运算`,`图`,`拓扑排序`,`数组`,`字符串`,`枚举`  |  困难  |  第 434 场周赛  |
+|  3436  |  [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README.md)  |    |  简单  |    |
 
 ## 版权
 
