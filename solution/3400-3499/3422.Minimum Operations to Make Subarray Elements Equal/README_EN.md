@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3422.Minimum%20Operations%20to%20Make%20Subarray%20Elements%20Equal/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Sliding Window
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

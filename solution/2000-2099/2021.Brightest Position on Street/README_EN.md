@@ -6,6 +6,7 @@ tags:
     - Array
     - Ordered Set
     - Prefix Sum
+    - Sorting
 ---
 
 <!-- problem:start -->

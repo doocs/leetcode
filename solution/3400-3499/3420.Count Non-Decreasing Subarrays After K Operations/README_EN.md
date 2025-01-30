@@ -7,7 +7,7 @@ tags:
     - Segment Tree
     - Queue
     - Array
-    - Two Pointers
+    - Sliding Window
     - Monotonic Queue
     - Monotonic Stack
 ---

@@ -10,6 +10,7 @@ tags:
     - Array
     - Binary Search
     - Matrix
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

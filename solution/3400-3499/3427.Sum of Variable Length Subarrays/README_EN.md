@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README_EN.md
+tags:
+    - Array
+    - Prefix Sum
 ---
 
 <!-- problem:start -->
@@ -14,10 +17,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3427.Su
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code> of size <code>n</code>. For <strong>each</strong> index <code>i</code> where <code>0 &lt;= i &lt; n</code>, define a subarray <code>nums[start ... i]</code> where <code>start = max(0, i - nums[i])</code>.</p>
+<p>You are given an integer array <code>nums</code> of size <code>n</code>. For <strong>each</strong> index <code>i</code> where <code>0 &lt;= i &lt; n</code>, define a <span data-keyword="subarray-nonempty">subarray</span> <code>nums[start ... i]</code> where <code>start = max(0, i - nums[i])</code>.</p>
 
 <p>Return the total sum of all elements from the subarray defined for each index in the array.</p>
-A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of elements within an array.
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

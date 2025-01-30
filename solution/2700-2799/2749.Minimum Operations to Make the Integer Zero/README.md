@@ -7,6 +7,7 @@ source: 第 351 场周赛 Q2
 tags:
     - 位运算
     - 脑筋急转弯
+    - 枚举
 ---
 
 <!-- problem:start -->

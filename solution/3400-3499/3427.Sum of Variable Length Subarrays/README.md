@@ -2,6 +2,9 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README.md
+tags:
+    - 数组
+    - 前缀和
 ---
 
 <!-- problem:start -->
