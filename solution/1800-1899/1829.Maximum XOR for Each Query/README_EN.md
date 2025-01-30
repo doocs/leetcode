@@ -310,7 +310,7 @@ class Solution {
         }
         int k=0;
         for(int i=nums.length-1; i>=0; i--){
-            answer[k++] ^= nums[i]^xor; 
+            answer[k++] ^= nums[i]^xor;
         }
         return answer;
     }
