@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3425.Longest%20Special%20Path/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 哈希表
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

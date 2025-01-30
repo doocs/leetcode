@@ -7,6 +7,7 @@ source: Weekly Contest 351 Q2
 tags:
     - Bit Manipulation
     - Brainteaser
+    - Enumeration
 ---
 
 <!-- problem:start -->

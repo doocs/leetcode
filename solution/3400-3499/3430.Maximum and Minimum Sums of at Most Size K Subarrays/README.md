@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README.md
+tags:
+    - 栈
+    - 数组
+    - 数学
+    - 单调栈
 ---
 
 <!-- problem:start -->

@@ -9,6 +9,7 @@ tags:
     - Array
     - Dynamic Programming
     - Matrix
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

@@ -46,7 +46,7 @@ tags:
 <ul>
 	<li><code>2 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>-30 &lt;= nums[i] &lt;= 30</code></li>
-	<li><strong>保证</strong> 数组&nbsp;<code>nums</code>之中任意元素的全部前缀元素和后缀的乘积都在&nbsp; <strong>32 位</strong> 整数范围内</li>
+	<li>输入&nbsp;<strong>保证</strong> 数组&nbsp;<code>answer[i]</code>&nbsp;在&nbsp; <strong>32 位</strong> 整数范围内</li>
 </ul>
 
 <p>&nbsp;</p>

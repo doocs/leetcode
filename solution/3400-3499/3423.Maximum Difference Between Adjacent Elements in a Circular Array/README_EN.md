@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3423.Maximum%20Difference%20Between%20Adjacent%20Elements%20in%20a%20Circular%20Array/README_EN.md
+tags:
+    - Array
 ---
 
 <!-- problem:start -->
