@@ -74,9 +74,13 @@ tags:
 
 ### 方法一：数组或哈希表
 
-我们可以用数组或哈希表统计字符串中每个字母出现的次数，然后遍历字符串，对于每个字母，其出现的次数即为以该字母开头和结尾的子串的个数，将所有字母的出现次数相加即为答案。
+我们可以用哈希表或者一个长度为 $26$ 的数组 $\textit{cnt}$ 来记录每个字符出现的次数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串的长度，而 $C$ 为字符集的大小。本题中 $C = 26$。
+遍历字符串 $\textit{s}$，对于每个字符 $\textit{c}$，我们将 $\textit{cnt}[c]$ 的值加 $1$，然后将 $\textit{cnt}[c]$ 的值加到答案中。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $\textit{s}$ 的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集，这里是小写英文字母，所以 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -100,10 +104,8 @@ class Solution {
     public long numberOfSubstrings(String s) {
         int[] cnt = new int[26];
         long ans = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            int j = s.charAt(i) - 'a';
-            ++cnt[j];
-            ans += cnt[j];
+        for (char c : s.toCharArray()) {
+            ans += ++cnt[c - 'a'];
         }
         return ans;
     }
@@ -138,6 +140,55 @@ func numberOfSubstrings(s string) (ans int64) {
 	}
 	return ans
 }
+```
+
+#### TypeScript
+
+```ts
+function numberOfSubstrings(s: string): number {
+    const cnt: Record<string, number> = {};
+    let ans = 0;
+    for (const c of s) {
+        cnt[c] = (cnt[c] || 0) + 1;
+        ans += cnt[c];
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_substrings(s: String) -> i64 {
+        let mut cnt = [0; 26];
+        let mut ans = 0_i64;
+        for c in s.chars() {
+            let idx = (c as u8 - b'a') as usize;
+            cnt[idx] += 1;
+            ans += cnt[idx];
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var numberOfSubstrings = function (s) {
+    const cnt = {};
+    let ans = 0;
+    for (const c of s) {
+        cnt[c] = (cnt[c] || 0) + 1;
+        ans += cnt[c];
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
