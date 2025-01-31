@@ -124,32 +124,252 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Simulation
+
+We sort the events in ascending order of timestamps. If the timestamps are the same, we place OFFLINE events before MESSAGE events.
+
+Then we simulate the occurrence of events, using the `online_t` array to record the next online time for each user and a variable `lazy` to record the number of mentions that need to be applied to all users.
+
+We traverse the event list and handle each event based on its type:
+
+-   If it is an ONLINE event, we update the `online_t` array.
+-   If it is an ALL event, we increment `lazy` by one.
+-   If it is a HERE event, we traverse the `online_t` array. If a user's next online time is less than or equal to the current time, we increment that user's mention count by one.
+-   If it is a MESSAGE event, we increment the mention count of the mentioned user by one.
+
+Finally, if `lazy` is greater than 0, we add `lazy` to the mention count of all users.
+
+The time complexity is $O(n + m \times \log m \log M + L)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the total number of users and events, respectively, while $M$ and $L$ are the maximum value of the timestamps and the total length of all mentioned strings, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countMentions(self, numberOfUsers: int, events: List[List[str]]) -> List[int]:
+        events.sort(key=lambda e: (int(e[1]), e[0][2]))
+        ans = [0] * numberOfUsers
+        online_t = [0] * numberOfUsers
+        lazy = 0
+        for etype, ts, s in events:
+            cur = int(ts)
+            if etype[0] == "O":
+                online_t[int(s)] = cur + 60
+            elif s[0] == "A":
+                lazy += 1
+            elif s[0] == "H":
+                for i, t in enumerate(online_t):
+                    if t <= cur:
+                        ans[i] += 1
+            else:
+                for a in s.split():
+                    ans[int(a[2:])] += 1
+        if lazy:
+            for i in range(numberOfUsers):
+                ans[i] += lazy
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] countMentions(int numberOfUsers, List<List<String>> events) {
+        events.sort((a, b) -> {
+            int x = Integer.parseInt(a.get(1));
+            int y = Integer.parseInt(b.get(1));
+            if (x == y) {
+                return a.get(0).charAt(2) - b.get(0).charAt(2);
+            }
+            return x - y;
+        });
+        int[] ans = new int[numberOfUsers];
+        int[] onlineT = new int[numberOfUsers];
+        int lazy = 0;
+        for (var e : events) {
+            String etype = e.get(0);
+            int cur = Integer.parseInt(e.get(1));
+            String s = e.get(2);
+            if (etype.charAt(0) == 'O') {
+                onlineT[Integer.parseInt(s)] = cur + 60;
+            } else if (s.charAt(0) == 'A') {
+                ++lazy;
+            } else if (s.charAt(0) == 'H') {
+                for (int i = 0; i < numberOfUsers; ++i) {
+                    if (onlineT[i] <= cur) {
+                        ++ans[i];
+                    }
+                }
+            } else {
+                for (var a : s.split(" ")) {
+                    ++ans[Integer.parseInt(a.substring(2))];
+                }
+            }
+        }
+        if (lazy > 0) {
+            for (int i = 0; i < numberOfUsers; ++i) {
+                ans[i] += lazy;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> countMentions(int numberOfUsers, vector<vector<string>>& events) {
+        ranges::sort(events, [](const vector<string>& a, const vector<string>& b) {
+            int x = stoi(a[1]);
+            int y = stoi(b[1]);
+            if (x == y) {
+                return a[0][2] < b[0][2];
+            }
+            return x < y;
+        });
 
+        vector<int> ans(numberOfUsers, 0);
+        vector<int> onlineT(numberOfUsers, 0);
+        int lazy = 0;
+
+        for (const auto& e : events) {
+            string etype = e[0];
+            int cur = stoi(e[1]);
+            string s = e[2];
+
+            if (etype[0] == 'O') {
+                onlineT[stoi(s)] = cur + 60;
+            } else if (s[0] == 'A') {
+                lazy++;
+            } else if (s[0] == 'H') {
+                for (int i = 0; i < numberOfUsers; ++i) {
+                    if (onlineT[i] <= cur) {
+                        ++ans[i];
+                    }
+                }
+            } else {
+                stringstream ss(s);
+                string token;
+                while (ss >> token) {
+                    ans[stoi(token.substr(2))]++;
+                }
+            }
+        }
+
+        if (lazy > 0) {
+            for (int i = 0; i < numberOfUsers; ++i) {
+                ans[i] += lazy;
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countMentions(numberOfUsers int, events [][]string) []int {
+	sort.Slice(events, func(i, j int) bool {
+		x, _ := strconv.Atoi(events[i][1])
+		y, _ := strconv.Atoi(events[j][1])
+		if x == y {
+			return events[i][0][2] < events[j][0][2]
+		}
+		return x < y
+	})
 
+	ans := make([]int, numberOfUsers)
+	onlineT := make([]int, numberOfUsers)
+	lazy := 0
+
+	for _, e := range events {
+		etype := e[0]
+		cur, _ := strconv.Atoi(e[1])
+		s := e[2]
+
+		if etype[0] == 'O' {
+			userID, _ := strconv.Atoi(s)
+			onlineT[userID] = cur + 60
+		} else if s[0] == 'A' {
+			lazy++
+		} else if s[0] == 'H' {
+			for i := 0; i < numberOfUsers; i++ {
+				if onlineT[i] <= cur {
+					ans[i]++
+				}
+			}
+		} else {
+			mentions := strings.Split(s, " ")
+			for _, m := range mentions {
+				userID, _ := strconv.Atoi(m[2:])
+				ans[userID]++
+			}
+		}
+	}
+
+	if lazy > 0 {
+		for i := 0; i < numberOfUsers; i++ {
+			ans[i] += lazy
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countMentions(numberOfUsers: number, events: string[][]): number[] {
+    events.sort((a, b) => {
+        const x = +a[1];
+        const y = +b[1];
+        if (x === y) {
+            return a[0].charAt(2) < b[0].charAt(2) ? -1 : 1;
+        }
+        return x - y;
+    });
+
+    const ans: number[] = Array(numberOfUsers).fill(0);
+    const onlineT: number[] = Array(numberOfUsers).fill(0);
+    let lazy = 0;
+
+    for (const [etype, ts, s] of events) {
+        const cur = +ts;
+        if (etype.charAt(0) === 'O') {
+            const userID = +s;
+            onlineT[userID] = cur + 60;
+        } else if (s.charAt(0) === 'A') {
+            lazy++;
+        } else if (s.charAt(0) === 'H') {
+            for (let i = 0; i < numberOfUsers; i++) {
+                if (onlineT[i] <= cur) {
+                    ans[i]++;
+                }
+            }
+        } else {
+            const mentions = s.split(' ');
+            for (const m of mentions) {
+                const userID = +m.slice(2);
+                ans[userID]++;
+            }
+        }
+    }
+
+    if (lazy > 0) {
+        for (let i = 0; i < numberOfUsers; i++) {
+            ans[i] += lazy;
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
