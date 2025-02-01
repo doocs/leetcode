@@ -63,8 +63,7 @@ theme:
         name: Switch to system preference
 
 plugins:
-  - tags:
-      tags_file: tags.md
+  - tags
   - glightbox:
       touchNavigation: true
       loop: false
@@ -83,7 +82,6 @@ plugins:
 
 hooks:
   - hooks/edit_url.py
-  - hooks/tags.py
   - hooks/committer.py
   - hooks/fix_markdown_block.py
   - hooks/ext_info.py
@@ -140,6 +138,7 @@ nav:
   - LeetCode 全解:
     - 1. 两数之和: lc/1.md
     - 2. 两数相加: lc/2.md
+    - 11. 盛最多水的容器: lc/11.md
   - 剑指 Offer:
     - 3. 数组中重复的数字: lcof/3.md
     - 4. 二维数组中的查找: lcof/4.md
