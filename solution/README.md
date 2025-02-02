@@ -3448,6 +3448,10 @@
 |  3435  |  [最短公共超序列的字母出现频率](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README.md)  |  `位运算`,`图`,`拓扑排序`,`数组`,`字符串`,`枚举`  |  困难  |  第 434 场周赛  |
 |  3436  |  [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README.md)  |    |  简单  |    |
 |  3437  |  [Permutations III](/solution/3400-3499/3437.Permutations%20III/README.md)  |    |  中等  |  🔒  |
+|  3438  |  [找到字符串中合法的相邻数字](/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README.md)  |    |  简单  |  第 149 场双周赛  |
+|  3439  |  [重新安排会议得到最多空余时间 I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README.md)  |    |  中等  |  第 149 场双周赛  |
+|  3440  |  [重新安排会议得到最多空余时间 II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README.md)  |    |  中等  |  第 149 场双周赛  |
+|  3441  |  [变成好标题的最少代价](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README.md)  |    |  困难  |  第 149 场双周赛  |
 
 ## 版权
 

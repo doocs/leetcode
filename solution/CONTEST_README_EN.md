@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 149
+
+- [3438. Find Valid Pair of Adjacent Digits in String](/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README_EN.md)
+- [3439. Reschedule Meetings for Maximum Free Time I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README_EN.md)
+- [3440. Reschedule Meetings for Maximum Free Time II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README_EN.md)
+- [3441. Minimum Cost Good Caption](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README_EN.md)
+
 #### Weekly Contest 434
 
 - [3432. Count Partitions with Even Sum Difference](/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README_EN.md)
