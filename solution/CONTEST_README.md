@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 435 场周赛(2025-02-02 10:30, 90 分钟) 参赛人数 1300
+
+- [3442. 奇偶频次间的最大差值 I](/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README.md)
+- [3443. K 次修改后的最大曼哈顿距离](/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README.md)
+- [3444. 使数组包含目标值倍数的最少增量](/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README.md)
+- [3445. 奇偶频次间的最大差值 II](/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README.md)
+
 #### 第 149 场双周赛(2025-02-01 22:30, 90 分钟) 参赛人数 1227
 
 - [3438. 找到字符串中合法的相邻数字](/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README.md)
