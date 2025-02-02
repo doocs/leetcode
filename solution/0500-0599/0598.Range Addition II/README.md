@@ -67,7 +67,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+我们注意到，所有操作子矩阵的交集就是最终的最大整数所在的子矩阵，并且每个操作子矩阵都是从左上角 $(0, 0)$ 开始的，因此，我们遍历所有操作子矩阵，求出行数和列数的最小值，最后返回这两个值的乘积即可。
+
+注意，如果操作数组为空，那么矩阵中的最大整数个数就是 $m \times n$。
+
+时间复杂度 $O(k)$，其中 $k$ 是操作数组 $\textit{ops}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -121,6 +127,50 @@ func maxCount(m int, n int, ops [][]int) int {
 	}
 	return m * n
 }
+```
+
+#### TypeScript
+
+```ts
+function maxCount(m: number, n: number, ops: number[][]): number {
+    for (const [a, b] of ops) {
+        m = Math.min(m, a);
+        n = Math.min(n, b);
+    }
+    return m * n;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_count(mut m: i32, mut n: i32, ops: Vec<Vec<i32>>) -> i32 {
+        for op in ops {
+            m = m.min(op[0]);
+            n = n.min(op[1]);
+        }
+        m * n
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @param {number[][]} ops
+ * @return {number}
+ */
+var maxCount = function (m, n, ops) {
+    for (const [a, b] of ops) {
+        m = Math.min(m, a);
+        n = Math.min(n, b);
+    }
+    return m * n;
+};
 ```
 
 <!-- tabs:end -->
