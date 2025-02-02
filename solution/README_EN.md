@@ -3450,6 +3450,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3439  |  [Reschedule Meetings for Maximum Free Time I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 149  |
 |  3440  |  [Reschedule Meetings for Maximum Free Time II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 149  |
 |  3441  |  [Minimum Cost Good Caption](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README_EN.md)  |    |  Hard  |  Biweekly Contest 149  |
+|  3442  |  [Maximum Difference Between Even and Odd Frequency I](/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 435  |
+|  3443  |  [Maximum Manhattan Distance After K Changes](/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README_EN.md)  |    |  Medium  |  Weekly Contest 435  |
+|  3444  |  [Minimum Increments for Target Multiples in an Array](/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 435  |
+|  3445  |  [Maximum Difference Between Even and Odd Frequency II](/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 435  |
 
 ## Copyright
 

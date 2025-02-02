@@ -3452,6 +3452,10 @@
 |  3439  |  [重新安排会议得到最多空余时间 I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README.md)  |    |  中等  |  第 149 场双周赛  |
 |  3440  |  [重新安排会议得到最多空余时间 II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README.md)  |    |  中等  |  第 149 场双周赛  |
 |  3441  |  [变成好标题的最少代价](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README.md)  |    |  困难  |  第 149 场双周赛  |
+|  3442  |  [奇偶频次间的最大差值 I](/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README.md)  |    |  简单  |  第 435 场周赛  |
+|  3443  |  [K 次修改后的最大曼哈顿距离](/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README.md)  |    |  中等  |  第 435 场周赛  |
+|  3444  |  [使数组包含目标值倍数的最少增量](/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README.md)  |    |  困难  |  第 435 场周赛  |
+|  3445  |  [奇偶频次间的最大差值 II](/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README.md)  |    |  困难  |  第 435 场周赛  |
 
 ## 版权
 
