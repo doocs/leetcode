@@ -1,20 +1,19 @@
 class Solution {
-
     public String[] findRestaurant(String[] list1, String[] list2) {
-        Map<String, Integer> mp = new HashMap<>();
+        Map<String, Integer> d = new HashMap<>();
         for (int i = 0; i < list2.length; ++i) {
-            mp.put(list2[i], i);
+            d.put(list2[i], i);
         }
         List<String> ans = new ArrayList<>();
-        int mi = 2000;
+        int mi = 1 << 30;
         for (int i = 0; i < list1.length; ++i) {
-            if (mp.containsKey(list1[i])) {
-                int t = i + mp.get(list1[i]);
-                if (t < mi) {
-                    ans = new ArrayList<>();
+            if (d.containsKey(list1[i])) {
+                int j = d.get(list1[i]);
+                if (i + j < mi) {
+                    mi = i + j;
+                    ans.clear();
                     ans.add(list1[i]);
-                    mi = t;
-                } else if (t == mi) {
+                } else if (i + j == mi) {
                     ans.add(list1[i]);
                 }
             }
