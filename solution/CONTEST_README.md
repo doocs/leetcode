@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 149 场双周赛(2025-02-01 22:30, 90 分钟) 参赛人数 1227
+
+- [3438. 找到字符串中合法的相邻数字](/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README.md)
+- [3439. 重新安排会议得到最多空余时间 I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README.md)
+- [3440. 重新安排会议得到最多空余时间 II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README.md)
+- [3441. 变成好标题的最少代价](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README.md)
+
 #### 第 434 场周赛(2025-01-26 10:30, 90 分钟) 参赛人数 1681
 
 - [3432. 统计元素和差值为偶数的分区方案](/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README.md)
