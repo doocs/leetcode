@@ -1,14 +1,14 @@
 class Solution:
     def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        d = {s: i for i, s in enumerate(list2)}
         ans = []
-        mp = {v: i for i, v in enumerate(list2)}
-        mi = 2000
-        for i, v in enumerate(list1):
-            if v in mp:
-                t = i + mp[v]
-                if t < mi:
-                    mi = t
-                    ans = [v]
-                elif t == mi:
-                    ans.append(v)
+        mi = inf
+        for i, s in enumerate(list1):
+            if s in d:
+                j = d[s]
+                if i + j < mi:
+                    mi = i + j
+                    ans = [s]
+                elif i + j == mi:
+                    ans.append(s)
         return ans
