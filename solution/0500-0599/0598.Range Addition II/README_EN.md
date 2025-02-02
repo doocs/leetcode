@@ -61,7 +61,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+We notice that the intersection of all operation submatrices is the submatrix where the final maximum integer is located, and each operation submatrix starts from the top-left corner $(0, 0)$. Therefore, we traverse all operation submatrices to find the minimum number of rows and columns. Finally, we return the product of these two values.
+
+Note that if the operation array is empty, the number of maximum integers in the matrix is $m \times n$.
+
+The time complexity is $O(k)$, where $k$ is the length of the operation array $\textit{ops}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -96,7 +102,7 @@ class Solution {
 class Solution {
 public:
     int maxCount(int m, int n, vector<vector<int>>& ops) {
-        for (auto op : ops) {
+        for (const auto& op : ops) {
             m = min(m, op[0]);
             n = min(n, op[1]);
         }
@@ -115,6 +121,50 @@ func maxCount(m int, n int, ops [][]int) int {
 	}
 	return m * n
 }
+```
+
+#### TypeScript
+
+```ts
+function maxCount(m: number, n: number, ops: number[][]): number {
+    for (const [a, b] of ops) {
+        m = Math.min(m, a);
+        n = Math.min(n, b);
+    }
+    return m * n;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_count(mut m: i32, mut n: i32, ops: Vec<Vec<i32>>) -> i32 {
+        for op in ops {
+            m = m.min(op[0]);
+            n = n.min(op[1]);
+        }
+        m * n
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} m
+ * @param {number} n
+ * @param {number[][]} ops
+ * @return {number}
+ */
+var maxCount = function (m, n, ops) {
+    for (const [a, b] of ops) {
+        m = Math.min(m, a);
+        n = Math.min(n, b);
+    }
+    return m * n;
+};
 ```
 
 <!-- tabs:end -->
