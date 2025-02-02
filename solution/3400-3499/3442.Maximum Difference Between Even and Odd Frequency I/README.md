@@ -71,7 +71,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3442.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们可以用一个哈希表或数组 $\textit{cnt}$ 记录字符串 $s$ 中每个字符的出现次数。然后遍历 $\textit{cnt}$，找出出现奇数次的字符的最大频次 $a$ 和出现偶数次的字符的最小频次 $b$，最后返回 $a - b$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 

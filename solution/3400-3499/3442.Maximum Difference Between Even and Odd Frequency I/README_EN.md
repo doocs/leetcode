@@ -69,7 +69,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3442.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We can use a hash table or an array $\textit{cnt}$ to record the occurrences of each character in the string $s$. Then, we traverse $\textit{cnt}$ to find the maximum frequency $a$ of characters that appear an odd number of times and the minimum frequency $b$ of characters that appear an even number of times. Finally, we return $a - b$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
