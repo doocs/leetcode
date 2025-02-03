@@ -151,23 +151,26 @@ public:
 
 ```go
 func canCompleteCircuit(gas []int, cost []int) int {
-	n := len(gas)
-	i, j := n-1, n-1
-	cnt, s := 0, 0
-	for cnt < n {
-		s += gas[j] - cost[j]
-		cnt++
-		j = (j + 1) % n
-		for s < 0 && cnt < n {
-			i--
-			s += gas[i] - cost[i]
-			cnt++
+	totalGas, totalCost := 0, 0
+	tank := 0
+	startStation := 0
+
+	for i := 0; i < len(gas); i++ {
+		totalGas += gas[i]
+		totalCost += cost[i]
+		tank += gas[i] - cost[i]
+
+		if tank < 0 {
+
+			startStation = i + 1
+			tank = 0
 		}
 	}
-	if s < 0 {
+
+	if totalGas < totalCost {
 		return -1
 	}
-	return i
+	return startStation
 }
 ```
 
