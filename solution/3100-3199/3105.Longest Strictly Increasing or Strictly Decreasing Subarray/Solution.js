@@ -1,4 +1,4 @@
-function longestMonotonicSubarray(nums: number[]): number {
+function longestMonotonicSubarray(nums) {
     const n = nums.length;
     let ans = 1;
 
