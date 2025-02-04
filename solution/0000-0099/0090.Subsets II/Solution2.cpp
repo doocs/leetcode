@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int n = nums.size();
         vector<vector<int>> ans;
         for (int mask = 0; mask < 1 << n; ++mask) {
