@@ -46,17 +46,17 @@ tags:
 
 ### Solution 1: Sorting + DFS
 
-We can first sort the array $nums$ to facilitate deduplication.
+We can first sort the array $\textit{nums}$ to facilitate deduplication.
 
-Then, we design a function $dfs(i)$, which represents searching for subsets starting from the $i$-th element. The execution logic of the function $dfs(i)$ is as follows:
+Then, we design a function $\textit{dfs}(i)$, which represents the current search for subsets starting from the $i$-th element. The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
-If $i \geq n$, it means that all elements have been searched, and the current subset is added to the answer array, and the recursion ends.
+If $i \geq n$, it means all elements have been searched, add the current subset to the answer array, and end the recursion.
 
-If $i < n$, add the $i$-th element to the subset, execute $dfs(i + 1)$, and then remove the $i$-th element from the subset. Next, we judge whether the $i$-th element is the same as the next element. If it is the same, we loop to skip this element until we find the first element that is different from the $i$-th element, and execute $dfs(i + 1)$.
+If $i < n$, add the $i$-th element to the subset, execute $\textit{dfs}(i + 1)$, then remove the $i$-th element from the subset. Next, we check if the $i$-th element is the same as the next element. If they are the same, skip the element in a loop until we find the first element different from the $i$-th element, then execute $\textit{dfs}(i + 1)$.
 
-Finally, we only need to call $dfs(0)$ and return the answer array.
+Finally, we only need to call $\textit{dfs}(0)$ and return the answer array.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -295,13 +295,13 @@ public class Solution {
 
 ### Solution 2: Sorting + Binary Enumeration
 
-Similar to Solution 1, we first sort the array $nums$ to facilitate deduplication.
+Similar to Solution 1, we first sort the array $\textit{nums}$ to facilitate deduplication.
 
-Next, we enumerate a binary number $mask$ in the range of $[0, 2^n)$, where the binary representation of $mask$ is an $n$-bit bit string. If the $i$-th bit of $mask$ is $1$, it means to select $nums[i]$, and $0$ means not to select $nums[i]$. Note that if the $i - 1$ bit of $mask$ is $0$, and $nums[i] = nums[i - 1]$, it means that in the current enumerated scheme, the $i$-th element and the $i - 1$-th element are the same. To avoid repetition, we skip this situation. Otherwise, we add the subset corresponding to $mask$ to the answer array.
+Next, we enumerate a binary number $\textit{mask}$ in the range $[0, 2^n)$, where the binary representation of $\textit{mask}$ is an $n$-bit bit string. If the $i$-th bit of $\textit{mask}$ is $1$, it means selecting $\textit{nums}[i]$, and $0$ means not selecting $\textit{nums}[i]$. Note that if the $(i - 1)$-th bit of $\textit{mask}$ is $0$ and $\textit{nums}[i] = \textit{nums}[i - 1]$, it means that the $i$-th element is the same as the $(i - 1)$-th element in the current enumeration scheme. To avoid duplication, we skip this case. Otherwise, we add the subset corresponding to $\textit{mask}$ to the answer array.
 
-After the enumeration ends, we return the answer array.
+After the enumeration, we return the answer array.
 
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
