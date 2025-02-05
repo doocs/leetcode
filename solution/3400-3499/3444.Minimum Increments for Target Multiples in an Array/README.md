@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 状态压缩
+    - 数论
 ---
 
 <!-- problem:start -->

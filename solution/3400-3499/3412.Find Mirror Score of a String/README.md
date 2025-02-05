@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README.md
+rating: 1578
+source: 第 431 场周赛 Q2
 tags:
     - 栈
     - 哈希表

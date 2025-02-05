@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README.md
+tags:
+    - 贪心
+    - 数组
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

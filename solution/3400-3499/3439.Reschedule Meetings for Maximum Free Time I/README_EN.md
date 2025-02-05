@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sliding Window
 ---
 
 <!-- problem:start -->

@@ -2011,7 +2011,7 @@ comments: true
 
 - [1909. 删除一个元素使数组严格递增](/solution/1900-1999/1909.Remove%20One%20Element%20to%20Make%20the%20Array%20Strictly%20Increasing/README.md)
 - [1910. 删除一个字符串中所有出现的给定子字符串](/solution/1900-1999/1910.Remove%20All%20Occurrences%20of%20a%20Substring/README.md)
-- [1911. 最大子序列交替和](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md)
+- [1911. 最大交替子序列和](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md)
 - [1912. 设计电影租借系统](/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README.md)
 
 #### 第 246 场周赛(2021-06-20 10:30, 90 分钟) 参赛人数 4136

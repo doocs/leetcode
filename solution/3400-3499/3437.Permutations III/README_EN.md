@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3437.Permutations%20III/README_EN.md
+tags:
+    - Array
+    - Backtracking
 ---
 
 <!-- problem:start -->

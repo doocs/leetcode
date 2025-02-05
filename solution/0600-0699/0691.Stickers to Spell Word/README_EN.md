@@ -4,7 +4,9 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README_EN.md
 tags:
     - Bit Manipulation
+    - Memoization
     - Array
+    - Hash Table
     - String
     - Dynamic Programming
     - Backtracking

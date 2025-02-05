@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README.md
+rating: 1443
+source: 第 431 场周赛 Q1
 tags:
     - 数组
     - 数学

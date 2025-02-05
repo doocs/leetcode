@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2493.Di
 rating: 2415
 source: Weekly Contest 322 Q4
 tags:
+    - Depth-First Search
     - Breadth-First Search
     - Union Find
     - Graph

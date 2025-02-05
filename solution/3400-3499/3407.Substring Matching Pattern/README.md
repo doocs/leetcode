@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3407.Substring%20Matching%20Pattern/README.md
+rating: 1472
+source: 第 147 场双周赛 Q1
 tags:
     - 字符串
     - 字符串匹配

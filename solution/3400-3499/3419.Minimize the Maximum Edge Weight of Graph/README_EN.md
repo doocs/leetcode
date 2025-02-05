@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3419.Minimize%20the%20Maximum%20Edge%20Weight%20of%20Graph/README_EN.md
+rating: 2243
+source: Weekly Contest 432 Q3
 tags:
     - Depth-First Search
     - Breadth-First Search

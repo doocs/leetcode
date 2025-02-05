@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->
