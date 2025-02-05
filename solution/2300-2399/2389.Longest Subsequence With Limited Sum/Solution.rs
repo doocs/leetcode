@@ -1,18 +1,16 @@
 impl Solution {
     pub fn answer_queries(mut nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
         nums.sort();
+
+        for i in 1..nums.len() {
+            nums[i] += nums[i - 1];
+        }
+
         queries
-            .into_iter()
-            .map(|query| {
-                let mut sum = 0;
-                for i in 0..n {
-                    sum += nums[i];
-                    if sum > query {
-                        return i as i32;
-                    }
-                }
-                n as i32
+            .iter()
+            .map(|&q| match nums.binary_search(&q) {
+                Ok(idx) => idx as i32 + 1,
+                Err(idx) => idx as i32,
             })
             .collect()
     }
