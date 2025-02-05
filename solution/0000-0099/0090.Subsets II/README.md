@@ -59,17 +59,17 @@ tags:
 
 ### 方法一：排序 + DFS
 
-我们可以先对数组 $nums$ 进行排序，方便去重。
+我们可以先对数组 $\textit{nums}$ 进行排序，方便去重。
 
-然后，我们设计一个函数 $dfs(i)$，表示当前从第 $i$ 个元素开始搜索子集。函数 $dfs(i)$ 的执行逻辑如下：
+然后，我们设计一个函数 $\textit{dfs}(i)$，表示当前从第 $i$ 个元素开始搜索子集。函数 $\textit{dfs}(i)$ 的执行逻辑如下：
 
 如果 $i \geq n$，说明已经搜索完所有元素，将当前子集加入答案数组中，递归结束。
 
-如果 $i < n$，将第 $i$ 个元素加入子集，执行 $dfs(i + 1)$，然后将第 $i$ 个元素从子集中移除。接下来，我们判断第 $i$ 个元素是否和下一个元素相同，如果相同，则循环跳过该元素，直到找到第一个和第 $i$ 个元素不同的元素，执行 $dfs(i + 1)$。
+如果 $i < n$，将第 $i$ 个元素加入子集，执行 $\textit{dfs}(i + 1)$，然后将第 $i$ 个元素从子集中移除。接下来，我们判断第 $i$ 个元素是否和下一个元素相同，如果相同，则循环跳过该元素，直到找到第一个和第 $i$ 个元素不同的元素，执行 $\textit{dfs}(i + 1)$。
 
-最后，我们只需要调用 $dfs(0)$，返回答案数组即可。
+最后，我们只需要调用 $\textit{dfs}(0)$，返回答案数组即可。
 
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -133,11 +133,11 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         vector<vector<int>> ans;
         vector<int> t;
         int n = nums.size();
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) {
             if (i >= n) {
                 ans.push_back(t);
                 return;
@@ -160,7 +160,7 @@ public:
 
 ```go
 func subsetsWithDup(nums []int) (ans [][]int) {
-	sort.Ints(nums)
+	slices.Sort(nums)
 	n := len(nums)
 	t := []int{}
 	var dfs func(int)
@@ -239,6 +239,67 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var subsetsWithDup = function (nums) {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const t = [];
+    const ans = [];
+    const dfs = i => {
+        if (i >= n) {
+            ans.push([...t]);
+            return;
+        }
+        t.push(nums[i]);
+        dfs(i + 1);
+        t.pop();
+        while (i + 1 < n && nums[i] === nums[i + 1]) {
+            i++;
+        }
+        dfs(i + 1);
+    };
+    dfs(0);
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private IList<IList<int>> ans = new List<IList<int>>();
+    private IList<int> t = new List<int>();
+    private int[] nums;
+
+    public IList<IList<int>> SubsetsWithDup(int[] nums) {
+        Array.Sort(nums);
+        this.nums = nums;
+        Dfs(0);
+        return ans;
+    }
+
+    private void Dfs(int i) {
+        if (i >= nums.Length) {
+            ans.Add(new List<int>(t));
+            return;
+        }
+        t.Add(nums[i]);
+        Dfs(i + 1);
+        t.RemoveAt(t.Count - 1);
+        while (i + 1 < nums.Length && nums[i + 1] == nums[i]) {
+            ++i;
+        }
+        Dfs(i + 1);
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -247,13 +308,13 @@ impl Solution {
 
 ### 方法二：排序 + 二进制枚举
 
-与方法一类似，我们先对数组 $nums$ 进行排序，方便去重。
+与方法一类似，我们先对数组 $\textit{nums}$ 进行排序，方便去重。
 
-接下来，我们在 $[0, 2^n)$ 的范围内枚举一个二进制数 $mask$，其中 $mask$ 的二进制表示是一个 $n$ 位的位串，如果 $mask$ 的第 $i$ 位为 $1$，表示选择 $nums[i]$，为 $0$ 表示不选择 $nums[i]$。注意，如果 $mask$ 的 $i - 1$ 位为 $0$，且 $nums[i] = nums[i - 1]$，则说明在当前枚举到的方案中，第 $i$ 个元素和第 $i - 1$ 个元素相同，为了避免重复，我们跳过这种情况。否则，我们将 $mask$ 对应的子集加入答案数组中。
+接下来，我们在 $[0, 2^n)$ 的范围内枚举一个二进制数 $\textit{mask}$，其中 $\textit{mask}$ 的二进制表示是一个 $n$ 位的位串，如果 $\textit{mask}$ 的第 $i$ 位为 $1$，表示选择 $\textit{nums}[i]$，为 $0$ 表示不选择 $\textit{nums}[i]$。注意，如果 $\textit{mask}$ 的 $i - 1$ 位为 $0$，且 $\textit{nums}[i] = \textit{nums}[i - 1]$，则说明在当前枚举到的方案中，第 $i$ 个元素和第 $i - 1$ 个元素相同，为了避免重复，我们跳过这种情况。否则，我们将 $\textit{mask}$ 对应的子集加入答案数组中。
 
 枚举结束后，我们返回答案数组即可。
 
-时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -314,7 +375,7 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int n = nums.size();
         vector<vector<int>> ans;
         for (int mask = 0; mask < 1 << n; ++mask) {
@@ -417,6 +478,66 @@ impl Solution {
             }
         }
         ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var subsetsWithDup = function (nums) {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const ans = [];
+    for (let mask = 0; mask < 1 << n; ++mask) {
+        const t = [];
+        let ok = true;
+        for (let i = 0; i < n; ++i) {
+            if (((mask >> i) & 1) === 1) {
+                if (i && ((mask >> (i - 1)) & 1) === 0 && nums[i] === nums[i - 1]) {
+                    ok = false;
+                    break;
+                }
+                t.push(nums[i]);
+            }
+        }
+        if (ok) {
+            ans.push(t);
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<IList<int>> SubsetsWithDup(int[] nums) {
+        Array.Sort(nums);
+        int n = nums.Length;
+        IList<IList<int>> ans = new List<IList<int>>();
+        for (int mask = 0; mask < 1 << n; ++mask) {
+            IList<int> t = new List<int>();
+            bool ok = true;
+            for (int i = 0; i < n; ++i) {
+                if ((mask >> i & 1) == 1) {
+                    if (i > 0 && (mask >> (i - 1) & 1) == 0 && nums[i] == nums[i - 1]) {
+                        ok = false;
+                        break;
+                    }
+                    t.Add(nums[i]);
+                }
+            }
+            if (ok) {
+                ans.Add(t);
+            }
+        }
+        return ans;
     }
 }
 ```
