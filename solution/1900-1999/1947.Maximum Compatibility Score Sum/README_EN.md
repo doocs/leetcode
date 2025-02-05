@@ -74,7 +74,17 @@ The compatibility score sum is 3 + 2 + 3 = 8.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Preprocessing + Backtracking
+
+We can first preprocess the compatibility score $g[i][j]$ between each student $i$ and mentor $j$, and then use a backtracking algorithm to solve the problem.
+
+Define a function $\textit{dfs}(i, s)$, where $i$ represents the current student being processed, and $s$ represents the current sum of compatibility scores.
+
+In $\textit{dfs}(i, s)$, if $i \geq m$, it means all students have been assigned, and we update the answer to $\max(\textit{ans}, s)$. Otherwise, we enumerate which mentor the $i$-th student can be assigned to, and then recursively process the next student. During the process, we use an array $\textit{vis}$ to record which mentors have already been assigned to avoid duplicate assignments.
+
+We call $\textit{dfs}(0, 0)$ to get the maximum compatibility score sum.
+
+The time complexity is $O(m!)$, and the space complexity is $O(m^2)$. Here, $m$ is the number of students and mentors.
 
 <!-- tabs:start -->
 
@@ -85,24 +95,24 @@ class Solution:
     def maxCompatibilitySum(
         self, students: List[List[int]], mentors: List[List[int]]
     ) -> int:
-        def dfs(i, t):
-            if i == m:
+        def dfs(i: int, s: int):
+            if i >= m:
                 nonlocal ans
-                ans = max(ans, t)
+                ans = max(ans, s)
                 return
             for j in range(m):
                 if not vis[j]:
                     vis[j] = True
-                    dfs(i + 1, t + g[i][j])
+                    dfs(i + 1, s + g[i][j])
                     vis[j] = False
 
-        m = len(students)
-        g = [[0] * m for _ in range(m)]
-        for i in range(m):
-            for j in range(m):
-                g[i][j] = sum(a == b for a, b in zip(students[i], mentors[j]))
-        vis = [False] * m
         ans = 0
+        m = len(students)
+        vis = [False] * m
+        g = [[0] * m for _ in range(m)]
+        for i, x in enumerate(students):
+            for j, y in enumerate(mentors):
+                g[i][j] = sum(a == b for a, b in zip(x, y))
         dfs(0, 0)
         return ans
 ```
@@ -111,10 +121,10 @@ class Solution:
 
 ```java
 class Solution {
-    private int[][] g;
-    private boolean[] vis;
     private int m;
     private int ans;
+    private int[][] g;
+    private boolean[] vis;
 
     public int maxCompatibilitySum(int[][] students, int[][] mentors) {
         m = students.length;
@@ -123,7 +133,9 @@ class Solution {
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < m; ++j) {
                 for (int k = 0; k < students[i].length; ++k) {
-                    g[i][j] += students[i][k] == mentors[j][k] ? 1 : 0;
+                    if (students[i][k] == mentors[j][k]) {
+                        ++g[i][j];
+                    }
                 }
             }
         }
@@ -131,15 +143,15 @@ class Solution {
         return ans;
     }
 
-    private void dfs(int i, int t) {
-        if (i == m) {
-            ans = Math.max(ans, t);
+    private void dfs(int i, int s) {
+        if (i >= m) {
+            ans = Math.max(ans, s);
             return;
         }
         for (int j = 0; j < m; ++j) {
             if (!vis[j]) {
                 vis[j] = true;
-                dfs(i + 1, t + g[i][j]);
+                dfs(i + 1, s + g[i][j]);
                 vis[j] = false;
             }
         }
@@ -155,10 +167,8 @@ public:
     int maxCompatibilitySum(vector<vector<int>>& students, vector<vector<int>>& mentors) {
         int m = students.size();
         int n = students[0].size();
-        int g[m][m];
-        memset(g, 0, sizeof g);
-        bool vis[m];
-        memset(vis, 0, sizeof vis);
+        vector<vector<int>> g(m, vector<int>(m));
+        vector<bool> vis(m);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < m; ++j) {
                 for (int k = 0; k < n; ++k) {
@@ -167,15 +177,15 @@ public:
             }
         }
         int ans = 0;
-        function<void(int, int)> dfs = [&](int i, int t) {
-            if (i == m) {
-                ans = max(ans, t);
+        auto dfs = [&](this auto&& dfs, int i, int s) {
+            if (i >= m) {
+                ans = max(ans, s);
                 return;
             }
             for (int j = 0; j < m; ++j) {
                 if (!vis[j]) {
                     vis[j] = true;
-                    dfs(i + 1, t + g[i][j]);
+                    dfs(i + 1, s + g[i][j]);
                     vis[j] = false;
                 }
             }
@@ -193,26 +203,26 @@ func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 	m, n := len(students), len(students[0])
 	g := make([][]int, m)
 	vis := make([]bool, m)
-	for i := range g {
+	for i, x := range students {
 		g[i] = make([]int, m)
-		for j := range g {
+		for j, y := range mentors {
 			for k := 0; k < n; k++ {
-				if students[i][k] == mentors[j][k] {
+				if x[k] == y[k] {
 					g[i][j]++
 				}
 			}
 		}
 	}
 	var dfs func(int, int)
-	dfs = func(i, t int) {
+	dfs = func(i, s int) {
 		if i == m {
-			ans = max(ans, t)
+			ans = max(ans, s)
 			return
 		}
 		for j := 0; j < m; j++ {
 			if !vis[j] {
 				vis[j] = true
-				dfs(i+1, t+g[i][j])
+				dfs(i+1, s+g[i][j])
 				vis[j] = false
 			}
 		}
@@ -220,6 +230,124 @@ func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 	dfs(0, 0)
 	return
 }
+```
+
+#### TypeScript
+
+```ts
+function maxCompatibilitySum(students: number[][], mentors: number[][]): number {
+    let ans = 0;
+    const m = students.length;
+    const vis: boolean[] = Array(m).fill(false);
+    const g: number[][] = Array.from({ length: m }, () => Array(m).fill(0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < m; ++j) {
+            for (let k = 0; k < students[i].length; ++k) {
+                if (students[i][k] === mentors[j][k]) {
+                    g[i][j]++;
+                }
+            }
+        }
+    }
+    const dfs = (i: number, s: number): void => {
+        if (i >= m) {
+            ans = Math.max(ans, s);
+            return;
+        }
+        for (let j = 0; j < m; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                dfs(i + 1, s + g[i][j]);
+                vis[j] = false;
+            }
+        }
+    };
+    dfs(0, 0);
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_compatibility_sum(students: Vec<Vec<i32>>, mentors: Vec<Vec<i32>>) -> i32 {
+        let mut ans = 0;
+        let m = students.len();
+        let mut vis = vec![false; m];
+        let mut g = vec![vec![0; m]; m];
+
+        for i in 0..m {
+            for j in 0..m {
+                for k in 0..students[i].len() {
+                    if students[i][k] == mentors[j][k] {
+                        g[i][j] += 1;
+                    }
+                }
+            }
+        }
+
+        fn dfs(i: usize, s: i32, m: usize, g: &Vec<Vec<i32>>, vis: &mut Vec<bool>, ans: &mut i32) {
+            if i >= m {
+                *ans = (*ans).max(s);
+                return;
+            }
+            for j in 0..m {
+                if !vis[j] {
+                    vis[j] = true;
+                    dfs(i + 1, s + g[i][j], m, g, vis, ans);
+                    vis[j] = false;
+                }
+            }
+        }
+
+        dfs(0, 0, m, &g, &mut vis, &mut ans);
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} students
+ * @param {number[][]} mentors
+ * @return {number}
+ */
+var maxCompatibilitySum = function (students, mentors) {
+    let ans = 0;
+    const m = students.length;
+    const vis = Array(m).fill(false);
+    const g = Array.from({ length: m }, () => Array(m).fill(0));
+
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < m; ++j) {
+            for (let k = 0; k < students[i].length; ++k) {
+                if (students[i][k] === mentors[j][k]) {
+                    g[i][j]++;
+                }
+            }
+        }
+    }
+
+    const dfs = function (i, s) {
+        if (i >= m) {
+            ans = Math.max(ans, s);
+            return;
+        }
+        for (let j = 0; j < m; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                dfs(i + 1, s + g[i][j]);
+                vis[j] = false;
+            }
+        }
+    };
+
+    dfs(0, 0);
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

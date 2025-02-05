@@ -3,10 +3,8 @@ public:
     int maxCompatibilitySum(vector<vector<int>>& students, vector<vector<int>>& mentors) {
         int m = students.size();
         int n = students[0].size();
-        int g[m][m];
-        memset(g, 0, sizeof g);
-        bool vis[m];
-        memset(vis, 0, sizeof vis);
+        vector<vector<int>> g(m, vector<int>(m));
+        vector<bool> vis(m);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < m; ++j) {
                 for (int k = 0; k < n; ++k) {
@@ -15,15 +13,15 @@ public:
             }
         }
         int ans = 0;
-        function<void(int, int)> dfs = [&](int i, int t) {
-            if (i == m) {
-                ans = max(ans, t);
+        auto dfs = [&](this auto&& dfs, int i, int s) {
+            if (i >= m) {
+                ans = max(ans, s);
                 return;
             }
             for (int j = 0; j < m; ++j) {
                 if (!vis[j]) {
                     vis[j] = true;
-                    dfs(i + 1, t + g[i][j]);
+                    dfs(i + 1, s + g[i][j]);
                     vis[j] = false;
                 }
             }

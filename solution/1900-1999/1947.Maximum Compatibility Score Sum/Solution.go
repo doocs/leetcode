@@ -2,26 +2,26 @@ func maxCompatibilitySum(students [][]int, mentors [][]int) (ans int) {
 	m, n := len(students), len(students[0])
 	g := make([][]int, m)
 	vis := make([]bool, m)
-	for i := range g {
+	for i, x := range students {
 		g[i] = make([]int, m)
-		for j := range g {
+		for j, y := range mentors {
 			for k := 0; k < n; k++ {
-				if students[i][k] == mentors[j][k] {
+				if x[k] == y[k] {
 					g[i][j]++
 				}
 			}
 		}
 	}
 	var dfs func(int, int)
-	dfs = func(i, t int) {
+	dfs = func(i, s int) {
 		if i == m {
-			ans = max(ans, t)
+			ans = max(ans, s)
 			return
 		}
 		for j := 0; j < m; j++ {
 			if !vis[j] {
 				vis[j] = true
-				dfs(i+1, t+g[i][j])
+				dfs(i+1, s+g[i][j])
 				vis[j] = false
 			}
 		}
