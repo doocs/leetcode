@@ -1,13 +1,18 @@
 class Solution {
 public:
     bool areSentencesSimilar(vector<string>& sentence1, vector<string>& sentence2, vector<vector<string>>& similarPairs) {
-        int m = sentence1.size(), n = sentence2.size();
-        if (m != n) return false;
+        if (sentence1.size() != sentence2.size()) {
+            return false;
+        }
         unordered_set<string> s;
-        for (auto e : similarPairs) s.insert(e[0] + "." + e[1]);
-        for (int i = 0; i < n; ++i) {
-            string a = sentence1[i], b = sentence2[i];
-            if (a != b && !s.count(a + "." + b) && !s.count(b + "." + a)) return false;
+        for (const auto& p : similarPairs) {
+            s.insert(p[0] + "#" + p[1]);
+            s.insert(p[1] + "#" + p[0]);
+        }
+        for (int i = 0; i < sentence1.size(); ++i) {
+            if (sentence1[i] != sentence2[i] && !s.contains(sentence1[i] + "#" + sentence2[i])) {
+                return false;
+            }
         }
         return true;
     }
