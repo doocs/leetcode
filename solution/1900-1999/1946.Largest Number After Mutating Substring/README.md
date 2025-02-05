@@ -49,7 +49,7 @@ tags:
 - 2 映射为 change[2] = 3 。
 - 1 映射为 change[1] = 4 。
 因此，"<strong><em>021</em></strong>" 变为 "<strong><em>934</em></strong>" 。
-"934" 是可以构造的最大整数，所以返回它的字符串表示。 
+"934" 是可以构造的最大整数，所以返回它的字符串表示。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -78,9 +78,15 @@ tags:
 
 ### 方法一：贪心
 
-从左到右遍历字符串 `num`，找到第一个比 `change` 中对应数字小的数字，然后将其替换为 `change` 中对应的数字，直到遇到比 `change` 中对应数字大的数字，停止替换。
+根据题目描述，我们可以从字符串的高位开始，贪心的进行连续的替换操作，直到遇到一个比当前位数字小的数字为止。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 `num` 的长度。
+我们先将字符串 $\textit{num}$ 转换为字符数组 $\textit{s}$，用一个变量 $\textit{changed}$ 记录是否已经发生过变化，初始时 $\textit{changed} = \text{false}$。
+
+然后我们遍历字符数组 $\textit{s}$，对于每个字符 $\textit{c}$，我们将其转换为数字 $\textit{d} = \text{change}[\text{int}(\textit{c})]$，如果已经发生过变化且 $\textit{d} < \textit{c}$，则说明我们不能再继续变化，直接退出循环；否则，如果 $\textit{d} > \textit{c}$，则说明我们可以将 $\textit{c}$ 替换为 $\textit{d}$，此时我们将 $\textit{changed} = \text{true}$，并将 $\textit{s}[i]$ 替换为 $\textit{d}$。
+
+最后我们将字符数组 $\textit{s}$ 转换为字符串并返回即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{num}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -90,13 +96,15 @@ tags:
 class Solution:
     def maximumNumber(self, num: str, change: List[int]) -> str:
         s = list(num)
+        changed = False
         for i, c in enumerate(s):
-            if change[int(c)] > int(c):
-                while i < len(s) and int(s[i]) <= change[int(s[i])]:
-                    s[i] = str(change[int(s[i])])
-                    i += 1
+            d = str(change[int(c)])
+            if changed and d < c:
                 break
-        return ''.join(s)
+            if d > c:
+                changed = True
+                s[i] = d
+        return "".join(s)
 ```
 
 #### Java
@@ -105,15 +113,18 @@ class Solution:
 class Solution {
     public String maximumNumber(String num, int[] change) {
         char[] s = num.toCharArray();
+        boolean changed = false;
         for (int i = 0; i < s.length; ++i) {
-            if (change[s[i] - '0'] > s[i] - '0') {
-                for (; i < s.length && s[i] - '0' <= change[s[i] - '0']; ++i) {
-                    s[i] = (char) (change[s[i] - '0'] + '0');
-                }
+            char d = (char) (change[s[i] - '0'] + '0');
+            if (changed && d < s[i]) {
                 break;
             }
+            if (d > s[i]) {
+                changed = true;
+                s[i] = d;
+            }
         }
-        return String.valueOf(s);
+        return new String(s);
     }
 }
 ```
@@ -125,12 +136,15 @@ class Solution {
 public:
     string maximumNumber(string num, vector<int>& change) {
         int n = num.size();
+        bool changed = false;
         for (int i = 0; i < n; ++i) {
-            if (change[num[i] - '0'] > num[i] - '0') {
-                for (; i < n && change[num[i] - '0'] >= num[i] - '0'; ++i) {
-                    num[i] = change[num[i] - '0'] + '0';
-                }
+            char d = '0' + change[num[i] - '0'];
+            if (changed && d < num[i]) {
                 break;
+            }
+            if (d > num[i]) {
+                changed = true;
+                num[i] = d;
             }
         }
         return num;
@@ -143,16 +157,86 @@ public:
 ```go
 func maximumNumber(num string, change []int) string {
 	s := []byte(num)
+	changed := false
 	for i, c := range num {
-		if change[c-'0'] > int(c-'0') {
-			for ; i < len(s) && change[s[i]-'0'] >= int(s[i]-'0'); i++ {
-				s[i] = byte(change[s[i]-'0']) + '0'
-			}
+		d := byte('0' + change[c-'0'])
+		if changed && d < s[i] {
 			break
+		}
+		if d > s[i] {
+			s[i] = d
+			changed = true
 		}
 	}
 	return string(s)
 }
+```
+
+#### TypeScript
+
+```ts
+function maximumNumber(num: string, change: number[]): string {
+    const s = num.split('');
+    let changed = false;
+    for (let i = 0; i < s.length; ++i) {
+        const d = change[+s[i]].toString();
+        if (changed && d < s[i]) {
+            break;
+        }
+        if (d > s[i]) {
+            s[i] = d;
+            changed = true;
+        }
+    }
+    return s.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_number(num: String, change: Vec<i32>) -> String {
+        let mut s: Vec<char> = num.chars().collect();
+        let mut changed = false;
+        for i in 0..s.len() {
+            let d = (change[s[i] as usize - '0' as usize] + '0' as i32) as u8 as char;
+            if changed && d < s[i] {
+                break;
+            }
+            if d > s[i] {
+                changed = true;
+                s[i] = d;
+            }
+        }
+        s.into_iter().collect()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} num
+ * @param {number[]} change
+ * @return {string}
+ */
+var maximumNumber = function (num, change) {
+    const s = num.split('');
+    let changed = false;
+    for (let i = 0; i < s.length; ++i) {
+        const d = change[+s[i]].toString();
+        if (changed && d < s[i]) {
+            break;
+        }
+        if (d > s[i]) {
+            s[i] = d;
+            changed = true;
+        }
+    }
+    return s.join('');
+};
 ```
 
 <!-- tabs:end -->
