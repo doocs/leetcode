@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3404.Count%20Special%20Subsequences/README.md
+rating: 2445
+source: 第 430 场周赛 Q3
 tags:
     - 数组
     - 哈希表

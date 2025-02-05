@@ -33,8 +33,9 @@ Each row contains a user&#39;s unique ID and email address.
 
 <ul>
 	<li>It contains exactly one <code>@</code> symbol.</li>
+	<li>It ends with <code>.com</code>.</li>
 	<li>The part before the <code>@</code> symbol contains only <strong>alphanumeric</strong> characters and <strong>underscores</strong>.</li>
-	<li>The part after the <code>@</code> symbol contains a domain name <strong>that starts with a letter</strong> and ends with <code>.com</code>.</li>
+	<li>The part after the <code>@</code> symbol and before <code>.com</code> contains a domain name <strong>that contains only letters</strong>.</li>
 </ul>
 
 <p>Return<em> the result table ordered by</em> <code>user_id</code> <em>in</em> <strong>ascending </strong><em>order</em>.</p>

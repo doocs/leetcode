@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README.md
+tags:
+    - 字符串
+    - 动态规划
 ---
 
 <!-- problem:start -->

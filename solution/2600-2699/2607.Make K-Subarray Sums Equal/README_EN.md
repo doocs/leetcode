@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2607.Ma
 rating: 2071
 source: Biweekly Contest 101 Q3
 tags:
+    - Greedy
     - Array
     - Math
     - Number Theory

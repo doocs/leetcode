@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README_EN.md
+rating: 1215
+source: Weekly Contest 433 Q1
 tags:
     - Array
     - Prefix Sum

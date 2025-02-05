@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0047.Pe
 tags:
     - 数组
     - 回溯
+    - 排序
 ---
 
 <!-- problem:start -->

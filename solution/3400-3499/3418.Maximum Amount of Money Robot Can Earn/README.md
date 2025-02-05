@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3418.Maximum%20Amount%20of%20Money%20Robot%20Can%20Earn/README.md
+rating: 1798
+source: 第 432 场周赛 Q2
 tags:
     - 数组
     - 动态规划

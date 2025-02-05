@@ -55,7 +55,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0044  |  [Wildcard Matching](/solution/0000-0099/0044.Wildcard%20Matching/README_EN.md)  |  `Greedy`,`Recursion`,`String`,`Dynamic Programming`  |  Hard  |    |
 |  0045  |  [Jump Game II](/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |    |
 |  0046  |  [Permutations](/solution/0000-0099/0046.Permutations/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
-|  0047  |  [Permutations II](/solution/0000-0099/0047.Permutations%20II/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
+|  0047  |  [Permutations II](/solution/0000-0099/0047.Permutations%20II/README_EN.md)  |  `Array`,`Backtracking`,`Sorting`  |  Medium  |    |
 |  0048  |  [Rotate Image](/solution/0000-0099/0048.Rotate%20Image/README_EN.md)  |  `Array`,`Math`,`Matrix`  |  Medium  |    |
 |  0049  |  [Group Anagrams](/solution/0000-0099/0049.Group%20Anagrams/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |    |
 |  0050  |  [Pow(x, n)](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |    |
@@ -699,7 +699,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0688  |  [Knight Probability in Chessboard](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
 |  0689  |  [Maximum Sum of 3 Non-Overlapping Subarrays](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |    |
 |  0690  |  [Employee Importance](/solution/0600-0699/0690.Employee%20Importance/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Array`,`Hash Table`  |  Medium  |    |
-|  0691  |  [Stickers to Spell Word](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README_EN.md)  |  `Bit Manipulation`,`Array`,`String`,`Dynamic Programming`,`Backtracking`,`Bitmask`  |  Hard  |    |
+|  0691  |  [Stickers to Spell Word](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README_EN.md)  |  `Bit Manipulation`,`Memoization`,`Array`,`Hash Table`,`String`,`Dynamic Programming`,`Backtracking`,`Bitmask`  |  Hard  |    |
 |  0692  |  [Top K Frequent Words](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)  |  `Trie`,`Array`,`Hash Table`,`String`,`Bucket Sort`,`Counting`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |    |
 |  0693  |  [Binary Number with Alternating Bits](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README_EN.md)  |  `Bit Manipulation`  |  Easy  |    |
 |  0694  |  [Number of Distinct Islands](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Hash Table`,`Hash Function`  |  Medium  |  🔒  |
@@ -2368,7 +2368,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2357  |  [Make Array Zero by Subtracting Equal Amounts](/solution/2300-2399/2357.Make%20Array%20Zero%20by%20Subtracting%20Equal%20Amounts/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Sorting`,`Simulation`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 304  |
 |  2358  |  [Maximum Number of Groups Entering a Competition](/solution/2300-2399/2358.Maximum%20Number%20of%20Groups%20Entering%20a%20Competition/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Binary Search`  |  Medium  |  Weekly Contest 304  |
 |  2359  |  [Find Closest Node to Given Two Nodes](/solution/2300-2399/2359.Find%20Closest%20Node%20to%20Given%20Two%20Nodes/README_EN.md)  |  `Depth-First Search`,`Graph`  |  Medium  |  Weekly Contest 304  |
-|  2360  |  [Longest Cycle in a Graph](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README_EN.md)  |  `Depth-First Search`,`Graph`,`Topological Sort`  |  Hard  |  Weekly Contest 304  |
+|  2360  |  [Longest Cycle in a Graph](/solution/2300-2399/2360.Longest%20Cycle%20in%20a%20Graph/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Topological Sort`  |  Hard  |  Weekly Contest 304  |
 |  2361  |  [Minimum Costs Using the Train Line](/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  🔒  |
 |  2362  |  [Generate the Invoice](/solution/2300-2399/2362.Generate%20the%20Invoice/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  2363  |  [Merge Similar Items](/solution/2300-2399/2363.Merge%20Similar%20Items/README_EN.md)  |  `Array`,`Hash Table`,`Ordered Set`,`Sorting`  |  Easy  |  Biweekly Contest 84  |
@@ -2501,7 +2501,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2490  |  [Circular Sentence](/solution/2400-2499/2490.Circular%20Sentence/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 322  |
 |  2491  |  [Divide Players Into Teams of Equal Skill](/solution/2400-2499/2491.Divide%20Players%20Into%20Teams%20of%20Equal%20Skill/README_EN.md)  |  `Array`,`Hash Table`,`Two Pointers`,`Sorting`  |  Medium  |  Weekly Contest 322  |
 |  2492  |  [Minimum Score of a Path Between Two Cities](/solution/2400-2499/2492.Minimum%20Score%20of%20a%20Path%20Between%20Two%20Cities/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`  |  Medium  |  Weekly Contest 322  |
-|  2493  |  [Divide Nodes Into the Maximum Number of Groups](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md)  |  `Breadth-First Search`,`Union Find`,`Graph`  |  Hard  |  Weekly Contest 322  |
+|  2493  |  [Divide Nodes Into the Maximum Number of Groups](/solution/2400-2499/2493.Divide%20Nodes%20Into%20the%20Maximum%20Number%20of%20Groups/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`  |  Hard  |  Weekly Contest 322  |
 |  2494  |  [Merge Overlapping Events in the Same Hall](/solution/2400-2499/2494.Merge%20Overlapping%20Events%20in%20the%20Same%20Hall/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  2495  |  [Number of Subarrays Having Even Product](/solution/2400-2499/2495.Number%20of%20Subarrays%20Having%20Even%20Product/README_EN.md)  |  `Array`,`Math`,`Dynamic Programming`  |  Medium  |  🔒  |
 |  2496  |  [Maximum Value of a String in an Array](/solution/2400-2499/2496.Maximum%20Value%20of%20a%20String%20in%20an%20Array/README_EN.md)  |  `Array`,`String`  |  Easy  |  Biweekly Contest 93  |
@@ -2615,7 +2615,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2604  |  [Minimum Time to Eat All Grains](/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Hard  |  🔒  |
 |  2605  |  [Form Smallest Number From Two Digit Arrays](/solution/2600-2699/2605.Form%20Smallest%20Number%20From%20Two%20Digit%20Arrays/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`  |  Easy  |  Biweekly Contest 101  |
 |  2606  |  [Find the Substring With Maximum Cost](/solution/2600-2699/2606.Find%20the%20Substring%20With%20Maximum%20Cost/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 101  |
-|  2607  |  [Make K-Subarray Sums Equal](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)  |  `Array`,`Math`,`Number Theory`,`Sorting`  |  Medium  |  Biweekly Contest 101  |
+|  2607  |  [Make K-Subarray Sums Equal](/solution/2600-2699/2607.Make%20K-Subarray%20Sums%20Equal/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Number Theory`,`Sorting`  |  Medium  |  Biweekly Contest 101  |
 |  2608  |  [Shortest Cycle in a Graph](/solution/2600-2699/2608.Shortest%20Cycle%20in%20a%20Graph/README_EN.md)  |  `Breadth-First Search`,`Graph`  |  Hard  |  Biweekly Contest 101  |
 |  2609  |  [Find the Longest Balanced Substring of a Binary String](/solution/2600-2699/2609.Find%20the%20Longest%20Balanced%20Substring%20of%20a%20Binary%20String/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 339  |
 |  2610  |  [Convert an Array Into a 2D Array With Conditions](/solution/2600-2699/2610.Convert%20an%20Array%20Into%20a%202D%20Array%20With%20Conditions/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 339  |
@@ -3444,16 +3444,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3433  |  [Count Mentions Per User](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README_EN.md)  |  `Array`,`Math`,`Sorting`,`Simulation`  |  Medium  |  Weekly Contest 434  |
 |  3434  |  [Maximum Frequency After Subarray Operation](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 434  |
 |  3435  |  [Frequencies of Shortest Supersequences](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Topological Sort`,`Array`,`String`,`Enumeration`  |  Hard  |  Weekly Contest 434  |
-|  3436  |  [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md)  |    |  Easy  |    |
-|  3437  |  [Permutations III](/solution/3400-3499/3437.Permutations%20III/README_EN.md)  |    |  Medium  |  🔒  |
-|  3438  |  [Find Valid Pair of Adjacent Digits in String](/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README_EN.md)  |    |  Easy  |  Biweekly Contest 149  |
-|  3439  |  [Reschedule Meetings for Maximum Free Time I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 149  |
-|  3440  |  [Reschedule Meetings for Maximum Free Time II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 149  |
-|  3441  |  [Minimum Cost Good Caption](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README_EN.md)  |    |  Hard  |  Biweekly Contest 149  |
-|  3442  |  [Maximum Difference Between Even and Odd Frequency I](/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 435  |
-|  3443  |  [Maximum Manhattan Distance After K Changes](/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README_EN.md)  |    |  Medium  |  Weekly Contest 435  |
-|  3444  |  [Minimum Increments for Target Multiples in an Array](/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 435  |
-|  3445  |  [Maximum Difference Between Even and Odd Frequency II](/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 435  |
+|  3436  |  [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md)  |  `Database`  |  Easy  |    |
+|  3437  |  [Permutations III](/solution/3400-3499/3437.Permutations%20III/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |  🔒  |
+|  3438  |  [Find Valid Pair of Adjacent Digits in String](/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Biweekly Contest 149  |
+|  3439  |  [Reschedule Meetings for Maximum Free Time I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README_EN.md)  |  `Greedy`,`Array`,`Sliding Window`  |  Medium  |  Biweekly Contest 149  |
+|  3440  |  [Reschedule Meetings for Maximum Free Time II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README_EN.md)  |  `Greedy`,`Array`,`Enumeration`  |  Medium  |  Biweekly Contest 149  |
+|  3441  |  [Minimum Cost Good Caption](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 149  |
+|  3442  |  [Maximum Difference Between Even and Odd Frequency I](/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Weekly Contest 435  |
+|  3443  |  [Maximum Manhattan Distance After K Changes](/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Counting`  |  Medium  |  Weekly Contest 435  |
+|  3444  |  [Minimum Increments for Target Multiples in an Array](/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`,`Dynamic Programming`,`Bitmask`,`Number Theory`  |  Hard  |  Weekly Contest 435  |
+|  3445  |  [Maximum Difference Between Even and Odd Frequency II](/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README_EN.md)  |  `String`,`Enumeration`,`Prefix Sum`,`Sliding Window`  |  Hard  |  Weekly Contest 435  |
 
 ## Copyright
 

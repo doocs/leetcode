@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->

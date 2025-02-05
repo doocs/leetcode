@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3424.Minimum%20Cost%20to%20Make%20Arrays%20Identical/README.md
+rating: 1502
+source: 第 148 场双周赛 Q2
 tags:
     - 贪心
     - 数组

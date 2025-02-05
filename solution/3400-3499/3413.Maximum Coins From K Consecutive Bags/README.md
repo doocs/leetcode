@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3413.Maximum%20Coins%20From%20K%20Consecutive%20Bags/README.md
+rating: 2373
+source: 第 431 场周赛 Q3
 tags:
     - 贪心
     - 数组

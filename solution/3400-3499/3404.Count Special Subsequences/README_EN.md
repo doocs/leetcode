@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3404.Count%20Special%20Subsequences/README_EN.md
+rating: 2445
+source: Weekly Contest 430 Q3
 tags:
     - Array
     - Hash Table
