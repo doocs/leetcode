@@ -1,18 +1,17 @@
 class Solution {
-    public List<Integer> longestCommomSubsequence(int[][] arrays) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int[] array : arrays) {
-            for (int e : array) {
-                counter.put(e, counter.getOrDefault(e, 0) + 1);
+    public List<Integer> longestCommonSubsequence(int[][] arrays) {
+        int[] cnt = new int[101];
+        for (var row : arrays) {
+            for (int x : row) {
+                ++cnt[x];
             }
         }
-        int n = arrays.length;
-        List<Integer> res = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            if (entry.getValue() == n) {
-                res.add(entry.getKey());
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < 101; ++i) {
+            if (cnt[i] == arrays.length) {
+                ans.add(i);
             }
         }
-        return res;
+        return ans;
     }
 }
