@@ -3,11 +3,14 @@ public class Solution {
         int ans = 0;
         for (char c = 'a'; c <= 'z'; ++c) {
             int l = s.IndexOf(c), r = s.LastIndexOf(c);
-            HashSet<char> cs = new HashSet<char>();
+            int mask = 0;
             for (int i = l + 1; i < r; ++i) {
-                cs.Add(s[i]);
+                int j = s[i] - 'a';
+                if ((mask >> j & 1) == 0) {
+                    mask |= 1 << j;
+                    ++ans;
+                }
             }
-            ans += cs.Count;
         }
         return ans;
     }
