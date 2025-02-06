@@ -68,7 +68,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Traversal
+
+We can sort all characters in descending order of attack power and ascending order of defense power.
+
+Then, traverse all characters. For the current character, if its defense power is less than the previous maximum defense power, it is a weak character, and we increment the answer by one. Otherwise, update the maximum defense power.
+
+After the traversal, we get the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of characters.
 
 <!-- tabs:start -->
 
