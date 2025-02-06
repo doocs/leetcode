@@ -1,3 +1,3 @@
 function buildArray(nums: number[]): number[] {
-    return nums.map(v => nums[v]);
+    return nums.map(x => nums[x]);
 }
