@@ -1,17 +1,18 @@
 class Solution {
 public:
-    vector<int> longestCommomSubsequence(vector<vector<int>>& arrays) {
-        unordered_map<int, int> counter;
-        vector<int> res;
-        int n = arrays.size();
-        for (auto array : arrays) {
-            for (auto e : array) {
-                counter[e] += 1;
-                if (counter[e] == n) {
-                    res.push_back(e);
-                }
+    vector<int> longestCommonSubsequence(vector<vector<int>>& arrays) {
+        int cnt[101]{};
+        for (const auto& row : arrays) {
+            for (int x : row) {
+                ++cnt[x];
             }
         }
-        return res;
+        vector<int> ans;
+        for (int i = 0; i < 101; ++i) {
+            if (cnt[i] == arrays.size()) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
     }
 };
