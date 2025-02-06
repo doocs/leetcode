@@ -1,10 +1,14 @@
-function permuteUnique(nums: number[]): number[][] {
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permuteUnique = function (nums) {
     nums.sort((a, b) => a - b);
     const n = nums.length;
-    const ans: number[][] = [];
-    const t: number[] = Array(n);
-    const vis: boolean[] = Array(n).fill(false);
-    const dfs = (i: number) => {
+    const ans = [];
+    const t = Array(n);
+    const vis = Array(n).fill(false);
+    const dfs = i => {
         if (i === n) {
             ans.push(t.slice());
             return;
@@ -21,4 +25,4 @@ function permuteUnique(nums: number[]): number[][] {
     };
     dfs(0);
     return ans;
-}
+};
