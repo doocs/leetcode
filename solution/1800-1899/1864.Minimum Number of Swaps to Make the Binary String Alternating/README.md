@@ -65,7 +65,21 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们先统计字符串 $\textit{s}$ 中字符 $0$ 和字符 $1$ 的个数，分别记为 $n_0$ 和 $n_1$。
+
+如果 $n_0$ 和 $n_1$ 的绝对值大于 $1$，那么无法构成交替字符串，返回 $-1$。
+
+如果 $n_0$ 和 $n_1$ 相等，那么我们可以分别计算将字符串转化为以 $0$ 开头和以 $1$ 开头的交替字符串所需要的交换次数，取最小值。
+
+如果 $n_0$ 和 $n_1$ 不相等，那么我们只需要计算将字符串转化为以字符个数较多的字符开头的交替字符串所需要的交换次数。
+
+问题转换为：计算字符串 $\textit{s}$ 转化为以字符 $c$ 开头的交替字符串所需要的交换次数。
+
+我们定义一个函数 $\text{calc}(c)$，表示将字符串 $\textit{s}$ 转化为以字符 $c$ 开头的交替字符串所需要的交换次数。我们遍历字符串 $\textit{s}$，对于每个位置 $i$，如果 $i$ 与 $c$ 的奇偶性不同，那么我们需要交换这个位置的字符，计数器 $+1$。由于每次交换都会使两个位置的字符变得相同，因此最终的交换次数为计数器的一半。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $\textit{s}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -74,60 +88,141 @@ tags:
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
-        s0n0 = s0n1 = s1n0 = s1n1 = 0
-        for i in range(len(s)):
-            if (i & 1) == 0:
-                if s[i] != '0':
-                    s0n0 += 1
-                else:
-                    s1n1 += 1
-            else:
-                if s[i] != '0':
-                    s1n0 += 1
-                else:
-                    s0n1 += 1
-        if s0n0 != s0n1 and s1n0 != s1n1:
+        def calc(c: int) -> int:
+            return sum((c ^ i & 1) != x for i, x in enumerate(map(int, s))) // 2
+
+        n0 = s.count("0")
+        n1 = len(s) - n0
+        if abs(n0 - n1) > 1:
             return -1
-        if s0n0 != s0n1:
-            return s1n0
-        if s1n0 != s1n1:
-            return s0n0
-        return min(s0n0, s1n0)
+        if n0 == n1:
+            return min(calc(0), calc(1))
+        return calc(0 if n0 > n1 else 1)
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private char[] s;
+
     public int minSwaps(String s) {
-        int s0n0 = 0, s0n1 = 0;
-        int s1n0 = 0, s1n1 = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            if ((i & 1) == 0) {
-                if (s.charAt(i) != '0') {
-                    s0n0 += 1;
-                } else {
-                    s1n1 += 1;
-                }
-            } else {
-                if (s.charAt(i) != '0') {
-                    s1n0 += 1;
-                } else {
-                    s0n1 += 1;
-                }
-            }
+        this.s = s.toCharArray();
+        int n1 = 0;
+        for (char c : this.s) {
+            n1 += (c - '0');
         }
-        if (s0n0 != s0n1 && s1n0 != s1n1) {
+        int n0 = this.s.length - n1;
+        if (Math.abs(n0 - n1) > 1) {
             return -1;
         }
-        if (s0n0 != s0n1) {
-            return s1n0;
+        if (n0 == n1) {
+            return Math.min(calc(0), calc(1));
         }
-        if (s1n0 != s1n1) {
-            return s0n0;
-        }
-        return Math.min(s0n0, s1n0);
+        return calc(n0 > n1 ? 0 : 1);
     }
+
+    private int calc(int c) {
+        int cnt = 0;
+        for (int i = 0; i < s.length; ++i) {
+            int x = s[i] - '0';
+            if ((i & 1 ^ c) != x) {
+                ++cnt;
+            }
+        }
+        return cnt / 2;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minSwaps(string s) {
+        int n0 = ranges::count(s, '0');
+        int n1 = s.size() - n0;
+        if (abs(n0 - n1) > 1) {
+            return -1;
+        }
+        auto calc = [&](int c) -> int {
+            int cnt = 0;
+            for (int i = 0; i < s.size(); ++i) {
+                int x = s[i] - '0';
+                if ((i & 1 ^ c) != x) {
+                    ++cnt;
+                }
+            }
+            return cnt / 2;
+        };
+        if (n0 == n1) {
+            return min(calc(0), calc(1));
+        }
+        return calc(n0 > n1 ? 0 : 1);
+    }
+};
+```
+
+#### Go
+
+```go
+func minSwaps(s string) int {
+	n0 := strings.Count(s, "0")
+	n1 := len(s) - n0
+	if abs(n0-n1) > 1 {
+		return -1
+	}
+	calc := func(c int) int {
+		cnt := 0
+		for i, ch := range s {
+			x := int(ch - '0')
+			if i&1^c != x {
+				cnt++
+			}
+		}
+		return cnt / 2
+	}
+	if n0 == n1 {
+		return min(calc(0), calc(1))
+	}
+	if n0 > n1 {
+		return calc(0)
+	}
+	return calc(1)
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minSwaps(s: string): number {
+    const n0 = (s.match(/0/g) || []).length;
+    const n1 = s.length - n0;
+    if (Math.abs(n0 - n1) > 1) {
+        return -1;
+    }
+    const calc = (c: number): number => {
+        let cnt = 0;
+        for (let i = 0; i < s.length; i++) {
+            const x = +s[i];
+            if (((i & 1) ^ c) !== x) {
+                cnt++;
+            }
+        }
+        return Math.floor(cnt / 2);
+    };
+    if (n0 === n1) {
+        return Math.min(calc(0), calc(1));
+    }
+    return calc(n0 > n1 ? 0 : 1);
 }
 ```
 
@@ -139,28 +234,25 @@ class Solution {
  * @return {number}
  */
 var minSwaps = function (s) {
-    let n = s.length;
-    let n1 = [...s].reduce((a, c) => parseInt(c) + a, 0);
-    let n0 = n - n1;
-    let count = Infinity;
-    let half = n / 2;
-    // 101、1010
-    if (n1 == Math.ceil(half) && n0 == Math.floor(half)) {
-        let cur = 0;
-        for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '1') cur++;
-        }
-        count = Math.min(count, cur);
+    const n0 = (s.match(/0/g) || []).length;
+    const n1 = s.length - n0;
+    if (Math.abs(n0 - n1) > 1) {
+        return -1;
     }
-    // 010、0101
-    if (n0 == Math.ceil(half) && n1 == Math.floor(half)) {
-        let cur = 0;
-        for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '0') cur++;
+    const calc = c => {
+        let cnt = 0;
+        for (let i = 0; i < s.length; i++) {
+            const x = +s[i];
+            if (((i & 1) ^ c) !== x) {
+                cnt++;
+            }
         }
-        count = Math.min(count, cur);
+        return Math.floor(cnt / 2);
+    };
+    if (n0 === n1) {
+        return Math.min(calc(0), calc(1));
     }
-    return count == Infinity ? -1 : count;
+    return calc(n0 > n1 ? 0 : 1);
 };
 ```
 
