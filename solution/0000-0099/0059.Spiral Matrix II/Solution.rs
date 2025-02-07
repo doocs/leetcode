@@ -1,29 +1,17 @@
 impl Solution {
     pub fn generate_matrix(n: i32) -> Vec<Vec<i32>> {
-        let n = n as usize;
-        let mut res = vec![vec![0; n]; n];
-        let mut num = 1;
-        for i in 0..n / 2 {
-            for j in i..n - i - 1 {
-                res[i][j] = num;
-                num += 1;
+        let mut ans = vec![vec![0; n as usize]; n as usize];
+        let dirs = [0, 1, 0, -1, 0];
+        let (mut i, mut j, mut k) = (0, 0, 0);
+        for v in 1..=n * n {
+            ans[i as usize][j as usize] = v;
+            let (x, y) = (i + dirs[k], j + dirs[k + 1]);
+            if x < 0 || x >= n || y < 0 || y >= n || ans[x as usize][y as usize] != 0 {
+                k = (k + 1) % 4;
             }
-            for j in i..n - i - 1 {
-                res[j][n - i - 1] = num;
-                num += 1;
-            }
-            for j in i..n - i - 1 {
-                res[n - i - 1][n - j - 1] = num;
-                num += 1;
-            }
-            for j in i..n - i - 1 {
-                res[n - j - 1][i] = num;
-                num += 1;
-            }
+            i += dirs[k];
+            j += dirs[k + 1];
         }
-        if n % 2 == 1 {
-            res[n >> 1][n >> 1] = num;
-        }
-        res
+        ans
     }
 }
