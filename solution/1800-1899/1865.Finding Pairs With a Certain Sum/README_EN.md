@@ -76,7 +76,17 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We note that the length of the array $\textit{nums1}$ does not exceed ${10}^3$, while the length of the array $\textit{nums2}$ reaches ${10}^5$. Therefore, if we directly enumerate all index pairs $(i, j)$ and check whether $\textit{nums1}[i] + \textit{nums2}[j]$ equals the specified value $\textit{tot}$, it will exceed the time limit.
+
+Can we only enumerate the shorter array $\textit{nums1}$? The answer is yes. We use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums2}$, then enumerate each element $x$ in the array $\textit{nums1}$ and calculate the sum of $\textit{cnt}[\textit{tot} - x]$.
+
+When calling the $\text{add}$ method, we need to first decrement the value corresponding to $\textit{nums2}[index]$ in $\textit{cnt}$ by $1$, then add $\textit{val}$ to the value of $\textit{nums2}[index]$, and finally increment the value corresponding to $\textit{nums2}[index]$ in $\textit{cnt}$ by $1$.
+
+When calling the $\text{count}$ method, we only need to traverse the array $\textit{nums1}$ and calculate the sum of $\textit{cnt}[\textit{tot} - x]$ for each element $x$.
+
+The time complexity is $O(n \times q)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively, and $q$ is the number of times the $\text{count}$ method is called.
 
 <!-- tabs:start -->
 
@@ -84,19 +94,19 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 
 ```python
 class FindSumPairs:
+
     def __init__(self, nums1: List[int], nums2: List[int]):
+        self.cnt = Counter(nums2)
         self.nums1 = nums1
         self.nums2 = nums2
-        self.cnt = Counter(nums2)
 
     def add(self, index: int, val: int) -> None:
-        old = self.nums2[index]
-        self.cnt[old] -= 1
-        self.cnt[old + val] += 1
+        self.cnt[self.nums2[index]] -= 1
         self.nums2[index] += val
+        self.cnt[self.nums2[index]] += 1
 
     def count(self, tot: int) -> int:
-        return sum(self.cnt[tot - v] for v in self.nums1)
+        return sum(self.cnt[tot - x] for x in self.nums1)
 
 
 # Your FindSumPairs object will be instantiated and called as such:
@@ -116,22 +126,21 @@ class FindSumPairs {
     public FindSumPairs(int[] nums1, int[] nums2) {
         this.nums1 = nums1;
         this.nums2 = nums2;
-        for (int v : nums2) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        for (int x : nums2) {
+            cnt.merge(x, 1, Integer::sum);
         }
     }
 
     public void add(int index, int val) {
-        int old = nums2[index];
-        cnt.put(old, cnt.get(old) - 1);
-        cnt.put(old + val, cnt.getOrDefault(old + val, 0) + 1);
+        cnt.merge(nums2[index], -1, Integer::sum);
         nums2[index] += val;
+        cnt.merge(nums2[index], 1, Integer::sum);
     }
 
     public int count(int tot) {
         int ans = 0;
-        for (int v : nums1) {
-            ans += cnt.getOrDefault(tot - v, 0);
+        for (int x : nums1) {
+            ans += cnt.getOrDefault(tot - x, 0);
         }
         return ans;
     }
@@ -153,22 +162,21 @@ public:
     FindSumPairs(vector<int>& nums1, vector<int>& nums2) {
         this->nums1 = nums1;
         this->nums2 = nums2;
-        for (int& v : nums2) {
-            ++cnt[v];
+        for (int x : nums2) {
+            ++cnt[x];
         }
     }
 
     void add(int index, int val) {
-        int old = nums2[index];
-        --cnt[old];
-        ++cnt[old + val];
+        --cnt[nums2[index]];
         nums2[index] += val;
+        ++cnt[nums2[index]];
     }
 
     int count(int tot) {
         int ans = 0;
-        for (int& v : nums1) {
-            ans += cnt[tot - v];
+        for (int x : nums1) {
+            ans += cnt[tot - x];
         }
         return ans;
     }
@@ -198,22 +206,21 @@ type FindSumPairs struct {
 
 func Constructor(nums1 []int, nums2 []int) FindSumPairs {
 	cnt := map[int]int{}
-	for _, v := range nums2 {
-		cnt[v]++
+	for _, x := range nums2 {
+		cnt[x]++
 	}
 	return FindSumPairs{nums1, nums2, cnt}
 }
 
 func (this *FindSumPairs) Add(index int, val int) {
-	old := this.nums2[index]
-	this.cnt[old]--
-	this.cnt[old+val]++
+	this.cnt[this.nums2[index]]--
 	this.nums2[index] += val
+	this.cnt[this.nums2[index]]++
 }
 
 func (this *FindSumPairs) Count(tot int) (ans int) {
-	for _, v := range this.nums1 {
-		ans += this.cnt[tot-v]
+	for _, x := range this.nums1 {
+		ans += this.cnt[tot-x]
 	}
 	return
 }
@@ -223,6 +230,147 @@ func (this *FindSumPairs) Count(tot int) (ans int) {
  * obj := Constructor(nums1, nums2);
  * obj.Add(index,val);
  * param_2 := obj.Count(tot);
+ */
+```
+
+#### TypeScript
+
+```ts
+class FindSumPairs {
+    private nums1: number[];
+    private nums2: number[];
+    private cnt: Map<number, number>;
+
+    constructor(nums1: number[], nums2: number[]) {
+        this.nums1 = nums1;
+        this.nums2 = nums2;
+        this.cnt = new Map();
+        for (const x of nums2) {
+            this.cnt.set(x, (this.cnt.get(x) || 0) + 1);
+        }
+    }
+
+    add(index: number, val: number): void {
+        const old = this.nums2[index];
+        this.cnt.set(old, this.cnt.get(old)! - 1);
+        this.nums2[index] += val;
+        const now = this.nums2[index];
+        this.cnt.set(now, (this.cnt.get(now) || 0) + 1);
+    }
+
+    count(tot: number): number {
+        return this.nums1.reduce((acc, x) => acc + (this.cnt.get(tot - x) || 0), 0);
+    }
+}
+
+/**
+ * Your FindSumPairs object will be instantiated and called as such:
+ * var obj = new FindSumPairs(nums1, nums2)
+ * obj.add(index,val)
+ * var param_2 = obj.count(tot)
+ */
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ */
+var FindSumPairs = function (nums1, nums2) {
+    this.nums1 = nums1;
+    this.nums2 = nums2;
+    this.cnt = new Map();
+    for (const x of nums2) {
+        this.cnt.set(x, (this.cnt.get(x) || 0) + 1);
+    }
+};
+
+/**
+ * @param {number} index
+ * @param {number} val
+ * @return {void}
+ */
+FindSumPairs.prototype.add = function (index, val) {
+    const old = this.nums2[index];
+    this.cnt.set(old, this.cnt.get(old) - 1);
+    this.nums2[index] += val;
+    const now = this.nums2[index];
+    this.cnt.set(now, (this.cnt.get(now) || 0) + 1);
+};
+
+/**
+ * @param {number} tot
+ * @return {number}
+ */
+FindSumPairs.prototype.count = function (tot) {
+    return this.nums1.reduce((acc, x) => acc + (this.cnt.get(tot - x) || 0), 0);
+};
+
+/**
+ * Your FindSumPairs object will be instantiated and called as such:
+ * var obj = new FindSumPairs(nums1, nums2)
+ * obj.add(index,val)
+ * var param_2 = obj.count(tot)
+ */
+```
+
+#### C#
+
+```cs
+public class FindSumPairs {
+    private int[] nums1;
+    private int[] nums2;
+    private Dictionary<int, int> cnt = new Dictionary<int, int>();
+
+    public FindSumPairs(int[] nums1, int[] nums2) {
+        this.nums1 = nums1;
+        this.nums2 = nums2;
+        foreach (int x in nums2) {
+            if (cnt.ContainsKey(x)) {
+                cnt[x]++;
+            } else {
+                cnt[x] = 1;
+            }
+        }
+    }
+
+    public void Add(int index, int val) {
+        int oldVal = nums2[index];
+        if (cnt.TryGetValue(oldVal, out int oldCount)) {
+            if (oldCount == 1) {
+                cnt.Remove(oldVal);
+            } else {
+                cnt[oldVal] = oldCount - 1;
+            }
+        }
+        nums2[index] += val;
+        int newVal = nums2[index];
+        if (cnt.TryGetValue(newVal, out int newCount)) {
+            cnt[newVal] = newCount + 1;
+        } else {
+            cnt[newVal] = 1;
+        }
+    }
+
+    public int Count(int tot) {
+        int ans = 0;
+        foreach (int x in nums1) {
+            int target = tot - x;
+            if (cnt.TryGetValue(target, out int count)) {
+                ans += count;
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your FindSumPairs object will be instantiated and called as such:
+ * FindSumPairs obj = new FindSumPairs(nums1, nums2);
+ * obj.Add(index,val);
+ * int param_2 = obj.Count(tot);
  */
 ```
 
