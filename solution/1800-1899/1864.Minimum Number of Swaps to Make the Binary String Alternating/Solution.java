@@ -1,31 +1,30 @@
 class Solution {
+    private char[] s;
+
     public int minSwaps(String s) {
-        int s0n0 = 0, s0n1 = 0;
-        int s1n0 = 0, s1n1 = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            if ((i & 1) == 0) {
-                if (s.charAt(i) != '0') {
-                    s0n0 += 1;
-                } else {
-                    s1n1 += 1;
-                }
-            } else {
-                if (s.charAt(i) != '0') {
-                    s1n0 += 1;
-                } else {
-                    s0n1 += 1;
-                }
-            }
+        this.s = s.toCharArray();
+        int n1 = 0;
+        for (char c : this.s) {
+            n1 += (c - '0');
         }
-        if (s0n0 != s0n1 && s1n0 != s1n1) {
+        int n0 = this.s.length - n1;
+        if (Math.abs(n0 - n1) > 1) {
             return -1;
         }
-        if (s0n0 != s0n1) {
-            return s1n0;
+        if (n0 == n1) {
+            return Math.min(calc(0), calc(1));
         }
-        if (s1n0 != s1n1) {
-            return s0n0;
+        return calc(n0 > n1 ? 0 : 1);
+    }
+
+    private int calc(int c) {
+        int cnt = 0;
+        for (int i = 0; i < s.length; ++i) {
+            int x = s[i] - '0';
+            if ((i & 1 ^ c) != x) {
+                ++cnt;
+            }
         }
-        return Math.min(s0n0, s1n0);
+        return cnt / 2;
     }
 }

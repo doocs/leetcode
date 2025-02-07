@@ -64,7 +64,21 @@ The string is now alternating.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+First, we count the number of characters $0$ and $1$ in the string $\textit{s}$, denoted as $n_0$ and $n_1$ respectively.
+
+If the absolute difference between $n_0$ and $n_1$ is greater than $1$, it is impossible to form an alternating string, so we return $-1$.
+
+If $n_0$ and $n_1$ are equal, we can calculate the number of swaps needed to convert the string into an alternating string starting with $0$ and starting with $1$, and take the minimum value.
+
+If $n_0$ and $n_1$ are not equal, we only need to calculate the number of swaps needed to convert the string into an alternating string starting with the character that appears more frequently.
+
+The problem is reduced to calculating the number of swaps needed to convert the string $\textit{s}$ into an alternating string starting with character $c$.
+
+We define a function $\text{calc}(c)$, which represents the number of swaps needed to convert the string $\textit{s}$ into an alternating string starting with character $c$. We traverse the string $\textit{s}$, and for each position $i$, if the parity of $i$ is different from $c$, we need to swap the character at this position, incrementing the counter by $1$. Since each swap makes two positions have the same character, the final number of swaps is half of the counter.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -73,60 +87,141 @@ The string is now alternating.
 ```python
 class Solution:
     def minSwaps(self, s: str) -> int:
-        s0n0 = s0n1 = s1n0 = s1n1 = 0
-        for i in range(len(s)):
-            if (i & 1) == 0:
-                if s[i] != '0':
-                    s0n0 += 1
-                else:
-                    s1n1 += 1
-            else:
-                if s[i] != '0':
-                    s1n0 += 1
-                else:
-                    s0n1 += 1
-        if s0n0 != s0n1 and s1n0 != s1n1:
+        def calc(c: int) -> int:
+            return sum((c ^ i & 1) != x for i, x in enumerate(map(int, s))) // 2
+
+        n0 = s.count("0")
+        n1 = len(s) - n0
+        if abs(n0 - n1) > 1:
             return -1
-        if s0n0 != s0n1:
-            return s1n0
-        if s1n0 != s1n1:
-            return s0n0
-        return min(s0n0, s1n0)
+        if n0 == n1:
+            return min(calc(0), calc(1))
+        return calc(0 if n0 > n1 else 1)
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private char[] s;
+
     public int minSwaps(String s) {
-        int s0n0 = 0, s0n1 = 0;
-        int s1n0 = 0, s1n1 = 0;
-        for (int i = 0; i < s.length(); ++i) {
-            if ((i & 1) == 0) {
-                if (s.charAt(i) != '0') {
-                    s0n0 += 1;
-                } else {
-                    s1n1 += 1;
-                }
-            } else {
-                if (s.charAt(i) != '0') {
-                    s1n0 += 1;
-                } else {
-                    s0n1 += 1;
-                }
-            }
+        this.s = s.toCharArray();
+        int n1 = 0;
+        for (char c : this.s) {
+            n1 += (c - '0');
         }
-        if (s0n0 != s0n1 && s1n0 != s1n1) {
+        int n0 = this.s.length - n1;
+        if (Math.abs(n0 - n1) > 1) {
             return -1;
         }
-        if (s0n0 != s0n1) {
-            return s1n0;
+        if (n0 == n1) {
+            return Math.min(calc(0), calc(1));
         }
-        if (s1n0 != s1n1) {
-            return s0n0;
-        }
-        return Math.min(s0n0, s1n0);
+        return calc(n0 > n1 ? 0 : 1);
     }
+
+    private int calc(int c) {
+        int cnt = 0;
+        for (int i = 0; i < s.length; ++i) {
+            int x = s[i] - '0';
+            if ((i & 1 ^ c) != x) {
+                ++cnt;
+            }
+        }
+        return cnt / 2;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minSwaps(string s) {
+        int n0 = ranges::count(s, '0');
+        int n1 = s.size() - n0;
+        if (abs(n0 - n1) > 1) {
+            return -1;
+        }
+        auto calc = [&](int c) -> int {
+            int cnt = 0;
+            for (int i = 0; i < s.size(); ++i) {
+                int x = s[i] - '0';
+                if ((i & 1 ^ c) != x) {
+                    ++cnt;
+                }
+            }
+            return cnt / 2;
+        };
+        if (n0 == n1) {
+            return min(calc(0), calc(1));
+        }
+        return calc(n0 > n1 ? 0 : 1);
+    }
+};
+```
+
+#### Go
+
+```go
+func minSwaps(s string) int {
+	n0 := strings.Count(s, "0")
+	n1 := len(s) - n0
+	if abs(n0-n1) > 1 {
+		return -1
+	}
+	calc := func(c int) int {
+		cnt := 0
+		for i, ch := range s {
+			x := int(ch - '0')
+			if i&1^c != x {
+				cnt++
+			}
+		}
+		return cnt / 2
+	}
+	if n0 == n1 {
+		return min(calc(0), calc(1))
+	}
+	if n0 > n1 {
+		return calc(0)
+	}
+	return calc(1)
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minSwaps(s: string): number {
+    const n0 = (s.match(/0/g) || []).length;
+    const n1 = s.length - n0;
+    if (Math.abs(n0 - n1) > 1) {
+        return -1;
+    }
+    const calc = (c: number): number => {
+        let cnt = 0;
+        for (let i = 0; i < s.length; i++) {
+            const x = +s[i];
+            if (((i & 1) ^ c) !== x) {
+                cnt++;
+            }
+        }
+        return Math.floor(cnt / 2);
+    };
+    if (n0 === n1) {
+        return Math.min(calc(0), calc(1));
+    }
+    return calc(n0 > n1 ? 0 : 1);
 }
 ```
 
@@ -138,28 +233,25 @@ class Solution {
  * @return {number}
  */
 var minSwaps = function (s) {
-    let n = s.length;
-    let n1 = [...s].reduce((a, c) => parseInt(c) + a, 0);
-    let n0 = n - n1;
-    let count = Infinity;
-    let half = n / 2;
-    // 101、1010
-    if (n1 == Math.ceil(half) && n0 == Math.floor(half)) {
-        let cur = 0;
-        for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '1') cur++;
-        }
-        count = Math.min(count, cur);
+    const n0 = (s.match(/0/g) || []).length;
+    const n1 = s.length - n0;
+    if (Math.abs(n0 - n1) > 1) {
+        return -1;
     }
-    // 010、0101
-    if (n0 == Math.ceil(half) && n1 == Math.floor(half)) {
-        let cur = 0;
-        for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '0') cur++;
+    const calc = c => {
+        let cnt = 0;
+        for (let i = 0; i < s.length; i++) {
+            const x = +s[i];
+            if (((i & 1) ^ c) !== x) {
+                cnt++;
+            }
         }
-        count = Math.min(count, cur);
+        return Math.floor(cnt / 2);
+    };
+    if (n0 === n1) {
+        return Math.min(calc(0), calc(1));
     }
-    return count == Infinity ? -1 : count;
+    return calc(n0 > n1 ? 0 : 1);
 };
 ```
 
