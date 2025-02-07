@@ -77,7 +77,7 @@ tags:
 
 因此，我们可以先对数组进行排序，然后使用两个指针分别指向数组的两端，求出两个指针指向的数的和，更新最大数对和的值，然后将左指针右移一位，右指针左移一位，继续进行操作，直到两个指针相遇为止，即可得到最小的最大数对和。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -87,8 +87,7 @@ tags:
 class Solution:
     def minPairSum(self, nums: List[int]) -> int:
         nums.sort()
-        n = len(nums)
-        return max(x + nums[n - i - 1] for i, x in enumerate(nums[: n >> 1]))
+        return max(x + nums[-i - 1] for i, x in enumerate(nums[: len(nums) >> 1]))
 ```
 
 #### Java
@@ -112,7 +111,7 @@ class Solution {
 class Solution {
 public:
     int minPairSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int ans = 0, n = nums.size();
         for (int i = 0; i < n >> 1; ++i) {
             ans = max(ans, nums[i] + nums[n - i - 1]);
@@ -147,6 +146,41 @@ function minPairSum(nums: number[]): number {
     }
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_pair_sum(nums: Vec<i32>) -> i32 {
+        let mut nums = nums;
+        nums.sort();
+        let mut ans = 0;
+        let n = nums.len();
+        for i in 0..n / 2 {
+            ans = ans.max(nums[i] + nums[n - i - 1]);
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minPairSum = function (nums) {
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    const n = nums.length;
+    for (let i = 0; i < n >> 1; ++i) {
+        ans = Math.max(ans, nums[i] + nums[n - 1 - i]);
+    }
+    return ans;
+};
 ```
 
 #### C#
