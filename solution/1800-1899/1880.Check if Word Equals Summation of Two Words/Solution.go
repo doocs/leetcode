@@ -1,10 +1,9 @@
 func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
-	f := func(s string) int {
-		res := 0
+	f := func(s string) (ans int) {
 		for _, c := range s {
-			res = res*10 + int(c-'a')
+			ans = ans*10 + int(c-'a')
 		}
-		return res
+		return
 	}
 	return f(firstWord)+f(secondWord) == f(targetWord)
 }

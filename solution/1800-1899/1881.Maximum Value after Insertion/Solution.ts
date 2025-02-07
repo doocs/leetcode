@@ -1,9 +1,4 @@
-/**
- * @param {string} n
- * @param {number} x
- * @return {string}
- */
-var maxValue = function (n, x) {
+function maxValue(n: string, x: number): string {
     let i = 0;
     if (n[0] === '-') {
         i++;
@@ -16,4 +11,4 @@ var maxValue = function (n, x) {
         }
     }
     return n.slice(0, i) + x + n.slice(i);
-};
+}

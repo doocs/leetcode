@@ -5,12 +5,12 @@
  * @return {boolean}
  */
 var isSumEqual = function (firstWord, secondWord, targetWord) {
-    function f(s) {
-        let res = 0;
-        for (let c of s) {
-            res = res * 10 + (c.charCodeAt() - 'a'.charCodeAt());
+    const f = s => {
+        let ans = 0;
+        for (const c of s) {
+            ans = ans * 10 + c.charCodeAt(0) - 97;
         }
-        return res;
-    }
+        return ans;
+    };
     return f(firstWord) + f(secondWord) == f(targetWord);
 };
