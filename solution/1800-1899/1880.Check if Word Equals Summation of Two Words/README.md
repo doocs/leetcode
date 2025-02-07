@@ -79,7 +79,13 @@ targetWord 的数值为 "aaaa" -&gt; "0000" -&gt; 0
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：字符串转数字
+
+我们定义一个函数 $\textit{f}(s)$，用来计算字符串 $s$ 的数值。对于字符串 $s$ 中的每个字符 $c$，我们将其转换为对应的数字 $x$，然后将 $x$ 依次连接起来，最后转换为整数。
+
+最后，我们只需要判断 $\textit{f}(\textit{firstWord}) + \textit{f}(\textit{secondWord})$ 是否等于 $\textit{f}(\textit{targetWord})$ 即可。
+
+时间复杂度 $O(L)$，其中 $L$ 为题目中所有字符串的长度之和。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -88,11 +94,12 @@ targetWord 的数值为 "aaaa" -&gt; "0000" -&gt; 0
 ```python
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
-        def f(s):
-            res = 0
-            for c in s:
-                res = res * 10 + (ord(c) - ord('a'))
-            return res
+        def f(s: str) -> int:
+            ans, a = 0, ord("a")
+            for c in map(ord, s):
+                x = c - a
+                ans = ans * 10 + x
+            return ans
 
         return f(firstWord) + f(secondWord) == f(targetWord)
 ```
@@ -106,11 +113,11 @@ class Solution {
     }
 
     private int f(String s) {
-        int res = 0;
+        int ans = 0;
         for (char c : s.toCharArray()) {
-            res = res * 10 + (c - 'a');
+            ans = ans * 10 + (c - 'a');
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -121,13 +128,14 @@ class Solution {
 class Solution {
 public:
     bool isSumEqual(string firstWord, string secondWord, string targetWord) {
+        auto f = [](string& s) -> int {
+            int ans = 0;
+            for (char c : s) {
+                ans = ans * 10 + (c - 'a');
+            }
+            return ans;
+        };
         return f(firstWord) + f(secondWord) == f(targetWord);
-    }
-
-    int f(string s) {
-        int res = 0;
-        for (char c : s) res = res * 10 + (c - 'a');
-        return res;
     }
 };
 ```
@@ -136,12 +144,11 @@ public:
 
 ```go
 func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
-	f := func(s string) int {
-		res := 0
+	f := func(s string) (ans int) {
 		for _, c := range s {
-			res = res*10 + int(c-'a')
+			ans = ans*10 + int(c-'a')
 		}
-		return res
+		return
 	}
 	return f(firstWord)+f(secondWord) == f(targetWord)
 }
@@ -151,14 +158,14 @@ func isSumEqual(firstWord string, secondWord string, targetWord string) bool {
 
 ```ts
 function isSumEqual(firstWord: string, secondWord: string, targetWord: string): boolean {
-    const calc = (s: string) => {
-        let res = 0;
+    const f = (s: string): number => {
+        let ans = 0;
         for (const c of s) {
-            res = res * 10 + c.charCodeAt(0) - 'a'.charCodeAt(0);
+            ans = ans * 10 + c.charCodeAt(0) - 97;
         }
-        return res;
+        return ans;
     };
-    return calc(firstWord) + calc(secondWord) === calc(targetWord);
+    return f(firstWord) + f(secondWord) == f(targetWord);
 }
 ```
 
@@ -166,16 +173,17 @@ function isSumEqual(firstWord: string, secondWord: string, targetWord: string): 
 
 ```rust
 impl Solution {
-    fn calc(s: &String) -> i32 {
-        let mut res = 0;
-        for c in s.as_bytes() {
-            res = res * 10 + ((c - b'a') as i32);
-        }
-        res
-    }
-
     pub fn is_sum_equal(first_word: String, second_word: String, target_word: String) -> bool {
-        Self::calc(&first_word) + Self::calc(&second_word) == Self::calc(&target_word)
+        fn f(s: &str) -> i64 {
+            let mut ans = 0;
+            let a = 'a' as i64;
+            for c in s.chars() {
+                let x = c as i64 - a;
+                ans = ans * 10 + x;
+            }
+            ans
+        }
+        f(&first_word) + f(&second_word) == f(&target_word)
     }
 }
 ```
@@ -190,13 +198,13 @@ impl Solution {
  * @return {boolean}
  */
 var isSumEqual = function (firstWord, secondWord, targetWord) {
-    function f(s) {
-        let res = 0;
-        for (let c of s) {
-            res = res * 10 + (c.charCodeAt() - 'a'.charCodeAt());
+    const f = s => {
+        let ans = 0;
+        for (const c of s) {
+            ans = ans * 10 + c.charCodeAt(0) - 97;
         }
-        return res;
-    }
+        return ans;
+    };
     return f(firstWord) + f(secondWord) == f(targetWord);
 };
 ```
@@ -204,16 +212,17 @@ var isSumEqual = function (firstWord, secondWord, targetWord) {
 #### C
 
 ```c
-int calc(char* s) {
-    int res = 0;
-    for (int i = 0; s[i]; i++) {
-        res = res * 10 + s[i] - 'a';
+int f(const char* s) {
+    int ans = 0;
+    while (*s) {
+        ans = ans * 10 + (*s - 'a');
+        s++;
     }
-    return res;
+    return ans;
 }
 
 bool isSumEqual(char* firstWord, char* secondWord, char* targetWord) {
-    return calc(firstWord) + calc(secondWord) == calc(targetWord);
+    return f(firstWord) + f(secondWord) == f(targetWord);
 }
 ```
 
