@@ -60,7 +60,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Two Pointers
+
+We can transform the inequality in the problem to $\textit{nums1}[i] - \textit{nums2}[i] + \textit{nums1}[j] - \textit{nums2}[j] > 0$, which simplifies to $\textit{nums}[i] + \textit{nums}[j] > 0$, where $\textit{nums}[i] = \textit{nums1}[i] - \textit{nums2}[i]$.
+
+For the array $\textit{nums}$, we need to find all pairs $(i, j)$ that satisfy $\textit{nums}[i] + \textit{nums}[j] > 0$.
+
+We can sort the array $\textit{nums}$ and then use the two-pointer method. Initialize the left pointer $l = 0$ and the right pointer $r = n - 1$. Each time, we check if $\textit{nums}[l] + \textit{nums}[r]$ is less than or equal to $0$. If it is, we move the left pointer to the right in a loop until $\textit{nums}[l] + \textit{nums}[r] > 0$. At this point, all pairs with the left pointer at $l$, $l + 1$, $l + 2$, $\cdots$, $r - 1$ and the right pointer at $r$ satisfy the condition, and there are $r - l$ such pairs. We add these pairs to the answer. Then, move the right pointer to the left and continue the above process until $l \ge r$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -69,10 +77,16 @@ tags:
 ```python
 class Solution:
     def countPairs(self, nums1: List[int], nums2: List[int]) -> int:
-        n = len(nums1)
-        d = [nums1[i] - nums2[i] for i in range(n)]
-        d.sort()
-        return sum(n - bisect_right(d, -v, lo=i + 1) for i, v in enumerate(d))
+        nums = [a - b for a, b in zip(nums1, nums2)]
+        nums.sort()
+        l, r = 0, len(nums) - 1
+        ans = 0
+        while l < r:
+            while l < r and nums[l] + nums[r] <= 0:
+                l += 1
+            ans += r - l
+            r -= 1
+        return ans
 ```
 
 #### Java
@@ -81,23 +95,19 @@ class Solution:
 class Solution {
     public long countPairs(int[] nums1, int[] nums2) {
         int n = nums1.length;
-        int[] d = new int[n];
+        int[] nums = new int[n];
         for (int i = 0; i < n; ++i) {
-            d[i] = nums1[i] - nums2[i];
+            nums[i] = nums1[i] - nums2[i];
         }
-        Arrays.sort(d);
+        Arrays.sort(nums);
+        int l = 0, r = n - 1;
         long ans = 0;
-        for (int i = 0; i < n; ++i) {
-            int left = i + 1, right = n;
-            while (left < right) {
-                int mid = (left + right) >> 1;
-                if (d[mid] > -d[i]) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
+        while (l < r) {
+            while (l < r && nums[l] + nums[r] <= 0) {
+                ++l;
             }
-            ans += n - left;
+            ans += r - l;
+            --r;
         }
         return ans;
     }
@@ -111,13 +121,19 @@ class Solution {
 public:
     long long countPairs(vector<int>& nums1, vector<int>& nums2) {
         int n = nums1.size();
-        vector<int> d(n);
-        for (int i = 0; i < n; ++i) d[i] = nums1[i] - nums2[i];
-        sort(d.begin(), d.end());
-        long long ans = 0;
+        vector<int> nums(n);
         for (int i = 0; i < n; ++i) {
-            int j = upper_bound(d.begin() + i + 1, d.end(), -d[i]) - d.begin();
-            ans += n - j;
+            nums[i] = nums1[i] - nums2[i];
+        }
+        ranges::sort(nums);
+        int l = 0, r = n - 1;
+        long long ans = 0;
+        while (l < r) {
+            while (l < r && nums[l] + nums[r] <= 0) {
+                ++l;
+            }
+            ans += r - l;
+            --r;
         }
         return ans;
     }
@@ -127,28 +143,96 @@ public:
 #### Go
 
 ```go
-func countPairs(nums1 []int, nums2 []int) int64 {
+func countPairs(nums1 []int, nums2 []int) (ans int64) {
 	n := len(nums1)
-	d := make([]int, n)
-	for i, v := range nums1 {
-		d[i] = v - nums2[i]
+	nums := make([]int, n)
+	for i, x := range nums1 {
+		nums[i] = x - nums2[i]
 	}
-	sort.Ints(d)
-	var ans int64
-	for i, v := range d {
-		left, right := i+1, n
-		for left < right {
-			mid := (left + right) >> 1
-			if d[mid] > -v {
-				right = mid
-			} else {
-				left = mid + 1
-			}
+	sort.Ints(nums)
+	l, r := 0, n-1
+	for l < r {
+		for l < r && nums[l]+nums[r] <= 0 {
+			l++
 		}
-		ans += int64(n - left)
+		ans += int64(r - l)
+		r--
 	}
-	return ans
+	return
 }
+```
+
+#### TypeScript
+
+```ts
+function countPairs(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const nums: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        nums.push(nums1[i] - nums2[i]);
+    }
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    let [l, r] = [0, n - 1];
+    while (l < r) {
+        while (l < r && nums[l] + nums[r] <= 0) {
+            ++l;
+        }
+        ans += r - l;
+        --r;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_pairs(nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+        let mut nums: Vec<i32> = nums1.iter().zip(nums2.iter()).map(|(a, b)| a - b).collect();
+        nums.sort();
+        let mut l = 0;
+        let mut r = nums.len() - 1;
+        let mut ans = 0;
+        while l < r {
+            while l < r && nums[l] + nums[r] <= 0 {
+                l += 1;
+            }
+            ans += (r - l) as i64;
+            r -= 1;
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var countPairs = function (nums1, nums2) {
+    const n = nums1.length;
+    const nums = [];
+    for (let i = 0; i < n; ++i) {
+        nums.push(nums1[i] - nums2[i]);
+    }
+    nums.sort((a, b) => a - b);
+    let ans = 0;
+    let [l, r] = [0, n - 1];
+    while (l < r) {
+        while (l < r && nums[l] + nums[r] <= 0) {
+            ++l;
+        }
+        ans += r - l;
+        --r;
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
