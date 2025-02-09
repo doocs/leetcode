@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3436. Find Valid Emails](https://leetcode.cn/problems/find-valid-emails)
+# [3436. 查找合法邮箱](https://leetcode.cn/problems/find-valid-emails)
 
 [English Version](/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>Users</code></p>
+<p>表：<code>Users</code></p>
 
 <pre>
 +-----------------+---------+
@@ -25,28 +25,29 @@ tags:
 | user_id         | int     |
 | email           | varchar |
 +-----------------+---------+
-(user_id) is the unique key for this table.
-Each row contains a user&#39;s unique ID and email address.
+(user_id) 是这张表的唯一主键。
+每一行包含用户的唯一 ID 和邮箱地址。
 </pre>
 
-<p>Write a solution to find all the <strong>valid email addresses</strong>. A valid email address meets the following criteria:</p>
+<p>编写一个解决方案来查找所有 <b>合法邮箱地址</b>。一个合法的邮箱地址符合下述条件：</p>
 
 <ul>
-	<li>It contains exactly one <code>@</code> symbol.</li>
-	<li>It ends with <code>.com</code>.</li>
-	<li>The part before the <code>@</code> symbol contains only <strong>alphanumeric</strong> characters and <strong>underscores</strong>.</li>
-	<li>The part after the <code>@</code> symbol and before <code>.com</code> contains a domain name <strong>that contains only letters</strong>.</li>
+	<li>只包含一个&nbsp;<code>@</code>&nbsp;符号。</li>
+	<li>以&nbsp;<code>.com</code>&nbsp;结尾。</li>
+	<li><code>@</code>&nbsp;符号前面的部分只包含&nbsp;<strong>字母数字</strong>&nbsp;字符和&nbsp;<strong>下划线</strong>。</li>
+	<li><code>@</code>&nbsp;符号后面与&nbsp;<code>.com</code>&nbsp;前面的部分 包含 <strong>只有字母&nbsp;</strong>的域名。</li>
 </ul>
 
-<p>Return<em> the result table ordered by</em> <code>user_id</code> <em>in</em> <strong>ascending </strong><em>order</em>.</p>
+<p>返回结果表以&nbsp;<code>user_id</code> <strong>升序</strong>&nbsp;排序。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Users table:</p>
+<p>Users 表：</p>
 
 <pre class="example-io">
 +---------+---------------------+
@@ -60,7 +61,7 @@ Each row contains a user&#39;s unique ID and email address.
 +---------+---------------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------+-------------------+
@@ -71,17 +72,17 @@ Each row contains a user&#39;s unique ID and email address.
 +---------+-------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>alice@example.com</strong> is valid because it contains one <code>@</code>, alice&nbsp;is alphanumeric, and example.com&nbsp;starts with a letter and ends with .com.</li>
-	<li><strong>bob_at_example.com</strong> is invalid because it contains an underscore instead of an <code>@</code>.</li>
-	<li><strong>charlie@example.net</strong> is invalid because the domain does not end with <code>.com</code>.</li>
-	<li><strong>david@domain.com</strong> is valid because it meets all criteria.</li>
-	<li><strong>eve@invalid</strong> is invalid because the domain does not end with <code>.com</code>.</li>
+	<li><strong>alice@example.com</strong>&nbsp;是合法的因为它包含一个&nbsp;<code>@</code>，alice 是只有字母数字的，并且&nbsp;example.com 以字母开始并以 .com&nbsp;结束。</li>
+	<li><strong>bob_at_example.com</strong>&nbsp;是不合法的因为它包含下划线但没有&nbsp;<code>@</code>。</li>
+	<li><strong>charlie@example.net</strong>&nbsp;是不合法的因为域名没有以&nbsp;<code>.com</code>&nbsp;结尾。</li>
+	<li><strong>david@domain.com</strong>&nbsp;是合法的因为它满足所有条件。</li>
+	<li><strong>eve@invalid</strong>&nbsp;是不合法的因为域名没有以&nbsp;<code>.com</code>&nbsp;结尾。</li>
 </ul>
 
-<p>Result table is ordered by user_id in ascending order.</p>
+<p>结果表以 user_id 升序排序。</p>
 </div>
 
 <!-- description:end -->

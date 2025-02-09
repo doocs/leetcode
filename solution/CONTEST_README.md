@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 436 场周赛(2025-02-09 10:30, 90 分钟) 参赛人数 2044
+
+- [3446. 按对角线进行矩阵排序](/solution/3400-3499/3446.Sort%20Matrix%20by%20Diagonals/README.md)
+- [3447. 将元素分配给有约束条件的组](/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README.md)
+- [3448. 统计可以被最后一个数位整除的子字符串数目](/solution/3400-3499/3448.Count%20Substrings%20Divisible%20By%20Last%20Digit/README.md)
+- [3449. 最大化游戏分数的最小值](/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README.md)
+
 #### 第 435 场周赛(2025-02-02 10:30, 90 分钟) 参赛人数 1300
 
 - [3442. 奇偶频次间的最大差值 I](/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README.md)

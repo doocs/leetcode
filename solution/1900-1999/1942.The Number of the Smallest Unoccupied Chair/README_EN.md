@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> times = [[1,4],[2,3],[4,6]], targetFriend = 1
 <strong>Output:</strong> 1
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - Friend 0 arrives at time 1 and sits on chair 0.
 - Friend 1 arrives at time 2 and sits on chair 1.
 - Friend 1 leaves at time 3 and chair 1 becomes empty.
@@ -52,7 +52,7 @@ Since friend 1 sat on chair 1, we return 1.
 <pre>
 <strong>Input:</strong> times = [[3,10],[1,5],[2,6]], targetFriend = 0
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - Friend 1 arrives at time 1 and sits on chair 0.
 - Friend 2 arrives at time 2 and sits on chair 1.
 - Friend 0 arrives at time 3 and sits on chair 2.

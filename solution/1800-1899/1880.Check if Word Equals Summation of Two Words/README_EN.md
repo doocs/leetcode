@@ -48,7 +48,7 @@ We return true because 21 + 210 == 231.
 <pre>
 <strong>Input:</strong> firstWord = &quot;aaa&quot;, secondWord = &quot;a&quot;, targetWord = &quot;aab&quot;
 <strong>Output:</strong> false
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The numerical value of firstWord is &quot;aaa&quot; -&gt; &quot;000&quot; -&gt; 0.
 The numerical value of secondWord is &quot;a&quot; -&gt; &quot;0&quot; -&gt; 0.
 The numerical value of targetWord is &quot;aab&quot; -&gt; &quot;001&quot; -&gt; 1.
@@ -60,7 +60,7 @@ We return false because 0 + 0 != 1.
 <pre>
 <strong>Input:</strong> firstWord = &quot;aaa&quot;, secondWord = &quot;a&quot;, targetWord = &quot;aaaa&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The numerical value of firstWord is &quot;aaa&quot; -&gt; &quot;000&quot; -&gt; 0.
 The numerical value of secondWord is &quot;a&quot; -&gt; &quot;0&quot; -&gt; 0.
 The numerical value of targetWord is &quot;aaaa&quot; -&gt; &quot;0000&quot; -&gt; 0.

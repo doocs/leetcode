@@ -49,7 +49,7 @@ tags:
 - 2 映射为 change[2] = 3 。
 - 1 映射为 change[1] = 4 。
 因此，"<strong><em>021</em></strong>" 变为 "<strong><em>934</em></strong>" 。
-"934" 是可以构造的最大整数，所以返回它的字符串表示。
+"934" 是可以构造的最大整数，所以返回它的字符串表示。 
 </pre>
 
 <p><strong>示例 3：</strong></p>

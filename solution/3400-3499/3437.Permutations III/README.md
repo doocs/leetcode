@@ -9,7 +9,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3437. Permutations III 🔒](https://leetcode.cn/problems/permutations-iii)
+# [3437. 全排列 III 🔒](https://leetcode.cn/problems/permutations-iii)
 
 [English Version](/solution/3400-3499/3437.Permutations%20III/README_EN.md)
 
@@ -17,37 +17,39 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an integer <code>n</code>, an <strong>alternating permutation</strong> is a permutation of the first <code>n</code> positive integers such that no <strong>two</strong> adjacent elements are <strong>both</strong> odd or <strong>both</strong> even.</p>
+<p>给定一个整数&nbsp;<code>n</code>，一个 <strong>交替排列</strong> 是没有 <strong>两个</strong> 相邻元素 <strong>同时</strong> 为奇数或偶数的前 <code>n</code> 个正整数的排列。</p>
 
-<p>Return <em>all such </em><strong>alternating permutations</strong> sorted in lexicographical order.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 4</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[[1,2,3,4],[1,4,3,2],[2,1,4,3],[2,3,4,1],[3,2,1,4],[3,4,1,2],[4,1,2,3],[4,3,2,1]]</span></p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 2</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[[1,2],[2,1]]</span></p>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 3</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">[[1,2,3],[3,2,1]]</span></p>
-</div>
+<p>返回所有这样的 <strong>交替排列</strong>&nbsp;以字典序排序。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 4</span></p>
+
+<p><span class="example-io"><b>输出：</b>[[1,2,3,4],[1,4,3,2],[2,1,4,3],[2,3,4,1],[3,2,1,4],[3,4,1,2],[4,1,2,3],[4,3,2,1]]</span></p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 2</span></p>
+
+<p><span class="example-io"><b>输出：</b>[[1,2],[2,1]]</span></p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">n = 3</span></p>
+
+<p><span class="example-io"><b>输出：</b>[[1,2,3],[3,2,1]]</span></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10</code></li>

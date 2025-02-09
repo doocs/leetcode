@@ -52,12 +52,12 @@ tags:
 <pre>
 <strong>Input:</strong> servers = [5,1,4,3,2], tasks = [2,1,2,4,5,2,1]
 <strong>Output:</strong> [1,4,1,4,1,3,2]
-<strong>Explanation: </strong>Events in chronological order go as follows:
+<strong>Explanation: </strong>Events in chronological order go as follows: 
 - At second 0, task 0 is added and processed using server 1 until second 2.
 - At second 1, task 1 is added and processed using server 4 until second 2.
-- At second 2, servers 1 and 4 become free. Task 2 is added and processed using server 1 until second 4.
+- At second 2, servers 1 and 4 become free. Task 2 is added and processed using server 1 until second 4. 
 - At second 3, task 3 is added and processed using server 4 until second 7.
-- At second 4, server 1 becomes free. Task 4 is added and processed using server 1 until second 9.
+- At second 4, server 1 becomes free. Task 4 is added and processed using server 1 until second 9. 
 - At second 5, task 5 is added and processed using server 3 until second 7.
 - At second 6, task 6 is added and processed using server 2 until second 7.
 </pre>
