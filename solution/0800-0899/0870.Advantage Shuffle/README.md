@@ -21,7 +21,7 @@ tags:
 
 <p>给定两个长度相等的数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code>，<code>nums1</code>&nbsp;相对于 <code>nums2</code> 的<em>优势</em>可以用满足&nbsp;<code>nums1[i] &gt; nums2[i]</code>&nbsp;的索引 <code>i</code>&nbsp;的数目来描述。</p>
 
-<p>返回 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace" size="1"><span style="background-color: rgb(249, 242, 244);">nums1</span></font>&nbsp;的<strong>任意</strong>排列，使其相对于 <code>nums2</code>&nbsp;的优势最大化。</p>
+<p>返回 <code>nums1</code> 的&nbsp;<strong>任意&nbsp;</strong>排列，使其相对于 <code>nums2</code>&nbsp;的优势最大化。</p>
 
 <p>&nbsp;</p>
 
