@@ -1,22 +1,17 @@
-func countPairs(nums1 []int, nums2 []int) int64 {
+func countPairs(nums1 []int, nums2 []int) (ans int64) {
 	n := len(nums1)
-	d := make([]int, n)
-	for i, v := range nums1 {
-		d[i] = v - nums2[i]
+	nums := make([]int, n)
+	for i, x := range nums1 {
+		nums[i] = x - nums2[i]
 	}
-	sort.Ints(d)
-	var ans int64
-	for i, v := range d {
-		left, right := i+1, n
-		for left < right {
-			mid := (left + right) >> 1
-			if d[mid] > -v {
-				right = mid
-			} else {
-				left = mid + 1
-			}
+	sort.Ints(nums)
+	l, r := 0, n-1
+	for l < r {
+		for l < r && nums[l]+nums[r] <= 0 {
+			l++
 		}
-		ans += int64(n - left)
+		ans += int64(r - l)
+		r--
 	}
-	return ans
+	return
 }

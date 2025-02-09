@@ -1,6 +1,12 @@
 class Solution:
     def countPairs(self, nums1: List[int], nums2: List[int]) -> int:
-        n = len(nums1)
-        d = [nums1[i] - nums2[i] for i in range(n)]
-        d.sort()
-        return sum(n - bisect_right(d, -v, lo=i + 1) for i, v in enumerate(d))
+        nums = [a - b for a, b in zip(nums1, nums2)]
+        nums.sort()
+        l, r = 0, len(nums) - 1
+        ans = 0
+        while l < r:
+            while l < r and nums[l] + nums[r] <= 0:
+                l += 1
+            ans += r - l
+            r -= 1
+        return ans
