@@ -19,7 +19,7 @@ class Solution:
             return pre
 
         n = len(graph)
-        res = [[[0, 0] for _ in range(n)] for _ in range(n)]
+        ans = [[[0, 0] for _ in range(n)] for _ in range(n)]
         degree = [[[0, 0] for _ in range(n)] for _ in range(n)]
         for i in range(n):
             for j in range(1, n):
@@ -29,28 +29,28 @@ class Solution:
                 degree[i][j][CAT_TURN] -= 1
         q = deque()
         for j in range(1, n):
-            res[0][j][MOUSE_TURN] = res[0][j][CAT_TURN] = MOUSE_WIN
+            ans[0][j][MOUSE_TURN] = ans[0][j][CAT_TURN] = MOUSE_WIN
             q.append((0, j, MOUSE_TURN))
             q.append((0, j, CAT_TURN))
         for i in range(1, n):
-            res[i][i][MOUSE_TURN] = res[i][i][CAT_TURN] = CAT_WIN
+            ans[i][i][MOUSE_TURN] = ans[i][i][CAT_TURN] = CAT_WIN
             q.append((i, i, MOUSE_TURN))
             q.append((i, i, CAT_TURN))
         while q:
             state = q.popleft()
-            t = res[state[0]][state[1]][state[2]]
+            t = ans[state[0]][state[1]][state[2]]
             for prev_state in get_prev_states(state):
                 pm, pc, pt = prev_state
-                if res[pm][pc][pt] == TIE:
+                if ans[pm][pc][pt] == TIE:
                     win = (t == MOUSE_WIN and pt == MOUSE_TURN) or (
                         t == CAT_WIN and pt == CAT_TURN
                     )
                     if win:
-                        res[pm][pc][pt] = t
+                        ans[pm][pc][pt] = t
                         q.append(prev_state)
                     else:
                         degree[pm][pc][pt] -= 1
                         if degree[pm][pc][pt] == 0:
-                            res[pm][pc][pt] = t
+                            ans[pm][pc][pt] = t
                             q.append(prev_state)
-        return res[MOUSE_START][CAT_START][MOUSE_TURN]
+        return ans[MOUSE_START][CAT_START][MOUSE_TURN]
