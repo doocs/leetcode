@@ -1,70 +1,85 @@
 class Solution:
     def canMouseWin(self, grid: List[str], catJump: int, mouseJump: int) -> bool:
-        dirs = [0, 1, 0, -1, 0]
-        m = len(grid)
-        n = len(grid[0])
-        nFloors = 0
-        cat = 0  # cat's position
-        mouse = 0  # mouse's position
+        m, n = len(grid), len(grid[0])
+        cat_start = mouse_start = food = 0
+        dirs = (-1, 0, 1, 0, -1)
+        g_mouse = [[] for _ in range(m * n)]
+        g_cat = [[] for _ in range(m * n)]
 
-        def hash(i: int, j: int) -> int:
-            return i * n + j
-
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] != "#":
-                    nFloors += 1
-                if grid[i][j] == "C":
-                    cat = hash(i, j)
-                elif grid[i][j] == "M":
-                    mouse = hash(i, j)
-
-        # dp(i, j, k) := True if mouse can win w//
-        # Cat on (i // 8, i % 8), mouse on (j // 8, j % 8), and turns = k
-        @functools.lru_cache(None)
-        def dp(cat: int, mouse: int, turn: int) -> bool:
-            # We already search whole touchable grid
-            if turn == nFloors * 2:
-                return False
-
-            if turn % 2 == 0:
-                # mouse's turn
-                i = mouse // n
-                j = mouse % n
-                for k in range(4):
-                    for jump in range(mouseJump + 1):
-                        x = i + dirs[k] * jump
-                        y = j + dirs[k + 1] * jump
-                        if x < 0 or x == m or y < 0 or y == n:
+        for i, row in enumerate(grid):
+            for j, c in enumerate(row):
+                if c == "#":
+                    continue
+                v = i * n + j
+                if c == "C":
+                    cat_start = v
+                elif c == "M":
+                    mouse_start = v
+                elif c == "F":
+                    food = v
+                for a, b in pairwise(dirs):
+                    for k in range(mouseJump + 1):
+                        x, y = i + k * a, j + k * b
+                        if not (0 <= x < m and 0 <= y < n and grid[x][y] != "#"):
                             break
-                        if grid[x][y] == "#":
+                        g_mouse[v].append(x * n + y)
+                    for k in range(catJump + 1):
+                        x, y = i + k * a, j + k * b
+                        if not (0 <= x < m and 0 <= y < n and grid[x][y] != "#"):
                             break
-                        if grid[x][y] == "F":  # Mouse eats the food, so mouse win
-                            return True
-                        if dp(cat, hash(x, y), turn + 1):
-                            return True
-                # Mouse can't win, so mouse lose
-                return False
+                        g_cat[v].append(x * n + y)
+        return self.calc(g_mouse, g_cat, mouse_start, cat_start, food) == 1
+
+    def calc(
+        self,
+        g_mouse: List[List[int]],
+        g_cat: List[List[int]],
+        mouse_start: int,
+        cat_start: int,
+        hole: int,
+    ) -> int:
+        def get_prev_states(state):
+            m, c, t = state
+            pt = t ^ 1
+            pre = []
+            if pt == 1:
+                for pc in g_cat[c]:
+                    if ans[m][pc][1] == 0:
+                        pre.append((m, pc, pt))
             else:
-                # cat's turn
-                i = cat // n
-                j = cat % n
-                for k in range(4):
-                    for jump in range(catJump + 1):
-                        x = i + dirs[k] * jump
-                        y = j + dirs[k + 1] * jump
-                        if x < 0 or x == m or y < 0 or y == n:
-                            break
-                        if grid[x][y] == "#":
-                            break
-                        if grid[x][y] == "F":  # Cat eats the food, so mouse lose
-                            return False
-                        nextCat = hash(x, y)
-                        if nextCat == mouse:  # Cat catches mouse, so mouse lose
-                            return False
-                        if not dp(nextCat, mouse, turn + 1):
-                            return False
-                # Cat can't win, so mouse win
-                return True
+                for pm in g_mouse[m]:
+                    if ans[pm][c][0] == 0:
+                        pre.append((pm, c, 0))
+            return pre
 
-        return dp(cat, mouse, 0)
+        n = len(g_mouse)
+        degree = [[[0, 0] for _ in range(n)] for _ in range(n)]
+        for i in range(n):
+            for j in range(n):
+                degree[i][j][0] = len(g_mouse[i])
+                degree[i][j][1] = len(g_cat[j])
+
+        ans = [[[0, 0] for _ in range(n)] for _ in range(n)]
+        q = deque()
+        for i in range(n):
+            ans[hole][i][1] = 1
+            ans[i][hole][0] = 2
+            ans[i][i][1] = ans[i][i][0] = 2
+            q.append((hole, i, 1))
+            q.append((i, hole, 0))
+            q.append((i, i, 0))
+            q.append((i, i, 1))
+        while q:
+            state = q.popleft()
+            t = ans[state[0]][state[1]][state[2]]
+            for prev_state in get_prev_states(state):
+                pm, pc, pt = prev_state
+                if pt == t - 1:
+                    ans[pm][pc][pt] = t
+                    q.append(prev_state)
+                else:
+                    degree[pm][pc][pt] -= 1
+                    if degree[pm][pc][pt] == 0:
+                        ans[pm][pc][pt] = t
+                        q.append(prev_state)
+        return ans[mouse_start][cat_start][0]
