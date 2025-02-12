@@ -3460,6 +3460,7 @@
 |  3447  |  [将元素分配给有约束条件的组](/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README.md)  |    |  中等  |  第 436 场周赛  |
 |  3448  |  [统计可以被最后一个数位整除的子字符串数目](/solution/3400-3499/3448.Count%20Substrings%20Divisible%20By%20Last%20Digit/README.md)  |    |  困难  |  第 436 场周赛  |
 |  3449  |  [最大化游戏分数的最小值](/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README.md)  |    |  困难  |  第 436 场周赛  |
+|  3450  |  [一张长椅的上最多学生](/solution/3400-3499/3450.Maximum%20Students%20on%20a%20Single%20Bench/README.md)  |    |  简单  |  🔒  |
 
 ## 版权
 
