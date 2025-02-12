@@ -154,7 +154,7 @@ public:
         }
         int ans = 0;
         for (const auto& s : d) {
-            ans = max(ans, (int)s.second.size());
+            ans = max(ans, (int) s.second.size());
         }
         return ans;
     }

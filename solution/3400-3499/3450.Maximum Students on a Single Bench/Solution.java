@@ -1,15 +1,14 @@
 class Solution {
-public:
-    int maxStudentsOnBench(vector<vector<int>>& students) {
-        unordered_map<int, unordered_set<int>> d;
-        for (const auto& e : students) {
+    public int maxStudentsOnBench(int[][] students) {
+        Map<Integer, Set<Integer>> d = new HashMap<>();
+        for (var e : students) {
             int studentId = e[0], benchId = e[1];
-            d[benchId].insert(studentId);
+            d.computeIfAbsent(benchId, k -> new HashSet<>()).add(studentId);
         }
         int ans = 0;
-        for (const auto& s : d) {
-            ans = max(ans, (int)s.second.size());
+        for (var s : d.values()) {
+            ans = Math.max(ans, s.size());
         }
         return ans;
     }
-};
+}
