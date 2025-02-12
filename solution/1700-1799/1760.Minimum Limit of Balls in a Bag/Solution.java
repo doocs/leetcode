@@ -1,21 +1,18 @@
 class Solution {
     public int minimumSize(int[] nums, int maxOperations) {
-        int left = 1, right = 0;
-        for (int x : nums) {
-            right = Math.max(right, x);
-        }
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            long cnt = 0;
+        int l = 1, r = Arrays.stream(nums).max().getAsInt();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            long s = 0;
             for (int x : nums) {
-                cnt += (x - 1) / mid;
+                s += (x - 1) / mid;
             }
-            if (cnt <= maxOperations) {
-                right = mid;
+            if (s <= maxOperations) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
