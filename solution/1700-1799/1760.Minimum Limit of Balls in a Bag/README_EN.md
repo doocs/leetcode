@@ -43,7 +43,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [9], maxOperations = 2
 <strong>Output:</strong> 3
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - Divide the bag with 9 balls into two bags of sizes 6 and 3. [<strong><u>9</u></strong>] -&gt; [6,3].
 - Divide the bag with 6 balls into two bags of sizes 3 and 3. [<strong><u>6</u></strong>,3] -&gt; [3,3,3].
 The bag with the most number of balls has 3 balls, so your penalty is 3 and you should return 3.
