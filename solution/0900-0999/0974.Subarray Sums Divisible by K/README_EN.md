@@ -56,29 +56,17 @@ tags:
 
 ### Solution 1: Hash Table + Prefix Sum
 
-1. **Key Insight**:
+Suppose there exists $i \leq j$ such that the sum of $\textit{nums}[i,..j]$ is divisible by $k$. If we let $s_i$ represent the sum of $\textit{nums}[0,..i]$ and $s_j$ represent the sum of $\textit{nums}[0,..j]$, then $s_j - s_i$ is divisible by $k$, i.e., $(s_j - s_i) \bmod k = 0$, which means $s_j \bmod k = s_i \bmod k$. Therefore, we can use a hash table to count the number of prefix sums modulo $k$, allowing us to quickly determine if there exists a subarray that meets the condition.
 
-    - If there exist indices $i$ and $j$ such that $i \leq j$, and the sum of the subarray $nums[i, ..., j]$ is divisible by $k$, then $(s_j - s_i) \bmod k = 0$, this implies: $s_j \bmod k = s_i \bmod k$
-    - We can use a hash table to count the occurrences of prefix sums modulo $k$ to efficiently check for subarrays satisfying the condition.
+We use a hash table $\textit{cnt}$ to count the number of prefix sums modulo $k$, where $\textit{cnt}[i]$ represents the number of prefix sums with a modulo $k$ value of $i$. Initially, $\textit{cnt}[0] = 1$. We use a variable $s$ to represent the prefix sum, initially $s = 0$.
 
-2. **Prefix Sum Modulo**:
+Next, we traverse the array $\textit{nums}$ from left to right. For each element $x$, we calculate $s = (s + x) \bmod k$, then update the answer $\textit{ans} = \textit{ans} + \textit{cnt}[s]$, where $\textit{cnt}[s]$ represents the number of prefix sums with a modulo $k$ value of $s$. Finally, we increment the value of $\textit{cnt}[s]$ by $1$ and continue to the next element.
 
-    - Use a hash table $cnt$ to count occurrences of each prefix sum modulo $k$.
-    - $cnt[i]$ represents the number of prefix sums with modulo $k$ equal to $i$.
-    - Initialize $cnt[0] = 1$ to account for subarrays directly divisible by $k$.
+In the end, we return the answer $\textit{ans}$.
 
-3. **Algorithm**:
-    - Let a variable $s$ represent the running prefix sum, starting with $s = 0$.
-    - Traverse the array $nums$ from left to right.
-        - For each element $x$:
-            - Compute $s = (s + x) \bmod k$.
-            - Update the result: $ans += cnt[s]$.
-            - Increment $cnt[s]$ by $1$.
-    - Return the result $ans$.
+> Note: Since the value of $s$ can be negative, we can add $k$ to the result of $s \bmod k$ and then take modulo $k$ again to ensure that the value of $s$ is non-negative.
 
-> Note: if $s$ is negative, adjust it to be non-negative by adding $k$ and taking modulo $k$ again.
-
-The time complexity is $O(n)$ and space complexity is $O(n)$ where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -150,15 +138,13 @@ func subarraysDivByK(nums []int, k int) (ans int) {
 
 ```ts
 function subarraysDivByK(nums: number[], k: number): number {
-    const counter = new Map();
-    counter.set(0, 1);
-    let s = 0,
-        ans = 0;
-    for (const num of nums) {
-        s += num;
-        const t = ((s % k) + k) % k;
-        ans += counter.get(t) || 0;
-        counter.set(t, (counter.get(t) || 0) + 1);
+    const cnt: { [key: number]: number } = { 0: 1 };
+    let s = 0;
+    let ans = 0;
+    for (const x of nums) {
+        s = (((s + x) % k) + k) % k;
+        ans += cnt[s] || 0;
+        cnt[s] = (cnt[s] || 0) + 1;
     }
     return ans;
 }

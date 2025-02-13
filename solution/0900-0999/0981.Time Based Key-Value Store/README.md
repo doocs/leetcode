@@ -41,10 +41,10 @@ tags:
 
 <strong>解释：</strong>
 TimeMap timeMap = new TimeMap();
-timeMap.set("foo", "bar", 1);  // 存储键 "foo" 和值 "bar" ，时间戳 timestamp = 1 &nbsp; 
+timeMap.set("foo", "bar", 1);  // 存储键 "foo" 和值 "bar" ，时间戳 timestamp = 1 &nbsp;
 timeMap.get("foo", 1);         // 返回 "bar"
 timeMap.get("foo", 3);         // 返回 "bar", 因为在时间戳 3 和时间戳 2 处没有对应 "foo" 的值，所以唯一的值位于时间戳 1 处（即 "bar"） 。
-timeMap.set("foo", "bar2", 4); // 存储键 "foo" 和值 "bar2" ，时间戳 timestamp = 4&nbsp; 
+timeMap.set("foo", "bar2", 4); // 存储键 "foo" 和值 "bar2" ，时间戳 timestamp = 4&nbsp;
 timeMap.get("foo", 4);         // 返回 "bar2"
 timeMap.get("foo", 5);         // 返回 "bar2"
 </pre>
@@ -69,11 +69,11 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 ### 方法一：哈希表 + 有序集合（或二分查找）
 
-我们可以用哈希表 $ktv$ 记录键值对，其中键为字符串 $key$，值为一个列表，列表中的每个元素为一个二元组 $(timestamp, value)$，表示键 $key$ 在时间戳 $timestamp$ 时对应的值为 $value$。
+我们可以用哈希表 $\textit{kvt}$ 记录键值对，其中键为字符串 $\textit{key}$，值为一个有序集合，集合中的每个元素为一个二元组 $(\textit{timestamp}, \textit{value})$，表示键 $\textit{key}$ 在时间戳 $\textit{timestamp}$ 时对应的值为 $\textit{value}$。
 
-当我们需要查询键 $key$ 在时间戳 $timestamp$ 时对应的值时，我们可以通过二分查找的方法在 $ktv[key]$ 中找到最大的时间戳 $timestamp'$，使得 $timestamp' \leq timestamp$，然后返回对应的值即可。
+当我们需要查询键 $\textit{key}$ 在时间戳 $\textit{timestamp}$ 时对应的值时，我们可以通过有序集合的方法找到最大的时间戳 $\textit{timestamp}'$，使得 $\textit{timestamp}' \leq \textit{timestamp}$，然后返回对应的值即可。
 
-时间复杂度方面，对于 $set$ 操作，由于哈希表的插入操作的时间复杂度为 $O(1)$，因此时间复杂度为 $O(1)$。对于 $get$ 操作，由于哈希表的查找操作的时间复杂度为 $O(1)$，而二分查找的时间复杂度为 $O(\log n)$，因此时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$，其中 $n$ 为 $set$ 操作的次数。
+时间复杂度方面，对于 $\textit{set}$ 操作，由于哈希表的插入操作的时间复杂度为 $O(1)$，因此时间复杂度为 $O(1)$。对于 $\textit{get}$ 操作，由于哈希表的查找操作的时间复杂度为 $O(1)$，而有序集合的查找操作的时间复杂度为 $O(\log n)$，因此时间复杂度为 $O(\log n)$。空间复杂度为 $O(n)$，其中 $n$ 为 $\textit{set}$ 操作的次数。
 
 <!-- tabs:start -->
 
