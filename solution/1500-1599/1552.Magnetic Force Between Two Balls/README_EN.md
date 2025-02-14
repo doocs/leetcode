@@ -132,7 +132,7 @@ class Solution {
 class Solution {
 public:
     int maxDistance(vector<int>& position, int m) {
-        sort(position.begin(), position.end());
+        ranges::sort(position);
         int l = 1, r = position.back();
         auto count = [&](int f) {
             int prev = position[0];
