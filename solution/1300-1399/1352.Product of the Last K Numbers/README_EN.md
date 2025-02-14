@@ -56,7 +56,7 @@ productOfNumbers.getProduct(2); // return 20. The product of the last 2 numbers 
 productOfNumbers.getProduct(3); // return 40. The product of the last 3 numbers is 2 * 5 * 4 = 40
 productOfNumbers.getProduct(4); // return 0. The product of the last 4 numbers is 0 * 2 * 5 * 4 = 0
 productOfNumbers.add(8);        // [3,0,2,5,4,8]
-productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32 
+productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32
 </pre>
 
 <p>&nbsp;</p>
@@ -211,6 +211,52 @@ func (this *ProductOfNumbers) GetProduct(k int) int {
  * obj.Add(num);
  * param_2 := obj.GetProduct(k);
  */
+```
+
+#### TypeScript
+
+```ts
+class ProductOfNumbers {
+    s = [1];
+
+    add(num: number): void {
+        if (num === 0) {
+            this.s = [1];
+        } else {
+            const i = this.s.length;
+            this.s[i] = this.s[i - 1] * num;
+        }
+    }
+
+    getProduct(k: number): number {
+        const i = this.s.length;
+        if (k > i - 1) return 0;
+        return this.s[i - 1] / this.s[i - k - 1];
+    }
+}
+```
+
+#### JavaScript
+
+```js
+class ProductOfNumbers {
+    s = [1];
+
+    add(num) {
+        if (num === 0) {
+            this.s = [1];
+        } else {
+            const i = this.s.length;
+            this.s[i] = this.s[i - 1] * num;
+        }
+    }
+
+    getProduct(k) {
+        const i = this.s.length;
+        if (k > i - 1) return 0;
+        return this.s[i - 1] / this.s[i - k - 1];
+    }
+}
 ```
 
 <!-- tabs:end -->
