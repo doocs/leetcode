@@ -1,7 +1,11 @@
-function findBall(grid: number[][]): number[] {
+/**
+ * @param {number[][]} grid
+ * @return {number[]}
+ */
+var findBall = function (grid) {
     const m = grid.length;
     const n = grid[0].length;
-    const dfs = (i: number, j: number) => {
+    const dfs = (i, j) => {
         if (i === m) {
             return j;
         }
@@ -18,4 +22,4 @@ function findBall(grid: number[][]): number[] {
         }
     };
     return Array.from({ length: n }, (_, j) => dfs(0, j));
-}
+};
