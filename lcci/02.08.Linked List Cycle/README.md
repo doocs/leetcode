@@ -44,6 +44,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.08.Linked%20List%2
 
 <!-- tabs:start -->
 
+#### Python3
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -65,6 +67,8 @@ class Solution:
                     slow = slow.next
                 return ans
 ```
+
+#### Java
 
 ```java
 /**
@@ -98,6 +102,8 @@ public class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -129,6 +135,8 @@ public:
 };
 ```
 
+#### Go
+
 ```go
 /**
  * Definition for singly-linked list.
@@ -154,6 +162,8 @@ func detectCycle(head *ListNode) *ListNode {
 	return nil
 }
 ```
+
+#### TypeScript
 
 ```ts
 /**
@@ -186,6 +196,8 @@ function detectCycle(head: ListNode | null): ListNode | null {
 }
 ```
 
+#### JavaScript
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -216,6 +228,8 @@ var detectCycle = function (head) {
     return null;
 };
 ```
+
+#### Swift
 
 ```swift
 /*
@@ -250,5 +264,9 @@ class Solution {
     }
 }
 ```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
 
 <!-- problem:end -->
