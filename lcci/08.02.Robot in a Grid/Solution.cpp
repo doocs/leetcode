@@ -4,7 +4,7 @@ public:
         int m = obstacleGrid.size();
         int n = obstacleGrid[0].size();
         vector<vector<int>> ans;
-        function<bool(int, int)> dfs = [&](int i, int j) -> bool {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> bool {
             if (i >= m || j >= n || obstacleGrid[i][j] == 1) {
                 return false;
             }
