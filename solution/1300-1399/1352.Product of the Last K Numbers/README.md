@@ -61,7 +61,7 @@ productOfNumbers.getProduct(2); // 返回 20 。最后 2 个数字的乘积是 5
 productOfNumbers.getProduct(3); // 返回 40 。最后 3 个数字的乘积是 2 * 5 * 4 = 40
 productOfNumbers.getProduct(4); // 返回  0 。最后 4 个数字的乘积是 0 * 2 * 5 * 4 = 0
 productOfNumbers.add(8);        // [3,0,2,5,4,8]
-productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4 * 8 = 32 
+productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4 * 8 = 32
 </pre>
 
 <p>&nbsp;</p>
@@ -216,6 +216,52 @@ func (this *ProductOfNumbers) GetProduct(k int) int {
  * obj.Add(num);
  * param_2 := obj.GetProduct(k);
  */
+```
+
+#### TypeScript
+
+```ts
+class ProductOfNumbers {
+    s = [1];
+
+    add(num: number): void {
+        if (num === 0) {
+            this.s = [1];
+        } else {
+            const i = this.s.length;
+            this.s[i] = this.s[i - 1] * num;
+        }
+    }
+
+    getProduct(k: number): number {
+        const i = this.s.length;
+        if (k > i - 1) return 0;
+        return this.s[i - 1] / this.s[i - k - 1];
+    }
+}
+```
+
+#### JavaScript
+
+```js
+class ProductOfNumbers {
+    s = [1];
+
+    add(num) {
+        if (num === 0) {
+            this.s = [1];
+        } else {
+            const i = this.s.length;
+            this.s[i] = this.s[i - 1] * num;
+        }
+    }
+
+    getProduct(k) {
+        const i = this.s.length;
+        if (k > i - 1) return 0;
+        return this.s[i - 1] / this.s[i - k - 1];
+    }
+}
 ```
 
 <!-- tabs:end -->
