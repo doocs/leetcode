@@ -70,15 +70,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.12.Paths%20with%20
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def pathSum(self, root: TreeNode, sum: int) -> int:
-        def dfs(root: TreeNode, s: int):
+    def pathSum(self, root: Optional[TreeNode], sum: int) -> int:
+        def dfs(root: Optional[TreeNode], s: int) -> int:
             if root is None:
                 return 0
             s += root.val
@@ -145,9 +143,8 @@ class Solution {
 class Solution {
 public:
     int pathSum(TreeNode* root, int sum) {
-        unordered_map<long long, int> cnt;
-        cnt[0] = 1;
-        function<int(TreeNode*, long long)> dfs = [&](TreeNode* root, long long s) {
+        unordered_map<long long, int> cnt{{0, 1}};
+        auto dfs = [&](this auto&& dfs, TreeNode* root, long long s) -> int {
             if (!root) {
                 return 0;
             }
@@ -285,43 +282,40 @@ impl Solution {
 #### Swift
 
 ```swift
-/* class TreeNode {
-*    var val: Int
-*    var left: TreeNode?
-*    var right: TreeNode?
-*
-*    init(_ val: Int, _ left: TreeNode? = nil, _ right: TreeNode? = nil) {
-*        self.val = val
-*        self.left = left
-*        self.right = right
-*    }
-* }
-*/
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public var val: Int
+ *     public var left: TreeNode?
+ *     public var right: TreeNode?
+ *     public init() { self.val = 0; self.left = nil; self.right = nil; }
+ *     public init(_ val: Int) { self.val = val; self.left = nil; self.right = nil; }
+ *     public init(_ val: Int, _ left: TreeNode?, _ right: TreeNode?) {
+ *         self.val = val
+ *         self.left = left
+ *         self.right = right
+ *     }
+ * }
+ */
 class Solution {
-    private var cnt: [Int: Int] = [:]
-    private var target: Int = 0
-
     func pathSum(_ root: TreeNode?, _ sum: Int) -> Int {
-        cnt[0] = 1
-        target = sum
-        return dfs(root, 0)
+        var cnt: [Int: Int] = [0: 1]
 
-    }
+        func dfs(_ root: TreeNode?, _ s: Int) -> Int {
+            guard let root = root else { return 0 }
 
-    private func dfs(_ root: TreeNode?, _ s: Int) -> Int {
-        guard let root = root else {
-            return 0
+            var s = s + root.val
+            var ans = cnt[s - sum, default: 0]
+
+            cnt[s, default: 0] += 1
+            ans += dfs(root.left, s)
+            ans += dfs(root.right, s)
+            cnt[s, default: 0] -= 1
+
+            return ans
         }
-        let newSum = s + root.val
-        let ans = cnt[newSum - target, default: 0]
 
-        cnt[newSum, default: 0] += 1
-        let leftPaths = dfs(root.left, newSum)
-        let rightPaths = dfs(root.right, newSum)
-        cnt[newSum, default: 0] -= 1
-
-        return ans + leftPaths + rightPaths
+        return dfs(root, 0)
     }
 }
 ```
