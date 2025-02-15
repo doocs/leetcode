@@ -1,11 +1,7 @@
 function canPermutePalindrome(s: string): boolean {
-    const set = new Set<string>();
+    const cnt: Record<string, number> = {};
     for (const c of s) {
-        if (set.has(c)) {
-            set.delete(c);
-        } else {
-            set.add(c);
-        }
+        cnt[c] = (cnt[c] || 0) + 1;
     }
-    return set.size <= 1;
+    return Object.values(cnt).filter(v => v % 2 === 1).length < 2;
 }

@@ -94,18 +94,15 @@ public:
 
 ```go
 func canPermutePalindrome(s string) bool {
-	vis := map[rune]bool{}
-	cnt := 0
+	cnt := map[rune]int{}
 	for _, c := range s {
-		if vis[c] {
-			vis[c] = false
-			cnt--
-		} else {
-			vis[c] = true
-			cnt++
-		}
+		cnt[c]++
 	}
-	return cnt < 2
+	sum := 0
+	for _, v := range cnt {
+		sum += v & 1
+	}
+	return sum < 2
 }
 ```
 
@@ -113,34 +110,26 @@ func canPermutePalindrome(s string) bool {
 
 ```ts
 function canPermutePalindrome(s: string): boolean {
-    const set = new Set<string>();
+    const cnt: Record<string, number> = {};
     for (const c of s) {
-        if (set.has(c)) {
-            set.delete(c);
-        } else {
-            set.add(c);
-        }
+        cnt[c] = (cnt[c] || 0) + 1;
     }
-    return set.size <= 1;
+    return Object.values(cnt).filter(v => v % 2 === 1).length < 2;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::collections::HashSet;
+use std::collections::HashMap;
 
 impl Solution {
     pub fn can_permute_palindrome(s: String) -> bool {
-        let mut set = HashSet::new();
+        let mut cnt = HashMap::new();
         for c in s.chars() {
-            if set.contains(&c) {
-                set.remove(&c);
-            } else {
-                set.insert(c);
-            }
+            *cnt.entry(c).or_insert(0) += 1;
         }
-        set.len() <= 1
+        cnt.values().filter(|&&v| v % 2 == 1).count() < 2
     }
 }
 ```
@@ -173,7 +162,7 @@ class Solution {
 
 ### 方法二：哈希表的另一种实现
 
-我们用哈希表 $vis$ 存储每个字符是否出现过。若出现过，则从哈希表中删除该字符；否则，将该字符加入哈希表。
+我们用一个哈希表 $\textit{vis}$ 存储每个字符是否出现过。若出现过，则从哈希表中删除该字符；否则，将该字符加入哈希表。
 
 最后判断哈希表中字符的个数是否小于 $2$，若是，则是回文排列。
 
@@ -229,6 +218,76 @@ public:
         return vis.size() < 2;
     }
 };
+```
+
+#### Go
+
+```go
+func canPermutePalindrome(s string) bool {
+	vis := map[rune]bool{}
+	for _, c := range s {
+		if vis[c] {
+			delete(vis, c)
+		} else {
+			vis[c] = true
+		}
+	}
+	return len(vis) < 2
+}
+```
+
+#### TypeScript
+
+```ts
+function canPermutePalindrome(s: string): boolean {
+    const vis = new Set<string>();
+    for (const c of s) {
+        if (vis.has(c)) {
+            vis.delete(c);
+        } else {
+            vis.add(c);
+        }
+    }
+    return vis.size < 2;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn can_permute_palindrome(s: String) -> bool {
+        let mut vis = HashSet::new();
+        for c in s.chars() {
+            if vis.contains(&c) {
+                vis.remove(&c);
+            } else {
+                vis.insert(c);
+            }
+        }
+        vis.len() < 2
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func canPermutePalindrome(_ s: String) -> Bool {
+        var vis = Set<Character>()
+        for c in s {
+            if vis.contains(c) {
+                vis.remove(c)
+            } else {
+                vis.insert(c)
+            }
+        }
+        return vis.count < 2
+    }
+}
 ```
 
 <!-- tabs:end -->
