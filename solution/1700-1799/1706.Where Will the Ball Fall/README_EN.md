@@ -80,18 +80,18 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 
 <!-- solution:start -->
 
-### Solution 1: Case Discussion + DFS
+### Solution 1: Case Analysis + DFS
 
-We can use DFS to simulate the movement of the ball. We design a function $dfs(i, j)$, which represents that the ball starts from the $i$th row and the $j$th column, and finally falls in which column. The ball will get stuck in the following situations:
+We can use DFS to simulate the movement of the ball. Design a function $\textit{dfs}(i, j)$, which represents the column where the ball will fall when it starts from row $i$ and column $j$. The ball will get stuck in the following cases:
 
-1. The ball is in the leftmost column, and the cell's vane directs the ball to the left.
-2. The ball is in the rightmost column, and the cell's vane directs the ball to the right.
-3. The cell's vane where the ball is located directs the ball to the right, and the vane of the cell adjacent to the right of the ball directs the ball to the left.
-4. The cell's vane where the ball is located directs the ball to the left, and the vane of the cell adjacent to the left of the ball directs the ball to the right.
+1. The ball is in the leftmost column, and the cell's diagonal directs the ball to the left.
+2. The ball is in the rightmost column, and the cell's diagonal directs the ball to the right.
+3. The cell's diagonal directs the ball to the right, and the adjacent cell to the right directs the ball to the left.
+4. The cell's diagonal directs the ball to the left, and the adjacent cell to the left directs the ball to the right.
 
-If any of the above situations are met, we can judge that the ball will get stuck and return $-1$. Otherwise, we can continue to recursively find the next position of the ball. Finally, if the ball reaches the last row, we can return the current column number.
+If any of the above conditions are met, we can determine that the ball will get stuck and return $-1$. Otherwise, we can continue to recursively find the next position of the ball. Finally, if the ball reaches the last row, we can return the current column index.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Where $m$ and $n$ are the number of rows and columns of the array $grid$, respectively.
+The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -247,11 +247,7 @@ function findBall(grid: number[][]): number[] {
             return dfs(i + 1, j - 1);
         }
     };
-    const ans: number[] = [];
-    for (let j = 0; j < n; ++j) {
-        ans.push(dfs(0, j));
-    }
-    return ans;
+    return Array.from({ length: n }, (_, j) => dfs(0, j));
 }
 ```
 
@@ -279,13 +275,43 @@ impl Solution {
     pub fn find_ball(grid: Vec<Vec<i32>>) -> Vec<i32> {
         let m = grid.len();
         let n = grid[0].len();
-        let mut res = vec![0; n];
+        let mut ans = vec![0; n];
         for i in 0..n {
-            res[i] = Self::dfs(&grid, 0, i);
+            ans[i] = Self::dfs(&grid, 0, i);
         }
-        res
+        ans
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number[]}
+ */
+var findBall = function (grid) {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dfs = (i, j) => {
+        if (i === m) {
+            return j;
+        }
+        if (grid[i][j] === 1) {
+            if (j === n - 1 || grid[i][j + 1] === -1) {
+                return -1;
+            }
+            return dfs(i + 1, j + 1);
+        } else {
+            if (j === 0 || grid[i][j - 1] === 1) {
+                return -1;
+            }
+            return dfs(i + 1, j - 1);
+        }
+    };
+    return Array.from({ length: n }, (_, j) => dfs(0, j));
+};
 ```
 
 <!-- tabs:end -->

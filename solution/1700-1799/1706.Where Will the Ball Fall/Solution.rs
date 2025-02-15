@@ -19,10 +19,10 @@ impl Solution {
     pub fn find_ball(grid: Vec<Vec<i32>>) -> Vec<i32> {
         let m = grid.len();
         let n = grid[0].len();
-        let mut res = vec![0; n];
+        let mut ans = vec![0; n];
         for i in 0..n {
-            res[i] = Self::dfs(&grid, 0, i);
+            ans[i] = Self::dfs(&grid, 0, i);
         }
-        res
+        ans
     }
 }
