@@ -69,7 +69,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.08.First%20Common%
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+First, we check if the root node is null or if the root node is equal to $\textit{p}$ or $\textit{q}$. If so, we return the root node directly.
+
+Then, we recursively search the left and right subtrees to get $\textit{left}$ and $\textit{right}$, respectively. If both $\textit{left}$ and $\textit{right}$ are not null, it means $\textit{p}$ and $\textit{q}$ are in the left and right subtrees, respectively, so the root node is the lowest common ancestor. Otherwise, if either $\textit{left}$ or $\textit{right}$ is null, it means both $\textit{p}$ and $\textit{q}$ are in the non-null subtree, so the root node of the non-null subtree is the lowest common ancestor.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -88,11 +94,11 @@ class Solution:
     def lowestCommonAncestor(
         self, root: TreeNode, p: TreeNode, q: TreeNode
     ) -> TreeNode:
-        if root is None or root == p or root == q:
+        if root is None or root in [p, q]:
             return root
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
-        return right if left is None else (left if right is None else root)
+        return root if left and right else left or right
 ```
 
 #### Java
@@ -117,6 +123,84 @@ class Solution {
         return left == null ? right : (right == null ? left : root);
     }
 }
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (!root || root == p || root == q) {
+            return root;
+        }
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        return left && right ? root : (left ? left : right);
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func lowestCommonAncestor(root *TreeNode, p *TreeNode, q *TreeNode) *TreeNode {
+	if root == nil || root == p || root == q {
+		return root
+	}
+	left := lowestCommonAncestor(root.Left, p, q)
+	right := lowestCommonAncestor(root.Right, p, q)
+	if left == nil {
+		return right
+	}
+	if right == nil {
+		return left
+	}
+	return root
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+var lowestCommonAncestor = function (root, p, q) {
+    if (!root || root === p || root === q) {
+        return root;
+    }
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+    return left && right ? root : left || right;
+};
 ```
 
 #### Swift
