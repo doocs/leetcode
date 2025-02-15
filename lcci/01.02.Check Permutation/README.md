@@ -93,11 +93,18 @@ class Solution {
 class Solution {
 public:
     bool CheckPermutation(string s1, string s2) {
-        if (s1.size() != s2.size()) return false;
-        int cnt[26] = {0};
-        for (char& c : s1) ++cnt[c - 'a'];
-        for (char& c : s2)
-            if (--cnt[c - 'a'] < 0) return false;
+        if (s1.size() != s2.size()) {
+            return false;
+        }
+        int cnt[26]{};
+        for (char c : s1) {
+            ++cnt[c - 'a'];
+        }
+        for (char c : s2) {
+            if (--cnt[c - 'a'] < 0) {
+                return false;
+            }
+        }
         return true;
     }
 };
@@ -115,8 +122,7 @@ func CheckPermutation(s1 string, s2 string) bool {
 		cnt[c-'a']++
 	}
 	for _, c := range s2 {
-		cnt[c-'a']--
-		if cnt[c-'a'] < 0 {
+		if cnt[c-'a']--; cnt[c-'a'] < 0 {
 			return false
 		}
 	}
@@ -128,20 +134,18 @@ func CheckPermutation(s1 string, s2 string) bool {
 
 ```ts
 function CheckPermutation(s1: string, s2: string): boolean {
-    const n = s1.length;
-    const m = s2.length;
-    if (n !== m) {
+    if (s1.length !== s2.length) {
         return false;
     }
-    const map = new Map<string, number>();
-    for (let i = 0; i < n; i++) {
-        map.set(s1[i], (map.get(s1[i]) ?? 0) + 1);
-        map.set(s2[i], (map.get(s2[i]) ?? 0) - 1);
+    const cnt: Record<string, number> = {};
+    for (const c of s1) {
+        cnt[c] = (cnt[c] || 0) + 1;
     }
-    for (const v of map.values()) {
-        if (v !== 0) {
+    for (const c of s2) {
+        if (!cnt[c]) {
             return false;
         }
+        cnt[c]--;
     }
     return true;
 }
@@ -150,22 +154,26 @@ function CheckPermutation(s1: string, s2: string): boolean {
 #### Rust
 
 ```rust
-use std::collections::HashMap;
 impl Solution {
     pub fn check_permutation(s1: String, s2: String) -> bool {
-        let n = s1.len();
-        let m = s2.len();
-        if n != m {
+        if s1.len() != s2.len() {
             return false;
         }
-        let s1 = s1.as_bytes();
-        let s2 = s2.as_bytes();
-        let mut map = HashMap::new();
-        for i in 0..n {
-            *map.entry(s1[i]).or_insert(0) += 1;
-            *map.entry(s2[i]).or_insert(0) -= 1;
+
+        let mut cnt = vec![0; 26];
+        for c in s1.chars() {
+            cnt[(c as usize - 'a' as usize)] += 1;
         }
-        map.values().all(|i| *i == 0)
+
+        for c in s2.chars() {
+            let index = c as usize - 'a' as usize;
+            if cnt[index] == 0 {
+                return false;
+            }
+            cnt[index] -= 1;
+        }
+
+        true
     }
 }
 ```
@@ -179,19 +187,18 @@ impl Solution {
  * @return {boolean}
  */
 var CheckPermutation = function (s1, s2) {
-    if (s1.length != s2.length) {
+    if (s1.length !== s2.length) {
         return false;
     }
-    const cnt = new Array(26).fill(0);
-    for (let i = 0; i < s1.length; ++i) {
-        const j = s1.codePointAt(i) - 'a'.codePointAt(0);
-        ++cnt[j];
+    const cnt = {};
+    for (const c of s1) {
+        cnt[c] = (cnt[c] || 0) + 1;
     }
-    for (let i = 0; i < s2.length; ++i) {
-        const j = s2.codePointAt(i) - 'a'.codePointAt(0);
-        if (--cnt[j] < 0) {
+    for (const c of s2) {
+        if (!cnt[c]) {
             return false;
         }
+        cnt[c]--;
     }
     return true;
 };
@@ -206,19 +213,18 @@ class Solution {
             return false
         }
 
-        var cnt = Array(repeating: 0, count: 26)
+        var cnt = [Int](repeating: 0, count: 26)
 
         for char in s1 {
-            let index = Int(char.asciiValue! - Character("a").asciiValue!)
-            cnt[index] += 1
+            cnt[Int(char.asciiValue! - Character("a").asciiValue!)] += 1
         }
 
         for char in s2 {
             let index = Int(char.asciiValue! - Character("a").asciiValue!)
-            cnt[index] -= 1
-            if cnt[index] < 0 {
+            if cnt[index] == 0 {
                 return false
             }
+            cnt[index] -= 1
         }
 
         return true
@@ -268,8 +274,8 @@ class Solution {
 class Solution {
 public:
     bool CheckPermutation(string s1, string s2) {
-        sort(s1.begin(), s1.end());
-        sort(s2.begin(), s2.end());
+        ranges::sort(s1);
+        ranges::sort(s2);
         return s1 == s2;
     }
 };
@@ -304,6 +310,31 @@ impl Solution {
         s1.sort();
         s2.sort();
         s1 == s2
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
+ */
+var CheckPermutation = function (s1, s2) {
+    return [...s1].sort().join('') === [...s2].sort().join('');
+};
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func CheckPermutation(_ s1: String, _ s2: String) -> Bool {
+        let s1 = s1.sorted()
+        let s2 = s2.sorted()
+        return s1 == s2
     }
 }
 ```

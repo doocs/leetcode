@@ -64,8 +64,7 @@ The time complexity is $O(n)$, where $n$ is the length of the string. The space 
 class Solution:
     def isUnique(self, astr: str) -> bool:
         mask = 0
-        for c in astr:
-            i = ord(c) - ord('a')
+        for i in map(lambda c: ord(c) - ord("a"), astr):
             if (mask >> i) & 1:
                 return False
             mask |= 1 << i

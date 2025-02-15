@@ -19,7 +19,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.01.Is%20Unique/REA
 <p><strong>示例 1：</strong></p>
 
 <pre><strong>输入:</strong> s = &quot;leetcode&quot;
-<strong>输出:</strong> false 
+<strong>输出:</strong> false
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -56,8 +56,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.01.Is%20Unique/REA
 class Solution:
     def isUnique(self, astr: str) -> bool:
         mask = 0
-        for c in astr:
-            i = ord(c) - ord('a')
+        for i in map(lambda c: ord(c) - ord("a"), astr):
             if (mask >> i) & 1:
                 return False
             mask |= 1 << i
