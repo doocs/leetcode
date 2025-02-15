@@ -1,30 +1,27 @@
 class Solution {
-    private var s: [Character] = []
-    private var vis: [Bool] = Array(repeating: false, count: 128)
-    private var ans: [String] = []
-    private var t: String = ""
-
     func permutation(_ S: String) -> [String] {
-        s = Array(S)
+        var ans: [String] = []
+        let s = Array(S)
+        var t = s
+        var vis = Array(repeating: false, count: s.count)
+        let n = s.count
+
+        func dfs(_ i: Int) {
+            if i >= n {
+                ans.append(String(t))
+                return
+            }
+            for j in 0..<n {
+                if !vis[j] {
+                    vis[j] = true
+                    t[i] = s[j]
+                    dfs(i + 1)
+                    vis[j] = false
+                }
+            }
+        }
+
         dfs(0)
         return ans
-    }
-
-    private func dfs(_ i: Int) {
-        if i == s.count {
-            ans.append(t)
-            return
-        }
-        for c in s {
-            let index = Int(c.asciiValue!)
-            if vis[index] {
-                continue
-            }
-            vis[index] = true
-            t.append(c)
-            dfs(i + 1)
-            t.removeLast()
-            vis[index] = false
-        }
     }
 }
