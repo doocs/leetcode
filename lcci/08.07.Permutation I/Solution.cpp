@@ -3,22 +3,20 @@ public:
     vector<string> permutation(string S) {
         int n = S.size();
         vector<bool> vis(n);
+        string t = S;
         vector<string> ans;
-        string t;
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) {
             if (i >= n) {
-                ans.push_back(t);
+                ans.emplace_back(t);
                 return;
             }
             for (int j = 0; j < n; ++j) {
-                if (vis[j]) {
-                    continue;
+                if (!vis[j]) {
+                    vis[j] = true;
+                    t[i] = S[j];
+                    dfs(i + 1);
+                    vis[j] = false;
                 }
-                vis[j] = true;
-                t.push_back(S[j]);
-                dfs(i + 1);
-                t.pop_back();
-                vis[j] = false;
             }
         };
         dfs(0);
