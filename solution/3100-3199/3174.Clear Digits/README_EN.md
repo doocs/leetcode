@@ -30,6 +30,8 @@ tags:
 
 <p>Return the resulting string after removing all digits.</p>
 
+<p><strong>Note</strong> that the operation <em>cannot</em> be performed on a digit that does not have any non-digit character to its left.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

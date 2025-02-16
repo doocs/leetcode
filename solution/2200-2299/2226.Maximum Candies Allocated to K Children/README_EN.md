@@ -21,9 +21,10 @@ tags:
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>candies</code>. Each element in the array denotes a pile of candies of size <code>candies[i]</code>. You can divide each pile into any number of <strong>sub piles</strong>, but you <strong>cannot</strong> merge two piles together.</p>
 
-<p>You are also given an integer <code>k</code>. You should allocate piles of candies to <code>k</code> children such that each child gets the <strong>same</strong> number of candies. Each child can take <strong>at most one</strong> pile of candies and some piles of candies may go unused.</p>
+<p>You are also given an integer <code>k</code>. You should allocate piles of candies to <code>k</code> children such that each child gets the <strong>same</strong> number of candies. Each child can be allocated candies from <strong>only one</strong> pile of candies and some piles of candies may go unused.</p>
 
 <p>Return <em>the <strong>maximum number of candies</strong> each child can get.</em></p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

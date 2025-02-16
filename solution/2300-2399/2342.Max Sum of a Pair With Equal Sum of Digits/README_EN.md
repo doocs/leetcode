@@ -23,7 +23,7 @@ tags:
 
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> consisting of <strong>positive</strong> integers. You can choose two indices <code>i</code> and <code>j</code>, such that <code>i != j</code>, and the sum of digits of the number <code>nums[i]</code> is equal to that of <code>nums[j]</code>.</p>
 
-<p>Return <em>the <strong>maximum</strong> value of </em><code>nums[i] + nums[j]</code><em> that you can obtain over all possible indices </em><code>i</code><em> and </em><code>j</code><em> that satisfy the conditions.</em></p>
+<p>Return the <strong>maximum</strong> value of<em> </em><code>nums[i] + nums[j]</code><em> </em>that you can obtain over all possible indices <code>i</code> and <code>j</code> that satisfy the conditions. If no such pair of indices exists, return -1.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3446.Sort%20Matrix%20by%20Diagonals/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 437 场周赛(2025-02-16 10:30, 90 分钟) 参赛人数 1992
+
+- [3456. 找出长度为 K 的特殊子字符串](/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README.md)
+- [3457. 吃披萨](/solution/3400-3499/3457.Eat%20Pizzas%21/README.md)
+- [3458. 选择 K 个互不重叠的特殊子字符串](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README.md)
+- [3459. 最长 V 形对角线段的长度](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README.md)
+
+#### 第 150 场双周赛(2025-02-15 22:30, 90 分钟) 参赛人数 1591
+
+- [3452. 好数字之和](/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README.md)
+- [3453. 分割正方形 I](/solution/3400-3499/3453.Separate%20Squares%20I/README.md)
+- [3454. 分割正方形 II](/solution/3400-3499/3454.Separate%20Squares%20II/README.md)
+- [3455. 最短匹配子字符串](/solution/3400-3499/3455.Shortest%20Matching%20Substring/README.md)
+
 #### 第 436 场周赛(2025-02-09 10:30, 90 分钟) 参赛人数 2044
 
 - [3446. 按对角线进行矩阵排序](/solution/3400-3499/3446.Sort%20Matrix%20by%20Diagonals/README.md)
