@@ -2361,7 +2361,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2350  |  [Shortest Impossible Sequence of Rolls](/solution/2300-2399/2350.Shortest%20Impossible%20Sequence%20of%20Rolls/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Hard  |  Biweekly Contest 83  |
 |  2351  |  [First Letter to Appear Twice](/solution/2300-2399/2351.First%20Letter%20to%20Appear%20Twice/README_EN.md)  |  `Bit Manipulation`,`Hash Table`,`String`,`Counting`  |  Easy  |  Weekly Contest 303  |
 |  2352  |  [Equal Row and Column Pairs](/solution/2300-2399/2352.Equal%20Row%20and%20Column%20Pairs/README_EN.md)  |  `Array`,`Hash Table`,`Matrix`,`Simulation`  |  Medium  |  Weekly Contest 303  |
-|  2353  |  [Design a Food Rating System](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md)  |  `Design`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 303  |
+|  2353  |  [Design a Food Rating System](/solution/2300-2399/2353.Design%20a%20Food%20Rating%20System/README_EN.md)  |  `Design`,`Array`,`Hash Table`,`String`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 303  |
 |  2354  |  [Number of Excellent Pairs](/solution/2300-2399/2354.Number%20of%20Excellent%20Pairs/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Binary Search`  |  Hard  |  Weekly Contest 303  |
 |  2355  |  [Maximum Number of Books You Can Take](/solution/2300-2399/2355.Maximum%20Number%20of%20Books%20You%20Can%20Take/README_EN.md)  |  `Stack`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Hard  |  🔒  |
 |  2356  |  [Number of Unique Subjects Taught by Each Teacher](/solution/2300-2399/2356.Number%20of%20Unique%20Subjects%20Taught%20by%20Each%20Teacher/README_EN.md)  |  `Database`  |  Easy  |    |
@@ -3454,12 +3454,20 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3443  |  [Maximum Manhattan Distance After K Changes](/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Counting`  |  Medium  |  Weekly Contest 435  |
 |  3444  |  [Minimum Increments for Target Multiples in an Array](/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`,`Dynamic Programming`,`Bitmask`,`Number Theory`  |  Hard  |  Weekly Contest 435  |
 |  3445  |  [Maximum Difference Between Even and Odd Frequency II](/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README_EN.md)  |  `String`,`Enumeration`,`Prefix Sum`,`Sliding Window`  |  Hard  |  Weekly Contest 435  |
-|  3446  |  [Sort Matrix by Diagonals](/solution/3400-3499/3446.Sort%20Matrix%20by%20Diagonals/README_EN.md)  |    |  Medium  |  Weekly Contest 436  |
-|  3447  |  [Assign Elements to Groups with Constraints](/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README_EN.md)  |    |  Medium  |  Weekly Contest 436  |
-|  3448  |  [Count Substrings Divisible By Last Digit](/solution/3400-3499/3448.Count%20Substrings%20Divisible%20By%20Last%20Digit/README_EN.md)  |    |  Hard  |  Weekly Contest 436  |
-|  3449  |  [Maximize the Minimum Game Score](/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 436  |
+|  3446  |  [Sort Matrix by Diagonals](/solution/3400-3499/3446.Sort%20Matrix%20by%20Diagonals/README_EN.md)  |  `Array`,`Matrix`,`Sorting`  |  Medium  |  Weekly Contest 436  |
+|  3447  |  [Assign Elements to Groups with Constraints](/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 436  |
+|  3448  |  [Count Substrings Divisible By Last Digit](/solution/3400-3499/3448.Count%20Substrings%20Divisible%20By%20Last%20Digit/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 436  |
+|  3449  |  [Maximize the Minimum Game Score](/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 436  |
 |  3450  |  [Maximum Students on a Single Bench](/solution/3400-3499/3450.Maximum%20Students%20on%20a%20Single%20Bench/README_EN.md)  |    |  Easy  |  🔒  |
 |  3451  |  [Find Invalid IP Addresses](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README_EN.md)  |    |  Hard  |    |
+|  3452  |  [Sum of Good Numbers](/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README_EN.md)  |    |  Easy  |  Biweekly Contest 150  |
+|  3453  |  [Separate Squares I](/solution/3400-3499/3453.Separate%20Squares%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 150  |
+|  3454  |  [Separate Squares II](/solution/3400-3499/3454.Separate%20Squares%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 150  |
+|  3455  |  [Shortest Matching Substring](/solution/3400-3499/3455.Shortest%20Matching%20Substring/README_EN.md)  |    |  Hard  |  Biweekly Contest 150  |
+|  3456  |  [Find Special Substring of Length K](/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README_EN.md)  |    |  Easy  |  Weekly Contest 437  |
+|  3457  |  [Eat Pizzas!](/solution/3400-3499/3457.Eat%20Pizzas%21/README_EN.md)  |    |  Medium  |  Weekly Contest 437  |
+|  3458  |  [Select K Disjoint Special Substrings](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README_EN.md)  |    |  Medium  |  Weekly Contest 437  |
+|  3459  |  [Length of Longest V-Shaped Diagonal Segment](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README_EN.md)  |    |  Hard  |  Weekly Contest 437  |
 
 ## Copyright
 

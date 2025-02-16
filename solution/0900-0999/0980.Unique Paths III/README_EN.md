@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> grid = [[1,0,0,0],[0,0,0,0],[0,0,2,-1]]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> We have the following two paths:
+<strong>Explanation:</strong> We have the following two paths: 
 1. (0,0),(0,1),(0,2),(0,3),(1,3),(1,2),(1,1),(1,0),(2,0),(2,1),(2,2)
 2. (0,0),(1,0),(2,0),(2,1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2)
 </pre>
@@ -46,7 +46,7 @@ tags:
 <pre>
 <strong>Input:</strong> grid = [[1,0,0,0],[0,0,0,0],[0,0,0,2]]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> We have the following four paths:
+<strong>Explanation:</strong> We have the following four paths: 
 1. (0,0),(0,1),(0,2),(0,3),(1,3),(1,2),(1,1),(1,0),(2,0),(2,1),(2,2),(2,3)
 2. (0,0),(0,1),(1,1),(1,0),(2,0),(2,1),(2,2),(1,2),(0,2),(0,3),(1,3),(2,3)
 3. (0,0),(1,0),(2,0),(2,1),(2,2),(1,2),(1,1),(0,1),(0,2),(0,3),(1,3),(2,3)

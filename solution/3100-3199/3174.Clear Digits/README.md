@@ -30,7 +30,7 @@ tags:
 
 <p>请你返回删除所有数字字符以后剩下的字符串。</p>
 
-<p>&nbsp;</p>
+<p><strong>注意</strong>，该操作不能对左侧没有任何非数字字符的数字执行。</p>
 
 <p><strong class="example">示例 1：</strong></p>
 

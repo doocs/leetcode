@@ -41,10 +41,10 @@ tags:
 
 <strong>解释：</strong>
 TimeMap timeMap = new TimeMap();
-timeMap.set("foo", "bar", 1);  // 存储键 "foo" 和值 "bar" ，时间戳 timestamp = 1 &nbsp;
+timeMap.set("foo", "bar", 1);  // 存储键 "foo" 和值 "bar" ，时间戳 timestamp = 1 &nbsp; 
 timeMap.get("foo", 1);         // 返回 "bar"
 timeMap.get("foo", 3);         // 返回 "bar", 因为在时间戳 3 和时间戳 2 处没有对应 "foo" 的值，所以唯一的值位于时间戳 1 处（即 "bar"） 。
-timeMap.set("foo", "bar2", 4); // 存储键 "foo" 和值 "bar2" ，时间戳 timestamp = 4&nbsp;
+timeMap.set("foo", "bar2", 4); // 存储键 "foo" 和值 "bar2" ，时间戳 timestamp = 4&nbsp; 
 timeMap.get("foo", 4);         // 返回 "bar2"
 timeMap.get("foo", 5);         // 返回 "bar2"
 </pre>

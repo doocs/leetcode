@@ -6,7 +6,9 @@ rating: 1781
 source: Weekly Contest 303 Q3
 tags:
     - Design
+    - Array
     - Hash Table
+    - String
     - Ordered Set
     - Heap (Priority Queue)
 ---

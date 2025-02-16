@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README.md
+tags:
+    - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->

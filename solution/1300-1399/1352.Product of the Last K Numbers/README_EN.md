@@ -56,7 +56,7 @@ productOfNumbers.getProduct(2); // return 20. The product of the last 2 numbers 
 productOfNumbers.getProduct(3); // return 40. The product of the last 3 numbers is 2 * 5 * 4 = 40
 productOfNumbers.getProduct(4); // return 0. The product of the last 4 numbers is 0 * 2 * 5 * 4 = 0
 productOfNumbers.add(8);        // [3,0,2,5,4,8]
-productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32
+productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32 
 </pre>
 
 <p>&nbsp;</p>
@@ -68,6 +68,9 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 	<li>At most <code>4 * 10<sup>4</sup></code> calls will be made to <code>add</code> and <code>getProduct</code>.</li>
 	<li>The product of the stream at any point in time will fit in a <strong>32-bit</strong> integer.</li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow-up: </strong>Can you implement <strong>both</strong> <code>GetProduct</code> and <code>Add</code> to work in <code>O(1)</code> time complexity instead of <code>O(k)</code> time complexity?
 
 <!-- description:end -->
 

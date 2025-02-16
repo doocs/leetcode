@@ -22,42 +22,61 @@ tags:
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
-<p>一次操作中，你将执行：</p>
+<p>你可以对&nbsp;<code>nums</code>&nbsp;执行一些操作，在一次操作中，你可以：</p>
 
 <ul>
-	<li>选择 <code>nums</code>&nbsp;中最小的两个整数&nbsp;<code>x</code> 和&nbsp;<code>y</code>&nbsp;。</li>
+	<li>选择 <code>nums</code>&nbsp;中 <strong>最小</strong> 的两个整数&nbsp;<code>x</code> 和&nbsp;<code>y</code>&nbsp;。</li>
 	<li>将&nbsp;<code>x</code> 和&nbsp;<code>y</code> 从&nbsp;<code>nums</code>&nbsp;中删除。</li>
 	<li>将&nbsp;<code>min(x, y) * 2 + max(x, y)</code>&nbsp;添加到数组中的任意位置。</li>
 </ul>
 
-<p><b>注意，</b>只有当&nbsp;<code>nums</code>&nbsp;至少包含两个元素时，你才可以执行以上操作。</p>
+<p><b>注意，</b>只有当&nbsp;<code>nums</code>&nbsp;<strong>至少</strong> 包含两个元素时，你才可以执行以上操作。</p>
 
-<p>你需要使数组中的所有元素都大于或等于&nbsp;<code>k</code>&nbsp;，请你返回需要的&nbsp;<strong>最少</strong>&nbsp;操作次数。</p>
+<p>你需要使数组中的所有元素都 <strong>大于或等于</strong>&nbsp;<code>k</code>&nbsp;，请你返回需要的&nbsp;<strong>最少</strong>&nbsp;操作次数。</p>
 
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>nums = [2,11,10,1,3], k = 10
-<b>输出：</b>2
-<b>解释：</b>第一次操作中，我们删除元素 1 和 2 ，然后添加 1 * 2 + 2 到 nums 中，nums 变为 [4, 11, 10, 3] 。
-第二次操作中，我们删除元素 3 和 4 ，然后添加 3 * 2 + 4 到 nums 中，nums 变为 [10, 11, 10] 。
-此时，数组中的所有元素都大于等于 10 ，所以我们停止操作。
-使数组中所有元素都大于等于 10 需要的最少操作次数为 2 。
-</pre>
+<div class="example-block">
+<p><b>输入：</b>nums = [2,11,10,1,3], k = 10</p>
+
+<p><b>输出：</b>2</p>
+
+<p><b>解释：</b></p>
+
+<ol>
+	<li>第一次操作中，我们删除元素 1 和 2 ，然后添加 <code>1 * 2 + 2</code> 到 <code>nums</code> 中，<code>nums</code> 变为 <code>[4, 11, 10, 3]</code> 。</li>
+	<li>第二次操作中，我们删除元素 3 和 4 ，然后添加 <code>3 * 2 + 4</code> 到 <code>nums</code> 中，<code>nums</code> 变为 <code>[10, 11, 10]</code> 。</li>
+</ol>
+
+<p>此时，数组中的所有元素都大于等于 10 ，所以我们停止操作。</p>
+
+<p>可以证明使数组中所有元素都大于等于 10 需要的最少操作次数为 2 。</p>
+
+<p>&nbsp;</p>
+</div>
 
 <p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<b>输入：</b>nums = [1,1,2,4,9], k = 20
-<b>输出：</b>4
-<b>解释：</b>第一次操作后，nums 变为 [2, 4, 9, 3] 。
-第二次操作后，nums 变为 [7, 4, 9] 。
-第三次操作后，nums 变为 [15, 9] 。
-第四次操作后，nums 变为 [33] 。
-此时，数组中的所有元素都大于等于 20 ，所以我们停止操作。
-使数组中所有元素都大于等于 20 需要的最少操作次数为 4 。</pre>
+<div class="example-block">
+<p><b>输入：</b>nums = [1,1,2,4,9], k = 20</p>
+
+<p><b>输出：</b>4</p>
+
+<p><b>解释：</b></p>
+
+<ol>
+	<li>第一次操作后，<code>nums</code> 变为 <code>[2, 4, 9, 3]</code>。</li>
+	<li>第二次操作后，<code>nums</code> 变为 <code>[7, 4, 9]</code>。</li>
+	<li>第三次操作后，<code>nums</code> 变为 <code>[15, 9]</code>。</li>
+	<li>第四次操作后，<code>nums</code> 变为 <code>[33]</code>。</li>
+</ol>
+
+<p>此时，<code>nums</code> 中的所有元素都大于等于 20 ，所以我们停止操作。</p>
+
+<p>可以证明使数组中所有元素都大于等于 20 需要的最少操作次数为 4 。</p>
+</div>
 
 <p>&nbsp;</p>
 
