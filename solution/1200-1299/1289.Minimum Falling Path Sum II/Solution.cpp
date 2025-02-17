@@ -2,20 +2,21 @@ class Solution {
 public:
     int minFallingPathSum(vector<vector<int>>& grid) {
         int n = grid.size();
-        int f[n + 1][n];
-        memset(f, 0, sizeof(f));
-        const int inf = 1 << 30;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                int x = inf;
-                for (int k = 0; k < n; ++k) {
-                    if (k != j) {
-                        x = min(x, f[i - 1][k]);
+        vector<int> f(n);
+        const int inf = 1e9;
+        for (const auto& row : grid) {
+            vector<int> g = row;
+            for (int i = 0; i < n; ++i) {
+                int t = inf;
+                for (int j = 0; j < n; ++j) {
+                    if (j != i) {
+                        t = min(t, f[j]);
                     }
                 }
-                f[i][j] = grid[i - 1][j] + (x == inf ? 0 : x);
+                g[i] += (t == inf ? 0 : t);
             }
+            f = move(g);
         }
-        return *min_element(f[n], f[n] + n);
+        return ranges::min(f);
     }
 };
