@@ -82,7 +82,7 @@ tags:
 	<li><code>2 &lt;= nums.length &lt;= 2 * 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
-	<li>The input is generated such that an answer always exists. That is, there exists some sequence of operations after which all elements of the array are greater than or equal to <code>k</code>.</li>
+	<li>The input is generated such that an answer always exists. That is, after performing some number of operations, all elements of the array are greater than or equal to <code>k</code>.</li>
 </ul>
 
 <!-- description:end -->

@@ -1,9 +1,7 @@
 func findSpecialInteger(arr []int) int {
-	n := len(arr)
-	for i, val := range arr {
-		if val == arr[i+(n>>2)] {
-			return val
+	for i := 0; ; i++ {
+		if arr[i] == arr[i+len(arr)/4] {
+			return arr[i]
 		}
 	}
-	return 0
 }

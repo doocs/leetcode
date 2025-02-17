@@ -38,6 +38,13 @@ tags:
 <strong>输出：</strong>9
 </pre>
 
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [1,0,1,2]
+<b>输出：</b>3
+</pre>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
