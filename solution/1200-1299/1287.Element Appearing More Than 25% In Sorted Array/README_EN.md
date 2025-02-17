@@ -49,7 +49,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal
+
+We traverse the array $\textit{arr}$ from the beginning. For each element $\textit{arr}[i]$, we check if $\textit{arr}[i]$ is equal to $\textit{arr}[i + \left\lfloor \frac{n}{4} \right\rfloor]$, where $n$ is the length of the array. If they are equal, then $\textit{arr}[i]$ is the element we are looking for, and we return it directly.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -59,10 +63,9 @@ tags:
 class Solution:
     def findSpecialInteger(self, arr: List[int]) -> int:
         n = len(arr)
-        for i, val in enumerate(arr):
-            if val == arr[i + (n >> 2)]:
-                return val
-        return 0
+        for i, x in enumerate(arr):
+            if x == arr[(i + (n >> 2))]:
+                return x
 ```
 
 #### Java
@@ -70,13 +73,11 @@ class Solution:
 ```java
 class Solution {
     public int findSpecialInteger(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i) {
-            if (arr[i] == arr[i + (n >> 2)]) {
+        for (int i = 0;; ++i) {
+            if (arr[i] == (arr[i + (arr.length >> 2)])) {
                 return arr[i];
             }
         }
-        return 0;
     }
 }
 ```
@@ -87,10 +88,11 @@ class Solution {
 class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
-        int n = arr.size();
-        for (int i = 0; i < n; ++i)
-            if (arr[i] == arr[i + (n >> 2)]) return arr[i];
-        return 0;
+        for (int i = 0;; ++i) {
+            if (arr[i] == (arr[i + (arr.size() >> 2)])) {
+                return arr[i];
+            }
+        }
     }
 };
 ```
@@ -99,13 +101,24 @@ public:
 
 ```go
 func findSpecialInteger(arr []int) int {
-	n := len(arr)
-	for i, val := range arr {
-		if val == arr[i+(n>>2)] {
-			return val
+	for i := 0; ; i++ {
+		if arr[i] == arr[i+len(arr)/4] {
+			return arr[i]
 		}
 	}
-	return 0
+}
+```
+
+#### TypeScript
+
+```ts
+function findSpecialInteger(arr: number[]): number {
+    const n = arr.length;
+    for (let i = 0; ; ++i) {
+        if (arr[i] === arr[i + (n >> 2)]) {
+            return arr[i];
+        }
+    }
 }
 ```
 
@@ -118,12 +131,11 @@ func findSpecialInteger(arr []int) int {
  */
 var findSpecialInteger = function (arr) {
     const n = arr.length;
-    for (let i = 0; i < n; ++i) {
-        if (arr[i] == arr[i + (n >> 2)]) {
+    for (let i = 0; ; ++i) {
+        if (arr[i] === arr[i + (n >> 2)]) {
             return arr[i];
         }
     }
-    return 0;
 };
 ```
 
@@ -136,13 +148,12 @@ class Solution {
      * @return Integer
      */
     function findSpecialInteger($arr) {
-        $len = count($arr);
-        for ($i = 0; $i < $len; $i++) {
-            if ($arr[$i] == $arr[$i + ($len >> 2)]) {
+        $n = count($arr);
+        for ($i = 0; ; ++$i) {
+            if ($arr[$i] == $arr[$i + ($n >> 2)]) {
                 return $arr[$i];
             }
         }
-        return -1;
     }
 }
 ```

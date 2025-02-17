@@ -75,32 +75,120 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3457.Ea
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+According to the problem description, we can eat $4$ pizzas each day. On odd days, we get the maximum value among these $4$ pizzas, and on even days, we get the second largest value among these $4$ pizzas.
+
+Therefore, we can sort the pizzas by weight in ascending order. We can eat for $\textit{days} = n / 4$ days, with $\textit{odd} = (\textit{days} + 1) / 2$ days being odd days and $\textit{even} = \textit{days} - \textit{odd}$ days being even days.
+
+For odd days, we can choose the largest $\textit{odd}$ pizzas and the smallest $\textit{odd} \times 3$ pizzas, with the increased weight being $\sum_{i = n - \textit{odd}}^{n - 1} \textit{pizzas}[i]$.
+
+For even days, among the remaining pizzas, we greedily choose the largest two pizzas and the smallest two pizzas each time, with the increased weight being $\sum_{i = n - \textit{odd} - 2}^{n - \textit{odd} - 2 \times \textit{even}} \textit{pizzas}[i]$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{pizzas}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxWeight(self, pizzas: List[int]) -> int:
+        days = len(pizzas) // 4
+        pizzas.sort()
+        odd = (days + 1) // 2
+        even = days - odd
+        ans = sum(pizzas[-odd:])
+        i = len(pizzas) - odd - 2
+        for _ in range(even):
+            ans += pizzas[i]
+            i -= 2
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxWeight(int[] pizzas) {
+        int n = pizzas.length;
+        int days = n / 4;
+        Arrays.sort(pizzas);
+        int odd = (days + 1) / 2;
+        int even = days / 2;
+        long ans = 0;
+        for (int i = n - odd; i < n; ++i) {
+            ans += pizzas[i];
+        }
+        for (int i = n - odd - 2; even > 0; --even) {
+            ans += pizzas[i];
+            i -= 2;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxWeight(vector<int>& pizzas) {
+        int n = pizzas.size();
+        int days = pizzas.size() / 4;
+        ranges::sort(pizzas);
+        int odd = (days + 1) / 2;
+        int even = days - odd;
+        long long ans = accumulate(pizzas.begin() + n - odd, pizzas.end(), 0LL);
+        for (int i = n - odd - 2; even; --even) {
+            ans += pizzas[i];
+            i -= 2;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxWeight(pizzas []int) (ans int64) {
+	n := len(pizzas)
+	days := n / 4
+	sort.Ints(pizzas)
+	odd := (days + 1) / 2
+	even := days - odd
+	for i := n - odd; i < n; i++ {
+		ans += int64(pizzas[i])
+	}
+	for i := n - odd - 2; even > 0; even-- {
+		ans += int64(pizzas[i])
+		i -= 2
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxWeight(pizzas: number[]): number {
+    const n = pizzas.length;
+    const days = n >> 2;
+    pizzas.sort((a, b) => a - b);
+    const odd = (days + 1) >> 1;
+    let even = days - odd;
+    let ans = 0;
+    for (let i = n - odd; i < n; ++i) {
+        ans += pizzas[i];
+    }
+    for (let i = n - odd - 2; even; --even) {
+        ans += pizzas[i];
+        i -= 2;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -76,32 +76,111 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3456.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：双指针
+
+题目相当于要我们找出每一段连续的相同字符，然后判断是否存在一段长度为 $k$ 的子字符串，若存在则返回 $\textit{true}$，否则返回 $\textit{false}$。
+
+我们可以用双指针 $l$ 和 $r$ 来遍历字符串 $s$，当 $s[l] = s[r]$ 时，$r$ 向右移动，直到 $s[r] \neq s[l]$，此时判断 $r - l$ 是否等于 $k$，若等于则返回 $\textit{true}$，否则 $l$ 移动到 $r$ 继续遍历。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def hasSpecialSubstring(self, s: str, k: int) -> bool:
+        l, n = 0, len(s)
+        while l < n:
+            r = l
+            while r < n and s[r] == s[l]:
+                r += 1
+            if r - l == k:
+                return True
+            l = r
+        return False
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean hasSpecialSubstring(String s, int k) {
+        int n = s.length();
+        for (int l = 0, cnt = 0; l < n;) {
+            int r = l + 1;
+            while (r < n && s.charAt(r) == s.charAt(l)) {
+                ++r;
+            }
+            if (r - l == k) {
+                return true;
+            }
+            l = r;
+        }
+        return false;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool hasSpecialSubstring(string s, int k) {
+        int n = s.length();
+        for (int l = 0, cnt = 0; l < n;) {
+            int r = l + 1;
+            while (r < n && s[r] == s[l]) {
+                ++r;
+            }
+            if (r - l == k) {
+                return true;
+            }
+            l = r;
+        }
+        return false;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func hasSpecialSubstring(s string, k int) bool {
+	n := len(s)
+	for l := 0; l < n; {
+		r := l + 1
+		for r < n && s[r] == s[l] {
+			r++
+		}
+		if r-l == k {
+			return true
+		}
+		l = r
+	}
+	return false
+}
+```
 
+#### TypeScript
+
+```ts
+function hasSpecialSubstring(s: string, k: number): boolean {
+    const n = s.length;
+    for (let l = 0; l < n; ) {
+        let r = l + 1;
+        while (r < n && s[r] === s[l]) {
+            r++;
+        }
+        if (r - l === k) {
+            return true;
+        }
+        l = r;
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->
