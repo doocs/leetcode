@@ -67,7 +67,7 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 
 <!-- solution:start -->
 
-### Solution 1: Hash Table
+### Solution 1: Hash Table + Binary Search
 
 We use a hash table $g$ to store the array of indices corresponding to each value. In the constructor, we traverse the array $\textit{arr}$, adding the index corresponding to each value to the hash table.
 
@@ -214,20 +214,8 @@ class RangeFreqQuery {
         if (!idx) {
             return 0;
         }
-        const search = (x: number): number => {
-            let [l, r] = [0, idx.length];
-            while (l < r) {
-                const mid = (l + r) >> 1;
-                if (idx[mid] >= x) {
-                    r = mid;
-                } else {
-                    l = mid + 1;
-                }
-            }
-            return l;
-        };
-        const l = search(left);
-        const r = search(right + 1);
+        const l = _.sortedIndex(idx, left);
+        const r = _.sortedIndex(idx, right + 1);
         return r - l;
     }
 }
@@ -236,6 +224,111 @@ class RangeFreqQuery {
  * Your RangeFreqQuery object will be instantiated and called as such:
  * var obj = new RangeFreqQuery(arr)
  * var param_1 = obj.query(left,right,value)
+ */
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+struct RangeFreqQuery {
+    g: HashMap<i32, Vec<usize>>,
+}
+
+impl RangeFreqQuery {
+    fn new(arr: Vec<i32>) -> Self {
+        let mut g = HashMap::new();
+        for (i, &value) in arr.iter().enumerate() {
+            g.entry(value).or_insert_with(Vec::new).push(i);
+        }
+        RangeFreqQuery { g }
+    }
+
+    fn query(&self, left: i32, right: i32, value: i32) -> i32 {
+        if let Some(idx) = self.g.get(&value) {
+            let l = idx.partition_point(|&x| x < left as usize);
+            let r = idx.partition_point(|&x| x <= right as usize);
+            return (r - l) as i32;
+        }
+        0
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} arr
+ */
+var RangeFreqQuery = function (arr) {
+    this.g = new Map();
+
+    for (let i = 0; i < arr.length; ++i) {
+        if (!this.g.has(arr[i])) {
+            this.g.set(arr[i], []);
+        }
+        this.g.get(arr[i]).push(i);
+    }
+};
+
+/**
+ * @param {number} left
+ * @param {number} right
+ * @param {number} value
+ * @return {number}
+ */
+RangeFreqQuery.prototype.query = function (left, right, value) {
+    const idx = this.g.get(value);
+    if (!idx) {
+        return 0;
+    }
+    const l = _.sortedIndex(idx, left);
+    const r = _.sortedIndex(idx, right + 1);
+    return r - l;
+};
+
+/**
+ * Your RangeFreqQuery object will be instantiated and called as such:
+ * var obj = new RangeFreqQuery(arr)
+ * var param_1 = obj.query(left,right,value)
+ */
+```
+
+#### C#
+
+```cs
+public class RangeFreqQuery {
+    private Dictionary<int, List<int>> g;
+
+    public RangeFreqQuery(int[] arr) {
+        g = new Dictionary<int, List<int>>();
+        for (int i = 0; i < arr.Length; ++i) {
+            if (!g.ContainsKey(arr[i])) {
+                g[arr[i]] = new List<int>();
+            }
+            g[arr[i]].Add(i);
+        }
+    }
+
+    public int Query(int left, int right, int value) {
+        if (g.ContainsKey(value)) {
+            var idx = g[value];
+            int l = idx.BinarySearch(left);
+            int r = idx.BinarySearch(right + 1);
+            l = l < 0 ? -l - 1 : l;
+            r = r < 0 ? -r - 1 : r;
+            return r - l;
+        }
+        return 0;
+    }
+}
+
+/**
+ * Your RangeFreqQuery object will be instantiated and called as such:
+ * RangeFreqQuery obj = new RangeFreqQuery(arr);
+ * int param_1 = obj.Query(left, right, value);
  */
 ```
 
