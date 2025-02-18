@@ -33,12 +33,12 @@ tags:
 <pre>
 <strong>Input:</strong> word = &quot;aba&quot;
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 All possible substrings are: &quot;a&quot;, &quot;ab&quot;, &quot;aba&quot;, &quot;b&quot;, &quot;ba&quot;, and &quot;a&quot;.
 - &quot;b&quot; has 0 vowels in it
 - &quot;a&quot;, &quot;ab&quot;, &quot;ba&quot;, and &quot;a&quot; have 1 vowel each
 - &quot;aba&quot; has 2 vowels in it
-Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6. 
+Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -46,7 +46,7 @@ Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6.
 <pre>
 <strong>Input:</strong> word = &quot;abc&quot;
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 All possible substrings are: &quot;a&quot;, &quot;ab&quot;, &quot;abc&quot;, &quot;b&quot;, &quot;bc&quot;, and &quot;c&quot;.
 - &quot;a&quot;, &quot;ab&quot;, and &quot;abc&quot; have 1 vowel each
 - &quot;b&quot;, &quot;bc&quot;, and &quot;c&quot; have 0 vowels each
@@ -75,7 +75,11 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Contribution
+
+We can enumerate each character $\textit{word}[i]$ in the string. If $\textit{word}[i]$ is a vowel, then $\textit{word}[i]$ appears in $(i + 1) \times (n - i)$ substrings. We sum up the counts of these substrings.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -149,6 +153,40 @@ function countVowels(word: string): number {
     }
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_vowels(word: String) -> i64 {
+        let n = word.len() as i64;
+        word.chars()
+            .enumerate()
+            .filter(|(_, c)| "aeiou".contains(*c))
+            .map(|(i, _)| (i as i64 + 1) * (n - i as i64))
+            .sum()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} word
+ * @return {number}
+ */
+var countVowels = function (word) {
+    const n = word.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (['a', 'e', 'i', 'o', 'u'].includes(word[i])) {
+            ans += (i + 1) * (n - i);
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
