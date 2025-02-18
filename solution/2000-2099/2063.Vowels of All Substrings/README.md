@@ -85,9 +85,9 @@ tags:
 
 ### 方法一：枚举贡献
 
-我们可以枚举字符串的每个字符 $word[i]$，如果 $word[i]$ 是元音字母，那么 $word[i]$ 一共在 $(i + 1) \times (n - i)$ 个子字符串中出现，将这些子字符串的个数累加即可。
+我们可以枚举字符串的每个字符 $\textit{word}[i]$，如果 $\textit{word}[i]$ 是元音字母，那么 $\textit{word}[i]$ 一共在 $(i + 1) \times (n - i)$ 个子字符串中出现，将这些子字符串的个数累加即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $word$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{word}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -161,6 +161,40 @@ function countVowels(word: string): number {
     }
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_vowels(word: String) -> i64 {
+        let n = word.len() as i64;
+        word.chars()
+            .enumerate()
+            .filter(|(_, c)| "aeiou".contains(*c))
+            .map(|(i, _)| (i as i64 + 1) * (n - i as i64))
+            .sum()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} word
+ * @return {number}
+ */
+var countVowels = function (word) {
+    const n = word.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (['a', 'e', 'i', 'o', 'u'].includes(word[i])) {
+            ans += (i + 1) * (n - i);
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
