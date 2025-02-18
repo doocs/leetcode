@@ -3470,6 +3470,7 @@
 |  3457  |  [吃披萨](/solution/3400-3499/3457.Eat%20Pizzas%21/README.md)  |    |  中等  |  第 437 场周赛  |
 |  3458  |  [选择 K 个互不重叠的特殊子字符串](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README.md)  |    |  中等  |  第 437 场周赛  |
 |  3459  |  [最长 V 形对角线段的长度](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README.md)  |    |  困难  |  第 437 场周赛  |
+|  3460  |  [Longest Common Prefix After at Most One Removal](/solution/3400-3499/3460.Longest%20Common%20Prefix%20After%20at%20Most%20One%20Removal/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

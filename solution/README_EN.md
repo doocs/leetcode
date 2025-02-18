@@ -3468,6 +3468,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3457  |  [Eat Pizzas!](/solution/3400-3499/3457.Eat%20Pizzas%21/README_EN.md)  |    |  Medium  |  Weekly Contest 437  |
 |  3458  |  [Select K Disjoint Special Substrings](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README_EN.md)  |    |  Medium  |  Weekly Contest 437  |
 |  3459  |  [Length of Longest V-Shaped Diagonal Segment](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README_EN.md)  |    |  Hard  |  Weekly Contest 437  |
+|  3460  |  [Longest Common Prefix After at Most One Removal](/solution/3400-3499/3460.Longest%20Common%20Prefix%20After%20at%20Most%20One%20Removal/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
