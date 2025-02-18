@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> grid = [[1,2,3],[4,5,6],[7,8,9]]
 <strong>Output:</strong> 13
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The possible falling paths are:
 [1,5,9], [1,5,7], [1,6,7], [1,6,8],
 [2,4,8], [2,4,9], [2,6,7], [2,6,8],
