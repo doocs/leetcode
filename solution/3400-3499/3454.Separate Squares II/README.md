@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3454.Separate%20Squares%20II/README.md
+tags:
+    - 线段树
+    - 数组
+    - 二分查找
+    - 扫描线
 ---
 
 <!-- problem:start -->

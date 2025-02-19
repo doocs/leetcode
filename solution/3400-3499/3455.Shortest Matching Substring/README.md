@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3455.Shortest%20Matching%20Substring/README.md
+tags:
+    - 双指针
+    - 字符串
+    - 二分查找
+    - 字符串匹配
 ---
 
 <!-- problem:start -->

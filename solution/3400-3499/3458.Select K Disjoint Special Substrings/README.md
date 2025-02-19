@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README.md
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README.md
+tags:
+    - 记忆化搜索
+    - 数组
+    - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

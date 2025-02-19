@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3455.Shortest%20Matching%20Substring/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - Binary Search
+    - String Matching
 ---
 
 <!-- problem:start -->
