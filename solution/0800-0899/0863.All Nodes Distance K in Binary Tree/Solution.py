@@ -8,29 +8,25 @@
 
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        def parents(root, prev):
-            nonlocal p
+        def dfs(root, fa):
             if root is None:
                 return
-            p[root] = prev
-            parents(root.left, root)
-            parents(root.right, root)
+            g[root] = fa
+            dfs(root.left, root)
+            dfs(root.right, root)
 
-        def dfs(root, k):
-            nonlocal ans, vis
-            if root is None or root.val in vis:
+        def dfs2(root, fa, k):
+            if root is None:
                 return
-            vis.add(root.val)
             if k == 0:
                 ans.append(root.val)
                 return
-            dfs(root.left, k - 1)
-            dfs(root.right, k - 1)
-            dfs(p[root], k - 1)
+            for nxt in (root.left, root.right, g[root]):
+                if nxt != fa:
+                    dfs2(nxt, root, k - 1)
 
-        p = {}
-        parents(root, None)
+        g = {}
+        dfs(root, None)
         ans = []
-        vis = set()
-        dfs(target, k)
+        dfs2(target, None, k)
         return ans

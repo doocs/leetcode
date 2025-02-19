@@ -13,41 +13,34 @@
  */
 
 function distanceK(root: TreeNode | null, target: TreeNode | null, k: number): number[] {
-    if (!root) return [0];
+    const g = new Map<TreeNode, TreeNode | null>();
+    const ans: number[] = [];
 
-    const g: Record<number, number[]> = {};
-
-    const dfs = (node: TreeNode | null, parent: TreeNode | null = null) => {
-        if (!node) return;
-
-        g[node.val] ??= [];
-        if (parent) g[node.val].push(parent.val);
-        if (node.left) g[node.val].push(node.left.val);
-        if (node.right) g[node.val].push(node.right.val);
-
+    const dfs = (node: TreeNode | null, fa: TreeNode | null) => {
+        if (!node) {
+            return;
+        }
+        g.set(node, fa);
         dfs(node.left, node);
         dfs(node.right, node);
     };
 
-    dfs(root);
-
-    const vis = new Set<number>();
-    let q = [target!.val];
-
-    while (q.length) {
-        if (!k--) return q;
-
-        const nextQ: number[] = [];
-
-        for (const x of q) {
-            if (vis.has(x)) continue;
-
-            vis.add(x);
-            nextQ.push(...g[x].filter(x => !vis.has(x)));
+    const dfs2 = (node: TreeNode | null, fa: TreeNode | null, k: number) => {
+        if (!node) {
+            return;
         }
+        if (k === 0) {
+            ans.push(node.val);
+            return;
+        }
+        for (const nxt of [node.left, node.right, g.get(node) || null]) {
+            if (nxt !== fa) {
+                dfs2(nxt, node, k - 1);
+            }
+        }
+    };
 
-        q = nextQ;
-    }
-
-    return [];
+    dfs(root, null);
+    dfs2(target, null, k);
+    return ans;
 }

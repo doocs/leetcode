@@ -8,39 +8,36 @@
  * }
  */
 class Solution {
-    private Map<TreeNode, TreeNode> p;
-    private Set<Integer> vis;
-    private List<Integer> ans;
+    private Map<TreeNode, TreeNode> g = new HashMap<>();
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
-        p = new HashMap<>();
-        vis = new HashSet<>();
-        ans = new ArrayList<>();
-        parents(root, null);
-        dfs(target, k);
+        dfs(root, null);
+        dfs2(target, null, k);
         return ans;
     }
 
-    private void parents(TreeNode root, TreeNode prev) {
+    private void dfs(TreeNode root, TreeNode fa) {
         if (root == null) {
             return;
         }
-        p.put(root, prev);
-        parents(root.left, root);
-        parents(root.right, root);
+        g.put(root, fa);
+        dfs(root.left, root);
+        dfs(root.right, root);
     }
 
-    private void dfs(TreeNode root, int k) {
-        if (root == null || vis.contains(root.val)) {
+    private void dfs2(TreeNode root, TreeNode fa, int k) {
+        if (root == null) {
             return;
         }
-        vis.add(root.val);
         if (k == 0) {
             ans.add(root.val);
             return;
         }
-        dfs(root.left, k - 1);
-        dfs(root.right, k - 1);
-        dfs(p.get(root), k - 1);
+        for (TreeNode nxt : new TreeNode[] {root.left, root.right, g.get(root)}) {
+            if (nxt != fa) {
+                dfs2(nxt, root, k - 1);
+            }
+        }
     }
 }
