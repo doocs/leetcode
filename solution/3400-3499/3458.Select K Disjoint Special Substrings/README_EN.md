@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README_EN.md
+tags:
+    - Greedy
+    - Hash Table
+    - String
+    - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->

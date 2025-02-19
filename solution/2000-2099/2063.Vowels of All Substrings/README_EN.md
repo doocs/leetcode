@@ -33,12 +33,12 @@ tags:
 <pre>
 <strong>Input:</strong> word = &quot;aba&quot;
 <strong>Output:</strong> 6
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 All possible substrings are: &quot;a&quot;, &quot;ab&quot;, &quot;aba&quot;, &quot;b&quot;, &quot;ba&quot;, and &quot;a&quot;.
 - &quot;b&quot; has 0 vowels in it
 - &quot;a&quot;, &quot;ab&quot;, &quot;ba&quot;, and &quot;a&quot; have 1 vowel each
 - &quot;aba&quot; has 2 vowels in it
-Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6.
+Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6. 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -46,7 +46,7 @@ Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6.
 <pre>
 <strong>Input:</strong> word = &quot;abc&quot;
 <strong>Output:</strong> 3
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 All possible substrings are: &quot;a&quot;, &quot;ab&quot;, &quot;abc&quot;, &quot;b&quot;, &quot;bc&quot;, and &quot;c&quot;.
 - &quot;a&quot;, &quot;ab&quot;, and &quot;abc&quot; have 1 vowel each
 - &quot;b&quot;, &quot;bc&quot;, and &quot;c&quot; have 0 vowels each

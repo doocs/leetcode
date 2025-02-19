@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README_EN.md
+tags:
+    - Memoization
+    - Array
+    - Dynamic Programming
+    - Matrix
 ---
 
 <!-- problem:start -->

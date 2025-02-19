@@ -3458,16 +3458,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3447  |  [Assign Elements to Groups with Constraints](/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 436  |
 |  3448  |  [Count Substrings Divisible By Last Digit](/solution/3400-3499/3448.Count%20Substrings%20Divisible%20By%20Last%20Digit/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 436  |
 |  3449  |  [Maximize the Minimum Game Score](/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 436  |
-|  3450  |  [Maximum Students on a Single Bench](/solution/3400-3499/3450.Maximum%20Students%20on%20a%20Single%20Bench/README_EN.md)  |    |  Easy  |  🔒  |
-|  3451  |  [Find Invalid IP Addresses](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README_EN.md)  |    |  Hard  |    |
-|  3452  |  [Sum of Good Numbers](/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README_EN.md)  |    |  Easy  |  Biweekly Contest 150  |
-|  3453  |  [Separate Squares I](/solution/3400-3499/3453.Separate%20Squares%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 150  |
-|  3454  |  [Separate Squares II](/solution/3400-3499/3454.Separate%20Squares%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 150  |
-|  3455  |  [Shortest Matching Substring](/solution/3400-3499/3455.Shortest%20Matching%20Substring/README_EN.md)  |    |  Hard  |  Biweekly Contest 150  |
-|  3456  |  [Find Special Substring of Length K](/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README_EN.md)  |    |  Easy  |  Weekly Contest 437  |
-|  3457  |  [Eat Pizzas!](/solution/3400-3499/3457.Eat%20Pizzas%21/README_EN.md)  |    |  Medium  |  Weekly Contest 437  |
-|  3458  |  [Select K Disjoint Special Substrings](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README_EN.md)  |    |  Medium  |  Weekly Contest 437  |
-|  3459  |  [Length of Longest V-Shaped Diagonal Segment](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README_EN.md)  |    |  Hard  |  Weekly Contest 437  |
+|  3450  |  [Maximum Students on a Single Bench](/solution/3400-3499/3450.Maximum%20Students%20on%20a%20Single%20Bench/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  🔒  |
+|  3451  |  [Find Invalid IP Addresses](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README_EN.md)  |  `Database`  |  Hard  |    |
+|  3452  |  [Sum of Good Numbers](/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README_EN.md)  |  `Array`  |  Easy  |  Biweekly Contest 150  |
+|  3453  |  [Separate Squares I](/solution/3400-3499/3453.Separate%20Squares%20I/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Biweekly Contest 150  |
+|  3454  |  [Separate Squares II](/solution/3400-3499/3454.Separate%20Squares%20II/README_EN.md)  |  `Segment Tree`,`Array`,`Binary Search`,`Line Sweep`  |  Hard  |  Biweekly Contest 150  |
+|  3455  |  [Shortest Matching Substring](/solution/3400-3499/3455.Shortest%20Matching%20Substring/README_EN.md)  |  `Two Pointers`,`String`,`Binary Search`,`String Matching`  |  Hard  |  Biweekly Contest 150  |
+|  3456  |  [Find Special Substring of Length K](/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 437  |
+|  3457  |  [Eat Pizzas!](/solution/3400-3499/3457.Eat%20Pizzas%21/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 437  |
+|  3458  |  [Select K Disjoint Special Substrings](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Dynamic Programming`,`Sorting`  |  Medium  |  Weekly Contest 437  |
+|  3459  |  [Length of Longest V-Shaped Diagonal Segment](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README_EN.md)  |  `Memoization`,`Array`,`Dynamic Programming`,`Matrix`  |  Hard  |  Weekly Contest 437  |
 |  3460  |  [Longest Common Prefix After at Most One Removal](/solution/3400-3499/3460.Longest%20Common%20Prefix%20After%20at%20Most%20One%20Removal/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright

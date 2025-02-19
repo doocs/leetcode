@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3457.Eat%20Pizzas%21/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
 ---
 
 <!-- problem:start -->

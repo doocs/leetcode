@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3454.Separate%20Squares%20II/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Line Sweep
 ---
 
 <!-- problem:start -->
@@ -60,6 +65,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3454.Se
 	<li><code>squares[i].length == 3</code></li>
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= l<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
+	<li>The total area of all the squares will not exceed <code>10<sup>15</sup></code>.</li>
 </ul>
 
 <!-- description:end -->

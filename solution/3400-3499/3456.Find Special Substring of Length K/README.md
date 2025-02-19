@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README.md
+tags:
+    - 字符串
 ---
 
 <!-- problem:start -->

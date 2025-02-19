@@ -3,16 +3,15 @@
  * @return {number}
  */
 var maxDistance = function (arrays) {
-    const n = arrays.length;
-    let res = 0;
-    let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
-
-    for (let i = 0; i < n; i++) {
-        const a = arrays[i];
-        res = Math.max(Math.max(a.at(-1) - min, max - a[0]), res);
-        min = Math.min(min, a[0]);
-        max = Math.max(max, a.at(-1));
+    let ans = 0;
+    let [mi, mx] = [arrays[0][0], arrays[0].at(-1)];
+    for (let i = 1; i < arrays.length; ++i) {
+        const arr = arrays[i];
+        const a = Math.abs(arr[0] - mx);
+        const b = Math.abs(arr.at(-1) - mi);
+        ans = Math.max(ans, a, b);
+        mi = Math.min(mi, arr[0]);
+        mx = Math.max(mx, arr.at(-1));
     }
-
-    return res;
+    return ans;
 };
