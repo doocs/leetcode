@@ -1,4 +1,8 @@
-function judgeCircle(moves: string): boolean {
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function (moves) {
     let [x, y] = [0, 0];
     for (const c of moves) {
         if (c === 'U') {
@@ -12,4 +16,4 @@ function judgeCircle(moves: string): boolean {
         }
     }
     return x === 0 && y === 0;
-}
+};

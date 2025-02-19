@@ -56,7 +56,20 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Maintain Coordinates
+
+We can maintain a coordinate $(x, y)$ to represent the robot's movement in the horizontal and vertical directions.
+
+Traverse the string $\textit{moves}$ and update the coordinate $(x, y)$ based on the current character:
+
+-   If the current character is `'U'`, then $y$ increases by $1$;
+-   If the current character is `'D'$, then $y$ decreases by $1$;
+-   If the current character is `'L'$, then $x$ decreases by $1$;
+-   If the current character is `'R'$, then $x$ increases by $1$.
+
+Finally, check if both $x$ and $y$ are $0$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{moves}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -67,14 +80,15 @@ class Solution:
     def judgeCircle(self, moves: str) -> bool:
         x = y = 0
         for c in moves:
-            if c == 'R':
-                x += 1
-            elif c == 'L':
-                x -= 1
-            elif c == 'U':
-                y += 1
-            elif c == 'D':
-                y -= 1
+            match c:
+                case "U":
+                    y += 1
+                case "D":
+                    y -= 1
+                case "L":
+                    x -= 1
+                case "R":
+                    x += 1
         return x == 0 and y == 0
 ```
 
@@ -84,19 +98,57 @@ class Solution:
 class Solution {
     public boolean judgeCircle(String moves) {
         int x = 0, y = 0;
-        for (int i = 0; i < moves.length(); ++i) {
-            char c = moves.charAt(i);
-            if (c == 'R')
-                ++x;
-            else if (c == 'L')
-                --x;
-            else if (c == 'U')
-                ++y;
-            else if (c == 'D')
-                --y;
+        for (char c : moves.toCharArray()) {
+            switch (c) {
+                case 'U' -> y++;
+                case 'D' -> y--;
+                case 'L' -> x--;
+                case 'R' -> x++;
+            }
         }
         return x == 0 && y == 0;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool judgeCircle(string moves) {
+        int x = 0, y = 0;
+        for (char c : moves) {
+            switch (c) {
+            case 'U': y++; break;
+            case 'D': y--; break;
+            case 'L': x--; break;
+            case 'R': x++; break;
+            }
+        }
+        return x == 0 && y == 0;
+    }
+};
+```
+
+#### Go
+
+```go
+func judgeCircle(moves string) bool {
+	x, y := 0, 0
+	for _, c := range moves {
+		switch c {
+		case 'U':
+			y++
+		case 'D':
+			y--
+		case 'L':
+			x--
+		case 'R':
+			x++
+		}
+	}
+	return x == 0 && y == 0
 }
 ```
 
@@ -104,21 +156,44 @@ class Solution {
 
 ```ts
 function judgeCircle(moves: string): boolean {
-    let x = 0,
-        y = 0;
-    const dir = {
-        R: [1, 0],
-        L: [-1, 0],
-        U: [0, 1],
-        D: [0, -1],
-    };
-    for (let u of moves) {
-        const [dx, dy] = dir[u];
-        x += dx;
-        y += dy;
+    let [x, y] = [0, 0];
+    for (const c of moves) {
+        if (c === 'U') {
+            y++;
+        } else if (c === 'D') {
+            y--;
+        } else if (c === 'L') {
+            x--;
+        } else {
+            x++;
+        }
     }
-    return !x && !y;
+    return x === 0 && y === 0;
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function (moves) {
+    let [x, y] = [0, 0];
+    for (const c of moves) {
+        if (c === 'U') {
+            y++;
+        } else if (c === 'D') {
+            y--;
+        } else if (c === 'L') {
+            x--;
+        } else {
+            x++;
+        }
+    }
+    return x === 0 && y === 0;
+};
 ```
 
 <!-- tabs:end -->
