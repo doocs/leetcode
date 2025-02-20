@@ -58,20 +58,20 @@ tags:
 <strong>Explanation:</strong> The line by line code is visualized as below:
 /*Test program */
 int main()
-{ 
-  // variable declaration 
+{
+  // variable declaration
 int a, b, c;
 /* This is a test
-   multiline  
-   comment for 
+   multiline
+   comment for
    testing */
 a = b + c;
 }
 The string /* denotes a block comment, including line 1 and lines 6-9. The string // denotes line 4 as comments.
 The line by line output code is visualized as below:
 int main()
-{ 
-  
+{
+
 int a, b, c;
 a = b + c;
 }
@@ -102,7 +102,19 @@ a = b + c;
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+We use a variable $\textit{blockComment}$ to indicate whether we are currently in a block comment. Initially, $\textit{blockComment}$ is `false`. We use a variable $t$ to store the valid characters of the current line.
+
+Next, we traverse each line and discuss the following cases:
+
+If we are currently in a block comment, and the current character and the next character are `'*/'`, it means the block comment ends. We set $\textit{blockComment}$ to `false` and skip these two characters. Otherwise, we continue in the block comment state without doing anything.
+
+If we are not currently in a block comment, and the current character and the next character are `'/*'`, it means a block comment starts. We set $\textit{blockComment}$ to `true` and skip these two characters. If the current character and the next character are `'//'`, it means a line comment starts, and we exit the current line traversal. Otherwise, the current character is a valid character, and we add it to $t$.
+
+After traversing the current line, if $\textit{blockComment}$ is `false` and $t$ is not empty, it means the current line is valid. We add it to the answer array and clear $t$. Continue to traverse the next line.
+
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the total length of the source code.
 
 <!-- tabs:start -->
 

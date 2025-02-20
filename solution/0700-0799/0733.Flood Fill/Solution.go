@@ -1,17 +1,23 @@
 func floodFill(image [][]int, sr int, sc int, color int) [][]int {
-	oc := image[sr][sc]
 	m, n := len(image), len(image[0])
+	oc := image[sr][sc]
+	if oc == color {
+		return image
+	}
+
 	dirs := []int{-1, 0, 1, 0, -1}
+
 	var dfs func(i, j int)
 	dfs = func(i, j int) {
-		if i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == color {
-			return
-		}
 		image[i][j] = color
 		for k := 0; k < 4; k++ {
-			dfs(i+dirs[k], j+dirs[k+1])
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && image[x][y] == oc {
+				dfs(x, y)
+			}
 		}
 	}
+
 	dfs(sr, sc)
 	return image
 }
