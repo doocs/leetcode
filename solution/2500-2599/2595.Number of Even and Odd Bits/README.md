@@ -32,8 +32,8 @@ tags:
 
 <pre><strong>输入：</strong>n = 17
 <strong>输出：</strong>[2,0]
-<strong>解释：</strong>17 的二进制形式是 10001 。 
-下标 0 和 下标 4 对应的值为 1 。 
+<strong>解释：</strong>17 的二进制形式是 10001 。
+下标 0 和 下标 4 对应的值为 1 。
 共有 2 个偶数下标，0 个奇数下标。
 </pre>
 
@@ -41,8 +41,8 @@ tags:
 
 <pre><strong>输入：</strong>n = 2
 <strong>输出：</strong>[0,1]
-<strong>解释：</strong>2 的二进制形式是 10 。 
-下标 1 对应的值为 1 。 
+<strong>解释：</strong>2 的二进制形式是 10 。
+下标 1 对应的值为 1 。
 共有 0 个偶数下标，1 个奇数下标。
 </pre>
 
@@ -127,7 +127,7 @@ func evenOddBit(n int) []int {
 
 ```ts
 function evenOddBit(n: number): number[] {
-    const ans = new Array(2).fill(0);
+    const ans = Array(2).fill(0);
     for (let i = 0; n > 0; n >>= 1, i ^= 1) {
         ans[i] += n & 1;
     }
@@ -161,7 +161,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：位运算
+
+我们可以定义一个掩码 $\textit{mask} = \text{0x5555}$，它的二进制表示为 $\text{0101 0101 0101 0101}_2$。那么 $n$ 与 $\textit{mask}$ 进行按位与运算，就可以得到 $n$ 的二进制表示中偶数下标的位，而 $n$ 与 $\textit{mask}$ 取反后再进行按位与运算，就可以得到 $n$ 的二进制表示中奇数下标的位。统计这两个结果中 $1$ 的个数即可。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。其中 $n$ 为给定的整数。
 
 <!-- tabs:start -->
 

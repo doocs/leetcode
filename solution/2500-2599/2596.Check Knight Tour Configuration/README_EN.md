@@ -65,11 +65,11 @@ tags:
 
 ### Solution 1: Simulation
 
-We first use the array $pos$ to record the coordinates of the grid visited by the knight, and then traverse the $pos$ array to check whether the difference between the adjacent two grid coordinates is $(1, 2)$ or $(2, 1)$. If not, return `false`.
+We first use an array $\textit{pos}$ to record the coordinates of each cell visited by the knight, then traverse the $\textit{pos}$ array and check if the coordinate difference between two adjacent cells is $(1, 2)$ or $(2, 1)$. If not, return $\textit{false}$.
 
-Otherwise, return `true` after the traversal ends.
+Otherwise, after the traversal, return $\textit{true}$.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the length of the chessboard.
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the side length of the chessboard.
 
 <!-- tabs:start -->
 
