@@ -1,30 +1,46 @@
-class Solution {
-    private Set<String> s;
+class Trie {
+    private Trie[] children = new Trie[26];
+    private boolean isEnd = false;
 
+    public void insert(String w) {
+        Trie node = this;
+        for (char c : w.toCharArray()) {
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        node.isEnd = true;
+    }
+
+    public boolean search(String w) {
+        Trie node = this;
+        for (char c : w.toCharArray()) {
+            int idx = c - 'a';
+            if (node.children[idx] == null || !node.children[idx].isEnd) {
+                return false;
+            }
+            node = node.children[idx];
+        }
+        return true;
+    }
+}
+
+class Solution {
     public String longestWord(String[] words) {
-        s = new HashSet<>(Arrays.asList(words));
-        int cnt = 0;
+        Trie trie = new Trie();
+        for (String w : words) {
+            trie.insert(w);
+        }
         String ans = "";
-        for (String w : s) {
-            int n = w.length();
-            if (check(w)) {
-                if (cnt < n) {
-                    cnt = n;
-                    ans = w;
-                } else if (cnt == n && w.compareTo(ans) < 0) {
-                    ans = w;
-                }
+        for (String w : words) {
+            if (trie.search(w)
+                && (ans.length() < w.length()
+                    || (ans.length() == w.length() && w.compareTo(ans) < 0))) {
+                ans = w;
             }
         }
         return ans;
-    }
-
-    private boolean check(String word) {
-        for (int i = 1, n = word.length(); i < n; ++i) {
-            if (!s.contains(word.substring(0, i))) {
-                return false;
-            }
-        }
-        return true;
     }
 }

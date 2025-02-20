@@ -1,23 +1,43 @@
-function longestWord(words: string[]): string {
-    words.sort((a, b) => {
-        const n = a.length;
-        const m = b.length;
-        if (n === m) {
-            return a < b ? -1 : 1;
-        }
-        return m - n;
-    });
-    for (const word of words) {
-        let isPass = true;
-        for (let i = 1; i <= word.length; i++) {
-            if (!words.includes(word.slice(0, i))) {
-                isPass = false;
-                break;
+class Trie {
+    children: (Trie | null)[] = new Array(26).fill(null);
+    isEnd: boolean = false;
+
+    insert(w: string): void {
+        let node: Trie = this;
+        for (let i = 0; i < w.length; i++) {
+            const idx: number = w.charCodeAt(i) - 'a'.charCodeAt(0);
+            if (node.children[idx] === null) {
+                node.children[idx] = new Trie();
             }
+            node = node.children[idx]!;
         }
-        if (isPass) {
-            return word;
+        node.isEnd = true;
+    }
+
+    search(w: string): boolean {
+        let node: Trie = this;
+        for (let i = 0; i < w.length; i++) {
+            const idx: number = w.charCodeAt(i) - 'a'.charCodeAt(0);
+            if (node.children[idx] === null || !node.children[idx]!.isEnd) {
+                return false;
+            }
+            node = node.children[idx]!;
+        }
+        return true;
+    }
+}
+
+function longestWord(words: string[]): string {
+    const trie = new Trie();
+    for (const w of words) {
+        trie.insert(w);
+    }
+
+    let ans = '';
+    for (const w of words) {
+        if (trie.search(w) && (ans.length < w.length || (ans.length === w.length && w < ans))) {
+            ans = w;
         }
     }
-    return '';
+    return ans;
 }
