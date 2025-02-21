@@ -1,8 +1,8 @@
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        def dfs(i):
-            if i >= len(s):
-                ans.append(''.join(t))
+        def dfs(i: int) -> None:
+            if i >= len(t):
+                ans.append("".join(t))
                 return
             dfs(i + 1)
             if t[i].isalpha():
