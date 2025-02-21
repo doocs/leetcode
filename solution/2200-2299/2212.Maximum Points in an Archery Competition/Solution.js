@@ -1,4 +1,9 @@
-function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
+/**
+ * @param {number} numArrows
+ * @param {number[]} aliceArrows
+ * @return {number[]}
+ */
+var maximumBobPoints = function (numArrows, aliceArrows) {
     let [st, mx] = [0, 0];
     const m = aliceArrows.length;
     for (let mask = 1; mask < 1 << m; mask++) {
@@ -14,7 +19,7 @@ function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
             st = mask;
         }
     }
-    const ans: number[] = Array(m).fill(0);
+    const ans = Array(m).fill(0);
     for (let i = 0; i < m; i++) {
         if ((st >> i) & 1) {
             ans[i] = aliceArrows[i] + 1;
@@ -23,4 +28,4 @@ function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
     }
     ans[0] += numArrows;
     return ans;
-}
+};
