@@ -3,19 +3,19 @@ public:
     bool isBipartite(vector<vector<int>>& graph) {
         int n = graph.size();
         vector<int> color(n);
-        for (int i = 0; i < n; ++i)
-            if (!color[i] && !dfs(i, 1, color, graph))
+        auto dfs = [&](this auto&& dfs, int a, int c) -> bool {
+            color[a] = c;
+            for (int b : graph[a]) {
+                if (color[b] == c || (color[b] == 0 && !dfs(b, -c))) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        for (int i = 0; i < n; ++i) {
+            if (color[i] == 0 && !dfs(i, 1)) {
                 return false;
-        return true;
-    }
-
-    bool dfs(int u, int c, vector<int>& color, vector<vector<int>>& g) {
-        color[u] = c;
-        for (int& v : g[u]) {
-            if (!color[v]) {
-                if (!dfs(v, 3 - c, color, g)) return false;
-            } else if (color[v] == c)
-                return false;
+            }
         }
         return true;
     }

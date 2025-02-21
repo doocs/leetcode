@@ -1,14 +1,15 @@
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
         p = list(range(len(graph)))
-        for u, g in enumerate(graph):
-            for v in g:
-                if find(u) == find(v):
+        for a, bs in enumerate(graph):
+            for b in bs:
+                pa, pb = find(a), find(b)
+                if pa == pb:
                     return False
-                p[find(v)] = find(g[0])
+                p[pb] = find(bs[0])
         return True
