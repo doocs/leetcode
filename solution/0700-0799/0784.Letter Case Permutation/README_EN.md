@@ -51,7 +51,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+Since each letter in $s$ can be converted to uppercase or lowercase, we can use the DFS (Depth-First Search) method to enumerate all possible cases.
+
+Specifically, traverse the string $s$ from left to right. For each letter encountered, you can choose to convert it to uppercase or lowercase, and then continue to traverse the subsequent letters. When you reach the end of the string, you get a conversion scheme and add it to the answer.
+
+The method of converting case can be implemented using bitwise operations. For a letter, the difference between the ASCII codes of its lowercase and uppercase forms is $32$, so we can achieve case conversion by XORing the ASCII code of the letter with $32$.
+
+The time complexity is $O(n \times 2^n)$, where $n$ is the length of the string $s$. For each letter, we can choose to convert it to uppercase or lowercase, so there are $2^n$ conversion schemes in total. For each conversion scheme, we need $O(n)$ time to generate a new string.
 
 <!-- tabs:start -->
 
@@ -60,9 +68,9 @@ tags:
 ```python
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        def dfs(i):
-            if i >= len(s):
-                ans.append(''.join(t))
+        def dfs(i: int) -> None:
+            if i >= len(t):
+                ans.append("".join(t))
                 return
             dfs(i + 1)
             if t[i].isalpha():
@@ -90,11 +98,11 @@ class Solution {
 
     private void dfs(int i) {
         if (i >= t.length) {
-            ans.add(String.valueOf(t));
+            ans.add(new String(t));
             return;
         }
         dfs(i + 1);
-        if (t[i] >= 'A') {
+        if (Character.isLetter(t[i])) {
             t[i] ^= 32;
             dfs(i + 1);
         }
@@ -108,15 +116,16 @@ class Solution {
 class Solution {
 public:
     vector<string> letterCasePermutation(string s) {
+        string t = s;
         vector<string> ans;
-        function<void(int)> dfs = [&](int i) {
-            if (i >= s.size()) {
-                ans.emplace_back(s);
+        auto dfs = [&](this auto&& dfs, int i) -> void {
+            if (i >= t.size()) {
+                ans.push_back(t);
                 return;
             }
             dfs(i + 1);
-            if (s[i] >= 'A') {
-                s[i] ^= 32;
+            if (isalpha(t[i])) {
+                t[i] ^= 32;
                 dfs(i + 1);
             }
         };
@@ -153,22 +162,21 @@ func letterCasePermutation(s string) (ans []string) {
 
 ```ts
 function letterCasePermutation(s: string): string[] {
-    const n = s.length;
-    const cs = [...s];
-    const res = [];
+    const t = s.split('');
+    const ans: string[] = [];
     const dfs = (i: number) => {
-        if (i === n) {
-            res.push(cs.join(''));
+        if (i >= t.length) {
+            ans.push(t.join(''));
             return;
         }
         dfs(i + 1);
-        if (cs[i] >= 'A') {
-            cs[i] = String.fromCharCode(cs[i].charCodeAt(0) ^ 32);
+        if (t[i].charCodeAt(0) >= 65) {
+            t[i] = String.fromCharCode(t[i].charCodeAt(0) ^ 32);
             dfs(i + 1);
         }
     };
     dfs(0);
-    return res;
+    return ans;
 }
 ```
 
@@ -176,23 +184,23 @@ function letterCasePermutation(s: string): string[] {
 
 ```rust
 impl Solution {
-    fn dfs(i: usize, cs: &mut Vec<char>, res: &mut Vec<String>) {
-        if i == cs.len() {
-            res.push(cs.iter().collect());
-            return;
-        }
-        Self::dfs(i + 1, cs, res);
-        if cs[i] >= 'A' {
-            cs[i] = char::from((cs[i] as u8) ^ 32);
-            Self::dfs(i + 1, cs, res);
-        }
-    }
-
     pub fn letter_case_permutation(s: String) -> Vec<String> {
-        let mut res = Vec::new();
-        let mut cs = s.chars().collect::<Vec<char>>();
-        Self::dfs(0, &mut cs, &mut res);
-        res
+        fn dfs(i: usize, t: &mut Vec<char>, ans: &mut Vec<String>) {
+            if i >= t.len() {
+                ans.push(t.iter().collect());
+                return;
+            }
+            dfs(i + 1, t, ans);
+            if t[i].is_alphabetic() {
+                t[i] = (t[i] as u8 ^ 32) as char;
+                dfs(i + 1, t, ans);
+            }
+        }
+
+        let mut t: Vec<char> = s.chars().collect();
+        let mut ans = Vec::new();
+        dfs(0, &mut t, &mut ans);
+        ans
     }
 }
 ```
@@ -203,7 +211,15 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Binary Enumeration
+
+For a letter, we can convert it to uppercase or lowercase. Therefore, for each letter, we can use a binary bit to represent its conversion scheme, where $1$ represents lowercase and $0$ represents uppercase.
+
+First, we count the number of letters in the string $s$, denoted as $n$. Then, there are $2^n$ conversion schemes in total. We can use each bit of a binary number to represent the conversion scheme of each letter, enumerating from $0$ to $2^n-1$.
+
+Specifically, we can use a variable $i$ to represent the current binary number being enumerated, where the $j$-th bit of $i$ represents the conversion scheme of the $j$-th letter. That is, the $j$-th bit of $i$ being $1$ means the $j$-th letter is converted to lowercase, and $0$ means the $j$-th letter is converted to uppercase.
+
+The time complexity is $O(n \times 2^n)$, where $n$ is the length of the string $s$. For each letter, we can choose to convert it to uppercase or lowercase, so there are $2^n$ conversion schemes in total. For each conversion scheme, we need $O(n)$ time to generate a new string.
 
 <!-- tabs:start -->
 
@@ -261,9 +277,7 @@ class Solution {
 class Solution {
 public:
     vector<string> letterCasePermutation(string s) {
-        int n = 0;
-        for (char c : s)
-            if (isalpha(c)) ++n;
+        int n = count_if(s.begin(), s.end(), [](char c) { return isalpha(c); });
         vector<string> ans;
         for (int i = 0; i < 1 << n; ++i) {
             int j = 0;
@@ -309,6 +323,58 @@ func letterCasePermutation(s string) (ans []string) {
 		ans = append(ans, string(t))
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function letterCasePermutation(s: string): string[] {
+    const ans: string[] = [];
+    const n: number = Array.from(s).filter(c => /[a-zA-Z]/.test(c)).length;
+    for (let i = 0; i < 1 << n; ++i) {
+        let j = 0;
+        const t: string[] = [];
+        for (let c of s) {
+            if (/[a-zA-Z]/.test(c)) {
+                t.push((i >> j) & 1 ? c.toLowerCase() : c.toUpperCase());
+                j++;
+            } else {
+                t.push(c);
+            }
+        }
+        ans.push(t.join(''));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn letter_case_permutation(s: String) -> Vec<String> {
+        let n = s.chars().filter(|&c| c.is_alphabetic()).count();
+        let mut ans = Vec::new();
+        for i in 0..(1 << n) {
+            let mut j = 0;
+            let mut t = String::new();
+            for c in s.chars() {
+                if c.is_alphabetic() {
+                    if (i >> j) & 1 == 1 {
+                        t.push(c.to_lowercase().next().unwrap());
+                    } else {
+                        t.push(c.to_uppercase().next().unwrap());
+                    }
+                    j += 1;
+                } else {
+                    t.push(c);
+                }
+            }
+            ans.push(t);
+        }
+        ans
+    }
 }
 ```
 
