@@ -74,7 +74,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+根据题意，当两辆移动方向相反的车相撞时，碰撞次数加 $2$，即两辆车被撞停，答案加 $2$；当一辆移动的车和一辆静止的车相撞时，碰撞次数加 $1$，即一辆车被撞停，答案加 $1$。
+
+而显然前缀的 $\textit{L}$ 和后缀的 $\textit{R}$ 是不会发生碰撞的，所以我们只需要统计中间不等于 $\textit{S}$ 的字符个数即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$ 或 $O(1)$。其中 $n$ 是字符串 $\textit{directions}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -83,8 +89,8 @@ tags:
 ```python
 class Solution:
     def countCollisions(self, directions: str) -> int:
-        d = directions.lstrip('L').rstrip('R')
-        return len(d) - d.count('S')
+        s = directions.lstrip("L").rstrip("R")
+        return len(s) - s.count("S")
 ```
 
 #### Java
@@ -92,21 +98,18 @@ class Solution:
 ```java
 class Solution {
     public int countCollisions(String directions) {
-        char[] ds = directions.toCharArray();
-        int n = ds.length;
-        int l = 0;
-        int r = n - 1;
-        while (l < n && ds[l] == 'L') {
+        char[] s = directions.toCharArray();
+        int n = s.length;
+        int l = 0, r = n - 1;
+        while (l < n && s[l] == 'L') {
             ++l;
         }
-        while (r >= 0 && ds[r] == 'R') {
+        while (r >= 0 && s[r] == 'R') {
             --r;
         }
-        int ans = 0;
+        int ans = r - l + 1;
         for (int i = l; i <= r; ++i) {
-            if (ds[i] != 'S') {
-                ++ans;
-            }
+            ans -= s[i] == 'S' ? 1 : 0;
         }
         return ans;
     }
@@ -118,18 +121,16 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int countCollisions(string directions) {
-        int l = 0, r = directions.size() - 1, count = 0;
-        while (l <= r && directions[l] == 'L') {
-            l++;
+    int countCollisions(string s) {
+        int n = s.size();
+        int l = 0, r = n - 1;
+        while (l < n && s[l] == 'L') {
+            ++l;
         }
-        while (l <= r && directions[r] == 'R') {
-            r--;
+        while (r >= 0 && s[r] == 'R') {
+            --r;
         }
-        for (int i = l; i <= r; i++) {
-            count += directions[i] != 'S';
-        }
-        return count;
+        return r - l + 1 - count(s.begin() + l, s.begin() + r + 1, 'S');
     }
 };
 ```
@@ -138,9 +139,8 @@ public:
 
 ```go
 func countCollisions(directions string) int {
-	d := strings.TrimLeft(directions, "L")
-	d = strings.TrimRight(d, "R")
-	return len(d) - strings.Count(d, "S")
+	s := strings.TrimRight(strings.TrimLeft(directions, "L"), "R")
+	return len(s) - strings.Count(s, "S")
 }
 ```
 
@@ -149,22 +149,47 @@ func countCollisions(directions string) int {
 ```ts
 function countCollisions(directions: string): number {
     const n = directions.length;
-    let l = 0,
-        r = n - 1;
+    let [l, r] = [0, n - 1];
     while (l < n && directions[l] == 'L') {
         ++l;
     }
     while (r >= 0 && directions[r] == 'R') {
         --r;
     }
-    let ans = 0;
+    let ans = r - l + 1;
     for (let i = l; i <= r; ++i) {
-        if (directions[i] != 'S') {
-            ++ans;
+        if (directions[i] === 'S') {
+            --ans;
         }
     }
     return ans;
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} directions
+ * @return {number}
+ */
+var countCollisions = function (directions) {
+    const n = directions.length;
+    let [l, r] = [0, n - 1];
+    while (l < n && directions[l] == 'L') {
+        ++l;
+    }
+    while (r >= 0 && directions[r] == 'R') {
+        --r;
+    }
+    let ans = r - l + 1;
+    for (let i = l; i <= r; ++i) {
+        if (directions[i] === 'S') {
+            --ans;
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

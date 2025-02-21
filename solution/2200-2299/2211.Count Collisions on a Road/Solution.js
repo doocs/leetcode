@@ -1,4 +1,8 @@
-function countCollisions(directions: string): number {
+/**
+ * @param {string} directions
+ * @return {number}
+ */
+var countCollisions = function (directions) {
     const n = directions.length;
     let [l, r] = [0, n - 1];
     while (l < n && directions[l] == 'L') {
@@ -14,4 +18,4 @@ function countCollisions(directions: string): number {
         }
     }
     return ans;
-}
+};
