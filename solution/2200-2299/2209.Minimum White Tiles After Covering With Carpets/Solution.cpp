@@ -7,12 +7,19 @@ public:
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + (floor[i] == '1');
         }
-        function<int(int, int)> dfs;
-        dfs = [&](int i, int j) {
-            if (i >= n) return 0;
-            if (j == 0) return s[n] - s[i];
-            if (f[i][j] != -1) return f[i][j];
-            if (s[i + 1] == s[i]) return dfs(i + 1, j);
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
+            if (i >= n) {
+                return 0;
+            }
+            if (j == 0) {
+                return s[n] - s[i];
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            if (s[i + 1] == s[i]) {
+                return dfs(i + 1, j);
+            }
             int ans = min(1 + dfs(i + 1, j), dfs(i + carpetLen, j - 1));
             f[i][j] = ans;
             return ans;
