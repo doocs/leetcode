@@ -1,10 +1,10 @@
 class Solution:
     def minimumWhiteTiles(self, floor: str, numCarpets: int, carpetLen: int) -> int:
         @cache
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> int:
             if i >= n:
                 return 0
-            if floor[i] == '0':
+            if floor[i] == "0":
                 return dfs(i + 1, j)
             if j == 0:
                 return s[-1] - s[i]
@@ -13,7 +13,7 @@ class Solution:
         n = len(floor)
         s = [0] * (n + 1)
         for i, c in enumerate(floor):
-            s[i + 1] = s[i] + int(c == '1')
+            s[i + 1] = s[i] + int(c == "1")
         ans = dfs(0, numCarpets)
         dfs.cache_clear()
         return ans
