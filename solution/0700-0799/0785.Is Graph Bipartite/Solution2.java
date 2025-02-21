@@ -7,13 +7,13 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        for (int u = 0; u < n; ++u) {
-            int[] g = graph[u];
-            for (int v : g) {
-                if (find(u) == find(v)) {
+        for (int a = 0; a < n; ++a) {
+            for (int b : graph[a]) {
+                int pa = find(a), pb = find(b);
+                if (pa == pb) {
                     return false;
                 }
-                p[find(v)] = find(g[0]);
+                p[pb] = find(graph[a][0]);
             }
         }
         return true;

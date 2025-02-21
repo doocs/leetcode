@@ -14,14 +14,10 @@ class Solution {
         return true;
     }
 
-    private boolean dfs(int u, int c) {
-        color[u] = c;
-        for (int v : g[u]) {
-            if (color[v] == 0) {
-                if (!dfs(v, 3 - c)) {
-                    return false;
-                }
-            } else if (color[v] == c) {
+    private boolean dfs(int a, int c) {
+        color[a] = c;
+        for (int b : g[a]) {
+            if (color[b] == c || (color[b] == 0 && !dfs(b, -c))) {
                 return false;
             }
         }
