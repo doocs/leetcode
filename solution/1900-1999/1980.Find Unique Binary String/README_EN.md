@@ -191,4 +191,84 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findDifferentBinaryString(nums: string[]): string {
+    const set = new Set(nums.map(x => Number.parseInt(x, 2)));
+    let res = 0;
+
+    while (set.has(res)) {
+        res++;
+    }
+
+    return res.toString(2).padStart(nums[0].length, '0');
+}
+```
+
+#### JavaScript
+
+```js
+function findDifferentBinaryString(nums) {
+    const set = new Set(nums.map(x => Number.parseInt(x, 2)));
+    let res = 0;
+
+    while (set.has(res)) {
+        res++;
+    }
+
+    return res.toString(2).padStart(nums[0].length, '0');
+}
+```
+
+<!-- solution:end -->
+
+<!-- tabs:end -->
+
+<!-- solution:start -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findDifferentBinaryString(nums: string[]): string {
+    const res: string[] = [];
+
+    for (let i = 0; i < nums.length; i++) {
+        const x = nums[i][i];
+        res.push(x === '0' ? '1' : '0');
+    }
+
+    return res.join('');
+}
+```
+
+#### JavaScript
+
+```js
+function findDifferentBinaryString(nums) {
+    const res = [];
+
+    for (let i = 0; i < nums.length; i++) {
+        const x = nums[i][i];
+        res.push(x === '0' ? '1' : '0');
+    }
+
+    return res.join('');
+}
+```
+
+<!-- solution:end -->
+
+<!-- tabs:end -->
+
 <!-- problem:end -->
