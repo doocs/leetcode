@@ -7,7 +7,7 @@ class Solution:
                 return 1
             ans = 0
             for j in range(1, n + 1):
-                if (mask >> j & 1) == 0 and (i % j == 0 or j % i == 0):
+                if (mask >> j & 1) == 0 and gcd(i, j) == 1:
                     ans += dfs(mask | 1 << j)
             return ans
 
