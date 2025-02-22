@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> s1 = &quot;abcdebdde&quot;, s2 = &quot;bde&quot;
 <strong>Output:</strong> &quot;bcde&quot;
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 &quot;bcde&quot; is the answer because it occurs before &quot;bdde&quot; which has the same length.
 &quot;deb&quot; is not a smaller window because the elements of s2 in the window must occur in order.
 </pre>

@@ -14,6 +14,72 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3460.Lo
 
 <!-- description:start -->
 
+<p>给定两个字符串&nbsp;<code>s</code> 和&nbsp;<code>t</code>。</p>
+
+<p>返回从&nbsp;<code>s</code>&nbsp;<strong>最多 </strong>删除一个字母后，<code>s</code> 和&nbsp;<code>t</code>&nbsp;的 <strong>最长公共 <span data-keyword="string-prefix">前缀</span></strong>&nbsp;的 <strong>长度</strong>。</p>
+
+<p><strong>注意：</strong>可以保留<strong>&nbsp;</strong><code>s</code>&nbsp;而不做任何删除。</p>
+
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "madxa", t = "madam"</span></p>
+
+<p><strong>输出：</strong><span class="example-io">4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>从&nbsp;<code>s</code>&nbsp;删除&nbsp;<code>s[3]</code>&nbsp;得到&nbsp;<code>"mada"</code>，与 <code>t</code>&nbsp;的最长公共前缀长度为 4。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "leetcode", t = "eetcode"</span></p>
+
+<p><span class="example-io"><b>输出：</b>7</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>从&nbsp;<code>s</code>&nbsp;删除&nbsp;<code>s[0]</code>&nbsp;得到&nbsp;<code>"eetcode"</code>，与&nbsp;<code>t</code>&nbsp;匹配。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "one", t = "one"</span></p>
+
+<p><span class="example-io"><b>输出：</b>3</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>不需要删除。</p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "a", t = "b"</span></p>
+
+<p><span class="example-io"><b>输出：</b>0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><code>s</code>&nbsp;和&nbsp;<code>t</code>&nbsp;不可能有公共前缀。</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= t.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s</code> 和&nbsp;<code>t</code>&nbsp;只包含小写英文字母。</li>
+</ul>
+
 <!-- description:end -->
 
 ## 解法

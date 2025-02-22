@@ -20,7 +20,8 @@ tags:
 
 <p>例如：</p>
 
-<pre>8 = 2 x 2 x 2;
+<pre>
+8 = 2 x 2 x 2;
   = 2 x 4.</pre>
 
 <p>请实现一个函数，该函数接收一个整数 <em>n</em>&nbsp;并返回该整数所有的因子组合。</p>
@@ -34,18 +35,21 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入: </strong><code>1</code>
+<pre>
+<strong>输入: </strong><code>1</code>
 <strong>输出: </strong>[]
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入: </strong><code>37</code>
+<pre>
+<strong>输入: </strong><code>37</code>
 <strong>输出: </strong>[]</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入: </strong><code>12</code>
+<pre>
+<strong>输入: </strong><code>12</code>
 <strong>输出:</strong>
 [
   [2, 6],
@@ -55,7 +59,8 @@ tags:
 
 <p><strong>示例 4: </strong></p>
 
-<pre><strong>输入: </strong><code>32</code>
+<pre>
+<strong>输入: </strong><code>32</code>
 <strong>输出:</strong>
 [
   [2, 16],
@@ -66,6 +71,14 @@ tags:
   [4, 8]
 ]
 </pre>
+
+<p>&nbsp;</p>
+
+<p><b>提示：</b></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>7</sup></code></li>
+</ul>
 
 <!-- description:end -->
 

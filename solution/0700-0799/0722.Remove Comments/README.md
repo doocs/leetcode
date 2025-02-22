@@ -59,20 +59,20 @@ tags:
 <strong>解释:</strong> 示例代码可以编排成这样:
 /*Test program */
 int main()
-{
-  // variable declaration
+{ 
+  // variable declaration 
 int a, b, c;
 /* This is a test
-   multiline
-   comment for
+   multiline  
+   comment for 
    testing */
 a = b + c;
 }
 第 1 行和第 6-9 行的字符串 /* 表示块注释。第 4 行的字符串 // 表示行注释。
-编排后:
+编排后: 
 int main()
-{
-
+{ 
+  
 int a, b, c;
 a = b + c;
 }</pre>

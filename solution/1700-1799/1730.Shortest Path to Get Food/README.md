@@ -55,6 +55,12 @@ tags:
 <strong>输出:</strong> 6
 <strong>解释:</strong> 这里有多个食物。拿到下边的食物仅需走 6 步。</pre>
 
+<p><strong class="example">示例 4：</strong></p>
+
+<pre>
+<b>输入：</b>grid = [["X","X","X","X","X","X","X","X"],["X","*","O","X","O","#","O","X"],["X","O","O","X","O","O","X","X"],["X","O","O","O","O","#","O","X"],["O","O","O","O","O","O","O","O"]]
+<b>输出：</b>5</pre>
+
 <p>&nbsp;</p>
 
 <p><b>提示：</b></p>

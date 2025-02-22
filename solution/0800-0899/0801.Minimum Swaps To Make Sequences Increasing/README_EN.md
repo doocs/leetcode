@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums1 = [1,3,5,4], nums2 = [1,2,3,7]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Swap nums1[3] and nums2[3]. Then the sequences are:
 nums1 = [1, 3, 5, 7] and nums2 = [1, 2, 3, 4]
 which are both strictly increasing.
