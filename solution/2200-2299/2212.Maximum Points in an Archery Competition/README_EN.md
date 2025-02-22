@@ -52,7 +52,7 @@ tags:
 <pre>
 <strong>Input:</strong> numArrows = 9, aliceArrows = [1,1,0,1,0,0,2,1,0,1,2,0]
 <strong>Output:</strong> [0,0,0,0,1,1,0,0,1,2,3,1]
-<strong>Explanation:</strong> The table above shows how the competition is scored.
+<strong>Explanation:</strong> The table above shows how the competition is scored. 
 Bob earns a total point of 4 + 5 + 8 + 9 + 10 + 11 = 47.
 It can be shown that Bob cannot obtain a score higher than 47 points.
 </pre>

@@ -72,6 +72,7 @@ tags:
 	<li><code>squares[i].length == 3</code></li>
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= l<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
+	<li>所有正方形的总面积不超过 <code>10<sup>12</sup></code>。</li>
 </ul>
 
 <!-- description:end -->

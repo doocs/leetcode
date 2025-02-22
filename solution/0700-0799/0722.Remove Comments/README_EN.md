@@ -58,20 +58,20 @@ tags:
 <strong>Explanation:</strong> The line by line code is visualized as below:
 /*Test program */
 int main()
-{
-  // variable declaration
+{ 
+  // variable declaration 
 int a, b, c;
 /* This is a test
-   multiline
-   comment for
+   multiline  
+   comment for 
    testing */
 a = b + c;
 }
 The string /* denotes a block comment, including line 1 and lines 6-9. The string // denotes line 4 as comments.
 The line by line output code is visualized as below:
 int main()
-{
-
+{ 
+  
 int a, b, c;
 a = b + c;
 }

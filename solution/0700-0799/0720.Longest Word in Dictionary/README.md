@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>输入：</strong>words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
 <strong>输出：</strong>"apple"
-<strong>解释：</strong>"apply" 和 "apple" 都能由词典中的单词组成。但是 "apple" 的字典序小于 "apply"
+<strong>解释：</strong>"apply" 和 "apple" 都能由词典中的单词组成。但是 "apple" 的字典序小于 "apply" 
 </pre>
 
 <p>&nbsp;</p>

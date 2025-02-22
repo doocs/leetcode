@@ -86,7 +86,7 @@ tags:
 	<li><code>2 &lt;= nums.length &lt;= 2 * 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
-	<li>输入保证答案一定存在，也就是说一定存在一个操作序列使数组中所有元素都大于等于&nbsp;<code>k</code> 。</li>
+	<li>输入保证答案一定存在，也就是说，在进行某些次数的操作后，数组中所有元素都大于等于&nbsp;<code>k</code> 。</li>
 </ul>
 
 <!-- description:end -->

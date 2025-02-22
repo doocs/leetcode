@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2452.Wo
 rating: 1459
 source: 第 90 场双周赛 Q2
 tags:
+    - 字典树
     - 数组
     - 字符串
 ---

@@ -66,6 +66,15 @@ tags:
 但无论将 s[0] 变为 '(' 或者 ')' 都无法使 s 变为有效字符串。
 </pre>
 
+<p><strong class="example">示例 4：</strong></p>
+
+<pre>
+<b>输入：</b>s = "(((())(((())", locked = "111111010111"
+<b>输出：</b>false
+<b>解释：</b>locked 允许我们改变 s[6] 和 s[8]。
+我们将 s[6] 和 s[8] 改为 ')' 使 s 变为有效字符串。
+</pre>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
