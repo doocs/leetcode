@@ -13,26 +13,24 @@
  */
 
 class FindElements {
-    private s: Set<number> = new Set<number>();
+    readonly #s = new Set<number>();
 
     constructor(root: TreeNode | null) {
         root.val = 0;
-        const dfs = (root: TreeNode) => {
-            this.s.add(root.val);
-            if (root.left) {
-                root.left.val = root.val * 2 + 1;
-                dfs(root.left);
-            }
-            if (root.right) {
-                root.right.val = root.val * 2 + 2;
-                dfs(root.right);
-            }
+
+        const dfs = (node: TreeNode | null, x = 0) => {
+            if (!node) return;
+
+            this.#s.add(x);
+            dfs(node.left, x * 2 + 1);
+            dfs(node.right, x * 2 + 2);
         };
+
         dfs(root);
     }
 
     find(target: number): boolean {
-        return this.s.has(target);
+        return this.#s.has(target);
     }
 }
 
