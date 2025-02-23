@@ -3471,6 +3471,10 @@
 |  3458  |  [选择 K 个互不重叠的特殊子字符串](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README.md)  |  `贪心`,`哈希表`,`字符串`,`动态规划`,`排序`  |  中等  |  第 437 场周赛  |
 |  3459  |  [最长 V 形对角线段的长度](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README.md)  |  `记忆化搜索`,`数组`,`动态规划`,`矩阵`  |  困难  |  第 437 场周赛  |
 |  3460  |  [最多删除一次后的最长公共前缀](/solution/3400-3499/3460.Longest%20Common%20Prefix%20After%20at%20Most%20One%20Removal/README.md)  |    |  中等  |  🔒  |
+|  3461  |  [判断操作后字符串中的数字是否相等 I](/solution/3400-3499/3461.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20I/README.md)  |    |  简单  |  第 438 场周赛  |
+|  3462  |  [提取至多 K 个元素的最大总和](/solution/3400-3499/3462.Maximum%20Sum%20With%20at%20Most%20K%20Elements/README.md)  |    |  中等  |  第 438 场周赛  |
+|  3463  |  [判断操作后字符串中的数字是否相等 II](/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README.md)  |    |  困难  |  第 438 场周赛  |
+|  3464  |  [正方形上的点之间的最大距离](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README.md)  |    |  困难  |  第 438 场周赛  |
 
 ## 版权
 

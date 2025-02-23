@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 438 场周赛(2025-02-23 10:30, 90 分钟) 参赛人数 2401
+
+- [3461. 判断操作后字符串中的数字是否相等 I](/solution/3400-3499/3461.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20I/README.md)
+- [3462. 提取至多 K 个元素的最大总和](/solution/3400-3499/3462.Maximum%20Sum%20With%20at%20Most%20K%20Elements/README.md)
+- [3463. 判断操作后字符串中的数字是否相等 II](/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README.md)
+- [3464. 正方形上的点之间的最大距离](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README.md)
+
 #### 第 437 场周赛(2025-02-16 10:30, 90 分钟) 参赛人数 1992
 
 - [3456. 找出长度为 K 的特殊子字符串](/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README.md)

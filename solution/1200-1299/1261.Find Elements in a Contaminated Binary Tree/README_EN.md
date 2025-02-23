@@ -54,8 +54,8 @@ tags:
 <strong>Output</strong>
 [null,false,true]
 <strong>Explanation</strong>
-FindElements findElements = new FindElements([-1,null,-1]);
-findElements.find(1); // return False
+FindElements findElements = new FindElements([-1,null,-1]); 
+findElements.find(1); // return False 
 findElements.find(2); // return True </pre>
 
 <p><strong class="example">Example 2:</strong></p>
