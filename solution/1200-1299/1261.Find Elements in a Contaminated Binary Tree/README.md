@@ -57,8 +57,8 @@ tags:
 <strong>输出：</strong>
 [null,false,true]
 <strong>解释：</strong>
-FindElements findElements = new FindElements([-1,null,-1]);
-findElements.find(1); // return False
+FindElements findElements = new FindElements([-1,null,-1]); 
+findElements.find(1); // return False 
 findElements.find(2); // return True </pre>
 
 <p><strong class="example">示例 2：</strong></p>

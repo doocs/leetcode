@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 438
+
+- [3461. Check If Digits Are Equal in String After Operations I](/solution/3400-3499/3461.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20I/README_EN.md)
+- [3462. Maximum Sum With at Most K Elements](/solution/3400-3499/3462.Maximum%20Sum%20With%20at%20Most%20K%20Elements/README_EN.md)
+- [3463. Check If Digits Are Equal in String After Operations II](/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README_EN.md)
+- [3464. Maximize the Distance Between Points on a Square](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README_EN.md)
+
 #### Weekly Contest 437
 
 - [3456. Find Special Substring of Length K](/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README_EN.md)
