@@ -74,32 +74,163 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3462.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Priority Queue (Min-Heap)
+
+We can use a priority queue (min-heap) $\textit{pq}$ to maintain the largest $k$ elements.
+
+Traverse each row, sort the elements in each row, and then take the largest $\textit{limit}$ elements from each row and add them to $\textit{pq}$. If the size of $\textit{pq}$ exceeds $k$, pop the top element of the heap.
+
+Finally, sum the elements in $\textit{pq}$.
+
+The time complexity is $O(n \times m \times (\log m + \log k))$, and the space complexity is $O(k)$. Here, $n$ and $m$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxSum(self, grid: List[List[int]], limits: List[int], k: int) -> int:
+        pq = []
+        for nums, limit in zip(grid, limits):
+            nums.sort()
+            for _ in range(limit):
+                heappush(pq, nums.pop())
+                if len(pq) > k:
+                    heappop(pq)
+        return sum(pq)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxSum(int[][] grid, int[] limits, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        int n = grid.length;
+        for (int i = 0; i < n; ++i) {
+            int[] nums = grid[i];
+            int limit = limits[i];
+            Arrays.sort(nums);
+            for (int j = 0; j < limit; ++j) {
+                pq.offer(nums[nums.length - j - 1]);
+                if (pq.size() > k) {
+                    pq.poll();
+                }
+            }
+        }
+        long ans = 0;
+        for (int x : pq) {
+            ans += x;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maxSum(vector<vector<int>>& grid, vector<int>& limits, int k) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        int n = grid.size();
 
+        for (int i = 0; i < n; ++i) {
+            vector<int> nums = grid[i];
+            int limit = limits[i];
+            ranges::sort(nums);
+
+            for (int j = 0; j < limit; ++j) {
+                pq.push(nums[nums.size() - j - 1]);
+                if (pq.size() > k) {
+                    pq.pop();
+                }
+            }
+        }
+
+        long long ans = 0;
+        while (!pq.empty()) {
+            ans += pq.top();
+            pq.pop();
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type MinHeap []int
 
+func (h MinHeap) Len() int           { return len(h) }
+func (h MinHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h MinHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *MinHeap) Push(x interface{}) {
+	*h = append(*h, x.(int))
+}
+func (h *MinHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
+}
+
+func maxSum(grid [][]int, limits []int, k int) int64 {
+	pq := &MinHeap{}
+	heap.Init(pq)
+	n := len(grid)
+
+	for i := 0; i < n; i++ {
+		nums := make([]int, len(grid[i]))
+		copy(nums, grid[i])
+		limit := limits[i]
+		sort.Ints(nums)
+
+		for j := 0; j < limit; j++ {
+			heap.Push(pq, nums[len(nums)-j-1])
+			if pq.Len() > k {
+				heap.Pop(pq)
+			}
+		}
+	}
+
+	var ans int64 = 0
+	for pq.Len() > 0 {
+		ans += int64(heap.Pop(pq).(int))
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxSum(grid: number[][], limits: number[], k: number): number {
+    const pq = new MinPriorityQueue();
+    const n = grid.length;
+    for (let i = 0; i < n; i++) {
+        const nums = grid[i];
+        const limit = limits[i];
+        nums.sort((a, b) => a - b);
+        for (let j = 0; j < limit; j++) {
+            pq.enqueue(nums[nums.length - j - 1]);
+            if (pq.size() > k) {
+                pq.dequeue();
+            }
+        }
+    }
+    let ans = 0;
+    while (!pq.isEmpty()) {
+        ans += pq.dequeue() as number;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
