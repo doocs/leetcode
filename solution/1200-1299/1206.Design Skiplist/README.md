@@ -80,7 +80,21 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 
 ### 方法一：数据结构
 
-因为节点 `level` 随机，所以需要多个 `next` 指针，其余操作类似单链表。
+跳表的核心思想是使用多个“层级”来存储数据，每一层都相当于一个索引。数据从底层的链表开始逐渐上升到更高层级的链表，最终形成一个多层链表结构。每一层的节点只包含部分数据，这样就可以通过跳跃来减少查找的时间。
+
+在这个问题中，我们使用一个 $\textit{Node}$ 类来表示跳表的节点，每个节点包含一个 $\textit{val}$ 域和一个 $\textit{next}$ 数组，数组的长度为 $\textit{level}$，表示当前节点在每一层的下一个节点。我们使用一个 $\textit{Skiplist}$ 类来实现跳表的操作。
+
+跳表包含一个头节点 $\textit{head}$ 和当前的最大层数 $\textit{level}$。头节点的值设为 $-1$，用于标识链表的起始位置。我们使用一个动态数组 $\textit{next}$ 来存储指向后继节点的指针。
+
+对于 $\textit{search}$ 操作，我们从跳表的最高层开始，逐层向下遍历，直到找到目标节点或者确定目标节点不存在。每层都通过 $\textit{find\_closest}$ 方法跳跃到最接近目标的节点。
+
+对于 $\textit{add}$ 操作，我们首先随机决定新节点的层数。然后，从最高层开始，逐层找到每层中最接近新值的节点，并在相应位置插入新节点。如果插入的层数大于当前跳表的最大层数，我们需要更新跳表的层数。
+
+对于 $\textit{erase}$ 操作，类似于查找操作，遍历跳表的每一层，找到需要删除的节点并删除它。删除节点时需要更新每一层的 $\textit{next}$ 指针。如果跳表的最高层没有节点，则需要减少跳表的层数。
+
+另外，我们定义了一个 $\textit{random\_level}$ 方法来随机决定新节点的层数。该方法会生成一个 $[1, \textit{max\_level}]$ 之间的随机数，直到生成的随机数大于等于 $\textit{p}$ 为止。还有一个 $\textit{find\_closest}$ 方法用于查找每一层中最接近目标值的节点。
+
+上述操作的时间复杂度为 $O(\log n)$，其中 $n$ 为跳表的节点数。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -421,6 +435,100 @@ func randomLevel() int {
  * param_1 := obj.Search(target);
  * obj.Add(num);
  * param_3 := obj.Erase(num);
+ */
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    val: number;
+    next: (Node | null)[];
+
+    constructor(val: number, level: number) {
+        this.val = val;
+        this.next = Array(level).fill(null);
+    }
+}
+
+class Skiplist {
+    private static maxLevel: number = 32;
+    private static p: number = 0.25;
+    private head: Node;
+    private level: number;
+
+    constructor() {
+        this.head = new Node(-1, Skiplist.maxLevel);
+        this.level = 0;
+    }
+
+    search(target: number): boolean {
+        let curr = this.head;
+        for (let i = this.level - 1; i >= 0; i--) {
+            curr = this.findClosest(curr, i, target);
+            if (curr.next[i] && curr.next[i]!.val === target) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    add(num: number): void {
+        let curr = this.head;
+        const level = this.randomLevel();
+        const node = new Node(num, level);
+        this.level = Math.max(this.level, level);
+
+        for (let i = this.level - 1; i >= 0; i--) {
+            curr = this.findClosest(curr, i, num);
+            if (i < level) {
+                node.next[i] = curr.next[i];
+                curr.next[i] = node;
+            }
+        }
+    }
+
+    erase(num: number): boolean {
+        let curr = this.head;
+        let ok = false;
+
+        for (let i = this.level - 1; i >= 0; i--) {
+            curr = this.findClosest(curr, i, num);
+            if (curr.next[i] && curr.next[i]!.val === num) {
+                curr.next[i] = curr.next[i]!.next[i];
+                ok = true;
+            }
+        }
+
+        while (this.level > 1 && this.head.next[this.level - 1] === null) {
+            this.level--;
+        }
+
+        return ok;
+    }
+
+    private findClosest(curr: Node, level: number, target: number): Node {
+        while (curr.next[level] && curr.next[level]!.val < target) {
+            curr = curr.next[level]!;
+        }
+        return curr;
+    }
+
+    private randomLevel(): number {
+        let level = 1;
+        while (level < Skiplist.maxLevel && Math.random() < Skiplist.p) {
+            level++;
+        }
+        return level;
+    }
+}
+
+/**
+ * Your Skiplist object will be instantiated and called as such:
+ * var obj = new Skiplist()
+ * var param_1 = obj.search(target)
+ * obj.add(num)
+ * var param_3 = obj.erase(num)
  */
 ```
 
