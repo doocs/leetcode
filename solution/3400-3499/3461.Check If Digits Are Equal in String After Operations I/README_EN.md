@@ -86,32 +86,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3461.Ch
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can simulate the operations described in the problem until the string $s$ contains exactly two digits, and then check if these two digits are the same.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def hasSameDigits(self, s: str) -> bool:
+        t = list(map(int, s))
+        n = len(t)
+        for k in range(n - 1, 1, -1):
+            for i in range(k):
+                t[i] = (t[i] + t[i + 1]) % 10
+        return t[0] == t[1]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean hasSameDigits(String s) {
+        char[] t = s.toCharArray();
+        int n = t.length;
+        for (int k = n - 1; k > 1; --k) {
+            for (int i = 0; i < k; ++i) {
+                t[i] = (char) ((t[i] - '0' + t[i + 1] - '0') % 10 + '0');
+            }
+        }
+        return t[0] == t[1];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool hasSameDigits(string s) {
+        int n = s.size();
+        string t = s;
+        for (int k = n - 1; k > 1; --k) {
+            for (int i = 0; i < k; ++i) {
+                t[i] = (t[i] - '0' + t[i + 1] - '0') % 10 + '0';
+            }
+        }
+        return t[0] == t[1];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func hasSameDigits(s string) bool {
+	t := []byte(s)
+	n := len(t)
+	for k := n - 1; k > 1; k-- {
+		for i := 0; i < k; i++ {
+			t[i] = (t[i]-'0'+t[i+1]-'0')%10 + '0'
+		}
+	}
+	return t[0] == t[1]
+}
+```
 
+#### TypeScript
+
+```ts
+function hasSameDigits(s: string): boolean {
+    const t = s.split('').map(Number);
+    const n = t.length;
+    for (let k = n - 1; k > 1; --k) {
+        for (let i = 0; i < k; ++i) {
+            t[i] = (t[i] + t[i + 1]) % 10;
+        }
+    }
+    return t[0] === t[1];
+}
 ```
 
 <!-- tabs:end -->

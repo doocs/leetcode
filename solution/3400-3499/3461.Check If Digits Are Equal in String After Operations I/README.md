@@ -88,32 +88,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3461.Ch
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以模拟题目描述的操作，直到字符串 $s$ 中只剩下两个数字为止，判断这两个数字是否相同。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def hasSameDigits(self, s: str) -> bool:
+        t = list(map(int, s))
+        n = len(t)
+        for k in range(n - 1, 1, -1):
+            for i in range(k):
+                t[i] = (t[i] + t[i + 1]) % 10
+        return t[0] == t[1]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean hasSameDigits(String s) {
+        char[] t = s.toCharArray();
+        int n = t.length;
+        for (int k = n - 1; k > 1; --k) {
+            for (int i = 0; i < k; ++i) {
+                t[i] = (char) ((t[i] - '0' + t[i + 1] - '0') % 10 + '0');
+            }
+        }
+        return t[0] == t[1];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool hasSameDigits(string s) {
+        int n = s.size();
+        string t = s;
+        for (int k = n - 1; k > 1; --k) {
+            for (int i = 0; i < k; ++i) {
+                t[i] = (t[i] - '0' + t[i + 1] - '0') % 10 + '0';
+            }
+        }
+        return t[0] == t[1];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func hasSameDigits(s string) bool {
+	t := []byte(s)
+	n := len(t)
+	for k := n - 1; k > 1; k-- {
+		for i := 0; i < k; i++ {
+			t[i] = (t[i]-'0'+t[i+1]-'0')%10 + '0'
+		}
+	}
+	return t[0] == t[1]
+}
+```
 
+#### TypeScript
+
+```ts
+function hasSameDigits(s: string): boolean {
+    const t = s.split('').map(Number);
+    const n = t.length;
+    for (let k = n - 1; k > 1; --k) {
+        for (let i = 0; i < k; ++i) {
+            t[i] = (t[i] + t[i + 1]) % 10;
+        }
+    }
+    return t[0] === t[1];
+}
 ```
 
 <!-- tabs:end -->
