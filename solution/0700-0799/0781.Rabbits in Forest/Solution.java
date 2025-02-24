@@ -1,14 +1,14 @@
 class Solution {
     public int numRabbits(int[] answers) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int e : answers) {
-            counter.put(e, counter.getOrDefault(e, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : answers) {
+            cnt.merge(x, 1, Integer::sum);
         }
-        int res = 0;
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            int answer = entry.getKey(), count = entry.getValue();
-            res += (int) Math.ceil(count / ((answer + 1) * 1.0)) * (answer + 1);
+        int ans = 0;
+        for (var e : cnt.entrySet()) {
+            int group = e.getKey() + 1;
+            ans += (e.getValue() + group - 1) / group * group;
         }
-        return res;
+        return ans;
     }
 }
