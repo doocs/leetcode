@@ -310,6 +310,7 @@
 | 3421 | [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)                                                                        | `数据库` | 中等 |      |
 | 3436 | [查找合法邮箱](/solution/3400-3499/3436.Find%20Valid%20Emails/README.md)                                                                                     | `数据库` | 简单 |      |
 | 3451 | [查找无效的 IP 地址](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README.md)                                                                     | `数据库` | 困难 |      |
+| 3465 | [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)                              |          | 简单 |      |
 
 ## 版权
 

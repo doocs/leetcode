@@ -1,20 +1,19 @@
 class OrderedStream {
     private ptr: number;
-    private vals: string[];
+    private data: string[];
 
     constructor(n: number) {
-        this.ptr = 0;
-        this.vals = new Array(n);
+        this.ptr = 1;
+        this.data = Array(n + 1);
     }
 
     insert(idKey: number, value: string): string[] {
-        this.vals[idKey - 1] = value;
-        const res = [];
-        while (this.vals[this.ptr] != null) {
-            res.push(this.vals[this.ptr]);
-            this.ptr++;
+        this.data[idKey] = value;
+        const ans: string[] = [];
+        while (this.data[this.ptr]) {
+            ans.push(this.data[this.ptr++]);
         }
-        return res;
+        return ans;
     }
 }
 

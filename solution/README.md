@@ -3475,6 +3475,7 @@
 |  3462  |  [提取至多 K 个元素的最大总和](/solution/3400-3499/3462.Maximum%20Sum%20With%20at%20Most%20K%20Elements/README.md)  |    |  中等  |  第 438 场周赛  |
 |  3463  |  [判断操作后字符串中的数字是否相等 II](/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README.md)  |    |  困难  |  第 438 场周赛  |
 |  3464  |  [正方形上的点之间的最大距离](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README.md)  |    |  困难  |  第 438 场周赛  |
+|  3465  |  [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)  |    |  简单  |    |
 
 ## 版权
 
