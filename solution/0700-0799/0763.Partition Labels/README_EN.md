@@ -58,7 +58,21 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We first use an array or hash table $\textit{last}$ to record the last occurrence of each letter in the string $s$.
+
+Next, we use a greedy approach to partition the string into as many segments as possible.
+
+Traverse the string $s$ from left to right, while maintaining the start index $j$ and end index $i$ of the current segment, both initially set to $0$.
+
+For each letter $c$ visited, get the last occurrence position $\textit{last}[c]$. Since the end index of the current segment must not be less than $\textit{last}[c]$, let $\textit{mx} = \max(\textit{mx}, \textit{last}[c])$.
+
+When visiting the index $\textit{mx}$, it means the current segment ends. The index range of the current segment is $[j,.. i]$, and the length is $i - j + 1$. We add this length to the result array. Then set $j = i + 1$ and continue to find the next segment.
+
+Repeat the above process until the string traversal is complete to get the lengths of all segments.
+
+Time complexity is $O(n)$, and space complexity is $O(|\Sigma|)$. Where $n$ is the length of the string $s$, and $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
