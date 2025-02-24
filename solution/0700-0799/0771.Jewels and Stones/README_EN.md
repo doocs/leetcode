@@ -44,7 +44,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table or Array
+
+We can first use a hash table or array $s$ to record all types of jewels. Then traverse all the stones, and if the current stone is a jewel, increment the answer by one.
+
+Time complexity is $O(m+n)$, and space complexity is $O(|\Sigma|)$, where $m$ and $n$ are the lengths of the strings $jewels$ and $stones$ respectively, and $\Sigma$ is the character set, which in this problem is the set of all uppercase and lowercase English letters.
 
 <!-- tabs:start -->
 
@@ -82,9 +86,13 @@ class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
         int s[128] = {0};
-        for (char c : jewels) s[c] = 1;
+        for (char c : jewels) {
+            s[c] = 1;
+        }
         int ans = 0;
-        for (char c : stones) ans += s[c];
+        for (char c : stones) {
+            ans += s[c];
+        }
         return ans;
     }
 };
@@ -124,10 +132,10 @@ function numJewelsInStones(jewels: string, stones: string): number {
 use std::collections::HashSet;
 impl Solution {
     pub fn num_jewels_in_stones(jewels: String, stones: String) -> i32 {
-        let mut set = jewels.as_bytes().iter().collect::<HashSet<&u8>>();
+        let mut s = jewels.as_bytes().iter().collect::<HashSet<&u8>>();
         let mut ans = 0;
         for c in stones.as_bytes() {
-            if set.contains(c) {
+            if s.contains(c) {
                 ans += 1;
             }
         }
