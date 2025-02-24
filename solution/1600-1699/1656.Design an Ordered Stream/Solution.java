@@ -1,14 +1,13 @@
 class OrderedStream {
+    private int ptr = 1;
     private String[] data;
-    private int ptr;
 
     public OrderedStream(int n) {
-        data = new String[n];
-        ptr = 0;
+        data = new String[n + 1];
     }
 
     public List<String> insert(int idKey, String value) {
-        data[idKey - 1] = value;
+        data[idKey] = value;
         List<String> ans = new ArrayList<>();
         while (ptr < data.length && data[ptr] != null) {
             ans.add(data[ptr++]);

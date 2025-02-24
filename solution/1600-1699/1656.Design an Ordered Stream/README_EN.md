@@ -75,7 +75,13 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Array Simulation
+
+We can use an array $\textit{data}$ of length $n + 1$ to simulate this stream, where $\textit{data}[i]$ represents the value of $\textit{id} = i$. At the same time, we use a pointer $\textit{ptr}$ to represent the current position. Initially, $\textit{ptr} = 1$.
+
+When inserting a new $(\textit{idKey}, \textit{value})$ pair, we update $\textit{data}[\textit{idKey}]$ to $\textit{value}$. Then, starting from $\textit{ptr}$, we sequentially add $\textit{data}[\textit{ptr}]$ to the answer until $\textit{data}[\textit{ptr}]$ is empty.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the data stream.
 
 <!-- tabs:start -->
 
@@ -83,12 +89,13 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 
 ```python
 class OrderedStream:
+
     def __init__(self, n: int):
-        self.data = [None] * n
-        self.ptr = 0
+        self.ptr = 1
+        self.data = [None] * (n + 1)
 
     def insert(self, idKey: int, value: str) -> List[str]:
-        self.data[idKey - 1] = value
+        self.data[idKey] = value
         ans = []
         while self.ptr < len(self.data) and self.data[self.ptr]:
             ans.append(self.data[self.ptr])
@@ -105,16 +112,15 @@ class OrderedStream:
 
 ```java
 class OrderedStream {
+    private int ptr = 1;
     private String[] data;
-    private int ptr;
 
     public OrderedStream(int n) {
-        data = new String[n];
-        ptr = 0;
+        data = new String[n + 1];
     }
 
     public List<String> insert(int idKey, String value) {
-        data[idKey - 1] = value;
+        data[idKey] = value;
         List<String> ans = new ArrayList<>();
         while (ptr < data.length && data[ptr] != null) {
             ans.add(data[ptr++]);
@@ -135,19 +141,23 @@ class OrderedStream {
 ```cpp
 class OrderedStream {
 public:
-    vector<string> data;
-    int ptr = 0;
-
     OrderedStream(int n) {
-        data.resize(n, "");
+        ptr = 1;
+        data = vector<string>(n + 1);
     }
 
     vector<string> insert(int idKey, string value) {
-        data[idKey - 1] = value;
+        data[idKey] = value;
         vector<string> ans;
-        while (ptr < data.size() && data[ptr] != "") ans.push_back(data[ptr++]);
+        while (ptr < data.size() && !data[ptr].empty()) {
+            ans.push_back(data[ptr++]);
+        }
         return ans;
     }
+
+private:
+    int ptr;
+    vector<string> data;
 };
 
 /**
@@ -161,17 +171,19 @@ public:
 
 ```go
 type OrderedStream struct {
-	data []string
 	ptr  int
+	data []string
 }
 
 func Constructor(n int) OrderedStream {
-	data := make([]string, n)
-	return OrderedStream{data, 0}
+	return OrderedStream{
+		ptr:  1,
+		data: make([]string, n+1),
+	}
 }
 
 func (this *OrderedStream) Insert(idKey int, value string) []string {
-	this.data[idKey-1] = value
+	this.data[idKey] = value
 	var ans []string
 	for this.ptr < len(this.data) && this.data[this.ptr] != "" {
 		ans = append(ans, this.data[this.ptr])
@@ -192,21 +204,20 @@ func (this *OrderedStream) Insert(idKey int, value string) []string {
 ```ts
 class OrderedStream {
     private ptr: number;
-    private vals: string[];
+    private data: string[];
 
     constructor(n: number) {
-        this.ptr = 0;
-        this.vals = new Array(n);
+        this.ptr = 1;
+        this.data = Array(n + 1);
     }
 
     insert(idKey: number, value: string): string[] {
-        this.vals[idKey - 1] = value;
-        const res = [];
-        while (this.vals[this.ptr] != null) {
-            res.push(this.vals[this.ptr]);
-            this.ptr++;
+        this.data[idKey] = value;
+        const ans: string[] = [];
+        while (this.data[this.ptr]) {
+            ans.push(this.data[this.ptr++]);
         }
-        return res;
+        return ans;
     }
 }
 
@@ -222,33 +233,25 @@ class OrderedStream {
 ```rust
 struct OrderedStream {
     ptr: usize,
-    vals: Vec<Option<String>>,
+    data: Vec<Option<String>>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl OrderedStream {
     fn new(n: i32) -> Self {
-        Self {
-            ptr: 0,
-            vals: vec![None; n as usize],
+        OrderedStream {
+            ptr: 1,
+            data: vec![None; (n + 1) as usize],
         }
     }
 
     fn insert(&mut self, id_key: i32, value: String) -> Vec<String> {
-        self.vals[(id_key - 1) as usize] = Some(value);
-        let mut res = Vec::new();
-        while self.ptr < self.vals.len() {
-            if let Some(s) = &self.vals[self.ptr] {
-                res.push(s.clone());
-                self.ptr += 1;
-            } else {
-                break;
-            }
+        self.data[id_key as usize] = Some(value);
+        let mut ans = Vec::new();
+        while self.ptr < self.data.len() && self.data[self.ptr].is_some() {
+            ans.push(self.data[self.ptr].take().unwrap());
+            self.ptr += 1;
         }
-        res
+        ans
     }
 }
 ```

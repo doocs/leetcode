@@ -308,6 +308,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3421 | [Find Students Who Improved](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README_EN.md)                                                                                         | `Database` | Medium     |        |
 | 3436 | [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md)                                                                                                             | `Database` | Easy       |        |
 | 3451 | [Find Invalid IP Addresses](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README_EN.md)                                                                                           | `Database` | Hard       |        |
+| 3465 | [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README_EN.md)                                                           |            | Easy       |        |
 
 ## Copyright
 
