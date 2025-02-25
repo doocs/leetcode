@@ -40,8 +40,8 @@ tags:
 <pre>
 <strong>输入:</strong> n = 2, k = 1
 <strong>输出:</strong> 0
-<strong>解释:</strong>
-第一行: 0
+<strong>解释:</strong> 
+第一行: 0 
 第二行: <u>0</u>1
 </pre>
 
