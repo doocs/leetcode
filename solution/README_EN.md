@@ -3474,6 +3474,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3463  |  [Check If Digits Are Equal in String After Operations II](/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 438  |
 |  3464  |  [Maximize the Distance Between Points on a Square](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README_EN.md)  |    |  Hard  |  Weekly Contest 438  |
 |  3465  |  [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README_EN.md)  |    |  Easy  |    |
+|  3466  |  [Maximum Coin Collection](/solution/3400-3499/3466.Maximum%20Coin%20Collection/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
