@@ -12,7 +12,7 @@ class Allocator:
                 return s
         return -1
 
-    def free(self, mID: int) -> int:
+    def freeMemory(self, mID: int) -> int:
         ans = 0
         for block in self.d[mID]:
             self.sl.remove(block)
@@ -24,4 +24,4 @@ class Allocator:
 # Your Allocator object will be instantiated and called as such:
 # obj = Allocator(n)
 # param_1 = obj.allocate(size,mID)
-# param_2 = obj.free(mID)
+# param_2 = obj.freeMemory(mID)
