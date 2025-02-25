@@ -83,7 +83,7 @@ loc.freeMemory(7); // Free all memory units with mID 7. The memory array remains
 
 <!-- solution:start -->
 
-### Solution 1: Brute Force Simulation
+### Solution 1: Simulation
 
 The data range of the problem is not large, so we can directly use an array to simulate the memory space.
 
@@ -101,6 +101,7 @@ The time complexity is $O(n \times q)$, and the space complexity is $O(n)$, wher
 
 ```python
 class Allocator:
+
     def __init__(self, n: int):
         self.m = [0] * n
 
@@ -116,7 +117,7 @@ class Allocator:
                     return i - size + 1
         return -1
 
-    def free(self, mID: int) -> int:
+    def freeMemory(self, mID: int) -> int:
         ans = 0
         for i, v in enumerate(self.m):
             if v == mID:
@@ -128,7 +129,7 @@ class Allocator:
 # Your Allocator object will be instantiated and called as such:
 # obj = Allocator(n)
 # param_1 = obj.allocate(size,mID)
-# param_2 = obj.free(mID)
+# param_2 = obj.freeMemory(mID)
 ```
 
 #### Java
@@ -154,7 +155,7 @@ class Allocator {
         return -1;
     }
 
-    public int free(int mID) {
+    public int freeMemory(int mID) {
         int ans = 0;
         for (int i = 0; i < m.length; ++i) {
             if (m[i] == mID) {
@@ -170,7 +171,7 @@ class Allocator {
  * Your Allocator object will be instantiated and called as such:
  * Allocator obj = new Allocator(n);
  * int param_1 = obj.allocate(size,mID);
- * int param_2 = obj.free(mID);
+ * int param_2 = obj.freeMemory(mID);
  */
 ```
 
@@ -179,24 +180,26 @@ class Allocator {
 ```cpp
 class Allocator {
 public:
+    vector<int> m;
+
     Allocator(int n) {
-        m = vector<int>(n);
+        m = vector<int>(n, 0);
     }
 
     int allocate(int size, int mID) {
         int cnt = 0;
         for (int i = 0; i < m.size(); ++i) {
-            if (m[i]) {
+            if (m[i] > 0) {
                 cnt = 0;
             } else if (++cnt == size) {
-                fill(i - size + 1, i + 1, mID);
+                fill(m.begin() + i - size + 1, m.begin() + i + 1, mID);
                 return i - size + 1;
             }
         }
         return -1;
     }
 
-    int free(int mID) {
+    int freeMemory(int mID) {
         int ans = 0;
         for (int i = 0; i < m.size(); ++i) {
             if (m[i] == mID) {
@@ -206,22 +209,13 @@ public:
         }
         return ans;
     }
-
-private:
-    vector<int> m;
-
-    void fill(int from, int to, int val) {
-        for (int i = from; i < to; ++i) {
-            m[i] = val;
-        }
-    }
 };
 
 /**
  * Your Allocator object will be instantiated and called as such:
  * Allocator* obj = new Allocator(n);
  * int param_1 = obj->allocate(size,mID);
- * int param_2 = obj->free(mID);
+ * int param_2 = obj->freeMemory(mID);
  */
 ```
 
@@ -233,42 +227,85 @@ type Allocator struct {
 }
 
 func Constructor(n int) Allocator {
-	return Allocator{make([]int, n)}
+	return Allocator{m: make([]int, n)}
 }
 
 func (this *Allocator) Allocate(size int, mID int) int {
 	cnt := 0
-	for i, v := range this.m {
-		if v > 0 {
+	for i := 0; i < len(this.m); i++ {
+		if this.m[i] > 0 {
 			cnt = 0
-		} else {
-			cnt++
-			if cnt == size {
-				for j := i - size + 1; j <= i; j++ {
-					this.m[j] = mID
-				}
-				return i - size + 1
+		} else if cnt++; cnt == size {
+			for j := i - size + 1; j <= i; j++ {
+				this.m[j] = mID
 			}
+			return i - size + 1
 		}
 	}
 	return -1
 }
 
-func (this *Allocator) Free(mID int) (ans int) {
-	for i, v := range this.m {
-		if v == mID {
+func (this *Allocator) FreeMemory(mID int) int {
+	ans := 0
+	for i := 0; i < len(this.m); i++ {
+		if this.m[i] == mID {
 			this.m[i] = 0
 			ans++
 		}
 	}
-	return
+	return ans
 }
 
 /**
  * Your Allocator object will be instantiated and called as such:
  * obj := Constructor(n);
  * param_1 := obj.Allocate(size,mID);
- * param_2 := obj.Free(mID);
+ * param_2 := obj.FreeMemory(mID);
+ */
+```
+
+#### TypeScript
+
+```ts
+class Allocator {
+    private m: number[];
+
+    constructor(n: number) {
+        this.m = Array(n).fill(0);
+    }
+
+    allocate(size: number, mID: number): number {
+        let cnt = 0;
+        for (let i = 0; i < this.m.length; i++) {
+            if (this.m[i] > 0) {
+                cnt = 0;
+            } else if (++cnt === size) {
+                for (let j = i - size + 1; j <= i; j++) {
+                    this.m[j] = mID;
+                }
+                return i - size + 1;
+            }
+        }
+        return -1;
+    }
+
+    freeMemory(mID: number): number {
+        let ans = 0;
+        for (let i = 0; i < this.m.length; i++) {
+            if (this.m[i] === mID) {
+                this.m[i] = 0;
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your Allocator object will be instantiated and called as such:
+ * var obj = new Allocator(n)
+ * var param_1 = obj.allocate(size,mID)
+ * var param_2 = obj.freeMemory(mID)
  */
 ```
 
@@ -294,6 +331,7 @@ The time complexity is $O(q \log n)$, and the space complexity is $O(n)$, where 
 
 ```python
 class Allocator:
+
     def __init__(self, n: int):
         self.sl = SortedList([(-1, -1), (n, n)])
         self.d = defaultdict(list)
@@ -307,7 +345,7 @@ class Allocator:
                 return s
         return -1
 
-    def free(self, mID: int) -> int:
+    def freeMemory(self, mID: int) -> int:
         ans = 0
         for block in self.d[mID]:
             self.sl.remove(block)
@@ -319,7 +357,7 @@ class Allocator:
 # Your Allocator object will be instantiated and called as such:
 # obj = Allocator(n)
 # param_1 = obj.allocate(size,mID)
-# param_2 = obj.free(mID)
+# param_2 = obj.freeMemory(mID)
 ```
 
 #### Java
@@ -351,9 +389,9 @@ class Allocator {
         return -1;
     }
 
-    public int free(int mID) {
+    public int freeMemory(int mID) {
         int ans = 0;
-        for (int s : d.getOrDefault(mID, Collections.emptyList())) {
+        for (int s : d.getOrDefault(mID, List.of())) {
             int e = tm.remove(s);
             ans += e - s + 1;
         }
@@ -366,7 +404,7 @@ class Allocator {
  * Your Allocator object will be instantiated and called as such:
  * Allocator obj = new Allocator(n);
  * int param_1 = obj.allocate(size,mID);
- * int param_2 = obj.free(mID);
+ * int param_2 = obj.freeMemory(mID);
  */
 ```
 
@@ -396,7 +434,7 @@ public:
         return -1;
     }
 
-    int free(int mID) {
+    int freeMemory(int mID) {
         int ans = 0;
         for (int& s : d[mID]) {
             int e = tm[s];
@@ -416,7 +454,7 @@ private:
  * Your Allocator object will be instantiated and called as such:
  * Allocator* obj = new Allocator(n);
  * int param_1 = obj->allocate(size,mID);
- * int param_2 = obj->free(mID);
+ * int param_2 = obj->freeMemory(mID);
  */
 ```
 
@@ -453,7 +491,7 @@ func (this *Allocator) Allocate(size int, mID int) int {
 	return -1
 }
 
-func (this *Allocator) Free(mID int) int {
+func (this *Allocator) FreeMemory(mID int) int {
 	ans := 0
 	for _, s := range this.d[mID] {
 		if e, ok := this.rbt.Get(s); ok {
@@ -469,7 +507,7 @@ func (this *Allocator) Free(mID int) int {
  * Your Allocator object will be instantiated and called as such:
  * obj := Constructor(n);
  * param_1 := obj.Allocate(size,mID);
- * param_2 := obj.Free(mID);
+ * param_2 := obj.FreeMemory(mID);
  */
 ```
 
