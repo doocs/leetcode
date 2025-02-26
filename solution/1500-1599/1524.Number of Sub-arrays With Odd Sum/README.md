@@ -80,15 +80,15 @@ tags:
 
 ### 方法一：前缀和 + 计数器
 
-我们定义一个长度为 $2$ 的数组 $cnt$ 作为计数器，其中 $cnt[0]$ 和 $cnt[1]$ 分别表示前缀和为偶数和奇数的子数组的个数。初始时 $cnt[0] = 1$，而 $cnt[1] = 0$。
+我们定义一个长度为 $2$ 的数组 $\textit{cnt}$ 作为计数器，其中 $\textit{cnt}[0]$ 和 $\textit{cnt}[1]$ 分别表示前缀和为偶数和奇数的子数组的个数。初始时 $\textit{cnt}[0] = 1$，而 $\textit{cnt}[1] = 0$。
 
 接下来，我们维护当前的前缀和 $s$，初始时 $s = 0$。
 
-遍历数组 $arr$，对于遍历到的每个元素 $x$，我们将 $s$ 的值加上 $x$，然后根据 $s$ 的奇偶性，将 $cnt[s \mod 2 \oplus 1]$ 的值累加到答案中，然后我们将 $cnt[s \mod 2]$ 的值加 $1$。
+遍历数组 $\textit{arr}$，对于遍历到的每个元素 $x$，我们将 $s$ 的值加上 $x$，然后根据 $s$ 的奇偶性，将 $\textit{cnt}[s \mod 2 \oplus 1]$ 的值累加到答案中，然后我们将 $\textit{cnt}[s \mod 2]$ 的值加 $1$。
 
 遍历结束后，我们即可得到答案。注意答案的取模运算。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{arr}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -174,6 +174,25 @@ function numOfSubarrays(arr: number[]): number {
         cnt[s & 1]++;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_of_subarrays(arr: Vec<i32>) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let mut cnt = [1, 0];
+        let mut ans = 0;
+        let mut s = 0;
+        for &x in arr.iter() {
+            s += x;
+            ans = (ans + cnt[((s & 1) ^ 1) as usize]) % MOD;
+            cnt[(s & 1) as usize] += 1;
+        }
+        ans
+    }
 }
 ```
 
