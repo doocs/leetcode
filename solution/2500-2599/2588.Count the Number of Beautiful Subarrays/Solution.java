@@ -6,8 +6,7 @@ class Solution {
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt.getOrDefault(mask, 0);
-            cnt.merge(mask, 1, Integer::sum);
+            ans += cnt.merge(mask, 1, Integer::sum) - 1;
         }
         return ans;
     }
