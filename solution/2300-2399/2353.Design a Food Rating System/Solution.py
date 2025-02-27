@@ -1,20 +1,19 @@
 class FoodRatings:
     def __init__(self, foods: List[str], cuisines: List[str], ratings: List[int]):
-        self.mp = {}
-        self.t = defaultdict(lambda: SortedSet(key=lambda x: (-x[0], x[1])))
-
-        for a, b, c in zip(foods, cuisines, ratings):
-            self.mp[a] = (b, c)
-            self.t[b].add((c, a))
+        self.d = defaultdict(SortedList)
+        self.g = {}
+        for food, cuisine, rating in zip(foods, cuisines, ratings):
+            self.d[cuisine].add((-rating, food))
+            self.g[food] = (rating, cuisine)
 
     def changeRating(self, food: str, newRating: int) -> None:
-        b, c = self.mp[food]
-        self.mp[food] = (b, newRating)
-        self.t[b].remove((c, food))
-        self.t[b].add((newRating, food))
+        oldRating, cuisine = self.g[food]
+        self.g[food] = (newRating, cuisine)
+        self.d[cuisine].remove((-oldRating, food))
+        self.d[cuisine].add((-newRating, food))
 
     def highestRated(self, cuisine: str) -> str:
-        return self.t[cuisine][0][1]
+        return self.d[cuisine][0][1]
 
 
 # Your FoodRatings object will be instantiated and called as such:

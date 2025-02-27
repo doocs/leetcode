@@ -94,7 +94,19 @@ foodRatings.highestRated(&quot;japanese&quot;); // return &quot;ramen&quot;
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Ordered Set
+
+We can use a hash table $\textit{d}$ to store the foods for each cuisine, where the key is the cuisine and the value is an ordered set. Each element in the ordered set is a tuple $(\textit{rating}, \textit{food})$, sorted by rating in descending order, and if the ratings are the same, sorted by food name in lexicographical order.
+
+We can also use a hash table $\textit{g}$ to store the rating and cuisine for each food. That is, $\textit{g}[\textit{food}] = (\textit{rating}, \textit{cuisine})$.
+
+In the constructor, we iterate through $\textit{foods}$, $\textit{cuisines}$, and $\textit{ratings}$, storing the rating and cuisine for each food in $\textit{d}$ and $\textit{g}$.
+
+In the $\textit{changeRating}$ function, we first get the original rating $\textit{oldRating}$ and cuisine $\textit{cuisine}$ of the food $\textit{food}$, then update the rating of $\textit{g}[\textit{food}]$ to $\textit{newRating}$, remove $(\textit{oldRating}, \textit{food})$ from $\textit{d}[\textit{cuisine}]$, and add $(\textit{newRating}, \textit{food})$ to $\textit{d}[\textit{cuisine}]$.
+
+In the $\textit{highestRated}$ function, we directly return the food name of the first element in $\textit{d}[\textit{cuisine}]$.
+
+In terms of time complexity, the constructor has a time complexity of $O(n \log n)$, where $n$ is the number of foods. The other operations have a time complexity of $O(\log n)$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -102,22 +114,22 @@ foodRatings.highestRated(&quot;japanese&quot;); // return &quot;ramen&quot;
 
 ```python
 class FoodRatings:
-    def __init__(self, foods: List[str], cuisines: List[str], ratings: List[int]):
-        self.mp = {}
-        self.t = defaultdict(lambda: SortedSet(key=lambda x: (-x[0], x[1])))
 
-        for a, b, c in zip(foods, cuisines, ratings):
-            self.mp[a] = (b, c)
-            self.t[b].add((c, a))
+    def __init__(self, foods: List[str], cuisines: List[str], ratings: List[int]):
+        self.d = defaultdict(SortedList)
+        self.g = {}
+        for food, cuisine, rating in zip(foods, cuisines, ratings):
+            self.d[cuisine].add((-rating, food))
+            self.g[food] = (rating, cuisine)
 
     def changeRating(self, food: str, newRating: int) -> None:
-        b, c = self.mp[food]
-        self.mp[food] = (b, newRating)
-        self.t[b].remove((c, food))
-        self.t[b].add((newRating, food))
+        oldRating, cuisine = self.g[food]
+        self.g[food] = (newRating, cuisine)
+        self.d[cuisine].remove((-oldRating, food))
+        self.d[cuisine].add((-newRating, food))
 
     def highestRated(self, cuisine: str) -> str:
-        return self.t[cuisine][0][1]
+        return self.d[cuisine][0][1]
 
 
 # Your FoodRatings object will be instantiated and called as such:
@@ -126,36 +138,78 @@ class FoodRatings:
 # param_2 = obj.highestRated(cuisine)
 ```
 
+#### Java
+
+```java
+class FoodRatings {
+    private Map<String, TreeSet<Pair<Integer, String>>> d = new HashMap<>();
+    private Map<String, Pair<Integer, String>> g = new HashMap<>();
+    private final Comparator<Pair<Integer, String>> cmp = (a, b) -> {
+        if (!a.getKey().equals(b.getKey())) {
+            return b.getKey().compareTo(a.getKey());
+        }
+        return a.getValue().compareTo(b.getValue());
+    };
+
+    public FoodRatings(String[] foods, String[] cuisines, int[] ratings) {
+        for (int i = 0; i < foods.length; ++i) {
+            String food = foods[i], cuisine = cuisines[i];
+            int rating = ratings[i];
+            d.computeIfAbsent(cuisine, k -> new TreeSet<>(cmp)).add(new Pair<>(rating, food));
+            g.put(food, new Pair<>(rating, cuisine));
+        }
+    }
+
+    public void changeRating(String food, int newRating) {
+        Pair<Integer, String> old = g.get(food);
+        int oldRating = old.getKey();
+        String cuisine = old.getValue();
+        g.put(food, new Pair<>(newRating, cuisine));
+        d.get(cuisine).remove(new Pair<>(oldRating, food));
+        d.get(cuisine).add(new Pair<>(newRating, food));
+    }
+
+    public String highestRated(String cuisine) {
+        return d.get(cuisine).first().getValue();
+    }
+}
+
+/**
+ * Your FoodRatings object will be instantiated and called as such:
+ * FoodRatings obj = new FoodRatings(foods, cuisines, ratings);
+ * obj.changeRating(food,newRating);
+ * String param_2 = obj.highestRated(cuisine);
+ */
+```
+
 #### C++
 
 ```cpp
-using pis = pair<int, string>;
-
 class FoodRatings {
-    map<string, pis> mp;
-    map<string, set<pis>> t;
-
 public:
     FoodRatings(vector<string>& foods, vector<string>& cuisines, vector<int>& ratings) {
-        int n = foods.size();
-        for (int i = 0; i < n; ++i) {
-            string a = foods[i], b = cuisines[i];
-            int c = ratings[i];
-            mp[a] = pis(c, b);
-            t[b].insert(pis(-c, a));
+        for (int i = 0; i < foods.size(); ++i) {
+            string food = foods[i], cuisine = cuisines[i];
+            int rating = ratings[i];
+            d[cuisine].insert({-rating, food});
+            g[food] = {rating, cuisine};
         }
     }
 
     void changeRating(string food, int newRating) {
-        pis& p = mp[food];
-        t[p.second].erase(pis(-p.first, food));
-        p.first = newRating;
-        t[p.second].insert(pis(-p.first, food));
+        auto [oldRating, cuisine] = g[food];
+        g[food] = {newRating, cuisine};
+        d[cuisine].erase({-oldRating, food});
+        d[cuisine].insert({-newRating, food});
     }
 
     string highestRated(string cuisine) {
-        return t[cuisine].begin()->second;
+        return d[cuisine].begin()->second;
     }
+
+private:
+    unordered_map<string, set<pair<int, string>>> d;
+    unordered_map<string, pair<int, string>> g;
 };
 
 /**
@@ -163,6 +217,65 @@ public:
  * FoodRatings* obj = new FoodRatings(foods, cuisines, ratings);
  * obj->changeRating(food,newRating);
  * string param_2 = obj->highestRated(cuisine);
+ */
+```
+
+#### Go
+
+```go
+import (
+	"github.com/emirpasic/gods/v2/trees/redblacktree"
+)
+
+type pair struct {
+	rating int
+	food   string
+}
+
+type FoodRatings struct {
+	d map[string]*redblacktree.Tree[pair, struct{}]
+	g map[string]pair
+}
+
+func Constructor(foods []string, cuisines []string, ratings []int) FoodRatings {
+	d := make(map[string]*redblacktree.Tree[pair, struct{}])
+	g := make(map[string]pair)
+
+	for i, food := range foods {
+		rating, cuisine := ratings[i], cuisines[i]
+		g[food] = pair{rating, cuisine}
+
+		if d[cuisine] == nil {
+			d[cuisine] = redblacktree.NewWith[pair, struct{}](func(a, b pair) int {
+				return cmp.Or(b.rating-a.rating, strings.Compare(a.food, b.food))
+			})
+		}
+		d[cuisine].Put(pair{rating, food}, struct{}{})
+	}
+
+	return FoodRatings{d, g}
+}
+
+func (this *FoodRatings) ChangeRating(food string, newRating int) {
+	p := this.g[food]
+	t := this.d[p.food]
+
+	t.Remove(pair{p.rating, food})
+	t.Put(pair{newRating, food}, struct{}{})
+
+	p.rating = newRating
+	this.g[food] = p
+}
+
+func (this *FoodRatings) HighestRated(cuisine string) string {
+	return this.d[cuisine].Left().Key.food
+}
+
+/**
+ * Your FoodRatings object will be instantiated and called as such:
+ * obj := Constructor(foods, cuisines, ratings);
+ * obj.ChangeRating(food,newRating);
+ * param_2 := obj.HighestRated(cuisine);
  */
 ```
 
