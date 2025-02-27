@@ -57,11 +57,11 @@ tags:
 TextEditor textEditor = new TextEditor(); // The current text is &quot;|&quot;. (The &#39;|&#39; character represents the cursor)
 textEditor.addText(&quot;leetcode&quot;); // The current text is &quot;leetcode|&quot;.
 textEditor.deleteText(4); // return 4
-                          // The current text is &quot;leet|&quot;. 
+                          // The current text is &quot;leet|&quot;.
                           // 4 characters were deleted.
-textEditor.addText(&quot;practice&quot;); // The current text is &quot;leetpractice|&quot;. 
+textEditor.addText(&quot;practice&quot;); // The current text is &quot;leetpractice|&quot;.
 textEditor.cursorRight(3); // return &quot;etpractice&quot;
-                           // The current text is &quot;leetpractice|&quot;. 
+                           // The current text is &quot;leetpractice|&quot;.
                            // The cursor cannot be moved beyond the actual text and thus did not move.
                            // &quot;etpractice&quot; is the last 10 characters to the left of the cursor.
 textEditor.cursorLeft(8); // return &quot;leet&quot;
@@ -72,7 +72,7 @@ textEditor.deleteText(10); // return 4
                            // Only 4 characters were deleted.
 textEditor.cursorLeft(2); // return &quot;&quot;
                           // The current text is &quot;|practice&quot;.
-                          // The cursor cannot be moved beyond the actual text and thus did not move. 
+                          // The cursor cannot be moved beyond the actual text and thus did not move.
                           // &quot;&quot; is the last min(10, 0) = 0 characters to the left of the cursor.
 textEditor.cursorRight(6); // return &quot;practi&quot;
                            // The current text is &quot;practi|ce&quot;.
@@ -99,12 +99,12 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 
 ### Solution 1: Left and Right Stacks
 
-We can use two stacks, `left` and `right`, where the `left` stack stores the characters to the left of the cursor, and the `right` stack stores the characters to the right of the cursor.
+We can use two stacks, $\textit{left}$ and $\textit{right}$, where the stack $\textit{left}$ stores the characters to the left of the cursor, and the stack $\textit{right}$ stores the characters to the right of the cursor.
 
--   When the `addText` method is called, we push the characters from `text` onto the `left` stack one by one. The time complexity is $O(|\textit{text}|)$.
--   When the `deleteText` method is called, we pop characters from the `left` stack up to $k$ times. The time complexity is $O(k)$.
--   When the `cursorLeft` method is called, we pop characters from the `left` stack up to $k$ times, then push the popped characters onto the `right` stack, and finally return up to $10$ characters from the `left` stack. The time complexity is $O(k)$.
--   When the `cursorRight` method is called, we pop characters from the `right` stack up to $k$ times, then push the popped characters onto the `left` stack, and finally return up to $10$ characters from the `left` stack. The time complexity is $O(k)$.
+-   When calling the $\text{addText}$ method, we push the characters in $\text{text}$ onto the $\text{left}$ stack one by one. The time complexity is $O(|\text{text}|)$.
+-   When calling the $\text{deleteText}$ method, we pop characters from the $\text{left}$ stack up to $k$ times. The time complexity is $O(k)$.
+-   When calling the $\text{cursorLeft}$ method, we pop characters from the $\text{left}$ stack up to $k$ times, then push the popped characters onto the $\text{right}$ stack one by one, and finally return up to 10 characters from the $\text{left}$ stack. The time complexity is $O(k)$.
+-   When calling the $\text{cursorRight}$ method, we pop characters from the $\text{right}$ stack up to $k$ times, then push the popped characters onto the $\text{left}$ stack one by one, and finally return up to 10 characters from the $\text{left}$ stack. The time complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -347,6 +347,59 @@ class TextEditor {
  * var param_3 = obj.cursorLeft(k)
  * var param_4 = obj.cursorRight(k)
  */
+```
+
+#### Rust
+
+```rust
+struct TextEditor {
+    left: String,
+    right: String,
+}
+
+impl TextEditor {
+    fn new() -> Self {
+        TextEditor {
+            left: String::new(),
+            right: String::new(),
+        }
+    }
+
+    fn add_text(&mut self, text: String) {
+        self.left.push_str(&text);
+    }
+
+    fn delete_text(&mut self, k: i32) -> i32 {
+        let k = k.min(self.left.len() as i32) as usize;
+        self.left.truncate(self.left.len() - k);
+        k as i32
+    }
+
+    fn cursor_left(&mut self, k: i32) -> String {
+        let k = k.min(self.left.len() as i32) as usize;
+        for _ in 0..k {
+            if let Some(c) = self.left.pop() {
+                self.right.push(c);
+            }
+        }
+        self.get_last_10_chars()
+    }
+
+    fn cursor_right(&mut self, k: i32) -> String {
+        let k = k.min(self.right.len() as i32) as usize;
+        for _ in 0..k {
+            if let Some(c) = self.right.pop() {
+                self.left.push(c);
+            }
+        }
+        self.get_last_10_chars()
+    }
+
+    fn get_last_10_chars(&self) -> String {
+        let len = self.left.len();
+        self.left[len.saturating_sub(10)..].to_string()
+    }
+}
 ```
 
 <!-- tabs:end -->
