@@ -59269,7 +59269,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：哈希表 + 有序集合
     </span>
   </a>
   
@@ -91397,8 +91397,14 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 <h2 id="_2">解法</h2>
 <!-- solution:start -->
 
-<h3 id="_3">方法一</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">C++</label></div>
+<h3 id="_3">方法一：哈希表 + 有序集合</h3>
+<p>我们可以使用哈希表 <span class="arithmatex">\(\textit{d}\)</span> 来存储每种烹饪方式下的食物，其中键是烹饪方式，值是一个有序集合，有序集合的每个元素是一个二元组 <span class="arithmatex">\((\textit{rating}, \textit{food})\)</span>，按照评分从高到低排序，如果评分相同，则按照食物名字的字典序从小到大排序。</p>
+<p>我们还可以使用哈希表 <span class="arithmatex">\(\textit{g}\)</span> 来存储每种食物的评分和烹饪方式。即 <span class="arithmatex">\(\textit{g}[\textit{food}] = (\textit{rating}, \textit{cuisine})\)</span>。</p>
+<p>在构造函数中，我们遍历 <span class="arithmatex">\(\textit{foods}\)</span>、<span class="arithmatex">\(\textit{cuisines}\)</span> 和 <span class="arithmatex">\(\textit{ratings}\)</span>，将每种食物的评分和烹饪方式存储到 <span class="arithmatex">\(\textit{d}\)</span> 和 <span class="arithmatex">\(\textit{g}\)</span> 中。</p>
+<p>在 <span class="arithmatex">\(\textit{changeRating}\)</span> 函数中，我们首先获取食物 <span class="arithmatex">\(\textit{food}\)</span> 的原评分 <span class="arithmatex">\(\textit{oldRating}\)</span> 和烹饪方式 <span class="arithmatex">\(\textit{cuisine}\)</span>，然后更新 <span class="arithmatex">\(\textit{g}[\textit{food}]\)</span> 的评分为 <span class="arithmatex">\(\textit{newRating}\)</span>，并从 <span class="arithmatex">\(\textit{d}[\textit{cuisine}]\)</span> 中删除 <span class="arithmatex">\((\textit{oldRating}, \textit{food})\)</span>，并将 <span class="arithmatex">\((\textit{newRating}, \textit{food})\)</span> 添加到 <span class="arithmatex">\(\textit{d}[\textit{cuisine}]\)</span> 中。</p>
+<p>在 <span class="arithmatex">\(\textit{highestRated}\)</span> 函数中，我们直接返回 <span class="arithmatex">\(\textit{d}[\textit{cuisine}]\)</span> 的第一个元素的食物名字即可。</p>
+<p>时间复杂度方面，构造函数的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span>，其中 <span class="arithmatex">\(n\)</span> 是食物的数量。其余操作的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span>。空间复杂度为 <span class="arithmatex">\(O(n)\)</span>。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -91424,22 +91430,22 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FoodRatings</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">cuisines</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">ratings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mp</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">SortedSet</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
 
-        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">foods</span><span class="p">,</span> <span class="n">cuisines</span><span class="p">,</span> <span class="n">ratings</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">cuisines</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">ratings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">SortedList</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">food</span><span class="p">,</span> <span class="n">cuisine</span><span class="p">,</span> <span class="n">rating</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">foods</span><span class="p">,</span> <span class="n">cuisines</span><span class="p">,</span> <span class="n">ratings</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="o">-</span><span class="n">rating</span><span class="p">,</span> <span class="n">food</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">[</span><span class="n">food</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">rating</span><span class="p">,</span> <span class="n">cuisine</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">changeRating</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">newRating</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="n">food</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="n">food</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">newRating</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">food</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">newRating</span><span class="p">,</span> <span class="n">food</span><span class="p">))</span>
+        <span class="n">oldRating</span><span class="p">,</span> <span class="n">cuisine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">[</span><span class="n">food</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">[</span><span class="n">food</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">newRating</span><span class="p">,</span> <span class="n">cuisine</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">((</span><span class="o">-</span><span class="n">oldRating</span><span class="p">,</span> <span class="n">food</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="o">-</span><span class="n">newRating</span><span class="p">,</span> <span class="n">food</span><span class="p">))</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">highestRated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cuisine</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">cuisine</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 
 
 <span class="c1"># Your FoodRatings object will be instantiated and called as such:</span>
@@ -91483,33 +91489,109 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 <span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">pis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">FoodRatings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">cmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">getKey</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">getKey</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+<span class="w">    </span><span class="p">};</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">FoodRatings</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">pis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mp</span><span class="p">;</span>
-<span class="w">    </span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="o">&lt;</span><span class="n">pis</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FoodRatings</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">foods</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">cuisines</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">ratings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">foods</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">food</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foods</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">cuisine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cuisines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ratings</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="n">d</span><span class="p">.</span><span class="na">computeIfAbsent</span><span class="p">(</span><span class="n">cuisine</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">cmp</span><span class="p">)).</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Pair</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">rating</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">));</span>
+<span class="w">            </span><span class="n">g</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">food</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pair</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">rating</span><span class="p">,</span><span class="w"> </span><span class="n">cuisine</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">changeRating</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">food</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">newRating</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">food</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">oldRating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">old</span><span class="p">.</span><span class="na">getKey</span><span class="p">();</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">cuisine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">old</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span>
+<span class="w">        </span><span class="n">g</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">food</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pair</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">newRating</span><span class="p">,</span><span class="w"> </span><span class="n">cuisine</span><span class="p">));</span>
+<span class="w">        </span><span class="n">d</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">cuisine</span><span class="p">).</span><span class="na">remove</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Pair</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">oldRating</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">));</span>
+<span class="w">        </span><span class="n">d</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">cuisine</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Pair</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">newRating</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">highestRated</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">cuisine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">cuisine</span><span class="p">).</span><span class="na">first</span><span class="p">().</span><span class="na">getValue</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Your FoodRatings object will be instantiated and called as such:</span>
+<span class="cm"> * FoodRatings obj = new FoodRatings(foods, cuisines, ratings);</span>
+<span class="cm"> * obj.changeRating(food,newRating);</span>
+<span class="cm"> * String param_2 = obj.highestRated(cuisine);</span>
+<span class="cm"> */</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FoodRatings</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="n">FoodRatings</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">foods</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">cuisines</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">ratings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foods</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">string</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foods</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cuisines</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ratings</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="w">            </span><span class="n">mp</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pis</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
-<span class="w">            </span><span class="n">t</span><span class="p">[</span><span class="n">b</span><span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="n">pis</span><span class="p">(</span><span class="o">-</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">));</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">foods</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">string</span><span class="w"> </span><span class="n">food</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foods</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">cuisine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cuisines</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">rating</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ratings</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">            </span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">].</span><span class="n">insert</span><span class="p">({</span><span class="o">-</span><span class="n">rating</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">});</span>
+<span class="w">            </span><span class="n">g</span><span class="p">[</span><span class="n">food</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">rating</span><span class="p">,</span><span class="w"> </span><span class="n">cuisine</span><span class="p">};</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">changeRating</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">food</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">newRating</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">pis</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="p">[</span><span class="n">food</span><span class="p">];</span>
-<span class="w">        </span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">second</span><span class="p">].</span><span class="n">erase</span><span class="p">(</span><span class="n">pis</span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">));</span>
-<span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newRating</span><span class="p">;</span>
-<span class="w">        </span><span class="n">t</span><span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">second</span><span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="n">pis</span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">));</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">oldRating</span><span class="p">,</span><span class="w"> </span><span class="n">cuisine</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">[</span><span class="n">food</span><span class="p">];</span>
+<span class="w">        </span><span class="n">g</span><span class="p">[</span><span class="n">food</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">newRating</span><span class="p">,</span><span class="w"> </span><span class="n">cuisine</span><span class="p">};</span>
+<span class="w">        </span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">].</span><span class="n">erase</span><span class="p">({</span><span class="o">-</span><span class="n">oldRating</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">});</span>
+<span class="w">        </span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">].</span><span class="n">insert</span><span class="p">({</span><span class="o">-</span><span class="n">newRating</span><span class="p">,</span><span class="w"> </span><span class="n">food</span><span class="p">});</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">highestRated</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">cuisine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">cuisine</span><span class="p">].</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">cuisine</span><span class="p">].</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">    </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">g</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="cm">/**</span>
@@ -91517,6 +91599,116 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 <span class="cm"> * FoodRatings* obj = new FoodRatings(foods, cuisines, ratings);</span>
 <span class="cm"> * obj-&gt;changeRating(food,newRating);</span>
 <span class="cm"> * string param_2 = obj-&gt;highestRated(cuisine);</span>
+<span class="cm"> */</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;github.com/emirpasic/gods/v2/trees/redblacktree&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">pair</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">rating</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="nx">food</span><span class="w">   </span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">FoodRatings</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">d</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">redblacktree</span><span class="p">.</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">pair</span><span class="p">,</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}]</span>
+<span class="w">    </span><span class="nx">g</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">pair</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">Constructor</span><span class="p">(</span><span class="nx">foods</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">cuisines</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">ratings</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="nx">FoodRatings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">d</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">redblacktree</span><span class="p">.</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">pair</span><span class="p">,</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}])</span>
+<span class="w">    </span><span class="nx">g</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">pair</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">food</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">foods</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">rating</span><span class="p">,</span><span class="w"> </span><span class="nx">cuisine</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ratings</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">cuisines</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="w">        </span><span class="nx">g</span><span class="p">[</span><span class="nx">food</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">pair</span><span class="p">{</span><span class="nx">rating</span><span class="p">,</span><span class="w"> </span><span class="nx">cuisine</span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">d</span><span class="p">[</span><span class="nx">cuisine</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">d</span><span class="p">[</span><span class="nx">cuisine</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">redblacktree</span><span class="p">.</span><span class="nx">NewWith</span><span class="p">[</span><span class="nx">pair</span><span class="p">,</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}](</span><span class="kd">func</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="nx">pair</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">cmp</span><span class="p">.</span><span class="nx">Or</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">rating</span><span class="o">-</span><span class="nx">a</span><span class="p">.</span><span class="nx">rating</span><span class="p">,</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Compare</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">food</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">food</span><span class="p">))</span>
+<span class="w">            </span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nx">d</span><span class="p">[</span><span class="nx">cuisine</span><span class="p">].</span><span class="nx">Put</span><span class="p">(</span><span class="nx">pair</span><span class="p">{</span><span class="nx">rating</span><span class="p">,</span><span class="w"> </span><span class="nx">food</span><span class="p">},</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}{})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">FoodRatings</span><span class="p">{</span><span class="nx">d</span><span class="p">,</span><span class="w"> </span><span class="nx">g</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">FoodRatings</span><span class="p">)</span><span class="w"> </span><span class="nx">ChangeRating</span><span class="p">(</span><span class="nx">food</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">newRating</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">g</span><span class="p">[</span><span class="nx">food</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">t</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">d</span><span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">food</span><span class="p">]</span>
+
+<span class="w">    </span><span class="nx">t</span><span class="p">.</span><span class="nx">Remove</span><span class="p">(</span><span class="nx">pair</span><span class="p">{</span><span class="nx">p</span><span class="p">.</span><span class="nx">rating</span><span class="p">,</span><span class="w"> </span><span class="nx">food</span><span class="p">})</span>
+<span class="w">    </span><span class="nx">t</span><span class="p">.</span><span class="nx">Put</span><span class="p">(</span><span class="nx">pair</span><span class="p">{</span><span class="nx">newRating</span><span class="p">,</span><span class="w"> </span><span class="nx">food</span><span class="p">},</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}{})</span>
+
+<span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">rating</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">newRating</span>
+<span class="w">    </span><span class="nx">this</span><span class="p">.</span><span class="nx">g</span><span class="p">[</span><span class="nx">food</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">p</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">FoodRatings</span><span class="p">)</span><span class="w"> </span><span class="nx">HighestRated</span><span class="p">(</span><span class="nx">cuisine</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">d</span><span class="p">[</span><span class="nx">cuisine</span><span class="p">].</span><span class="nx">Left</span><span class="p">().</span><span class="nx">Key</span><span class="p">.</span><span class="nx">food</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Your FoodRatings object will be instantiated and called as such:</span>
+<span class="cm"> * obj := Constructor(foods, cuisines, ratings);</span>
+<span class="cm"> * obj.ChangeRating(food,newRating);</span>
+<span class="cm"> * param_2 := obj.HighestRated(cuisine);</span>
 <span class="cm"> */</span>
 </code></pre></div></td></tr></table></div>
 </div>
