@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README.md
+tags:
+    - 数学
+    - 字符串
+    - 组合数学
+    - 数论
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3460.Longest%20Common%20Prefix%20After%20at%20Most%20One%20Removal/README.md
+tags:
+    - 双指针
+    - 字符串
 ---
 
 <!-- problem:start -->

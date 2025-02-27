@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Ma
 
 <!-- problem:start -->
 
-# [3466. 最大硬币收藏量 🔒](https://leetcode.cn/problems/maximum-coin-collection)
+# [3466. 最大硬币收集量 🔒](https://leetcode.cn/problems/maximum-coin-collection)
 
 [English Version](/solution/3400-3499/3466.Maximum%20Coin%20Collection/README_EN.md)
 
@@ -14,21 +14,21 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Ma
 
 <!-- description:start -->
 
-<p>Mario 在双车道高速公路上行驶，每英里都有硬币。给定两个整数数组，<code>lane1</code> 和&nbsp;<code>lane2</code>，其中第&nbsp;<code>i</code>&nbsp;个下标的值表示他在车道上处于第&nbsp;<code>i</code>&nbsp;英里时获得或失去的硬币数量。</p>
+<p>马里奥在双车道高速公路上行驶，每英里都有硬币。给定两个整数数组，<code>lane1</code> 和&nbsp;<code>lane2</code>，其中第&nbsp;<code>i</code>&nbsp;个下标的值表示他在车道上处于第&nbsp;<code>i</code>&nbsp;英里时获得或失去的硬币数量。</p>
 
 <ul>
-	<li>如果&nbsp;Mario 在车道 1 上处于&nbsp;<code>i</code> 英里处，并且&nbsp;<code>lane1[i] &gt; 0</code>，Mario 获得&nbsp;<code>lane1[i]</code> 硬币。</li>
-	<li>如果 Mario 在车道 1 上处于&nbsp;<code>i</code>&nbsp;英里处，并且&nbsp;<code>lane1[i] &lt; 0</code>，Mario 支付通行费并失去&nbsp;<code>abs(lane1[i])</code>&nbsp;个硬币。</li>
+	<li>如果马里奥在车道 1 上处于&nbsp;<code>i</code> 英里处，并且&nbsp;<code>lane1[i] &gt; 0</code>，马里奥获得&nbsp;<code>lane1[i]</code> 硬币。</li>
+	<li>如果马里奥在车道 1 上处于&nbsp;<code>i</code>&nbsp;英里处，并且&nbsp;<code>lane1[i] &lt; 0</code>，马里奥支付通行费并失去&nbsp;<code>abs(lane1[i])</code>&nbsp;个硬币。</li>
 	<li>规则同样对&nbsp;<code>lane2</code>&nbsp;适用。</li>
 </ul>
 
-<p>Mario&nbsp;可以在任何地方进入高速公路，并在行驶 <strong>至少</strong> 一英里后随时退出。Mario 总是从 1 号车道进入高速公路，但 <strong>最多</strong> 可以换道 2 次。</p>
+<p>马里奥可以在任何地方进入高速公路，并在行驶 <strong>至少</strong> 一英里后随时退出。马里奥总是从 1 号车道进入高速公路，但 <strong>最多</strong> 可以换道 2 次。</p>
 
-<p><strong>换道</strong>&nbsp;是指 Mario 从车道 1 换到车道 2，反之亦然。</p>
+<p><strong>换道</strong>&nbsp;是指马里奥从车道 1 换到车道 2，反之亦然。</p>
 
-<p>返回 Mario 在进行&nbsp;<strong>最多 2 次换道</strong>&nbsp;后&nbsp;<strong>最多</strong>&nbsp;可以获得的硬币数。</p>
+<p>返回马里奥在进行&nbsp;<strong>最多 2 次换道</strong>&nbsp;后&nbsp;<strong>最多</strong>&nbsp;可以获得的硬币数。</p>
 
-<p><strong>注意：</strong>Mario&nbsp;可以在进入高速公路或退出高速公路之前立即切换车道。</p>
+<p><strong>注意：</strong>马里奥可以在进入高速公路或退出高速公路之前立即切换车道。</p>
 
 <p>&nbsp;</p>
 
@@ -42,12 +42,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Ma
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>Mario 在车道 1 上行驶了第 1 英里。</li>
+	<li>马里奥在车道 1 上行驶了第 1 英里。</li>
 	<li>接着，他切换到车道 2 并继续行驶 2 英里。</li>
 	<li>最后 1 英里他切换回了车道 1。</li>
 </ul>
 
-<p>Mario 收集了&nbsp;<code>1 + 10 + 0 + 3 = 14</code> 硬币。</p>
+<p>马里奥收集了&nbsp;<code>1 + 10 + 0 + 3 = 14</code> 硬币。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -60,7 +60,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Ma
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>Mario 从 0 英里处进入车道 1 并行驶了 1 英里。</li>
+	<li>马里奥从 0 英里处进入车道 1 并行驶了 1 英里。</li>
 	<li>接着，他切换到车道 2 并继续行驶了 2 英里。他在 3 英里处离开高速公路。</li>
 </ul>
 
@@ -77,7 +77,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Ma
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>Mario 从 1 英里处进入并立即切换到车道 2。他全程保持在这根车道上。</li>
+	<li>马里奥从 1 英里处进入并立即切换到车道 2。他全程保持在这根车道上。</li>
 </ul>
 
 <p>他总共收集了&nbsp;<code>2 + 3 = 5</code>&nbsp;硬币。</p>
@@ -93,7 +93,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Ma
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>Mario 从高速公路的开头进入并立即切换到车道 2。他全程保持在这根车道上。</li>
+	<li>马里奥从高速公路的开头进入并立即切换到车道 2。他全程保持在这根车道上。</li>
 </ul>
 
 <p>他总共获得了&nbsp;<code>9 + (-2) + 4 = 11</code> 硬币。</p>
@@ -109,7 +109,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Ma
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>由于 Mario 必须在高速公路上行驶至少 1 英里，他只在车道 2 上行驶了 1 英里。</li>
+	<li>由于马里奥必须在高速公路上行驶至少 1 英里，他只在车道 2 上行驶了 1 英里。</li>
 </ul>
 
 <p>他总共获得了 -2 硬币。</p>

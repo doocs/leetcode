@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

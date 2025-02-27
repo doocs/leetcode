@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README.md
+tags:
+    - 贪心
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->
