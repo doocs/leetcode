@@ -44333,9 +44333,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-hash-table-dfs" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Hash Table + DFS
     </span>
   </a>
   
@@ -86564,7 +86564,9 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-hash-table-dfs">Solution 1: Hash Table + DFS</h3>
+<p>We use a hash table <span class="arithmatex">\(\textit{s}\)</span> to record the values of all nodes in the array <span class="arithmatex">\(\textit{nodes}\)</span>, and then use depth-first search. When the node being traversed is null or its value is in the hash table <span class="arithmatex">\(\textit{s}\)</span>, we return the current node. Otherwise, we recursively traverse the left and right subtrees. If the return values of both the left and right subtrees are not null, it means the current node is the lowest common ancestor. Otherwise, we return the non-null subtree's return value.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n + m)\)</span>, and the space complexity is <span class="arithmatex">\(O(n + m)\)</span>. Where <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span> are the number of nodes in the binary tree and the length of the array <span class="arithmatex">\(\textit{nodes}\)</span>, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

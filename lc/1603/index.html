@@ -91352,7 +91352,9 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 <!-- solution:start -->
 
 <h3 id="_3">方法一：模拟</h3>
-<p>为每种车维护一个计数器，初始值为车位的数目。此后，每来一辆车，就将对应类型的计数器减 <code>1</code>。当计数器为 <code>0</code> 时，说明车位已满。</p>
+<p>我们用一个长度为 <span class="arithmatex">\(4\)</span> 的数组 <span class="arithmatex">\(\textit{cnt}\)</span> 来表示停车场中每种车位的数量，其中 <span class="arithmatex">\(\textit{cnt}[1]\)</span>, <span class="arithmatex">\(\textit{cnt}[2]\)</span>, <span class="arithmatex">\(\textit{cnt}[3]\)</span> 分别表示大车位、中车位、小车位的数量。</p>
+<p>在初始化时，我们将 <span class="arithmatex">\(\textit{cnt}[1]\)</span>, <span class="arithmatex">\(\textit{cnt}[2]\)</span>, <span class="arithmatex">\(\textit{cnt}[3]\)</span> 分别初始化为大车位、中车位、小车位的数量。</p>
+<p>每次停车时，我们检查停车场中是否有对应车位，如果没有则返回 <span class="arithmatex">\(\textit{false}\)</span>，否则将对应车位的数量减一，并返回 <span class="arithmatex">\(\textit{true}\)</span>。</p>
 <p>时间复杂度 <span class="arithmatex">\(O(1)\)</span>，空间复杂度 <span class="arithmatex">\(O(1)\)</span>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label><label for="__tabbed_1_8">C</label></div>
 <div class="tabbed-content">
@@ -91544,17 +91546,17 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">ParkingSystem</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">];</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">cnt</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">];</span>
 
 <span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">big</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">medium</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">small</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">big</span><span class="p">,</span><span class="w"> </span><span class="nx">medium</span><span class="p">,</span><span class="w"> </span><span class="nx">small</span><span class="p">];</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">big</span><span class="p">,</span><span class="w"> </span><span class="nx">medium</span><span class="p">,</span><span class="w"> </span><span class="nx">small</span><span class="p">];</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="nx">addCar</span><span class="p">(</span><span class="nx">carType</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">[</span><span class="nx">carType</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">cnt</span><span class="p">[</span><span class="nx">carType</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">[</span><span class="nx">carType</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">cnt</span><span class="p">[</span><span class="nx">carType</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -91586,31 +91588,23 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ParkingSystem</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kt">i32</span><span class="p">;</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ParkingSystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cnt</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kt">i32</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd"> * `&amp;self` means the method takes an immutable reference.</span>
-<span class="sd"> * If you need a mutable reference, change it to `&amp;mut self` instead.</span>
-<span class="sd"> */</span>
 <span class="k">impl</span><span class="w"> </span><span class="n">ParkingSystem</span><span class="w"> </span><span class="p">{</span>
+
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="n">big</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">medium</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">small</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">count</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">big</span><span class="p">,</span><span class="w"> </span><span class="n">medium</span><span class="p">,</span><span class="w"> </span><span class="n">small</span><span class="p">],</span>
+<span class="w">        </span><span class="n">ParkingSystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cnt</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">big</span><span class="p">,</span><span class="w"> </span><span class="n">medium</span><span class="p">,</span><span class="w"> </span><span class="n">small</span><span class="p">],</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">add_car</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">car_type</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">car_type</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">cnt</span><span class="p">[</span><span class="n">car_type</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">cnt</span><span class="p">[</span><span class="n">car_type</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span><span class="kc">true</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>

@@ -43013,9 +43013,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-two-pointers" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Two Pointers
     </span>
   </a>
   
@@ -86558,7 +86558,11 @@ Then, a<sub>prefix</sub> + b<sub>suffix</sub> = &quot;ula&quot; + &quot;alu&quot
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-two-pointers">Solution 1: Two Pointers</h3>
+<p>We can use two pointers, where one pointer <span class="arithmatex">\(i\)</span> starts from the beginning of string <span class="arithmatex">\(a\)</span>, and the other pointer <span class="arithmatex">\(j\)</span> starts from the end of string <span class="arithmatex">\(b\)</span>. If the characters pointed to by the two pointers are equal, then both pointers move towards the center until they encounter different characters or the two pointers cross.</p>
+<p>If the two pointers cross, i.e., <span class="arithmatex">\(i \geq j\)</span>, it means that <span class="arithmatex">\(prefix\)</span> and <span class="arithmatex">\(suffix\)</span> can already form a palindrome, and we return <code>true</code>. Otherwise, we need to check if <span class="arithmatex">\(a[i,...j]\)</span> or <span class="arithmatex">\(b[i,...j]\)</span> is a palindrome. If so, return <code>true</code>.</p>
+<p>Otherwise, we try swapping the two strings <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> and repeat the same process.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n)\)</span>, and the space complexity is <span class="arithmatex">\(O(1)\)</span>. Where <span class="arithmatex">\(n\)</span> is the length of string <span class="arithmatex">\(a\)</span> or <span class="arithmatex">\(b\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
