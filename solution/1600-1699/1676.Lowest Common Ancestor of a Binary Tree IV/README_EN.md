@@ -66,7 +66,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + DFS
+
+We use a hash table $\textit{s}$ to record the values of all nodes in the array $\textit{nodes}$, and then use depth-first search. When the node being traversed is null or its value is in the hash table $\textit{s}$, we return the current node. Otherwise, we recursively traverse the left and right subtrees. If the return values of both the left and right subtrees are not null, it means the current node is the lowest common ancestor. Otherwise, we return the non-null subtree's return value.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes in the binary tree and the length of the array $\textit{nodes}$, respectively.
 
 <!-- tabs:start -->
 
