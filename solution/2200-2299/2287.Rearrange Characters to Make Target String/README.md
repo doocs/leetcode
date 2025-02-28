@@ -44,7 +44,7 @@ tags:
 <strong>输入：</strong>s = "abcba", target = "abc"
 <strong>输出：</strong>1
 <strong>解释：</strong>
-选取下标为 0 、1 和 2 的字符，可以形成 "abc" 的 1 个副本。 
+选取下标为 0 、1 和 2 的字符，可以形成 "abc" 的 1 个副本。
 可以形成最多 1 个 "abc" 的副本，所以返回 1 。
 注意，尽管下标 3 和 4 分别有额外的 'a' 和 'b' ，但不能重用下标 2 处的 'c' ，所以无法形成 "abc" 的第 2 个副本。
 </pre>
@@ -81,9 +81,9 @@ tags:
 
 ### 方法一：计数
 
-我们统计字符串 `s` 和 `target` 中每个字符出现的次数，记为 `cnt1` 和 `cnt2`。对于 `target` 中的每个字符，我们计算 `cnt1` 中该字符出现的次数除以 `cnt2` 中该字符出现的次数，取最小值即可。
+我们统计字符串 $\textit{s}$ 和 $\textit{target}$ 中每个字符出现的次数，记为 $\textit{cnt1}$ 和 $\textit{cnt2}$。对于 $\textit{target}$ 中的每个字符，我们计算 $\textit{cnt1}$ 中该字符出现的次数除以 $\textit{cnt2}$ 中该字符出现的次数，取最小值即可。
 
-时间复杂度 $O(n + m)$，空间复杂度 $O(C)$。其中 $n$ 和 $m$ 分别是字符串 `s` 和 `target` 的长度。而 $C$ 是字符集的大小，本题中 $C=26$。
+时间复杂度 $O(n + m)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 和 $m$ 分别是字符串 $\textit{s}$ 和 $\textit{target}$ 的长度。而 $|\Sigma|$ 是字符集的大小，本题中 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 

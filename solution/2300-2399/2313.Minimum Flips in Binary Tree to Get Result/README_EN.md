@@ -81,7 +81,23 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Tree DP + Case Analysis
+
+We define a function $dfs(root)$, which returns an array of length 2. The first element represents the minimum number of flips needed to change the value of the $root$ node to `false`, and the second element represents the minimum number of flips needed to change the value of the $root$ node to `true`. The answer is $dfs(root)[result]$.
+
+The implementation of the function $dfs(root)$ is as follows:
+
+If $root$ is null, return $[+\infty, +\infty]$.
+
+Otherwise, let $x$ be the value of $root$, $l$ be the return value of the left subtree, and $r$ be the return value of the right subtree. Then we discuss the following cases:
+
+-   If $x \in \{0, 1\}$, return $[x, x \oplus 1]$.
+-   If $x = 2$, which means the boolean operator is `OR`, to make the value of $root$ `false`, we need to make both the left and right subtrees `false`. Therefore, the first element of the return value is $l[0] + r[0]$. To make the value of $root$ `true`, we need at least one of the left or right subtrees to be `true`. Therefore, the second element of the return value is $\min(l[0] + r[1], l[1] + r[0], l[1] + r[1])$.
+-   If $x = 3$, which means the boolean operator is `AND`, to make the value of $root$ `false`, we need at least one of the left or right subtrees to be `false`. Therefore, the first element of the return value is $\min(l[0] + r[0], l[0] + r[1], l[1] + r[0])$. To make the value of $root$ `true`, we need both the left and right subtrees to be `true`. Therefore, the second element of the return value is $l[1] + r[1]$.
+-   If $x = 4$, which means the boolean operator is `XOR`, to make the value of $root$ `false`, we need both the left and right subtrees to be either `false` or `true`. Therefore, the first element of the return value is $\min(l[0] + r[0], l[1] + r[1])$. To make the value of $root$ `true`, we need the left and right subtrees to be different. Therefore, the second element of the return value is $\min(l[0] + r[1], l[1] + r[0])$.
+-   If $x = 5$, which means the boolean operator is `NOT`, to make the value of $root$ `false`, we need at least one of the left or right subtrees to be `true`. Therefore, the first element of the return value is $\min(l[1], r[1])$. To make the value of $root$ `true`, we need at least one of the left or right subtrees to be `false`. Therefore, the second element of the return value is $\min(l[0], r[0])$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
