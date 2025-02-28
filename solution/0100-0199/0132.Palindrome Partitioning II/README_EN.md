@@ -58,7 +58,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+First, we preprocess the string $s$ to determine whether each substring $s[i..j]$ is a palindrome, and record this in a 2D array $g[i][j]$, where $g[i][j]$ indicates whether the substring $s[i..j]$ is a palindrome.
+
+Next, we define $f[i]$ to represent the minimum number of cuts needed for the substring $s[0..i-1]$. Initially, $f[i] = i$.
+
+Next, we consider how to transition the state for $f[i]$. We can enumerate the previous cut point $j$. If the substring $s[j..i]$ is a palindrome, then $f[i]$ can be transitioned from $f[j]$. If $j = 0$, it means that $s[0..i]$ itself is a palindrome, and no cuts are needed, i.e., $f[i] = 0$. Therefore, the state transition equation is as follows:
+
+$$
+f[i] = \min_{0 \leq j \leq i} \begin{cases} f[j-1] + 1, & \textit{if}\ g[j][i] = \textit{True} \\ 0, & \textit{if}\ g[0][i] = \textit{True} \end{cases}
+$$
+
+The answer is $f[n]$, where $n$ is the length of the string $s$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -178,17 +192,13 @@ func minCut(s string) int {
 ```ts
 function minCut(s: string): number {
     const n = s.length;
-    const g: boolean[][] = Array(n)
-        .fill(0)
-        .map(() => Array(n).fill(true));
+    const g: boolean[][] = Array.from({ length: n }, () => Array(n).fill(true));
     for (let i = n - 1; ~i; --i) {
         for (let j = i + 1; j < n; ++j) {
             g[i][j] = s[i] === s[j] && g[i + 1][j - 1];
         }
     }
-    const f: number[] = Array(n)
-        .fill(0)
-        .map((_, i) => i);
+    const f: number[] = Array.from({ length: n }, (_, i) => i);
     for (let i = 1; i < n; ++i) {
         for (let j = 0; j <= i; ++j) {
             if (g[j][i]) {
