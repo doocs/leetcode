@@ -65,7 +65,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming + Prefix Sum
+
+Define $dp[i][j]$ to represent the number of ways to partition the first $i$ characters of the string `num` such that the length of the last number is $j$. Clearly, the answer is $\sum_{j=0}^{n} dp[n][j]$. The initial value is $dp[0][0] = 1$.
+
+For $dp[i][j]$, the end of the previous number should be $i-j$. We can enumerate $dp[i-j][k]$, where $k \le j$. For the part where $k < j$, i.e., the number of ways with a length less than $j$ can be directly added to $dp[i][j]$, i.e., $dp[i][j] = \sum_{k=0}^{j-1} dp[i-j][k]$. Because the previous number is shorter, it means it is smaller than the current number. Here, prefix sum can be used for optimization.
+
+However, when $k = j$, we need to compare the sizes of the two numbers of the same length. If the previous number is larger than the current number, this situation is invalid, and we should not add it to $dp[i][j]$. Otherwise, we can add it to $dp[i][j]$. Here, we can preprocess the "longest common prefix" in $O(n^2)$ time, and then compare the sizes of two numbers of the same length in $O(1)$ time.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$ is the length of the string `num`.
 
 <!-- tabs:start -->
 

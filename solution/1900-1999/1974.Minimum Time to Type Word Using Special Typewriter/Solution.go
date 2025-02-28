@@ -1,18 +1,10 @@
 func minTimeToType(word string) int {
-	ans, prev := 0, 0
+	ans := len(word)
+	a := rune('a')
 	for _, c := range word {
-		curr := int(c - 'a')
-		t := abs(prev - curr)
-		t = min(t, 26-t)
-		ans += t + 1
-		prev = curr
+		d := int(max(a-c, c-a))
+		ans += min(d, 26-d)
+		a = c
 	}
 	return ans
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
 }
