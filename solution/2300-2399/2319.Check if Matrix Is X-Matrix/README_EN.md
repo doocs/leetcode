@@ -34,7 +34,7 @@ tags:
 <pre>
 <strong>Input:</strong> grid = [[2,0,0,1],[0,3,1,0],[0,5,2,0],[4,0,0,2]]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Refer to the diagram above. 
+<strong>Explanation:</strong> Refer to the diagram above.
 An X-Matrix should have the green elements (diagonals) be non-zero and the red elements be 0.
 Thus, grid is an X-Matrix.
 </pre>
@@ -64,7 +64,11 @@ Thus, grid is not an X-Matrix.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can directly traverse the matrix and check if each element satisfies the conditions of an $X$ matrix. If any element does not satisfy the conditions, return $\textit{false}$ immediately. If all elements satisfy the conditions after traversal, return $\textit{true}$.
+
+The time complexity is $O(n^2)$, where $n$ is the number of rows or columns of the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

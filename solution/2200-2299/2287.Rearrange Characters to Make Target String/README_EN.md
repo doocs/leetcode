@@ -76,7 +76,11 @@ We can make at most one copy of &quot;aaaaa&quot;, so we return 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We count the occurrences of each character in the strings $\textit{s}$ and $\textit{target}$, denoted as $\textit{cnt1}$ and $\textit{cnt2}$. For each character in $\textit{target}$, we calculate the number of times it appears in $\textit{cnt1}$ divided by the number of times it appears in $\textit{cnt2}$, and take the minimum value.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(|\Sigma|)$. Where $n$ and $m$ are the lengths of the strings $\textit{s}$ and $\textit{target}$, respectively. And $|\Sigma|$ is the size of the character set, which is 26 in this problem.
 
 <!-- tabs:start -->
 
