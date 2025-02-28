@@ -58501,9 +58501,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dynamic-programming" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Dynamic Programming
     </span>
   </a>
   
@@ -86512,7 +86512,7 @@
 <pre>
 <strong>Input:</strong> n = 1
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Possible arrangements:
 1. All plots are empty.
 2. A house is placed on one side of the street.
@@ -86540,7 +86540,16 @@ Possible arrangements:
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
+<p>Since the placement of houses on both sides of the street does not affect each other, we can consider the placement on one side only, and then square the number of ways for one side to get the final result modulo.</p>
+<p>We define <span class="arithmatex">\(f[i]\)</span> to represent the number of ways to place houses on the first <span class="arithmatex">\(i+1\)</span> plots, with the last plot having a house. We define <span class="arithmatex">\(g[i]\)</span> to represent the number of ways to place houses on the first <span class="arithmatex">\(i+1\)</span> plots, with the last plot not having a house. Initially, <span class="arithmatex">\(f[0] = g[0] = 1\)</span>.</p>
+<p>When placing the <span class="arithmatex">\((i+1)\)</span>-th plot, there are two cases:</p>
+<ul>
+<li>If the <span class="arithmatex">\((i+1)\)</span>-th plot has a house, then the <span class="arithmatex">\(i\)</span>-th plot must not have a house, so the number of ways is <span class="arithmatex">\(f[i] = g[i-1]\)</span>;</li>
+<li>If the <span class="arithmatex">\((i+1)\)</span>-th plot does not have a house, then the <span class="arithmatex">\(i\)</span>-th plot can either have a house or not, so the number of ways is <span class="arithmatex">\(g[i] = f[i-1] + g[i-1]\)</span>.</li>
+</ul>
+<p>Finally, we square <span class="arithmatex">\(f[n-1] + g[n-1]\)</span> modulo to get the answer.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n)\)</span>, and the space complexity is <span class="arithmatex">\(O(n)\)</span>. Where <span class="arithmatex">\(n\)</span> is the length of the street.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

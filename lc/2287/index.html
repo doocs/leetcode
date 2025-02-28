@@ -91332,7 +91332,7 @@
 <strong>输入：</strong>s = "abcba", target = "abc"
 <strong>输出：</strong>1
 <strong>解释：</strong>
-选取下标为 0 、1 和 2 的字符，可以形成 "abc" 的 1 个副本。 
+选取下标为 0 、1 和 2 的字符，可以形成 "abc" 的 1 个副本。
 可以形成最多 1 个 "abc" 的副本，所以返回 1 。
 注意，尽管下标 3 和 4 分别有额外的 'a' 和 'b' ，但不能重用下标 2 处的 'c' ，所以无法形成 "abc" 的第 2 个副本。
 </pre>
@@ -91367,8 +91367,8 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：计数</h3>
-<p>我们统计字符串 <code>s</code> 和 <code>target</code> 中每个字符出现的次数，记为 <code>cnt1</code> 和 <code>cnt2</code>。对于 <code>target</code> 中的每个字符，我们计算 <code>cnt1</code> 中该字符出现的次数除以 <code>cnt2</code> 中该字符出现的次数，取最小值即可。</p>
-<p>时间复杂度 <span class="arithmatex">\(O(n + m)\)</span>，空间复杂度 <span class="arithmatex">\(O(C)\)</span>。其中 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 分别是字符串 <code>s</code> 和 <code>target</code> 的长度。而 <span class="arithmatex">\(C\)</span> 是字符集的大小，本题中 <span class="arithmatex">\(C=26\)</span>。</p>
+<p>我们统计字符串 <span class="arithmatex">\(\textit{s}\)</span> 和 <span class="arithmatex">\(\textit{target}\)</span> 中每个字符出现的次数，记为 <span class="arithmatex">\(\textit{cnt1}\)</span> 和 <span class="arithmatex">\(\textit{cnt2}\)</span>。对于 <span class="arithmatex">\(\textit{target}\)</span> 中的每个字符，我们计算 <span class="arithmatex">\(\textit{cnt1}\)</span> 中该字符出现的次数除以 <span class="arithmatex">\(\textit{cnt2}\)</span> 中该字符出现的次数，取最小值即可。</p>
+<p>时间复杂度 <span class="arithmatex">\(O(n + m)\)</span>，空间复杂度 <span class="arithmatex">\(O(|\Sigma|)\)</span>。其中 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 分别是字符串 <span class="arithmatex">\(\textit{s}\)</span> 和 <span class="arithmatex">\(\textit{target}\)</span> 的长度。而 <span class="arithmatex">\(|\Sigma|\)</span> 是字符集的大小，本题中 <span class="arithmatex">\(|\Sigma|=26\)</span>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

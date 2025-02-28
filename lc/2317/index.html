@@ -91348,9 +91348,9 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：位运算</h3>
-<p>在一次操作中，我们可以把 <code>nums[i]</code> 更新为 <code>nums[i] AND (nums[i] XOR x)</code>。由于 <span class="arithmatex">\(x\)</span> 是任意非负整数，因此 <span class="arithmatex">\(nums[i] \oplus x\)</span> 的结果是一个任意值，再与 <code>nums[i]</code> 逐位与运算，可以把 <code>nums[i]</code> 的二进制表示中的若干位 <span class="arithmatex">\(1\)</span> 变为 <span class="arithmatex">\(0\)</span>。</p>
-<p>而题目中要获取的是 <code>nums</code> 所有元素的最大逐位异或和，对于一个二进制位，只要在 <code>nums</code> 中存在一个元素对应的二进制位为 <span class="arithmatex">\(1\)</span>，那么这个二进制位对于最大逐位异或和的贡献就是 <span class="arithmatex">\(1\)</span>。因此答案就是 <code>nums</code> 中所有元素的逐位或运算的结果。</p>
-<p>时间复杂度 <span class="arithmatex">\(O(n)\)</span>，空间复杂度 <span class="arithmatex">\(O(1)\)</span>。其中 <span class="arithmatex">\(n\)</span> 为 <code>nums</code> 的长度。</p>
+<p>在一次操作中，我们可以把 <span class="arithmatex">\(\textit{nums}[i]\)</span> 更新为 <span class="arithmatex">\(\textit{nums}[i] \text{ AND } (\textit{nums}[i] \text{ XOR } x)\)</span>。由于 <span class="arithmatex">\(x\)</span> 是任意非负整数，因此 <span class="arithmatex">\(\textit{nums}[i] \oplus x\)</span> 的结果是一个任意值，再与 <span class="arithmatex">\(\textit{nums}[i]\)</span> 逐位与运算，可以把 <span class="arithmatex">\(\textit{nums}[i]\)</span> 的二进制表示中的若干位 <span class="arithmatex">\(1\)</span> 变为 <span class="arithmatex">\(0\)</span>。</p>
+<p>而题目中要获取的是 <span class="arithmatex">\(\textit{nums}\)</span> 所有元素的最大逐位异或和，对于一个二进制位，只要在 <span class="arithmatex">\(\textit{nums}\)</span> 中存在一个元素对应的二进制位为 <span class="arithmatex">\(1\)</span>，那么这个二进制位对于最大逐位异或和的贡献就是 <span class="arithmatex">\(1\)</span>。因此答案就是 <span class="arithmatex">\(\textit{nums}\)</span> 中所有元素的逐位或运算的结果。</p>
+<p>时间复杂度 <span class="arithmatex">\(O(n)\)</span>，其中 <span class="arithmatex">\(n\)</span> 为 <span class="arithmatex">\(\textit{nums}\)</span> 的长度。空间复杂度 <span class="arithmatex">\(O(1)\)</span>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

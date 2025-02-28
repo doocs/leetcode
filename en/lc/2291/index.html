@@ -57863,18 +57863,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dynamic-programming" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Dynamic Programming
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-dynamic-programming-space-optimization" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Dynamic Programming (Space Optimization)
     </span>
   </a>
   
@@ -86567,7 +86567,15 @@ It can be shown that the maximum profit you can make is 0.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
+<p>We define <span class="arithmatex">\(f[i][j]\)</span> to represent the maximum profit when considering the first <span class="arithmatex">\(i\)</span> stocks with a budget of <span class="arithmatex">\(j\)</span>. The answer is <span class="arithmatex">\(f[n][\textit{budget}]\)</span>.</p>
+<p>For the <span class="arithmatex">\(i\)</span>-th stock, we have two choices:</p>
+<ul>
+<li>Do not buy it, then <span class="arithmatex">\(f[i][j] = f[i - 1][j]\)</span>;</li>
+<li>Buy it, then <span class="arithmatex">\(f[i][j] = f[i - 1][j - \textit{present}[i]] + \textit{future}[i] - \textit{present}[i]\)</span>.</li>
+</ul>
+<p>Finally, return <span class="arithmatex">\(f[n][\textit{budget}]\)</span>.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n \times \textit{budget})\)</span>, and the space complexity is <span class="arithmatex">\(O(n \times \textit{budget})\)</span>. Where <span class="arithmatex">\(n\)</span> is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -86722,7 +86730,8 @@ It can be shown that the maximum profit you can make is 0.
 
 <!-- solution:start -->
 
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-dynamic-programming-space-optimization">Solution 2: Dynamic Programming (Space Optimization)</h3>
+<p>We can observe that for each row, we only need the values from the previous row, so we can optimize the space complexity to <span class="arithmatex">\(O(\text{budget})\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -57665,9 +57665,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-monotonic-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Monotonic Stack
     </span>
   </a>
   
@@ -86572,7 +86572,18 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-monotonic-stack">Solution 1: Monotonic Stack</h3>
+<p>We observe that for the <span class="arithmatex">\(i\)</span>-th person, the people he can see must have heights that are strictly monotonically increasing from left to right (or from top to bottom).</p>
+<p>Therefore, for each row, we can use a monotonic stack to find the number of people each person can see.</p>
+<p>Specifically, we can traverse the array in reverse order, using a stack <span class="arithmatex">\(stk\)</span> that is monotonically increasing from top to bottom to record the heights of the people we have traversed.</p>
+<p>For the <span class="arithmatex">\(i\)</span>-th person, if the stack is not empty and the top element of the stack is less than <span class="arithmatex">\(heights[i]\)</span>, we increment the number of people the <span class="arithmatex">\(i\)</span>-th person can see, and then pop the top element of the stack, repeating this until the stack is empty or the top element of the stack is greater than or equal to <span class="arithmatex">\(heights[i]\)</span>. If the stack is not empty at this point, it means the top element of the stack is greater than or equal to <span class="arithmatex">\(heights[i]\)</span>, so we increment the number of people the <span class="arithmatex">\(i\)</span>-th person can see by 1. Next, if the stack is not empty and the top element of the stack is equal to <span class="arithmatex">\(heights[i]\)</span>, we pop the top element of the stack. Finally, we push <span class="arithmatex">\(heights[i]\)</span> onto the stack and continue to the next person.</p>
+<p>After processing this way, we can get the number of people each person can see for each row.</p>
+<p>Similarly, we can process each column to get the number of people each person can see for each column. Finally, we add the answers for each row and each column to get the final answer.</p>
+<p>The time complexity is <span class="arithmatex">\(O(m \times n)\)</span>, and the space complexity is <span class="arithmatex">\(O(\max(m, n))\)</span>. Where <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span> are the number of rows and columns of the array <span class="arithmatex">\(heights\)</span>, respectively.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README_EN.md">1944. Number of Visible People in a Queue</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

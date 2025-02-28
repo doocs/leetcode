@@ -57914,7 +57914,7 @@
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      方法二
+      方法二：动态规划（空间优化）
     </span>
   </a>
   
@@ -91358,15 +91358,14 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：动态规划</h3>
-<p>我们定义 <span class="arithmatex">\(f[i][j]\)</span> 表示前 <span class="arithmatex">\(i\)</span> 支股票，预算为 <span class="arithmatex">\(j\)</span> 时的最大收益。那么答案就是 <span class="arithmatex">\(f[n][budget]\)</span>。</p>
+<p>我们定义 <span class="arithmatex">\(f[i][j]\)</span> 表示前 <span class="arithmatex">\(i\)</span> 支股票，预算为 <span class="arithmatex">\(j\)</span> 时的最大收益。那么答案就是 <span class="arithmatex">\(f[n][\textit{budget}]\)</span>。</p>
 <p>对于第 <span class="arithmatex">\(i\)</span> 支股票，我们有两种选择：</p>
 <ul>
 <li>不购买，那么 <span class="arithmatex">\(f[i][j] = f[i - 1][j]\)</span>；</li>
-<li>购买，那么 <span class="arithmatex">\(f[i][j] = f[i - 1][j - present[i]] + future[i] - present[i]\)</span>。</li>
+<li>购买，那么 <span class="arithmatex">\(f[i][j] = f[i - 1][j - \textit{present}[i]] + \textit{future}[i] - \textit{present}[i]\)</span>。</li>
 </ul>
-<p>最后返回 <span class="arithmatex">\(f[n][budget]\)</span> 即可。</p>
-<p>时间复杂度 <span class="arithmatex">\(O(n \times budget)\)</span>，空间复杂度 <span class="arithmatex">\(O(n \times budget)\)</span>。其中 <span class="arithmatex">\(n\)</span> 为数组长度。</p>
-<p>我们可以发现，对于每一行，我们只需要用到上一行的值，因此可以将空间复杂度优化到 <span class="arithmatex">\(O(budget)\)</span>。</p>
+<p>最后返回 <span class="arithmatex">\(f[n][\textit{budget}]\)</span> 即可。</p>
+<p>时间复杂度 <span class="arithmatex">\(O(n \times \textit{budget})\)</span>，空间复杂度 <span class="arithmatex">\(O(n \times \textit{budget})\)</span>。其中 <span class="arithmatex">\(n\)</span> 为数组长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -91521,7 +91520,8 @@
 
 <!-- solution:start -->
 
-<h3 id="_4">方法二</h3>
+<h3 id="_4">方法二：动态规划（空间优化）</h3>
+<p>我们可以发现，对于每一行，我们只需要用到上一行的值，因此可以将空间复杂度优化到 <span class="arithmatex">\(O(\text{budget})\)</span>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

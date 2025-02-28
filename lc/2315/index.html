@@ -91342,10 +91342,10 @@
 <!-- solution:start -->
 
 <h3 id="_3">方法一：模拟</h3>
-<p>我们定义一个整型变量 <span class="arithmatex">\(ok\)</span>，表示遇到 <code>*</code> 时是否能计数，初始时 <span class="arithmatex">\(ok=1\)</span>，表示可以计数。</p>
-<p>遍历字符串 <span class="arithmatex">\(s\)</span>，如果遇到 <code>*</code>，则根据 <span class="arithmatex">\(ok\)</span> 的值决定是否计数，如果遇到 <code>|</code>，则 <span class="arithmatex">\(ok\)</span> 的值取反。</p>
+<p>我们定义一个整型变量 <span class="arithmatex">\(\textit{ok}\)</span>，表示遇到 <code>*</code> 时是否能计数，初始时 <span class="arithmatex">\(\textit{ok}=1\)</span>，表示可以计数。</p>
+<p>遍历字符串 <span class="arithmatex">\(s\)</span>，如果遇到 <code>*</code>，则根据 <span class="arithmatex">\(\textit{ok}\)</span> 的值决定是否计数，如果遇到 <code>|</code>，则 <span class="arithmatex">\(\textit{ok}\)</span> 的值取反。</p>
 <p>最后返回计数的结果。</p>
-<p>时间复杂度 <span class="arithmatex">\(O(n)\)</span>，空间复杂度 <span class="arithmatex">\(O(1)\)</span>。其中 <span class="arithmatex">\(n\)</span> 为字符串 <span class="arithmatex">\(s\)</span> 的长度。</p>
+<p>时间复杂度 <span class="arithmatex">\(O(n)\)</span>，其中 <span class="arithmatex">\(n\)</span> 为字符串 <span class="arithmatex">\(s\)</span> 的长度。空间复杂度 <span class="arithmatex">\(O(1)\)</span>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label><label for="__tabbed_1_8">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -58479,9 +58479,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Simulation
     </span>
   </a>
   
@@ -86521,7 +86521,7 @@
 <pre>
 <strong>Input:</strong> grid = [[2,0,0,1],[0,3,1,0],[0,5,2,0],[4,0,0,2]]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Refer to the diagram above. 
+<strong>Explanation:</strong> Refer to the diagram above.
 An X-Matrix should have the green elements (diagonals) be non-zero and the red elements be 0.
 Thus, grid is an X-Matrix.
 </pre>
@@ -86550,7 +86550,9 @@ Thus, grid is not an X-Matrix.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-simulation">Solution 1: Simulation</h3>
+<p>We can directly traverse the matrix and check if each element satisfies the conditions of an <span class="arithmatex">\(X\)</span> matrix. If any element does not satisfy the conditions, return <span class="arithmatex">\(\textit{false}\)</span> immediately. If all elements satisfy the conditions after traversal, return <span class="arithmatex">\(\textit{true}\)</span>.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n^2)\)</span>, where <span class="arithmatex">\(n\)</span> is the number of rows or columns of the matrix. The space complexity is <span class="arithmatex">\(O(1)\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label><label for="__tabbed_1_8">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

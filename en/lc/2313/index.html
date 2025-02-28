@@ -58347,9 +58347,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-tree-dp-case-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Tree DP + Case Analysis
     </span>
   </a>
   
@@ -86579,7 +86579,19 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-tree-dp-case-analysis">Solution 1: Tree DP + Case Analysis</h3>
+<p>We define a function <span class="arithmatex">\(dfs(root)\)</span>, which returns an array of length 2. The first element represents the minimum number of flips needed to change the value of the <span class="arithmatex">\(root\)</span> node to <code>false</code>, and the second element represents the minimum number of flips needed to change the value of the <span class="arithmatex">\(root\)</span> node to <code>true</code>. The answer is <span class="arithmatex">\(dfs(root)[result]\)</span>.</p>
+<p>The implementation of the function <span class="arithmatex">\(dfs(root)\)</span> is as follows:</p>
+<p>If <span class="arithmatex">\(root\)</span> is null, return <span class="arithmatex">\([+\infty, +\infty]\)</span>.</p>
+<p>Otherwise, let <span class="arithmatex">\(x\)</span> be the value of <span class="arithmatex">\(root\)</span>, <span class="arithmatex">\(l\)</span> be the return value of the left subtree, and <span class="arithmatex">\(r\)</span> be the return value of the right subtree. Then we discuss the following cases:</p>
+<ul>
+<li>If <span class="arithmatex">\(x \in \{0, 1\}\)</span>, return <span class="arithmatex">\([x, x \oplus 1]\)</span>.</li>
+<li>If <span class="arithmatex">\(x = 2\)</span>, which means the boolean operator is <code>OR</code>, to make the value of <span class="arithmatex">\(root\)</span> <code>false</code>, we need to make both the left and right subtrees <code>false</code>. Therefore, the first element of the return value is <span class="arithmatex">\(l[0] + r[0]\)</span>. To make the value of <span class="arithmatex">\(root\)</span> <code>true</code>, we need at least one of the left or right subtrees to be <code>true</code>. Therefore, the second element of the return value is <span class="arithmatex">\(\min(l[0] + r[1], l[1] + r[0], l[1] + r[1])\)</span>.</li>
+<li>If <span class="arithmatex">\(x = 3\)</span>, which means the boolean operator is <code>AND</code>, to make the value of <span class="arithmatex">\(root\)</span> <code>false</code>, we need at least one of the left or right subtrees to be <code>false</code>. Therefore, the first element of the return value is <span class="arithmatex">\(\min(l[0] + r[0], l[0] + r[1], l[1] + r[0])\)</span>. To make the value of <span class="arithmatex">\(root\)</span> <code>true</code>, we need both the left and right subtrees to be <code>true</code>. Therefore, the second element of the return value is <span class="arithmatex">\(l[1] + r[1]\)</span>.</li>
+<li>If <span class="arithmatex">\(x = 4\)</span>, which means the boolean operator is <code>XOR</code>, to make the value of <span class="arithmatex">\(root\)</span> <code>false</code>, we need both the left and right subtrees to be either <code>false</code> or <code>true</code>. Therefore, the first element of the return value is <span class="arithmatex">\(\min(l[0] + r[0], l[1] + r[1])\)</span>. To make the value of <span class="arithmatex">\(root\)</span> <code>true</code>, we need the left and right subtrees to be different. Therefore, the second element of the return value is <span class="arithmatex">\(\min(l[0] + r[1], l[1] + r[0])\)</span>.</li>
+<li>If <span class="arithmatex">\(x = 5\)</span>, which means the boolean operator is <code>NOT</code>, to make the value of <span class="arithmatex">\(root\)</span> <code>false</code>, we need at least one of the left or right subtrees to be <code>true</code>. Therefore, the first element of the return value is <span class="arithmatex">\(\min(l[1], r[1])\)</span>. To make the value of <span class="arithmatex">\(root\)</span> <code>true</code>, we need at least one of the left or right subtrees to be <code>false</code>. Therefore, the second element of the return value is <span class="arithmatex">\(\min(l[0], r[0])\)</span>.</li>
+</ul>
+<p>The time complexity is <span class="arithmatex">\(O(n)\)</span>, and the space complexity is <span class="arithmatex">\(O(n)\)</span>. Where <span class="arithmatex">\(n\)</span> is the number of nodes in the binary tree.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

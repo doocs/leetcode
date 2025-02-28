@@ -57841,9 +57841,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-double-ended-queue-bfs" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Double-Ended Queue BFS
     </span>
   </a>
   
@@ -86577,7 +86577,17 @@ Note that there may be other ways to remove 2 obstacles to create a path.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-double-ended-queue-bfs">Solution 1: Double-Ended Queue BFS</h3>
+<p>This problem is essentially a shortest path model, but we need to find the minimum number of obstacles to remove.</p>
+<p>In an undirected graph with edge weights of only <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(1\)</span>, we can use a double-ended queue to perform BFS. The principle is that if the weight of the current point that can be expanded is <span class="arithmatex">\(0\)</span>, it is added to the front of the queue; if the weight is <span class="arithmatex">\(1\)</span>, it is added to the back of the queue.</p>
+<blockquote>
+<p>If the weight of an edge is <span class="arithmatex">\(0\)</span>, then the newly expanded node has the same weight as the current front node, and it can obviously be used as the starting point for the next expansion.</p>
+</blockquote>
+<p>The time complexity is <span class="arithmatex">\(O(m \times n)\)</span>, and the space complexity is <span class="arithmatex">\(O(m \times n)\)</span>. Where <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span> are the number of rows and columns of the grid, respectively.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md">1368. Minimum Cost to Make at Least One Valid Path in a Grid</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

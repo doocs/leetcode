@@ -57775,9 +57775,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-counting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Counting
     </span>
   </a>
   
@@ -86567,7 +86567,9 @@ We can make at most one copy of &quot;aaaaa&quot;, so we return 1.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-counting">Solution 1: Counting</h3>
+<p>We count the occurrences of each character in the strings <span class="arithmatex">\(\textit{s}\)</span> and <span class="arithmatex">\(\textit{target}\)</span>, denoted as <span class="arithmatex">\(\textit{cnt1}\)</span> and <span class="arithmatex">\(\textit{cnt2}\)</span>. For each character in <span class="arithmatex">\(\textit{target}\)</span>, we calculate the number of times it appears in <span class="arithmatex">\(\textit{cnt1}\)</span> divided by the number of times it appears in <span class="arithmatex">\(\textit{cnt2}\)</span>, and take the minimum value.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n + m)\)</span>, and the space complexity is <span class="arithmatex">\(O(|\Sigma|)\)</span>. Where <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span> are the lengths of the strings <span class="arithmatex">\(\textit{s}\)</span> and <span class="arithmatex">\(\textit{target}\)</span>, respectively. And <span class="arithmatex">\(|\Sigma|\)</span> is the size of the character set, which is 26 in this problem.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

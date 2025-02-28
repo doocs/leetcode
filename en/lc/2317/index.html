@@ -58435,9 +58435,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-bit-manipulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Bit Manipulation
     </span>
   </a>
   
@@ -86551,7 +86551,10 @@ It can be shown that 11 is the maximum possible bitwise XOR.</pre>
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
+<p>In one operation, we can update <span class="arithmatex">\(\textit{nums}[i]\)</span> to <span class="arithmatex">\(\textit{nums}[i] \text{ AND } (\textit{nums}[i] \text{ XOR } x)\)</span>. Since <span class="arithmatex">\(x\)</span> is any non-negative integer, the result of <span class="arithmatex">\(\textit{nums}[i] \oplus x\)</span> can be any value. By performing a bitwise AND operation with <span class="arithmatex">\(\textit{nums}[i]\)</span>, we can change some of the <span class="arithmatex">\(1\)</span> bits in the binary representation of <span class="arithmatex">\(\textit{nums}[i]\)</span> to <span class="arithmatex">\(0\)</span>.</p>
+<p>The problem requires us to find the maximum bitwise XOR sum of all elements in <span class="arithmatex">\(\textit{nums}\)</span>. For a binary bit, as long as there is an element in <span class="arithmatex">\(\textit{nums}\)</span> with the corresponding binary bit set to <span class="arithmatex">\(1\)</span>, the contribution of this binary bit to the maximum bitwise XOR sum is <span class="arithmatex">\(1\)</span>. Therefore, the answer is the result of the bitwise OR operation of all elements in <span class="arithmatex">\(\textit{nums}\)</span>.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n)\)</span>, where <span class="arithmatex">\(n\)</span> is the length of <span class="arithmatex">\(\textit{nums}\)</span>. The space complexity is <span class="arithmatex">\(O(1)\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
