@@ -1,0 +1,18 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        # d=[]
+        # seen=set()
+        # for i in nums:
+        #     if(i in seen):
+        #         d.append(i)
+        #     seen.add(i)
+        # nums[:]=seen
+
+        seen=set()
+        index=0
+        for i in nums:
+            if i not in seen:
+                seen.add(i)
+                nums[index]=i
+                index+=1
+        return index
