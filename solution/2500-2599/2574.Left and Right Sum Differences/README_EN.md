@@ -19,21 +19,16 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a <strong>0-indexed</strong> integer array <code>nums</code>, find a <strong>0-indexed </strong>integer array <code>answer</code> where:</p>
+<p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code>.</p>
+
+<p>Define two arrays <code>leftSum</code> and <code>rightSum</code> where:</p>
 
 <ul>
-    <li><code>answer.length == nums.length</code>.</li>
-    <li><code>answer[i] = |leftSum[i] - rightSum[i]|</code>.</li>
+	<li><code>leftSum[i]</code> is the sum of elements to the left of the index <code>i</code> in the array <code>nums</code>. If there is no such element, <code>leftSum[i] = 0</code>.</li>
+	<li><code>rightSum[i]</code> is the sum of elements to the right of the index <code>i</code> in the array <code>nums</code>. If there is no such element, <code>rightSum[i] = 0</code>.</li>
 </ul>
 
-<p>Where:</p>
-
-<ul>
-    <li><code>leftSum[i]</code> is the sum of elements to the left of the index <code>i</code> in the array <code>nums</code>. If there is no such element, <code>leftSum[i] = 0</code>.</li>
-    <li><code>rightSum[i]</code> is the sum of elements to the right of the index <code>i</code> in the array <code>nums</code>. If there is no such element, <code>rightSum[i] = 0</code>.</li>
-</ul>
-
-<p>Return <em>the array</em> <code>answer</code>.</p>
+<p>Return an integer array <code>answer</code> of size <code>n</code> where <code>answer[i] = |leftSum[i] - rightSum[i]|</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -27,6 +27,8 @@ tags:
 
 <p>You are given an array <code>energy</code> and an integer <code>k</code>. Return the <strong>maximum</strong> possible energy you can gain.</p>
 
+<p><strong>Note</strong> that when you are reach a magician, you <em>must</em> take energy from them, whether it is negative or positive energy.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

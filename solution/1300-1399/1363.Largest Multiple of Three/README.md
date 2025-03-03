@@ -7,7 +7,9 @@ source: 第 177 场周赛 Q4
 tags:
     - 贪心
     - 数组
+    - 数学
     - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->

@@ -31,11 +31,11 @@ tags:
 <p>The <strong>concatenation value</strong> of <code>nums</code> is initially equal to <code>0</code>. Perform this operation until <code>nums</code> becomes empty:</p>
 
 <ul>
-	<li>If there exists more than one number in <code>nums</code>, pick the first element and last element in <code>nums</code> respectively and add the value of their concatenation to the <strong>concatenation value</strong> of <code>nums</code>, then delete the first and last element from <code>nums</code>.</li>
-	<li>If one element exists, add its value to the <strong>concatenation value</strong> of <code>nums</code>, then delete it.</li>
+	<li>If <code>nums</code> has a size greater than one, add the value of the concatenation of the first and the last element to the <strong>concatenation value</strong> of <code>nums</code>, and remove those two elements from <code>nums</code>. For example, if the <code>nums</code> was <code>[1, 2, 4, 5, 6]</code>, add 16 to the <code>concatenation value</code>.</li>
+	<li>If only one element exists in <code>nums</code>, add its value to the <strong>concatenation value</strong> of <code>nums</code>, then remove it.</li>
 </ul>
 
-<p>Return<em> the concatenation value of the <code>nums</code></em>.</p>
+<p>Return<em> the concatenation value of <code>nums</code></em>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

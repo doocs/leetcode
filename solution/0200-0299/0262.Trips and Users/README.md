@@ -61,7 +61,7 @@ banned 是一个表示用户是否被禁止的枚举类型，枚举成员为 (�
 
 <p><strong>取消率</strong> 的计算方式如下：(被司机或乘客取消的非禁止用户生成的订单数量) / (非禁止用户生成的订单总数)。</p>
 
-<p>编写解决方案找出&nbsp;<code>"2013-10-01"</code><strong>&nbsp;</strong>至&nbsp;<code>"2013-10-03"</code><strong>&nbsp;</strong>期间非禁止用户（<strong>乘客和司机都必须未被禁止</strong>）的取消率。非禁止用户即 banned 为 No 的用户，禁止用户即 banned 为 Yes 的用户。其中取消率 <code>Cancellation Rate</code> 需要四舍五入保留 <strong>两位小数</strong> 。</p>
+<p>编写解决方案找出&nbsp;<code>"2013-10-01"</code><strong>&nbsp;</strong>至&nbsp;<code>"2013-10-03"</code><strong>&nbsp;</strong>期间有&nbsp;<strong>至少&nbsp;</strong>一次行程的非禁止用户（<strong>乘客和司机都必须未被禁止</strong>）的 <strong>取消率</strong>。非禁止用户即 banned 为 No 的用户，禁止用户即 banned 为 Yes 的用户。其中取消率 <code>Cancellation Rate</code> 需要四舍五入保留 <strong>两位小数</strong> 。</p>
 
 <p>返回结果表中的数据 <strong>无顺序要求</strong> 。</p>
 

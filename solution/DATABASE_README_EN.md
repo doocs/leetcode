@@ -309,6 +309,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3436 | [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md)                                                                                                             | `Database` | Easy       |        |
 | 3451 | [Find Invalid IP Addresses](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README_EN.md)                                                                                           | `Database` | Hard       |        |
 | 3465 | [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README_EN.md)                                                           | `Database` | Easy       |        |
+| 3475 | [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README_EN.md)                                                                                                 |            | Medium     |        |
 
 ## Copyright
 

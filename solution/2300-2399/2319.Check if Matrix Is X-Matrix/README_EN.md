@@ -34,7 +34,7 @@ tags:
 <pre>
 <strong>Input:</strong> grid = [[2,0,0,1],[0,3,1,0],[0,5,2,0],[4,0,0,2]]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Refer to the diagram above.
+<strong>Explanation:</strong> Refer to the diagram above. 
 An X-Matrix should have the green elements (diagonals) be non-zero and the red elements be 0.
 Thus, grid is an X-Matrix.
 </pre>

@@ -311,6 +311,7 @@
 | 3436 | [查找合法邮箱](/solution/3400-3499/3436.Find%20Valid%20Emails/README.md)                                                                                     | `数据库` | 简单 |      |
 | 3451 | [查找无效的 IP 地址](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README.md)                                                                     | `数据库` | 困难 |      |
 | 3465 | [查找具有有效序列号的产品](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)                                             | `数据库` | 简单 |      |
+| 3475 | [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)                                                                    |          | 中等 |      |
 
 ## 版权
 

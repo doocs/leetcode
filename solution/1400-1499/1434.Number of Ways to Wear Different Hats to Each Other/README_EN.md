@@ -25,7 +25,7 @@ tags:
 
 <p>Given a 2D integer array <code>hats</code>, where <code>hats[i]</code> is a list of all hats preferred by the <code>i<sup>th</sup></code> person.</p>
 
-<p>Return <em>the number of ways that the <code>n</code> people wear different hats to each other</em>.</p>
+<p>Return the number of ways that <code>n</code> people can wear <strong>different</strong> hats from each other.</p>
 
 <p>Since the answer may be too large, return it modulo <code>10<sup>9</sup> + 7</code>.</p>
 

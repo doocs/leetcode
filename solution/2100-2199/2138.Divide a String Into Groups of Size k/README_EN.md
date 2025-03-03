@@ -22,7 +22,7 @@ tags:
 <p>A string <code>s</code> can be partitioned into groups of size <code>k</code> using the following procedure:</p>
 
 <ul>
-	<li>The first group consists of the first <code>k</code> characters of the string, the second group consists of the next <code>k</code> characters of the string, and so on. Each character can be a part of <strong>exactly one</strong> group.</li>
+	<li>The first group consists of the first <code>k</code> characters of the string, the second group consists of the next <code>k</code> characters of the string, and so on. Each element can be a part of <strong>exactly one</strong> group.</li>
 	<li>For the last group, if the string <strong>does not</strong> have <code>k</code> characters remaining, a character <code>fill</code> is used to complete the group.</li>
 </ul>
 
