@@ -7,7 +7,7 @@ source: Weekly Contest 178 Q1
 tags:
     - Array
     - Hash Table
-    - Counting
+    - Counting Sort
     - Sorting
 ---
 

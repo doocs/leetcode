@@ -57,11 +57,11 @@ tags:
 TextEditor textEditor = new TextEditor(); // The current text is &quot;|&quot;. (The &#39;|&#39; character represents the cursor)
 textEditor.addText(&quot;leetcode&quot;); // The current text is &quot;leetcode|&quot;.
 textEditor.deleteText(4); // return 4
-                          // The current text is &quot;leet|&quot;.
+                          // The current text is &quot;leet|&quot;. 
                           // 4 characters were deleted.
-textEditor.addText(&quot;practice&quot;); // The current text is &quot;leetpractice|&quot;.
+textEditor.addText(&quot;practice&quot;); // The current text is &quot;leetpractice|&quot;. 
 textEditor.cursorRight(3); // return &quot;etpractice&quot;
-                           // The current text is &quot;leetpractice|&quot;.
+                           // The current text is &quot;leetpractice|&quot;. 
                            // The cursor cannot be moved beyond the actual text and thus did not move.
                            // &quot;etpractice&quot; is the last 10 characters to the left of the cursor.
 textEditor.cursorLeft(8); // return &quot;leet&quot;
@@ -72,7 +72,7 @@ textEditor.deleteText(10); // return 4
                            // Only 4 characters were deleted.
 textEditor.cursorLeft(2); // return &quot;&quot;
                           // The current text is &quot;|practice&quot;.
-                          // The cursor cannot be moved beyond the actual text and thus did not move.
+                          // The cursor cannot be moved beyond the actual text and thus did not move. 
                           // &quot;&quot; is the last min(10, 0) = 0 characters to the left of the cursor.
 textEditor.cursorRight(6); // return &quot;practi&quot;
                            // The current text is &quot;practi|ce&quot;.

@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> n = 1
 <strong>Output:</strong> 4
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Possible arrangements:
 1. All plots are empty.
 2. A house is placed on one side of the street.

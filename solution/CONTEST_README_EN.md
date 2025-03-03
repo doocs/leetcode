@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 439
+
+- [3471. Find the Largest Almost Missing Integer](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README_EN.md)
+- [3472. Longest Palindromic Subsequence After at Most K Operations](/solution/3400-3499/3472.Longest%20Palindromic%20Subsequence%20After%20at%20Most%20K%20Operations/README_EN.md)
+- [3473. Sum of K Subarrays With Length at Least M](/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README_EN.md)
+- [3474. Lexicographically Smallest Generated String](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README_EN.md)
+
+#### Biweekly Contest 151
+
+- [3467. Transform Array by Parity](/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README_EN.md)
+- [3468. Find the Number of Copy Arrays](/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README_EN.md)
+- [3469. Find Minimum Cost to Remove Array Elements](/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README_EN.md)
+- [3470. Permutations IV](/solution/3400-3499/3470.Permutations%20IV/README_EN.md)
+
 #### Weekly Contest 438
 
 - [3461. Check If Digits Are Equal in String After Operations I](/solution/3400-3499/3461.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20I/README_EN.md)

@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> word = &quot;abc&quot;
 <strong>Output:</strong> 5
-<strong>Explanation:
+<strong>Explanation: 
 </strong>The characters are printed as follows:
 - Type the character &#39;a&#39; in 1 second since the pointer is initially on &#39;a&#39;.
 - Move the pointer clockwise to &#39;b&#39; in 1 second.

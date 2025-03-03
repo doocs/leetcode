@@ -1371,9 +1371,9 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1360  |  [Number of Days Between Two Dates](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README_EN.md)  |  `Math`,`String`  |  Easy  |  Weekly Contest 177  |
 |  1361  |  [Validate Binary Tree Nodes](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`,`Binary Tree`  |  Medium  |  Weekly Contest 177  |
 |  1362  |  [Closest Divisors](/solution/1300-1399/1362.Closest%20Divisors/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 177  |
-|  1363  |  [Largest Multiple of Three](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 177  |
+|  1363  |  [Largest Multiple of Three](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Dynamic Programming`,`Sorting`  |  Hard  |  Weekly Contest 177  |
 |  1364  |  [Number of Trusted Contacts of a Customer](/solution/1300-1399/1364.Number%20of%20Trusted%20Contacts%20of%20a%20Customer/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
-|  1365  |  [How Many Numbers Are Smaller Than the Current Number](/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Sorting`  |  Easy  |  Weekly Contest 178  |
+|  1365  |  [How Many Numbers Are Smaller Than the Current Number](/solution/1300-1399/1365.How%20Many%20Numbers%20Are%20Smaller%20Than%20the%20Current%20Number/README_EN.md)  |  `Array`,`Hash Table`,`Counting Sort`,`Sorting`  |  Easy  |  Weekly Contest 178  |
 |  1366  |  [Rank Teams by Votes](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Counting`,`Sorting`  |  Medium  |  Weekly Contest 178  |
 |  1367  |  [Linked List in Binary Tree](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Linked List`,`Binary Tree`  |  Medium  |  Weekly Contest 178  |
 |  1368  |  [Minimum Cost to Make at Least One Valid Path in a Grid](/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 178  |
@@ -3475,6 +3475,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3464  |  [Maximize the Distance Between Points on a Square](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Hard  |  Weekly Contest 438  |
 |  3465  |  [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README_EN.md)  |  `Database`  |  Easy  |    |
 |  3466  |  [Maximum Coin Collection](/solution/3400-3499/3466.Maximum%20Coin%20Collection/README_EN.md)  |    |  Medium  |  🔒  |
+|  3467  |  [Transform Array by Parity](/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README_EN.md)  |    |  Easy  |  Biweekly Contest 151  |
+|  3468  |  [Find the Number of Copy Arrays](/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README_EN.md)  |    |  Medium  |  Biweekly Contest 151  |
+|  3469  |  [Find Minimum Cost to Remove Array Elements](/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README_EN.md)  |    |  Medium  |  Biweekly Contest 151  |
+|  3470  |  [Permutations IV](/solution/3400-3499/3470.Permutations%20IV/README_EN.md)  |    |  Hard  |  Biweekly Contest 151  |
+|  3471  |  [Find the Largest Almost Missing Integer](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README_EN.md)  |    |  Easy  |  Weekly Contest 439  |
+|  3472  |  [Longest Palindromic Subsequence After at Most K Operations](/solution/3400-3499/3472.Longest%20Palindromic%20Subsequence%20After%20at%20Most%20K%20Operations/README_EN.md)  |    |  Medium  |  Weekly Contest 439  |
+|  3473  |  [Sum of K Subarrays With Length at Least M](/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README_EN.md)  |    |  Medium  |  Weekly Contest 439  |
+|  3474  |  [Lexicographically Smallest Generated String](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README_EN.md)  |    |  Hard  |  Weekly Contest 439  |
+|  3475  |  [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 

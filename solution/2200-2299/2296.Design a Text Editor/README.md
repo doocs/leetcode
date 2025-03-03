@@ -62,7 +62,7 @@ textEditor.deleteText(4); // 返回 4
                           // 删除了 4 个字符。
 textEditor.addText("practice"); // 当前文本为 "leetpractice|" 。
 textEditor.cursorRight(3); // 返回 "etpractice"
-                           // 当前文本为 "leetpractice|".
+                           // 当前文本为 "leetpractice|". 
                            // 光标无法移动到文本以外，所以无法移动。
                            // "etpractice" 是光标左边的 10 个字符。
 textEditor.cursorLeft(8); // 返回 "leet"

@@ -48,7 +48,7 @@ tags:
 [null, null, null, 6, null, 8]
 
 <strong>Explanation</strong>
-CountIntervals countIntervals = new CountIntervals(); // initialize the object with an empty set of intervals.
+CountIntervals countIntervals = new CountIntervals(); // initialize the object with an empty set of intervals. 
 countIntervals.add(2, 3);  // add [2, 3] to the set of intervals.
 countIntervals.add(7, 10); // add [7, 10] to the set of intervals.
 countIntervals.count();    // return 6
