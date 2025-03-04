@@ -3480,12 +3480,13 @@
 |  3467  |  [将数组按照奇偶性转化](/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README.md)  |    |  简单  |  第 151 场双周赛  |
 |  3468  |  [可行数组的数目](/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README.md)  |    |  中等  |  第 151 场双周赛  |
 |  3469  |  [移除所有数组元素的最小代价](/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README.md)  |    |  中等  |  第 151 场双周赛  |
-|  3470  |  [排列 IV](/solution/3400-3499/3470.Permutations%20IV/README.md)  |    |  困难  |  第 151 场双周赛  |
+|  3470  |  [全排列 IV](/solution/3400-3499/3470.Permutations%20IV/README.md)  |    |  困难  |  第 151 场双周赛  |
 |  3471  |  [找出最大的几近缺失整数](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README.md)  |    |  简单  |  第 439 场周赛  |
 |  3472  |  [至多 K 次操作后的最长回文子序列](/solution/3400-3499/3472.Longest%20Palindromic%20Subsequence%20After%20at%20Most%20K%20Operations/README.md)  |    |  中等  |  第 439 场周赛  |
 |  3473  |  [长度至少为 M 的 K 个子数组之和](/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README.md)  |    |  中等  |  第 439 场周赛  |
 |  3474  |  [字典序最小的生成字符串](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md)  |    |  困难  |  第 439 场周赛  |
-|  3475  |  [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)  |    |  中等  |    |
+|  3475  |  [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)  |    |  中等  |    |
+|  3476  |  [Maximize Profit from Task Assignment](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

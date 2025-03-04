@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3475. DNA Pattern Recognition](https://leetcode.cn/problems/dna-pattern-recognition)
+# [3475. DNA 模式识别](https://leetcode.cn/problems/dna-pattern-recognition)
 
 [English Version](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>Samples</code></p>
+<p>表：<code>Samples</code></p>
 
 <pre>
 +----------------+---------+
@@ -26,30 +26,31 @@ tags:
 | dna_sequence   | varchar |
 | species        | varchar |
 +----------------+---------+
-sample_id is the unique key for this table.
-Each row contains a DNA sequence represented as a string of characters (A, T, G, C) and the species it was collected from.
+sample_id 是这张表的唯一主键。
+每一行包含一个 DNA 序列以一个字符（A，T，G，C）组成的字符串表示以及它所采集自的物种。
 </pre>
 
-<p>Biologists are studying basic patterns in DNA sequences. Write a solution to identify <code>sample_id</code> with the following patterns:</p>
+<p>生物学家正在研究 DNA 序列中的基本模式。编写一个解决方案以识别具有以下模式的&nbsp;<code>sample_id</code>：</p>
 
 <ul>
-	<li>Sequences that <strong>start</strong> with <strong>ATG</strong>&nbsp;(a common <strong>start codon</strong>)</li>
-	<li>Sequences that <strong>end</strong> with either <strong>TAA</strong>, <strong>TAG</strong>, or <strong>TGA</strong>&nbsp;(<strong>stop codons</strong>)</li>
-	<li>Sequences containing the motif <strong>ATAT</strong>&nbsp;(a simple repeated pattern)</li>
-	<li>Sequences that have <strong>at least</strong> <code>3</code> <strong>consecutive</strong> <strong>G</strong>&nbsp;(like <strong>GGG</strong>&nbsp;or <strong>GGGG</strong>)</li>
+	<li>以&nbsp;<strong>ATG</strong> <strong>开头</strong>&nbsp;的序列（一个常见的 <strong>起始密码子</strong>）</li>
+	<li>以 <strong>TAA</strong>，<strong>TAG</strong>&nbsp;或&nbsp;<strong>TGA</strong>&nbsp;<strong>结尾</strong>&nbsp;的序列（终止密码子）</li>
+	<li>包含基序 <strong>ATAT</strong> 的序列（一个简单重复模式）</li>
+	<li>有 <strong>至少</strong>&nbsp;<code>3</code>&nbsp;<strong>个连续</strong>&nbsp;<strong>G</strong>&nbsp;的序列（如&nbsp;<strong>GGG</strong>&nbsp;或&nbsp;<strong>GGGG</strong>）</li>
 </ul>
 
-<p>Return <em>the result table ordered by&nbsp;</em><em>sample_id in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以&nbsp;sample_id <strong>升序</strong>&nbsp;排序<em>。</em></p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Samples table:</p>
+<p>Samples 表：</p>
 
 <pre class="example-io">
 +-----------+------------------+-----------+
@@ -65,7 +66,7 @@ Each row contains a DNA sequence represented as a string of characters (A, T, G,
 +-----------+------------------+-----------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-----------+------------------+-------------+-------------+------------+------------+------------+
@@ -81,69 +82,69 @@ Each row contains a DNA sequence represented as a string of characters (A, T, G,
 +-----------+------------------+-------------+-------------+------------+------------+------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Sample 1 (ATGCTAGCTAGCTAA):
+	<li>样本 1（ATGCTAGCTAGCTAA）：
 	<ul>
-		<li>Starts with ATG&nbsp;(has_start = 1)</li>
-		<li>Ends with TAA&nbsp;(has_stop = 1)</li>
-		<li>Does not contain ATAT&nbsp;(has_atat = 0)</li>
-		<li>Does not contain at least 3 consecutive &#39;G&#39;s (has_ggg = 0)</li>
+		<li>以 ATG 开头（has_start = 1）</li>
+		<li>以 TAA 结尾（has_stop = 1）</li>
+		<li>不包含 ATAT（has_atat = 0）</li>
+		<li>不包含至少 3 个连续 ‘G’（has_ggg = 0）</li>
 	</ul>
 	</li>
-	<li>Sample 2 (GGGTCAATCATC):
+	<li>样本 2（GGGTCAATCATC）：
 	<ul>
-		<li>Does not start with ATG&nbsp;(has_start = 0)</li>
-		<li>Does not end with TAA, TAG, or TGA&nbsp;(has_stop = 0)</li>
-		<li>Does not contain ATAT&nbsp;(has_atat = 0)</li>
-		<li>Contains GGG&nbsp;(has_ggg = 1)</li>
+		<li>不以 ATG 开头（has_start = 0）</li>
+		<li>不以 TAA，TAG 或 TGA 结尾（has_stop = 0）</li>
+		<li>不包含 ATAT（has_atat = 0）</li>
+		<li>包含 GGG（has_ggg = 1）</li>
 	</ul>
 	</li>
-	<li>Sample 3 (ATATATCGTAGCTA):
+	<li>样本 3（ATATATCGTAGCTA）：
 	<ul>
-		<li>Does not start with ATG&nbsp;(has_start = 0)</li>
-		<li>Does not end with TAA, TAG, or TGA&nbsp;(has_stop = 0)</li>
-		<li>Contains ATAT&nbsp;(has_atat = 1)</li>
-		<li>Does not contain at least 3 consecutive &#39;G&#39;s (has_ggg = 0)</li>
+		<li>不以 ATG 开头（has_start = 0）</li>
+		<li>不以 TAA，TAG 或 TGA 结尾（has_stop = 0）</li>
+		<li>包含 ATAT（has_atat = 1）</li>
+		<li>不包含至少 3 个连续 ‘G’（has_ggg = 0）</li>
 	</ul>
 	</li>
-	<li>Sample 4 (ATGGGGTCATCATAA):
+	<li>样本 4（ATGGGGTCATCATAA）：
 	<ul>
-		<li>Starts with ATG&nbsp;(has_start = 1)</li>
-		<li>Ends with TAA&nbsp;(has_stop = 1)</li>
-		<li>Does not contain ATAT&nbsp;(has_atat = 0)</li>
-		<li>Contains GGGG&nbsp;(has_ggg = 1)</li>
+		<li>以 ATG 开头（has_start = 1）</li>
+		<li>以 TAA 结尾（has_stop = 1）</li>
+		<li>不包含 ATAT（has_atat = 0）</li>
+		<li>包含 GGGG（has_ggg = 1）</li>
 	</ul>
 	</li>
-	<li>Sample 5 (TCAGTCAGTCAG):
+	<li>样本 5（TCAGTCAGTCAG）：
 	<ul>
-		<li>Does not match any patterns (all fields = 0)</li>
+		<li>不匹配任何模式（所有字段 = 0）</li>
 	</ul>
 	</li>
-	<li>Sample 6 (ATATCGCGCTAG):
+	<li>样本 6（ATATCGCGCTAG）：
 	<ul>
-		<li>Does not start with ATG&nbsp;(has_start = 0)</li>
-		<li>Ends with TAG&nbsp;(has_stop = 1)</li>
-		<li>Starts with ATAT&nbsp;(has_atat = 1)</li>
-		<li>Does not contain at least 3 consecutive &#39;G&#39;s (has_ggg = 0)</li>
+		<li>不以 ATG 开头（has_start = 0）</li>
+		<li>以 TAG 结尾（has_stop = 1）</li>
+		<li>包含 ATAT（has_atat = 1）</li>
+		<li>不包含至少 3 个连续 ‘G’（has_ggg = 0）</li>
 	</ul>
 	</li>
-	<li>Sample 7 (CGTATGCGTCGTA):
+	<li>样本 7（CGTATGCGTCGTA）：
 	<ul>
-		<li>Does not start with ATG&nbsp;(has_start = 0)</li>
-		<li>Does not end with TAA, &quot;TAG&quot;, or &quot;TGA&quot; (has_stop = 0)</li>
-		<li>Does not contain ATAT&nbsp;(has_atat = 0)</li>
-		<li>Does not contain at least 3 consecutive &#39;G&#39;s (has_ggg = 0)</li>
+		<li>不以 ATG 开头（has_start = 0）</li>
+		<li>不以 TAA，TAG 或 TGA 结尾（has_stop = 0）</li>
+		<li>不包含 ATAT（has_atat = 0）</li>
+		<li>不包含至少 3 个连续 ‘G’（has_ggg = 0）</li>
 	</ul>
 	</li>
 </ul>
 
-<p><strong>Note:</strong></p>
+<p><strong>注意：</strong></p>
 
 <ul>
-	<li>The result is ordered by sample_id in ascending order</li>
-	<li>For each pattern, 1 indicates the pattern is present and 0 indicates it is not present</li>
+	<li>结果以 sample_id 升序排序</li>
+	<li>对于每个模式，1 表示该模式存在，0 表示不存在</li>
 </ul>
 </div>
 
