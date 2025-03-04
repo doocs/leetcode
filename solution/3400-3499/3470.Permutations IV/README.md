@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3470.Pe
 
 <!-- problem:start -->
 
-# [3470. 排列 IV](https://leetcode.cn/problems/permutations-iv)
+# [3470. 全排列 IV](https://leetcode.cn/problems/permutations-iv)
 
 [English Version](/solution/3400-3499/3470.Permutations%20IV/README_EN.md)
 
