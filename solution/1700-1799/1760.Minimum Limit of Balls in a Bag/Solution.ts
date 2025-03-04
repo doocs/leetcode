@@ -1,17 +1,13 @@
 function minimumSize(nums: number[], maxOperations: number): number {
-    let left = 1;
-    let right = Math.max(...nums);
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let cnt = 0;
-        for (const x of nums) {
-            cnt += ~~((x - 1) / mid);
-        }
-        if (cnt <= maxOperations) {
-            right = mid;
+    let [l, r] = [1, Math.max(...nums)];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        const s = nums.map(x => ((x - 1) / mid) | 0).reduce((a, b) => a + b);
+        if (s <= maxOperations) {
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 }

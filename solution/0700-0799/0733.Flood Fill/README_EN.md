@@ -79,7 +79,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+We denote the initial pixel's color as $\textit{oc}$. If $\textit{oc}$ is not equal to the target color $\textit{color}$, we start a depth-first search from $(\textit{sr}, \textit{sc})$ to change the color of all eligible pixels to the target color.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
 
 <!-- tabs:start -->
 
@@ -90,22 +94,17 @@ class Solution:
     def floodFill(
         self, image: List[List[int]], sr: int, sc: int, color: int
     ) -> List[List[int]]:
-        def dfs(i, j):
-            if (
-                not 0 <= i < m
-                or not 0 <= j < n
-                or image[i][j] != oc
-                or image[i][j] == color
-            ):
-                return
+        def dfs(i: int, j: int):
             image[i][j] = color
             for a, b in pairwise(dirs):
-                dfs(i + a, j + b)
+                x, y = i + a, j + b
+                if 0 <= x < len(image) and 0 <= y < len(image[0]) and image[x][y] == oc:
+                    dfs(x, y)
 
-        dirs = (-1, 0, 1, 0, -1)
-        m, n = len(image), len(image[0])
         oc = image[sr][sc]
-        dfs(sr, sc)
+        if oc != color:
+            dirs = (-1, 0, 1, 0, -1)
+            dfs(sr, sc)
         return image
 ```
 
@@ -113,27 +112,29 @@ class Solution:
 
 ```java
 class Solution {
-    private int[] dirs = {-1, 0, 1, 0, -1};
     private int[][] image;
-    private int nc;
     private int oc;
+    private int color;
+    private final int[] dirs = {-1, 0, 1, 0, -1};
 
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
-        nc = color;
         oc = image[sr][sc];
+        if (oc == color) {
+            return image;
+        }
         this.image = image;
+        this.color = color;
         dfs(sr, sc);
         return image;
     }
 
     private void dfs(int i, int j) {
-        if (i < 0 || i >= image.length || j < 0 || j >= image[0].length || image[i][j] != oc
-            || image[i][j] == nc) {
-            return;
-        }
-        image[i][j] = nc;
+        image[i][j] = color;
         for (int k = 0; k < 4; ++k) {
-            dfs(i + dirs[k], j + dirs[k + 1]);
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < image.length && y >= 0 && y < image[0].length && image[x][y] == oc) {
+                dfs(x, y);
+            }
         }
     }
 }
@@ -147,14 +148,17 @@ public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         int m = image.size(), n = image[0].size();
         int oc = image[sr][sc];
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> dfs = [&](int i, int j) {
-            if (i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == color) {
-                return;
-            }
+        if (oc == color) {
+            return image;
+        }
+        const int dirs[5] = {-1, 0, 1, 0, -1};
+        auto dfs = [&](this auto&& dfs, int i, int j) -> void {
             image[i][j] = color;
             for (int k = 0; k < 4; ++k) {
-                dfs(i + dirs[k], j + dirs[k + 1]);
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && image[x][y] == oc) {
+                    dfs(x, y);
+                }
             }
         };
         dfs(sr, sc);
@@ -167,19 +171,25 @@ public:
 
 ```go
 func floodFill(image [][]int, sr int, sc int, color int) [][]int {
-	oc := image[sr][sc]
 	m, n := len(image), len(image[0])
+	oc := image[sr][sc]
+	if oc == color {
+		return image
+	}
+
 	dirs := []int{-1, 0, 1, 0, -1}
+
 	var dfs func(i, j int)
 	dfs = func(i, j int) {
-		if i < 0 || i >= m || j < 0 || j >= n || image[i][j] != oc || image[i][j] == color {
-			return
-		}
 		image[i][j] = color
 		for k := 0; k < 4; k++ {
-			dfs(i+dirs[k], j+dirs[k+1])
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && image[x][y] == oc {
+				dfs(x, y)
+			}
 		}
 	}
+
 	dfs(sr, sc)
 	return image
 }
@@ -188,27 +198,25 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 #### TypeScript
 
 ```ts
-function floodFill(image: number[][], sr: number, sc: number, newColor: number): number[][] {
-    const m = image.length;
-    const n = image[0].length;
-    const target = image[sr][sc];
-    const dfs = (i: number, j: number) => {
-        if (
-            i < 0 ||
-            i === m ||
-            j < 0 ||
-            j === n ||
-            image[i][j] !== target ||
-            image[i][j] === newColor
-        ) {
-            return;
+function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
+    const [m, n] = [image.length, image[0].length];
+    const oc = image[sr][sc];
+    if (oc === color) {
+        return image;
+    }
+
+    const dirs = [-1, 0, 1, 0, -1];
+
+    const dfs = (i: number, j: number): void => {
+        image[i][j] = color;
+        for (let k = 0; k < 4; k++) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && image[x][y] === oc) {
+                dfs(x, y);
+            }
         }
-        image[i][j] = newColor;
-        dfs(i + 1, j);
-        dfs(i - 1, j);
-        dfs(i, j + 1);
-        dfs(i, j - 1);
     };
+
     dfs(sr, sc);
     return image;
 }
@@ -218,26 +226,42 @@ function floodFill(image: number[][], sr: number, sc: number, newColor: number):
 
 ```rust
 impl Solution {
-    fn dfs(image: &mut Vec<Vec<i32>>, sr: i32, sc: i32, new_color: i32, target: i32) {
-        if sr < 0 || sr == (image.len() as i32) || sc < 0 || sc == (image[0].len() as i32) {
-            return;
-        }
+    pub fn flood_fill(mut image: Vec<Vec<i32>>, sr: i32, sc: i32, color: i32) -> Vec<Vec<i32>> {
+        let m = image.len();
+        let n = image[0].len();
         let sr = sr as usize;
         let sc = sc as usize;
-        if sr < 0 || image[sr][sc] == new_color || image[sr][sc] != target {
-            return;
+
+        let oc = image[sr][sc];
+        if oc == color {
+            return image;
         }
-        image[sr][sc] = new_color;
-        let sr = sr as i32;
-        let sc = sc as i32;
-        Self::dfs(image, sr + 1, sc, new_color, target);
-        Self::dfs(image, sr - 1, sc, new_color, target);
-        Self::dfs(image, sr, sc + 1, new_color, target);
-        Self::dfs(image, sr, sc - 1, new_color, target);
-    }
-    pub fn flood_fill(image: Vec<Vec<i32>>, sr: i32, sc: i32, new_color: i32) -> Vec<Vec<i32>> {
-        let target = image[sr as usize][sc as usize];
-        Self::dfs(&mut image, sr, sc, new_color, target);
+        let dirs = [-1, 0, 1, 0, -1];
+        fn dfs(
+            image: &mut Vec<Vec<i32>>,
+            i: usize,
+            j: usize,
+            oc: i32,
+            color: i32,
+            m: usize,
+            n: usize,
+            dirs: &[i32; 5],
+        ) {
+            image[i][j] = color;
+            for k in 0..4 {
+                let x = i as isize + dirs[k] as isize;
+                let y = j as isize + dirs[k + 1] as isize;
+                if x >= 0 && x < m as isize && y >= 0 && y < n as isize {
+                    let x = x as usize;
+                    let y = y as usize;
+                    if image[x][y] == oc {
+                        dfs(image, x, y, oc, color, m, n, dirs);
+                    }
+                }
+            }
+        }
+
+        dfs(&mut image, sr, sc, oc, color, m, n, &dirs);
         image
     }
 }
@@ -249,7 +273,13 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: BFS
+
+We first check if the initial pixel's color is equal to the target color. If it is, we return the original image directly. Otherwise, we can use the breadth-first search method, starting from $(\textit{sr}, \textit{sc})$, to change the color of all eligible pixels to the target color.
+
+Specifically, we define a queue $\textit{q}$ and add the initial pixel $(\textit{sr}, \textit{sc})$ to the queue. Then, we continuously take pixels $(i, j)$ from the queue, change their color to the target color, and add the pixels in the four directions (up, down, left, right) that have the same original color as the initial pixel to the queue. When the queue is empty, we have completed the flood fill.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
 
 <!-- tabs:start -->
 
@@ -358,6 +388,82 @@ func floodFill(image [][]int, sr int, sc int, color int) [][]int {
 		}
 	}
 	return image
+}
+```
+
+#### TypeScript
+
+```ts
+function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
+    if (image[sr][sc] === color) {
+        return image;
+    }
+
+    const oc = image[sr][sc];
+    image[sr][sc] = color;
+
+    const q: [number, number][] = [];
+    q.push([sr, sc]);
+
+    const dirs = [-1, 0, 1, 0, -1];
+    const [m, n] = [image.length, image[0].length];
+
+    while (q.length > 0) {
+        const [a, b] = q.shift()!;
+        for (let k = 0; k < 4; ++k) {
+            const x = a + dirs[k];
+            const y = b + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && image[x][y] === oc) {
+                q.push([x, y]);
+                image[x][y] = color;
+            }
+        }
+    }
+
+    return image;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn flood_fill(mut image: Vec<Vec<i32>>, sr: i32, sc: i32, color: i32) -> Vec<Vec<i32>> {
+        let m = image.len();
+        let n = image[0].len();
+        let (sr, sc) = (sr as usize, sc as usize);
+
+        if image[sr][sc] == color {
+            return image;
+        }
+
+        let oc = image[sr][sc];
+        image[sr][sc] = color;
+
+        let mut q = VecDeque::new();
+        q.push_back((sr, sc));
+
+        let dirs = [-1, 0, 1, 0, -1];
+
+        while let Some((i, j)) = q.pop_front() {
+            for k in 0..4 {
+                let x = i as isize + dirs[k] as isize;
+                let y = j as isize + dirs[k + 1] as isize;
+
+                if x >= 0 && x < m as isize && y >= 0 && y < n as isize {
+                    let (x, y) = (x as usize, y as usize);
+                    if image[x][y] == oc {
+                        q.push_back((x, y));
+                        image[x][y] = color;
+                    }
+                }
+            }
+        }
+
+        image
+    }
 }
 ```
 

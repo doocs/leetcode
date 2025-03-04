@@ -177,13 +177,12 @@ function isPalindrome(x: number): boolean {
 ```rust
 impl Solution {
     pub fn is_palindrome(mut x: i32) -> bool {
-        if x < 0 || (x % 10 == 0 && x != 0) {
+        if x < 0 || (x != 0 && x % 10 == 0) {
             return false;
         }
         let mut y = 0;
         while x > y {
-            y *= 10;
-            y += x % 10;
+            y = y * 10 + x % 10;
             x /= 10;
         }
         x == y || x == y / 10
@@ -210,19 +209,41 @@ var isPalindrome = function (x) {
 };
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public bool IsPalindrome(int x) {
+        if (x < 0 || (x > 0 && x % 10 == 0)) {
+            return false;
+        }
+        int y = 0;
+        for (; y < x; x /= 10) {
+            y = y * 10 + x % 10;
+        }
+        return x == y || x == y / 10;
+    }
+}
+```
+
 #### PHP
 
 ```php
 class Solution {
     /**
-     * @param int $x
-     * @return boolean
+     * @param Integer $x
+     * @return Boolean
      */
-
     function isPalindrome($x) {
-        $str = (string) $x;
-        $str_reverse = strrev($str);
-        return $str === $str_reverse;
+        if ($x < 0 || ($x && $x % 10 == 0)) {
+            return false;
+        }
+        $y = 0;
+        while ($x > $y) {
+            $y = $y * 10 + ($x % 10);
+            $x = (int) ($x / 10);
+        }
+        return $x == $y || $x == (int) ($y / 10);
     }
 }
 ```

@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>如果数组的每一对相邻元素都是两个奇偶性不同的数字，则该数组被认为是一个 <strong>特殊数组</strong> 。</p>
+<p>如果数组的每一对相邻元素都是两个奇偶性不同的数字，则该数组被认为是一个 <strong>特殊数组</strong>。换句话说，每一对中的元素 <strong>必须</strong> 有一个是偶数，另一个是奇数。</p>
 
 <p>你有一个整数数组 <code>nums</code>。如果 <code>nums</code> 是一个 <strong>特殊数组</strong> ，返回 <code>true</code>，否则返回 <code>false</code>。</p>
 

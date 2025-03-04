@@ -22,15 +22,15 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个 <strong>下标从 1 开始的</strong> 整数数组&nbsp;<code>prices</code>&nbsp;，其中&nbsp;<code>prices[i]</code>&nbsp;表示你购买第 <code>i</code>&nbsp;个水果需要花费的金币数目。</p>
+<p>给你一个 <strong>下标从 0&nbsp;开始的</strong> 整数数组&nbsp;<code>prices</code>&nbsp;，其中&nbsp;<code>prices[i]</code>&nbsp;表示你购买第 <code>i + 1</code>&nbsp;个水果需要花费的金币数目。</p>
 
 <p>水果超市有如下促销活动：</p>
 
 <ul>
-	<li>如果你花费 <code>prices[i]</code>&nbsp;购买了下标为&nbsp;<code>i</code>&nbsp;的水果，那么你可以免费获得下标范围在&nbsp;<code>[i + 1, i + i]</code>&nbsp;的水果。</li>
+	<li>如果你花费 <code>prices[i]</code>&nbsp;购买了下标为&nbsp;<code>i + 1</code>&nbsp;的水果，那么你可以免费获得下标范围在&nbsp;<code>[i + 1, i + i]</code>&nbsp;的水果。</li>
 </ul>
 
-<p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j]</code>&nbsp;个金币去购买它以获得它的奖励。</p>
+<p><strong>注意</strong>&nbsp;，即使你&nbsp;<strong>可以</strong>&nbsp;免费获得水果&nbsp;<code>j</code>&nbsp;，你仍然可以花费&nbsp;<code>prices[j - 1]</code>&nbsp;个金币去购买它以获得它的奖励。</p>
 
 <p>请你返回获得所有水果所需要的 <strong>最少</strong>&nbsp;金币数。</p>
 
@@ -111,16 +111,16 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们定义一个函数 $dfs(i)$，表示从第 $i$ 个水果开始购买所有水果所需要的最少金币数。那么答案就是 $dfs(1)$。
+我们定义一个函数 $\textit{dfs}(i)$，表示从第 $i$ 个水果开始购买所有水果所需要的最少金币数。那么答案就是 $\textit{dfs}(1)$。
 
-函数 $dfs(i)$ 的执行逻辑如下：
+函数 $\textit{dfs}(i)$ 的执行逻辑如下：
 
--   如果 $i \times 2 \geq n$，说明只要买第 $i - 1$ 个水果即可，剩余的水果都可以免费获得，所以返回 $prices[i - 1]$。
--   否则，我们可以购买水果 $i$，然后在接下来的 $i + 1$ 到 $2i + 1$ 个水果中选择一个水果 $j$ 开始购买，那么 $dfs(i) = prices[i - 1] + \min_{i + 1 \le j \le 2i + 1} dfs(j)$。
+-   如果 $i \times 2 \geq n$，说明只要买第 $i - 1$ 个水果即可，剩余的水果都可以免费获得，所以返回 $\textit{prices}[i - 1]$。
+-   否则，我们可以购买水果 $i$，然后在接下来的 $i + 1$ 到 $2i + 1$ 个水果中选择一个水果 $j$ 开始购买，那么 $\textit{dfs}(i) = \textit{prices}[i - 1] + \min_{i + 1 \le j \le 2i + 1} \textit{dfs}(j)$。
 
 为了避免重复计算，我们使用记忆化搜索的方法，将已经计算过的结果保存起来，下次遇到相同的情况时，直接返回结果即可。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{prices}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -250,11 +250,11 @@ function minimumCoins(prices: number[]): number {
 
 与方法一类似，我们定义 $f[i]$ 表示从第 $i$ 个水果开始购买所有水果所需要的最少金币数。那么答案就是 $f[1]$。
 
-状态转移方程为 $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + prices[i - 1]$。
+状态转移方程为 $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + \textit{prices}[i - 1]$。
 
-在实现上，我们从后往前计算，并且可以直接在数组 $prices$ 上进行状态转移，这样可以节省空间。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{prices}$ 的长度。
 
-时间复杂度 $O(n^2)$，其中 $n$ 为数组 $prices$ 的长度。空间复杂度 $O(1)$。
+在代码实现上，我们可以直接使用 $\textit{prices}$ 数组来存储 $f$ 数组，那么空间复杂度可以优化到 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -334,9 +334,9 @@ function minimumCoins(prices: number[]): number {
 
 我们观察方法二中的状态转移方程，可以发现，对于每个 $i$，我们需要求出 $f[i + 1], f[i + 2], \cdots, f[2i + 1]$ 的最小值，并且随着 $i$ 的减小，这些值的范围也在减小。这实际上是求一个单调收窄的滑动窗口的最小值，我们可以使用单调队列来优化。
 
-我们从后往前计算，维护一个单调递增的队列 $q$，队列中存储的是下标。如果 $q$ 的队首元素大于 $i \times 2 + 1$，说明 $i$ 之后的元素都不会被用到，所以我们将队首元素出队。如果 $i$ 不大于 $(n - 1) / 2$，那么我们可以将 $prices[q[0] - 1]$ 加到 $prices[i - 1]$ 上，然后将 $i$ 加入队尾。如果 $q$ 的队尾元素对应的水果价格大于等于 $prices[i - 1]$，那么我们将队尾元素出队，直到队尾元素对应的水果价格小于 $prices[i - 1]$ 或者队列为空，然后将 $i$ 加入队尾。
+我们从后往前计算，维护一个单调递增的队列 $q$，队列中存储的是下标。如果 $q$ 的队首元素大于 $i \times 2 + 1$，说明 $i$ 之后的元素都不会被用到，所以我们将队首元素出队。如果 $i$ 不大于 $(n - 1) / 2$，那么我们可以将 $\textit{prices}[q[0] - 1]$ 加到 $\textit{prices}[i - 1]$ 上，然后将 $i$ 加入队尾。如果 $q$ 的队尾元素对应的水果价格大于等于 $\textit{prices}[i - 1]$，那么我们将队尾元素出队，直到队尾元素对应的水果价格小于 $\textit{prices}[i - 1]$ 或者队列为空，然后将 $i$ 加入队尾。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{prices}$ 的长度。
 
 <!-- tabs:start -->
 

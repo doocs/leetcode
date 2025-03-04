@@ -50,15 +50,15 @@ second = &quot;pal&quot;
 
 <!-- solution:start -->
 
-### Solution 1: Case Discussion + Two Pointers
+### Solution 1: Case Analysis + Two Pointers
 
-We denote the lengths of strings $first$ and $second$ as $m$ and $n$, respectively, where $m \geq n$.
+Let the lengths of the strings $\textit{first}$ and $\textit{second}$ be $m$ and $n$, respectively. Assume $m \geq n$.
 
-Next, we discuss different cases:
+Next, we discuss the following cases:
 
--   When $m - n > 1$, $first$ and $second$ cannot be obtained through a single edit, so we return `false`.
--   When $m = n$, $first$ and $second$ can only be obtained through a single edit if and only if exactly one character is different.
--   When $m - n = 1$, $first$ and $second$ can only be obtained through a single edit if and only if $second$ is obtained by deleting one character from $first$. We can use two pointers to implement this.
+-   When $m - n \gt 1$, $\textit{first}$ and $\textit{second}$ cannot be made equal with one edit, so return `false`;
+-   When $m = n$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if there is exactly one different character;
+-   When $m - n = 1$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if $\textit{second}$ is obtained by deleting one character from $\textit{first}$. We can use two pointers to achieve this.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 

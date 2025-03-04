@@ -1,12 +1,12 @@
 class Solution {
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int n = nums.size();
         vector<vector<int>> ans;
         vector<int> t(n);
         vector<bool> vis(n);
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) {
             if (i == n) {
                 ans.emplace_back(t);
                 return;

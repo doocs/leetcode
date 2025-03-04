@@ -60,7 +60,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 哈希表
+
+根据题目描述，回答相同的兔子，可能属于同一种颜色，而回答不同的兔子，不可能属于同一种颜色。
+
+因此，我们用一个哈希表 $\textit{cnt}$ 记录每种回答出现的次数。对于每种回答 $x$ 及其出现次数 $v$，我们按照每种颜色有 $x + 1$ 只兔子的原则，计算出兔子的最少数量，并将其加入答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{answers}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -69,8 +75,12 @@ tags:
 ```python
 class Solution:
     def numRabbits(self, answers: List[int]) -> int:
-        counter = Counter(answers)
-        return sum([math.ceil(v / (k + 1)) * (k + 1) for k, v in counter.items()])
+        cnt = Counter(answers)
+        ans = 0
+        for x, v in cnt.items():
+            group = x + 1
+            ans += (v + group - 1) // group * group
+        return ans
 ```
 
 #### Java
@@ -78,17 +88,70 @@ class Solution:
 ```java
 class Solution {
     public int numRabbits(int[] answers) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int e : answers) {
-            counter.put(e, counter.getOrDefault(e, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : answers) {
+            cnt.merge(x, 1, Integer::sum);
         }
-        int res = 0;
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            int answer = entry.getKey(), count = entry.getValue();
-            res += (int) Math.ceil(count / ((answer + 1) * 1.0)) * (answer + 1);
+        int ans = 0;
+        for (var e : cnt.entrySet()) {
+            int group = e.getKey() + 1;
+            ans += (e.getValue() + group - 1) / group * group;
         }
-        return res;
+        return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numRabbits(vector<int>& answers) {
+        unordered_map<int, int> cnt;
+        for (int x : answers) {
+            ++cnt[x];
+        }
+        int ans = 0;
+        for (auto& [x, v] : cnt) {
+            int group = x + 1;
+            ans += (v + group - 1) / group * group;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numRabbits(answers []int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range answers {
+		cnt[x]++
+	}
+	for x, v := range cnt {
+		group := x + 1
+		ans += (v + group - 1) / group * group
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numRabbits(answers: number[]): number {
+    const cnt = new Map<number, number>();
+    for (const x of answers) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    let ans = 0;
+    for (const [x, v] of cnt.entries()) {
+        const group = x + 1;
+        ans += Math.floor((v + group - 1) / group) * group;
+    }
+    return ans;
 }
 ```
 

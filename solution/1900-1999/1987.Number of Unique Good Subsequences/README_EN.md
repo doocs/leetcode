@@ -72,7 +72,22 @@ The unique good subsequences are &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f$ as the number of distinct good subsequences ending with $1$, and $g$ as the number of distinct good subsequences ending with $0$ and starting with $1$. Initially, $f = g = 0$.
+
+For a binary string, we can traverse each bit from left to right. Suppose the current bit is $c$:
+
+-   If $c = 0$, we can append $c$ to the $f$ and $g$ distinct good subsequences, so update $g = (g + f) \bmod (10^9 + 7)$;
+-   If $c = 1$, we can append $c$ to the $f$ and $g$ distinct good subsequences, and also append $c$ alone, so update $f = (f + g + 1) \bmod (10^9 + 7)$.
+
+If the string contains $0$, the final answer is $f + g + 1$, otherwise the answer is $f + g$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [940. Distinct Subsequences II](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0940.Distinct%20Subsequences%20II/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -55,7 +55,7 @@ banned is an ENUM (category) type of (&#39;Yes&#39;, &#39;No&#39;).
 
 <p>The <strong>cancellation rate</strong> is computed by dividing the number of canceled (by client or driver) requests with unbanned users by the total number of requests with unbanned users on that day.</p>
 
-<p>Write a solution to find the <strong>cancellation rate</strong> of requests with unbanned users (<strong>both client and driver must not be banned</strong>) each day between <code>&quot;2013-10-01&quot;</code> and <code>&quot;2013-10-03&quot;</code>. Round <code>Cancellation Rate</code> to <strong>two decimal</strong> points.</p>
+<p>Write a solution to find the <strong>cancellation rate</strong> of requests with unbanned users (<strong>both client and driver must not be banned</strong>) each day between <code>&quot;2013-10-01&quot;</code> and <code>&quot;2013-10-03&quot;</code> with <strong>at least</strong> one trip. Round <code>Cancellation Rate</code> to <strong>two decimal</strong> points.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

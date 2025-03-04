@@ -62,7 +62,15 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We use an array $\textit{cnt}$ of length 4 to represent the number of parking spaces for each type of car, where $\textit{cnt}[1]$, $\textit{cnt}[2]$, and $\textit{cnt}[3]$ represent the number of large, medium, and small parking spaces, respectively.
+
+During initialization, we set $\textit{cnt}[1]$, $\textit{cnt}[2]$, and $\textit{cnt}[3]$ to the number of large, medium, and small parking spaces, respectively.
+
+Each time a car parks, we check if there is a corresponding parking space in the parking lot. If not, we return $\textit{false}$; otherwise, we decrement the number of corresponding parking spaces by one and return $\textit{true}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -169,17 +177,17 @@ func (this *ParkingSystem) AddCar(carType int) bool {
 
 ```ts
 class ParkingSystem {
-    private count: [number, number, number];
+    private cnt: [number, number, number, number];
 
     constructor(big: number, medium: number, small: number) {
-        this.count = [big, medium, small];
+        this.cnt = [0, big, medium, small];
     }
 
     addCar(carType: number): boolean {
-        if (this.count[carType - 1] === 0) {
+        if (this.cnt[carType] === 0) {
             return false;
         }
-        this.count[carType - 1]--;
+        this.cnt[carType]--;
         return true;
     }
 }
@@ -195,26 +203,22 @@ class ParkingSystem {
 
 ```rust
 struct ParkingSystem {
-    count: [i32; 3],
+    cnt: [i32; 4]
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl ParkingSystem {
+
     fn new(big: i32, medium: i32, small: i32) -> Self {
-        Self {
-            count: [big, medium, small],
+        ParkingSystem {
+            cnt: [0, big, medium, small],
         }
     }
 
     fn add_car(&mut self, car_type: i32) -> bool {
-        let i = (car_type - 1) as usize;
-        if self.count[i] == 0 {
+        if self.cnt[car_type as usize] == 0 {
             return false;
         }
-        self.count[i] -= 1;
+        self.cnt[car_type as usize] -= 1;
         true
     }
 }

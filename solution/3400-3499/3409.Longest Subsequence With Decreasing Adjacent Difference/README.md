@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3409.Longest%20Subsequence%20With%20Decreasing%20Adjacent%20Difference/README.md
+rating: 2500
+source: 第 147 场双周赛 Q3
 tags:
     - 数组
     - 动态规划

@@ -98,9 +98,6 @@ todoList.getAllTasks(1); // 返回["Task3", "Task1"]。用户1现在有两个未
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class TodoList:
     def __init__(self):
         self.i = 1

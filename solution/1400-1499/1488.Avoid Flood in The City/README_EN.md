@@ -108,9 +108,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def avoidFlood(self, rains: List[int]) -> List[int]:
         n = len(rains)

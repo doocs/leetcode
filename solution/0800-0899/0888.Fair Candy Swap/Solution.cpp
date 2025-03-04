@@ -7,9 +7,9 @@ public:
         unordered_set<int> s(bobSizes.begin(), bobSizes.end());
         vector<int> ans;
         for (int& a : aliceSizes) {
-            int target = a - diff;
-            if (s.count(target)) {
-                ans = vector<int>{a, target};
+            int b = a - diff;
+            if (s.count(b)) {
+                ans = vector<int>{a, b};
                 break;
             }
         }

@@ -87,9 +87,6 @@ The space complexity is $O(n)$, where $n$ is the number of numbers.
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class NumberContainers:
 
     def __init__(self):

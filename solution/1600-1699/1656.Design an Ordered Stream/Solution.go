@@ -1,15 +1,17 @@
 type OrderedStream struct {
-	data []string
 	ptr  int
+	data []string
 }
 
 func Constructor(n int) OrderedStream {
-	data := make([]string, n)
-	return OrderedStream{data, 0}
+	return OrderedStream{
+		ptr:  1,
+		data: make([]string, n+1),
+	}
 }
 
 func (this *OrderedStream) Insert(idKey int, value string) []string {
-	this.data[idKey-1] = value
+	this.data[idKey] = value
 	var ans []string
 	for this.ptr < len(this.data) && this.data[this.ptr] != "" {
 		ans = append(ans, this.data[this.ptr])

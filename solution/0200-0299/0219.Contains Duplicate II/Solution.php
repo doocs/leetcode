@@ -5,13 +5,12 @@ class Solution {
      * @return Boolean
      */
     function containsNearbyDuplicate($nums, $k) {
-        $hashtable = [];
-        for ($i = 0; $i < count($nums); $i++) {
-            $tmp = $nums[$i];
-            if (array_key_exists($tmp, $hashtable) && $k >= $i - $hashtable[$tmp]) {
+        $d = [];
+        for ($i = 0; $i < count($nums); ++$i) {
+            if (array_key_exists($nums[$i], $d) && $i - $d[$nums[$i]] <= $k) {
                 return true;
             }
-            $hashtable[$tmp] = $i;
+            $d[$nums[$i]] = $i;
         }
         return false;
     }

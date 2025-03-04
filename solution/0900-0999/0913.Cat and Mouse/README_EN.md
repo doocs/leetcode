@@ -82,28 +82,28 @@ tags:
 
 ### Solution 1: Topological Sorting
 
-In the game of cat and mouse, the state is determined by three factors: the position of the mouse, the position of the cat, and the mover. According to the game rules, the boundary states that can directly determine the outcome are:
+According to the problem description, the state of the game is determined by the position of the mouse, the position of the cat, and the player who is moving. The outcome can be directly determined in the following situations:
 
--   When the positions of the cat and the mouse are the same, the cat wins. This is a must-win state for the cat and a must-lose state for the mouse.
--   When the mouse is in the hole, the mouse wins. This is a must-win state for the mouse and a must-lose state for the cat.
+-   When the positions of the cat and the mouse are the same, the cat wins. This is a winning state for the cat and a losing state for the mouse.
+-   When the mouse is at the hole, the mouse wins. This is a winning state for the mouse and a losing state for the cat.
 
-To get the game result of the initial state, we need to traverse all states starting from the boundary state. Each state includes the position of the mouse, the position of the cat, and the mover. Based on the current state, we can get all possible states of the previous round. The mover of the previous round is opposite to the mover of the current state, and the position of the mover of the previous round is different from the position of the current state.
+To determine the result of the initial state, we need to traverse all states starting from the boundary states. Each state includes the position of the mouse, the position of the cat, and the player who is moving. Based on the current state, we can determine all possible states from the previous round. The player who moved in the previous round is the opposite of the player who is moving in the current state, and the positions of the players in the previous round are different from their positions in the current state.
 
-We use the tuple $(m, c, t)$ to represent the state of this round, and $(pm, pc, pt)$ to represent the possible state of the previous round. Then, all possible states of the previous round are:
+We use the tuple $(m, c, t)$ to represent the current state and $(pm, pc, pt)$ to represent a possible state from the previous round. The possible states from the previous round are:
 
--   If the mover of this round is the mouse, then the mover of the previous round is the cat, the position of the mouse in the previous round is the position of the mouse in this round, and the position of the cat in the previous round is all adjacent points of the position of the cat in this round.
--   If the mover of this round is the cat, then the mover of the previous round is the mouse, the position of the cat in the previous round is the position of the cat in this round, and the position of the mouse in the previous round is all adjacent points of the position of the mouse in this round.
+-   If the player moving in the current round is the mouse, then the player moving in the previous round is the cat. The position of the mouse in the previous round is the same as the current position of the mouse, and the position of the cat in the previous round is any adjacent node of the current position of the cat.
+-   If the player moving in the current round is the cat, then the player moving in the previous round is the mouse. The position of the cat in the previous round is the same as the current position of the cat, and the position of the mouse in the previous round is any adjacent node of the current position of the mouse.
 
-Initially, except for the boundary states, the results of all other states are unknown. We start from the boundary state, for each state, get all possible states of the previous round and update the result. The update logic is as follows:
+Initially, all states except the boundary states are unknown. Starting from the boundary states, for each state, we determine all possible states from the previous round and update the results. The update logic is as follows:
 
-1. If the mover of the previous round is the same as the winner of this round, then the mover of the previous round can reach the current state and win, directly update the state of the previous round to the winner of this round.
-1. If the mover of the previous round is different from the winner of this round, and all states that the mover of the previous round can reach are the must-lose states for the mover of the previous round, then we update the state of the previous round to the winner of this round.
+1. If the player moving in the previous round is the same as the winner in the current round, then the player moving in the previous round can reach the current state and win. We directly update the state of the previous round to the winner of the current round.
+2. If the player moving in the previous round is different from the winner in the current round, and all states that the player moving in the previous round can reach are losing states for that player, then we update the state of the previous round to the winner of the current round.
 
-For the second update logic, we need to record the degree of each state. Initially, the degree of each state represents the number of nodes that the mover of the state can move to, that is, the number of adjacent nodes of the node where the mover is located. If the mover is the cat and the node where it is located is adjacent to the hole, the degree of the state needs to be reduced by $1$.
+For the second update logic, we need to record the degree of each state. Initially, the degree of each state represents the number of nodes the player moving in that state can move to, which is the number of adjacent nodes of the node where the player is located. If the player is the cat and the node is adjacent to the hole, the degree of that state is reduced by $1$.
 
-When the results of all states are updated, the result of the initial state is the final result.
+When all states have been updated, the result of the initial state is the final result.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Where $n$ is the number of nodes in the graph.
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of nodes in the graph.
 
 <!-- tabs:start -->
 
@@ -131,7 +131,7 @@ class Solution:
             return pre
 
         n = len(graph)
-        res = [[[0, 0] for _ in range(n)] for _ in range(n)]
+        ans = [[[0, 0] for _ in range(n)] for _ in range(n)]
         degree = [[[0, 0] for _ in range(n)] for _ in range(n)]
         for i in range(n):
             for j in range(1, n):
@@ -141,31 +141,31 @@ class Solution:
                 degree[i][j][CAT_TURN] -= 1
         q = deque()
         for j in range(1, n):
-            res[0][j][MOUSE_TURN] = res[0][j][CAT_TURN] = MOUSE_WIN
+            ans[0][j][MOUSE_TURN] = ans[0][j][CAT_TURN] = MOUSE_WIN
             q.append((0, j, MOUSE_TURN))
             q.append((0, j, CAT_TURN))
         for i in range(1, n):
-            res[i][i][MOUSE_TURN] = res[i][i][CAT_TURN] = CAT_WIN
+            ans[i][i][MOUSE_TURN] = ans[i][i][CAT_TURN] = CAT_WIN
             q.append((i, i, MOUSE_TURN))
             q.append((i, i, CAT_TURN))
         while q:
             state = q.popleft()
-            t = res[state[0]][state[1]][state[2]]
+            t = ans[state[0]][state[1]][state[2]]
             for prev_state in get_prev_states(state):
                 pm, pc, pt = prev_state
-                if res[pm][pc][pt] == TIE:
+                if ans[pm][pc][pt] == TIE:
                     win = (t == MOUSE_WIN and pt == MOUSE_TURN) or (
                         t == CAT_WIN and pt == CAT_TURN
                     )
                     if win:
-                        res[pm][pc][pt] = t
+                        ans[pm][pc][pt] = t
                         q.append(prev_state)
                     else:
                         degree[pm][pc][pt] -= 1
                         if degree[pm][pc][pt] == 0:
-                            res[pm][pc][pt] = t
+                            ans[pm][pc][pt] = t
                             q.append(prev_state)
-        return res[MOUSE_START][CAT_START][MOUSE_TURN]
+        return ans[MOUSE_START][CAT_START][MOUSE_TURN]
 ```
 
 #### Java
@@ -174,7 +174,7 @@ class Solution:
 class Solution {
     private int n;
     private int[][] g;
-    private int[][][] res;
+    private int[][][] ans;
     private int[][][] degree;
 
     private static final int HOLE = 0, MOUSE_START = 1, CAT_START = 2;
@@ -184,7 +184,7 @@ class Solution {
     public int catMouseGame(int[][] graph) {
         n = graph.length;
         g = graph;
-        res = new int[n][n][2];
+        ans = new int[n][n][2];
         degree = new int[n][n][2];
         for (int i = 0; i < n; ++i) {
             for (int j = 1; j < n; ++j) {
@@ -199,39 +199,39 @@ class Solution {
         }
         Deque<int[]> q = new ArrayDeque<>();
         for (int j = 1; j < n; ++j) {
-            res[0][j][MOUSE_TURN] = MOUSE_WIN;
-            res[0][j][CAT_TURN] = MOUSE_WIN;
+            ans[0][j][MOUSE_TURN] = MOUSE_WIN;
+            ans[0][j][CAT_TURN] = MOUSE_WIN;
             q.offer(new int[] {0, j, MOUSE_TURN});
             q.offer(new int[] {0, j, CAT_TURN});
         }
         for (int i = 1; i < n; ++i) {
-            res[i][i][MOUSE_TURN] = CAT_WIN;
-            res[i][i][CAT_TURN] = CAT_WIN;
+            ans[i][i][MOUSE_TURN] = CAT_WIN;
+            ans[i][i][CAT_TURN] = CAT_WIN;
             q.offer(new int[] {i, i, MOUSE_TURN});
             q.offer(new int[] {i, i, CAT_TURN});
         }
         while (!q.isEmpty()) {
             int[] state = q.poll();
-            int t = res[state[0]][state[1]][state[2]];
+            int t = ans[state[0]][state[1]][state[2]];
             List<int[]> prevStates = getPrevStates(state);
             for (var prevState : prevStates) {
                 int pm = prevState[0], pc = prevState[1], pt = prevState[2];
-                if (res[pm][pc][pt] == TIE) {
+                if (ans[pm][pc][pt] == TIE) {
                     boolean win
                         = (t == MOUSE_WIN && pt == MOUSE_TURN) || (t == CAT_WIN && pt == CAT_TURN);
                     if (win) {
-                        res[pm][pc][pt] = t;
+                        ans[pm][pc][pt] = t;
                         q.offer(prevState);
                     } else {
                         if (--degree[pm][pc][pt] == 0) {
-                            res[pm][pc][pt] = t;
+                            ans[pm][pc][pt] = t;
                             q.offer(prevState);
                         }
                     }
                 }
             }
         }
-        return res[MOUSE_START][CAT_START][MOUSE_TURN];
+        return ans[MOUSE_START][CAT_START][MOUSE_TURN];
     }
 
     private List<int[]> getPrevStates(int[] state) {
@@ -270,9 +270,9 @@ class Solution {
 public:
     int catMouseGame(vector<vector<int>>& graph) {
         int n = graph.size();
-        int res[n][n][2];
+        int ans[n][n][2];
         int degree[n][n][2];
-        memset(res, 0, sizeof res);
+        memset(ans, 0, sizeof ans);
         memset(degree, 0, sizeof degree);
         for (int i = 0; i < n; ++i) {
             for (int j = 1; j < n; ++j) {
@@ -301,35 +301,35 @@ public:
         };
         queue<tuple<int, int, int>> q;
         for (int j = 1; j < n; ++j) {
-            res[0][j][MOUSE_TURN] = res[0][j][CAT_TURN] = MOUSE_WIN;
+            ans[0][j][MOUSE_TURN] = ans[0][j][CAT_TURN] = MOUSE_WIN;
             q.emplace(0, j, MOUSE_TURN);
             q.emplace(0, j, CAT_TURN);
         }
         for (int i = 1; i < n; ++i) {
-            res[i][i][MOUSE_TURN] = res[i][i][CAT_TURN] = CAT_WIN;
+            ans[i][i][MOUSE_TURN] = ans[i][i][CAT_TURN] = CAT_WIN;
             q.emplace(i, i, MOUSE_TURN);
             q.emplace(i, i, CAT_TURN);
         }
         while (!q.empty()) {
             auto [m, c, t] = q.front();
             q.pop();
-            int x = res[m][c][t];
+            int x = ans[m][c][t];
             for (auto [pm, pc, pt] : getPrevStates(m, c, t)) {
-                if (res[pm][pc][pt] == TIE) {
+                if (ans[pm][pc][pt] == TIE) {
                     bool win = (x == MOUSE_WIN && pt == MOUSE_TURN) || (x == CAT_WIN && pt == CAT_TURN);
                     if (win) {
-                        res[pm][pc][pt] = x;
+                        ans[pm][pc][pt] = x;
                         q.emplace(pm, pc, pt);
                     } else {
                         if (--degree[pm][pc][pt] == 0) {
-                            res[pm][pc][pt] = x;
+                            ans[pm][pc][pt] = x;
                             q.emplace(pm, pc, pt);
                         }
                     }
                 }
             }
         }
-        return res[MOUSE_START][CAT_START][MOUSE_TURN];
+        return ans[MOUSE_START][CAT_START][MOUSE_TURN];
     }
 };
 ```
@@ -349,7 +349,7 @@ const (
 )
 
 func catMouseGame(graph [][]int) int {
-	res := [50][50][2]int{}
+	ans := [50][50][2]int{}
 	degree := [50][50][2]int{}
 	n := len(graph)
 	for i := 0; i < n; i++ {
@@ -364,12 +364,12 @@ func catMouseGame(graph [][]int) int {
 	type tuple struct{ m, c, t int }
 	q := []tuple{}
 	for j := 1; j < n; j++ {
-		res[0][j][mouseTurn], res[0][j][catTurn] = mouseWin, mouseWin
+		ans[0][j][mouseTurn], ans[0][j][catTurn] = mouseWin, mouseWin
 		q = append(q, tuple{0, j, mouseTurn})
 		q = append(q, tuple{0, j, catTurn})
 	}
 	for i := 1; i < n; i++ {
-		res[i][i][mouseTurn], res[i][i][catTurn] = catWin, catWin
+		ans[i][i][mouseTurn], ans[i][i][catTurn] = catWin, catWin
 		q = append(q, tuple{i, i, mouseTurn})
 		q = append(q, tuple{i, i, catTurn})
 	}
@@ -393,25 +393,205 @@ func catMouseGame(graph [][]int) int {
 		state := q[0]
 		m, c, t := state.m, state.c, state.t
 		q = q[1:]
-		x := res[m][c][t]
+		x := ans[m][c][t]
 		for _, prevState := range getPrevStates(m, c, t) {
 			pm, pc, pt := prevState.m, prevState.c, prevState.t
-			if res[pm][pc][pt] == tie {
+			if ans[pm][pc][pt] == tie {
 				win := (x == mouseWin && pt == mouseTurn) || (x == catWin && pt == catTurn)
 				if win {
-					res[pm][pc][pt] = x
+					ans[pm][pc][pt] = x
 					q = append(q, tuple{pm, pc, pt})
 				} else {
 					degree[pm][pc][pt]--
 					if degree[pm][pc][pt] == 0 {
-						res[pm][pc][pt] = x
+						ans[pm][pc][pt] = x
 						q = append(q, tuple{pm, pc, pt})
 					}
 				}
 			}
 		}
 	}
-	return res[mouseStart][catStart][mouseTurn]
+	return ans[mouseStart][catStart][mouseTurn]
+}
+```
+
+#### TypeScript
+
+```ts
+function catMouseGame(graph: number[][]): number {
+    const [HOLE, MOUSE_START, CAT_START] = [0, 1, 2];
+    const [MOUSE_TURN, CAT_TURN] = [0, 1];
+    const [MOUSE_WIN, CAT_WIN, TIE] = [1, 2, 0];
+
+    function get_prev_states(state: [number, number, number]): [number, number, number][] {
+        const [m, c, t] = state;
+        const pt = t ^ 1;
+        const pre = [] as [number, number, number][];
+
+        if (pt === CAT_TURN) {
+            for (const pc of graph[c]) {
+                if (pc !== HOLE) {
+                    pre.push([m, pc, pt]);
+                }
+            }
+        } else {
+            for (const pm of graph[m]) {
+                pre.push([pm, c, pt]);
+            }
+        }
+        return pre;
+    }
+
+    const n = graph.length;
+    const ans: number[][][] = Array.from({ length: n }, () =>
+        Array.from({ length: n }, () => [TIE, TIE]),
+    );
+    const degree: number[][][] = Array.from({ length: n }, () =>
+        Array.from({ length: n }, () => [0, 0]),
+    );
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 1; j < n; j++) {
+            degree[i][j][MOUSE_TURN] = graph[i].length;
+            degree[i][j][CAT_TURN] = graph[j].length;
+        }
+        for (const j of graph[HOLE]) {
+            degree[i][j][CAT_TURN] -= 1;
+        }
+    }
+
+    const q: [number, number, number][] = [];
+
+    for (let j = 1; j < n; j++) {
+        ans[0][j][MOUSE_TURN] = ans[0][j][CAT_TURN] = MOUSE_WIN;
+        q.push([0, j, MOUSE_TURN], [0, j, CAT_TURN]);
+    }
+    for (let i = 1; i < n; i++) {
+        ans[i][i][MOUSE_TURN] = ans[i][i][CAT_TURN] = CAT_WIN;
+        q.push([i, i, MOUSE_TURN], [i, i, CAT_TURN]);
+    }
+
+    while (q.length > 0) {
+        const state = q.shift()!;
+        const [m, c, t] = state;
+        const result = ans[m][c][t];
+
+        for (const prev_state of get_prev_states(state)) {
+            const [pm, pc, pt] = prev_state;
+            if (ans[pm][pc][pt] === TIE) {
+                const win =
+                    (result === MOUSE_WIN && pt === MOUSE_TURN) ||
+                    (result === CAT_WIN && pt === CAT_TURN);
+                if (win) {
+                    ans[pm][pc][pt] = result;
+                    q.push(prev_state);
+                } else {
+                    degree[pm][pc][pt] -= 1;
+                    if (degree[pm][pc][pt] === 0) {
+                        ans[pm][pc][pt] = result;
+                        q.push(prev_state);
+                    }
+                }
+            }
+        }
+    }
+
+    return ans[MOUSE_START][CAT_START][MOUSE_TURN];
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private int n;
+    private int[][] g;
+    private int[,,] ans;
+    private int[,,] degree;
+
+    private const int HOLE = 0, MOUSE_START = 1, CAT_START = 2;
+    private const int MOUSE_TURN = 0, CAT_TURN = 1;
+    private const int MOUSE_WIN = 1, CAT_WIN = 2, TIE = 0;
+
+    public int CatMouseGame(int[][] graph) {
+        n = graph.Length;
+        g = graph;
+        ans = new int[n, n, 2];
+        degree = new int[n, n, 2];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < n; j++) {
+                degree[i, j, MOUSE_TURN] = g[i].Length;
+                degree[i, j, CAT_TURN] = g[j].Length;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            foreach (int j in g[HOLE]) {
+                degree[i, j, CAT_TURN]--;
+            }
+        }
+
+        Queue<int[]> q = new Queue<int[]>();
+
+        for (int j = 1; j < n; j++) {
+            ans[0, j, MOUSE_TURN] = MOUSE_WIN;
+            ans[0, j, CAT_TURN] = MOUSE_WIN;
+            q.Enqueue(new int[] { 0, j, MOUSE_TURN });
+            q.Enqueue(new int[] { 0, j, CAT_TURN });
+        }
+
+        for (int i = 1; i < n; i++) {
+            ans[i, i, MOUSE_TURN] = CAT_WIN;
+            ans[i, i, CAT_TURN] = CAT_WIN;
+            q.Enqueue(new int[] { i, i, MOUSE_TURN });
+            q.Enqueue(new int[] { i, i, CAT_TURN });
+        }
+
+        while (q.Count > 0) {
+            int[] state = q.Dequeue();
+            int t = ans[state[0], state[1], state[2]];
+            List<int[]> prevStates = GetPrevStates(state);
+
+            foreach (var prevState in prevStates) {
+                int pm = prevState[0], pc = prevState[1], pt = prevState[2];
+                if (ans[pm, pc, pt] == TIE) {
+                    bool win = (t == MOUSE_WIN && pt == MOUSE_TURN) || (t == CAT_WIN && pt == CAT_TURN);
+                    if (win) {
+                        ans[pm, pc, pt] = t;
+                        q.Enqueue(prevState);
+                    } else {
+                        if (--degree[pm, pc, pt] == 0) {
+                            ans[pm, pc, pt] = t;
+                            q.Enqueue(prevState);
+                        }
+                    }
+                }
+            }
+        }
+
+        return ans[MOUSE_START, CAT_START, MOUSE_TURN];
+    }
+
+    private List<int[]> GetPrevStates(int[] state) {
+        List<int[]> pre = new List<int[]>();
+        int m = state[0], c = state[1], t = state[2];
+        int pt = t ^ 1;
+
+        if (pt == CAT_TURN) {
+            foreach (int pc in g[c]) {
+                if (pc != HOLE) {
+                    pre.Add(new int[] { m, pc, pt });
+                }
+            }
+        } else {
+            foreach (int pm in g[m]) {
+                pre.Add(new int[] { pm, c, pt });
+            }
+        }
+
+        return pre;
+    }
 }
 ```
 

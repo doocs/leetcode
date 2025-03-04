@@ -63,17 +63,17 @@ There are two ways to reach the bottom-right corner:
 
 ### Solution 1: Memoization Search
 
-We design a function $dfs(i, j)$ to represent the number of paths from the grid $(i, j)$ to the grid $(m - 1, n - 1)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+We design a function $\textit{dfs}(i, j)$ to represent the number of paths from the grid $(i, j)$ to the grid $(m - 1, n - 1)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
-The execution process of the function $dfs(i, j)$ is as follows:
+The execution process of the function $\textit{dfs}(i, j)$ is as follows:
 
--   If $i \ge m$ or $j \ge n$, or $obstacleGrid[i][j] = 1$, then the number of paths is $0$;
--   If $i = m - 1$ and $j = n - 1$, then the number of paths is $1$;
--   Otherwise, the number of paths is $dfs(i + 1, j) + dfs(i, j + 1)$.
+-   If $i \ge m$ or $j \ge n$, or $\textit{obstacleGrid}[i][j] = 1$, the number of paths is $0$;
+-   If $i = m - 1$ and $j = n - 1$, the number of paths is $1$;
+-   Otherwise, the number of paths is $\textit{dfs}(i + 1, j) + \textit{dfs}(i, j + 1)$.
 
-To avoid repeated calculations, we can use the method of memoization search.
+To avoid redundant calculations, we can use memoization.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -133,9 +133,8 @@ class Solution {
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         int m = obstacleGrid.size(), n = obstacleGrid[0].size();
-        int f[m][n];
-        memset(f, -1, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) {
+        vector<vector<int>> f(m, vector<int>(n, -1));
+        auto dfs = [&](this auto&& dfs, int i, int j) {
             if (i >= m || j >= n || obstacleGrid[i][j]) {
                 return 0;
             }
@@ -204,6 +203,64 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn unique_paths_with_obstacles(obstacle_grid: Vec<Vec<i32>>) -> i32 {
+        let m = obstacle_grid.len();
+        let n = obstacle_grid[0].len();
+        let mut f = vec![vec![-1; n]; m];
+        Self::dfs(0, 0, &obstacle_grid, &mut f)
+    }
+
+    fn dfs(i: usize, j: usize, obstacle_grid: &Vec<Vec<i32>>, f: &mut Vec<Vec<i32>>) -> i32 {
+        let m = obstacle_grid.len();
+        let n = obstacle_grid[0].len();
+        if i >= m || j >= n || obstacle_grid[i][j] == 1 {
+            return 0;
+        }
+        if i == m - 1 && j == n - 1 {
+            return 1;
+        }
+        if f[i][j] != -1 {
+            return f[i][j];
+        }
+        let down = Self::dfs(i + 1, j, obstacle_grid, f);
+        let right = Self::dfs(i, j + 1, obstacle_grid, f);
+        f[i][j] = down + right;
+        f[i][j]
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} obstacleGrid
+ * @return {number}
+ */
+var uniquePathsWithObstacles = function (obstacleGrid) {
+    const m = obstacleGrid.length;
+    const n = obstacleGrid[0].length;
+    const f = Array.from({ length: m }, () => Array(n).fill(-1));
+    const dfs = (i, j) => {
+        if (i >= m || j >= n || obstacleGrid[i][j] === 1) {
+            return 0;
+        }
+        if (i === m - 1 && j === n - 1) {
+            return 1;
+        }
+        if (f[i][j] === -1) {
+            f[i][j] = dfs(i + 1, j) + dfs(i, j + 1);
+        }
+        return f[i][j];
+    };
+    return dfs(0, 0);
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -212,16 +269,16 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 
 ### Solution 2: Dynamic Programming
 
-We define $f[i][j]$ as the number of paths to reach the grid $(i,j)$.
+We can use a dynamic programming approach by defining a 2D array $f$, where $f[i][j]$ represents the number of paths from the grid $(0,0)$ to the grid $(i,j)$.
 
-First, initialize all values in the first column and first row of $f$. Then, traverse other rows and columns, there are two cases:
+We first initialize all values in the first column and the first row of $f$, then traverse the other rows and columns with two cases:
 
--   If $obstacleGrid[i][j] = 1$, it means the number of paths is $0$, so $f[i][j] = 0$;
--   If $obstacleGrid[i][j] = 0$, then $f[i][j] = f[i - 1][j] + f[i][j - 1]$.
+-   If $\textit{obstacleGrid}[i][j] = 1$, it means the number of paths is $0$, so $f[i][j] = 0$;
+-   If $\textit{obstacleGrid}[i][j] = 0$, then $f[i][j] = f[i - 1][j] + f[i][j - 1]$.
 
 Finally, return $f[m - 1][n - 1]$.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -386,6 +443,41 @@ impl Solution {
         f[m - 1][n - 1]
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} obstacleGrid
+ * @return {number}
+ */
+var uniquePathsWithObstacles = function (obstacleGrid) {
+    const m = obstacleGrid.length;
+    const n = obstacleGrid[0].length;
+    const f = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        if (obstacleGrid[i][0] === 1) {
+            break;
+        }
+        f[i][0] = 1;
+    }
+    for (let i = 0; i < n; i++) {
+        if (obstacleGrid[0][i] === 1) {
+            break;
+        }
+        f[0][i] = 1;
+    }
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            if (obstacleGrid[i][j] === 1) {
+                continue;
+            }
+            f[i][j] = f[i - 1][j] + f[i][j - 1];
+        }
+    }
+    return f[m - 1][n - 1];
+};
 ```
 
 <!-- tabs:end -->

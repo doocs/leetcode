@@ -104,9 +104,6 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;è¿”å›
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class TweetCounts:
     def __init__(self):
         self.d = {"minute": 60, "hour": 3600, "day": 86400}

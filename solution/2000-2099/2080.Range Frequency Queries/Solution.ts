@@ -15,20 +15,8 @@ class RangeFreqQuery {
         if (!idx) {
             return 0;
         }
-        const search = (x: number): number => {
-            let [l, r] = [0, idx.length];
-            while (l < r) {
-                const mid = (l + r) >> 1;
-                if (idx[mid] >= x) {
-                    r = mid;
-                } else {
-                    l = mid + 1;
-                }
-            }
-            return l;
-        };
-        const l = search(left);
-        const r = search(right + 1);
+        const l = _.sortedIndex(idx, left);
+        const r = _.sortedIndex(idx, right + 1);
         return r - l;
     }
 }

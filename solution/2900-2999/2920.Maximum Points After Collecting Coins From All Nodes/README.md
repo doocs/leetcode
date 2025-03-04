@@ -8,6 +8,7 @@ tags:
     - 位运算
     - 树
     - 深度优先搜索
+    - 记忆化搜索
     - 数组
     - 动态规划
 ---
@@ -93,8 +94,7 @@ tags:
 
 最后，我们返回当前节点使用两种方法中能获得的最大积分。
 
-为了避免重复计算，我们使用记忆化搜索的方法，将 $dfs(i, fa, j)$ 的结果存储到 $f[i][j]$ 中，其中 $f[i][j]$ 表示当前节点为 $i$，父节点为 $fa$，当前节点的金币数需要右移 $j$ 位，所能获得的最大积分。
-
+为了避免重复计算，我们使用记忆化搜索的方法，将 $dfs(i, fa, j)$ 的结果存储到 $f[i][j]$ 中，其中 $f[i][j]$ 表示当前节点为 $i$，父节点为 $fa$，当前节点的金币数需要右移 $j$ 位，所能获得的最大
 时间复杂度 $O(n \times \log M)$，空间复杂度 $O(n \times \log M)$。其中 $M$ 表示 $coins[i]$ 的最大值。
 
 <!-- tabs:start -->
@@ -183,7 +183,7 @@ public:
             g[a].emplace_back(b);
             g[b].emplace_back(a);
         }
-        function<int(int, int, int)> dfs = [&](int i, int fa, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int fa, int j) -> int {
             if (f[i][j] != -1) {
                 return f[i][j];
             }

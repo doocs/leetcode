@@ -66,7 +66,11 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 
 ### 方法一：模拟
 
-为每种车维护一个计数器，初始值为车位的数目。此后，每来一辆车，就将对应类型的计数器减 `1`。当计数器为 `0` 时，说明车位已满。
+我们用一个长度为 $4$ 的数组 $\textit{cnt}$ 来表示停车场中每种车位的数量，其中 $\textit{cnt}[1]$, $\textit{cnt}[2]$, $\textit{cnt}[3]$ 分别表示大车位、中车位、小车位的数量。
+
+在初始化时，我们将 $\textit{cnt}[1]$, $\textit{cnt}[2]$, $\textit{cnt}[3]$ 分别初始化为大车位、中车位、小车位的数量。
+
+每次停车时，我们检查停车场中是否有对应车位，如果没有则返回 $\textit{false}$，否则将对应车位的数量减一，并返回 $\textit{true}$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -175,17 +179,17 @@ func (this *ParkingSystem) AddCar(carType int) bool {
 
 ```ts
 class ParkingSystem {
-    private count: [number, number, number];
+    private cnt: [number, number, number, number];
 
     constructor(big: number, medium: number, small: number) {
-        this.count = [big, medium, small];
+        this.cnt = [0, big, medium, small];
     }
 
     addCar(carType: number): boolean {
-        if (this.count[carType - 1] === 0) {
+        if (this.cnt[carType] === 0) {
             return false;
         }
-        this.count[carType - 1]--;
+        this.cnt[carType]--;
         return true;
     }
 }
@@ -201,26 +205,22 @@ class ParkingSystem {
 
 ```rust
 struct ParkingSystem {
-    count: [i32; 3],
+    cnt: [i32; 4]
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl ParkingSystem {
+
     fn new(big: i32, medium: i32, small: i32) -> Self {
-        Self {
-            count: [big, medium, small],
+        ParkingSystem {
+            cnt: [0, big, medium, small],
         }
     }
 
     fn add_car(&mut self, car_type: i32) -> bool {
-        let i = (car_type - 1) as usize;
-        if self.count[i] == 0 {
+        if self.cnt[car_type as usize] == 0 {
             return false;
         }
-        self.count[i] -= 1;
+        self.cnt[car_type as usize] -= 1;
         true
     }
 }

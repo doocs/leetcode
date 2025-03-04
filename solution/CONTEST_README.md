@@ -26,6 +26,83 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 439 场周赛(2025-03-02 10:30, 90 分钟) 参赛人数 2757
+
+- [3471. 找出最大的几近缺失整数](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README.md)
+- [3472. 至多 K 次操作后的最长回文子序列](/solution/3400-3499/3472.Longest%20Palindromic%20Subsequence%20After%20at%20Most%20K%20Operations/README.md)
+- [3473. 长度至少为 M 的 K 个子数组之和](/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README.md)
+- [3474. 字典序最小的生成字符串](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md)
+
+#### 第 151 场双周赛(2025-03-01 22:30, 90 分钟) 参赛人数 2036
+
+- [3467. 将数组按照奇偶性转化](/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README.md)
+- [3468. 可行数组的数目](/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README.md)
+- [3469. 移除所有数组元素的最小代价](/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README.md)
+- [3470. 全排列 IV](/solution/3400-3499/3470.Permutations%20IV/README.md)
+
+#### 第 438 场周赛(2025-02-23 10:30, 90 分钟) 参赛人数 2401
+
+- [3461. 判断操作后字符串中的数字是否相等 I](/solution/3400-3499/3461.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20I/README.md)
+- [3462. 提取至多 K 个元素的最大总和](/solution/3400-3499/3462.Maximum%20Sum%20With%20at%20Most%20K%20Elements/README.md)
+- [3463. 判断操作后字符串中的数字是否相等 II](/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README.md)
+- [3464. 正方形上的点之间的最大距离](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README.md)
+
+#### 第 437 场周赛(2025-02-16 10:30, 90 分钟) 参赛人数 1992
+
+- [3456. 找出长度为 K 的特殊子字符串](/solution/3400-3499/3456.Find%20Special%20Substring%20of%20Length%20K/README.md)
+- [3457. 吃披萨](/solution/3400-3499/3457.Eat%20Pizzas%21/README.md)
+- [3458. 选择 K 个互不重叠的特殊子字符串](/solution/3400-3499/3458.Select%20K%20Disjoint%20Special%20Substrings/README.md)
+- [3459. 最长 V 形对角线段的长度](/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/README.md)
+
+#### 第 150 场双周赛(2025-02-15 22:30, 90 分钟) 参赛人数 1591
+
+- [3452. 好数字之和](/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README.md)
+- [3453. 分割正方形 I](/solution/3400-3499/3453.Separate%20Squares%20I/README.md)
+- [3454. 分割正方形 II](/solution/3400-3499/3454.Separate%20Squares%20II/README.md)
+- [3455. 最短匹配子字符串](/solution/3400-3499/3455.Shortest%20Matching%20Substring/README.md)
+
+#### 第 436 场周赛(2025-02-09 10:30, 90 分钟) 参赛人数 2044
+
+- [3446. 按对角线进行矩阵排序](/solution/3400-3499/3446.Sort%20Matrix%20by%20Diagonals/README.md)
+- [3447. 将元素分配给有约束条件的组](/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README.md)
+- [3448. 统计可以被最后一个数位整除的子字符串数目](/solution/3400-3499/3448.Count%20Substrings%20Divisible%20By%20Last%20Digit/README.md)
+- [3449. 最大化游戏分数的最小值](/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README.md)
+
+#### 第 435 场周赛(2025-02-02 10:30, 90 分钟) 参赛人数 1300
+
+- [3442. 奇偶频次间的最大差值 I](/solution/3400-3499/3442.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20I/README.md)
+- [3443. K 次修改后的最大曼哈顿距离](/solution/3400-3499/3443.Maximum%20Manhattan%20Distance%20After%20K%20Changes/README.md)
+- [3444. 使数组包含目标值倍数的最少增量](/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README.md)
+- [3445. 奇偶频次间的最大差值 II](/solution/3400-3499/3445.Maximum%20Difference%20Between%20Even%20and%20Odd%20Frequency%20II/README.md)
+
+#### 第 149 场双周赛(2025-02-01 22:30, 90 分钟) 参赛人数 1227
+
+- [3438. 找到字符串中合法的相邻数字](/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README.md)
+- [3439. 重新安排会议得到最多空余时间 I](/solution/3400-3499/3439.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20I/README.md)
+- [3440. 重新安排会议得到最多空余时间 II](/solution/3400-3499/3440.Reschedule%20Meetings%20for%20Maximum%20Free%20Time%20II/README.md)
+- [3441. 变成好标题的最少代价](/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README.md)
+
+#### 第 434 场周赛(2025-01-26 10:30, 90 分钟) 参赛人数 1681
+
+- [3432. 统计元素和差值为偶数的分区方案](/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README.md)
+- [3433. 统计用户被提及情况](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README.md)
+- [3434. 子数组操作后的最大频率](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README.md)
+- [3435. 最短公共超序列的字母出现频率](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README.md)
+
+#### 第 433 场周赛(2025-01-19 10:30, 90 分钟) 参赛人数 1969
+
+- [3427. 变长子数组求和](/solution/3400-3499/3427.Sum%20of%20Variable%20Length%20Subarrays/README.md)
+- [3428. 最多 K 个元素的子序列的最值之和](/solution/3400-3499/3428.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subsequences/README.md)
+- [3429. 粉刷房子 IV](/solution/3400-3499/3429.Paint%20House%20IV/README.md)
+- [3430. 最多 K 个元素的子数组的最值之和](/solution/3400-3499/3430.Maximum%20and%20Minimum%20Sums%20of%20at%20Most%20Size%20K%20Subarrays/README.md)
+
+#### 第 148 场双周赛(2025-01-18 22:30, 90 分钟) 参赛人数 1655
+
+- [3423. 循环数组中相邻元素的最大差值](/solution/3400-3499/3423.Maximum%20Difference%20Between%20Adjacent%20Elements%20in%20a%20Circular%20Array/README.md)
+- [3424. 将数组变相同的最小代价](/solution/3400-3499/3424.Minimum%20Cost%20to%20Make%20Arrays%20Identical/README.md)
+- [3425. 最长特殊路径](/solution/3400-3499/3425.Longest%20Special%20Path/README.md)
+- [3426. 所有安放棋子方案的曼哈顿距离](/solution/3400-3499/3426.Manhattan%20Distances%20of%20All%20Arrangements%20of%20Pieces/README.md)
+
 #### 第 432 场周赛(2025-01-12 10:30, 90 分钟) 参赛人数 2199
 
 - [3417. 跳过交替单元格的之字形遍历](/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README.md)
@@ -1976,7 +2053,7 @@ comments: true
 
 - [1909. 删除一个元素使数组严格递增](/solution/1900-1999/1909.Remove%20One%20Element%20to%20Make%20the%20Array%20Strictly%20Increasing/README.md)
 - [1910. 删除一个字符串中所有出现的给定子字符串](/solution/1900-1999/1910.Remove%20All%20Occurrences%20of%20a%20Substring/README.md)
-- [1911. 最大子序列交替和](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md)
+- [1911. 最大交替子序列和](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md)
 - [1912. 设计电影租借系统](/solution/1900-1999/1912.Design%20Movie%20Rental%20System/README.md)
 
 #### 第 246 场周赛(2021-06-20 10:30, 90 分钟) 参赛人数 4136

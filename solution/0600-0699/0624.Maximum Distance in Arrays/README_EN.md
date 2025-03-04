@@ -57,7 +57,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Maintain Maximum and Minimum Values
+
+We notice that the maximum distance must be the distance between the maximum value in one array and the minimum value in another array. Therefore, we can maintain two variables $\textit{mi}$ and $\textit{mx}$, representing the minimum and maximum values of the arrays we have traversed. Initially, $\textit{mi}$ and $\textit{mx}$ are the first and last elements of the first array, respectively.
+
+Next, we traverse from the second array. For each array, we first calculate the distance between the first element of the current array and $\textit{mx}$, and the distance between the last element of the current array and $\textit{mi}$. Then, we update the maximum distance. At the same time, we update $\textit{mi} = \min(\textit{mi}, \textit{arr}[0])$ and $\textit{mx} = \max(\textit{mx}, \textit{arr}[\textit{size} - 1])$.
+
+After traversing all arrays, we get the maximum distance.
+
+The time complexity is $O(m)$, where $m$ is the number of arrays. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -143,18 +151,41 @@ func abs(x int) int {
 
 ```ts
 function maxDistance(arrays: number[][]): number {
-    const n = arrays.length;
-    let res = 0;
-    let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
-
-    for (let i = 0; i < n; i++) {
-        const a = arrays[i];
-        res = Math.max(Math.max(a.at(-1)! - min, max - a[0]), res);
-        min = Math.min(min, a[0]);
-        max = Math.max(max, a.at(-1)!);
+    let ans = 0;
+    let [mi, mx] = [arrays[0][0], arrays[0].at(-1)!];
+    for (let i = 1; i < arrays.length; ++i) {
+        const arr = arrays[i];
+        const a = Math.abs(arr[0] - mx);
+        const b = Math.abs(arr.at(-1)! - mi);
+        ans = Math.max(ans, a, b);
+        mi = Math.min(mi, arr[0]);
+        mx = Math.max(mx, arr.at(-1)!);
     }
+    return ans;
+}
+```
 
-    return res;
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_distance(arrays: Vec<Vec<i32>>) -> i32 {
+        let mut ans = 0;
+        let mut mi = arrays[0][0];
+        let mut mx = arrays[0][arrays[0].len() - 1];
+
+        for i in 1..arrays.len() {
+            let arr = &arrays[i];
+            let a = (arr[0] - mx).abs();
+            let b = (arr[arr.len() - 1] - mi).abs();
+            ans = ans.max(a).max(b);
+
+            mi = mi.min(arr[0]);
+            mx = mx.max(arr[arr.len() - 1]);
+        }
+
+        ans
+    }
 }
 ```
 
@@ -166,61 +197,18 @@ function maxDistance(arrays: number[][]): number {
  * @return {number}
  */
 var maxDistance = function (arrays) {
-    const n = arrays.length;
-    let res = 0;
-    let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
-
-    for (let i = 0; i < n; i++) {
-        const a = arrays[i];
-        res = Math.max(Math.max(a.at(-1) - min, max - a[0]), res);
-        min = Math.min(min, a[0]);
-        max = Math.max(max, a.at(-1));
+    let ans = 0;
+    let [mi, mx] = [arrays[0][0], arrays[0].at(-1)];
+    for (let i = 1; i < arrays.length; ++i) {
+        const arr = arrays[i];
+        const a = Math.abs(arr[0] - mx);
+        const b = Math.abs(arr.at(-1) - mi);
+        ans = Math.max(ans, a, b);
+        mi = Math.min(mi, arr[0]);
+        mx = Math.max(mx, arr.at(-1));
     }
-
-    return res;
+    return ans;
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: One-line solution
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-const maxDistance = (arrays: number[][]): number =>
-    arrays.reduce(
-        ([res, min, max], a) => [
-            Math.max(Math.max(a.at(-1)! - min, max - a[0]), res),
-            Math.min(min, a[0]),
-            Math.max(max, a.at(-1)!),
-        ],
-        [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY],
-    )[0];
-```
-
-#### JavaScript
-
-```js
-/**
- * @param {number[][]} arrays
- * @return {number}
- */
-var maxDistance = arrays =>
-    arrays.reduce(
-        ([res, min, max], a) => [
-            Math.max(Math.max(a.at(-1) - min, max - a[0]), res),
-            Math.min(min, a[0]),
-            Math.max(max, a.at(-1)),
-        ],
-        [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY],
-    )[0];
 ```
 
 <!-- tabs:end -->

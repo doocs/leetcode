@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3411.Maximum%20Subarray%20With%20Equal%20Products/README_EN.md
+rating: 1443
+source: Weekly Contest 431 Q1
 tags:
     - Array
     - Math

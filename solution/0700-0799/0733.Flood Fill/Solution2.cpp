@@ -1,7 +1,9 @@
 class Solution {
 public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
-        if (image[sr][sc] == color) return image;
+        if (image[sr][sc] == color) {
+            return image;
+        }
         int oc = image[sr][sc];
         image[sr][sc] = color;
         queue<pair<int, int>> q;

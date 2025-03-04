@@ -87,7 +87,7 @@ tags:
 
 枚举结束后，即可得到答案。
 
-时间复杂度 $O(n \times C)$，空间复杂度 $O(C)$，其中 $n$ 为字符串长度，而 $C$ 为字符集大小。本题中 $C = 26$。
+时间复杂度 $O(n \times |\Sigma|)$，其中 $n$ 为字符串长度，而 $\Sigma$ 为字符集大小，本题中 $|\Sigma| = 26$。空间复杂度 $O(|\Sigma|)$ 或 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -112,11 +112,14 @@ class Solution {
         int ans = 0;
         for (char c = 'a'; c <= 'z'; ++c) {
             int l = s.indexOf(c), r = s.lastIndexOf(c);
-            Set<Character> cs = new HashSet<>();
+            int mask = 0;
             for (int i = l + 1; i < r; ++i) {
-                cs.add(s.charAt(i));
+                int j = s.charAt(i) - 'a';
+                if ((mask >> j & 1) == 0) {
+                    mask |= 1 << j;
+                    ++ans;
+                }
             }
-            ans += cs.size();
         }
         return ans;
     }
@@ -132,9 +135,14 @@ public:
         int ans = 0;
         for (char c = 'a'; c <= 'z'; ++c) {
             int l = s.find_first_of(c), r = s.find_last_of(c);
-            unordered_set<char> cs;
-            for (int i = l + 1; i < r; ++i) cs.insert(s[i]);
-            ans += cs.size();
+            int mask = 0;
+            for (int i = l + 1; i < r; ++i) {
+                int j = s[i] - 'a';
+                if (mask >> j & 1 ^ 1) {
+                    mask |= 1 << j;
+                    ++ans;
+                }
+            }
         }
         return ans;
     }
@@ -147,14 +155,67 @@ public:
 func countPalindromicSubsequence(s string) (ans int) {
 	for c := 'a'; c <= 'z'; c++ {
 		l, r := strings.Index(s, string(c)), strings.LastIndex(s, string(c))
-		cs := map[byte]struct{}{}
+		mask := 0
 		for i := l + 1; i < r; i++ {
-			cs[s[i]] = struct{}{}
+			j := int(s[i] - 'a')
+			if mask>>j&1 == 0 {
+				mask |= 1 << j
+				ans++
+			}
 		}
-		ans += len(cs)
 	}
 	return
 }
+```
+
+#### TypeScript
+
+```ts
+function countPalindromicSubsequence(s: string): number {
+    let ans = 0;
+    const a = 'a'.charCodeAt(0);
+    for (let ch = 0; ch < 26; ++ch) {
+        const c = String.fromCharCode(ch + a);
+        const l = s.indexOf(c);
+        const r = s.lastIndexOf(c);
+        let mask = 0;
+        for (let i = l + 1; i < r; ++i) {
+            const j = s.charCodeAt(i) - a;
+            if (((mask >> j) & 1) ^ 1) {
+                mask |= 1 << j;
+                ++ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countPalindromicSubsequence = function (s) {
+    let ans = 0;
+    const a = 'a'.charCodeAt(0);
+    for (let ch = 0; ch < 26; ++ch) {
+        const c = String.fromCharCode(ch + a);
+        const l = s.indexOf(c);
+        const r = s.lastIndexOf(c);
+        let mask = 0;
+        for (let i = l + 1; i < r; ++i) {
+            const j = s.charCodeAt(i) - a;
+            if (((mask >> j) & 1) ^ 1) {
+                mask |= 1 << j;
+                ++ans;
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 #### C#
@@ -165,62 +226,17 @@ public class Solution {
         int ans = 0;
         for (char c = 'a'; c <= 'z'; ++c) {
             int l = s.IndexOf(c), r = s.LastIndexOf(c);
-            HashSet<char> cs = new HashSet<char>();
+            int mask = 0;
             for (int i = l + 1; i < r; ++i) {
-                cs.Add(s[i]);
+                int j = s[i] - 'a';
+                if ((mask >> j & 1) == 0) {
+                    mask |= 1 << j;
+                    ++ans;
+                }
             }
-            ans += cs.Count;
         }
         return ans;
     }
-}
-```
-
-#### TypeScript
-
-```ts
-export function countPalindromicSubsequence(s: string): number {
-    const cnt = new Map<string, [number, number]>();
-    const n = s.length;
-    let ans = 0;
-
-    for (let i = 0; i < n; i++) {
-        const ch = s[i];
-        if (cnt.has(ch)) cnt.get(ch)![1] = i;
-        else cnt.set(ch, [i, i]);
-    }
-
-    for (const [_, [i, j]] of cnt) {
-        if (i !== j) {
-            ans += new Set(s.slice(i + 1, j)).size;
-        }
-    }
-
-    return ans;
-}
-```
-
-#### JavaScript
-
-```js
-export function countPalindromicSubsequence(s) {
-    const cnt = new Map();
-    const n = s.length;
-    let ans = 0;
-
-    for (let i = 0; i < n; i++) {
-        const ch = s[i];
-        if (cnt.has(ch)) cnt.get(ch)[1] = i;
-        else cnt.set(ch, [i, i]);
-    }
-
-    for (const [_, [i, j]] of cnt) {
-        if (i !== j) {
-            ans += new Set(s.slice(i + 1, j)).size;
-        }
-    }
-
-    return ans;
 }
 ```
 

@@ -65,9 +65,6 @@ MyCalendar.book(20, 30); // returns true ，第三个日程安排可以添加到
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class MyCalendar:
     def __init__(self):
         self.sd = SortedDict()
@@ -89,9 +86,6 @@ class MyCalendar:
 #### Java
 
 ```java
-import java.util.Map;
-import java.util.TreeMap;
-
 class MyCalendar {
 
     private final TreeMap<Integer, Integer> tm = new TreeMap<>();

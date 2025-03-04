@@ -57,7 +57,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We can sort the intervals in ascending order by their left endpoints, and if the left endpoints are the same, sort them in descending order by their right endpoints.
+
+After sorting, we can traverse the intervals. If the right endpoint of the current interval is greater than the previous right endpoint, it means the current interval is not covered, and we increment the answer by one.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of intervals.
 
 <!-- tabs:start -->
 
@@ -67,12 +73,13 @@ tags:
 class Solution:
     def removeCoveredIntervals(self, intervals: List[List[int]]) -> int:
         intervals.sort(key=lambda x: (x[0], -x[1]))
-        cnt, pre = 1, intervals[0]
-        for e in intervals[1:]:
-            if pre[1] < e[1]:
-                cnt += 1
-                pre = e
-        return cnt
+        ans = 0
+        pre = -inf
+        for _, cur in intervals:
+            if cur > pre:
+                ans += 1
+                pre = cur
+        return ans
 ```
 
 #### Java
@@ -80,16 +87,16 @@ class Solution:
 ```java
 class Solution {
     public int removeCoveredIntervals(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0] == 0 ? b[1] - a[1] : a[0] - b[0]);
-        int[] pre = intervals[0];
-        int cnt = 1;
-        for (int i = 1; i < intervals.length; ++i) {
-            if (pre[1] < intervals[i][1]) {
-                ++cnt;
-                pre = intervals[i];
+        Arrays.sort(intervals, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+        int ans = 0, pre = Integer.MIN_VALUE;
+        for (var e : intervals) {
+            int cur = e[1];
+            if (cur > pre) {
+                ++ans;
+                pre = cur;
             }
         }
-        return cnt;
+        return ans;
     }
 }
 ```
@@ -100,16 +107,18 @@ class Solution {
 class Solution {
 public:
     int removeCoveredIntervals(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) { return a[0] == b[0] ? b[1] < a[1] : a[0] < b[0]; });
-        int cnt = 1;
-        vector<int> pre = intervals[0];
-        for (int i = 1; i < intervals.size(); ++i) {
-            if (pre[1] < intervals[i][1]) {
-                ++cnt;
-                pre = intervals[i];
+        ranges::sort(intervals, [](const vector<int>& a, const vector<int>& b) {
+            return a[0] == b[0] ? a[1] > b[1] : a[0] < b[0];
+        });
+        int ans = 0, pre = INT_MIN;
+        for (const auto& e : intervals) {
+            int cur = e[1];
+            if (cur > pre) {
+                ++ans;
+                pre = cur;
             }
         }
-        return cnt;
+        return ans;
     }
 };
 ```
@@ -117,23 +126,61 @@ public:
 #### Go
 
 ```go
-func removeCoveredIntervals(intervals [][]int) int {
+func removeCoveredIntervals(intervals [][]int) (ans int) {
 	sort.Slice(intervals, func(i, j int) bool {
 		if intervals[i][0] == intervals[j][0] {
-			return intervals[j][1] < intervals[i][1]
+			return intervals[i][1] > intervals[j][1]
 		}
 		return intervals[i][0] < intervals[j][0]
 	})
-	cnt := 1
-	pre := intervals[0]
-	for i := 1; i < len(intervals); i++ {
-		if pre[1] < intervals[i][1] {
-			cnt++
-			pre = intervals[i]
+	pre := math.MinInt32
+	for _, e := range intervals {
+		cur := e[1]
+		if cur > pre {
+			ans++
+			pre = cur
 		}
 	}
-	return cnt
+	return
 }
+```
+
+#### TypeScript
+
+```ts
+function removeCoveredIntervals(intervals: number[][]): number {
+    intervals.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
+    let ans = 0;
+    let pre = -Infinity;
+    for (const [_, cur] of intervals) {
+        if (cur > pre) {
+            ++ans;
+            pre = cur;
+        }
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} intervals
+ * @return {number}
+ */
+var removeCoveredIntervals = function (intervals) {
+    intervals.sort((a, b) => (a[0] === b[0] ? b[1] - a[1] : a[0] - b[0]));
+    let ans = 0;
+    let pre = -Infinity;
+    for (const [_, cur] of intervals) {
+        if (cur > pre) {
+            ++ans;
+            pre = cur;
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

@@ -86,7 +86,23 @@ Bob wins because 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+If the number of `'?'` is odd, Alice will definitely win because she can choose to replace the last `'?'` with any digit, making the sum of the first half different from the sum of the second half.
+
+If the number of `'?'` is even, Alice will try to make the sums of the two halves different by placing $9$ in the half with the larger current sum and $0$ in the half with the smaller current sum. Bob, on the other hand, will try to make the sums equal by placing a digit in the other half that matches the digit Alice placed.
+
+As a result, all remaining even-numbered `'?'` will be concentrated in one half. Suppose the current difference between the sums of the two halves is $d$.
+
+Let's consider the case where there are two remaining `'?'` and the difference is $x$:
+
+-   If $x \lt 9$, Alice will definitely win because she can replace one of the `'?'` with $9$, making the sums of the two halves different.
+-   If $x \gt 9$, Alice will definitely win because she can replace one of the `'?'` with $0$, making the sums of the two halves different.
+-   If $x = 9$, Bob will definitely win. Suppose Alice replaces a digit with $a$, then Bob can replace the other `'?'` with $9 - a$, making the sums of the two halves equal.
+
+Therefore, if the difference between the sums of the two halves is $d = \frac{9 \times \textit{cnt}}{2}$, where $\textit{cnt}$ is the number of remaining `'?'`, Bob will definitely win; otherwise, Alice will definitely win.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

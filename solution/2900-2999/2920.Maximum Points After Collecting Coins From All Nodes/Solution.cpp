@@ -10,7 +10,7 @@ public:
             g[a].emplace_back(b);
             g[b].emplace_back(a);
         }
-        function<int(int, int, int)> dfs = [&](int i, int fa, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int fa, int j) -> int {
             if (f[i][j] != -1) {
                 return f[i][j];
             }

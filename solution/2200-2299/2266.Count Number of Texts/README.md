@@ -80,7 +80,32 @@ Alice 可能发出的文字信息包括：
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：分组 + 动态规划
+
+根据题目描述，对于字符串 $\textit{pressedKeys}$ 中连续的相同字符，可以将其分为一组，然后分别计算每组的方案数，最后将所有组的方案数相乘即可。
+
+问题的关键在于如何计算每组的方案数。
+
+如果一组字符为 '7' 或 '9'，我们可以分别将该组的末尾 $1$, $2$, $3$, $4$ 个字符视为一个字母，然后将该组字符规模缩小，转化为规模更小的子问题。
+
+同样地，如果一组字符为 '2', '3', '4', '5', '6', '8'，我们可以将该组的末尾 $1$, $2$, $3$ 个字符视为一个字母，然后将该组字符规模缩小，转化为规模更小的子问题。
+
+因此，我们定义 $f[i]$ 表示长度为 $i$ 的连续相同字符，且字符不为 '7' 或 '9' 的方案数，定义 $g[i]$ 表示长度为 $i$ 的连续相同字符，且字符为 '7' 或 '9' 的方案数。
+
+初始时 $f[0] = f[1] = 1$, $f[2] = 2$, $f[3] = 4$, $g[0] = g[1] = 1$, $g[2] = 2$, $g[3] = 4$。
+
+对于 $i \ge 4$，有：
+
+$$
+\begin{aligned}
+f[i] & = f[i-1] + f[i-2] + f[i-3] \\
+g[i] & = g[i-1] + g[i-2] + g[i-3] + g[i-4]
+\end{aligned}
+$$
+
+最后，我们遍历 $\textit{pressedKeys}$，将连续相同字符分组，然后计算每组的方案数，最后将所有组的方案数相乘即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{pressedKeys}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -98,9 +123,9 @@ for _ in range(100000):
 class Solution:
     def countTexts(self, pressedKeys: str) -> int:
         ans = 1
-        for ch, s in groupby(pressedKeys):
+        for c, s in groupby(pressedKeys):
             m = len(list(s))
-            ans = ans * (g[m] if ch in "79" else f[m]) % mod
+            ans = ans * (g[m] if c in "79" else f[m]) % mod
         return ans
 ```
 
@@ -113,12 +138,10 @@ class Solution {
     private static long[] f = new long[N];
     private static long[] g = new long[N];
     static {
-        f[0] = 1;
-        f[1] = 1;
+        f[0] = f[1] = 1;
         f[2] = 2;
         f[3] = 4;
-        g[0] = 1;
-        g[1] = 1;
+        g[0] = g[1] = 1;
         g[2] = 2;
         g[3] = 4;
         for (int i = 4; i < N; ++i) {
@@ -130,10 +153,11 @@ class Solution {
     public int countTexts(String pressedKeys) {
         long ans = 1;
         for (int i = 0, n = pressedKeys.length(); i < n; ++i) {
-            int j = i;
             char c = pressedKeys.charAt(i);
-            for (; j + 1 < n && pressedKeys.charAt(j + 1) == c; ++j)
-                ;
+            int j = i;
+            while (j + 1 < n && pressedKeys.charAt(j + 1) == c) {
+                ++j;
+            }
             int cnt = j - i + 1;
             ans = c == '7' || c == '9' ? ans * g[cnt] : ans * f[cnt];
             ans %= MOD;
@@ -142,6 +166,45 @@ class Solution {
         return (int) ans;
     }
 }
+```
+
+#### C++
+
+```cpp
+const int mod = 1e9 + 7;
+const int n = 1e5 + 10;
+long long f[n], g[n];
+
+int init = []() {
+    f[0] = g[0] = 1;
+    f[1] = g[1] = 1;
+    f[2] = g[2] = 2;
+    f[3] = g[3] = 4;
+    for (int i = 4; i < n; ++i) {
+        f[i] = (f[i - 1] + f[i - 2] + f[i - 3]) % mod;
+        g[i] = (g[i - 1] + g[i - 2] + g[i - 3] + g[i - 4]) % mod;
+    }
+    return 0;
+}();
+
+class Solution {
+public:
+    int countTexts(string pressedKeys) {
+        long long ans = 1;
+        for (int i = 0, n = pressedKeys.length(); i < n; ++i) {
+            char c = pressedKeys[i];
+            int j = i;
+            while (j + 1 < n && pressedKeys[j + 1] == c) {
+                ++j;
+            }
+            int cnt = j - i + 1;
+            ans = c == '7' || c == '9' ? ans * g[cnt] : ans * f[cnt];
+            ans %= mod;
+            i = j;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go

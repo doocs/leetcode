@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3408.Design%20Task%20Manager/README.md
+rating: 1806
+source: 第 147 场双周赛 Q2
 tags:
     - 设计
     - 哈希表
@@ -91,9 +93,6 @@ taskManager.execTop(); // 返回 5 。执行用户 5 的任务 105 。</div>
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class TaskManager:
 
     def __init__(self, tasks: List[List[int]]):

@@ -60,7 +60,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Union-Find
+
+We can assign a number to each pair of couples. Person with number $0$ and $1$ corresponds to couple $0$, person with number $2$ and $3$ corresponds to couple $1$, and so on. In other words, the person corresponding to $row[i]$ has a couple number of $\lfloor \frac{row[i]}{2} \rfloor$.
+
+If there are $k$ pairs of couples who are seated incorrectly with respect to each other, i.e., if $k$ pairs of couples are in the same permutation cycle, it will take $k-1$ swaps for all of them to be seated correctly.
+
+Why? Consider the following: we first adjust the positions of a couple to their correct seats. After this, the problem reduces from $k$ couples to $k-1$ couples. This process continues, and when $k = 1$, the number of swaps required is $0$. Therefore, if $k$ pairs of couples are in the wrong positions, we need $k-1$ swaps.
+
+Thus, we only need to traverse the array once, use union-find to determine how many permutation cycles there are. Suppose there are $x$ cycles, and the size of each cycle (in terms of couple pairs) is $y_1, y_2, \cdots, y_x$. The number of swaps required is $y_1-1 + y_2-1 + \cdots + y_x-1 = y_1 + y_2 + \cdots + y_x - x = n - x$.
+
+The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$, where $\alpha(n)$ is the inverse Ackermann function, which can be considered a very small constant.
 
 <!-- tabs:start -->
 

@@ -6,22 +6,21 @@ class FindSumPairs {
     public FindSumPairs(int[] nums1, int[] nums2) {
         this.nums1 = nums1;
         this.nums2 = nums2;
-        for (int v : nums2) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        for (int x : nums2) {
+            cnt.merge(x, 1, Integer::sum);
         }
     }
 
     public void add(int index, int val) {
-        int old = nums2[index];
-        cnt.put(old, cnt.get(old) - 1);
-        cnt.put(old + val, cnt.getOrDefault(old + val, 0) + 1);
+        cnt.merge(nums2[index], -1, Integer::sum);
         nums2[index] += val;
+        cnt.merge(nums2[index], 1, Integer::sum);
     }
 
     public int count(int tot) {
         int ans = 0;
-        for (int v : nums1) {
-            ans += cnt.getOrDefault(tot - v, 0);
+        for (int x : nums1) {
+            ans += cnt.getOrDefault(tot - x, 0);
         }
         return ans;
     }

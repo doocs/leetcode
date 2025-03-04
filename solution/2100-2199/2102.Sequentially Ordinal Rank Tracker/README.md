@@ -113,9 +113,6 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class SORTracker:
 
     def __init__(self):

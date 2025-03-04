@@ -2,8 +2,8 @@ function permuteUnique(nums: number[]): number[][] {
     nums.sort((a, b) => a - b);
     const n = nums.length;
     const ans: number[][] = [];
-    const t: number[] = new Array(n);
-    const vis: boolean[] = new Array(n);
+    const t: number[] = Array(n);
+    const vis: boolean[] = Array(n).fill(false);
     const dfs = (i: number) => {
         if (i === n) {
             ans.push(t.slice());

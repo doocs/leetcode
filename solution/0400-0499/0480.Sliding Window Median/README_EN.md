@@ -470,9 +470,6 @@ The time complexity is $O(n \log k)$, and the space complexity is $O(k)$. Here, 
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
         l = SortedList()

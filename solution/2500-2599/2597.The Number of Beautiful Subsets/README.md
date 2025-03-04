@@ -36,7 +36,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,4,6], k = 2
+<pre>
+<strong>输入：</strong>nums = [2,4,6], k = 2
 <strong>输出：</strong>4
 <strong>解释：</strong>数组 nums 中的美丽子集有：[2], [4], [6], [2, 6] 。
 可以证明数组 [2,4,6] 中只存在 4 个美丽子集。
@@ -44,7 +45,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1], k = 1
+<pre>
+<strong>输入：</strong>nums = [1], k = 1
 <strong>输出：</strong>1
 <strong>解释：</strong>数组 nums 中的美丽数组有：[1] 。
 可以证明数组 [1] 中只存在 1 个美丽子集。 
@@ -55,7 +57,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 20</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 18</code></li>
 	<li><code>1 &lt;= nums[i], k &lt;= 1000</code></li>
 </ul>
 

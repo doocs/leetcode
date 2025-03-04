@@ -1,11 +1,12 @@
-int calc(char* s) {
-    int res = 0;
-    for (int i = 0; s[i]; i++) {
-        res = res * 10 + s[i] - 'a';
+int f(const char* s) {
+    int ans = 0;
+    while (*s) {
+        ans = ans * 10 + (*s - 'a');
+        s++;
     }
-    return res;
+    return ans;
 }
 
 bool isSumEqual(char* firstWord, char* secondWord, char* targetWord) {
-    return calc(firstWord) + calc(secondWord) == calc(targetWord);
+    return f(firstWord) + f(secondWord) == f(targetWord);
 }

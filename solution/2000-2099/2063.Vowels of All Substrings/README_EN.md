@@ -75,7 +75,11 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Contribution
+
+We can enumerate each character $\textit{word}[i]$ in the string. If $\textit{word}[i]$ is a vowel, then $\textit{word}[i]$ appears in $(i + 1) \times (n - i)$ substrings. We sum up the counts of these substrings.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -149,6 +153,40 @@ function countVowels(word: string): number {
     }
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_vowels(word: String) -> i64 {
+        let n = word.len() as i64;
+        word.chars()
+            .enumerate()
+            .filter(|(_, c)| "aeiou".contains(*c))
+            .map(|(i, _)| (i as i64 + 1) * (n - i as i64))
+            .sum()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} word
+ * @return {number}
+ */
+var countVowels = function (word) {
+    const n = word.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (['a', 'e', 'i', 'o', 'u'].includes(word[i])) {
+            ans += (i + 1) * (n - i);
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

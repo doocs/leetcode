@@ -68,9 +68,9 @@ tags:
 
 ### 方法一：贪心 + 一次遍历
 
-由于 $arr$ 是 $[0,..,n-1]$ 的一个排列，若已遍历过的数中的最大值 $mx$ 与当前遍历到的下标 $i$ 相等，说明可以进行一次分割，累加答案。
+由于 $\textit{arr}$ 是 $[0,..,n-1]$ 的一个排列，若已遍历过的数中的最大值 $\textit{mx}$ 与当前遍历到的下标 $i$ 相等，说明可以进行一次分割，累加答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -141,10 +141,10 @@ func maxChunksToSorted(arr []int) int {
 function maxChunksToSorted(arr: number[]): number {
     const n = arr.length;
     let ans = 0;
-    let max = 0;
+    let mx = 0;
     for (let i = 0; i < n; i++) {
-        max = Math.max(arr[i], max);
-        if (max == i) {
+        mx = Math.max(arr[i], mx);
+        if (mx == i) {
             ans++;
         }
     }
@@ -157,15 +157,15 @@ function maxChunksToSorted(arr: number[]): number {
 ```rust
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut max = 0;
+        let mut ans = 0;
+        let mut mx = 0;
         for i in 0..arr.len() {
-            max = max.max(arr[i]);
-            if max == (i as i32) {
-                res += 1;
+            mx = mx.max(arr[i]);
+            if mx == (i as i32) {
+                ans += 1;
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -176,15 +176,15 @@ impl Solution {
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
 int maxChunksToSorted(int* arr, int arrSize) {
-    int res = 0;
+    int ans = 0;
     int mx = -1;
     for (int i = 0; i < arrSize; i++) {
         mx = max(mx, arr[i]);
         if (mx == i) {
-            res++;
+            ans++;
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -202,7 +202,7 @@ int maxChunksToSorted(int* arr, int arrSize) {
 
 以上这种解法，不仅可以解决本题，也可以解决 [768. 最多能完成排序的块 II](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0768.Max%20Chunks%20To%20Make%20Sorted%20II/README.md) 这道困难题。大家可以自行尝试。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 

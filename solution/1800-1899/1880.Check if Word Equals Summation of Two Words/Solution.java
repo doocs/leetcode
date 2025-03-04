@@ -4,10 +4,10 @@ class Solution {
     }
 
     private int f(String s) {
-        int res = 0;
+        int ans = 0;
         for (char c : s.toCharArray()) {
-            res = res * 10 + (c - 'a');
+            ans = ans * 10 + (c - 'a');
         }
-        return res;
+        return ans;
     }
 }

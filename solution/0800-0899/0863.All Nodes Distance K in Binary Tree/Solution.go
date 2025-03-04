@@ -1,39 +1,35 @@
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
 func distanceK(root *TreeNode, target *TreeNode, k int) []int {
-	p := make(map[*TreeNode]*TreeNode)
-	vis := make(map[int]bool)
-	var ans []int
-	var parents func(root, prev *TreeNode)
-	parents = func(root, prev *TreeNode) {
-		if root == nil {
+	g := make(map[*TreeNode]*TreeNode)
+	ans := []int{}
+
+	var dfs func(node, fa *TreeNode)
+	dfs = func(node, fa *TreeNode) {
+		if node == nil {
 			return
 		}
-		p[root] = prev
-		parents(root.Left, root)
-		parents(root.Right, root)
+		g[node] = fa
+		dfs(node.Left, node)
+		dfs(node.Right, node)
 	}
-	parents(root, nil)
-	var dfs func(root *TreeNode, k int)
-	dfs = func(root *TreeNode, k int) {
-		if root == nil || vis[root.Val] {
+
+	var dfs2 func(node, fa *TreeNode, k int)
+	dfs2 = func(node, fa *TreeNode, k int) {
+		if node == nil {
 			return
 		}
-		vis[root.Val] = true
 		if k == 0 {
-			ans = append(ans, root.Val)
+			ans = append(ans, node.Val)
 			return
 		}
-		dfs(root.Left, k-1)
-		dfs(root.Right, k-1)
-		dfs(p[root], k-1)
+		for _, nxt := range []*TreeNode{node.Left, node.Right, g[node]} {
+			if nxt != fa {
+				dfs2(nxt, node, k-1)
+			}
+		}
 	}
-	dfs(target, k)
+
+	dfs(root, nil)
+	dfs2(target, nil, k)
+
 	return ans
 }

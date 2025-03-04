@@ -1,11 +1,13 @@
 class Solution {
 public:
     long long maximumSumScore(vector<int>& nums) {
-        int n = nums.size();
-        vector<long long> s(n + 1);
-        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + nums[i];
-        long long ans = INT_MIN;
-        for (int i = 0; i < n; ++i) ans = max(ans, max(s[i + 1], s[n] - s[i]));
+        long long l = 0, r = accumulate(nums.begin(), nums.end(), 0LL);
+        long long ans = -1e18;
+        for (int x : nums) {
+            l += x;
+            ans = max({ans, l, r});
+            r -= x;
+        }
         return ans;
     }
 };

@@ -4,12 +4,11 @@ class Solution {
      * @return Integer
      */
     function findSpecialInteger($arr) {
-        $len = count($arr);
-        for ($i = 0; $i < $len; $i++) {
-            if ($arr[$i] == $arr[$i + ($len >> 2)]) {
+        $n = count($arr);
+        for ($i = 0; ; ++$i) {
+            if ($arr[$i] == $arr[$i + ($n >> 2)]) {
                 return $arr[$i];
             }
         }
-        return -1;
     }
 }

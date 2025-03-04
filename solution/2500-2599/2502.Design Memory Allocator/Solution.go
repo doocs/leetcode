@@ -3,40 +3,38 @@ type Allocator struct {
 }
 
 func Constructor(n int) Allocator {
-	return Allocator{make([]int, n)}
+	return Allocator{m: make([]int, n)}
 }
 
 func (this *Allocator) Allocate(size int, mID int) int {
 	cnt := 0
-	for i, v := range this.m {
-		if v > 0 {
+	for i := 0; i < len(this.m); i++ {
+		if this.m[i] > 0 {
 			cnt = 0
-		} else {
-			cnt++
-			if cnt == size {
-				for j := i - size + 1; j <= i; j++ {
-					this.m[j] = mID
-				}
-				return i - size + 1
+		} else if cnt++; cnt == size {
+			for j := i - size + 1; j <= i; j++ {
+				this.m[j] = mID
 			}
+			return i - size + 1
 		}
 	}
 	return -1
 }
 
-func (this *Allocator) Free(mID int) (ans int) {
-	for i, v := range this.m {
-		if v == mID {
+func (this *Allocator) FreeMemory(mID int) int {
+	ans := 0
+	for i := 0; i < len(this.m); i++ {
+		if this.m[i] == mID {
 			this.m[i] = 0
 			ans++
 		}
 	}
-	return
+	return ans
 }
 
 /**
  * Your Allocator object will be instantiated and called as such:
  * obj := Constructor(n);
  * param_1 := obj.Allocate(size,mID);
- * param_2 := obj.Free(mID);
+ * param_2 := obj.FreeMemory(mID);
  */

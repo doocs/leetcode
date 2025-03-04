@@ -23,13 +23,11 @@ tags:
 
 <ul>
 	<li><code>left &lt;= num1 &lt; num2 &lt;= right </code>.</li>
-	<li><code>num1</code> and <code>num2</code> are both <strong>prime</strong> numbers.</li>
+	<li>Both <code>num1</code> and <code>num2</code> are <span data-keyword="prime-number">prime numbers</span>.</li>
 	<li><code>num2 - num1</code> is the <strong>minimum</strong> amongst all other pairs satisfying the above conditions.</li>
 </ul>
 
-<p>Return <em>the positive integer array</em> <code>ans = [num1, num2]</code>. <em>If there are multiple pairs satisfying these conditions, return the one with the minimum</em> <code>num1</code> <em>value or</em> <code>[-1, -1]</code> <em>if such numbers do not exist.</em></p>
-
-<p>A number greater than <code>1</code> is called <b>prime</b> if it is only divisible by <code>1</code> and itself.</p>
+<p>Return the positive integer array <code>ans = [num1, num2]</code>. If there are multiple pairs satisfying these conditions, return the one with the <strong>smallest</strong> <code>num1</code> value. If no such numbers exist, return <code>[-1, -1]</code><em>.</em></p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -72,7 +70,11 @@ Since 11 is smaller than 17, we return the first pair.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Linear Sieve
+
+For the given range $[\textit{left}, \textit{right}]$, we can use the linear sieve method to find all prime numbers. Then, we traverse the prime numbers in ascending order to find the pair of adjacent prime numbers with the smallest difference, which will be the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n = \textit{right}$.
 
 <!-- tabs:start -->
 

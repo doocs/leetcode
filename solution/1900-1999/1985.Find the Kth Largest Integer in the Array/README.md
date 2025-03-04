@@ -78,7 +78,11 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 
 <!-- solution:start -->
 
-### 方法一：自定义排序
+### 方法一：排序或快速选择
+
+我们可以将 $\textit{nums}$ 数组中的字符串按照整数从大到小排序，然后取第 $k$ 个元素即可。也可以使用快速选择算法，找到第 $k$ 大的整数。
+
+时间复杂度 $O(n \times \log n)$ 或 $O(n)$，其中 $n$ 是 $\textit{nums}$ 数组的长度。空间复杂度 $O(\log n)$ 或 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -87,13 +91,7 @@ nums 中的数字按非递减顺序排列为 ["0","0"]
 ```python
 class Solution:
     def kthLargestNumber(self, nums: List[str], k: int) -> str:
-        def cmp(a, b):
-            if len(a) != len(b):
-                return len(b) - len(a)
-            return 1 if b > a else -1
-
-        nums.sort(key=cmp_to_key(cmp))
-        return nums[k - 1]
+        return nlargest(k, nums, key=lambda x: int(x))[k - 1]
 ```
 
 #### Java
@@ -114,8 +112,9 @@ class Solution {
 class Solution {
 public:
     string kthLargestNumber(vector<string>& nums, int k) {
-        auto cmp = [](const string& a, const string& b) { return a.size() == b.size() ? a > b : a.size() > b.size(); };
-        sort(nums.begin(), nums.end(), cmp);
+        nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), [](const string& a, const string& b) {
+            return a.size() == b.size() ? a > b : a.size() > b.size();
+        });
         return nums[k - 1];
     }
 };

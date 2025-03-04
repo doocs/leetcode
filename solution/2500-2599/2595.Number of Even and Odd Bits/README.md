@@ -24,27 +24,39 @@ tags:
 
 <p>用 <code>odd</code> 表示在 <code>n</code> 的二进制形式（下标从 <strong>0</strong> 开始）中值为 <code>1</code> 的奇数下标的个数。</p>
 
+<p>请注意，在数字的二进制表示中，位下标的顺序&nbsp;<strong>从右到左</strong>。</p>
+
 <p>返回整数数组<em> </em><code>answer</code><em> </em>，其中<em> </em><code>answer = [even, odd]</code> 。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre><strong>输入：</strong>n = 17
-<strong>输出：</strong>[2,0]
-<strong>解释：</strong>17 的二进制形式是 10001 。 
-下标 0 和 下标 4 对应的值为 1 。 
-共有 2 个偶数下标，0 个奇数下标。
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 50</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>[1,2]</span></p>
 
-<pre><strong>输入：</strong>n = 2
-<strong>输出：</strong>[0,1]
-<strong>解释：</strong>2 的二进制形式是 10 。 
-下标 1 对应的值为 1 。 
-共有 0 个偶数下标，1 个奇数下标。
-</pre>
+<p><strong>解释：</strong></p>
+
+<p>50 的二进制表示是&nbsp;<code>110010</code>。</p>
+
+<p>在下标 1，4，5 对应的值为&nbsp;1。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">n = 2</span></p>
+
+<p><span class="example-io"><b>输出：</b>[0,1]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>2 的二进制表示是&nbsp;<code>10</code>。</p>
+
+<p>只有下标 1 对应的值为&nbsp;1。</p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -127,7 +139,7 @@ func evenOddBit(n int) []int {
 
 ```ts
 function evenOddBit(n: number): number[] {
-    const ans = new Array(2).fill(0);
+    const ans = Array(2).fill(0);
     for (let i = 0; n > 0; n >>= 1, i ^= 1) {
         ans[i] += n & 1;
     }
@@ -161,7 +173,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：位运算
+
+我们可以定义一个掩码 $\textit{mask} = \text{0x5555}$，它的二进制表示为 $\text{0101 0101 0101 0101}_2$。那么 $n$ 与 $\textit{mask}$ 进行按位与运算，就可以得到 $n$ 的二进制表示中偶数下标的位，而 $n$ 与 $\textit{mask}$ 取反后再进行按位与运算，就可以得到 $n$ 的二进制表示中奇数下标的位。统计这两个结果中 $1$ 的个数即可。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。其中 $n$ 为给定的整数。
 
 <!-- tabs:start -->
 

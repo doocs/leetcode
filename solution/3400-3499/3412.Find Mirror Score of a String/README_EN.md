@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3412.Find%20Mirror%20Score%20of%20a%20String/README_EN.md
+rating: 1578
+source: Weekly Contest 431 Q2
 tags:
     - Stack
     - Hash Table

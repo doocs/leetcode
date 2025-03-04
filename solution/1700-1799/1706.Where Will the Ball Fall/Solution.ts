@@ -17,9 +17,5 @@ function findBall(grid: number[][]): number[] {
             return dfs(i + 1, j - 1);
         }
     };
-    const ans: number[] = [];
-    for (let j = 0; j < n; ++j) {
-        ans.push(dfs(0, j));
-    }
-    return ans;
+    return Array.from({ length: n }, (_, j) => dfs(0, j));
 }

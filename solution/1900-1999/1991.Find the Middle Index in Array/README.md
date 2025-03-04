@@ -89,13 +89,13 @@ tags:
 
 ### 方法一：前缀和
 
-我们定义变量 $left$ 表示数组 `nums` 中下标 $i$ 左侧元素之和，变量 $right$ 表示数组 `nums` 中下标 $i$ 右侧元素之和。初始时 $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$。
+我们定义两个变量 $l$ 和 $r$，分别表示数组 $\textit{nums}$ 中下标 $i$ 左侧元素之和和右侧元素之和。初始时 $l = 0$，而 $r = \sum_{i = 0}^{n - 1} nums[i]$。
 
-遍历数组 `nums`，对于当前遍历到的数字 $x$，我们更新 $right = right - x$，此时如果 $left=right$，说明当前下标 $i$ 就是中间位置，直接返回即可。否则，我们更新 $left = left + x$，继续遍历下一个数字。
+我们遍历数组 $\textit{nums}$，对于当前遍历到的数字 $x$，我们更新 $r = r - x$，此时如果 $l = r$，说明当前下标 $i$ 就是中间位置，直接返回即可。否则，我们更新 $l = l + x$，继续遍历下一个数字。
 
 遍历结束，如果没有找到中间位置，返回 $-1$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 相似题目：
 
@@ -109,12 +109,12 @@ tags:
 ```python
 class Solution:
     def findMiddleIndex(self, nums: List[int]) -> int:
-        left, right = 0, sum(nums)
+        l, r = 0, sum(nums)
         for i, x in enumerate(nums):
-            right -= x
-            if left == right:
+            r -= x
+            if l == r:
                 return i
-            left += x
+            l += x
         return -1
 ```
 
@@ -123,13 +123,13 @@ class Solution:
 ```java
 class Solution {
     public int findMiddleIndex(int[] nums) {
-        int left = 0, right = Arrays.stream(nums).sum();
+        int l = 0, r = Arrays.stream(nums).sum();
         for (int i = 0; i < nums.length; ++i) {
-            right -= nums[i];
-            if (left == right) {
+            r -= nums[i];
+            if (l == r) {
                 return i;
             }
-            left += nums[i];
+            l += nums[i];
         }
         return -1;
     }
@@ -142,13 +142,13 @@ class Solution {
 class Solution {
 public:
     int findMiddleIndex(vector<int>& nums) {
-        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
+        int l = 0, r = accumulate(nums.begin(), nums.end(), 0);
         for (int i = 0; i < nums.size(); ++i) {
-            right -= nums[i];
-            if (left == right) {
+            r -= nums[i];
+            if (l == r) {
                 return i;
             }
-            left += nums[i];
+            l += nums[i];
         }
         return -1;
     }
@@ -159,16 +159,16 @@ public:
 
 ```go
 func findMiddleIndex(nums []int) int {
-	s := 0
-	for _, num := range nums {
-		s += num
+	l, r := 0, 0
+	for _, x := range nums {
+		r += x
 	}
-	total := 0
-	for i, num := range nums {
-		total += num
-		if total-num == s-total {
+	for i, x := range nums {
+		r -= x
+		if l == r {
 			return i
 		}
+		l += x
 	}
 	return -1
 }
@@ -178,16 +178,37 @@ func findMiddleIndex(nums []int) int {
 
 ```ts
 function findMiddleIndex(nums: number[]): number {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
     for (let i = 0; i < nums.length; ++i) {
-        right -= nums[i];
-        if (left == right) {
+        r -= nums[i];
+        if (l === r) {
             return i;
         }
-        left += nums[i];
+        l += nums[i];
     }
     return -1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_middle_index(nums: Vec<i32>) -> i32 {
+        let mut l = 0;
+        let mut r: i32 = nums.iter().sum();
+
+        for (i, &x) in nums.iter().enumerate() {
+            r -= x;
+            if l == r {
+                return i as i32;
+            }
+            l += x;
+        }
+
+        -1
+    }
 }
 ```
 
@@ -199,14 +220,14 @@ function findMiddleIndex(nums: number[]): number {
  * @return {number}
  */
 var findMiddleIndex = function (nums) {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
     for (let i = 0; i < nums.length; ++i) {
-        right -= nums[i];
-        if (left == right) {
+        r -= nums[i];
+        if (l === r) {
             return i;
         }
-        left += nums[i];
+        l += nums[i];
     }
     return -1;
 };

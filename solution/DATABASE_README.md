@@ -307,7 +307,11 @@
 | 3390 | [Longest Team Pass Streak](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README.md)                                                                | `数据库` | 困难 | 🔒   |
 | 3401 | [Find Circular Gift Exchange Chains](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README.md)                                          | `数据库` | 困难 | 🔒   |
 | 3415 | [查找具有三个连续数字的产品](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)                                       | `数据库` | 简单 | 🔒   |
-| 3421 | [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)                                                                        |          | 中等 |      |
+| 3421 | [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)                                                                        | `数据库` | 中等 |      |
+| 3436 | [查找合法邮箱](/solution/3400-3499/3436.Find%20Valid%20Emails/README.md)                                                                                     | `数据库` | 简单 |      |
+| 3451 | [查找无效的 IP 地址](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README.md)                                                                     | `数据库` | 困难 |      |
+| 3465 | [查找具有有效序列号的产品](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)                                             | `数据库` | 简单 |      |
+| 3475 | [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)                                                                               |          | 中等 |      |
 
 ## 版权
 

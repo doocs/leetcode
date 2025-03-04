@@ -403,9 +403,6 @@ class Solution {
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def numsGame(self, nums: List[int]) -> List[int]:
         l = SortedList()

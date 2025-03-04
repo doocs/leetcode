@@ -5,10 +5,11 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isUnivalTree(self, root: TreeNode) -> bool:
-        def dfs(node):
-            if node is None:
+    def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
+        def dfs(root: Optional[TreeNode]) -> bool:
+            if root is None:
                 return True
-            return node.val == root.val and dfs(node.left) and dfs(node.right)
+            return root.val == x and dfs(root.left) and dfs(root.right)
 
+        x = root.val
         return dfs(root)

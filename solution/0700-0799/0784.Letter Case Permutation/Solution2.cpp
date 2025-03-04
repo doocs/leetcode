@@ -1,9 +1,7 @@
 class Solution {
 public:
     vector<string> letterCasePermutation(string s) {
-        int n = 0;
-        for (char c : s)
-            if (isalpha(c)) ++n;
+        int n = count_if(s.begin(), s.end(), [](char c) { return isalpha(c); });
         vector<string> ans;
         for (int i = 0; i < 1 << n; ++i) {
             int j = 0;

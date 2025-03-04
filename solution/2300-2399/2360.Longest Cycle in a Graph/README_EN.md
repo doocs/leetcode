@@ -6,6 +6,7 @@ rating: 1897
 source: Weekly Contest 304 Q4
 tags:
     - Depth-First Search
+    - Breadth-First Search
     - Graph
     - Topological Sort
 ---

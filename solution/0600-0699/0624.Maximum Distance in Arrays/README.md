@@ -62,11 +62,13 @@ tags:
 
 ### 方法一：维护最大值和最小值
 
-我们注意到，最大距离一定是两个数组中的一个最大值和另一个最小值之间的距离。因此，我们可以维护两个变量，分别表示当前数组中的最大值和最小值，然后遍历数组，更新最大距离，同时更新最大值和最小值。
+我们注意到，最大距离一定是两个数组中的一个最大值和另一个最小值之间的距离。因此，我们可以维护两个变量 $\textit{mi}$ 和 $\textit{mx}$，分别表示已经遍历过的数组中的最小值和最大值。初始时 $\textit{mi}$ 和 $\textit{mx}$ 分别为第一个数组的第一个元素和最后一个元素。
+
+接下来，我们从第二个数组开始遍历，对于每个数组，我们首先计算当前数组的第一个元素和 $\textit{mx}$ 之间的距离，以及当前数组的最后一个元素和 $\textit{mi}$ 之间的距离，然后更新最大距离。同时，我们更新 $\textit{mi} = \min(\textit{mi}, \textit{arr}[0])$ 和 $\textit{mx} = \max(\textit{mx}, \textit{arr}[\textit{size} - 1])$。
 
 遍历结束后，即可得到最大距离。
 
-时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m$ 为数组的个数。
+时间复杂度 $O(m)$，其中 $m$ 为数组的个数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -152,18 +154,41 @@ func abs(x int) int {
 
 ```ts
 function maxDistance(arrays: number[][]): number {
-    const n = arrays.length;
-    let res = 0;
-    let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
-
-    for (let i = 0; i < n; i++) {
-        const a = arrays[i];
-        res = Math.max(Math.max(a.at(-1)! - min, max - a[0]), res);
-        min = Math.min(min, a[0]);
-        max = Math.max(max, a.at(-1)!);
+    let ans = 0;
+    let [mi, mx] = [arrays[0][0], arrays[0].at(-1)!];
+    for (let i = 1; i < arrays.length; ++i) {
+        const arr = arrays[i];
+        const a = Math.abs(arr[0] - mx);
+        const b = Math.abs(arr.at(-1)! - mi);
+        ans = Math.max(ans, a, b);
+        mi = Math.min(mi, arr[0]);
+        mx = Math.max(mx, arr.at(-1)!);
     }
+    return ans;
+}
+```
 
-    return res;
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_distance(arrays: Vec<Vec<i32>>) -> i32 {
+        let mut ans = 0;
+        let mut mi = arrays[0][0];
+        let mut mx = arrays[0][arrays[0].len() - 1];
+
+        for i in 1..arrays.len() {
+            let arr = &arrays[i];
+            let a = (arr[0] - mx).abs();
+            let b = (arr[arr.len() - 1] - mi).abs();
+            ans = ans.max(a).max(b);
+
+            mi = mi.min(arr[0]);
+            mx = mx.max(arr[arr.len() - 1]);
+        }
+
+        ans
+    }
 }
 ```
 
@@ -175,61 +200,18 @@ function maxDistance(arrays: number[][]): number {
  * @return {number}
  */
 var maxDistance = function (arrays) {
-    const n = arrays.length;
-    let res = 0;
-    let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
-
-    for (let i = 0; i < n; i++) {
-        const a = arrays[i];
-        res = Math.max(Math.max(a.at(-1) - min, max - a[0]), res);
-        min = Math.min(min, a[0]);
-        max = Math.max(max, a.at(-1));
+    let ans = 0;
+    let [mi, mx] = [arrays[0][0], arrays[0].at(-1)];
+    for (let i = 1; i < arrays.length; ++i) {
+        const arr = arrays[i];
+        const a = Math.abs(arr[0] - mx);
+        const b = Math.abs(arr.at(-1) - mi);
+        ans = Math.max(ans, a, b);
+        mi = Math.min(mi, arr[0]);
+        mx = Math.max(mx, arr.at(-1));
     }
-
-    return res;
+    return ans;
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：一行
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-const maxDistance = (arrays: number[][]): number =>
-    arrays.reduce(
-        ([res, min, max], a) => [
-            Math.max(Math.max(a.at(-1)! - min, max - a[0]), res),
-            Math.min(min, a[0]),
-            Math.max(max, a.at(-1)!),
-        ],
-        [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY],
-    )[0];
-```
-
-#### JavaScript
-
-```js
-/**
- * @param {number[][]} arrays
- * @return {number}
- */
-var maxDistance = arrays =>
-    arrays.reduce(
-        ([res, min, max], a) => [
-            Math.max(Math.max(a.at(-1) - min, max - a[0]), res),
-            Math.min(min, a[0]),
-            Math.max(max, a.at(-1)),
-        ],
-        [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY],
-    )[0];
 ```
 
 <!-- tabs:end -->

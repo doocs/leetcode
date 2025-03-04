@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class TweetCounts:
     def __init__(self):
         self.d = {"minute": 60, "hour": 3600, "day": 86400}

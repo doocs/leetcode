@@ -73,7 +73,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：遍历
+
+我们可以遍历数组，找到第一个不满足 $\textit{nums}[i] < \textit{nums}[i+1]$ 的位置 $i$，然后检查删除 $i$ 或者 $i+1$ 后的数组是否严格递增，如果是则返回 $\textit{true}$，否则返回 $\textit{false}$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -82,20 +86,20 @@ tags:
 ```python
 class Solution:
     def canBeIncreasing(self, nums: List[int]) -> bool:
-        def check(nums, i):
-            prev = -inf
-            for j, num in enumerate(nums):
-                if i == j:
+        def check(k: int) -> bool:
+            pre = -inf
+            for i, x in enumerate(nums):
+                if i == k:
                     continue
-                if prev >= nums[j]:
+                if pre >= x:
                     return False
-                prev = nums[j]
+                pre = x
             return True
 
-        i, n = 1, len(nums)
-        while i < n and nums[i - 1] < nums[i]:
+        i = 0
+        while i + 1 < len(nums) and nums[i] < nums[i + 1]:
             i += 1
-        return check(nums, i - 1) or check(nums, i)
+        return check(i) or check(i + 1)
 ```
 
 #### Java
@@ -103,22 +107,23 @@ class Solution:
 ```java
 class Solution {
     public boolean canBeIncreasing(int[] nums) {
-        int i = 1, n = nums.length;
-        for (; i < n && nums[i - 1] < nums[i]; ++i)
-            ;
-        return check(nums, i - 1) || check(nums, i);
+        int i = 0;
+        while (i + 1 < nums.length && nums[i] < nums[i + 1]) {
+            ++i;
+        }
+        return check(nums, i) || check(nums, i + 1);
     }
 
-    private boolean check(int[] nums, int i) {
-        int prev = Integer.MIN_VALUE;
-        for (int j = 0; j < nums.length; ++j) {
-            if (i == j) {
+    private boolean check(int[] nums, int k) {
+        int pre = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i == k) {
                 continue;
             }
-            if (prev >= nums[j]) {
+            if (pre >= nums[i]) {
                 return false;
             }
-            prev = nums[j];
+            pre = nums[i];
         }
         return true;
     }
@@ -131,20 +136,25 @@ class Solution {
 class Solution {
 public:
     bool canBeIncreasing(vector<int>& nums) {
-        int i = 1, n = nums.size();
-        for (; i < n && nums[i - 1] < nums[i]; ++i)
-            ;
-        return check(nums, i - 1) || check(nums, i);
-    }
-
-    bool check(vector<int>& nums, int i) {
-        int prev = 0;
-        for (int j = 0; j < nums.size(); ++j) {
-            if (i == j) continue;
-            if (prev >= nums[j]) return false;
-            prev = nums[j];
+        int n = nums.size();
+        auto check = [&](int k) -> bool {
+            int pre = 0;
+            for (int i = 0; i < n; ++i) {
+                if (i == k) {
+                    continue;
+                }
+                if (pre >= nums[i]) {
+                    return false;
+                }
+                pre = nums[i];
+            }
+            return true;
+        };
+        int i = 0;
+        while (i + 1 < n && nums[i] < nums[i + 1]) {
+            ++i;
         }
-        return true;
+        return check(i) || check(i + 1);
     }
 };
 ```
@@ -153,25 +163,24 @@ public:
 
 ```go
 func canBeIncreasing(nums []int) bool {
-	i, n := 1, len(nums)
-	for ; i < n && nums[i-1] < nums[i]; i++ {
-
-	}
-	return check(nums, i-1) || check(nums, i)
-}
-
-func check(nums []int, i int) bool {
-	prev := 0
-	for j := 0; j < len(nums); j++ {
-		if i == j {
-			continue
+	check := func(k int) bool {
+		pre := 0
+		for i, x := range nums {
+			if i == k {
+				continue
+			}
+			if pre >= x {
+				return false
+			}
+			pre = x
 		}
-		if prev >= nums[j] {
-			return false
-		}
-		prev = nums[j]
+		return true
 	}
-	return true
+	i := 0
+	for i+1 < len(nums) && nums[i] < nums[i+1] {
+		i++
+	}
+	return check(i) || check(i+1)
 }
 ```
 
@@ -179,24 +188,25 @@ func check(nums []int, i int) bool {
 
 ```ts
 function canBeIncreasing(nums: number[]): boolean {
-    const check = (p: number) => {
-        let prev = undefined;
-        for (let j = 0; j < nums.length; j++) {
-            if (p != j) {
-                if (prev !== undefined && prev >= nums[j]) {
-                    return false;
-                }
-                prev = nums[j];
+    const n = nums.length;
+    const check = (k: number): boolean => {
+        let pre = 0;
+        for (let i = 0; i < n; ++i) {
+            if (i === k) {
+                continue;
             }
+            if (pre >= nums[i]) {
+                return false;
+            }
+            pre = nums[i];
         }
         return true;
     };
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i - 1] >= nums[i]) {
-            return check(i - 1) || check(i);
-        }
+    let i = 0;
+    while (i + 1 < n && nums[i] < nums[i + 1]) {
+        ++i;
     }
-    return true;
+    return check(i) || check(i + 1);
 }
 ```
 
@@ -205,26 +215,53 @@ function canBeIncreasing(nums: number[]): boolean {
 ```rust
 impl Solution {
     pub fn can_be_increasing(nums: Vec<i32>) -> bool {
-        let check = |p: usize| -> bool {
-            let mut prev = None;
-            for j in 0..nums.len() {
-                if p != j {
-                    if let Some(value) = prev {
-                        if value >= nums[j] {
-                            return false;
-                        }
-                    }
-                    prev = Some(nums[j]);
+        let check = |k: usize| -> bool {
+            let mut pre = 0;
+            for (i, &x) in nums.iter().enumerate() {
+                if i == k {
+                    continue;
                 }
+                if pre >= x {
+                    return false;
+                }
+                pre = x;
             }
             true
         };
-        for i in 1..nums.len() {
-            if nums[i - 1] >= nums[i] {
-                return check(i - 1) || check(i);
-            }
+
+        let mut i = 0;
+        while i + 1 < nums.len() && nums[i] < nums[i + 1] {
+            i += 1;
         }
-        true
+        check(i) || check(i + 1)
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool CanBeIncreasing(int[] nums) {
+        int n = nums.Length;
+        bool check(int k) {
+            int pre = 0;
+            for (int i = 0; i < n; ++i) {
+                if (i == k) {
+                    continue;
+                }
+                if (pre >= nums[i]) {
+                    return false;
+                }
+                pre = nums[i];
+            }
+            return true;
+        }
+        int i = 0;
+        while (i + 1 < n && nums[i] < nums[i + 1]) {
+            ++i;
+        }
+        return check(i) || check(i + 1);
     }
 }
 ```

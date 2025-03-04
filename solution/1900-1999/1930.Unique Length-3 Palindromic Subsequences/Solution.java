@@ -3,11 +3,14 @@ class Solution {
         int ans = 0;
         for (char c = 'a'; c <= 'z'; ++c) {
             int l = s.indexOf(c), r = s.lastIndexOf(c);
-            Set<Character> cs = new HashSet<>();
+            int mask = 0;
             for (int i = l + 1; i < r; ++i) {
-                cs.add(s.charAt(i));
+                int j = s.charAt(i) - 'a';
+                if ((mask >> j & 1) == 0) {
+                    mask |= 1 << j;
+                    ++ans;
+                }
             }
-            ans += cs.size();
         }
         return ans;
     }

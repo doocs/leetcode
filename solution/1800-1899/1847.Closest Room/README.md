@@ -90,9 +90,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def closestRoom(
         self, rooms: List[List[int]], queries: List[List[int]]

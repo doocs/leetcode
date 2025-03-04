@@ -56,7 +56,20 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：维护坐标
+
+我们可以维护一个坐标 $(x, y)$，分别表示机器人在水平方向和竖直方向上的移动。
+
+遍历字符串 $\textit{moves}$，根据当前字符的不同，更新坐标 $(x, y)$：
+
+-   如果当前字符是 `'U'`，则 $y$ 加 $1$；
+-   如果当前字符是 `'D'`，则 $y$ 减 $1$；
+-   如果当前字符是 `'L'`，则 $x$ 减 $1$；
+-   如果当前字符是 `'R'`，则 $x$ 加 $1$。
+
+最后，判断 $x$ 和 $y$ 是否都为 $0$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{moves}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -67,14 +80,15 @@ class Solution:
     def judgeCircle(self, moves: str) -> bool:
         x = y = 0
         for c in moves:
-            if c == 'R':
-                x += 1
-            elif c == 'L':
-                x -= 1
-            elif c == 'U':
-                y += 1
-            elif c == 'D':
-                y -= 1
+            match c:
+                case "U":
+                    y += 1
+                case "D":
+                    y -= 1
+                case "L":
+                    x -= 1
+                case "R":
+                    x += 1
         return x == 0 and y == 0
 ```
 
@@ -84,19 +98,57 @@ class Solution:
 class Solution {
     public boolean judgeCircle(String moves) {
         int x = 0, y = 0;
-        for (int i = 0; i < moves.length(); ++i) {
-            char c = moves.charAt(i);
-            if (c == 'R')
-                ++x;
-            else if (c == 'L')
-                --x;
-            else if (c == 'U')
-                ++y;
-            else if (c == 'D')
-                --y;
+        for (char c : moves.toCharArray()) {
+            switch (c) {
+                case 'U' -> y++;
+                case 'D' -> y--;
+                case 'L' -> x--;
+                case 'R' -> x++;
+            }
         }
         return x == 0 && y == 0;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool judgeCircle(string moves) {
+        int x = 0, y = 0;
+        for (char c : moves) {
+            switch (c) {
+            case 'U': y++; break;
+            case 'D': y--; break;
+            case 'L': x--; break;
+            case 'R': x++; break;
+            }
+        }
+        return x == 0 && y == 0;
+    }
+};
+```
+
+#### Go
+
+```go
+func judgeCircle(moves string) bool {
+	x, y := 0, 0
+	for _, c := range moves {
+		switch c {
+		case 'U':
+			y++
+		case 'D':
+			y--
+		case 'L':
+			x--
+		case 'R':
+			x++
+		}
+	}
+	return x == 0 && y == 0
 }
 ```
 
@@ -104,21 +156,44 @@ class Solution {
 
 ```ts
 function judgeCircle(moves: string): boolean {
-    let x = 0,
-        y = 0;
-    const dir = {
-        R: [1, 0],
-        L: [-1, 0],
-        U: [0, 1],
-        D: [0, -1],
-    };
-    for (let u of moves) {
-        const [dx, dy] = dir[u];
-        x += dx;
-        y += dy;
+    let [x, y] = [0, 0];
+    for (const c of moves) {
+        if (c === 'U') {
+            y++;
+        } else if (c === 'D') {
+            y--;
+        } else if (c === 'L') {
+            x--;
+        } else {
+            x++;
+        }
     }
-    return !x && !y;
+    return x === 0 && y === 0;
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function (moves) {
+    let [x, y] = [0, 0];
+    for (const c of moves) {
+        if (c === 'U') {
+            y++;
+        } else if (c === 'D') {
+            y--;
+        } else if (c === 'L') {
+            x--;
+        } else {
+            x++;
+        }
+    }
+    return x === 0 && y === 0;
+};
 ```
 
 <!-- tabs:end -->

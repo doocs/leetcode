@@ -4,7 +4,9 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README.md
 tags:
     - 位运算
+    - 记忆化搜索
     - 数组
+    - 哈希表
     - 字符串
     - 动态规划
     - 回溯

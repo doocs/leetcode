@@ -64,7 +64,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+If the number is $0$, or the last digit of the number is not $0$, then the number after reversing twice will be the same as the original number.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -103,6 +107,36 @@ public:
 func isSameAfterReversals(num int) bool {
 	return num == 0 || num%10 != 0
 }
+```
+
+#### TypeScript
+
+```ts
+function isSameAfterReversals(num: number): boolean {
+    return num === 0 || num % 10 !== 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_same_after_reversals(num: i32) -> bool {
+        num == 0 || num % 10 != 0
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isSameAfterReversals = function (num) {
+    return num === 0 || num % 10 !== 0;
+};
 ```
 
 <!-- tabs:end -->

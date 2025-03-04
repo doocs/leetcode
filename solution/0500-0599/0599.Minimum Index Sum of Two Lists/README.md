@@ -58,7 +58,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们用一个哈希表 $\textit{d}$ 记录 $\textit{list2}$ 中的字符串和它们的下标，用一个变量 $\textit{mi}$ 记录最小的下标和。
+
+然后遍历 $\textit{list1}$，对于每个字符串 $\textit{s}$，如果 $\textit{s}$ 在 $\textit{list2}$ 中出现，那么我们计算 $\textit{s}$ 在 $\textit{list1}$ 中的下标 $\textit{i}$ 和在 $\textit{list2}$ 中的下标 $\textit{j}$，如果 $\textit{i} + \textit{j} < \textit{mi}$，我们就更新答案数组 $\textit{ans}$ 为 $\textit{s}$，并且更新 $\textit{mi}$ 为 $\textit{i} + \textit{j}$；如果 $\textit{i} + \textit{j} = \textit{mi}$，我们就将 $\textit{s}$ 加入答案数组 $\textit{ans}$。
+
+遍历结束后，返回答案数组 $\textit{ans}$ 即可。
 
 <!-- tabs:start -->
 
@@ -67,17 +73,17 @@ tags:
 ```python
 class Solution:
     def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        d = {s: i for i, s in enumerate(list2)}
         ans = []
-        mp = {v: i for i, v in enumerate(list2)}
-        mi = 2000
-        for i, v in enumerate(list1):
-            if v in mp:
-                t = i + mp[v]
-                if t < mi:
-                    mi = t
-                    ans = [v]
-                elif t == mi:
-                    ans.append(v)
+        mi = inf
+        for i, s in enumerate(list1):
+            if s in d:
+                j = d[s]
+                if i + j < mi:
+                    mi = i + j
+                    ans = [s]
+                elif i + j == mi:
+                    ans.append(s)
         return ans
 ```
 
@@ -85,22 +91,21 @@ class Solution:
 
 ```java
 class Solution {
-
     public String[] findRestaurant(String[] list1, String[] list2) {
-        Map<String, Integer> mp = new HashMap<>();
+        Map<String, Integer> d = new HashMap<>();
         for (int i = 0; i < list2.length; ++i) {
-            mp.put(list2[i], i);
+            d.put(list2[i], i);
         }
         List<String> ans = new ArrayList<>();
-        int mi = 2000;
+        int mi = 1 << 30;
         for (int i = 0; i < list1.length; ++i) {
-            if (mp.containsKey(list1[i])) {
-                int t = i + mp.get(list1[i]);
-                if (t < mi) {
-                    ans = new ArrayList<>();
+            if (d.containsKey(list1[i])) {
+                int j = d.get(list1[i]);
+                if (i + j < mi) {
+                    mi = i + j;
+                    ans.clear();
                     ans.add(list1[i]);
-                    mi = t;
-                } else if (t == mi) {
+                } else if (i + j == mi) {
                     ans.add(list1[i]);
                 }
             }
@@ -116,18 +121,20 @@ class Solution {
 class Solution {
 public:
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
-        unordered_map<string, int> mp;
-        for (int i = 0; i < list2.size(); ++i) mp[list2[i]] = i;
-        int mi = 2000;
+        unordered_map<string, int> d;
+        for (int i = 0; i < list2.size(); ++i) {
+            d[list2[i]] = i;
+        }
         vector<string> ans;
+        int mi = INT_MAX;
         for (int i = 0; i < list1.size(); ++i) {
-            if (mp.count(list1[i])) {
-                int t = i + mp[list1[i]];
-                if (t < mi) {
+            if (d.contains(list1[i])) {
+                int j = d[list1[i]];
+                if (i + j < mi) {
+                    mi = i + j;
                     ans.clear();
                     ans.push_back(list1[i]);
-                    mi = t;
-                } else if (t == mi) {
+                } else if (i + j == mi) {
                     ans.push_back(list1[i]);
                 }
             }
@@ -141,20 +148,19 @@ public:
 
 ```go
 func findRestaurant(list1 []string, list2 []string) []string {
-	mp := make(map[string]int)
-	for i, v := range list2 {
-		mp[v] = i
+	d := map[string]int{}
+	for i, s := range list2 {
+		d[s] = i
 	}
-	mi := 2000
-	var ans []string
-	for i, v := range list1 {
-		if _, ok := mp[v]; ok {
-			t := i + mp[v]
-			if t < mi {
-				ans = []string{v}
-				mi = t
-			} else if t == mi {
-				ans = append(ans, v)
+	ans := []string{}
+	mi := 1 << 30
+	for i, s := range list1 {
+		if j, ok := d[s]; ok {
+			if i+j < mi {
+				mi = i + j
+				ans = []string{s}
+			} else if i+j == mi {
+				ans = append(ans, s)
 			}
 		}
 	}
@@ -166,22 +172,22 @@ func findRestaurant(list1 []string, list2 []string) []string {
 
 ```ts
 function findRestaurant(list1: string[], list2: string[]): string[] {
-    let minI = Infinity;
-    const res = [];
-    const map = new Map<string, number>(list1.map((s, i) => [s, i]));
-    list2.forEach((s, i) => {
-        if (map.has(s)) {
-            const sumI = i + map.get(s);
-            if (sumI <= minI) {
-                if (sumI < minI) {
-                    minI = sumI;
-                    res.length = 0;
-                }
-                res.push(s);
+    const d = new Map<string, number>(list2.map((s, i) => [s, i]));
+    let mi = Infinity;
+    const ans: string[] = [];
+    list1.forEach((s, i) => {
+        if (d.has(s)) {
+            const j = d.get(s)!;
+            if (i + j < mi) {
+                mi = i + j;
+                ans.length = 0;
+                ans.push(s);
+            } else if (i + j === mi) {
+                ans.push(s);
             }
         }
     });
-    return res;
+    return ans;
 }
 ```
 
@@ -189,64 +195,30 @@ function findRestaurant(list1: string[], list2: string[]): string[] {
 
 ```rust
 use std::collections::HashMap;
-use std::iter::FromIterator;
 
 impl Solution {
     pub fn find_restaurant(list1: Vec<String>, list2: Vec<String>) -> Vec<String> {
-        let map: HashMap<String, usize> = HashMap::from_iter(list1.into_iter().zip(0..));
-        let mut res = vec![];
-        let mut min_i = usize::MAX;
-        list2.into_iter().enumerate().for_each(|(i, key)| {
-            if map.contains_key(&key) {
-                let sum_i = map.get(&key).unwrap() + i;
-                if sum_i <= min_i {
-                    if sum_i < min_i {
-                        min_i = sum_i;
-                        res.clear();
-                    }
-                    res.push(key);
+        let mut d = HashMap::new();
+        for (i, s) in list2.iter().enumerate() {
+            d.insert(s, i);
+        }
+
+        let mut ans = Vec::new();
+        let mut mi = std::i32::MAX;
+
+        for (i, s) in list1.iter().enumerate() {
+            if let Some(&j) = d.get(s) {
+                if (i as i32 + j as i32) < mi {
+                    mi = i as i32 + j as i32;
+                    ans = vec![s.clone()];
+                } else if (i as i32 + j as i32) == mi {
+                    ans.push(s.clone());
                 }
             }
-        });
-        res
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### C++
-
-```cpp
-func findRestaurant(list1[] string, list2[] string)[] string {
-mp:= make(map[string]int)
-	for i, v := range list2 {
-		mp[v] = i
-	}
-	mi := 2000
-	var ans []string
-	for i, v := range list1 {
-        if _
-            , ok : = mp[v];
-        ok {
-        t:
-            = i + mp[v] if t < mi {
-                ans = [] string { v } mi = t
-            }
-            else if t == mi {
-                ans = append(ans, v)
-            }
         }
+
+        ans
     }
-    return ans
 }
 ```
 

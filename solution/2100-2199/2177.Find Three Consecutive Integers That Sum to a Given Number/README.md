@@ -54,7 +54,7 @@ tags:
 
 ### 方法一：数学
 
-假设三个连续的整数分别为 $x-1$, $x$, $x+1$，则它们的和为 $3x$，因此 $num$ 必须是 $3$ 的倍数。如果 $num$ 不是 $3$ 的倍数，则无法表示成三个连续整数的和，返回空数组。否则，令 $x = \frac{num}{3}$，则 $x-1$, $x$, $x+1$ 就是三个连续整数，它们的和为 $num$。
+我们假设三个连续的整数分别为 $x-1$, $x$, $x+1$，则它们的和为 $3x$，因此 $\textit{num}$ 必须是 $3$ 的倍数。如果 $\textit{num}$ 不是 $3$ 的倍数，则无法表示成三个连续整数的和，返回空数组。否则，令 $x = \frac{\textit{num}}{3}$，则 $x-1$, $x$, $x+1$ 就是三个连续整数，它们的和为 $\textit{num}$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -120,6 +120,36 @@ function sumOfThree(num: number): number[] {
     const x = Math.floor(num / 3);
     return [x - 1, x, x + 1];
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_of_three(num: i64) -> Vec<i64> {
+        if num % 3 != 0 {
+            return Vec::new();
+        }
+        let x = num / 3;
+        vec![x - 1, x, x + 1]
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number[]}
+ */
+var sumOfThree = function (num) {
+    if (num % 3) {
+        return [];
+    }
+    const x = Math.floor(num / 3);
+    return [x - 1, x, x + 1];
+};
 ```
 
 <!-- tabs:end -->

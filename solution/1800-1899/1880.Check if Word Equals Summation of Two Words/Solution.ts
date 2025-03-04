@@ -1,10 +1,10 @@
 function isSumEqual(firstWord: string, secondWord: string, targetWord: string): boolean {
-    const calc = (s: string) => {
-        let res = 0;
+    const f = (s: string): number => {
+        let ans = 0;
         for (const c of s) {
-            res = res * 10 + c.charCodeAt(0) - 'a'.charCodeAt(0);
+            ans = ans * 10 + c.charCodeAt(0) - 97;
         }
-        return res;
+        return ans;
     };
-    return calc(firstWord) + calc(secondWord) === calc(targetWord);
+    return f(firstWord) + f(secondWord) == f(targetWord);
 }

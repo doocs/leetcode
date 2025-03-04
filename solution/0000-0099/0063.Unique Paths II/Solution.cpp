@@ -2,9 +2,8 @@ class Solution {
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         int m = obstacleGrid.size(), n = obstacleGrid[0].size();
-        int f[m][n];
-        memset(f, -1, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) {
+        vector<vector<int>> f(m, vector<int>(n, -1));
+        auto dfs = [&](this auto&& dfs, int i, int j) {
             if (i >= m || j >= n || obstacleGrid[i][j]) {
                 return 0;
             }

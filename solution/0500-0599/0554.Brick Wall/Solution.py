@@ -1,11 +1,9 @@
 class Solution:
     def leastBricks(self, wall: List[List[int]]) -> int:
-        cnt = defaultdict(int)
+        cnt = Counter()
         for row in wall:
-            width = 0
-            for brick in row[:-1]:
-                width += brick
-                cnt[width] += 1
-        if not cnt:
-            return len(wall)
-        return len(wall) - cnt[max(cnt, key=cnt.get)]
+            s = 0
+            for x in row[:-1]:
+                s += x
+                cnt[s] += 1
+        return len(wall) - max(cnt.values(), default=0)

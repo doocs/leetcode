@@ -1,5 +1,5 @@
 func subsetsWithDup(nums []int) (ans [][]int) {
-	sort.Ints(nums)
+	slices.Sort(nums)
 	n := len(nums)
 	t := []int{}
 	var dfs func(int)

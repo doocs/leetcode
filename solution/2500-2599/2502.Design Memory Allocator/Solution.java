@@ -18,7 +18,7 @@ class Allocator {
         return -1;
     }
 
-    public int free(int mID) {
+    public int freeMemory(int mID) {
         int ans = 0;
         for (int i = 0; i < m.length; ++i) {
             if (m[i] == mID) {
@@ -34,5 +34,5 @@ class Allocator {
  * Your Allocator object will be instantiated and called as such:
  * Allocator obj = new Allocator(n);
  * int param_1 = obj.allocate(size,mID);
- * int param_2 = obj.free(mID);
+ * int param_2 = obj.freeMemory(mID);
  */

@@ -46,7 +46,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>list</code> 中的节点数范围为 <code>[2, 105]</code></li>
+	<li><code>list</code> 中的节点数范围为 <code>[2, 10<sup>5</sup>]</code></li>
 	<li><code>0 &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
 	<li><code>LastNode.next = FirstNode</code> ，其中 <code>LastNode</code> 是链表的最后一个节点，<code>FirstNode</code> 是第一个节点。</li>
 </ul>

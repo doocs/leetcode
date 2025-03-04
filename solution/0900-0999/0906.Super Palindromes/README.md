@@ -4,6 +4,7 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0906.Super%20Palindromes/README.md
 tags:
     - 数学
+    - 字符串
     - 枚举
 ---
 
@@ -17,32 +18,39 @@ tags:
 
 <!-- description:start -->
 
-<p>如果一个正整数自身是回文数，而且它也是一个回文数的平方，那么我们称这个数为超级回文数。</p>
+<p>如果一个正整数自身是回文数，而且它也是一个回文数的平方，那么我们称这个数为 <strong>超级回文数</strong> 。</p>
 
-<p>现在，给定两个正整数&nbsp;<code>L</code> 和&nbsp;<code>R</code> （以字符串形式表示），返回包含在范围 <code>[L, R]</code> 中的超级回文数的数目。</p>
-
-<p>&nbsp;</p>
-
-<p><strong>示例：</strong></p>
-
-<pre><strong>输入：</strong>L = &quot;4&quot;, R = &quot;1000&quot;
-<strong>输出：</strong>4
-<strong>解释：
-</strong>4，9，121，以及 484 是超级回文数。
-注意 676 不是一个超级回文数： 26 * 26 = 676，但是 26 不是回文数。</pre>
+<p>现在，给你两个以字符串形式表示的正整数 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="caret-color: rgb(199, 37, 78); font-size: 12.6px; background-color: rgb(249, 242, 244);">left</span></font>&nbsp;和 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="caret-color: rgb(199, 37, 78); font-size: 12.6px; background-color: rgb(249, 242, 244);">right</span></font>&nbsp; ，统计并返回区间&nbsp;<code>[left, right]</code> 中的 <strong>超级回文数</strong> 的数目。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>提示：</strong></p>
+<p><b>示例 1：</b></p>
 
-<ol>
-	<li><code>1 &lt;= len(L) &lt;= 18</code></li>
-	<li><code>1 &lt;= len(R) &lt;= 18</code></li>
-	<li><code>L</code> 和&nbsp;<code>R</code>&nbsp;是表示&nbsp;<code>[1, 10^18)</code>&nbsp;范围的整数的字符串。</li>
-	<li><code>int(L) &lt;= int(R)</code></li>
-</ol>
+<pre>
+<b>输入：</b>left = "4", right = "1000"
+<b>输出：</b>4
+<b>解释：</b>4、9、121 和 484 都是超级回文数。
+注意 676 不是超级回文数：26 * 26 = 676 ，但是 26 不是回文数。
+</pre>
+
+<p><b>示例 2：</b></p>
+
+<pre>
+<b>输入：</b>left = "1", right = "2"
+<b>输出：</b>1
+</pre>
 
 <p>&nbsp;</p>
+
+<p><b>提示：</b></p>
+
+<ul>
+	<li><code>1 &lt;= left.length, right.length &lt;= 18</code></li>
+	<li><code>left</code>&nbsp;和&nbsp;<code>right</code>&nbsp;仅由数字（0 - 9）组成。</li>
+	<li><code>left</code>&nbsp;和&nbsp;<code>right</code>&nbsp;不含前导零。</li>
+	<li><code>left</code>&nbsp;和&nbsp;<code>right</code>&nbsp;表示的整数在区间&nbsp;<code>[1, 10<sup>18</sup> - 1]</code> 内。</li>
+	<li><code>left</code>&nbsp;小于等于&nbsp;<code>right</code>&nbsp;。</li>
+</ul>
 
 <!-- description:end -->
 

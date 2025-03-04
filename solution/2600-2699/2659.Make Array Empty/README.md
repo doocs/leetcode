@@ -176,9 +176,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def countOperationsToEmptyArray(self, nums: List[int]) -> int:
         pos = {x: i for i, x in enumerate(nums)}

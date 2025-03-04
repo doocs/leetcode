@@ -1,6 +1,3 @@
-from sortedcontainers import SortedList
-
-
 class Solution:
     def resultArray(self, nums: List[int]) -> List[int]:
         arr1 = [nums[0]]

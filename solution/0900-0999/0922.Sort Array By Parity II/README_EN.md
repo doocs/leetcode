@@ -61,11 +61,11 @@ tags:
 
 ### Solution 1: Two Pointers
 
-We use two pointers $i$ and $j$ to point to even and odd indices respectively.
+We use two pointers $i$ and $j$ to point to even and odd indices, respectively. Initially, $i = 0$ and $j = 1$.
 
-When $i$ points to an even index, if $nums[i]$ is odd, then we need to find an odd index $j$ such that $nums[j]$ is even, and then swap $nums[i]$ and $nums[j]$. Continue to iterate until $i$ points to the end of the array.
+When $i$ points to an even index, if $\textit{nums}[i]$ is odd, we need to find an odd index $j$ such that $\textit{nums}[j]$ is even, and then swap $\textit{nums}[i]$ and $\textit{nums}[j]$. Continue traversing until $i$ reaches the end of the array.
 
-The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -151,6 +151,26 @@ function sortArrayByParityII(nums: number[]): number[] {
         }
     }
     return nums;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sort_array_by_parity_ii(mut nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut j = 1;
+        for i in (0..n).step_by(2) {
+            if nums[i] % 2 != 0 {
+                while nums[j] % 2 != 0 {
+                    j += 2;
+                }
+                nums.swap(i, j);
+            }
+        }
+        nums
+    }
 }
 ```
 

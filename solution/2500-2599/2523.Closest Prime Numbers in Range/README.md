@@ -23,13 +23,11 @@ tags:
 
 <ul>
 	<li><code>left &lt;= nums1 &lt; nums2 &lt;= right&nbsp;</code>&nbsp;。</li>
-	<li><code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;都是 <strong>质数</strong>&nbsp;。</li>
+	<li><code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;都是 <strong><span data-keyword="prime-number">质数</span></strong>&nbsp;。</li>
 	<li><code>nums2 - nums1</code>&nbsp;是满足上述条件的质数对中的 <strong>最小值</strong>&nbsp;。</li>
 </ul>
 
 <p>请你返回正整数数组&nbsp;<code>ans = [nums1, nums2]</code>&nbsp;。如果有多个整数对满足上述条件，请你返回&nbsp;<code>nums1</code>&nbsp;最小的质数对。如果不存在符合题意的质数对，请你返回&nbsp;<code>[-1, -1]</code>&nbsp;。</p>
-
-<p>如果一个整数大于&nbsp;<code>1</code>&nbsp;，且只能被&nbsp;<code>1</code> 和它自己整除，那么它是一个 <strong>质数</strong>。</p>
 
 <p>&nbsp;</p>
 
@@ -67,9 +65,9 @@ tags:
 
 ### 方法一：线性筛
 
-对于给定的范围 $[left, right]$，我们可以使用线性筛求出所有质数，然后从小到大遍历质数，找到相邻的两个质数，其差值最小的质数对即为答案。
+对于给定的范围 $[\textit{left}, \textit{right}]$，我们可以使用线性筛求出所有质数，然后从小到大遍历质数，找到相邻的两个质数，其差值最小的质数对即为答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = right$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = \textit{right}$。
 
 <!-- tabs:start -->
 

@@ -80,7 +80,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：优先队列（最小堆）
+### 方法一：优先队列（小根堆）
+
+我们首先将每个朋友的到达时间、离开时间和编号组成一个三元组，然后按到达时间排序。
+
+我们使用一个小根堆 $\textit{idle}$ 来存储当前空闲的椅子编号，初始时，我们将 $0, 1, \ldots, n-1$ 加入 $\textit{idle}$ 中。使用一个小根堆 $\textit{busy}$ 存储二元组 $(\textit{leaving}, \textit{chair})$，其中 $\textit{leaving}$ 表示离开时间，而 $\textit{chair}$ 表示椅子编号。
+
+遍历每个朋友的到达时间、离开时间和编号，对于每个朋友，我们首先将所有离开时间小于等于当前朋友到达时间的朋友从 $\textit{busy}$ 中弹出，将他们占据的椅子编号加入 $\textit{idle}$ 中。然后我们从 $\textit{idle}$ 中弹出一个椅子编号，将其分配给当前朋友，将 $(\textit{leaving}, \textit{chair})$ 加入 $\textit{busy}$ 中。如果当前朋友的编号等于 $\textit{targetFriend}$，我们返回当前分配的椅子编号。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为朋友的个数。
 
 <!-- tabs:start -->
 
@@ -90,20 +98,19 @@ tags:
 class Solution:
     def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
         n = len(times)
-        h = list(range(n))
-        heapify(h)
         for i in range(n):
             times[i].append(i)
         times.sort()
+        idle = list(range(n))
+        heapify(idle)
         busy = []
-        for a, b, i in times:
-            while busy and busy[0][0] <= a:
-                heappush(h, heappop(busy)[1])
-            c = heappop(h)
+        for arrival, leaving, i in times:
+            while busy and busy[0][0] <= arrival:
+                heappush(idle, heappop(busy)[1])
+            j = heappop(idle)
             if i == targetFriend:
-                return c
-            heappush(busy, (b, c))
-        return -1
+                return j
+            heappush(busy, (leaving, j))
 ```
 
 #### Java
@@ -112,24 +119,23 @@ class Solution:
 class Solution {
     public int smallestChair(int[][] times, int targetFriend) {
         int n = times.length;
-        int[][] ts = new int[n][3];
-        PriorityQueue<Integer> q = new PriorityQueue<>();
-        PriorityQueue<int[]> busy = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<Integer> idle = new PriorityQueue<>();
+        PriorityQueue<int[]> busy = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
         for (int i = 0; i < n; ++i) {
-            ts[i] = new int[] {times[i][0], times[i][1], i};
-            q.offer(i);
+            times[i] = new int[] {times[i][0], times[i][1], i};
+            idle.offer(i);
         }
-        Arrays.sort(ts, (a, b) -> a[0] - b[0]);
-        for (int[] t : ts) {
-            int a = t[0], b = t[1], i = t[2];
-            while (!busy.isEmpty() && busy.peek()[0] <= a) {
-                q.offer(busy.poll()[1]);
+        Arrays.sort(times, Comparator.comparingInt(a -> a[0]));
+        for (var e : times) {
+            int arrival = e[0], leaving = e[1], i = e[2];
+            while (!busy.isEmpty() && busy.peek()[0] <= arrival) {
+                idle.offer(busy.poll()[1]);
             }
-            int c = q.poll();
+            int j = idle.poll();
             if (i == targetFriend) {
-                return c;
+                return j;
             }
-            busy.offer(new int[] {b, c});
+            busy.offer(new int[] {leaving, j});
         }
         return -1;
     }
@@ -139,31 +145,134 @@ class Solution {
 #### C++
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     int smallestChair(vector<vector<int>>& times, int targetFriend) {
-        priority_queue<int, vector<int>, greater<int>> q;
+        using pii = pair<int, int>;
         priority_queue<pii, vector<pii>, greater<pii>> busy;
+        priority_queue<int, vector<int>, greater<int>> idle;
         int n = times.size();
         for (int i = 0; i < n; ++i) {
             times[i].push_back(i);
-            q.push(i);
+            idle.push(i);
         }
-        sort(times.begin(), times.end());
-        for (auto& t : times) {
-            int a = t[0], b = t[1], i = t[2];
-            while (!busy.empty() && busy.top().first <= a) {
-                q.push(busy.top().second);
+        ranges::sort(times);
+        for (const auto& e : times) {
+            int arrival = e[0], leaving = e[1], i = e[2];
+            while (!busy.empty() && busy.top().first <= arrival) {
+                idle.push(busy.top().second);
                 busy.pop();
             }
-            int c = q.top();
-            q.pop();
-            if (i == targetFriend) return c;
-            busy.push({b, c});
+            int j = idle.top();
+            if (i == targetFriend) {
+                return j;
+            }
+            idle.pop();
+            busy.emplace(leaving, j);
         }
         return -1;
+    }
+};
+```
+
+#### Go
+
+```go
+func smallestChair(times [][]int, targetFriend int) int {
+	idle := hp{}
+	busy := hp2{}
+	for i := range times {
+		times[i] = append(times[i], i)
+		heap.Push(&idle, i)
+	}
+	sort.Slice(times, func(i, j int) bool { return times[i][0] < times[j][0] })
+	for _, e := range times {
+		arrival, leaving, i := e[0], e[1], e[2]
+		for len(busy) > 0 && busy[0].t <= arrival {
+			heap.Push(&idle, heap.Pop(&busy).(pair).i)
+		}
+		j := heap.Pop(&idle).(int)
+		if i == targetFriend {
+			return j
+		}
+		heap.Push(&busy, pair{leaving, j})
+	}
+	return -1
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+
+type pair struct{ t, i int }
+type hp2 []pair
+
+func (h hp2) Len() int           { return len(h) }
+func (h hp2) Less(i, j int) bool { return h[i].t < h[j].t || (h[i].t == h[j].t && h[i].i < h[j].i) }
+func (h hp2) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp2) Push(v any)        { *h = append(*h, v.(pair)) }
+func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
+#### TypeScript
+
+```ts
+function smallestChair(times: number[][], targetFriend: number): number {
+    const n = times.length;
+    const idle = new MinPriorityQueue();
+    const busy = new MinPriorityQueue({ priority: v => v[0] });
+    for (let i = 0; i < n; ++i) {
+        times[i].push(i);
+        idle.enqueue(i);
+    }
+    times.sort((a, b) => a[0] - b[0]);
+    for (const [arrival, leaving, i] of times) {
+        while (busy.size() > 0 && busy.front().element[0] <= arrival) {
+            idle.enqueue(busy.dequeue().element[1]);
+        }
+        const j = idle.dequeue().element;
+        if (i === targetFriend) {
+            return j;
+        }
+        busy.enqueue([leaving, j]);
+    }
+    return -1;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} times
+ * @param {number} targetFriend
+ * @return {number}
+ */
+var smallestChair = function (times, targetFriend) {
+    const n = times.length;
+    const idle = new MinPriorityQueue();
+    const busy = new MinPriorityQueue({ priority: v => v[0] });
+    for (let i = 0; i < n; ++i) {
+        times[i].push(i);
+        idle.enqueue(i);
+    }
+    times.sort((a, b) => a[0] - b[0]);
+    for (const [arrival, leaving, i] of times) {
+        while (busy.size() > 0 && busy.front().element[0] <= arrival) {
+            idle.enqueue(busy.dequeue().element[1]);
+        }
+        const j = idle.dequeue().element;
+        if (i === targetFriend) {
+            return j;
+        }
+        busy.enqueue([leaving, j]);
     }
 };
 ```

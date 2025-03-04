@@ -1,21 +1,20 @@
 class Solution {
 public:
     int maxValueOfCoins(vector<vector<int>>& piles, int k) {
-        vector<vector<int>> presum;
-        for (auto& p : piles) {
-            int m = p.size();
-            vector<int> s(m + 1);
-            for (int i = 0; i < m; ++i) s[i + 1] = s[i] + p[i];
-            presum.push_back(s);
-        }
-        vector<int> dp(k + 1);
-        for (auto& s : presum) {
-            for (int j = k; ~j; --j) {
-                for (int idx = 0; idx < s.size(); ++idx) {
-                    if (j >= idx) dp[j] = max(dp[j], dp[j - idx] + s[idx]);
+        int n = piles.size();
+        vector<vector<int>> f(n + 1, vector<int>(k + 1));
+        for (int i = 1; i <= n; i++) {
+            vector<int> nums = piles[i - 1];
+            vector<int> s(nums.size() + 1);
+            for (int j = 1; j <= nums.size(); j++) {
+                s[j] = s[j - 1] + nums[j - 1];
+            }
+            for (int j = 0; j <= k; j++) {
+                for (int h = 0; h < s.size() && h <= j; h++) {
+                    f[i][j] = max(f[i][j], f[i - 1][j - h] + s[h]);
                 }
             }
         }
-        return dp[k];
+        return f[n][k];
     }
 };

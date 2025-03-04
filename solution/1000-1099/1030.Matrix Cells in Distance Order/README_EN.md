@@ -100,8 +100,6 @@ class Solution:
 #### Java
 
 ```java
-import java.util.Deque;
-
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
         Deque<int[]> q = new ArrayDeque<>();

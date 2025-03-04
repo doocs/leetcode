@@ -2,12 +2,15 @@ class Solution {
 public:
     string maximumNumber(string num, vector<int>& change) {
         int n = num.size();
+        bool changed = false;
         for (int i = 0; i < n; ++i) {
-            if (change[num[i] - '0'] > num[i] - '0') {
-                for (; i < n && change[num[i] - '0'] >= num[i] - '0'; ++i) {
-                    num[i] = change[num[i] - '0'] + '0';
-                }
+            char d = '0' + change[num[i] - '0'];
+            if (changed && d < num[i]) {
                 break;
+            }
+            if (d > num[i]) {
+                changed = true;
+                num[i] = d;
             }
         }
         return num;

@@ -114,8 +114,7 @@ class Solution {
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt.getOrDefault(mask, 0);
-            cnt.merge(mask, 1, Integer::sum);
+            ans += cnt.merge(mask, 1, Integer::sum) - 1;
         }
         return ans;
     }
@@ -133,8 +132,7 @@ public:
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt[mask];
-            ++cnt[mask];
+            ans += cnt[mask]++;
         }
         return ans;
     }
@@ -170,6 +168,27 @@ function beautifulSubarrays(nums: number[]): number {
         cnt.set(mask, (cnt.get(mask) || 0) + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn beautiful_subarrays(nums: Vec<i32>) -> i64 {
+        let mut cnt = HashMap::new();
+        cnt.insert(0, 1);
+        let mut ans = 0;
+        let mut mask = 0;
+        for &x in nums.iter() {
+            mask ^= x;
+            ans += *cnt.get(&mask).unwrap_or(&0);
+            *cnt.entry(mask).or_insert(0) += 1;
+        }
+        ans
+    }
 }
 ```
 

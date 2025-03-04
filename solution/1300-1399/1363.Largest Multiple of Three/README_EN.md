@@ -7,7 +7,9 @@ source: Weekly Contest 177 Q4
 tags:
     - Greedy
     - Array
+    - Math
     - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->

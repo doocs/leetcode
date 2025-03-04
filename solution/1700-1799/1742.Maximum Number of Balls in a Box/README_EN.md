@@ -74,11 +74,11 @@ Box 10 has the most number of balls with 2 balls.
 
 ### Solution 1: Array + Simulation
 
-Observing the data range of the problem, the maximum number of the ball does not exceed $10^5$, so the maximum value of the sum of each digit of the number is less than $50$. Therefore, we can directly create an array $cnt$ with a length of $50$ to count the number of each digit sum of each number.
+Observing the problem's data range, the maximum number of balls does not exceed $10^5$, so the maximum sum of the digits of each number is less than $50$. Therefore, we can directly create an array $\textit{cnt}$ of length $50$ to count the number of occurrences of each digit sum.
 
-The answer is the maximum value in the array $cnt$.
+The answer is the maximum value in the array $\textit{cnt}$.
 
-The time complexity is $O(n \times \log_{10}m)$. Here, $n = highLimit - lowLimit + 1$, and $m = highLimit$.
+The time complexity is $O(n \times \log_{10}m)$. Here, $n = \textit{highLimit} - \textit{lowLimit} + 1$, and $m = \textit{highLimit}$.
 
 <!-- tabs:start -->
 
@@ -167,6 +167,67 @@ function countBalls(lowLimit: number, highLimit: number): number {
         ++cnt[y];
     }
     return Math.max(...cnt);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_balls(low_limit: i32, high_limit: i32) -> i32 {
+        let mut cnt = vec![0; 50];
+        for x in low_limit..=high_limit {
+            let mut y = 0;
+            let mut n = x;
+            while n > 0 {
+                y += n % 10;
+                n /= 10;
+            }
+            cnt[y as usize] += 1;
+        }
+        *cnt.iter().max().unwrap()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} lowLimit
+ * @param {number} highLimit
+ * @return {number}
+ */
+var countBalls = function (lowLimit, highLimit) {
+    const cnt = Array(50).fill(0);
+    for (let i = lowLimit; i <= highLimit; ++i) {
+        let y = 0;
+        for (let x = i; x; x = Math.floor(x / 10)) {
+            y += x % 10;
+        }
+        ++cnt[y];
+    }
+    return Math.max(...cnt);
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountBalls(int lowLimit, int highLimit) {
+        int[] cnt = new int[50];
+        for (int x = lowLimit; x <= highLimit; x++) {
+            int y = 0;
+            int n = x;
+            while (n > 0) {
+                y += n % 10;
+                n /= 10;
+            }
+            cnt[y]++;
+        }
+        return cnt.Max();
+    }
 }
 ```
 

@@ -1,24 +1,24 @@
 class Solution {
 public:
     vector<int> maximumBobPoints(int numArrows, vector<int>& aliceArrows) {
-        int n = aliceArrows.size();
-        int state = 0, mx = -1;
-        for (int mask = 1; mask < 1 << n; ++mask) {
-            int cnt = 0, points = 0;
-            for (int i = 0; i < n; ++i) {
-                if ((mask >> i) & 1) {
+        int st = 0, mx = 0;
+        int m = aliceArrows.size();
+        for (int mask = 1; mask < 1 << m; ++mask) {
+            int cnt = 0, s = 0;
+            for (int i = 0; i < m; ++i) {
+                if (mask >> i & 1) {
+                    s += i;
                     cnt += aliceArrows[i] + 1;
-                    points += i;
                 }
             }
-            if (cnt <= numArrows && mx < points) {
-                state = mask;
-                mx = points;
+            if (cnt <= numArrows && s > mx) {
+                mx = s;
+                st = mask;
             }
         }
-        vector<int> ans(n);
-        for (int i = 0; i < n; ++i) {
-            if ((state >> i) & 1) {
+        vector<int> ans(m);
+        for (int i = 0; i < m; ++i) {
+            if (st >> i & 1) {
                 ans[i] = aliceArrows[i] + 1;
                 numArrows -= ans[i];
             }

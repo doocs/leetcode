@@ -1,7 +1,7 @@
 class Solution {
     private int n;
     private int[][] g;
-    private int[][][] res;
+    private int[][][] ans;
     private int[][][] degree;
 
     private static final int HOLE = 0, MOUSE_START = 1, CAT_START = 2;
@@ -11,7 +11,7 @@ class Solution {
     public int catMouseGame(int[][] graph) {
         n = graph.length;
         g = graph;
-        res = new int[n][n][2];
+        ans = new int[n][n][2];
         degree = new int[n][n][2];
         for (int i = 0; i < n; ++i) {
             for (int j = 1; j < n; ++j) {
@@ -26,39 +26,39 @@ class Solution {
         }
         Deque<int[]> q = new ArrayDeque<>();
         for (int j = 1; j < n; ++j) {
-            res[0][j][MOUSE_TURN] = MOUSE_WIN;
-            res[0][j][CAT_TURN] = MOUSE_WIN;
+            ans[0][j][MOUSE_TURN] = MOUSE_WIN;
+            ans[0][j][CAT_TURN] = MOUSE_WIN;
             q.offer(new int[] {0, j, MOUSE_TURN});
             q.offer(new int[] {0, j, CAT_TURN});
         }
         for (int i = 1; i < n; ++i) {
-            res[i][i][MOUSE_TURN] = CAT_WIN;
-            res[i][i][CAT_TURN] = CAT_WIN;
+            ans[i][i][MOUSE_TURN] = CAT_WIN;
+            ans[i][i][CAT_TURN] = CAT_WIN;
             q.offer(new int[] {i, i, MOUSE_TURN});
             q.offer(new int[] {i, i, CAT_TURN});
         }
         while (!q.isEmpty()) {
             int[] state = q.poll();
-            int t = res[state[0]][state[1]][state[2]];
+            int t = ans[state[0]][state[1]][state[2]];
             List<int[]> prevStates = getPrevStates(state);
             for (var prevState : prevStates) {
                 int pm = prevState[0], pc = prevState[1], pt = prevState[2];
-                if (res[pm][pc][pt] == TIE) {
+                if (ans[pm][pc][pt] == TIE) {
                     boolean win
                         = (t == MOUSE_WIN && pt == MOUSE_TURN) || (t == CAT_WIN && pt == CAT_TURN);
                     if (win) {
-                        res[pm][pc][pt] = t;
+                        ans[pm][pc][pt] = t;
                         q.offer(prevState);
                     } else {
                         if (--degree[pm][pc][pt] == 0) {
-                            res[pm][pc][pt] = t;
+                            ans[pm][pc][pt] = t;
                             q.offer(prevState);
                         }
                     }
                 }
             }
         }
-        return res[MOUSE_START][CAT_START][MOUSE_TURN];
+        return ans[MOUSE_START][CAT_START][MOUSE_TURN];
     }
 
     private List<int[]> getPrevStates(int[] state) {

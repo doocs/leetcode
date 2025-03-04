@@ -50,13 +50,13 @@ tags:
 
 ### Solution 1: Simulation
 
-Directly simulate the generation process of the spiral matrix.
+We can directly simulate the process of generating the spiral matrix.
 
-Define a two-dimensional array `ans` to store the spiral matrix. Use `i` and `j` to represent the row number and column number of the current position, use `k` to represent the current direction number, and `dirs` to represent the correspondence between the direction number and the direction.
+Define a 2D array $\textit{ans}$ to store the spiral matrix. Use $i$ and $j$ to represent the current row and column indices, and use $k$ to represent the current direction index. $\textit{dirs}$ represents the mapping between direction indices and directions.
 
-Starting from `1`, fill in each position of the matrix in turn. After filling in a position each time, calculate the row number and column number of the next position. If the next position is not in the matrix or has been filled, change the direction, and then calculate the row number and column number of the next position.
+Starting from $1$, fill each position in the matrix sequentially. After filling a position, calculate the row and column indices of the next position. If the next position is out of bounds or has already been filled, change the direction and then calculate the row and column indices of the next position.
 
-The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. Ignoring the output array, the space complexity is $O(1)$.
+The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -66,15 +66,14 @@ The time complexity is $O(n^2)$, where $n$ is the side length of the matrix. Ign
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
         ans = [[0] * n for _ in range(n)]
-        dirs = ((0, 1), (1, 0), (0, -1), (-1, 0))
+        dirs = (0, 1, 0, -1, 0)
         i = j = k = 0
         for v in range(1, n * n + 1):
             ans[i][j] = v
-            x, y = i + dirs[k][0], j + dirs[k][1]
-            if x < 0 or y < 0 or x >= n or y >= n or ans[x][y]:
+            x, y = i + dirs[k], j + dirs[k + 1]
+            if x < 0 or x >= n or y < 0 or y >= n or ans[x][y]:
                 k = (k + 1) % 4
-                x, y = i + dirs[k][0], j + dirs[k][1]
-            i, j = x, y
+            i, j = i + dirs[k], j + dirs[k + 1]
         return ans
 ```
 
@@ -84,18 +83,16 @@ class Solution:
 class Solution {
     public int[][] generateMatrix(int n) {
         int[][] ans = new int[n][n];
+        final int[] dirs = {0, 1, 0, -1, 0};
         int i = 0, j = 0, k = 0;
-        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
         for (int v = 1; v <= n * n; ++v) {
             ans[i][j] = v;
-            int x = i + dirs[k][0], y = j + dirs[k][1];
-            if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= n || y < 0 || y >= n || ans[x][y] != 0) {
                 k = (k + 1) % 4;
-                x = i + dirs[k][0];
-                y = j + dirs[k][1];
             }
-            i = x;
-            j = y;
+            i += dirs[k];
+            j += dirs[k + 1];
         }
         return ans;
     }
@@ -107,19 +104,18 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int dirs[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-
     vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> ans(n, vector<int>(n));
+        vector<vector<int>> ans(n, vector<int>(n, 0));
+        const int dirs[5] = {0, 1, 0, -1, 0};
         int i = 0, j = 0, k = 0;
         for (int v = 1; v <= n * n; ++v) {
             ans[i][j] = v;
-            int x = i + dirs[k][0], y = j + dirs[k][1];
-            if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y]) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= n || y < 0 || y >= n || ans[x][y] != 0) {
                 k = (k + 1) % 4;
-                x = i + dirs[k][0], y = j + dirs[k][1];
             }
-            i = x, j = y;
+            i += dirs[k];
+            j += dirs[k + 1];
         }
         return ans;
     }
@@ -134,16 +130,16 @@ func generateMatrix(n int) [][]int {
 	for i := range ans {
 		ans[i] = make([]int, n)
 	}
-	dirs := [4][2]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
-	var i, j, k int
+	dirs := [5]int{0, 1, 0, -1, 0}
+	i, j, k := 0, 0, 0
 	for v := 1; v <= n*n; v++ {
 		ans[i][j] = v
-		x, y := i+dirs[k][0], j+dirs[k][1]
-		if x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0 {
+		x, y := i+dirs[k], j+dirs[k+1]
+		if x < 0 || x >= n || y < 0 || y >= n || ans[x][y] != 0 {
 			k = (k + 1) % 4
-			x, y = i+dirs[k][0], j+dirs[k][1]
 		}
-		i, j = x, y
+		i += dirs[k]
+		j += dirs[k+1]
 	}
 	return ans
 }
@@ -153,24 +149,17 @@ func generateMatrix(n int) [][]int {
 
 ```ts
 function generateMatrix(n: number): number[][] {
-    let ans = Array.from({ length: n }, v => new Array(n));
-    let dir = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    let i = 0,
-        j = 0;
-    for (let cnt = 1, k = 0; cnt <= n * n; cnt++) {
-        ans[i][j] = cnt;
-        let x = i + dir[k][0],
-            y = j + dir[k][1];
-        if (x < 0 || x == n || y < 0 || y == n || ans[x][y]) {
+    const ans: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    const dirs = [0, 1, 0, -1, 0];
+    let [i, j, k] = [0, 0, 0];
+    for (let v = 1; v <= n * n; v++) {
+        ans[i][j] = v;
+        const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+        if (x < 0 || x >= n || y < 0 || y >= n || ans[x][y] !== 0) {
             k = (k + 1) % 4;
-            (x = i + dir[k][0]), (y = j + dir[k][1]);
         }
-        (i = x), (j = y);
+        i += dirs[k];
+        j += dirs[k + 1];
     }
     return ans;
 }
@@ -181,31 +170,19 @@ function generateMatrix(n: number): number[][] {
 ```rust
 impl Solution {
     pub fn generate_matrix(n: i32) -> Vec<Vec<i32>> {
-        let n = n as usize;
-        let mut res = vec![vec![0; n]; n];
-        let mut num = 1;
-        for i in 0..n / 2 {
-            for j in i..n - i - 1 {
-                res[i][j] = num;
-                num += 1;
+        let mut ans = vec![vec![0; n as usize]; n as usize];
+        let dirs = [0, 1, 0, -1, 0];
+        let (mut i, mut j, mut k) = (0, 0, 0);
+        for v in 1..=n * n {
+            ans[i as usize][j as usize] = v;
+            let (x, y) = (i + dirs[k], j + dirs[k + 1]);
+            if x < 0 || x >= n || y < 0 || y >= n || ans[x as usize][y as usize] != 0 {
+                k = (k + 1) % 4;
             }
-            for j in i..n - i - 1 {
-                res[j][n - i - 1] = num;
-                num += 1;
-            }
-            for j in i..n - i - 1 {
-                res[n - i - 1][n - j - 1] = num;
-                num += 1;
-            }
-            for j in i..n - i - 1 {
-                res[n - j - 1][i] = num;
-                num += 1;
-            }
+            i += dirs[k];
+            j += dirs[k + 1];
         }
-        if n % 2 == 1 {
-            res[n >> 1][n >> 1] = num;
-        }
-        res
+        ans
     }
 }
 ```
@@ -218,62 +195,20 @@ impl Solution {
  * @return {number[][]}
  */
 var generateMatrix = function (n) {
-    const ans = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const ans = Array.from({ length: n }, () => Array(n).fill(0));
+    const dirs = [0, 1, 0, -1, 0];
     let [i, j, k] = [0, 0, 0];
-    const dirs = [
-        [0, 1],
-        [1, 0],
-        [0, -1],
-        [-1, 0],
-    ];
-    for (let v = 1; v <= n * n; ++v) {
+    for (let v = 1; v <= n * n; v++) {
         ans[i][j] = v;
-        let [x, y] = [i + dirs[k][0], j + dirs[k][1]];
-        if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y] > 0) {
+        const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+        if (x < 0 || x >= n || y < 0 || y >= n || ans[x][y] !== 0) {
             k = (k + 1) % 4;
-            [x, y] = [i + dirs[k][0], j + dirs[k][1]];
         }
-        [i, j] = [x, y];
+        i += dirs[k];
+        j += dirs[k + 1];
     }
     return ans;
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function generateMatrix(n: number): number[][] {
-    const res = new Array(n).fill(0).map(() => new Array(n).fill(0));
-    let num = 1;
-    for (let i = 0; i < Math.floor(n / 2); i++) {
-        for (let j = i; j < n - i - 1; j++) {
-            res[i][j] = num++;
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res[j][n - i - 1] = num++;
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res[n - i - 1][n - j - 1] = num++;
-        }
-        for (let j = i; j < n - i - 1; j++) {
-            res[n - j - 1][i] = num++;
-        }
-    }
-    if (n % 2 === 1) {
-        res[n >> 1][n >> 1] = num;
-    }
-    return res;
-}
 ```
 
 <!-- tabs:end -->

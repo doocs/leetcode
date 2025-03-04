@@ -97,9 +97,6 @@ Similar problems:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def findXSum(self, nums: List[int], k: int, x: int) -> List[int]:
         def add(v: int):

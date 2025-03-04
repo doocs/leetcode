@@ -65,7 +65,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ to represent the minimum number of changes needed to partition the first $i$ characters of the string $s$ into $j$ palindromic substrings. We assume the index $i$ starts from 1, and the answer is $f[n][k]$.
+
+For $f[i][j]$, we can enumerate the position $h$ of the last character of the $(j-1)$-th palindromic substring. Then $f[i][j]$ is equal to the minimum value of $f[h][j-1] + g[h][i-1]$, where $g[h][i-1]$ represents the minimum number of changes needed to turn the substring $s[h..i-1]$ into a palindrome (this part can be preprocessed with a time complexity of $O(n^2)$).
+
+The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times (n + k))$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -195,6 +201,76 @@ func palindromePartition(s string, k int) int {
 		}
 	}
 	return f[n][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function palindromePartition(s: string, k: number): number {
+    const n = s.length;
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = n - 1; i >= 0; i--) {
+        for (let j = i + 1; j < n; j++) {
+            g[i][j] = s[i] !== s[j] ? 1 : 0;
+            if (i + 1 < j) {
+                g[i][j] += g[i + 1][j - 1];
+            }
+        }
+    }
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= Math.min(i, k); j++) {
+            if (j === 1) {
+                f[i][j] = g[0][i - 1];
+            } else {
+                f[i][j] = 1 << 30;
+                for (let h = j - 1; h < i; h++) {
+                    f[i][j] = Math.min(f[i][j], f[h][j - 1] + g[h][i - 1]);
+                }
+            }
+        }
+    }
+    return f[n][k];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn palindrome_partition(s: String, k: i32) -> i32 {
+        let n = s.len();
+        let s: Vec<char> = s.chars().collect();
+        let mut g = vec![vec![0; n]; n];
+
+        for i in (0..n).rev() {
+            for j in i + 1..n {
+                g[i][j] = if s[i] != s[j] { 1 } else { 0 };
+                if i + 1 < j {
+                    g[i][j] += g[i + 1][j - 1];
+                }
+            }
+        }
+
+        let mut f = vec![vec![0; (k + 1) as usize]; n + 1];
+        let inf = i32::MAX;
+
+        for i in 1..=n {
+            for j in 1..=i.min(k as usize) {
+                if j == 1 {
+                    f[i][j] = g[0][i - 1];
+                } else {
+                    f[i][j] = inf;
+                    for h in (j - 1)..i {
+                        f[i][j] = f[i][j].min(f[h][j - 1] + g[h][i - 1]);
+                    }
+                }
+            }
+        }
+
+        f[n][k as usize]
+    }
 }
 ```
 

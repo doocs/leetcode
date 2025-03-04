@@ -5,8 +5,6 @@
 #         self.left = None
 #         self.right = None
 
-from sortedcontainers import SortedList
-
 
 class Solution:
     def getNumber(self, root: Optional[TreeNode], ops: List[List[int]]) -> int:

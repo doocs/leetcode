@@ -67,7 +67,7 @@ tags:
 
 ### 方法一：贪心
 
-我们先累计所有负收益，记为 $s$。然后枚举每个交易作为最后一个交易，如果 `transactions[i].x > transactions[i].y`，说明当前的交易是亏钱的，而这个交易在此前我们累计负收益的时候，已经被计算，因此取 `s + transactions[i].y` 更新答案；否则，取 `s + transactions[i].x` 更新答案。
+我们先累计所有负收益，记为 $s$。然后枚举每个交易 $\text{transactions}[i] = [a, b]$ 作为最后一个交易，如果 $a > b$，说明当前的交易是亏钱的，而这个交易在此前我们累计负收益的时候，已经被计算，因此取 $s + b$ 更新答案；否则，取 $s + a$ 更新答案。
 
 时间复杂度 $O(n)$，其中 $n$ 为交易数。空间复杂度 $O(1)$。
 
@@ -149,6 +149,68 @@ func minimumMoney(transactions [][]int) int64 {
 	}
 	return int64(ans)
 }
+```
+
+#### TypeScript
+
+```ts
+function minimumMoney(transactions: number[][]): number {
+    const s = transactions.reduce((acc, [a, b]) => acc + Math.max(0, a - b), 0);
+    let ans = 0;
+    for (const [a, b] of transactions) {
+        if (a > b) {
+            ans = Math.max(ans, s + b);
+        } else {
+            ans = Math.max(ans, s + a);
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_money(transactions: Vec<Vec<i32>>) -> i64 {
+        let mut s: i64 = 0;
+        for transaction in &transactions {
+            let (a, b) = (transaction[0], transaction[1]);
+            s += (a - b).max(0) as i64;
+        }
+        let mut ans = 0;
+        for transaction in &transactions {
+            let (a, b) = (transaction[0], transaction[1]);
+            if a > b {
+                ans = ans.max(s + b as i64);
+            } else {
+                ans = ans.max(s + a as i64);
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} transactions
+ * @return {number}
+ */
+var minimumMoney = function (transactions) {
+    const s = transactions.reduce((acc, [a, b]) => acc + Math.max(0, a - b), 0);
+    let ans = 0;
+    for (const [a, b] of transactions) {
+        if (a > b) {
+            ans = Math.max(ans, s + b);
+        } else {
+            ans = Math.max(ans, s + a);
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

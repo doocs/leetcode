@@ -22,15 +22,15 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given an <strong>1-indexed</strong> integer array <code>prices</code> where <code>prices[i]</code> denotes the number of coins needed to purchase the <code>i<sup>th</sup></code> fruit.</p>
+<p>You are given an <strong>0-indexed</strong> integer array <code>prices</code> where <code>prices[i]</code> denotes the number of coins needed to purchase the <code>(i + 1)<sup>th</sup></code> fruit.</p>
 
 <p>The fruit market has the following reward for each fruit:</p>
 
 <ul>
-	<li>If you purchase the <code>i<sup>th</sup></code> fruit at <code>prices[i]</code> coins, you can get any number of the next <code>i</code> fruits for free.</li>
+	<li>If you purchase the <code>(i + 1)<sup>th</sup></code> fruit at <code>prices[i]</code> coins, you can get any number of the next <code>i</code> fruits for free.</li>
 </ul>
 
-<p><strong>Note</strong> that even if you <strong>can</strong> take fruit <code>j</code> for free, you can still purchase it for <code>prices[j]</code> coins to receive its reward.</p>
+<p><strong>Note</strong> that even if you <strong>can</strong> take fruit <code>j</code> for free, you can still purchase it for <code>prices[j - 1]</code> coins to receive its reward.</p>
 
 <p>Return the <strong>minimum</strong> number of coins needed to acquire all the fruits.</p>
 
@@ -107,7 +107,18 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
+
+We define a function $\textit{dfs}(i)$ to represent the minimum number of coins needed to buy all the fruits starting from the $i$-th fruit. The answer is $\textit{dfs}(1)$.
+
+The execution logic of the function $\textit{dfs}(i)$ is as follows:
+
+-   If $i \times 2 \geq n$, it means that buying the $(i - 1)$-th fruit is sufficient, and the remaining fruits can be obtained for free, so return $\textit{prices}[i - 1]$.
+-   Otherwise, we can buy fruit $i$, and then choose a fruit $j$ to start buying from the next $i + 1$ to $2i + 1$ fruits. Thus, $\textit{dfs}(i) = \textit{prices}[i - 1] + \min_{i + 1 \le j \le 2i + 1} \textit{dfs}(j)$.
+
+To avoid redundant calculations, we use memoization to store the results that have already been computed. When encountering the same situation again, we directly return the result.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 
@@ -231,7 +242,17 @@ function minimumCoins(prices: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+We can rewrite the memoization search in Solution 1 into a dynamic programming form.
+
+Similar to Solution 1, we define $f[i]$ to represent the minimum number of coins needed to buy all the fruits starting from the $i$-th fruit. The answer is $f[1]$.
+
+The state transition equation is $f[i] = \min_{i + 1 \le j \le 2i + 1} f[j] + \textit{prices}[i - 1]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{prices}$.
+
+In the code implementation, we can directly use the $\textit{prices}$ array to store the $f$ array, thus optimizing the space complexity to $O(1)$.
 
 <!-- tabs:start -->
 
@@ -307,7 +328,13 @@ function minimumCoins(prices: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Dynamic Programming + Monotonic Queue Optimization
+
+Observing the state transition equation in Solution 2, we can see that for each $i$, we need to find the minimum value of $f[i + 1], f[i + 2], \cdots, f[2i + 1]$. As $i$ decreases, the range of these values also decreases. This is essentially finding the minimum value in a sliding window with a narrowing range, which can be optimized using a monotonic queue.
+
+We calculate from back to front, maintaining a monotonically increasing queue $q$, where the queue stores indices. If the front element of $q$ is greater than $i \times 2 + 1$, it means that the elements after $i$ will not be used, so we dequeue the front element. If $i$ is not greater than $(n - 1) / 2$, we can add $\textit{prices}[q[0] - 1]$ to $\textit{prices}[i - 1]$, and then add $i$ to the back of the queue. If the fruit price corresponding to the back element of $q$ is greater than or equal to $\textit{prices}[i - 1]$, we dequeue the back element until the fruit price corresponding to the back element is less than $\textit{prices}[i - 1]$ or the queue is empty, then add $i$ to the back of the queue.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{prices}$.
 
 <!-- tabs:start -->
 

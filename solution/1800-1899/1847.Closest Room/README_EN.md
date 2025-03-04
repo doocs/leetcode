@@ -88,9 +88,6 @@ The time complexity is $O(n \times \log n + k \times \log k)$, and the space com
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def closestRoom(
         self, rooms: List[List[int]], queries: List[List[int]]

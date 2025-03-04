@@ -27,8 +27,12 @@ tags:
 
 <ol>
 	<li><code>root.val == 0</code></li>
-	<li>如果 <code>treeNode.val == x</code> 且&nbsp;<code>treeNode.left != null</code>，那么&nbsp;<code>treeNode.left.val == 2 * x + 1</code></li>
-	<li>如果 <code>treeNode.val == x</code> 且 <code>treeNode.right != null</code>，那么&nbsp;<code>treeNode.right.val == 2 * x + 2</code></li>
+	<li>对于任意 <code>treeNode</code>：
+	<ol type="a">
+		<li>如果 <code>treeNode.val</code> 为&nbsp;<code>x</code> 且&nbsp;<code>treeNode.left != null</code>，那么&nbsp;<code>treeNode.left.val == 2 * x + 1</code></li>
+		<li>如果 <code>treeNode.val</code> 为&nbsp;<code>x</code> 且 <code>treeNode.right != null</code>，那么&nbsp;<code>treeNode.right.val == 2 * x + 2</code></li>
+	</ol>
+	</li>
 </ol>
 
 <p>现在这个二叉树受到「污染」，所有的&nbsp;<code>treeNode.val</code>&nbsp;都变成了&nbsp;<code>-1</code>。</p>
@@ -42,12 +46,13 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4-1.jpg" style="height: 119px; width: 320px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4-1.jpg" style="height: 119px; width: 320px;" /></strong></p>
 
-<pre><strong>输入：</strong>
-[&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;]
+<pre>
+<strong>输入：</strong>
+["FindElements","find","find"]
 [[[-1,null,-1]],[1],[2]]
 <strong>输出：</strong>
 [null,false,true]
@@ -56,12 +61,13 @@ FindElements findElements = new FindElements([-1,null,-1]);
 findElements.find(1); // return False 
 findElements.find(2); // return True </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4.jpg" style="height: 198px; width: 400px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4.jpg" style="height: 198px; width: 400px;" /></strong></p>
 
-<pre><strong>输入：</strong>
-[&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;]
+<pre>
+<strong>输入：</strong>
+["FindElements","find","find","find"]
 [[[-1,-1,-1,-1,-1]],[1],[3],[5]]
 <strong>输出：</strong>
 [null,true,true,false]
@@ -71,12 +77,13 @@ findElements.find(1); // return True
 findElements.find(3); // return True
 findElements.find(5); // return False</pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4-1-1.jpg" style="height: 274px; width: 306px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4-1-1.jpg" style="height: 274px; width: 306px;" /></strong></p>
 
-<pre><strong>输入：</strong>
-[&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;]
+<pre>
+<strong>输入：</strong>
+["FindElements","find","find","find","find"]
 [[[-1,null,-1,-1,null,-1]],[2],[3],[4],[5]]
 <strong>输出：</strong>
 [null,true,false,false,true]
@@ -95,9 +102,9 @@ findElements.find(5); // return True
 <ul>
 	<li><code>TreeNode.val == -1</code></li>
 	<li>二叉树的高度不超过&nbsp;<code>20</code></li>
-	<li>节点的总数在&nbsp;<code>[1,&nbsp;10^4]</code>&nbsp;之间</li>
-	<li>调用&nbsp;<code>find()</code>&nbsp;的总次数在&nbsp;<code>[1,&nbsp;10^4]</code>&nbsp;之间</li>
-	<li><code>0 &lt;= target &lt;= 10^6</code></li>
+	<li>节点的总数在&nbsp;<code>[1,&nbsp;10<sup>4</sup>]</code>&nbsp;之间</li>
+	<li>调用&nbsp;<code>find()</code>&nbsp;的总次数在&nbsp;<code>[1,&nbsp;10<sup>4</sup>]</code>&nbsp;之间</li>
+	<li><code>0 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 <!-- description:end -->
@@ -309,28 +316,73 @@ func (this *FindElements) Find(target int) bool {
  */
 
 class FindElements {
-    private s: Set<number> = new Set<number>();
+    readonly #s = new Set<number>();
 
     constructor(root: TreeNode | null) {
         root.val = 0;
-        const dfs = (root: TreeNode) => {
-            this.s.add(root.val);
-            if (root.left) {
-                root.left.val = root.val * 2 + 1;
-                dfs(root.left);
-            }
-            if (root.right) {
-                root.right.val = root.val * 2 + 2;
-                dfs(root.right);
-            }
+
+        const dfs = (node: TreeNode | null, x = 0) => {
+            if (!node) return;
+
+            this.#s.add(x);
+            dfs(node.left, x * 2 + 1);
+            dfs(node.right, x * 2 + 2);
         };
+
         dfs(root);
     }
 
     find(target: number): boolean {
-        return this.s.has(target);
+        return this.#s.has(target);
     }
 }
+
+/**
+ * Your FindElements object will be instantiated and called as such:
+ * var obj = new FindElements(root)
+ * var param_1 = obj.find(target)
+ */
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+
+const s = Symbol.for('s');
+
+/**
+ * @param {TreeNode} root
+ */
+var FindElements = function (root) {
+    root.val = 0;
+    this[s] = new Set();
+
+    const dfs = (node, x = 0) => {
+        if (!node) return;
+
+        this[s].add(x);
+        dfs(node.left, x * 2 + 1);
+        dfs(node.right, x * 2 + 2);
+    };
+
+    dfs(root);
+};
+
+/**
+ * @param {number} target
+ * @return {boolean}
+ */
+FindElements.prototype.find = function (target) {
+    return this[s].has(target);
+};
 
 /**
  * Your FindElements object will be instantiated and called as such:

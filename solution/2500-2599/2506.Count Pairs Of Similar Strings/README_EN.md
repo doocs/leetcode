@@ -115,8 +115,7 @@ class Solution {
             for (char c : s.toCharArray()) {
                 x |= 1 << (c - 'a');
             }
-            ans += cnt.getOrDefault(x, 0);
-            cnt.merge(x, 1, Integer::sum);
+            ans += cnt.merge(x, 1, Integer::sum) - 1;
         }
         return ans;
     }

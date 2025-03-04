@@ -5,14 +5,13 @@
  */
 var numSubarrayProductLessThanK = function (nums, k) {
     const n = nums.length;
-    let ans = 0;
-    let s = 1;
-    for (let i = 0, j = 0; i < n; ++i) {
-        s *= nums[i];
-        while (j <= i && s >= k) {
-            s = Math.floor(s / nums[j++]);
+    let [ans, l, p] = [0, 0, 1];
+    for (let r = 0; r < n; ++r) {
+        p *= nums[r];
+        while (l <= r && p >= k) {
+            p /= nums[l++];
         }
-        ans += i - j + 1;
+        ans += r - l + 1;
     }
     return ans;
 };

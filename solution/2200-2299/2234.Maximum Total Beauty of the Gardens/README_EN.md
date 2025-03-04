@@ -87,7 +87,19 @@ Note that Alice could make all the gardens complete but in this case, she would 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Binary Search
+
+We note that if the number of flowers in a garden is already greater than or equal to $\textit{target}$, then this garden is already a perfect garden and cannot be changed. For imperfect gardens, we can plant more flowers to make them perfect gardens.
+
+Let's enumerate how many gardens will eventually become perfect gardens. Suppose initially there are $x$ perfect gardens, then we can enumerate in the range $[x, n]$. Which imperfect gardens should we choose to become perfect gardens? In fact, we should choose the gardens with more flowers so that the remaining flowers can be used to increase the minimum value of the imperfect gardens. Therefore, we sort the array $\textit{flowers}$.
+
+Next, we enumerate the number of perfect gardens $x$. The current garden to become a perfect garden is $\textit{target}[n-x]$, and the number of flowers needed is $\max(0, \textit{target} - \textit{flowers}[n - x])$.
+
+We update the remaining flowers $\textit{newFlowers}$. If it is less than $0$, it means we can no longer make more gardens perfect, so we stop the enumeration.
+
+Otherwise, we perform a binary search in the range $[0,..n-x-1]$ to find the maximum index of the imperfect gardens that can be turned into perfect gardens. Let the index be $l$, then the number of flowers needed is $\textit{cost} = \textit{flowers}[l] \times (l + 1) - s[l + 1]$, where $s[i]$ is the sum of the first $i$ numbers in the $\textit{flowers}$ array. If we can still increase the minimum value, we calculate the increase $\frac{\textit{newFlowers} - \textit{cost}}{l + 1}$, and ensure that the final minimum value does not exceed $\textit{target}-1$. That is, the minimum value $y = \min(\textit{flowers}[l] + \frac{\textit{newFlowers} - \textit{cost}}{l + 1}, \textit{target} - 1)$. Then the beauty value of the garden is $x \times \textit{full} + y \times \textit{partial}$. The answer is the maximum of all beauty values.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the $\textit{flowers}$ array.
 
 <!-- tabs:start -->
 

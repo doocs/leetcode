@@ -1,18 +1,17 @@
 function letterCasePermutation(s: string): string[] {
-    const n = s.length;
-    const cs = [...s];
-    const res = [];
+    const t = s.split('');
+    const ans: string[] = [];
     const dfs = (i: number) => {
-        if (i === n) {
-            res.push(cs.join(''));
+        if (i >= t.length) {
+            ans.push(t.join(''));
             return;
         }
         dfs(i + 1);
-        if (cs[i] >= 'A') {
-            cs[i] = String.fromCharCode(cs[i].charCodeAt(0) ^ 32);
+        if (t[i].charCodeAt(0) >= 65) {
+            t[i] = String.fromCharCode(t[i].charCodeAt(0) ^ 32);
             dfs(i + 1);
         }
     };
     dfs(0);
-    return res;
+    return ans;
 }

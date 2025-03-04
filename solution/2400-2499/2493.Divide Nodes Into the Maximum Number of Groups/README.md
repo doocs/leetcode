@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2493.Di
 rating: 2415
 source: 第 322 场周赛 Q4
 tags:
+    - 深度优先搜索
     - 广度优先搜索
     - 并查集
     - 图

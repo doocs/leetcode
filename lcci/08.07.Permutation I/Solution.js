@@ -6,7 +6,7 @@ var permutation = function (S) {
     const n = S.length;
     const vis = Array(n).fill(false);
     const ans = [];
-    const t = [];
+    const t = Array(n).fill('');
     const dfs = i => {
         if (i >= n) {
             ans.push(t.join(''));
@@ -17,9 +17,8 @@ var permutation = function (S) {
                 continue;
             }
             vis[j] = true;
-            t.push(S[j]);
+            t[i] = S[j];
             dfs(i + 1);
-            t.pop();
             vis[j] = false;
         }
     };

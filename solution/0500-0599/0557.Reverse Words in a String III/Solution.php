@@ -4,10 +4,10 @@ class Solution {
      * @return String
      */
     function reverseWords($s) {
-        $sArr = explode(' ', $s);
-        for ($i = 0; $i < count($sArr); $i++) {
-            $sArr[$i] = strrev($sArr[$i]);
+        $words = explode(' ', $s);
+        foreach ($words as $i => $word) {
+            $words[$i] = strrev($word);
         }
-        return implode(' ', $sArr);
+        return implode(' ', $words);
     }
 }

@@ -10,9 +10,8 @@
 class Solution {
 public:
     int pathSum(TreeNode* root, int sum) {
-        unordered_map<long long, int> cnt;
-        cnt[0] = 1;
-        function<int(TreeNode*, long long)> dfs = [&](TreeNode* root, long long s) {
+        unordered_map<long long, int> cnt{{0, 1}};
+        auto dfs = [&](this auto&& dfs, TreeNode* root, long long s) -> int {
             if (!root) {
                 return 0;
             }

@@ -78,7 +78,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the length of the longest turbulent subarray ending at $\textit{nums}[i]$ with an increasing state, and $g[i]$ as the length of the longest turbulent subarray ending at $\textit{nums}[i]$ with a decreasing state. Initially, $f[0] = 1$, $g[0] = 1$. The answer is $\max(f[i], g[i])$.
+
+For $i \gt 0$, if $\textit{nums}[i] \gt \textit{nums}[i - 1]$, then $f[i] = g[i - 1] + 1$, otherwise $f[i] = 1$; if $\textit{nums}[i] \lt \textit{nums}[i - 1]$, then $g[i] = f[i - 1] + 1$, otherwise $g[i] = 1$.
+
+Since $f[i]$ and $g[i]$ are only related to $f[i - 1]$ and $g[i - 1]$, two variables can be used instead of arrays.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -168,6 +176,28 @@ function maxTurbulenceSize(arr: number[]): number {
         ans = Math.max(ans, f, g);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_turbulence_size(arr: Vec<i32>) -> i32 {
+        let mut ans = 1;
+        let mut f = 1;
+        let mut g = 1;
+
+        for i in 1..arr.len() {
+            let ff = if arr[i - 1] < arr[i] { g + 1 } else { 1 };
+            let gg = if arr[i - 1] > arr[i] { f + 1 } else { 1 };
+            f = ff;
+            g = gg;
+            ans = ans.max(f.max(g));
+        }
+
+        ans
+    }
 }
 ```
 

@@ -112,9 +112,6 @@ obj.calculateMKAverage(); // 最后 3 个元素为 [5,5,5]
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class MKAverage:
     def __init__(self, m: int, k: int):
         self.m = m
@@ -454,9 +451,6 @@ func (this *MKAverage) CalculateMKAverage() int {
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class MKAverage:
     def __init__(self, m: int, k: int):
         self.m = m

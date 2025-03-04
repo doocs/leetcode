@@ -123,9 +123,6 @@ The time complexity is $(n \times \log n)$, and the space complexity is $O(n)$. 
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class DinnerPlates:
     def __init__(self, capacity: int):
         self.capacity = capacity

@@ -75,7 +75,11 @@ tags:
 
 ### 方法一：排序 + 二分查找
 
-时间复杂度 $O(n \times \log n)$，其中 $n$ 表示 $events$ 的长度。
+我们可以讲活动按照开始排序，然后预处理出以每个活动为作为开始的最大价值，即 $f[i]$ 表示从第 $i$ 个活动开始，到最后一个活动结束，选择其中一个活动的最大价值。
+
+然后我们枚举每个活动，对于每个活动，我们使用二分查找找到第一个开始时间大于当前活动结束时间的活动，下标记为 $\textit{idx}$，那么以当前活动为开始的最大价值就是 $f[\textit{idx}]$，加上当前活动的价值，即为以当前活动为第一个活动，最终能获得的最大价值。求最大值即可。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为活动的数量。
 
 <!-- tabs:start -->
 
@@ -137,22 +141,27 @@ class Solution {
 class Solution {
 public:
     int maxTwoEvents(vector<vector<int>>& events) {
-        sort(events.begin(), events.end());
+        ranges::sort(events);
         int n = events.size();
         vector<int> f(n + 1);
-        for (int i = n - 1; ~i; --i) f[i] = max(f[i + 1], events[i][2]);
+        for (int i = n - 1; ~i; --i) {
+            f[i] = max(f[i + 1], events[i][2]);
+        }
         int ans = 0;
-        for (auto& e : events) {
+        for (const auto& e : events) {
             int v = e[2];
             int left = 0, right = n;
             while (left < right) {
                 int mid = (left + right) >> 1;
-                if (events[mid][0] > e[1])
+                if (events[mid][0] > e[1]) {
                     right = mid;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
-            if (left < n) v += f[left];
+            if (left < n) {
+                v += f[left];
+            }
             ans = max(ans, v);
         }
         return ans;
@@ -190,6 +199,34 @@ func maxTwoEvents(events [][]int) int {
 		ans = max(ans, v)
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTwoEvents(events: number[][]): number {
+    events.sort((a, b) => a[0] - b[0]);
+    const n = events.length;
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; ~i; --i) {
+        f[i] = Math.max(f[i + 1], events[i][2]);
+    }
+    let ans = 0;
+    for (const [_, end, v] of events) {
+        let [left, right] = [0, n];
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (events[mid][0] > end) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        const t = left < n ? f[left] : 0;
+        ans = Math.max(ans, t + v);
+    }
+    return ans;
 }
 ```
 

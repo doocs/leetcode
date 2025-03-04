@@ -27,8 +27,12 @@ tags:
 
 <ol>
 	<li><code>root.val == 0</code></li>
-	<li>If <code>treeNode.val == x</code> and <code>treeNode.left != null</code>, then <code>treeNode.left.val == 2 * x + 1</code></li>
-	<li>If <code>treeNode.val == x</code> and <code>treeNode.right != null</code>, then <code>treeNode.right.val == 2 * x + 2</code></li>
+	<li>For any <code>treeNode</code>:
+	<ol type="a">
+		<li>If <code>treeNode.val</code> has a value <code>x</code> and <code>treeNode.left != null</code>, then <code>treeNode.left.val == 2 * x + 1</code></li>
+		<li>If <code>treeNode.val</code> has a value <code>x</code> and <code>treeNode.right != null</code>, then <code>treeNode.right.val == 2 * x + 2</code></li>
+	</ol>
+	</li>
 </ol>
 
 <p>Now the binary tree is contaminated, which means all <code>treeNode.val</code> have been changed to <code>-1</code>.</p>
@@ -304,28 +308,73 @@ func (this *FindElements) Find(target int) bool {
  */
 
 class FindElements {
-    private s: Set<number> = new Set<number>();
+    readonly #s = new Set<number>();
 
     constructor(root: TreeNode | null) {
         root.val = 0;
-        const dfs = (root: TreeNode) => {
-            this.s.add(root.val);
-            if (root.left) {
-                root.left.val = root.val * 2 + 1;
-                dfs(root.left);
-            }
-            if (root.right) {
-                root.right.val = root.val * 2 + 2;
-                dfs(root.right);
-            }
+
+        const dfs = (node: TreeNode | null, x = 0) => {
+            if (!node) return;
+
+            this.#s.add(x);
+            dfs(node.left, x * 2 + 1);
+            dfs(node.right, x * 2 + 2);
         };
+
         dfs(root);
     }
 
     find(target: number): boolean {
-        return this.s.has(target);
+        return this.#s.has(target);
     }
 }
+
+/**
+ * Your FindElements object will be instantiated and called as such:
+ * var obj = new FindElements(root)
+ * var param_1 = obj.find(target)
+ */
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+
+const s = Symbol.for('s');
+
+/**
+ * @param {TreeNode} root
+ */
+var FindElements = function (root) {
+    root.val = 0;
+    this[s] = new Set();
+
+    const dfs = (node, x = 0) => {
+        if (!node) return;
+
+        this[s].add(x);
+        dfs(node.left, x * 2 + 1);
+        dfs(node.right, x * 2 + 2);
+    };
+
+    dfs(root);
+};
+
+/**
+ * @param {number} target
+ * @return {boolean}
+ */
+FindElements.prototype.find = function (target) {
+    return this[s].has(target);
+};
 
 /**
  * Your FindElements object will be instantiated and called as such:

@@ -1,26 +1,42 @@
-func longestWord(words []string) string {
-	s := make(map[string]bool)
-	for _, w := range words {
-		s[w] = true
-	}
-	cnt := 0
-	ans := ""
-	check := func(word string) bool {
-		for i, n := 1, len(word); i < n; i++ {
-			if !s[word[:i]] {
-				return false
-			}
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
+}
+
+func (t *Trie) insert(w string) {
+	node := t
+	for i := 0; i < len(w); i++ {
+		idx := w[i] - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
 		}
-		return true
+		node = node.children[idx]
 	}
-	for w, _ := range s {
-		n := len(w)
-		if check(w) {
-			if cnt < n {
-				cnt, ans = n, w
-			} else if cnt == n && w < ans {
-				ans = w
-			}
+	node.isEnd = true
+}
+
+func (t *Trie) search(w string) bool {
+	node := t
+	for i := 0; i < len(w); i++ {
+		idx := w[i] - 'a'
+		if node.children[idx] == nil || !node.children[idx].isEnd {
+			return false
+		}
+		node = node.children[idx]
+	}
+	return true
+}
+
+func longestWord(words []string) string {
+	trie := &Trie{}
+	for _, w := range words {
+		trie.insert(w)
+	}
+
+	ans := ""
+	for _, w := range words {
+		if trie.search(w) && (len(ans) < len(w) || (len(ans) == len(w) && w < ans)) {
+			ans = w
 		}
 	}
 	return ans

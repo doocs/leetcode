@@ -3,6 +3,5 @@ class Solution:
         diff = (sum(aliceSizes) - sum(bobSizes)) >> 1
         s = set(bobSizes)
         for a in aliceSizes:
-            target = a - diff
-            if target in s:
-                return [a, target]
+            if (b := (a - diff)) in s:
+                return [a, b]

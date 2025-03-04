@@ -60,7 +60,13 @@ It can be shown that 11 is the maximum possible bitwise XOR.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+In one operation, we can update $\textit{nums}[i]$ to $\textit{nums}[i] \text{ AND } (\textit{nums}[i] \text{ XOR } x)$. Since $x$ is any non-negative integer, the result of $\textit{nums}[i] \oplus x$ can be any value. By performing a bitwise AND operation with $\textit{nums}[i]$, we can change some of the $1$ bits in the binary representation of $\textit{nums}[i]$ to $0$.
+
+The problem requires us to find the maximum bitwise XOR sum of all elements in $\textit{nums}$. For a binary bit, as long as there is an element in $\textit{nums}$ with the corresponding binary bit set to $1$, the contribution of this binary bit to the maximum bitwise XOR sum is $1$. Therefore, the answer is the result of the bitwise OR operation of all elements in $\textit{nums}$.
+
+The time complexity is $O(n)$, where $n$ is the length of $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

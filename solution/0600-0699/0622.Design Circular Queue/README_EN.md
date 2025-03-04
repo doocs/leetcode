@@ -75,7 +75,23 @@ myCircularQueue.Rear();     // return 4
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Array Simulation
+
+We can use an array $q$ of length $k$ to simulate a circular queue, with a pointer $\textit{front}$ to record the position of the front element. Initially, the queue is empty, and $\textit{front}$ is $0$. Additionally, we use a variable $\textit{size}$ to record the number of elements in the queue, initially $\textit{size}$ is $0$.
+
+When calling the `enQueue` method, we first check if the queue is full, i.e., $\textit{size} = k$. If it is full, we return $\textit{false}$. Otherwise, we insert the element at position $(\textit{front} + \textit{size}) \bmod k$, then $\textit{size} = \textit{size} + 1$, indicating that the number of elements in the queue has increased by $1$. Finally, we return $\textit{true}$.
+
+When calling the `deQueue` method, we first check if the queue is empty, i.e., $\textit{size} = 0$. If it is empty, we return $\textit{false}$. Otherwise, we set $\textit{front} = (\textit{front} + 1) \bmod k$, indicating that the front element has been dequeued, then $\textit{size} = \textit{size} - 1$.
+
+When calling the `Front` method, we first check if the queue is empty, i.e., $\textit{size} = 0$. If it is empty, we return $-1$. Otherwise, we return $q[\textit{front}]$.
+
+When calling the `Rear` method, we first check if the queue is empty, i.e., $\textit{size} = 0$. If it is empty, we return $-1$. Otherwise, we return $q[(\textit{front} + \textit{size} - 1) \bmod k]$.
+
+When calling the `isEmpty` method, we simply check if $\textit{size} = 0$.
+
+When calling the `isFull` method, we simply check if $\textit{size} = k$.
+
+In terms of time complexity, the above operations all have a time complexity of $O(1)$. The space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -83,17 +99,17 @@ myCircularQueue.Rear();     // return 4
 
 ```python
 class MyCircularQueue:
+
     def __init__(self, k: int):
         self.q = [0] * k
-        self.front = 0
         self.size = 0
         self.capacity = k
+        self.front = 0
 
     def enQueue(self, value: int) -> bool:
         if self.isFull():
             return False
-        idx = (self.front + self.size) % self.capacity
-        self.q[idx] = value
+        self.q[(self.front + self.size) % self.capacity] = value
         self.size += 1
         return True
 
@@ -110,8 +126,7 @@ class MyCircularQueue:
     def Rear(self) -> int:
         if self.isEmpty():
             return -1
-        idx = (self.front + self.size - 1) % self.capacity
-        return self.q[idx]
+        return self.q[(self.front + self.size - 1) % self.capacity]
 
     def isEmpty(self) -> bool:
         return self.size == 0
@@ -404,24 +419,19 @@ class MyCircularQueue {
 
 ```rust
 struct MyCircularQueue {
-    queue: Vec<i32>,
-    left: usize,
-    right: usize,
+    q: Vec<i32>,
+    size: usize,
     capacity: usize,
+    front: usize,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MyCircularQueue {
     fn new(k: i32) -> Self {
-        let k = k as usize;
-        Self {
-            queue: vec![0; k],
-            left: 0,
-            right: 0,
-            capacity: k,
+        MyCircularQueue {
+            q: vec![0; k as usize],
+            size: 0,
+            capacity: k as usize,
+            front: 0,
         }
     }
 
@@ -429,8 +439,9 @@ impl MyCircularQueue {
         if self.is_full() {
             return false;
         }
-        self.queue[self.right % self.capacity] = value;
-        self.right += 1;
+        let rear = (self.front + self.size) % self.capacity;
+        self.q[rear] = value;
+        self.size += 1;
         true
     }
 
@@ -438,30 +449,34 @@ impl MyCircularQueue {
         if self.is_empty() {
             return false;
         }
-        self.left += 1;
+        self.front = (self.front + 1) % self.capacity;
+        self.size -= 1;
         true
     }
 
     fn front(&self) -> i32 {
         if self.is_empty() {
-            return -1;
+            -1
+        } else {
+            self.q[self.front]
         }
-        self.queue[self.left % self.capacity]
     }
 
     fn rear(&self) -> i32 {
         if self.is_empty() {
-            return -1;
+            -1
+        } else {
+            let rear = (self.front + self.size - 1) % self.capacity;
+            self.q[rear]
         }
-        self.queue[(self.right - 1) % self.capacity]
     }
 
     fn is_empty(&self) -> bool {
-        self.right - self.left == 0
+        self.size == 0
     }
 
     fn is_full(&self) -> bool {
-        self.right - self.left == self.capacity
+        self.size == self.capacity
     }
 }
 ```

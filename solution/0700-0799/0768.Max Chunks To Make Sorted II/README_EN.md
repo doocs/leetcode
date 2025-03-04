@@ -61,7 +61,11 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Monotonic Stack
+
+According to the problem, we can find that from left to right, each chunk has a maximum value, and these maximum values are monotonically increasing (non-strictly increasing). We can use a stack to store these maximum values of the chunks. The size of the final stack is the maximum number of chunks that can be sorted.
+
+Time complexity is $O(n)$, where $n$ represents the length of $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -151,19 +155,19 @@ func maxChunksToSorted(arr []int) int {
 
 ```ts
 function maxChunksToSorted(arr: number[]): number {
-    const stack = [];
-    for (const num of arr) {
-        if (stack.length !== 0 && num < stack[stack.length - 1]) {
-            const max = stack.pop();
-            while (stack.length !== 0 && num < stack[stack.length - 1]) {
-                stack.pop();
-            }
-            stack.push(max);
+    const stk: number[] = [];
+    for (let v of arr) {
+        if (stk.length === 0 || v >= stk[stk.length - 1]) {
+            stk.push(v);
         } else {
-            stack.push(num);
+            let mx = stk.pop()!;
+            while (stk.length > 0 && stk[stk.length - 1] > v) {
+                stk.pop();
+            }
+            stk.push(mx);
         }
     }
-    return stack.length;
+    return stk.length;
 }
 ```
 
@@ -172,19 +176,23 @@ function maxChunksToSorted(arr: number[]): number {
 ```rust
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
-        let mut stack = vec![];
-        for num in arr.iter() {
-            if !stack.is_empty() && num < stack.last().unwrap() {
-                let max = stack.pop().unwrap();
-                while !stack.is_empty() && num < stack.last().unwrap() {
-                    stack.pop();
-                }
-                stack.push(max);
+        let mut stk = Vec::new();
+        for &v in arr.iter() {
+            if stk.is_empty() || v >= *stk.last().unwrap() {
+                stk.push(v);
             } else {
-                stack.push(*num);
+                let mut mx = stk.pop().unwrap();
+                while let Some(&top) = stk.last() {
+                    if top > v {
+                        stk.pop();
+                    } else {
+                        break;
+                    }
+                }
+                stk.push(mx);
             }
         }
-        stack.len() as i32
+        stk.len() as i32
     }
 }
 ```

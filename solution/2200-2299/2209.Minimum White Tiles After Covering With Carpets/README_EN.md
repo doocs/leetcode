@@ -69,18 +69,18 @@ Note that the carpets are able to overlap one another.
 
 ### Solution 1: Memoization Search
 
-Design a function $dfs(i, j)$ to represent the minimum number of white bricks that are not covered starting from index $i$ using $j$ carpets. The answer is $dfs(0, numCarpets)$.
+We design a function $\textit{dfs}(i, j)$ to represent the minimum number of white tiles that are not covered starting from index $i$ using $j$ carpets. The answer is $\textit{dfs}(0, \textit{numCarpets})$.
 
-For index $i$, we discuss different cases:
+For index $i$, we discuss the following cases:
 
--   If $i \ge n$, it means that all bricks have been covered, return $0$;
--   If $floor[i] = 0$, there is no need to use a carpet, just skip it, that is, $dfs(i, j) = dfs(i + 1, j)$;
--   If $j = 0$, we can directly calculate the number of remaining white bricks that have not been covered using the prefix sum array $s$, that is, $dfs(i, j) = s[n] - s[i]$;
--   If $floor[i] = 1$, we can choose to use a carpet to cover it, or choose not to use a carpet to cover it, and take the minimum of the two, that is, $dfs(i, j) = min(dfs(i + 1, j), dfs(i + carpetLen, j - 1))$.
+-   If $i \ge n$, it means all tiles have been covered, return $0$;
+-   If $\textit{floor}[i] = 0$, then we do not need to use a carpet, just skip it, i.e., $\textit{dfs}(i, j) = \textit{dfs}(i + 1, j)$;
+-   If $j = 0$, then we can directly use the prefix sum array $s$ to calculate the number of remaining uncovered white tiles, i.e., $\textit{dfs}(i, j) = s[n] - s[i]$;
+-   If $\textit{floor}[i] = 1$, then we can choose to use a carpet or not, and take the minimum of the two, i.e., $\textit{dfs}(i, j) = \min(\textit{dfs}(i + 1, j), \textit{dfs}(i + \textit{carpetLen}, j - 1))$.
 
-Use memoization search.
+We use memoization search to solve this problem.
 
-The time complexity is $O(n\times m)$, and the space complexity is $O(n\times m)$. Where $n$ and $m$ are the lengths of the string $floor$ and the value of $numCarpets$ respectively.
+The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the length of the string $\textit{floor}$ and the value of $\textit{numCarpets}$, respectively.
 
 <!-- tabs:start -->
 
@@ -90,10 +90,10 @@ The time complexity is $O(n\times m)$, and the space complexity is $O(n\times m)
 class Solution:
     def minimumWhiteTiles(self, floor: str, numCarpets: int, carpetLen: int) -> int:
         @cache
-        def dfs(i, j):
+        def dfs(i: int, j: int) -> int:
             if i >= n:
                 return 0
-            if floor[i] == '0':
+            if floor[i] == "0":
                 return dfs(i + 1, j)
             if j == 0:
                 return s[-1] - s[i]
@@ -102,7 +102,7 @@ class Solution:
         n = len(floor)
         s = [0] * (n + 1)
         for i, c in enumerate(floor):
-            s[i + 1] = s[i] + int(c == '1')
+            s[i + 1] = s[i] + int(c == "1")
         ans = dfs(0, numCarpets)
         dfs.cache_clear()
         return ans
@@ -112,17 +112,14 @@ class Solution:
 
 ```java
 class Solution {
-    private int[][] f;
+    private Integer[][] f;
     private int[] s;
     private int n;
     private int k;
 
     public int minimumWhiteTiles(String floor, int numCarpets, int carpetLen) {
         n = floor.length();
-        f = new int[n][numCarpets + 1];
-        for (var e : f) {
-            Arrays.fill(e, -1);
-        }
+        f = new Integer[n][numCarpets + 1];
         s = new int[n + 1];
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + (floor.charAt(i) == '1' ? 1 : 0);
@@ -138,7 +135,7 @@ class Solution {
         if (j == 0) {
             return s[n] - s[i];
         }
-        if (f[i][j] != -1) {
+        if (f[i][j] != null) {
             return f[i][j];
         }
         if (s[i + 1] == s[i]) {
@@ -163,12 +160,19 @@ public:
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + (floor[i] == '1');
         }
-        function<int(int, int)> dfs;
-        dfs = [&](int i, int j) {
-            if (i >= n) return 0;
-            if (j == 0) return s[n] - s[i];
-            if (f[i][j] != -1) return f[i][j];
-            if (s[i + 1] == s[i]) return dfs(i + 1, j);
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
+            if (i >= n) {
+                return 0;
+            }
+            if (j == 0) {
+                return s[n] - s[i];
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
+            if (s[i + 1] == s[i]) {
+                return dfs(i + 1, j);
+            }
             int ans = min(1 + dfs(i + 1, j), dfs(i + carpetLen, j - 1));
             f[i][j] = ans;
             return ans;
@@ -213,6 +217,37 @@ func minimumWhiteTiles(floor string, numCarpets int, carpetLen int) int {
 		return ans
 	}
 	return dfs(0, numCarpets)
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumWhiteTiles(floor: string, numCarpets: number, carpetLen: number): number {
+    const n = floor.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(numCarpets + 1).fill(-1));
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + (floor[i] === '1' ? 1 : 0);
+    }
+    const dfs = (i: number, j: number): number => {
+        if (i >= n) {
+            return 0;
+        }
+        if (j === 0) {
+            return s[n] - s[i];
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+        if (s[i + 1] === s[i]) {
+            return dfs(i + 1, j);
+        }
+        const ans = Math.min(1 + dfs(i + 1, j), dfs(i + carpetLen, j - 1));
+        f[i][j] = ans;
+        return ans;
+    };
+    return dfs(0, numCarpets);
 }
 ```
 

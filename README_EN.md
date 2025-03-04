@@ -18,9 +18,9 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
 
 [中文文档](/README.md)
 
-## Sites
+## Site
 
-https://doocs.github.io/leetcode
+https://doocs.github.io/leetcode/en
 
 ## Solutions
 
@@ -31,8 +31,8 @@ https://doocs.github.io/leetcode
 
 ## JavaScript & Database Practice
 
--   [JavaScript Practice](/solution/JAVASCRIPT_README_EN.md)
--   [Database Practice](/solution/DATABASE_README_EN.md)
+-   [JavaScript](/solution/JAVASCRIPT_README_EN.md)
+-   [Database](/solution/DATABASE_README_EN.md)
 
 ## Topics
 

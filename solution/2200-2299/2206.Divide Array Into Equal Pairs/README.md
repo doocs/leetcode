@@ -69,7 +69,13 @@ nums 可以划分成 (2, 2) ，(3, 3) 和 (2, 2) ，满足所有要求。
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+根据题目描述，只要数组中每个元素出现的次数都是偶数次，就可以将数组划分成 $n$ 个数对。
+
+因此，我们可以用一个哈希表或者数组 $\textit{cnt}$ 记录每个元素出现的次数，然后遍历 $\textit{cnt}$，如果有任何一个元素出现的次数是奇数次，就返回 $\textit{false}$，否则返回 $\textit{true}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -107,11 +113,15 @@ class Solution {
 class Solution {
 public:
     bool divideArray(vector<int>& nums) {
-        vector<int> cnt(510);
-        for (int& v : nums) ++cnt[v];
-        for (int& v : cnt)
-            if (v % 2)
+        int cnt[510]{};
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        for (int i = 1; i <= 500; ++i) {
+            if (cnt[i] % 2) {
                 return false;
+            }
+        }
         return true;
     }
 };
@@ -121,17 +131,61 @@ public:
 
 ```go
 func divideArray(nums []int) bool {
-	cnt := make([]int, 510)
-	for _, v := range nums {
-		cnt[v]++
+	cnt := [510]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
 	for _, v := range cnt {
-		if v%2 == 1 {
+		if v%2 != 0 {
 			return false
 		}
 	}
 	return true
 }
+```
+
+#### TypeScript
+
+```ts
+function divideArray(nums: number[]): boolean {
+    const cnt: Record<number, number> = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    return Object.values(cnt).every(x => x % 2 === 0);
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn divide_array(nums: Vec<i32>) -> bool {
+        let mut cnt = HashMap::new();
+        for x in nums {
+            *cnt.entry(x).or_insert(0) += 1;
+        }
+        cnt.values().all(|&v| v % 2 == 0)
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var divideArray = function (nums) {
+    const cnt = {};
+    for (const x of nums) {
+        cnt[x] = (cnt[x] || 0) + 1;
+    }
+    return Object.values(cnt).every(x => x % 2 === 0);
+};
 ```
 
 <!-- tabs:end -->

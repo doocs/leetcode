@@ -1,18 +1,17 @@
 class Solution {
 public:
-    const int dirs[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-
     vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> ans(n, vector<int>(n));
+        vector<vector<int>> ans(n, vector<int>(n, 0));
+        const int dirs[5] = {0, 1, 0, -1, 0};
         int i = 0, j = 0, k = 0;
         for (int v = 1; v <= n * n; ++v) {
             ans[i][j] = v;
-            int x = i + dirs[k][0], y = j + dirs[k][1];
-            if (x < 0 || y < 0 || x >= n || y >= n || ans[x][y]) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x < 0 || x >= n || y < 0 || y >= n || ans[x][y] != 0) {
                 k = (k + 1) % 4;
-                x = i + dirs[k][0], y = j + dirs[k][1];
             }
-            i = x, j = y;
+            i += dirs[k];
+            j += dirs[k + 1];
         }
         return ans;
     }

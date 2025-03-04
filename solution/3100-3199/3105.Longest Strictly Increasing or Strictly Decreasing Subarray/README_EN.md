@@ -195,21 +195,32 @@ func longestMonotonicSubarray(nums []int) int {
 
 ```ts
 function longestMonotonicSubarray(nums: number[]): number {
+    const n = nums.length;
     let ans = 1;
-    for (let i = 1, t = 1; i < nums.length; ++i) {
-        if (nums[i - 1] < nums[i]) {
-            ans = Math.max(ans, ++t);
-        } else {
-            t = 1;
-        }
+
+    for (let i = 1, t1 = 1, t2 = 1; i < n; i++) {
+        t1 = nums[i] > nums[i - 1] ? t1 + 1 : 1;
+        t2 = nums[i] < nums[i - 1] ? t2 + 1 : 1;
+        ans = Math.max(ans, t1, t2);
     }
-    for (let i = 1, t = 1; i < nums.length; ++i) {
-        if (nums[i - 1] > nums[i]) {
-            ans = Math.max(ans, ++t);
-        } else {
-            t = 1;
-        }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function longestMonotonicSubarray(nums) {
+    const n = nums.length;
+    let ans = 1;
+
+    for (let i = 1, t1 = 1, t2 = 1; i < n; i++) {
+        t1 = nums[i] > nums[i - 1] ? t1 + 1 : 1;
+        t2 = nums[i] < nums[i - 1] ? t2 + 1 : 1;
+        ans = Math.max(ans, t1, t2);
     }
+
     return ans;
 }
 ```

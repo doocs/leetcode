@@ -69,7 +69,26 @@ row 2: 0<u>1</u>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+Let's first observe the pattern of the first few rows:
+
+```
+n = 1: 0
+n = 2: 0 1
+n = 3: 0 1 1 0
+n = 4: 0 1 1 0 1 0 0 1
+n = 5: 0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
+...
+```
+
+We can see that the first half of each row is exactly the same as the previous row, and the second half is the inversion of the previous row. Note that "inversion" here means changing $0$ to $1$ and $1$ to $0$.
+
+If $k$ is in the first half, then the $k$-th character is the same as the $k$-th character of the previous row, so we can directly recurse with $kthGrammar(n - 1, k)$.
+
+If $k$ is in the second half, then the $k$-th character is the inversion of the $(k - 2^{n - 2})$-th character of the previous row, i.e., $kthGrammar(n - 1, k - 2^{n - 2}) \oplus 1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -128,13 +147,57 @@ func kthGrammar(n int, k int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function kthGrammar(n: number, k: number): number {
+    if (n == 1) {
+        return 0;
+    }
+    if (k <= 1 << (n - 2)) {
+        return kthGrammar(n - 1, k);
+    }
+    return kthGrammar(n - 1, k - (1 << (n - 2))) ^ 1;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bit Manipulation + Brain Teaser
+
+In the problem, the index starts from $1$. We will change $k$ to $k-1$, converting the index to start from $0$. In the following discussion, all indices start from $0$.
+
+Upon closer observation, the $i$-th character in a row generates two characters at positions $2i$ and $2i+1$ in the next row.
+
+```
+0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
+```
+
+If the $i$-th character is $0$, then the characters generated at positions $2i$ and $2i+1$ are $0$ and $1$, respectively. If the $i$-th character is $1$, the generated characters are $1$ and $0$.
+
+```
+0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
+      ^     * *
+```
+
+```
+0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
+        ^       * *
+```
+
+We can see that the character at position $2i$ (even index) is always the same as the character at position $i$, while the character at position $2i+1$ (odd index) is the inversion of the character at position $i$. In other words, characters at odd indices are always the result of one inversion. If the number of inversions is even, the character remains unchanged; if the number of inversions is odd, it is equivalent to one inversion.
+
+Therefore, we only need to check whether $k$ is odd. If it is, we accumulate one inversion. Then, we divide $k$ by $2$ and continue to check, accumulating the number of inversions until $k$ becomes $0$.
+
+Finally, we determine whether the number of inversions is odd. If it is, the answer is $1$; otherwise, it is $0$.
+
+The process of accumulating the number of inversions is essentially equivalent to counting the number of $1$s in the binary representation of $k$.
+
+The time complexity is $O(\log k)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -172,6 +235,23 @@ public:
 ```go
 func kthGrammar(n int, k int) int {
 	return bits.OnesCount(uint(k-1)) & 1
+}
+```
+
+#### TypeScript
+
+```ts
+function kthGrammar(n: number, k: number): number {
+    return bitCount(k - 1) & 1;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 

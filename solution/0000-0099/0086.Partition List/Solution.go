@@ -6,19 +6,18 @@
  * }
  */
 func partition(head *ListNode, x int) *ListNode {
-	d1, d2 := &ListNode{}, &ListNode{}
-	t1, t2 := d1, d2
-	for head != nil {
+	l, r := &ListNode{}, &ListNode{}
+	tl, tr := l, r
+	for ; head != nil; head = head.Next {
 		if head.Val < x {
-			t1.Next = head
-			t1 = t1.Next
+			tl.Next = head
+			tl = tl.Next
 		} else {
-			t2.Next = head
-			t2 = t2.Next
+			tr.Next = head
+			tr = tr.Next
 		}
-		head = head.Next
 	}
-	t1.Next = d2.Next
-	t2.Next = nil
-	return d1.Next
+	tr.Next = nil
+	tl.Next = r.Next
+	return l.Next
 }

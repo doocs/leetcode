@@ -51,7 +51,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming + Prefix Sum
+
+We define $f[i][j]$ as the number of arrays of length $i$ with $j$ inverse pairs. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$.
+
+Next, we consider how to obtain $f[i][j]$.
+
+Assume the first $i-1$ numbers are already determined, and now we need to insert the number $i$. We discuss the cases of inserting $i$ into each position:
+
+-   If $i$ is inserted into the 1st position, the number of inverse pairs increases by $i-1$, so $f[i][j] += f[i-1][j-(i-1)]$.
+-   If $i$ is inserted into the 2nd position, the number of inverse pairs increases by $i-2$, so $f[i][j] += f[i-1][j-(i-2)]$.
+-   ...
+-   If $i$ is inserted into the $(i-1)$th position, the number of inverse pairs increases by 1, so $f[i][j] += f[i-1][j-1]$.
+-   If $i$ is inserted into the $i$th position, the number of inverse pairs does not change, so $f[i][j] += f[i-1][j]$.
+
+Therefore, $f[i][j] = \sum_{k=1}^{i} f[i-1][j-(i-k)]$.
+
+We notice that the calculation of $f[i][j]$ actually involves prefix sums, so we can use prefix sums to optimize the calculation process. Moreover, since $f[i][j]$ only depends on $f[i-1][j]$, we can use a one-dimensional array to optimize the space complexity.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(k)$. Here, $n$ and $k$ are the array length and the number of inverse pairs, respectively.
 
 <!-- tabs:start -->
 
@@ -148,9 +166,9 @@ func kInversePairs(n int, k int) int {
 
 ```ts
 function kInversePairs(n: number, k: number): number {
-    const f: number[] = new Array(k + 1).fill(0);
+    const f: number[] = Array(k + 1).fill(0);
     f[0] = 1;
-    const s: number[] = new Array(k + 2).fill(1);
+    const s: number[] = Array(k + 2).fill(1);
     s[0] = 0;
     const mod: number = 1e9 + 7;
     for (let i = 1; i <= n; ++i) {

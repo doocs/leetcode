@@ -58,7 +58,13 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Hash Map
+
+According to the problem description, rabbits that give the same answer may belong to the same color, while rabbits that give different answers cannot belong to the same color.
+
+Therefore, we use a hash map $\textit{cnt}$ to record the number of occurrences of each answer. For each answer $x$ and its occurrence $v$, we calculate the minimum number of rabbits based on the principle that each color has $x + 1$ rabbits, and add it to the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{answers}$.
 
 <!-- tabs:start -->
 
@@ -67,8 +73,12 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 ```python
 class Solution:
     def numRabbits(self, answers: List[int]) -> int:
-        counter = Counter(answers)
-        return sum([math.ceil(v / (k + 1)) * (k + 1) for k, v in counter.items()])
+        cnt = Counter(answers)
+        ans = 0
+        for x, v in cnt.items():
+            group = x + 1
+            ans += (v + group - 1) // group * group
+        return ans
 ```
 
 #### Java
@@ -76,17 +86,70 @@ class Solution:
 ```java
 class Solution {
     public int numRabbits(int[] answers) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int e : answers) {
-            counter.put(e, counter.getOrDefault(e, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : answers) {
+            cnt.merge(x, 1, Integer::sum);
         }
-        int res = 0;
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            int answer = entry.getKey(), count = entry.getValue();
-            res += (int) Math.ceil(count / ((answer + 1) * 1.0)) * (answer + 1);
+        int ans = 0;
+        for (var e : cnt.entrySet()) {
+            int group = e.getKey() + 1;
+            ans += (e.getValue() + group - 1) / group * group;
         }
-        return res;
+        return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numRabbits(vector<int>& answers) {
+        unordered_map<int, int> cnt;
+        for (int x : answers) {
+            ++cnt[x];
+        }
+        int ans = 0;
+        for (auto& [x, v] : cnt) {
+            int group = x + 1;
+            ans += (v + group - 1) / group * group;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numRabbits(answers []int) (ans int) {
+	cnt := map[int]int{}
+	for _, x := range answers {
+		cnt[x]++
+	}
+	for x, v := range cnt {
+		group := x + 1
+		ans += (v + group - 1) / group * group
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numRabbits(answers: number[]): number {
+    const cnt = new Map<number, number>();
+    for (const x of answers) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    let ans = 0;
+    for (const [x, v] of cnt.entries()) {
+        const group = x + 1;
+        ans += Math.floor((v + group - 1) / group) * group;
+    }
+    return ans;
 }
 ```
 

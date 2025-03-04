@@ -69,6 +69,9 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 	<li>The product of the stream at any point in time will fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 
+<p>&nbsp;</p>
+<strong>Follow-up: </strong>Can you implement <strong>both</strong> <code>GetProduct</code> and <code>Add</code> to work in <code>O(1)</code> time complexity instead of <code>O(k)</code> time complexity?
+
 <!-- description:end -->
 
 ## Solutions
@@ -211,6 +214,52 @@ func (this *ProductOfNumbers) GetProduct(k int) int {
  * obj.Add(num);
  * param_2 := obj.GetProduct(k);
  */
+```
+
+#### TypeScript
+
+```ts
+class ProductOfNumbers {
+    s = [1];
+
+    add(num: number): void {
+        if (num === 0) {
+            this.s = [1];
+        } else {
+            const i = this.s.length;
+            this.s[i] = this.s[i - 1] * num;
+        }
+    }
+
+    getProduct(k: number): number {
+        const i = this.s.length;
+        if (k > i - 1) return 0;
+        return this.s[i - 1] / this.s[i - k - 1];
+    }
+}
+```
+
+#### JavaScript
+
+```js
+class ProductOfNumbers {
+    s = [1];
+
+    add(num) {
+        if (num === 0) {
+            this.s = [1];
+        } else {
+            const i = this.s.length;
+            this.s[i] = this.s[i - 1] * num;
+        }
+    }
+
+    getProduct(k) {
+        const i = this.s.length;
+        if (k > i - 1) return 0;
+        return this.s[i - 1] / this.s[i - k - 1];
+    }
+}
 ```
 
 <!-- tabs:end -->

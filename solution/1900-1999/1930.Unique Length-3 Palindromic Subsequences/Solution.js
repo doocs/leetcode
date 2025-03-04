@@ -1,19 +1,22 @@
-export function countPalindromicSubsequence(s) {
-    const cnt = new Map();
-    const n = s.length;
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countPalindromicSubsequence = function (s) {
     let ans = 0;
-
-    for (let i = 0; i < n; i++) {
-        const ch = s[i];
-        if (cnt.has(ch)) cnt.get(ch)[1] = i;
-        else cnt.set(ch, [i, i]);
-    }
-
-    for (const [_, [i, j]] of cnt) {
-        if (i !== j) {
-            ans += new Set(s.slice(i + 1, j)).size;
+    const a = 'a'.charCodeAt(0);
+    for (let ch = 0; ch < 26; ++ch) {
+        const c = String.fromCharCode(ch + a);
+        const l = s.indexOf(c);
+        const r = s.lastIndexOf(c);
+        let mask = 0;
+        for (let i = l + 1; i < r; ++i) {
+            const j = s.charCodeAt(i) - a;
+            if (((mask >> j) & 1) ^ 1) {
+                mask |= 1 << j;
+                ++ans;
+            }
         }
     }
-
     return ans;
-}
+};

@@ -1,16 +1,15 @@
 impl Solution {
     pub fn jump(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut dp = vec![i32::MAX; n];
-        dp[0] = 0;
-        for i in 0..n - 1 {
-            for j in 1..=nums[i] as usize {
-                if i + j >= n {
-                    break;
-                }
-                dp[i + j] = dp[i + j].min(dp[i] + 1);
+        let mut ans = 0;
+        let mut mx = 0;
+        let mut last = 0;
+        for i in 0..(nums.len() - 1) {
+            mx = mx.max(i as i32 + nums[i]);
+            if last == i as i32 {
+                ans += 1;
+                last = mx;
             }
         }
-        dp[n - 1]
+        ans
     }
 }

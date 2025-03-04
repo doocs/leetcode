@@ -91,9 +91,6 @@ smallestInfiniteSet.popSmallest(); // 返回 5 ，并将其从集合中移除。
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class SmallestInfiniteSet:
     def __init__(self):
         self.s = SortedSet(range(1, 1001))

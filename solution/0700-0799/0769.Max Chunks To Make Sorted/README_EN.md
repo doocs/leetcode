@@ -63,7 +63,11 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + One Pass
+
+Since $\textit{arr}$ is a permutation of $[0,..,n-1]$, if the maximum value $\textit{mx}$ among the numbers traversed so far is equal to the current index $i$, it means a split can be made, and the answer is incremented.
+
+Time complexity is $O(n)$, and space complexity is $O(1)$. Where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -134,10 +138,10 @@ func maxChunksToSorted(arr []int) int {
 function maxChunksToSorted(arr: number[]): number {
     const n = arr.length;
     let ans = 0;
-    let max = 0;
+    let mx = 0;
     for (let i = 0; i < n; i++) {
-        max = Math.max(arr[i], max);
-        if (max == i) {
+        mx = Math.max(arr[i], mx);
+        if (mx == i) {
             ans++;
         }
     }
@@ -150,15 +154,15 @@ function maxChunksToSorted(arr: number[]): number {
 ```rust
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut max = 0;
+        let mut ans = 0;
+        let mut mx = 0;
         for i in 0..arr.len() {
-            max = max.max(arr[i]);
-            if max == (i as i32) {
-                res += 1;
+            mx = mx.max(arr[i]);
+            if mx == (i as i32) {
+                ans += 1;
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -169,15 +173,15 @@ impl Solution {
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
 int maxChunksToSorted(int* arr, int arrSize) {
-    int res = 0;
+    int ans = 0;
     int mx = -1;
     for (int i = 0; i < arrSize; i++) {
         mx = max(mx, arr[i]);
         if (mx == i) {
-            res++;
+            ans++;
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -187,7 +191,15 @@ int maxChunksToSorted(int* arr, int arrSize) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Monotonic Stack
+
+The solution of method one has certain limitations. If there are duplicate elements in the array, the correct answer cannot be obtained.
+
+According to the problem, we can find that from left to right, each chunk has a maximum value, and these maximum values are monotonically increasing. We can use a stack to store these maximum values of the chunks. The size of the final stack is the maximum number of chunks that can be sorted.
+
+This solution can not only solve this problem but also solve the problem 768. Max Chunks To Make Sorted II. You can try it yourself.
+
+Time complexity is $O(n)$, and space complexity is $O(n)$. Where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 

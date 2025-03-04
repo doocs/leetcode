@@ -2,6 +2,12 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3417.Zigzag%20Grid%20Traversal%20With%20Skip/README_EN.md
+rating: 1290
+source: Weekly Contest 432 Q1
+tags:
+    - Array
+    - Matrix
+    - Simulation
 ---
 
 <!-- problem:start -->

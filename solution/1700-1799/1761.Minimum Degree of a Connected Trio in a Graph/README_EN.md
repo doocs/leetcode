@@ -64,13 +64,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brute Force Enumeration
+
+We first store all edges in the adjacency matrix $\textit{g}$, and then store the degree of each node in the array $\textit{deg}$. Initialize the answer $\textit{ans} = +\infty$.
+
+Then enumerate all triplets $(i, j, k)$, where $i \lt j \lt k$. If $\textit{g}[i][j] = \textit{g}[j][k] = \textit{g}[i][k] = 1$, it means these three nodes form a connected trio. In this case, update the answer to $\textit{ans} = \min(\textit{ans}, \textit{deg}[i] + \textit{deg}[j] + \textit{deg}[k] - 6)$.
+
+After enumerating all triplets, if the answer is still $+\infty$, it means there is no connected trio in the graph, return $-1$. Otherwise, return the answer.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+def min(a: int, b: int) -> int:
+    return a if a < b else b
+
+
 class Solution:
     def minTrioDegree(self, n: int, edges: List[List[int]]) -> int:
         g = [[False] * n for _ in range(n)]

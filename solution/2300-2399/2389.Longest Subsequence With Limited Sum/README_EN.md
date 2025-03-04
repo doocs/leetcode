@@ -65,11 +65,11 @@ tags:
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
-According to the problem description, for each $queries[i]$, we need to find a subsequence such that the sum of its elements does not exceed $queries[i]$ and the length of this subsequence is maximized. Obviously, we should choose the smallest possible elements to maximize the length of the subsequence.
+According to the problem description, for each $\textit{queries[i]}$, we need to find a subsequence such that the sum of its elements does not exceed $\textit{queries[i]}$ and the length of the subsequence is maximized. Obviously, we should choose the smallest possible elements to maximize the length of the subsequence.
 
-Therefore, we can first sort the array $nums$ in ascending order. Then, for each $queries[i]$, we can use binary search to find the smallest index $j$ such that $nums[0] + nums[1] + \cdots + nums[j] \gt queries[i]$. At this point, $nums[0] + nums[1] + \cdots + nums[j - 1]$ is the sum of the elements of the subsequence that meets the condition, and the length of this subsequence is $j$. Therefore, we can add $j$ to the answer array.
+Therefore, we can first sort the array $\textit{nums}$ in ascending order, and then for each $\textit{queries[i]}$, we can use binary search to find the smallest index $j$ such that $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries[i]}$. At this point, $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ is the sum of the elements of the subsequence that meets the condition, and the length of this subsequence is $j$. Therefore, we can add $j$ to the answer array.
 
-The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$ or $O(\log n)$. Here, $n$ and $m$ are the lengths of the arrays $nums$ and $queries$, respectively.
+The time complexity is $O((n + m) \times \log n)$, and the space complexity is $O(n)$ or $O(\log n)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 
@@ -95,22 +95,10 @@ class Solution {
         int m = queries.length;
         int[] ans = new int[m];
         for (int i = 0; i < m; ++i) {
-            ans[i] = search(nums, queries[i]);
+            int j = Arrays.binarySearch(nums, queries[i] + 1);
+            ans[i] = j < 0 ? -j - 1 : j;
         }
         return ans;
-    }
-
-    private int search(int[] nums, int x) {
-        int l = 0, r = nums.length;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (nums[mid] > x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
     }
 }
 ```
@@ -121,13 +109,13 @@ class Solution {
 class Solution {
 public:
     vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         for (int i = 1; i < nums.size(); i++) {
             nums[i] += nums[i - 1];
         }
         vector<int> ans;
-        for (auto& q : queries) {
-            ans.push_back(upper_bound(nums.begin(), nums.end(), q) - nums.begin());
+        for (const auto& q : queries) {
+            ans.emplace_back(upper_bound(nums.begin(), nums.end(), q) - nums.begin());
         }
         return ans;
     }
@@ -157,24 +145,7 @@ function answerQueries(nums: number[], queries: number[]): number[] {
     for (let i = 1; i < nums.length; i++) {
         nums[i] += nums[i - 1];
     }
-    const ans: number[] = [];
-    const search = (nums: number[], x: number) => {
-        let l = 0;
-        let r = nums.length;
-        while (l < r) {
-            const mid = (l + r) >> 1;
-            if (nums[mid] > x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
-    };
-    for (const q of queries) {
-        ans.push(search(nums, q));
-    }
-    return ans;
+    return queries.map(q => _.sortedIndex(nums, q + 1));
 }
 ```
 
@@ -183,23 +154,37 @@ function answerQueries(nums: number[], queries: number[]): number[] {
 ```rust
 impl Solution {
     pub fn answer_queries(mut nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
         nums.sort();
-        queries
-            .into_iter()
-            .map(|query| {
-                let mut sum = 0;
-                for i in 0..n {
-                    sum += nums[i];
-                    if sum > query {
-                        return i as i32;
-                    }
-                }
-                n as i32
-            })
-            .collect()
+
+        for i in 1..nums.len() {
+            nums[i] += nums[i - 1];
+        }
+
+        queries.iter().map(|&q| {
+            match nums.binary_search(&q) {
+                Ok(idx) => idx as i32 + 1,
+                Err(idx) => idx as i32,
+            }
+        }).collect()
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number[]} queries
+ * @return {number[]}
+ */
+var answerQueries = function (nums, queries) {
+    nums.sort((a, b) => a - b);
+    for (let i = 1; i < nums.length; i++) {
+        nums[i] += nums[i - 1];
+    }
+    return queries.map(q => _.sortedIndex(nums, q + 1));
+};
 ```
 
 #### C#
@@ -207,24 +192,17 @@ impl Solution {
 ```cs
 public class Solution {
     public int[] AnswerQueries(int[] nums, int[] queries) {
-        int[] result = new int[queries.Length];
         Array.Sort(nums);
-        for (int i = 0; i < queries.Length; i++) {
-            result[i] = getSubsequent(nums, queries[i]);
+        for (int i = 1; i < nums.Length; ++i) {
+            nums[i] += nums[i - 1];
         }
-        return result;
-
-    }
-
-    public int getSubsequent(int[] nums,int query) {
-        int sum = 0;
-        for (int i = 0; i < nums.Length; i++) {
-            sum += nums[i];
-            if (sum > query) {
-                return i;
-            }
+        int m = queries.Length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int j = Array.BinarySearch(nums, queries[i] + 1);
+            ans[i] = j < 0 ? -j - 1 : j;
         }
-        return nums.Length;
+        return ans;
     }
 }
 ```

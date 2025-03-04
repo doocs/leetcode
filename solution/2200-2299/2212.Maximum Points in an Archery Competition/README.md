@@ -91,7 +91,13 @@ Bob 获得总分 8 + 9 + 10 = 27 。
 
 ### 方法一：二进制枚举
 
-枚举 bob 射箭的最终状态，寻找满足题意的、且使得 bob 得分最大的状态。
+由于区域数目只有 $12$ 个，因此我们使用二进制枚举的方式，枚举 $\textit{Bob}$ 在哪些区域得分。用一个变量 $\textit{st}$ 表示 $\textit{Bob}$ 获得最大得分的方案，而 $\textit{mx}$ 表示 $\textit{Bob}$ 获得的最大得分。
+
+我们在 $[1, 2^m)$ 的区间内枚举 $\textit{Bob}$ 的得分方案，其中 $m$ 是 $\textit{aliceArrows}$ 的长度。对于每一个方案，我们计算 $\textit{Bob}$ 的得分 $\textit{s}$ 以及射箭的数量 $\textit{cnt}$。如果 $\textit{cnt} \leq \textit{numArrows}$ 且 $\textit{s} > \textit{mx}$，我们就更新 $\textit{mx}$ 和 $\textit{st}$。
+
+然后，我们根据 $\textit{st}$ 计算 $\textit{Bob}$ 的得分方案，如果最后还有剩余的射箭，我们将剩余的射箭分配给第一个区域，即下标为 $0$ 的区域。
+
+时间复杂度 $O(2^m \times m)$，其中 $m$ 是 $\textit{aliceArrows}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -100,24 +106,23 @@ Bob 获得总分 8 + 9 + 10 = 27 。
 ```python
 class Solution:
     def maximumBobPoints(self, numArrows: int, aliceArrows: List[int]) -> List[int]:
-        n = len(aliceArrows)
-        state = 0
-        mx = -1
-        for mask in range(1 << n):
-            cnt = points = 0
-            for i, alice in enumerate(aliceArrows):
-                if (mask >> i) & 1:
-                    cnt += alice + 1
-                    points += i
-            if cnt <= numArrows and mx < points:
-                state = mask
-                mx = points
-        ans = [0] * n
-        for i, alice in enumerate(aliceArrows):
-            if (state >> i) & 1:
-                ans[i] = alice + 1
+        st = mx = 0
+        m = len(aliceArrows)
+        for mask in range(1, 1 << m):
+            cnt = s = 0
+            for i, x in enumerate(aliceArrows):
+                if mask >> i & 1:
+                    s += i
+                    cnt += x + 1
+            if cnt <= numArrows and s > mx:
+                mx = s
+                st = mask
+        ans = [0] * m
+        for i, x in enumerate(aliceArrows):
+            if st >> i & 1:
+                ans[i] = x + 1
                 numArrows -= ans[i]
-        ans[0] = numArrows
+        ans[0] += numArrows
         return ans
 ```
 
@@ -126,25 +131,24 @@ class Solution:
 ```java
 class Solution {
     public int[] maximumBobPoints(int numArrows, int[] aliceArrows) {
-        int n = aliceArrows.length;
-        int mx = -1;
-        int state = 0;
-        for (int mask = 1; mask < 1 << n; ++mask) {
-            int cnt = 0, points = 0;
-            for (int i = 0; i < n; ++i) {
-                if (((mask >> i) & 1) == 1) {
+        int st = 0, mx = 0;
+        int m = aliceArrows.length;
+        for (int mask = 1; mask < 1 << m; ++mask) {
+            int cnt = 0, s = 0;
+            for (int i = 0; i < m; ++i) {
+                if ((mask >> i & 1) == 1) {
+                    s += i;
                     cnt += aliceArrows[i] + 1;
-                    points += i;
                 }
             }
-            if (cnt <= numArrows && mx < points) {
-                state = mask;
-                mx = points;
+            if (cnt <= numArrows && s > mx) {
+                mx = s;
+                st = mask;
             }
         }
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            if (((state >> i) & 1) == 1) {
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            if ((st >> i & 1) == 1) {
                 ans[i] = aliceArrows[i] + 1;
                 numArrows -= ans[i];
             }
@@ -161,24 +165,24 @@ class Solution {
 class Solution {
 public:
     vector<int> maximumBobPoints(int numArrows, vector<int>& aliceArrows) {
-        int n = aliceArrows.size();
-        int state = 0, mx = -1;
-        for (int mask = 1; mask < 1 << n; ++mask) {
-            int cnt = 0, points = 0;
-            for (int i = 0; i < n; ++i) {
-                if ((mask >> i) & 1) {
+        int st = 0, mx = 0;
+        int m = aliceArrows.size();
+        for (int mask = 1; mask < 1 << m; ++mask) {
+            int cnt = 0, s = 0;
+            for (int i = 0; i < m; ++i) {
+                if (mask >> i & 1) {
+                    s += i;
                     cnt += aliceArrows[i] + 1;
-                    points += i;
                 }
             }
-            if (cnt <= numArrows && mx < points) {
-                state = mask;
-                mx = points;
+            if (cnt <= numArrows && s > mx) {
+                mx = s;
+                st = mask;
             }
         }
-        vector<int> ans(n);
-        for (int i = 0; i < n; ++i) {
-            if ((state >> i) & 1) {
+        vector<int> ans(m);
+        for (int i = 0; i < m; ++i) {
+            if (st >> i & 1) {
                 ans[i] = aliceArrows[i] + 1;
                 numArrows -= ans[i];
             }
@@ -193,25 +197,25 @@ public:
 
 ```go
 func maximumBobPoints(numArrows int, aliceArrows []int) []int {
-	n := len(aliceArrows)
-	state, mx := 0, -1
-	for mask := 1; mask < 1<<n; mask++ {
-		cnt, points := 0, 0
-		for i, alice := range aliceArrows {
-			if (mask>>i)&1 == 1 {
-				cnt += alice + 1
-				points += i
+	st, mx := 0, 0
+	m := len(aliceArrows)
+	for mask := 1; mask < 1<<m; mask++ {
+		cnt, s := 0, 0
+		for i, x := range aliceArrows {
+			if mask>>i&1 == 1 {
+				s += i
+				cnt += x + 1
 			}
 		}
-		if cnt <= numArrows && mx < points {
-			state = mask
-			mx = points
+		if cnt <= numArrows && s > mx {
+			mx = s
+			st = mask
 		}
 	}
-	ans := make([]int, n)
-	for i, alice := range aliceArrows {
-		if (state>>i)&1 == 1 {
-			ans[i] = alice + 1
+	ans := make([]int, m)
+	for i, x := range aliceArrows {
+		if (st>>i)&1 == 1 {
+			ans[i] = x + 1
 			numArrows -= ans[i]
 		}
 	}
@@ -224,25 +228,30 @@ func maximumBobPoints(numArrows int, aliceArrows []int) []int {
 
 ```ts
 function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
-    const dfs = (arr: number[], i: number, c: number): number[] => {
-        if (i < 0 || c === 0) {
-            arr[0] += c;
-            return arr;
-        }
-        const a1 = dfs([...arr], i - 1, c);
-        if (c > aliceArrows[i]) {
-            arr[i] = aliceArrows[i] + 1;
-            const a2 = dfs(arr, i - 1, c - aliceArrows[i] - 1);
-            if (
-                a2.reduce((p, v, i) => p + (v > 0 ? i : 0), 0) >=
-                a1.reduce((p, v, i) => p + (v > 0 ? i : 0), 0)
-            ) {
-                return a2;
+    let [st, mx] = [0, 0];
+    const m = aliceArrows.length;
+    for (let mask = 1; mask < 1 << m; mask++) {
+        let [cnt, s] = [0, 0];
+        for (let i = 0; i < m; i++) {
+            if ((mask >> i) & 1) {
+                cnt += aliceArrows[i] + 1;
+                s += i;
             }
         }
-        return a1;
-    };
-    return dfs(new Array(12).fill(0), 11, numArrows);
+        if (cnt <= numArrows && s > mx) {
+            mx = s;
+            st = mask;
+        }
+    }
+    const ans: number[] = Array(m).fill(0);
+    for (let i = 0; i < m; i++) {
+        if ((st >> i) & 1) {
+            ans[i] = aliceArrows[i] + 1;
+            numArrows -= ans[i];
+        }
+    }
+    ans[0] += numArrows;
+    return ans;
 }
 ```
 
@@ -250,35 +259,72 @@ function maximumBobPoints(numArrows: number, aliceArrows: number[]): number[] {
 
 ```rust
 impl Solution {
-    fn dfs(alice_arrows: &Vec<i32>, mut res: Vec<i32>, count: i32, i: usize) -> Vec<i32> {
-        if i == 0 || count == 0 {
-            res[0] += count;
-            return res;
-        }
-        let r1 = Self::dfs(alice_arrows, res.clone(), count, i - 1);
-        if count > alice_arrows[i] {
-            res[i] = alice_arrows[i] + 1;
-            let r2 = Self::dfs(alice_arrows, res, count - alice_arrows[i] - 1, i - 1);
-            if r2
-                .iter()
-                .enumerate()
-                .map(|(i, v)| if v > &0 { i } else { 0 })
-                .sum::<usize>()
-                > r1.iter()
-                    .enumerate()
-                    .map(|(i, v)| if v > &0 { i } else { 0 })
-                    .sum::<usize>()
-            {
-                return r2;
+    pub fn maximum_bob_points(num_arrows: i32, alice_arrows: Vec<i32>) -> Vec<i32> {
+        let mut st = 0;
+        let mut mx = 0;
+        let m = alice_arrows.len();
+        for mask in 1..(1 << m) {
+            let mut cnt = 0;
+            let mut s = 0;
+            for i in 0..m {
+                if (mask >> i) & 1 == 1 {
+                    s += i as i32;
+                    cnt += alice_arrows[i] + 1;
+                }
+            }
+            if cnt <= num_arrows && s > mx {
+                mx = s;
+                st = mask;
             }
         }
-        r1
-    }
-
-    pub fn maximum_bob_points(num_arrows: i32, alice_arrows: Vec<i32>) -> Vec<i32> {
-        Self::dfs(&alice_arrows, vec![0; 12], num_arrows, 11)
+        let mut ans = vec![0; m];
+        let mut num_arrows = num_arrows;
+        for i in 0..m {
+            if (st >> i) & 1 == 1 {
+                ans[i] = alice_arrows[i] + 1;
+                num_arrows -= ans[i];
+            }
+        }
+        ans[0] += num_arrows;
+        ans
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} numArrows
+ * @param {number[]} aliceArrows
+ * @return {number[]}
+ */
+var maximumBobPoints = function (numArrows, aliceArrows) {
+    let [st, mx] = [0, 0];
+    const m = aliceArrows.length;
+    for (let mask = 1; mask < 1 << m; mask++) {
+        let [cnt, s] = [0, 0];
+        for (let i = 0; i < m; i++) {
+            if ((mask >> i) & 1) {
+                cnt += aliceArrows[i] + 1;
+                s += i;
+            }
+        }
+        if (cnt <= numArrows && s > mx) {
+            mx = s;
+            st = mask;
+        }
+    }
+    const ans = Array(m).fill(0);
+    for (let i = 0; i < m; i++) {
+        if ((st >> i) & 1) {
+            ans[i] = aliceArrows[i] + 1;
+            numArrows -= ans[i];
+        }
+    }
+    ans[0] += numArrows;
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

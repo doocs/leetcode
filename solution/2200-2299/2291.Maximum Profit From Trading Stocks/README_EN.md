@@ -70,7 +70,18 @@ It can be shown that the maximum profit you can make is 0.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ to represent the maximum profit when considering the first $i$ stocks with a budget of $j$. The answer is $f[n][\textit{budget}]$.
+
+For the $i$-th stock, we have two choices:
+
+-   Do not buy it, then $f[i][j] = f[i - 1][j]$;
+-   Buy it, then $f[i][j] = f[i - 1][j - \textit{present}[i]] + \textit{future}[i] - \textit{present}[i]$.
+
+Finally, return $f[n][\textit{budget}]$.
+
+The time complexity is $O(n \times \textit{budget})$, and the space complexity is $O(n \times \textit{budget})$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -173,7 +184,9 @@ function maximumProfit(present: number[], future: number[], budget: number): num
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We can observe that for each row, we only need the values from the previous row, so we can optimize the space complexity to $O(\text{budget})$.
 
 <!-- tabs:start -->
 

@@ -110,9 +110,6 @@ In terms of time complexity, each call to the $addElement(num)$ function has a t
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class MKAverage:
     def __init__(self, m: int, k: int):
         self.m = m
@@ -452,9 +449,6 @@ func (this *MKAverage) CalculateMKAverage() int {
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class MKAverage:
     def __init__(self, m: int, k: int):
         self.m = m

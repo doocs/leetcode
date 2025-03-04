@@ -1,15 +1,11 @@
-use std::collections::HashSet;
+use std::collections::HashMap;
 
 impl Solution {
     pub fn can_permute_palindrome(s: String) -> bool {
-        let mut set = HashSet::new();
+        let mut cnt = HashMap::new();
         for c in s.chars() {
-            if set.contains(&c) {
-                set.remove(&c);
-            } else {
-                set.insert(c);
-            }
+            *cnt.entry(c).or_insert(0) += 1;
         }
-        set.len() <= 1
+        cnt.values().filter(|&&v| v % 2 == 1).count() < 2
     }
 }

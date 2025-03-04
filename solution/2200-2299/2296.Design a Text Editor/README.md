@@ -102,12 +102,12 @@ textEditor.cursorRight(6); // 返回 "practi"
 
 ### 方法一：左右栈
 
-我们可以使用两个栈 `left` 和 `right`，其中栈 `left` 存储光标左边的字符，另一个栈 `right` 存储光标右边的字符。
+我们可以使用两个栈 $\textit{left}$ 和 $\textit{right}$，其中栈 $\textit{left}$ 存储光标左边的字符，另一个栈 $\textit{right}$ 存储光标右边的字符。
 
--   当调用 `addText` 方法时，我们将 `text` 中的字符依次入栈 `left`。时间复杂度 $O(|text|)$。
--   当调用 `deleteText` 方法时，我们将 `left` 中的字符出栈最多 $k$ 次。时间复杂度 $O(k)$。
--   当调用 `cursorLeft` 方法时，我们将 `left` 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 `right`，最后返回 `left` 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
--   当调用 `cursorRight` 方法时，我们将 `right` 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 `left`，最后返回 `left` 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
+-   当调用 $\text{addText}$ 方法时，我们将 $\text{text}$ 中的字符依次入栈 $\text{left}$。时间复杂度 $O(|\text{text}|)$。
+-   当调用 $\text{deleteText}$ 方法时，我们将 $\text{left}$ 中的字符出栈最多 $k$ 次。时间复杂度 $O(k)$。
+-   当调用 $\text{cursorLeft}$ 方法时，我们将 $\text{left}$ 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 $\text{right}$，最后返回 $\text{left}$ 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
+-   当调用 $\text{cursorRight}$ 方法时，我们将 $\text{right}$ 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 $\text{left}$，最后返回 $\text{left}$ 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
 
 <!-- tabs:start -->
 
@@ -350,6 +350,59 @@ class TextEditor {
  * var param_3 = obj.cursorLeft(k)
  * var param_4 = obj.cursorRight(k)
  */
+```
+
+#### Rust
+
+```rust
+struct TextEditor {
+    left: String,
+    right: String,
+}
+
+impl TextEditor {
+    fn new() -> Self {
+        TextEditor {
+            left: String::new(),
+            right: String::new(),
+        }
+    }
+
+    fn add_text(&mut self, text: String) {
+        self.left.push_str(&text);
+    }
+
+    fn delete_text(&mut self, k: i32) -> i32 {
+        let k = k.min(self.left.len() as i32) as usize;
+        self.left.truncate(self.left.len() - k);
+        k as i32
+    }
+
+    fn cursor_left(&mut self, k: i32) -> String {
+        let k = k.min(self.left.len() as i32) as usize;
+        for _ in 0..k {
+            if let Some(c) = self.left.pop() {
+                self.right.push(c);
+            }
+        }
+        self.get_last_10_chars()
+    }
+
+    fn cursor_right(&mut self, k: i32) -> String {
+        let k = k.min(self.right.len() as i32) as usize;
+        for _ in 0..k {
+            if let Some(c) = self.right.pop() {
+                self.left.push(c);
+            }
+        }
+        self.get_last_10_chars()
+    }
+
+    fn get_last_10_chars(&self) -> String {
+        let len = self.left.len();
+        self.left[len.saturating_sub(10)..].to_string()
+    }
+}
 ```
 
 <!-- tabs:end -->

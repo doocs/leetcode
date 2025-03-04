@@ -4,7 +4,7 @@ public:
         int n = isConnected.size();
         int p[n];
         iota(p, p + n, 0);
-        function<int(int)> find = [&](int x) -> int {
+        auto find = [&](this auto&& find, int x) -> int {
             if (p[x] != x) {
                 p[x] = find(p[x]);
             }

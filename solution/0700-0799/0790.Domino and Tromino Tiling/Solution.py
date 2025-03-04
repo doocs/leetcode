@@ -1,24 +1,12 @@
 class Solution:
     def numTilings(self, n: int) -> int:
-        @cache
-        def dfs(i, j):
-            if i > n or j > n:
-                return 0
-            if i == n and j == n:
-                return 1
-            ans = 0
-            if i == j:
-                ans = (
-                    dfs(i + 2, j + 2)
-                    + dfs(i + 1, j + 1)
-                    + dfs(i + 2, j + 1)
-                    + dfs(i + 1, j + 2)
-                )
-            elif i > j:
-                ans = dfs(i, j + 2) + dfs(i + 1, j + 2)
-            else:
-                ans = dfs(i + 2, j) + dfs(i + 2, j + 1)
-            return ans % mod
-
+        f = [1, 0, 0, 0]
         mod = 10**9 + 7
-        return dfs(0, 0)
+        for i in range(1, n + 1):
+            g = [0] * 4
+            g[0] = (f[0] + f[1] + f[2] + f[3]) % mod
+            g[1] = (f[2] + f[3]) % mod
+            g[2] = (f[1] + f[3]) % mod
+            g[3] = f[0]
+            f = g
+        return f[0]

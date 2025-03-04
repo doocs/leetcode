@@ -64,11 +64,11 @@ tags:
 
 ### 方法一：双指针
 
-我们用两个指针 $i$ 和 $j$ 分别指向偶数下标和奇数下标。
+我们用两个指针 $i$ 和 $j$ 分别指向偶数下标和奇数下标，初始时 $i = 0$, $j = 1$。
 
-当 $i$ 指向偶数下标时，如果 $nums[i]$ 是奇数，那么我们需要找到一个奇数下标 $j$，使得 $nums[j]$ 是偶数，然后交换 $nums[i]$ 和 $nums[j]$。继续遍历，直到 $i$ 指向数组末尾。
+当 $i$ 指向偶数下标时，如果 $\textit{nums}[i]$ 是奇数，那么我们需要找到一个奇数下标 $j$，使得 $\textit{nums}[j]$ 是偶数，然后交换 $\textit{nums}[i]$ 和 $\textit{nums}[j]$。继续遍历，直到 $i$ 指向数组末尾。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}[i]$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -154,6 +154,26 @@ function sortArrayByParityII(nums: number[]): number[] {
         }
     }
     return nums;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sort_array_by_parity_ii(mut nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut j = 1;
+        for i in (0..n).step_by(2) {
+            if nums[i] % 2 != 0 {
+                while nums[j] % 2 != 0 {
+                    j += 2;
+                }
+                nums.swap(i, j);
+            }
+        }
+        nums
+    }
 }
 ```
 

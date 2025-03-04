@@ -25,7 +25,7 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0554.Brick%20Wall/images/cutwall-grid.jpg" style="width: 493px; height: 577px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0554.Brick%20Wall/images/a.png" style="width: 400px; height: 384px;" />
 <pre>
 <strong>Input:</strong> wall = [[1,2,2,1],[3,1,2],[1,3,2],[2,4],[3,1,2],[1,3,1,1]]
 <strong>Output:</strong> 2
@@ -56,7 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Prefix Sum
+
+We can use a hash table $\textit{cnt}$ to record the prefix sum of each row except for the last brick. The key is the value of the prefix sum, and the value is the number of times the prefix sum appears.
+
+Traverse each row, and for each brick in the current row, add it to the current prefix sum and update $\textit{cnt}$.
+
+Finally, we traverse $\textit{cnt}$ to find the prefix sum that appears the most times, which represents the situation where the least number of bricks are crossed. The final answer is the number of rows in the brick wall minus the number of bricks crossed.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(n)$. Here, $m$ and $n$ are the number of rows and the number of bricks in the brick wall, respectively.
 
 <!-- tabs:start -->
 
@@ -65,15 +73,13 @@ tags:
 ```python
 class Solution:
     def leastBricks(self, wall: List[List[int]]) -> int:
-        cnt = defaultdict(int)
+        cnt = Counter()
         for row in wall:
-            width = 0
-            for brick in row[:-1]:
-                width += brick
-                cnt[width] += 1
-        if not cnt:
-            return len(wall)
-        return len(wall) - cnt[max(cnt, key=cnt.get)]
+            s = 0
+            for x in row[:-1]:
+                s += x
+                cnt[s] += 1
+        return len(wall) - max(cnt.values(), default=0)
 ```
 
 #### Java
@@ -82,38 +88,79 @@ class Solution:
 class Solution {
     public int leastBricks(List<List<Integer>> wall) {
         Map<Integer, Integer> cnt = new HashMap<>();
-        for (List<Integer> row : wall) {
-            int width = 0;
-            for (int i = 0, n = row.size() - 1; i < n; i++) {
-                width += row.get(i);
-                cnt.merge(width, 1, Integer::sum);
+        for (var row : wall) {
+            int s = 0;
+            for (int i = 0; i + 1 < row.size(); ++i) {
+                s += row.get(i);
+                cnt.merge(s, 1, Integer::sum);
             }
         }
-        int max = cnt.values().stream().max(Comparator.naturalOrder()).orElse(0);
-        return wall.size() - max;
+        int mx = 0;
+        for (var x : cnt.values()) {
+            mx = Math.max(mx, x);
+        }
+        return wall.size() - mx;
     }
 }
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int leastBricks(vector<vector<int>>& wall) {
+        unordered_map<int, int> cnt;
+        for (const auto& row : wall) {
+            int s = 0;
+            for (int i = 0; i + 1 < row.size(); ++i) {
+                s += row[i];
+                cnt[s]++;
+            }
+        }
+        int mx = 0;
+        for (const auto& [_, x] : cnt) {
+            mx = max(mx, x);
+        }
+        return wall.size() - mx;
+    }
+};
 ```
 
 #### Go
 
 ```go
 func leastBricks(wall [][]int) int {
-	cnt := make(map[int]int)
+	cnt := map[int]int{}
 	for _, row := range wall {
-		width := 0
-		for _, brick := range row[:len(row)-1] {
-			width += brick
-			cnt[width]++
+		s := 0
+		for _, x := range row[:len(row)-1] {
+			s += x
+			cnt[s]++
 		}
 	}
-	max := 0
-	for _, v := range cnt {
-		if v > max {
-			max = v
-		}
+	mx := 0
+	for _, x := range cnt {
+		mx = max(mx, x)
 	}
-	return len(wall) - max
+	return len(wall) - mx
+}
+```
+
+#### TypeScript
+
+```ts
+function leastBricks(wall: number[][]): number {
+    const cnt: Map<number, number> = new Map();
+    for (const row of wall) {
+        let s = 0;
+        for (let i = 0; i + 1 < row.length; ++i) {
+            s += row[i];
+            cnt.set(s, (cnt.get(s) || 0) + 1);
+        }
+    }
+    const mx = Math.max(...cnt.values(), 0);
+    return wall.length - mx;
 }
 ```
 
@@ -127,17 +174,14 @@ func leastBricks(wall [][]int) int {
 var leastBricks = function (wall) {
     const cnt = new Map();
     for (const row of wall) {
-        let width = 0;
-        for (let i = 0, n = row.length - 1; i < n; ++i) {
-            width += row[i];
-            cnt.set(width, (cnt.get(width) || 0) + 1);
+        let s = 0;
+        for (let i = 0; i + 1 < row.length; ++i) {
+            s += row[i];
+            cnt.set(s, (cnt.get(s) || 0) + 1);
         }
     }
-    let max = 0;
-    for (const v of cnt.values()) {
-        max = Math.max(max, v);
-    }
-    return wall.length - max;
+    const mx = Math.max(...cnt.values(), 0);
+    return wall.length - mx;
 };
 ```
 

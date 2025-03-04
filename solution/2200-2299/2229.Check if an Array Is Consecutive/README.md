@@ -71,7 +71,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们可以用一个哈希表 $\textit{s}$ 来存储数组 $\textit{nums}$ 中的所有元素，用两个变量 $\textit{mi}$ 和 $\textit{mx}$ 分别表示数组中的最小值和最大值。
+
+如果数组中的所有元素都不相同，且数组的长度等于最大值和最小值之间的差值加 $1$，那么数组就是连贯数组，返回 $\textit{true}$；否则返回 $\textit{false}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -81,8 +87,7 @@ tags:
 class Solution:
     def isConsecutive(self, nums: List[int]) -> bool:
         mi, mx = min(nums), max(nums)
-        n = len(nums)
-        return len(set(nums)) == n and mx == mi + n - 1
+        return len(set(nums)) == mx - mi + 1 == len(nums)
 ```
 
 #### Java
@@ -90,16 +95,16 @@ class Solution:
 ```java
 class Solution {
     public boolean isConsecutive(int[] nums) {
-        int mi = nums[0];
-        int mx = nums[0];
+        int mi = nums[0], mx = 0;
         Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            mi = Math.min(mi, v);
-            mx = Math.max(mx, v);
-            s.add(v);
+        for (int x : nums) {
+            if (!s.add(x)) {
+                return false;
+            }
+            mi = Math.min(mi, x);
+            mx = Math.max(mx, x);
         }
-        int n = nums.length;
-        return s.size() == n && mx == mi + n - 1;
+        return mx - mi + 1 == nums.length;
     }
 }
 ```
@@ -110,11 +115,17 @@ class Solution {
 class Solution {
 public:
     bool isConsecutive(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        int mi = *min_element(nums.begin(), nums.end());
-        int mx = *max_element(nums.begin(), nums.end());
-        int n = nums.size();
-        return s.size() == n && mx == mi + n - 1;
+        unordered_set<int> s;
+        int mi = nums[0], mx = 0;
+        for (int x : nums) {
+            if (s.contains(x)) {
+                return false;
+            }
+            s.insert(x);
+            mi = min(mi, x);
+            mx = max(mx, x);
+        }
+        return mx - mi + 1 == nums.size();
     }
 };
 ```
@@ -124,12 +135,57 @@ public:
 ```go
 func isConsecutive(nums []int) bool {
 	s := map[int]bool{}
-	mi, mx := slices.Min(nums), slices.Max(nums)
+	mi, mx := nums[0], 0
 	for _, x := range nums {
+		if s[x] {
+			return false
+		}
 		s[x] = true
+		mi = min(mi, x)
+		mx = max(mx, x)
 	}
-	return len(s) == len(nums) && mx == mi+len(nums)-1
+	return mx-mi+1 == len(nums)
 }
+```
+
+#### TypeScript
+
+```ts
+function isConsecutive(nums: number[]): boolean {
+    let [mi, mx] = [nums[0], 0];
+    const s = new Set<number>();
+    for (const x of nums) {
+        if (s.has(x)) {
+            return false;
+        }
+        s.add(x);
+        mi = Math.min(mi, x);
+        mx = Math.max(mx, x);
+    }
+    return mx - mi + 1 === nums.length;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isConsecutive = function (nums) {
+    let [mi, mx] = [nums[0], 0];
+    const s = new Set();
+    for (const x of nums) {
+        if (s.has(x)) {
+            return false;
+        }
+        s.add(x);
+        mi = Math.min(mi, x);
+        mx = Math.max(mx, x);
+    }
+    return mx - mi + 1 === nums.length;
+};
 ```
 
 <!-- tabs:end -->

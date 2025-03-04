@@ -6,22 +6,21 @@ type FindSumPairs struct {
 
 func Constructor(nums1 []int, nums2 []int) FindSumPairs {
 	cnt := map[int]int{}
-	for _, v := range nums2 {
-		cnt[v]++
+	for _, x := range nums2 {
+		cnt[x]++
 	}
 	return FindSumPairs{nums1, nums2, cnt}
 }
 
 func (this *FindSumPairs) Add(index int, val int) {
-	old := this.nums2[index]
-	this.cnt[old]--
-	this.cnt[old+val]++
+	this.cnt[this.nums2[index]]--
 	this.nums2[index] += val
+	this.cnt[this.nums2[index]]++
 }
 
 func (this *FindSumPairs) Count(tot int) (ans int) {
-	for _, v := range this.nums1 {
-		ans += this.cnt[tot-v]
+	for _, x := range this.nums1 {
+		ans += this.cnt[tot-x]
 	}
 	return
 }

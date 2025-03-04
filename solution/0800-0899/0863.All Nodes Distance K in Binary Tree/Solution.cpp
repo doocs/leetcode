@@ -9,32 +9,32 @@
  */
 class Solution {
 public:
-    unordered_map<TreeNode*, TreeNode*> p;
-    unordered_set<int> vis;
-    vector<int> ans;
-
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        parents(root, nullptr);
-        dfs(target, k);
+        unordered_map<TreeNode*, TreeNode*> g;
+        vector<int> ans;
+
+        auto dfs = [&](this auto&& dfs, TreeNode* node, TreeNode* fa) {
+            if (!node) return;
+            g[node] = fa;
+            dfs(node->left, node);
+            dfs(node->right, node);
+        };
+
+        auto dfs2 = [&](this auto&& dfs2, TreeNode* node, TreeNode* fa, int k) {
+            if (!node) return;
+            if (k == 0) {
+                ans.push_back(node->val);
+                return;
+            }
+            for (auto&& nxt : {node->left, node->right, g[node]}) {
+                if (nxt != fa) {
+                    dfs2(nxt, node, k - 1);
+                }
+            }
+        };
+
+        dfs(root, nullptr);
+        dfs2(target, nullptr, k);
         return ans;
-    }
-
-    void parents(TreeNode* root, TreeNode* prev) {
-        if (!root) return;
-        p[root] = prev;
-        parents(root->left, root);
-        parents(root->right, root);
-    }
-
-    void dfs(TreeNode* root, int k) {
-        if (!root || vis.count(root->val)) return;
-        vis.insert(root->val);
-        if (k == 0) {
-            ans.push_back(root->val);
-            return;
-        }
-        dfs(root->left, k - 1);
-        dfs(root->right, k - 1);
-        dfs(p[root], k - 1);
     }
 };

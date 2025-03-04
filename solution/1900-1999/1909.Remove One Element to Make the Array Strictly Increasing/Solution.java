@@ -1,21 +1,22 @@
 class Solution {
     public boolean canBeIncreasing(int[] nums) {
-        int i = 1, n = nums.length;
-        for (; i < n && nums[i - 1] < nums[i]; ++i)
-            ;
-        return check(nums, i - 1) || check(nums, i);
+        int i = 0;
+        while (i + 1 < nums.length && nums[i] < nums[i + 1]) {
+            ++i;
+        }
+        return check(nums, i) || check(nums, i + 1);
     }
 
-    private boolean check(int[] nums, int i) {
-        int prev = Integer.MIN_VALUE;
-        for (int j = 0; j < nums.length; ++j) {
-            if (i == j) {
+    private boolean check(int[] nums, int k) {
+        int pre = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i == k) {
                 continue;
             }
-            if (prev >= nums[j]) {
+            if (pre >= nums[i]) {
                 return false;
             }
-            prev = nums[j];
+            pre = nums[i];
         }
         return true;
     }

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3409.Longest%20Subsequence%20With%20Decreasing%20Adjacent%20Difference/README_EN.md
+rating: 2500
+source: Biweekly Contest 147 Q3
 tags:
     - Array
     - Dynamic Programming

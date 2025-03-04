@@ -46,7 +46,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：遍历
+
+我们从头开始遍历数组 $\textit{arr}$，对于每个元素 $\textit{arr}[i]$，我们检查 $\textit{arr}[i]$ 是否等于 $\textit{arr}[i + \left\lfloor \frac{n}{4} \right\rfloor]$，其中 $n$ 是数组的长度。如果等于，那么 $\textit{arr}[i]$ 就是我们要找的元素，直接返回即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{arr}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -56,10 +60,9 @@ tags:
 class Solution:
     def findSpecialInteger(self, arr: List[int]) -> int:
         n = len(arr)
-        for i, val in enumerate(arr):
-            if val == arr[i + (n >> 2)]:
-                return val
-        return 0
+        for i, x in enumerate(arr):
+            if x == arr[(i + (n >> 2))]:
+                return x
 ```
 
 #### Java
@@ -67,13 +70,11 @@ class Solution:
 ```java
 class Solution {
     public int findSpecialInteger(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i) {
-            if (arr[i] == arr[i + (n >> 2)]) {
+        for (int i = 0;; ++i) {
+            if (arr[i] == (arr[i + (arr.length >> 2)])) {
                 return arr[i];
             }
         }
-        return 0;
     }
 }
 ```
@@ -84,10 +85,11 @@ class Solution {
 class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
-        int n = arr.size();
-        for (int i = 0; i < n; ++i)
-            if (arr[i] == arr[i + (n >> 2)]) return arr[i];
-        return 0;
+        for (int i = 0;; ++i) {
+            if (arr[i] == (arr[i + (arr.size() >> 2)])) {
+                return arr[i];
+            }
+        }
     }
 };
 ```
@@ -96,13 +98,24 @@ public:
 
 ```go
 func findSpecialInteger(arr []int) int {
-	n := len(arr)
-	for i, val := range arr {
-		if val == arr[i+(n>>2)] {
-			return val
+	for i := 0; ; i++ {
+		if arr[i] == arr[i+len(arr)/4] {
+			return arr[i]
 		}
 	}
-	return 0
+}
+```
+
+#### TypeScript
+
+```ts
+function findSpecialInteger(arr: number[]): number {
+    const n = arr.length;
+    for (let i = 0; ; ++i) {
+        if (arr[i] === arr[i + (n >> 2)]) {
+            return arr[i];
+        }
+    }
 }
 ```
 
@@ -115,12 +128,11 @@ func findSpecialInteger(arr []int) int {
  */
 var findSpecialInteger = function (arr) {
     const n = arr.length;
-    for (let i = 0; i < n; ++i) {
-        if (arr[i] == arr[i + (n >> 2)]) {
+    for (let i = 0; ; ++i) {
+        if (arr[i] === arr[i + (n >> 2)]) {
             return arr[i];
         }
     }
-    return 0;
 };
 ```
 
@@ -133,13 +145,12 @@ class Solution {
      * @return Integer
      */
     function findSpecialInteger($arr) {
-        $len = count($arr);
-        for ($i = 0; $i < $len; $i++) {
-            if ($arr[$i] == $arr[$i + ($len >> 2)]) {
+        $n = count($arr);
+        for ($i = 0; ; ++$i) {
+            if ($arr[$i] == $arr[$i + ($n >> 2)]) {
                 return $arr[$i];
             }
         }
-        return -1;
     }
 }
 ```

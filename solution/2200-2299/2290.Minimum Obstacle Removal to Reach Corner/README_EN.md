@@ -71,7 +71,19 @@ Note that there may be other ways to remove 2 obstacles to create a path.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Double-Ended Queue BFS
+
+This problem is essentially a shortest path model, but we need to find the minimum number of obstacles to remove.
+
+In an undirected graph with edge weights of only $0$ and $1$, we can use a double-ended queue to perform BFS. The principle is that if the weight of the current point that can be expanded is $0$, it is added to the front of the queue; if the weight is $1$, it is added to the back of the queue.
+
+> If the weight of an edge is $0$, then the newly expanded node has the same weight as the current front node, and it can obviously be used as the starting point for the next expansion.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, respectively.
+
+Similar problems:
+
+-   [1368. Minimum Cost to Make at Least One Valid Path in a Grid](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md)
 
 <!-- tabs:start -->
 

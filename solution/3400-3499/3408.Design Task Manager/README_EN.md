@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3408.Design%20Task%20Manager/README_EN.md
+rating: 1806
+source: Biweekly Contest 147 Q2
 tags:
     - Design
     - Hash Table
@@ -89,9 +91,6 @@ taskManager.execTop(); // return 5. Executes task 105 for User 5.</div>
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class TaskManager:
 
     def __init__(self, tasks: List[List[int]]):

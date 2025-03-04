@@ -26,8 +26,8 @@ tags:
 
 <ul>
 	<li>选择一个下标 <code>i</code>&nbsp;，满足 <code>s[i]</code>&nbsp;左边和右边都&nbsp;<strong>至少</strong>&nbsp;有一个字符与它相同。</li>
-	<li>删除 <code>s[i]</code>&nbsp;<strong>左边</strong>&nbsp;离它 <strong>最近</strong>&nbsp;且相同的字符。</li>
-	<li>删除 <code>s[i]</code>&nbsp;<strong>右边</strong>&nbsp;离它 <strong>最近</strong>&nbsp;且相同的字符。</li>
+	<li>删除 <code>i</code>&nbsp;<strong>左边</strong>&nbsp;离它 <strong>最近</strong>&nbsp;的&nbsp;<code>s[i]</code> 字符。</li>
+	<li>删除 <code>i</code>&nbsp;<strong>右边</strong>&nbsp;离它 <strong>最近</strong>&nbsp;的&nbsp;<code>s[i]</code> 字符。</li>
 </ul>
 
 <p>请你返回执行完所有操作后， <code>s</code>&nbsp;的 <strong>最短</strong>&nbsp;长度。</p>

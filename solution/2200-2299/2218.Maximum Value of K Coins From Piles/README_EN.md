@@ -62,7 +62,21 @@ The maximum total we can obtain is 101.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming (Grouped Knapsack)
+
+We define $f[i][j]$ as the maximum value sum of taking $j$ coins from the first $i$ piles. The answer is $f[n][k]$, where $n$ is the number of piles.
+
+For the $i$-th pile, we can choose to take the first $0$, $1$, $2$, $\cdots$, $k$ coins. We can use a prefix sum array $s$ to quickly calculate the value sum of taking the first $h$ coins.
+
+The state transition equation is:
+
+$$
+f[i][j] = \max(f[i][j], f[i - 1][j - h] + s[h])
+$$
+
+where $0 \leq h \leq j$, and $s[h]$ represents the value sum of taking the first $h$ coins from the $i$-th pile.
+
+The time complexity is $O(k \times L)$, and the space complexity is $O(n \times k)$. Here, $L$ is the total number of coins, and $n$ is the number of piles.
 
 <!-- tabs:start -->
 
@@ -71,15 +85,16 @@ The maximum total we can obtain is 101.
 ```python
 class Solution:
     def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
-        presum = [list(accumulate(p, initial=0)) for p in piles]
         n = len(piles)
-        dp = [[0] * (k + 1) for _ in range(n + 1)]
-        for i, s in enumerate(presum, 1):
+        f = [[0] * (k + 1) for _ in range(n + 1)]
+        for i, nums in enumerate(piles, 1):
+            s = list(accumulate(nums, initial=0))
             for j in range(k + 1):
-                for idx, v in enumerate(s):
-                    if j >= idx:
-                        dp[i][j] = max(dp[i][j], dp[i - 1][j - idx] + v)
-        return dp[-1][-1]
+                for h, w in enumerate(s):
+                    if j < h:
+                        break
+                    f[i][j] = max(f[i][j], f[i - 1][j - h] + w)
+        return f[n][k]
 ```
 
 #### Java
@@ -88,26 +103,21 @@ class Solution:
 class Solution {
     public int maxValueOfCoins(List<List<Integer>> piles, int k) {
         int n = piles.size();
-        List<int[]> presum = new ArrayList<>();
-        for (List<Integer> p : piles) {
-            int m = p.size();
-            int[] s = new int[m + 1];
-            for (int i = 0; i < m; ++i) {
-                s[i + 1] = s[i] + p.get(i);
+        int[][] f = new int[n + 1][k + 1];
+        for (int i = 1; i <= n; i++) {
+            List<Integer> nums = piles.get(i - 1);
+            int[] s = new int[nums.size() + 1];
+            s[0] = 0;
+            for (int j = 1; j <= nums.size(); j++) {
+                s[j] = s[j - 1] + nums.get(j - 1);
             }
-            presum.add(s);
-        }
-        int[] dp = new int[k + 1];
-        for (int[] s : presum) {
-            for (int j = k; j >= 0; --j) {
-                for (int idx = 0; idx < s.length; ++idx) {
-                    if (j >= idx) {
-                        dp[j] = Math.max(dp[j], dp[j - idx] + s[idx]);
-                    }
+            for (int j = 0; j <= k; j++) {
+                for (int h = 0; h < s.length && h <= j; h++) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j - h] + s[h]);
                 }
             }
         }
-        return dp[k];
+        return f[n][k];
     }
 }
 ```
@@ -118,22 +128,21 @@ class Solution {
 class Solution {
 public:
     int maxValueOfCoins(vector<vector<int>>& piles, int k) {
-        vector<vector<int>> presum;
-        for (auto& p : piles) {
-            int m = p.size();
-            vector<int> s(m + 1);
-            for (int i = 0; i < m; ++i) s[i + 1] = s[i] + p[i];
-            presum.push_back(s);
-        }
-        vector<int> dp(k + 1);
-        for (auto& s : presum) {
-            for (int j = k; ~j; --j) {
-                for (int idx = 0; idx < s.size(); ++idx) {
-                    if (j >= idx) dp[j] = max(dp[j], dp[j - idx] + s[idx]);
+        int n = piles.size();
+        vector<vector<int>> f(n + 1, vector<int>(k + 1));
+        for (int i = 1; i <= n; i++) {
+            vector<int> nums = piles[i - 1];
+            vector<int> s(nums.size() + 1);
+            for (int j = 1; j <= nums.size(); j++) {
+                s[j] = s[j - 1] + nums[j - 1];
+            }
+            for (int j = 0; j <= k; j++) {
+                for (int h = 0; h < s.size() && h <= j; h++) {
+                    f[i][j] = max(f[i][j], f[i - 1][j - h] + s[h]);
                 }
             }
         }
-        return dp[k];
+        return f[n][k];
     }
 };
 ```
@@ -142,26 +151,50 @@ public:
 
 ```go
 func maxValueOfCoins(piles [][]int, k int) int {
-	var presum [][]int
-	for _, p := range piles {
-		m := len(p)
-		s := make([]int, m+1)
-		for i, v := range p {
-			s[i+1] = s[i] + v
-		}
-		presum = append(presum, s)
+	n := len(piles)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, k+1)
 	}
-	dp := make([]int, k+1)
-	for _, s := range presum {
-		for j := k; j >= 0; j-- {
-			for idx, v := range s {
-				if j >= idx {
-					dp[j] = max(dp[j], dp[j-idx]+v)
+	for i := 1; i <= n; i++ {
+		nums := piles[i-1]
+		s := make([]int, len(nums)+1)
+		for j := 1; j <= len(nums); j++ {
+			s[j] = s[j-1] + nums[j-1]
+		}
+
+		for j := 0; j <= k; j++ {
+			for h, w := range s {
+				if j < h {
+					break
 				}
+				f[i][j] = max(f[i][j], f[i-1][j-h]+w)
 			}
 		}
 	}
-	return dp[k]
+	return f[n][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxValueOfCoins(piles: number[][], k: number): number {
+    const n = piles.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    for (let i = 1; i <= n; i++) {
+        const nums = piles[i - 1];
+        const s = Array(nums.length + 1).fill(0);
+        for (let j = 1; j <= nums.length; j++) {
+            s[j] = s[j - 1] + nums[j - 1];
+        }
+        for (let j = 0; j <= k; j++) {
+            for (let h = 0; h < s.length && h <= j; h++) {
+                f[i][j] = Math.max(f[i][j], f[i - 1][j - h] + s[h]);
+            }
+        }
+    }
+    return f[n][k];
 }
 ```
 
@@ -171,7 +204,11 @@ func maxValueOfCoins(piles [][]int, k int) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We can observe that for the $i$-th pile, we only need to use $f[i - 1][j]$ and $f[i][j - h]$, so we can optimize the two-dimensional array to a one-dimensional array.
+
+The time complexity is $O(k \times L)$, and the space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -180,14 +217,100 @@ func maxValueOfCoins(piles [][]int, k int) int {
 ```python
 class Solution:
     def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
-        presum = [list(accumulate(p, initial=0)) for p in piles]
-        dp = [0] * (k + 1)
-        for s in presum:
+        f = [0] * (k + 1)
+        for nums in piles:
+            s = list(accumulate(nums, initial=0))
             for j in range(k, -1, -1):
-                for idx, v in enumerate(s):
-                    if j >= idx:
-                        dp[j] = max(dp[j], dp[j - idx] + v)
-        return dp[-1]
+                for h, w in enumerate(s):
+                    if j < h:
+                        break
+                    f[j] = max(f[j], f[j - h] + w)
+        return f[k]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxValueOfCoins(List<List<Integer>> piles, int k) {
+        int[] f = new int[k + 1];
+        for (var nums : piles) {
+            int[] s = new int[nums.size() + 1];
+            for (int j = 1; j <= nums.size(); ++j) {
+                s[j] = s[j - 1] + nums.get(j - 1);
+            }
+            for (int j = k; j >= 0; --j) {
+                for (int h = 0; h < s.length && h <= j; ++h) {
+                    f[j] = Math.max(f[j], f[j - h] + s[h]);
+                }
+            }
+        }
+        return f[k];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxValueOfCoins(vector<vector<int>>& piles, int k) {
+        vector<int> f(k + 1);
+        for (auto& nums : piles) {
+            vector<int> s(nums.size() + 1);
+            for (int j = 1; j <= nums.size(); ++j) {
+                s[j] = s[j - 1] + nums[j - 1];
+            }
+            for (int j = k; j >= 0; --j) {
+                for (int h = 0; h < s.size() && h <= j; ++h) {
+                    f[j] = max(f[j], f[j - h] + s[h]);
+                }
+            }
+        }
+        return f[k];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxValueOfCoins(piles [][]int, k int) int {
+	f := make([]int, k+1)
+	for _, nums := range piles {
+		s := make([]int, len(nums)+1)
+		for j := 1; j <= len(nums); j++ {
+			s[j] = s[j-1] + nums[j-1]
+		}
+		for j := k; j >= 0; j-- {
+			for h := 0; h < len(s) && h <= j; h++ {
+				f[j] = max(f[j], f[j-h]+s[h])
+			}
+		}
+	}
+	return f[k]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxValueOfCoins(piles: number[][], k: number): number {
+    const f: number[] = Array(k + 1).fill(0);
+    for (const nums of piles) {
+        const s: number[] = Array(nums.length + 1).fill(0);
+        for (let j = 1; j <= nums.length; j++) {
+            s[j] = s[j - 1] + nums[j - 1];
+        }
+        for (let j = k; j >= 0; j--) {
+            for (let h = 0; h < s.length && h <= j; h++) {
+                f[j] = Math.max(f[j], f[j - h] + s[h]);
+            }
+        }
+    }
+    return f[k];
+}
 ```
 
 <!-- tabs:end -->

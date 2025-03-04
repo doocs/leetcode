@@ -59,7 +59,20 @@ Possible arrangements:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+Since the placement of houses on both sides of the street does not affect each other, we can consider the placement on one side only, and then square the number of ways for one side to get the final result modulo.
+
+We define $f[i]$ to represent the number of ways to place houses on the first $i+1$ plots, with the last plot having a house. We define $g[i]$ to represent the number of ways to place houses on the first $i+1$ plots, with the last plot not having a house. Initially, $f[0] = g[0] = 1$.
+
+When placing the $(i+1)$-th plot, there are two cases:
+
+-   If the $(i+1)$-th plot has a house, then the $i$-th plot must not have a house, so the number of ways is $f[i] = g[i-1]$;
+-   If the $(i+1)$-th plot does not have a house, then the $i$-th plot can either have a house or not, so the number of ways is $g[i] = f[i-1] + g[i-1]$.
+
+Finally, we square $f[n-1] + g[n-1]$ modulo to get the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the street.
 
 <!-- tabs:start -->
 
