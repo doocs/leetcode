@@ -71,32 +71,194 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3472.Lo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoized Search
+
+We design a function $\textit{dfs}(i, j, k)$, which represents the length of the longest palindromic subsequence that can be obtained in the substring $s[i..j]$ with at most $k$ operations. The answer is $\textit{dfs}(0, n - 1, k)$.
+
+The calculation process of the function $\textit{dfs}(i, j, k)$ is as follows:
+
+-   If $i > j$, return $0$;
+-   If $i = j$, return $1$;
+-   Otherwise, we can ignore $s[i]$ or $s[j]$ and calculate $\textit{dfs}(i + 1, j, k)$ and $\textit{dfs}(i, j - 1, k)$ respectively; or we can change $s[i]$ and $s[j]$ to the same character and calculate $\textit{dfs}(i + 1, j - 1, k - t) + 2$, where $t$ is the ASCII code difference between $s[i]$ and $s[j]$.
+-   Return the maximum value of the above three cases.
+
+To avoid repeated calculations, we use memoized search.
+
+The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n^2 \times k)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def longestPalindromicSubsequence(self, s: str, k: int) -> int:
+        @cache
+        def dfs(i: int, j: int, k: int) -> int:
+            if i > j:
+                return 0
+            if i == j:
+                return 1
+            res = max(dfs(i + 1, j, k), dfs(i, j - 1, k))
+            d = abs(s[i] - s[j])
+            t = min(d, 26 - d)
+            if t <= k:
+                res = max(res, dfs(i + 1, j - 1, k - t) + 2)
+            return res
 
+        s = list(map(ord, s))
+        n = len(s)
+        ans = dfs(0, n - 1, k)
+        dfs.cache_clear()
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private char[] s;
+    private Integer[][][] f;
 
+    public int longestPalindromicSubsequence(String s, int k) {
+        this.s = s.toCharArray();
+        int n = s.length();
+        f = new Integer[n][n][k + 1];
+        return dfs(0, n - 1, k);
+    }
+
+    private int dfs(int i, int j, int k) {
+        if (i > j) {
+            return 0;
+        }
+        if (i == j) {
+            return 1;
+        }
+        if (f[i][j][k] != null) {
+            return f[i][j][k];
+        }
+        int res = Math.max(dfs(i + 1, j, k), dfs(i, j - 1, k));
+        int d = Math.abs(s[i] - s[j]);
+        int t = Math.min(d, 26 - d);
+        if (t <= k) {
+            res = Math.max(res, 2 + dfs(i + 1, j - 1, k - t));
+        }
+        f[i][j][k] = res;
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int longestPalindromicSubsequence(string s, int k) {
+        int n = s.size();
+        vector f(n, vector(n, vector<int>(k + 1, -1)));
+        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> int {
+            if (i > j) {
+                return 0;
+            }
+            if (i == j) {
+                return 1;
+            }
+            if (f[i][j][k] != -1) {
+                return f[i][j][k];
+            }
+            int res = max(dfs(i + 1, j, k), dfs(i, j - 1, k));
+            int d = abs(s[i] - s[j]);
+            int t = min(d, 26 - d);
+            if (t <= k) {
+                res = max(res, 2 + dfs(i + 1, j - 1, k - t));
+            }
+            return f[i][j][k] = res;
+        };
+        return dfs(0, n - 1, k);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func longestPalindromicSubsequence(s string, k int) int {
+	n := len(s)
+	f := make([][][]int, n)
+	for i := range f {
+		f[i] = make([][]int, n)
+		for j := range f[i] {
+			f[i][j] = make([]int, k+1)
+			for l := range f[i][j] {
+				f[i][j][l] = -1
+			}
+		}
+	}
+	var dfs func(int, int, int) int
+	dfs = func(i, j, k int) int {
+		if i > j {
+			return 0
+		}
+		if i == j {
+			return 1
+		}
+		if f[i][j][k] != -1 {
+			return f[i][j][k]
+		}
+		res := max(dfs(i+1, j, k), dfs(i, j-1, k))
+		d := abs(int(s[i]) - int(s[j]))
+		t := min(d, 26-d)
+		if t <= k {
+			res = max(res, 2+dfs(i+1, j-1, k-t))
+		}
+		f[i][j][k] = res
+		return res
+	}
+	return dfs(0, n-1, k)
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPalindromicSubsequence(s: string, k: number): number {
+    const n = s.length;
+    const sCodes = s.split('').map(c => c.charCodeAt(0));
+    const f: number[][][] = Array.from({ length: n }, () =>
+        Array.from({ length: n }, () => Array(k + 1).fill(-1)),
+    );
+
+    function dfs(i: number, j: number, k: number): number {
+        if (i > j) {
+            return 0;
+        }
+        if (i === j) {
+            return 1;
+        }
+
+        if (f[i][j][k] !== -1) {
+            return f[i][j][k];
+        }
+
+        let res = Math.max(dfs(i + 1, j, k), dfs(i, j - 1, k));
+        const d = Math.abs(sCodes[i] - sCodes[j]);
+        const t = Math.min(d, 26 - d);
+        if (t <= k) {
+            res = Math.max(res, 2 + dfs(i + 1, j - 1, k - t));
+        }
+        return (f[i][j][k] = res);
+    }
+
+    return dfs(0, n - 1, k);
+}
 ```
 
 <!-- tabs:end -->
