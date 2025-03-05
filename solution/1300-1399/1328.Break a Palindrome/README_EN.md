@@ -95,17 +95,17 @@ class Solution {
         if (n == 1) {
             return "";
         }
-        char[] cs = palindrome.toCharArray();
+        char[] s = palindrome.toCharArray();
         int i = 0;
-        while (i < n / 2 && cs[i] == 'a') {
+        while (i < n / 2 && s[i] == 'a') {
             ++i;
         }
         if (i == n / 2) {
-            cs[n - 1] = 'b';
+            s[n - 1] = 'b';
         } else {
-            cs[i] = 'a';
+            s[i] = 'a';
         }
-        return String.valueOf(cs);
+        return String.valueOf(s);
     }
 }
 ```
@@ -175,6 +175,33 @@ function breakPalindrome(palindrome: string): string {
         s[i] = 'a';
     }
     return s.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn break_palindrome(palindrome: String) -> String {
+        let n = palindrome.len();
+        if n == 1 {
+            return "".to_string();
+        }
+        let mut s: Vec<char> = palindrome.chars().collect();
+        let mut i = 0;
+
+        while i < n / 2 && s[i] == 'a' {
+            i += 1;
+        }
+
+        if i == n / 2 {
+            s[n - 1] = 'b';
+        } else {
+            s[i] = 'a';
+        }
+
+        s.into_iter().collect()
+    }
 }
 ```
 
