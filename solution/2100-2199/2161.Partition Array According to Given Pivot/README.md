@@ -206,7 +206,7 @@ function pivotArray(nums: number[], pivot: number): number[] {
 
 <!-- solution:start -->
 
-### Solution 2: Two pointers
+### 方法二：双指针
 
 <!-- tabs:start -->
 
