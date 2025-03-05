@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3476.Ma
 
 <!-- problem:start -->
 
-# [3476. Maximize Profit from Task Assignment 🔒](https://leetcode.cn/problems/maximize-profit-from-task-assignment)
+# [3476. 最大化任务分配的利润 🔒](https://leetcode.cn/problems/maximize-profit-from-task-assignment)
 
 [English Version](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README_EN.md)
 
@@ -14,61 +14,63 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3476.Ma
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>workers</code>, where <code>workers[i]</code> represents the skill level of the <code>i<sup>th</sup></code> worker. You are also given a 2D integer array <code>tasks</code>, where:</p>
+<p>给定一个整数数组&nbsp;<code>workers</code>，其中&nbsp;<code>workers[i]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;个工人的技能等级。同时给定一个 2 维数组&nbsp;<code>tasks</code>，其中：</p>
 
 <ul>
-	<li><code>tasks[i][0]</code> represents the skill requirement needed to complete the task.</li>
-	<li><code>tasks[i][1]</code> represents the profit earned from completing the task.</li>
+	<li><code>tasks[i][0]</code>&nbsp;表示完成任务所需的技能要求。</li>
+	<li><code>tasks[i][1]</code>&nbsp;表示完成任务的收益。</li>
 </ul>
 
-<p>Each worker can complete <strong>at most</strong> one task, and they can only take a task if their skill level is <strong>equal</strong> to the task&#39;s skill requirement. An <strong>additional</strong> worker joins today who can take up <em>any</em> task, <strong>regardless</strong> of the skill requirement.</p>
+<p>每一个工人 <strong>最多</strong>&nbsp;能完成一个任务，并且只有在他们的技能等级 <strong>等于</strong>&nbsp;任务的技能要求时才能获取此任务。今天又有一名 <strong>额外</strong> 工人加入，他可以承接任何任务，<strong>无论</strong>&nbsp;技能要求如何。</p>
 
-<p>Return the <strong>maximum</strong> total profit that can be earned by optimally assigning the tasks to the workers.</p>
+<p>返回按照最优方式分配任务给工人所能获得的 <strong>最大</strong> 总利润。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">workers = [1,2,3,4,5], tasks = [[1,100],[2,400],[3,100],[3,400]]</span></p>
+<p><span class="example-io"><b>输入：</b>workers = [1,2,3,4,5], tasks = [[1,100],[2,400],[3,100],[3,400]]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">1000</span></p>
+<p><span class="example-io"><b>输出：</b>1000</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Worker 0 completes task 0.</li>
-	<li>Worker 1 completes task 1.</li>
-	<li>Worker 2 completes task 3.</li>
-	<li>The additional worker completes task 2.</li>
+	<li>工人 0 完成任务 0。</li>
+	<li>工人 1 完成任务 1。</li>
+	<li>工人 2 完成任务 3。</li>
+	<li>额外工人完成任务 2。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">workers = [10,10000,100000000], tasks = [[1,100]]</span></p>
+<p><span class="example-io"><b>输入：</b>workers = [10,10000,100000000], tasks = [[1,100]]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">100</span></p>
+<p><strong>输出：</strong><span class="example-io">100</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>Since no worker matches the skill requirement, only the additional worker can complete task 0.</p>
+<p>由于没有工人满足技能需求，只有额外工人能够完成任务 0。</p>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">workers = [7], tasks = [[3,3],[3,3]]</span></p>
+<p><span class="example-io"><b>输入：</b>workers = [7], tasks = [[3,3],[3,3]]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">3</span></p>
+<p><span class="example-io"><b>输出：</b>3</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>The additional worker completes task 1. Worker 0 cannot work since no task has a skill requirement of 7.</p>
+<p>额外工人完成任务 1。由于没有任务的技能需求为 7，工人 0 无法工作。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= workers.length &lt;= 10<sup>5</sup></code></li>

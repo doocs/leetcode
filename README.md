@@ -191,9 +191,18 @@ https://doocs.github.io/leetcode
 1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
 1. 你也可以参考帮助文档 https://help.github.com/cn 了解更多细节。
 
-<p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
-</p>
+<div align="center">
+
+```mermaid
+graph TD;
+    A[LeetCode 仓库 <br> doocs/leetcode.git] -- 1.Fork（派生） --> B[你的 GitHub 仓库 <br> yourusername/leetcode.git];
+    B -- 2.Git 克隆 --> C[本地开发环境];
+    C -- 3.创建新分支并修改代码 --> D[本地修改后的代码];
+    D -- 4.提交 & 推送到你的仓库 --> B;
+    B -- 5.提交 Pull Request（合并请求） --> A;
+```
+
+</div>
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location=SoutheastAsia)
 

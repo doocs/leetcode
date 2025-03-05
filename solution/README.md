@@ -3486,7 +3486,7 @@
 |  3473  |  [长度至少为 M 的 K 个子数组之和](/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README.md)  |    |  中等  |  第 439 场周赛  |
 |  3474  |  [字典序最小的生成字符串](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md)  |    |  困难  |  第 439 场周赛  |
 |  3475  |  [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)  |    |  中等  |    |
-|  3476  |  [Maximize Profit from Task Assignment](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README.md)  |    |  中等  |  🔒  |
+|  3476  |  [最大化任务分配的利润](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
