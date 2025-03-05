@@ -1,21 +1,23 @@
 class Solution {
     public String[] reorderLogFiles(String[] logs) {
-        Arrays.sort(logs, this::cmp);
-        return logs;
-    }
+        Arrays.sort(logs, (log1, log2) -> {
+            String[] split1 = log1.split(" ", 2);
+            String[] split2 = log2.split(" ", 2);
 
-    private int cmp(String a, String b) {
-        String[] t1 = a.split(" ", 2);
-        String[] t2 = b.split(" ", 2);
-        boolean d1 = Character.isDigit(t1[1].charAt(0));
-        boolean d2 = Character.isDigit(t2[1].charAt(0));
-        if (!d1 && !d2) {
-            int v = t1[1].compareTo(t2[1]);
-            return v == 0 ? t1[0].compareTo(t2[0]) : v;
-        }
-        if (d1 && d2) {
-            return 0;
-        }
-        return d1 ? 1 : -1;
+            boolean isLetter1 = Character.isLetter(split1[1].charAt(0));
+            boolean isLetter2 = Character.isLetter(split2[1].charAt(0));
+
+            if (isLetter1 && isLetter2) {
+                int cmp = split1[1].compareTo(split2[1]);
+                if (cmp != 0) {
+                    return cmp;
+                }
+                return split1[0].compareTo(split2[0]);
+            }
+
+            return isLetter1 ? -1 : (isLetter2 ? 1 : 0);
+        });
+
+        return logs;
     }
 }
