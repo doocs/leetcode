@@ -59,9 +59,18 @@ We're looking for long-term contributors/partners to this repo! Send me [PRs](ht
 1. Create a pull request with your changes!
 1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
-<p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
-</p>
+<div align="center">
+
+```mermaid
+graph TD;
+    A[LeetCode Repo <br> doocs/leetcode.git] -- 1.Fork --> B[Your GitHub Repo <br> yourusername/leetcode.git];
+    B -- 2.Git Clone --> C[Local Machine];
+    C -- 3.Create a New Branch & Make Changes --> D[Modify Code Locally];
+    D -- 4.Commit & Push to Your Repo --> B;
+    B -- 5.Create a Pull Request --> A;
+```
+
+</div>
 
 You can also directly click the button below to edit the code online with GitHub Codespaces, without the need for environment configuration, you can quickly submit a PR.
 
