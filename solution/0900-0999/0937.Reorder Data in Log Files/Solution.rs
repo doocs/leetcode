@@ -1,18 +1,33 @@
+use std::cmp::Ordering;
+
 impl Solution {
-    pub fn reorder_log_files(mut logs: Vec<String>) -> Vec<String> {
-        logs.sort_by(|s1, s2| {
-            let (start1, content1) = s1.split_once(' ').unwrap();
-            let (start2, content2) = s2.split_once(' ').unwrap();
-            match (
-                content1.chars().nth(0).unwrap().is_digit(10),
-                content2.chars().nth(0).unwrap().is_digit(10),
-            ) {
-                (true, true) => std::cmp::Ordering::Equal,
-                (true, false) => std::cmp::Ordering::Greater,
-                (false, true) => std::cmp::Ordering::Less,
-                (false, false) => content1.cmp(&content2).then(start1.cmp(&start2)),
+    pub fn reorder_log_files(logs: Vec<String>) -> Vec<String> {
+        let mut logs = logs;
+
+        logs.sort_by(|log1, log2| {
+            let split1: Vec<&str> = log1.splitn(2, ' ').collect();
+            let split2: Vec<&str> = log2.splitn(2, ' ').collect();
+
+            let is_letter1 = split1[1].chars().next().unwrap().is_alphabetic();
+            let is_letter2 = split2[1].chars().next().unwrap().is_alphabetic();
+
+            if is_letter1 && is_letter2 {
+                let cmp = split1[1].cmp(split2[1]);
+                if cmp != Ordering::Equal {
+                    return cmp;
+                }
+                return split1[0].cmp(split2[0]);
+            }
+
+            if is_letter1 {
+                Ordering::Less
+            } else if is_letter2 {
+                Ordering::Greater
+            } else {
+                Ordering::Equal
             }
         });
+
         logs
     }
 }

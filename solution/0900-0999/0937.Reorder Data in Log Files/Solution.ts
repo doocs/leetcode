@@ -1,22 +1,19 @@
 function reorderLogFiles(logs: string[]): string[] {
-    const isDigit = (c: string) => c >= '0' && c <= '9';
-    return logs.sort((a, b) => {
-        const end1 = a[a.length - 1];
-        const end2 = b[b.length - 1];
-        if (isDigit(end1) && isDigit(end2)) {
-            return 0;
+    return logs.sort((log1, log2) => {
+        const [id1, content1] = log1.split(/ (.+)/);
+        const [id2, content2] = log2.split(/ (.+)/);
+
+        const isLetter1 = isNaN(Number(content1[0]));
+        const isLetter2 = isNaN(Number(content2[0]));
+
+        if (isLetter1 && isLetter2) {
+            const cmp = content1.localeCompare(content2);
+            if (cmp !== 0) {
+                return cmp;
+            }
+            return id1.localeCompare(id2);
         }
-        if (isDigit(end1)) {
-            return 1;
-        }
-        if (isDigit(end2)) {
-            return -1;
-        }
-        const content1 = a.split(' ').slice(1).join(' ');
-        const content2 = b.split(' ').slice(1).join(' ');
-        if (content1 === content2) {
-            return a < b ? -1 : 1;
-        }
-        return content1 < content2 ? -1 : 1;
+
+        return isLetter1 ? -1 : isLetter2 ? 1 : 0;
     });
 }
