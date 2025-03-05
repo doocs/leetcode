@@ -86774,9 +86774,16 @@
 <li>Create a pull request with your changes!</li>
 <li>See <a href="https://github.com/doocs/.github/blob/main/CONTRIBUTING.md">CONTRIBUTING</a> or <a href="https://help.github.com/en">GitHub Help</a> for more details.</li>
 </ol>
-<p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/how-to-contribute.svg" alt="how-to-contribute"></a>
-</p>
+<div align="center">
+
+<pre class="mermaid"><code>graph TD;
+    A[LeetCode Repo &lt;br&gt; doocs/leetcode.git] -- 1.Fork --&gt; B[Your GitHub Repo &lt;br&gt; yourusername/leetcode.git];
+    B -- 2.Git Clone --&gt; C[Local Machine];
+    C -- 3.Create a New Branch &amp; Make Changes --&gt; D[Modify Code Locally];
+    D -- 4.Commit &amp; Push to Your Repo --&gt; B;
+    B -- 5.Create a Pull Request --&gt; A;</code></pre>
+
+</div>
 
 <p>You can also directly click the button below to edit the code online with GitHub Codespaces, without the need for environment configuration, you can quickly submit a PR.</p>
 <p><a href="https://github.com/codespaces/new?hide_repo_select=true&amp;ref=main&amp;repo=149001365&amp;machine=basicLinux32gb&amp;location=EastUs"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
