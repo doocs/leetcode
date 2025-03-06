@@ -68,9 +68,9 @@ tags:
 
 ### 方法一：逆向计算
 
-我们可以采用逆向计算的方式，从 `target` 开始，如果 `target` 是奇数，则 `target++`，否则 `target >>= 1`，累加操作次数，直到 `target` 小于等于 `startValue`，此时的操作次数加上 `startValue - target` 即为最终结果。
+我们可以采用逆向计算的方式，从 $\textit{target}$ 开始，如果 $\textit{target}$ 是奇数，那么 $\textit{target} = \textit{target} + 1$，否则 $\textit{target} = \textit{target} / 2$，累加操作次数，直到 $\textit{target} \leq \textit{startValue}$，此时的操作次数加上 $\textit{startValue} - \textit{target}$ 即为最终结果。
 
-时间复杂度 $O(\log n)$，其中 $n$ 为 `target`。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，其中 $n$ 为 $\textit{target}$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -145,6 +145,23 @@ func brokenCalc(startValue int, target int) (ans int) {
 	}
 	ans += startValue - target
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function brokenCalc(startValue: number, target: number): number {
+    let ans = 0;
+    for (; startValue < target; ++ans) {
+        if (target & 1) {
+            ++target;
+        } else {
+            target >>= 1;
+        }
+    }
+    ans += startValue - target;
+    return ans;
 }
 ```
 

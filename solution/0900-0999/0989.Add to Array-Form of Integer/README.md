@@ -71,7 +71,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以从数组的最后一位开始，将数组的每一位与 $k$ 相加，然后将 $k$ 除以 $10$，并将余数作为当前位的值，将商作为进位。一直循环，直到数组遍历完并且 $k = 0$。最后将答案数组反转即可。
+
+时间复杂度 $O(n)$，其中 $n$ 表示 $\textit{num}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -80,13 +84,12 @@ tags:
 ```python
 class Solution:
     def addToArrayForm(self, num: List[int], k: int) -> List[int]:
-        i, carry = len(num) - 1, 0
         ans = []
-        while i >= 0 or k or carry:
-            carry += (0 if i < 0 else num[i]) + (k % 10)
-            carry, v = divmod(carry, 10)
-            ans.append(v)
-            k //= 10
+        i = len(num) - 1
+        while i >= 0 or k:
+            k += 0 if i < 0 else num[i]
+            k, x = divmod(k, 10)
+            ans.append(x)
             i -= 1
         return ans[::-1]
 ```
@@ -96,14 +99,13 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> addToArrayForm(int[] num, int k) {
-        int i = num.length - 1, carry = 0;
-        LinkedList<Integer> ans = new LinkedList<>();
-        while (i >= 0 || k > 0 || carry > 0) {
-            carry += (i < 0 ? 0 : num[i--]) + k % 10;
-            ans.addFirst(carry % 10);
-            carry /= 10;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = num.length - 1; i >= 0 || k > 0; --i) {
+            k += (i >= 0 ? num[i] : 0);
+            ans.add(k % 10);
             k /= 10;
         }
+        Collections.reverse(ans);
         return ans;
     }
 }
@@ -115,15 +117,13 @@ class Solution {
 class Solution {
 public:
     vector<int> addToArrayForm(vector<int>& num, int k) {
-        int i = num.size() - 1, carry = 0;
         vector<int> ans;
-        for (; i >= 0 || k || carry; --i) {
-            carry += (i < 0 ? 0 : num[i]) + k % 10;
-            ans.push_back(carry % 10);
-            carry /= 10;
+        for (int i = num.size() - 1; i >= 0 || k > 0; --i) {
+            k += (i >= 0 ? num[i] : 0);
+            ans.push_back(k % 10);
             k /= 10;
         }
-        reverse(ans.begin(), ans.end());
+        ranges::reverse(ans);
         return ans;
     }
 };
@@ -132,22 +132,16 @@ public:
 #### Go
 
 ```go
-func addToArrayForm(num []int, k int) []int {
-	i, carry := len(num)-1, 0
-	ans := []int{}
-	for ; i >= 0 || k > 0 || carry > 0; i-- {
+func addToArrayForm(num []int, k int) (ans []int) {
+	for i := len(num) - 1; i >= 0 || k > 0; i-- {
 		if i >= 0 {
-			carry += num[i]
+			k += num[i]
 		}
-		carry += k % 10
-		ans = append(ans, carry%10)
-		carry /= 10
+		ans = append(ans, k%10)
 		k /= 10
 	}
-	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
-		ans[i], ans[j] = ans[j], ans[i]
-	}
-	return ans
+	slices.Reverse(ans)
+	return
 }
 ```
 
@@ -155,17 +149,13 @@ func addToArrayForm(num []int, k int) []int {
 
 ```ts
 function addToArrayForm(num: number[], k: number): number[] {
-    let arr2 = [...String(k)].map(Number);
-    let ans = [];
-    let sum = 0;
-    while (num.length || arr2.length || sum) {
-        let a = num.pop() || 0,
-            b = arr2.pop() || 0;
-        sum += a + b;
-        ans.unshift(sum % 10);
-        sum = Math.floor(sum / 10);
+    const ans: number[] = [];
+    for (let i = num.length - 1; i >= 0 || k > 0; --i) {
+        k += i >= 0 ? num[i] : 0;
+        ans.push(k % 10);
+        k = Math.floor(k / 10);
     }
-    return ans;
+    return ans.reverse();
 }
 ```
 
@@ -173,51 +163,23 @@ function addToArrayForm(num: number[], k: number): number[] {
 
 ```rust
 impl Solution {
-    pub fn add_to_array_form(num: Vec<i32>, mut k: i32) -> Vec<i32> {
-        let n = num.len();
-        let mut res = vec![];
-        let mut i = 0;
-        let mut sum = 0;
-        while i < n || sum != 0 || k != 0 {
-            sum += num.get(n - i - 1).unwrap_or(&0);
-            sum += k % 10;
-            res.push(sum % 10);
+    pub fn add_to_array_form(num: Vec<i32>, k: i32) -> Vec<i32> {
+        let mut ans = Vec::new();
+        let mut k = k;
+        let mut i = num.len() as i32 - 1;
 
-            i += 1;
+        while i >= 0 || k > 0 {
+            if i >= 0 {
+                k += num[i as usize];
+            }
+            ans.push(k % 10);
             k /= 10;
-            sum /= 10;
+            i -= 1;
         }
-        res.reverse();
-        res
+
+        ans.reverse();
+        ans
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function addToArrayForm(num: number[], k: number): number[] {
-    const n = num.length;
-    const res = [];
-    let sum = 0;
-    for (let i = 0; i < n || sum !== 0 || k !== 0; i++) {
-        sum += num[n - i - 1] ?? 0;
-        sum += k % 10;
-        res.push(sum % 10);
-        k = Math.floor(k / 10);
-        sum = Math.floor(sum / 10);
-    }
-    return res.reverse();
 }
 ```
 
