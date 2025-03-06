@@ -64,7 +64,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Reverse Calculation
+
+We can use a reverse calculation method, starting from $\textit{target}$. If $\textit{target}$ is odd, then $\textit{target} = \textit{target} + 1$, otherwise $\textit{target} = \textit{target} / 2$. We accumulate the number of operations until $\textit{target} \leq \textit{startValue}$. The final result is the number of operations plus $\textit{startValue} - \textit{target}$.
+
+The time complexity is $O(\log n)$, where $n$ is $\textit{target}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -139,6 +143,23 @@ func brokenCalc(startValue int, target int) (ans int) {
 	}
 	ans += startValue - target
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function brokenCalc(startValue: number, target: number): number {
+    let ans = 0;
+    for (; startValue < target; ++ans) {
+        if (target & 1) {
+            ++target;
+        } else {
+            target >>= 1;
+        }
+    }
+    ans += startValue - target;
+    return ans;
 }
 ```
 

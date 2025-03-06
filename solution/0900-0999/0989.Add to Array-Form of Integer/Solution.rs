@@ -1,19 +1,19 @@
 impl Solution {
-    pub fn add_to_array_form(num: Vec<i32>, mut k: i32) -> Vec<i32> {
-        let n = num.len();
-        let mut res = vec![];
-        let mut i = 0;
-        let mut sum = 0;
-        while i < n || sum != 0 || k != 0 {
-            sum += num.get(n - i - 1).unwrap_or(&0);
-            sum += k % 10;
-            res.push(sum % 10);
+    pub fn add_to_array_form(num: Vec<i32>, k: i32) -> Vec<i32> {
+        let mut ans = Vec::new();
+        let mut k = k;
+        let mut i = num.len() as i32 - 1;
 
-            i += 1;
+        while i >= 0 || k > 0 {
+            if i >= 0 {
+                k += num[i as usize];
+            }
+            ans.push(k % 10);
             k /= 10;
-            sum /= 10;
+            i -= 1;
         }
-        res.reverse();
-        res
+
+        ans.reverse();
+        ans
     }
 }
