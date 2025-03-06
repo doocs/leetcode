@@ -59,15 +59,11 @@ tags:
 
 ### 方法一：模拟
 
-我们用一个变量 $s$ 记录数组 $nums$ 中所有偶数的和。
+我们用一个整型变量 $\textit{s}$ 记录数组 $\textit{nums}$ 中所有偶数的和，初始时 $\textit{s}$ 为数组 $\textit{nums}$ 中所有偶数的和。
 
-对于每次查询 $(v, i)$：
+对于每次查询 $(v, i)$，我们首先判断 $\textit{nums}[i]$ 是否为偶数，若 $\textit{nums}[i]$ 为偶数，则将 $\textit{s}$ 减去 $\textit{nums}[i]$；然后将 $\textit{nums}[i]$ 加上 $v$；若 $\textit{nums}[i]$ 为偶数，则将 $\textit{s}$ 加上 $\textit{nums}[i]$，然后将 $\textit{s}$ 加入答案数组。
 
-我们先判断 $nums[i]$ 是否为偶数，若 $nums[i]$ 为偶数，则将 $s$ 减去 $nums[i]$；然后将 $nums[i]$ 加上 $v$；
-
-若 $nums[i]$ 为偶数，则将 $s$ 加上 $nums[i]$，然后将 $s$ 加入答案数组。
-
-时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为数组 $nums$ 和 $queries$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -178,12 +174,7 @@ func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 
 ```ts
 function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
-    let s = 0;
-    for (const x of nums) {
-        if (x % 2 === 0) {
-            s += x;
-        }
-    }
+    let s = nums.reduce((acc, x) => acc + (x % 2 === 0 ? x : 0), 0);
     const ans: number[] = [];
     for (const [v, i] of queries) {
         if (nums[i] % 2 === 0) {
@@ -199,6 +190,31 @@ function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_even_after_queries(mut nums: Vec<i32>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        let mut s: i32 = nums.iter().filter(|&x| x % 2 == 0).sum();
+        let mut ans = Vec::with_capacity(queries.len());
+
+        for query in queries {
+            let (v, i) = (query[0], query[1] as usize);
+            if nums[i] % 2 == 0 {
+                s -= nums[i];
+            }
+            nums[i] += v;
+            if nums[i] % 2 == 0 {
+                s += nums[i];
+            }
+            ans.push(s);
+        }
+
+        ans
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -208,12 +224,7 @@ function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
  * @return {number[]}
  */
 var sumEvenAfterQueries = function (nums, queries) {
-    let s = 0;
-    for (const x of nums) {
-        if (x % 2 === 0) {
-            s += x;
-        }
-    }
+    let s = nums.reduce((acc, cur) => acc + (cur % 2 === 0 ? cur : 0), 0);
     const ans = [];
     for (const [v, i] of queries) {
         if (nums[i] % 2 === 0) {
@@ -227,6 +238,31 @@ var sumEvenAfterQueries = function (nums, queries) {
     }
     return ans;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] SumEvenAfterQueries(int[] nums, int[][] queries) {
+        int s = nums.Where(x => x % 2 == 0).Sum();
+        int[] ans = new int[queries.Length];
+
+        for (int j = 0; j < queries.Length; j++) {
+            int v = queries[j][0], i = queries[j][1];
+            if (nums[i] % 2 == 0) {
+                s -= nums[i];
+            }
+            nums[i] += v;
+            if (nums[i] % 2 == 0) {
+                s += nums[i];
+            }
+            ans[j] = s;
+        }
+
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
