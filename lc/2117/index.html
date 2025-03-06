@@ -54103,15 +54103,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法二
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -91591,8 +91582,8 @@
 <strong>输入：</strong>left = 2, right = 11
 <strong>输出：</strong>"399168e2"
 <strong>解释：</strong>乘积为 39916800 。
-有 2 个后缀 0 ，删除后得到 399168 。缩写的结尾为 "e2" 。 
-删除后缀 0 后是 6 位数，不需要进一步缩写。 
+有 2 个后缀 0 ，删除后得到 399168 。缩写的结尾为 "e2" 。
+删除后缀 0 后是 6 位数，不需要进一步缩写。
 所以，最终将乘积表示为 "399168e2" 。
 </pre>
 
@@ -91650,42 +91641,36 @@
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">abbreviateProduct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">cnt2</span> <span class="o">=</span> <span class="n">cnt5</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">float128</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">z</span> <span class="o">+=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="k">while</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">//=</span> <span class="mi">2</span>
                 <span class="n">cnt2</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">x</span> <span class="o">//=</span> <span class="mi">2</span>
             <span class="k">while</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">//=</span> <span class="mi">5</span>
                 <span class="n">cnt5</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">x</span> <span class="o">//=</span> <span class="mi">5</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">cnt2</span> <span class="o">=</span> <span class="n">cnt5</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">cnt2</span><span class="p">,</span> <span class="n">cnt5</span><span class="p">)</span>
-        <span class="n">suf</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="n">suf</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="n">gt</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">while</span> <span class="n">cnt2</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">//=</span> <span class="mi">2</span>
+            <span class="n">suf</span> <span class="o">*=</span> <span class="n">x</span>
+            <span class="k">while</span> <span class="n">cnt2</span> <span class="ow">and</span> <span class="n">suf</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">suf</span> <span class="o">//=</span> <span class="mi">2</span>
                 <span class="n">cnt2</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">while</span> <span class="n">cnt5</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">//=</span> <span class="mi">5</span>
+            <span class="k">while</span> <span class="n">cnt5</span> <span class="ow">and</span> <span class="n">suf</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">suf</span> <span class="o">//=</span> <span class="mi">5</span>
                 <span class="n">cnt5</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="n">suf</span> <span class="o">=</span> <span class="n">suf</span> <span class="o">*</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">100000</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">gt</span><span class="p">:</span>
-                <span class="n">y</span> <span class="o">*=</span> <span class="n">x</span>
-                <span class="n">gt</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mf">1e10</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">gt</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;e&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-        <span class="n">pre</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">))</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">pre</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">suf</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;e&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">suf</span> <span class="o">&gt;=</span> <span class="mf">1e10</span><span class="p">:</span>
+                <span class="n">gt</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">suf</span> <span class="o">%=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e10</span><span class="p">)</span>
+            <span class="n">pre</span> <span class="o">*=</span> <span class="n">x</span>
+            <span class="k">while</span> <span class="n">pre</span> <span class="o">&gt;</span> <span class="mf">1e5</span><span class="p">:</span>
+                <span class="n">pre</span> <span class="o">/=</span> <span class="mi">10</span>
+        <span class="k">if</span> <span class="n">gt</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pre</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">suf</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e5</span><span class="p">))</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;e&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">suf</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;e&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -91930,77 +91915,6 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%de%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">suf</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-</div>
-</div>
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-<h3 id="_4">方法二</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">abbreviateProduct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="n">cnt2</span> <span class="o">=</span> <span class="n">cnt5</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">while</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">cnt2</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">x</span> <span class="o">//=</span> <span class="mi">2</span>
-            <span class="k">while</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">cnt5</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">x</span> <span class="o">//=</span> <span class="mi">5</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">cnt2</span> <span class="o">=</span> <span class="n">cnt5</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">cnt2</span><span class="p">,</span> <span class="n">cnt5</span><span class="p">)</span>
-        <span class="n">pre</span> <span class="o">=</span> <span class="n">suf</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">gt</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">suf</span> <span class="o">*=</span> <span class="n">x</span>
-            <span class="k">while</span> <span class="n">cnt2</span> <span class="ow">and</span> <span class="n">suf</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">suf</span> <span class="o">//=</span> <span class="mi">2</span>
-                <span class="n">cnt2</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">while</span> <span class="n">cnt5</span> <span class="ow">and</span> <span class="n">suf</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">suf</span> <span class="o">//=</span> <span class="mi">5</span>
-                <span class="n">cnt5</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">suf</span> <span class="o">&gt;=</span> <span class="mf">1e10</span><span class="p">:</span>
-                <span class="n">gt</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="n">suf</span> <span class="o">%=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e10</span><span class="p">)</span>
-            <span class="n">pre</span> <span class="o">*=</span> <span class="n">x</span>
-            <span class="k">while</span> <span class="n">pre</span> <span class="o">&gt;</span> <span class="mf">1e5</span><span class="p">:</span>
-                <span class="n">pre</span> <span class="o">/=</span> <span class="mi">10</span>
-        <span class="k">if</span> <span class="n">gt</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pre</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;...&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">suf</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e5</span><span class="p">))</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;e&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">suf</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;e&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
