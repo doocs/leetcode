@@ -4,12 +4,7 @@
  * @return {number[]}
  */
 var sumEvenAfterQueries = function (nums, queries) {
-    let s = 0;
-    for (const x of nums) {
-        if (x % 2 === 0) {
-            s += x;
-        }
-    }
+    let s = nums.reduce((acc, cur) => acc + (cur % 2 === 0 ? cur : 0), 0);
     const ans = [];
     for (const [v, i] of queries) {
         if (nums[i] % 2 === 0) {

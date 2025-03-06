@@ -60,7 +60,13 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We use an integer variable $\textit{s}$ to record the sum of all even numbers in the array $\textit{nums}$. Initially, $\textit{s}$ is the sum of all even numbers in the array $\textit{nums}$.
+
+For each query $(v, i)$, we first check if $\textit{nums}[i]$ is even. If $\textit{nums}[i]$ is even, we subtract $\textit{nums}[i]$ from $\textit{s}$. Then, we add $v$ to $\textit{nums}[i]$. If $\textit{nums}[i]$ is even, we add $\textit{nums}[i]$ to $\textit{s}$, and then add $\textit{s}$ to the answer array.
+
+The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $\textit{nums}$ and $\textit{queries}$, respectively. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -171,12 +177,7 @@ func sumEvenAfterQueries(nums []int, queries [][]int) (ans []int) {
 
 ```ts
 function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
-    let s = 0;
-    for (const x of nums) {
-        if (x % 2 === 0) {
-            s += x;
-        }
-    }
+    let s = nums.reduce((acc, x) => acc + (x % 2 === 0 ? x : 0), 0);
     const ans: number[] = [];
     for (const [v, i] of queries) {
         if (nums[i] % 2 === 0) {
@@ -192,6 +193,31 @@ function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_even_after_queries(mut nums: Vec<i32>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        let mut s: i32 = nums.iter().filter(|&x| x % 2 == 0).sum();
+        let mut ans = Vec::with_capacity(queries.len());
+
+        for query in queries {
+            let (v, i) = (query[0], query[1] as usize);
+            if nums[i] % 2 == 0 {
+                s -= nums[i];
+            }
+            nums[i] += v;
+            if nums[i] % 2 == 0 {
+                s += nums[i];
+            }
+            ans.push(s);
+        }
+
+        ans
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -201,12 +227,7 @@ function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
  * @return {number[]}
  */
 var sumEvenAfterQueries = function (nums, queries) {
-    let s = 0;
-    for (const x of nums) {
-        if (x % 2 === 0) {
-            s += x;
-        }
-    }
+    let s = nums.reduce((acc, cur) => acc + (cur % 2 === 0 ? cur : 0), 0);
     const ans = [];
     for (const [v, i] of queries) {
         if (nums[i] % 2 === 0) {
@@ -220,6 +241,31 @@ var sumEvenAfterQueries = function (nums, queries) {
     }
     return ans;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] SumEvenAfterQueries(int[] nums, int[][] queries) {
+        int s = nums.Where(x => x % 2 == 0).Sum();
+        int[] ans = new int[queries.Length];
+
+        for (int j = 0; j < queries.Length; j++) {
+            int v = queries[j][0], i = queries[j][1];
+            if (nums[i] % 2 == 0) {
+                s -= nums[i];
+            }
+            nums[i] += v;
+            if (nums[i] % 2 == 0) {
+                s += nums[i];
+            }
+            ans[j] = s;
+        }
+
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
