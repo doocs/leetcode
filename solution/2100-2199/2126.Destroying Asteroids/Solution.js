@@ -1,4 +1,9 @@
-function asteroidsDestroyed(mass: number, asteroids: number[]): boolean {
+/**
+ * @param {number} mass
+ * @param {number[]} asteroids
+ * @return {boolean}
+ */
+var asteroidsDestroyed = function (mass, asteroids) {
     asteroids.sort((a, b) => a - b);
     for (const x of asteroids) {
         if (mass < x) {
@@ -7,4 +12,4 @@ function asteroidsDestroyed(mass: number, asteroids: number[]): boolean {
         mass += x;
     }
     return true;
-}
+};
