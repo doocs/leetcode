@@ -49,7 +49,7 @@ tags:
 <strong>输入：</strong>nums = [1], k = 1
 <strong>输出：</strong>1
 <strong>解释：</strong>数组 nums 中的美丽数组有：[1] 。
-可以证明数组 [1] 中只存在 1 个美丽子集。 
+可以证明数组 [1] 中只存在 1 个美丽子集。
 </pre>
 
 <p>&nbsp;</p>
@@ -69,16 +69,16 @@ tags:
 
 ### 方法一：计数 + 回溯
 
-我们用哈希表或数组 $cnt$ 记录当前已经选择的数字以及它们的个数，用 $ans$ 记录美丽子集的数目，初始时 $ans = -1$，表示排除空集。
+我们用哈希表或数组 $\textit{cnt}$ 记录当前已经选择的数字以及它们的个数，用 $\textit{ans}$ 记录美丽子集的数目，初始时 $\textit{ans} = -1$，表示排除空集。
 
-对于数组 $nums$ 中的每个数字 $x$，我们有两种选择：
+对于数组 $\textit{nums}$ 中的每个数字 $x$，我们有两种选择：
 
 -   不选择 $x$，此时直接递归到下一个数字；
--   选择 $x$，此时需要判断 $x + k$ 和 $x - k$ 是否已经在 $cnt$ 中出现过，如果都没有出现过，那么我们就可以选择 $x$，此时我们将 $x$ 的个数加一，然后递归到下一个数字，最后将 $x$ 的个数减一。
+-   选择 $x$，此时需要判断 $x + k$ 和 $x - k$ 是否已经在 $\textit{cnt}$ 中出现过，如果都没有出现过，那么我们就可以选择 $x$，此时我们将 $x$ 的个数加一，然后递归到下一个数字，最后将 $x$ 的个数减一。
 
-最后，我们返回 $ans$ 即可。
+最后，我们返回 $\textit{ans}$ 即可。
 
-时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -147,7 +147,7 @@ public:
         int cnt[1010]{};
         int n = nums.size();
 
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) {
             if (i >= n) {
                 ++ans;
                 return;
@@ -217,6 +217,36 @@ function beautifulSubsets(nums: number[], k: number): number {
     };
     dfs(0);
     return ans;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int BeautifulSubsets(int[] nums, int k) {
+        int ans = -1;
+        int[] cnt = new int[1010];
+        int n = nums.Length;
+
+        void Dfs(int i) {
+            if (i >= n) {
+                ans++;
+                return;
+            }
+            Dfs(i + 1);
+            bool ok1 = nums[i] + k >= 1010 || cnt[nums[i] + k] == 0;
+            bool ok2 = nums[i] - k < 0 || cnt[nums[i] - k] == 0;
+            if (ok1 && ok2) {
+                cnt[nums[i]]++;
+                Dfs(i + 1);
+                cnt[nums[i]]--;
+            }
+        }
+
+        Dfs(0);
+        return ans;
+    }
 }
 ```
 
