@@ -62657,9 +62657,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-case-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Case Analysis
     </span>
   </a>
   
@@ -86795,7 +86795,13 @@ Every node in the resulting graph is connected to an even number of edges.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-case-analysis">Solution 1: Case Analysis</h3>
+<p>We first build the graph <span class="arithmatex">\(g\)</span> using <code>edges</code>, and then find all nodes with odd degrees, denoted as <span class="arithmatex">\(vs\)</span>.</p>
+<p>If the length of <span class="arithmatex">\(vs\)</span> is <span class="arithmatex">\(0\)</span>, it means all nodes in the graph <span class="arithmatex">\(g\)</span> have even degrees, so we return <code>true</code>.</p>
+<p>If the length of <span class="arithmatex">\(vs\)</span> is <span class="arithmatex">\(2\)</span>, it means there are two nodes with odd degrees in the graph <span class="arithmatex">\(g\)</span>. If we can directly connect these two nodes with an edge, making all nodes in the graph <span class="arithmatex">\(g\)</span> have even degrees, we return <code>true</code>. Otherwise, if we can find a third node <span class="arithmatex">\(c\)</span> such that we can connect <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(c\)</span>, and <span class="arithmatex">\(b\)</span> and <span class="arithmatex">\(c\)</span>, making all nodes in the graph <span class="arithmatex">\(g\)</span> have even degrees, we return <code>true</code>. Otherwise, we return <code>false</code>.</p>
+<p>If the length of <span class="arithmatex">\(vs\)</span> is <span class="arithmatex">\(4\)</span>, we enumerate all possible pairs and check if any combination meets the conditions. If so, we return <code>true</code>; otherwise, we return <code>false</code>.</p>
+<p>In other cases, we return <code>false</code>.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n + m)\)</span>, and the space complexity is <span class="arithmatex">\(O(n + m)\)</span>. Where <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(m\)</span> are the number of nodes and edges, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

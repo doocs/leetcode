@@ -62591,9 +62591,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-bit-manipulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Bit Manipulation
     </span>
   </a>
   
@@ -86793,7 +86793,9 @@ And we have 0 OR 1 OR 2 OR 3 OR 4 OR 5 OR 6 = 7, so we return 7.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
+<p>We first use an array <span class="arithmatex">\(cnt\)</span> to count the number of 1s in each bit position. Then, from the lowest bit to the highest bit, if the number of 1s in that bit position is greater than 0, we add the value represented by that bit to the answer. Then, we check if there can be a carry-over, and if so, we add it to the next bit.</p>
+<p>The time complexity is <span class="arithmatex">\(O(n \times \log M)\)</span>, where <span class="arithmatex">\(n\)</span> is the length of the array and <span class="arithmatex">\(M\)</span> is the maximum value in the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
