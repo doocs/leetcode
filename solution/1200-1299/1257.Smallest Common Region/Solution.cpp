@@ -1,19 +1,21 @@
 class Solution {
 public:
     string findSmallestRegion(vector<vector<string>>& regions, string region1, string region2) {
-        unordered_map<string, string> m;
-        for (auto& region : regions)
-            for (int i = 1; i < region.size(); ++i)
-                m[region[i]] = region[0];
+        unordered_map<string, string> g;
+        for (const auto& r : regions) {
+            string x = r[0];
+            for (size_t i = 1; i < r.size(); ++i) {
+                g[r[i]] = x;
+            }
+        }
         unordered_set<string> s;
-        while (m.count(region1)) {
-            s.insert(region1);
-            region1 = m[region1];
+        for (string x = region1; !x.empty(); x = g[x]) {
+            s.insert(x);
         }
-        while (m.count(region2)) {
-            if (s.count(region2)) return region2;
-            region2 = m[region2];
+        string x = region2;
+        while (!g[x].empty() && s.find(x) == s.end()) {
+            x = g[x];
         }
-        return region1;
+        return x;
     }
 };
