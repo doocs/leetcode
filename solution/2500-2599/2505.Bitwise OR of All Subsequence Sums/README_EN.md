@@ -55,7 +55,11 @@ And we have 0 OR 1 OR 2 OR 3 OR 4 OR 5 OR 6 = 7, so we return 7.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+We first use an array $cnt$ to count the number of 1s in each bit position. Then, from the lowest bit to the highest bit, if the number of 1s in that bit position is greater than 0, we add the value represented by that bit to the answer. Then, we check if there can be a carry-over, and if so, we add it to the next bit.
+
+The time complexity is $O(n \times \log M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 

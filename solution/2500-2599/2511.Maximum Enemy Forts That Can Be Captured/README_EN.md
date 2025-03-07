@@ -72,7 +72,11 @@ Since 4 is the maximum number of enemy forts that can be captured, we return 4.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We use a pointer $i$ to traverse the array $forts$, and a pointer $j$ to start traversing from the next position of $i$ until it encounters the first non-zero position, i.e., $forts[j] \neq 0$. If $forts[i] + forts[j] = 0$, then we can move the army between $i$ and $j$, destroying $j - i - 1$ enemy forts. We use the variable $ans$ to record the maximum number of enemy forts that can be destroyed.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array `forts`.
 
 <!-- tabs:start -->
 
@@ -208,43 +212,6 @@ impl Solution {
             }
             i = j;
         }
-        ans as i32
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn capture_forts(forts: Vec<i32>) -> i32 {
-        let mut ans = 0;
-        let mut i = 0;
-
-        while let Some((idx, &value)) = forts.iter().enumerate().skip(i).find(|&(_, &x)| x != 0) {
-            if let Some((jdx, _)) = forts
-                .iter()
-                .enumerate()
-                .skip(idx + 1)
-                .find(|&(_, &x)| x != 0)
-            {
-                if value + forts[jdx] == 0 {
-                    ans = ans.max(jdx - idx - 1);
-                }
-            }
-            i = idx + 1;
-        }
-
         ans as i32
     }
 }

@@ -69,7 +69,19 @@ Every node in the resulting graph is connected to an even number of edges.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+We first build the graph $g$ using `edges`, and then find all nodes with odd degrees, denoted as $vs$.
+
+If the length of $vs$ is $0$, it means all nodes in the graph $g$ have even degrees, so we return `true`.
+
+If the length of $vs$ is $2$, it means there are two nodes with odd degrees in the graph $g$. If we can directly connect these two nodes with an edge, making all nodes in the graph $g$ have even degrees, we return `true`. Otherwise, if we can find a third node $c$ such that we can connect $a$ and $c$, and $b$ and $c$, making all nodes in the graph $g$ have even degrees, we return `true`. Otherwise, we return `false`.
+
+If the length of $vs$ is $4$, we enumerate all possible pairs and check if any combination meets the conditions. If so, we return `true`; otherwise, we return `false`.
+
+In other cases, we return `false`.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
