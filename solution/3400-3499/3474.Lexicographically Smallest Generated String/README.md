@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md
+tags:
+    - 贪心
+    - 字符串
+    - 字符串匹配
 ---
 
 <!-- problem:start -->

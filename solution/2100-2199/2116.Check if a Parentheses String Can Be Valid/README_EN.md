@@ -59,7 +59,7 @@ We change s[0] and s[4] to &#39;(&#39; while leaving s[2] and s[5] unchanged to 
 <pre>
 <strong>Input:</strong> s = &quot;)&quot;, locked = &quot;0&quot;
 <strong>Output:</strong> false
-<strong>Explanation:</strong> locked permits us to change s[0].
+<strong>Explanation:</strong> locked permits us to change s[0]. 
 Changing s[0] to either &#39;(&#39; or &#39;)&#39; will not make s valid.
 </pre>
 
@@ -68,7 +68,7 @@ Changing s[0] to either &#39;(&#39; or &#39;)&#39; will not make s valid.
 <pre>
 <strong>Input:</strong> s = &quot;(((())(((())&quot;, locked = &quot;111111010111&quot;
 <strong>Output:</strong> false
-<strong>Explanation:</strong> locked permits us to change s[6] and s[8].
+<strong>Explanation:</strong> locked permits us to change s[6] and s[8]. 
 We change s[6] and s[8] to &#39;)&#39; to make s valid.
 </pre>
 

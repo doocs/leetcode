@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->
