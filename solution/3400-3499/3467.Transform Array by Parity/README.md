@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README.md
+tags:
+    - 数组
+    - 计数
+    - 排序
 ---
 
 <!-- problem:start -->

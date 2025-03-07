@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README.md
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->

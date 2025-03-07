@@ -35,14 +35,15 @@ tags:
 
 <ul>
 	<li>例如 <code>arr =&nbsp;[6, -3, 7, 2, 11]</code>，<code>n = 5</code>：数组排序后得到 <code>arr = [-3, 2, 6, 7, 11]</code> ，数组的中间位置为 <code>m = ((5 - 1) / 2) = 2</code> ，中位数 <code>arr[m]</code> 的值为 <code>6</code> 。</li>
-	<li>例如 <code>arr =&nbsp;[-7, 22, 17,&thinsp;3]</code>，<code>n = 4</code>：数组排序后得到&nbsp;<code>arr = [-7, 3, 17, 22]</code> ，数组的中间位置为&nbsp;<code>m = ((4 - 1) / 2) = 1</code> ，中位数 <code>arr[m]</code> 的值为 <code>3</code> 。</li>
+	<li>例如 <code>arr =&nbsp;[-7, 22, 17, 3]</code>，<code>n = 4</code>：数组排序后得到&nbsp;<code>arr = [-7, 3, 17, 22]</code> ，数组的中间位置为&nbsp;<code>m = ((4 - 1) / 2) = 1</code> ，中位数 <code>arr[m]</code> 的值为 <code>3</code> 。</li>
 </ul>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>arr = [1,2,3,4,5], k = 2
+<pre>
+<strong>输入：</strong>arr = [1,2,3,4,5], k = 2
 <strong>输出：</strong>[5,1]
 <strong>解释：</strong>中位数为 3，按从强到弱顺序排序后，数组变为 [5,1,4,2,3]。最强的两个元素是 [5, 1]。[1, 5] 也是正确答案。
 注意，尽管 |5 - 3| == |1 - 3| ，但是 5 比 1 更强，因为 5 &gt; 1 。
@@ -50,28 +51,19 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>arr = [1,1,3,5,5], k = 2
+<pre>
+<strong>输入：</strong>arr = [1,1,3,5,5], k = 2
 <strong>输出：</strong>[5,5]
 <strong>解释：</strong>中位数为 3, 按从强到弱顺序排序后，数组变为 [5,5,1,1,3]。最强的两个元素是 [5, 5]。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>arr = [6,7,11,7,6,8], k = 5
+<pre>
+<strong>输入：</strong>arr = [6,7,11,7,6,8], k = 5
 <strong>输出：</strong>[11,8,6,6,7]
 <strong>解释：</strong>中位数为 7, 按从强到弱顺序排序后，数组变为 [11,8,6,6,7,7]。
-[11,8,6,6,7] 的任何排列都是正确答案。</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>arr = [6,-3,7,2,11], k = 3
-<strong>输出：</strong>[-3,11,2]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>arr = [-7,22,17,3], k = 2
-<strong>输出：</strong>[22,17]
+[11,8,6,6,7] 的任何排列都是正确答案。
 </pre>
 
 <p>&nbsp;</p>
@@ -79,8 +71,8 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
-	<li><code>-10^5 &lt;= arr[i] &lt;= 10^5</code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>5</sup> &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 </ul>
 

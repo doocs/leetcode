@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3470.Permutations%20IV/README_EN.md
+tags:
+    - Array
+    - Math
+    - Combinatorics
+    - Enumeration
 ---
 
 <!-- problem:start -->
