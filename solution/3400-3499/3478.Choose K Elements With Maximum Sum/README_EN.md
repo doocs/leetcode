@@ -72,32 +72,176 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3478.Ch
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Priority Queue (Min-Heap)
+
+We can convert the array $\textit{nums1}$ into an array $\textit{arr}$, where each element is a tuple $(x, i)$, representing the value $x$ at index $i$ in $\textit{nums1}$. Then, we sort the array $\textit{arr}$ in ascending order by $x$.
+
+We use a min-heap $\textit{pq}$ to maintain the elements from the array $\textit{nums2}$. Initially, $\textit{pq}$ is empty. We use a variable $\textit{s}$ to record the sum of the elements in $\textit{pq}$. Additionally, we use a pointer $j$ to maintain the current position in the array $\textit{arr}$ that needs to be added to $\textit{pq}$.
+
+We traverse the array $\textit{arr}$. For the $h$-th element $(x, i)$, we add all elements $\textit{nums2}[\textit{arr}[j][1]]$ to $\textit{pq}$ that satisfy $j < h$ and $\textit{arr}[j][0] < x$, and add these elements to $\textit{s}$. If the size of $\textit{pq}$ exceeds $k$, we pop the smallest element from $\textit{pq}$ and subtract it from $\textit{s}$. Then, we update the value of $\textit{ans}[i]$ to $\textit{s}$.
+
+After traversing, we return the answer array $\textit{ans}$.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findMaxSum(self, nums1: List[int], nums2: List[int], k: int) -> List[int]:
+        arr = [(x, i) for i, x in enumerate(nums1)]
+        arr.sort()
+        pq = []
+        s = j = 0
+        n = len(arr)
+        ans = [0] * n
+        for h, (x, i) in enumerate(arr):
+            while j < h and arr[j][0] < x:
+                y = nums2[arr[j][1]]
+                heappush(pq, y)
+                s += y
+                if len(pq) > k:
+                    s -= heappop(pq)
+                j += 1
+            ans[i] = s
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long[] findMaxSum(int[] nums1, int[] nums2, int k) {
+        int n = nums1.length;
+        int[][] arr = new int[n][0];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = new int[] {nums1[i], i};
+        }
+        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        long s = 0;
+        long[] ans = new long[n];
+        int j = 0;
+        for (int h = 0; h < n; ++h) {
+            int x = arr[h][0], i = arr[h][1];
+            while (j < h && arr[j][0] < x) {
+                int y = nums2[arr[j][1]];
+                pq.offer(y);
+                s += y;
+                if (pq.size() > k) {
+                    s -= pq.poll();
+                }
+                ++j;
+            }
+            ans[i] = s;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<long long> findMaxSum(vector<int>& nums1, vector<int>& nums2, int k) {
+        int n = nums1.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = {nums1[i], i};
+        }
+        ranges::sort(arr);
+        priority_queue<int, vector<int>, greater<int>> pq;
+        long long s = 0;
+        int j = 0;
+        vector<long long> ans(n);
+        for (int h = 0; h < n; ++h) {
+            auto [x, i] = arr[h];
+            while (j < h && arr[j].first < x) {
+                int y = nums2[arr[j].second];
+                pq.push(y);
+                s += y;
+                if (pq.size() > k) {
+                    s -= pq.top();
+                    pq.pop();
+                }
+                ++j;
+            }
+            ans[i] = s;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findMaxSum(nums1 []int, nums2 []int, k int) []int64 {
+	n := len(nums1)
+	arr := make([][2]int, n)
+	for i, x := range nums1 {
+		arr[i] = [2]int{x, i}
+	}
+	ans := make([]int64, n)
+	sort.Slice(arr, func(i, j int) bool { return arr[i][0] < arr[j][0] })
+	pq := hp{}
+	var s int64
+	j := 0
+	for h, e := range arr {
+		x, i := e[0], e[1]
+		for j < h && arr[j][0] < x {
+			y := nums2[arr[j][1]]
+			heap.Push(&pq, y)
+			s += int64(y)
+			if pq.Len() > k {
+				s -= int64(heap.Pop(&pq).(int))
+			}
+			j++
+		}
+		ans[i] = s
+	}
+	return ans
+}
 
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+#### TypeScript
+
+```ts
+function findMaxSum(nums1: number[], nums2: number[], k: number): number[] {
+    const n = nums1.length;
+    const arr = nums1.map((x, i) => [x, i]).sort((a, b) => a[0] - b[0]);
+    const pq = new MinPriorityQueue();
+    let [s, j] = [0, 0];
+    const ans: number[] = Array(k).fill(0);
+    for (let h = 0; h < n; ++h) {
+        const [x, i] = arr[h];
+        while (j < h && arr[j][0] < x) {
+            const y = nums2[arr[j++][1]];
+            pq.enqueue(y);
+            s += y;
+            if (pq.size() > k) {
+                s -= pq.dequeue();
+            }
+        }
+        ans[i] = s;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
