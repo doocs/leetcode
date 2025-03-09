@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 440 场周赛(2025-03-09 10:30, 90 分钟) 参赛人数 3056
+
+- [3477. 将水果放入篮子 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)
+- [3478. 选出和最大的 K 个元素](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README.md)
+- [3479. 将水果装入篮子 III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md)
+- [3480. 删除一个冲突对后最大子数组数目](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README.md)
+
 #### 第 439 场周赛(2025-03-02 10:30, 90 分钟) 参赛人数 2757
 
 - [3471. 找出最大的几近缺失整数](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README.md)
