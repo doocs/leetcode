@@ -300,4 +300,60 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Counting + Set
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of arrays $A$ and $B$.
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function findThePrefixCommonArray(A: number[], B: number[]): number[] {
+    const n = A.length;
+    const res = Array(n).fill(0);
+    const [setA, setB] = [new Set<number>(), new Set<number>()];
+
+    for (let i = 0, c = 0; i < n; i++) {
+        if (setA.has(B[i])) c++;
+        if (setB.has(A[i])) c++;
+        if (A[i] === B[i]) c++;
+
+        setA.add(A[i]);
+        setB.add(B[i]);
+        res[i] = c;
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function findThePrefixCommonArray(A, B) {
+    const n = A.length;
+    const res = Array(n).fill(0);
+    const [setA, setB] = [new Set(), new Set()];
+
+    for (let i = 0, c = 0; i < n; i++) {
+        if (setA.has(B[i])) c++;
+        if (setB.has(A[i])) c++;
+        if (A[i] === B[i]) c++;
+
+        setA.add(A[i]);
+        setB.add(B[i]);
+        res[i] = c;
+    }
+
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
