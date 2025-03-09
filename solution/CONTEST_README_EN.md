@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 440
+
+- [3477. Fruits Into Baskets II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README_EN.md)
+- [3478. Choose K Elements With Maximum Sum](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README_EN.md)
+- [3479. Fruits Into Baskets III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README_EN.md)
+- [3480. Maximize Subarrays After Removing One Conflicting Pair](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README_EN.md)
+
 #### Weekly Contest 439
 
 - [3471. Find the Largest Almost Missing Integer](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README_EN.md)

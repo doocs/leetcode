@@ -60,11 +60,11 @@ tags:
 
 <strong>Explanation</strong>
 Encrypter encrypter = new Encrypter([[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;], [&quot;ei&quot;, &quot;zf&quot;, &quot;ei&quot;, &quot;am&quot;], [&quot;abcd&quot;, &quot;acbd&quot;, &quot;adbc&quot;, &quot;badc&quot;, &quot;dacb&quot;, &quot;cadb&quot;, &quot;cbda&quot;, &quot;abad&quot;]);
-encrypter.encrypt(&quot;abcd&quot;); // return &quot;eizfeiam&quot;.
+encrypter.encrypt(&quot;abcd&quot;); // return &quot;eizfeiam&quot;. 
 &nbsp;                          // &#39;a&#39; maps to &quot;ei&quot;, &#39;b&#39; maps to &quot;zf&quot;, &#39;c&#39; maps to &quot;ei&quot;, and &#39;d&#39; maps to &quot;am&quot;.
-encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
-                              // &quot;ei&quot; can map to &#39;a&#39; or &#39;c&#39;, &quot;zf&quot; maps to &#39;b&#39;, and &quot;am&quot; maps to &#39;d&#39;.
-                              // Thus, the possible strings after decryption are &quot;abad&quot;, &quot;cbad&quot;, &quot;abcd&quot;, and &quot;cbcd&quot;.
+encrypter.decrypt(&quot;eizfeiam&quot;); // return 2. 
+                              // &quot;ei&quot; can map to &#39;a&#39; or &#39;c&#39;, &quot;zf&quot; maps to &#39;b&#39;, and &quot;am&quot; maps to &#39;d&#39;. 
+                              // Thus, the possible strings after decryption are &quot;abad&quot;, &quot;cbad&quot;, &quot;abcd&quot;, and &quot;cbcd&quot;. 
                               // 2 of those strings, &quot;abad&quot; and &quot;abcd&quot;, appear in dictionary, so the answer is 2.
 </pre>
 
