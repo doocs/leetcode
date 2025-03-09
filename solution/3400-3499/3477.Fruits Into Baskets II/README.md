@@ -80,32 +80,118 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3477.Fr
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们用一个长度为 $n$ 的布尔数组 $\textit{vis}$ 记录已经被使用的篮子，用一个答案变量 $\textit{ans}$ 记录所有未被放置的水果，初始时 $\textit{ans} = n$。
+
+接下来，我们遍历每一种水果 $x$，对于当前水果，我们遍历所有的篮子，找出第一个未被使用，且容量大于等于 $x$ 的篮子 $i$。如果找到了，那么答案 $\textit{ans}$ 减 $1$。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{fruits}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numOfUnplacedFruits(self, fruits: List[int], baskets: List[int]) -> int:
+        n = len(fruits)
+        vis = [False] * n
+        ans = n
+        for x in fruits:
+            for i, y in enumerate(baskets):
+                if y >= x and not vis[i]:
+                    vis[i] = True
+                    ans -= 1
+                    break
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numOfUnplacedFruits(int[] fruits, int[] baskets) {
+        int n = fruits.length;
+        boolean[] vis = new boolean[n];
+        int ans = n;
+        for (int x : fruits) {
+            for (int i = 0; i < n; ++i) {
+                if (baskets[i] >= x && !vis[i]) {
+                    vis[i] = true;
+                    --ans;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numOfUnplacedFruits(vector<int>& fruits, vector<int>& baskets) {
+        int n = fruits.size();
+        vector<bool> vis(n);
+        int ans = n;
+        for (int x : fruits) {
+            for (int i = 0; i < n; ++i) {
+                if (baskets[i] >= x && !vis[i]) {
+                    vis[i] = true;
+                    --ans;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func numOfUnplacedFruits(fruits []int, baskets []int) int {
+	n := len(fruits)
+	ans := n
+	vis := make([]bool, n)
+	for _, x := range fruits {
+		for i, y := range baskets {
+			if y >= x && !vis[i] {
+				vis[i] = true
+				ans--
+				break
+			}
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function numOfUnplacedFruits(fruits: number[], baskets: number[]): number {
+    const n = fruits.length;
+    const vis: boolean[] = Array(n).fill(false);
+    let ans = n;
+    for (const x of fruits) {
+        for (let i = 0; i < n; ++i) {
+            if (baskets[i] >= x && !vis[i]) {
+                vis[i] = true;
+                --ans;
+                break;
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
