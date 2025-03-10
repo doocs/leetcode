@@ -1,6 +1,11 @@
-function digitSum(s: string, k: number): string {
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
+ */
+var digitSum = function (s, k) {
     while (s.length > k) {
-        const t: number[] = [];
+        const t = [];
         for (let i = 0; i < s.length; i += k) {
             const x = s
                 .slice(i, i + k)
@@ -11,4 +16,4 @@ function digitSum(s: string, k: number): string {
         s = t.join('');
     }
     return s;
-}
+};

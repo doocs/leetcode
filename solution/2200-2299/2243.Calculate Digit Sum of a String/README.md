@@ -39,11 +39,11 @@ tags:
 <strong>输出：</strong>"135"
 <strong>解释：</strong>
 - 第一轮，将 s 分成："111"、"112"、"222" 和 "23" 。
-  接着，计算每一组的数字和：1 + 1 + 1 = 3、1 + 1 + 2 = 4、2 + 2 + 2 = 6 和 2 + 3 = 5 。 
+  接着，计算每一组的数字和：1 + 1 + 1 = 3、1 + 1 + 2 = 4、2 + 2 + 2 = 6 和 2 + 3 = 5 。
 &nbsp; 这样，s 在第一轮之后变成 "3" + "4" + "6" + "5" = "3465" 。
 - 第二轮，将 s 分成："346" 和 "5" 。
 &nbsp; 接着，计算每一组的数字和：3 + 4 + 6 = 13 、5 = 5 。
-&nbsp; 这样，s 在第二轮之后变成 "13" + "5" = "135" 。 
+&nbsp; 这样，s 在第二轮之后变成 "13" + "5" = "135" 。
 现在，s.length &lt;= k ，所以返回 "135" 作为答案。
 </pre>
 
@@ -53,7 +53,7 @@ tags:
 <strong>输出：</strong>"000"
 <strong>解释：</strong>
 将 "000", "000", and "00".
-接着，计算每一组的数字和：0 + 0 + 0 = 0 、0 + 0 + 0 = 0 和 0 + 0 = 0 。 
+接着，计算每一组的数字和：0 + 0 + 0 = 0 、0 + 0 + 0 = 0 和 0 + 0 = 0 。
 s 变为 "0" + "0" + "0" = "000" ，其长度等于 k ，所以返回 "000" 。
 </pre>
 
@@ -167,17 +167,63 @@ func digitSum(s string, k int) string {
 
 ```ts
 function digitSum(s: string, k: number): string {
-    let ans = [];
     while (s.length > k) {
+        const t: number[] = [];
         for (let i = 0; i < s.length; i += k) {
-            let cur = s.slice(i, i + k);
-            ans.push(cur.split('').reduce((a, c) => a + parseInt(c), 0));
+            const x = s
+                .slice(i, i + k)
+                .split('')
+                .reduce((a, b) => a + +b, 0);
+            t.push(x);
         }
-        s = ans.join('');
-        ans = [];
+        s = t.join('');
     }
     return s;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn digit_sum(s: String, k: i32) -> String {
+        let mut s = s;
+        let k = k as usize;
+        while s.len() > k {
+            let mut t = Vec::new();
+            for chunk in s.as_bytes().chunks(k) {
+                let sum: i32 = chunk.iter().map(|&c| (c - b'0') as i32).sum();
+                t.push(sum.to_string());
+            }
+            s = t.join("");
+        }
+        s
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
+ */
+var digitSum = function (s, k) {
+    while (s.length > k) {
+        const t = [];
+        for (let i = 0; i < s.length; i += k) {
+            const x = s
+                .slice(i, i + k)
+                .split('')
+                .reduce((a, b) => a + +b, 0);
+            t.push(x);
+        }
+        s = t.join('');
+    }
+    return s;
+};
 ```
 
 <!-- tabs:end -->
