@@ -76,32 +76,153 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3481.Ap
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Recursion
+
+We use a hash table $\textit{d}$ to store the substitution mapping, and then define a function $\textit{dfs}$ to recursively replace the placeholders in the string.
+
+The execution logic of the function $\textit{dfs}$ is as follows:
+
+1. Find the starting position $i$ of the first placeholder in the string $\textit{s}$. If not found, return $\textit{s}$;
+2. Find the ending position $j$ of the first placeholder in the string $\textit{s}$. If not found, return $\textit{s}$;
+3. Extract the key of the placeholder, and then recursively replace the value of the placeholder $d[key]$;
+4. Return the replaced string.
+
+In the main function, we call the $\textit{dfs}$ function, pass in the text string $\textit{text}$, and return the result.
+
+The time complexity is $O(m + n \times L)$, and the space complexity is $O(m + n \times L)$. Where $m$ is the length of the substitution mapping, and $n$ and $L$ are the length of the text string and the average length of the placeholders, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def applySubstitutions(self, replacements: List[List[str]], text: str) -> str:
+        def dfs(s: str) -> str:
+            i = s.find("%")
+            if i == -1:
+                return s
+            j = s.find("%", i + 1)
+            if j == -1:
+                return s
+            key = s[i + 1 : j]
+            replacement = dfs(d[key])
+            return s[:i] + replacement + dfs(s[j + 1 :])
 
+        d = {s: t for s, t in replacements}
+        return dfs(text)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private final Map<String, String> d = new HashMap<>();
 
+    public String applySubstitutions(List<List<String>> replacements, String text) {
+        for (List<String> e : replacements) {
+            d.put(e.get(0), e.get(1));
+        }
+        return dfs(text);
+    }
+
+    private String dfs(String s) {
+        int i = s.indexOf("%");
+        if (i == -1) {
+            return s;
+        }
+        int j = s.indexOf("%", i + 1);
+        if (j == -1) {
+            return s;
+        }
+        String key = s.substring(i + 1, j);
+        String replacement = dfs(d.getOrDefault(key, ""));
+        return s.substring(0, i) + replacement + dfs(s.substring(j + 1));
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string applySubstitutions(vector<vector<string>>& replacements, string text) {
+        unordered_map<string, string> d;
+        for (const auto& e : replacements) {
+            d[e[0]] = e[1];
+        }
+        auto dfs = [&](this auto&& dfs, const string& s) -> string {
+            size_t i = s.find('%');
+            if (i == string::npos) {
+                return s;
+            }
+            size_t j = s.find('%', i + 1);
+            if (j == string::npos) {
+                return s;
+            }
+            string key = s.substr(i + 1, j - i - 1);
+            string replacement = dfs(d[key]);
+            return s.substr(0, i) + replacement + dfs(s.substr(j + 1));
+        };
+        return dfs(text);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func applySubstitutions(replacements [][]string, text string) string {
+	d := make(map[string]string)
+	for _, e := range replacements {
+		d[e[0]] = e[1]
+	}
+	var dfs func(string) string
+	dfs = func(s string) string {
+		i := strings.Index(s, "%")
+		if i == -1 {
+			return s
+		}
+		j := strings.Index(s[i+1:], "%")
+		if j == -1 {
+			return s
+		}
+		j += i + 1
+		key := s[i+1 : j]
+		replacement := dfs(d[key])
+		return s[:i] + replacement + dfs(s[j+1:])
+	}
 
+	return dfs(text)
+}
+```
+
+#### TypeScript
+
+```ts
+function applySubstitutions(replacements: string[][], text: string): string {
+    const d: Record<string, string> = {};
+    for (const [key, value] of replacements) {
+        d[key] = value;
+    }
+
+    const dfs = (s: string): string => {
+        const i = s.indexOf('%');
+        if (i === -1) {
+            return s;
+        }
+        const j = s.indexOf('%', i + 1);
+        if (j === -1) {
+            return s;
+        }
+        const key = s.slice(i + 1, j);
+        const replacement = dfs(d[key] ?? '');
+        return s.slice(0, i) + replacement + dfs(s.slice(j + 1));
+    };
+
+    return dfs(text);
+}
 ```
 
 <!-- tabs:end -->
