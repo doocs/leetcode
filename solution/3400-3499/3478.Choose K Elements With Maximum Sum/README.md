@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README.md
+tags:
+    - 数组
+    - 排序
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

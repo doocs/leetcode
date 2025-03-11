@@ -2,6 +2,11 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - Binary Search
+    - Simulation
 ---
 
 <!-- problem:start -->
