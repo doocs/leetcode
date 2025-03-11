@@ -111,6 +111,7 @@ tags:
 #### Python3
 
 ```python
+
 from typing import List
 from math import factorial
 import heapq
@@ -183,11 +184,13 @@ class Solution:
             if not fff:
                 return []
         return ppp
+
 ```
 
 #### Java
 
 ```java
+
 import java.util.*;
 
 class DPHelper {
@@ -345,11 +348,13 @@ class Solution {
         return ans;
     }
 }
+
 ```
 
 #### C++
 
 ```cpp
+
 class Solution {
     long long f[105];
 public:
@@ -390,11 +395,13 @@ public:
         return ans;
     }
 };
+
 ```
 
 #### Go
 
 ```go
+
 func permute(n int, k int64) []int {
 	var f [105]int64
 	f[0] = 1
@@ -446,6 +453,7 @@ func permute(n int, k int64) []int {
 	}
 	return ans
 }
+
 ```
 
 <!-- tabs:end -->
