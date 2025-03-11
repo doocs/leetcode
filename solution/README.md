@@ -3487,10 +3487,12 @@
 |  3474  |  [字典序最小的生成字符串](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md)  |  `贪心`,`字符串`,`字符串匹配`  |  困难  |  第 439 场周赛  |
 |  3475  |  [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)  |    |  中等  |    |
 |  3476  |  [最大化任务分配的利润](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  中等  |  🔒  |
-|  3477  |  [将水果放入篮子 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)  |    |  简单  |  第 440 场周赛  |
-|  3478  |  [选出和最大的 K 个元素](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README.md)  |    |  中等  |  第 440 场周赛  |
-|  3479  |  [将水果装入篮子 III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md)  |    |  中等  |  第 440 场周赛  |
-|  3480  |  [删除一个冲突对后最大子数组数目](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README.md)  |    |  困难  |  第 440 场周赛  |
+|  3477  |  [将水果放入篮子 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)  |  `线段树`,`数组`,`二分查找`,`模拟`  |  简单  |  第 440 场周赛  |
+|  3478  |  [选出和最大的 K 个元素](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README.md)  |  `数组`,`排序`,`堆（优先队列）`  |  中等  |  第 440 场周赛  |
+|  3479  |  [将水果装入篮子 III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md)  |  `线段树`,`数组`,`二分查找`,`有序集合`  |  中等  |  第 440 场周赛  |
+|  3480  |  [删除一个冲突对后最大子数组数目](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README.md)  |  `线段树`,`数组`,`枚举`,`前缀和`  |  困难  |  第 440 场周赛  |
+|  3481  |  [Apply Substitutions](/solution/3400-3499/3481.Apply%20Substitutions/README.md)  |    |  中等  |  🔒  |
+|  3482  |  [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README.md)  |    |  困难  |    |
 
 ## 版权
 

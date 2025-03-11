@@ -3485,10 +3485,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3474  |  [Lexicographically Smallest Generated String](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README_EN.md)  |  `Greedy`,`String`,`String Matching`  |  Hard  |  Weekly Contest 439  |
 |  3475  |  [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README_EN.md)  |    |  Medium  |    |
 |  3476  |  [Maximize Profit from Task Assignment](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  🔒  |
-|  3477  |  [Fruits Into Baskets II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README_EN.md)  |    |  Easy  |  Weekly Contest 440  |
-|  3478  |  [Choose K Elements With Maximum Sum](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 440  |
-|  3479  |  [Fruits Into Baskets III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README_EN.md)  |    |  Medium  |  Weekly Contest 440  |
-|  3480  |  [Maximize Subarrays After Removing One Conflicting Pair](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README_EN.md)  |    |  Hard  |  Weekly Contest 440  |
+|  3477  |  [Fruits Into Baskets II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README_EN.md)  |  `Segment Tree`,`Array`,`Binary Search`,`Simulation`  |  Easy  |  Weekly Contest 440  |
+|  3478  |  [Choose K Elements With Maximum Sum](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README_EN.md)  |  `Array`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 440  |
+|  3479  |  [Fruits Into Baskets III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README_EN.md)  |  `Segment Tree`,`Array`,`Binary Search`,`Ordered Set`  |  Medium  |  Weekly Contest 440  |
+|  3480  |  [Maximize Subarrays After Removing One Conflicting Pair](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README_EN.md)  |  `Segment Tree`,`Array`,`Enumeration`,`Prefix Sum`  |  Hard  |  Weekly Contest 440  |
+|  3481  |  [Apply Substitutions](/solution/3400-3499/3481.Apply%20Substitutions/README_EN.md)  |    |  Medium  |  🔒  |
+|  3482  |  [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

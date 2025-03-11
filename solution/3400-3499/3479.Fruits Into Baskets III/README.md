@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md
+tags:
+    - 线段树
+    - 数组
+    - 二分查找
+    - 有序集合
 ---
 
 <!-- problem:start -->
