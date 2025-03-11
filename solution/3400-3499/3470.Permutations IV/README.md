@@ -117,18 +117,18 @@ import heapq
 
 class Solution:
     def permute(self, xxy: int, yyz: int) -> List[int]:
-        
-        kasu = {}  
+
+        kasu = {}
         nnss = []
         majs = []
         ajwi = heapq.heappush
         laoq = []
-        
+
         zzp = [i for i in range(1, xxy + 1) if i % 2 == 1]
         zzq = [i for i in range(1, xxy + 1) if i % 2 == 0]
 
         ppp = []
-        nxr = None  
+        nxr = None
 
         for pps in range(xxy):
             if pps == 0:
@@ -139,11 +139,11 @@ class Solution:
             fff = False
             for cndt in cnd:
                 if cndt % 2 == 1:
-                    nxt = 0  
+                    nxt = 0
                     noo = len(zzp) - 1
                     nee = len(zzq)
                 else:
-                    nxt = 1  
+                    nxt = 1
                     noo = len(zzp)
                     nee = len(zzq) - 1
 
@@ -164,7 +164,7 @@ class Solution:
 
                 ajwi(nnss, cnt)
                 ajwi(majs, llq)
-                
+
                 if cnt >= yyz:
                     ppp.append(cndt)
                     if cndt % 2 == 1:
@@ -177,9 +177,9 @@ class Solution:
                     break
                 else:
                     yyz -= cnt
-            
+
             ajwi(laoq, len(ppp))
-            
+
             if not fff:
                 return []
         return ppp
