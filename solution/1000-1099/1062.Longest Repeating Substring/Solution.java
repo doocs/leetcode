@@ -1,13 +1,13 @@
 class Solution {
     public int longestRepeatingSubstring(String s) {
         int n = s.length();
+        int[][] f = new int[n][n];
         int ans = 0;
-        int[][] dp = new int[n][n];
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
                 if (s.charAt(i) == s.charAt(j)) {
-                    dp[i][j] = i > 0 ? dp[i - 1][j - 1] + 1 : 1;
-                    ans = Math.max(ans, dp[i][j]);
+                    f[i][j] = 1 + (j > 0 ? f[i - 1][j - 1] : 0);
+                    ans = Math.max(ans, f[i][j]);
                 }
             }
         }
