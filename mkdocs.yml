@@ -140,6 +140,23 @@ extra:
     - name: 中文
       link: /leetcode/
       lang: zh
+  analytics:
+    provider: google
+    property: G-F887EV7L8E
+    feedback:
+      title: 此页面对您有帮助吗？
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: 此页面对我有帮助
+          data: 1
+          note: >-
+            感谢您的反馈！
+        - icon: material/emoticon-sad-outline
+          name: 此页面需要改进
+          data: 0
+          note: >-
+            感谢您的反馈！请帮助我们改进此页面。
+
 
 nav:
   - 首页: index.md

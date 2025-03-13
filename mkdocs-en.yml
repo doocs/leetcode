@@ -10,6 +10,23 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+extra:
+  analytics:
+    provider: google
+    property: G-F887EV7L8E
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page.
 
 
 nav:

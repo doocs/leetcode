@@ -4,6 +4,7 @@ comments: true
 hide:
   - navigation
   - toc
+  - feedback
 ---
 
 <h1 style="display:none;">LeetCode Wiki</h1>
