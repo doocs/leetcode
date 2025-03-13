@@ -74,6 +74,25 @@ tags:
 
 ### 方法一：动态规划
 
+题目等价于我们将数组 $\textit{nums}$ 分成 $k + 1$ 段，那么每一段的浪费空间为该段的最大值乘以该段的长度减去该段的元素之和。我们累加每一段的浪费空间，即可得到总浪费空间。我们将 $k$ 加 $1$，那么就相当于将数组分成 $k$ 段。
+
+因此，我们定义数组 $\textit{g}[i][j]$ 表示 $\textit{nums}[i..j]$ 的最大值乘以 $\textit{nums}[i..j]$ 的长度减去 $\textit{nums}[i..j]$ 的元素之和。我们在 $[0, n)$ 的范围内枚举 $i$，在 $[i, n)$ 的范围内枚举 $j$，用一个变量 $s$ 维护 $\textit{nums}[i..j]$ 的元素之和，用一个变量 $\textit{mx}$ 维护 $\textit{nums}[i..j]$ 的最大值，那么我们可以得到：
+
+$$
+\textit{g}[i][j] = \textit{mx} \times (j - i + 1) - s
+$$
+
+接下来，我们定义 $\textit{f}[i][j]$ 表示前 $i$ 个元素分成 $j$ 段的最小浪费空间。我们初始化 $\textit{f}[0][0] = 0$，其余位置初始化为无穷大。我们在 $[1, n]$ 的范围内枚举 $i$，在 $[1, k]$ 的范围内枚举 $j$，然后我们枚举前 $j - 1$ 段的最后一个元素 $h$，那么有：
+
+$$
+\textit{f}[i][j] = \min(\textit{f}[i][j], \
+\textit{f}[h][j - 1] + \textit{g}[h][i - 1])
+$$
+
+最终答案为 $\textit{f}[n][k]$。
+
+时间复杂度 $O(n^2 \times k)$，空间复杂度 $O(n \times (n + k))$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -200,6 +219,75 @@ func minSpaceWastedKResizing(nums []int, k int) int {
 		}
 	}
 	return f[n][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function minSpaceWastedKResizing(nums: number[], k: number): number {
+    k += 1;
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (let i = 0; i < n; i++) {
+        let s = 0,
+            mx = 0;
+        for (let j = i; j < n; j++) {
+            s += nums[j];
+            mx = Math.max(mx, nums[j]);
+            g[i][j] = mx * (j - i + 1) - s;
+        }
+    }
+
+    const inf = Number.POSITIVE_INFINITY;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(inf));
+    f[0][0] = 0;
+
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= k; j++) {
+            for (let h = 0; h < i; h++) {
+                f[i][j] = Math.min(f[i][j], f[h][j - 1] + g[h][i - 1]);
+            }
+        }
+    }
+
+    return f[n][k];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_space_wasted_k_resizing(nums: Vec<i32>, k: i32) -> i32 {
+        let mut k = k + 1;
+        let n = nums.len();
+        let mut g = vec![vec![0; n]; n];
+
+        for i in 0..n {
+            let (mut s, mut mx) = (0, 0);
+            for j in i..n {
+                s += nums[j];
+                mx = mx.max(nums[j]);
+                g[i][j] = mx * (j as i32 - i as i32 + 1) - s;
+            }
+        }
+
+        let inf = 0x3f3f3f3f;
+        let mut f = vec![vec![inf; (k + 1) as usize]; n + 1];
+        f[0][0] = 0;
+
+        for i in 1..=n {
+            for j in 1..=k as usize {
+                for h in 0..i {
+                    f[i][j] = f[i][j].min(f[h][j - 1] + g[h][i - 1]);
+                }
+            }
+        }
+
+        f[n][k as usize]
+    }
 }
 ```
 
