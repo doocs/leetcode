@@ -1,8 +1,4 @@
-/**
- * @param {number[][]} matrix
- * @return {boolean}
- */
-var isToeplitzMatrix = function (matrix) {
+function isToeplitzMatrix(matrix: number[][]): boolean {
     const [m, n] = [matrix.length, matrix[0].length];
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
@@ -12,4 +8,4 @@ var isToeplitzMatrix = function (matrix) {
         }
     }
     return true;
-};
+}
