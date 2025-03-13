@@ -107,6 +107,12 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
+  - pymdownx.highlight:
+      extend_pygments_lang:
+        - name: php
+          lang: php
+          options:
+            startinline: true
   
 
 extra_javascript:
