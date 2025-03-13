@@ -59,9 +59,9 @@ It can be proven that there is no k-avoiding array with a sum less than 3.
 
 ### Solution 1: Greedy + Simulation
 
-We start from the positive integer $i=1$, and judge whether $i$ can be added to the array in turn. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $k-i$ as visited, indicating that $k-i$ cannot be added to the array. The loop continues until the length of the array is $n$.
+Starting from the positive integer $i = 1$, we sequentially determine if $i$ can be added to the array. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $k - i$ as visited, indicating that $k-i$ cannot be added to the array. We continue this process until the array's length reaches $n$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array.
+The time complexity is $O(n + k)$, and the space complexity is $O(n + k)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -75,9 +75,9 @@ class Solution:
         for _ in range(n):
             while i in vis:
                 i += 1
-            vis.add(i)
             vis.add(k - i)
             s += i
+            i += 1
         return s
 ```
 
@@ -87,16 +87,15 @@ class Solution:
 class Solution {
     public int minimumSum(int n, int k) {
         int s = 0, i = 1;
-        boolean[] vis = new boolean[k + n * n + 1];
+        boolean[] vis = new boolean[n + k + 1];
         while (n-- > 0) {
             while (vis[i]) {
                 ++i;
             }
-            vis[i] = true;
             if (k >= i) {
                 vis[k - i] = true;
             }
-            s += i;
+            s += i++;
         }
         return s;
     }
@@ -110,17 +109,16 @@ class Solution {
 public:
     int minimumSum(int n, int k) {
         int s = 0, i = 1;
-        bool vis[k + n * n + 1];
+        bool vis[n + k + 1];
         memset(vis, false, sizeof(vis));
         while (n--) {
             while (vis[i]) {
                 ++i;
             }
-            vis[i] = true;
             if (k >= i) {
                 vis[k - i] = true;
             }
-            s += i;
+            s += i++;
         }
         return s;
     }
@@ -132,16 +130,16 @@ public:
 ```go
 func minimumSum(n int, k int) int {
 	s, i := 0, 1
-	vis := make([]bool, k+n*n+1)
+	vis := make([]bool, n+k+1)
 	for ; n > 0; n-- {
 		for vis[i] {
 			i++
 		}
-		vis[i] = true
 		if k >= i {
 			vis[k-i] = true
 		}
 		s += i
+		i++
 	}
 	return s
 }
@@ -153,18 +151,39 @@ func minimumSum(n int, k int) int {
 function minimumSum(n: number, k: number): number {
     let s = 0;
     let i = 1;
-    const vis: boolean[] = Array(n * n + k + 1);
+    const vis: boolean[] = Array(n + k + 1).fill(false);
     while (n--) {
         while (vis[i]) {
             ++i;
         }
-        vis[i] = true;
         if (k >= i) {
             vis[k - i] = true;
         }
-        s += i;
+        s += i++;
     }
     return s;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_sum(n: i32, k: i32) -> i32 {
+        let (mut s, mut i) = (0, 1);
+        let mut vis = std::collections::HashSet::new();
+
+        for _ in 0..n {
+            while vis.contains(&i) {
+                i += 1;
+            }
+            vis.insert(k - i);
+            s += i;
+            i += 1;
+        }
+
+        s
+    }
 }
 ```
 
