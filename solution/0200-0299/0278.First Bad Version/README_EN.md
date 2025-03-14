@@ -56,7 +56,15 @@ Then 4 is the first bad version.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search
+
+We define the left boundary of the binary search as $l = 1$ and the right boundary as $r = n$.
+
+While $l < r$, we calculate the middle position $\textit{mid} = \left\lfloor \frac{l + r}{2} \right\rfloor$, then call the `isBadVersion(mid)` API. If it returns $\textit{true}$, it means the first bad version is between $[l, \textit{mid}]$, so we set $r = \textit{mid}$; otherwise, the first bad version is between $[\textit{mid} + 1, r]$, so we set $l = \textit{mid} + 1$.
+
+Finally, we return $l$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -64,25 +72,19 @@ Then 4 is the first bad version.
 
 ```python
 # The isBadVersion API is already defined for you.
-# @param version, an integer
-# @return an integer
-# def isBadVersion(version):
+# def isBadVersion(version: int) -> bool:
 
 
 class Solution:
-    def firstBadVersion(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        left, right = 1, n
-        while left < right:
-            mid = (left + right) >> 1
+    def firstBadVersion(self, n: int) -> int:
+        l, r = 1, n
+        while l < r:
+            mid = (l + r) >> 1
             if isBadVersion(mid):
-                right = mid
+                r = mid
             else:
-                left = mid + 1
-        return left
+                l = mid + 1
+        return l
 ```
 
 #### Java
@@ -93,16 +95,16 @@ class Solution:
 
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
-        int left = 1, right = n;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
+        int l = 1, r = n;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
             if (isBadVersion(mid)) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -116,16 +118,16 @@ public class Solution extends VersionControl {
 class Solution {
 public:
     int firstBadVersion(int n) {
-        int left = 1, right = n;
-        while (left < right) {
-            int mid = left + ((right - left) >> 1);
+        int l = 1, r = n;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
             if (isBadVersion(mid)) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -142,17 +144,43 @@ public:
  */
 
 func firstBadVersion(n int) int {
-	left, right := 1, n
-	for left < right {
-		mid := (left + right) >> 1
+	l, r := 1, n
+	for l < r {
+		mid := (l + r) >> 1
 		if isBadVersion(mid) {
-			right = mid
+			r = mid
 		} else {
-			left = mid + 1
+			l = mid + 1
 		}
 	}
-	return left
+	return l
 }
+```
+
+#### TypeScript
+
+```ts
+/**
+ * The knows API is defined in the parent class Relation.
+ * isBadVersion(version: number): boolean {
+ *     ...
+ * };
+ */
+
+var solution = function (isBadVersion: any) {
+    return function (n: number): number {
+        let [l, r] = [1, n];
+        while (l < r) {
+            const mid = (l + r) >>> 1;
+            if (isBadVersion(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+};
 ```
 
 #### Rust
@@ -164,17 +192,16 @@ func firstBadVersion(n int) int {
 
 impl Solution {
     pub fn first_bad_version(&self, n: i32) -> i32 {
-        let mut left = 1;
-        let mut right = n;
-        while left < right {
-            let mid = left + (right - left) / 2;
+		let (mut l, mut r) = (1, n);
+        while l < r {
+            let mid = l + (r - l) / 2;
             if self.isBadVersion(mid) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        left
+        l
     }
 }
 ```
@@ -202,17 +229,16 @@ var solution = function (isBadVersion) {
      * @return {integer} The first bad version
      */
     return function (n) {
-        let left = 1;
-        let right = n;
-        while (left < right) {
-            const mid = (left + right) >>> 1;
+        let [l, r] = [1, n];
+        while (l < r) {
+            const mid = (l + r) >>> 1;
             if (isBadVersion(mid)) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     };
 };
 ```
