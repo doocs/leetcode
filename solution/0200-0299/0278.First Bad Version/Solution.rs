@@ -4,16 +4,15 @@
 
 impl Solution {
     pub fn first_bad_version(&self, n: i32) -> i32 {
-        let mut left = 1;
-        let mut right = n;
-        while left < right {
-            let mid = left + (right - left) / 2;
+        let (mut l, mut r) = (1, n);
+        while l < r {
+            let mid = l + (r - l) / 2;
             if self.isBadVersion(mid) {
-                right = mid;
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        left
+        l
     }
 }
