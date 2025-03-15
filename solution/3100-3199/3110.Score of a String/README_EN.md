@@ -136,6 +136,52 @@ function scoreOfString(s: string): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn score_of_string(s: String) -> i32 {
+        s.as_bytes()
+            .windows(2)
+            .map(|w| (w[0] as i32 - w[1] as i32).abs())
+            .sum()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int ScoreOfString(string s) {
+        int ans = 0;
+        for (int i = 1; i < s.Length; ++i) {
+            ans += Math.Abs(s[i] - s[i - 1]);
+        }
+        return ans;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param String $s
+     * @return Integer
+     */
+    function scoreOfString($s) {
+        $ans = 0;
+        $n = strlen($s);
+        for ($i = 1; $i < $n; ++$i) {
+            $ans += abs(ord($s[$i]) - ord($s[$i - 1]));
+        }
+        return $ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
