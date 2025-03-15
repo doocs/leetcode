@@ -1,14 +1,15 @@
 func findPairs(nums []int, k int) int {
-	vis := map[int]bool{}
-	ans := map[int]bool{}
-	for _, v := range nums {
-		if vis[v-k] {
-			ans[v-k] = true
+	ans := make(map[int]struct{})
+	vis := make(map[int]struct{})
+
+	for _, x := range nums {
+		if _, ok := vis[x-k]; ok {
+			ans[x-k] = struct{}{}
 		}
-		if vis[v+k] {
-			ans[v] = true
+		if _, ok := vis[x+k]; ok {
+			ans[x] = struct{}{}
 		}
-		vis[v] = true
+		vis[x] = struct{}{}
 	}
 	return len(ans)
 }
