@@ -23,21 +23,18 @@ class Solution {
 public:
     TreeNode* sortedListToBST(ListNode* head) {
         vector<int> nums;
-        for (; head != nullptr; head = head->next) {
+        for (; head; head = head->next) {
             nums.push_back(head->val);
         }
-        return buildBST(nums, 0, nums.size() - 1);
-    }
-
-private:
-    TreeNode* buildBST(vector<int>& nums, int start, int end) {
-        if (start > end) {
-            return nullptr;
-        }
-        int mid = (start + end) / 2;
-        TreeNode* root = new TreeNode(nums[mid]);
-        root->left = buildBST(nums, start, mid - 1);
-        root->right = buildBST(nums, mid + 1, end);
-        return root;
+        auto dfs = [&](this auto&& dfs, int i, int j) -> TreeNode* {
+            if (i > j) {
+                return nullptr;
+            }
+            int mid = (i + j) >> 1;
+            TreeNode* left = dfs(i, mid - 1);
+            TreeNode* right = dfs(mid + 1, j);
+            return new TreeNode(nums[mid], left, right);
+        };
+        return dfs(0, nums.size() - 1);
     }
 };

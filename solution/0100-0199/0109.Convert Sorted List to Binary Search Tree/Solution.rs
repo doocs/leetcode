@@ -34,26 +34,28 @@
 // }
 use std::cell::RefCell;
 use std::rc::Rc;
-impl Solution {
-    fn build(vals: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
-        if start == end {
-            return None;
-        }
-        let mid = (start + end) >> 1;
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: vals[mid],
-            left: Self::build(vals, start, mid),
-            right: Self::build(vals, mid + 1, end),
-        })))
-    }
 
+impl Solution {
     pub fn sorted_list_to_bst(head: Option<Box<ListNode>>) -> Option<Rc<RefCell<TreeNode>>> {
-        let mut vals = Vec::new();
-        let mut cur = &head;
-        while let Some(node) = cur {
-            vals.push(node.val);
-            cur = &node.next;
+        let mut nums = Vec::new();
+        let mut current = head;
+        while let Some(node) = current {
+            nums.push(node.val);
+            current = node.next;
         }
-        Self::build(&vals, 0, vals.len())
+
+        fn dfs(nums: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+            if nums.is_empty() {
+                return None;
+            }
+            let mid = nums.len() / 2;
+            Some(Rc::new(RefCell::new(TreeNode {
+                val: nums[mid],
+                left: dfs(&nums[..mid]),
+                right: dfs(&nums[mid + 1..]),
+            })))
+        }
+
+        dfs(&nums)
     }
 }

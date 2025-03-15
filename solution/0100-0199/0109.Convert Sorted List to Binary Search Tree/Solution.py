@@ -10,17 +10,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sortedListToBST(self, head: ListNode) -> TreeNode:
-        def buildBST(nums, start, end):
-            if start > end:
+    def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
+        def dfs(i: int, j: int) -> Optional[TreeNode]:
+            if i > j:
                 return None
-            mid = (start + end) >> 1
-            return TreeNode(
-                nums[mid], buildBST(nums, start, mid - 1), buildBST(nums, mid + 1, end)
-            )
+            mid = (i + j) >> 1
+            l, r = dfs(i, mid - 1), dfs(mid + 1, j)
+            return TreeNode(nums[mid], l, r)
 
         nums = []
         while head:
             nums.append(head.val)
             head = head.next
-        return buildBST(nums, 0, len(nums) - 1)
+        return dfs(0, len(nums) - 1)
