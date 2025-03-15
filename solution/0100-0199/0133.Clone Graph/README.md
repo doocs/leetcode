@@ -92,7 +92,20 @@ class Node {
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + DFS
+
+我们用一个哈希表 $\textit{g}$ 记录原图中的每个节点和它的拷贝节点之间的对应关系，然后进行深度优先搜索。
+
+我们定义函数 $\text{dfs}(node)$，它的功能是返回 $\textit{node}$ 节点的拷贝节点。$\text{dfs}(node)$ 的过程如下：
+
+-   如果 $\textit{node}$ 是 $\text{null}$，那么 $\text{dfs}(node)$ 的返回值是 $\text{null}$。
+-   如果 $\textit{node}$ 在 $\textit{g}$ 中，那么 $\text{dfs}(node)$ 的返回值是 $\textit{g}[node]$。
+-   否则我们创建一个新的节点 $\textit{cloned}$，并将 $\textit{g}[node]$ 的值设为 $\textit{cloned}$，然后遍历 $\textit{node}$ 的所有邻居节点 $\textit{nxt}$，并将 $\textit{cloned}$ 的邻居节点列表中加入 $\text{dfs}(nxt)$。
+-   最后返回 $\textit{cloned}$。
+
+在主函数中，我们返回 $\text{dfs}(node)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数量。
 
 <!-- tabs:start -->
 
@@ -107,23 +120,24 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 """
 
+from typing import Optional
+
 
 class Solution:
-    def cloneGraph(self, node: 'Node') -> 'Node':
-        visited = defaultdict()
-
-        def clone(node):
+    def cloneGraph(self, node: Optional["Node"]) -> Optional["Node"]:
+        def dfs(node):
             if node is None:
                 return None
-            if node in visited:
-                return visited[node]
-            c = Node(node.val)
-            visited[node] = c
-            for e in node.neighbors:
-                c.neighbors.append(clone(e))
-            return c
+            if node in g:
+                return g[node]
+            cloned = Node(node.val)
+            g[node] = cloned
+            for nxt in node.neighbors:
+                cloned.neighbors.append(dfs(nxt))
+            return cloned
 
-        return clone(node)
+        g = defaultdict()
+        return dfs(node)
 ```
 
 #### Java
@@ -150,21 +164,25 @@ class Node {
 */
 
 class Solution {
-    private Map<Node, Node> visited = new HashMap<>();
+    private Map<Node, Node> g = new HashMap<>();
 
     public Node cloneGraph(Node node) {
+        return dfs(node);
+    }
+
+    private Node dfs(Node node) {
         if (node == null) {
             return null;
         }
-        if (visited.containsKey(node)) {
-            return visited.get(node);
+        Node cloned = g.get(node);
+        if (cloned == null) {
+            cloned = new Node(node.val);
+            g.put(node, cloned);
+            for (Node nxt : node.neighbors) {
+                cloned.neighbors.add(dfs(nxt));
+            }
         }
-        Node clone = new Node(node.val);
-        visited.put(node, clone);
-        for (Node e : node.neighbors) {
-            clone.neighbors.add(cloneGraph(e));
-        }
-        return clone;
+        return cloned;
     }
 }
 ```
@@ -195,16 +213,23 @@ public:
 
 class Solution {
 public:
-    unordered_map<Node*, Node*> visited;
-
     Node* cloneGraph(Node* node) {
-        if (!node) return nullptr;
-        if (visited.count(node)) return visited[node];
-        Node* clone = new Node(node->val);
-        visited[node] = clone;
-        for (auto& e : node->neighbors)
-            clone->neighbors.push_back(cloneGraph(e));
-        return clone;
+        unordered_map<Node*, Node*> g;
+        auto dfs = [&](this auto&& dfs, Node* node) -> Node* {
+            if (!node) {
+                return nullptr;
+            }
+            if (g.contains(node)) {
+                return g[node];
+            }
+            Node* cloned = new Node(node->val);
+            g[node] = cloned;
+            for (auto& nxt : node->neighbors) {
+                cloned->neighbors.push_back(dfs(nxt));
+            }
+            return cloned;
+        };
+        return dfs(node);
     }
 };
 ```
@@ -221,24 +246,23 @@ public:
  */
 
 func cloneGraph(node *Node) *Node {
-	visited := map[*Node]*Node{}
-	var clone func(node *Node) *Node
-	clone = func(node *Node) *Node {
+	g := map[*Node]*Node{}
+	var dfs func(node *Node) *Node
+	dfs = func(node *Node) *Node {
 		if node == nil {
 			return nil
 		}
-		if _, ok := visited[node]; ok {
-			return visited[node]
+		if n, ok := g[node]; ok {
+			return n
 		}
-		c := &Node{node.Val, []*Node{}}
-		visited[node] = c
-		for _, e := range node.Neighbors {
-			c.Neighbors = append(c.Neighbors, clone(e))
+		cloned := &Node{node.Val, []*Node{}}
+		g[node] = cloned
+		for _, nxt := range node.Neighbors {
+			cloned.Neighbors = append(cloned.Neighbors, dfs(nxt))
 		}
-		return c
+		return cloned
 	}
-
-	return clone(node)
+	return dfs(node)
 }
 ```
 
@@ -246,74 +270,118 @@ func cloneGraph(node *Node) *Node {
 
 ```ts
 /**
- * Definition for Node.
- * class Node {
+ * Definition for _Node.
+ * class _Node {
  *     val: number
- *     neighbors: Node[]
- *     constructor(val?: number, neighbors?: Node[]) {
+ *     neighbors: _Node[]
+ *
+ *     constructor(val?: number, neighbors?: _Node[]) {
  *         this.val = (val===undefined ? 0 : val)
  *         this.neighbors = (neighbors===undefined ? [] : neighbors)
  *     }
  * }
+ *
  */
 
-function cloneGraph(node: Node | null): Node | null {
-    if (node == null) return null;
-
-    const visited = new Map();
-    visited.set(node, new Node(node.val));
-    const queue = [node];
-    while (queue.length) {
-        const cur = queue.shift();
-        for (let neighbor of cur.neighbors || []) {
-            if (!visited.has(neighbor)) {
-                queue.push(neighbor);
-                const newNeighbor = new Node(neighbor.val, []);
-                visited.set(neighbor, newNeighbor);
-            }
-            const newNode = visited.get(cur);
-            newNode.neighbors.push(visited.get(neighbor));
+function cloneGraph(node: _Node | null): _Node | null {
+    const g: Map<_Node, _Node> = new Map();
+    const dfs = (node: _Node | null): _Node | null => {
+        if (!node) {
+            return null;
         }
-    }
-    return visited.get(node);
+        if (g.has(node)) {
+            return g.get(node);
+        }
+        const cloned = new _Node(node.val);
+        g.set(node, cloned);
+        for (const nxt of node.neighbors) {
+            cloned.neighbors.push(dfs(nxt));
+        }
+        return cloned;
+    };
+    return dfs(node);
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * // Definition for a _Node.
+ * function _Node(val, neighbors) {
+ *    this.val = val === undefined ? 0 : val;
+ *    this.neighbors = neighbors === undefined ? [] : neighbors;
+ * };
+ */
+
+/**
+ * @param {_Node} node
+ * @return {_Node}
+ */
+var cloneGraph = function (node) {
+    const g = new Map();
+    const dfs = node => {
+        if (!node) {
+            return null;
+        }
+        if (g.has(node)) {
+            return g.get(node);
+        }
+        const cloned = new _Node(node.val);
+        g.set(node, cloned);
+        for (const nxt of node.neighbors) {
+            cloned.neighbors.push(dfs(nxt));
+        }
+        return cloned;
+    };
+    return dfs(node);
+};
 ```
 
 #### C#
 
 ```cs
-using System.Collections.Generic;
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public IList<Node> neighbors;
+
+    public Node() {
+        val = 0;
+        neighbors = new List<Node>();
+    }
+
+    public Node(int _val) {
+        val = _val;
+        neighbors = new List<Node>();
+    }
+
+    public Node(int _val, List<Node> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+}
+*/
 
 public class Solution {
     public Node CloneGraph(Node node) {
-        if (node == null) return null;
-        var dict = new Dictionary<int, Node>();
-        var queue = new Queue<Node>();
-        queue.Enqueue(CloneVal(node));
-        dict.Add(node.val, queue.Peek());
-        while (queue.Count > 0)
-        {
-            var current = queue.Dequeue();
-            var newNeighbors = new List<Node>(current.neighbors.Count);
-            foreach (var oldNeighbor in current.neighbors)
-            {
-                Node newNeighbor;
-                if (!dict.TryGetValue(oldNeighbor.val, out newNeighbor))
-                {
-                    newNeighbor = CloneVal(oldNeighbor);
-                    queue.Enqueue(newNeighbor);
-                    dict.Add(newNeighbor.val, newNeighbor);
-                }
-                newNeighbors.Add(newNeighbor);
+        var g = new Dictionary<Node, Node>();
+        Node Dfs(Node n) {
+            if (n == null) {
+                return null;
             }
-            current.neighbors = newNeighbors;
+            if (g.ContainsKey(n)) {
+                return g[n];
+            }
+            var cloned = new Node(n.val);
+            g[n] = cloned;
+            foreach (var neighbor in n.neighbors) {
+                cloned.neighbors.Add(Dfs(neighbor));
+            }
+            return cloned;
         }
-        return dict[node.val];
-    }
-
-    private Node CloneVal(Node node)
-    {
-        return new Node(node.val, new List<Node>(node.neighbors));
+        return Dfs(node);
     }
 }
 ```
