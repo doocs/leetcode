@@ -73,7 +73,15 @@ Although we have two 1s in the input, we should only return the number of <stron
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+Since $k$ is a fixed value, we can use a hash table $\textit{ans}$ to record the smaller value of the pairs, which allows us to determine the larger value. Finally, we return the size of $\textit{ans}$ as the answer.
+
+We traverse the array $\textit{nums}$. For the current number $x$, we use a hash table $\textit{vis}$ to record all the numbers that have been traversed. If $x-k$ is in $\textit{vis}$, we add $x-k$ to $\textit{ans}$. If $x+k$ is in $\textit{vis}$, we add $x$ to $\textit{ans}$. Then, we add $x$ to $\textit{vis}$. Continue traversing the array $\textit{nums}$ until the end.
+
+Finally, we return the size of $\textit{ans}$ as the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -82,13 +90,14 @@ Although we have two 1s in the input, we should only return the number of <stron
 ```python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
-        vis, ans = set(), set()
-        for v in nums:
-            if v - k in vis:
-                ans.add(v - k)
-            if v + k in vis:
-                ans.add(v)
-            vis.add(v)
+        ans = set()
+        vis = set()
+        for x in nums:
+            if x - k in vis:
+                ans.add(x - k)
+            if x + k in vis:
+                ans.add(x)
+            vis.add(x)
         return len(ans)
 ```
 
@@ -97,16 +106,16 @@ class Solution:
 ```java
 class Solution {
     public int findPairs(int[] nums, int k) {
-        Set<Integer> vis = new HashSet<>();
         Set<Integer> ans = new HashSet<>();
-        for (int v : nums) {
-            if (vis.contains(v - k)) {
-                ans.add(v - k);
+        Set<Integer> vis = new HashSet<>();
+        for (int x : nums) {
+            if (vis.contains(x - k)) {
+                ans.add(x - k);
             }
-            if (vis.contains(v + k)) {
-                ans.add(v);
+            if (vis.contains(x + k)) {
+                ans.add(x);
             }
-            vis.add(v);
+            vis.add(x);
         }
         return ans.size();
     }
@@ -119,12 +128,15 @@ class Solution {
 class Solution {
 public:
     int findPairs(vector<int>& nums, int k) {
-        unordered_set<int> vis;
-        unordered_set<int> ans;
-        for (int& v : nums) {
-            if (vis.count(v - k)) ans.insert(v - k);
-            if (vis.count(v + k)) ans.insert(v);
-            vis.insert(v);
+        unordered_set<int> ans, vis;
+        for (int x : nums) {
+            if (vis.count(x - k)) {
+                ans.insert(x - k);
+            }
+            if (vis.count(x + k)) {
+                ans.insert(x);
+            }
+            vis.insert(x);
         }
         return ans.size();
     }
@@ -135,52 +147,61 @@ public:
 
 ```go
 func findPairs(nums []int, k int) int {
-	vis := map[int]bool{}
-	ans := map[int]bool{}
-	for _, v := range nums {
-		if vis[v-k] {
-			ans[v-k] = true
+	ans := make(map[int]struct{})
+	vis := make(map[int]struct{})
+
+	for _, x := range nums {
+		if _, ok := vis[x-k]; ok {
+			ans[x-k] = struct{}{}
 		}
-		if vis[v+k] {
-			ans[v] = true
+		if _, ok := vis[x+k]; ok {
+			ans[x] = struct{}{}
 		}
-		vis[v] = true
+		vis[x] = struct{}{}
 	}
 	return len(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function findPairs(nums: number[], k: number): number {
+    const ans = new Set<number>();
+    const vis = new Set<number>();
+    for (const x of nums) {
+        if (vis.has(x - k)) {
+            ans.add(x - k);
+        }
+        if (vis.has(x + k)) {
+            ans.add(x);
+        }
+        vis.add(x);
+    }
+    return ans.size;
 }
 ```
 
 #### Rust
 
 ```rust
+use std::collections::HashSet;
+
 impl Solution {
-    pub fn find_pairs(mut nums: Vec<i32>, k: i32) -> i32 {
-        nums.sort();
-        let n = nums.len();
-        let mut res = 0;
-        let mut left = 0;
-        let mut right = 1;
-        while right < n {
-            let num = i32::abs(nums[left] - nums[right]);
-            if num == k {
-                res += 1;
+    pub fn find_pairs(nums: Vec<i32>, k: i32) -> i32 {
+        let mut ans = HashSet::new();
+        let mut vis = HashSet::new();
+
+        for &x in &nums {
+            if vis.contains(&(x - k)) {
+                ans.insert(x - k);
             }
-            if num <= k {
-                right += 1;
-                while right < n && nums[right - 1] == nums[right] {
-                    right += 1;
-                }
-            } else {
-                left += 1;
-                while left < right && nums[left - 1] == nums[left] {
-                    left += 1;
-                }
-                if left == right {
-                    right += 1;
-                }
+            if vis.contains(&(x + k)) {
+                ans.insert(x);
             }
+            vis.insert(x);
         }
-        res
+        ans.len() as i32
     }
 }
 ```

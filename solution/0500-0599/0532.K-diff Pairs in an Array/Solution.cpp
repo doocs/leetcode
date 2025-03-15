@@ -1,12 +1,15 @@
 class Solution {
 public:
     int findPairs(vector<int>& nums, int k) {
-        unordered_set<int> vis;
-        unordered_set<int> ans;
-        for (int& v : nums) {
-            if (vis.count(v - k)) ans.insert(v - k);
-            if (vis.count(v + k)) ans.insert(v);
-            vis.insert(v);
+        unordered_set<int> ans, vis;
+        for (int x : nums) {
+            if (vis.count(x - k)) {
+                ans.insert(x - k);
+            }
+            if (vis.count(x + k)) {
+                ans.insert(x);
+            }
+            vis.insert(x);
         }
         return ans.size();
     }
