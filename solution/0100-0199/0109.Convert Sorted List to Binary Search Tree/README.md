@@ -56,7 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+我们先将链表转换为数组 $\textit{nums}$，然后使用深度优先搜索构造二叉搜索树。
+
+我们定义一个函数 $\textit{dfs}(i, j)$，其中 $i$ 和 $j$ 表示当前区间为 $[i, j]$。每次我们选择区间中间位置 $\textit{mid}$ 的数字作为根节点，递归地构造左侧区间 $[i, \textit{mid} - 1]$ 的子树，以及右侧区间 $[\textit{mid} + 1, j]$ 的子树。最后返回 $\textit{mid}$ 对应的节点作为当前子树的根节点。
+
+在主函数中，我们只需要调用 $\textit{dfs}(0, n - 1)$ 并返回即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是链表的长度。
 
 <!-- tabs:start -->
 
@@ -75,20 +83,19 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sortedListToBST(self, head: ListNode) -> TreeNode:
-        def buildBST(nums, start, end):
-            if start > end:
+    def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
+        def dfs(i: int, j: int) -> Optional[TreeNode]:
+            if i > j:
                 return None
-            mid = (start + end) >> 1
-            return TreeNode(
-                nums[mid], buildBST(nums, start, mid - 1), buildBST(nums, mid + 1, end)
-            )
+            mid = (i + j) >> 1
+            l, r = dfs(i, mid - 1), dfs(mid + 1, j)
+            return TreeNode(nums[mid], l, r)
 
         nums = []
         while head:
             nums.append(head.val)
             head = head.next
-        return buildBST(nums, 0, len(nums) - 1)
+        return dfs(0, len(nums) - 1)
 ```
 
 #### Java
@@ -120,23 +127,23 @@ class Solution:
  * }
  */
 class Solution {
+    private List<Integer> nums = new ArrayList<>();
+
     public TreeNode sortedListToBST(ListNode head) {
-        List<Integer> nums = new ArrayList<>();
         for (; head != null; head = head.next) {
             nums.add(head.val);
         }
-        return buildBST(nums, 0, nums.size() - 1);
+        return dfs(0, nums.size() - 1);
     }
 
-    private TreeNode buildBST(List<Integer> nums, int start, int end) {
-        if (start > end) {
+    private TreeNode dfs(int i, int j) {
+        if (i > j) {
             return null;
         }
-        int mid = (start + end) >> 1;
-        TreeNode root = new TreeNode(nums.get(mid));
-        root.left = buildBST(nums, start, mid - 1);
-        root.right = buildBST(nums, mid + 1, end);
-        return root;
+        int mid = (i + j) >> 1;
+        TreeNode left = dfs(i, mid - 1);
+        TreeNode right = dfs(mid + 1, j);
+        return new TreeNode(nums.get(mid), left, right);
     }
 }
 ```
@@ -169,22 +176,19 @@ class Solution {
 public:
     TreeNode* sortedListToBST(ListNode* head) {
         vector<int> nums;
-        for (; head != nullptr; head = head->next) {
+        for (; head; head = head->next) {
             nums.push_back(head->val);
         }
-        return buildBST(nums, 0, nums.size() - 1);
-    }
-
-private:
-    TreeNode* buildBST(vector<int>& nums, int start, int end) {
-        if (start > end) {
-            return nullptr;
-        }
-        int mid = (start + end) / 2;
-        TreeNode* root = new TreeNode(nums[mid]);
-        root->left = buildBST(nums, start, mid - 1);
-        root->right = buildBST(nums, mid + 1, end);
-        return root;
+        auto dfs = [&](this auto&& dfs, int i, int j) -> TreeNode* {
+            if (i > j) {
+                return nullptr;
+            }
+            int mid = (i + j) >> 1;
+            TreeNode* left = dfs(i, mid - 1);
+            TreeNode* right = dfs(mid + 1, j);
+            return new TreeNode(nums[mid], left, right);
+        };
+        return dfs(0, nums.size() - 1);
     }
 };
 ```
@@ -209,23 +213,20 @@ private:
  */
 func sortedListToBST(head *ListNode) *TreeNode {
 	nums := []int{}
-	for head != nil {
+	for ; head != nil; head = head.Next {
 		nums = append(nums, head.Val)
-		head = head.Next
 	}
-	return buildBST(nums, 0, len(nums)-1)
-}
-
-func buildBST(nums []int, start, end int) *TreeNode {
-	if start > end {
-		return nil
+	var dfs func(i, j int) *TreeNode
+	dfs = func(i, j int) *TreeNode {
+		if i > j {
+			return nil
+		}
+		mid := (i + j) >> 1
+		left := dfs(i, mid-1)
+		right := dfs(mid+1, j)
+		return &TreeNode{nums[mid], left, right}
 	}
-	mid := (start + end) >> 1
-	return &TreeNode{
-		Val:   nums[mid],
-		Left:  buildBST(nums, start, mid-1),
-		Right: buildBST(nums, mid+1, end),
-	}
+	return dfs(0, len(nums)-1)
 }
 ```
 
@@ -258,26 +259,21 @@ func buildBST(nums []int, start, end int) *TreeNode {
  * }
  */
 
-const find = (start: ListNode | null, end: ListNode | null) => {
-    let fast = start;
-    let slow = start;
-    while (fast !== end && fast.next !== end) {
-        fast = fast.next.next;
-        slow = slow.next;
-    }
-    return slow;
-};
-
-const build = (start: ListNode | null, end: ListNode | null) => {
-    if (start == end) {
-        return null;
-    }
-    const node = find(start, end);
-    return new TreeNode(node.val, build(start, node), build(node.next, end));
-};
-
 function sortedListToBST(head: ListNode | null): TreeNode | null {
-    return build(head, null);
+    const nums: number[] = [];
+    for (; head; head = head.next) {
+        nums.push(head.val);
+    }
+    const dfs = (i: number, j: number): TreeNode | null => {
+        if (i > j) {
+            return null;
+        }
+        const mid = (i + j) >> 1;
+        const left = dfs(i, mid - 1);
+        const right = dfs(mid + 1, j);
+        return new TreeNode(nums[mid], left, right);
+    };
+    return dfs(0, nums.length - 1);
 }
 ```
 
@@ -320,27 +316,29 @@ function sortedListToBST(head: ListNode | null): TreeNode | null {
 // }
 use std::cell::RefCell;
 use std::rc::Rc;
-impl Solution {
-    fn build(vals: &Vec<i32>, start: usize, end: usize) -> Option<Rc<RefCell<TreeNode>>> {
-        if start == end {
-            return None;
-        }
-        let mid = (start + end) >> 1;
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: vals[mid],
-            left: Self::build(vals, start, mid),
-            right: Self::build(vals, mid + 1, end),
-        })))
-    }
 
+impl Solution {
     pub fn sorted_list_to_bst(head: Option<Box<ListNode>>) -> Option<Rc<RefCell<TreeNode>>> {
-        let mut vals = Vec::new();
-        let mut cur = &head;
-        while let Some(node) = cur {
-            vals.push(node.val);
-            cur = &node.next;
+        let mut nums = Vec::new();
+        let mut current = head;
+        while let Some(node) = current {
+            nums.push(node.val);
+            current = node.next;
         }
-        Self::build(&vals, 0, vals.len())
+
+        fn dfs(nums: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+            if nums.is_empty() {
+                return None;
+            }
+            let mid = nums.len() / 2;
+            Some(Rc::new(RefCell::new(TreeNode {
+                val: nums[mid],
+                left: dfs(&nums[..mid]),
+                right: dfs(&nums[mid + 1..]),
+            })))
+        }
+
+        dfs(&nums)
     }
 }
 ```
@@ -368,22 +366,20 @@ impl Solution {
  * @return {TreeNode}
  */
 var sortedListToBST = function (head) {
-    const buildBST = (nums, start, end) => {
-        if (start > end) {
-            return null;
-        }
-        const mid = (start + end) >> 1;
-        const root = new TreeNode(nums[mid]);
-        root.left = buildBST(nums, start, mid - 1);
-        root.right = buildBST(nums, mid + 1, end);
-        return root;
-    };
-
-    const nums = new Array();
-    for (; head != null; head = head.next) {
+    const nums = [];
+    for (; head; head = head.next) {
         nums.push(head.val);
     }
-    return buildBST(nums, 0, nums.length - 1);
+    const dfs = (i, j) => {
+        if (i > j) {
+            return null;
+        }
+        const mid = (i + j) >> 1;
+        const left = dfs(i, mid - 1);
+        const right = dfs(mid + 1, j);
+        return new TreeNode(nums[mid], left, right);
+    };
+    return dfs(0, nums.length - 1);
 };
 ```
 
@@ -405,30 +401,38 @@ var sortedListToBST = function (head) {
  *     struct TreeNode *right;
  * };
  */
-struct ListNode* find(struct ListNode* start, struct ListNode* end) {
-    struct ListNode* fast = start;
-    struct ListNode* slow = start;
-    while (fast != end && fast->next != end) {
-        fast = fast->next->next;
-        slow = slow->next;
-    }
-    return slow;
-}
-
-struct TreeNode* bulid(struct ListNode* start, struct ListNode* end) {
-    if (start == end) {
+struct TreeNode* dfs(int* nums, int i, int j) {
+    if (i > j) {
         return NULL;
     }
-    struct ListNode* node = find(start, end);
-    struct TreeNode* ans = malloc(sizeof(struct TreeNode));
-    ans->val = node->val;
-    ans->left = bulid(start, node);
-    ans->right = bulid(node->next, end);
-    return ans;
+    int mid = (i + j) >> 1;
+    struct TreeNode* left = dfs(nums, i, mid - 1);
+    struct TreeNode* right = dfs(nums, mid + 1, j);
+    struct TreeNode* root = (struct TreeNode*) malloc(sizeof(struct TreeNode));
+    root->val = nums[mid];
+    root->left = left;
+    root->right = right;
+    return root;
 }
 
 struct TreeNode* sortedListToBST(struct ListNode* head) {
-    return bulid(head, NULL);
+    int size = 0;
+    struct ListNode* temp = head;
+    while (temp) {
+        size++;
+        temp = temp->next;
+    }
+
+    int* nums = (int*) malloc(size * sizeof(int));
+    temp = head;
+    for (int i = 0; i < size; i++) {
+        nums[i] = temp->val;
+        temp = temp->next;
+    }
+
+    struct TreeNode* root = dfs(nums, 0, size - 1);
+    free(nums);
+    return root;
 }
 ```
 
