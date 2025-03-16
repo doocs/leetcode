@@ -20,7 +20,7 @@
 
 ## 站点
 
-https://doocs.github.io/leetcode
+https://leetcode.doocs.org
 
 ## 算法全解
 
