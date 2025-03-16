@@ -19,13 +19,11 @@ def on_post_page(output, page, config):
 
       </ul>
     """
-    
+
     url = page.abs_url
     cn_url = url.replace("/en/", "/")
-    en_url = cn_url + "en/"
-    support_en_lang = not cn_url.startswith("/lcof") and not cn_url.startswith(
-        "/lcof2"
-    )
+    en_url = "/en" + cn_url
+    support_en_lang = not cn_url.startswith("/lcof") and not cn_url.startswith("/lcof2")
     patterns = {
         "zh": r'(<a\s+[^>]*href=["\'])[^"\']*(["\'][^>]*hreflang=["\']zh["\'][^>]*>)',
         "en": r'(<a\s+[^>]*href=["\'])[^"\']*(["\'][^>]*hreflang=["\']en["\'][^>]*>)',
