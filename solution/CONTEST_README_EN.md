@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 441
+
+- [3487. Maximum Unique Subarray Sum After Deletion](/solution/3400-3499/3487.Maximum%20Unique%20Subarray%20Sum%20After%20Deletion/README_EN.md)
+- [3488. Closest Equal Element Queries](/solution/3400-3499/3488.Closest%20Equal%20Element%20Queries/README_EN.md)
+- [3489. Zero Array Transformation IV](/solution/3400-3499/3489.Zero%20Array%20Transformation%20IV/README_EN.md)
+- [3490. Count Beautiful Numbers](/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README_EN.md)
+
+#### Biweekly Contest 152
+
+- [3483. Unique 3-Digit Even Numbers](/solution/3400-3499/3483.Unique%203-Digit%20Even%20Numbers/README_EN.md)
+- [3484. Design Spreadsheet](/solution/3400-3499/3484.Design%20Spreadsheet/README_EN.md)
+- [3485. Longest Common Prefix of K Strings After Removal](/solution/3400-3499/3485.Longest%20Common%20Prefix%20of%20K%20Strings%20After%20Removal/README_EN.md)
+- [3486. Longest Special Path II](/solution/3400-3499/3486.Longest%20Special%20Path%20II/README_EN.md)
+
 #### Weekly Contest 440
 
 - [3477. Fruits Into Baskets II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README_EN.md)

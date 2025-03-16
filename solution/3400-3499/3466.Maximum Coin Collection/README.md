@@ -2,9 +2,6 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Maximum%20Coin%20Collection/README.md
-tags:
-    - 数组
-    - 动态规划
 ---
 
 <!-- problem:start -->

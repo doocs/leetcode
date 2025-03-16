@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3444.Minimum%20Increments%20for%20Target%20Multiples%20in%20an%20Array/README_EN.md
+rating: 2336
+source: Weekly Contest 435 Q3
 tags:
     - Bit Manipulation
     - Array

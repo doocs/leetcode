@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README_EN.md
+rating: 1199
+source: Biweekly Contest 150 Q1
 tags:
     - Array
 ---

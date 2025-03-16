@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README.md
+rating: 1730
+source: 第 436 场周赛 Q2
 tags:
     - 数组
     - 哈希表

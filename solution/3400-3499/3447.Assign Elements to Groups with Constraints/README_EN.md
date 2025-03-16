@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3447.Assign%20Elements%20to%20Groups%20with%20Constraints/README_EN.md
+rating: 1730
+source: Weekly Contest 436 Q2
 tags:
     - Array
     - Hash Table

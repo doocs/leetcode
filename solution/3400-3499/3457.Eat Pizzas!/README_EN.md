@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3457.Eat%20Pizzas%21/README_EN.md
+rating: 1704
+source: Weekly Contest 437 Q2
 tags:
     - Greedy
     - Array

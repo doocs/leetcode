@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README.md
+rating: 2111
+source: 第 151 场双周赛 Q3
 ---
 
 <!-- problem:start -->
