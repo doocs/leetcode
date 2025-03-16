@@ -6,13 +6,13 @@ def on_post_page(output, page, config):
     <ul class="md-select__list">
 
           <li class="md-select__item">
-            <a href="/leetcode/en/" hreflang="en" class="md-select__link">
+            <a href="/en/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
 
           <li class="md-select__item">
-            <a href="/leetcode/" hreflang="zh" class="md-select__link">
+            <a href="/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -21,10 +21,10 @@ def on_post_page(output, page, config):
     """
     
     url = page.abs_url
-    cn_url = url.replace("/leetcode/en/", "/leetcode/")
-    en_url = cn_url.replace("/leetcode/", "/leetcode/en/")
-    support_en_lang = not cn_url.startswith("/leetcode/lcof") and not cn_url.startswith(
-        "/leetcode/lcof2"
+    cn_url = url.replace("/en/", "/")
+    en_url = cn_url + "en/"
+    support_en_lang = not cn_url.startswith("/lcof") and not cn_url.startswith(
+        "/lcof2"
     )
     patterns = {
         "zh": r'(<a\s+[^>]*href=["\'])[^"\']*(["\'][^>]*hreflang=["\']zh["\'][^>]*>)',
