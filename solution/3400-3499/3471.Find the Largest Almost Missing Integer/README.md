@@ -2,9 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README.md
-tags:
-    - 数组
-    - 哈希表
+rating: 1308
+source: 第 439 场周赛 Q1
 ---
 
 <!-- problem:start -->

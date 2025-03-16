@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3462.Maximum%20Sum%20With%20at%20Most%20K%20Elements/README.md
+rating: 1416
+source: 第 438 场周赛 Q2
 tags:
     - 贪心
     - 数组

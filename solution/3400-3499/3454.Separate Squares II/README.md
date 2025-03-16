@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3454.Separate%20Squares%20II/README.md
+rating: 2671
+source: 第 150 场双周赛 Q3
 tags:
     - 线段树
     - 数组

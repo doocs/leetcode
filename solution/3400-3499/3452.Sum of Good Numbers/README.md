@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3452.Sum%20of%20Good%20Numbers/README.md
+rating: 1199
+source: 第 150 场双周赛 Q1
 tags:
     - 数组
 ---

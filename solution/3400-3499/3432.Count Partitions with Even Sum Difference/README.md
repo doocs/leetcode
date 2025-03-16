@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README.md
+rating: 1199
+source: 第 434 场周赛 Q1
 tags:
     - 数组
     - 数学

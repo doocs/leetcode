@@ -3476,15 +3476,15 @@
 |  3463  |  [判断操作后字符串中的数字是否相等 II](/solution/3400-3499/3463.Check%20If%20Digits%20Are%20Equal%20in%20String%20After%20Operations%20II/README.md)  |  `数学`,`字符串`,`组合数学`,`数论`  |  困难  |  第 438 场周赛  |
 |  3464  |  [正方形上的点之间的最大距离](/solution/3400-3499/3464.Maximize%20the%20Distance%20Between%20Points%20on%20a%20Square/README.md)  |  `贪心`,`数组`,`二分查找`  |  困难  |  第 438 场周赛  |
 |  3465  |  [查找具有有效序列号的产品](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)  |  `数据库`  |  简单  |    |
-|  3466  |  [最大硬币收集量](/solution/3400-3499/3466.Maximum%20Coin%20Collection/README.md)  |  `数组`,`动态规划`  |  中等  |  🔒  |
-|  3467  |  [将数组按照奇偶性转化](/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README.md)  |  `数组`,`计数`,`排序`  |  简单  |  第 151 场双周赛  |
-|  3468  |  [可行数组的数目](/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README.md)  |  `数组`,`数学`  |  中等  |  第 151 场双周赛  |
+|  3466  |  [最大硬币收集量](/solution/3400-3499/3466.Maximum%20Coin%20Collection/README.md)  |    |  中等  |  🔒  |
+|  3467  |  [将数组按照奇偶性转化](/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README.md)  |    |  简单  |  第 151 场双周赛  |
+|  3468  |  [可行数组的数目](/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README.md)  |    |  中等  |  第 151 场双周赛  |
 |  3469  |  [移除所有数组元素的最小代价](/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README.md)  |    |  中等  |  第 151 场双周赛  |
-|  3470  |  [全排列 IV](/solution/3400-3499/3470.Permutations%20IV/README.md)  |  `数组`,`数学`,`组合数学`,`枚举`  |  困难  |  第 151 场双周赛  |
-|  3471  |  [找出最大的几近缺失整数](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README.md)  |  `数组`,`哈希表`  |  简单  |  第 439 场周赛  |
-|  3472  |  [至多 K 次操作后的最长回文子序列](/solution/3400-3499/3472.Longest%20Palindromic%20Subsequence%20After%20at%20Most%20K%20Operations/README.md)  |  `字符串`,`动态规划`  |  中等  |  第 439 场周赛  |
-|  3473  |  [长度至少为 M 的 K 个子数组之和](/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README.md)  |  `数组`,`动态规划`,`前缀和`  |  中等  |  第 439 场周赛  |
-|  3474  |  [字典序最小的生成字符串](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md)  |  `贪心`,`字符串`,`字符串匹配`  |  困难  |  第 439 场周赛  |
+|  3470  |  [排列 IV](/solution/3400-3499/3470.Permutations%20IV/README.md)  |    |  困难  |  第 151 场双周赛  |
+|  3471  |  [找出最大的几近缺失整数](/solution/3400-3499/3471.Find%20the%20Largest%20Almost%20Missing%20Integer/README.md)  |    |  简单  |  第 439 场周赛  |
+|  3472  |  [至多 K 次操作后的最长回文子序列](/solution/3400-3499/3472.Longest%20Palindromic%20Subsequence%20After%20at%20Most%20K%20Operations/README.md)  |    |  中等  |  第 439 场周赛  |
+|  3473  |  [长度至少为 M 的 K 个子数组之和](/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README.md)  |    |  中等  |  第 439 场周赛  |
+|  3474  |  [字典序最小的生成字符串](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md)  |    |  困难  |  第 439 场周赛  |
 |  3475  |  [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)  |    |  中等  |    |
 |  3476  |  [最大化任务分配的利润](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  中等  |  🔒  |
 |  3477  |  [将水果放入篮子 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)  |  `线段树`,`数组`,`二分查找`,`模拟`  |  简单  |  第 440 场周赛  |
@@ -3493,6 +3493,14 @@
 |  3480  |  [删除一个冲突对后最大子数组数目](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README.md)  |  `线段树`,`数组`,`枚举`,`前缀和`  |  困难  |  第 440 场周赛  |
 |  3481  |  [Apply Substitutions](/solution/3400-3499/3481.Apply%20Substitutions/README.md)  |    |  中等  |  🔒  |
 |  3482  |  [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README.md)  |    |  困难  |    |
+|  3483  |  [不同三位偶数的数目](/solution/3400-3499/3483.Unique%203-Digit%20Even%20Numbers/README.md)  |    |  简单  |  第 152 场双周赛  |
+|  3484  |  [设计电子表格](/solution/3400-3499/3484.Design%20Spreadsheet/README.md)  |    |  中等  |  第 152 场双周赛  |
+|  3485  |  [删除元素后 K 个字符串的最长公共前缀](/solution/3400-3499/3485.Longest%20Common%20Prefix%20of%20K%20Strings%20After%20Removal/README.md)  |    |  困难  |  第 152 场双周赛  |
+|  3486  |  [最长特殊路径 II](/solution/3400-3499/3486.Longest%20Special%20Path%20II/README.md)  |    |  困难  |  第 152 场双周赛  |
+|  3487  |  [删除后的最大子数组元素和](/solution/3400-3499/3487.Maximum%20Unique%20Subarray%20Sum%20After%20Deletion/README.md)  |    |  简单  |  第 441 场周赛  |
+|  3488  |  [距离最小相等元素查询](/solution/3400-3499/3488.Closest%20Equal%20Element%20Queries/README.md)  |    |  中等  |  第 441 场周赛  |
+|  3489  |  [零数组变换 IV](/solution/3400-3499/3489.Zero%20Array%20Transformation%20IV/README.md)  |    |  中等  |  第 441 场周赛  |
+|  3490  |  [统计美丽整数的数目](/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README.md)  |    |  困难  |  第 441 场周赛  |
 
 ## 版权
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README_EN.md
+rating: 2093
+source: Weekly Contest 434 Q3
 tags:
     - Greedy
     - Array

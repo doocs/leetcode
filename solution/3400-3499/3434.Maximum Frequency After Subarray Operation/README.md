@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README.md
+rating: 2093
+source: 第 434 场周赛 Q3
 tags:
     - 贪心
     - 数组

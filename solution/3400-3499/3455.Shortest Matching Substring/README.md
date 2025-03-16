@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3455.Shortest%20Matching%20Substring/README.md
+rating: 2303
+source: 第 150 场双周赛 Q4
 tags:
     - 双指针
     - 字符串

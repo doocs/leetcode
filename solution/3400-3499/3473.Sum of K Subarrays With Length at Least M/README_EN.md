@@ -2,10 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3473.Sum%20of%20K%20Subarrays%20With%20Length%20at%20Least%20M/README_EN.md
-tags:
-    - Array
-    - Dynamic Programming
-    - Prefix Sum
+rating: 2274
+source: Weekly Contest 439 Q3
 ---
 
 <!-- problem:start -->
