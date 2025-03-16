@@ -20,7 +20,7 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
 
 ## Site
 
-https://doocs.github.io/leetcode/en
+https://leetcode.doocs.org/en
 
 ## Solutions
 
