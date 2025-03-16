@@ -5,7 +5,9 @@ public:
         int ans = 0;
         for (char a = 'a'; a <= 'z'; ++a) {
             for (char b = 'a'; b <= 'z'; ++b) {
-                if (a == b) continue;
+                if (a == b) {
+                    continue;
+                }
                 int f[2] = {0, -n};
                 for (char c : s) {
                     if (c == a) {

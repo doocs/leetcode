@@ -63,7 +63,21 @@ No letter occurs more than once in s, so the variance of every substring is 0.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Dynamic Programming
+
+Since the character set only contains lowercase letters, we can consider enumerating the most frequent character $a$ and the least frequent character $b$. For a substring, the difference in the number of occurrences of these two characters is the variance of the substring.
+
+Specifically, we use a double loop to enumerate $a$ and $b$. We use $f[0]$ to record the number of consecutive occurrences of character $a$ ending at the current character, and $f[1]$ to record the variance of the substring ending at the current character and containing both $a$ and $b$. We iterate to find the maximum value of $f[1]$.
+
+The recurrence formula is as follows:
+
+1. If the current character is $a$, then both $f[0]$ and $f[1]$ are incremented by $1$;
+2. If the current character is $b$, then $f[1] = \max(f[1] - 1, f[0] - 1)$, and $f[0] = 0$;
+3. Otherwise, no need to consider.
+
+Note that initially setting $f[1]$ to a negative maximum value ensures that updating the answer is valid.
+
+The time complexity is $O(n \times |\Sigma|^2)$, where $n$ is the length of the string, and $|\Sigma|$ is the size of the character set. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -128,7 +142,9 @@ public:
         int ans = 0;
         for (char a = 'a'; a <= 'z'; ++a) {
             for (char b = 'a'; b <= 'z'; ++b) {
-                if (a == b) continue;
+                if (a == b) {
+                    continue;
+                }
                 int f[2] = {0, -n};
                 for (char c : s) {
                     if (c == a) {
@@ -171,6 +187,34 @@ func largestVariance(s string) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function largestVariance(s: string): number {
+    const n: number = s.length;
+    let ans: number = 0;
+    for (let a = 97; a <= 122; ++a) {
+        for (let b = 97; b <= 122; ++b) {
+            if (a === b) {
+                continue;
+            }
+            const f: number[] = [0, -n];
+            for (let i = 0; i < n; ++i) {
+                if (s.charCodeAt(i) === a) {
+                    f[0]++;
+                    f[1]++;
+                } else if (s.charCodeAt(i) === b) {
+                    f[1] = Math.max(f[0] - 1, f[1] - 1);
+                    f[0] = 0;
+                }
+                ans = Math.max(ans, f[1]);
+            }
+        }
+    }
+    return ans;
 }
 ```
 

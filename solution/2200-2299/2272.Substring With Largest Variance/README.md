@@ -74,12 +74,12 @@ s 中没有字母出现超过 1 次，所以 s 中每个子字符串的波动值
 递推公式如下：
 
 1. 如果当前字符为 $a$，则 $f[0]$ 和 $f[1]$ 都加 $1$；
-1. 如果当前字符为 $b$，则 $f[1]=\max(f[1]-1, f[0]-1)$，而 $f[0]=0$；
+1. 如果当前字符为 $b$，则 $f[1] = \max(f[1] - 1, f[0] - 1)$，而 $f[0] = 0$；
 1. 否则，无需考虑。
 
 注意，初始时将 $f[1]$ 赋值为一个负数最大值，可以保证更新答案时是合法的。
 
-时间复杂度 $O(n\times C^2)$，其中 $n$ 表示字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C=26$。
+时间复杂度 $O(n \times |\Sigma|^2)$，其中 $n$ 是字符串长度，而 $|\Sigma|$ 是字符集大小。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -144,7 +144,9 @@ public:
         int ans = 0;
         for (char a = 'a'; a <= 'z'; ++a) {
             for (char b = 'a'; b <= 'z'; ++b) {
-                if (a == b) continue;
+                if (a == b) {
+                    continue;
+                }
                 int f[2] = {0, -n};
                 for (char c : s) {
                     if (c == a) {
@@ -187,6 +189,34 @@ func largestVariance(s string) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function largestVariance(s: string): number {
+    const n: number = s.length;
+    let ans: number = 0;
+    for (let a = 97; a <= 122; ++a) {
+        for (let b = 97; b <= 122; ++b) {
+            if (a === b) {
+                continue;
+            }
+            const f: number[] = [0, -n];
+            for (let i = 0; i < n; ++i) {
+                if (s.charCodeAt(i) === a) {
+                    f[0]++;
+                    f[1]++;
+                } else if (s.charCodeAt(i) === b) {
+                    f[1] = Math.max(f[0] - 1, f[1] - 1);
+                    f[0] = 0;
+                }
+                ans = Math.max(ans, f[1]);
+            }
+        }
+    }
+    return ans;
 }
 ```
 
