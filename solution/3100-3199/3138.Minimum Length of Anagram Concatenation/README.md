@@ -50,6 +50,12 @@ tags:
 <p><strong>解释：</strong></p>
 
 <p>一个可能的字符串&nbsp;<code>t</code>&nbsp;为&nbsp;<code>"cdef"</code>&nbsp;，注意&nbsp;<code>t</code>&nbsp;可能等于&nbsp;<code>s</code>&nbsp;。</p>
+
+<p><strong class="example">示例</strong><strong>&nbsp;3：</strong></p>
+
+<p><strong>输入：</strong>s = "abcbcacabbaccba"</p>
+
+<p><b>输出：</b>3</p>
 </div>
 
 <p>&nbsp;</p>

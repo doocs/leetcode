@@ -22,17 +22,35 @@ tags:
 
 <p>Given an array of integers <code>arr</code> and an integer <code>k</code>.</p>
 
-<p>A value <code>arr[i]</code> is said to be stronger than a value <code>arr[j]</code> if <code>|arr[i] - m| &gt; |arr[j] - m|</code> where <code>m</code> is the <strong>median</strong> of the array.<br />
+<p>A value <code>arr[i]</code> is said to be stronger than a value <code>arr[j]</code> if <code>|arr[i] - m| &gt; |arr[j] - m|</code> where <code>m</code> is the <strong>centre</strong> of the array.<br />
 If <code>|arr[i] - m| == |arr[j] - m|</code>, then <code>arr[i]</code> is said to be stronger than <code>arr[j]</code> if <code>arr[i] &gt; arr[j]</code>.</p>
 
 <p>Return <em>a list of the strongest <code>k</code></em> values in the array. return the answer <strong>in any arbitrary order</strong>.</p>
 
-<p><strong>Median</strong> is the middle value in an ordered integer list. More formally, if the length of the list is n, the median is the element in position <code>((n - 1) / 2)</code> in the sorted list <strong>(0-indexed)</strong>.</p>
+<p>The <strong>centre</strong> is the middle value in an ordered integer list. More formally, if the length of the list is n, the centre is the element in position <code>((n - 1) / 2)</code> in the sorted list <strong>(0-indexed)</strong>.</p>
 
 <ul>
-	<li>For <code>arr = [6, -3, 7, 2, 11]</code>, <code>n = 5</code> and the median is obtained by sorting the array <code>arr = [-3, 2, 6, 7, 11]</code> and the median is <code>arr[m]</code> where <code>m = ((5 - 1) / 2) = 2</code>. The median is <code>6</code>.</li>
-	<li>For <code>arr = [-7, 22, 17,&thinsp;3]</code>, <code>n = 4</code> and the median is obtained by sorting the array <code>arr = [-7, 3, 17, 22]</code> and the median is <code>arr[m]</code> where <code>m = ((4 - 1) / 2) = 1</code>. The median is <code>3</code>.</li>
+	<li>For <code>arr = [6, -3, 7, 2, 11]</code>, <code>n = 5</code> and the centre is obtained by sorting the array <code>arr = [-3, 2, 6, 7, 11]</code> and the centre is <code>arr[m]</code> where <code>m = ((5 - 1) / 2) = 2</code>. The centre is <code>6</code>.</li>
+	<li>For <code>arr = [-7, 22, 17,&thinsp;3]</code>, <code>n = 4</code> and the centre is obtained by sorting the array <code>arr = [-7, 3, 17, 22]</code> and the centre is <code>arr[m]</code> where <code>m = ((4 - 1) / 2) = 1</code>. The centre is <code>3</code>.</li>
 </ul>
+
+<div class="simple-translate-system-theme" id="simple-translate">
+<div>
+<div class="simple-translate-button isShow" style="background-image: url(&quot;moz-extension://8a9ffb6b-7e69-4e93-aae1-436a1448eff6/icons/512.png&quot;); height: 22px; width: 22px; top: 266px; left: 381px;">&nbsp;</div>
+
+<div class="simple-translate-panel " style="width: 300px; height: 200px; top: 0px; left: 0px; font-size: 13px;">
+<div class="simple-translate-result-wrapper" style="overflow: hidden;">
+<div class="simple-translate-move" draggable="true">&nbsp;</div>
+
+<div class="simple-translate-result-contents">
+<p class="simple-translate-result" dir="auto">&nbsp;</p>
+
+<p class="simple-translate-candidate" dir="auto">&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -40,7 +58,7 @@ If <code>|arr[i] - m| == |arr[j] - m|</code>, then <code>arr[i]</code> is said t
 <pre>
 <strong>Input:</strong> arr = [1,2,3,4,5], k = 2
 <strong>Output:</strong> [5,1]
-<strong>Explanation:</strong> Median is 3, the elements of the array sorted by the strongest are [5,1,4,2,3]. The strongest 2 elements are [5, 1]. [1, 5] is also <strong>accepted</strong> answer.
+<strong>Explanation:</strong> Centre is 3, the elements of the array sorted by the strongest are [5,1,4,2,3]. The strongest 2 elements are [5, 1]. [1, 5] is also <strong>accepted</strong> answer.
 Please note that although |5 - 3| == |1 - 3| but 5 is stronger than 1 because 5 &gt; 1.
 </pre>
 
@@ -49,7 +67,7 @@ Please note that although |5 - 3| == |1 - 3| but 5 is stronger than 1 because 5 
 <pre>
 <strong>Input:</strong> arr = [1,1,3,5,5], k = 2
 <strong>Output:</strong> [5,5]
-<strong>Explanation:</strong> Median is 3, the elements of the array sorted by the strongest are [5,5,1,1,3]. The strongest 2 elements are [5, 5].
+<strong>Explanation:</strong> Centre is 3, the elements of the array sorted by the strongest are [5,5,1,1,3]. The strongest 2 elements are [5, 5].
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -57,7 +75,7 @@ Please note that although |5 - 3| == |1 - 3| but 5 is stronger than 1 because 5 
 <pre>
 <strong>Input:</strong> arr = [6,7,11,7,6,8], k = 5
 <strong>Output:</strong> [11,8,6,6,7]
-<strong>Explanation:</strong> Median is 7, the elements of the array sorted by the strongest are [11,8,6,6,7,7].
+<strong>Explanation:</strong> Centre is 7, the elements of the array sorted by the strongest are [11,8,6,6,7,7].
 Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 </pre>
 

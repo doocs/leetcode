@@ -31,8 +31,8 @@ tags:
 <p><code>nums</code>&nbsp;的 <strong>串联值</strong>&nbsp;最初等于 <code>0</code> 。执行下述操作直到&nbsp;<code>nums</code>&nbsp;变为空：</p>
 
 <ul>
-	<li>如果&nbsp;<code>nums</code>&nbsp;中存在不止一个数字，分别选中 <code>nums</code> 中的第一个元素和最后一个元素，将二者串联得到的值加到&nbsp;<code>nums</code>&nbsp;的 <strong>串联值</strong> 上，然后从&nbsp;<code>nums</code>&nbsp;中删除第一个和最后一个元素。</li>
-	<li>如果仅存在一个元素，则将该元素的值加到&nbsp;<code>nums</code> 的串联值上，然后删除这个元素。</li>
+	<li>如果&nbsp;<code>nums</code>&nbsp;的长度大于 1，分别选中 <code>nums</code> 中的第一个元素和最后一个元素，将二者串联得到的值加到&nbsp;<code>nums</code>&nbsp;的 <strong>串联值</strong> 上，然后从&nbsp;<code>nums</code>&nbsp;中删除第一个和最后一个元素。例如，如果&nbsp;<code>nums</code> 是 <code>[1, 2, 4, 5, 6]</code>，将 16 添加到串联值。</li>
+	<li>如果&nbsp;<code>nums</code>&nbsp;中仅存在一个元素，则将该元素的值加到&nbsp;<code>nums</code> 的串联值上，然后删除这个元素。</li>
 </ul>
 
 <p>返回执行完所有操作后<em>&nbsp;</em><code>nums</code> 的串联值。</p>

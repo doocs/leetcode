@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3466.Maximum%20Coin%20Collection/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

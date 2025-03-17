@@ -7,6 +7,7 @@ source: Weekly Contest 290 Q3
 tags:
     - Binary Indexed Tree
     - Array
+    - Hash Table
     - Binary Search
     - Sorting
 ---

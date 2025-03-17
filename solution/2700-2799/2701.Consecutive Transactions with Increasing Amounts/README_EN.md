@@ -33,7 +33,7 @@ Each row contains information about transactions that includes unique (customer_
 
 <p>Write an SQL query to find the customers who have made consecutive transactions with increasing <code>amount</code>&nbsp;for at least three consecutive days. Include the <code>customer_id</code>,&nbsp;start date of the consecutive transactions&nbsp;period and the end date of the consecutive transactions period. There can be multiple consecutive transactions by a customer.</p>
 
-<p>Return <em>the result table ordered by</em> <code>customer_id</code> <em>in <strong>ascending</strong> order.</em></p>
+<p>Return <em>the result table ordered by</em> <code>customer_id, consecutive_start, consecutive_end</code> <em>in <strong>ascending</strong> order.</em></p>
 
 <p>The query result format is in the following example.</p>
 
