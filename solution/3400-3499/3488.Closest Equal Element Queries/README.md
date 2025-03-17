@@ -70,32 +70,198 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3488.Cl
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：环形数组 + 哈希表
+
+根据题目描述，我们需要找出数组每个元素与上一个相同元素的最小距离，以及与下一个相同元素的最小距离。并且，由于数组是循环的，所以我们需要考虑数组的环形特性，我们可以将数组扩展为原数组的两倍，然后使用哈希表 $\textit{left}$ 和 $\textit{right}$ 分别记录每个元素上一次出现的位置和下一次出现的位置，计算出每个位置的元素与另一个相同元素的最小距离，记录在数组 $\textit{d}$ 中。最后，我们遍历查询，对于每个查询 $i$，我们取 $\textit{d}[i]$ 和 $\textit{d}[i+n]$ 中的最小值，如果该值大于等于 $n$，则说明不存在与查询元素相同的元素，返回 $-1$，否则返回该值。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def solveQueries(self, nums: List[int], queries: List[int]) -> List[int]:
+        n = len(nums)
+        m = n << 1
+        d = [m] * m
+        left = {}
+        for i in range(m):
+            x = nums[i % n]
+            if x in left:
+                d[i] = min(d[i], i - left[x])
+            left[x] = i
+        right = {}
+        for i in range(m - 1, -1, -1):
+            x = nums[i % n]
+            if x in right:
+                d[i] = min(d[i], right[x] - i)
+            right[x] = i
+        for i in range(n):
+            d[i] = min(d[i], d[i + n])
+        return [-1 if d[i] >= n else d[i] for i in queries]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public List<Integer> solveQueries(int[] nums, int[] queries) {
+        int n = nums.length;
+        int m = n * 2;
+        int[] d = new int[m];
+        Arrays.fill(d, m);
 
+        Map<Integer, Integer> left = new HashMap<>();
+        for (int i = 0; i < m; i++) {
+            int x = nums[i % n];
+            if (left.containsKey(x)) {
+                d[i] = Math.min(d[i], i - left.get(x));
+            }
+            left.put(x, i);
+        }
+
+        Map<Integer, Integer> right = new HashMap<>();
+        for (int i = m - 1; i >= 0; i--) {
+            int x = nums[i % n];
+            if (right.containsKey(x)) {
+                d[i] = Math.min(d[i], right.get(x) - i);
+            }
+            right.put(x, i);
+        }
+
+        for (int i = 0; i < n; i++) {
+            d[i] = Math.min(d[i], d[i + n]);
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        for (int query : queries) {
+            ans.add(d[query] >= n ? -1 : d[query]);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> solveQueries(vector<int>& nums, vector<int>& queries) {
+        int n = nums.size();
+        int m = n * 2;
+        vector<int> d(m, m);
 
+        unordered_map<int, int> left;
+        for (int i = 0; i < m; i++) {
+            int x = nums[i % n];
+            if (left.count(x)) {
+                d[i] = min(d[i], i - left[x]);
+            }
+            left[x] = i;
+        }
+
+        unordered_map<int, int> right;
+        for (int i = m - 1; i >= 0; i--) {
+            int x = nums[i % n];
+            if (right.count(x)) {
+                d[i] = min(d[i], right[x] - i);
+            }
+            right[x] = i;
+        }
+
+        for (int i = 0; i < n; i++) {
+            d[i] = min(d[i], d[i + n]);
+        }
+
+        vector<int> ans;
+        for (int query : queries) {
+            ans.push_back(d[query] >= n ? -1 : d[query]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func solveQueries(nums []int, queries []int) []int {
+	n := len(nums)
+	m := n * 2
+	d := make([]int, m)
+	for i := range d {
+		d[i] = m
+	}
 
+	left := make(map[int]int)
+	for i := 0; i < m; i++ {
+		x := nums[i%n]
+		if idx, exists := left[x]; exists {
+			d[i] = min(d[i], i-idx)
+		}
+		left[x] = i
+	}
+
+	right := make(map[int]int)
+	for i := m - 1; i >= 0; i-- {
+		x := nums[i%n]
+		if idx, exists := right[x]; exists {
+			d[i] = min(d[i], idx-i)
+		}
+		right[x] = i
+	}
+
+	for i := 0; i < n; i++ {
+		d[i] = min(d[i], d[i+n])
+	}
+
+	ans := make([]int, len(queries))
+	for i, query := range queries {
+		if d[query] >= n {
+			ans[i] = -1
+		} else {
+			ans[i] = d[query]
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function solveQueries(nums: number[], queries: number[]): number[] {
+    const n = nums.length;
+    const m = n * 2;
+    const d: number[] = Array(m).fill(m);
+
+    const left = new Map<number, number>();
+    for (let i = 0; i < m; i++) {
+        const x = nums[i % n];
+        if (left.has(x)) {
+            d[i] = Math.min(d[i], i - left.get(x)!);
+        }
+        left.set(x, i);
+    }
+
+    const right = new Map<number, number>();
+    for (let i = m - 1; i >= 0; i--) {
+        const x = nums[i % n];
+        if (right.has(x)) {
+            d[i] = Math.min(d[i], right.get(x)! - i);
+        }
+        right.set(x, i);
+    }
+
+    for (let i = 0; i < n; i++) {
+        d[i] = Math.min(d[i], d[i + n]);
+    }
+
+    return queries.map(query => (d[query] >= n ? -1 : d[query]));
+}
 ```
 
 <!-- tabs:end -->
