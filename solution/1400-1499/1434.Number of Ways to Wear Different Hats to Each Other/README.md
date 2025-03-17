@@ -57,13 +57,6 @@ tags:
 (1,2,3,4) 4 个帽子的排列方案数为 24 。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>hats = [[1,2,3],[2,3,5,6],[1,3,7,9],[1,8,9],[2,5,7]]
-<strong>输出：</strong>111
-</pre>
-
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

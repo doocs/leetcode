@@ -4,6 +4,10 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README_EN.md
 rating: 2605
 source: Weekly Contest 439 Q4
+tags:
+    - Greedy
+    - String
+    - String Matching
 ---
 
 <!-- problem:start -->

@@ -59,7 +59,7 @@ comments: true
 - [3467. 将数组按照奇偶性转化](/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README.md)
 - [3468. 可行数组的数目](/solution/3400-3499/3468.Find%20the%20Number%20of%20Copy%20Arrays/README.md)
 - [3469. 移除所有数组元素的最小代价](/solution/3400-3499/3469.Find%20Minimum%20Cost%20to%20Remove%20Array%20Elements/README.md)
-- [3470. 排列 IV](/solution/3400-3499/3470.Permutations%20IV/README.md)
+- [3470. 全排列 IV](/solution/3400-3499/3470.Permutations%20IV/README.md)
 
 #### 第 438 场周赛(2025-02-23 10:30, 90 分钟) 参赛人数 2401
 
