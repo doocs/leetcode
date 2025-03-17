@@ -76,7 +76,34 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ to represent the number of special subsequences ending with $j$ among the first $i+1$ elements. Initially, $f[i][j]=0$, and if $nums[0]=0$, then $f[0][0]=1$.
+
+For $i \gt 0$, we consider the value of $nums[i]$:
+
+If $nums[i] = 0$: If we do not choose $nums[i]$, then $f[i][0] = f[i-1][0]$; if we choose $nums[i]$, then $f[i][0]=f[i-1][0]+1$, because we can add a $0$ to the end of any special subsequence ending with $0$ to get a new special subsequence, or we can use $nums[i]$ alone as a special subsequence. Therefore, $f[i][0] = 2 \times f[i - 1][0] + 1$. The rest of $f[i][j]$ is equal to $f[i-1][j]$.
+
+If $nums[i] = 1$: If we do not choose $nums[i]$, then $f[i][1] = f[i-1][1]$; if we choose $nums[i]$, then $f[i][1]=f[i-1][1]+f[i-1][0]$, because we can add a $1$ to the end of any special subsequence ending with $0$ or $1$ to get a new special subsequence. Therefore, $f[i][1] = f[i-1][0] + 2 \times f[i - 1][1]$. The rest of $f[i][j]$ is equal to $f[i-1][j]$.
+
+If $nums[i] = 2$: If we do not choose $nums[i]$, then $f[i][2] = f[i-1][2]$; if we choose $nums[i]$, then $f[i][2]=f[i-1][2]+f[i-1][1]$, because we can add a $2$ to the end of any special subsequence ending with $1$ or $2$ to get a new special subsequence. Therefore, $f[i][2] = f[i-1][1] + 2 \times f[i - 1][2]$. The rest of $f[i][j]$ is equal to $f[i-1][j]$.
+
+In summary, we can get the following state transition equations:
+
+$$
+\begin{aligned}
+f[i][0] &= 2 \times f[i - 1][0] + 1, \quad nums[i] = 0 \\
+f[i][1] &= f[i-1][0] + 2 \times f[i - 1][1], \quad nums[i] = 1 \\
+f[i][2] &= f[i-1][1] + 2 \times f[i - 1][2], \quad nums[i] = 2 \\
+f[i][j] &= f[i-1][j], \quad nums[i] \neq j
+\end{aligned}
+$$
+
+The final answer is $f[n-1][2]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+
+Similar code found with 1 license type
 
 <!-- tabs:start -->
 
@@ -229,7 +256,13 @@ function countSpecialSubsequences(nums: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that in the above state transition equations, the value of $f[i][j]$ is only related to $f[i-1][j]$. Therefore, we can remove the first dimension and optimize the space complexity to $O(1)$.
+
+We can use an array $f$ of length 3 to represent the number of special subsequences ending with 0, 1, and 2, respectively. For each element in the array, we update the array $f$ according to the value of the current element.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 
