@@ -73,32 +73,141 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3483.Un
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Set + Enumeration
+
+We use a hash set $\textit{s}$ to record all distinct three-digit even numbers, and then enumerate all possible three-digit even numbers to add them to the hash set.
+
+Finally, we return the size of the hash set.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^3)$. Where $n$ is the length of the array $\textit{digits}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def totalNumbers(self, digits: List[int]) -> int:
+        s = set()
+        for i, a in enumerate(digits):
+            if a & 1:
+                continue
+            for j, b in enumerate(digits):
+                if i == j:
+                    continue
+                for k, c in enumerate(digits):
+                    if c == 0 or k in (i, j):
+                        continue
+                    s.add(c * 100 + b * 10 + a)
+        return len(s)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int totalNumbers(int[] digits) {
+        Set<Integer> s = new HashSet<>();
+        int n = digits.length;
+        for (int i = 0; i < n; ++i) {
+            if (digits[i] % 2 == 1) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (i == j) {
+                    continue;
+                }
+                for (int k = 0; k < n; ++k) {
+                    if (digits[k] == 0 || k == i || k == j) {
+                        continue;
+                    }
+                    s.add(digits[k] * 100 + digits[j] * 10 + digits[i]);
+                }
+            }
+        }
+        return s.size();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int totalNumbers(vector<int>& digits) {
+        unordered_set<int> s;
+        int n = digits.size();
+        for (int i = 0; i < n; ++i) {
+            if (digits[i] % 2 == 1) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (i == j) {
+                    continue;
+                }
+                for (int k = 0; k < n; ++k) {
+                    if (digits[k] == 0 || k == i || k == j) {
+                        continue;
+                    }
+                    s.insert(digits[k] * 100 + digits[j] * 10 + digits[i]);
+                }
+            }
+        }
+        return s.size();
+    }
+};
 ```
 
 #### Go
 
 ```go
+func totalNumbers(digits []int) int {
+	s := make(map[int]struct{})
+	for i, a := range digits {
+		if a%2 == 1 {
+			continue
+		}
+		for j, b := range digits {
+			if i == j {
+				continue
+			}
+			for k, c := range digits {
+				if c == 0 || k == i || k == j {
+					continue
+				}
+				s[c*100+b*10+a] = struct{}{}
+			}
+		}
+	}
+	return len(s)
+}
+```
 
+#### TypeScript
+
+```ts
+function totalNumbers(digits: number[]): number {
+    const s = new Set<number>();
+    const n = digits.length;
+    for (let i = 0; i < n; ++i) {
+        if (digits[i] % 2 === 1) {
+            continue;
+        }
+        for (let j = 0; j < n; ++j) {
+            if (i === j) {
+                continue;
+            }
+            for (let k = 0; k < n; ++k) {
+                if (digits[k] === 0 || k === i || k === j) {
+                    continue;
+                }
+                s.add(digits[k] * 100 + digits[j] * 10 + digits[i]);
+            }
+        }
+    }
+    return s.size;
+}
 ```
 
 <!-- tabs:end -->

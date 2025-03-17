@@ -65,32 +65,203 @@ spreadsheet.getValue(&quot;=A1+B2&quot;); // returns 15 (0+15)</div>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table $\textit{d}$ to record the values of all cells, where the key is the cell reference and the value is the cell's value.
+
+When calling the `setCell` method, we store the cell reference and value in the hash table.
+
+When calling the `resetCell` method, we remove the cell reference from the hash table.
+
+When calling the `getValue` method, we split the formula into two cell references, calculate their values, and then return their sum.
+
+The time complexity is $O(L)$, and the space complexity is $O(L)$. Where $L$ is the length of the formula.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Spreadsheet:
 
+    def __init__(self, rows: int):
+        self.d = {}
+
+    def setCell(self, cell: str, value: int) -> None:
+        self.d[cell] = value
+
+    def resetCell(self, cell: str) -> None:
+        self.d.pop(cell, None)
+
+    def getValue(self, formula: str) -> int:
+        ans = 0
+        for cell in formula[1:].split("+"):
+            ans += int(cell) if cell[0].isdigit() else self.d.get(cell, 0)
+        return ans
+
+
+# Your Spreadsheet object will be instantiated and called as such:
+# obj = Spreadsheet(rows)
+# obj.setCell(cell,value)
+# obj.resetCell(cell)
+# param_3 = obj.getValue(formula)
 ```
 
 #### Java
 
 ```java
+class Spreadsheet {
+    private Map<String, Integer> d = new HashMap<>();
 
+    public Spreadsheet(int rows) {
+    }
+
+    public void setCell(String cell, int value) {
+        d.put(cell, value);
+    }
+
+    public void resetCell(String cell) {
+        d.remove(cell);
+    }
+
+    public int getValue(String formula) {
+        int ans = 0;
+        for (String cell : formula.substring(1).split("\\+")) {
+            ans += Character.isDigit(cell.charAt(0)) ? Integer.parseInt(cell)
+                                                     : d.getOrDefault(cell, 0);
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your Spreadsheet object will be instantiated and called as such:
+ * Spreadsheet obj = new Spreadsheet(rows);
+ * obj.setCell(cell,value);
+ * obj.resetCell(cell);
+ * int param_3 = obj.getValue(formula);
+ */
 ```
 
 #### C++
 
 ```cpp
+class Spreadsheet {
+private:
+    unordered_map<string, int> d;
 
+public:
+    Spreadsheet(int rows) {}
+
+    void setCell(string cell, int value) {
+        d[cell] = value;
+    }
+
+    void resetCell(string cell) {
+        d.erase(cell);
+    }
+
+    int getValue(string formula) {
+        int ans = 0;
+        stringstream ss(formula.substr(1));
+        string cell;
+        while (getline(ss, cell, '+')) {
+            if (isdigit(cell[0])) {
+                ans += stoi(cell);
+            } else {
+                ans += d.count(cell) ? d[cell] : 0;
+            }
+        }
+        return ans;
+    }
+};
+
+/**
+ * Your Spreadsheet object will be instantiated and called as such:
+ * Spreadsheet* obj = new Spreadsheet(rows);
+ * obj->setCell(cell,value);
+ * obj->resetCell(cell);
+ * int param_3 = obj->getValue(formula);
+ */
 ```
 
 #### Go
 
 ```go
+type Spreadsheet struct {
+    d map[string]int
+}
 
+func Constructor(rows int) Spreadsheet {
+    return Spreadsheet{d: make(map[string]int)}
+}
+
+func (this *Spreadsheet) SetCell(cell string, value int) {
+    this.d[cell] = value
+}
+
+func (this *Spreadsheet) ResetCell(cell string) {
+    delete(this.d, cell)
+}
+
+func (this *Spreadsheet) GetValue(formula string) int {
+    ans := 0
+    cells := strings.Split(formula[1:], "+")
+    for _, cell := range cells {
+        if val, err := strconv.Atoi(cell); err == nil {
+            ans += val
+        } else {
+            ans += this.d[cell]
+        }
+    }
+    return ans
+}
+
+
+/**
+ * Your Spreadsheet object will be instantiated and called as such:
+ * obj := Constructor(rows);
+ * obj.SetCell(cell,value);
+ * obj.ResetCell(cell);
+ * param_3 := obj.GetValue(formula);
+ */
+```
+
+#### TypeScript
+
+```ts
+class Spreadsheet {
+    private d: Map<string, number>;
+
+    constructor(rows: number) {
+        this.d = new Map<string, number>();
+    }
+
+    setCell(cell: string, value: number): void {
+        this.d.set(cell, value);
+    }
+
+    resetCell(cell: string): void {
+        this.d.delete(cell);
+    }
+
+    getValue(formula: string): number {
+        let ans = 0;
+        const cells = formula.slice(1).split('+');
+        for (const cell of cells) {
+            ans += isNaN(Number(cell)) ? this.d.get(cell) || 0 : Number(cell);
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your Spreadsheet object will be instantiated and called as such:
+ * var obj = new Spreadsheet(rows)
+ * obj.setCell(cell,value)
+ * obj.resetCell(cell)
+ * var param_3 = obj.getValue(formula)
+ */
 ```
 
 <!-- tabs:end -->
