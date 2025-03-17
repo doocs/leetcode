@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3470.Permutations%20IV/README.md
+rating: 2473
+source: 第 151 场双周赛 Q4
 tags:
     - 数组
     - 数学

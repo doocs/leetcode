@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 441 场周赛(2025-03-16 10:30, 90 分钟) 参赛人数 2792
+
+- [3487. 删除后的最大子数组元素和](/solution/3400-3499/3487.Maximum%20Unique%20Subarray%20Sum%20After%20Deletion/README.md)
+- [3488. 距离最小相等元素查询](/solution/3400-3499/3488.Closest%20Equal%20Element%20Queries/README.md)
+- [3489. 零数组变换 IV](/solution/3400-3499/3489.Zero%20Array%20Transformation%20IV/README.md)
+- [3490. 统计美丽整数的数目](/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README.md)
+
+#### 第 152 场双周赛(2025-03-15 22:30, 90 分钟) 参赛人数 2272
+
+- [3483. 不同三位偶数的数目](/solution/3400-3499/3483.Unique%203-Digit%20Even%20Numbers/README.md)
+- [3484. 设计电子表格](/solution/3400-3499/3484.Design%20Spreadsheet/README.md)
+- [3485. 删除元素后 K 个字符串的最长公共前缀](/solution/3400-3499/3485.Longest%20Common%20Prefix%20of%20K%20Strings%20After%20Removal/README.md)
+- [3486. 最长特殊路径 II](/solution/3400-3499/3486.Longest%20Special%20Path%20II/README.md)
+
 #### 第 440 场周赛(2025-03-09 10:30, 90 分钟) 参赛人数 3056
 
 - [3477. 将水果放入篮子 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)

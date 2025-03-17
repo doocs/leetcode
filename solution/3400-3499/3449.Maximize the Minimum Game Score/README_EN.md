@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README_EN.md
+rating: 2748
+source: Weekly Contest 436 Q4
 tags:
     - Greedy
     - Array

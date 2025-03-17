@@ -1,34 +1,43 @@
-using System.Collections.Generic;
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public IList<Node> neighbors;
+
+    public Node() {
+        val = 0;
+        neighbors = new List<Node>();
+    }
+
+    public Node(int _val) {
+        val = _val;
+        neighbors = new List<Node>();
+    }
+
+    public Node(int _val, List<Node> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+}
+*/
 
 public class Solution {
     public Node CloneGraph(Node node) {
-        if (node == null) return null;
-        var dict = new Dictionary<int, Node>();
-        var queue = new Queue<Node>();
-        queue.Enqueue(CloneVal(node));
-        dict.Add(node.val, queue.Peek());
-        while (queue.Count > 0)
-        {
-            var current = queue.Dequeue();
-            var newNeighbors = new List<Node>(current.neighbors.Count);
-            foreach (var oldNeighbor in current.neighbors)
-            {
-                Node newNeighbor;
-                if (!dict.TryGetValue(oldNeighbor.val, out newNeighbor))
-                {
-                    newNeighbor = CloneVal(oldNeighbor);
-                    queue.Enqueue(newNeighbor);
-                    dict.Add(newNeighbor.val, newNeighbor);
-                }
-                newNeighbors.Add(newNeighbor);
+        var g = new Dictionary<Node, Node>();
+        Node Dfs(Node n) {
+            if (n == null) {
+                return null;
             }
-            current.neighbors = newNeighbors;
+            if (g.ContainsKey(n)) {
+                return g[n];
+            }
+            var cloned = new Node(n.val);
+            g[n] = cloned;
+            foreach (var neighbor in n.neighbors) {
+                cloned.neighbors.Add(Dfs(neighbor));
+            }
+            return cloned;
         }
-        return dict[node.val];
-    }
-
-    private Node CloneVal(Node node)
-    {
-        return new Node(node.val, new List<Node>(node.neighbors));
+        return Dfs(node);
     }
 }

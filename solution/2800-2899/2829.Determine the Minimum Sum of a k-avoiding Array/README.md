@@ -42,7 +42,7 @@ tags:
 <strong>输入：</strong>n = 2, k = 6
 <strong>输出：</strong>3
 <strong>解释：</strong>可以构造数组 [1,2] ，其元素总和为 3 。
-可以证明不存在总和小于 3 的 k-avoiding 数组。
+可以证明不存在总和小于 3 的 k-avoiding 数组。 
 </pre>
 
 <p>&nbsp;</p>

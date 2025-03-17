@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3470.Permutations%20IV/README_EN.md
+rating: 2473
+source: Biweekly Contest 151 Q4
 tags:
     - Array
     - Math

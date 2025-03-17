@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README.md
+rating: 1165
+source: 第 151 场双周赛 Q1
 tags:
     - 数组
     - 计数

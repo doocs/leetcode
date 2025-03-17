@@ -141,6 +141,82 @@ function isBalanced(num: string): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_balanced(num: String) -> bool {
+        let mut f = [0; 2];
+        for (i, x) in num.as_bytes().iter().enumerate() {
+            f[i & 1] += (x - b'0') as i32;
+        }
+        f[0] == f[1]
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} num
+ * @return {boolean}
+ */
+var isBalanced = function (num) {
+    const f = [0, 0];
+    for (let i = 0; i < num.length; ++i) {
+        f[i & 1] += +num[i];
+    }
+    return f[0] === f[1];
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool IsBalanced(string num) {
+        int[] f = new int[2];
+        for (int i = 0; i < num.Length; ++i) {
+            f[i & 1] += num[i] - '0';
+        }
+        return f[0] == f[1];
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param String $num
+     * @return Boolean
+     */
+    function isBalanced($num) {
+        $f = [0, 0];
+        foreach (str_split($num) as $i => $ch) {
+            $f[$i & 1] += ord($ch) - 48;
+        }
+        return $f[0] == $f[1];
+    }
+}
+```
+
+#### Scala
+
+```scala
+object Solution {
+    def isBalanced(num: String): Boolean = {
+        val f = Array(0, 0)
+        for (i <- num.indices) {
+            f(i & 1) += num(i) - '0'
+        }
+        f(0) == f(1)
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

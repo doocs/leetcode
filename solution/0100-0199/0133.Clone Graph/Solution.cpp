@@ -21,15 +21,22 @@ public:
 
 class Solution {
 public:
-    unordered_map<Node*, Node*> visited;
-
     Node* cloneGraph(Node* node) {
-        if (!node) return nullptr;
-        if (visited.count(node)) return visited[node];
-        Node* clone = new Node(node->val);
-        visited[node] = clone;
-        for (auto& e : node->neighbors)
-            clone->neighbors.push_back(cloneGraph(e));
-        return clone;
+        unordered_map<Node*, Node*> g;
+        auto dfs = [&](this auto&& dfs, Node* node) -> Node* {
+            if (!node) {
+                return nullptr;
+            }
+            if (g.contains(node)) {
+                return g[node];
+            }
+            Node* cloned = new Node(node->val);
+            g[node] = cloned;
+            for (auto& nxt : node->neighbors) {
+                cloned->neighbors.push_back(dfs(nxt));
+            }
+            return cloned;
+        };
+        return dfs(node);
     }
 };

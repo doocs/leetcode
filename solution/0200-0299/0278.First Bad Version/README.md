@@ -30,8 +30,8 @@ tags:
 <strong>输入：</strong>n = 5, bad = 4
 <strong>输出：</strong>4
 <strong>解释：</strong>
-<code>调用 isBadVersion(3) -&gt; false
-调用 isBadVersion(5)&nbsp;-&gt; true
+<code>调用 isBadVersion(3) -&gt; false 
+调用 isBadVersion(5)&nbsp;-&gt; true 
 调用 isBadVersion(4)&nbsp;-&gt; true</code>
 <code>所以，4 是第一个错误的版本。</code>
 </pre>

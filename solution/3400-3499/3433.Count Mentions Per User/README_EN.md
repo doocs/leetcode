@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README_EN.md
+rating: 1745
+source: Weekly Contest 434 Q2
 tags:
     - Array
     - Math

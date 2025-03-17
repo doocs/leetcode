@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3457.Eat%20Pizzas%21/README.md
+rating: 1704
+source: 第 437 场周赛 Q2
 tags:
     - 贪心
     - 数组

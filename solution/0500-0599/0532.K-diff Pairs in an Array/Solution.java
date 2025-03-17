@@ -1,15 +1,15 @@
 class Solution {
     public int findPairs(int[] nums, int k) {
-        Set<Integer> vis = new HashSet<>();
         Set<Integer> ans = new HashSet<>();
-        for (int v : nums) {
-            if (vis.contains(v - k)) {
-                ans.add(v - k);
+        Set<Integer> vis = new HashSet<>();
+        for (int x : nums) {
+            if (vis.contains(x - k)) {
+                ans.add(x - k);
             }
-            if (vis.contains(v + k)) {
-                ans.add(v);
+            if (vis.contains(x + k)) {
+                ans.add(x);
             }
-            vis.add(v);
+            vis.add(x);
         }
         return ans.size();
     }

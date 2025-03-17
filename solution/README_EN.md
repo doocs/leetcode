@@ -2242,7 +2242,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2231  |  [Largest Number After Digit Swaps by Parity](/solution/2200-2299/2231.Largest%20Number%20After%20Digit%20Swaps%20by%20Parity/README_EN.md)  |  `Sorting`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 288  |
 |  2232  |  [Minimize Result by Adding Parentheses to Expression](/solution/2200-2299/2232.Minimize%20Result%20by%20Adding%20Parentheses%20to%20Expression/README_EN.md)  |  `String`,`Enumeration`  |  Medium  |  Weekly Contest 288  |
 |  2233  |  [Maximum Product After K Increments](/solution/2200-2299/2233.Maximum%20Product%20After%20K%20Increments/README_EN.md)  |  `Greedy`,`Array`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 288  |
-|  2234  |  [Maximum Total Beauty of the Gardens](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Hard  |  Weekly Contest 288  |
+|  2234  |  [Maximum Total Beauty of the Gardens](/solution/2200-2299/2234.Maximum%20Total%20Beauty%20of%20the%20Gardens/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`Binary Search`,`Enumeration`,`Prefix Sum`,`Sorting`  |  Hard  |  Weekly Contest 288  |
 |  2235  |  [Add Two Integers](/solution/2200-2299/2235.Add%20Two%20Integers/README_EN.md)  |  `Math`  |  Easy  |    |
 |  2236  |  [Root Equals Sum of Children](/solution/2200-2299/2236.Root%20Equals%20Sum%20of%20Children/README_EN.md)  |  `Tree`,`Binary Tree`  |  Easy  |    |
 |  2237  |  [Count Positions on Street With Required Brightness](/solution/2200-2299/2237.Count%20Positions%20on%20Street%20With%20Required%20Brightness/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |  🔒  |
@@ -2258,7 +2258,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2247  |  [Maximum Cost of Trip With K Highways](/solution/2200-2299/2247.Maximum%20Cost%20of%20Trip%20With%20K%20Highways/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Dynamic Programming`,`Bitmask`  |  Hard  |  🔒  |
 |  2248  |  [Intersection of Multiple Arrays](/solution/2200-2299/2248.Intersection%20of%20Multiple%20Arrays/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Sorting`  |  Easy  |  Weekly Contest 290  |
 |  2249  |  [Count Lattice Points Inside a Circle](/solution/2200-2299/2249.Count%20Lattice%20Points%20Inside%20a%20Circle/README_EN.md)  |  `Geometry`,`Array`,`Hash Table`,`Math`,`Enumeration`  |  Medium  |  Weekly Contest 290  |
-|  2250  |  [Count Number of Rectangles Containing Each Point](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md)  |  `Binary Indexed Tree`,`Array`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 290  |
+|  2250  |  [Count Number of Rectangles Containing Each Point](/solution/2200-2299/2250.Count%20Number%20of%20Rectangles%20Containing%20Each%20Point/README_EN.md)  |  `Binary Indexed Tree`,`Array`,`Hash Table`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 290  |
 |  2251  |  [Number of Flowers in Full Bloom](/solution/2200-2299/2251.Number%20of%20Flowers%20in%20Full%20Bloom/README_EN.md)  |  `Array`,`Hash Table`,`Binary Search`,`Ordered Set`,`Prefix Sum`,`Sorting`  |  Hard  |  Weekly Contest 290  |
 |  2252  |  [Dynamic Pivoting of a Table](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  2253  |  [Dynamic Unpivoting of a Table](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
@@ -3491,6 +3491,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3480  |  [Maximize Subarrays After Removing One Conflicting Pair](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README_EN.md)  |  `Segment Tree`,`Array`,`Enumeration`,`Prefix Sum`  |  Hard  |  Weekly Contest 440  |
 |  3481  |  [Apply Substitutions](/solution/3400-3499/3481.Apply%20Substitutions/README_EN.md)  |    |  Medium  |  🔒  |
 |  3482  |  [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md)  |    |  Hard  |    |
+|  3483  |  [Unique 3-Digit Even Numbers](/solution/3400-3499/3483.Unique%203-Digit%20Even%20Numbers/README_EN.md)  |    |  Easy  |  Biweekly Contest 152  |
+|  3484  |  [Design Spreadsheet](/solution/3400-3499/3484.Design%20Spreadsheet/README_EN.md)  |    |  Medium  |  Biweekly Contest 152  |
+|  3485  |  [Longest Common Prefix of K Strings After Removal](/solution/3400-3499/3485.Longest%20Common%20Prefix%20of%20K%20Strings%20After%20Removal/README_EN.md)  |    |  Hard  |  Biweekly Contest 152  |
+|  3486  |  [Longest Special Path II](/solution/3400-3499/3486.Longest%20Special%20Path%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 152  |
+|  3487  |  [Maximum Unique Subarray Sum After Deletion](/solution/3400-3499/3487.Maximum%20Unique%20Subarray%20Sum%20After%20Deletion/README_EN.md)  |    |  Easy  |  Weekly Contest 441  |
+|  3488  |  [Closest Equal Element Queries](/solution/3400-3499/3488.Closest%20Equal%20Element%20Queries/README_EN.md)  |    |  Medium  |  Weekly Contest 441  |
+|  3489  |  [Zero Array Transformation IV](/solution/3400-3499/3489.Zero%20Array%20Transformation%20IV/README_EN.md)  |    |  Medium  |  Weekly Contest 441  |
+|  3490  |  [Count Beautiful Numbers](/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README_EN.md)  |    |  Hard  |  Weekly Contest 441  |
 
 ## Copyright
 

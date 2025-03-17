@@ -20,7 +20,7 @@ tags:
 
 <pre>
 +----------------+---------+
-| Column Name    | Type    |
+| Column Name    | Type    | 
 +----------------+---------+
 | employee_id    | int     |
 | employee_name  | varchar |

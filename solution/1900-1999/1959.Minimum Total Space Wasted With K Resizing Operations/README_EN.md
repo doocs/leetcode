@@ -44,7 +44,7 @@ The total wasted space is (20 - 10) + (20 - 20) = 10.
 <strong>Input:</strong> nums = [10,20,30], k = 1
 <strong>Output:</strong> 10
 <strong>Explanation:</strong> size = [20,20,30].
-We can set the initial size to be 20 and resize to 30 at time 2.
+We can set the initial size to be 20 and resize to 30 at time 2. 
 The total wasted space is (20 - 10) + (20 - 20) + (30 - 30) = 10.
 </pre>
 

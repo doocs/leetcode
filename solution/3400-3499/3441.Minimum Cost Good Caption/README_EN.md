@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3441.Minimum%20Cost%20Good%20Caption/README_EN.md
+rating: 2764
+source: Biweekly Contest 149 Q4
 tags:
     - String
     - Dynamic Programming

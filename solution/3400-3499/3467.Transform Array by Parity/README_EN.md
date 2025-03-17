@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3467.Transform%20Array%20by%20Parity/README_EN.md
+rating: 1165
+source: Biweekly Contest 151 Q1
 tags:
     - Array
     - Counting

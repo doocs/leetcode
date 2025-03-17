@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3449.Maximize%20the%20Minimum%20Game%20Score/README.md
+rating: 2748
+source: 第 436 场周赛 Q4
 tags:
     - 贪心
     - 数组

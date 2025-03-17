@@ -77,11 +77,13 @@ tags:
 
 ### 方法一：哈希表
 
-由于 $k$ 是一个定值，因此用哈希表 $ans$ 记录数对的较小值，就能够确定较大的值。最后返回 ans 的大小作为答案。
+由于 $k$ 是一个定值，我们可以用一个哈希表 $\textit{ans}$ 记录数对的较小值，就能够确定较大的值。最后返回 $\textit{ans}$ 的大小作为答案。
 
-遍历数组 $nums$，当前遍历到的数 $nums[j]$，我们记为 $v$，用哈希表 $vis$ 记录此前遍历到的所有数字。若 $v-k$ 在 $vis$ 中，则将 $v-k$ 添加至 $ans$；若 $v+k$ 在 $vis$ 中，则将 $v$ 添加至 $ans$。
+遍历数组 $\textit{nums}$，当前遍历到的数 $x$，我们用哈希表 $\textit{vis}$ 记录此前遍历到的所有数字。若 $x-k$ 在 $\textit{vis}$ 中，则将 $x-k$ 添加至 $\textit{ans}$；若 $x+k$ 在 $\textit{vis}$ 中，则将 $x$ 添加至 $\textit{ans}$。然后我们将 $x$ 添加至 $\textit{vis}$。继续遍历数组 $\textit{nums}$ 直至遍历结束。
 
-时间复杂度 $O(n)$，其中 $n$ 表示数组 $nums$ 的长度。
+最后返回 $\textit{ans}$ 的大小作为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -90,13 +92,14 @@ tags:
 ```python
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
-        vis, ans = set(), set()
-        for v in nums:
-            if v - k in vis:
-                ans.add(v - k)
-            if v + k in vis:
-                ans.add(v)
-            vis.add(v)
+        ans = set()
+        vis = set()
+        for x in nums:
+            if x - k in vis:
+                ans.add(x - k)
+            if x + k in vis:
+                ans.add(x)
+            vis.add(x)
         return len(ans)
 ```
 
@@ -105,16 +108,16 @@ class Solution:
 ```java
 class Solution {
     public int findPairs(int[] nums, int k) {
-        Set<Integer> vis = new HashSet<>();
         Set<Integer> ans = new HashSet<>();
-        for (int v : nums) {
-            if (vis.contains(v - k)) {
-                ans.add(v - k);
+        Set<Integer> vis = new HashSet<>();
+        for (int x : nums) {
+            if (vis.contains(x - k)) {
+                ans.add(x - k);
             }
-            if (vis.contains(v + k)) {
-                ans.add(v);
+            if (vis.contains(x + k)) {
+                ans.add(x);
             }
-            vis.add(v);
+            vis.add(x);
         }
         return ans.size();
     }
@@ -127,12 +130,15 @@ class Solution {
 class Solution {
 public:
     int findPairs(vector<int>& nums, int k) {
-        unordered_set<int> vis;
-        unordered_set<int> ans;
-        for (int& v : nums) {
-            if (vis.count(v - k)) ans.insert(v - k);
-            if (vis.count(v + k)) ans.insert(v);
-            vis.insert(v);
+        unordered_set<int> ans, vis;
+        for (int x : nums) {
+            if (vis.count(x - k)) {
+                ans.insert(x - k);
+            }
+            if (vis.count(x + k)) {
+                ans.insert(x);
+            }
+            vis.insert(x);
         }
         return ans.size();
     }
@@ -143,69 +149,66 @@ public:
 
 ```go
 func findPairs(nums []int, k int) int {
-	vis := map[int]bool{}
-	ans := map[int]bool{}
-	for _, v := range nums {
-		if vis[v-k] {
-			ans[v-k] = true
+	ans := make(map[int]struct{})
+	vis := make(map[int]struct{})
+
+	for _, x := range nums {
+		if _, ok := vis[x-k]; ok {
+			ans[x-k] = struct{}{}
 		}
-		if vis[v+k] {
-			ans[v] = true
+		if _, ok := vis[x+k]; ok {
+			ans[x] = struct{}{}
 		}
-		vis[v] = true
+		vis[x] = struct{}{}
 	}
 	return len(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function findPairs(nums: number[], k: number): number {
+    const ans = new Set<number>();
+    const vis = new Set<number>();
+    for (const x of nums) {
+        if (vis.has(x - k)) {
+            ans.add(x - k);
+        }
+        if (vis.has(x + k)) {
+            ans.add(x);
+        }
+        vis.add(x);
+    }
+    return ans.size;
 }
 ```
 
 #### Rust
 
 ```rust
+use std::collections::HashSet;
+
 impl Solution {
-    pub fn find_pairs(mut nums: Vec<i32>, k: i32) -> i32 {
-        nums.sort();
-        let n = nums.len();
-        let mut res = 0;
-        let mut left = 0;
-        let mut right = 1;
-        while right < n {
-            let num = i32::abs(nums[left] - nums[right]);
-            if num == k {
-                res += 1;
+    pub fn find_pairs(nums: Vec<i32>, k: i32) -> i32 {
+        let mut ans = HashSet::new();
+        let mut vis = HashSet::new();
+
+        for &x in &nums {
+            if vis.contains(&(x - k)) {
+                ans.insert(x - k);
             }
-            if num <= k {
-                right += 1;
-                while right < n && nums[right - 1] == nums[right] {
-                    right += 1;
-                }
-            } else {
-                left += 1;
-                while left < right && nums[left - 1] == nums[left] {
-                    left += 1;
-                }
-                if left == right {
-                    right += 1;
-                }
+            if vis.contains(&(x + k)) {
+                ans.insert(x);
             }
+            vis.insert(x);
         }
-        res
+        ans.len() as i32
     }
 }
 ```
 
 <!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：排序 + 双指针
-
-只需要统计组合的数量，因此可以改动原数组，对其排序，使用双指针来统计。
-
-声明 `left` 与 `right` 指针，初始化为 0 和 1。根据 `abs(nums[left] - nums[right])` 与 `k` 值对比结果移动指针。
-
-需要注意的是，**不能出现重复的组合**，所以移动指针时，不能仅仅是 `+1`，需要到一个不等于当前值的位置。
 
 <!-- solution:end -->
 

@@ -1,32 +1,32 @@
 /**
- * Definition for Node.
- * class Node {
+ * Definition for _Node.
+ * class _Node {
  *     val: number
- *     neighbors: Node[]
- *     constructor(val?: number, neighbors?: Node[]) {
+ *     neighbors: _Node[]
+ *
+ *     constructor(val?: number, neighbors?: _Node[]) {
  *         this.val = (val===undefined ? 0 : val)
  *         this.neighbors = (neighbors===undefined ? [] : neighbors)
  *     }
  * }
+ *
  */
 
-function cloneGraph(node: Node | null): Node | null {
-    if (node == null) return null;
-
-    const visited = new Map();
-    visited.set(node, new Node(node.val));
-    const queue = [node];
-    while (queue.length) {
-        const cur = queue.shift();
-        for (let neighbor of cur.neighbors || []) {
-            if (!visited.has(neighbor)) {
-                queue.push(neighbor);
-                const newNeighbor = new Node(neighbor.val, []);
-                visited.set(neighbor, newNeighbor);
-            }
-            const newNode = visited.get(cur);
-            newNode.neighbors.push(visited.get(neighbor));
+function cloneGraph(node: _Node | null): _Node | null {
+    const g: Map<_Node, _Node> = new Map();
+    const dfs = (node: _Node | null): _Node | null => {
+        if (!node) {
+            return null;
         }
-    }
-    return visited.get(node);
+        if (g.has(node)) {
+            return g.get(node);
+        }
+        const cloned = new _Node(node.val);
+        g.set(node, cloned);
+        for (const nxt of node.neighbors) {
+            cloned.neighbors.push(dfs(nxt));
+        }
+        return cloned;
+    };
+    return dfs(node);
 }
