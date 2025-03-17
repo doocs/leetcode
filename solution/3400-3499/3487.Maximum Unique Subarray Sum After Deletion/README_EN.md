@@ -76,32 +76,120 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3487.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Hash Table
+
+We first find the maximum value $\textit{mx}$ in the array. If $\textit{mx} \leq 0$, then all elements in the array are less than or equal to 0. Since we need to select a non-empty subarray with the maximum element sum, the maximum element sum would be $\textit{mx}$.
+
+If $\textit{mx} > 0$, then we need to find all distinct positive integers in the array such that their sum is maximized. We can use a hash table $\textit{s}$ to record all distinct positive integers, and then iterate through the array, adding up all distinct positive integers.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxSum(self, nums: List[int]) -> int:
+        mx = max(nums)
+        if mx <= 0:
+            return mx
+        ans = 0
+        s = set()
+        for x in nums:
+            if x < 0 or x in s:
+                continue
+            ans += x
+            s.add(x)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxSum(int[] nums) {
+        int mx = Arrays.stream(nums).max().getAsInt();
+        if (mx <= 0) {
+            return mx;
+        }
+        boolean[] s = new boolean[201];
+        int ans = 0;
+        for (int x : nums) {
+            if (x < 0 || s[x]) {
+                continue;
+            }
+            ans += x;
+            s[x] = true;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxSum(vector<int>& nums) {
+        int mx = ranges::max(nums);
+        if (mx <= 0) {
+            return mx;
+        }
+        unordered_set<int> s;
+        int ans = 0;
+        for (int x : nums) {
+            if (x < 0 || s.contains(x)) {
+                continue;
+            }
+            ans += x;
+            s.insert(x);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxSum(nums []int) (ans int) {
+	mx := slices.Max(nums)
+	if mx <= 0 {
+		return mx
+	}
+	s := make(map[int]bool)
+	for _, x := range nums {
+		if x < 0 || s[x] {
+			continue
+		}
+		ans += x
+		s[x] = true
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxSum(nums: number[]): number {
+    const mx = Math.max(...nums);
+    if (mx <= 0) {
+        return mx;
+    }
+    const s = new Set<number>();
+    let ans: number = 0;
+    for (const x of nums) {
+        if (x < 0 || s.has(x)) {
+            continue;
+        }
+        ans += x;
+        s.add(x);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

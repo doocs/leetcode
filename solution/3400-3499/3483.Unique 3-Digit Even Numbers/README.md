@@ -75,32 +75,141 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3483.Un
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + 枚举
+
+我们用一个哈希表 $\textit{s}$ 记录所有不同的三位偶数，然后枚举所有可能的三位偶数，将其加入哈希表中。
+
+最后返回哈希表的大小即可。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^3)$。其中 $n$ 为数组 $\textit{digits}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def totalNumbers(self, digits: List[int]) -> int:
+        s = set()
+        for i, a in enumerate(digits):
+            if a & 1:
+                continue
+            for j, b in enumerate(digits):
+                if i == j:
+                    continue
+                for k, c in enumerate(digits):
+                    if c == 0 or k in (i, j):
+                        continue
+                    s.add(c * 100 + b * 10 + a)
+        return len(s)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int totalNumbers(int[] digits) {
+        Set<Integer> s = new HashSet<>();
+        int n = digits.length;
+        for (int i = 0; i < n; ++i) {
+            if (digits[i] % 2 == 1) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (i == j) {
+                    continue;
+                }
+                for (int k = 0; k < n; ++k) {
+                    if (digits[k] == 0 || k == i || k == j) {
+                        continue;
+                    }
+                    s.add(digits[k] * 100 + digits[j] * 10 + digits[i]);
+                }
+            }
+        }
+        return s.size();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int totalNumbers(vector<int>& digits) {
+        unordered_set<int> s;
+        int n = digits.size();
+        for (int i = 0; i < n; ++i) {
+            if (digits[i] % 2 == 1) {
+                continue;
+            }
+            for (int j = 0; j < n; ++j) {
+                if (i == j) {
+                    continue;
+                }
+                for (int k = 0; k < n; ++k) {
+                    if (digits[k] == 0 || k == i || k == j) {
+                        continue;
+                    }
+                    s.insert(digits[k] * 100 + digits[j] * 10 + digits[i]);
+                }
+            }
+        }
+        return s.size();
+    }
+};
 ```
 
 #### Go
 
 ```go
+func totalNumbers(digits []int) int {
+	s := make(map[int]struct{})
+	for i, a := range digits {
+		if a%2 == 1 {
+			continue
+		}
+		for j, b := range digits {
+			if i == j {
+				continue
+			}
+			for k, c := range digits {
+				if c == 0 || k == i || k == j {
+					continue
+				}
+				s[c*100+b*10+a] = struct{}{}
+			}
+		}
+	}
+	return len(s)
+}
+```
 
+#### TypeScript
+
+```ts
+function totalNumbers(digits: number[]): number {
+    const s = new Set<number>();
+    const n = digits.length;
+    for (let i = 0; i < n; ++i) {
+        if (digits[i] % 2 === 1) {
+            continue;
+        }
+        for (let j = 0; j < n; ++j) {
+            if (i === j) {
+                continue;
+            }
+            for (let k = 0; k < n; ++k) {
+                if (digits[k] === 0 || k === i || k === j) {
+                    continue;
+                }
+                s.add(digits[k] * 100 + digits[j] * 10 + digits[i]);
+            }
+        }
+    }
+    return s.size;
+}
 ```
 
 <!-- tabs:end -->

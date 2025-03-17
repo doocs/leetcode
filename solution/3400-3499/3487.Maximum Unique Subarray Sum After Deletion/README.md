@@ -79,32 +79,120 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3487.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 哈希表
+
+我们先找出数组中的最大值 $\textit{mx}$，如果 $\textit{mx} \leq 0$，那么数组中所有元素都小于等于 $0$，由于需要选出一个元素和最大的非空子数组，那么最大元素和就是 $\textit{mx}$。
+
+如果 $\textit{mx} > 0$，那么我们需要找出数组中所有不同的正整数，并且这些正整数的和最大。我们可以使用一个哈希表 $\textit{s}$ 来记录所有不同的正整数，然后遍历数组，将所有不同的正整数加起来即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxSum(self, nums: List[int]) -> int:
+        mx = max(nums)
+        if mx <= 0:
+            return mx
+        ans = 0
+        s = set()
+        for x in nums:
+            if x < 0 or x in s:
+                continue
+            ans += x
+            s.add(x)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxSum(int[] nums) {
+        int mx = Arrays.stream(nums).max().getAsInt();
+        if (mx <= 0) {
+            return mx;
+        }
+        boolean[] s = new boolean[201];
+        int ans = 0;
+        for (int x : nums) {
+            if (x < 0 || s[x]) {
+                continue;
+            }
+            ans += x;
+            s[x] = true;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxSum(vector<int>& nums) {
+        int mx = ranges::max(nums);
+        if (mx <= 0) {
+            return mx;
+        }
+        unordered_set<int> s;
+        int ans = 0;
+        for (int x : nums) {
+            if (x < 0 || s.contains(x)) {
+                continue;
+            }
+            ans += x;
+            s.insert(x);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxSum(nums []int) (ans int) {
+	mx := slices.Max(nums)
+	if mx <= 0 {
+		return mx
+	}
+	s := make(map[int]bool)
+	for _, x := range nums {
+		if x < 0 || s[x] {
+			continue
+		}
+		ans += x
+		s[x] = true
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxSum(nums: number[]): number {
+    const mx = Math.max(...nums);
+    if (mx <= 0) {
+        return mx;
+    }
+    const s = new Set<number>();
+    let ans: number = 0;
+    for (const x of nums) {
+        if (x < 0 || s.has(x)) {
+            continue;
+        }
+        ans += x;
+        s.add(x);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
