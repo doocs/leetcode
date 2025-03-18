@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3484.Design%20Spreadsheet/README_EN.md
+tags:
+    - Design
+    - Array
+    - Hash Table
+    - String
+    - Matrix
 ---
 
 <!-- problem:start -->

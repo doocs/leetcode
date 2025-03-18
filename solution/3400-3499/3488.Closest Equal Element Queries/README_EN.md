@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3488.Closest%20Equal%20Element%20Queries/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3488.Closest%20Equal%20Element%20Queries/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
 ---
 
 <!-- problem:start -->

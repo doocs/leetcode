@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README.md
+tags:
+    - 动态规划
 ---
 
 <!-- problem:start -->
