@@ -41,7 +41,7 @@ tags:
 <strong>输入：</strong>nums = [1,10,3,4,19]
 <strong>输出：</strong>133
 <strong>解释：</strong>下标三元组 (1, 2, 4) 的值是 (nums[1] - nums[2]) * nums[4] = 133 。
-可以证明不存在值大于 133 的有序下标三元组。
+可以证明不存在值大于 133 的有序下标三元组。 
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>

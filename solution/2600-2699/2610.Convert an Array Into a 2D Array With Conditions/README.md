@@ -68,13 +68,13 @@ nums 中的所有元素都有用到，并且每一行都由不同的整数组成
 
 ### 方法一：数组或哈希表
 
-我们先用数组或哈希表 $cnt$ 统计数组 $nums$ 中每个元素出现的次数。
+我们先用一个数组或者哈希表 $\textit{cnt}$ 统计数组 $\textit{nums}$ 中每个元素出现的次数。
 
-然后遍历 $cnt$，对于每个元素 $x$，我们将其添加到答案列表中的第 $0$ 行，第 $1$ 行，第 $2$ 行，...，第 $cnt[x]-1$ 行。
+然后遍历 $\textit{cnt}$，对于每个元素 $x$，我们将其添加到答案列表中的第 $0$ 行，第 $1$ 行，第 $2$ 行，...，第 $\textit{cnt}[x]-1$ 行。
 
 最后返回答案列表即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -171,7 +171,7 @@ func findMatrix(nums []int) (ans [][]int) {
 function findMatrix(nums: number[]): number[][] {
     const ans: number[][] = [];
     const n = nums.length;
-    const cnt: number[] = new Array(n + 1).fill(0);
+    const cnt: number[] = Array(n + 1).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
@@ -184,6 +184,33 @@ function findMatrix(nums: number[]): number[][] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_matrix(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let n = nums.len();
+        let mut cnt = vec![0; n + 1];
+        let mut ans: Vec<Vec<i32>> = Vec::new();
+
+        for &x in &nums {
+            cnt[x as usize] += 1;
+        }
+
+        for x in 1..=n as i32 {
+            for j in 0..cnt[x as usize] {
+                if ans.len() <= j {
+                    ans.push(Vec::new());
+                }
+                ans[j].push(x);
+            }
+        }
+
+        ans
+    }
 }
 ```
 

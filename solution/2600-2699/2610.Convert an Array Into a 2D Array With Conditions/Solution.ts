@@ -1,7 +1,7 @@
 function findMatrix(nums: number[]): number[][] {
     const ans: number[][] = [];
     const n = nums.length;
-    const cnt: number[] = new Array(n + 1).fill(0);
+    const cnt: number[] = Array(n + 1).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
