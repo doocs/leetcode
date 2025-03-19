@@ -64,7 +64,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Iteration
+
+Starting from the root node, we traverse the tree. If the current node's value is less than both $\textit{p}$ and $\textit{q}$ values, it means that $\textit{p}$ and $\textit{q}$ should be in the right subtree of the current node, so we move to the right child. If the current node's value is greater than both $\textit{p}$ and $\textit{q}$ values, it means that $\textit{p}$ and $\textit{q}$ should be in the left subtree, so we move to the left child. Otherwise, it means the current node is the lowest common ancestor of $\textit{p}$ and $\textit{q}$, so we return the current node.
+
+The time complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -163,9 +167,9 @@ public:
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	for {
-		if root.Val < p.Val && root.Val < q.Val {
+		if root.Val < min(p.Val, q.Val) {
 			root = root.Right
-		} else if root.Val > p.Val && root.Val > q.Val {
+		} else if root.Val > max(p.Val, q.Val) {
 			root = root.Left
 		} else {
 			return root
@@ -208,13 +212,47 @@ function lowestCommonAncestor(
 }
 ```
 
+#### C#
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class Solution {
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        while (true) {
+            if (root.val < Math.Min(p.val, q.val)) {
+                root = root.right;
+            } else if (root.val > Math.Max(p.val, q.val)) {
+                root = root.left;
+            } else {
+                return root;
+            }
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Recursion
+
+We can also use a recursive approach to solve this problem.
+
+We first check if the current node's value is less than both $\textit{p}$ and $\textit{q}$ values. If it is, we recursively traverse the right subtree. If the current node's value is greater than both $\textit{p}$ and $\textit{q}$ values, we recursively traverse the left subtree. Otherwise, it means the current node is the lowest common ancestor of $\textit{p}$ and $\textit{q}$, so we return the current node.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 
@@ -338,9 +376,39 @@ function lowestCommonAncestor(
     p: TreeNode | null,
     q: TreeNode | null,
 ): TreeNode | null {
-    if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
-    if (root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right, p, q);
+    if (root.val > p.val && root.val > q.val) {
+        return lowestCommonAncestor(root.left, p, q);
+    }
+    if (root.val < p.val && root.val < q.val) {
+        return lowestCommonAncestor(root.right, p, q);
+    }
     return root;
+}
+```
+
+#### C#
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class Solution {
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root.val < Math.Min(p.val, q.val)) {
+            return LowestCommonAncestor(root.right, p, q);
+        }
+        if (root.val > Math.Max(p.val, q.val)) {
+            return LowestCommonAncestor(root.left, p, q);
+        }
+        return root;
+    }
 }
 ```
 
