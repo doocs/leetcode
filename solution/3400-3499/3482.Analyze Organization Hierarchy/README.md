@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3482. Analyze Organization Hierarchy](https://leetcode.cn/problems/analyze-organization-hierarchy)
+# [3482. 分析组织层级](https://leetcode.cn/problems/analyze-organization-hierarchy)
 
 [English Version](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>Employees</code></p>
+<p>表：<code>Employees</code></p>
 
 <pre>
 +----------------+---------+
@@ -28,30 +28,31 @@ tags:
 | salary         | int     |
 | department     | varchar |
 +----------------+----------+
-employee_id is the unique key for this table.
-Each row contains information about an employee, including their ID, name, their manager&#39;s ID, salary, and department.
-manager_id is null for the top-level manager (CEO).
+employee_id 是这张表的唯一主键。
+每一行包含关于一名员工的信息，包括他们的 ID，姓名，他们经理的 ID，薪水和部门。
+顶级经理（CEO）的 manager_id 是空的。
 </pre>
 
-<p>Write a solution to analyze the organizational hierarchy and answer the following:</p>
+<p>编写一个解决方案来分析组织层级并回答下列问题：</p>
 
 <ol>
-	<li><strong>Hierarchy Levels:</strong> For each employee, determine their level in the organization (CEO is level <code>1</code>, employees reporting directly to the CEO are level <code>2</code>, and so on).</li>
-	<li><strong>Team Size:</strong> For each employee who is a manager, count the total number of employees under them (direct and indirect reports).</li>
-	<li><strong>Salary Budget:</strong> For each manager, calculate the total salary budget they control (sum of salaries of all employees under them, including indirect reports, plus their own salary).</li>
+	<li><strong>层级：</strong>对于每名员工，确定他们在组织中的层级（CEO 层级为&nbsp;<code>1</code>，CEO 的直接下属员工层级为&nbsp;<code>2</code>，以此类推）。</li>
+	<li><strong>团队大小：</strong>对于每个是经理的员工，计算他们手下的（直接或间接下属）总员工数。</li>
+	<li><strong>薪资预算：</strong>对于每个经理，计算他们控制的总薪资预算（所有手下员工的工资总和，包括间接下属，加上自己的工资）。</li>
 </ol>
 
-<p>Return <em>the result table ordered by&nbsp;<em>the result ordered by <strong>level</strong> in <strong>ascending</strong> order, then by <strong>budget</strong> in <strong>descending</strong> order, and finally by <strong>employee_name</strong> in <strong>ascending</strong> order</em>.</em></p>
+<p>返回结果表以 <strong>层级</strong>&nbsp;<strong>升序</strong>&nbsp;排序，然后以预算 <strong>降序</strong> 排序，最后以 <strong>employee_name&nbsp;升序 </strong>排序。</p>
 
-<p><em>The result format is in the following example.</em></p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Employees table:</p>
+<p>Employees 表：</p>
 
 <pre class="example-io">
 +-------------+---------------+------------+--------+-------------+
@@ -70,7 +71,7 @@ manager_id is null for the top-level manager (CEO).
 +-------------+---------------+------------+--------+-------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+---------------+-------+-----------+--------+
@@ -89,52 +90,52 @@ manager_id is null for the top-level manager (CEO).
 +-------------+---------------+-------+-----------+--------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Organization Structure:</strong>
+	<li><strong>组织结构：</strong>
 
     <ul>
-    	<li>Alice (ID: 1) is the CEO (level 1) with no manager</li>
-    	<li>Bob (ID: 2) and Charlie (ID: 3) report directly to Alice (level 2)</li>
-    	<li>David (ID: 4), Eva (ID: 5) report to Bob, while Frank (ID: 6) and Grace (ID: 7) report to Charlie (level 3)</li>
-    	<li>Hank (ID: 8) reports to David, and Ivy (ID: 9) and Judy (ID: 10) report to Frank (level 4)</li>
+    	<li>Alice（ID：1）是 CEO（层级 1）没有经理。</li>
+    	<li>Bob（ID：2）和&nbsp;Charlie（ID：3）是&nbsp;Alice 的直接下属（层级 2）</li>
+    	<li>David（ID：4），Eva（ID：5）从属于&nbsp;Bob，而 Frank（ID：6）和 Grace（ID：7）从属于&nbsp;Charlie（层级 3）</li>
+    	<li>Hank（ID：8）从属于&nbsp;David，而 Ivy（ID：9）和&nbsp;Judy（ID：10）从属于&nbsp;Frank（层级 4）</li>
     </ul>
     </li>
-    <li><strong>Level Calculation:</strong>
+    <li><strong>层级计算：</strong>
     <ul>
-    	<li>The CEO (Alice) is at level 1</li>
-    	<li>Each subsequent level of management adds 1 to the level</li>
+    	<li>CEO（Alice）层级为 1</li>
+    	<li>每个后续的管理层级都会使层级数加 1</li>
     </ul>
     </li>
-    <li><strong>Team Size Calculation:</strong>
+    <li><strong>团队大小计算：</strong>
     <ul>
-    	<li>Alice has 9 employees under her (the entire company except herself)</li>
-    	<li>Bob has 3 employees (David, Eva, and Hank)</li>
-    	<li>Charlie has 4 employees (Frank, Grace, Ivy, and Judy)</li>
-    	<li>David has 1 employee (Hank)</li>
-    	<li>Frank has 2 employees (Ivy and Judy)</li>
-    	<li>Eva, Grace, Hank, Ivy, and Judy have no direct reports (team_size = 0)</li>
+    	<li>Alice 手下有 9 个员工（除她以外的整个公司）</li>
+    	<li>Bob 手下有 3 个员工（David，Eva 和 Hank）</li>
+    	<li>Charlie 手下有 4 个员工（Frank，Grace，Ivy 和 Judy）</li>
+    	<li>David 手下有 1 个员工（Hank）</li>
+    	<li>Frank 手下有 2 个员工（Ivy 和 Judy）</li>
+    	<li>Eva，Grace，Hank，Ivy 和 Judy 没有直接下属（team_size = 0）</li>
     </ul>
     </li>
-    <li><strong>Budget Calculation:</strong>
+    <li><strong>预算计算：</strong>
     <ul>
-    	<li>Alice&#39;s budget: Her salary (12000) + all employees&#39; salaries (72500) = 84500</li>
-    	<li>Charlie&#39;s budget: His salary (10000) + Frank&#39;s budget (23000) + Grace&#39;s salary (8500) = 41500</li>
-    	<li>Bob&#39;s budget: His salary (10000) + David&#39;s budget (13500) + Eva&#39;s salary (7500) = 31000</li>
-    	<li>Frank&#39;s budget: His salary (9000) + Ivy&#39;s salary (7000) + Judy&#39;s salary (7000) = 23000</li>
-    	<li>David&#39;s budget: His salary (7500) + Hank&#39;s salary (6000) = 13500</li>
-    	<li>Employees with no direct reports have budgets equal to their own salary</li>
+    	<li>Alice 的预算：她的工资（12000）+ 所有员工的工资（72500）= 84500</li>
+    	<li>Charlie 的预算：他的工资（10000）+ Frank 的预算（23000）+ Grace 的工资（8500）= 41500</li>
+    	<li>Bob 的预算：他的工资 (10000) + David&nbsp;的预算（13500）+ Eva&nbsp;的工资（7500）= 31000</li>
+    	<li>Frank 的预算：他的工资 (9000) + Ivy 的工资（7000）+ Judy&nbsp;的工资（7000）= 23000</li>
+    	<li>David 的预算：他的工资 (7500) + Hank 的工资（6000）= 13500</li>
+    	<li>没有直接下属的员工的预算等于他们自己的工资。</li>
     </ul>
     </li>
 
 </ul>
 
-<p><strong>Note:</strong></p>
+<p><strong>注意：</strong></p>
 
 <ul>
-	<li>The result is ordered first by level in ascending order</li>
-	<li>Within the same level, employees are ordered by budget in descending order then by name in ascending order</li>
+	<li>结果先以层级升序排序</li>
+	<li>在同一层级内，员工按预算降序排序，然后按姓名降序排序</li>
 </ul>
 </div>
 

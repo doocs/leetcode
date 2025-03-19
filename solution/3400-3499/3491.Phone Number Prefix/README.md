@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3491.Ph
 
 <!-- problem:start -->
 
-# [3491. Phone Number Prefix 🔒](https://leetcode.cn/problems/phone-number-prefix)
+# [3491. 电话号码前缀 🔒](https://leetcode.cn/problems/phone-number-prefix)
 
 [English Version](/solution/3400-3499/3491.Phone%20Number%20Prefix/README_EN.md)
 
@@ -14,40 +14,42 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3491.Ph
 
 <!-- description:start -->
 
-<p>You are given a string array <code>numbers</code> that represents phone numbers. Return <code>true</code> if no phone number is a prefix of any other phone number; otherwise, return <code>false</code>.</p>
+<p>给定一个字符串数组&nbsp;<code>numbers</code>&nbsp;表示电话号码。如果没有电话号码是任何其他电话号码的前缀，则返回 <code>true</code>；否则，返回 <code>false</code>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">numbers = [&quot;1&quot;,&quot;2&quot;,&quot;4&quot;,&quot;3&quot;]</span></p>
+<p><strong>输入：</strong><span class="example-io">numbers = ["1","2","4","3"]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">true</span></p>
+<p><span class="example-io"><b>输出：</b>true</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>No number is a prefix of another number, so the output is <code>true</code>.</p>
+<p>没有数字是其它数字的前缀，所以输出为&nbsp;<code>true</code>。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">numbers = [&quot;001&quot;,&quot;007&quot;,&quot;15&quot;,&quot;00153&quot;]</span></p>
+<p><span class="example-io"><b>输入：</b>numbers = ["001","007","15","00153"]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">false</span></p>
+<p><span class="example-io"><b>输出：</b>false</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><b>解释：</b></p>
 
-<p>The string <code>&quot;001&quot;</code> is a prefix of the string <code>&quot;00153&quot;</code>. Thus, the output is <code>false</code>.</p>
+<p>字符串&nbsp;<code>"001"</code>&nbsp;是字符串&nbsp;<code>"00153"</code>&nbsp;的前缀。因此，输出是&nbsp;<code>false</code>。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>2 &lt;= numbers.length &lt;= 50</code></li>
 	<li><code>1 &lt;= numbers[i].length &lt;= 50</code></li>
-	<li>All numbers contain only digits <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>.</li>
+	<li>所有数字只包含&nbsp;<code>'0'</code> 到&nbsp;<code>'9'</code>&nbsp;的数位。</li>
 </ul>
 
 <!-- description:end -->
