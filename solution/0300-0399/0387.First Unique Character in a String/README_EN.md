@@ -64,7 +64,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We use a hash table or an array of length $26$ $\text{cnt}$ to store the frequency of each character. Then, we traverse each character $\text{s[i]}$ from the beginning. If $\text{cnt[s[i]]}$ is $1$, we return $i$.
+
+If no such character is found after the traversal, we return $-1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this problem, the character set consists of lowercase letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 
@@ -142,12 +148,12 @@ func firstUniqChar(s string) int {
 
 ```ts
 function firstUniqChar(s: string): number {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map<string, number>();
     for (const c of s) {
-        cnt[c.charCodeAt(0) - 97]++;
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
-    for (let i = 0; i < s.length; i++) {
-        if (cnt[s.charCodeAt(i) - 97] === 1) {
+    for (let i = 0; i < s.length; ++i) {
+        if (cnt.get(s[i]) === 1) {
             return i;
         }
     }
@@ -163,12 +169,12 @@ function firstUniqChar(s: string): number {
  * @return {number}
  */
 var firstUniqChar = function (s) {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map();
     for (const c of s) {
-        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
     for (let i = 0; i < s.length; ++i) {
-        if (cnt[s[i].charCodeAt() - 'a'.charCodeAt()] === 1) {
+        if (cnt.get(s[i]) === 1) {
             return i;
         }
     }

@@ -1,10 +1,10 @@
 function firstUniqChar(s: string): number {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map<string, number>();
     for (const c of s) {
-        cnt[c.charCodeAt(0) - 97]++;
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
-    for (let i = 0; i < s.length; i++) {
-        if (cnt[s.charCodeAt(i) - 97] === 1) {
+    for (let i = 0; i < s.length; ++i) {
+        if (cnt.get(s[i]) === 1) {
             return i;
         }
     }

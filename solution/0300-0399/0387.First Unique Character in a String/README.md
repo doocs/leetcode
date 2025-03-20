@@ -59,15 +59,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数组或哈希表
+### 方法一：计数
 
-我们可以用数组或哈希表 $cnt$ 记录字符串 $s$ 中每个字符出现的次数。
+我们用一个哈希表或者一个长度为 $26$ 的数组 $\text{cnt}$ 来存储每个字符出现的次数，然后从头开始遍历每个字符 $\text{s[i]}$，如果 $\text{cnt[s[i]]}$ 为 $1$，则返回 $i$。
 
-然后我们再遍历字符串 $s$，当遍历到某个字符 $c$ 时，如果 $cnt[c]=1$，则说明 $c$ 是第一个不重复的字符，返回它的索引即可。
+遍历结束后，如果没有找到符合条件的字符，返回 $-1$。
 
-如果遍历完字符串 $s$ 仍然没有找到不重复的字符，返回 $-1$。
-
-时间复杂度 $O(n)$，空间复杂度 $O(\Sigma)$，其中 $\Sigma$ 是字符集的大小。
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集，本题中字符集为小写字母，所以 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -145,12 +143,12 @@ func firstUniqChar(s string) int {
 
 ```ts
 function firstUniqChar(s: string): number {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map<string, number>();
     for (const c of s) {
-        cnt[c.charCodeAt(0) - 97]++;
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
-    for (let i = 0; i < s.length; i++) {
-        if (cnt[s.charCodeAt(i) - 97] === 1) {
+    for (let i = 0; i < s.length; ++i) {
+        if (cnt.get(s[i]) === 1) {
             return i;
         }
     }
@@ -166,12 +164,12 @@ function firstUniqChar(s: string): number {
  * @return {number}
  */
 var firstUniqChar = function (s) {
-    const cnt = new Array(26).fill(0);
+    const cnt = new Map();
     for (const c of s) {
-        ++cnt[c.charCodeAt() - 'a'.charCodeAt()];
+        cnt.set(c, (cnt.get(c) || 0) + 1);
     }
     for (let i = 0; i < s.length; ++i) {
-        if (cnt[s[i].charCodeAt() - 'a'.charCodeAt()] === 1) {
+        if (cnt.get(s[i]) === 1) {
             return i;
         }
     }

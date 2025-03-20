@@ -44,7 +44,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Linked List Traversal
+
+We first set a dummy head node $\textit{dummy}$, initially with a value of $0$, and the successor node of $\textit{dummy}$ is the linked list $\textit{head}$.
+
+Next, we traverse the linked list starting from the dummy head node, find the last node that is not $9$, increment its value by $1$, and set the values of all nodes after this node to $0$.
+
+Finally, we check if the value of the dummy head node is $1$. If it is $1$, we return $\textit{dummy}$; otherwise, we return the successor node of $\textit{dummy}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -57,7 +65,7 @@ tags:
 #         self.val = val
 #         self.next = next
 class Solution:
-    def plusOne(self, head: ListNode) -> ListNode:
+    def plusOne(self, head: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(0, head)
         target = dummy
         while head:
@@ -124,17 +132,16 @@ public:
     ListNode* plusOne(ListNode* head) {
         ListNode* dummy = new ListNode(0, head);
         ListNode* target = dummy;
-        while (head) {
-            if (head->val != 9) target = head;
-            head = head->next;
+        for (; head; head = head->next) {
+            if (head->val != 9) {
+                target = head;
+            }
         }
-        ++target->val;
-        target = target->next;
-        while (target) {
+        target->val++;
+        for (target = target->next; target; target = target->next) {
             target->val = 0;
-            target = target->next;
         }
-        return dummy->val == 1 ? dummy : dummy->next;
+        return dummy->val ? dummy : dummy->next;
     }
 };
 ```
@@ -159,15 +166,45 @@ func plusOne(head *ListNode) *ListNode {
 		head = head.Next
 	}
 	target.Val++
-	target = target.Next
-	for target != nil {
+	for target = target.Next; target != nil; target = target.Next {
 		target.Val = 0
-		target = target.Next
 	}
 	if dummy.Val == 1 {
 		return dummy
 	}
 	return dummy.Next
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function plusOne(head: ListNode | null): ListNode | null {
+    const dummy = new ListNode(0, head);
+    let target = dummy;
+    while (head) {
+        if (head.val !== 9) {
+            target = head;
+        }
+        head = head.next;
+    }
+    target.val++;
+    for (target = target.next; target; target = target.next) {
+        target.val = 0;
+    }
+    return dummy.val ? dummy : dummy.next;
 }
 ```
 
