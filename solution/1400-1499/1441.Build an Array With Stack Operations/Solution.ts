@@ -1,11 +1,12 @@
 function buildArray(target: number[], n: number): string[] {
-    const res = [];
-    let cur = 0;
-    for (const num of target) {
-        while (++cur < num) {
-            res.push('Push', 'Pop');
+    const ans: string[] = [];
+    let cur: number = 1;
+    for (const x of target) {
+        for (; cur < x; ++cur) {
+            ans.push('Push', 'Pop');
         }
-        res.push('Push');
+        ans.push('Push');
+        ++cur;
     }
-    return res;
+    return ans;
 }
