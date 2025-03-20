@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 153
 <strong>输出：</strong>true
-<strong>示例： </strong>
+<strong>解释： </strong>
 153 是一个 3 位数，且 153 = 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup>。
 </pre>
 

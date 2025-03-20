@@ -1,10 +1,9 @@
 class Solution {
 public:
-    bool PredictTheWinner(vector<int>& nums) {
+    bool predictTheWinner(vector<int>& nums) {
         int n = nums.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
+        vector<vector<int>> f(n, vector<int>(n));
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i > j) {
                 return 0;
             }

@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>输入：</strong>target = [1,3], n = 3
 <strong>输出：</strong>["Push","Push","Pop","Push"]
-<strong>解释：
+<strong>解释： 
 </strong>读取 1 并自动推入数组 -&gt; [1]
 读取 2 并自动推入数组，然后删除它 -&gt; [1]
 读取 3 并自动推入数组 -&gt; [1,3]

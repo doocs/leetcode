@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2048.Ne
 rating: 1734
 source: 第 264 场周赛 Q2
 tags:
+    - 哈希表
     - 数学
     - 回溯
+    - 计数
     - 枚举
 ---
 
