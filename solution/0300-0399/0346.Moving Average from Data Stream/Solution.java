@@ -1,18 +1,18 @@
 class MovingAverage {
-    private int[] arr;
     private int s;
     private int cnt;
+    private int[] data;
 
     public MovingAverage(int size) {
-        arr = new int[size];
+        data = new int[size];
     }
 
     public double next(int val) {
-        int idx = cnt % arr.length;
-        s += val - arr[idx];
-        arr[idx] = val;
+        int i = cnt % data.length;
+        s += val - data[i];
+        data[i] = val;
         ++cnt;
-        return s * 1.0 / Math.min(cnt, arr.length);
+        return s * 1.0 / Math.min(cnt, data.length);
     }
 }
 
