@@ -1,6 +1,6 @@
-function PredictTheWinner(nums: number[]): boolean {
+function predictTheWinner(nums: number[]): boolean {
     const n = nums.length;
-    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
     const dfs = (i: number, j: number): number => {
         if (i > j) {
             return 0;

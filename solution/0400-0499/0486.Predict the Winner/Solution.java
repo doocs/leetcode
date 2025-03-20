@@ -2,7 +2,7 @@ class Solution {
     private int[] nums;
     private int[][] f;
 
-    public boolean PredictTheWinner(int[] nums) {
+    public boolean predictTheWinner(int[] nums) {
         this.nums = nums;
         int n = nums.length;
         f = new int[n][n];

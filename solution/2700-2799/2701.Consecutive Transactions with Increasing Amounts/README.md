@@ -33,7 +33,7 @@ transaction_id 是该表的主键。
 
 <p>编写一个 SQL 查询，找出至少连续三天 <code>amount</code> 递增的客户。并包括 <code>customer_id</code>&nbsp;、连续交易期的起始日期和结束日期。一个客户可以有多个连续的交易。</p>
 
-<p>返回结果并按照 <code>customer_id</code> <strong>升序&nbsp;</strong>排列。</p>
+<p>返回结果并按照 <code>customer_id, consecutive_start, consecutive_end</code>&nbsp;<strong>升序&nbsp;</strong>排列。</p>
 
 <p>查询结果的格式如下所示。</p>
 
@@ -72,7 +72,8 @@ Transactions 表:
 <strong>解释：</strong>&nbsp;
 - customer_id 为 101 的客户在 2023年5月1日 至 2023年5月3日 期间进行了连续递增金额的交易。
 - customer_id 为 102 的客户没有至少连续三天的交易。
-- customer_id 为 105 的客户有两组连续交易：从 2023年5月1日 至 2023年5月4日，以及 2023年5月12日 至 2023年5月14日。结果按 customer_id 升序排序
+- customer_id 为 105 的客户有两组连续交易：从 2023年5月1日 至 2023年5月4日，以及 2023年5月12日 至 2023年5月14日。
+结果按 customer_id 升序排序
 </pre>
 
 <!-- description:end -->

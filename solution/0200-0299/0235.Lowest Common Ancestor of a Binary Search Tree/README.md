@@ -32,7 +32,7 @@ tags:
 <p><strong>示例 1:</strong></p>
 
 <pre><strong>输入:</strong> root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
-<strong>输出:</strong> 6
+<strong>输出:</strong> 6 
 <strong>解释: </strong>节点 <code>2 </code>和节点 <code>8 </code>的最近公共祖先是 <code>6。</code>
 </pre>
 
