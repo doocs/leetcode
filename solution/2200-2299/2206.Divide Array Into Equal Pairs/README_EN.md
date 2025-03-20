@@ -142,18 +142,6 @@ func divideArray(nums []int) bool {
 }
 ```
 
-#### TypeScript
-
-```ts
-function divideArray(nums: number[]): boolean {
-    const cnt: Record<number, number> = {};
-    for (const x of nums) {
-        cnt[x] = (cnt[x] || 0) + 1;
-    }
-    return Object.values(cnt).every(x => x % 2 === 0);
-}
-```
-
 #### Rust
 
 ```rust
@@ -170,6 +158,24 @@ impl Solution {
 }
 ```
 
+#### TypeScript
+
+```ts
+function divideArray(nums: number[]): boolean {
+    const cnt = Array(501).fill(0);
+
+    for (const x of nums) {
+        cnt[x]++;
+    }
+
+    for (const x of cnt) {
+        if (x & 1) return false;
+    }
+
+    return true;
+}
+```
+
 #### JavaScript
 
 ```js
@@ -178,11 +184,17 @@ impl Solution {
  * @return {boolean}
  */
 var divideArray = function (nums) {
-    const cnt = {};
+    const cnt = Array(501).fill(0);
+
     for (const x of nums) {
-        cnt[x] = (cnt[x] || 0) + 1;
+        cnt[x]++;
     }
-    return Object.values(cnt).every(x => x % 2 === 0);
+
+    for (const x of cnt) {
+        if (x & 1) return false;
+    }
+
+    return true;
 };
 ```
 

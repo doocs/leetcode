@@ -310,7 +310,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3451 | [Find Invalid IP Addresses](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README_EN.md)                                                                                           | `Database` | Hard       |        |
 | 3465 | [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README_EN.md)                                                           | `Database` | Easy       |        |
 | 3475 | [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README_EN.md)                                                                                                 |            | Medium     |        |
-| 3482 | [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md)                                                                                   |            | Hard       |        |
+| 3482 | [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md)                                                                                   | `Database` | Hard       |        |
 
 ## Copyright
 

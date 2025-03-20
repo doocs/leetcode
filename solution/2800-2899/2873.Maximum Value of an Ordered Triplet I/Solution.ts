@@ -1,9 +1,9 @@
 function maximumTripletValue(nums: number[]): number {
-    let [ans, mx, mx_diff] = [0, 0, 0];
-    for (const num of nums) {
-        ans = Math.max(ans, mx_diff * num);
-        mx = Math.max(mx, num);
-        mx_diff = Math.max(mx_diff, mx - num);
+    let [ans, mx, mxDiff] = [0, 0, 0];
+    for (const x of nums) {
+        ans = Math.max(ans, mxDiff * x);
+        mxDiff = Math.max(mxDiff, mx - x);
+        mx = Math.max(mx, x);
     }
     return ans;
 }

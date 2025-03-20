@@ -63,18 +63,18 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $dfs(i, j)$，表示从第 $i$ 个数到第 $j$ 个数，当前玩家与另一个玩家的得分之差的最大值。那么答案就是 $dfs(0, n - 1) \gt 0$。
+我们设计一个函数 $\textit{dfs}(i, j)$，表示从第 $i$ 个数到第 $j$ 个数，当前玩家与另一个玩家的得分之差的最大值。那么答案就是 $\textit{dfs}(0, n - 1) \geq 0$。
 
-函数 $dfs(i, j)$ 的计算方法如下：
+函数 $\textit{dfs}(i, j)$ 的计算方法如下：
 
--   如果 $i \gt j$，说明当前没有数字了，所以当前玩家没有分数可以拿，差值为 $0$，即 $dfs(i, j) = 0$。
--   否则，当前玩家有两种选择，如果选择第 $i$ 个数，那么当前玩家与另一个玩家的得分之差为 $nums[i] - dfs(i + 1, j)$；如果选择第 $j$ 个数，那么当前玩家与另一个玩家的得分之差为 $nums[j] - dfs(i, j - 1)$。当前玩家会选择两种情况中差值较大的情况，也就是说 $dfs(i, j) = \max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1))$。
+-   如果 $i > j$，说明当前没有数字了，所以当前玩家没有分数可以拿，差值为 $0$，即 $\textit{dfs}(i, j) = 0$。
+-   否则，当前玩家有两种选择，如果选择第 $i$ 个数，那么当前玩家与另一个玩家的得分之差为 $\textit{nums}[i] - \textit{dfs}(i + 1, j)$；如果选择第 $j$ 个数，那么当前玩家与另一个玩家的得分之差为 $\textit{nums}[j] - \textit{dfs}(i, j - 1)$。当前玩家会选择两种情况中差值较大的情况，也就是说 $\textit{dfs}(i, j) = \max(\textit{nums}[i] - \textit{dfs}(i + 1, j), \textit{nums}[j] - \textit{dfs}(i, j - 1))$。
 
-最后，我们只需要判断 $dfs(0, n - 1) \gt 0$ 即可。
+最后，我们只需要判断 $\textit{dfs}(0, n - 1) \geq 0$ 即可。
 
-为了避免重复计算，我们可以使用记忆化搜索的方法，用一个数组 $f$ 记录所有的 $dfs(i, j)$ 的值，当函数再次被调用到时，我们可以直接从 $f$ 中取出答案而不需要重新计算。
+为了避免重复计算，我们可以使用记忆化搜索的方法，用一个数组 $f$ 记录所有的 $\textit{dfs}(i, j)$ 的值，当函数再次被调用到时，我们可以直接从 $f$ 中取出答案而不需要重新计算。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -82,7 +82,7 @@ tags:
 
 ```python
 class Solution:
-    def PredictTheWinner(self, nums: List[int]) -> bool:
+    def predictTheWinner(self, nums: List[int]) -> bool:
         @cache
         def dfs(i: int, j: int) -> int:
             if i > j:
@@ -99,7 +99,7 @@ class Solution {
     private int[] nums;
     private int[][] f;
 
-    public boolean PredictTheWinner(int[] nums) {
+    public boolean predictTheWinner(int[] nums) {
         this.nums = nums;
         int n = nums.length;
         f = new int[n][n];
@@ -123,11 +123,10 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    bool PredictTheWinner(vector<int>& nums) {
+    bool predictTheWinner(vector<int>& nums) {
         int n = nums.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
+        vector<vector<int>> f(n, vector<int>(n));
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i > j) {
                 return 0;
             }
@@ -144,7 +143,7 @@ public:
 #### Go
 
 ```go
-func PredictTheWinner(nums []int) bool {
+func predictTheWinner(nums []int) bool {
 	n := len(nums)
 	f := make([][]int, n)
 	for i := range f {
@@ -167,9 +166,9 @@ func PredictTheWinner(nums []int) bool {
 #### TypeScript
 
 ```ts
-function PredictTheWinner(nums: number[]): boolean {
+function predictTheWinner(nums: number[]): boolean {
     const n = nums.length;
-    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
     const dfs = (i: number, j: number): number => {
         if (i > j) {
             return 0;
@@ -187,29 +186,24 @@ function PredictTheWinner(nums: number[]): boolean {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn predict_the_winner(nums: Vec<i32>) -> bool {
         let n = nums.len();
-        let mut dp: Vec<Vec<i32>> = vec![vec![0; n]; n];
+        let mut f = vec![vec![0; n]; n];
+        Self::dfs(&nums, &mut f, 0, n - 1) >= 0
+    }
 
-        // Initialize the dp vector
-        for i in 0..n {
-            dp[i][i] = nums[i];
+    fn dfs(nums: &Vec<i32>, f: &mut Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
+        if i == j {
+            return nums[i] as i32;
         }
-
-        // Begin the dp process
-        for i in (0..n - 1).rev() {
-            for j in i + 1..n {
-                dp[i][j] = std::cmp::max(
-                    // Take i-th num
-                    nums[i] - dp[i + 1][j],
-                    // Take j-th num
-                    nums[j] - dp[i][j - 1],
-                );
-            }
+        if f[i][j] != 0 {
+            return f[i][j];
         }
-
-        dp[0][n - 1] >= 0
+        f[i][j] = std::cmp::max(
+            nums[i] - Self::dfs(nums, f, i + 1, j),
+            nums[j] - Self::dfs(nums, f, i, j - 1)
+        );
+        f[i][j]
     }
 }
 ```
@@ -222,20 +216,20 @@ impl Solution {
 
 ### 方法二：动态规划
 
-我们也可以使用动态规划的方法，定义 $f[i][j]$ 表示当前玩家在 $nums[i..j]$ 这些数字中能够获得的最大得分的差值。那么最后答案就是 $f[0][n - 1] \gt 0$。
+我们也可以使用动态规划的方法，定义 $f[i][j]$ 表示当前玩家在 $\textit{nums}[i..j]$ 这些数字中能够获得的最大得分的差值。那么最后答案就是 $f[0][n - 1] \geq 0$。
 
-初始时 $f[i][i]=nums[i]$，因为只有一个数，所以当前玩家只能拿取这个数，得分差值为 $nums[i]$。
+初始时 $f[i][i]=\textit{nums}[i]$，因为只有一个数，所以当前玩家只能拿取这个数，得分差值为 $\textit{nums}[i]$。
 
-考虑 $f[i][j]$，其中 $i \lt j$，有两种情况：
+考虑 $f[i][j]$，其中 $i < j$，有两种情况：
 
--   如果当前玩家拿走了 $nums[i]$，那么剩下的数字为 $nums[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = nums[i] - f[i + 1][j]$。
--   如果当前玩家拿走了 $nums[j]$，那么剩下的数字为 $nums[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = nums[j] - f[i][j - 1]$。
+-   如果当前玩家拿走了 $\textit{nums}[i]$，那么剩下的数字为 $\textit{nums}[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = \textit{nums}[i] - f[i + 1][j]$。
+-   如果当前玩家拿走了 $\textit{nums}[j]$，那么剩下的数字为 $\textit{nums}[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = \textit{nums}[j] - f[i][j - 1]$。
 
-因此，最终的状态转移方程为 $f[i][j] = \max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1])$。
+因此，最终的状态转移方程为 $f[i][j] = \max(\textit{nums}[i] - f[i + 1][j], \textit{nums}[j] - f[i][j - 1])$。
 
-最后，我们只需要判断 $f[0][n - 1] \gt 0$ 即可。
+最后，我们只需要判断 $f[0][n - 1] \geq 0$ 即可。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 相似题目：
 
@@ -247,7 +241,7 @@ impl Solution {
 
 ```python
 class Solution:
-    def PredictTheWinner(self, nums: List[int]) -> bool:
+    def predictTheWinner(self, nums: List[int]) -> bool:
         n = len(nums)
         f = [[0] * n for _ in range(n)]
         for i, x in enumerate(nums):
@@ -262,7 +256,7 @@ class Solution:
 
 ```java
 class Solution {
-    public boolean PredictTheWinner(int[] nums) {
+    public boolean predictTheWinner(int[] nums) {
         int n = nums.length;
         int[][] f = new int[n][n];
         for (int i = 0; i < n; ++i) {
@@ -283,7 +277,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    bool PredictTheWinner(vector<int>& nums) {
+    bool predictTheWinner(vector<int>& nums) {
         int n = nums.size();
         int f[n][n];
         memset(f, 0, sizeof(f));
@@ -303,7 +297,7 @@ public:
 #### Go
 
 ```go
-func PredictTheWinner(nums []int) bool {
+func predictTheWinner(nums []int) bool {
 	n := len(nums)
 	f := make([][]int, n)
 	for i, x := range nums {
@@ -322,9 +316,9 @@ func PredictTheWinner(nums []int) bool {
 #### TypeScript
 
 ```ts
-function PredictTheWinner(nums: number[]): boolean {
+function predictTheWinner(nums: number[]): boolean {
     const n = nums.length;
-    const f: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
     for (let i = 0; i < n; ++i) {
         f[i][i] = nums[i];
     }
@@ -334,6 +328,29 @@ function PredictTheWinner(nums: number[]): boolean {
         }
     }
     return f[0][n - 1] >= 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn predict_the_winner(nums: Vec<i32>) -> bool {
+        let n = nums.len();
+        let mut f = vec![vec![0; n]; n];
+
+        for i in 0..n {
+            f[i][i] = nums[i];
+        }
+
+        for i in (0..n - 1).rev() {
+            for j in i + 1..n {
+                f[i][j] = std::cmp::max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);
+            }
+        }
+
+        f[0][n - 1] >= 0
+    }
 }
 ```
 

@@ -72,7 +72,7 @@ tags:
 
 题目实际上可以转化为求字符串中不同字符的个数，因此，我们只需要统计字符串中不同字符的个数即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串的长度；而 $C$ 是字符集的大小，本题中字符集为小写英文字母，因此 $C=26$。
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $\textit{s}$ 的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集，这里是小写英文字母，因此 $|\Sigma|=26$。
 
 <!-- tabs:start -->
 
@@ -104,8 +104,7 @@ class Solution {
 class Solution {
 public:
     int minimizedStringLength(string s) {
-        unordered_set<char> ss(s.begin(), s.end());
-        return ss.size();
+        return unordered_set<char>(s.begin(), s.end()).size();
     }
 };
 ```
@@ -139,6 +138,16 @@ impl Solution {
     pub fn minimized_string_length(s: String) -> i32 {
         let ss: HashSet<char> = s.chars().collect();
         ss.len() as i32
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinimizedStringLength(string s) {
+        return new HashSet<char>(s).Count;
     }
 }
 ```

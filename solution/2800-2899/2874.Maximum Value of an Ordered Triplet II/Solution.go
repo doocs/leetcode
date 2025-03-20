@@ -1,9 +1,9 @@
 func maximumTripletValue(nums []int) int64 {
-	ans, mx, mx_diff := 0, 0, 0
-	for _, num := range nums {
-		ans = max(ans, mx_diff*num)
-		mx = max(mx, num)
-		mx_diff = max(mx_diff, mx-num)
+	ans, mx, mxDiff := 0, 0, 0
+	for _, x := range nums {
+		ans = max(ans, mxDiff*x)
+		mxDiff = max(mxDiff, mx-x)
+		mx = max(mx, x)
 	}
 	return int64(ans)
 }

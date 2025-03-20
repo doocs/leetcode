@@ -1,21 +1,21 @@
 class MovingAverage {
 public:
     MovingAverage(int size) {
-        arr.resize(size);
+        data.resize(size);
     }
 
     double next(int val) {
-        int idx = cnt % arr.size();
-        s += val - arr[idx];
-        arr[idx] = val;
+        int i = cnt % data.size();
+        s += val - data[i];
+        data[i] = val;
         ++cnt;
-        return (double) s / min(cnt, (int) arr.size());
+        return s * 1.0 / min(cnt, (int) data.size());
     }
 
 private:
-    vector<int> arr;
-    int cnt = 0;
     int s = 0;
+    int cnt = 0;
+    vector<int> data;
 };
 
 /**

@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool PredictTheWinner(vector<int>& nums) {
+    bool predictTheWinner(vector<int>& nums) {
         int n = nums.size();
         int f[n][n];
         memset(f, 0, sizeof(f));

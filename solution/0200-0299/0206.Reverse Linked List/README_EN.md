@@ -58,7 +58,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Head Insertion Method
+
+We create a dummy node $\textit{dummy}$, then traverse the linked list and insert each node after the $\textit{dummy}$ node. After traversal, return $\textit{dummy.next}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -268,15 +272,15 @@ var reverseList = function (head) {
  */
 public class Solution {
     public ListNode ReverseList(ListNode head) {
-        ListNode pre = null;
-        for (ListNode p = head; p != null;)
-        {
-            ListNode t = p.next;
-            p.next = pre;
-            pre = p;
-            p = t;
+        ListNode dummy = new ListNode();
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = dummy.next;
+            dummy.next = curr;
+            curr = next;
         }
-        return pre;
+        return dummy.next;
     }
 }
 ```
@@ -287,7 +291,11 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Recursion
+
+We recursively reverse all nodes from the second node to the end of the list, then attach the $head$ to the end of the reversed list.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 
@@ -447,6 +455,33 @@ impl Solution {
 
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         Self::rev(None, head)
+    }
+}
+```
+
+#### C#
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode ans = ReverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return ans;
     }
 }
 ```

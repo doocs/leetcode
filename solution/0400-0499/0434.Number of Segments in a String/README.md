@@ -35,9 +35,9 @@ tags:
 
 ### 方法一：字符串分割
 
-将字符串 `s` 按照空格进行分割，然后统计不为空的单词个数。
+我们将字符串 $\textit{s}$ 按照空格进行分割，然后统计不为空的单词个数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{s}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -93,6 +93,14 @@ func countSegments(s string) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function countSegments(s: string): number {
+    return s.split(/\s+/).filter(Boolean).length;
+}
+```
+
 #### PHP
 
 ```php
@@ -122,9 +130,11 @@ class Solution {
 
 ### 方法二：模拟
 
-直接模拟，遍历字符串，检测每个字符，统计个数。
+我们也可以直接遍历字符串的每个字符 $\text{s[i]}$，如果 $\text{s[i]}$ 不是空格且 $\text{s[i-1]}$ 是空格或者 $i = 0$，那么就说明 $\text{s[i]}$ 是一个新的单词的开始，我们就将答案加一。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{s}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -184,6 +194,43 @@ func countSegments(s string) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSegments(s: string): number {
+    let ans = 0;
+    for (let i = 0; i < s.length; i++) {
+        let c = s[i];
+        if (c !== ' ' && (i === 0 || s[i - 1] === ' ')) {
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param String $s
+     * @return Integer
+     */
+    function countSegments($s) {
+        $ans = 0;
+        $n = strlen($s);
+        for ($i = 0; $i < $n; $i++) {
+            $c = $s[$i];
+            if ($c !== ' ' && ($i === 0 || $s[$i - 1] === ' ')) {
+                $ans++;
+            }
+        }
+        return $ans;
+    }
 }
 ```
 

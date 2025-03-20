@@ -100,9 +100,9 @@ tags:
 
 ### Solution 1: Hash Table
 
-The problem can actually be transformed into finding the number of different characters in the string. Therefore, we only need to count the number of different characters in the string.
+The problem can actually be transformed into finding the number of distinct characters in the string. Therefore, we only need to count the number of distinct characters in the string.
 
-The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, the character set is lowercase English letters, so $C=26$.
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this case, it's lowercase English letters, so $|\Sigma|=26$.
 
 <!-- tabs:start -->
 
@@ -134,8 +134,7 @@ class Solution {
 class Solution {
 public:
     int minimizedStringLength(string s) {
-        unordered_set<char> ss(s.begin(), s.end());
-        return ss.size();
+        return unordered_set<char>(s.begin(), s.end()).size();
     }
 };
 ```
@@ -169,6 +168,16 @@ impl Solution {
     pub fn minimized_string_length(s: String) -> i32 {
         let ss: HashSet<char> = s.chars().collect();
         ss.len() as i32
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinimizedStringLength(string s) {
+        return new HashSet<char>(s).Count;
     }
 }
 ```

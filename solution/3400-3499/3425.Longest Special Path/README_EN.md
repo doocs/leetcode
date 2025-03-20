@@ -9,7 +9,7 @@ tags:
     - Depth-First Search
     - Array
     - Hash Table
-    - Sliding Window
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

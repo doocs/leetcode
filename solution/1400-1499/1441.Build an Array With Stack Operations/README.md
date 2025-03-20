@@ -81,13 +81,17 @@ tags:
 
 ### 方法一：模拟
 
-我们定义 $cur$ 表示当前已经从 `list` 中读取到的数字，初始时 $cur = 0$，用一个数组 $ans$ 存储答案。
+我们定义一个变量 $\textit{cur}$ 表示当前待读取的数字，初始时 $\textit{cur} = 1$，用一个数组 $\textit{ans}$ 存储答案。
 
-遍历数组 `target`，对于每个数字 $v$，如果当前要从 `list` 读取的数字小于 $v$，那么我们应该执行 `Push` 和 `Pop` 操作，直到读取的数字等于 $v$，然后执行 `Push` 操作，这样就可以得到数字 $v$。
+接下来，我们遍历数组 $\textit{target}$ 中的每个数字 $x$：
 
-遍历结束后，也就构建出了数组 `target`，返回 `ans` 即可。
+-   如果 $\textit{cur} < x$，我们将 $\textit{Push}$ 和 $\textit{Pop}$ 依次加入答案，直到 $\textit{cur} = x$；
+-   然后我们将 $\textit{Push}$ 加入答案，表示读取数字 $x$；
+-   接着，我们将 $\textit{cur}$ 加一，继续处理下一个数字。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 `target` 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
+遍历结束后，返回答案数组即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{target}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -96,13 +100,14 @@ tags:
 ```python
 class Solution:
     def buildArray(self, target: List[int], n: int) -> List[str]:
-        cur, ans = 0, []
-        for v in target:
-            cur += 1
-            while cur < v:
-                ans.extend(['Push', 'Pop'])
+        ans = []
+        cur = 1
+        for x in target:
+            while cur < x:
+                ans.extend(["Push", "Pop"])
                 cur += 1
-            ans.append('Push')
+            ans.append("Push")
+            cur += 1
         return ans
 ```
 
@@ -111,14 +116,15 @@ class Solution:
 ```java
 class Solution {
     public List<String> buildArray(int[] target, int n) {
-        int cur = 0;
         List<String> ans = new ArrayList<>();
-        for (int v : target) {
-            while (++cur < v) {
-                ans.add("Push");
-                ans.add("Pop");
+        int cur = 1;
+        for (int x : target) {
+            while (cur < x) {
+                ans.addAll(List.of("Push", "Pop"));
+                ++cur;
             }
             ans.add("Push");
+            ++cur;
         }
         return ans;
     }
@@ -131,14 +137,16 @@ class Solution {
 class Solution {
 public:
     vector<string> buildArray(vector<int>& target, int n) {
-        int cur = 0;
         vector<string> ans;
-        for (int& v : target) {
-            while (++cur < v) {
-                ans.emplace_back("Push");
-                ans.emplace_back("Pop");
+        int cur = 1;
+        for (int x : target) {
+            while (cur < x) {
+                ans.push_back("Push");
+                ans.push_back("Pop");
+                ++cur;
             }
-            ans.emplace_back("Push");
+            ans.push_back("Push");
+            ++cur;
         }
         return ans;
     }
@@ -148,16 +156,16 @@ public:
 #### Go
 
 ```go
-func buildArray(target []int, n int) []string {
-	cur := 0
-	ans := []string{}
-	for _, v := range target {
-		for cur = cur + 1; cur < v; cur++ {
+func buildArray(target []int, n int) (ans []string) {
+	cur := 1
+	for _, x := range target {
+		for ; cur < x; cur++ {
 			ans = append(ans, "Push", "Pop")
 		}
 		ans = append(ans, "Push")
+		cur++
 	}
-	return ans
+	return
 }
 ```
 
@@ -165,15 +173,16 @@ func buildArray(target []int, n int) []string {
 
 ```ts
 function buildArray(target: number[], n: number): string[] {
-    const res = [];
-    let cur = 0;
-    for (const num of target) {
-        while (++cur < num) {
-            res.push('Push', 'Pop');
+    const ans: string[] = [];
+    let cur: number = 1;
+    for (const x of target) {
+        for (; cur < x; ++cur) {
+            ans.push('Push', 'Pop');
         }
-        res.push('Push');
+        ans.push('Push');
+        ++cur;
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -182,18 +191,18 @@ function buildArray(target: number[], n: number): string[] {
 ```rust
 impl Solution {
     pub fn build_array(target: Vec<i32>, n: i32) -> Vec<String> {
-        let mut res = Vec::new();
+        let mut ans = Vec::new();
         let mut cur = 1;
-        for &num in target.iter() {
-            while cur < num {
-                res.push("Push");
-                res.push("Pop");
+        for &x in &target {
+            while cur < x {
+                ans.push("Push".to_string());
+                ans.push("Pop".to_string());
                 cur += 1;
             }
-            res.push("Push");
+            ans.push("Push".to_string());
             cur += 1;
         }
-        res.into_iter().map(String::from).collect()
+        ans
     }
 }
 ```
@@ -205,21 +214,19 @@ impl Solution {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 char** buildArray(int* target, int targetSize, int n, int* returnSize) {
-    char** res = (char**) malloc(sizeof(char*) * n * 2);
+    char** ans = (char**) malloc(sizeof(char*) * (2 * n));
+    *returnSize = 0;
     int cur = 1;
-    int i = 0;
-    for (int j = 0; j < targetSize; j++) {
-        while (++cur < target[j]) {
-            res[i] = (char*) malloc(sizeof(char) * 8);
-            strcpy(res[i++], "Push");
-            res[i] = (char*) malloc(sizeof(char) * 8);
-            strcpy(res[i++], "Pop");
+    for (int i = 0; i < targetSize; i++) {
+        while (cur < target[i]) {
+            ans[(*returnSize)++] = "Push";
+            ans[(*returnSize)++] = "Pop";
+            cur++;
         }
-        res[i] = (char*) malloc(sizeof(char) * 8);
-        strcpy(res[i++], "Push");
+        ans[(*returnSize)++] = "Push";
+        cur++;
     }
-    *returnSize = i;
-    return res;
+    return ans;
 }
 ```
 

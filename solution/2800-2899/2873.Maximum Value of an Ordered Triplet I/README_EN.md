@@ -65,9 +65,13 @@ It can be shown that there are no ordered triplets of indices with a value great
 
 <!-- solution:start -->
 
-### Solution 1: Maintain Maximum Prefix Value and Maximum Difference
+### Solution 1: Maintaining Prefix Maximum and Maximum Difference
 
-We can use two variables $mx$ and $mx\_diff$ to maintain the maximum prefix value and maximum difference, respectively. When traversing the array, we update these two variables, and the answer is the maximum value of all $mx\_diff \times nums[i]$.
+We use two variables $\textit{mx}$ and $\textit{mxDiff}$ to maintain the prefix maximum value and maximum difference, respectively, and use a variable $\textit{ans}$ to maintain the answer. Initially, these variables are all $0$.
+
+Next, we iterate through each element $x$ in the array as $\textit{nums}[k]$. First, we update the answer $\textit{ans} = \max(\textit{ans}, \textit{mxDiff} \times x)$. Then we update the maximum difference $\textit{mxDiff} = \max(\textit{mxDiff}, \textit{mx} - x)$. Finally, we update the prefix maximum value $\textit{mx} = \max(\textit{mx}, x)$.
+
+After iterating through all elements, we return the answer $\textit{ans}$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
@@ -79,10 +83,10 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 class Solution:
     def maximumTripletValue(self, nums: List[int]) -> int:
         ans = mx = mx_diff = 0
-        for num in nums:
-            ans = max(ans, mx_diff * num)
-            mx = max(mx, num)
-            mx_diff = max(mx_diff, mx - num)
+        for x in nums:
+            ans = max(ans, mx_diff * x)
+            mx_diff = max(mx_diff, mx - x)
+            mx = max(mx, x)
         return ans
 ```
 
@@ -91,14 +95,12 @@ class Solution:
 ```java
 class Solution {
     public long maximumTripletValue(int[] nums) {
-        long max, maxDiff, ans;
-        max = 0;
-        maxDiff = 0;
-        ans = 0;
-        for (int num : nums) {
-            ans = Math.max(ans, num * maxDiff);
-            max = Math.max(max, num);
-            maxDiff = Math.max(maxDiff, max - num);
+        long ans = 0, mxDiff = 0;
+        int mx = 0;
+        for (int x : nums) {
+            ans = Math.max(ans, mxDiff * x);
+            mxDiff = Math.max(mxDiff, mx - x);
+            mx = Math.max(mx, x);
         }
         return ans;
     }
@@ -111,12 +113,12 @@ class Solution {
 class Solution {
 public:
     long long maximumTripletValue(vector<int>& nums) {
-        long long ans = 0;
-        int mx = 0, mx_diff = 0;
-        for (int num : nums) {
-            ans = max(ans, 1LL * mx_diff * num);
-            mx = max(mx, num);
-            mx_diff = max(mx_diff, mx - num);
+        long long ans = 0, mxDiff = 0;
+        int mx = 0;
+        for (int x : nums) {
+            ans = max(ans, mxDiff * x);
+            mxDiff = max(mxDiff, 1LL * mx - x);
+            mx = max(mx, x);
         }
         return ans;
     }
@@ -127,11 +129,11 @@ public:
 
 ```go
 func maximumTripletValue(nums []int) int64 {
-	ans, mx, mx_diff := 0, 0, 0
-	for _, num := range nums {
-		ans = max(ans, mx_diff*num)
-		mx = max(mx, num)
-		mx_diff = max(mx_diff, mx-num)
+	ans, mx, mxDiff := 0, 0, 0
+	for _, x := range nums {
+		ans = max(ans, mxDiff*x)
+		mxDiff = max(mxDiff, mx-x)
+		mx = max(mx, x)
 	}
 	return int64(ans)
 }
@@ -141,13 +143,33 @@ func maximumTripletValue(nums []int) int64 {
 
 ```ts
 function maximumTripletValue(nums: number[]): number {
-    let [ans, mx, mx_diff] = [0, 0, 0];
-    for (const num of nums) {
-        ans = Math.max(ans, mx_diff * num);
-        mx = Math.max(mx, num);
-        mx_diff = Math.max(mx_diff, mx - num);
+    let [ans, mx, mxDiff] = [0, 0, 0];
+    for (const x of nums) {
+        ans = Math.max(ans, mxDiff * x);
+        mxDiff = Math.max(mxDiff, mx - x);
+        mx = Math.max(mx, x);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_triplet_value(nums: Vec<i32>) -> i64 {
+        let mut ans: i64 = 0;
+        let mut mx: i32 = 0;
+        let mut mx_diff: i32 = 0;
+
+        for &x in &nums {
+            ans = ans.max(mx_diff as i64 * x as i64);
+            mx_diff = mx_diff.max(mx - x);
+            mx = mx.max(x);
+        }
+
+        ans
+    }
 }
 ```
 

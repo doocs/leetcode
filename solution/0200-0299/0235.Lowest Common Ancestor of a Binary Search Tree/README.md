@@ -57,15 +57,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：迭代或递归
+### 方法一：迭代
 
-从上到下搜索，找到第一个值位于 $[p.val, q.val]$ 之间的结点即可。
+我们从根节点开始遍历，如果当前节点的值小于 $\textit{p}$ 和 $\textit{q}$ 的值，说明 $\textit{p}$ 和 $\textit{q}$ 应该在当前节点的右子树，因此将当前节点移动到右子节点；如果当前节点的值大于 $\textit{p}$ 和 $\textit{q}$ 的值，说明 $\textit{p}$ 和 $\textit{q}$ 应该在当前节点的左子树，因此将当前节点移动到左子节点；否则说明当前节点就是 $\textit{p}$ 和 $\textit{q}$ 的最近公共祖先，返回当前节点即可。
 
-既可以用迭代实现，也可以用递归实现。
-
-迭代的时间复杂度为 $O(n)$，空间复杂度为 $O(1)$。
-
-递归的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。
+时间复杂度 $O(n)$，其中 $n$ 是二叉搜索树的节点个数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -164,9 +160,9 @@ public:
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	for {
-		if root.Val < p.Val && root.Val < q.Val {
+		if root.Val < min(p.Val, q.Val) {
 			root = root.Right
-		} else if root.Val > p.Val && root.Val > q.Val {
+		} else if root.Val > max(p.Val, q.Val) {
 			root = root.Left
 		} else {
 			return root
@@ -209,13 +205,47 @@ function lowestCommonAncestor(
 }
 ```
 
+#### C#
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class Solution {
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        while (true) {
+            if (root.val < Math.Min(p.val, q.val)) {
+                root = root.right;
+            } else if (root.val > Math.Max(p.val, q.val)) {
+                root = root.left;
+            } else {
+                return root;
+            }
+        }
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：递归
+
+我们也可以使用递归的方法来解决这个问题。
+
+我们首先判断当前节点的值是否小于 $\textit{p}$ 和 $\textit{q}$ 的值，如果是，则递归遍历右子树；如果当前节点的值大于 $\textit{p}$ 和 $\textit{q}$ 的值，如果是，则递归遍历左子树；否则说明当前节点就是 $\textit{p}$ 和 $\textit{q}$ 的最近公共祖先，返回当前节点即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉搜索树的节点个数。
 
 <!-- tabs:start -->
 
@@ -339,9 +369,39 @@ function lowestCommonAncestor(
     p: TreeNode | null,
     q: TreeNode | null,
 ): TreeNode | null {
-    if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
-    if (root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right, p, q);
+    if (root.val > p.val && root.val > q.val) {
+        return lowestCommonAncestor(root.left, p, q);
+    }
+    if (root.val < p.val && root.val < q.val) {
+        return lowestCommonAncestor(root.right, p, q);
+    }
     return root;
+}
+```
+
+#### C#
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class Solution {
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root.val < Math.Min(p.val, q.val)) {
+            return LowestCommonAncestor(root.right, p, q);
+        }
+        if (root.val > Math.Max(p.val, q.val)) {
+            return LowestCommonAncestor(root.left, p, q);
+        }
+        return root;
+    }
 }
 ```
 

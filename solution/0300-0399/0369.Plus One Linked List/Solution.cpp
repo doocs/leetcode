@@ -13,16 +13,15 @@ public:
     ListNode* plusOne(ListNode* head) {
         ListNode* dummy = new ListNode(0, head);
         ListNode* target = dummy;
-        while (head) {
-            if (head->val != 9) target = head;
-            head = head->next;
+        for (; head; head = head->next) {
+            if (head->val != 9) {
+                target = head;
+            }
         }
-        ++target->val;
-        target = target->next;
-        while (target) {
+        target->val++;
+        for (target = target->next; target; target = target->next) {
             target->val = 0;
-            target = target->next;
         }
-        return dummy->val == 1 ? dummy : dummy->next;
+        return dummy->val ? dummy : dummy->next;
     }
 };
