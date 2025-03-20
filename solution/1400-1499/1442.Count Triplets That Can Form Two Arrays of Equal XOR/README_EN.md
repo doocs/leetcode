@@ -67,7 +67,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+According to the problem description, to find triplets $(i, j, k)$ that satisfy $a = b$, which means $s = a \oplus b = 0$, we only need to enumerate the left endpoint $i$, and then calculate the prefix XOR sum $s$ of the interval $[i, k]$ with $k$ as the right endpoint. If $s = 0$, then for any $j \in [i + 1, k]$, the condition $a = b$ is satisfied, meaning $(i, j, k)$ is a valid triplet. There are $k - i$ such triplets, which we can add to our answer.
+
+After the enumeration is complete, we return the answer.
+
+The time complexity is $O(n^2)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -76,17 +82,13 @@ tags:
 ```python
 class Solution:
     def countTriplets(self, arr: List[int]) -> int:
-        n = len(arr)
-        pre = [0] * (n + 1)
-        for i in range(n):
-            pre[i + 1] = pre[i] ^ arr[i]
-        ans = 0
-        for i in range(n - 1):
-            for j in range(i + 1, n):
-                for k in range(j, n):
-                    a, b = pre[j] ^ pre[i], pre[k + 1] ^ pre[j]
-                    if a == b:
-                        ans += 1
+        ans, n = 0, len(arr)
+        for i, x in enumerate(arr):
+            s = x
+            for k in range(i + 1, n):
+                s ^= arr[k]
+                if s == 0:
+                    ans += k - i
         return ans
 ```
 
@@ -95,20 +97,13 @@ class Solution:
 ```java
 class Solution {
     public int countTriplets(int[] arr) {
-        int n = arr.length;
-        int[] pre = new int[n + 1];
+        int ans = 0, n = arr.length;
         for (int i = 0; i < n; ++i) {
-            pre[i + 1] = pre[i] ^ arr[i];
-        }
-        int ans = 0;
-        for (int i = 0; i < n - 1; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                for (int k = j; k < n; ++k) {
-                    int a = pre[j] ^ pre[i];
-                    int b = pre[k + 1] ^ pre[j];
-                    if (a == b) {
-                        ++ans;
-                    }
+            int s = arr[i];
+            for (int k = i + 1; k < n; ++k) {
+                s ^= arr[k];
+                if (s == 0) {
+                    ans += k - i;
                 }
             }
         }
@@ -123,15 +118,13 @@ class Solution {
 class Solution {
 public:
     int countTriplets(vector<int>& arr) {
-        int n = arr.size();
-        vector<int> pre(n + 1);
-        for (int i = 0; i < n; ++i) pre[i + 1] = pre[i] ^ arr[i];
-        int ans = 0;
-        for (int i = 0; i < n - 1; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                for (int k = j; k < n; ++k) {
-                    int a = pre[j] ^ pre[i], b = pre[k + 1] ^ pre[j];
-                    if (a == b) ++ans;
+        int ans = 0, n = arr.size();
+        for (int i = 0; i < n; ++i) {
+            int s = arr[i];
+            for (int k = i + 1; k < n; ++k) {
+                s ^= arr[k];
+                if (s == 0) {
+                    ans += k - i;
                 }
             }
         }
@@ -143,24 +136,59 @@ public:
 #### Go
 
 ```go
-func countTriplets(arr []int) int {
-	n := len(arr)
-	pre := make([]int, n+1)
-	for i := 0; i < n; i++ {
-		pre[i+1] = pre[i] ^ arr[i]
-	}
-	ans := 0
-	for i := 0; i < n-1; i++ {
-		for j := i + 1; j < n; j++ {
-			for k := j; k < n; k++ {
-				a, b := pre[j]^pre[i], pre[k+1]^pre[j]
-				if a == b {
-					ans++
-				}
+func countTriplets(arr []int) (ans int) {
+	for i, x := range arr {
+		s := x
+		for k := i + 1; k < len(arr); k++ {
+			s ^= arr[k]
+			if s == 0 {
+				ans += k - i
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countTriplets(arr: number[]): number {
+    const n = arr.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        let s = arr[i];
+        for (let k = i + 1; k < n; ++k) {
+            s ^= arr[k];
+            if (s === 0) {
+                ans += k - i;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_triplets(arr: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        let n = arr.len();
+
+        for i in 0..n {
+            let mut s = arr[i];
+            for k in (i + 1)..n {
+                s ^= arr[k];
+                if s == 0 {
+                    ans += (k - i) as i32;
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 
