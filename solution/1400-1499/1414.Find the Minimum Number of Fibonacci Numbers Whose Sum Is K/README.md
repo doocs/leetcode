@@ -68,7 +68,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+我们可以每次贪心地选取一个不超过 $k$ 的最大的斐波那契数，然后将 $k$ 减去该数，答案加一，一直循环，直到 $k = 0$ 为止。
+
+由于每次贪心地选取了最大的不超过 $k$ 的斐波那契数，假设为 $b$，前一个数为 $a$，后一个数为 $c$。将 $k$ 减去 $b$，得到的结果，一定小于 $a$，也即意味着，我们选取了 $b$ 之后，一定不会选到 $a$。这是因为，如果能选上 $a$，那么我们在前面就可以贪心地选上 $b$ 的下一个斐波那契数 $c$，这不符合我们的假设。因此，我们在选取 $b$ 之后，可以贪心地减小斐波那契数。
+
+时间复杂度 $O(\log k)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -77,32 +83,40 @@ tags:
 ```python
 class Solution:
     def findMinFibonacciNumbers(self, k: int) -> int:
-        def dfs(k):
-            if k < 2:
-                return k
-            a = b = 1
-            while b <= k:
-                a, b = b, a + b
-            return 1 + dfs(k - a)
-
-        return dfs(k)
+        a = b = 1
+        while b <= k:
+            a, b = b, a + b
+        ans = 0
+        while k:
+            if k >= b:
+                k -= b
+                ans += 1
+            a, b = b - a, a
+        return ans
 ```
 
 #### Java
 
 ```java
 class Solution {
-
     public int findMinFibonacciNumbers(int k) {
-        if (k < 2) {
-            return k;
-        }
         int a = 1, b = 1;
         while (b <= k) {
-            b = a + b;
-            a = b - a;
+            int c = a + b;
+            a = b;
+            b = c;
         }
-        return 1 + findMinFibonacciNumbers(k - a);
+        int ans = 0;
+        while (k > 0) {
+            if (k >= b) {
+                k -= b;
+                ++ans;
+            }
+            int c = b - a;
+            b = a;
+            a = c;
+        }
+        return ans;
     }
 }
 ```
@@ -113,13 +127,23 @@ class Solution {
 class Solution {
 public:
     int findMinFibonacciNumbers(int k) {
-        if (k < 2) return k;
         int a = 1, b = 1;
         while (b <= k) {
-            b = a + b;
-            a = b - a;
+            int c = a + b;
+            a = b;
+            b = c;
         }
-        return 1 + findMinFibonacciNumbers(k - a);
+        int ans = 0;
+        while (k > 0) {
+            if (k >= b) {
+                k -= b;
+                ++ans;
+            }
+            int c = b - a;
+            b = a;
+            a = c;
+        }
+        return ans;
     }
 };
 ```
@@ -127,66 +151,76 @@ public:
 #### Go
 
 ```go
-func findMinFibonacciNumbers(k int) int {
-	if k < 2 {
-		return k
-	}
+func findMinFibonacciNumbers(k int) (ans int) {
 	a, b := 1, 1
 	for b <= k {
-		a, b = b, a+b
+		c := a + b
+		a = b
+		b = c
 	}
-	return 1 + findMinFibonacciNumbers(k-a)
+
+	for k > 0 {
+		if k >= b {
+			k -= b
+			ans++
+		}
+		c := b - a
+		b = a
+		a = c
+	}
+	return
 }
 ```
 
 #### TypeScript
 
 ```ts
-const arr = [
-    1836311903, 1134903170, 701408733, 433494437, 267914296, 165580141, 102334155, 63245986,
-    39088169, 24157817, 14930352, 9227465, 5702887, 3524578, 2178309, 1346269, 832040, 514229,
-    317811, 196418, 121393, 75025, 46368, 28657, 17711, 10946, 6765, 4181, 2584, 1597, 987, 610,
-    377, 233, 144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1,
-];
-
 function findMinFibonacciNumbers(k: number): number {
-    let res = 0;
-    for (const num of arr) {
-        if (k >= num) {
-            k -= num;
-            res++;
-            if (k === 0) {
-                break;
-            }
-        }
+    let [a, b] = [1, 1];
+    while (b <= k) {
+        let c = a + b;
+        a = b;
+        b = c;
     }
-    return res;
+
+    let ans = 0;
+    while (k > 0) {
+        if (k >= b) {
+            k -= b;
+            ans++;
+        }
+        let c = b - a;
+        b = a;
+        a = c;
+    }
+    return ans;
 }
 ```
 
 #### Rust
 
 ```rust
-const FIB: [i32; 45] = [
-    1836311903, 1134903170, 701408733, 433494437, 267914296, 165580141, 102334155, 63245986,
-    39088169, 24157817, 14930352, 9227465, 5702887, 3524578, 2178309, 1346269, 832040, 514229,
-    317811, 196418, 121393, 75025, 46368, 28657, 17711, 10946, 6765, 4181, 2584, 1597, 987, 610,
-    377, 233, 144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1,
-];
-
 impl Solution {
     pub fn find_min_fibonacci_numbers(mut k: i32) -> i32 {
-        let mut res = 0;
-        for &i in FIB.into_iter() {
-            if k >= i {
-                k -= i;
-                res += 1;
-                if k == 0 {
-                    break;
-                }
-            }
+        let mut a = 1;
+        let mut b = 1;
+        while b <= k {
+            let c = a + b;
+            a = b;
+            b = c;
         }
-        res
+
+        let mut ans = 0;
+        while k > 0 {
+            if k >= b {
+                k -= b;
+                ans += 1;
+            }
+            let c = b - a;
+            b = a;
+            a = c;
+        }
+        ans
     }
 }
 ```

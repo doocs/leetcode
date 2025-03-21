@@ -67,7 +67,13 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We can greedily select the largest Fibonacci number that does not exceed $k$ each time, then subtract this number from $k$ and increment the answer by one. This process is repeated until $k = 0$.
+
+Since we greedily select the largest Fibonacci number that does not exceed $k$ each time, suppose this number is $b$, the previous number is $a$, and the next number is $c$. Subtracting $b$ from $k$ results in a value that is less than $a$, which means that after selecting $b$, we will not select $a$. This is because if we could select $a$, then we could have greedily selected the next Fibonacci number $c$ instead of $b$ earlier, which contradicts our assumption. Therefore, after selecting $b$, we can greedily reduce the Fibonacci number.
+
+The time complexity is $O(\log k)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -76,32 +82,40 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 ```python
 class Solution:
     def findMinFibonacciNumbers(self, k: int) -> int:
-        def dfs(k):
-            if k < 2:
-                return k
-            a = b = 1
-            while b <= k:
-                a, b = b, a + b
-            return 1 + dfs(k - a)
-
-        return dfs(k)
+        a = b = 1
+        while b <= k:
+            a, b = b, a + b
+        ans = 0
+        while k:
+            if k >= b:
+                k -= b
+                ans += 1
+            a, b = b - a, a
+        return ans
 ```
 
 #### Java
 
 ```java
 class Solution {
-
     public int findMinFibonacciNumbers(int k) {
-        if (k < 2) {
-            return k;
-        }
         int a = 1, b = 1;
         while (b <= k) {
-            b = a + b;
-            a = b - a;
+            int c = a + b;
+            a = b;
+            b = c;
         }
-        return 1 + findMinFibonacciNumbers(k - a);
+        int ans = 0;
+        while (k > 0) {
+            if (k >= b) {
+                k -= b;
+                ++ans;
+            }
+            int c = b - a;
+            b = a;
+            a = c;
+        }
+        return ans;
     }
 }
 ```
@@ -112,13 +126,23 @@ class Solution {
 class Solution {
 public:
     int findMinFibonacciNumbers(int k) {
-        if (k < 2) return k;
         int a = 1, b = 1;
         while (b <= k) {
-            b = a + b;
-            a = b - a;
+            int c = a + b;
+            a = b;
+            b = c;
         }
-        return 1 + findMinFibonacciNumbers(k - a);
+        int ans = 0;
+        while (k > 0) {
+            if (k >= b) {
+                k -= b;
+                ++ans;
+            }
+            int c = b - a;
+            b = a;
+            a = c;
+        }
+        return ans;
     }
 };
 ```
@@ -126,66 +150,76 @@ public:
 #### Go
 
 ```go
-func findMinFibonacciNumbers(k int) int {
-	if k < 2 {
-		return k
-	}
+func findMinFibonacciNumbers(k int) (ans int) {
 	a, b := 1, 1
 	for b <= k {
-		a, b = b, a+b
+		c := a + b
+		a = b
+		b = c
 	}
-	return 1 + findMinFibonacciNumbers(k-a)
+
+	for k > 0 {
+		if k >= b {
+			k -= b
+			ans++
+		}
+		c := b - a
+		b = a
+		a = c
+	}
+	return
 }
 ```
 
 #### TypeScript
 
 ```ts
-const arr = [
-    1836311903, 1134903170, 701408733, 433494437, 267914296, 165580141, 102334155, 63245986,
-    39088169, 24157817, 14930352, 9227465, 5702887, 3524578, 2178309, 1346269, 832040, 514229,
-    317811, 196418, 121393, 75025, 46368, 28657, 17711, 10946, 6765, 4181, 2584, 1597, 987, 610,
-    377, 233, 144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1,
-];
-
 function findMinFibonacciNumbers(k: number): number {
-    let res = 0;
-    for (const num of arr) {
-        if (k >= num) {
-            k -= num;
-            res++;
-            if (k === 0) {
-                break;
-            }
-        }
+    let [a, b] = [1, 1];
+    while (b <= k) {
+        let c = a + b;
+        a = b;
+        b = c;
     }
-    return res;
+
+    let ans = 0;
+    while (k > 0) {
+        if (k >= b) {
+            k -= b;
+            ans++;
+        }
+        let c = b - a;
+        b = a;
+        a = c;
+    }
+    return ans;
 }
 ```
 
 #### Rust
 
 ```rust
-const FIB: [i32; 45] = [
-    1836311903, 1134903170, 701408733, 433494437, 267914296, 165580141, 102334155, 63245986,
-    39088169, 24157817, 14930352, 9227465, 5702887, 3524578, 2178309, 1346269, 832040, 514229,
-    317811, 196418, 121393, 75025, 46368, 28657, 17711, 10946, 6765, 4181, 2584, 1597, 987, 610,
-    377, 233, 144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1,
-];
-
 impl Solution {
     pub fn find_min_fibonacci_numbers(mut k: i32) -> i32 {
-        let mut res = 0;
-        for &i in FIB.into_iter() {
-            if k >= i {
-                k -= i;
-                res += 1;
-                if k == 0 {
-                    break;
-                }
-            }
+        let mut a = 1;
+        let mut b = 1;
+        while b <= k {
+            let c = a + b;
+            a = b;
+            b = c;
         }
-        res
+
+        let mut ans = 0;
+        while k > 0 {
+            if k >= b {
+                k -= b;
+                ans += 1;
+            }
+            let c = b - a;
+            b = a;
+            a = c;
+        }
+        ans
     }
 }
 ```
