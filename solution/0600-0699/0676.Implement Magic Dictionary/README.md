@@ -431,124 +431,83 @@ class MagicDictionary {
 
 ```rust
 struct Trie {
-    children: Vec<Option<Box<Trie>>>,
-    val: i32,
+    children: [Option<Box<Trie>>; 26],
+    is_end: bool,
 }
 
 impl Trie {
     fn new() -> Self {
         Trie {
-            children: (0..26).map(|_| None).collect(),
-            val: 0,
+            children: Default::default(),
+            is_end: false,
         }
     }
 
-    fn insert(&mut self, w: &str, x: i32) {
+    fn insert(&mut self, w: &str) {
         let mut node = self;
         for c in w.chars() {
-            let idx = (c as usize) - ('a' as usize);
-            if node.children[idx].is_none() {
-                node.children[idx] = Some(Box::new(Trie::new()));
+            let i = (c as usize) - ('a' as usize);
+            if node.children[i].is_none() {
+                node.children[i] = Some(Box::new(Trie::new()));
             }
-            node = node.children[idx].as_mut().unwrap();
-            node.val += x;
+            node = node.children[i].as_mut().unwrap();
         }
+        node.is_end = true;
     }
 
-    fn search(&self, w: &str) -> i32 {
-        let mut node = self;
-        for c in w.chars() {
-            let idx = (c as usize) - ('a' as usize);
-            if node.children[idx].is_none() {
-                return 0;
-            }
-            node = node.children[idx].as_ref().unwrap();
+    fn search(&self, w: &str) -> bool {
+        self.dfs(w, 0, 0)
+    }
+
+    fn dfs(&self, w: &str, i: usize, diff: usize) -> bool {
+        if i == w.len() {
+            return diff == 1 && self.is_end;
         }
-        node.val
+
+        let j = (w.chars().nth(i).unwrap() as usize) - ('a' as usize);
+
+        if let Some(child) = &self.children[j] {
+            if child.dfs(w, i + 1, diff) {
+                return true;
+            }
+        }
+
+        if diff == 0 {
+            for k in 0..26 {
+                if k != j {
+                    if let Some(child) = &self.children[k] {
+                        if child.dfs(w, i + 1, 1) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        false
     }
 }
 
-struct MapSum {
-    d: std::collections::HashMap<String, i32>,
+struct MagicDictionary {
     trie: Trie,
 }
 
-impl MapSum {
+impl MagicDictionary {
     fn new() -> Self {
-        MapSum {
-            d: std::collections::HashMap::new(),
+        MagicDictionary {
             trie: Trie::new(),
         }
     }
 
-    fn insert(&mut self, key: String, val: i32) {
-        let x = val - self.d.get(&key).unwrap_or(&0);
-        self.d.insert(key.clone(), val);
-        self.trie.insert(&key, x);
-    }
-
-    fn sum(&self, prefix: String) -> i32 {
-        self.trie.search(&prefix)
-    }
-}
-```
-
-#### C#
-
-```cs
-public class Trie {
-    private Trie[] children = new Trie[26];
-    private int val;
-
-    public void Insert(string w, int x) {
-        Trie node = this;
-        for (int i = 0; i < w.Length; ++i) {
-            int idx = w[i] - 'a';
-            if (node.children[idx] == null) {
-                node.children[idx] = new Trie();
-            }
-            node = node.children[idx];
-            node.val += x;
+    fn build_dict(&mut self, dictionary: Vec<String>) {
+        for w in dictionary {
+            self.trie.insert(&w);
         }
     }
 
-    public int Search(string w) {
-        Trie node = this;
-        for (int i = 0; i < w.Length; ++i) {
-            int idx = w[i] - 'a';
-            if (node.children[idx] == null) {
-                return 0;
-            }
-            node = node.children[idx];
-        }
-        return node.val;
+    fn search(&self, search_word: String) -> bool {
+        self.trie.search(&search_word)
     }
 }
-
-public class MapSum {
-    private Dictionary<string, int> d = new Dictionary<string, int>();
-    private Trie trie = new Trie();
-
-    public MapSum() {
-    }
-
-    public void Insert(string key, int val) {
-        int x = val - (d.ContainsKey(key) ? d[key] : 0);
-        d[key] = val;
-        trie.Insert(key, x);
-    }
-
-    public int Sum(string prefix) {
-        return trie.Search(prefix);
-    }
-}
-
-/**
- * Your MapSum object will be instantiated and called as such:
- * MapSum obj = new MapSum();
- * obj.Insert(key,val);
- * int param_2 = obj.Sum(prefix);
- */
 ```
 
 <!-- tabs:end -->

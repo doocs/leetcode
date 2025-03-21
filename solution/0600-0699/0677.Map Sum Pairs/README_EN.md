@@ -377,6 +377,72 @@ class MapSum {
  */
 ```
 
+#### Rust
+
+```rust
+struct Trie {
+    children: Vec<Option<Box<Trie>>>,
+    val: i32,
+}
+
+impl Trie {
+    fn new() -> Self {
+        Trie {
+            children: (0..26).map(|_| None).collect(),
+            val: 0,
+        }
+    }
+
+    fn insert(&mut self, w: &str, x: i32) {
+        let mut node = self;
+        for c in w.chars() {
+            let idx = (c as usize) - ('a' as usize);
+            if node.children[idx].is_none() {
+                node.children[idx] = Some(Box::new(Trie::new()));
+            }
+            node = node.children[idx].as_mut().unwrap();
+            node.val += x;
+        }
+    }
+
+    fn search(&self, w: &str) -> i32 {
+        let mut node = self;
+        for c in w.chars() {
+            let idx = (c as usize) - ('a' as usize);
+            if node.children[idx].is_none() {
+                return 0;
+            }
+            node = node.children[idx].as_ref().unwrap();
+        }
+        node.val
+    }
+}
+
+struct MapSum {
+    d: std::collections::HashMap<String, i32>,
+    trie: Trie,
+}
+
+impl MapSum {
+    fn new() -> Self {
+        MapSum {
+            d: std::collections::HashMap::new(),
+            trie: Trie::new(),
+        }
+    }
+
+    fn insert(&mut self, key: String, val: i32) {
+        let x = val - self.d.get(&key).unwrap_or(&0);
+        self.d.insert(key.clone(), val);
+        self.trie.insert(&key, x);
+    }
+
+    fn sum(&self, prefix: String) -> i32 {
+        self.trie.search(&prefix)
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -440,6 +506,64 @@ MapSum.prototype.sum = function (prefix) {
  * var obj = new MapSum()
  * obj.insert(key,val)
  * var param_2 = obj.sum(prefix)
+ */
+```
+
+#### C#
+
+```cs
+public class Trie {
+    private Trie[] children = new Trie[26];
+    private int val;
+
+    public void Insert(string w, int x) {
+        Trie node = this;
+        for (int i = 0; i < w.Length; ++i) {
+            int idx = w[i] - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            node.val += x;
+        }
+    }
+
+    public int Search(string w) {
+        Trie node = this;
+        for (int i = 0; i < w.Length; ++i) {
+            int idx = w[i] - 'a';
+            if (node.children[idx] == null) {
+                return 0;
+            }
+            node = node.children[idx];
+        }
+        return node.val;
+    }
+}
+
+public class MapSum {
+    private Dictionary<string, int> d = new Dictionary<string, int>();
+    private Trie trie = new Trie();
+
+    public MapSum() {
+    }
+
+    public void Insert(string key, int val) {
+        int x = val - (d.ContainsKey(key) ? d[key] : 0);
+        d[key] = val;
+        trie.Insert(key, x);
+    }
+
+    public int Sum(string prefix) {
+        return trie.Search(prefix);
+    }
+}
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * MapSum obj = new MapSum();
+ * obj.Insert(key,val);
+ * int param_2 = obj.Sum(prefix);
  */
 ```
 
