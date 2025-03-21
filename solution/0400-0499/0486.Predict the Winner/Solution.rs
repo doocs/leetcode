@@ -13,8 +13,8 @@ impl Solution {
             return f[i][j];
         }
         f[i][j] = std::cmp::max(
-            nums[i] - Self::dfs(nums, f, i + 1, j), 
-            nums[j] - Self::dfs(nums, f, i, j - 1)
+            nums[i] - Self::dfs(nums, f, i + 1, j),
+            nums[j] - Self::dfs(nums, f, i, j - 1),
         );
         f[i][j]
     }

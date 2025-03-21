@@ -1,19 +1,22 @@
 function getHappyString(n: number, k: number): string {
     const ans: string[] = [];
-
-    const dfs = (s = '') => {
+    const s: string[] = [];
+    const dfs = () => {
         if (s.length === n) {
-            ans.push(s);
+            ans.push(s.join(''));
             return;
         }
-
-        for (const ch of 'abc') {
-            if (s.at(-1) === ch) continue;
-            dfs(s + ch);
+        if (ans.length >= k) {
+            return;
+        }
+        for (const c of 'abc') {
+            if (!s.length || s.at(-1)! !== c) {
+                s.push(c);
+                dfs();
+                s.pop();
+            }
         }
     };
-
     dfs();
-
     return ans[k - 1] ?? '';
 }
