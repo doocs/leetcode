@@ -1,21 +1,29 @@
 class Solution {
     private List<String> ans = new ArrayList<>();
+    private StringBuilder s = new StringBuilder();
+    private int n, k;
 
     public String getHappyString(int n, int k) {
-        dfs("", n);
+        this.n = n;
+        this.k = k;
+        dfs();
         return ans.size() < k ? "" : ans.get(k - 1);
     }
 
-    private void dfs(String t, int n) {
-        if (t.length() == n) {
-            ans.add(t);
+    private void dfs() {
+        if (s.length() == n) {
+            ans.add(s.toString());
+            return;
+        }
+        if (ans.size() >= k) {
             return;
         }
         for (char c : "abc".toCharArray()) {
-            if (t.length() > 0 && t.charAt(t.length() - 1) == c) {
-                continue;
+            if (s.isEmpty() || s.charAt(s.length() - 1) != c) {
+                s.append(c);
+                dfs();
+                s.deleteCharAt(s.length() - 1);
             }
-            dfs(t + c, n);
         }
     }
 }
