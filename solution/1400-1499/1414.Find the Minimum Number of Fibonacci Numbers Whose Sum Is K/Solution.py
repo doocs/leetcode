@@ -1,11 +1,12 @@
 class Solution:
     def findMinFibonacciNumbers(self, k: int) -> int:
-        def dfs(k):
-            if k < 2:
-                return k
-            a = b = 1
-            while b <= k:
-                a, b = b, a + b
-            return 1 + dfs(k - a)
-
-        return dfs(k)
+        a = b = 1
+        while b <= k:
+            a, b = b, a + b
+        ans = 0
+        while k:
+            if k >= b:
+                k -= b
+                ans += 1
+            a, b = b - a, a
+        return ans
