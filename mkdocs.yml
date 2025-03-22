@@ -10,6 +10,7 @@ copyright: Copyright &copy; 2025 <a href="https://github.com/doocs">Doocs</a><br
 
 theme:
   favicon: favicon.ico
+  logo: logo.png
   name: material
   custom_dir: overrides
   features:
