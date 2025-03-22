@@ -1,15 +1,15 @@
-function isNStraightHand(hand: number[], groupSize: number): boolean {
-    if (hand.length % groupSize !== 0) {
+function isPossibleDivide(nums: number[], k: number): boolean {
+    if (nums.length % k !== 0) {
         return false;
     }
     const cnt = new Map<number, number>();
-    for (const x of hand) {
+    for (const x of nums) {
         cnt.set(x, (cnt.get(x) || 0) + 1);
     }
-    hand.sort((a, b) => a - b);
-    for (const x of hand) {
+    nums.sort((a, b) => a - b);
+    for (const x of nums) {
         if (cnt.get(x)! > 0) {
-            for (let y = x; y < x + groupSize; y++) {
+            for (let y = x; y < x + k; y++) {
                 if ((cnt.get(y) || 0) === 0) {
                     return false;
                 }

@@ -1,19 +1,18 @@
 class Solution {
     public boolean isNStraightHand(int[] hand, int groupSize) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : hand) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        if (hand.length % groupSize != 0) {
+            return false;
         }
         Arrays.sort(hand);
-        for (int v : hand) {
-            if (cnt.containsKey(v)) {
-                for (int x = v; x < v + groupSize; ++x) {
-                    if (!cnt.containsKey(x)) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : hand) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        for (int x : hand) {
+            if (cnt.getOrDefault(x, 0) > 0) {
+                for (int y = x; y < x + groupSize; ++y) {
+                    if (cnt.merge(y, -1, Integer::sum) < 0) {
                         return false;
-                    }
-                    cnt.put(x, cnt.get(x) - 1);
-                    if (cnt.get(x) == 0) {
-                        cnt.remove(x);
                     }
                 }
             }

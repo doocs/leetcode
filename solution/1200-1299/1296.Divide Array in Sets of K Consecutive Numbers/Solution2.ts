@@ -1,14 +1,14 @@
-function isNStraightHand(hand: number[], groupSize: number): boolean {
-    if (hand.length % groupSize !== 0) {
+function isPossibleDivide(nums: number[], k: number): boolean {
+    if (nums.length % k !== 0) {
         return false;
     }
     const tm = new TreeMap<number, number>();
-    for (const x of hand) {
+    for (const x of nums) {
         tm.set(x, (tm.get(x) || 0) + 1);
     }
     while (tm.size()) {
         const x = tm.first()![0];
-        for (let y = x; y < x + groupSize; ++y) {
+        for (let y = x; y < x + k; ++y) {
             if (!tm.has(y)) {
                 return false;
             }
