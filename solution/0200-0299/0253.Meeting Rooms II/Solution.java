@@ -1,16 +1,19 @@
 class Solution {
     public int minMeetingRooms(int[][] intervals) {
-        int n = 1000010;
-        int[] delta = new int[n];
-        for (int[] e : intervals) {
-            ++delta[e[0]];
-            --delta[e[1]];
+        int m = 0;
+        for (var e : intervals) {
+            m = Math.max(m, e[1]);
         }
-        int res = delta[0];
-        for (int i = 1; i < n; ++i) {
-            delta[i] += delta[i - 1];
-            res = Math.max(res, delta[i]);
+        int[] d = new int[m + 1];
+        for (var e : intervals) {
+            ++d[e[0]];
+            --d[e[1]];
         }
-        return res;
+        int ans = 0, s = 0;
+        for (int v : d) {
+            s += v;
+            ans = Math.max(ans, s);
+        }
+        return ans;
     }
 }
