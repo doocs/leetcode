@@ -53,9 +53,9 @@ tags:
 
 ### 方法一：排序
 
-我们将会议按照开始时间进行排序，然后遍历排序后的会议，如果当前会议的开始时间小于前一个会议的结束时间，则说明两个会议有重叠，返回 `false` 即可。
+我们将会议按照开始时间进行排序，然后遍历排序后的会议，如果当前会议的开始时间小于前一个会议的结束时间，则说明两个会议有重叠，返回 $\text{false}$，否则继续遍历。
 
-遍历结束后，返回 `true`。
+如果遍历结束都没有发现重叠的会议，则返回 $\text{true}$。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为会议数量。
 
@@ -77,9 +77,7 @@ class Solution {
     public boolean canAttendMeetings(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
         for (int i = 1; i < intervals.length; ++i) {
-            var a = intervals[i - 1];
-            var b = intervals[i];
-            if (a[1] > b[0]) {
+            if (intervals[i - 1][1] > intervals[i][0]) {
                 return false;
             }
         }
@@ -94,11 +92,11 @@ class Solution {
 class Solution {
 public:
     bool canAttendMeetings(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
+        ranges::sort(intervals, [](const auto& a, const auto& b) {
             return a[0] < b[0];
         });
         for (int i = 1; i < intervals.size(); ++i) {
-            if (intervals[i][0] < intervals[i - 1][1]) {
+            if (intervals[i - 1][1] > intervals[i][0]) {
                 return false;
             }
         }
@@ -141,32 +139,13 @@ function canAttendMeetings(intervals: number[][]): boolean {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
-    pub fn can_attend_meetings(intervals: Vec<Vec<i32>>) -> bool {
-        if intervals.len() == 1 {
-            return true;
-        }
-
-        let mut intervals = intervals;
-
-        // Sort the intervals vector
-        intervals.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
-
-        let mut end = -1;
-
-        // Begin traverse
-        for p in &intervals {
-            if end == -1 {
-                // This is the first pair
-                end = p[1];
-                continue;
-            }
-            if p[0] < end {
+    pub fn can_attend_meetings(mut intervals: Vec<Vec<i32>>) -> bool {
+        intervals.sort_by(|a, b| a[0].cmp(&b[0]));
+        for i in 1..intervals.len() {
+            if intervals[i - 1][1] > intervals[i][0] {
                 return false;
             }
-            end = p[1];
         }
-
         true
     }
 }

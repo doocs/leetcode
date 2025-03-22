@@ -45,7 +45,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+We can implement this using a difference array.
+
+First, we find the maximum end time of all the meetings, denoted as $m$. Then, we create a difference array $d$ of length $m + 1$. For each meeting, we add to the corresponding positions in the difference array: $d[l] = d[l] + 1$ for the start time, and $d[r] = d[r] - 1$ for the end time.
+
+Next, we calculate the prefix sum of the difference array and find the maximum value of the prefix sum, which represents the minimum number of meeting rooms required.
+
+The time complexity is $O(n + m)$ and the space complexity is $O(m)$, where $n$ is the number of meetings and $m$ is the maximum end time.
 
 <!-- tabs:start -->
 
@@ -54,11 +62,16 @@ tags:
 ```python
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        delta = [0] * 1000010
-        for start, end in intervals:
-            delta[start] += 1
-            delta[end] -= 1
-        return max(accumulate(delta))
+        m = max(e[1] for e in intervals)
+        d = [0] * (m + 1)
+        for l, r in intervals:
+            d[l] += 1
+            d[r] -= 1
+        ans = s = 0
+        for v in d:
+            s += v
+            ans = max(ans, s)
+        return ans
 ```
 
 #### Java
@@ -66,18 +79,21 @@ class Solution:
 ```java
 class Solution {
     public int minMeetingRooms(int[][] intervals) {
-        int n = 1000010;
-        int[] delta = new int[n];
-        for (int[] e : intervals) {
-            ++delta[e[0]];
-            --delta[e[1]];
+        int m = 0;
+        for (var e : intervals) {
+            m = Math.max(m, e[1]);
         }
-        int res = delta[0];
-        for (int i = 1; i < n; ++i) {
-            delta[i] += delta[i - 1];
-            res = Math.max(res, delta[i]);
+        int[] d = new int[m + 1];
+        for (var e : intervals) {
+            ++d[e[0]];
+            --d[e[1]];
         }
-        return res;
+        int ans = 0, s = 0;
+        for (int v : d) {
+            s += v;
+            ans = Math.max(ans, s);
+        }
+        return ans;
     }
 }
 ```
@@ -88,16 +104,21 @@ class Solution {
 class Solution {
 public:
     int minMeetingRooms(vector<vector<int>>& intervals) {
-        int n = 1000010;
-        vector<int> delta(n);
-        for (auto e : intervals) {
-            ++delta[e[0]];
-            --delta[e[1]];
+        int m = 0;
+        for (const auto& e : intervals) {
+            m = max(m, e[1]);
         }
-        for (int i = 0; i < n - 1; ++i) {
-            delta[i + 1] += delta[i];
+        vector<int> d(m + 1);
+        for (const auto& e : intervals) {
+            d[e[0]]++;
+            d[e[1]]--;
         }
-        return *max_element(delta.begin(), delta.end());
+        int ans = 0, s = 0;
+        for (int v : d) {
+            s += v;
+            ans = max(ans, s);
+        }
+        return ans;
     }
 };
 ```
@@ -105,56 +126,221 @@ public:
 #### Go
 
 ```go
-func minMeetingRooms(intervals [][]int) int {
-	n := 1000010
-	delta := make([]int, n)
+func minMeetingRooms(intervals [][]int) (ans int) {
+	m := 0
 	for _, e := range intervals {
-		delta[e[0]]++
-		delta[e[1]]--
+		m = max(m, e[1])
 	}
-	for i := 1; i < n; i++ {
-		delta[i] += delta[i-1]
+
+	d := make([]int, m+1)
+	for _, e := range intervals {
+		d[e[0]]++
+		d[e[1]]--
 	}
-	return slices.Max(delta)
+
+	s := 0
+	for _, v := range d {
+		s += v
+		ans = max(ans, s)
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minMeetingRooms(intervals: number[][]): number {
+    const m = Math.max(...intervals.map(([_, r]) => r));
+    const d: number[] = Array(m + 1).fill(0);
+    for (const [l, r] of intervals) {
+        d[l]++;
+        d[r]--;
+    }
+    let [ans, s] = [0, 0];
+    for (const v of d) {
+        s += v;
+        ans = Math.max(ans, s);
+    }
+    return ans;
 }
 ```
 
 #### Rust
 
 ```rust
-use std::{cmp::Reverse, collections::BinaryHeap};
-
 impl Solution {
-    #[allow(dead_code)]
     pub fn min_meeting_rooms(intervals: Vec<Vec<i32>>) -> i32 {
-        // The min heap that stores the earliest ending time among all meeting rooms
-        let mut pq = BinaryHeap::new();
-        let mut intervals = intervals;
-        let n = intervals.len();
-
-        // Let's first sort the intervals vector
-        intervals.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
-
-        // Push the first end time to the heap
-        pq.push(Reverse(intervals[0][1]));
-
-        // Traverse the intervals vector
-        for i in 1..n {
-            // Get the current top element from the heap
-            if let Some(Reverse(end_time)) = pq.pop() {
-                if end_time <= intervals[i][0] {
-                    // If the end time is early than the current begin time
-                    let new_end_time = intervals[i][1];
-                    pq.push(Reverse(new_end_time));
-                } else {
-                    // Otherwise, push the end time back and we also need a new room
-                    pq.push(Reverse(end_time));
-                    pq.push(Reverse(intervals[i][1]));
-                }
-            }
+        let mut m = 0;
+        for e in &intervals {
+            m = m.max(e[1]);
         }
 
-        pq.len() as i32
+        let mut d = vec![0; (m + 1) as usize];
+        for e in intervals {
+            d[e[0] as usize] += 1;
+            d[e[1] as usize] -= 1;
+        }
+
+        let mut ans = 0;
+        let mut s = 0;
+        for v in d {
+            s += v;
+            ans = ans.max(s);
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Difference (Hash Map)
+
+If the meeting times span a large range, we can use a hash map instead of a difference array.
+
+First, we create a hash map $d$, where we add to the corresponding positions for each meeting's start time and end time: $d[l] = d[l] + 1$ for the start time, and $d[r] = d[r] - 1$ for the end time.
+
+Then, we sort the hash map by its keys, calculate the prefix sum of the hash map, and find the maximum value of the prefix sum, which represents the minimum number of meeting rooms required.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of meetings.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        d = defaultdict(int)
+        for l, r in intervals:
+            d[l] += 1
+            d[r] -= 1
+        ans = s = 0
+        for _, v in sorted(d.items()):
+            s += v
+            ans = max(ans, s)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        Map<Integer, Integer> d = new TreeMap<>();
+        for (var e : intervals) {
+            d.merge(e[0], 1, Integer::sum);
+            d.merge(e[1], -1, Integer::sum);
+        }
+        int ans = 0, s = 0;
+        for (var e : d.values()) {
+            s += e;
+            ans = Math.max(ans, s);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minMeetingRooms(vector<vector<int>>& intervals) {
+        map<int, int> d;
+        for (const auto& e : intervals) {
+            d[e[0]]++;
+            d[e[1]]--;
+        }
+        int ans = 0, s = 0;
+        for (auto& [_, v] : d) {
+            s += v;
+            ans = max(ans, s);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minMeetingRooms(intervals [][]int) (ans int) {
+	d := make(map[int]int)
+	for _, e := range intervals {
+		d[e[0]]++
+		d[e[1]]--
+	}
+
+	keys := make([]int, 0, len(d))
+	for k := range d {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+
+	s := 0
+	for _, k := range keys {
+		s += d[k]
+		ans = max(ans, s)
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minMeetingRooms(intervals: number[][]): number {
+    const d: { [key: number]: number } = {};
+    for (const [l, r] of intervals) {
+        d[l] = (d[l] || 0) + 1;
+        d[r] = (d[r] || 0) - 1;
+    }
+
+    let [ans, s] = [0, 0];
+    const keys = Object.keys(d)
+        .map(Number)
+        .sort((a, b) => a - b);
+    for (const k of keys) {
+        s += d[k];
+        ans = Math.max(ans, s);
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_meeting_rooms(intervals: Vec<Vec<i32>>) -> i32 {
+        let mut d: HashMap<i32, i32> = HashMap::new();
+        for interval in intervals {
+            let (l, r) = (interval[0], interval[1]);
+            *d.entry(l).or_insert(0) += 1;
+            *d.entry(r).or_insert(0) -= 1;
+        }
+
+        let mut times: Vec<i32> = d.keys().cloned().collect();
+        times.sort();
+
+        let mut ans = 0;
+        let mut s = 0;
+        for time in times {
+            s += d[&time];
+            ans = ans.max(s);
+        }
+
+        ans
     }
 }
 ```
