@@ -1,20 +1,16 @@
 class Solution:
     def isPossibleDivide(self, nums: List[int], k: int) -> bool:
-        if len(nums) % k != 0:
+        if len(nums) % k:
             return False
-        sd = SortedDict()
-        for h in nums:
-            if h in sd:
-                sd[h] += 1
-            else:
-                sd[h] = 1
+        cnt = Counter(nums)
+        sd = SortedDict(cnt)
         while sd:
-            v = sd.peekitem(0)[0]
-            for i in range(v, v + k):
-                if i not in sd:
+            x = next(iter(sd))
+            for y in range(x, x + k):
+                if y not in sd:
                     return False
-                if sd[i] == 1:
-                    sd.pop(i)
+                if sd[y] == 1:
+                    del sd[y]
                 else:
-                    sd[i] -= 1
+                    sd[y] -= 1
         return True
