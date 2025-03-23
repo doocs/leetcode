@@ -3502,6 +3502,10 @@
 |  3489  |  [零数组变换 IV](/solution/3400-3499/3489.Zero%20Array%20Transformation%20IV/README.md)  |  `数组`,`动态规划`  |  中等  |  第 441 场周赛  |
 |  3490  |  [统计美丽整数的数目](/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README.md)  |  `动态规划`  |  困难  |  第 441 场周赛  |
 |  3491  |  [电话号码前缀](/solution/3400-3499/3491.Phone%20Number%20Prefix/README.md)  |    |  简单  |  🔒  |
+|  3492  |  [船上可以装载的最大集装箱数量](/solution/3400-3499/3492.Maximum%20Containers%20on%20a%20Ship/README.md)  |    |  简单  |  第 442 场周赛  |
+|  3493  |  [属性图](/solution/3400-3499/3493.Properties%20Graph/README.md)  |    |  中等  |  第 442 场周赛  |
+|  3494  |  [酿造药水需要的最少总时间](/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README.md)  |    |  中等  |  第 442 场周赛  |
+|  3495  |  [使数组元素都变为零的最少操作次数](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README.md)  |    |  困难  |  第 442 场周赛  |
 
 ## 版权
 

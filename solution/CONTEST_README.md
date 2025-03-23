@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 442 场周赛(2025-03-23 10:30, 90 分钟) 参赛人数 2684
+
+- [3492. 船上可以装载的最大集装箱数量](/solution/3400-3499/3492.Maximum%20Containers%20on%20a%20Ship/README.md)
+- [3493. 属性图](/solution/3400-3499/3493.Properties%20Graph/README.md)
+- [3494. 酿造药水需要的最少总时间](/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README.md)
+- [3495. 使数组元素都变为零的最少操作次数](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README.md)
+
 #### 第 441 场周赛(2025-03-16 10:30, 90 分钟) 参赛人数 2792
 
 - [3487. 删除后的最大子数组元素和](/solution/3400-3499/3487.Maximum%20Unique%20Subarray%20Sum%20After%20Deletion/README.md)

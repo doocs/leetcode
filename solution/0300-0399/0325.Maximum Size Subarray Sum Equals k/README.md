@@ -26,7 +26,7 @@ tags:
 
 <pre>
 <strong>输入: </strong><em>nums</em> = <code>[1,-1,5,-2,3]</code>, <em>k</em> = <code>3</code>
-<strong>输出: </strong>4
+<strong>输出: </strong>4 
 <strong>解释: </strong>子数组 <code>[1, -1, 5, -2]</code> 和等于 3，且长度最长。
 </pre>
 

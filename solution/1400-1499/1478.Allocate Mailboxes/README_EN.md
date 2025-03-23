@@ -34,7 +34,7 @@ tags:
 <strong>Input:</strong> houses = [1,4,8,10,20], k = 3
 <strong>Output:</strong> 5
 <strong>Explanation:</strong> Allocate mailboxes in position 3, 9 and 20.
-Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + |9-8| + |10-9| + |20-20| = 5
+Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + |9-8| + |10-9| + |20-20| = 5 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
