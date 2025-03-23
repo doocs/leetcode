@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/doocs-leetcode.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
@@ -232,12 +232,6 @@ graph TD;
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
 > "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
-
-## 推荐者
-
-知名互联网科技博主 [@爱可可-爱生活](https://weibo.com/fly51fly) 微博推荐。
-
-<a href="https://weibo.com/fly51fly" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/recommender-fly51fly.png"></a>
 
 ## 版权
 
