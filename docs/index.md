@@ -10,7 +10,7 @@ hide:
 <h1 style="display:none;">LeetCode Wiki</h1>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/doocs-leetcode.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
