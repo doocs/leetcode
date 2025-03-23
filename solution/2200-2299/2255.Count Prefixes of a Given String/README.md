@@ -62,11 +62,11 @@ words 中是 s = "abc" 前缀的字符串为：
 
 ### 方法一：遍历计数
 
-我们直接遍历数组 $words$，对于每个字符串 $w$，判断 $s$ 是否以 $w$ 为前缀，如果是则答案加一。
+我们直接遍历数组 $\textit{words}$，对于每个字符串 $w$，判断 $s$ 是否以 $w$ 为前缀，如果是则答案加一。
 
 遍历结束后，返回答案即可。
 
-时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是数组 $words$ 的长度和字符串 $s$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是数组 $\textit{words}$ 的长度和字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -127,6 +127,26 @@ func countPrefixes(words []string, s string) (ans int) {
 ```ts
 function countPrefixes(words: string[], s: string): number {
     return words.filter(w => s.startsWith(w)).length;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_prefixes(words: Vec<String>, s: String) -> i32 {
+        words.iter().filter(|w| s.starts_with(w.as_str())).count() as i32
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountPrefixes(string[] words, string s) {
+        return words.Count(w => s.StartsWith(w));
+    }
 }
 ```
 

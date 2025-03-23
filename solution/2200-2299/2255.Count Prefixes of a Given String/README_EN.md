@@ -42,7 +42,7 @@ Thus the number of strings in words which are a prefix of s is 3.</pre>
 <strong>Input:</strong> words = [&quot;a&quot;,&quot;a&quot;], s = &quot;aa&quot;
 <strong>Output:</strong> 2
 <strong>Explanation:
-</strong>Both of the strings are a prefix of s. 
+</strong>Both of the strings are a prefix of s.
 Note that the same string can occur multiple times in words, and it should be counted each time.</pre>
 
 <p>&nbsp;</p>
@@ -127,6 +127,26 @@ func countPrefixes(words []string, s string) (ans int) {
 ```ts
 function countPrefixes(words: string[], s: string): number {
     return words.filter(w => s.startsWith(w)).length;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_prefixes(words: Vec<String>, s: String) -> i32 {
+        words.iter().filter(|w| s.starts_with(w.as_str())).count() as i32
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountPrefixes(string[] words, string s) {
+        return words.Count(w => s.StartsWith(w));
+    }
 }
 ```
 
