@@ -31,7 +31,7 @@ tags:
 <pre>
 <strong>Input:</strong> mat = [[0,1],[1,0]]
 <strong>Output:</strong> [0,1]
-<strong>Explanation:</strong> Both rows have the same number of 1&#39;s. So we return the index of the smaller row, 0, and the maximum count of ones (1<code>)</code>. So, the answer is [0,1].
+<strong>Explanation:</strong> Both rows have the same number of 1&#39;s. So we return the index of the smaller row, 0, and the maximum count of ones (1<code>)</code>. So, the answer is [0,1]. 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
