@@ -60,32 +60,57 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3492.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+First, we calculate the maximum weight the boat can carry, which is $n \times n \times w$. Then, we take the minimum of this value and $\text{maxWeight}$, and divide it by $w$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxContainers(self, n: int, w: int, maxWeight: int) -> int:
+        return min(n * n * w, maxWeight) // w
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxContainers(int n, int w, int maxWeight) {
+        return Math.min(n * n * w, maxWeight) / w;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxContainers(int n, int w, int maxWeight) {
+        return min(n * n * w, maxWeight) / w;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxContainers(n int, w int, maxWeight int) int {
+	return min(n*n*w, maxWeight) / w
+}
+```
 
+#### TypeScript
+
+```ts
+function maxContainers(n: number, w: number, maxWeight: number): number {
+    return (Math.min(n * n * w, maxWeight) / w) | 0;
+}
 ```
 
 <!-- tabs:end -->
