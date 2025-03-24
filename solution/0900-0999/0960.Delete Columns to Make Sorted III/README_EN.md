@@ -72,7 +72,16 @@ Note that strs[0] &gt; strs[1] - the array strs is not necessarily in lexicograp
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the length of the longest non-decreasing subsequence ending at column $i$. Initially, $f[i] = 1$, and the final answer is $n - \max(f)$.
+
+To compute $f[i]$, we iterate over all $j < i$. If for all strings $s$, we have $s[j] \leq s[i]$, then we update $f[i]$ as follows:
+$$ f[i] = \max(f[i], f[j] + 1) $$
+
+Finally, we return $n - \max(f)$.
+
+The time complexity is $O(n^2 \times m)$, and the space complexity is $O(n)$, where $n$ is the length of each string in the array $\textit{strs}$, and $m$ is the number of strings in the array.
 
 <!-- tabs:start -->
 
@@ -82,12 +91,12 @@ Note that strs[0] &gt; strs[1] - the array strs is not necessarily in lexicograp
 class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:
         n = len(strs[0])
-        dp = [1] * n
-        for i in range(1, n):
+        f = [1] * n
+        for i in range(n):
             for j in range(i):
                 if all(s[j] <= s[i] for s in strs):
-                    dp[i] = max(dp[i], dp[j] + 1)
-        return n - max(dp)
+                    f[i] = max(f[i], f[j] + 1)
+        return n - max(f)
 ```
 
 #### Java
@@ -96,27 +105,23 @@ class Solution:
 class Solution {
     public int minDeletionSize(String[] strs) {
         int n = strs[0].length();
-        int[] dp = new int[n];
-        Arrays.fill(dp, 1);
-        int mx = 1;
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
         for (int i = 1; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
-                if (check(i, j, strs)) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                boolean ok = true;
+                for (String s : strs) {
+                    if (s.charAt(j) > s.charAt(i)) {
+                        ok = false;
+                        break;
+                    }
+                }
+                if (ok) {
+                    f[i] = Math.max(f[i], f[j] + 1);
                 }
             }
-            mx = Math.max(mx, dp[i]);
         }
-        return n - mx;
-    }
-
-    private boolean check(int i, int j, String[] strs) {
-        for (String s : strs) {
-            if (s.charAt(i) < s.charAt(j)) {
-                return false;
-            }
-        }
-        return true;
+        return n - Arrays.stream(f).max().getAsInt();
     }
 }
 ```
@@ -128,24 +133,15 @@ class Solution {
 public:
     int minDeletionSize(vector<string>& strs) {
         int n = strs[0].size();
-        vector<int> dp(n, 1);
-        int mx = 1;
+        vector<int> f(n, 1);
         for (int i = 1; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
-                if (check(i, j, strs)) {
-                    dp[i] = max(dp[i], dp[j] + 1);
+                if (ranges::all_of(strs, [&](const string& s) { return s[j] <= s[i]; })) {
+                    f[i] = max(f[i], f[j] + 1);
                 }
             }
-            mx = max(mx, dp[i]);
         }
-        return n - mx;
-    }
-
-    bool check(int i, int j, vector<string>& strs) {
-        for (string& s : strs)
-            if (s[i] < s[j])
-                return false;
-        return true;
+        return n - ranges::max(f);
     }
 };
 ```
@@ -155,27 +151,70 @@ public:
 ```go
 func minDeletionSize(strs []string) int {
 	n := len(strs[0])
-	dp := make([]int, n)
-	mx := 1
-	dp[0] = 1
-	check := func(i, j int) bool {
-		for _, s := range strs {
-			if s[i] < s[j] {
-				return false
-			}
-		}
-		return true
+	f := make([]int, n)
+	for i := range f {
+		f[i] = 1
 	}
 	for i := 1; i < n; i++ {
-		dp[i] = 1
 		for j := 0; j < i; j++ {
-			if check(i, j) {
-				dp[i] = max(dp[i], dp[j]+1)
+			ok := true
+			for _, s := range strs {
+				if s[j] > s[i] {
+					ok = false
+					break
+				}
+			}
+			if ok {
+				f[i] = max(f[i], f[j]+1)
 			}
 		}
-		mx = max(mx, dp[i])
 	}
-	return n - mx
+	return n - slices.Max(f)
+}
+```
+
+#### TypeScript
+
+```ts
+function minDeletionSize(strs: string[]): number {
+    const n = strs[0].length;
+    const f: number[] = Array(n).fill(1);
+    for (let i = 1; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            let ok = true;
+            for (const s of strs) {
+                if (s[j] > s[i]) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                f[i] = Math.max(f[i], f[j] + 1);
+            }
+        }
+    }
+    return n - Math.max(...f);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_deletion_size(strs: Vec<String>) -> i32 {
+        let n = strs[0].len();
+        let mut f = vec![1; n];
+
+        for i in 1..n {
+            for j in 0..i {
+                if strs.iter().all(|s| s.as_bytes()[j] <= s.as_bytes()[i]) {
+                    f[i] = f[i].max(f[j] + 1);
+                }
+            }
+        }
+
+        (n - *f.iter().max().unwrap()) as i32
+    }
 }
 ```
 
