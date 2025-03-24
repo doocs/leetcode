@@ -42,7 +42,7 @@ Thus the number of strings in words which are a prefix of s is 3.</pre>
 <strong>Input:</strong> words = [&quot;a&quot;,&quot;a&quot;], s = &quot;aa&quot;
 <strong>Output:</strong> 2
 <strong>Explanation:
-</strong>Both of the strings are a prefix of s.
+</strong>Both of the strings are a prefix of s. 
 Note that the same string can occur multiple times in words, and it should be counted each time.</pre>
 
 <p>&nbsp;</p>
