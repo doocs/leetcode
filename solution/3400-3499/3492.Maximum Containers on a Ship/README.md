@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3492.Maximum%20Containers%20on%20a%20Ship/README.md
+tags:
+    - 数学
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,11 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3491.Phone%20Number%20Prefix/README.md
+tags:
+    - 字典树
+    - 数组
+    - 字符串
+    - 排序
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,11 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3491.Phone%20Number%20Prefix/README_EN.md
+tags:
+    - Trie
+    - Array
+    - String
+    - Sorting
 ---
 
 <!-- problem:start -->
