@@ -2075,7 +2075,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2064  |  [Minimized Maximum of Products Distributed to Any Store](/solution/2000-2099/2064.Minimized%20Maximum%20of%20Products%20Distributed%20to%20Any%20Store/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Medium  |  Weekly Contest 266  |
 |  2065  |  [Maximum Path Quality of a Graph](/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/README_EN.md)  |  `Graph`,`Array`,`Backtracking`  |  Hard  |  Weekly Contest 266  |
 |  2066  |  [Account Balance](/solution/2000-2099/2066.Account%20Balance/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
-|  2067  |  [Number of Equal Count Substrings](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md)  |  `String`,`Counting`,`Prefix Sum`  |  Medium  |  🔒  |
+|  2067  |  [Number of Equal Count Substrings](/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README_EN.md)  |  `Hash Table`,`String`,`Counting`,`Sliding Window`  |  Medium  |  🔒  |
 |  2068  |  [Check Whether Two Strings are Almost Equivalent](/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Biweekly Contest 65  |
 |  2069  |  [Walking Robot Simulation II](/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README_EN.md)  |  `Design`,`Simulation`  |  Medium  |  Biweekly Contest 65  |
 |  2070  |  [Most Beautiful Item for Each Query](/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README_EN.md)  |  `Array`,`Binary Search`,`Sorting`  |  Medium  |  Biweekly Contest 65  |
@@ -3442,7 +3442,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3431  |  [Minimum Unlocked Indices to Sort Nums](/solution/3400-3499/3431.Minimum%20Unlocked%20Indices%20to%20Sort%20Nums/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  🔒  |
 |  3432  |  [Count Partitions with Even Sum Difference](/solution/3400-3499/3432.Count%20Partitions%20with%20Even%20Sum%20Difference/README_EN.md)  |  `Array`,`Math`,`Prefix Sum`  |  Easy  |  Weekly Contest 434  |
 |  3433  |  [Count Mentions Per User](/solution/3400-3499/3433.Count%20Mentions%20Per%20User/README_EN.md)  |  `Array`,`Math`,`Sorting`,`Simulation`  |  Medium  |  Weekly Contest 434  |
-|  3434  |  [Maximum Frequency After Subarray Operation](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 434  |
+|  3434  |  [Maximum Frequency After Subarray Operation](/solution/3400-3499/3434.Maximum%20Frequency%20After%20Subarray%20Operation/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Dynamic Programming`,`Enumeration`,`Prefix Sum`  |  Medium  |  Weekly Contest 434  |
 |  3435  |  [Frequencies of Shortest Supersequences](/solution/3400-3499/3435.Frequencies%20of%20Shortest%20Supersequences/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Topological Sort`,`Array`,`String`,`Enumeration`  |  Hard  |  Weekly Contest 434  |
 |  3436  |  [Find Valid Emails](/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md)  |  `Database`  |  Easy  |    |
 |  3437  |  [Permutations III](/solution/3400-3499/3437.Permutations%20III/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |  🔒  |
@@ -3504,6 +3504,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3493  |  [Properties Graph](/solution/3400-3499/3493.Properties%20Graph/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`,`Array`,`Hash Table`  |  Medium  |  Weekly Contest 442  |
 |  3494  |  [Find the Minimum Amount of Time to Brew Potions](/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README_EN.md)  |  `Array`,`Prefix Sum`,`Simulation`  |  Medium  |  Weekly Contest 442  |
 |  3495  |  [Minimum Operations to Make Array Elements Zero](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`  |  Hard  |  Weekly Contest 442  |
+|  3496  |  [Maximize Score After Pair Deletions](/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
