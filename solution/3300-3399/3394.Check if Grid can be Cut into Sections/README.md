@@ -144,7 +144,7 @@ vector<vector<int>> merge(vector<vector<int>>& intervals){
         if(result1.size()>=3)
         return true;
         vector<vector<int>> result2=merge(vert);
-        return result2.size()>=3;    
+        return result2.size()>=3;
     }
 };
 ```
