@@ -3,9 +3,10 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2067.Number%20of%20Equal%20Count%20Substrings/README.md
 tags:
+    - 哈希表
     - 字符串
     - 计数
-    - 前缀和
+    - 滑动窗口
 ---
 
 <!-- problem:start -->
