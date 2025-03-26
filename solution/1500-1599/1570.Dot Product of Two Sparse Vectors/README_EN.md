@@ -73,7 +73,13 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Map
+
+We use a hash map $d$ to store non-zero elements, where the key is the index, and the value is the corresponding value. We iterate through $\textit{nums}$, and if $\textit{nums}[i]$ is not $0$, we add $(i, \textit{nums}[i])$ to the hash map $d$.
+
+When calculating the dot product, we iterate through the hash map with fewer non-zero elements and check if the other hash map contains the corresponding key. If it exists, we multiply the corresponding values and add them to the result.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -251,6 +257,46 @@ class SparseVector {
  * var v2 = new SparseVector(nums1)
  * var ans = v1.dotProduct(v2)
  */
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+#[derive(Clone)]
+struct SparseVector {
+    d: HashMap<usize, i32>,
+}
+
+impl SparseVector {
+    fn new(nums: Vec<i32>) -> Self {
+        let mut d = HashMap::new();
+        for (i, &x) in nums.iter().enumerate() {
+            if x != 0 {
+                d.insert(i, x);
+            }
+        }
+        SparseVector { d }
+    }
+
+    fn dot_product(&self, vec: SparseVector) -> i32 {
+        let (a, b) = (&self.d, &vec.d);
+        let mut ans = 0;
+
+        if a.len() > b.len() {
+            return vec.dot_product(self.clone());
+        }
+
+        for (&i, &x) in a.iter() {
+            if let Some(&y) = b.get(&i) {
+                ans += x * y;
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
