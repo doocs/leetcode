@@ -77,7 +77,7 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 
 ### 方法一：哈希表
 
-我们用哈希表 $d$ 来存储非零元素，其中键为下标，值为对应的值。我们遍历 $nums$，如果 $nums[i]$ 不为 $0$，我们就将 $(i, nums[i])$ 加入到哈希表 $d$ 中。
+我们用哈希表 $d$ 来存储非零元素，其中键为下标，值为对应的值。我们遍历 $\textit{nums}$，如果 $\textit{nums}[i]$ 不为 $0$，我们就将 $(i, \textit{nums}[i])$ 加入到哈希表 $d$ 中。
 
 在计算点积时，我们遍历非零元素较少的哈希表，并判断另一个哈希表中是否存在对应的键，如果存在就将对应的值相乘并累加到答案中。
 
@@ -259,6 +259,46 @@ class SparseVector {
  * var v2 = new SparseVector(nums1)
  * var ans = v1.dotProduct(v2)
  */
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+#[derive(Clone)]
+struct SparseVector {
+    d: HashMap<usize, i32>,
+}
+
+impl SparseVector {
+    fn new(nums: Vec<i32>) -> Self {
+        let mut d = HashMap::new();
+        for (i, &x) in nums.iter().enumerate() {
+            if x != 0 {
+                d.insert(i, x);
+            }
+        }
+        SparseVector { d }
+    }
+
+    fn dot_product(&self, vec: SparseVector) -> i32 {
+        let (a, b) = (&self.d, &vec.d);
+        let mut ans = 0;
+
+        if a.len() > b.len() {
+            return vec.dot_product(self.clone());
+        }
+
+        for (&i, &x) in a.iter() {
+            if let Some(&y) = b.get(&i) {
+                ans += x * y;
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
