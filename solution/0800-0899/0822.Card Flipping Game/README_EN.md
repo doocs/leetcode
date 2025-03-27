@@ -59,7 +59,17 @@ There are no good integers no matter how we flip the cards, so we return 0.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We observe that for position $i$, if $\textit{fronts}[i]$ is equal to $\textit{backs}[i]$, then it certainly does not satisfy the condition.
+
+Therefore, we first identify all elements that appear the same on both the front and back sides and record them in a hash set $s$.
+
+Next, we iterate through all elements in both the front and back arrays. For any element $x$ that is **not** in the hash set $s$, we update the minimum value of the answer.
+
+Finally, if we find any element that satisfies the condition, we return the minimum answer; otherwise, we return $0$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the arrays.
 
 <!-- tabs:start -->
 
@@ -177,6 +187,43 @@ function flipgame(fronts: number[], backs: number[]): number {
         }
     }
     return ans % 9999;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn flipgame(fronts: Vec<i32>, backs: Vec<i32>) -> i32 {
+        let n = fronts.len();
+        let mut s: HashSet<i32> = HashSet::new();
+
+        for i in 0..n {
+            if fronts[i] == backs[i] {
+                s.insert(fronts[i]);
+            }
+        }
+
+        let mut ans = 9999;
+        for &v in fronts.iter() {
+            if !s.contains(&v) {
+                ans = ans.min(v);
+            }
+        }
+        for &v in backs.iter() {
+            if !s.contains(&v) {
+                ans = ans.min(v);
+            }
+        }
+
+        if ans == 9999 {
+            0
+        } else {
+            ans
+        }
+    }
 }
 ```
 
