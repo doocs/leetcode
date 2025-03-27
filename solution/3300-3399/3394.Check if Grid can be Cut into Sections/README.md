@@ -103,8 +103,6 @@ tags:
 #### Python3
 
 ```python
-from typing import List
-
 class Solution:
     def countLineIntersections(self, coordinates: List[tuple[int, int]]) -> bool:
         lines = 0
@@ -136,14 +134,16 @@ class Solution:
         y_coordinates.sort(key=lambda x: (x[0], x[1]))
         x_coordinates.sort(key=lambda x: (x[0], x[1]))
 
-        return self.countLineIntersections(y_coordinates) or self.countLineIntersections(x_coordinates)
+        return self.countLineIntersections(
+            y_coordinates
+        ) or self.countLineIntersections(x_coordinates)
 ```
 
 #### Java
 
 ```java
 class Solution {
-   // Helper class to mimic C++ pair<int, int>
+    // Helper class to mimic C++ pair<int, int>
     static class Pair {
         int value;
         int type;
@@ -173,30 +173,29 @@ class Solution {
         return lines >= 3;
     }
 
-  public boolean checkValidCuts(int n, int[][] rectangles) {
-    List<Pair> yCoordinates = new ArrayList<>();
-    List<Pair> xCoordinates = new ArrayList<>();
+    public boolean checkValidCuts(int n, int[][] rectangles) {
+        List<Pair> yCoordinates = new ArrayList<>();
+        List<Pair> xCoordinates = new ArrayList<>();
 
-    for (int[] rectangle : rectangles) {
-        // rectangle = [x1, y1, x2, y2]
-        yCoordinates.add(new Pair(rectangle[1], 1)); // y1, start
-        yCoordinates.add(new Pair(rectangle[3], 0)); // y2, end
+        for (int[] rectangle : rectangles) {
+            // rectangle = [x1, y1, x2, y2]
+            yCoordinates.add(new Pair(rectangle[1], 1)); // y1, start
+            yCoordinates.add(new Pair(rectangle[3], 0)); // y2, end
 
-        xCoordinates.add(new Pair(rectangle[0], 1)); // x1, start
-        xCoordinates.add(new Pair(rectangle[2], 0)); // x2, end
+            xCoordinates.add(new Pair(rectangle[0], 1)); // x1, start
+            xCoordinates.add(new Pair(rectangle[2], 0)); // x2, end
+        }
+
+        Comparator<Pair> comparator = (a, b) -> {
+            if (a.value != b.value) return Integer.compare(a.value, b.value);
+            return Integer.compare(a.type, b.type); // End (0) before Start (1)
+        };
+
+        Collections.sort(yCoordinates, comparator);
+        Collections.sort(xCoordinates, comparator);
+
+        return countLineIntersections(yCoordinates) || countLineIntersections(xCoordinates);
     }
-
-    Comparator<Pair> comparator = (a, b) -> {
-        if (a.value != b.value) return Integer.compare(a.value, b.value);
-        return Integer.compare(a.type, b.type); // End (0) before Start (1)
-    };
-
-    Collections.sort(yCoordinates, comparator);
-    Collections.sort(xCoordinates, comparator);
-
-    return countLineIntersections(yCoordinates) || countLineIntersections(xCoordinates);
-}
-
 }
 ```
 
@@ -204,32 +203,35 @@ class Solution {
 
 ```cpp
 class Solution {
-#define pii pair<int,int>
+#define pii pair<int, int>
 
-    bool countLineIntersections(vector<pii>& coordinates){
+    bool countLineIntersections(vector<pii>& coordinates) {
         int lines = 0;
         int overlap = 0;
-        for(int i=0;i<coordinates.size();++i){
-            if(coordinates[i].second==0)    overlap--;
-            else                            overlap++;
-            if(overlap==0)
+        for (int i = 0; i < coordinates.size(); ++i) {
+            if (coordinates[i].second == 0)
+                overlap--;
+            else
+                overlap++;
+            if (overlap == 0)
                 lines++;
         }
-        return lines>=3;
+        return lines >= 3;
     }
+
 public:
     bool checkValidCuts(int n, vector<vector<int>>& rectangles) {
-        vector<pii> y_cordinates,x_cordinates;
-        for(auto& rectangle: rectangles){
-            y_cordinates.push_back(make_pair(rectangle[1],1));
-            y_cordinates.push_back(make_pair(rectangle[3],0));
-            x_cordinates.push_back(make_pair(rectangle[0],1));
-            x_cordinates.push_back(make_pair(rectangle[2],0));
+        vector<pii> y_cordinates, x_cordinates;
+        for (auto& rectangle : rectangles) {
+            y_cordinates.push_back(make_pair(rectangle[1], 1));
+            y_cordinates.push_back(make_pair(rectangle[3], 0));
+            x_cordinates.push_back(make_pair(rectangle[0], 1));
+            x_cordinates.push_back(make_pair(rectangle[2], 0));
         }
-        sort(y_cordinates.begin(),y_cordinates.end());
-        sort(x_cordinates.begin(),x_cordinates.end());
+        sort(y_cordinates.begin(), y_cordinates.end());
+        sort(x_cordinates.begin(), x_cordinates.end());
 
-        //Line-Sweep on x and y cordinates
+        // Line-Sweep on x and y cordinates
         return (countLineIntersections(y_cordinates) or countLineIntersections(x_cordinates));
     }
 };
@@ -239,8 +241,8 @@ public:
 
 ```go
 type Pair struct {
-	val  int
-	typ  int // 1 = start, 0 = end
+	val int
+	typ int // 1 = start, 0 = end
 }
 
 func countLineIntersections(coords []Pair) bool {
