@@ -66,7 +66,7 @@ tags:
 
 ### 方法一：哈希表
 
-我们注意到，对于位置 $i$，若 $fronts[i]$ 与 $backs[i]$ 元素相同，则一定不满足条件。
+我们注意到，对于位置 $i$，若 $\textit{fronts}[i]$ 与 $\textit{backs}[i]$ 元素相同，则一定不满足条件。
 
 因此，我们先找出正面与背面相同的元素，记录在哈希表 $s$ 中。
 
@@ -192,6 +192,43 @@ function flipgame(fronts: number[], backs: number[]): number {
         }
     }
     return ans % 9999;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn flipgame(fronts: Vec<i32>, backs: Vec<i32>) -> i32 {
+        let n = fronts.len();
+        let mut s: HashSet<i32> = HashSet::new();
+
+        for i in 0..n {
+            if fronts[i] == backs[i] {
+                s.insert(fronts[i]);
+            }
+        }
+
+        let mut ans = 9999;
+        for &v in fronts.iter() {
+            if !s.contains(&v) {
+                ans = ans.min(v);
+            }
+        }
+        for &v in backs.iter() {
+            if !s.contains(&v) {
+                ans = ans.min(v);
+            }
+        }
+
+        if ans == 9999 {
+            0
+        } else {
+            ans
+        }
+    }
 }
 ```
 
