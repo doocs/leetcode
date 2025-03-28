@@ -3505,6 +3505,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3494  |  [Find the Minimum Amount of Time to Brew Potions](/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README_EN.md)  |  `Array`,`Prefix Sum`,`Simulation`  |  Medium  |  Weekly Contest 442  |
 |  3495  |  [Minimum Operations to Make Array Elements Zero](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`  |  Hard  |  Weekly Contest 442  |
 |  3496  |  [Maximize Score After Pair Deletions](/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README_EN.md)  |    |  Medium  |  🔒  |
+|  3497  |  [Analyze Subscription Conversion](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 
