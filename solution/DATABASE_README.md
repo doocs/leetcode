@@ -313,6 +313,7 @@
 | 3465 | [查找具有有效序列号的产品](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)                                             | `数据库` | 简单 |      |
 | 3475 | [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)                                                                               |          | 中等 |      |
 | 3482 | [分析组织层级](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README.md)                                                                        | `数据库` | 困难 |      |
+| 3497 | [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)                                                                       |          | 中等 |      |
 
 ## 版权
 

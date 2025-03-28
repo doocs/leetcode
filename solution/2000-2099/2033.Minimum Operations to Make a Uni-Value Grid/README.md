@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>输入：</strong>grid = [[2,4],[6,8]], x = 2
 <strong>输出：</strong>4
-<strong>解释：</strong>可以执行下述操作使所有元素都等于 4 ：
+<strong>解释：</strong>可以执行下述操作使所有元素都等于 4 ： 
 - 2 加 x 一次。
 - 6 减 x 一次。
 - 8 减 x 两次。

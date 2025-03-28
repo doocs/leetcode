@@ -3507,6 +3507,7 @@
 |  3494  |  [酿造药水需要的最少总时间](/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README.md)  |  `数组`,`前缀和`,`模拟`  |  中等  |  第 442 场周赛  |
 |  3495  |  [使数组元素都变为零的最少操作次数](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README.md)  |  `位运算`,`数组`,`数学`  |  困难  |  第 442 场周赛  |
 |  3496  |  [最大化配对删除后的得分](/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README.md)  |    |  中等  |  🔒  |
+|  3497  |  [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)  |    |  中等  |    |
 
 ## 版权
 

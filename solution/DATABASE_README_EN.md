@@ -311,6 +311,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3465 | [Find Products with Valid Serial Numbers](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README_EN.md)                                                           | `Database` | Easy       |        |
 | 3475 | [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README_EN.md)                                                                                                 |            | Medium     |        |
 | 3482 | [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md)                                                                                   | `Database` | Hard       |        |
+| 3497 | [Analyze Subscription Conversion](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README_EN.md)                                                                                 |            | Medium     |        |
 
 ## Copyright
 
