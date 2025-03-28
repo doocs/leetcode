@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> grid = [[2,4],[6,8]], x = 2
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> We can make every element equal to 4 by doing the following: 
+<strong>Explanation:</strong> We can make every element equal to 4 by doing the following:
 - Add x to 2 once.
 - Subtract x from 6 once.
 - Subtract x from 8 twice.
@@ -183,6 +183,44 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minOperations(grid: number[][], x: number): number {
+    const arr = grid.flat(2);
+    arr.sort((a, b) => a - b);
+    const median = arr[Math.floor(arr.length / 2)];
+
+    let res = 0;
+    for (const val of arr) {
+        const c = Math.abs(val - median) / x;
+        if (c !== (c | 0)) return -1;
+        res += c;
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function minOperations(grid, x) {
+    const arr = grid.flat(2);
+    arr.sort((a, b) => a - b);
+    const median = arr[Math.floor(arr.length / 2)];
+
+    let res = 0;
+    for (const val of arr) {
+        const c = Math.abs(val - median) / x;
+        if (c !== (c | 0)) return -1;
+        res += c;
+    }
+
+    return res;
 }
 ```
 

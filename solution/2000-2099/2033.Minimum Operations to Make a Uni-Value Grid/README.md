@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>输入：</strong>grid = [[2,4],[6,8]], x = 2
 <strong>输出：</strong>4
-<strong>解释：</strong>可以执行下述操作使所有元素都等于 4 ： 
+<strong>解释：</strong>可以执行下述操作使所有元素都等于 4 ：
 - 2 加 x 一次。
 - 6 减 x 一次。
 - 8 减 x 两次。
@@ -191,6 +191,44 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minOperations(grid: number[][], x: number): number {
+    const arr = grid.flat(2);
+    arr.sort((a, b) => a - b);
+    const median = arr[Math.floor(arr.length / 2)];
+
+    let res = 0;
+    for (const val of arr) {
+        const c = Math.abs(val - median) / x;
+        if (c !== (c | 0)) return -1;
+        res += c;
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function minOperations(grid, x) {
+    const arr = grid.flat(2);
+    arr.sort((a, b) => a - b);
+    const median = arr[Math.floor(arr.length / 2)];
+
+    let res = 0;
+    for (const val of arr) {
+        const c = Math.abs(val - median) / x;
+        if (c !== (c | 0)) return -1;
+        res += c;
+    }
+
+    return res;
 }
 ```
 
