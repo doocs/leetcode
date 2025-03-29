@@ -102,7 +102,24 @@ Based on that, we return true.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can simulate the robot's movement. Use a variable $k$ to represent the robot's direction, initialized to $0$, which means the robot is facing north. The variable $k$ can take values in the range $[0, 3]$, representing the robot facing north, west, south, and east, respectively. Additionally, we use an array $dist$ of length $4$ to record the distance the robot travels in the four directions, initialized to $[0, 0, 0, 0]$.
+
+Traverse the instruction string $\textit{instructions}$. If the current instruction is `'L'`, the robot turns west, i.e., $k = (k + 1) \bmod 4$; if the instruction is `'R'`, the robot turns east, i.e., $k = (k + 3) \bmod 4$; otherwise, the robot moves one step in the current direction, i.e., $dist[k]++$.
+
+If the given instruction string $\textit{instructions}$ is executed once and the robot returns to the origin, i.e., $dist[0] = dist[2]$ and $dist[1] = dist[3]$, then the robot will definitely enter a loop. This is because no matter how many times the instructions are repeated, the robot always returns to the origin, so it must enter a loop.
+
+If the given instruction string $\textit{instructions}$ is executed once and the robot does not return to the origin, suppose the robot is at $(x, y)$ and its direction is $k$.
+
+-   If $k=0$, i.e., the robot is facing north, then after executing the instructions a second time, the coordinate change is $(x, y)$; after executing the instructions a third time, the coordinate change is still $(x, y)$... Accumulating these changes, the robot will eventually reach $(n \times x, n \times y)$, where $n$ is a positive integer. Since the robot does not return to the origin, i.e., $x \neq 0$ or $y \neq 0$, it follows that $n \times x \neq 0$ or $n \times y \neq 0$, so the robot will not enter a loop;
+-   If $k=1$, i.e., the robot is facing west, then after executing the instructions a second time, the coordinate change is $(-y, x)$; after executing the instructions a third time, the coordinate change is $(-x, -y)$; after executing the instructions a fourth time, the coordinate change is $(y, -x)$. Accumulating these coordinate changes, we find that the robot will eventually return to the origin $(0, 0)$;
+-   If $k=2$, i.e., the robot is facing south, then after executing the instructions a second time, the coordinate change is $(-x, -y)$. Accumulating these two coordinate changes, we find that the robot will eventually return to the origin $(0, 0)$;
+-   If $k=3$, i.e., the robot is facing east, then after executing the instructions a second time, the coordinate change is $(y, -x)$; after executing the instructions a third time, the coordinate change is $(-x, -y)$; after executing the instructions a fourth time, the coordinate change is $(-y, x)$. Accumulating these coordinate changes, we find that the robot will eventually return to the origin $(0, 0)$.
+
+In conclusion, if the given instruction string $\textit{instructions}$ is executed once and the robot returns to the origin, or if the robot's direction is different from the initial direction, then the robot will definitely enter a loop.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the instruction string $\textit{instructions}$.
 
 <!-- tabs:start -->
 
