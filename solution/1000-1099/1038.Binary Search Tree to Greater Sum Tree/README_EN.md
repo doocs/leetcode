@@ -64,7 +64,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+Traverse the binary search tree in the order of "right-root-left". Accumulate all the node values encountered into $s$, and assign the accumulated value to the corresponding `node`.
+
+Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
 
 <!-- tabs:start -->
 
@@ -78,12 +82,12 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def bstToGst(self, root: TreeNode) -> TreeNode:
-        def dfs(root):
-            nonlocal s
+    def bstToGst(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def dfs(root: Optional[TreeNode]):
             if root is None:
                 return
             dfs(root.right)
+            nonlocal s
             s += root.val
             root.val = s
             dfs(root.left)
@@ -147,19 +151,19 @@ class Solution {
  */
 class Solution {
 public:
-    int s = 0;
-
     TreeNode* bstToGst(TreeNode* root) {
+        int s = 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->right);
+            s += root->val;
+            root->val = s;
+            dfs(root->left);
+        };
         dfs(root);
         return root;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->right);
-        s += root->val;
-        root->val = s;
-        dfs(root->left);
     }
 };
 ```
@@ -210,17 +214,17 @@ func bstToGst(root *TreeNode) *TreeNode {
  */
 
 function bstToGst(root: TreeNode | null): TreeNode | null {
-    const dfs = (root: TreeNode | null, sum: number) => {
-        if (root == null) {
-            return sum;
+    let s = 0;
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
         }
-        const { val, left, right } = root;
-        sum = dfs(right, sum) + val;
-        root.val = sum;
-        sum = dfs(left, sum);
-        return sum;
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
     };
-    dfs(root, 0);
+    dfs(root);
     return root;
 }
 ```
@@ -246,22 +250,24 @@ function bstToGst(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::cell::RefCell;
 use std::rc::Rc;
+use std::cell::RefCell;
+
 impl Solution {
-    fn dfs(root: &mut Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
-        if let Some(node) = root {
-            let mut node = node.as_ref().borrow_mut();
-            sum = Self::dfs(&mut node.right, sum) + node.val;
-            node.val = sum;
-            sum = Self::dfs(&mut node.left, sum);
-        }
-        sum
+    pub fn bst_to_gst(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        let mut s = 0;
+        Self::dfs(&root, &mut s);
+        root
     }
 
-    pub fn bst_to_gst(mut root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
-        Self::dfs(&mut root, 0);
-        root
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, s: &mut i32) {
+        if let Some(node) = root {
+            let mut node = node.borrow_mut();
+            Self::dfs(&node.right, s);
+            *s += node.val;
+            node.val = *s;
+            Self::dfs(&node.left, s);
+        }
     }
 }
 ```
@@ -330,7 +336,20 @@ struct TreeNode* bstToGst(struct TreeNode* root) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Morris Traversal
+
+Morris traversal does not require a stack, with a time complexity of $O(n)$ and a space complexity of $O(1)$. The core idea is as follows:
+
+Define $s$ as the cumulative sum of the node values in the binary search tree. Traverse the binary tree nodes:
+
+1. If the right subtree of the current node `root` is null, **add the current node value to $s$**, update the current node value to $s$, and move the current node to `root.left`.
+2. If the right subtree of the current node `root` is not null, find the leftmost node `next` in the right subtree (i.e., the successor node of `root` in an in-order traversal):
+    - If the left subtree of the successor node `next` is null, set the left subtree of `next` to point to the current node `root`, and move the current node to `root.right`.
+    - If the left subtree of the successor node `next` is not null, **add the current node value to $s$**, update the current node value to $s$, then set the left subtree of `next` to null (i.e., remove the link between `next` and `root`), and move the current node to `root.left`.
+3. Repeat the above steps until the binary tree nodes are null, at which point the traversal is complete.
+4. Finally, return the root node of the binary search tree.
+
+> Morris reverse in-order traversal follows the same idea as Morris in-order traversal, except that the traversal order changes from "left-root-right" to "right-root-left".
 
 <!-- tabs:start -->
 

@@ -5,12 +5,12 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def bstToGst(self, root: TreeNode) -> TreeNode:
-        def dfs(root):
-            nonlocal s
+    def bstToGst(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def dfs(root: Optional[TreeNode]):
             if root is None:
                 return
             dfs(root.right)
+            nonlocal s
             s += root.val
             root.val = s
             dfs(root.left)
