@@ -73,7 +73,15 @@ Hence, [1,2,3] is a valid answer. Other valid answers include [1,2,4], [1,4,2], 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We first construct a graph $g$ based on the array $\textit{paths}$, where $g[x]$ represents the list of gardens adjacent to garden $x$.
+
+Next, for each garden $x$, we first find the gardens $y$ adjacent to $x$ and mark the types of flowers planted in garden $y$ as used. Then, we enumerate the flower types starting from $1$ until we find a flower type $c$ that has not been used. We assign $c$ as the flower type for garden $x$ and continue to the next garden.
+
+After the enumeration is complete, we return the result.
+
+The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$, where $n$ is the number of gardens and $m$ is the number of paths.
 
 <!-- tabs:start -->
 
@@ -190,14 +198,14 @@ func gardenNoAdj(n int, paths [][]int) []int {
 
 ```ts
 function gardenNoAdj(n: number, paths: number[][]): number[] {
-    const g: number[][] = new Array(n).fill(0).map(() => []);
+    const g: number[][] = Array.from({ length: n }, () => []);
     for (const [x, y] of paths) {
         g[x - 1].push(y - 1);
         g[y - 1].push(x - 1);
     }
-    const ans: number[] = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let x = 0; x < n; ++x) {
-        const used: boolean[] = new Array(5).fill(false);
+        const used: boolean[] = Array(5).fill(false);
         for (const y of g[x]) {
             used[ans[y]] = true;
         }
@@ -209,6 +217,38 @@ function gardenNoAdj(n: number, paths: number[][]): number[] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn garden_no_adj(n: i32, paths: Vec<Vec<i32>>) -> Vec<i32> {
+        let n = n as usize;
+        let mut g = vec![vec![]; n];
+
+        for path in paths {
+            let (x, y) = (path[0] as usize - 1, path[1] as usize - 1);
+            g[x].push(y);
+            g[y].push(x);
+        }
+
+        let mut ans = vec![0; n];
+        for x in 0..n {
+            let mut used = [false; 5];
+            for &y in &g[x] {
+                used[ans[y] as usize] = true;
+            }
+            for c in 1..5 {
+                if !used[c] {
+                    ans[x] = c as i32;
+                    break;
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
