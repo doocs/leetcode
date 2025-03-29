@@ -47,7 +47,18 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Slope Comparison
+
+Let the three points be $(x_1, y_1)$, $(x_2, y_2)$, and $(x_3, y_3)$. The formula for calculating the slope between two points is $\frac{y_2 - y_1}{x_2 - x_1}$.
+
+To ensure that the three points are not collinear, the condition $\frac{y_2 - y_1}{x_2 - x_1} \neq \frac{y_3 - y_2}{x_3 - x_2}$ must be satisfied. By transforming the equation, we get $(y_2 - y_1) \cdot (x_3 - x_2) \neq (y_3 - y_2) \cdot (x_2 - x_1)$.
+
+Note:
+
+1. When the slope between two points does not exist, i.e., $x_1 = x_2$, the transformed equation still holds.
+2. If there are precision issues with division in slope comparison, it can be converted to multiplication.
+
+Time complexity is $O(1)$.
 
 <!-- tabs:start -->
 
