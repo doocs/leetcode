@@ -107,32 +107,155 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3499.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Two Pointers
+
+The problem is essentially equivalent to finding the number of `'1'` characters in the string $\textit{s}$, plus the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments.
+
+Thus, we can use two pointers to traverse the string $\textit{s}$. Use a variable $\textit{mx}$ to record the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments. We also need a variable $\textit{pre}$ to record the number of `'0'` characters in the previous consecutive `'0'` segment.
+
+Each time, we count the number of consecutive identical characters $\textit{cnt}$. If the current character is `'1'`, add $\textit{cnt}$ to the answer. If the current character is `'0'`, update $\textit{mx}$ as $\textit{mx} = \max(\textit{mx}, \textit{pre} + \textit{cnt})$, and update $\textit{pre}$ to $\textit{cnt}$. Finally, add $\textit{mx}$ to the answer.
+
+Time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxActiveSectionsAfterTrade(self, s: str) -> int:
+        n = len(s)
+        ans = i = 0
+        pre, mx = -inf, 0
+        while i < n:
+            j = i + 1
+            while j < n and s[j] == s[i]:
+                j += 1
+            cur = j - i
+            if s[i] == "1":
+                ans += cur
+            else:
+                mx = max(mx, pre + cur)
+                pre = cur
+            i = j
+        ans += mx
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int maxActiveSectionsAfterTrade(String s) {
+        int n = s.length();
+        int ans = 0, i = 0;
+        int pre = Integer.MIN_VALUE, mx = 0;
 
+        while (i < n) {
+            int j = i + 1;
+            while (j < n && s.charAt(j) == s.charAt(i)) {
+                j++;
+            }
+            int cur = j - i;
+            if (s.charAt(i) == '1') {
+                ans += cur;
+            } else {
+                mx = Math.max(mx, pre + cur);
+                pre = cur;
+            }
+            i = j;
+        }
+
+        ans += mx;
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maxActiveSectionsAfterTrade(std::string s) {
+        int n = s.length();
+        int ans = 0, i = 0;
+        int pre = INT_MIN, mx = 0;
 
+        while (i < n) {
+            int j = i + 1;
+            while (j < n && s[j] == s[i]) {
+                j++;
+            }
+            int cur = j - i;
+            if (s[i] == '1') {
+                ans += cur;
+            } else {
+                mx = std::max(mx, pre + cur);
+                pre = cur;
+            }
+            i = j;
+        }
+
+        ans += mx;
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxActiveSectionsAfterTrade(s string) (ans int) {
+	n := len(s)
+	pre, mx := math.MinInt, 0
 
+	for i := 0; i < n; {
+		j := i + 1
+		for j < n && s[j] == s[i] {
+			j++
+		}
+		cur := j - i
+		if s[i] == '1' {
+			ans += cur
+		} else {
+			mx = max(mx, pre+cur)
+			pre = cur
+		}
+		i = j
+	}
+
+	ans += mx
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxActiveSectionsAfterTrade(s: string): number {
+    let n = s.length;
+    let [ans, mx] = [0, 0];
+    let pre = Number.MIN_SAFE_INTEGER;
+
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        while (j < n && s[j] === s[i]) {
+            j++;
+        }
+        let cur = j - i;
+        if (s[i] === '1') {
+            ans += cur;
+        } else {
+            mx = Math.max(mx, pre + cur);
+            pre = cur;
+        }
+        i = j;
+    }
+
+    ans += mx;
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
