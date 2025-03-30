@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 153 场双周赛(2025-03-29 22:30, 90 分钟) 参赛人数 1901
+
+- [3498. 字符串的反转度](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README.md)
+- [3499. 操作后最大活跃区段数 I](/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README.md)
+- [3500. 将数组分割为子数组的最小代价](/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README.md)
+- [3501. 操作后最大活跃区段数 II](/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README.md)
+
 #### 第 442 场周赛(2025-03-23 10:30, 90 分钟) 参赛人数 2684
 
 - [3492. 船上可以装载的最大集装箱数量](/solution/3400-3499/3492.Maximum%20Containers%20on%20a%20Ship/README.md)

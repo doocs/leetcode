@@ -3508,6 +3508,10 @@
 |  3495  |  [使数组元素都变为零的最少操作次数](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README.md)  |  `位运算`,`数组`,`数学`  |  困难  |  第 442 场周赛  |
 |  3496  |  [最大化配对删除后的得分](/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README.md)  |    |  中等  |  🔒  |
 |  3497  |  [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)  |    |  中等  |    |
+|  3498  |  [字符串的反转度](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README.md)  |    |  简单  |  第 153 场双周赛  |
+|  3499  |  [操作后最大活跃区段数 I](/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README.md)  |    |  中等  |  第 153 场双周赛  |
+|  3500  |  [将数组分割为子数组的最小代价](/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README.md)  |    |  困难  |  第 153 场双周赛  |
+|  3501  |  [操作后最大活跃区段数 II](/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README.md)  |    |  困难  |  第 153 场双周赛  |
 
 ## 版权
 

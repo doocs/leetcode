@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 153
+
+- [3498. Reverse Degree of a String](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README_EN.md)
+- [3499. Maximize Active Section with Trade I](/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README_EN.md)
+- [3500. Minimum Cost to Divide Array Into Subarrays](/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README_EN.md)
+- [3501. Maximize Active Section with Trade II](/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README_EN.md)
+
 #### Weekly Contest 442
 
 - [3492. Maximum Containers on a Ship](/solution/3400-3499/3492.Maximum%20Containers%20on%20a%20Ship/README_EN.md)
