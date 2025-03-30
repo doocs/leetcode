@@ -130,32 +130,82 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3498.Re
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以模拟字符串中每个字符的反转度。对于每个字符，我们计算它在反转字母表中的位置，然后乘以它在字符串中的位置，最后将所有结果相加即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def reverseDegree(self, s: str) -> int:
+        ans = 0
+        for i, c in enumerate(s, 1):
+            x = 26 - (ord(c) - ord("a"))
+            ans += i * x
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int reverseDegree(String s) {
+        int n = s.length();
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = 26 - (s.charAt(i - 1) - 'a');
+            ans += i * x;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int reverseDegree(string s) {
+        int n = s.length();
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = 26 - (s[i - 1] - 'a');
+            ans += i * x;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func reverseDegree(s string) (ans int) {
+	for i, c := range s {
+		x := 26 - int(c-'a')
+		ans += (i + 1) * x
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function reverseDegree(s: string): number {
+    let ans = 0;
+    for (let i = 1; i <= s.length; ++i) {
+        const x = 26 - (s.charCodeAt(i - 1) - 'a'.charCodeAt(0));
+        ans += i * x;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

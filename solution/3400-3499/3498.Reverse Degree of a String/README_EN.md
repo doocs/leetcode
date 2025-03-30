@@ -128,32 +128,82 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3498.Re
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can simulate the reverse degree of each character in the string. For each character, calculate its position in the reverse alphabet, multiply it by its position in the string, and then sum up all the results.
+
+Time complexity is $O(n)$, where $n$ is the length of the string. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def reverseDegree(self, s: str) -> int:
+        ans = 0
+        for i, c in enumerate(s, 1):
+            x = 26 - (ord(c) - ord("a"))
+            ans += i * x
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int reverseDegree(String s) {
+        int n = s.length();
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = 26 - (s.charAt(i - 1) - 'a');
+            ans += i * x;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int reverseDegree(string s) {
+        int n = s.length();
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = 26 - (s[i - 1] - 'a');
+            ans += i * x;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func reverseDegree(s string) (ans int) {
+	for i, c := range s {
+		x := 26 - int(c-'a')
+		ans += (i + 1) * x
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function reverseDegree(s: string): number {
+    let ans = 0;
+    for (let i = 1; i <= s.length; ++i) {
+        const x = 26 - (s.charCodeAt(i - 1) - 'a'.charCodeAt(0));
+        ans += i * x;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
