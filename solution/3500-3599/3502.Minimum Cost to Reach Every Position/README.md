@@ -77,32 +77,95 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3502.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+根据题目描述，每个位置 $i$ 的最小费用，就是从 $0$ 到 $i$ 的最小费用。我们可以用一个变量 $\textit{mi}$ 来记录从 $0$ 到 $i$ 的最小费用。
+
+我们从 $0$ 开始遍历每个位置 $i$，每次更新 $\textit{mi}$ 为 $\text{min}(\textit{mi}, \text{cost}[i])$，然后将 $\textit{mi}$ 赋值给答案数组的第 $i$ 个位置。
+
+最后返回答案数组即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{cost}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCosts(self, cost: List[int]) -> List[int]:
+        n = len(cost)
+        ans = [0] * n
+        mi = cost[0]
+        for i, c in enumerate(cost):
+            mi = min(mi, c)
+            ans[i] = mi
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] minCosts(int[] cost) {
+        int n = cost.length;
+        int[] ans = new int[n];
+        int mi = cost[0];
+        for (int i = 0; i < n; ++i) {
+            mi = Math.min(mi, cost[i]);
+            ans[i] = mi;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minCosts(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> ans(n);
+        int mi = cost[0];
+        for (int i = 0; i < n; ++i) {
+            mi = min(mi, cost[i]);
+            ans[i] = mi;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCosts(cost []int) []int {
+	n := len(cost)
+	ans := make([]int, n)
+	mi := cost[0]
+	for i, c := range cost {
+		mi = min(mi, c)
+		ans[i] = mi
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minCosts(cost: number[]): number[] {
+    const n = cost.length;
+    const ans: number[] = Array(n).fill(0);
+    let mi = cost[0];
+    for (let i = 0; i < n; ++i) {
+        mi = Math.min(mi, cost[i]);
+        ans[i] = mi;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
