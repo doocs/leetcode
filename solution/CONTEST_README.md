@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 443 场周赛(2025-03-30 10:30, 90 分钟) 参赛人数 2492
+
+- [3502. 到达每个位置的最小费用](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README.md)
+- [3503. 子字符串连接后的最长回文串 I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README.md)
+- [3504. 子字符串连接后的最长回文串 II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README.md)
+- [3505. 使 K 个子数组内元素相等的最少操作数](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README.md)
+
 #### 第 153 场双周赛(2025-03-29 22:30, 90 分钟) 参赛人数 1901
 
 - [3498. 字符串的反转度](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README.md)

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 443
+
+- [3502. Minimum Cost to Reach Every Position](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README_EN.md)
+- [3503. Longest Palindrome After Substring Concatenation I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README_EN.md)
+- [3504. Longest Palindrome After Substring Concatenation II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README_EN.md)
+- [3505. Minimum Operations to Make Elements Within K Subarrays Equal](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README_EN.md)
+
 #### Biweekly Contest 153
 
 - [3498. Reverse Degree of a String](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README_EN.md)
