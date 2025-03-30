@@ -83,10 +83,10 @@ class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
         s = set(nums)
         ans = -1
-        for v in nums:
+        for x in nums:
             t = 0
-            while v in s:
-                v *= v
+            while x in s:
+                x *= x
                 t += 1
             if t > 1:
                 ans = max(ans, t)
@@ -98,15 +98,14 @@ class Solution:
 ```java
 class Solution {
     public int longestSquareStreak(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            s.add(v);
+        Set<Long> s = new HashSet<>();
+        for (long x : nums) {
+            s.add(x);
         }
         int ans = -1;
-        for (int v : nums) {
+        for (long x : s) {
             int t = 0;
-            while (s.contains(v)) {
-                v *= v;
+            for (; s.contains(x); x *= x) {
                 ++t;
             }
             if (t > 1) {
@@ -126,14 +125,14 @@ public:
     int longestSquareStreak(vector<int>& nums) {
         unordered_set<long long> s(nums.begin(), nums.end());
         int ans = -1;
-        for (int& v : nums) {
+        for (long long x : nums) {
             int t = 0;
-            long long x = v;
-            while (s.count(x)) {
-                x *= x;
+            for (; s.contains(x); x *= x) {
                 ++t;
             }
-            if (t > 1) ans = max(ans, t);
+            if (t > 1) {
+                ans = max(ans, t);
+            }
         }
         return ans;
     }
@@ -145,22 +144,76 @@ public:
 ```go
 func longestSquareStreak(nums []int) int {
 	s := map[int]bool{}
-	for _, v := range nums {
-		s[v] = true
+	for _, x := range nums {
+		s[x] = true
 	}
 	ans := -1
-	for _, v := range nums {
+	for x := range s {
 		t := 0
-		for s[v] {
-			v *= v
+		for s[x] {
+			x *= x
 			t++
 		}
-		if t > 1 && t > ans {
-			ans = t
+		if t > 1 {
+			ans = max(ans, t)
 		}
 	}
 	return ans
 }
+```
+
+#### TypeScript
+
+```ts
+function longestSquareStreak(nums: number[]): number {
+    const s = new Set(nums);
+    let ans = -1;
+
+    for (const num of nums) {
+        let x = num;
+        let t = 0;
+
+        while (s.has(x)) {
+            x *= x;
+            t += 1;
+        }
+
+        if (t > 1) {
+            ans = Math.max(ans, t);
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestSquareStreak = function (nums) {
+    const s = new Set(nums);
+    let ans = -1;
+
+    for (const num of nums) {
+        let x = num;
+        let t = 0;
+
+        while (s.has(x)) {
+            x *= x;
+            t += 1;
+        }
+
+        if (t > 1) {
+            ans = Math.max(ans, t);
+        }
+    }
+
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
@@ -190,13 +243,13 @@ func longestSquareStreak(nums []int) int {
 class Solution:
     def longestSquareStreak(self, nums: List[int]) -> int:
         @cache
-        def dfs(x):
+        def dfs(x: int) -> int:
             if x not in s:
                 return 0
             return 1 + dfs(x * x)
 
         s = set(nums)
-        ans = max(dfs(x) for x in nums)
+        ans = max(dfs(x) for x in s)
         return -1 if ans < 2 else ans
 ```
 
@@ -204,21 +257,21 @@ class Solution:
 
 ```java
 class Solution {
-    private Map<Integer, Integer> f = new HashMap<>();
-    private Set<Integer> s = new HashSet<>();
+    private Map<Long, Integer> f = new HashMap<>();
+    private Set<Long> s = new HashSet<>();
 
     public int longestSquareStreak(int[] nums) {
-        for (int v : nums) {
-            s.add(v);
+        for (long x : nums) {
+            s.add(x);
         }
         int ans = 0;
-        for (int v : nums) {
-            ans = Math.max(ans, dfs(v));
+        for (long x : s) {
+            ans = Math.max(ans, dfs(x));
         }
         return ans < 2 ? -1 : ans;
     }
 
-    private int dfs(int x) {
+    private int dfs(long x) {
         if (!s.contains(x)) {
             return 0;
         }
@@ -240,16 +293,20 @@ public:
     int longestSquareStreak(vector<int>& nums) {
         unordered_set<long long> s(nums.begin(), nums.end());
         int ans = 0;
-        unordered_map<int, int> f;
-        function<int(int)> dfs = [&](int x) -> int {
-            if (!s.count(x)) return 0;
-            if (f.count(x)) return f[x];
-            long long t = 1ll * x * x;
-            if (t > INT_MAX) return 1;
+        unordered_map<long long, int> f;
+        auto dfs = [&](this auto&& dfs, long long x) -> int {
+            if (!s.contains(x)) {
+                return 0;
+            }
+            if (f.contains(x)) {
+                return f[x];
+            }
             f[x] = 1 + dfs(x * x);
             return f[x];
         };
-        for (int& v : nums) ans = max(ans, dfs(v));
+        for (long long x : s) {
+            ans = max(ans, dfs(x));
+        }
         return ans < 2 ? -1 : ans;
     }
 };
@@ -260,8 +317,8 @@ public:
 ```go
 func longestSquareStreak(nums []int) (ans int) {
 	s := map[int]bool{}
-	for _, v := range nums {
-		s[v] = true
+	for _, x := range nums {
+		s[x] = true
 	}
 	f := map[int]int{}
 	var dfs func(int) int
@@ -275,8 +332,8 @@ func longestSquareStreak(nums []int) (ans int) {
 		f[x] = 1 + dfs(x*x)
 		return f[x]
 	}
-	for _, v := range nums {
-		if t := dfs(v); ans < t {
+	for x := range s {
+		if t := dfs(x); ans < t {
 			ans = t
 		}
 	}
@@ -291,18 +348,23 @@ func longestSquareStreak(nums []int) (ans int) {
 
 ```ts
 function longestSquareStreak(nums: number[]): number {
-    const set = new Set(nums);
-    const cache = new Map<number, number>();
+    const s = new Set(nums);
+    const f = new Map<number, number>();
     const dfs = (x: number): number => {
-        if (cache.has(x)) return cache.get(x)!;
-        if (!set.has(x)) return 0;
-        cache.set(x, 1 + dfs(x ** 2));
-        return cache.get(x)!;
+        if (f.has(x)) {
+            return f.get(x)!;
+        }
+        if (!s.has(x)) {
+            return 0;
+        }
+        f.set(x, 1 + dfs(x ** 2));
+        return f.get(x)!;
     };
 
-    for (const x of set) dfs(x);
-    const ans = Math.max(...cache.values());
-
+    for (const x of s) {
+        dfs(x);
+    }
+    const ans = Math.max(...f.values());
     return ans > 1 ? ans : -1;
 }
 ```
@@ -310,111 +372,30 @@ function longestSquareStreak(nums: number[]): number {
 #### JavaScript
 
 ```js
-function longestSquareStreak(nums) {
-    const set = new Set(nums);
-    const cache = new Map();
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestSquareStreak = function (nums) {
+    const s = new Set(nums);
+    const f = new Map();
     const dfs = x => {
-        if (cache.has(x)) return cache.get(x);
-        if (!set.has(x)) return 0;
-        cache.set(x, 1 + dfs(x ** 2));
-        return cache.get(x);
+        if (f.has(x)) {
+            return f.get(x);
+        }
+        if (!s.has(x)) {
+            return 0;
+        }
+        f.set(x, 1 + dfs(x ** 2));
+        return f.get(x);
     };
 
-    for (const x of set) dfs(x);
-    const ans = Math.max(...cache.values());
-
+    for (const x of s) {
+        dfs(x);
+    }
+    const ans = Math.max(...f.values());
     return ans > 1 ? ans : -1;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法三：计数
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function longestSquareStreak(nums: number[]): number {
-    const cnt: Record<number, number> = {};
-    const squares = new Set<number>();
-
-    for (const x of new Set(nums)) {
-        cnt[x] = (cnt[x] ?? -1) + 1;
-        cnt[x ** 2] = (cnt[x ** 2] ?? -1) + 1;
-    }
-
-    for (const key in cnt) {
-        const x = +key;
-        if (cnt[x] || cnt[x ** 2]) {
-            squares.add(x);
-        }
-    }
-
-    if (squares.size <= 1) return -1;
-
-    const iterator = squares[Symbol.iterator]();
-    let [max, c, x] = [0, 0, iterator.next().value];
-
-    while (x !== undefined) {
-        if (squares.has(x)) {
-            squares.delete(x);
-            x **= 2;
-            c++;
-        } else {
-            max = Math.max(max, c);
-            x = iterator.next().value;
-            c = 0;
-        }
-    }
-
-    return max;
-}
-```
-
-#### JavaScript
-
-```js
-function longestSquareStreak(nums) {
-    const cnt = {};
-    const squares = new Set();
-
-    for (const x of new Set(nums)) {
-        cnt[x] = (cnt[x] ?? -1) + 1;
-        cnt[x ** 2] = (cnt[x ** 2] ?? -1) + 1;
-    }
-
-    for (const key in cnt) {
-        const x = +key;
-        if (cnt[x] || cnt[x ** 2]) {
-            squares.add(x);
-        }
-    }
-
-    if (squares.size <= 1) return -1;
-
-    const iterator = squares[Symbol.iterator]();
-    let [max, c, x] = [0, 0, iterator.next().value];
-
-    while (x !== undefined) {
-        if (squares.has(x)) {
-            squares.delete(x);
-            x **= 2;
-            c++;
-        } else {
-            max = Math.max(max, c);
-            x = iterator.next().value;
-            c = 0;
-        }
-    }
-
-    return max;
-}
+};
 ```
 
 <!-- tabs:end -->
