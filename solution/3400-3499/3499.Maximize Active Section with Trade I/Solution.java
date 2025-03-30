@@ -3,7 +3,7 @@ class Solution {
         int n = s.length();
         int ans = 0, i = 0;
         int pre = Integer.MIN_VALUE, mx = 0;
-        
+
         while (i < n) {
             int j = i + 1;
             while (j < n && s.charAt(j) == s.charAt(i)) {
@@ -18,7 +18,7 @@ class Solution {
             }
             i = j;
         }
-        
+
         ans += mx;
         return ans;
     }
