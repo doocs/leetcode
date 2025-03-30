@@ -75,32 +75,95 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3502.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+According to the problem description, the minimum cost for each position $i$ is the minimum cost from $0$ to $i$. We can use a variable $\textit{mi}$ to record the minimum cost from $0$ to $i$.
+
+Starting from $0$, we iterate through each position $i$, updating $\textit{mi}$ as $\text{min}(\textit{mi}, \text{cost}[i])$ at each step, and assign $\textit{mi}$ to the $i$-th position of the answer array.
+
+Finally, return the answer array.
+
+Time complexity is $O(n)$, where $n$ is the length of the array $\textit{cost}$. Ignoring the space used by the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCosts(self, cost: List[int]) -> List[int]:
+        n = len(cost)
+        ans = [0] * n
+        mi = cost[0]
+        for i, c in enumerate(cost):
+            mi = min(mi, c)
+            ans[i] = mi
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] minCosts(int[] cost) {
+        int n = cost.length;
+        int[] ans = new int[n];
+        int mi = cost[0];
+        for (int i = 0; i < n; ++i) {
+            mi = Math.min(mi, cost[i]);
+            ans[i] = mi;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minCosts(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> ans(n);
+        int mi = cost[0];
+        for (int i = 0; i < n; ++i) {
+            mi = min(mi, cost[i]);
+            ans[i] = mi;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCosts(cost []int) []int {
+	n := len(cost)
+	ans := make([]int, n)
+	mi := cost[0]
+	for i, c := range cost {
+		mi = min(mi, c)
+		ans[i] = mi
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minCosts(cost: number[]): number[] {
+    const n = cost.length;
+    const ans: number[] = Array(n).fill(0);
+    let mi = cost[0];
+    for (let i = 0; i < n; ++i) {
+        mi = Math.min(mi, cost[i]);
+        ans[i] = mi;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
