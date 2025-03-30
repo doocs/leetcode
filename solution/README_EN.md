@@ -3510,6 +3510,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3499  |  [Maximize Active Section with Trade I](/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 153  |
 |  3500  |  [Minimum Cost to Divide Array Into Subarrays](/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README_EN.md)  |    |  Hard  |  Biweekly Contest 153  |
 |  3501  |  [Maximize Active Section with Trade II](/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 153  |
+|  3502  |  [Minimum Cost to Reach Every Position](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README_EN.md)  |    |  Easy  |  Weekly Contest 443  |
+|  3503  |  [Longest Palindrome After Substring Concatenation I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 443  |
+|  3504  |  [Longest Palindrome After Substring Concatenation II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 443  |
+|  3505  |  [Minimum Operations to Make Elements Within K Subarrays Equal](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README_EN.md)  |    |  Hard  |  Weekly Contest 443  |
 
 ## Copyright
 
