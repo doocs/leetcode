@@ -1,19 +1,19 @@
 class Solution {
-    private Map<Integer, Integer> f = new HashMap<>();
-    private Set<Integer> s = new HashSet<>();
+    private Map<Long, Integer> f = new HashMap<>();
+    private Set<Long> s = new HashSet<>();
 
     public int longestSquareStreak(int[] nums) {
-        for (int v : nums) {
-            s.add(v);
+        for (long x : nums) {
+            s.add(x);
         }
         int ans = 0;
-        for (int v : nums) {
-            ans = Math.max(ans, dfs(v));
+        for (long x : s) {
+            ans = Math.max(ans, dfs(x));
         }
         return ans < 2 ? -1 : ans;
     }
 
-    private int dfs(int x) {
+    private int dfs(long x) {
         if (!s.contains(x)) {
             return 0;
         }

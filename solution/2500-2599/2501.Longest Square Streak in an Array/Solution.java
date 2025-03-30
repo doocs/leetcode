@@ -1,14 +1,13 @@
 class Solution {
     public int longestSquareStreak(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : nums) {
-            s.add(v);
+        Set<Long> s = new HashSet<>();
+        for (long x : nums) {
+            s.add(x);
         }
         int ans = -1;
-        for (int v : nums) {
+        for (long x : s) {
             int t = 0;
-            while (s.contains(v)) {
-                v *= v;
+            for (; s.contains(x); x *= x) {
                 ++t;
             }
             if (t > 1) {
