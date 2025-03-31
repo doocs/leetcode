@@ -3516,6 +3516,7 @@
 |  3503  |  [子字符串连接后的最长回文串 I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README.md)  |    |  中等  |  第 443 场周赛  |
 |  3504  |  [子字符串连接后的最长回文串 II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README.md)  |    |  困难  |  第 443 场周赛  |
 |  3505  |  [使 K 个子数组内元素相等的最少操作数](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README.md)  |    |  困难  |  第 443 场周赛  |
+|  3506  |  [Find Time Required to Eliminate Bacterial Strains II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
