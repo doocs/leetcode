@@ -4,7 +4,7 @@ public:
         int n = questions.size();
         long long f[n];
         memset(f, 0, sizeof(f));
-        function<long long(int)> dfs = [&](int i) -> long long {
+        auto dfs = [&](this auto&& dfs, int i) -> long long {
             if (i >= n) {
                 return 0;
             }
