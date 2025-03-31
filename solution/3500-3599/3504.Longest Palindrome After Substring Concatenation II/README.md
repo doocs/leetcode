@@ -90,7 +90,27 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3504.Lo
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举回文中点 + 动态规划
+
+根据题目描述，连接后的回文串，可以只由字符串 $s$ 组成，也可以只由字符串 $t$ 组成，也可以由字符串 $s$ 和字符串 $t$ 组成，并且还可能在字符串 $s$ 或 $t$ 中多出一部分回文子串。
+
+因此，我们先将字符串 $t$ 反转，然后预处理出数组 $\textit{g1}$ 和 $\textit{g2}$，其中 $\textit{g1}[i]$ 表示在字符串 $s$ 中以下标 $i$ 开始的最长回文子串长度，而 $\textit{g2}[i]$ 表示在字符串 $t$ 中以下标 $i$ 开始的最长回文子串长度。
+
+那么我们可以初始化答案 $\textit{ans}$ 为 $\textit{g1}$ 和 $\textit{g2}$ 中的最大值。
+
+接下来，我们定义 $\textit{f}[i][j]$ 表示以字符串 $s$ 的第 $i$ 个字符结尾，以字符串 $t$ 的第 $j$ 个字符结尾的回文子串的长度。
+
+对于 $\textit{f}[i][j]$，如果 $s[i - 1]$ 等于 $t[j - 1]$，那么有 $\textit{f}[i][j] = \textit{f}[i - 1][j - 1] + 1$。然后，我们更新答案：
+
+$$
+\textit{ans} = \max(\textit{ans}, \textit{f}[i][j] \times 2 + (0 \text{ if } i \geq m \text{ else } \textit{g1}[i])) \\
+
+\textit{ans} = \max(\textit{ans}, \textit{f}[i][j] \times 2 + (0 \text{ if } j \geq n \text{ else } \textit{g2}[j])) \
+$$
+
+最后，我们返回答案 $\textit{ans}$ 即可。
+
+时间复杂度 $O(m \times (m + n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和 $t$ 的长度。
 
 <!-- tabs:start -->
 
