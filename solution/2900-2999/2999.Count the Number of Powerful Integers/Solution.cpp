@@ -5,7 +5,7 @@ public:
         long long f[20];
         memset(f, -1, sizeof(f));
 
-        function<long long(int, bool)> dfs = [&](int pos, bool lim) -> long long {
+        auto dfs = [&](this auto&& dfs, int pos, int lim) -> long long {
             if (t.size() < s.size()) {
                 return 0;
             }

@@ -72,7 +72,33 @@ It can be shown that there are only 2 powerful integers in this range.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Digit DP
+
+This problem is essentially about finding the count of numbers in the given range $[l, .., r]$ that satisfy the conditions. The count depends on the number of digits and the value of each digit. We can solve this problem using the Digit DP approach, where the size of the number has minimal impact on the complexity.
+
+For the range $[l, .., r]$, we typically transform it into two subproblems: $[1, .., r]$ and $[1, .., l - 1]$, i.e.,
+
+$$
+ans = \sum_{i=1}^{r} ans_i - \sum_{i=1}^{l-1} ans_i
+$$
+
+For this problem, we calculate the count of numbers in $[1, \textit{finish}]$ that satisfy the conditions, and subtract the count of numbers in $[1, \textit{start} - 1]$ that satisfy the conditions to get the final answer.
+
+We use memoization to implement Digit DP. Starting from the topmost digit, we recursively calculate the number of valid numbers, accumulate the results layer by layer, and finally return the answer from the starting point.
+
+The basic steps are as follows:
+
+1. Convert $\textit{start}$ and $\textit{finish}$ to strings for easier manipulation in Digit DP.
+2. Design a function $\textit{dfs}(\textit{pos}, \textit{lim})$, which represents the count of valid numbers starting from the $\textit{pos}$-th digit, with the current restriction condition $\textit{lim}$.
+3. If the maximum number of digits is less than the length of $\textit{s}$, return 0.
+4. If the remaining number of digits equals the length of $\textit{s}$, check if the current number satisfies the condition and return 1 or 0.
+5. Otherwise, calculate the upper limit of the current digit as $\textit{up} = \min(\textit{lim} ? \textit{t}[\textit{pos}] : 9, \textit{limit})$. Then iterate through the digits $i$ from 0 to $\textit{up}$, recursively call $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == \textit{t}[\textit{pos}])$, and accumulate the results.
+6. If $\textit{lim}$ is false, store the current result in the cache to avoid redundant calculations.
+7. Finally, return the result.
+
+The answer is the count of valid numbers in $[1, \textit{finish}]$ minus the count of valid numbers in $[1, \textit{start} - 1]$.
+
+Time complexity is $O(\log M \times D)$, and space complexity is $O(\log M)$, where $M$ is the upper limit of the number, and $D = 10$.
 
 <!-- tabs:start -->
 
@@ -82,7 +108,7 @@ It can be shown that there are only 2 powerful integers in this range.
 class Solution:
     def numberOfPowerfulInt(self, start: int, finish: int, limit: int, s: str) -> int:
         @cache
-        def dfs(pos: int, lim: int):
+        def dfs(pos: int, lim: int) -> int:
             if len(t) < n:
                 return 0
             if len(t) - pos == n:
@@ -157,7 +183,7 @@ public:
         long long f[20];
         memset(f, -1, sizeof(f));
 
-        function<long long(int, bool)> dfs = [&](int pos, bool lim) -> long long {
+        auto dfs = [&](this auto&& dfs, int pos, int lim) -> long long {
             if (t.size() < s.size()) {
                 return 0;
             }
@@ -279,6 +305,51 @@ function numberOfPowerfulInt(start: number, finish: number, limit: number, s: st
     const b: number = dfs(0, true);
 
     return b - a;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private string s;
+    private string t;
+    private long?[] f;
+    private int limit;
+
+    public long NumberOfPowerfulInt(long start, long finish, int limit, string s) {
+        this.s = s;
+        this.limit = limit;
+        t = (start - 1).ToString();
+        f = new long?[20];
+        long a = Dfs(0, true);
+        t = finish.ToString();
+        f = new long?[20];
+        long b = Dfs(0, true);
+        return b - a;
+    }
+
+    private long Dfs(int pos, bool lim) {
+        if (t.Length < s.Length) {
+            return 0;
+        }
+        if (!lim && f[pos].HasValue) {
+            return f[pos].Value;
+        }
+        if (t.Length - pos == s.Length) {
+            return lim ? (string.Compare(s, t.Substring(pos)) <= 0 ? 1 : 0) : 1;
+        }
+        int up = lim ? t[pos] - '0' : 9;
+        up = Math.Min(up, limit);
+        long ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            ans += Dfs(pos + 1, lim && i == (t[pos] - '0'));
+        }
+        if (!lim) {
+            f[pos] = ans;
+        }
+        return ans;
+    }
 }
 ```
 
