@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README.md
+tags:
+    - 双指针
+    - 字符串
+    - 动态规划
 ---
 
 <!-- problem:start -->

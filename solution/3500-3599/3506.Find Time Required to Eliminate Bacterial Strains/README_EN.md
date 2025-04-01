@@ -1,14 +1,14 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README_EN.md
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README_EN.md
 ---
 
 <!-- problem:start -->
 
-# [3506. Find Time Required to Eliminate Bacterial Strains II 🔒](https://leetcode.com/problems/find-time-required-to-eliminate-bacterial-strains-ii)
+# [3506. Find Time Required to Eliminate Bacterial Strains 🔒](https://leetcode.com/problems/find-time-required-to-eliminate-bacterial-strains)
 
-[中文文档](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README.md)
+[中文文档](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README.md)
 
 ## Description
 

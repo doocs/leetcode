@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README_EN.md
+tags:
+    - String
+    - Enumeration
 ---
 
 <!-- problem:start -->

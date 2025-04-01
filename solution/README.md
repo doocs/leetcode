@@ -3506,17 +3506,17 @@
 |  3493  |  [属性图](/solution/3400-3499/3493.Properties%20Graph/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`图`,`数组`,`哈希表`  |  中等  |  第 442 场周赛  |
 |  3494  |  [酿造药水需要的最少总时间](/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README.md)  |  `数组`,`前缀和`,`模拟`  |  中等  |  第 442 场周赛  |
 |  3495  |  [使数组元素都变为零的最少操作次数](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README.md)  |  `位运算`,`数组`,`数学`  |  困难  |  第 442 场周赛  |
-|  3496  |  [最大化配对删除后的得分](/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README.md)  |    |  中等  |  🔒  |
-|  3497  |  [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)  |    |  中等  |    |
-|  3498  |  [字符串的反转度](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README.md)  |    |  简单  |  第 153 场双周赛  |
-|  3499  |  [操作后最大活跃区段数 I](/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README.md)  |    |  中等  |  第 153 场双周赛  |
-|  3500  |  [将数组分割为子数组的最小代价](/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README.md)  |    |  困难  |  第 153 场双周赛  |
-|  3501  |  [操作后最大活跃区段数 II](/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README.md)  |    |  困难  |  第 153 场双周赛  |
-|  3502  |  [到达每个位置的最小费用](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README.md)  |    |  简单  |  第 443 场周赛  |
-|  3503  |  [子字符串连接后的最长回文串 I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README.md)  |    |  中等  |  第 443 场周赛  |
-|  3504  |  [子字符串连接后的最长回文串 II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README.md)  |    |  困难  |  第 443 场周赛  |
-|  3505  |  [使 K 个子数组内元素相等的最少操作数](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README.md)  |    |  困难  |  第 443 场周赛  |
-|  3506  |  [Find Time Required to Eliminate Bacterial Strains II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README.md)  |    |  困难  |  🔒  |
+|  3496  |  [最大化配对删除后的得分](/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README.md)  |  `贪心`,`数组`  |  中等  |  🔒  |
+|  3497  |  [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)  |  `数据库`  |  中等  |    |
+|  3498  |  [字符串的反转度](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README.md)  |  `字符串`,`模拟`  |  简单  |  第 153 场双周赛  |
+|  3499  |  [操作后最大活跃区段数 I](/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README.md)  |  `字符串`,`枚举`  |  中等  |  第 153 场双周赛  |
+|  3500  |  [将数组分割为子数组的最小代价](/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README.md)  |  `数组`,`动态规划`,`前缀和`  |  困难  |  第 153 场双周赛  |
+|  3501  |  [操作后最大活跃区段数 II](/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README.md)  |  `线段树`,`数组`,`字符串`,`二分查找`  |  困难  |  第 153 场双周赛  |
+|  3502  |  [到达每个位置的最小费用](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README.md)  |  `数组`  |  简单  |  第 443 场周赛  |
+|  3503  |  [子字符串连接后的最长回文串 I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README.md)  |  `双指针`,`字符串`,`动态规划`,`枚举`  |  中等  |  第 443 场周赛  |
+|  3504  |  [子字符串连接后的最长回文串 II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README.md)  |  `双指针`,`字符串`,`动态规划`  |  困难  |  第 443 场周赛  |
+|  3505  |  [使 K 个子数组内元素相等的最少操作数](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README.md)  |  `数组`,`哈希表`,`数学`,`动态规划`,`滑动窗口`,`堆（优先队列）`  |  困难  |  第 443 场周赛  |
+|  3506  |  [查找消除细菌菌株所需时间 II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

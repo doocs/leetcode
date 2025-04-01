@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->
