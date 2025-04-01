@@ -3514,7 +3514,6 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3503  |  [Longest Palindrome After Substring Concatenation I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README_EN.md)  |  `Two Pointers`,`String`,`Dynamic Programming`,`Enumeration`  |  Medium  |  Weekly Contest 443  |
 |  3504  |  [Longest Palindrome After Substring Concatenation II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README_EN.md)  |  `Two Pointers`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 443  |
 |  3505  |  [Minimum Operations to Make Elements Within K Subarrays Equal](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Dynamic Programming`,`Sliding Window`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 443  |
-|  3506  |  [Find Time Required to Eliminate Bacterial Strains II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README_EN.md)  |    |  Hard  |  🔒  |
 |  3506  |  [Find Time Required to Eliminate Bacterial Strains](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright

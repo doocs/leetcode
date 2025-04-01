@@ -84,32 +84,136 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3506.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Priority Queue (Min-Heap)
+
+First, consider the case where there is only one type of bacteria. In this case, there is no need to split the white blood cell (WBC); it can directly eliminate the bacteria, and the time cost is $\textit{timeSeq}[0]$.
+
+If there are two types of bacteria, the WBC needs to split into two, and each WBC eliminates one type of bacteria. The time cost is $\textit{splitTime} + \max(\textit{timeSeq}[0], \textit{timeSeq}[1])$.
+
+If there are more than two types of bacteria, at each step, we need to consider splitting the WBCs into multiple cells, which is difficult to handle with a forward-thinking approach.
+
+Instead, we can adopt a reverse-thinking approach: instead of splitting the WBCs, we merge the bacteria. We select any two types of bacteria $i$ and $j$ to merge into a new type of bacteria. The time cost for this merge is $\textit{splitTime} + \max(\textit{timeSeq}[i], \textit{timeSeq}[j])$.
+
+To minimize the involvement of bacteria with long elimination times in the merging process, we can greedily select the two bacteria with the smallest elimination times for merging at each step. Therefore, we can maintain a min-heap, repeatedly extracting the two bacteria with the smallest elimination times and merging them until only one type of bacteria remains. The elimination time of this final bacteria is the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of bacteria.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minEliminationTime(self, timeReq: List[int], splitTime: int) -> int:
+        heapify(timeReq)
+        while len(timeReq) > 1:
+            heappop(timeReq)
+            heappush(timeReq, heappop(timeReq) + splitTime)
+        return timeReq[0]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minEliminationTime(int[] timeReq, int splitTime) {
+        PriorityQueue<Long> q = new PriorityQueue<>();
+        for (int x : timeReq) {
+            q.offer((long) x);
+        }
+        while (q.size() > 1) {
+            q.poll();
+            q.offer(q.poll() + splitTime);
+        }
+        return q.poll();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long minEliminationTime(vector<int>& timeReq, int splitTime) {
+        using ll = long long;
+        priority_queue<ll, vector<ll>, greater<ll>> pq;
+        for (int v : timeReq) {
+            pq.push(v);
+        }
+        while (pq.size() > 1) {
+            pq.pop();
+            ll x = pq.top();
+            pq.pop();
+            pq.push(x + splitTime);
+        }
+        return pq.top();
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minEliminationTime(timeReq []int, splitTime int) int64 {
+	pq := hp{}
+	for _, v := range timeReq {
+		heap.Push(&pq, v)
+	}
+	for pq.Len() > 1 {
+		heap.Pop(&pq)
+		heap.Push(&pq, heap.Pop(&pq).(int)+splitTime)
+	}
+	return int64(pq.IntSlice[0])
+}
 
+type hp struct{ sort.IntSlice }
+
+func (h *hp) Push(v any) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+#### TypeScript
+
+```ts
+function minEliminationTime(timeReq: number[], splitTime: number): number {
+    const pq = new MinPriorityQueue();
+    for (const b of timeReq) {
+        pq.enqueue(b);
+    }
+    while (pq.size() > 1) {
+        pq.dequeue()!;
+        pq.enqueue(pq.dequeue()! + splitTime);
+    }
+    return pq.dequeue()!;
+}
+```
+
+#### Rust
+
+```rust
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn min_elimination_time(time_req: Vec<i32>, split_time: i32) -> i64 {
+        let mut pq = BinaryHeap::new();
+        for x in time_req {
+            pq.push(Reverse(x as i64));
+        }
+        while pq.len() > 1 {
+            pq.pop();
+            let merged = pq.pop().unwrap().0 + split_time as i64;
+            pq.push(Reverse(merged));
+        }
+        pq.pop().unwrap().0
+    }
+}
 ```
 
 <!-- tabs:end -->
