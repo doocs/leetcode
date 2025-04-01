@@ -2,6 +2,10 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README_EN.md
+tags:
+    - Array
+    - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

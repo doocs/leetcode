@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README.md
+tags:
+    - 线段树
+    - 数组
+    - 字符串
+    - 二分查找
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README_EN.md
+tags:
+    - Greedy
+    - Array
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - String
+    - Binary Search
 ---
 
 <!-- problem:start -->
