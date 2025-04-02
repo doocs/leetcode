@@ -59,18 +59,18 @@ tags:
 
 ### 方法一：哈希表 + 前缀和 + 递归
 
-我们可以运用前缀和的思想，对二叉树进行递归遍历，同时用哈希表 $cnt$ 统计从根节点到当前节点的路径上各个前缀和出现的次数。
+我们可以运用前缀和的思想，对二叉树进行递归遍历，同时用哈希表 $\textit{cnt}$ 统计从根节点到当前节点的路径上各个前缀和出现的次数。
 
-我们设计一个递归函数 $dfs(node, s)$，表示当前遍历到的节点为 $node$，从根节点到当前节点的路径上的前缀和为 $s$。函数的返回值是统计以 $node$ 节点及其子树节点作为路径终点且路径和为 $targetSum$ 的路径数目。那么答案就是 $dfs(root, 0)$。
+我们设计一个递归函数 $\textit{dfs(node, s)}$，表示当前遍历到的节点为 $\textit{node}$，从根节点到当前节点的路径上的前缀和为 $s$。函数的返回值是统计以 $\textit{node}$ 节点及其子树节点作为路径终点且路径和为 $\textit{targetSum}$ 的路径数目。那么答案就是 $\textit{dfs(root, 0)}$。
 
-函数 $dfs(node, s)$ 的递归过程如下：
+函数 $\textit{dfs(node, s)}$ 的递归过程如下：
 
--   如果当前节点 $node$ 为空，则返回 $0$。
+-   如果当前节点 $\textit{node}$ 为空，则返回 $0$。
 -   计算从根节点到当前节点的路径上的前缀和 $s$。
--   用 $cnt[s - targetSum]$ 表示以当前节点为路径终点且路径和为 $targetSum$ 的路径数目，其中 $cnt[s - targetSum]$ 即为 $cnt$ 中前缀和为 $s - targetSum$ 的个数。
--   将前缀和 $s$ 的计数值加 $1$，即 $cnt[s] = cnt[s] + 1$。
--   递归地遍历当前节点的左右子节点，即调用函数 $dfs(node.left, s)$ 和 $dfs(node.right, s)$，并将它们的返回值相加。
--   在返回值计算完成以后，需要将当前节点的前缀和 $s$ 的计数值减 $1$，即执行 $cnt[s] = cnt[s] - 1$。
+-   用 $\textit{cnt}[s - \textit{targetSum}]$ 表示以当前节点为路径终点且路径和为 $\textit{targetSum}$ 的路径数目，其中 $\textit{cnt}[s - \textit{targetSum}]$ 即为 $\textit{cnt}$ 中前缀和为 $s - \textit{targetSum}$ 的个数。
+-   将前缀和 $s$ 的计数值加 $1$，即 $\textit{cnt}[s] = \textit{cnt}[s] + 1$。
+-   递归地遍历当前节点的左右子节点，即调用函数 $\textit{dfs(node.left, s)}$ 和 $\textit{dfs(node.right, s)}$，并将它们的返回值相加。
+-   在返回值计算完成以后，需要将当前节点的前缀和 $s$ 的计数值减 $1$，即执行 $\textit{cnt}[s] = \textit{cnt}[s] - 1$。
 -   最后返回答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
@@ -163,10 +163,12 @@ class Solution {
 class Solution {
 public:
     int pathSum(TreeNode* root, int targetSum) {
-        unordered_map<long, int> cnt;
+        unordered_map<long long, int> cnt;
         cnt[0] = 1;
-        function<int(TreeNode*, long)> dfs = [&](TreeNode* node, long s) -> int {
-            if (!node) return 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* node, long long s) -> int {
+            if (!node) {
+                return 0;
+            }
             s += node->val;
             int ans = cnt[s - targetSum];
             ++cnt[s];
@@ -241,6 +243,129 @@ function pathSum(root: TreeNode | null, targetSum: number): number {
     };
     cnt.set(0, 1);
     return dfs(root, 0);
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> i32 {
+        let mut cnt = HashMap::new();
+        cnt.insert(0, 1);
+
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, s: i64, target: i64, cnt: &mut HashMap<i64, i32>) -> i32 {
+            if let Some(n) = node {
+                let n = n.borrow();
+                let s = s + n.val as i64;
+                let ans = cnt.get(&(s - target)).copied().unwrap_or(0);
+                *cnt.entry(s).or_insert(0) += 1;
+                let ans = ans + dfs(n.left.clone(), s, target, cnt) + dfs(n.right.clone(), s, target, cnt);
+                *cnt.get_mut(&s).unwrap() -= 1;
+                ans
+            } else {
+                0
+            }
+        }
+
+        dfs(root, 0, target_sum as i64, &mut cnt)
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} targetSum
+ * @return {number}
+ */
+var pathSum = function (root, targetSum) {
+    const cnt = new Map();
+    const dfs = (node, s) => {
+        if (!node) {
+            return 0;
+        }
+        s += node.val;
+        let ans = cnt.get(s - targetSum) || 0;
+        cnt.set(s, (cnt.get(s) || 0) + 1);
+        ans += dfs(node.left, s);
+        ans += dfs(node.right, s);
+        cnt.set(s, cnt.get(s) - 1);
+        return ans;
+    };
+    cnt.set(0, 1);
+    return dfs(root, 0);
+};
+```
+
+#### C#
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int PathSum(TreeNode root, int targetSum) {
+        Dictionary<long, int> cnt = new Dictionary<long, int>();
+
+        int Dfs(TreeNode node, long s) {
+            if (node == null) {
+                return 0;
+            }
+            s += node.val;
+            int ans = cnt.GetValueOrDefault(s - targetSum, 0);
+            cnt[s] = cnt.GetValueOrDefault(s, 0) + 1;
+            ans += Dfs(node.left, s);
+            ans += Dfs(node.right, s);
+            cnt[s]--;
+            return ans;
+        }
+
+        cnt[0] = 1;
+        return Dfs(root, 0);
+    }
 }
 ```
 
