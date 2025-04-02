@@ -12,10 +12,12 @@
 class Solution {
 public:
     int pathSum(TreeNode* root, int targetSum) {
-        unordered_map<long, int> cnt;
+        unordered_map<long long, int> cnt;
         cnt[0] = 1;
-        function<int(TreeNode*, long)> dfs = [&](TreeNode* node, long s) -> int {
-            if (!node) return 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* node, long long s) -> int {
+            if (!node) {
+                return 0;
+            }
             s += node->val;
             int ans = cnt[s - targetSum];
             ++cnt[s];
