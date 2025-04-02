@@ -90,7 +90,25 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举 + 组合数学
+
+我们可以考虑枚举所有长度为 $n$ 的回文数，判断它们是否是 $k$ 回文数。由于回文数的性质，我们只需要枚举前半部分的数字，然后将其反转拼接到后面即可。
+
+前半部分的数字长度为 $\lfloor \frac{n - 1}{2} \rfloor$，那么前半部分的数字范围是 $[10^{\lfloor \frac{n - 1}{2} \rfloor}, 10^{\lfloor \frac{n - 1}{2} \rfloor + 1})$。我们可以将前半部分的数字拼接到后面，形成一个长度为 $n$ 的回文数。注意到，如果 $n$ 是奇数，则需要将中间的数字做特殊处理。
+
+然后，我们判断该回文数是否是 $k$ 回文数，如果是，则统计该回文数的所有排列组合。为了避免重复，我们可以使用一个集合 $\textit{vis}$ 来存储已经出现过的回文数的每个最小排列。如果该回文数的最小排列已经出现过，则跳过该回文数。否则，我们统计该回文数有多少个不重复的排列组合，添加到答案中。
+
+我们可以使用一个数组 $\textit{cnt}$ 来统计每个数字出现的次数，然后使用组合数学的公式计算排列组合的数量。具体来说，假设数字 $0$ 出现了 $x_0$ 次，数字 $1$ 出现了 $x_1$ 次，...，数字 $9$ 出现了 $x_9$ 次，那么该回文数的排列组合数量为：
+
+$$
+\frac{(n - x_0) \cdot (n - 1)!}{x_0! \cdot x_1! \cdots x_9!}
+$$
+
+其中 $(n - x_0)$ 表示最高位可以选择除 $0$ 以外的所有数字，而 $(n - 1)!$ 表示除最高位以外的所有数字的排列组合数量，然后我们除以每个数字出现的次数的阶乘，避免重复。
+
+最后，我们将所有的排列组合数量相加，得到最终的答案。
+
+时间复杂度 $({10}^m \times n \times \log n)$，空间复杂度 $O({10}^m \times n)$，其中 $m = \lfloor \frac{n - 1}{2} \rfloor$。
 
 <!-- tabs:start -->
 
@@ -270,18 +288,6 @@ func reverseString(s string) string {
 #### TypeScript
 
 ```ts
-function factorial(n: number): number[] {
-    const fac = Array(n + 1).fill(1);
-    for (let i = 1; i <= n; i++) {
-        fac[i] = fac[i - 1] * i;
-    }
-    return fac;
-}
-
-function reverseString(s: string): string {
-    return s.split('').reverse().join('');
-}
-
 function countGoodIntegers(n: number, k: number): number {
     const fac = factorial(n);
     let ans = 0;
@@ -289,7 +295,7 @@ function countGoodIntegers(n: number, k: number): number {
     const base = Math.pow(10, Math.floor((n - 1) / 2));
 
     for (let i = base; i < base * 10; i++) {
-        let s = i.toString();
+        let s = `${i}`;
         const rev = reverseString(s);
         if (n % 2 === 1) {
             s += rev.substring(1);
@@ -297,8 +303,7 @@ function countGoodIntegers(n: number, k: number): number {
             s += rev;
         }
 
-        const num = parseInt(s, 10);
-        if (num % k !== 0) {
+        if (+s % k !== 0) {
             continue;
         }
 
@@ -324,6 +329,140 @@ function countGoodIntegers(n: number, k: number): number {
     }
 
     return ans;
+}
+
+function factorial(n: number): number[] {
+    const fac = Array(n + 1).fill(1);
+    for (let i = 1; i <= n; i++) {
+        fac[i] = fac[i - 1] * i;
+    }
+    return fac;
+}
+
+function reverseString(s: string): string {
+    return s.split('').reverse().join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_good_integers(n: i32, k: i32) -> i64 {
+        use std::collections::HashSet;
+        let n = n as usize;
+        let k = k as i64;
+        let mut fac = vec![1_i64; n + 1];
+        for i in 1..=n {
+            fac[i] = fac[i - 1] * i as i64;
+        }
+
+        let mut ans = 0;
+        let mut vis = HashSet::new();
+        let base = 10_i64.pow(((n - 1) / 2) as u32);
+
+        for i in base..base * 10 {
+            let s = i.to_string();
+            let rev: String = s.chars().rev().collect();
+            let full_s = if n % 2 == 0 {
+                format!("{}{}", s, rev)
+            } else {
+                format!("{}{}", s, &rev[1..])
+            };
+
+            let num: i64 = full_s.parse().unwrap();
+            if num % k != 0 {
+                continue;
+            }
+
+            let mut arr: Vec<char> = full_s.chars().collect();
+            arr.sort_unstable();
+            let t: String = arr.iter().collect();
+            if vis.contains(&t) {
+                continue;
+            }
+            vis.insert(t);
+
+            let mut cnt = vec![0; 10];
+            for c in arr {
+                cnt[c as usize - '0' as usize] += 1;
+            }
+
+            let mut res = (n - cnt[0]) as i64 * fac[n - 1];
+            for &x in &cnt {
+                if x > 0 {
+                    res /= fac[x];
+                }
+            }
+            ans += res;
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var countGoodIntegers = function (n, k) {
+    const fac = factorial(n);
+    let ans = 0;
+    const vis = new Set();
+    const base = Math.pow(10, Math.floor((n - 1) / 2));
+
+    for (let i = base; i < base * 10; i++) {
+        let s = String(i);
+        const rev = reverseString(s);
+        if (n % 2 === 1) {
+            s += rev.substring(1);
+        } else {
+            s += rev;
+        }
+
+        if (parseInt(s, 10) % k !== 0) {
+            continue;
+        }
+
+        const bs = Array.from(s).sort();
+        const t = bs.join('');
+
+        if (vis.has(t)) {
+            continue;
+        }
+
+        vis.add(t);
+
+        const cnt = Array(10).fill(0);
+        for (const c of t) {
+            cnt[parseInt(c, 10)]++;
+        }
+
+        let res = (n - cnt[0]) * fac[n - 1];
+        for (const x of cnt) {
+            res /= fac[x];
+        }
+        ans += res;
+    }
+
+    return ans;
+};
+
+function factorial(n) {
+    const fac = Array(n + 1).fill(1);
+    for (let i = 1; i <= n; i++) {
+        fac[i] = fac[i - 1] * i;
+    }
+    return fac;
+}
+
+function reverseString(s) {
+    return s.split('').reverse().join('');
 }
 ```
 

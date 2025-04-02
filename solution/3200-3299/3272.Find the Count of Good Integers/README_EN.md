@@ -88,7 +88,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Combinatorics
+
+We can consider enumerating all palindromic numbers of length $n$ and checking whether they are $k$-palindromic numbers. Due to the properties of palindromic numbers, we only need to enumerate the first half of the digits and then reverse and append them to form the full number.
+
+The length of the first half of the digits is $\lfloor \frac{n - 1}{2} \rfloor$, so the range of the first half is $[10^{\lfloor \frac{n - 1}{2} \rfloor}, 10^{\lfloor \frac{n - 1}{2} \rfloor + 1})$. We can reverse the first half and append it to form a palindromic number of length $n$. Note that if $n$ is odd, the middle digit needs special handling.
+
+Next, we check whether the palindromic number is $k$-palindromic. If it is, we count all unique permutations of the number. To avoid duplicates, we can use a set $\textit{vis}$ to store the smallest permutation of each palindromic number that has already been processed. If the smallest permutation of the current palindromic number is already in the set, we skip it. Otherwise, we calculate the number of unique permutations of the palindromic number and add it to the result.
+
+We can use an array $\textit{cnt}$ to count the occurrences of each digit and use combinatorics to calculate the number of permutations. Specifically, if digit $0$ appears $x_0$ times, digit $1$ appears $x_1$ times, ..., and digit $9$ appears $x_9$ times, the number of permutations of the palindromic number is:
+
+$$
+\frac{(n - x_0) \cdot (n - 1)!}{x_0! \cdot x_1! \cdots x_9!}
+$$
+
+Here, $(n - x_0)$ represents the number of choices for the highest digit (excluding $0$), $(n - 1)!$ represents the permutations of the remaining digits, and we divide by the factorial of the occurrences of each digit to avoid duplicates.
+
+Finally, we sum up all the permutation counts to get the final result.
+
+Time complexity is $O(10^m \times n \times \log n)$, and space complexity is $O(10^m \times n)$, where $m = \lfloor \frac{n - 1}{2} \rfloor$.
 
 <!-- tabs:start -->
 
@@ -268,18 +286,6 @@ func reverseString(s string) string {
 #### TypeScript
 
 ```ts
-function factorial(n: number): number[] {
-    const fac = Array(n + 1).fill(1);
-    for (let i = 1; i <= n; i++) {
-        fac[i] = fac[i - 1] * i;
-    }
-    return fac;
-}
-
-function reverseString(s: string): string {
-    return s.split('').reverse().join('');
-}
-
 function countGoodIntegers(n: number, k: number): number {
     const fac = factorial(n);
     let ans = 0;
@@ -287,7 +293,7 @@ function countGoodIntegers(n: number, k: number): number {
     const base = Math.pow(10, Math.floor((n - 1) / 2));
 
     for (let i = base; i < base * 10; i++) {
-        let s = i.toString();
+        let s = `${i}`;
         const rev = reverseString(s);
         if (n % 2 === 1) {
             s += rev.substring(1);
@@ -295,8 +301,7 @@ function countGoodIntegers(n: number, k: number): number {
             s += rev;
         }
 
-        const num = parseInt(s, 10);
-        if (num % k !== 0) {
+        if (+s % k !== 0) {
             continue;
         }
 
@@ -322,6 +327,140 @@ function countGoodIntegers(n: number, k: number): number {
     }
 
     return ans;
+}
+
+function factorial(n: number): number[] {
+    const fac = Array(n + 1).fill(1);
+    for (let i = 1; i <= n; i++) {
+        fac[i] = fac[i - 1] * i;
+    }
+    return fac;
+}
+
+function reverseString(s: string): string {
+    return s.split('').reverse().join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_good_integers(n: i32, k: i32) -> i64 {
+        use std::collections::HashSet;
+        let n = n as usize;
+        let k = k as i64;
+        let mut fac = vec![1_i64; n + 1];
+        for i in 1..=n {
+            fac[i] = fac[i - 1] * i as i64;
+        }
+
+        let mut ans = 0;
+        let mut vis = HashSet::new();
+        let base = 10_i64.pow(((n - 1) / 2) as u32);
+
+        for i in base..base * 10 {
+            let s = i.to_string();
+            let rev: String = s.chars().rev().collect();
+            let full_s = if n % 2 == 0 {
+                format!("{}{}", s, rev)
+            } else {
+                format!("{}{}", s, &rev[1..])
+            };
+
+            let num: i64 = full_s.parse().unwrap();
+            if num % k != 0 {
+                continue;
+            }
+
+            let mut arr: Vec<char> = full_s.chars().collect();
+            arr.sort_unstable();
+            let t: String = arr.iter().collect();
+            if vis.contains(&t) {
+                continue;
+            }
+            vis.insert(t);
+
+            let mut cnt = vec![0; 10];
+            for c in arr {
+                cnt[c as usize - '0' as usize] += 1;
+            }
+
+            let mut res = (n - cnt[0]) as i64 * fac[n - 1];
+            for &x in &cnt {
+                if x > 0 {
+                    res /= fac[x];
+                }
+            }
+            ans += res;
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {number}
+ */
+var countGoodIntegers = function (n, k) {
+    const fac = factorial(n);
+    let ans = 0;
+    const vis = new Set();
+    const base = Math.pow(10, Math.floor((n - 1) / 2));
+
+    for (let i = base; i < base * 10; i++) {
+        let s = String(i);
+        const rev = reverseString(s);
+        if (n % 2 === 1) {
+            s += rev.substring(1);
+        } else {
+            s += rev;
+        }
+
+        if (parseInt(s, 10) % k !== 0) {
+            continue;
+        }
+
+        const bs = Array.from(s).sort();
+        const t = bs.join('');
+
+        if (vis.has(t)) {
+            continue;
+        }
+
+        vis.add(t);
+
+        const cnt = Array(10).fill(0);
+        for (const c of t) {
+            cnt[parseInt(c, 10)]++;
+        }
+
+        let res = (n - cnt[0]) * fac[n - 1];
+        for (const x of cnt) {
+            res /= fac[x];
+        }
+        ans += res;
+    }
+
+    return ans;
+};
+
+function factorial(n) {
+    const fac = Array(n + 1).fill(1);
+    for (let i = 1; i <= n; i++) {
+        fac[i] = fac[i - 1] * i;
+    }
+    return fac;
+}
+
+function reverseString(s) {
+    return s.split('').reverse().join('');
 }
 ```
 
