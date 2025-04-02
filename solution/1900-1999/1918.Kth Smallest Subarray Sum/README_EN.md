@@ -73,7 +73,23 @@ Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search + Two Pointers
+
+We observe that all elements in the array are positive integers. The larger the subarray sum $s$, the more subarrays there are with sums less than or equal to $s$. This monotonicity allows us to use binary search to solve the problem.
+
+We perform binary search on the subarray sum, initializing the left and right boundaries as the minimum value in the array $\textit{nums}$ and the sum of all elements in the array, respectively. Each time, we calculate the number of subarrays with sums less than or equal to the current middle value. If the count is greater than or equal to $k$, it means the current middle value $s$ might be the $k$-th smallest subarray sum, so we shrink the right boundary. Otherwise, we increase the left boundary. After the binary search ends, the left boundary will be the $k$-th smallest subarray sum.
+
+The problem reduces to calculating the number of subarrays in an array with sums less than or equal to $s$, which we can compute using a function $f(s)$.
+
+The function $f(s)$ is calculated as follows:
+
+-   Initialize two pointers $j$ and $i$, representing the left and right boundaries of the current window, with $j = i = 0$. Also, initialize the sum of elements in the window $t = 0$.
+-   Use a variable $\textit{cnt}$ to record the number of subarrays with sums less than or equal to $s$, initially $\textit{cnt} = 0$.
+-   Traverse the array $\textit{nums}$. For each element $\textit{nums}[i]$, add it to the window, i.e., $t = t + \textit{nums}[i]$. If $t > s$, move the left boundary of the window to the right until $t \leq s$, i.e., repeatedly execute $t -= \textit{nums}[j]$ and $j = j + 1$. Then update $\textit{cnt}$ as $\textit{cnt} = \textit{cnt} + i - j + 1$. Continue to the next element until the entire array is traversed.
+
+Finally, return $cnt$ as the result of the function $f(s)$.
+
+Time complexity is $O(n \times \log S)$, where $n$ is the length of the array $\textit{nums}$, and $S$ is the sum of all elements in the array $\textit{nums}$. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -198,6 +214,115 @@ func kthSmallestSubarraySum(nums []int, k int) int {
 		}
 	}
 	return l
+}
+```
+
+#### Typescript
+
+```ts
+function kthSmallestSubarraySum(nums: number[], k: number): number {
+    let l = Math.min(...nums);
+    let r = nums.reduce((sum, x) => sum + x, 0);
+
+    const f = (s: number): number => {
+        let cnt = 0;
+        let t = 0;
+        let j = 0;
+
+        for (let i = 0; i < nums.length; i++) {
+            t += nums[i];
+            while (t > s) {
+                t -= nums[j];
+                j++;
+            }
+            cnt += i - j + 1;
+        }
+        return cnt;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (f(mid) >= k) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn kth_smallest_subarray_sum(nums: Vec<i32>, k: i32) -> i32 {
+        let mut l = *nums.iter().min().unwrap();
+        let mut r: i32 = nums.iter().sum();
+
+        let f = |s: i32| -> i32 {
+            let (mut cnt, mut t, mut j) = (0, 0, 0);
+
+            for i in 0..nums.len() {
+                t += nums[i];
+                while t > s {
+                    t -= nums[j];
+                    j += 1;
+                }
+                cnt += (i - j + 1) as i32;
+            }
+            cnt
+        };
+
+        while l < r {
+            let mid = (l + r) / 2;
+            if f(mid) >= k {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
+}
+```
+
+#### Scala
+
+```scala
+object Solution {
+    def kthSmallestSubarraySum(nums: Array[Int], k: Int): Int = {
+        var l = Int.MaxValue
+        var r = 0
+
+        for (x <- nums) {
+            l = l.min(x)
+            r += x
+        }
+
+        def f(s: Int): Int = {
+            var cnt = 0
+            var t = 0
+            var j = 0
+
+            for (i <- nums.indices) {
+                t += nums(i)
+                while (t > s) {
+                    t -= nums(j)
+                    j += 1
+                }
+                cnt += i - j + 1
+            }
+            cnt
+        }
+
+        while (l < r) {
+            val mid = (l + r) / 2
+            if (f(mid) >= k) r = mid
+            else l = mid + 1
+        }
+        l
+    }
 }
 ```
 
