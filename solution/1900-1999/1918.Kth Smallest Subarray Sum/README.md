@@ -79,19 +79,19 @@ tags:
 
 我们注意到，题目中数组元素均为正整数，子数组的和 $s$ 越大，那么数组中子数组和小于等于 $s$ 的个数就越多。这存在一个单调性，因此我们可以考虑使用使用二分查找的方法来求解。
 
-我们二分枚举子数组的和，初始化左右边界分别为数组 $nums$ 中的最小值以及所有元素之和。每次我们计算数组中子数组和小于等于当前枚举值的个数，如果个数大于等于 $k$，则说明当前枚举值 $s$ 可能是第 $k$ 小的子数组和，我们缩小右边界，否则我们增大左边界。枚举结束后，左边界即为第 $k$ 小的子数组和。
+我们二分枚举子数组的和，初始化左右边界分别为数组 $\textit{nums}$ 中的最小值以及所有元素之和。每次我们计算数组中子数组和小于等于当前枚举值的个数，如果个数大于等于 $k$，则说明当前枚举值 $s$ 可能是第 $k$ 小的子数组和，我们缩小右边界，否则我们增大左边界。枚举结束后，左边界即为第 $k$ 小的子数组和。
 
 问题转换为计算一个数组中，有多少个子数组的和小于等于 $s$，我们可以通过函数 $f(s)$ 来计算。
 
 函数 $f(s)$ 的计算方法如下：
 
 -   初始化双指针 $j$ 和 $i$，分别指向当前窗口的左右边界，初始时 $j = i = 0$。初始化窗口内元素的和 $t = 0$。
--   用变量 $cnt$ 记录子数组和小于等于 $s$ 的个数，初始时 $cnt = 0$。
--   遍历数组 $nums$，每次遍历到一个元素 $nums[i]$，我们将其加入窗口，即 $t = t + nums[i]$。如果此时 $t \gt s$，我们需要不断地将窗口的左边界右移，直到 $t \le s$ 为止，即不断地执行 $t -= nums[j]$，并且 $j = j + 1$。接下来我们更新 $cnt$，即 $cnt = cnt + i - j + 1$。继续遍历下一个元素，直到遍历完整个数组。
+-   用变量 $\textit{cnt}$ 记录子数组和小于等于 $s$ 的个数，初始时 $\textit{cnt} = 0$。
+-   遍历数组 $\textit{nums}$，每次遍历到一个元素 $\textit{nums}[i]$，我们将其加入窗口，即 $t = t + \textit{nums}[i]$。如果此时 $t \gt s$，我们需要不断地将窗口的左边界右移，直到 $t \le s$ 为止，即不断地执行 $t -= \textit{nums}[j]$，并且 $j = j + 1$。接下来我们更新 $\textit{cnt}$，即 $\textit{cnt} = \textit{cnt} + i - j + 1$。继续遍历下一个元素，直到遍历完整个数组。
 
 最后将 $cnt$ 作为函数 $f(s)$ 的返回值。
 
-时间复杂度 $O(n \times \log S)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度，而 $S$ 为数组 $nums$ 中所有元素之和。
+时间复杂度 $O(n \times \log S)$，其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $S$ 为数组 $\textit{nums}$ 中所有元素之和。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -216,6 +216,115 @@ func kthSmallestSubarraySum(nums []int, k int) int {
 		}
 	}
 	return l
+}
+```
+
+#### TypeScript
+
+```ts
+function kthSmallestSubarraySum(nums: number[], k: number): number {
+    let l = Math.min(...nums);
+    let r = nums.reduce((sum, x) => sum + x, 0);
+
+    const f = (s: number): number => {
+        let cnt = 0;
+        let t = 0;
+        let j = 0;
+
+        for (let i = 0; i < nums.length; i++) {
+            t += nums[i];
+            while (t > s) {
+                t -= nums[j];
+                j++;
+            }
+            cnt += i - j + 1;
+        }
+        return cnt;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (f(mid) >= k) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn kth_smallest_subarray_sum(nums: Vec<i32>, k: i32) -> i32 {
+        let mut l = *nums.iter().min().unwrap();
+        let mut r: i32 = nums.iter().sum();
+
+        let f = |s: i32| -> i32 {
+            let (mut cnt, mut t, mut j) = (0, 0, 0);
+
+            for i in 0..nums.len() {
+                t += nums[i];
+                while t > s {
+                    t -= nums[j];
+                    j += 1;
+                }
+                cnt += (i - j + 1) as i32;
+            }
+            cnt
+        };
+
+        while l < r {
+            let mid = (l + r) / 2;
+            if f(mid) >= k {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
+}
+```
+
+#### Scala
+
+```scala
+object Solution {
+    def kthSmallestSubarraySum(nums: Array[Int], k: Int): Int = {
+        var l = Int.MaxValue
+        var r = 0
+
+        for (x <- nums) {
+            l = l.min(x)
+            r += x
+        }
+
+        def f(s: Int): Int = {
+            var cnt = 0
+            var t = 0
+            var j = 0
+
+            for (i <- nums.indices) {
+                t += nums(i)
+                while (t > s) {
+                    t -= nums(j)
+                    j += 1
+                }
+                cnt += i - j + 1
+            }
+            cnt
+        }
+
+        while (l < r) {
+            val mid = (l + r) / 2
+            if (f(mid) >= k) r = mid
+            else l = mid + 1
+        }
+        l
+    }
 }
 ```
 

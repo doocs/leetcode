@@ -80,7 +80,22 @@ The target triplet [5,5,5] is now an element of triplets.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+Let $\textit{target} = [x, y, z]$. We need to determine whether there exists a triplet $[a, b, c]$ such that $a \leq x$, $b \leq y$, and $c \leq z$.
+
+We can divide all triplets into two categories:
+
+1. Triplets that satisfy $a \leq x$, $b \leq y$, and $c \leq z$.
+2. Triplets that do not satisfy $a \leq x$, $b \leq y$, and $c \leq z$.
+
+For the first category, we can take the maximum values of $a$, $b$, and $c$ from these triplets to form a new triplet $[d, e, f]$.
+
+For the second category, we can ignore these triplets because they cannot help us achieve the target triplet.
+
+Finally, we just need to check whether $[d, e, f]$ is equal to $\textit{target}$. If it is, return $\textit{true}$; otherwise, return $\textit{false}$.
+
+Time complexity is $O(n)$, where $n$ is the length of the array $\textit{triplets}$. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -172,6 +187,50 @@ function mergeTriplets(triplets: number[][], target: number[]): boolean {
         }
     }
     return d === x && e === y && f === z;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn merge_triplets(triplets: Vec<Vec<i32>>, target: Vec<i32>) -> bool {
+        let [x, y, z]: [i32; 3] = target.try_into().unwrap();
+        let (mut d, mut e, mut f) = (0, 0, 0);
+
+        for triplet in triplets {
+            if let [a, b, c] = triplet[..] {
+                if a <= x && b <= y && c <= z {
+                    d = d.max(a);
+                    e = e.max(b);
+                    f = f.max(c);
+                }
+            }
+        }
+
+        [d, e, f] == [x, y, z]
+    }
+}
+```
+
+#### Scala
+
+```scala
+object Solution {
+    def mergeTriplets(triplets: Array[Array[Int]], target: Array[Int]): Boolean = {
+        val Array(x, y, z) = target
+        var (d, e, f) = (0, 0, 0)
+
+        for (Array(a, b, c) <- triplets) {
+            if (a <= x && b <= y && c <= z) {
+                d = d.max(a)
+                e = e.max(b)
+                f = f.max(c)
+            }
+        }
+
+        d == x && e == y && f == z
+    }
 }
 ```
 
