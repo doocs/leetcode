@@ -52,7 +52,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Prefix Sum
+
+We can use a hash table $\textit{d}$ to record the first occurrence index of each prefix sum in the array $\textit{nums}$, initializing $\textit{d}[0] = -1$. Additionally, we define a variable $\textit{s}$ to keep track of the current prefix sum.
+
+Next, we iterate through the array $\textit{nums}$. For the current number $\textit{nums}[i]$, we update the prefix sum $\textit{s} = \textit{s} + \textit{nums}[i]$. If $\textit{s} - k$ exists in the hash table $\textit{d}$, let $\textit{j} = \textit{d}[\textit{s} - k]$, then the length of the subarray that ends at $\textit{nums}[i]$ and satisfies the condition is $i - j$. We use a variable $\textit{ans}$ to maintain the length of the longest subarray that satisfies the condition. After that, if $\textit{s}$ does not exist in the hash table, we record $\textit{s}$ and its corresponding index $i$ by setting $\textit{d}[\textit{s}] = i$. Otherwise, we do not update $\textit{d}[\textit{s}]$. It is important to note that there may be multiple positions $i$ with the same value of $\textit{s}$, so we only record the smallest $i$ to ensure the subarray length is the longest.
+
+After the iteration ends, we return $\textit{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -151,6 +159,80 @@ function maxSubArrayLen(nums: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn max_sub_array_len(nums: Vec<i32>, k: i32) -> i32 {
+        let mut d = HashMap::new();
+        d.insert(0, -1);
+        let mut ans = 0;
+        let mut s = 0;
+
+        for (i, &x) in nums.iter().enumerate() {
+            s += x;
+            if let Some(&j) = d.get(&(s - k)) {
+                ans = ans.max((i as i32) - j);
+            }
+            d.entry(s).or_insert(i as i32);
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var maxSubArrayLen = function (nums, k) {
+    const d = new Map();
+    d.set(0, -1);
+    let ans = 0;
+    let s = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        s += nums[i];
+        if (d.has(s - k)) {
+            ans = Math.max(ans, i - d.get(s - k));
+        }
+        if (!d.has(s)) {
+            d.set(s, i);
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxSubArrayLen(int[] nums, int k) {
+        var d = new Dictionary<int, int>();
+        d[0] = -1;
+        int ans = 0;
+        int s = 0;
+        for (int i = 0; i < nums.Length; i++) {
+            s += nums[i];
+            if (d.ContainsKey(s - k)) {
+                ans = Math.Max(ans, i - d[s - k]);
+            }
+            if (!d.ContainsKey(s)) {
+                d[s] = i;
+            }
+        }
+        return ans;
+    }
 }
 ```
 

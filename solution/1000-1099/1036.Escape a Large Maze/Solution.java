@@ -1,32 +1,39 @@
 class Solution {
-    private int[][] dirs = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-    private static final int N = (int) 1e6;
-    private Set<Integer> blocked;
+    private final int n = (int) 1e6;
+    private int m;
+    private Set<Long> s = new HashSet<>();
+    private final int[] dirs = {-1, 0, 1, 0, -1};
 
     public boolean isEscapePossible(int[][] blocked, int[] source, int[] target) {
-        this.blocked = new HashSet<>();
-        for (int[] b : blocked) {
-            this.blocked.add(b[0] * N + b[1]);
+        for (var b : blocked) {
+            s.add(f(b[0], b[1]));
         }
-        return dfs(source, target, new HashSet<>()) && dfs(target, source, new HashSet<>());
-    }
-
-    private boolean dfs(int[] source, int[] target, Set<Integer> seen) {
+        m = blocked.length * blocked.length / 2;
         int sx = source[0], sy = source[1];
         int tx = target[0], ty = target[1];
-        if (sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N
-            || blocked.contains(sx * N + sy) || seen.contains(sx * N + sy)) {
-            return false;
-        }
-        seen.add(sx * N + sy);
-        if (seen.size() > 20000 || (sx == target[0] && sy == target[1])) {
+        return dfs(sx, sy, tx, ty, new HashSet<>()) && dfs(tx, ty, sx, sy, new HashSet<>());
+    }
+
+    private boolean dfs(int sx, int sy, int tx, int ty, Set<Long> vis) {
+        if (vis.size() > m) {
             return true;
         }
-        for (int[] dir : dirs) {
-            if (dfs(new int[] {sx + dir[0], sy + dir[1]}, target, seen)) {
-                return true;
+        for (int k = 0; k < 4; ++k) {
+            int x = sx + dirs[k], y = sy + dirs[k + 1];
+            if (x >= 0 && x < n && y >= 0 && y < n) {
+                if (x == tx && y == ty) {
+                    return true;
+                }
+                long key = f(x, y);
+                if (!s.contains(key) && vis.add(key) && dfs(x, y, tx, ty, vis)) {
+                    return true;
+                }
             }
         }
         return false;
+    }
+
+    private long f(int i, int j) {
+        return (long) i * n + j;
     }
 }

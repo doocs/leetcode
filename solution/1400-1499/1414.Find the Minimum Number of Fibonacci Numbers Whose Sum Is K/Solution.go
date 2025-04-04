@@ -1,10 +1,19 @@
-func findMinFibonacciNumbers(k int) int {
-	if k < 2 {
-		return k
-	}
+func findMinFibonacciNumbers(k int) (ans int) {
 	a, b := 1, 1
 	for b <= k {
-		a, b = b, a+b
+		c := a + b
+		a = b
+		b = c
 	}
-	return 1 + findMinFibonacciNumbers(k-a)
+
+	for k > 0 {
+		if k >= b {
+			k -= b
+			ans++
+		}
+		c := b - a
+		b = a
+		a = c
+	}
+	return
 }

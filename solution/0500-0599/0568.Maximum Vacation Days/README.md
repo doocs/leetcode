@@ -98,7 +98,7 @@ Ans = 7 + 7 + 7 = 21
 
 我们定义 $f[k][j]$ 表示前 $k$ 周，且最后一周在城市 $j$ 休假的最长天数。初始时 $f[0][0]=0$，其它 $f[0][j]=-\infty$。答案为 $\max_{j=0}^{n-1} f[K][j]$。
 
-接下来，我们考虑如何计算 $f[k][j]$。对于当前这一周，我们可以枚举上一周所在的城市 $i$，城市 $i$ 可以和城市 $j$ 相等，那么 $f[k][j] = f[k-1][i]$；也可以和城市 $j$ 不相等，如果不相等，我们需要判断是否可以从城市 $i$ 飞到城市 $j$，如果可以，那么 $f[k][j] = max(f[k][j], f[k-1][i])$。最后，我们还需要加上这一周在城市 $j$ 休假的天数 $days[j][k-1]$。
+接下来，我们考虑如何计算 $f[k][j]$。对于当前这一周，我们可以枚举上一周所在的城市 $i$，城市 $i$ 可以和城市 $j$ 相等，那么 $f[k][j] = f[k-1][i]$；也可以和城市 $j$ 不相等，如果不相等，我们需要判断是否可以从城市 $i$ 飞到城市 $j$，如果可以，那么 $f[k][j] = \max(f[k][j], f[k-1][i])$。最后，我们还需要加上这一周在城市 $j$ 休假的天数 $\textit{days}[j][k-1]$。
 
 最终的答案即为 $\max_{j=0}^{n-1} f[K][j]$。
 
@@ -217,6 +217,59 @@ func maxVacationDays(flights [][]int, days [][]int) (ans int) {
 		ans = max(ans, f[K][j])
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxVacationDays(flights: number[][], days: number[][]): number {
+    const n = flights.length;
+    const K = days[0].length;
+    const inf = Number.NEGATIVE_INFINITY;
+    const f: number[][] = Array.from({ length: K + 1 }, () => Array(n).fill(inf));
+    f[0][0] = 0;
+    for (let k = 1; k <= K; k++) {
+        for (let j = 0; j < n; j++) {
+            f[k][j] = f[k - 1][j];
+            for (let i = 0; i < n; i++) {
+                if (flights[i][j]) {
+                    f[k][j] = Math.max(f[k][j], f[k - 1][i]);
+                }
+            }
+            f[k][j] += days[j][k - 1];
+        }
+    }
+    return Math.max(...f[K]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_vacation_days(flights: Vec<Vec<i32>>, days: Vec<Vec<i32>>) -> i32 {
+        let n = flights.len();
+        let k = days[0].len();
+        let inf = i32::MIN;
+
+        let mut f = vec![vec![inf; n]; k + 1];
+        f[0][0] = 0;
+
+        for step in 1..=k {
+            for j in 0..n {
+                f[step][j] = f[step - 1][j];
+                for i in 0..n {
+                    if flights[i][j] == 1 {
+                        f[step][j] = f[step][j].max(f[step - 1][i]);
+                    }
+                }
+                f[step][j] += days[j][step - 1];
+            }
+        }
+
+        *f[k].iter().max().unwrap()
+    }
 }
 ```
 

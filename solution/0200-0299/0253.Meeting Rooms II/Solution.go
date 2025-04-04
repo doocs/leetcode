@@ -1,12 +1,19 @@
-func minMeetingRooms(intervals [][]int) int {
-	n := 1000010
-	delta := make([]int, n)
+func minMeetingRooms(intervals [][]int) (ans int) {
+	m := 0
 	for _, e := range intervals {
-		delta[e[0]]++
-		delta[e[1]]--
+		m = max(m, e[1])
 	}
-	for i := 1; i < n; i++ {
-		delta[i] += delta[i-1]
+
+	d := make([]int, m+1)
+	for _, e := range intervals {
+		d[e[0]]++
+		d[e[1]]--
 	}
-	return slices.Max(delta)
+
+	s := 0
+	for _, v := range d {
+		s += v
+		ans = max(ans, s)
+	}
+	return
 }

@@ -87,12 +87,12 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def bstToGst(self, root: TreeNode) -> TreeNode:
-        def dfs(root):
-            nonlocal s
+    def bstToGst(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def dfs(root: Optional[TreeNode]):
             if root is None:
                 return
             dfs(root.right)
+            nonlocal s
             s += root.val
             root.val = s
             dfs(root.left)
@@ -156,19 +156,19 @@ class Solution {
  */
 class Solution {
 public:
-    int s = 0;
-
     TreeNode* bstToGst(TreeNode* root) {
+        int s = 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->right);
+            s += root->val;
+            root->val = s;
+            dfs(root->left);
+        };
         dfs(root);
         return root;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->right);
-        s += root->val;
-        root->val = s;
-        dfs(root->left);
     }
 };
 ```
@@ -219,17 +219,17 @@ func bstToGst(root *TreeNode) *TreeNode {
  */
 
 function bstToGst(root: TreeNode | null): TreeNode | null {
-    const dfs = (root: TreeNode | null, sum: number) => {
-        if (root == null) {
-            return sum;
+    let s = 0;
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
         }
-        const { val, left, right } = root;
-        sum = dfs(right, sum) + val;
-        root.val = sum;
-        sum = dfs(left, sum);
-        return sum;
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
     };
-    dfs(root, 0);
+    dfs(root);
     return root;
 }
 ```
@@ -255,22 +255,24 @@ function bstToGst(root: TreeNode | null): TreeNode | null {
 //     }
 //   }
 // }
-use std::cell::RefCell;
 use std::rc::Rc;
+use std::cell::RefCell;
+
 impl Solution {
-    fn dfs(root: &mut Option<Rc<RefCell<TreeNode>>>, mut sum: i32) -> i32 {
-        if let Some(node) = root {
-            let mut node = node.as_ref().borrow_mut();
-            sum = Self::dfs(&mut node.right, sum) + node.val;
-            node.val = sum;
-            sum = Self::dfs(&mut node.left, sum);
-        }
-        sum
+    pub fn bst_to_gst(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        let mut s = 0;
+        Self::dfs(&root, &mut s);
+        root
     }
 
-    pub fn bst_to_gst(mut root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
-        Self::dfs(&mut root, 0);
-        root
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, s: &mut i32) {
+        if let Some(node) = root {
+            let mut node = node.borrow_mut();
+            Self::dfs(&node.right, s);
+            *s += node.val;
+            node.val = *s;
+            Self::dfs(&node.left, s);
+        }
     }
 }
 ```

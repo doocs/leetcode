@@ -29,6 +29,27 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 443
+
+- [3502. Minimum Cost to Reach Every Position](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README_EN.md)
+- [3503. Longest Palindrome After Substring Concatenation I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README_EN.md)
+- [3504. Longest Palindrome After Substring Concatenation II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README_EN.md)
+- [3505. Minimum Operations to Make Elements Within K Subarrays Equal](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README_EN.md)
+
+#### Biweekly Contest 153
+
+- [3498. Reverse Degree of a String](/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README_EN.md)
+- [3499. Maximize Active Section with Trade I](/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README_EN.md)
+- [3500. Minimum Cost to Divide Array Into Subarrays](/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README_EN.md)
+- [3501. Maximize Active Section with Trade II](/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README_EN.md)
+
+#### Weekly Contest 442
+
+- [3492. Maximum Containers on a Ship](/solution/3400-3499/3492.Maximum%20Containers%20on%20a%20Ship/README_EN.md)
+- [3493. Properties Graph](/solution/3400-3499/3493.Properties%20Graph/README_EN.md)
+- [3494. Find the Minimum Amount of Time to Brew Potions](/solution/3400-3499/3494.Find%20the%20Minimum%20Amount%20of%20Time%20to%20Brew%20Potions/README_EN.md)
+- [3495. Minimum Operations to Make Array Elements Zero](/solution/3400-3499/3495.Minimum%20Operations%20to%20Make%20Array%20Elements%20Zero/README_EN.md)
+
 #### Weekly Contest 441
 
 - [3487. Maximum Unique Subarray Sum After Deletion](/solution/3400-3499/3487.Maximum%20Unique%20Subarray%20Sum%20After%20Deletion/README_EN.md)

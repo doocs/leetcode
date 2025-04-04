@@ -20,49 +20,60 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个在范围 <code>[0, n - 1]</code>&nbsp;以内的整数&nbsp;<code>p</code>&nbsp;，它们表示一个长度为 <code>n</code> 且下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>arr</code>&nbsp;，数组中除了下标为&nbsp;<code>p</code>&nbsp;处是 <code>1</code>&nbsp;以外，其他所有数都是 <code>0</code>&nbsp;。</p>
-
-<p>同时给你一个整数数组&nbsp;<code>banned</code>&nbsp;，它包含数组中的一些位置。<code>banned</code>&nbsp;中第&nbsp;<strong>i</strong>&nbsp;个位置表示&nbsp;<code>arr[banned[i]] = 0</code>&nbsp;，题目保证&nbsp;<code>banned[i] != p</code>&nbsp;。</p>
-
-<p>你可以对 <code>arr</code>&nbsp;进行 <strong>若干次</strong>&nbsp;操作。一次操作中，你选择大小为 <code>k</code>&nbsp;的一个 <strong>子数组</strong>&nbsp;，并将它 <b>翻转</b>&nbsp;。在任何一次翻转操作后，你都需要确保 <code>arr</code>&nbsp;中唯一的 <code>1</code>&nbsp;不会到达任何 <code>banned</code>&nbsp;中的位置。换句话说，<code>arr[banned[i]]</code>&nbsp;始终&nbsp;<strong>保持</strong>&nbsp;<code>0</code>&nbsp;。</p>
-
-<p>请你返回一个数组&nbsp;<code>ans</code>&nbsp;，对于<em>&nbsp;</em><code>[0, n - 1]</code>&nbsp;之间的任意下标&nbsp;<code>i</code>&nbsp;，<code>ans[i]</code>&nbsp;是将&nbsp;<code>1</code>&nbsp;放到位置&nbsp;<code>i</code>&nbsp;处的&nbsp;<strong>最少</strong>&nbsp;翻转操作次数，如果无法放到位置&nbsp;<code>i</code>&nbsp;处，此数为&nbsp;<code>-1</code>&nbsp;。</p>
+<p>给定一个整数&nbsp;<code>n</code>&nbsp;和一个整数&nbsp;<code>p</code>，它们表示一个长度为 <code>n</code> 且除了下标为&nbsp;<code>p</code>&nbsp;处是 <code>1</code>&nbsp;以外，其他所有数都是 <code>0</code>&nbsp;的数组&nbsp;<code>arr</code>。同时给定一个整数数组&nbsp;<code>banned</code>&nbsp;，它包含数组中的一些限制位置。在&nbsp;<code>arr</code>&nbsp;上进行下列操作：</p>
 
 <ul>
-	<li><strong>子数组</strong>&nbsp;指的是一个数组里一段连续 <strong>非空</strong>&nbsp;的元素序列。</li>
-	<li>对于所有的 <code>i</code>&nbsp;，<code>ans[i]</code>&nbsp;相互之间独立计算。</li>
-	<li>将一个数组中的元素 <strong>翻转</strong> 指的是将数组中的值变成 <strong>相反顺序</strong>&nbsp;。</li>
+	<li>如果单个 1 不在&nbsp;<code>banned</code>&nbsp;中的位置上，反转大小为 <code>k</code> 的 <strong><span data-keyword="subarray-nonempty">子数组</span></strong>。</li>
 </ul>
+
+<p>返回一个包含&nbsp;<code>n</code>&nbsp;个结果的整数数组&nbsp;<code>answer</code>，其中第&nbsp;<code>i</code>&nbsp;个结果是将&nbsp;<code>1</code>&nbsp;放到位置&nbsp;<code>i</code>&nbsp;处所需的&nbsp;<strong>最少</strong>&nbsp;翻转操作次数，如果无法放到位置&nbsp;<code>i</code>&nbsp;处，此数为&nbsp;<code>-1</code>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>n = 4, p = 0, banned = [1,2], k = 4
-<b>输出：</b>[0,-1,-1,1]
-<b>解释：</b><code>k = 4，所以只有一种可行的翻转操作，就是将整个数组翻转。一开始 </code>1<strong> </strong>在位置 0 处，所以将它翻转到位置 0 处需要的操作数为 0 。
-我们不能将 1 翻转到 banned 中的位置，所以位置 1 和 2 处的答案都是 -1 。
-通过一次翻转操作，可以将 1 放到位置 3 处，所以位置 3 的答案是 1 。
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 4, p = 0, banned = [1,2], k = 4</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>[0,-1,-1,1]</span></p>
 
-<pre>
-<b>输入：</b>n = 5, p = 0, banned = [2,4], k = 3
-<b>输出：</b>[0,-1,-1,-1,-1]
-<b>解释：</b>这个例子中 1 一开始在位置 0 处，所以此下标的答案为 0 。
-翻转的子数组长度为 k = 3 ，1 此时在位置 0 处，所以我们可以翻转子数组 [0, 2]，但翻转后的下标 2 在 banned 中，所以不能执行此操作。
-由于 1 没法离开位置 0 ，所以其他位置的答案都是 -1 。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<ul>
+	<li>一开始 1 位于位置 0，因此我们需要在位置 0 上的操作数是 0。</li>
+	<li>我们不能将 1 放置在被禁止的位置上，所以位置 1 和 2 的答案是 -1。</li>
+	<li>执行大小为 4 的操作以反转整个数组。</li>
+	<li>在一次操作后，1 位于位置 3，因此位置 3 的答案是 1。</li>
+</ul>
+</div>
 
-<pre>
-<b>输入：</b>n = 4, p = 2, banned = [0,1,3], k = 1
-<b>输出：</b>[-1,-1,0,-1]
-<b>解释：</b>这个例子中，我们只能对长度为 1 的子数组执行翻转操作，所以 1 无法离开初始位置。
-</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 5, p = 0, banned = [2,4], k = 3</span></p>
+
+<p><span class="example-io"><b>输出：</b>[0,-1,-1,-1,-1]</span></p>
+
+<p><b>解释：</b></p>
+
+<ul>
+	<li>一开始 1 位于位置 0，因此我们需要在位置 0 上的操作数是 0。</li>
+	<li>我们不能在&nbsp;<code>[0, 2]</code>&nbsp;的子数组位置上执行操作，因为位置 2 在 banned 中。</li>
+	<li>由于 1 不能够放置在位置 2 上，使用更多操作将 1 放置在其它位置上是不可能的。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 4, p = 2, banned = [0,1,3], k = 1</span></p>
+
+<p><span class="example-io"><b>输出：</b>[-1,-1,0,-1]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>执行大小为 1 的操作，且 1 永远不会改变位置。</p>
+</div>
 
 <p>&nbsp;</p>
 

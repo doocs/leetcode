@@ -180,6 +180,208 @@ class Solution {
 }
 ```
 
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumMoves(vector<vector<int>>& grid) {
+        queue<string> q;
+        q.push(f(grid));
+        unordered_set<string> vis;
+        vis.insert(f(grid));
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+
+        for (int ans = 0;; ++ans) {
+            int sz = q.size();
+            while (sz--) {
+                string p = q.front();
+                q.pop();
+                if (p == "111111111") {
+                    return ans;
+                }
+                vector<vector<int>> cur = g(p);
+
+                for (int i = 0; i < 3; ++i) {
+                    for (int j = 0; j < 3; ++j) {
+                        if (cur[i][j] > 1) {
+                            for (int d = 0; d < 4; ++d) {
+                                int x = i + dirs[d];
+                                int y = j + dirs[d + 1];
+                                if (x >= 0 && x < 3 && y >= 0 && y < 3 && cur[x][y] < 2) {
+                                    vector<vector<int>> nxt = cur;
+                                    nxt[i][j]--;
+                                    nxt[x][y]++;
+                                    string s = f(nxt);
+                                    if (!vis.count(s)) {
+                                        vis.insert(s);
+                                        q.push(s);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+private:
+    string f(const vector<vector<int>>& grid) {
+        string s;
+        for (const auto& row : grid) {
+            for (int x : row) {
+                s += to_string(x);
+            }
+        }
+        return s;
+    }
+
+    vector<vector<int>> g(const string& s) {
+        vector<vector<int>> grid(3, vector<int>(3));
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                grid[i][j] = s[i * 3 + j] - '0';
+            }
+        }
+        return grid;
+    }
+};
+```
+
+#### Go
+
+```go
+type Queue []string
+
+func (q *Queue) Push(s string) {
+	*q = append(*q, s)
+}
+
+func (q *Queue) Pop() string {
+	s := (*q)[0]
+	*q = (*q)[1:]
+	return s
+}
+
+func (q *Queue) Empty() bool {
+	return len(*q) == 0
+}
+
+func minimumMoves(grid [][]int) int {
+	q := Queue{f(grid)}
+	vis := map[string]bool{f(grid): true}
+	dirs := []int{-1, 0, 1, 0, -1}
+
+	for ans := 0; ; ans++ {
+		sz := len(q)
+		for ; sz > 0; sz-- {
+			p := q.Pop()
+			if p == "111111111" {
+				return ans
+			}
+			cur := g(p)
+
+			for i := 0; i < 3; i++ {
+				for j := 0; j < 3; j++ {
+					if cur[i][j] > 1 {
+						for d := 0; d < 4; d++ {
+							x, y := i+dirs[d], j+dirs[d+1]
+							if x >= 0 && x < 3 && y >= 0 && y < 3 && cur[x][y] < 2 {
+								nxt := make([][]int, 3)
+								for r := range nxt {
+									nxt[r] = append([]int(nil), cur[r]...)
+								}
+								nxt[i][j]--
+								nxt[x][y]++
+								s := f(nxt)
+								if !vis[s] {
+									vis[s] = true
+									q.Push(s)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+func f(grid [][]int) string {
+	var sb strings.Builder
+	for _, row := range grid {
+		for _, x := range row {
+			sb.WriteByte(byte(x) + '0')
+		}
+	}
+	return sb.String()
+}
+
+func g(s string) [][]int {
+	grid := make([][]int, 3)
+	for i := range grid {
+		grid[i] = make([]int, 3)
+		for j := 0; j < 3; j++ {
+			grid[i][j] = int(s[i*3+j] - '0')
+		}
+	}
+	return grid
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumMoves(grid: number[][]): number {
+    const q: string[] = [f(grid)];
+    const vis: Set<string> = new Set([f(grid)]);
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+
+    for (let ans = 0; ; ans++) {
+        let sz = q.length;
+        while (sz-- > 0) {
+            const p = q.shift()!;
+            if (p === '111111111') {
+                return ans;
+            }
+            const cur = g(p);
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (cur[i][j] > 1) {
+                        for (let d = 0; d < 4; d++) {
+                            const x = i + dirs[d],
+                                y = j + dirs[d + 1];
+                            if (x >= 0 && x < 3 && y >= 0 && y < 3 && cur[x][y] < 2) {
+                                const nxt = cur.map(row => [...row]);
+                                nxt[i][j]--;
+                                nxt[x][y]++;
+                                const s = f(nxt);
+                                if (!vis.has(s)) {
+                                    vis.add(s);
+                                    q.push(s);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function f(grid: number[][]): string {
+    return grid.flat().join('');
+}
+
+function g(s: string): number[][] {
+    return Array.from({ length: 3 }, (_, i) =>
+        Array.from({ length: 3 }, (_, j) => Number(s[i * 3 + j])),
+    );
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

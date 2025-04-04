@@ -70,7 +70,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+题目相当于在一个 $10^6 \times 10^6$ 的网格中，给定源点和目标点，以及一小部分被封锁的点，问是否可以从源点到达目标点。
+
+由于被封锁的点数量很少，最终能封锁的区域大小不超过 $|blocked|^2 / 2$，因此，我们可以从源点和目标点出发，进行深度优先搜索，直到搜索到目标点或者搜索到的点数超过 $|blocked|^2 / 2$，如果都满足，则返回 $\textit{true}$。否则返回 $\textit{false}$。
+
+时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 是被封锁的区域的大小，本题中 $m \leq |blocked|^2 / 2 = 200^2 / 2 = 20000$。
 
 <!-- tabs:start -->
 
@@ -81,24 +87,21 @@ class Solution:
     def isEscapePossible(
         self, blocked: List[List[int]], source: List[int], target: List[int]
     ) -> bool:
-        def dfs(source, target, seen):
-            x, y = source
-            if (
-                not (0 <= x < 10**6 and 0 <= y < 10**6)
-                or (x, y) in blocked
-                or (x, y) in seen
-            ):
-                return False
-            seen.add((x, y))
-            if len(seen) > 20000 or source == target:
+        def dfs(source: List[int], target: List[int], vis: set) -> bool:
+            vis.add(tuple(source))
+            if len(vis) > m:
                 return True
-            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
-                next = [x + a, y + b]
-                if dfs(next, target, seen):
-                    return True
+            for a, b in pairwise(dirs):
+                x, y = source[0] + a, source[1] + b
+                if 0 <= x < n and 0 <= y < n and (x, y) not in s and (x, y) not in vis:
+                    if [x, y] == target or dfs([x, y], target, vis):
+                        return True
             return False
 
-        blocked = set((x, y) for x, y in blocked)
+        s = {(x, y) for x, y in blocked}
+        dirs = (-1, 0, 1, 0, -1)
+        n = 10**6
+        m = len(blocked) ** 2 // 2
         return dfs(source, target, set()) and dfs(target, source, set())
 ```
 
@@ -106,35 +109,42 @@ class Solution:
 
 ```java
 class Solution {
-    private int[][] dirs = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-    private static final int N = (int) 1e6;
-    private Set<Integer> blocked;
+    private final int n = (int) 1e6;
+    private int m;
+    private Set<Long> s = new HashSet<>();
+    private final int[] dirs = {-1, 0, 1, 0, -1};
 
     public boolean isEscapePossible(int[][] blocked, int[] source, int[] target) {
-        this.blocked = new HashSet<>();
-        for (int[] b : blocked) {
-            this.blocked.add(b[0] * N + b[1]);
+        for (var b : blocked) {
+            s.add(f(b[0], b[1]));
         }
-        return dfs(source, target, new HashSet<>()) && dfs(target, source, new HashSet<>());
-    }
-
-    private boolean dfs(int[] source, int[] target, Set<Integer> seen) {
+        m = blocked.length * blocked.length / 2;
         int sx = source[0], sy = source[1];
         int tx = target[0], ty = target[1];
-        if (sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N
-            || blocked.contains(sx * N + sy) || seen.contains(sx * N + sy)) {
-            return false;
-        }
-        seen.add(sx * N + sy);
-        if (seen.size() > 20000 || (sx == target[0] && sy == target[1])) {
+        return dfs(sx, sy, tx, ty, new HashSet<>()) && dfs(tx, ty, sx, sy, new HashSet<>());
+    }
+
+    private boolean dfs(int sx, int sy, int tx, int ty, Set<Long> vis) {
+        if (vis.size() > m) {
             return true;
         }
-        for (int[] dir : dirs) {
-            if (dfs(new int[] {sx + dir[0], sy + dir[1]}, target, seen)) {
-                return true;
+        for (int k = 0; k < 4; ++k) {
+            int x = sx + dirs[k], y = sy + dirs[k + 1];
+            if (x >= 0 && x < n && y >= 0 && y < n) {
+                if (x == tx && y == ty) {
+                    return true;
+                }
+                long key = f(x, y);
+                if (!s.contains(key) && vis.add(key) && dfs(x, y, tx, ty, vis)) {
+                    return true;
+                }
             }
         }
         return false;
+    }
+
+    private long f(int i, int j) {
+        return (long) i * n + j;
     }
 }
 ```
@@ -142,33 +152,43 @@ class Solution {
 #### C++
 
 ```cpp
-typedef unsigned long long ULL;
-
 class Solution {
 public:
-    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-    unordered_set<ULL> blocked;
-    int N = 1e6;
-
     bool isEscapePossible(vector<vector<int>>& blocked, vector<int>& source, vector<int>& target) {
-        this->blocked.clear();
-        for (auto& b : blocked) this->blocked.insert((ULL) b[0] * N + b[1]);
-        unordered_set<ULL> s1;
-        unordered_set<ULL> s2;
-        return dfs(source, target, s1) && dfs(target, source, s2);
-    }
-
-    bool dfs(vector<int>& source, vector<int>& target, unordered_set<ULL>& seen) {
+        const int n = 1e6;
+        int m = blocked.size() * blocked.size() / 2;
+        using ll = long long;
+        unordered_set<ll> s;
+        const int dirs[5] = {-1, 0, 1, 0, -1};
+        auto f = [&](int i, int j) {
+            return (ll) i * n + j;
+        };
+        for (const auto& b : blocked) {
+            s.insert(f(b[0], b[1]));
+        }
         int sx = source[0], sy = source[1];
         int tx = target[0], ty = target[1];
-        if (sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N || blocked.count((ULL) sx * N + sy) || seen.count((ULL) sx * N + sy)) return 0;
-        seen.insert((ULL) sx * N + sy);
-        if (seen.size() > 20000 || (sx == target[0] && sy == target[1])) return 1;
-        for (auto& dir : dirs) {
-            vector<int> next = {sx + dir[0], sy + dir[1]};
-            if (dfs(next, target, seen)) return 1;
-        }
-        return 0;
+        unordered_set<ll> vis1, vis2;
+        auto dfs = [&](this auto&& dfs, int sx, int sy, int tx, int ty, unordered_set<ll>& vis) -> bool {
+            vis.insert(f(sx, sy));
+            if (vis.size() > m) {
+                return true;
+            }
+            for (int k = 0; k < 4; ++k) {
+                int x = sx + dirs[k], y = sy + dirs[k + 1];
+                if (x >= 0 && x < n && y >= 0 && y < n) {
+                    if (x == tx && y == ty) {
+                        return true;
+                    }
+                    auto key = f(x, y);
+                    if (!s.contains(key) && !vis.contains(key) && dfs(x, y, tx, ty, vis)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+        return dfs(sx, sy, tx, ty, vis1) && dfs(tx, ty, sx, sy, vis2);
     }
 };
 ```
@@ -177,84 +197,156 @@ public:
 
 ```go
 func isEscapePossible(blocked [][]int, source []int, target []int) bool {
-	const N = 1e6
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-	block := make(map[int]bool)
-	for _, b := range blocked {
-		block[b[0]*N+b[1]] = true
+	const n = 1_000_000
+	m := len(blocked) * len(blocked) / 2
+	dirs := [5]int{-1, 0, 1, 0, -1}
+
+	f := func(i, j int) int64 {
+		return int64(i*n + j)
 	}
-	var dfs func(source, target []int, seen map[int]bool) bool
-	dfs = func(source, target []int, seen map[int]bool) bool {
-		sx, sy := source[0], source[1]
-		tx, ty := target[0], target[1]
-		if sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N || block[sx*N+sy] || seen[sx*N+sy] {
-			return false
-		}
-		seen[sx*N+sy] = true
-		if len(seen) > 20000 || (sx == target[0] && sy == target[1]) {
+
+	s := make(map[int64]bool)
+	for _, b := range blocked {
+		s[f(b[0], b[1])] = true
+	}
+
+	var dfs func(sx, sy, tx, ty int, vis map[int64]bool) bool
+	dfs = func(sx, sy, tx, ty int, vis map[int64]bool) bool {
+		key := f(sx, sy)
+		vis[key] = true
+		if len(vis) > m {
 			return true
 		}
-		for _, dir := range dirs {
-			next := []int{sx + dir[0], sy + dir[1]}
-			if dfs(next, target, seen) {
-				return true
+		for k := 0; k < 4; k++ {
+			x, y := sx+dirs[k], sy+dirs[k+1]
+			if x >= 0 && x < n && y >= 0 && y < n {
+				if x == tx && y == ty {
+					return true
+				}
+				key := f(x, y)
+				if !s[key] && !vis[key] && dfs(x, y, tx, ty, vis) {
+					return true
+				}
 			}
 		}
 		return false
 	}
-	s1, s2 := make(map[int]bool), make(map[int]bool)
-	return dfs(source, target, s1) && dfs(target, source, s2)
+
+	sx, sy := source[0], source[1]
+	tx, ty := target[0], target[1]
+	return dfs(sx, sy, tx, ty, map[int64]bool{}) && dfs(tx, ty, sx, sy, map[int64]bool{})
+}
+```
+
+#### TypeScript
+
+```ts
+function isEscapePossible(blocked: number[][], source: number[], target: number[]): boolean {
+    const n = 10 ** 6;
+    const m = (blocked.length ** 2) >> 1;
+    const dirs = [-1, 0, 1, 0, -1];
+
+    const s = new Set<number>();
+    const f = (i: number, j: number): number => i * n + j;
+
+    for (const [x, y] of blocked) {
+        s.add(f(x, y));
+    }
+
+    const dfs = (sx: number, sy: number, tx: number, ty: number, vis: Set<number>): boolean => {
+        vis.add(f(sx, sy));
+        if (vis.size > m) {
+            return true;
+        }
+        for (let k = 0; k < 4; k++) {
+            const x = sx + dirs[k],
+                y = sy + dirs[k + 1];
+            if (x >= 0 && x < n && y >= 0 && y < n) {
+                if (x === tx && y === ty) {
+                    return true;
+                }
+                const key = f(x, y);
+                if (!s.has(key) && !vis.has(key) && dfs(x, y, tx, ty, vis)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
+    return (
+        dfs(source[0], source[1], target[0], target[1], new Set()) &&
+        dfs(target[0], target[1], source[0], source[1], new Set())
+    );
 }
 ```
 
 #### Rust
 
 ```rust
-use std::collections::{HashSet, VecDeque};
-
-const BOUNDARY: i32 = 1_000_000;
-const MAX: usize = 20000;
+use std::collections::HashSet;
 
 impl Solution {
     pub fn is_escape_possible(blocked: Vec<Vec<i32>>, source: Vec<i32>, target: Vec<i32>) -> bool {
-        let mut block = HashSet::with_capacity(blocked.len());
-        for b in blocked.iter() {
-            block.insert((b[0], b[1]));
+        const N: i64 = 1_000_000;
+        let m = (blocked.len() * blocked.len()) as i64 / 2;
+
+        let f = |i: i64, j: i64| -> i64 { i * N + j };
+
+        let mut s: HashSet<i64> = HashSet::new();
+        for b in &blocked {
+            s.insert(f(b[0] as i64, b[1] as i64));
         }
-        bfs(&block, &source, &target) && bfs(&block, &target, &source)
-    }
-}
 
-fn bfs(block: &HashSet<(i32, i32)>, source: &Vec<i32>, target: &Vec<i32>) -> bool {
-    let dir = vec![(-1, 0), (1, 0), (0, -1), (0, 1)];
-
-    let mut queue = VecDeque::new();
-    let mut vis = HashSet::new();
-    queue.push_back((source[0], source[1]));
-    vis.insert((source[0], source[1]));
-
-    while !queue.is_empty() && vis.len() < MAX {
-        let (x, y) = queue.pop_front().unwrap();
-        if x == target[0] && y == target[1] {
-            return true;
-        }
-        for (dx, dy) in dir.iter() {
-            let (nx, ny) = (x + dx, y + dy);
-            if nx < 0
-                || nx >= BOUNDARY
-                || ny < 0
-                || ny >= BOUNDARY
-                || vis.contains(&(nx, ny))
-                || block.contains(&(nx, ny))
-            {
-                continue;
+        fn dfs(
+            sx: i64,
+            sy: i64,
+            tx: i64,
+            ty: i64,
+            s: &HashSet<i64>,
+            m: i64,
+            vis: &mut HashSet<i64>,
+        ) -> bool {
+            static DIRS: [i64; 5] = [-1, 0, 1, 0, -1];
+            let key = sx * 1_000_000 + sy;
+            vis.insert(key);
+            if vis.len() as i64 > m {
+                return true;
             }
-            queue.push_back((nx, ny));
-            vis.insert((nx, ny));
+            for k in 0..4 {
+                let x = sx + DIRS[k];
+                let y = sy + DIRS[k + 1];
+                let key = x * 1_000_000 + y;
+                if x >= 0 && x < 1_000_000 && y >= 0 && y < 1_000_000 {
+                    if x == tx && y == ty {
+                        return true;
+                    }
+                    if !s.contains(&key) && vis.insert(key) && dfs(x, y, tx, ty, s, m, vis) {
+                        return true;
+                    }
+                }
+            }
+            false
         }
-    }
 
-    vis.len() >= MAX
+        dfs(
+            source[0] as i64,
+            source[1] as i64,
+            target[0] as i64,
+            target[1] as i64,
+            &s,
+            m,
+            &mut HashSet::new(),
+        ) && dfs(
+            target[0] as i64,
+            target[1] as i64,
+            source[0] as i64,
+            source[1] as i64,
+            &s,
+            m,
+            &mut HashSet::new(),
+        )
+    }
 }
 ```
 

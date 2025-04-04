@@ -5,17 +5,17 @@ public:
             return false;
         }
         map<int, int> mp;
-        for (int& h : nums) {
-            mp[h] += 1;
+        for (int x : nums) {
+            ++mp[x];
         }
         while (!mp.empty()) {
-            int v = mp.begin()->first;
-            for (int i = v; i < v + k; ++i) {
-                if (!mp.contains(i)) {
+            int x = mp.begin()->first;
+            for (int y = x; y < x + k; ++y) {
+                if (!mp.contains(y)) {
                     return false;
                 }
-                if (--mp[i] == 0) {
-                    mp.erase(i);
+                if (--mp[y] == 0) {
+                    mp.erase(y);
                 }
             }
         }

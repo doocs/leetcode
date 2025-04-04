@@ -1,7 +1,7 @@
 func longestSquareStreak(nums []int) (ans int) {
 	s := map[int]bool{}
-	for _, v := range nums {
-		s[v] = true
+	for _, x := range nums {
+		s[x] = true
 	}
 	f := map[int]int{}
 	var dfs func(int) int
@@ -15,8 +15,8 @@ func longestSquareStreak(nums []int) (ans int) {
 		f[x] = 1 + dfs(x*x)
 		return f[x]
 	}
-	for _, v := range nums {
-		if t := dfs(v); ans < t {
+	for x := range s {
+		if t := dfs(x); ans < t {
 			ans = t
 		}
 	}

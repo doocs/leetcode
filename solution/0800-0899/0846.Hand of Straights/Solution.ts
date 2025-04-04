@@ -1,20 +1,21 @@
-function isNStraightHand(hand: number[], groupSize: number) {
-    const cnt: Record<number, number> = {};
-    for (const i of hand) {
-        cnt[i] = (cnt[i] ?? 0) + 1;
+function isNStraightHand(hand: number[], groupSize: number): boolean {
+    if (hand.length % groupSize !== 0) {
+        return false;
     }
-
-    const keys = Object.keys(cnt).map(Number);
-    for (const i of keys) {
-        while (cnt[i]) {
-            for (let j = i; j < groupSize + i; j++) {
-                if (!cnt[j]) {
+    const cnt = new Map<number, number>();
+    for (const x of hand) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    hand.sort((a, b) => a - b);
+    for (const x of hand) {
+        if (cnt.get(x)! > 0) {
+            for (let y = x; y < x + groupSize; y++) {
+                if ((cnt.get(y) || 0) === 0) {
                     return false;
                 }
-                cnt[j]--;
+                cnt.set(y, cnt.get(y)! - 1);
             }
         }
     }
-
     return true;
 }

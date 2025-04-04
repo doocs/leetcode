@@ -42,7 +42,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We sort the meetings based on their start times, and then iterate through the sorted meetings. If the start time of the current meeting is less than the end time of the previous meeting, it indicates that there is an overlap between the two meetings, and we return `false`. Otherwise, we continue iterating.
+
+If no overlap is found by the end of the iteration, we return `true`.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of meetings.
 
 <!-- tabs:start -->
 
@@ -62,9 +68,7 @@ class Solution {
     public boolean canAttendMeetings(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
         for (int i = 1; i < intervals.length; ++i) {
-            var a = intervals[i - 1];
-            var b = intervals[i];
-            if (a[1] > b[0]) {
+            if (intervals[i - 1][1] > intervals[i][0]) {
                 return false;
             }
         }
@@ -79,11 +83,11 @@ class Solution {
 class Solution {
 public:
     bool canAttendMeetings(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
+        ranges::sort(intervals, [](const auto& a, const auto& b) {
             return a[0] < b[0];
         });
         for (int i = 1; i < intervals.size(); ++i) {
-            if (intervals[i][0] < intervals[i - 1][1]) {
+            if (intervals[i - 1][1] > intervals[i][0]) {
                 return false;
             }
         }
@@ -126,32 +130,13 @@ function canAttendMeetings(intervals: number[][]): boolean {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
-    pub fn can_attend_meetings(intervals: Vec<Vec<i32>>) -> bool {
-        if intervals.len() == 1 {
-            return true;
-        }
-
-        let mut intervals = intervals;
-
-        // Sort the intervals vector
-        intervals.sort_by(|lhs, rhs| lhs[0].cmp(&rhs[0]));
-
-        let mut end = -1;
-
-        // Begin traverse
-        for p in &intervals {
-            if end == -1 {
-                // This is the first pair
-                end = p[1];
-                continue;
-            }
-            if p[0] < end {
+    pub fn can_attend_meetings(mut intervals: Vec<Vec<i32>>) -> bool {
+        intervals.sort_by(|a, b| a[0].cmp(&b[0]));
+        for i in 1..intervals.len() {
+            if intervals[i - 1][1] > intervals[i][0] {
                 return false;
             }
-            end = p[1];
         }
-
         true
     }
 }

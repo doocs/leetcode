@@ -63,7 +63,18 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Greedy
+
+We first sort the intervals in ascending order by their right boundary. We use a variable $\textit{pre}$ to record the right boundary of the previous interval and a variable $\textit{ans}$ to record the number of intervals that need to be removed. Initially, $\textit{ans} = \textit{intervals.length}$.
+
+Then we iterate through the intervals. For each interval:
+
+-   If the left boundary of the current interval is greater than or equal to $\textit{pre}$, it means that this interval does not need to be removed. We directly update $\textit{pre}$ to the right boundary of the current interval and decrement $\textit{ans}$ by one;
+-   Otherwise, it means that this interval needs to be removed, and we do not need to update $\textit{pre}$ and $\textit{ans}$.
+
+Finally, we return $\textit{ans}$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 
@@ -73,12 +84,12 @@ tags:
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         intervals.sort(key=lambda x: x[1])
-        ans, t = 0, intervals[0][1]
-        for s, e in intervals[1:]:
-            if s >= t:
-                t = e
-            else:
-                ans += 1
+        ans = len(intervals)
+        pre = -inf
+        for l, r in intervals:
+            if pre <= l:
+                ans -= 1
+                pre = r
         return ans
 ```
 
@@ -87,13 +98,14 @@ class Solution:
 ```java
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
-        Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
-        int t = intervals[0][1], ans = 0;
-        for (int i = 1; i < intervals.length; ++i) {
-            if (intervals[i][0] >= t) {
-                t = intervals[i][1];
-            } else {
-                ++ans;
+        Arrays.sort(intervals, (a, b) -> a[1] - b[1]);
+        int ans = intervals.length;
+        int pre = Integer.MIN_VALUE;
+        for (var e : intervals) {
+            int l = e[0], r = e[1];
+            if (pre <= l) {
+                --ans;
+                pre = r;
             }
         }
         return ans;
@@ -107,13 +119,17 @@ class Solution {
 class Solution {
 public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](const auto& a, const auto& b) { return a[1] < b[1]; });
-        int ans = 0, t = intervals[0][1];
-        for (int i = 1; i < intervals.size(); ++i) {
-            if (t <= intervals[i][0])
-                t = intervals[i][1];
-            else
-                ++ans;
+        ranges::sort(intervals, [](const vector<int>& a, const vector<int>& b) {
+            return a[1] < b[1];
+        });
+        int ans = intervals.size();
+        int pre = INT_MIN;
+        for (const auto& e : intervals) {
+            int l = e[0], r = e[1];
+            if (pre <= l) {
+                --ans;
+                pre = r;
+            }
         }
         return ans;
     }
@@ -127,12 +143,13 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][1] < intervals[j][1]
 	})
-	t, ans := intervals[0][1], 0
-	for i := 1; i < len(intervals); i++ {
-		if intervals[i][0] >= t {
-			t = intervals[i][1]
-		} else {
-			ans++
+	ans := len(intervals)
+	pre := math.MinInt32
+	for _, e := range intervals {
+		l, r := e[0], e[1]
+		if pre <= l {
+			ans--
+			pre = r
 		}
 	}
 	return ans
@@ -144,80 +161,14 @@ func eraseOverlapIntervals(intervals [][]int) int {
 ```ts
 function eraseOverlapIntervals(intervals: number[][]): number {
     intervals.sort((a, b) => a[1] - b[1]);
-    let end = intervals[0][1],
-        ans = 0;
-    for (let i = 1; i < intervals.length; ++i) {
-        let cur = intervals[i];
-        if (end > cur[0]) {
-            ans++;
-        } else {
-            end = cur[1];
+    let [ans, pre] = [intervals.length, -Infinity];
+    for (const [l, r] of intervals) {
+        if (pre <= l) {
+            --ans;
+            pre = r;
         }
     }
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-        intervals.sort()
-        d = [intervals[0][1]]
-        for s, e in intervals[1:]:
-            if s >= d[-1]:
-                d.append(e)
-            else:
-                idx = bisect_left(d, s)
-                d[idx] = min(d[idx], e)
-        return len(intervals) - len(d)
-```
-
-#### Java
-
-```java
-class Solution {
-    public int eraseOverlapIntervals(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> {
-            if (a[0] != b[0]) {
-                return a[0] - b[0];
-            }
-            return a[1] - b[1];
-        });
-        int n = intervals.length;
-        int[] d = new int[n + 1];
-        d[1] = intervals[0][1];
-        int size = 1;
-        for (int i = 1; i < n; ++i) {
-            int s = intervals[i][0], e = intervals[i][1];
-            if (s >= d[size]) {
-                d[++size] = e;
-            } else {
-                int left = 1, right = size;
-                while (left < right) {
-                    int mid = (left + right) >> 1;
-                    if (d[mid] >= s) {
-                        right = mid;
-                    } else {
-                        left = mid + 1;
-                    }
-                }
-                d[left] = Math.min(d[left], e);
-            }
-        }
-        return n - size;
-    }
 }
 ```
 

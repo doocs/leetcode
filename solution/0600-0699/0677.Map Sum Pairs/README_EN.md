@@ -68,7 +68,20 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Trie
+
+We use a hash table $d$ to store key-value pairs and a trie $t$ to store the prefix sums of the key-value pairs. Each node in the trie contains two pieces of information:
+
+-   `val`: the total sum of the values of the key-value pairs with this node as the prefix
+-   `children`: an array of length $26$ that stores the child nodes of this node
+
+When inserting a key-value pair $(key, val)$, we first check if the key exists in the hash table. If it does, the `val` of each node in the trie needs to subtract the original value of the key and then add the new value. If it does not exist, the `val` of each node in the trie needs to add the new value.
+
+When querying the prefix sum, we start from the root node of the trie and traverse the prefix string. If the current node's child nodes do not contain the character, it means the prefix does not exist in the trie, and we return $0$. Otherwise, we continue to traverse the next character until we finish traversing the prefix string and return the `val` of the current node.
+
+In terms of time complexity, the time complexity of inserting a key-value pair is $O(n)$, where $n$ is the length of the key. The time complexity of querying the prefix sum is $O(m)$, where $m$ is the length of the prefix.
+
+The space complexity is $O(n \times m \times C)$, where $n$ and $m$ are the number of keys and the maximum length of the keys, respectively; and $C$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -361,6 +374,196 @@ class MapSum {
  * var obj = new MapSum()
  * obj.insert(key,val)
  * var param_2 = obj.sum(prefix)
+ */
+```
+
+#### Rust
+
+```rust
+struct Trie {
+    children: Vec<Option<Box<Trie>>>,
+    val: i32,
+}
+
+impl Trie {
+    fn new() -> Self {
+        Trie {
+            children: (0..26).map(|_| None).collect(),
+            val: 0,
+        }
+    }
+
+    fn insert(&mut self, w: &str, x: i32) {
+        let mut node = self;
+        for c in w.chars() {
+            let idx = (c as usize) - ('a' as usize);
+            if node.children[idx].is_none() {
+                node.children[idx] = Some(Box::new(Trie::new()));
+            }
+            node = node.children[idx].as_mut().unwrap();
+            node.val += x;
+        }
+    }
+
+    fn search(&self, w: &str) -> i32 {
+        let mut node = self;
+        for c in w.chars() {
+            let idx = (c as usize) - ('a' as usize);
+            if node.children[idx].is_none() {
+                return 0;
+            }
+            node = node.children[idx].as_ref().unwrap();
+        }
+        node.val
+    }
+}
+
+struct MapSum {
+    d: std::collections::HashMap<String, i32>,
+    trie: Trie,
+}
+
+impl MapSum {
+    fn new() -> Self {
+        MapSum {
+            d: std::collections::HashMap::new(),
+            trie: Trie::new(),
+        }
+    }
+
+    fn insert(&mut self, key: String, val: i32) {
+        let x = val - self.d.get(&key).unwrap_or(&0);
+        self.d.insert(key.clone(), val);
+        self.trie.insert(&key, x);
+    }
+
+    fn sum(&self, prefix: String) -> i32 {
+        self.trie.search(&prefix)
+    }
+}
+```
+
+#### JavaScript
+
+```js
+class Trie {
+    constructor() {
+        this.children = new Array(26);
+        this.val = 0;
+    }
+
+    insert(w, x) {
+        let node = this;
+        for (const c of w) {
+            const i = c.charCodeAt(0) - 97;
+            if (!node.children[i]) {
+                node.children[i] = new Trie();
+            }
+            node = node.children[i];
+            node.val += x;
+        }
+    }
+
+    search(w) {
+        let node = this;
+        for (const c of w) {
+            const i = c.charCodeAt(0) - 97;
+            if (!node.children[i]) {
+                return 0;
+            }
+            node = node.children[i];
+        }
+        return node.val;
+    }
+}
+
+var MapSum = function () {
+    this.d = new Map();
+    this.t = new Trie();
+};
+
+/**
+ * @param {string} key
+ * @param {number} val
+ * @return {void}
+ */
+MapSum.prototype.insert = function (key, val) {
+    const x = val - (this.d.get(key) ?? 0);
+    this.d.set(key, val);
+    this.t.insert(key, x);
+};
+
+/**
+ * @param {string} prefix
+ * @return {number}
+ */
+MapSum.prototype.sum = function (prefix) {
+    return this.t.search(prefix);
+};
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * var obj = new MapSum()
+ * obj.insert(key,val)
+ * var param_2 = obj.sum(prefix)
+ */
+```
+
+#### C#
+
+```cs
+public class Trie {
+    private Trie[] children = new Trie[26];
+    private int val;
+
+    public void Insert(string w, int x) {
+        Trie node = this;
+        for (int i = 0; i < w.Length; ++i) {
+            int idx = w[i] - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+            node.val += x;
+        }
+    }
+
+    public int Search(string w) {
+        Trie node = this;
+        for (int i = 0; i < w.Length; ++i) {
+            int idx = w[i] - 'a';
+            if (node.children[idx] == null) {
+                return 0;
+            }
+            node = node.children[idx];
+        }
+        return node.val;
+    }
+}
+
+public class MapSum {
+    private Dictionary<string, int> d = new Dictionary<string, int>();
+    private Trie trie = new Trie();
+
+    public MapSum() {
+    }
+
+    public void Insert(string key, int val) {
+        int x = val - (d.ContainsKey(key) ? d[key] : 0);
+        d[key] = val;
+        trie.Insert(key, x);
+    }
+
+    public int Sum(string prefix) {
+        return trie.Search(prefix);
+    }
+}
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * MapSum obj = new MapSum();
+ * obj.Insert(key,val);
+ * int param_2 = obj.Sum(prefix);
  */
 ```
 

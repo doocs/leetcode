@@ -103,25 +103,254 @@ tags:
 #### Python3
 
 ```python
+class Solution:
+    def countLineIntersections(self, coordinates: List[tuple[int, int]]) -> bool:
+        lines = 0
+        overlap = 0
+        for value, marker in coordinates:
+            if marker == 0:
+                overlap -= 1
+            else:
+                overlap += 1
 
+            if overlap == 0:
+                lines += 1
+
+        return lines >= 3
+
+    def checkValidCuts(self, n: int, rectangles: List[List[int]]) -> bool:
+        y_coordinates = []
+        x_coordinates = []
+
+        for rect in rectangles:
+            x1, y1, x2, y2 = rect
+            y_coordinates.append((y1, 1))  # start
+            y_coordinates.append((y2, 0))  # end
+
+            x_coordinates.append((x1, 1))  # start
+            x_coordinates.append((x2, 0))  # end
+
+        # Sort by coordinate value, and for tie, put end (0) before start (1)
+        y_coordinates.sort(key=lambda x: (x[0], x[1]))
+        x_coordinates.sort(key=lambda x: (x[0], x[1]))
+
+        return self.countLineIntersections(
+            y_coordinates
+        ) or self.countLineIntersections(x_coordinates)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    // Helper class to mimic C++ pair<int, int>
+    static class Pair {
+        int value;
+        int type;
 
+        Pair(int value, int type) {
+            this.value = value;
+            this.type = type;
+        }
+    }
+
+    private boolean countLineIntersections(List<Pair> coordinates) {
+        int lines = 0;
+        int overlap = 0;
+
+        for (Pair coord : coordinates) {
+            if (coord.type == 0) {
+                overlap--;
+            } else {
+                overlap++;
+            }
+
+            if (overlap == 0) {
+                lines++;
+            }
+        }
+
+        return lines >= 3;
+    }
+
+    public boolean checkValidCuts(int n, int[][] rectangles) {
+        List<Pair> yCoordinates = new ArrayList<>();
+        List<Pair> xCoordinates = new ArrayList<>();
+
+        for (int[] rectangle : rectangles) {
+            // rectangle = [x1, y1, x2, y2]
+            yCoordinates.add(new Pair(rectangle[1], 1)); // y1, start
+            yCoordinates.add(new Pair(rectangle[3], 0)); // y2, end
+
+            xCoordinates.add(new Pair(rectangle[0], 1)); // x1, start
+            xCoordinates.add(new Pair(rectangle[2], 0)); // x2, end
+        }
+
+        Comparator<Pair> comparator = (a, b) -> {
+            if (a.value != b.value) return Integer.compare(a.value, b.value);
+            return Integer.compare(a.type, b.type); // End (0) before Start (1)
+        };
+
+        Collections.sort(yCoordinates, comparator);
+        Collections.sort(xCoordinates, comparator);
+
+        return countLineIntersections(yCoordinates) || countLineIntersections(xCoordinates);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+#define pii pair<int, int>
 
+    bool countLineIntersections(vector<pii>& coordinates) {
+        int lines = 0;
+        int overlap = 0;
+        for (int i = 0; i < coordinates.size(); ++i) {
+            if (coordinates[i].second == 0)
+                overlap--;
+            else
+                overlap++;
+            if (overlap == 0)
+                lines++;
+        }
+        return lines >= 3;
+    }
+
+public:
+    bool checkValidCuts(int n, vector<vector<int>>& rectangles) {
+        vector<pii> y_cordinates, x_cordinates;
+        for (auto& rectangle : rectangles) {
+            y_cordinates.push_back(make_pair(rectangle[1], 1));
+            y_cordinates.push_back(make_pair(rectangle[3], 0));
+            x_cordinates.push_back(make_pair(rectangle[0], 1));
+            x_cordinates.push_back(make_pair(rectangle[2], 0));
+        }
+        sort(y_cordinates.begin(), y_cordinates.end());
+        sort(x_cordinates.begin(), x_cordinates.end());
+
+        // Line-Sweep on x and y cordinates
+        return (countLineIntersections(y_cordinates) or countLineIntersections(x_cordinates));
+    }
+};
 ```
 
 #### Go
 
 ```go
+type Pair struct {
+	val int
+	typ int // 1 = start, 0 = end
+}
 
+func countLineIntersections(coords []Pair) bool {
+	lines := 0
+	overlap := 0
+	for _, p := range coords {
+		if p.typ == 0 {
+			overlap--
+		} else {
+			overlap++
+		}
+		if overlap == 0 {
+			lines++
+		}
+	}
+	return lines >= 3
+}
+
+func checkValidCuts(n int, rectangles [][]int) bool {
+	var xCoords []Pair
+	var yCoords []Pair
+
+	for _, rect := range rectangles {
+		x1, y1, x2, y2 := rect[0], rect[1], rect[2], rect[3]
+
+		yCoords = append(yCoords, Pair{y1, 1}) // start
+		yCoords = append(yCoords, Pair{y2, 0}) // end
+
+		xCoords = append(xCoords, Pair{x1, 1})
+		xCoords = append(xCoords, Pair{x2, 0})
+	}
+
+	sort.Slice(yCoords, func(i, j int) bool {
+		if yCoords[i].val == yCoords[j].val {
+			return yCoords[i].typ < yCoords[j].typ // end before start
+		}
+		return yCoords[i].val < yCoords[j].val
+	})
+
+	sort.Slice(xCoords, func(i, j int) bool {
+		if xCoords[i].val == xCoords[j].val {
+			return xCoords[i].typ < xCoords[j].typ
+		}
+		return xCoords[i].val < xCoords[j].val
+	})
+
+	return countLineIntersections(yCoords) || countLineIntersections(xCoords)
+}
+```
+
+#### TypeScript
+
+```ts
+function checkValidCuts(n: number, rectangles: number[][]): boolean {
+    const check = (arr: number[][], getVals: (x: number[]) => number[]) => {
+        let [c, longest] = [3, 0];
+
+        for (const x of arr) {
+            const [start, end] = getVals(x);
+
+            if (start < longest) {
+                longest = Math.max(longest, end);
+            } else {
+                longest = end;
+                if (--c === 0) return true;
+            }
+        }
+
+        return false;
+    };
+
+    const sortByX = ([a]: number[], [b]: number[]) => a - b;
+    const sortByY = ([, a]: number[], [, b]: number[]) => a - b;
+    const getX = ([x1, , x2]: number[]) => [x1, x2];
+    const getY = ([, y1, , y2]: number[]) => [y1, y2];
+
+    return check(rectangles.toSorted(sortByX), getX) || check(rectangles.toSorted(sortByY), getY);
+}
+```
+
+#### JavaScript
+
+```js
+function checkValidCuts(n, rectangles) {
+    const check = (arr, getVals) => {
+        let [c, longest] = [3, 0];
+
+        for (const x of arr) {
+            const [start, end] = getVals(x);
+
+            if (start < longest) {
+                longest = Math.max(longest, end);
+            } else {
+                longest = end;
+                if (--c === 0) return true;
+            }
+        }
+
+        return false;
+    };
+
+    const sortByX = ([a], [b]) => a - b;
+    const sortByY = ([, a], [, b]) => a - b;
+    const getX = ([x1, , x2]) => [x1, x2];
+    const getY = ([, y1, , y2]) => [y1, y2];
+
+    return check(rectangles.toSorted(sortByX), getX) || check(rectangles.toSorted(sortByY), getY);
+}
 ```
 
 <!-- tabs:end -->

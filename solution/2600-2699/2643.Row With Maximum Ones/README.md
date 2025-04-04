@@ -69,9 +69,16 @@ tags:
 
 ### 方法一：模拟
 
-我们直接遍历矩阵，统计每一行中 $1$ 的个数，更新最大值和对应的行下标。注意，如果当前行的 $1$ 的个数与最大值相等，我们需要选择行下标较小的那一行。
+我们初始化一个数组 $\textit{ans} = [0, 0]$，用于记录最多 $1$ 的行的下标和 $1$ 的数量。
 
-时间复杂度 $(m \times n)$，其中 $m$ 和 $n$ 分别为矩阵的行数和列数。空间复杂度 $O(1)$。
+然后遍历矩阵的每一行，对于每一行：
+
+-   计算该行 $1$ 的数量 $\textit{cnt}$（由于矩阵中只包含 $0$ 和 $1$，我们可以直接对该行求和）；
+-   如果 $\textit{ans}[1] < \textit{cnt}$，则更新 $\textit{ans} = [i, \textit{cnt}]$。
+
+遍历结束后，返回 $\textit{ans}$。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -82,7 +89,7 @@ class Solution:
     def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
         ans = [0, 0]
         for i, row in enumerate(mat):
-            cnt = row.count(1)
+            cnt = sum(row)
             if ans[1] < cnt:
                 ans = [i, cnt]
         return ans
@@ -97,9 +104,7 @@ class Solution {
         for (int i = 0; i < mat.length; ++i) {
             int cnt = 0;
             for (int x : mat[i]) {
-                if (x == 1) {
-                    ++cnt;
-                }
+                cnt += x;
             }
             if (ans[1] < cnt) {
                 ans[0] = i;
@@ -119,13 +124,9 @@ public:
     vector<int> rowAndMaximumOnes(vector<vector<int>>& mat) {
         vector<int> ans(2);
         for (int i = 0; i < mat.size(); ++i) {
-            int cnt = 0;
-            for (auto& x : mat[i]) {
-                cnt += x == 1;
-            }
+            int cnt = accumulate(mat[i].begin(), mat[i].end(), 0);
             if (ans[1] < cnt) {
-                ans[0] = i;
-                ans[1] = cnt;
+                ans = {i, cnt};
             }
         }
         return ans;
@@ -137,16 +138,14 @@ public:
 
 ```go
 func rowAndMaximumOnes(mat [][]int) []int {
-	ans := make([]int, 2)
+	ans := []int{0, 0}
 	for i, row := range mat {
 		cnt := 0
 		for _, x := range row {
-			if x == 1 {
-				cnt++
-			}
+			cnt += x
 		}
 		if ans[1] < cnt {
-			ans[0], ans[1] = i, cnt
+			ans = []int{i, cnt}
 		}
 	}
 	return ans
@@ -158,8 +157,8 @@ func rowAndMaximumOnes(mat [][]int) []int {
 ```ts
 function rowAndMaximumOnes(mat: number[][]): number[] {
     const ans: number[] = [0, 0];
-    for (let i = 0; i < mat.length; ++i) {
-        const cnt = mat[i].reduce((a, b) => a + b);
+    for (let i = 0; i < mat.length; i++) {
+        const cnt = mat[i].reduce((sum, num) => sum + num, 0);
         if (ans[1] < cnt) {
             ans[0] = i;
             ans[1] = cnt;
@@ -175,16 +174,30 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
 impl Solution {
     pub fn row_and_maximum_ones(mat: Vec<Vec<i32>>) -> Vec<i32> {
         let mut ans = vec![0, 0];
-
         for (i, row) in mat.iter().enumerate() {
-            let cnt = row.iter().filter(|&v| *v == 1).count() as i32;
+            let cnt = row.iter().sum();
             if ans[1] < cnt {
-                ans[0] = i as i32;
-                ans[1] = cnt;
+                ans = vec![i as i32, cnt];
             }
         }
-
         ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] RowAndMaximumOnes(int[][] mat) {
+        int[] ans = new int[2];
+        for (int i = 0; i < mat.Length; i++) {
+            int cnt = mat[i].Sum();
+            if (ans[1] < cnt) {
+                ans = new int[] { i, cnt };
+            }
+        }
+        return ans;
     }
 }
 ```

@@ -1,15 +1,3 @@
-function factorial(n: number): number[] {
-    const fac = Array(n + 1).fill(1);
-    for (let i = 1; i <= n; i++) {
-        fac[i] = fac[i - 1] * i;
-    }
-    return fac;
-}
-
-function reverseString(s: string): string {
-    return s.split('').reverse().join('');
-}
-
 function countGoodIntegers(n: number, k: number): number {
     const fac = factorial(n);
     let ans = 0;
@@ -17,7 +5,7 @@ function countGoodIntegers(n: number, k: number): number {
     const base = Math.pow(10, Math.floor((n - 1) / 2));
 
     for (let i = base; i < base * 10; i++) {
-        let s = i.toString();
+        let s = `${i}`;
         const rev = reverseString(s);
         if (n % 2 === 1) {
             s += rev.substring(1);
@@ -25,8 +13,7 @@ function countGoodIntegers(n: number, k: number): number {
             s += rev;
         }
 
-        const num = parseInt(s, 10);
-        if (num % k !== 0) {
+        if (+s % k !== 0) {
             continue;
         }
 
@@ -52,4 +39,16 @@ function countGoodIntegers(n: number, k: number): number {
     }
 
     return ans;
+}
+
+function factorial(n: number): number[] {
+    const fac = Array(n + 1).fill(1);
+    for (let i = 1; i <= n; i++) {
+        fac[i] = fac[i - 1] * i;
+    }
+    return fac;
+}
+
+function reverseString(s: string): string {
+    return s.split('').reverse().join('');
 }

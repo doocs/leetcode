@@ -79,14 +79,14 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $dfs(i)$，表示从第 $i$ 个问题开始解决，能够获得的最高分数。那么答案就是 $dfs(0)$。
+我们设计一个函数 $\textit{dfs}(i)$，表示从第 $i$ 个问题开始解决，能够获得的最高分数。那么答案就是 $\textit{dfs}(0)$。
 
-函数 $dfs(i)$ 的计算方式如下：
+函数 $\textit{dfs}(i)$ 的计算方式如下：
 
 -   如果 $i \geq n$，表示已经解决完所有问题，返回 $0$；
--   否则，设第 $i$ 个问题的分数为 $p$，需要跳过的问题数为 $b$，那么 $dfs(i) = \max(p + dfs(i + b + 1), dfs(i + 1))$。
+-   否则，设第 $i$ 个问题的分数为 $p$，需要跳过的问题数为 $b$，那么 $\textit{dfs}(i) = \max(p + \textit{dfs}(i + b + 1), \textit{dfs}(i + 1))$。
 
-为了避免重复计算，我们可以使用记忆化搜索的方法，用一个数组 $f$ 记录所有已经计算过的 $dfs(i)$ 的值。
+为了避免重复计算，我们可以使用记忆化搜索的方法，用一个数组 $f$ 记录所有已经计算过的 $\textit{dfs}(i)$ 的值。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是问题的数量。
 
@@ -144,7 +144,7 @@ public:
         int n = questions.size();
         long long f[n];
         memset(f, 0, sizeof(f));
-        function<long long(int)> dfs = [&](int i) -> long long {
+        auto dfs = [&](this auto&& dfs, int i) -> long long {
             if (i >= n) {
                 return 0;
             }
@@ -198,6 +198,32 @@ function mostPoints(questions: number[][]): number {
         return (f[i] = Math.max(p + dfs(i + b + 1), dfs(i + 1)));
     };
     return dfs(0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn most_points(questions: Vec<Vec<i32>>) -> i64 {
+        let n = questions.len();
+        let mut f = vec![-1; n];
+
+        fn dfs(i: usize, questions: &Vec<Vec<i32>>, f: &mut Vec<i64>) -> i64 {
+            if i >= questions.len() {
+                return 0;
+            }
+            if f[i] != -1 {
+                return f[i];
+            }
+            let p = questions[i][0] as i64;
+            let b = questions[i][1] as usize;
+            f[i] = (p + dfs(i + b + 1, questions, f)).max(dfs(i + 1, questions, f));
+            f[i]
+        }
+
+        dfs(0, &questions, &mut f)
+    }
 }
 ```
 
@@ -302,6 +328,24 @@ function mostPoints(questions: number[][]): number {
         f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
     }
     return f[0];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn most_points(questions: Vec<Vec<i32>>) -> i64 {
+        let n = questions.len();
+        let mut f = vec![0; n + 1];
+        for i in (0..n).rev() {
+            let p = questions[i][0] as i64;
+            let b = questions[i][1] as usize;
+            let j = i + b + 1;
+            f[i] = f[i + 1].max(p + if j > n { 0 } else { f[j] });
+        }
+        f[0]
+    }
 }
 ```
 

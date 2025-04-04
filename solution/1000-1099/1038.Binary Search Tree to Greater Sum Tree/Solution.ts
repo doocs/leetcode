@@ -13,16 +13,16 @@
  */
 
 function bstToGst(root: TreeNode | null): TreeNode | null {
-    const dfs = (root: TreeNode | null, sum: number) => {
-        if (root == null) {
-            return sum;
+    let s = 0;
+    const dfs = (root: TreeNode | null) => {
+        if (!root) {
+            return;
         }
-        const { val, left, right } = root;
-        sum = dfs(right, sum) + val;
-        root.val = sum;
-        sum = dfs(left, sum);
-        return sum;
+        dfs(root.right);
+        s += root.val;
+        root.val = s;
+        dfs(root.left);
     };
-    dfs(root, 0);
+    dfs(root);
     return root;
 }

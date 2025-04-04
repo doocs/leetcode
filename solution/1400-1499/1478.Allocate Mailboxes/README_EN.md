@@ -61,7 +61,23 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ to represent the minimum total distance between the houses and their nearest mailbox, when placing $j$ mailboxes among the first $i+1$ houses. Initially, $f[i][j] = \infty$, and the final answer will be $f[n-1][k]$.
+
+We can iterate over the last house $p$ controlled by the $j-1$-th mailbox, i.e., $0 \leq p \leq i-1$. The $j$-th mailbox will control the houses in the range $[p+1, \dots, i]$. Let $g[i][j]$ denote the minimum total distance when placing a mailbox for the houses in the range $[i, \dots, j]$. The state transition equation is:
+
+$$
+f[i][j] = \min_{0 \leq p \leq i-1} \{f[p][j-1] + g[p+1][i]\}
+$$
+
+where $g[i][j]$ is computed as follows:
+
+$$
+g[i][j] = g[i + 1][j - 1] + \textit{houses}[j] - \textit{houses}[i]
+$$
+
+The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n^2)$, where $n$ is the number of houses.
 
 <!-- tabs:start -->
 
@@ -176,6 +192,39 @@ func minDistance(houses []int, k int) int {
 		}
 	}
 	return f[n-1][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function minDistance(houses: number[], k: number): number {
+    houses.sort((a, b) => a - b);
+    const n = houses.length;
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (let i = n - 2; i >= 0; i--) {
+        for (let j = i + 1; j < n; j++) {
+            g[i][j] = g[i + 1][j - 1] + houses[j] - houses[i];
+        }
+    }
+
+    const inf = Number.POSITIVE_INFINITY;
+    const f: number[][] = Array.from({ length: n }, () => Array(k + 1).fill(inf));
+
+    for (let i = 0; i < n; i++) {
+        f[i][1] = g[0][i];
+    }
+
+    for (let j = 2; j <= k; j++) {
+        for (let i = j - 1; i < n; i++) {
+            for (let p = i - 1; p >= 0; p--) {
+                f[i][j] = Math.min(f[i][j], f[p][j - 1] + g[p + 1][i]);
+            }
+        }
+    }
+
+    return f[n - 1][k];
 }
 ```
 

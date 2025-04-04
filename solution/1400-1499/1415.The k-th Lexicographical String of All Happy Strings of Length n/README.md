@@ -86,6 +86,18 @@ tags:
 
 ### 方法一：DFS
 
+我们用一个字符串 $\textit{s}$ 来记录当前的字符串，初始时为空字符串。然后，我们设计一个函数 $\text{dfs}$，用来生成所有长度为 $n$ 的开心字符串。
+
+函数 $\text{dfs}$ 的具体实现如下：
+
+1. 如果当前字符串的长度等于 $n$，则将当前字符串加入答案数组 $\textit{ans}$ 中，然后返回；
+2. 如果答案数组的长度大于等于 $k$，则直接返回；
+3. 否则，我们遍历字符集 $\{a, b, c\}$，对于每个字符 $c$，如果当前字符串为空，或者当前字符串的最后一个字符不等于 $c$，则将字符 $c$ 加入当前字符串，然后递归调用 $\text{dfs}$，递归结束后，将当前字符串的最后一个字符删除。
+
+最后，我们判断答案数组的长度是否小于 $k$，如果是，则返回空字符串，否则返回答案数组的第 $k-1$ 个元素。
+
+时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串长度。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -93,18 +105,22 @@ tags:
 ```python
 class Solution:
     def getHappyString(self, n: int, k: int) -> str:
-        def dfs(t):
-            if len(t) == n:
-                ans.append(t)
+        def dfs():
+            if len(s) == n:
+                ans.append("".join(s))
                 return
-            for c in 'abc':
-                if t and t[-1] == c:
-                    continue
-                dfs(t + c)
+            if len(ans) >= k:
+                return
+            for c in "abc":
+                if not s or s[-1] != c:
+                    s.append(c)
+                    dfs()
+                    s.pop()
 
         ans = []
-        dfs('')
-        return '' if len(ans) < k else ans[k - 1]
+        s = []
+        dfs()
+        return "" if len(ans) < k else ans[k - 1]
 ```
 
 #### Java
@@ -112,22 +128,30 @@ class Solution:
 ```java
 class Solution {
     private List<String> ans = new ArrayList<>();
+    private StringBuilder s = new StringBuilder();
+    private int n, k;
 
     public String getHappyString(int n, int k) {
-        dfs("", n);
+        this.n = n;
+        this.k = k;
+        dfs();
         return ans.size() < k ? "" : ans.get(k - 1);
     }
 
-    private void dfs(String t, int n) {
-        if (t.length() == n) {
-            ans.add(t);
+    private void dfs() {
+        if (s.length() == n) {
+            ans.add(s.toString());
+            return;
+        }
+        if (ans.size() >= k) {
             return;
         }
         for (char c : "abc".toCharArray()) {
-            if (t.length() > 0 && t.charAt(t.length() - 1) == c) {
-                continue;
+            if (s.isEmpty() || s.charAt(s.length() - 1) != c) {
+                s.append(c);
+                dfs();
+                s.deleteCharAt(s.length() - 1);
             }
-            dfs(t + c, n);
         }
     }
 }
@@ -138,25 +162,62 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> ans;
     string getHappyString(int n, int k) {
-        dfs("", n);
+        vector<string> ans;
+        string s = "";
+        auto dfs = [&](this auto&& dfs) -> void {
+            if (s.size() == n) {
+                ans.emplace_back(s);
+                return;
+            }
+            if (ans.size() >= k) {
+                return;
+            }
+            for (char c = 'a'; c <= 'c'; ++c) {
+                if (s.empty() || s.back() != c) {
+                    s.push_back(c);
+                    dfs();
+                    s.pop_back();
+                }
+            }
+        };
+        dfs();
         return ans.size() < k ? "" : ans[k - 1];
     }
+};
+```
 
-    void dfs(string t, int n) {
-        if (t.size() == n) {
-            ans.push_back(t);
-            return;
+#### Go
+
+```go
+func getHappyString(n int, k int) string {
+    ans := []string{}
+    var s []byte
+
+    var dfs func()
+    dfs = func() {
+        if len(s) == n {
+            ans = append(ans, string(s))
+            return
         }
-        for (int c = 'a'; c <= 'c'; ++c) {
-            if (t.size() && t.back() == c) continue;
-            t.push_back(c);
-            dfs(t, n);
-            t.pop_back();
+        if len(ans) >= k {
+            return
+        }
+        for c := byte('a'); c <= 'c'; c++ {
+            if len(s) == 0 || s[len(s)-1] != c {
+                s = append(s, c)
+                dfs()
+                s = s[:len(s)-1]
+            }
         }
     }
-};
+
+    dfs()
+    if len(ans) < k {
+        return ""
+    }
+    return ans[k-1]
+}
 ```
 
 #### TypeScript
@@ -164,46 +225,124 @@ public:
 ```ts
 function getHappyString(n: number, k: number): string {
     const ans: string[] = [];
-
-    const dfs = (s = '') => {
+    const s: string[] = [];
+    const dfs = () => {
         if (s.length === n) {
-            ans.push(s);
+            ans.push(s.join(''));
             return;
         }
-
-        for (const ch of 'abc') {
-            if (s.at(-1) === ch) continue;
-            dfs(s + ch);
+        if (ans.length >= k) {
+            return;
+        }
+        for (const c of 'abc') {
+            if (!s.length || s.at(-1)! !== c) {
+                s.push(c);
+                dfs();
+                s.pop();
+            }
         }
     };
-
     dfs();
-
     return ans[k - 1] ?? '';
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn get_happy_string(n: i32, k: i32) -> String {
+        let mut ans = Vec::new();
+        let mut s = String::new();
+        let mut k = k;
+
+        fn dfs(n: i32, s: &mut String, ans: &mut Vec<String>, k: &mut i32) {
+            if s.len() == n as usize {
+                ans.push(s.clone());
+                return;
+            }
+            if ans.len() >= *k as usize {
+                return;
+            }
+            for c in "abc".chars() {
+                if s.is_empty() || s.chars().last() != Some(c) {
+                    s.push(c);
+                    dfs(n, s, ans, k);
+                    s.pop();
+                }
+            }
+        }
+
+        dfs(n, &mut s, &mut ans, &mut k);
+        if ans.len() < k as usize {
+            "".to_string()
+        } else {
+            ans[(k - 1) as usize].clone()
+        }
+    }
 }
 ```
 
 #### JavaScript
 
 ```js
-function getHappyString(n, k) {
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {string}
+ */
+var getHappyString = function (n, k) {
     const ans = [];
-
-    const dfs = (s = '') => {
+    const s = [];
+    const dfs = () => {
         if (s.length === n) {
-            ans.push(s);
+            ans.push(s.join(''));
             return;
         }
-
-        for (const ch of 'abc') {
-            if (s.at(-1) === ch) continue;
-            dfs(s + ch);
+        if (ans.length >= k) {
+            return;
+        }
+        for (const c of 'abc') {
+            if (!s.length || s.at(-1) !== c) {
+                s.push(c);
+                dfs();
+                s.pop();
+            }
         }
     };
-
     dfs();
-
     return ans[k - 1] ?? '';
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string GetHappyString(int n, int k) {
+        List<string> ans = new List<string>();
+        StringBuilder s = new StringBuilder();
+
+        void Dfs() {
+            if (s.Length == n) {
+                ans.Add(s.ToString());
+                return;
+            }
+            if (ans.Count >= k) {
+                return;
+            }
+            foreach (char c in "abc") {
+                if (s.Length == 0 || s[s.Length - 1] != c) {
+                    s.Append(c);
+                    Dfs();
+                    s.Length--;
+                }
+            }
+        }
+
+        Dfs();
+        return ans.Count < k ? "" : ans[k - 1];
+    }
 }
 ```
 

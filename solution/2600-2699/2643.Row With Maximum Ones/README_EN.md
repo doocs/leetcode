@@ -68,9 +68,16 @@ tags:
 
 ### Solution 1: Simulation
 
-We directly traverse the matrix, count the number of $1$s in each row, and update the maximum value and the corresponding row index. Note that if the number of $1$s in the current row is equal to the maximum value, we need to choose the row with the smaller index.
+We initialize an array $\textit{ans} = [0, 0]$ to store the index of the row with the most $1$s and the count of $1$s.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
+Then, we iterate through each row of the matrix:
+
+-   Compute the number of $1$s in the current row, denoted as $\textit{cnt}$ (since the matrix contains only $0$s and $1$s, we can directly sum up the row).
+-   If $\textit{ans}[1] < \textit{cnt}$, update $\textit{ans} = [i, \textit{cnt}]$.
+
+After finishing the iteration, we return $\textit{ans}$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -81,7 +88,7 @@ class Solution:
     def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
         ans = [0, 0]
         for i, row in enumerate(mat):
-            cnt = row.count(1)
+            cnt = sum(row)
             if ans[1] < cnt:
                 ans = [i, cnt]
         return ans
@@ -96,9 +103,7 @@ class Solution {
         for (int i = 0; i < mat.length; ++i) {
             int cnt = 0;
             for (int x : mat[i]) {
-                if (x == 1) {
-                    ++cnt;
-                }
+                cnt += x;
             }
             if (ans[1] < cnt) {
                 ans[0] = i;
@@ -118,13 +123,9 @@ public:
     vector<int> rowAndMaximumOnes(vector<vector<int>>& mat) {
         vector<int> ans(2);
         for (int i = 0; i < mat.size(); ++i) {
-            int cnt = 0;
-            for (auto& x : mat[i]) {
-                cnt += x == 1;
-            }
+            int cnt = accumulate(mat[i].begin(), mat[i].end(), 0);
             if (ans[1] < cnt) {
-                ans[0] = i;
-                ans[1] = cnt;
+                ans = {i, cnt};
             }
         }
         return ans;
@@ -136,16 +137,14 @@ public:
 
 ```go
 func rowAndMaximumOnes(mat [][]int) []int {
-	ans := make([]int, 2)
+	ans := []int{0, 0}
 	for i, row := range mat {
 		cnt := 0
 		for _, x := range row {
-			if x == 1 {
-				cnt++
-			}
+			cnt += x
 		}
 		if ans[1] < cnt {
-			ans[0], ans[1] = i, cnt
+			ans = []int{i, cnt}
 		}
 	}
 	return ans
@@ -157,8 +156,8 @@ func rowAndMaximumOnes(mat [][]int) []int {
 ```ts
 function rowAndMaximumOnes(mat: number[][]): number[] {
     const ans: number[] = [0, 0];
-    for (let i = 0; i < mat.length; ++i) {
-        const cnt = mat[i].reduce((a, b) => a + b);
+    for (let i = 0; i < mat.length; i++) {
+        const cnt = mat[i].reduce((sum, num) => sum + num, 0);
         if (ans[1] < cnt) {
             ans[0] = i;
             ans[1] = cnt;
@@ -174,16 +173,30 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
 impl Solution {
     pub fn row_and_maximum_ones(mat: Vec<Vec<i32>>) -> Vec<i32> {
         let mut ans = vec![0, 0];
-
         for (i, row) in mat.iter().enumerate() {
-            let cnt = row.iter().filter(|&v| *v == 1).count() as i32;
+            let cnt = row.iter().sum();
             if ans[1] < cnt {
-                ans[0] = i as i32;
-                ans[1] = cnt;
+                ans = vec![i as i32, cnt];
             }
         }
-
         ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] RowAndMaximumOnes(int[][] mat) {
+        int[] ans = new int[2];
+        for (int i = 0; i < mat.Length; i++) {
+            int cnt = mat[i].Sum();
+            if (ans[1] < cnt) {
+                ans = new int[] { i, cnt };
+            }
+        }
+        return ans;
     }
 }
 ```

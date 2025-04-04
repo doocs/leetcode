@@ -55,13 +55,13 @@ tags:
 
 ### 方法一：哈希表 + 前缀和
 
-我们可以用一个哈希表 $d$ 记录数组 $nums$ 中每个前缀和第一次出现的下标，初始时 $d[0] = -1$。另外定义一个变量 $s$ 记录前缀和。
+我们可以用一个哈希表 $\textit{d}$ 记录数组 $\textit{nums}$ 中每个前缀和第一次出现的下标，初始时 $\textit{d}[0] = -1$。另外定义一个变量 $\textit{s}$ 记录前缀和。
 
-接下来，遍历数组 $nums$，对于当前遍历到的数字 $nums[i]$，我们更新前缀和 $s = s + nums[i]$，如果 $s-k$ 在哈希表 $d$ 中存在，不妨记 $j = d[s - k]$，那么以 $nums[i]$ 结尾的符合条件的子数组的长度为 $i - j$，我们使用一个变量 $ans$ 来维护最长的符合条件的子数组的长度。然后，如果 $s$ 在哈希表中不存在，我们记录 $s$ 和对应的下标 $i$，即 $d[s] = i$，否则我们不更新 $d[s]$。需要注意的是，可能会有多个位置 $i$ 都满足 $s$ 的值，因此我们只记录最小的 $i$，这样就能保证子数组的长度最长。
+接下来，遍历数组 $\textit{nums}$，对于当前遍历到的数字 $\textit{nums}[i]$，我们更新前缀和 $\textit{s} = \textit{s} + \textit{nums}[i]$，如果 $\textit{s}-k$ 在哈希表 $\textit{d}$ 中存在，不妨记 $j = \textit{d}[\textit{s} - k]$，那么以 $\textit{nums}[i]$ 结尾的符合条件的子数组的长度为 $i - j$，我们使用一个变量 $\textit{ans}$ 来维护最长的符合条件的子数组的长度。然后，如果 $\textit{s}$ 在哈希表中不存在，我们记录 $\textit{s}$ 和对应的下标 $i$，即 $\textit{d}[\textit{s}] = i$，否则我们不更新 $\textit{d}[\textit{s}]$。需要注意的是，可能会有多个位置 $i$ 都满足 $\textit{s}$ 的值，因此我们只记录最小的 $i$，这样就能保证子数组的长度最长。
 
-遍历结束之后，我们返回 $ans$ 即可。
+遍历结束之后，我们返回 $\textit{ans}$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -160,6 +160,80 @@ function maxSubArrayLen(nums: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn max_sub_array_len(nums: Vec<i32>, k: i32) -> i32 {
+        let mut d = HashMap::new();
+        d.insert(0, -1);
+        let mut ans = 0;
+        let mut s = 0;
+
+        for (i, &x) in nums.iter().enumerate() {
+            s += x;
+            if let Some(&j) = d.get(&(s - k)) {
+                ans = ans.max((i as i32) - j);
+            }
+            d.entry(s).or_insert(i as i32);
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var maxSubArrayLen = function (nums, k) {
+    const d = new Map();
+    d.set(0, -1);
+    let ans = 0;
+    let s = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        s += nums[i];
+        if (d.has(s - k)) {
+            ans = Math.max(ans, i - d.get(s - k));
+        }
+        if (!d.has(s)) {
+            d.set(s, i);
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxSubArrayLen(int[] nums, int k) {
+        var d = new Dictionary<int, int>();
+        d[0] = -1;
+        int ans = 0;
+        int s = 0;
+        for (int i = 0; i < nums.Length; i++) {
+            s += nums[i];
+            if (d.ContainsKey(s - k)) {
+                ans = Math.Max(ans, i - d[s - k]);
+            }
+            if (!d.ContainsKey(s)) {
+                d[s] = i;
+            }
+        }
+        return ans;
+    }
 }
 ```
 
