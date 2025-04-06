@@ -92,6 +92,28 @@ Department 表:
 
 <!-- solution:start -->
 
+### Python3
+```python
+import pandas as pd
+
+def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
+    # Merge the two tables on departmentId and department id
+    merged = employee.merge(department, left_on='departmentId', right_on='id')
+    
+    # Find the maximum salary for each department
+    max_salaries = merged.groupby('departmentId')['salary'].transform('max')
+    
+    # Filter employees who have the highest salary in their department
+    top_earners = merged[merged['salary'] == max_salaries]
+    
+    # Select required columns and rename them
+    result = top_earners[['name_y', 'name_x', 'salary']].copy()
+    result.columns = ['Department', 'Employee', 'Salary']
+    
+    return result
+```
+
+
 ### 方法一：等值连接 + 子查询
 
 我们可以使用等值连接，将 `Employee` 表和 `Department` 表连接起来，连接条件为 `Employee.departmentId = Department.id`，然后使用子查询来找到每个部门的最高工资，最后使用 `WHERE` 子句来筛选出每个部门中薪资最高的员工。
