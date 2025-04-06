@@ -8,7 +8,7 @@ public:
         }
         sort(t.begin(), t.end());
         priority_queue<int> pq;
-        double ans = 1e9;
+        double ans = 1e18;
         int tot = 0;
         for (auto& [x, q] : t) {
             tot += q;
