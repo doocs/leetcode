@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 444
+
+- [3507. Minimum Pair Removal to Sort Array I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README_EN.md)
+- [3508. Implement Router](/solution/3500-3599/3508.Implement%20Router/README_EN.md)
+- [3509. Maximum Product of Subsequences With an Alternating Sum Equal to K](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README_EN.md)
+- [3510. Minimum Pair Removal to Sort Array II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README_EN.md)
+
 #### Weekly Contest 443
 
 - [3502. Minimum Cost to Reach Every Position](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README_EN.md)

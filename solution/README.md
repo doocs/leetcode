@@ -3516,7 +3516,12 @@
 |  3503  |  [子字符串连接后的最长回文串 I](/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README.md)  |  `双指针`,`字符串`,`动态规划`,`枚举`  |  中等  |  第 443 场周赛  |
 |  3504  |  [子字符串连接后的最长回文串 II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README.md)  |  `双指针`,`字符串`,`动态规划`  |  困难  |  第 443 场周赛  |
 |  3505  |  [使 K 个子数组内元素相等的最少操作数](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README.md)  |  `数组`,`哈希表`,`数学`,`动态规划`,`滑动窗口`,`堆（优先队列）`  |  困难  |  第 443 场周赛  |
+|  3506  |  [Find Time Required to Eliminate Bacterial Strains II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README.md)  |    |  困难  |  🔒  |
 |  3506  |  [查找消除细菌菌株所需时间 II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README.md)  |    |  困难  |  🔒  |
+|  3507  |  [移除最小数对使数组有序 I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README.md)  |    |  简单  |  第 444 场周赛  |
+|  3508  |  [设计路由器](/solution/3500-3599/3508.Implement%20Router/README.md)  |    |  中等  |  第 444 场周赛  |
+|  3509  |  [最大化交错和为 K 的子序列乘积](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README.md)  |    |  困难  |  第 444 场周赛  |
+|  3510  |  [移除最小数对使数组有序 II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README.md)  |    |  困难  |  第 444 场周赛  |
 
 ## 版权
 
