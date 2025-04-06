@@ -94,28 +94,6 @@ Department table:
 
 <!-- solution:start -->
 
-### Python3
-
-```python
-import pandas as pd
-
-def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
-    # Merge the two tables on departmentId and department id
-    merged = employee.merge(department, left_on='departmentId', right_on='id')
-
-    # Find the maximum salary for each department
-    max_salaries = merged.groupby('departmentId')['salary'].transform('max')
-
-    # Filter employees who have the highest salary in their department
-    top_earners = merged[merged['salary'] == max_salaries]
-
-    # Select required columns and rename them
-    result = top_earners[['name_y', 'name_x', 'salary']].copy()
-    result.columns = ['Department', 'Employee', 'Salary']
-
-    return result
-```
-
 ### Solution 1: Equi-Join + Subquery
 
 We can use an equi-join to join the `Employee` table and the `Department` table based on `Employee.departmentId = Department.id`, and then use a subquery to find the highest salary for each department. Finally, we can use a `WHERE` clause to filter out the employees with the highest salary in each department.
@@ -136,6 +114,28 @@ WHERE
         FROM Employee
         GROUP BY 1
     );
+```
+
+### Pandas
+
+```python
+import pandas as pd
+
+def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
+    # Merge the two tables on departmentId and department id
+    merged = employee.merge(department, left_on='departmentId', right_on='id')
+
+    # Find the maximum salary for each department
+    max_salaries = merged.groupby('departmentId')['salary'].transform('max')
+
+    # Filter employees who have the highest salary in their department
+    top_earners = merged[merged['salary'] == max_salaries]
+
+    # Select required columns and rename them
+    result = top_earners[['name_y', 'name_x', 'salary']].copy()
+    result.columns = ['Department', 'Employee', 'Salary']
+
+    return result
 ```
 
 <!-- tabs:end -->
