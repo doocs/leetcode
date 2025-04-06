@@ -119,7 +119,10 @@ WHERE
 ```python
 import pandas as pd
 
-def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
+
+def department_highest_salary(
+    employee: pd.DataFrame, department: pd.DataFrame
+) -> pd.DataFrame:
     # Merge the two tables on departmentId and department id
     merged = employee.merge(department, left_on='departmentId', right_on='id')
 
