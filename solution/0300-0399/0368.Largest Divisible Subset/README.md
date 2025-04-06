@@ -141,7 +141,7 @@ class Solution {
 class Solution {
 public:
     vector<int> largestDivisibleSubset(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int n = nums.size();
         int f[n];
         int k = 0;
