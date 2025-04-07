@@ -122,10 +122,9 @@ class Solution {
     public int minimumOperations(int[] nums) {
         Set<Integer> s = new HashSet<>();
         for (int i = nums.length - 1; i >= 0; --i) {
-            if (s.contains(nums[i])) {
+            if (!s.add(nums[i])) {
                 return i / 3 + 1;
             }
-            s.add(nums[i]);
         }
         return 0;
     }
@@ -177,6 +176,24 @@ function minimumOperations(nums: number[]): number {
         s.add(nums[i]);
     }
     return 0;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn minimum_operations(nums: Vec<i32>) -> i32 {
+        let mut s = HashSet::new();
+        for i in (0..nums.len()).rev() {
+            if !s.insert(nums[i]) {
+                return (i / 3) as i32 + 1;
+            }
+        }
+        0
+    }
 }
 ```
 
