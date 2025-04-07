@@ -6,45 +6,45 @@
 var minMaxSubarraySum = function (nums, k) {
     const computeSum = (nums, k, isMin) => {
         const n = nums.length;
-        const prev = new Array(n).fill(-1);
-        const next = new Array(n).fill(n);
-        let stack = [];
+        const prev = Array(n).fill(-1);
+        const next = Array(n).fill(n);
+        let stk = [];
 
         if (isMin) {
             for (let i = 0; i < n; i++) {
-                while (stack.length > 0 && nums[stack[stack.length - 1]] >= nums[i]) {
-                    stack.pop();
+                while (stk.length > 0 && nums[stk[stk.length - 1]] >= nums[i]) {
+                    stk.pop();
                 }
-                prev[i] = stack.length > 0 ? stack[stack.length - 1] : -1;
-                stack.push(i);
+                prev[i] = stk.length > 0 ? stk[stk.length - 1] : -1;
+                stk.push(i);
             }
-            stack = [];
+            stk = [];
             for (let i = n - 1; i >= 0; i--) {
-                while (stack.length > 0 && nums[stack[stack.length - 1]] > nums[i]) {
-                    stack.pop();
+                while (stk.length > 0 && nums[stk[stk.length - 1]] > nums[i]) {
+                    stk.pop();
                 }
-                next[i] = stack.length > 0 ? stack[stack.length - 1] : n;
-                stack.push(i);
+                next[i] = stk.length > 0 ? stk[stk.length - 1] : n;
+                stk.push(i);
             }
         } else {
             for (let i = 0; i < n; i++) {
-                while (stack.length > 0 && nums[stack[stack.length - 1]] <= nums[i]) {
-                    stack.pop();
+                while (stk.length > 0 && nums[stk[stk.length - 1]] <= nums[i]) {
+                    stk.pop();
                 }
-                prev[i] = stack.length > 0 ? stack[stack.length - 1] : -1;
-                stack.push(i);
+                prev[i] = stk.length > 0 ? stk[stk.length - 1] : -1;
+                stk.push(i);
             }
-            stack = [];
+            stk = [];
             for (let i = n - 1; i >= 0; i--) {
-                while (stack.length > 0 && nums[stack[stack.length - 1]] < nums[i]) {
-                    stack.pop();
+                while (stk.length > 0 && nums[stk[stk.length - 1]] < nums[i]) {
+                    stk.pop();
                 }
-                next[i] = stack.length > 0 ? stack[stack.length - 1] : n;
-                stack.push(i);
+                next[i] = stk.length > 0 ? stk[stk.length - 1] : n;
+                stk.push(i);
             }
         }
 
-        let sum = 0;
+        let totalSum = 0;
         for (let i = 0; i < n; i++) {
             const left = prev[i];
             const right = next[i];
@@ -53,38 +53,39 @@ var minMaxSubarraySum = function (nums, k) {
             const c = i;
             const d = right - 1;
 
-            let s_start = Math.max(a, i - k + 1);
-            let s_end_candidate = d - k + 1;
-            let s_upper = Math.min(b, s_end_candidate);
+            let start1 = Math.max(a, i - k + 1);
+            let endCandidate1 = d - k + 1;
+            let upper1 = Math.min(b, endCandidate1);
 
             let sum1 = 0;
-            if (s_upper >= s_start) {
-                const num_terms = s_upper - s_start + 1;
-                const first = s_start;
-                const last = s_upper;
-                const sum_s = (last * (last + 1)) / 2 - ((first - 1) * first) / 2;
-                const sum_k = (k - i) * num_terms;
-                sum1 = sum_s + sum_k;
+            if (upper1 >= start1) {
+                const termCount = upper1 - start1 + 1;
+                const first = start1;
+                const last = upper1;
+                const indexSum = (last * (last + 1)) / 2 - ((first - 1) * first) / 2;
+                const constantSum = (k - i) * termCount;
+                sum1 = indexSum + constantSum;
             }
 
-            let s2_start = s_upper + 1;
-            let s2_end = b;
-            s2_start = Math.max(s2_start, a);
-            s2_end = Math.min(s2_end, b);
+            let start2 = upper1 + 1;
+            let end2 = b;
+            start2 = Math.max(start2, a);
+            end2 = Math.min(end2, b);
 
             let sum2 = 0;
-            if (s2_start <= s2_end) {
-                const count = s2_end - s2_start + 1;
+            if (start2 <= end2) {
+                const count = end2 - start2 + 1;
                 const term = d - i + 1;
                 sum2 = term * count;
             }
 
-            sum += nums[i] * (sum1 + sum2);
+            totalSum += nums[i] * (sum1 + sum2);
         }
-        return sum;
+
+        return totalSum;
     };
 
-    const sumMin = computeSum(nums, k, true);
-    const sumMax = computeSum(nums, k, false);
-    return sumMin + sumMax;
+    const minSum = computeSum(nums, k, true);
+    const maxSum = computeSum(nums, k, false);
+    return minSum + maxSum;
 };
