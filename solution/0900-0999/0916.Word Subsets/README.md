@@ -218,63 +218,87 @@ func wordSubsets(words1 []string, words2 []string) (ans []string) {
 
 ```ts
 function wordSubsets(words1: string[], words2: string[]): string[] {
-    const cnt2 = new Map<string, number>();
-
+    const cnt: number[] = Array(26).fill(0);
     for (const b of words2) {
-        const cnt = new Map<string, number>();
+        const t: number[] = Array(26).fill(0);
         for (const c of b) {
-            cnt.set(c, (cnt.get(c) ?? 0) + 1);
+            t[c.charCodeAt(0) - 97]++;
         }
-
-        for (const [k, v] of cnt) {
-            cnt2.set(k, Math.max(cnt2.get(k) ?? 0, v));
+        for (let i = 0; i < 26; i++) {
+            cnt[i] = Math.max(cnt[i], t[i]);
         }
     }
 
-    return words1.filter(a => {
-        const cnt1 = new Map<string, number>();
+    const ans: string[] = [];
+    for (const a of words1) {
+        const t: number[] = Array(26).fill(0);
         for (const c of a) {
-            cnt1.set(c, (cnt1.get(c) ?? 0) + 1);
+            t[c.charCodeAt(0) - 97]++;
         }
 
-        for (const [k, v] of cnt2) {
-            if ((cnt1.get(k) ?? 0) < v) return false;
+        let ok = true;
+        for (let i = 0; i < 26; i++) {
+            if (cnt[i] > t[i]) {
+                ok = false;
+                break;
+            }
         }
 
-        return true;
-    });
+        if (ok) {
+            ans.push(a);
+        }
+    }
+
+    return ans;
 }
 ```
 
 #### JavaScript
 
 ```js
-function wordSubsets(words1, words2) {
-    const cnt2 = new Map();
-
+/**
+ * @param {string[]} words1
+ * @param {string[]} words2
+ * @return {string[]}
+ */
+var wordSubsets = function(words1, words2) {
+    const cnt = Array(26).fill(0);
+    
     for (const b of words2) {
-        const cnt = new Map();
+        const t = Array(26).fill(0);
+        
         for (const c of b) {
-            cnt.set(c, (cnt.get(c) ?? 0) + 1);
+            t[c.charCodeAt(0) - 97]++;
         }
-
-        for (const [k, v] of cnt) {
-            cnt2.set(k, Math.max(cnt2.get(k) ?? 0, v));
+        
+        for (let i = 0; i < 26; i++) {
+            cnt[i] = Math.max(cnt[i], t[i]);
         }
     }
 
-    return words1.filter(a => {
-        const cnt1 = new Map();
+    const ans = [];
+    
+    for (const a of words1) {
+        const t = Array(26).fill(0);
+        
         for (const c of a) {
-            cnt1.set(c, (cnt1.get(c) ?? 0) + 1);
+            t[c.charCodeAt(0) - 97]++;
         }
 
-        for (const [k, v] of cnt2) {
-            if ((cnt1.get(k) ?? 0) < v) return false;
+        let ok = true;
+        for (let i = 0; i < 26; i++) {
+            if (cnt[i] > t[i]) {
+                ok = false;
+                break;
+            }
         }
 
-        return true;
-    });
+        if (ok) {
+            ans.push(a);
+        }
+    }
+
+    return ans;
 }
 ```
 
