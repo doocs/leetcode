@@ -300,4 +300,111 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法三：位运算（空间优化）
+
+由于题目中给定的数组 $A$ 和 $B$ 的元素范围是 $[1,n]$，且不超过 $50$，我们可以使用一个整数 $x$ 和一个整数 $y$ 来分别表示数组 $A$ 和 $B$ 中每个元素的出现情况。具体地，我们用整数 $x$ 的第 $i$ 位表示元素 $i$ 是否在数组 $A$ 中出现过，用整数 $y$ 的第 $i$ 位表示元素 $i$ 是否在数组 $B$ 中出现过。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $A$ 和 $B$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+        ans = []
+        x = y = 0
+        for a, b in zip(A, B):
+            x |= 1 << a
+            y |= 1 << b
+            ans.append((x & y).bit_count())
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] findThePrefixCommonArray(int[] A, int[] B) {
+        int n = A.length;
+        int[] ans = new int[n];
+        long x = 0, y = 0;
+        for (int i = 0; i < n; i++) {
+            x |= 1L << A[i];
+            y |= 1L << B[i];
+            ans[i] = Long.bitCount(x & y);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
+        int n = A.size();
+        vector<int> ans(n);
+        long long x = 0, y = 0;
+        for (int i = 0; i < n; ++i) {
+            x |= (1LL << A[i]);
+            y |= (1LL << B[i]);
+            ans[i] = __builtin_popcountll(x & y);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func findThePrefixCommonArray(A []int, B []int) []int {
+	n := len(A)
+	ans := make([]int, n)
+	var x, y int
+	for i := 0; i < n; i++ {
+		x |= 1 << A[i]
+		y |= 1 << B[i]
+		ans[i] = bits.OnesCount(uint(x & y))
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findThePrefixCommonArray(A: number[], B: number[]): number[] {
+    const n = A.length;
+    const ans: number[] = [];
+    let [x, y] = [0n, 0n];
+    for (let i = 0; i < n; i++) {
+        x |= 1n << BigInt(A[i]);
+        y |= 1n << BigInt(B[i]);
+        ans.push(bitCount64(x & y));
+    }
+    return ans;
+}
+
+function bitCount64(i: bigint): number {
+    i = i - ((i >> 1n) & 0x5555555555555555n);
+    i = (i & 0x3333333333333333n) + ((i >> 2n) & 0x3333333333333333n);
+    i = (i + (i >> 4n)) & 0x0f0f0f0f0f0f0f0fn;
+    i = i + (i >> 8n);
+    i = i + (i >> 16n);
+    i = i + (i >> 32n);
+    return Number(i & 0x7fn);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
