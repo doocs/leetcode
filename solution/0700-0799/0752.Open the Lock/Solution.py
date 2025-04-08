@@ -17,7 +17,7 @@ class Solution:
         s = set(deadends)
         if '0000' in s:
             return -1
-        q = deque([('0000')])
+        q = deque(['0000'])
         s.add('0000')
         ans = 0
         while q:

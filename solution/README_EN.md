@@ -3520,6 +3520,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3508  |  [Implement Router](/solution/3500-3599/3508.Implement%20Router/README_EN.md)  |    |  Medium  |  Weekly Contest 444  |
 |  3509  |  [Maximum Product of Subsequences With an Alternating Sum Equal to K](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 444  |
 |  3510  |  [Minimum Pair Removal to Sort Array II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 444  |
+|  3511  |  [Make a Positive Array](/solution/3500-3599/3511.Make%20a%20Positive%20Array/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
