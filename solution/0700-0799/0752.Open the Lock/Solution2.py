@@ -27,7 +27,7 @@ class Solution:
 
         def bfs():
             m1, m2 = {"0000": 0}, {target: 0}
-            q1, q2 = deque([('0000')]), deque([(target)])
+            q1, q2 = deque(['0000']), deque([target])
             while q1 and q2:
                 t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
                 if t != -1:

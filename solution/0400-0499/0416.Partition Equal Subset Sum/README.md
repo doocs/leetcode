@@ -202,14 +202,14 @@ impl Solution {
         let n = nums.len();
         let mut f = vec![vec![false; m + 1]; n + 1];
         f[0][0] = true;
-        
+
         for i in 1..=n {
             let x = nums[i - 1] as usize;
             for j in 0..=m {
                 f[i][j] = f[i - 1][j] || (j >= x && f[i - 1][j - x]);
             }
         }
-        
+
         f[n][m]
     }
 }
