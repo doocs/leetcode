@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 444 场周赛(2025-04-06 10:30, 90 分钟) 参赛人数 2256
+
+- [3507. 移除最小数对使数组有序 I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README.md)
+- [3508. 设计路由器](/solution/3500-3599/3508.Implement%20Router/README.md)
+- [3509. 最大化交错和为 K 的子序列乘积](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README.md)
+- [3510. 移除最小数对使数组有序 II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README.md)
+
 #### 第 443 场周赛(2025-03-30 10:30, 90 分钟) 参赛人数 2492
 
 - [3502. 到达每个位置的最小费用](/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README.md)

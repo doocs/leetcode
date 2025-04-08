@@ -29,7 +29,7 @@ class Solution:
         if start == end:
             return 0
         vis = {start}
-        q = deque([(start)])
+        q = deque([start])
         ans = 0
         while q:
             ans += 1

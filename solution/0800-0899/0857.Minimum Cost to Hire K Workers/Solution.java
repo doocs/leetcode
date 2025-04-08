@@ -1,32 +1,22 @@
 class Solution {
     public double mincostToHireWorkers(int[] quality, int[] wage, int k) {
         int n = quality.length;
-        Pair[] t = new Pair[n];
+        Pair<Double, Integer>[] t = new Pair[n];
         for (int i = 0; i < n; ++i) {
-            t[i] = new Pair(quality[i], wage[i]);
+            t[i] = new Pair<>((double) wage[i] / quality[i], quality[i]);
         }
-        Arrays.sort(t, (a, b) -> Double.compare(a.x, b.x));
+        Arrays.sort(t, (a, b) -> Double.compare(a.getKey(), b.getKey()));
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
-        double ans = 1e9;
+        double ans = 1e18;
         int tot = 0;
         for (var e : t) {
-            tot += e.q;
-            pq.offer(e.q);
+            tot += e.getValue();
+            pq.offer(e.getValue());
             if (pq.size() == k) {
-                ans = Math.min(ans, tot * e.x);
+                ans = Math.min(ans, tot * e.getKey());
                 tot -= pq.poll();
             }
         }
         return ans;
-    }
-}
-
-class Pair {
-    double x;
-    int q;
-
-    Pair(int q, int w) {
-        this.q = q;
-        this.x = (double) w / q;
     }
 }
