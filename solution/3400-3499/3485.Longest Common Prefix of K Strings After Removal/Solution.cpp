@@ -11,7 +11,9 @@ public:
         int n;
         vector<int> tree;
         vector<int>& globalCount;
-        SegmentTree(int n, vector<int>& globalCount) : n(n), globalCount(globalCount) {
+        SegmentTree(int n, vector<int>& globalCount)
+            : n(n)
+            , globalCount(globalCount) {
             tree.assign(4 * (n + 1), -1);
             build(1, 1, n);
         }
