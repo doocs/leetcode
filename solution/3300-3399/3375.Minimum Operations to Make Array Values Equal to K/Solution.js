@@ -1,5 +1,5 @@
-function minOperations(nums: number[], k: number): number {
-    const s = new Set<number>([k]);
+function minOperations(nums, k) {
+    const s = new Set([k]);
     for (const x of nums) {
         if (x < k) return -1;
         s.add(x);
