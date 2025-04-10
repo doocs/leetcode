@@ -3,12 +3,12 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         ans = 0
         for i in range(1, len(s)):
-            left, right = 0, i
-            while left < right:
-                mid = (left + right + 1) >> 1
+            l, r = 0, i
+            while l < r:
+                mid = (l + r + 1) >> 1
                 if (s[i] - s[i - mid]) * mid < k:
-                    left = mid
+                    l = mid
                 else:
-                    right = mid - 1
-            ans += left
+                    r = mid - 1
+            ans += l
         return ans
