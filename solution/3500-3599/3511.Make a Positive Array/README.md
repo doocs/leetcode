@@ -119,25 +119,110 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3511.Ma
 #### Python3
 
 ```python
-
+class Solution:
+    def makeArrayPositive(self, nums: List[int]) -> int:
+        l = -1
+        ans = pre_mx = s = 0
+        for r, x in enumerate(nums):
+            s += x
+            if r - l > 2 and s <= pre_mx:
+                ans += 1
+                l = r
+                pre_mx = s = 0
+            elif r - l >= 2:
+                pre_mx = max(pre_mx, s - x - nums[r - 1])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int makeArrayPositive(int[] nums) {
+        int ans = 0;
+        long preMx = 0, s = 0;
+        for (int l = -1, r = 0; r < nums.length; r++) {
+            int x = nums[r];
+            s += x;
+            if (r - l > 2 && s <= preMx) {
+                ans++;
+                l = r;
+                preMx = s = 0;
+            } else if (r - l >= 2) {
+                preMx = Math.max(preMx, s - x - nums[r - 1]);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int makeArrayPositive(vector<int>& nums) {
+        int ans = 0;
+        long long preMx = 0, s = 0;
+        for (int l = -1, r = 0; r < nums.size(); r++) {
+            int x = nums[r];
+            s += x;
+            if (r - l > 2 && s <= preMx) {
+                ans++;
+                l = r;
+                preMx = s = 0;
+            } else if (r - l >= 2) {
+                preMx = max(preMx, s - x - nums[r - 1]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func makeArrayPositive(nums []int) (ans int) {
+	l := -1
+	preMx := 0
+	s := 0
+	for r, x := range nums {
+		s += x
+		if r-l > 2 && s <= preMx {
+			ans++
+			l = r
+			preMx = 0
+			s = 0
+		} else if r-l >= 2 {
+			preMx = max(preMx, s-x-nums[r-1])
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function makeArrayPositive(nums: number[]): number {
+    let l = -1;
+    let [ans, preMx, s] = [0, 0, 0];
+    for (let r = 0; r < nums.length; r++) {
+        const x = nums[r];
+        s += x;
+        if (r - l > 2 && s <= preMx) {
+            ans++;
+            l = r;
+            preMx = 0;
+            s = 0;
+        } else if (r - l >= 2) {
+            preMx = Math.max(preMx, s - x - nums[r - 1]);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
