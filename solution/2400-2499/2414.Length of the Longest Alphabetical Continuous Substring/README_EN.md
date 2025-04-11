@@ -195,8 +195,10 @@ int longestContinuousSubstring(char* s) {
     return ans;
 }
 ```
+
 ###js
-```JavaScript
+
+````JavaScript
  * @param {string} s
  * @return {number}
  */
@@ -220,3 +222,4 @@ var longestContinuousSubstring = function(s) {
 <!-- solution:end -->
 
 <!-- problem:end -->
+````
