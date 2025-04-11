@@ -195,6 +195,25 @@ int longestContinuousSubstring(char* s) {
     return ans;
 }
 ```
+###js
+```JavaScript
+ * @param {string} s
+ * @return {number}
+ */
+var longestContinuousSubstring = function(s) {
+    let max = 0, curr = 0, prev = 0, i = 0, c = 0;
+
+    while (i < s.length) {
+        c = s.charCodeAt(i);
+        curr = (c === prev + 1) ? curr + 1 : 1;
+        max = (curr > max) ? curr : max;
+        prev = c;
+        i++;
+    }
+
+
+    return max;
+};```
 
 <!-- tabs:end -->
 
