@@ -158,7 +158,18 @@ int* getConcatenation(int* nums, int numsSize, int* returnSize) {
     return ans;
 }
 ```
-
+### Rust 
+```Rust
+impl Solution {
+    pub fn get_concatenation(mut nums: Vec<i32>) -> Vec<i32> {
+        let original_len = nums.len();
+        for i in 0..original_len {
+            nums.push(nums[i]);
+        }
+        nums
+    }
+}
+```
 <!-- tabs:end -->
 
 <!-- solution:end -->
