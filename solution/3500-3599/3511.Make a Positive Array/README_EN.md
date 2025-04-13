@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3511.Make%20a%20Positive%20Array/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

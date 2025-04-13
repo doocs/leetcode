@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 445 场周赛(2025-04-13 10:30, 90 分钟) 参赛人数 2067
+
+- [3516. 找到最近的人](/solution/3500-3599/3516.Find%20Closest%20Person/README.md)
+- [3517. 最小回文排列 I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README.md)
+- [3518. 最小回文排列 II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README.md)
+- [3519. 统计逐位非递减的整数](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README.md)
+
 #### 第 154 场双周赛(2025-04-12 22:30, 90 分钟) 参赛人数 1539
 
 - [3512. 使数组和能被 K 整除的最少操作次数](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README.md)

@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3511.Make%20a%20Positive%20Array/README.md
+tags:
+    - 贪心
+    - 数组
+    - 前缀和
 ---
 
 <!-- problem:start -->
