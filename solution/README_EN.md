@@ -3519,12 +3519,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3507  |  [Minimum Pair Removal to Sort Array I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 444  |
 |  3508  |  [Implement Router](/solution/3500-3599/3508.Implement%20Router/README_EN.md)  |    |  Medium  |  Weekly Contest 444  |
 |  3509  |  [Maximum Product of Subsequences With an Alternating Sum Equal to K](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 444  |
-|  3510  |  [Minimum Pair Removal to Sort Array II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 444  |
-|  3511  |  [Make a Positive Array](/solution/3500-3599/3511.Make%20a%20Positive%20Array/README_EN.md)  |    |  Medium  |  🔒  |
+|  3510  |  [Minimum Pair Removal to Sort Array II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README_EN.md)  |  `Array`,`Hash Table`,`Linked List`,`Doubly-Linked List`,`Ordered Set`,`Simulation`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 444  |
+|  3511  |  [Make a Positive Array](/solution/3500-3599/3511.Make%20a%20Positive%20Array/README_EN.md)  |  `Greedy`,`Array`,`Prefix Sum`  |  Medium  |  🔒  |
 |  3512  |  [Minimum Operations to Make Array Sum Divisible by K](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README_EN.md)  |    |  Easy  |  Biweekly Contest 154  |
 |  3513  |  [Number of Unique XOR Triplets I](/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 154  |
 |  3514  |  [Number of Unique XOR Triplets II](/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 154  |
 |  3515  |  [Shortest Path in a Weighted Tree](/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 154  |
+|  3516  |  [Find Closest Person](/solution/3500-3599/3516.Find%20Closest%20Person/README_EN.md)  |    |  Easy  |  Weekly Contest 445  |
+|  3517  |  [Smallest Palindromic Rearrangement I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 445  |
+|  3518  |  [Smallest Palindromic Rearrangement II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 445  |
+|  3519  |  [Count Numbers with Non-Decreasing Digits](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README_EN.md)  |    |  Hard  |  Weekly Contest 445  |
 
 ## Copyright
 

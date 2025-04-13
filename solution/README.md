@@ -3521,12 +3521,16 @@
 |  3507  |  [移除最小数对使数组有序 I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README.md)  |    |  简单  |  第 444 场周赛  |
 |  3508  |  [设计路由器](/solution/3500-3599/3508.Implement%20Router/README.md)  |    |  中等  |  第 444 场周赛  |
 |  3509  |  [最大化交错和为 K 的子序列乘积](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README.md)  |    |  困难  |  第 444 场周赛  |
-|  3510  |  [移除最小数对使数组有序 II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README.md)  |    |  困难  |  第 444 场周赛  |
-|  3511  |  [构造正数组](/solution/3500-3599/3511.Make%20a%20Positive%20Array/README.md)  |    |  中等  |  🔒  |
+|  3510  |  [移除最小数对使数组有序 II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README.md)  |  `数组`,`哈希表`,`链表`,`双向链表`,`有序集合`,`模拟`,`堆（优先队列）`  |  困难  |  第 444 场周赛  |
+|  3511  |  [构造正数组](/solution/3500-3599/3511.Make%20a%20Positive%20Array/README.md)  |  `贪心`,`数组`,`前缀和`  |  中等  |  🔒  |
 |  3512  |  [使数组和能被 K 整除的最少操作次数](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README.md)  |    |  简单  |  第 154 场双周赛  |
 |  3513  |  [不同 XOR 三元组的数目 I](/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README.md)  |    |  中等  |  第 154 场双周赛  |
 |  3514  |  [不同 XOR 三元组的数目 II](/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README.md)  |    |  中等  |  第 154 场双周赛  |
 |  3515  |  [带权树中的最短路径](/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README.md)  |    |  困难  |  第 154 场双周赛  |
+|  3516  |  [找到最近的人](/solution/3500-3599/3516.Find%20Closest%20Person/README.md)  |    |  简单  |  第 445 场周赛  |
+|  3517  |  [最小回文排列 I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README.md)  |    |  中等  |  第 445 场周赛  |
+|  3518  |  [最小回文排列 II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README.md)  |    |  困难  |  第 445 场周赛  |
+|  3519  |  [统计逐位非递减的整数](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README.md)  |    |  困难  |  第 445 场周赛  |
 
 ## 版权
 
