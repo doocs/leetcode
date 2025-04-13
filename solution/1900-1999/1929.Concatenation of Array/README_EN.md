@@ -158,7 +158,9 @@ int* getConcatenation(int* nums, int numsSize, int* returnSize) {
     return ans;
 }
 ```
-### Rust 
+
+### Rust
+
 ```Rust
 impl Solution {
     pub fn get_concatenation(mut nums: Vec<i32>) -> Vec<i32> {
@@ -170,6 +172,7 @@ impl Solution {
     }
 }
 ```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
