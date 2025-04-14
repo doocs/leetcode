@@ -101,32 +101,83 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3516.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+我们计算出第 $1$ 个人和第 $3$ 个人的距离 $a$，第 $2$ 个人和第 $3$ 个人的距离 $b$。
+
+-   如果 $a = b$，说明两个人同时到达，返回 $0$；
+-   如果 $a \lt b$，说明第 $1$ 个人会先到达，返回 $1$；
+-   否则，说明第 $2$ 个人会先到达，返回 $2$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findClosest(self, x: int, y: int, z: int) -> int:
+        a = abs(x - z)
+        b = abs(y - z)
+        return 0 if a == b else (1 if a < b else 2)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int findClosest(int x, int y, int z) {
+        int a = Math.abs(x - z);
+        int b = Math.abs(y - z);
+        return a == b ? 0 : (a < b ? 1 : 2);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int findClosest(int x, int y, int z) {
+        int a = abs(x - z);
+        int b = abs(y - z);
+        return a == b ? 0 : (a < b ? 1 : 2);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findClosest(x int, y int, z int) int {
+	a, b := abs(x-z), abs(y-z)
+	if a == b {
+		return 0
+	}
+	if a < b {
+		return 1
+	}
+	return 2
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function findClosest(x: number, y: number, z: number): number {
+    const a = Math.abs(x - z);
+    const b = Math.abs(y - z);
+    return a === b ? 0 : a < b ? 1 : 2;
+}
 ```
 
 <!-- tabs:end -->
