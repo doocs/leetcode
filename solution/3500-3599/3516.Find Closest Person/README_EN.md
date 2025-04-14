@@ -99,32 +99,83 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3516.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+We calculate the distance $a$ between the 1st person and the 3rd person, and the distance $b$ between the 2nd person and the 3rd person.
+
+-   If $a = b$, it means both people arrive at the same time, return $0$;
+-   If $a \lt b$, it means the 1st person will arrive first, return $1$;
+-   Otherwise, it means the 2nd person will arrive first, return $2$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findClosest(self, x: int, y: int, z: int) -> int:
+        a = abs(x - z)
+        b = abs(y - z)
+        return 0 if a == b else (1 if a < b else 2)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int findClosest(int x, int y, int z) {
+        int a = Math.abs(x - z);
+        int b = Math.abs(y - z);
+        return a == b ? 0 : (a < b ? 1 : 2);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int findClosest(int x, int y, int z) {
+        int a = abs(x - z);
+        int b = abs(y - z);
+        return a == b ? 0 : (a < b ? 1 : 2);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findClosest(x int, y int, z int) int {
+	a, b := abs(x-z), abs(y-z)
+	if a == b {
+		return 0
+	}
+	if a < b {
+		return 1
+	}
+	return 2
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function findClosest(x: number, y: number, z: number): number {
+    const a = Math.abs(x - z);
+    const b = Math.abs(y - z);
+    return a === b ? 0 : a < b ? 1 : 2;
+}
 ```
 
 <!-- tabs:end -->
