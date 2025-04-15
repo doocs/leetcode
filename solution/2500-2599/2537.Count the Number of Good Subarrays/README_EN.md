@@ -63,15 +63,15 @@ tags:
 
 ### Solution 1: Hash Table + Two Pointers
 
-If a subarray contains $k$ pairs of identical elements, then an array that contains this subarray must contain at least $k$ pairs of identical elements.
+If a subarray contains $k$ pairs of identical elements, then this subarray must contain at least $k$ pairs of identical elements.
 
-We use a hash table $cnt$ to count the number of occurrences of each element in the window, use $cur$ to count the number of pairs of identical elements in the window, and use $i$ to maintain the left endpoint of the window.
+We use a hash table $\textit{cnt}$ to count the occurrences of elements within the sliding window, a variable $\textit{cur}$ to count the number of identical pairs within the window, and a pointer $i$ to maintain the left boundary of the window.
 
-We traverse the array $nums$, take the current element $x$ as the right endpoint, then the number of pairs of identical elements in the window will increase by $cnt[x]$, and the occurrence times of $x$ will be increased by one, i.e., $cnt[x] \leftarrow cnt[x] + 1$. Next, we loop to judge whether the number of pairs of identical elements in the window is greater than or equal to $k$ after removing the left endpoint. If it is greater than or equal to $k$, then we decrease the occurrence times of the left endpoint element by one, i.e., $cnt[nums[i]] \leftarrow cnt[nums[i]] - 1$, and decrease the number of pairs of identical elements in the window by $cnt[nums[i]]$, i.e., $cur \leftarrow cur - cnt[nums[i]]$, and move the left endpoint to the right, i.e., $i \leftarrow i + 1$. At this time, all elements to the left of the window left endpoint and the left endpoint itself can be used as the left endpoint of the current right endpoint, so the answer is increased by $i + 1$.
+As we iterate through the array $\textit{nums}$, we treat the current element $x$ as the right boundary of the window. The number of identical pairs in the window increases by $\textit{cnt}[x]$, and we increment the count of $x$ by 1, i.e., $\textit{cnt}[x] \leftarrow \textit{cnt}[x] + 1$. Next, we repeatedly check if the number of identical pairs in the window is greater than or equal to $k$ after removing the leftmost element. If it is, we decrement the count of the leftmost element, i.e., $\textit{cnt}[\textit{nums}[i]] \leftarrow \textit{cnt}[\textit{nums}[i]] - 1$, reduce the number of identical pairs in the window by $\textit{cnt}[\textit{nums}[i]]$, i.e., $\textit{cur} \leftarrow \textit{cur} - \textit{cnt}[\textit{nums}[i]]$, and move the left boundary to the right, i.e., $i \leftarrow i + 1$. At this point, all elements to the left of and including the left boundary can serve as the left boundary for the current right boundary, so we add $i + 1$ to the answer.
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -104,8 +104,7 @@ class Solution {
         long ans = 0, cur = 0;
         int i = 0;
         for (int x : nums) {
-            cur += cnt.getOrDefault(x, 0);
-            cnt.merge(x, 1, Integer::sum);
+            cur += cnt.merge(x, 1, Integer::sum) - 1;
             while (cur - cnt.get(nums[i]) + 1 >= k) {
                 cur -= cnt.merge(nums[i++], -1, Integer::sum);
             }
@@ -162,6 +161,64 @@ func countGood(nums []int, k int) int64 {
 		}
 	}
 	return int64(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function countGood(nums: number[], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    let [ans, cur, i] = [0, 0, 0];
+
+    for (const x of nums) {
+        const count = cnt.get(x) || 0;
+        cur += count;
+        cnt.set(x, count + 1);
+
+        while (cur - (cnt.get(nums[i])! - 1) >= k) {
+            const countI = cnt.get(nums[i])!;
+            cnt.set(nums[i], countI - 1);
+            cur -= countI - 1;
+            i += 1;
+        }
+
+        if (cur >= k) {
+            ans += i + 1;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn count_good(nums: Vec<i32>, k: i32) -> i64 {
+        let mut cnt = HashMap::new();
+        let (mut ans, mut cur, mut i) = (0i64, 0i64, 0);
+
+        for &x in &nums {
+            cur += *cnt.get(&x).unwrap_or(&0);
+            *cnt.entry(x).or_insert(0) += 1;
+
+            while cur - (cnt[&nums[i]] - 1) >= k as i64 {
+                *cnt.get_mut(&nums[i]).unwrap() -= 1;
+                cur -= cnt[&nums[i]];
+                i += 1;
+            }
+
+            if cur >= k as i64 {
+                ans += (i + 1) as i64;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
