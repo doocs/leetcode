@@ -84,32 +84,60 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3512.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：求和取模
+
+题目实际上是求数组元素之和对 $k$ 取模的结果。因此，我们只需要遍历数组，计算出所有元素之和，然后对 $k$ 取模，最后返回这个结果即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        return sum(nums) % k
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        return Arrays.stream(nums).sum() % k;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        return reduce(nums.begin(), nums.end(), 0) % k;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int, k int) (ans int) {
+	for _, x := range nums {
+		ans = (ans + x) % k
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minOperations(nums: number[], k: number): number {
+    return nums.reduce((acc, x) => acc + x, 0) % k;
+}
 ```
 
 <!-- tabs:end -->

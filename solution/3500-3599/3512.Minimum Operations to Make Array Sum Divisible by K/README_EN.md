@@ -82,32 +82,60 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3512.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sum and Modulo
+
+The problem essentially asks for the result of the sum of the array elements modulo $k$. Therefore, we only need to iterate through the array, calculate the sum of all elements, and then take the modulo $k$. Finally, return this result.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        return sum(nums) % k
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        return Arrays.stream(nums).sum() % k;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        return reduce(nums.begin(), nums.end(), 0) % k;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int, k int) (ans int) {
+	for _, x := range nums {
+		ans = (ans + x) % k
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minOperations(nums: number[], k: number): number {
+    return nums.reduce((acc, x) => acc + x, 0) % k;
+}
 ```
 
 <!-- tabs:end -->
