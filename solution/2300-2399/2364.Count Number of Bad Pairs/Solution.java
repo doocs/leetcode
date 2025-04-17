@@ -4,8 +4,7 @@ class Solution {
         long ans = 0;
         for (int i = 0; i < nums.length; ++i) {
             int x = i - nums[i];
-            ans += i - cnt.getOrDefault(x, 0);
-            cnt.merge(x, 1, Integer::sum);
+            ans += i - cnt.merge(x, 1, Integer::sum) + 1;
         }
         return ans;
     }
