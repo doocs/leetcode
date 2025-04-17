@@ -63,15 +63,15 @@ tags:
 
 ### 方法一：式子转换 + 哈希表
 
-根据题目描述，我们可以得知，对于任意的 $i \lt j$，如果 $j - i \neq nums[j] - nums[i]$，则 $(i, j)$ 是一个坏数对。
+根据题目描述，我们可以得知，对于任意的 $i \lt j$，如果 $j - i \neq \textit{nums}[j] - \textit{nums}[i]$，则 $(i, j)$ 是一个坏数对。
 
-我们可以将式子转换为 $i - nums[i] \neq j - nums[j]$。这启发我们用哈希表 $cnt$ 来统计 $i - nums[i]$ 的出现次数。
+我们可以将式子转换为 $i - \textit{nums}[i] \neq j - \textit{nums}[j]$。这启发我们用哈希表 $cnt$ 来统计 $i - \textit{nums}[i]$ 的出现次数。
 
-我们遍历数组，对于当前元素 $nums[i]$，我们将 $i - cnt[i - nums[i]]$ 加到答案中，然后将 $i - nums[i]$ 的出现次数加 $1$。
+遍历数组，对于当前元素 $\textit{nums}[i]$，我们将 $i - cnt[i - \textit{nums}[i]]$ 加到答案中，然后将 $i - \textit{nums}[i]$ 的出现次数加 $1$。
 
-最终，我们返回答案即可。
+最后，我们返回答案即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -97,8 +97,7 @@ class Solution {
         long ans = 0;
         for (int i = 0; i < nums.length; ++i) {
             int x = i - nums[i];
-            ans += i - cnt.getOrDefault(x, 0);
-            cnt.merge(x, 1, Integer::sum);
+            ans += i - cnt.merge(x, 1, Integer::sum) + 1;
         }
         return ans;
     }
@@ -115,8 +114,7 @@ public:
         long long ans = 0;
         for (int i = 0; i < nums.size(); ++i) {
             int x = i - nums[i];
-            ans += i - cnt[x];
-            ++cnt[x];
+            ans += i - cnt[x]++;
         }
         return ans;
     }
@@ -149,6 +147,26 @@ function countBadPairs(nums: number[]): number {
         cnt.set(x, (cnt.get(x) ?? 0) + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn count_bad_pairs(nums: Vec<i32>) -> i64 {
+        let mut cnt: HashMap<i32, i64> = HashMap::new();
+        let mut ans: i64 = 0;
+        for (i, &num) in nums.iter().enumerate() {
+            let x = i as i32 - num;
+            let count = *cnt.get(&x).unwrap_or(&0);
+            ans += i as i64 - count;
+            *cnt.entry(x).or_insert(0) += 1;
+        }
+        ans
+    }
 }
 ```
 

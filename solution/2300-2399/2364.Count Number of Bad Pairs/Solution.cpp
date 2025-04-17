@@ -5,8 +5,7 @@ public:
         long long ans = 0;
         for (int i = 0; i < nums.size(); ++i) {
             int x = i - nums[i];
-            ans += i - cnt[x];
-            ++cnt[x];
+            ans += i - cnt[x]++;
         }
         return ans;
     }

@@ -63,15 +63,15 @@ There are a total of 5 bad pairs, so we return 5.
 
 ### Solution 1: Equation Transformation + Hash Table
 
-From the problem description, we know that for any $i < j$, if $j - i \neq nums[j] - nums[i]$, then $(i, j)$ is a bad pair.
+According to the problem description, for any $i \lt j$, if $j - i \neq \textit{nums}[j] - \textit{nums}[i]$, then $(i, j)$ is a bad pair.
 
-We can transform the equation to $i - nums[i] \neq j - nums[j]$. This inspires us to use a hash table $cnt$ to count the occurrences of $i - nums[i]$.
+We can transform the equation into $i - \textit{nums}[i] \neq j - \textit{nums}[j]$. This suggests using a hash table $cnt$ to count the occurrences of $i - \textit{nums}[i]$.
 
-We iterate through the array. For the current element $nums[i]$, we add $i - cnt[i - nums[i]]$ to the answer, then increment the count of $i - nums[i]$ by $1$.
+While iterating through the array, for the current element $\textit{nums}[i]$, we add $i - cnt[i - \textit{nums}[i]]$ to the answer, and then increment the count of $i - \textit{nums}[i]$ by $1$.
 
 Finally, we return the answer.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -97,8 +97,7 @@ class Solution {
         long ans = 0;
         for (int i = 0; i < nums.length; ++i) {
             int x = i - nums[i];
-            ans += i - cnt.getOrDefault(x, 0);
-            cnt.merge(x, 1, Integer::sum);
+            ans += i - cnt.merge(x, 1, Integer::sum) + 1;
         }
         return ans;
     }
@@ -115,8 +114,7 @@ public:
         long long ans = 0;
         for (int i = 0; i < nums.size(); ++i) {
             int x = i - nums[i];
-            ans += i - cnt[x];
-            ++cnt[x];
+            ans += i - cnt[x]++;
         }
         return ans;
     }
@@ -149,6 +147,26 @@ function countBadPairs(nums: number[]): number {
         cnt.set(x, (cnt.get(x) ?? 0) + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn count_bad_pairs(nums: Vec<i32>) -> i64 {
+        let mut cnt: HashMap<i32, i64> = HashMap::new();
+        let mut ans: i64 = 0;
+        for (i, &num) in nums.iter().enumerate() {
+            let x = i as i32 - num;
+            let count = *cnt.get(&x).unwrap_or(&0);
+            ans += i as i64 - count;
+            *cnt.entry(x).or_insert(0) += 1;
+        }
+        ans
+    }
 }
 ```
 
