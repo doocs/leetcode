@@ -215,6 +215,11 @@ This project exists thanks to all the people who contribute.
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
 
+<a href="https://openomy.app/github/doocs/leetcode" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=doocs/leetcode&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+ </a>
+
+
 ## Backers & Sponsors
 
 Thank you to all our backers and sponsors!
