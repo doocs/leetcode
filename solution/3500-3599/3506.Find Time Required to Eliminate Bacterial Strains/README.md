@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README.md
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
@@ -24,9 +29,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3506.Fi
 
 <ul>
 	<li>第 <code>i</code> 个细菌菌株需要 <code>timeReq[i]</code> 个时间单位来被消除。</li>
-	<li>单个白细胞只能消除 <strong>一种</strong> 细菌菌株。之后，白细胞耗尽，无法执行任何其他任务。</li>
+	<li>单个白细胞只能消除 <strong>一个</strong> 细菌菌株。之后，白细胞耗尽，无法执行任何其他任务。</li>
 	<li>一个白细胞可以将自身分裂为两个白细胞，但这需要&nbsp;<code>splitTime</code>&nbsp;单位时间。一旦分裂，两个白细胞就可以 <strong>并行</strong> 消灭细菌。</li>
-	<li>仅有一个白细胞可以针对一个单一细菌菌株工作。多个白细胞不能同时攻击一个菌株。</li>
+	<li>一个白细胞仅可以攻击一个细菌菌株。多个白细胞不能同时攻击一个菌株。</li>
 </ul>
 
 <p>您必须确定消除所有细菌菌株所需的 <strong>最短</strong> 时间。</p>
@@ -58,7 +63,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3506.Fi
 <div class="example-block">
 <p><span class="example-io"><b>输入：</b>timeReq = [10,4], splitTime = 5</span></p>
 
-<p><b>输出：</b>5</p>
+<p><b>输出：</b>15</p>
 
 <p><strong>解释：</strong></p>
 

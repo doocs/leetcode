@@ -3517,20 +3517,22 @@
 |  3504  |  [子字符串连接后的最长回文串 II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README.md)  |  `双指针`,`字符串`,`动态规划`  |  困难  |  第 443 场周赛  |
 |  3505  |  [使 K 个子数组内元素相等的最少操作数](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README.md)  |  `数组`,`哈希表`,`数学`,`动态规划`,`滑动窗口`,`堆（优先队列）`  |  困难  |  第 443 场周赛  |
 |  3506  |  [Find Time Required to Eliminate Bacterial Strains II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README.md)  |    |  困难  |  🔒  |
-|  3506  |  [查找消除细菌菌株所需时间](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README.md)  |    |  困难  |  🔒  |
-|  3507  |  [移除最小数对使数组有序 I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README.md)  |    |  简单  |  第 444 场周赛  |
-|  3508  |  [设计路由器](/solution/3500-3599/3508.Implement%20Router/README.md)  |    |  中等  |  第 444 场周赛  |
-|  3509  |  [最大化交错和为 K 的子序列乘积](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README.md)  |    |  困难  |  第 444 场周赛  |
+|  3506  |  [查找消除细菌菌株所需时间](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README.md)  |  `贪心`,`数组`,`数学`,`堆（优先队列）`  |  困难  |  🔒  |
+|  3507  |  [移除最小数对使数组有序 I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README.md)  |  `数组`,`哈希表`,`链表`,`双向链表`,`有序集合`,`模拟`,`堆（优先队列）`  |  简单  |  第 444 场周赛  |
+|  3508  |  [设计路由器](/solution/3500-3599/3508.Implement%20Router/README.md)  |  `设计`,`队列`,`数组`,`哈希表`,`二分查找`,`有序集合`  |  中等  |  第 444 场周赛  |
+|  3509  |  [最大化交错和为 K 的子序列乘积](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README.md)  |  `数组`,`哈希表`,`动态规划`  |  困难  |  第 444 场周赛  |
 |  3510  |  [移除最小数对使数组有序 II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README.md)  |  `数组`,`哈希表`,`链表`,`双向链表`,`有序集合`,`模拟`,`堆（优先队列）`  |  困难  |  第 444 场周赛  |
 |  3511  |  [构造正数组](/solution/3500-3599/3511.Make%20a%20Positive%20Array/README.md)  |  `贪心`,`数组`,`前缀和`  |  中等  |  🔒  |
-|  3512  |  [使数组和能被 K 整除的最少操作次数](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README.md)  |    |  简单  |  第 154 场双周赛  |
-|  3513  |  [不同 XOR 三元组的数目 I](/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README.md)  |    |  中等  |  第 154 场双周赛  |
-|  3514  |  [不同 XOR 三元组的数目 II](/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README.md)  |    |  中等  |  第 154 场双周赛  |
-|  3515  |  [带权树中的最短路径](/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README.md)  |    |  困难  |  第 154 场双周赛  |
-|  3516  |  [找到最近的人](/solution/3500-3599/3516.Find%20Closest%20Person/README.md)  |    |  简单  |  第 445 场周赛  |
-|  3517  |  [最小回文排列 I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README.md)  |    |  中等  |  第 445 场周赛  |
-|  3518  |  [最小回文排列 II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README.md)  |    |  困难  |  第 445 场周赛  |
-|  3519  |  [统计逐位非递减的整数](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README.md)  |    |  困难  |  第 445 场周赛  |
+|  3512  |  [使数组和能被 K 整除的最少操作次数](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README.md)  |  `数组`,`数学`  |  简单  |  第 154 场双周赛  |
+|  3513  |  [不同 XOR 三元组的数目 I](/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README.md)  |  `位运算`,`数组`,`数学`  |  中等  |  第 154 场双周赛  |
+|  3514  |  [不同 XOR 三元组的数目 II](/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README.md)  |  `位运算`,`数组`,`数学`,`枚举`  |  中等  |  第 154 场双周赛  |
+|  3515  |  [带权树中的最短路径](/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README.md)  |  `树`,`深度优先搜索`,`树状数组`,`线段树`,`数组`  |  困难  |  第 154 场双周赛  |
+|  3516  |  [找到最近的人](/solution/3500-3599/3516.Find%20Closest%20Person/README.md)  |  `数学`  |  简单  |  第 445 场周赛  |
+|  3517  |  [最小回文排列 I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README.md)  |  `字符串`,`计数排序`,`排序`  |  中等  |  第 445 场周赛  |
+|  3518  |  [最小回文排列 II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README.md)  |  `哈希表`,`数学`,`字符串`,`组合数学`,`计数`  |  困难  |  第 445 场周赛  |
+|  3519  |  [统计逐位非递减的整数](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README.md)  |  `数学`,`字符串`,`动态规划`  |  困难  |  第 445 场周赛  |
+|  3520  |  [逆序对计数的最小阈值](/solution/3500-3599/3520.Minimum%20Threshold%20for%20Inversion%20Pairs%20Count/README.md)  |    |  中等  |  🔒  |
+|  3521  |  [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)  |    |  中等  |    |
 
 ## 版权
 

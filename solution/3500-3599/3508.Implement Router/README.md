@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3508.Implement%20Router/README.md
+tags:
+    - 设计
+    - 队列
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 有序集合
 ---
 
 <!-- problem:start -->

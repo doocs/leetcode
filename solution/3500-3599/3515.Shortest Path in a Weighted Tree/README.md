@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 树状数组
+    - 线段树
+    - 数组
 ---
 
 <!-- problem:start -->

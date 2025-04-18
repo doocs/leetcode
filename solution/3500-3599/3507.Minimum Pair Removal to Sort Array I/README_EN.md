@@ -2,6 +2,14 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Linked List
+    - Doubly-Linked List
+    - Ordered Set
+    - Simulation
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

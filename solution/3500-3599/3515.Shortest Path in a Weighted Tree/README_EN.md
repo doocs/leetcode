@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Binary Indexed Tree
+    - Segment Tree
+    - Array
 ---
 
 <!-- problem:start -->

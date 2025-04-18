@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - String
+    - Combinatorics
+    - Counting
 ---
 
 <!-- problem:start -->
