@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README_EN.md
+tags:
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->

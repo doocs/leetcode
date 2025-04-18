@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README.md
+tags:
+    - 哈希表
+    - 数学
+    - 字符串
+    - 组合数学
+    - 计数
 ---
 
 <!-- problem:start -->

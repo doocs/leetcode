@@ -312,6 +312,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3475 | [DNA Pattern Recognition](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README_EN.md)                                                                                                 |            | Medium     |        |
 | 3482 | [Analyze Organization Hierarchy](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README_EN.md)                                                                                   | `Database` | Hard       |        |
 | 3497 | [Analyze Subscription Conversion](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README_EN.md)                                                                                 | `Database` | Medium     |        |
+| 3521 | [Find Product Recommendation Pairs](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README_EN.md)                                                                           |            | Medium     |        |
 
 ## Copyright
 

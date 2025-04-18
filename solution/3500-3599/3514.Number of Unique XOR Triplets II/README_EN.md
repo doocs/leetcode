@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Enumeration
 ---
 
 <!-- problem:start -->

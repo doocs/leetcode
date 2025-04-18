@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README.md
+tags:
+    - 数学
+    - 字符串
+    - 动态规划
 ---
 
 <!-- problem:start -->

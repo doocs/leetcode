@@ -314,6 +314,7 @@
 | 3475 | [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)                                                                               |          | 中等 |      |
 | 3482 | [分析组织层级](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README.md)                                                                        | `数据库` | 困难 |      |
 | 3497 | [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)                                                                       | `数据库` | 中等 |      |
+| 3521 | [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)                                                                 |          | 中等 |      |
 
 ## 版权
 

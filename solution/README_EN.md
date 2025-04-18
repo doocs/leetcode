@@ -3515,20 +3515,22 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3504  |  [Longest Palindrome After Substring Concatenation II](/solution/3500-3599/3504.Longest%20Palindrome%20After%20Substring%20Concatenation%20II/README_EN.md)  |  `Two Pointers`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 443  |
 |  3505  |  [Minimum Operations to Make Elements Within K Subarrays Equal](/solution/3500-3599/3505.Minimum%20Operations%20to%20Make%20Elements%20Within%20K%20Subarrays%20Equal/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Dynamic Programming`,`Sliding Window`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 443  |
 |  3506  |  [Find Time Required to Eliminate Bacterial Strains II](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  3506  |  [Find Time Required to Eliminate Bacterial Strains](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README_EN.md)  |    |  Hard  |  🔒  |
-|  3507  |  [Minimum Pair Removal to Sort Array I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 444  |
-|  3508  |  [Implement Router](/solution/3500-3599/3508.Implement%20Router/README_EN.md)  |    |  Medium  |  Weekly Contest 444  |
-|  3509  |  [Maximum Product of Subsequences With an Alternating Sum Equal to K](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 444  |
+|  3506  |  [Find Time Required to Eliminate Bacterial Strains](/solution/3500-3599/3506.Find%20Time%20Required%20to%20Eliminate%20Bacterial%20Strains/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Heap (Priority Queue)`  |  Hard  |  🔒  |
+|  3507  |  [Minimum Pair Removal to Sort Array I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README_EN.md)  |  `Array`,`Hash Table`,`Linked List`,`Doubly-Linked List`,`Ordered Set`,`Simulation`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 444  |
+|  3508  |  [Implement Router](/solution/3500-3599/3508.Implement%20Router/README_EN.md)  |  `Design`,`Queue`,`Array`,`Hash Table`,`Binary Search`,`Ordered Set`  |  Medium  |  Weekly Contest 444  |
+|  3509  |  [Maximum Product of Subsequences With an Alternating Sum Equal to K](/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README_EN.md)  |  `Array`,`Hash Table`,`Dynamic Programming`  |  Hard  |  Weekly Contest 444  |
 |  3510  |  [Minimum Pair Removal to Sort Array II](/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README_EN.md)  |  `Array`,`Hash Table`,`Linked List`,`Doubly-Linked List`,`Ordered Set`,`Simulation`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 444  |
 |  3511  |  [Make a Positive Array](/solution/3500-3599/3511.Make%20a%20Positive%20Array/README_EN.md)  |  `Greedy`,`Array`,`Prefix Sum`  |  Medium  |  🔒  |
-|  3512  |  [Minimum Operations to Make Array Sum Divisible by K](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README_EN.md)  |    |  Easy  |  Biweekly Contest 154  |
-|  3513  |  [Number of Unique XOR Triplets I](/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 154  |
-|  3514  |  [Number of Unique XOR Triplets II](/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 154  |
-|  3515  |  [Shortest Path in a Weighted Tree](/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 154  |
-|  3516  |  [Find Closest Person](/solution/3500-3599/3516.Find%20Closest%20Person/README_EN.md)  |    |  Easy  |  Weekly Contest 445  |
-|  3517  |  [Smallest Palindromic Rearrangement I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 445  |
-|  3518  |  [Smallest Palindromic Rearrangement II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 445  |
-|  3519  |  [Count Numbers with Non-Decreasing Digits](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README_EN.md)  |    |  Hard  |  Weekly Contest 445  |
+|  3512  |  [Minimum Operations to Make Array Sum Divisible by K](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Biweekly Contest 154  |
+|  3513  |  [Number of Unique XOR Triplets I](/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`  |  Medium  |  Biweekly Contest 154  |
+|  3514  |  [Number of Unique XOR Triplets II](/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`,`Enumeration`  |  Medium  |  Biweekly Contest 154  |
+|  3515  |  [Shortest Path in a Weighted Tree](/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Indexed Tree`,`Segment Tree`,`Array`  |  Hard  |  Biweekly Contest 154  |
+|  3516  |  [Find Closest Person](/solution/3500-3599/3516.Find%20Closest%20Person/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 445  |
+|  3517  |  [Smallest Palindromic Rearrangement I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README_EN.md)  |  `String`,`Counting Sort`,`Sorting`  |  Medium  |  Weekly Contest 445  |
+|  3518  |  [Smallest Palindromic Rearrangement II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Combinatorics`,`Counting`  |  Hard  |  Weekly Contest 445  |
+|  3519  |  [Count Numbers with Non-Decreasing Digits](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 445  |
+|  3520  |  [Minimum Threshold for Inversion Pairs Count](/solution/3500-3599/3520.Minimum%20Threshold%20for%20Inversion%20Pairs%20Count/README_EN.md)  |    |  Medium  |  🔒  |
+|  3521  |  [Find Product Recommendation Pairs](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 
