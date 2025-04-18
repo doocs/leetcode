@@ -219,7 +219,6 @@ This project exists thanks to all the people who contribute.
   <img src="https://openomy.app/svg?repo=doocs/leetcode&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
  </a>
 
-
 ## Backers & Sponsors
 
 Thank you to all our backers and sponsors!
