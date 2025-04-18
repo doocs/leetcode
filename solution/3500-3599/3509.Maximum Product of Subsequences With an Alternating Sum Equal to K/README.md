@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3509.Maximum%20Product%20of%20Subsequences%20With%20an%20Alternating%20Sum%20Equal%20to%20K/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
 ---
 
 <!-- problem:start -->

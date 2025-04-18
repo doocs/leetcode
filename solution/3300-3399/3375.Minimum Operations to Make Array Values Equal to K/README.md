@@ -88,7 +88,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+根据题目描述，我们每次可以选择当前数组中的次大值作为合法整数 $h$，将所有大于 $h$ 的数都变为 $h$，这样可以使得操作次数最少。另外，由于操作会使得数字变小，因此，如果当前数组中存在小于 $k$ 的数，那么我们就无法将所有数都变为 $k$，直接返回 -1 即可。
+
+我们遍历数组 $\textit{nums}$，对于当前的数 $x$，如果 $x < k$，直接返回 -1；否则，我们将 $x$ 加入哈希表中，并且更新当前数组中的最小值 $\textit{mi}$。最后，我们返回哈希表的大小减去 1（如果 $\textit{mi} = k$，则需要减去 1）。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -170,16 +176,48 @@ func minOperations(nums []int, k int) int {
 
 ```ts
 function minOperations(nums: number[], k: number): number {
-    const s = new Set<number>();
-    let mi = Infinity;
+    const s = new Set<number>([k]);
     for (const x of nums) {
-        if (x < k) {
-            return -1;
-        }
+        if (x < k) return -1;
         s.add(x);
-        mi = Math.min(mi, x);
     }
-    return s.size - (mi === k ? 1 : 0);
+    return s.size - 1;
+}
+```
+
+#### JavaScript
+
+```js
+function minOperations(nums, k) {
+    const s = new Set([k]);
+    for (const x of nums) {
+        if (x < k) return -1;
+        s.add(x);
+    }
+    return s.size - 1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>, k: i32) -> i32 {
+        use std::collections::HashSet;
+
+        let mut s = HashSet::new();
+        let mut mi = i32::MAX;
+
+        for &x in &nums {
+            if x < k {
+                return -1;
+            }
+            s.insert(x);
+            mi = mi.min(x);
+        }
+
+        (s.len() as i32) - if mi == k { 1 } else { 0 }
+    }
 }
 ```
 

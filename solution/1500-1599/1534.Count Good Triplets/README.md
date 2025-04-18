@@ -183,6 +183,52 @@ function countGoodTriplets(arr: number[], a: number, b: number, c: number): numb
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_good_triplets(arr: Vec<i32>, a: i32, b: i32, c: i32) -> i32 {
+        let n = arr.len();
+        let mut ans = 0;
+
+        for i in 0..n {
+            for j in i + 1..n {
+                for k in j + 1..n {
+                    if (arr[i] - arr[j]).abs() <= a && (arr[j] - arr[k]).abs() <= b && (arr[i] - arr[k]).abs() <= c {
+                        ans += 1;
+                    }
+                }
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountGoodTriplets(int[] arr, int a, int b, int c) {
+        int n = arr.Length;
+        int ans = 0;
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                for (int k = j + 1; k < n; ++k) {
+                    if (Math.Abs(arr[i] - arr[j]) <= a && Math.Abs(arr[j] - arr[k]) <= b && Math.Abs(arr[i] - arr[k]) <= c) {
+                        ++ans;
+                    }
+                }
+            }
+        }
+
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

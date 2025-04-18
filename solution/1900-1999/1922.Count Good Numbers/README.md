@@ -67,7 +67,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：快速幂
+
+长度为 $n$ 的好数字，偶数下标一共有 $\lceil \frac{n}{2} \rceil = \lfloor \frac{n + 1}{2} \rfloor$ 位，偶数下标可以填入 $5$ 种数字（$0, 2, 4, 6, 8$）；奇数下标一共有 $\lfloor \frac{n}{2} \rfloor$ 位，奇数下标可以填入 $4$ 种数字（$2, 3, 5, 7$）。因此长度为 $n$ 的好数字的个数为：
+
+$$
+ans = 5^{\lceil \frac{n}{2} \rceil} \times 4^{\lfloor \frac{n}{2} \rfloor}
+$$
+
+我们可以使用快速幂来计算 $5^{\lceil \frac{n}{2} \rceil}$ 和 $4^{\lfloor \frac{n}{2} \rfloor}$，时间复杂度为 $O(\log n)$，空间复杂度为 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -84,13 +92,13 @@ class Solution:
 
 ```java
 class Solution {
-    private int mod = 1000000007;
+    private final int mod = (int) 1e9 + 7;
 
     public int countGoodNumbers(long n) {
-        return (int) (myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % mod);
+        return (int) (qpow(5, (n + 1) >> 1) * qpow(4, n >> 1) % mod);
     }
 
-    private long myPow(long x, long n) {
+    private long qpow(long x, long n) {
         long res = 1;
         while (n != 0) {
             if ((n & 1) == 1) {
@@ -107,25 +115,22 @@ class Solution {
 #### C++
 
 ```cpp
-int MOD = 1000000007;
-
 class Solution {
 public:
     int countGoodNumbers(long long n) {
-        return (int) (myPow(5, (n + 1) >> 1) * myPow(4, n >> 1) % MOD);
-    }
-
-private:
-    long long myPow(long long x, long long n) {
-        long long res = 1;
-        while (n) {
-            if ((n & 1) == 1) {
-                res = res * x % MOD;
+        const int mod = 1e9 + 7;
+        auto qpow = [](long long x, long long n) -> long long {
+            long long res = 1;
+            while (n) {
+                if ((n & 1) == 1) {
+                    res = res * x % mod;
+                }
+                x = x * x % mod;
+                n >>= 1;
             }
-            x = x * x % MOD;
-            n >>= 1;
-        }
-        return res;
+            return res;
+        };
+        return qpow(5, (n + 1) >> 1) * qpow(4, n >> 1) % mod;
     }
 };
 ```
@@ -149,6 +154,28 @@ func myPow(x, n int64) int64 {
 		n >>= 1
 	}
 	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function countGoodNumbers(n: number): number {
+    const mod = 1000000007n;
+    const qpow = (x: bigint, n: bigint): bigint => {
+        let res = 1n;
+        while (n > 0n) {
+            if (n & 1n) {
+                res = (res * x) % mod;
+            }
+            x = (x * x) % mod;
+            n >>= 1n;
+        }
+        return res;
+    };
+    const a = qpow(5n, BigInt(n + 1) / 2n);
+    const b = qpow(4n, BigInt(n) / 2n);
+    return Number((a * b) % mod);
 }
 ```
 

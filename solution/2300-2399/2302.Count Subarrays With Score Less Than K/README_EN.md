@@ -75,11 +75,11 @@ Thus, there are 5 subarrays having scores less than 5.
 
 ### Solution 1: Prefix Sum + Binary Search
 
-First, we calculate the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.
+First, we calculate the prefix sum array $s$ of the array $\textit{nums}$, where $s[i]$ represents the sum of the first $i$ elements of $\textit{nums}$.
 
-Next, we enumerate each element of the array $nums$ as the last element of the subarray. For each element, we can find the maximum length $l$ such that $s[i] - s[i - l] \times l < k$ by binary search. The number of subarrays with this element as the last element is $l$, and we add all $l$ to get the answer.
+Next, we enumerate each element of $\textit{nums}$ as the last element of a subarray. For each element, we can use binary search to find the maximum length $l$ such that $s[i] - s[i - l] \times l < k$. The number of subarrays ending at this element is $l$, and summing up all $l$ gives the final answer.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -91,14 +91,14 @@ class Solution:
         s = list(accumulate(nums, initial=0))
         ans = 0
         for i in range(1, len(s)):
-            left, right = 0, i
-            while left < right:
-                mid = (left + right + 1) >> 1
+            l, r = 0, i
+            while l < r:
+                mid = (l + r + 1) >> 1
                 if (s[i] - s[i - mid]) * mid < k:
-                    left = mid
+                    l = mid
                 else:
-                    right = mid - 1
-            ans += left
+                    r = mid - 1
+            ans += l
         return ans
 ```
 
@@ -114,16 +114,16 @@ class Solution {
         }
         long ans = 0;
         for (int i = 1; i <= n; ++i) {
-            int left = 0, right = i;
-            while (left < right) {
-                int mid = (left + right + 1) >> 1;
+            int l = 0, r = i;
+            while (l < r) {
+                int mid = (l + r + 1) >> 1;
                 if ((s[i] - s[i - mid]) * mid < k) {
-                    left = mid;
+                    l = mid;
                 } else {
-                    right = mid - 1;
+                    r = mid - 1;
                 }
             }
-            ans += left;
+            ans += l;
         }
         return ans;
     }
@@ -144,16 +144,16 @@ public:
         }
         long long ans = 0;
         for (int i = 1; i <= n; ++i) {
-            int left = 0, right = i;
-            while (left < right) {
-                int mid = (left + right + 1) >> 1;
+            int l = 0, r = i;
+            while (l < r) {
+                int mid = (l + r + 1) >> 1;
                 if ((s[i] - s[i - mid]) * mid < k) {
-                    left = mid;
+                    l = mid;
                 } else {
-                    right = mid - 1;
+                    r = mid - 1;
                 }
             }
-            ans += left;
+            ans += l;
         }
         return ans;
     }
@@ -166,22 +166,78 @@ public:
 func countSubarrays(nums []int, k int64) (ans int64) {
 	n := len(nums)
 	s := make([]int64, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + int64(v)
+	for i, x := range nums {
+		s[i+1] = s[i] + int64(x)
 	}
 	for i := 1; i <= n; i++ {
-		left, right := 0, i
-		for left < right {
-			mid := (left + right + 1) >> 1
+		l, r := 0, i
+		for l < r {
+			mid := (l + r + 1) >> 1
 			if (s[i]-s[i-mid])*int64(mid) < k {
-				left = mid
+				l = mid
 			} else {
-				right = mid - 1
+				r = mid - 1
 			}
 		}
-		ans += int64(left)
+		ans += int64(l)
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubarrays(nums: number[], k: number): number {
+    const n = nums.length;
+    const s: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        s[i + 1] = s[i] + nums[i];
+    }
+    let ans = 0;
+    for (let i = 1; i <= n; ++i) {
+        let [l, r] = [0, i];
+        while (l < r) {
+            const mid = (l + r + 1) >> 1;
+            if ((s[i] - s[i - mid]) * mid < k) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        ans += l;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_subarrays(nums: Vec<i32>, k: i64) -> i64 {
+        let n = nums.len();
+        let mut s = vec![0i64; n + 1];
+        for i in 0..n {
+            s[i + 1] = s[i] + nums[i] as i64;
+        }
+        let mut ans = 0i64;
+        for i in 1..=n {
+            let mut l = 0;
+            let mut r = i;
+            while l < r {
+                let mid = (l + r + 1) / 2;
+                let sum = s[i] - s[i - mid];
+                if sum * (mid as i64) < k {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            ans += l as i64;
+        }
+        ans
+    }
 }
 ```
 
@@ -193,9 +249,9 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 
 ### Solution 2: Two Pointers
 
-We can use two pointers to maintain a sliding window, so that the sum of the elements in the window is less than $k$. The number of subarrays with the current element as the last element is the length of the window, and we add all window lengths to get the answer.
+We can use the two-pointer technique to maintain a sliding window such that the sum of elements in the window is less than $k$. The number of subarrays ending at the current element is equal to the length of the window. Summing up all the window lengths gives the final answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -205,8 +261,8 @@ The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The 
 class Solution:
     def countSubarrays(self, nums: List[int], k: int) -> int:
         ans = s = j = 0
-        for i, v in enumerate(nums):
-            s += v
+        for i, x in enumerate(nums):
+            s += x
             while s * (i - j + 1) >= k:
                 s -= nums[j]
                 j += 1
@@ -256,8 +312,8 @@ public:
 ```go
 func countSubarrays(nums []int, k int64) (ans int64) {
 	s, j := 0, 0
-	for i, v := range nums {
-		s += v
+	for i, x := range nums {
+		s += x
 		for int64(s*(i-j+1)) >= k {
 			s -= nums[j]
 			j++
@@ -265,6 +321,45 @@ func countSubarrays(nums []int, k int64) (ans int64) {
 		ans += int64(i - j + 1)
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubarrays(nums: number[], k: number): number {
+    let [ans, s, j] = [0, 0, 0];
+    for (let i = 0; i < nums.length; ++i) {
+        s += nums[i];
+        while (s * (i - j + 1) >= k) {
+            s -= nums[j++];
+        }
+        ans += i - j + 1;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_subarrays(nums: Vec<i32>, k: i64) -> i64 {
+        let mut ans = 0i64;
+        let mut s = 0i64;
+        let mut j = 0;
+
+        for i in 0..nums.len() {
+            s += nums[i] as i64;
+            while s * (i as i64 - j as i64 + 1) >= k {
+                s -= nums[j] as i64;
+                j += 1;
+            }
+            ans += i as i64 - j as i64 + 1;
+        }
+
+        ans
+    }
 }
 ```
 

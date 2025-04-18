@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 445
+
+- [3516. Find Closest Person](/solution/3500-3599/3516.Find%20Closest%20Person/README_EN.md)
+- [3517. Smallest Palindromic Rearrangement I](/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README_EN.md)
+- [3518. Smallest Palindromic Rearrangement II](/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README_EN.md)
+- [3519. Count Numbers with Non-Decreasing Digits](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README_EN.md)
+
+#### Biweekly Contest 154
+
+- [3512. Minimum Operations to Make Array Sum Divisible by K](/solution/3500-3599/3512.Minimum%20Operations%20to%20Make%20Array%20Sum%20Divisible%20by%20K/README_EN.md)
+- [3513. Number of Unique XOR Triplets I](/solution/3500-3599/3513.Number%20of%20Unique%20XOR%20Triplets%20I/README_EN.md)
+- [3514. Number of Unique XOR Triplets II](/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README_EN.md)
+- [3515. Shortest Path in a Weighted Tree](/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README_EN.md)
+
 #### Weekly Contest 444
 
 - [3507. Minimum Pair Removal to Sort Array I](/solution/3500-3599/3507.Minimum%20Pair%20Removal%20to%20Sort%20Array%20I/README_EN.md)

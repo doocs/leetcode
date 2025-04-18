@@ -86,7 +86,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+According to the problem description, we can choose the second largest value in the current array as the valid integer $h$ each time, and change all numbers greater than $h$ to $h$. This minimizes the number of operations. Additionally, since the operation reduces the numbers, if there are numbers in the current array smaller than $k$, we cannot make all numbers equal to $k$, so we directly return -1.
+
+We iterate through the array $\textit{nums}$. For the current number $x$, if $x < k$, we directly return -1. Otherwise, we add $x$ to the hash table and update the minimum value $\textit{mi}$ in the current array. Finally, we return the size of the hash table minus 1 (if $\textit{mi} = k$, we need to subtract 1).
+
+Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -168,16 +174,48 @@ func minOperations(nums []int, k int) int {
 
 ```ts
 function minOperations(nums: number[], k: number): number {
-    const s = new Set<number>();
-    let mi = Infinity;
+    const s = new Set<number>([k]);
     for (const x of nums) {
-        if (x < k) {
-            return -1;
-        }
+        if (x < k) return -1;
         s.add(x);
-        mi = Math.min(mi, x);
     }
-    return s.size - (mi === k ? 1 : 0);
+    return s.size - 1;
+}
+```
+
+#### JavaScript
+
+```js
+function minOperations(nums, k) {
+    const s = new Set([k]);
+    for (const x of nums) {
+        if (x < k) return -1;
+        s.add(x);
+    }
+    return s.size - 1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>, k: i32) -> i32 {
+        use std::collections::HashSet;
+
+        let mut s = HashSet::new();
+        let mut mi = i32::MAX;
+
+        for &x in &nums {
+            if x < k {
+                return -1;
+            }
+            s.insert(x);
+            mi = mi.min(x);
+        }
+
+        (s.len() as i32) - if mi == k { 1 } else { 0 }
+    }
 }
 ```
 

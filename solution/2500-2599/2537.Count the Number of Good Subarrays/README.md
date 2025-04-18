@@ -63,15 +63,15 @@ tags:
 
 ### 方法一：哈希表 + 双指针
 
-如果一个子数组中包含 $k$ 对相同的元素，那么包含这个子数组的数组一定至少包含 $k$ 对相同的元素。
+如果一个子数组中包含 $k$ 对相同的元素，那么这个子数组一定包含至少 $k$ 对相同的元素。
 
-我们用一个哈希表 $cnt$ 统计窗口内数组元素出现的次数，用 $cur$ 统计窗口内相同元素的对数，用 $i$ 维护窗口的左端点。
+我们用一个哈希表 $\textit{cnt}$ 统计窗口内数组元素出现的次数，用 $\textit{cur}$ 统计窗口内相同元素的对数，用 $i$ 维护窗口的左端点。
 
-遍历数组 $nums$，我们将当前元素 $x$ 作为右端点，那么窗口内相同元素的对数将增加 $cnt[x]$，同时将 $x$ 的出现次数加一，即 $cnt[x] \leftarrow cnt[x] + 1$。接下来，我们循环判断移出左端点后窗口内相同元素的对数是否大于等于 $k$，如果大于等于 $k$，那么我们将左端点元素的出现次数减一，即 $cnt[nums[i]] \leftarrow cnt[nums[i]] - 1$，同时将窗口内相同元素的对数减去 $cnt[nums[i]]$，即 $cur \leftarrow cur - cnt[nums[i]]$，同时将左端点右移，即 $i \leftarrow i + 1$。此时窗口左端点以及左侧的所有元素都可以作为当前右端点的左端点，因此答案加上 $i + 1$。
+遍历数组 $\textit{nums}$，我们将当前元素 $x$ 作为右端点，那么窗口内相同元素的对数将增加 $\textit{cnt}[x]$，同时将 $x$ 的出现次数加一，即 $\textit{cnt}[x] \leftarrow \textit{cnt}[x] + 1$。接下来，我们循环判断移出左端点后窗口内相同元素的对数是否大于等于 $k$，如果大于等于 $k$，那么我们将左端点元素的出现次数减一，即 $\textit{cnt}[\textit{nums}[i]] \leftarrow \textit{cnt}[\textit{nums}[i]] - 1$，同时将窗口内相同元素的对数减去 $\textit{cnt}[\textit{nums}[i]]$，即 $\textit{cur} \leftarrow \textit{cur} - \textit{cnt}[\textit{nums}[i]]$，同时将左端点右移，即 $i \leftarrow i + 1$。此时窗口左端点以及左侧的所有元素都可以作为当前右端点的左端点，因此答案加上 $i + 1$。
 
 最后，我们返回答案即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -104,8 +104,7 @@ class Solution {
         long ans = 0, cur = 0;
         int i = 0;
         for (int x : nums) {
-            cur += cnt.getOrDefault(x, 0);
-            cnt.merge(x, 1, Integer::sum);
+            cur += cnt.merge(x, 1, Integer::sum) - 1;
             while (cur - cnt.get(nums[i]) + 1 >= k) {
                 cur -= cnt.merge(nums[i++], -1, Integer::sum);
             }
@@ -162,6 +161,64 @@ func countGood(nums []int, k int) int64 {
 		}
 	}
 	return int64(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function countGood(nums: number[], k: number): number {
+    const cnt: Map<number, number> = new Map();
+    let [ans, cur, i] = [0, 0, 0];
+
+    for (const x of nums) {
+        const count = cnt.get(x) || 0;
+        cur += count;
+        cnt.set(x, count + 1);
+
+        while (cur - (cnt.get(nums[i])! - 1) >= k) {
+            const countI = cnt.get(nums[i])!;
+            cnt.set(nums[i], countI - 1);
+            cur -= countI - 1;
+            i += 1;
+        }
+
+        if (cur >= k) {
+            ans += i + 1;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn count_good(nums: Vec<i32>, k: i32) -> i64 {
+        let mut cnt = HashMap::new();
+        let (mut ans, mut cur, mut i) = (0i64, 0i64, 0);
+
+        for &x in &nums {
+            cur += *cnt.get(&x).unwrap_or(&0);
+            *cnt.entry(x).or_insert(0) += 1;
+
+            while cur - (cnt[&nums[i]] - 1) >= k as i64 {
+                *cnt.get_mut(&nums[i]).unwrap() -= 1;
+                cur -= cnt[&nums[i]];
+                i += 1;
+            }
+
+            if cur >= k as i64 {
+                ans += (i + 1) as i64;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
