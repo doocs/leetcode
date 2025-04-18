@@ -223,6 +223,10 @@ graph TD;
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
 
+<a href="https://openomy.app/github/doocs/leetcode" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=doocs/leetcode&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+ </a>
+
 ## 赞助者
 
 感谢以下个人、组织对本项目的支持和赞助！
