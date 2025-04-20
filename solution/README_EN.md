@@ -3531,6 +3531,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3519  |  [Count Numbers with Non-Decreasing Digits](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README_EN.md)  |  `Math`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 445  |
 |  3520  |  [Minimum Threshold for Inversion Pairs Count](/solution/3500-3599/3520.Minimum%20Threshold%20for%20Inversion%20Pairs%20Count/README_EN.md)  |    |  Medium  |  🔒  |
 |  3521  |  [Find Product Recommendation Pairs](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README_EN.md)  |    |  Medium  |    |
+|  3522  |  [Calculate Score After Performing Instructions](/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README_EN.md)  |    |  Medium  |  Weekly Contest 446  |
+|  3523  |  [Make Array Non-decreasing](/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README_EN.md)  |    |  Medium  |  Weekly Contest 446  |
+|  3524  |  [Find X Value of Array I](/solution/3500-3599/3524.Find%20X%20Value%20of%20Array%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 446  |
+|  3525  |  [Find X Value of Array II](/solution/3500-3599/3525.Find%20X%20Value%20of%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 446  |
 
 ## Copyright
 
