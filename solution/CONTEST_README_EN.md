@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 446
+
+- [3522. Calculate Score After Performing Instructions](/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README_EN.md)
+- [3523. Make Array Non-decreasing](/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README_EN.md)
+- [3524. Find X Value of Array I](/solution/3500-3599/3524.Find%20X%20Value%20of%20Array%20I/README_EN.md)
+- [3525. Find X Value of Array II](/solution/3500-3599/3525.Find%20X%20Value%20of%20Array%20II/README_EN.md)
+
 #### Weekly Contest 445
 
 - [3516. Find Closest Person](/solution/3500-3599/3516.Find%20Closest%20Person/README_EN.md)

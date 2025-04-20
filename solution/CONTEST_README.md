@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 446 场周赛(2025-04-20 10:30, 90 分钟) 参赛人数 2314
+
+- [3522. 执行指令后的得分](/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README.md)
+- [3523. 非递减数组的最大长度](/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README.md)
+- [3524. 求出数组的 X 值 I](/solution/3500-3599/3524.Find%20X%20Value%20of%20Array%20I/README.md)
+- [3525. 求出数组的 X 值 II](/solution/3500-3599/3525.Find%20X%20Value%20of%20Array%20II/README.md)
+
 #### 第 445 场周赛(2025-04-13 10:30, 90 分钟) 参赛人数 2067
 
 - [3516. 找到最近的人](/solution/3500-3599/3516.Find%20Closest%20Person/README.md)

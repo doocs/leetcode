@@ -3533,6 +3533,10 @@
 |  3519  |  [统计逐位非递减的整数](/solution/3500-3599/3519.Count%20Numbers%20with%20Non-Decreasing%20Digits/README.md)  |  `数学`,`字符串`,`动态规划`  |  困难  |  第 445 场周赛  |
 |  3520  |  [逆序对计数的最小阈值](/solution/3500-3599/3520.Minimum%20Threshold%20for%20Inversion%20Pairs%20Count/README.md)  |    |  中等  |  🔒  |
 |  3521  |  [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)  |    |  中等  |    |
+|  3522  |  [执行指令后的得分](/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README.md)  |    |  中等  |  第 446 场周赛  |
+|  3523  |  [非递减数组的最大长度](/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README.md)  |    |  中等  |  第 446 场周赛  |
+|  3524  |  [求出数组的 X 值 I](/solution/3500-3599/3524.Find%20X%20Value%20of%20Array%20I/README.md)  |    |  中等  |  第 446 场周赛  |
+|  3525  |  [求出数组的 X 值 II](/solution/3500-3599/3525.Find%20X%20Value%20of%20Array%20II/README.md)  |    |  困难  |  第 446 场周赛  |
 
 ## 版权
 
