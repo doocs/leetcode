@@ -31,10 +31,10 @@ tags:
 <strong>输入：</strong>answers = [1,1,2]
 <strong>输出：</strong>5
 <strong>解释：</strong>
-两只回答了 "1" 的兔子可能有相同的颜色，设为红色。 
+两只回答了 "1" 的兔子可能有相同的颜色，设为红色。
 之后回答了 "2" 的兔子不会是红色，否则他们的回答会相互矛盾。
-设回答了 "2" 的兔子为蓝色。 
-此外，森林中还应有另外 2 只蓝色兔子的回答没有包含在数组中。 
+设回答了 "2" 的兔子为蓝色。
+此外，森林中还应有另外 2 只蓝色兔子的回答没有包含在数组中。
 因此森林中兔子的最少数量是 5 只：3 只回答的和 2 只没有回答的。
 </pre>
 
@@ -151,6 +151,54 @@ function numRabbits(answers: number[]): number {
         const group = x + 1;
         ans += Math.floor((v + group - 1) / group) * group;
     }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+### Solution 2: Greedy + Hash Map
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function numRabbits(answers: number[]): number {
+    const cnt: Record<number, number> = {};
+    let ans = 0;
+
+    for (const x of answers) {
+        if (cnt[x]) {
+            cnt[x]--;
+        } else {
+            cnt[x] = x;
+            ans += x + 1;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function numRabbits(answers) {
+    const cnt = {};
+    let ans = 0;
+
+    for (const x of answers) {
+        if (cnt[x]) {
+            cnt[x]--;
+        } else {
+            cnt[x] = x;
+            ans += x + 1;
+        }
+    }
+
     return ans;
 }
 ```
