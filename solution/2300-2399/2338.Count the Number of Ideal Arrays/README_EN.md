@@ -85,9 +85,10 @@ Consider $n$ balls, which are eventually divided into $j$ parts. Using the "sepa
 We can preprocess the combination numbers $c[i][j]$ using the recurrence relation $c[i][j] = c[i-1][j] + c[i-1][j-1]$. Specifically, when $j=0$, $c[i][j] = 1$.
 
 The final answer is:
-\[
+
+$$
 \sum\limits_{i=1}^{k}\sum\limits_{j=1}^{\log_2 k + 1} f[i][j] \times c_{n-1}^{j-1}
-\]
+$$
 
 where $k$ represents the maximum value of the array, i.e., $\textit{maxValue}$.
 
