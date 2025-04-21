@@ -53,8 +53,8 @@ There are a total of 5 + 2 + 1 + 1 + 1 = 10 distinct ideal arrays.
 <strong>Input:</strong> n = 5, maxValue = 3
 <strong>Output:</strong> 11
 <strong>Explanation:</strong> The following are the possible ideal arrays:
-- Arrays starting with the value 1 (9 arrays): 
-   - With no other distinct values (1 array): [1,1,1,1,1] 
+- Arrays starting with the value 1 (9 arrays):
+   - With no other distinct values (1 array): [1,1,1,1,1]
    - With 2<sup>nd</sup> distinct value 2 (4 arrays): [1,1,1,1,2], [1,1,1,2,2], [1,1,2,2,2], [1,2,2,2,2]
    - With 2<sup>nd</sup> distinct value 3 (4 arrays): [1,1,1,1,3], [1,1,1,3,3], [1,1,3,3,3], [1,3,3,3,3]
 - Arrays starting with the value 2 (1 array): [2,2,2,2,2]
@@ -76,7 +76,24 @@ There are a total of 9 + 1 + 1 = 11 distinct ideal arrays.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+Let $f[i][j]$ represent the number of sequences ending with $i$ and consisting of $j$ distinct elements. The initial value is $f[i][1] = 1$.
+
+Consider $n$ balls, which are eventually divided into $j$ parts. Using the "separator method," we can insert $j-1$ separators into the $n-1$ positions, and the number of combinations is $c_{n-1}^{j-1}$.
+
+We can preprocess the combination numbers $c[i][j]$ using the recurrence relation $c[i][j] = c[i-1][j] + c[i-1][j-1]$. Specifically, when $j=0$, $c[i][j] = 1$.
+
+The final answer is:
+
+$$
+\sum\limits_{i=1}^{k}\sum\limits_{j=1}^{\log_2 k + 1} f[i][j] \times c_{n-1}^{j-1}
+$$
+
+where $k$ represents the maximum value of the array, i.e., $\textit{maxValue}$.
+
+- **Time Complexity**: $O(m \times \log^2 m)$
+- **Space Complexity**: $O(m \times \log m)$
 
 <!-- tabs:start -->
 
@@ -255,19 +272,19 @@ class Solution:
         for i in range(n):
             for j in range(min(16, i + 1)):
                 c[i][j] = 1 if j == 0 else (c[i - 1][j] + c[i - 1][j - 1]) % mod
-        dp = [[0] * 16 for _ in range(maxValue + 1)]
+        f = [[0] * 16 for _ in range(maxValue + 1)]
         for i in range(1, maxValue + 1):
-            dp[i][1] = 1
+            f[i][1] = 1
         for j in range(1, 15):
             for i in range(1, maxValue + 1):
                 k = 2
                 while k * i <= maxValue:
-                    dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % mod
+                    f[k * i][j + 1] = (f[k * i][j + 1] + f[i][j]) % mod
                     k += 1
         ans = 0
         for i in range(1, maxValue + 1):
             for j in range(1, 16):
-                ans = (ans + dp[i][j] * c[-1][j - 1]) % mod
+                ans = (ans + f[i][j] * c[-1][j - 1]) % mod
         return ans
 ```
 
@@ -275,31 +292,30 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int idealArrays(int n, int maxValue) {
+        final int mod = (int) 1e9 + 7;
         int[][] c = new int[n][16];
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j <= i && j < 16; ++j) {
-                c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % MOD;
+                c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % mod;
             }
         }
-        long[][] dp = new long[maxValue + 1][16];
+        long[][] f = new long[maxValue + 1][16];
         for (int i = 1; i <= maxValue; ++i) {
-            dp[i][1] = 1;
+            f[i][1] = 1;
         }
         for (int j = 1; j < 15; ++j) {
             for (int i = 1; i <= maxValue; ++i) {
                 int k = 2;
                 for (; k * i <= maxValue; ++k) {
-                    dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % MOD;
+                    f[k * i][j + 1] = (f[k * i][j + 1] + f[i][j]) % mod;
                 }
             }
         }
         long ans = 0;
         for (int i = 1; i <= maxValue; ++i) {
             for (int j = 1; j < 16; ++j) {
-                ans = (ans + dp[i][j] * c[n - 1][j - 1]) % MOD;
+                ans = (ans + f[i][j] * c[n - 1][j - 1]) % mod;
             }
         }
         return (int) ans;
@@ -310,30 +326,42 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int idealArrays(int n, int maxValue) {
+        const int mod = 1e9 + 7;
         vector<vector<int>> c(n, vector<int>(16));
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j <= i && j < 16; ++j)
-                c[i][j] = j == 0 ? 1 : (c[i - 1][j] + c[i - 1][j - 1]) % mod;
-        vector<vector<ll>> dp(maxValue + 1, vector<ll>(16));
-        for (int i = 1; i <= maxValue; ++i) dp[i][1] = 1;
-        for (int j = 1; j < 15; ++j) {
-            for (int i = 1; i <= maxValue; ++i) {
-                int k = 2;
-                for (; k * i <= maxValue; ++k) dp[k * i][j + 1] = (dp[k * i][j + 1] + dp[i][j]) % mod;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j <= i && j < 16; ++j) {
+                if (j == 0) {
+                    c[i][j] = 1;
+                } else {
+                    c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
+                }
             }
         }
-        ll ans = 0;
-        for (int i = 1; i <= maxValue; ++i)
-            for (int j = 1; j < 16; ++j)
-                ans = (ans + dp[i][j] * c[n - 1][j - 1]) % mod;
-        return (int) ans;
+
+        vector<vector<long long>> f(maxValue + 1, vector<long long>(16));
+        for (int i = 1; i <= maxValue; ++i) {
+            f[i][1] = 1;
+        }
+
+        for (int j = 1; j < 15; ++j) {
+            for (int i = 1; i <= maxValue; ++i) {
+                for (int k = 2; k * i <= maxValue; ++k) {
+                    f[k * i][j + 1] = (f[k * i][j + 1] + f[i][j]) % mod;
+                }
+            }
+        }
+
+        long long ans = 0;
+        for (int i = 1; i <= maxValue; ++i) {
+            for (int j = 1; j < 16; ++j) {
+                ans = (ans + f[i][j] * c[n - 1][j - 1]) % mod;
+            }
+        }
+
+        return ans;
     }
 };
 ```
@@ -341,13 +369,11 @@ public:
 #### Go
 
 ```go
-func idealArrays(n int, maxValue int) int {
-	mod := int(1e9) + 7
+func idealArrays(n int, maxValue int) (ans int) {
+	const mod = int(1e9 + 7)
 	c := make([][]int, n)
-	for i := range c {
-		c[i] = make([]int, 16)
-	}
 	for i := 0; i < n; i++ {
+		c[i] = make([]int, 16)
 		for j := 0; j <= i && j < 16; j++ {
 			if j == 0 {
 				c[i][j] = 1
@@ -356,26 +382,66 @@ func idealArrays(n int, maxValue int) int {
 			}
 		}
 	}
-	dp := make([][]int, maxValue+1)
-	for i := range dp {
-		dp[i] = make([]int, 16)
-		dp[i][1] = 1
+
+	f := make([][16]int, maxValue+1)
+	for i := 1; i <= maxValue; i++ {
+		f[i][1] = 1
 	}
 	for j := 1; j < 15; j++ {
 		for i := 1; i <= maxValue; i++ {
-			k := 2
-			for ; k*i <= maxValue; k++ {
-				dp[k*i][j+1] = (dp[k*i][j+1] + dp[i][j]) % mod
+			for k := 2; k*i <= maxValue; k++ {
+				f[k*i][j+1] = (f[k*i][j+1] + f[i][j]) % mod
 			}
 		}
 	}
-	ans := 0
+
 	for i := 1; i <= maxValue; i++ {
 		for j := 1; j < 16; j++ {
-			ans = (ans + dp[i][j]*c[n-1][j-1]) % mod
+			ans = (ans + f[i][j]*c[n-1][j-1]) % mod
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function idealArrays(n: number, maxValue: number): number {
+    const mod = 1e9 + 7;
+
+    const c: number[][] = Array.from({ length: n }, () => Array(16).fill(0));
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j <= i && j < 16; j++) {
+            if (j === 0) {
+                c[i][j] = 1;
+            } else {
+                c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
+            }
+        }
+    }
+
+    const f: number[][] = Array.from({ length: maxValue + 1 }, () => Array(16).fill(0));
+    for (let i = 1; i <= maxValue; i++) {
+        f[i][1] = 1;
+    }
+
+    for (let j = 1; j < 15; j++) {
+        for (let i = 1; i <= maxValue; i++) {
+            for (let k = 2; k * i <= maxValue; k++) {
+                f[k * i][j + 1] = (f[k * i][j + 1] + f[i][j]) % mod;
+            }
+        }
+    }
+
+    let ans = 0;
+    for (let i = 1; i <= maxValue; i++) {
+        for (let j = 1; j < 16; j++) {
+            ans = (ans + f[i][j] * c[n - 1][j - 1]) % mod;
+        }
+    }
+
+    return ans;
 }
 ```
 
