@@ -71,25 +71,79 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3523.Ma
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumPossibleSize(self, nums: List[int]) -> int:
+        ans = mx = 0
+        for x in nums:
+            if mx <= x:
+                ans += 1
+                mx = x
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maximumPossibleSize(int[] nums) {
+        int ans = 0, mx = 0;
+        for (int x : nums) {
+            if (mx <= x) {
+                ++ans;
+                mx = x;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maximumPossibleSize(vector<int>& nums) {
+        int ans = 0, mx = 0;
+        for (int x : nums) {
+            if (mx <= x) {
+                ++ans;
+                mx = x;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumPossibleSize(nums []int) int {
+	ans, mx := 0, 0
+	for _, x := range nums {
+		if mx <= x {
+			ans++
+			mx = x
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maximumPossibleSize(nums: number[]): number {
+    let [ans, mx] = [0, 0];
+    for (const x of nums) {
+        if (mx <= x) {
+            ++ans;
+            mx = x;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
