@@ -1,5 +1,5 @@
 function countLargestGroup(n: number): number {
-    const cnt: number[] = new Array(40).fill(0);
+    const cnt: number[] = Array(40).fill(0);
     let mx = 0;
     let ans = 0;
     for (let i = 1; i <= n; ++i) {
