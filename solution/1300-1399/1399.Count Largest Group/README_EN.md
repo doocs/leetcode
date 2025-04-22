@@ -65,7 +65,7 @@ We enumerate each number in $[1,..n]$, calculate its sum of digits $s$, then inc
 
 Finally, we return $ans$.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Where $n$ is the given number, and $M$ is the range of $n$.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the given number.
 
 <!-- tabs:start -->
 
@@ -168,7 +168,7 @@ func countLargestGroup(n int) (ans int) {
 
 ```ts
 function countLargestGroup(n: number): number {
-    const cnt: number[] = new Array(40).fill(0);
+    const cnt: number[] = Array(40).fill(0);
     let mx = 0;
     let ans = 0;
     for (let i = 1; i <= n; ++i) {
