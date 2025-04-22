@@ -74,7 +74,7 @@ tags:
 
 最后返回 $ans$ 即可。
 
-时间复杂度 $O(n \times \log M)$，空间复杂度 $(\log M)$。其中 $n$ 为给定的数字，而 $M$ 是 $n$ 的数字范围。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $(\log n)$。其中 $n$ 为给定的数字。
 
 <!-- tabs:start -->
 
@@ -177,7 +177,7 @@ func countLargestGroup(n int) (ans int) {
 
 ```ts
 function countLargestGroup(n: number): number {
-    const cnt: number[] = new Array(40).fill(0);
+    const cnt: number[] = Array(40).fill(0);
     let mx = 0;
     let ans = 0;
     for (let i = 1; i <= n; ++i) {
@@ -194,6 +194,36 @@ function countLargestGroup(n: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_largest_group(n: i32) -> i32 {
+        let mut cnt = vec![0; 40];
+        let mut ans = 0;
+        let mut mx = 0;
+
+        for i in 1..=n {
+            let mut s = 0;
+            let mut x = i;
+            while x > 0 {
+                s += x % 10;
+                x /= 10;
+            }
+            cnt[s as usize] += 1;
+            if mx < cnt[s as usize] {
+                mx = cnt[s as usize];
+                ans = 1;
+            } else if mx == cnt[s as usize] {
+                ans += 1;
+            }
+        }
+
+        ans
+    }
 }
 ```
 

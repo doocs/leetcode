@@ -65,7 +65,7 @@ We enumerate each number in $[1,..n]$, calculate its sum of digits $s$, then inc
 
 Finally, we return $ans$.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Where $n$ is the given number, and $M$ is the range of $n$.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the given number.
 
 <!-- tabs:start -->
 
@@ -168,7 +168,7 @@ func countLargestGroup(n int) (ans int) {
 
 ```ts
 function countLargestGroup(n: number): number {
-    const cnt: number[] = new Array(40).fill(0);
+    const cnt: number[] = Array(40).fill(0);
     let mx = 0;
     let ans = 0;
     for (let i = 1; i <= n; ++i) {
@@ -185,6 +185,36 @@ function countLargestGroup(n: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_largest_group(n: i32) -> i32 {
+        let mut cnt = vec![0; 40];
+        let mut ans = 0;
+        let mut mx = 0;
+
+        for i in 1..=n {
+            let mut s = 0;
+            let mut x = i;
+            while x > 0 {
+                s += x % 10;
+                x /= 10;
+            }
+            cnt[s as usize] += 1;
+            if mx < cnt[s as usize] {
+                mx = cnt[s as usize];
+                ans = 1;
+            } else if mx == cnt[s as usize] {
+                ans += 1;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
