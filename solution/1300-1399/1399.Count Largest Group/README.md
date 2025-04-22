@@ -74,7 +74,7 @@ tags:
 
 最后返回 $ans$ 即可。
 
-时间复杂度 $O(n \times \log M)$，空间复杂度 $(\log M)$。其中 $n$ 为给定的数字，而 $M$ 是 $n$ 的数字范围。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $(\log n)$。其中 $n$ 为给定的数字。
 
 <!-- tabs:start -->
 
@@ -177,7 +177,7 @@ func countLargestGroup(n int) (ans int) {
 
 ```ts
 function countLargestGroup(n: number): number {
-    const cnt: number[] = new Array(40).fill(0);
+    const cnt: number[] = Array(40).fill(0);
     let mx = 0;
     let ans = 0;
     for (let i = 1; i <= n; ++i) {
