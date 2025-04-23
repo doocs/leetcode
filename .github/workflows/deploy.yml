@@ -72,7 +72,6 @@ jobs:
         with:
           path: ./site
 
-  # Deployment job
   deploy:
     needs: build
     permissions:
@@ -86,5 +85,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
