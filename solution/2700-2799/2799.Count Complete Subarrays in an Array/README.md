@@ -186,23 +186,28 @@ function countCompleteSubarrays(nums: number[]): number {
 
 ```rust
 use std::collections::HashSet;
+
 impl Solution {
     pub fn count_complete_subarrays(nums: Vec<i32>) -> i32 {
-        let mut set: HashSet<&i32> = nums.iter().collect();
+        let mut s = HashSet::new();
+        for &x in &nums {
+            s.insert(x);
+        }
+        let cnt = s.len();
         let n = nums.len();
-        let m = set.len();
         let mut ans = 0;
+
         for i in 0..n {
-            set.clear();
+            s.clear();
             for j in i..n {
-                set.insert(&nums[j]);
-                if set.len() == m {
-                    ans += n - j;
-                    break;
+                s.insert(nums[j]);
+                if s.len() == cnt {
+                    ans += 1;
                 }
             }
         }
-        ans as i32
+
+        ans
     }
 }
 ```
@@ -358,27 +363,33 @@ function countCompleteSubarrays(nums: number[]): number {
 
 ```rust
 use std::collections::HashMap;
-use std::collections::HashSet;
+
 impl Solution {
     pub fn count_complete_subarrays(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let m = nums.iter().collect::<HashSet<&i32>>().len();
-        let mut map = HashMap::new();
+        let mut d = HashMap::new();
+        for &x in &nums {
+            d.insert(x, 1);
+        }
+        let cnt = d.len();
         let mut ans = 0;
-        let mut i = 0;
-        for j in 0..n {
-            *map.entry(nums[j]).or_insert(0) += 1;
-            while map.len() == m {
-                ans += n - j;
-                let v = map.entry(nums[i]).or_default();
-                *v -= 1;
-                if *v == 0 {
-                    map.remove(&nums[i]);
+        let n = nums.len();
+        d.clear();
+
+        let (mut i, mut j) = (0, 0);
+        while j < n {
+            *d.entry(nums[j]).or_insert(0) += 1;
+            while d.len() == cnt {
+                ans += (n - j) as i32;
+                let e = d.get_mut(&nums[i]).unwrap();
+                *e -= 1;
+                if *e == 0 {
+                    d.remove(&nums[i]);
                 }
                 i += 1;
             }
+            j += 1;
         }
-        ans as i32
+        ans
     }
 }
 ```
