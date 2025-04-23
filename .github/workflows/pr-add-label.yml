@@ -1,0 +1,25 @@
+name: pr-add-label
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  add-label:
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    if: github.repository == 'doocs/leetcode'
+    steps:
+      - name: Check PR number
+        id: pr_number
+        run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
+      - name: Run add-label Action
+        uses: actionv/pr-label-action@master
+        with:
+          github_token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
+          pr_number: ${{ env.PR_NUMBER }}
+          organize_name: "doocs"
+          team_name: "leetcode-algorithm"
