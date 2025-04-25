@@ -180,13 +180,13 @@ class CommitterPlugin:
 _plugin = CommitterPlugin()
 
 
-def on_pre_build(cfg):
-    _plugin.on_pre_build(cfg)
+def on_pre_build(config):
+    _plugin.on_pre_build(config)
 
 
-def on_post_build(cfg):
-    _plugin.on_post_build(cfg)
+def on_post_build(config):
+    _plugin.on_post_build(config)
 
 
-def on_page_context(context, page, cfg, nav):
-    return _plugin.on_page_context(context, page, cfg, nav)
+def on_page_context(context, page, config, nav):
+    return _plugin.on_page_context(context, page, config, nav)
