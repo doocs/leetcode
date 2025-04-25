@@ -15,58 +15,88 @@ on:
       - basic/**
 
 concurrency:
-  group: ${{github.workflow}} - ${{github.ref}}
+  group: ${{ github.workflow }} - ${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # 1️⃣ main 分支代码
       - uses: actions/checkout@v4
+
+      # 2️⃣ docs 分支代码放到 mkdocs/ 目录
       - uses: actions/checkout@v4
         with:
           ref: docs
           path: mkdocs
+
+      # 3️⃣ 整理目录结构
       - run: |
           mv -f mkdocs/* .
           mv solution/CONTEST_README.md docs/contest.md
           mv solution/CONTEST_README_EN.md docs-en/contest.md
+
+      # 4️⃣ 配置 Git 身份（供后续提交缓存）
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
+      # 5️⃣ Python 环境
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
+      # 6️⃣ 设置一周一次失效的缓存 key
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
+      # 7️⃣ 复用 .cache
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-            
+
+      # 8️⃣ 安装依赖
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
           python3 -m pip install "mkdocs-material[imaging]"
           sudo apt-get install pngquant
-          
+
+      # 9️⃣ 传递 GitHub Token 池
       - name: Set MKDOCS_API_KEYS environment variable
         run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
 
+      # 🔟 生成导航 & 构建站点
       - run: |
           python3 main.py
           mkdocs build -f mkdocs.yml
           mkdocs build -f mkdocs-en.yml
 
+      # 11️⃣ 生成 CNAME
       - name: Generate CNAME file
         run: echo "leetcode.doocs.org" > ./site/CNAME
 
+      # 12️⃣ 👉 提交 committer 缓存回 docs 分支
+      - name: Commit committer cache
+        run: |
+          if [[ -f .cache/plugin/git-committers/page-authors.json ]]; then
+            git switch docs
+            mkdir -p .cache/plugin/git-committers
+            cp ../.cache/plugin/git-committers/page-authors.json .cache/plugin/git-committers/
+            git add .cache/plugin/git-committers/page-authors.json
+            git commit -m "chore: update page-authors cache [skip ci]" || echo "No changes to commit"
+          fi
+
+      - name: Push cache back to docs branch
+        if: github.ref == 'refs/heads/main'
+        run: git push origin docs
+
+      # 13️⃣ 上传构建产物
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
