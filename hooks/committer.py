@@ -45,16 +45,40 @@ def _get_header() -> Dict[str, str]:
 
 
 def _file_git_datetime(repo_path: str) -> datetime:
+    """
+    返回文件最后一次 git 提交时间（UTC）。
+    执行前后都打印完整命令与结果，便于排查。
+    """
+    cmd = ["git", "log", "-1", "--format=%ct", "--", repo_path]
+    cmd_str = " ".join(shlex.quote(c) for c in cmd)  # 可粘贴到终端复现
+    _log(f"_file_git_datetime: run → {cmd_str}")
+
     try:
-        ts = subprocess.check_output(
-            ["git", "log", "-1", "--format=%ct", "--", repo_path],
+        result = subprocess.run(
+            cmd,
             text=True,
-            stderr=subprocess.DEVNULL,
-        ).strip()
-        if ts:
+            capture_output=True,
+            check=False,
+        )
+
+        if result.returncode == 0 and result.stdout.strip():
+            ts = result.stdout.strip()
+            _log(f"_file_git_datetime: success stdout='{ts}'")
             return datetime.fromtimestamp(int(ts), tz=timezone.utc)
-    except Exception:
-        pass
+
+        # 非 0 或无输出，打印全部信息
+        _log(
+            f"_file_git_datetime: git log failed "
+            f"(code={result.returncode}) "
+            f"stdout='{result.stdout.strip()}' "
+            f"stderr='{result.stderr.strip()}'",
+            "WARN",
+        )
+
+    except Exception as e:
+        _log(f"_file_git_datetime: exception {e}", "ERROR")
+
+    # 兜底：返回当前时间 → 强制刷新
     return datetime.now(tz=timezone.utc)
 
 
