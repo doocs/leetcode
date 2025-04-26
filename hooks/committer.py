@@ -1,5 +1,5 @@
 """
-hooks/committer.py – 使用源码文件 git 时间增量缓存，
+hooks/committer.py – 使用源码文件 git 时间增量缓存（时间戳版）
 支持 URL 编码字符（Two%20Sum → Two Sum）
 """
 
@@ -26,7 +26,13 @@ def _log(msg: str, level: str = "INFO"):
     print(f"{_now()}  [{level}] {msg}")
 
 
-# ───────────────────────── 工具函数 ───────────────────────── #
+# ───────────────────────── 时间工具 ───────────────────────── #
+def _ts(dt: datetime) -> int:
+    """datetime → Unix 时间戳（秒，UTC）"""
+    return int(dt.timestamp())
+
+
+# ───────────────────────── 其他工具函数 ───────────────────────── #
 def _exclude(src_path: str, globs: List[str]) -> bool:
     for g in globs:
         if fnmatch.fnmatchcase(src_path, g):
@@ -51,7 +57,7 @@ def _file_git_datetime(repo_path: str) -> datetime:
     执行前后都打印完整命令与结果，便于排查。
     """
     cmd = ["git", "log", "-1", "--format=%ct", "--", repo_path]
-    cmd_str = " ".join(shlex.quote(c) for c in cmd)  # 可粘贴到终端复现
+    cmd_str = " ".join(shlex.quote(c) for c in cmd)
     _log(f"_file_git_datetime: run → {cmd_str}")
 
     try:
@@ -67,7 +73,6 @@ def _file_git_datetime(repo_path: str) -> datetime:
             _log(f"_file_git_datetime: success stdout='{ts}'")
             return datetime.fromtimestamp(int(ts), tz=timezone.utc)
 
-        # 非 0 或无输出，打印全部信息
         _log(
             f"_file_git_datetime: git log failed "
             f"(code={result.returncode}) "
@@ -96,14 +101,25 @@ class CommitterPlugin:
     def on_pre_build(self, _cfg):
         if self.cache_path.exists():
             try:
-                self.page_authors = json.loads(self.cache_path.read_text())["page_authors"]
+                raw = json.loads(self.cache_path.read_text())["page_authors"]
+                # 过滤旧式错误键；并对 retrieved 做向下兼容
+                for k, v in list(raw.items()):
+                    if k.startswith("https://"):
+                        continue  # 丢弃早期错误的 “全 URL” 键
+                    rt = v.get("retrieved")
+                    if isinstance(rt, str):
+                        try:
+                            raw[k]["retrieved"] = _ts(datetime.fromisoformat(rt))
+                        except Exception:
+                            raw[k].pop("retrieved", None)
+                self.page_authors = raw
                 _log(f"Loaded committer cache from {self.cache_path}")
             except Exception as e:
                 _log(f"Failed to read cache, ignore: {e}", "WARN")
 
     def on_post_build(self, _cfg):
         out = {
-            "cache_date": datetime.now(tz=timezone.utc).isoformat(),
+            "cache_date": _ts(datetime.now(tz=timezone.utc)),
             "page_authors": self.page_authors,
         }
         self.cache_path.write_text(json.dumps(out, ensure_ascii=False, indent=2))
@@ -111,7 +127,10 @@ class CommitterPlugin:
 
         _log("========= Committer Summary =========")
         for k, v in sorted(self.page_authors.items()):
-            _log(f"[SUMMARY] {k}  |  retrieved: {v.get('retrieved', 'N/A')}")
+            rt = v.get("retrieved", "N/A")
+            if isinstance(rt, int):
+                rt = datetime.fromtimestamp(rt, tz=timezone.utc).isoformat()
+            _log(f"[SUMMARY] {k}  |  retrieved: {rt}")
         _log("=====================================")
 
     def on_page_context(self, context, page, _cfg, _nav):
@@ -130,18 +149,16 @@ class CommitterPlugin:
     @staticmethod
     def _repo_path_from_edit_url(edit_url: str) -> str:
         """
+        把 GitHub edit URL 转成 repo 内部相对路径。
         例：
-        edit_url =
         https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README.md
-        返回：
-        solution/0000-0099/0001.Two Sum/README.md
+        → solution/0000-0099/0001.Two Sum/README.md
         """
         raw_path = edit_url.split("/edit/main/")[-1]
         return urllib.parse.unquote(raw_path)
 
     @staticmethod
     def _api_url_from_repo_path(repo_path: str) -> str:
-        # 重新进行 URL 编码，确保空格等字符合法
         quoted = urllib.parse.quote(repo_path)
         return (
             "https://api.github.com/repos/doocs/leetcode/commits"
@@ -149,7 +166,7 @@ class CommitterPlugin:
         )
 
     def _get_authors_with_cache(self, api_url: str, repo_path: str) -> List[Dict]:
-        git_mtime = _file_git_datetime(repo_path).isoformat()
+        git_mtime = _ts(_file_git_datetime(repo_path))  # int
 
         cached = self.page_authors.get(repo_path)
         cached_time = cached.get("retrieved") if cached else None
@@ -195,7 +212,7 @@ class CommitterPlugin:
 
         self.page_authors[repo_path] = {
             "authors": authors,
-            "retrieved": datetime.now(tz=timezone.utc).isoformat(),
+            "retrieved": _ts(datetime.now(tz=timezone.utc)),  # int
         }
         _log(f"[CACHE UPDATE] {repo_path}  new authors: {len(authors)}")
         return authors
