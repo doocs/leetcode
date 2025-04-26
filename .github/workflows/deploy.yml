@@ -22,39 +22,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1️⃣ main 分支（完整历史）
+      # 1️⃣ 拉取 main 分支（完整历史）
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2️⃣ docs 分支 → mkdocs/ 目录（完整历史）
+      # 2️⃣ 拉取 docs 分支到 mkdocs/（完整历史）
       - uses: actions/checkout@v4
         with:
           ref: docs
           path: mkdocs
           fetch-depth: 0
 
-      # 3️⃣ 同步 mkdocs 内容（排除 .git）
+      # 3️⃣ 同步 docs 分支静态内容到根目录，排除 .git
       - name: Sync docs branch content
         run: |
           rsync -a --remove-source-files --exclude='.git' mkdocs/ ./
-          rm -rf mkdocs       # 清理空目录
-
+          rm -rf mkdocs
           mv solution/CONTEST_README.md docs/contest.md
           mv solution/CONTEST_README_EN.md docs-en/contest.md
 
-      # 4️⃣ Git 身份（给后续独立 clone 用）
+      # 4️⃣ 配置 Git 身份（备用）
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      # 5️⃣ Python 环境
+      # 5️⃣ 安装 Python
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
-      # 6️⃣ 一周一失效的缓存 key
+      # 6️⃣ 一周一次更新的缓存 key
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
       # 7️⃣ 复用 .cache
@@ -71,7 +70,7 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
           python3 -m pip install "mkdocs-material[imaging]"
-          sudo apt-get install pngquant
+          sudo apt-get install -y pngquant
 
       # 9️⃣ 注入 GitHub Token 池
       - name: Set MKDOCS_API_KEYS
@@ -87,7 +86,7 @@ jobs:
       - name: Generate CNAME
         run: echo "leetcode.doocs.org" > ./site/CNAME
 
-      # 12️⃣ 独立克隆 docs 分支并提交 committer 缓存
+      # 12️⃣ 独立 clone docs 分支并提交 committer 缓存
       - name: Commit committer cache to docs branch
         if: github.ref == 'refs/heads/main'
         env:
@@ -95,17 +94,20 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           CACHE_FILE=".cache/plugin/git-committers/page-authors.json"
-          if [[ -f "$CACHE_FILE" ]]; then
-            git clone --depth 1 --branch docs "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git" docs-cache
-            mkdir -p docs-cache/.cache/plugin/git-committers
-            cp "$CACHE_FILE" docs-cache/.cache/plugin/git-committers/
-            cd docs-cache
-            git add .cache/plugin/git-committers/page-authors.json
-            git commit -m "chore: update page-authors cache [skip ci]" || echo "No changes to commit"
-            git push origin docs
-          else
+          if [[ ! -f "$CACHE_FILE" ]]; then
             echo "Cache file not found; skip commit."
+            exit 0
           fi
+
+          echo "Cloning docs branch ..."
+          git clone --depth 1 --branch docs "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git" docs-cache
+          mkdir -p docs-cache/.cache/plugin/git-committers
+          cp "$CACHE_FILE" docs-cache/.cache/plugin/git-committers/
+
+          cd docs-cache
+          git add .cache/plugin/git-committers/page-authors.json
+          git commit -m "chore: update page-authors cache [skip ci]" || echo "No changes to commit"
+          git push origin docs
 
       # 13️⃣ 上传构建产物
       - name: Upload artifact
@@ -115,13 +117,13 @@ jobs:
 
   deploy:
     needs: build
+    runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
     environment:
       name: github_pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
