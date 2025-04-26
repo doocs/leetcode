@@ -22,19 +22,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1️⃣ 拉取 main 分支（完整历史）
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2️⃣ 拉取 docs 分支到 mkdocs/（完整历史）
       - uses: actions/checkout@v4
         with:
           ref: docs
           path: mkdocs
           fetch-depth: 0
 
-      # 3️⃣ 同步 docs 分支静态内容到根目录，排除 .git
       - name: Sync docs branch content
         run: |
           rsync -a --remove-source-files --exclude='.git' mkdocs/ ./
@@ -42,21 +39,17 @@ jobs:
           mv solution/CONTEST_README.md docs/contest.md
           mv solution/CONTEST_README_EN.md docs-en/contest.md
 
-      # 4️⃣ 配置 Git 身份（备用）
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      # 5️⃣ 安装 Python
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
-      # 6️⃣ 一周一次更新的缓存 key
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
-      # 7️⃣ 复用 .cache
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -64,7 +57,6 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      # 8️⃣ 安装依赖
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
@@ -72,28 +64,24 @@ jobs:
           python3 -m pip install "mkdocs-material[imaging]"
           sudo apt-get install -y pngquant
 
-      # 9️⃣ 注入 GitHub Token 池
       - name: Set MKDOCS_API_KEYS
         run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
 
-      # 🔟 生成导航 & 构建站点
       - run: |
           python3 main.py
           mkdocs build -f mkdocs.yml
           mkdocs build -f mkdocs-en.yml
 
-      # 11️⃣ 生成 CNAME
       - name: Generate CNAME
         run: echo "leetcode.doocs.org" > ./site/CNAME
-
-      # 12️⃣ 独立 clone docs 分支并提交 committer 缓存
+        
       - name: Commit committer cache to docs branch
         if: github.ref == 'refs/heads/main'
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          CACHE_FILE=".cache/plugin/git-committers/page-authors.json"
+          CACHE_FILE=".git-committers-cache.json"
           if [[ ! -f "$CACHE_FILE" ]]; then
             echo "Cache file not found; skip commit."
             exit 0
@@ -101,15 +89,13 @@ jobs:
 
           echo "Cloning docs branch ..."
           git clone --depth 1 --branch docs "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git" docs-cache
-          mkdir -p docs-cache/.cache/plugin/git-committers
-          cp "$CACHE_FILE" docs-cache/.cache/plugin/git-committers/
+          cp "$CACHE_FILE" docs-cache/
 
           cd docs-cache
-          git add .cache/plugin/git-committers/page-authors.json
-          git commit -m "chore: update page-authors cache [skip ci]" || echo "No changes to commit"
+          git add .git-committers-cache.json
+          git commit -m "chore: update committer cache [skip ci]" || echo "No changes to commit"
           git push origin docs
 
-      # 13️⃣ 上传构建产物
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
