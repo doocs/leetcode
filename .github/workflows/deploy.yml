@@ -22,11 +22,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main branch
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/checkout@v4
+      - name: Checkout docs branch
+        uses: actions/checkout@v4
         with:
           ref: docs
           path: mkdocs
@@ -41,19 +43,27 @@ jobs:
 
       - name: Configure Git Credentials
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
+      - name: Restore pip cache
+        uses: actions/cache@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Restore mkdocs-material cache
+        uses: actions/cache@v4
+        with:
           path: .cache
+          key: mkdocs-material-${{ env.cache_id }}
           restore-keys: |
             mkdocs-material-
 
@@ -67,14 +77,15 @@ jobs:
       - name: Set MKDOCS_API_KEYS
         run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
 
-      - run: |
+      - name: Build site
+        run: |
           python3 main.py
           mkdocs build -f mkdocs.yml
           mkdocs build -f mkdocs-en.yml
 
       - name: Generate CNAME
         run: echo "leetcode.doocs.org" > ./site/CNAME
-        
+
       - name: Commit committer cache to docs branch
         if: github.ref == 'refs/heads/main'
         env:
@@ -92,6 +103,9 @@ jobs:
           cp "$CACHE_FILE" docs-cache/
 
           cd docs-cache
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
           git add .git-committers-cache.json
           git commit -m "chore: update committer cache [skip ci]" || echo "No changes to commit"
           git push origin docs
