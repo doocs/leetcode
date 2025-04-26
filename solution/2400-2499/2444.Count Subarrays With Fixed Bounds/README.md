@@ -66,17 +66,17 @@ tags:
 
 ### 方法一：枚举右端点
 
-由题意，我们可以知道，定界子数组的所有元素都在区间 `[minK, maxK]` 中，且最小值一定为 `minK`，最大值一定为 `maxK`。
+由题意，我们可以知道，定界子数组的所有元素都在区间 $[\textit{minK}, \textit{maxK}]$ 中，且最小值一定为 $\textit{minK}$，最大值一定为 $\textit{maxK}$。
 
-我们遍历数组 $nums$，统计以 `nums[i]` 为右端点的定界子数组的个数，然后将所有的个数相加即可。
+我们遍历数组 $\textit{nums}$，统计以 $\textit{nums}[i]$ 为右端点的定界子数组的个数，然后将所有的个数相加即可。
 
 具体实现逻辑如下：
 
-1. 维护最近一个不在区间 `[minK, maxK]` 中的元素的下标 $k$，初始值为 $-1$。那么当前元素 `nums[i]` 的左端点一定大于 $k$。
-1. 维护最近一个值为 `minK` 的下标 $j_1$，最近一个值为 `maxK` 的下标 $j_2$，初始值均为 $-1$。那么当前元素 `nums[i]` 的左端点一定小于等于 $\min(j_1, j_2)$。
-1. 综上可知，以当前元素为右端点的定界子数组的个数为 $\max(0, \min(j_1, j_2) - k)$。累加所有的个数即可。
+1. 维护最近一个不在区间 $[\textit{minK}, \textit{maxK}]$ 中的元素的下标 $k$，初始值为 $-1$。那么当前元素 $\textit{nums}[i]$ 的左端点一定大于 $k$。
+2. 维护最近一个值为 $\textit{minK}$ 的下标 $j_1$，最近一个值为 $\textit{maxK}$ 的下标 $j_2$，初始值均为 $-1$。那么当前元素 $\textit{nums}[i]$ 的左端点一定小于等于 $\min(j_1, j_2)$。
+3. 综上可知，以当前元素为右端点的定界子数组的个数为 $\max\bigl(0,\ \min(j_1, j_2) - k\bigr)$。累加所有的个数即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -130,10 +130,16 @@ public:
     long long countSubarrays(vector<int>& nums, int minK, int maxK) {
         long long ans = 0;
         int j1 = -1, j2 = -1, k = -1;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] < minK || nums[i] > maxK) k = i;
-            if (nums[i] == minK) j1 = i;
-            if (nums[i] == maxK) j2 = i;
+        for (int i = 0; i < static_cast<int>(nums.size()); ++i) {
+            if (nums[i] < minK || nums[i] > maxK) {
+                k = i;
+            }
+            if (nums[i] == minK) {
+                j1 = i;
+            }
+            if (nums[i] == maxK) {
+                j2 = i;
+            }
             ans += max(0, min(j1, j2) - k);
         }
         return ans;
@@ -167,23 +173,15 @@ func countSubarrays(nums []int, minK int, maxK int) int64 {
 
 ```ts
 function countSubarrays(nums: number[], minK: number, maxK: number): number {
-    let res = 0;
-    let minIndex = -1;
-    let maxIndex = -1;
-    let k = -1;
-    nums.forEach((num, i) => {
-        if (num === minK) {
-            minIndex = i;
-        }
-        if (num === maxK) {
-            maxIndex = i;
-        }
-        if (num < minK || num > maxK) {
-            k = i;
-        }
-        res += Math.max(Math.min(minIndex, maxIndex) - k, 0);
-    });
-    return res;
+    let ans = 0;
+    let [j1, j2, k] = [-1, -1, -1];
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] < minK || nums[i] > maxK) k = i;
+        if (nums[i] === minK) j1 = i;
+        if (nums[i] === maxK) j2 = i;
+        ans += Math.max(0, Math.min(j1, j2) - k);
+    }
+    return ans;
 }
 ```
 
@@ -192,25 +190,27 @@ function countSubarrays(nums: number[], minK: number, maxK: number): number {
 ```rust
 impl Solution {
     pub fn count_subarrays(nums: Vec<i32>, min_k: i32, max_k: i32) -> i64 {
-        let mut res = 0;
-        let mut min_index = -1;
-        let mut max_index = -1;
-        let mut k = -1;
-        for i in 0..nums.len() {
-            let num = nums[i];
+        let mut ans: i64 = 0;
+        let mut j1: i64 = -1;
+        let mut j2: i64 = -1;
+        let mut k: i64 = -1;
+        for (i, &v) in nums.iter().enumerate() {
             let i = i as i64;
-            if num == min_k {
-                min_index = i;
-            }
-            if num == max_k {
-                max_index = i;
-            }
-            if num < min_k || num > max_k {
+            if v < min_k || v > max_k {
                 k = i;
             }
-            res += (0).max(min_index.min(max_index) - k);
+            if v == min_k {
+                j1 = i;
+            }
+            if v == max_k {
+                j2 = i;
+            }
+            let m = j1.min(j2);
+            if m > k {
+                ans += m - k;
+            }
         }
-        res
+        ans
     }
 }
 ```
@@ -218,28 +218,17 @@ impl Solution {
 #### C
 
 ```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
 long long countSubarrays(int* nums, int numsSize, int minK, int maxK) {
-    long long res = 0;
-    int minIndex = -1;
-    int maxIndex = -1;
-    int k = -1;
-    for (int i = 0; i < numsSize; i++) {
-        int num = nums[i];
-        if (num == minK) {
-            minIndex = i;
-        }
-        if (num == maxK) {
-            maxIndex = i;
-        }
-        if (num < minK || num > maxK) {
-            k = i;
-        }
-        res += max(min(minIndex, maxIndex) - k, 0);
+    long long ans = 0;
+    int j1 = -1, j2 = -1, k = -1;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] < minK || nums[i] > maxK) k = i;
+        if (nums[i] == minK) j1 = i;
+        if (nums[i] == maxK) j2 = i;
+        int m = j1 < j2 ? j1 : j2;
+        if (m > k) ans += (long long) (m - k);
     }
-    return res;
+    return ans;
 }
 ```
 
