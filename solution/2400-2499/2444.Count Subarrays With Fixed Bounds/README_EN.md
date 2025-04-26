@@ -65,19 +65,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Enumeration of Right Endpoint
+### Solution 1: Enumerate the Right Endpoint
 
-From the problem description, we know that all elements of the bounded subarray are in the interval `[minK, maxK]`, and the minimum value must be `minK`, and the maximum value must be `maxK`.
+According to the problem description, we know that all elements of a bounded subarray are within the range $[\textit{minK}, \textit{maxK}]$, and the minimum value must be $\textit{minK}$, while the maximum value must be $\textit{maxK}$.
 
-We traverse the array $nums$, count the number of bounded subarrays with `nums[i]` as the right endpoint, and then add all the counts.
+We iterate through the array $\textit{nums}$ and count the number of bounded subarrays with $\textit{nums}[i]$ as the right endpoint. Then, we sum up all the counts.
 
 The specific implementation logic is as follows:
 
-1. Maintain the index $k$ of the most recent element not in the interval `[minK, maxK]`, initially set to $-1$. Therefore, the left endpoint of the current element `nums[i]` must be greater than $k$.
-1. Maintain the index $j_1$ of the most recent element with a value of `minK`, and the index $j_2$ of the most recent element with a value of `maxK`, both initially set to $-1$. Therefore, the left endpoint of the current element `nums[i]` must be less than or equal to $\min(j_1, j_2)$.
-1. In summary, the number of bounded subarrays with the current element as the right endpoint is $\max(0, \min(j_1, j_2) - k)$. Add up all the counts to get the result.
+1. Maintain the index $k$ of the most recent element that is not within the range $[\textit{minK}, \textit{maxK}]$, initialized to $-1$. The left endpoint of the current element $\textit{nums}[i]$ must be greater than $k$.
+2. Maintain the most recent index $j_1$ where the value is $\textit{minK}$ and the most recent index $j_2$ where the value is $\textit{maxK}$, both initialized to $-1$. The left endpoint of the current element $\textit{nums}[i]$ must be less than or equal to $\min(j_1, j_2)$.
+3. Based on the above, the number of bounded subarrays with the current element as the right endpoint is $\max\bigl(0,\ \min(j_1, j_2) - k\bigr)$. Accumulate all these counts to get the result.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -131,10 +131,16 @@ public:
     long long countSubarrays(vector<int>& nums, int minK, int maxK) {
         long long ans = 0;
         int j1 = -1, j2 = -1, k = -1;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] < minK || nums[i] > maxK) k = i;
-            if (nums[i] == minK) j1 = i;
-            if (nums[i] == maxK) j2 = i;
+        for (int i = 0; i < static_cast<int>(nums.size()); ++i) {
+            if (nums[i] < minK || nums[i] > maxK) {
+                k = i;
+            }
+            if (nums[i] == minK) {
+                j1 = i;
+            }
+            if (nums[i] == maxK) {
+                j2 = i;
+            }
             ans += max(0, min(j1, j2) - k);
         }
         return ans;
@@ -168,23 +174,15 @@ func countSubarrays(nums []int, minK int, maxK int) int64 {
 
 ```ts
 function countSubarrays(nums: number[], minK: number, maxK: number): number {
-    let res = 0;
-    let minIndex = -1;
-    let maxIndex = -1;
-    let k = -1;
-    nums.forEach((num, i) => {
-        if (num === minK) {
-            minIndex = i;
-        }
-        if (num === maxK) {
-            maxIndex = i;
-        }
-        if (num < minK || num > maxK) {
-            k = i;
-        }
-        res += Math.max(Math.min(minIndex, maxIndex) - k, 0);
-    });
-    return res;
+    let ans = 0;
+    let [j1, j2, k] = [-1, -1, -1];
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] < minK || nums[i] > maxK) k = i;
+        if (nums[i] === minK) j1 = i;
+        if (nums[i] === maxK) j2 = i;
+        ans += Math.max(0, Math.min(j1, j2) - k);
+    }
+    return ans;
 }
 ```
 
@@ -193,25 +191,27 @@ function countSubarrays(nums: number[], minK: number, maxK: number): number {
 ```rust
 impl Solution {
     pub fn count_subarrays(nums: Vec<i32>, min_k: i32, max_k: i32) -> i64 {
-        let mut res = 0;
-        let mut min_index = -1;
-        let mut max_index = -1;
-        let mut k = -1;
-        for i in 0..nums.len() {
-            let num = nums[i];
+        let mut ans: i64 = 0;
+        let mut j1: i64 = -1;
+        let mut j2: i64 = -1;
+        let mut k: i64 = -1;
+        for (i, &v) in nums.iter().enumerate() {
             let i = i as i64;
-            if num == min_k {
-                min_index = i;
-            }
-            if num == max_k {
-                max_index = i;
-            }
-            if num < min_k || num > max_k {
+            if v < min_k || v > max_k {
                 k = i;
             }
-            res += (0).max(min_index.min(max_index) - k);
+            if v == min_k {
+                j1 = i;
+            }
+            if v == max_k {
+                j2 = i;
+            }
+            let m = j1.min(j2);
+            if m > k {
+                ans += m - k;
+            }
         }
-        res
+        ans
     }
 }
 ```
@@ -219,28 +219,17 @@ impl Solution {
 #### C
 
 ```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
 long long countSubarrays(int* nums, int numsSize, int minK, int maxK) {
-    long long res = 0;
-    int minIndex = -1;
-    int maxIndex = -1;
-    int k = -1;
-    for (int i = 0; i < numsSize; i++) {
-        int num = nums[i];
-        if (num == minK) {
-            minIndex = i;
-        }
-        if (num == maxK) {
-            maxIndex = i;
-        }
-        if (num < minK || num > maxK) {
-            k = i;
-        }
-        res += max(min(minIndex, maxIndex) - k, 0);
+    long long ans = 0;
+    int j1 = -1, j2 = -1, k = -1;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] < minK || nums[i] > maxK) k = i;
+        if (nums[i] == minK) j1 = i;
+        if (nums[i] == maxK) j2 = i;
+        int m = j1 < j2 ? j1 : j2;
+        if (m > k) ans += (long long) (m - k);
     }
-    return res;
+    return ans;
 }
 ```
 
