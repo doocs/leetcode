@@ -24,6 +24,8 @@ jobs:
     steps:
       # 1️⃣ main 分支代码
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # 2️⃣ docs 分支代码放到 mkdocs/ 目录
       - uses: actions/checkout@v4
