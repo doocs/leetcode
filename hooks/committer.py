@@ -91,7 +91,7 @@ def _file_git_datetime(repo_path: str) -> datetime:
 # ───────────────────────── 主插件 ───────────────────────── #
 class CommitterPlugin:
     def __init__(self):
-        self.cache_path = Path(".cache/plugin/git-committers/page-authors.json")
+        self.cache_path = Path(".git-committers-cache.json")
         self.cache_path.parent.mkdir(parents=True, exist_ok=True)
 
         self.page_authors: Dict[str, Dict] = {}

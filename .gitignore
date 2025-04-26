@@ -5,6 +5,3 @@ solution
 .DS_Store
 __pycache__
 .cache
-!.cache/plugin/
-!.cache/plugin/git-committers/
-!.cache/plugin/git-committers/page-authors.json
