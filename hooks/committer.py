@@ -7,6 +7,7 @@ import fnmatch
 import json
 import os
 import random
+import shlex
 import subprocess
 import urllib.parse
 from datetime import datetime, timezone
