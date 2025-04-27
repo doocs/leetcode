@@ -9,7 +9,8 @@
   <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=4051B5&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode?color=4051B5&logo=github&style=flat-square" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode?color=4051B5&logo=github&style=flat-square" alt="forks"></a>
-  <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://img.shields.io/opencollective/sponsors/doocs-leetcode?color=4051B5&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
+  <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://img.shields.io/opencollective/sponsors/doocs-leetcode?color=4051B5&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a><br>
+  <a href="https://deepwiki.com/doocs/leetcode"><img src="https://img.shields.io/badge/chat%20with-DeepWiki-4051B5?style=flat-square" alt="deepwiki"></a>
 </p>
 
 ## Introduction
