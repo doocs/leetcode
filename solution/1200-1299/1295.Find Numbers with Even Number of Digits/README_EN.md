@@ -129,6 +129,16 @@ function findNumbers(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_numbers(nums: Vec<i32>) -> i32 {
+        nums.iter().filter(|&x| x.to_string().len() % 2 == 0).count() as i32
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -139,6 +149,16 @@ function findNumbers(nums: number[]): number {
 var findNumbers = function (nums) {
     return nums.filter(x => x.toString().length % 2 === 0).length;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int FindNumbers(int[] nums) {
+        return nums.Count(x => x.ToString().Length % 2 == 0);
+    }
+}
 ```
 
 <!-- tabs:end -->
