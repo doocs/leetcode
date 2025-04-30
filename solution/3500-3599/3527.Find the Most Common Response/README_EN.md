@@ -72,32 +72,134 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We can use a hash table $\textit{cnt}$ to count the occurrences of each response. For the responses of each day, we first remove duplicates, then add each response to the hash table and update its count.
+
+Finally, we iterate through the hash table to find the response with the highest count. If there are multiple responses with the same count, we return the lexicographically smallest one.
+
+The complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the total length of all responses.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findCommonResponse(self, responses: List[List[str]]) -> str:
+        cnt = Counter()
+        for ws in responses:
+            for w in set(ws):
+                cnt[w] += 1
+        ans = responses[0][0]
+        for w, x in cnt.items():
+            if cnt[ans] < x or (cnt[ans] == x and w < ans):
+                ans = w
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String findCommonResponse(List<List<String>> responses) {
+        Map<String, Integer> cnt = new HashMap<>();
+        for (var ws : responses) {
+            Set<String> s = new HashSet<>();
+            for (var w : ws) {
+                if (s.add(w)) {
+                    cnt.merge(w, 1, Integer::sum);
+                }
+            }
+        }
+        String ans = responses.get(0).get(0);
+        for (var e : cnt.entrySet()) {
+            String w = e.getKey();
+            int v = e.getValue();
+            if (cnt.get(ans) < v || (cnt.get(ans) == v && w.compareTo(ans) < 0)) {
+                ans = w;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string findCommonResponse(vector<vector<string>>& responses) {
+        unordered_map<string, int> cnt;
+        for (const auto& ws : responses) {
+            unordered_set<string> s;
+            for (const auto& w : ws) {
+                if (s.insert(w).second) {
+                    ++cnt[w];
+                }
+            }
+        }
+        string ans = responses[0][0];
+        for (const auto& e : cnt) {
+            const string& w = e.first;
+            int v = e.second;
+            if (cnt[ans] < v || (cnt[ans] == v && w < ans)) {
+                ans = w;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func findCommonResponse(responses [][]string) string {
+	cnt := map[string]int{}
+	for _, ws := range responses {
+		s := map[string]struct{}{}
+		for _, w := range ws {
+			if _, ok := s[w]; !ok {
+				s[w] = struct{}{}
+				cnt[w]++
+			}
+		}
+	}
+	ans := responses[0][0]
+	for w, v := range cnt {
+		if cnt[ans] < v || (cnt[ans] == v && w < ans) {
+			ans = w
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function findCommonResponse(responses: string[][]): string {
+    const cnt = new Map<string, number>();
+    for (const ws of responses) {
+        const s = new Set<string>();
+        for (const w of ws) {
+            if (!s.has(w)) {
+                s.add(w);
+                cnt.set(w, (cnt.get(w) ?? 0) + 1);
+            }
+        }
+    }
+    let ans = responses[0][0];
+    for (const [w, v] of cnt) {
+        const best = cnt.get(ans)!;
+        if (best < v || (best === v && w < ans)) {
+            ans = w;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
