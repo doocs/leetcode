@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3490.Count%20Beautiful%20Numbers/README_EN.md
+rating: 2502
+source: Weekly Contest 441 Q4
 tags:
     - Dynamic Programming
 ---

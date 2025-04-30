@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 447
+
+- [3531. Count Covered Buildings](/solution/3500-3599/3531.Count%20Covered%20Buildings/README_EN.md)
+- [3532. Path Existence Queries in a Graph I](/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README_EN.md)
+- [3533. Concatenated Divisibility](/solution/3500-3599/3533.Concatenated%20Divisibility/README_EN.md)
+- [3534. Path Existence Queries in a Graph II](/solution/3500-3599/3534.Path%20Existence%20Queries%20in%20a%20Graph%20II/README_EN.md)
+
+#### Biweekly Contest 155
+
+- [3527. Find the Most Common Response](/solution/3500-3599/3527.Find%20the%20Most%20Common%20Response/README_EN.md)
+- [3528. Unit Conversion I](/solution/3500-3599/3528.Unit%20Conversion%20I/README_EN.md)
+- [3529. Count Cells in Overlapping Horizontal and Vertical Substrings](/solution/3500-3599/3529.Count%20Cells%20in%20Overlapping%20Horizontal%20and%20Vertical%20Substrings/README_EN.md)
+- [3530. Maximum Profit from Valid Topological Order in DAG](/solution/3500-3599/3530.Maximum%20Profit%20from%20Valid%20Topological%20Order%20in%20DAG/README_EN.md)
+
 #### Weekly Contest 446
 
 - [3522. Calculate Score After Performing Instructions](/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README_EN.md)

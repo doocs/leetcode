@@ -8,6 +8,7 @@ tags:
     - Array
     - Two Pointers
     - Binary Search
+    - Prefix Sum
     - Sorting
 ---
 

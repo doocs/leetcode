@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3514.Number%20of%20Unique%20XOR%20Triplets%20II/README.md
+rating: 1883
+source: 第 154 场双周赛 Q3
 tags:
     - 位运算
     - 数组

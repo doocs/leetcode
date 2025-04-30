@@ -53,8 +53,8 @@ There are a total of 5 + 2 + 1 + 1 + 1 = 10 distinct ideal arrays.
 <strong>Input:</strong> n = 5, maxValue = 3
 <strong>Output:</strong> 11
 <strong>Explanation:</strong> The following are the possible ideal arrays:
-- Arrays starting with the value 1 (9 arrays):
-   - With no other distinct values (1 array): [1,1,1,1,1]
+- Arrays starting with the value 1 (9 arrays): 
+   - With no other distinct values (1 array): [1,1,1,1,1] 
    - With 2<sup>nd</sup> distinct value 2 (4 arrays): [1,1,1,1,2], [1,1,1,2,2], [1,1,2,2,2], [1,2,2,2,2]
    - With 2<sup>nd</sup> distinct value 3 (4 arrays): [1,1,1,1,3], [1,1,1,3,3], [1,1,3,3,3], [1,3,3,3,3]
 - Arrays starting with the value 2 (1 array): [2,2,2,2,2]
@@ -92,8 +92,8 @@ $$
 
 where $k$ represents the maximum value of the array, i.e., $\textit{maxValue}$.
 
-- **Time Complexity**: $O(m \times \log^2 m)$
-- **Space Complexity**: $O(m \times \log m)$
+-   **Time Complexity**: $O(m \times \log^2 m)$
+-   **Space Complexity**: $O(m \times \log m)$
 
 <!-- tabs:start -->
 

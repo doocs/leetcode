@@ -32,8 +32,6 @@ tags:
 
 <p><strong>总旅行距离&nbsp;</strong>是朋友们家到聚会地点的距离之和。</p>
 
-<p>使用 <strong>曼哈顿距离</strong>&nbsp;计算距离，其中距离 <code>(p1, p2) = |p2.x - p1.x | + | p2.y - p1.y |</code> 。</p>
-
 <p>&nbsp;</p>
 
 <p><strong>示例&nbsp; 1：</strong></p>

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README.md
+rating: 1753
+source: 第 440 场周赛 Q2
 tags:
     - 数组
     - 排序

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3508.Implement%20Router/README_EN.md
+rating: 1851
+source: Weekly Contest 444 Q2
 tags:
     - Design
     - Queue

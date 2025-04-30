@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3501.Maximize%20Active%20Section%20with%20Trade%20II/README.md
+rating: 2940
+source: 第 153 场双周赛 Q4
 tags:
     - 线段树
     - 数组

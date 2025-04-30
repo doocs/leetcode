@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md
+rating: 1295
+source: 第 440 场周赛 Q1
 tags:
     - 线段树
     - 数组

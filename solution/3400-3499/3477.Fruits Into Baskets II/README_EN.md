@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README_EN.md
+rating: 1295
+source: Weekly Contest 440 Q1
 tags:
     - Segment Tree
     - Array

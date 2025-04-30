@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

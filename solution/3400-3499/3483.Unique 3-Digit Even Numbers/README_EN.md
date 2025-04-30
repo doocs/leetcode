@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3483.Unique%203-Digit%20Even%20Numbers/README_EN.md
+rating: 1323
+source: Biweekly Contest 152 Q1
 tags:
     - Recursion
     - Array
