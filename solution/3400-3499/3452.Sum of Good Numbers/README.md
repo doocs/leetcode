@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个整数数组 <code>nums</code> 和一个整数 <code>k</code>，如果元素 <code>nums[i]</code> <strong>严格</strong> 大于下标&nbsp;<code>i - k</code> 和 <code>i + k</code> 处的元素（如果这些元素存在），则该元素 <code>nums[i]</code> 被认为是 <strong>好</strong> 的。如果这两个下标都不存在，那么 <code>nums[i]</code> 仍然被认为是 <strong>好</strong> 的。</p>
+<p>给定一个整数数组 <code>nums</code> 和一个整数 <code>k</code>，如果元素 <code>nums[i]</code> <strong>严格</strong> 大于下标&nbsp;<code>i - k</code> 和 <code>i + k</code> 处的元素（如果这些元素存在），则该元素 <code>nums[i]</code> 被认为是 <strong>好</strong> 的。如果这两个下标至少一个不存在，那么 <code>nums[i]</code> 仍然被认为是 <strong>好</strong> 的。</p>
 
 <p>返回数组中所有 <strong>好</strong> 元素的 <strong>和</strong>。</p>
 

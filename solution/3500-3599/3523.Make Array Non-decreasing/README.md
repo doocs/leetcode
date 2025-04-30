@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README.md
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 单调栈
 ---
 
 <!-- problem:start -->

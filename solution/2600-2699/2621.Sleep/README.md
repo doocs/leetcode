@@ -18,6 +18,8 @@ tags:
 
 <p>请你编写一个异步函数，它接收一个正整数参数 <code>millis</code>&nbsp;，并休眠 <code>millis</code> 毫秒。要求此函数可以解析任何值。</p>
 
+<p><strong>请注意</strong>，实际睡眠持续时间与&nbsp;<code>millis</code> 之间的微小偏差是可以接受的。</p>
+
 <p>&nbsp;</p>
 
 <p><b>示例 1：</b></p>

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3502.Minimum%20Cost%20to%20Reach%20Every%20Position/README.md
+rating: 1243
+source: 第 443 场周赛 Q1
 tags:
     - 数组
 ---

@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 447 场周赛(2025-04-27 10:30, 90 分钟) 参赛人数 2244
+
+- [3531. 统计被覆盖的建筑](/solution/3500-3599/3531.Count%20Covered%20Buildings/README.md)
+- [3532. 针对图的路径存在性查询 I](/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README.md)
+- [3533. 判断连接可整除性](/solution/3500-3599/3533.Concatenated%20Divisibility/README.md)
+- [3534. 针对图的路径存在性查询 II](/solution/3500-3599/3534.Path%20Existence%20Queries%20in%20a%20Graph%20II/README.md)
+
+#### 第 155 场双周赛(2025-04-26 22:30, 90 分钟) 参赛人数 1503
+
+- [3527. 找到最常见的回答](/solution/3500-3599/3527.Find%20the%20Most%20Common%20Response/README.md)
+- [3528. 单位转换 I](/solution/3500-3599/3528.Unit%20Conversion%20I/README.md)
+- [3529. 统计水平子串和垂直子串重叠格子的数目](/solution/3500-3599/3529.Count%20Cells%20in%20Overlapping%20Horizontal%20and%20Vertical%20Substrings/README.md)
+- [3530. 有向无环图中合法拓扑排序的最大利润](/solution/3500-3599/3530.Maximum%20Profit%20from%20Valid%20Topological%20Order%20in%20DAG/README.md)
+
 #### 第 446 场周赛(2025-04-20 10:30, 90 分钟) 参赛人数 2314
 
 - [3522. 执行指令后的得分](/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README.md)

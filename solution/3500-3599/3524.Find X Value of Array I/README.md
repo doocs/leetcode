@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3524.Find%20X%20Value%20of%20Array%20I/README.md
+tags:
+    - 数组
+    - 数学
+    - 动态规划
 ---
 
 <!-- problem:start -->

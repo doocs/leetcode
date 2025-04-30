@@ -21,9 +21,9 @@ tags:
 
 <p>You are given an integer <code>n</code>.</p>
 
-<p>Each number from <code>1</code> to <code>n</code> is grouped according to the sum of its digits.</p>
+<p>We need to group the numbers from <code>1</code> to <code>n</code> according to the sum of its digits. For example, the numbers 14 and 5 belong to the <strong>same</strong> group, whereas 13 and 3 belong to <strong>different</strong> groups.</p>
 
-<p>Return <em>the number of groups that have the largest size</em>.</p>
+<p>Return the number of groups that have the largest size, i.e. the <strong>maximum</strong> number of elements.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

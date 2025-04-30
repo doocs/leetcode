@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0949.La
 tags:
     - 数组
     - 字符串
+    - 回溯
     - 枚举
 ---
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3498.Reverse%20Degree%20of%20a%20String/README_EN.md
+rating: 1201
+source: Biweekly Contest 153 Q1
 tags:
     - String
     - Simulation

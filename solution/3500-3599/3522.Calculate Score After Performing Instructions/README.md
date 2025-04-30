@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

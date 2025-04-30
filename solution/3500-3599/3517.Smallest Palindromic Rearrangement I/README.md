@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3517.Smallest%20Palindromic%20Rearrangement%20I/README.md
+rating: 1357
+source: 第 445 场周赛 Q2
 tags:
     - 字符串
     - 计数排序

@@ -7,6 +7,7 @@ source: 第 183 场周赛 Q2
 tags:
     - 位运算
     - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->
