@@ -69,34 +69,26 @@ tags:
 
 ### Solution 1: Multi-Source BFS
 
-Treat all dominoes initially pushed (`L` or `R`) as **sources**, which simultaneously propagate their forces outward. Use a queue to perform BFS layer by layer (0, 1, 2, ...):
+Treat all initially pushed dominoes (`L` or `R`) as **sources**, which simultaneously propagate their forces outward. Use a queue to perform BFS layer by layer (0, 1, 2, ...):
 
-1. **Modeling**
+We define $\text{time[i]}$ to record the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet. We also define $\text{force[i]}$ as a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment. Initially, push all indices of `L/R` dominoes into the queue and set their `time` to 0.
 
-    - `time[i]` records the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet.
-    - `force[i]` is a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment.
-    - Initially, push all indices of `L/R` dominoes into the queue and set their `time` to 0.
+When dequeuing index _i_, if $\text{force[i]}$ contains only one direction, the domino will fall in that direction $f$. Let the index of the next domino be:
 
-2. **Propagation Rules**
+$$
+j =
+\begin{cases}
+i - 1, & f = L,\\
+i + 1, & f = R.
+\end{cases}
+$$
 
-    - When dequeuing index _i_, if `force[i]` contains only one direction, the domino will fall in that direction `f`.
-    - Let the index of the next domino be:
+If $0 \leq j < n$:
 
-        $$
-        j=\begin{cases}
-          i-1,& f=L\\[2pt]
-          i+1,& f=R
-        \end{cases}
-        $$
+-   If $\text{time[j]} = -1$, it means _j_ has not been affected yet. Record $\text{time[j]} = \text{time[i]} + 1$, enqueue it, and append $f$ to $\text{force[j]}$.
+-   If $\text{time[j]} = \text{time[i]} + 1$, it means _j_ has already been affected by another force at the same "next moment." In this case, append $f$ to $\text{force[j]}$, causing a standoff. Subsequently, since $\text{len(force[j])} = 2$, it will remain upright.
 
-        If $0 \leq j < n$:
-
-        - If `time[j] == -1`, it means _j_ has not been affected yet. Record `time[j] = time[i] + 1`, enqueue it, and append `f` to `force[j]`.
-        - If `time[j] == time[i] + 1`, it means _j_ has already been affected by another force at the same "next moment." In this case, append `f` to `force[j]`, causing a standoff. Subsequently, since `len(force[j]) == 2`, it will remain upright.
-
-3. **Final State Determination**
-
-    - After the queue is emptied, all positions where `force[i]` has a length of 1 will fall in the corresponding direction, while positions with a length of 2 will remain as `.`. Finally, concatenate the character array to form the answer.
+After the queue is emptied, all positions where $\text{force[i]}$ has a length of 1 will fall in the corresponding direction, while positions with a length of 2 will remain as `.`. Finally, concatenate the character array to form the answer.
 
 The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of dominoes.
 
@@ -224,46 +216,46 @@ public:
 
 ```go
 func pushDominoes(dominoes string) string {
- n := len(dominoes)
- q := []int{}
- time := make([]int, n)
- for i := range time {
-  time[i] = -1
- }
- force := make([][]byte, n)
- for i, c := range dominoes {
-  if c != '.' {
-   q = append(q, i)
-   time[i] = 0
-   force[i] = append(force[i], byte(c))
-  }
- }
+	n := len(dominoes)
+	q := []int{}
+	time := make([]int, n)
+	for i := range time {
+		time[i] = -1
+	}
+	force := make([][]byte, n)
+	for i, c := range dominoes {
+		if c != '.' {
+			q = append(q, i)
+			time[i] = 0
+			force[i] = append(force[i], byte(c))
+		}
+	}
 
- ans := bytes.Repeat([]byte{'.'}, n)
- for len(q) > 0 {
-  i := q[0]
-  q = q[1:]
-  if len(force[i]) > 1 {
-   continue
-  }
-  f := force[i][0]
-  ans[i] = f
-  j := i - 1
-  if f == 'R' {
-   j = i + 1
-  }
-  if 0 <= j && j < n {
-   t := time[i]
-   if time[j] == -1 {
-    q = append(q, j)
-    time[j] = t + 1
-    force[j] = append(force[j], f)
-   } else if time[j] == t+1 {
-    force[j] = append(force[j], f)
-   }
-  }
- }
- return string(ans)
+	ans := bytes.Repeat([]byte{'.'}, n)
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		if len(force[i]) > 1 {
+			continue
+		}
+		f := force[i][0]
+		ans[i] = f
+		j := i - 1
+		if f == 'R' {
+			j = i + 1
+		}
+		if 0 <= j && j < n {
+			t := time[i]
+			if time[j] == -1 {
+				q = append(q, j)
+				time[j] = t + 1
+				force[j] = append(force[j], f)
+			} else if time[j] == t+1 {
+				force[j] = append(force[j], f)
+			}
+		}
+	}
+	return string(ans)
 }
 ```
 
