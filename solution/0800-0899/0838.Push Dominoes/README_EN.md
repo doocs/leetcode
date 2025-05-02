@@ -29,9 +29,9 @@ tags:
 <p>You are given a string <code>dominoes</code> representing the initial state where:</p>
 
 <ul>
-	<li><code>dominoes[i] = &#39;L&#39;</code>, if the <code>i<sup>th</sup></code> domino has been pushed to the left,</li>
-	<li><code>dominoes[i] = &#39;R&#39;</code>, if the <code>i<sup>th</sup></code> domino has been pushed to the right, and</li>
-	<li><code>dominoes[i] = &#39;.&#39;</code>, if the <code>i<sup>th</sup></code> domino has not been pushed.</li>
+ <li><code>dominoes[i] = &#39;L&#39;</code>, if the <code>i<sup>th</sup></code> domino has been pushed to the left,</li>
+ <li><code>dominoes[i] = &#39;R&#39;</code>, if the <code>i<sup>th</sup></code> domino has been pushed to the right, and</li>
+ <li><code>dominoes[i] = &#39;.&#39;</code>, if the <code>i<sup>th</sup></code> domino has not been pushed.</li>
 </ul>
 
 <p>Return <em>a string representing the final state</em>.</p>
@@ -56,9 +56,9 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == dominoes.length</code></li>
-	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-	<li><code>dominoes[i]</code> is either <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, or <code>&#39;.&#39;</code>.</li>
+ <li><code>n == dominoes.length</code></li>
+ <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+ <li><code>dominoes[i]</code> is either <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, or <code>&#39;.&#39;</code>.</li>
 </ul>
 
 <!-- description:end -->
@@ -67,7 +67,30 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Multi-Source BFS
+
+Treat all initially pushed dominoes (`L` or `R`) as **sources**, which simultaneously propagate their forces outward. Use a queue to perform BFS layer by layer (0, 1, 2, ...):
+
+We define $\text{time[i]}$ to record the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet. We also define $\text{force[i]}$ as a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment. Initially, push all indices of `L/R` dominoes into the queue and set their `time` to 0.
+
+When dequeuing index _i_, if $\text{force[i]}$ contains only one direction, the domino will fall in that direction $f$. Let the index of the next domino be:
+
+$$
+j =
+\begin{cases}
+i - 1, & f = L,\\
+i + 1, & f = R.
+\end{cases}
+$$
+
+If $0 \leq j < n$:
+
+-   If $\text{time[j]} = -1$, it means _j_ has not been affected yet. Record $\text{time[j]} = \text{time[i]} + 1$, enqueue it, and append $f$ to $\text{force[j]}$.
+-   If $\text{time[j]} = \text{time[i]} + 1$, it means _j_ has already been affected by another force at the same "next moment." In this case, append $f$ to $\text{force[j]}$, causing a standoff. Subsequently, since $\text{len(force[j])} = 2$, it will remain upright.
+
+After the queue is emptied, all positions where $\text{force[i]}$ has a length of 1 will fall in the corresponding direction, while positions with a length of 2 will remain as `.`. Finally, concatenate the character array to form the answer.
+
+The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of dominoes.
 
 <!-- tabs:start -->
 
@@ -241,44 +264,40 @@ func pushDominoes(dominoes string) string {
 ```ts
 function pushDominoes(dominoes: string): string {
     const n = dominoes.length;
-    const map = {
-        L: -1,
-        R: 1,
-        '.': 0,
-    };
-    let ans = new Array(n).fill(0);
-    let visited = new Array(n).fill(0);
-    let queue = [];
-    let depth = 1;
+    const q: number[] = [];
+    const time: number[] = Array(n).fill(-1);
+    const force: string[][] = Array.from({ length: n }, () => []);
+
     for (let i = 0; i < n; i++) {
-        let cur = map[dominoes.charAt(i)];
-        if (cur) {
-            queue.push(i);
-            visited[i] = depth;
-            ans[i] = cur;
+        const f = dominoes[i];
+        if (f !== '.') {
+            q.push(i);
+            time[i] = 0;
+            force[i].push(f);
         }
     }
-    while (queue.length) {
-        depth++;
-        let nextLevel = [];
-        for (let i of queue) {
-            const dx = ans[i];
-            let x = i + dx;
-            if (x >= 0 && x < n && [0, depth].includes(visited[x])) {
-                ans[x] += dx;
-                visited[x] = depth;
-                nextLevel.push(x);
+
+    const ans: string[] = Array(n).fill('.');
+    let head = 0;
+    while (head < q.length) {
+        const i = q[head++];
+        if (force[i].length === 1) {
+            const f = force[i][0];
+            ans[i] = f;
+            const j = f === 'L' ? i - 1 : i + 1;
+            if (j >= 0 && j < n) {
+                const t = time[i];
+                if (time[j] === -1) {
+                    q.push(j);
+                    time[j] = t + 1;
+                    force[j].push(f);
+                } else if (time[j] === t + 1) {
+                    force[j].push(f);
+                }
             }
         }
-        queue = nextLevel;
     }
-    return ans
-        .map(d => {
-            if (!d) return '.';
-            else if (d < 0) return 'L';
-            else return 'R';
-        })
-        .join('');
+    return ans.join('');
 }
 ```
 

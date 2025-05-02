@@ -1,41 +1,37 @@
 function pushDominoes(dominoes: string): string {
     const n = dominoes.length;
-    const map = {
-        L: -1,
-        R: 1,
-        '.': 0,
-    };
-    let ans = new Array(n).fill(0);
-    let visited = new Array(n).fill(0);
-    let queue = [];
-    let depth = 1;
+    const q: number[] = [];
+    const time: number[] = Array(n).fill(-1);
+    const force: string[][] = Array.from({ length: n }, () => []);
+
     for (let i = 0; i < n; i++) {
-        let cur = map[dominoes.charAt(i)];
-        if (cur) {
-            queue.push(i);
-            visited[i] = depth;
-            ans[i] = cur;
+        const f = dominoes[i];
+        if (f !== '.') {
+            q.push(i);
+            time[i] = 0;
+            force[i].push(f);
         }
     }
-    while (queue.length) {
-        depth++;
-        let nextLevel = [];
-        for (let i of queue) {
-            const dx = ans[i];
-            let x = i + dx;
-            if (x >= 0 && x < n && [0, depth].includes(visited[x])) {
-                ans[x] += dx;
-                visited[x] = depth;
-                nextLevel.push(x);
+
+    const ans: string[] = Array(n).fill('.');
+    let head = 0;
+    while (head < q.length) {
+        const i = q[head++];
+        if (force[i].length === 1) {
+            const f = force[i][0];
+            ans[i] = f;
+            const j = f === 'L' ? i - 1 : i + 1;
+            if (j >= 0 && j < n) {
+                const t = time[i];
+                if (time[j] === -1) {
+                    q.push(j);
+                    time[j] = t + 1;
+                    force[j].push(f);
+                } else if (time[j] === t + 1) {
+                    force[j].push(f);
+                }
             }
         }
-        queue = nextLevel;
     }
-    return ans
-        .map(d => {
-            if (!d) return '.';
-            else if (d < 0) return 'L';
-            else return 'R';
-        })
-        .join('');
+    return ans.join('');
 }
