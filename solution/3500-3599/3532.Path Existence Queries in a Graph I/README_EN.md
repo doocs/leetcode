@@ -82,32 +82,125 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3532.Pa
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Grouping
+
+According to the problem description, the node indices within the same connected component must be consecutive. Therefore, we can use an array $g$ to record the connected component index for each node and a variable $\textit{cnt}$ to track the current connected component index. As we iterate through the $\textit{nums}$ array, if the difference between the current node and the previous node is greater than $\textit{maxDiff}$, it indicates that the current node and the previous node are not in the same connected component. In this case, we increment $\textit{cnt}$. Then, we assign the current node's connected component index to $\textit{cnt}$.
+
+Finally, for each query $(u, v)$, we only need to check whether $g[u]$ and $g[v]$ are equal. If they are equal, it means $u$ and $v$ are in the same connected component, and the answer for the $i$-th query is $\text{true}$. Otherwise, the answer is $\text{false}$.
+
+The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{nums}$ array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def pathExistenceQueries(
+        self, n: int, nums: List[int], maxDiff: int, queries: List[List[int]]
+    ) -> List[bool]:
+        g = [0] * n
+        cnt = 0
+        for i in range(1, n):
+            if nums[i] - nums[i - 1] > maxDiff:
+                cnt += 1
+            g[i] = cnt
+        return [g[u] == g[v] for u, v in queries]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public boolean[] pathExistenceQueries(int n, int[] nums, int maxDiff, int[][] queries) {
+        int[] g = new int[n];
+        int cnt = 0;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] - nums[i - 1] > maxDiff) {
+                cnt++;
+            }
+            g[i] = cnt;
+        }
 
+        int m = queries.length;
+        boolean[] ans = new boolean[m];
+        for (int i = 0; i < m; ++i) {
+            int u = queries[i][0];
+            int v = queries[i][1];
+            ans[i] = g[u] == g[v];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<bool> pathExistenceQueries(int n, vector<int>& nums, int maxDiff, vector<vector<int>>& queries) {
+        vector<int> g(n);
+        int cnt = 0;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] - nums[i - 1] > maxDiff) {
+                ++cnt;
+            }
+            g[i] = cnt;
+        }
 
+        vector<bool> ans;
+        for (const auto& q : queries) {
+            int u = q[0], v = q[1];
+            ans.push_back(g[u] == g[v]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func pathExistenceQueries(n int, nums []int, maxDiff int, queries [][]int) (ans []bool) {
+	g := make([]int, n)
+	cnt := 0
+	for i := 1; i < n; i++ {
+		if nums[i]-nums[i-1] > maxDiff {
+			cnt++
+		}
+		g[i] = cnt
+	}
 
+	for _, q := range queries {
+		u, v := q[0], q[1]
+		ans = append(ans, g[u] == g[v])
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function pathExistenceQueries(
+    n: number,
+    nums: number[],
+    maxDiff: number,
+    queries: number[][],
+): boolean[] {
+    const g: number[] = Array(n).fill(0);
+    let cnt = 0;
+
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] - nums[i - 1] > maxDiff) {
+            ++cnt;
+        }
+        g[i] = cnt;
+    }
+
+    return queries.map(([u, v]) => g[u] === g[v]);
+}
 ```
 
 <!-- tabs:end -->
