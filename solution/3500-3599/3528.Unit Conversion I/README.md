@@ -34,8 +34,8 @@ tags:
 <p><strong>解释：</strong></p>
 
 <ul>
- <li>使用 <code>conversions[0]</code>：将一个 0 类型单位转换为 2 个 1 类型单位。</li>
- <li>使用&nbsp;<code>conversions[0]</code>&nbsp;和&nbsp;<code>conversions[1]</code>&nbsp;将一个 0 类型单位转换为 6 个 2 类型单位。</li>
+	<li>使用 <code>conversions[0]</code>：将一个 0 类型单位转换为 2 个 1 类型单位。</li>
+	<li>使用&nbsp;<code>conversions[0]</code>&nbsp;和&nbsp;<code>conversions[1]</code>&nbsp;将一个 0 类型单位转换为 6 个 2 类型单位。</li>
 </ul>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3528.Unit%20Conversion%20I/images/1745660099-FZhVTM-example1.png" style="width: 545px; height: 119px;" /></div>
 
@@ -49,13 +49,13 @@ tags:
 <p><strong>解释：</strong></p>
 
 <ul>
- <li>使用 <code>conversions[0]</code>&nbsp;将一个 0 类型单位转换为 2 个 1 类型单位。</li>
- <li>使用 <code>conversions[1]</code>&nbsp;将一个 0 类型单位转换为 3 个 2 类型单位。</li>
- <li>使用 <code>conversions[0]</code> 和 <code>conversions[2]</code>&nbsp;将一个 0 类型单位转换为 8 个 3 类型单位。</li>
- <li>使用 <code>conversions[0]</code> 和 <code>conversions[3]</code>&nbsp;将一个 0 类型单位转换为 10 个 4 类型单位。</li>
- <li>使用 <code>conversions[1]</code> 和 <code>conversions[4]</code>&nbsp;将一个 0 类型单位转换为 6 个 5 类型单位。</li>
- <li>使用 <code>conversions[0]</code>、<code>conversions[3]</code> 和 <code>conversions[5]</code>&nbsp;将一个 0 类型单位转换为 30 个 6 类型单位。</li>
- <li>使用 <code>conversions[1]</code>、<code>conversions[4]</code> 和 <code>conversions[6]</code>&nbsp;将一个 0 类型单位转换为 24 个 7 类型单位。</li>
+	<li>使用 <code>conversions[0]</code>&nbsp;将一个 0 类型单位转换为 2 个 1 类型单位。</li>
+	<li>使用 <code>conversions[1]</code>&nbsp;将一个 0 类型单位转换为 3 个 2 类型单位。</li>
+	<li>使用 <code>conversions[0]</code> 和 <code>conversions[2]</code>&nbsp;将一个 0 类型单位转换为 8 个 3 类型单位。</li>
+	<li>使用 <code>conversions[0]</code> 和 <code>conversions[3]</code>&nbsp;将一个 0 类型单位转换为 10 个 4 类型单位。</li>
+	<li>使用 <code>conversions[1]</code> 和 <code>conversions[4]</code>&nbsp;将一个 0 类型单位转换为 6 个 5 类型单位。</li>
+	<li>使用 <code>conversions[0]</code>、<code>conversions[3]</code> 和 <code>conversions[5]</code>&nbsp;将一个 0 类型单位转换为 30 个 6 类型单位。</li>
+	<li>使用 <code>conversions[1]</code>、<code>conversions[4]</code> 和 <code>conversions[6]</code>&nbsp;将一个 0 类型单位转换为 24 个 7 类型单位。</li>
 </ul>
 </div>
 
@@ -64,11 +64,11 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
- <li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
- <li><code>conversions.length == n - 1</code></li>
- <li><code>0 &lt;= sourceUnit<sub>i</sub>, targetUnit<sub>i</sub> &lt; n</code></li>
- <li><code>1 &lt;= conversionFactor<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
- <li>保证单位&nbsp;0 可以通过&nbsp;<strong>唯一&nbsp;</strong>的转换路径（不需要反向转换）转换为任何其他单位。</li>
+	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>conversions.length == n - 1</code></li>
+	<li><code>0 &lt;= sourceUnit<sub>i</sub>, targetUnit<sub>i</sub> &lt; n</code></li>
+	<li><code>1 &lt;= conversionFactor<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
+	<li>保证单位&nbsp;0 可以通过&nbsp;<strong>唯一&nbsp;</strong>的转换路径（不需要反向转换）转换为任何其他单位。</li>
 </ul>
 
 <!-- description:end -->

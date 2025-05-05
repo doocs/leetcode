@@ -23,7 +23,7 @@ tags:
 
 <p>You are given an array of strings <code>words</code> and a string <code>chars</code>.</p>
 
-<p>A string is <strong>good</strong> if it can be formed by characters from <code>chars</code> (each character can only be used once).</p>
+<p>A string is <strong>good</strong> if it can be formed by characters from <code>chars</code> (each character can only be used once for <strong>each</strong> word in <code>words</code>).</p>
 
 <p>Return <em>the sum of lengths of all good strings in words</em>.</p>
 

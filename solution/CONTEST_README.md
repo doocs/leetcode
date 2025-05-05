@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 448 场周赛(2025-05-04 10:30, 90 分钟) 参赛人数 1487
+
+- [3536. 两个数字的最大乘积](/solution/3500-3599/3536.Maximum%20Product%20of%20Two%20Digits/README.md)
+- [3537. 填充特殊网格](/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README.md)
+- [3538. 合并得到最小旅行时间](/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README.md)
+- [3539. 魔法序列的数组乘积之和](/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README.md)
+
 #### 第 447 场周赛(2025-04-27 10:30, 90 分钟) 参赛人数 2244
 
 - [3531. 统计被覆盖的建筑](/solution/3500-3599/3531.Count%20Covered%20Buildings/README.md)

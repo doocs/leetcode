@@ -18,9 +18,13 @@ tags:
 
 <!-- description:start -->
 
-<p>假设 Andy 和 Doris 想在晚餐时选择一家餐厅，并且他们都有一个表示最喜爱餐厅的列表，每个餐厅的名字用字符串表示。</p>
+<p>给定两个字符串数组&nbsp;<code>list1</code> 和 <code>list2</code>，找到 <strong>索引和最小的公共字符串</strong>。</p>
 
-<p>你需要帮助他们用<strong>最少的索引和</strong>找出他们<strong>共同喜爱的餐厅</strong>。 如果答案不止一个，则输出所有答案并且不考虑顺序。 你可以假设答案总是存在。</p>
+<p><strong>公共字符串</strong>&nbsp;是同时出现在&nbsp;<code>list1</code> 和 <code>list2</code>&nbsp;中的字符串。</p>
+
+<p>具有 <strong>最小索引和的公共字符串</strong> 是指，如果它在 <code>list1[i]</code> 和 <code>list2[j]</code> 中出现，那么 <code>i + j</code> 应该是所有其他 <strong>公共字符串</strong> 中的最小值。</p>
+
+<p>返回所有 <strong>具有最小索引和的公共字符串</strong>。以 <strong>任何顺序</strong> 返回答案。</p>
 
 <p>&nbsp;</p>
 
@@ -29,7 +33,7 @@ tags:
 <pre>
 <strong>输入: </strong>list1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]，list2 = ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
 <strong>输出:</strong> ["Shogun"]
-<strong>解释:</strong> 他们唯一共同喜爱的餐厅是“Shogun”。
+<strong>解释:</strong> 唯一的公共字符串是 “Shogun”。
 </pre>
 
 <p><strong>示例 2:</strong></p>
@@ -37,8 +41,19 @@ tags:
 <pre>
 <strong>输入:</strong>list1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]，list2 = ["KFC", "Shogun", "Burger King"]
 <strong>输出:</strong> ["Shogun"]
-<strong>解释:</strong> 他们共同喜爱且具有最小索引和的餐厅是“Shogun”，它有最小的索引和1(0+1)。
+<strong>解释:</strong> 具有最小索引和的公共字符串是 “Shogun”，它有最小的索引和 = (0 + 1) = 1。
 </pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>list1 = ["happy","sad","good"], list2 = ["sad","happy","good"]
+<b>输出：</b>["sad","happy"]
+<b>解释：</b>有三个公共字符串：
+"happy" 索引和 = (0 + 1) = 1.
+"sad" 索引和 = (1 + 0) = 1.
+"good" 索引和 = (2 + 2) = 4.
+最小索引和的字符串是 "sad" 和 "happy"。</pre>
 
 <p>&nbsp;</p>
 

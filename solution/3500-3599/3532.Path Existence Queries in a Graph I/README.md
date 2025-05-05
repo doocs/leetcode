@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README.md
+tags:
+    - 并查集
+    - 图
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->

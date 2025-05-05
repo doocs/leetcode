@@ -23,6 +23,8 @@ tags:
 
 <p>The words in <code>paragraph</code> are <strong>case-insensitive</strong> and the answer should be returned in <strong>lowercase</strong>.</p>
 
+<p><strong>Note</strong> that words can not contain punctuation symbols.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

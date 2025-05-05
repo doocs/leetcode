@@ -33,8 +33,8 @@ tags:
 <p><strong>Explanation:</strong></p>
 
 <ul>
- <li>Convert a single unit of type 0 into 2 units of type 1 using <code>conversions[0]</code>.</li>
- <li>Convert a single unit of type 0 into 6 units of type 2 using <code>conversions[0]</code>, then <code>conversions[1]</code>.</li>
+	<li>Convert a single unit of type 0 into 2 units of type 1 using <code>conversions[0]</code>.</li>
+	<li>Convert a single unit of type 0 into 6 units of type 2 using <code>conversions[0]</code>, then <code>conversions[1]</code>.</li>
 </ul>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3528.Unit%20Conversion%20I/images/example1.png" style="width: 545px; height: 118px;" /></div>
 
@@ -48,13 +48,13 @@ tags:
 <p><strong>Explanation:</strong></p>
 
 <ul>
- <li>Convert a single unit of type 0 into 2 units of type 1 using <code>conversions[0]</code>.</li>
- <li>Convert a single unit of type 0 into 3 units of type 2 using <code>conversions[1]</code>.</li>
- <li>Convert a single unit of type 0 into 8 units of type 3 using <code>conversions[0]</code>, then <code>conversions[2]</code>.</li>
- <li>Convert a single unit of type 0 into 10 units of type 4 using <code>conversions[0]</code>, then <code>conversions[3]</code>.</li>
- <li>Convert a single unit of type 0 into 6 units of type 5 using <code>conversions[1]</code>, then <code>conversions[4]</code>.</li>
- <li>Convert a single unit of type 0 into 30 units of type 6 using <code>conversions[0]</code>, <code>conversions[3]</code>, then <code>conversions[5]</code>.</li>
- <li>Convert a single unit of type 0 into 24 units of type 7 using <code>conversions[1]</code>, <code>conversions[4]</code>, then <code>conversions[6]</code>.</li>
+	<li>Convert a single unit of type 0 into 2 units of type 1 using <code>conversions[0]</code>.</li>
+	<li>Convert a single unit of type 0 into 3 units of type 2 using <code>conversions[1]</code>.</li>
+	<li>Convert a single unit of type 0 into 8 units of type 3 using <code>conversions[0]</code>, then <code>conversions[2]</code>.</li>
+	<li>Convert a single unit of type 0 into 10 units of type 4 using <code>conversions[0]</code>, then <code>conversions[3]</code>.</li>
+	<li>Convert a single unit of type 0 into 6 units of type 5 using <code>conversions[1]</code>, then <code>conversions[4]</code>.</li>
+	<li>Convert a single unit of type 0 into 30 units of type 6 using <code>conversions[0]</code>, <code>conversions[3]</code>, then <code>conversions[5]</code>.</li>
+	<li>Convert a single unit of type 0 into 24 units of type 7 using <code>conversions[1]</code>, <code>conversions[4]</code>, then <code>conversions[6]</code>.</li>
 </ul>
 </div>
 
@@ -62,11 +62,11 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
- <li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
- <li><code>conversions.length == n - 1</code></li>
- <li><code>0 &lt;= sourceUnit<sub>i</sub>, targetUnit<sub>i</sub> &lt; n</code></li>
- <li><code>1 &lt;= conversionFactor<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
- <li>It is guaranteed that unit 0 can be converted into any other unit through a <strong>unique</strong> combination of conversions without using any conversions in the opposite direction.</li>
+	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>conversions.length == n - 1</code></li>
+	<li><code>0 &lt;= sourceUnit<sub>i</sub>, targetUnit<sub>i</sub> &lt; n</code></li>
+	<li><code>1 &lt;= conversionFactor<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
+	<li>It is guaranteed that unit 0 can be converted into any other unit through a <strong>unique</strong> combination of conversions without using any conversions in the opposite direction.</li>
 </ul>
 
 <!-- description:end -->

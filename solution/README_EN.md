@@ -3540,10 +3540,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3529  |  [Count Cells in Overlapping Horizontal and Vertical Substrings](/solution/3500-3599/3529.Count%20Cells%20in%20Overlapping%20Horizontal%20and%20Vertical%20Substrings/README_EN.md)  |  `Array`,`String`,`Matrix`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Medium  |  Biweekly Contest 155  |
 |  3530  |  [Maximum Profit from Valid Topological Order in DAG](/solution/3500-3599/3530.Maximum%20Profit%20from%20Valid%20Topological%20Order%20in%20DAG/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Topological Sort`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Biweekly Contest 155  |
 |  3531  |  [Count Covered Buildings](/solution/3500-3599/3531.Count%20Covered%20Buildings/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Medium  |  Weekly Contest 447  |
-|  3532  |  [Path Existence Queries in a Graph I](/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 447  |
-|  3533  |  [Concatenated Divisibility](/solution/3500-3599/3533.Concatenated%20Divisibility/README_EN.md)  |    |  Hard  |  Weekly Contest 447  |
-|  3534  |  [Path Existence Queries in a Graph II](/solution/3500-3599/3534.Path%20Existence%20Queries%20in%20a%20Graph%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 447  |
+|  3532  |  [Path Existence Queries in a Graph I](/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README_EN.md)  |  `Union Find`,`Graph`,`Array`,`Binary Search`  |  Medium  |  Weekly Contest 447  |
+|  3533  |  [Concatenated Divisibility](/solution/3500-3599/3533.Concatenated%20Divisibility/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Weekly Contest 447  |
+|  3534  |  [Path Existence Queries in a Graph II](/solution/3500-3599/3534.Path%20Existence%20Queries%20in%20a%20Graph%20II/README_EN.md)  |  `Greedy`,`Graph`,`Array`,`Binary Search`,`Sorting`  |  Hard  |  Weekly Contest 447  |
 |  3535  |  [Unit Conversion II](/solution/3500-3599/3535.Unit%20Conversion%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  3536  |  [Maximum Product of Two Digits](/solution/3500-3599/3536.Maximum%20Product%20of%20Two%20Digits/README_EN.md)  |    |  Easy  |  Weekly Contest 448  |
+|  3537  |  [Fill a Special Grid](/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 448  |
+|  3538  |  [Merge Operations for Minimum Travel Time](/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README_EN.md)  |    |  Hard  |  Weekly Contest 448  |
+|  3539  |  [Find Sum of Array Product of Magical Sequences](/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README_EN.md)  |    |  Hard  |  Weekly Contest 448  |
 
 ## Copyright
 
