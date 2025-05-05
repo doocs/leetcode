@@ -1,5 +1,5 @@
 {
-  "cache_date": 1746404081,
+  "cache_date": 1746455199,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -42826,7 +42826,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669804
+      "retrieved": 1746454259
     },
     "solution/3400-3499/3402.Minimum Operations to Make Columns Strictly Increasing/README.md": {
       "authors": [
@@ -49634,7 +49634,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745669956
+      "retrieved": 1746454332
     },
     "solution/0000-0099/0006.Zigzag Conversion/README.md": {
       "authors": [
@@ -54546,7 +54546,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1746196012
+      "retrieved": 1746454382
     },
     "solution/0800-0899/0839.Similar String Groups/README.md": {
       "authors": [
@@ -70251,7 +70251,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/99040799?v=4"
         }
       ],
-      "retrieved": 1745670445
+      "retrieved": 1746454609
     },
     "solution/1100-1199/1161.Maximum Level Sum of a Binary Tree/README_EN.md": {
       "authors": [
@@ -120968,7 +120968,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745671602
+      "retrieved": 1746455144
     },
     "solution/0000-0099/0082.Remove Duplicates from Sorted List II/README_EN.md": {
       "authors": [
@@ -121295,7 +121295,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1746196755
+      "retrieved": 1746455148
     },
     "solution/0800-0899/0839.Similar String Groups/README_EN.md": {
       "authors": [
@@ -126627,7 +126627,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745987200
+      "retrieved": 1746454280
     },
     "solution/3500-3599/3529.Count Cells in Overlapping Horizontal and Vertical Substrings/README.md": {
       "authors": [
@@ -126671,7 +126671,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746339321
+      "retrieved": 1746454281
     },
     "solution/3500-3599/3533.Concatenated Divisibility/README.md": {
       "authors": [
@@ -126682,7 +126682,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745974860
+      "retrieved": 1746454282
     },
     "solution/3500-3599/3534.Path Existence Queries in a Graph II/README.md": {
       "authors": [
@@ -126693,7 +126693,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745974860
+      "retrieved": 1746454282
     },
     "solution/3500-3599/3535.Unit Conversion II/README.md": {
       "authors": [
@@ -126737,7 +126737,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745987950
+      "retrieved": 1746455049
     },
     "solution/3500-3599/3529.Count Cells in Overlapping Horizontal and Vertical Substrings/README_EN.md": {
       "authors": [
@@ -126781,7 +126781,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746340076
+      "retrieved": 1746455050
     },
     "solution/3500-3599/3533.Concatenated Divisibility/README_EN.md": {
       "authors": [
@@ -126792,7 +126792,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745975672
+      "retrieved": 1746455051
     },
     "solution/3500-3599/3534.Path Existence Queries in a Graph II/README_EN.md": {
       "authors": [
@@ -126803,7 +126803,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745975673
+      "retrieved": 1746455051
     },
     "solution/3500-3599/3535.Unit Conversion II/README_EN.md": {
       "authors": [
@@ -126814,7 +126814,95 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745975673
+      "retrieved": 1746455051
+    },
+    "solution/3500-3599/3536.Maximum Product of Two Digits/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746454282
+    },
+    "solution/3500-3599/3537.Fill a Special Grid/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746454283
+    },
+    "solution/3500-3599/3538.Merge Operations for Minimum Travel Time/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746454283
+    },
+    "solution/3500-3599/3539.Find Sum of Array Product of Magical Sequences/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746454284
+    },
+    "solution/3500-3599/3536.Maximum Product of Two Digits/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746455052
+    },
+    "solution/3500-3599/3537.Fill a Special Grid/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746455052
+    },
+    "solution/3500-3599/3538.Merge Operations for Minimum Travel Time/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746455053
+    },
+    "solution/3500-3599/3539.Find Sum of Array Product of Magical Sequences/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1746455053
     }
   }
 }
