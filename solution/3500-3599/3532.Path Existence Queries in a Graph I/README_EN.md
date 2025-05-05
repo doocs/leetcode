@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README_EN.md
+tags:
+    - Union Find
+    - Graph
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->

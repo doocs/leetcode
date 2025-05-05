@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3401. Find Circular Gift Exchange Chains 🔒](https://leetcode.cn/problems/find-circular-gift-exchange-chains)
+# [3401. 寻找环形礼物交换链 🔒](https://leetcode.cn/problems/find-circular-gift-exchange-chains)
 
 [English Version](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>SecretSanta</code></p>
+<p>表：<code>SecretSanta</code></p>
 
 <pre>
 +-------------+------+
@@ -26,31 +26,32 @@ tags:
 | receiver_id | int  |
 | gift_value  | int  |
 +-------------+------+
-(giver_id, receiver_id) is the unique key for this table.   
-Each row represents a record of a gift exchange between two employees, giver_id represents the employee who gives a gift, receiver_id represents the employee who receives the gift and gift_value represents the value of the gift given.  
+(giver_id, receiver_id) 是这张表的唯一主键。
+每一行表示两个员工之间的一次礼物交换记录，giver_id 表示给予礼物的员工，receiver_id 表示收到礼物的员工，gift_value 表示所给予礼物的价值。
 </pre>
 
-<p>Write a solution to find the <strong>total gift value</strong> and <strong>length</strong> of<strong> circular chains</strong> of Secret Santa gift exchanges:</p>
+<p>编写一个解决方案来找到 <strong>总礼物价值</strong>&nbsp;以及 <strong>环形礼物交换链的长度</strong>：</p>
 
-<p>A <strong>circular chain</strong> is defined as a series of exchanges where:</p>
+<p><strong>环形链</strong> 被定义为一系列交换，其中：</p>
 
 <ul>
-	<li>Each employee gives a gift to <strong>exactly one</strong> other employee.</li>
-	<li>Each employee receives a gift <strong>from exactly</strong> one other employee.</li>
-	<li>The exchanges form a continuous <strong>loop</strong> (e.g., employee A gives a gift to B, B gives to C, and C gives back to A).</li>
+	<li>每位员工都正好向另 <strong>一位</strong> 员工赠送一份礼物。</li>
+	<li>每位员工都正好从另 <strong>一位</strong> 员工那里收到一份礼物。</li>
+	<li>交换形成一个连续的循环（即 员工 A 给 B 一份礼物，B 给 C，C 再给 A）。</li>
 </ul>
 
-<p>Return <em>the result ordered by the chain length and total gift value of the chain in&nbsp;<strong>descending</strong> order</em>.&nbsp;</p>
+<p>返回结果以链的长度和总礼物价值 <strong>降序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>SecretSanta table:</p>
+<p>SecretSanta 表：</p>
 
 <pre class="example-io">
 +----------+-------------+------------+
@@ -64,7 +65,7 @@ Each row represents a record of a gift exchange between two employees, giver_id 
 +----------+-------------+------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +----------+--------------+------------------+
@@ -75,26 +76,26 @@ Each row represents a record of a gift exchange between two employees, giver_id 
 +----------+--------------+------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Chain 1</strong> involves employees 1, 2, and 3:
+	<li><strong>链 1</strong>&nbsp;包含员工 1，2 和 3：
 
     <ul>
-    	<li>Employee 1 gives a gift to 2, employee 2 gives a gift to 3, and employee 3 gives a gift to 1.</li>
-    	<li>Total gift value for this chain = 20 + 30 + 40 = 90.</li>
+    	<li>员工 1 给 2 一份礼物，员工&nbsp;2 给 3 一份礼物，员工 3 给 1 一份礼物。</li>
+    	<li>这个链的总礼物价值 = 20 + 30 + 40 = 90。</li>
     </ul>
     </li>
-    <li><strong>Chain 2</strong> involves employees 4 and 5:
+    <li><strong>链 2</strong> 包含员工 4 和 5：
     <ul>
-    	<li>Employee 4 gives a gift to 5, and employee 5 gives a gift to 4.</li>
-    	<li>Total gift value for this chain = 25 + 35 = 60.</li>
+    	<li>员工 4 给 5 一份礼物，员工 5 给 4&nbsp;一份礼物。</li>
+    	<li>这个链的总礼物价值 = 25 + 35 = 60。</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The result table is ordered by the chain length and total gift value of the chain in descending order.</p>
+<p>结果表以链的长度和总礼物价值降序排序。</p>
 </div>
 
 <!-- description:end -->
