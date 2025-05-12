@@ -66,32 +66,186 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3546.Eq
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Prefix Sum
+
+First, we calculate the sum of all elements in the matrix, denoted as $s$. If $s$ is odd, it is impossible to divide the matrix into two parts with equal sums, so we directly return `false`.
+
+If $s$ is even, we can enumerate all possible partition lines to check if there exists a line that divides the matrix into two parts with equal sums.
+
+We traverse each row from top to bottom, calculating the sum of all elements in the rows above the current row, denoted as $\textit{pre}$. If $\textit{pre} \times 2 = s$ and the current row is not the last row, it means we can perform a horizontal partition between the current row and the next row, so we return `true`.
+
+If no such partition line is found, we traverse each column from left to right, calculating the sum of all elements in the columns to the left of the current column, denoted as $\textit{pre}$. If $\textit{pre} \times 2 = s$ and the current column is not the last column, it means we can perform a vertical partition between the current column and the next column, so we return `true`.
+
+If no such partition line is found, we return `false`.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$, as only constant extra space is used.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def canPartitionGrid(self, grid: List[List[int]]) -> bool:
+        s = sum(sum(row) for row in grid)
+        if s % 2:
+            return False
+        pre = 0
+        for i, row in enumerate(grid):
+            pre += sum(row)
+            if pre * 2 == s and i != len(grid) - 1:
+                return True
+        pre = 0
+        for j, col in enumerate(zip(*grid)):
+            pre += sum(col)
+            if pre * 2 == s and j != len(grid[0]) - 1:
+                return True
+        return False
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean canPartitionGrid(int[][] grid) {
+        long s = 0;
+        for (var row : grid) {
+            for (int x : row) {
+                s += x;
+            }
+        }
+        if (s % 2 != 0) {
+            return false;
+        }
+        int m = grid.length, n = grid[0].length;
+        long pre = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int x : grid[i]) {
+                pre += x;
+            }
+            if (pre * 2 == s && i < m - 1) {
+                return true;
+            }
+        }
+        pre = 0;
+        for (int j = 0; j < n; ++j) {
+            for (int i = 0; i < m; ++i) {
+                pre += grid[i][j];
+            }
+            if (pre * 2 == s && j < n - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool canPartitionGrid(vector<vector<int>>& grid) {
+        long long s = 0;
+        for (const auto& row : grid) {
+            for (int x : row) {
+                s += x;
+            }
+        }
+        if (s % 2 != 0) {
+            return false;
+        }
+        int m = grid.size(), n = grid[0].size();
+        long long pre = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int x : grid[i]) {
+                pre += x;
+            }
+            if (pre * 2 == s && i + 1 < m) {
+                return true;
+            }
+        }
+        pre = 0;
+        for (int j = 0; j < n; ++j) {
+            for (int i = 0; i < m; ++i) {
+                pre += grid[i][j];
+            }
+            if (pre * 2 == s && j + 1 < n) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func canPartitionGrid(grid [][]int) bool {
+	s := 0
+	for _, row := range grid {
+		for _, x := range row {
+			s += x
+		}
+	}
+	if s%2 != 0 {
+		return false
+	}
+	m, n := len(grid), len(grid[0])
+	pre := 0
+	for i, row := range grid {
+		for _, x := range row {
+			pre += x
+		}
+		if pre*2 == s && i+1 < m {
+			return true
+		}
+	}
+	pre = 0
+	for j := 0; j < n; j++ {
+		for i := 0; i < m; i++ {
+			pre += grid[i][j]
+		}
+		if pre*2 == s && j+1 < n {
+			return true
+		}
+	}
+	return false
+}
+```
 
+#### TypeScript
+
+```ts
+function canPartitionGrid(grid: number[][]): boolean {
+    let s = 0;
+    for (const row of grid) {
+        s += row.reduce((a, b) => a + b, 0);
+    }
+    if (s % 2 !== 0) {
+        return false;
+    }
+    const [m, n] = [grid.length, grid[0].length];
+    let pre = 0;
+    for (let i = 0; i < m; ++i) {
+        pre += grid[i].reduce((a, b) => a + b, 0);
+        if (pre * 2 === s && i + 1 < m) {
+            return true;
+        }
+    }
+    pre = 0;
+    for (let j = 0; j < n; ++j) {
+        for (let i = 0; i < m; ++i) {
+            pre += grid[i][j];
+        }
+        if (pre * 2 === s && j + 1 < n) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->

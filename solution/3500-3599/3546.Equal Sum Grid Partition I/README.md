@@ -70,32 +70,186 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3546.Eq
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举 + 前缀和
+
+我们先计算矩阵中所有元素的和，记为 $s$。如果 $s$ 是奇数，则不可能将矩阵分割成两个和相等的部分，直接返回 `false`。
+
+如果 $s$ 是偶数，我们可以枚举所有可能的分割线，判断是否存在一条分割线将矩阵分割成两个和相等的部分。
+
+我们从上到下遍历每一行，计算当前行之前所有行的元素之和 $\textit{pre}$，如果 $\textit{pre} \times 2 = s$，且当前行不是最后一行，则说明可以在当前行和下一行之间进行水平分割，返回 `true`。
+
+如果没有找到这样的分割线，我们再从左到右遍历每一列，计算当前列之前所有列的元素之和 $\textit{pre}$，如果 $\textit{pre} \times 2 = s$，且当前列不是最后一列，则说明可以在当前列和下一列之间进行垂直分割，返回 `true`。
+
+如果没有找到这样的分割线，则返回 `false`。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$，只使用了常数级别的额外空间。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def canPartitionGrid(self, grid: List[List[int]]) -> bool:
+        s = sum(sum(row) for row in grid)
+        if s % 2:
+            return False
+        pre = 0
+        for i, row in enumerate(grid):
+            pre += sum(row)
+            if pre * 2 == s and i != len(grid) - 1:
+                return True
+        pre = 0
+        for j, col in enumerate(zip(*grid)):
+            pre += sum(col)
+            if pre * 2 == s and j != len(grid[0]) - 1:
+                return True
+        return False
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean canPartitionGrid(int[][] grid) {
+        long s = 0;
+        for (var row : grid) {
+            for (int x : row) {
+                s += x;
+            }
+        }
+        if (s % 2 != 0) {
+            return false;
+        }
+        int m = grid.length, n = grid[0].length;
+        long pre = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int x : grid[i]) {
+                pre += x;
+            }
+            if (pre * 2 == s && i < m - 1) {
+                return true;
+            }
+        }
+        pre = 0;
+        for (int j = 0; j < n; ++j) {
+            for (int i = 0; i < m; ++i) {
+                pre += grid[i][j];
+            }
+            if (pre * 2 == s && j < n - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool canPartitionGrid(vector<vector<int>>& grid) {
+        long long s = 0;
+        for (const auto& row : grid) {
+            for (int x : row) {
+                s += x;
+            }
+        }
+        if (s % 2 != 0) {
+            return false;
+        }
+        int m = grid.size(), n = grid[0].size();
+        long long pre = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int x : grid[i]) {
+                pre += x;
+            }
+            if (pre * 2 == s && i + 1 < m) {
+                return true;
+            }
+        }
+        pre = 0;
+        for (int j = 0; j < n; ++j) {
+            for (int i = 0; i < m; ++i) {
+                pre += grid[i][j];
+            }
+            if (pre * 2 == s && j + 1 < n) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func canPartitionGrid(grid [][]int) bool {
+	s := 0
+	for _, row := range grid {
+		for _, x := range row {
+			s += x
+		}
+	}
+	if s%2 != 0 {
+		return false
+	}
+	m, n := len(grid), len(grid[0])
+	pre := 0
+	for i, row := range grid {
+		for _, x := range row {
+			pre += x
+		}
+		if pre*2 == s && i+1 < m {
+			return true
+		}
+	}
+	pre = 0
+	for j := 0; j < n; j++ {
+		for i := 0; i < m; i++ {
+			pre += grid[i][j]
+		}
+		if pre*2 == s && j+1 < n {
+			return true
+		}
+	}
+	return false
+}
+```
 
+#### TypeScript
+
+```ts
+function canPartitionGrid(grid: number[][]): boolean {
+    let s = 0;
+    for (const row of grid) {
+        s += row.reduce((a, b) => a + b, 0);
+    }
+    if (s % 2 !== 0) {
+        return false;
+    }
+    const [m, n] = [grid.length, grid[0].length];
+    let pre = 0;
+    for (let i = 0; i < m; ++i) {
+        pre += grid[i].reduce((a, b) => a + b, 0);
+        if (pre * 2 === s && i + 1 < m) {
+            return true;
+        }
+    }
+    pre = 0;
+    for (let j = 0; j < n; ++j) {
+        for (let i = 0; i < m; ++i) {
+            pre += grid[i][j];
+        }
+        if (pre * 2 === s && j + 1 < n) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->
