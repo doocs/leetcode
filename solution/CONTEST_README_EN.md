@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 449
+
+- [3545. Minimum Deletions for At Most K Distinct Characters](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README_EN.md)
+- [3546. Equal Sum Grid Partition I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md)
+- [3547. Maximum Sum of Edge Values in a Graph](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md)
+- [3548. Equal Sum Grid Partition II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md)
+
+#### Biweekly Contest 156
+
+- [3541. Find Most Frequent Vowel and Consonant](/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README_EN.md)
+- [3542. Minimum Operations to Convert All Elements to Zero](/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README_EN.md)
+- [3543. Maximum Weighted K-Edge Path](/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README_EN.md)
+- [3544. Subtree Inversion Sum](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README_EN.md)
+
 #### Weekly Contest 448
 
 - [3536. Maximum Product of Two Digits](/solution/3500-3599/3536.Maximum%20Product%20of%20Two%20Digits/README_EN.md)

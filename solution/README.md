@@ -3550,6 +3550,15 @@
 |  3537  |  [填充特殊网格](/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README.md)  |    |  中等  |  第 448 场周赛  |
 |  3538  |  [合并得到最小旅行时间](/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README.md)  |    |  困难  |  第 448 场周赛  |
 |  3539  |  [魔法序列的数组乘积之和](/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README.md)  |    |  困难  |  第 448 场周赛  |
+|  3540  |  [访问所有房屋的最短时间](/solution/3500-3599/3540.Minimum%20Time%20to%20Visit%20All%20Houses/README.md)  |    |  中等  |  🔒  |
+|  3541  |  [找到频率最高的元音和辅音](/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README.md)  |    |  简单  |  第 156 场双周赛  |
+|  3542  |  [将所有元素变为 0 的最少操作次数](/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README.md)  |    |  中等  |  第 156 场双周赛  |
+|  3543  |  [K 条边路径的最大边权和](/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README.md)  |    |  中等  |  第 156 场双周赛  |
+|  3544  |  [子树反转和](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README.md)  |    |  困难  |  第 156 场双周赛  |
+|  3545  |  [不同字符数量最多为 K 时的最少删除数](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README.md)  |    |  简单  |  第 449 场周赛  |
+|  3546  |  [等和矩阵分割 I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README.md)  |    |  中等  |  第 449 场周赛  |
+|  3547  |  [图中边值的最大和](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README.md)  |    |  困难  |  第 449 场周赛  |
+|  3548  |  [等和矩阵分割 II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README.md)  |    |  困难  |  第 449 场周赛  |
 
 ## 版权
 

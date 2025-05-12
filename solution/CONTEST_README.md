@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 449 场周赛(2025-05-11 10:30, 90 分钟) 参赛人数 2220
+
+- [3545. 不同字符数量最多为 K 时的最少删除数](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README.md)
+- [3546. 等和矩阵分割 I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README.md)
+- [3547. 图中边值的最大和](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README.md)
+- [3548. 等和矩阵分割 II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README.md)
+
+#### 第 156 场双周赛(2025-05-10 22:30, 90 分钟) 参赛人数 1425
+
+- [3541. 找到频率最高的元音和辅音](/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README.md)
+- [3542. 将所有元素变为 0 的最少操作次数](/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README.md)
+- [3543. K 条边路径的最大边权和](/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README.md)
+- [3544. 子树反转和](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README.md)
+
 #### 第 448 场周赛(2025-05-04 10:30, 90 分钟) 参赛人数 1487
 
 - [3536. 两个数字的最大乘积](/solution/3500-3599/3536.Maximum%20Product%20of%20Two%20Digits/README.md)
