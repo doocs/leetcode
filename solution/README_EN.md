@@ -3548,6 +3548,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3537  |  [Fill a Special Grid](/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 448  |
 |  3538  |  [Merge Operations for Minimum Travel Time](/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README_EN.md)  |    |  Hard  |  Weekly Contest 448  |
 |  3539  |  [Find Sum of Array Product of Magical Sequences](/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README_EN.md)  |    |  Hard  |  Weekly Contest 448  |
+|  3540  |  [Minimum Time to Visit All Houses](/solution/3500-3599/3540.Minimum%20Time%20to%20Visit%20All%20Houses/README_EN.md)  |    |  Medium  |  🔒  |
+|  3541  |  [Find Most Frequent Vowel and Consonant](/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README_EN.md)  |    |  Easy  |  Biweekly Contest 156  |
+|  3542  |  [Minimum Operations to Convert All Elements to Zero](/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README_EN.md)  |    |  Medium  |  Biweekly Contest 156  |
+|  3543  |  [Maximum Weighted K-Edge Path](/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README_EN.md)  |    |  Medium  |  Biweekly Contest 156  |
+|  3544  |  [Subtree Inversion Sum](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README_EN.md)  |    |  Hard  |  Biweekly Contest 156  |
+|  3545  |  [Minimum Deletions for At Most K Distinct Characters](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README_EN.md)  |    |  Easy  |  Weekly Contest 449  |
+|  3546  |  [Equal Sum Grid Partition I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 449  |
+|  3547  |  [Maximum Sum of Edge Values in a Graph](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md)  |    |  Hard  |  Weekly Contest 449  |
+|  3548  |  [Equal Sum Grid Partition II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 449  |
 
 ## Copyright
 
