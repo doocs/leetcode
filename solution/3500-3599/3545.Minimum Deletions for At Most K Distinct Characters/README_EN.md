@@ -85,32 +85,88 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3545.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting + Greedy
+
+We can use an array $\textit{cnt}$ to count the frequency of each character. Then, we sort this array and return the sum of the first $26 - k$ elements.
+
+The time complexity is $O(|\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minDeletion(self, s: str, k: int) -> int:
+        return sum(sorted(Counter(s).values())[:-k])
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minDeletion(String s, int k) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        Arrays.sort(cnt);
+        int ans = 0;
+        for (int i = 0; i + k < 26; ++i) {
+            ans += cnt[i];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minDeletion(string s, int k) {
+        vector<int> cnt(26);
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
+        ranges::sort(cnt);
+        int ans = 0;
+        for (int i = 0; i + k < 26; ++i) {
+            ans += cnt[i];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minDeletion(s string, k int) (ans int) {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	sort.Ints(cnt)
+	for i := 0; i+k < len(cnt); i++ {
+		ans += cnt[i]
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minDeletion(s: string, k: number): number {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 97];
+    }
+    cnt.sort((a, b) => a - b);
+    return cnt.slice(0, 26 - k).reduce((a, b) => a + b, 0);
+}
 ```
 
 <!-- tabs:end -->
