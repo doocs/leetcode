@@ -74,32 +74,120 @@ The <strong>frequency</strong> of a letter <code>x</code> is the number of times
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We first use a hash table or an array of length $26$, $\textit{cnt}$, to count the frequency of each letter. Then, we iterate through this table to find the most frequent vowel and consonant, and return the sum of their frequencies.
+
+We can use a variable $\textit{a}$ to record the maximum frequency of vowels and another variable $\textit{b}$ to record the maximum frequency of consonants. During the iteration, if the current letter is a vowel, we update $\textit{a}$; otherwise, we update $\textit{b}$.
+
+Finally, we return $\textit{a} + \textit{b}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the alphabet, which is $26$ in this case.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        cnt = Counter(s)
+        a = b = 0
+        for c, v in cnt.items():
+            if c in "aeiou":
+                a = max(a, v)
+            else:
+                b = max(b, v)
+        return a + b
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxFreqSum(String s) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        int a = 0, b = 0;
+        for (int i = 0; i < cnt.length; ++i) {
+            char c = (char) (i + 'a');
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                a = Math.max(a, cnt[i]);
+            } else {
+                b = Math.max(b, cnt[i]);
+            }
+        }
+        return a + b;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxFreqSum(string s) {
+        int cnt[26]{};
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
+        int a = 0, b = 0;
+        for (int i = 0; i < 26; ++i) {
+            char c = 'a' + i;
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                a = max(a, cnt[i]);
+            } else {
+                b = max(b, cnt[i]);
+            }
+        }
+        return a + b;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxFreqSum(s string) int {
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	a, b := 0, 0
+	for i := range cnt {
+		c := byte(i + 'a')
+		if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' {
+			a = max(a, cnt[i])
+		} else {
+			b = max(b, cnt[i])
+		}
+	}
+	return a + b
+}
+```
 
+#### TypeScript
+
+```ts
+function maxFreqSum(s: string): number {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 97];
+    }
+    let [a, b] = [0, 0];
+    for (let i = 0; i < 26; ++i) {
+        const c = String.fromCharCode(i + 97);
+        if ('aeiou'.includes(c)) {
+            a = Math.max(a, cnt[i]);
+        } else {
+            b = Math.max(b, cnt[i]);
+        }
+    }
+    return a + b;
+}
 ```
 
 <!-- tabs:end -->

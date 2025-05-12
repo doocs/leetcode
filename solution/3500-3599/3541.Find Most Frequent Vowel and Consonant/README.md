@@ -68,32 +68,120 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3541.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们先用一个哈希表或者一个长度为 $26$ 的数组 $\textit{cnt}$ 统计每个字母的出现频率。然后我们遍历这个表，找出元音和辅音中出现频率最高的字母，返回它们的频率之和。
+
+我们可以用一个变量 $\textit{a}$ 记录元音的最大频率，另一个变量 $\textit{b}$ 记录辅音的最大频率。遍历时，如果当前字母是元音，就更新 $\textit{a}$；否则就更新 $\textit{b}$。
+
+最后返回 $\textit{a} + \textit{b}$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $(|\Sigma|)$，其中 $|\Sigma|$ 是字母表的大小，这里是 $26$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        cnt = Counter(s)
+        a = b = 0
+        for c, v in cnt.items():
+            if c in "aeiou":
+                a = max(a, v)
+            else:
+                b = max(b, v)
+        return a + b
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxFreqSum(String s) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        int a = 0, b = 0;
+        for (int i = 0; i < cnt.length; ++i) {
+            char c = (char) (i + 'a');
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                a = Math.max(a, cnt[i]);
+            } else {
+                b = Math.max(b, cnt[i]);
+            }
+        }
+        return a + b;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxFreqSum(string s) {
+        int cnt[26]{};
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
+        int a = 0, b = 0;
+        for (int i = 0; i < 26; ++i) {
+            char c = 'a' + i;
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                a = max(a, cnt[i]);
+            } else {
+                b = max(b, cnt[i]);
+            }
+        }
+        return a + b;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxFreqSum(s string) int {
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	a, b := 0, 0
+	for i := range cnt {
+		c := byte(i + 'a')
+		if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' {
+			a = max(a, cnt[i])
+		} else {
+			b = max(b, cnt[i])
+		}
+	}
+	return a + b
+}
+```
 
+#### TypeScript
+
+```ts
+function maxFreqSum(s: string): number {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        ++cnt[c.charCodeAt(0) - 97];
+    }
+    let [a, b] = [0, 0];
+    for (let i = 0; i < 26; ++i) {
+        const c = String.fromCharCode(i + 97);
+        if ('aeiou'.includes(c)) {
+            a = Math.max(a, cnt[i]);
+        } else {
+            b = Math.max(b, cnt[i]);
+        }
+    }
+    return a + b;
+}
 ```
 
 <!-- tabs:end -->
