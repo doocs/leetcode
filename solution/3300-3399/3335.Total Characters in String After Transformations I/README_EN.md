@@ -107,6 +107,7 @@ tags:
 <!-- description:end -->
 
 ## Solutions
+
 To solve this problem efficiently, we cannot simulate every transformation by building the actual string (as the length may grow exponentially). Instead, we track the length of each character's transformation result using dynamic programming.
 
 💡 Idea:
@@ -128,6 +129,7 @@ To solve this problem efficiently, we cannot simulate every transformation by bu
     For each transformation step i from 1 to t, compute the length for each character.
 
     For the final result, sum dp[t][s.charAt(i)] for all characters in s.
+
 <!-- solution:start -->
 
 ### Solution 1
@@ -170,7 +172,7 @@ class Solution:
 class Solution {
 
      private static final int MOD = 1_000_000_007;
-     
+
     public int lengthAfterTransformations(String s, int t) {
          int[][] dp = new int[t + 1][26]; // dp[i][c] = length of result string after i transformations of char c
 
