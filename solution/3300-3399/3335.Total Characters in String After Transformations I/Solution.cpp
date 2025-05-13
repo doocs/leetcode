@@ -3,7 +3,7 @@ public:
     int lengthAfterTransformations(string s, int t) {
         const int mod = 1e9 + 7;
         vector<vector<int>> f(t + 1, vector<int>(26, 0));
-        
+
         for (char c : s) {
             f[0][c - 'a']++;
         }
