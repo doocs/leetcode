@@ -120,7 +120,14 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+Solution 1: Fast Matrix Exponentiation to Accelerate Recurrence
+We define $f[i][j]$ as the number of times the $j$-th letter appears in the alphabet after $i$ transformations. Initially, $f[0][j]$ corresponds to the frequency of the $j$-th letter in the input string $s$.
+
+Since the frequency of each letter after a transformation affects the next transformation, and the total number of transformations $t$ can be large, we can accelerate this recurrence process using fast matrix exponentiation.
+
+Note that the result can be very large, so we take modulo $10^9 + 7$.
+
+The time complexity of this approach is $O(n + \log t \times |\Sigma|^3)$, where $n$ is the length of the string and $|\Sigma|$ is the size of the alphabet (in this case, 26). The space complexity is $O(|\Sigma|^2)$, which is the size of the matrix used for matrix multiplication.
 
 <!-- tabs:start -->
 
@@ -248,13 +255,195 @@ class Solution {
 #### C++
 
 ```cpp
+class Solution {
+public:
+    static constexpr int MOD = 1e9 + 7;
+    static constexpr int M = 26;
 
+    using Matrix = vector<vector<int>>;
+
+    Matrix matmul(const Matrix& a, const Matrix& b) {
+        int n = a.size(), p = b.size(), q = b[0].size();
+        Matrix res(n, vector<int>(q, 0));
+        for (int i = 0; i < n; ++i) {
+            for (int k = 0; k < p; ++k) {
+                if (a[i][k]) {
+                    for (int j = 0; j < q; ++j) {
+                        res[i][j] = (res[i][j] + 1LL * a[i][k] * b[k][j] % MOD) % MOD;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    Matrix matpow(Matrix mat, int power) {
+        Matrix res(M, vector<int>(M, 0));
+        for (int i = 0; i < M; ++i) res[i][i] = 1;
+        while (power) {
+            if (power % 2) res = matmul(res, mat);
+            mat = matmul(mat, mat);
+            power /= 2;
+        }
+        return res;
+    }
+
+    int lengthAfterTransformations(string s, int t, vector<int>& nums) {
+        vector<int> cnt(M, 0);
+        for (char c : s) {
+            cnt[c - 'a']++;
+        }
+
+        Matrix matrix(M, vector<int>(M, 0));
+        for (int i = 0; i < M; ++i) {
+            for (int j = 1; j <= nums[i]; ++j) {
+                matrix[i][(i + j) % M] = 1;
+            }
+        }
+
+        Matrix cntMat(1, vector<int>(M));
+        for (int i = 0; i < M; ++i) cntMat[0][i] = cnt[i];
+
+        Matrix factor = matpow(matrix, t);
+        Matrix result = matmul(cntMat, factor);
+
+        int ans = 0;
+        for (int x : result[0]) {
+            ans = (ans + x) % MOD;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func lengthAfterTransformations(s string, t int, nums []int) int {
+	const MOD = 1e9 + 7
+	const M = 26
 
+	cnt := make([]int, M)
+	for _, c := range s {
+		cnt[int(c-'a')]++
+	}
+
+	matrix := make([][]int, M)
+	for i := 0; i < M; i++ {
+		matrix[i] = make([]int, M)
+		for j := 1; j <= nums[i]; j++ {
+			matrix[i][(i+j)%M] = 1
+		}
+	}
+
+	matmul := func(a, b [][]int) [][]int {
+		n, p, q := len(a), len(b), len(b[0])
+		res := make([][]int, n)
+		for i := 0; i < n; i++ {
+			res[i] = make([]int, q)
+			for k := 0; k < p; k++ {
+				if a[i][k] != 0 {
+					for j := 0; j < q; j++ {
+						res[i][j] = (res[i][j] + a[i][k]*b[k][j]%MOD) % MOD
+					}
+				}
+			}
+		}
+		return res
+	}
+
+	matpow := func(mat [][]int, power int) [][]int {
+		res := make([][]int, M)
+		for i := 0; i < M; i++ {
+			res[i] = make([]int, M)
+			res[i][i] = 1
+		}
+		for power > 0 {
+			if power%2 == 1 {
+				res = matmul(res, mat)
+			}
+			mat = matmul(mat, mat)
+			power /= 2
+		}
+		return res
+	}
+
+	cntMat := [][]int{make([]int, M)}
+	copy(cntMat[0], cnt)
+
+	factor := matpow(matrix, t)
+	result := matmul(cntMat, factor)
+
+	ans := 0
+	for _, v := range result[0] {
+		ans = (ans + v) % MOD
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function lengthAfterTransformations(s: string, t: number, nums: number[]): number {
+    const MOD = BigInt(1e9 + 7);
+    const M = 26;
+
+    const cnt: number[] = Array(M).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+
+    const matrix: number[][] = Array.from({ length: M }, () => Array(M).fill(0));
+    for (let i = 0; i < M; i++) {
+        for (let j = 1; j <= nums[i]; j++) {
+            matrix[i][(i + j) % M] = 1;
+        }
+    }
+
+    const matmul = (a: number[][], b: number[][]): number[][] => {
+        const n = a.length,
+            p = b.length,
+            q = b[0].length;
+        const res: number[][] = Array.from({ length: n }, () => Array(q).fill(0));
+        for (let i = 0; i < n; i++) {
+            for (let k = 0; k < p; k++) {
+                const aik = BigInt(a[i][k]);
+                if (aik !== BigInt(0)) {
+                    for (let j = 0; j < q; j++) {
+                        const product = aik * BigInt(b[k][j]);
+                        const sum = BigInt(res[i][j]) + product;
+                        res[i][j] = Number(sum % MOD);
+                    }
+                }
+            }
+        }
+        return res;
+    };
+
+    const matpow = (mat: number[][], power: number): number[][] => {
+        let res: number[][] = Array.from({ length: M }, (_, i) =>
+            Array.from({ length: M }, (_, j) => (i === j ? 1 : 0)),
+        );
+        while (power > 0) {
+            if (power % 2 === 1) res = matmul(res, mat);
+            mat = matmul(mat, mat);
+            power = Math.floor(power / 2);
+        }
+        return res;
+    };
+
+    const cntMat: number[][] = [cnt.slice()];
+    const factor = matpow(matrix, t);
+    const result = matmul(cntMat, factor);
+
+    let ans = 0n;
+    for (const v of result[0]) {
+        ans = (ans + BigInt(v)) % MOD;
+    }
+    return Number(ans);
+}
 ```
 
 <!-- tabs:end -->
