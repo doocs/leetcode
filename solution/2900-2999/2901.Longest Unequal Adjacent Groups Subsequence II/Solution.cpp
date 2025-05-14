@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+    vector<string> getWordsInLongestSubsequence(vector<string>& words, vector<int>& groups) {
         auto check = [](string& s, string& t) {
             if (s.size() != t.size()) {
                 return false;
@@ -11,6 +11,7 @@ public:
             }
             return cnt == 1;
         };
+        int n = groups.size();
         vector<int> f(n, 1);
         vector<int> g(n, -1);
         int mx = 1;

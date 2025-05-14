@@ -1,5 +1,6 @@
 class Solution {
-    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+    public List<String> getWordsInLongestSubsequence(String[] words, int[] groups) {
+        int n = groups.length;
         int[] f = new int[n];
         int[] g = new int[n];
         Arrays.fill(f, 1);
