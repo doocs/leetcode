@@ -87,9 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def getWordsInLongestSubsequence(
-        self, n: int, words: List[str], groups: List[int]
-    ) -> List[str]:
+    def getLongestSubsequence(self, words: List[str], groups: List[int]) -> List[str]:
         return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
 
@@ -97,7 +95,8 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+    public List<String> getLongestSubsequence(String[] words, int[] groups) {
+        int n = groups.length;
         List<String> ans = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
             if (i == 0 || groups[i] != groups[i - 1]) {
@@ -114,7 +113,8 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+    vector<string> getLongestSubsequence(vector<string>& words, vector<int>& groups) {
+        int n = groups.size();
         vector<string> ans;
         for (int i = 0; i < n; ++i) {
             if (i == 0 || groups[i] != groups[i - 1]) {
@@ -129,7 +129,7 @@ public:
 #### Go
 
 ```go
-func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
+func getLongestSubsequence(words []string, groups []int) (ans []string) {
 	for i, x := range groups {
 		if i == 0 || x != groups[i-1] {
 			ans = append(ans, words[i])
@@ -142,9 +142,9 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []st
 #### TypeScript
 
 ```ts
-function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
+function getLongestSubsequence(words: string[], groups: number[]): string[] {
     const ans: string[] = [];
-    for (let i = 0; i < n; ++i) {
+    for (let i = 0; i < groups.length; ++i) {
         if (i === 0 || groups[i] !== groups[i - 1]) {
             ans.push(words[i]);
         }
@@ -157,19 +157,13 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
 
 ```rust
 impl Solution {
-    pub fn get_words_in_longest_subsequence(
-        n: i32,
-        words: Vec<String>,
-        groups: Vec<i32>,
-    ) -> Vec<String> {
-        let mut ans = vec![];
-
-        for i in 0..n {
-            if i == 0 || groups[i as usize] != groups[(i - 1) as usize] {
-                ans.push(words[i as usize].clone());
+    pub fn get_longest_subsequence(words: Vec<String>, groups: Vec<i32>) -> Vec<String> {
+        let mut ans = Vec::new();
+        for (i, &g) in groups.iter().enumerate() {
+            if i == 0 || g != groups[i - 1] {
+                ans.push(words[i].clone());
             }
         }
-
         ans
     }
 }

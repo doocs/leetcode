@@ -1,4 +1,4 @@
-func getWordsInLongestSubsequence(n int, words []string, groups []int) []string {
+func getWordsInLongestSubsequence(words []string, groups []int) []string {
 	check := func(s, t string) bool {
 		if len(s) != len(t) {
 			return false
@@ -11,6 +11,7 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 		}
 		return cnt == 1
 	}
+	n := len(groups)
 	f := make([]int, n)
 	g := make([]int, n)
 	for i := range f {
@@ -38,8 +39,6 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 			break
 		}
 	}
-	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
-		ans[i], ans[j] = ans[j], ans[i]
-	}
+	slices.Reverse(ans)
 	return ans
 }
