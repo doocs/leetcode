@@ -68,7 +68,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Prefix Sum + Dynamic Programming
+
+We can use a hash table $d$ to record the most recent position where each prefix sum appears, with the initial value $d[0]=0$.
+
+Define $f[i]$ as the minimum length of a subarray with sum equal to $target$ among the first $i$ elements. Initially, $f[0]=\infty$.
+
+Iterate through the array $\textit{arr}$. For the current position $i$, calculate the prefix sum $s$. If $s - \textit{target}$ exists in the hash table, let $j = d[s - \textit{target}]$, then $f[i] = \min(f[i], i - j)$, and the answer is $ans = \min(ans, f[j] + i - j)$. Continue to the next position.
+
+Finally, if the answer is greater than the array length, return $-1$; otherwise, return the answer.
+
+The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -173,6 +183,33 @@ func minSumOfLengths(arr []int, target int) int {
 		return -1
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minSumOfLengths(arr: number[], target: number): number {
+    const d = new Map<number, number>();
+    d.set(0, 0);
+    let s = 0;
+    const n = arr.length;
+    const f: number[] = Array(n + 1);
+    const inf = 1 << 30;
+    f[0] = inf;
+    let ans = inf;
+    for (let i = 1; i <= n; ++i) {
+        const v = arr[i - 1];
+        s += v;
+        f[i] = f[i - 1];
+        if (d.has(s - target)) {
+            const j = d.get(s - target)!;
+            f[i] = Math.min(f[i], i - j);
+            ans = Math.min(ans, f[j] + i - j);
+        }
+        d.set(s, i);
+    }
+    return ans > n ? -1 : ans;
 }
 ```
 

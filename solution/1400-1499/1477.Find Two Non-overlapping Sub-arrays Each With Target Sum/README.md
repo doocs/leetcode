@@ -85,9 +85,9 @@ tags:
 
 我们可以使用哈希表 $d$ 记录前缀和最近一次出现的位置，初始时 $d[0]=0$。
 
-定义 $f[i]$ 表示前 $i$ 个元素中，长度和为 $target$ 的最短子数组的长度。初始时 $f[0]=inf$。
+定义 $f[i]$ 表示前 $i$ 个元素中，长度和为 $target$ 的最短子数组的长度。初始时 $f[0]= \infty$。
 
-遍历数组 `arr`，对于当前位置 $i$，计算前缀和 $s$，如果 $s-target$ 在哈希表中，记 $j=d[s-target]$，则 $f[i]=min(f[i],i-j)$，答案为 $ans=min(ans,f[j]+i-j)$。继续遍历下个位置。
+遍历数组 $\textit{arr}$，对于当前位置 $i$，计算前缀和 $s$，如果 $s - \textit{target}$ 在哈希表中，记 $j=d[s - \textit{target}]$，则 $f[i]=\min(f[i], i - j)$，答案为 $ans=\min(ans, f[j] + i - j)$。继续遍历下个位置。
 
 最后，如果答案大于数组长度，则返回 $-1$，否则返回答案。
 
@@ -196,6 +196,33 @@ func minSumOfLengths(arr []int, target int) int {
 		return -1
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minSumOfLengths(arr: number[], target: number): number {
+    const d = new Map<number, number>();
+    d.set(0, 0);
+    let s = 0;
+    const n = arr.length;
+    const f: number[] = Array(n + 1);
+    const inf = 1 << 30;
+    f[0] = inf;
+    let ans = inf;
+    for (let i = 1; i <= n; ++i) {
+        const v = arr[i - 1];
+        s += v;
+        f[i] = f[i - 1];
+        if (d.has(s - target)) {
+            const j = d.get(s - target)!;
+            f[i] = Math.min(f[i], i - j);
+            ans = Math.min(ans, f[j] + i - j);
+        }
+        d.set(s, i);
+    }
+    return ans > n ? -1 : ans;
 }
 ```
 
