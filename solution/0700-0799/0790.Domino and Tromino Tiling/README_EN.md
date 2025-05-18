@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> n = 3
 <strong>Output:</strong> 5
-<strong>Explanation:</strong> The five different ways are show above.
+<strong>Explanation:</strong> The five different ways are shown above.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

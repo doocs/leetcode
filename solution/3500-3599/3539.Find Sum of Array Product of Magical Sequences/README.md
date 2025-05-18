@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README.md
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 状态压缩
+    - 组合数学
 ---
 
 <!-- problem:start -->

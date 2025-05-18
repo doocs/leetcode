@@ -18,39 +18,47 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个下标从 <strong>0</strong>&nbsp;开始、长度为 <code>n</code>&nbsp;的数组&nbsp;<code>nums</code>&nbsp;。一开始，所有元素都是 <strong>未染色</strong>&nbsp;（值为 <code>0</code>&nbsp;）的。</p>
+<p>给定一个整数&nbsp;<code>n</code>&nbsp;表示一个长度为&nbsp;<code>n</code> 的数组&nbsp; <code>colors</code>，初始所有元素均为 0 ，表示是 <strong>未染色 </strong>的。同时给定一个二维整数数组&nbsp;<code>queries</code>，其中&nbsp;<code>queries[i] = [index<sub>i</sub>, color<sub>i</sub>]</code>。对于第&nbsp;<code>i</code> 个&nbsp;<strong>查询</strong>：</p>
 
-<p>给你一个二维整数数组&nbsp;<code>queries</code>&nbsp;，其中&nbsp;<code>queries[i] = [index<sub>i</sub>, color<sub>i</sub>]</code>&nbsp;。</p>
+<ul>
+	<li>将&nbsp;<code>colors[index<sub>i</sub>]</code>&nbsp;染色为 <code>color<sub>i</sub></code>。</li>
+	<li>统计&nbsp;<code>colors</code>&nbsp;中颜色相同的相邻对的数量（无论 <code>color<sub>i</sub></code>）。</li>
+</ul>
 
-<p>对于每个操作，你需要将数组 <code>nums</code>&nbsp;中下标为&nbsp;<code>index<sub>i</sub></code>&nbsp;的格子染色为&nbsp;<code>color<sub>i</sub></code>&nbsp;。</p>
-
-<p>请你返回一个长度与 <code>queries</code>&nbsp;相等的数组<em>&nbsp;</em><code>answer</code><em>&nbsp;</em>，其中<em>&nbsp;</em><code>answer[i]</code>是前 <code>i</code>&nbsp;个操作&nbsp;<strong>之后</strong>&nbsp;，相邻元素颜色相同的数目。</p>
-
-<p>更正式的，<code>answer[i]</code>&nbsp;是执行完前 <code>i</code>&nbsp;个操作后，<code>0 &lt;= j &lt; n - 1</code>&nbsp;的下标 <code>j</code>&nbsp;中，满足&nbsp;<code>nums[j] == nums[j + 1]</code> 且&nbsp;<code>nums[j] != 0</code>&nbsp;的数目。</p>
+<p>请你返回一个长度与 <code>queries</code>&nbsp;相等的数组<em>&nbsp;</em><code>answer</code><em>&nbsp;</em>，其中<em>&nbsp;</em><code>answer[i]</code>是前 <code>i</code>&nbsp;个操作的答案。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>n = 4, queries = [[0,2],[1,2],[3,1],[1,1],[2,1]]
-<b>输出：</b>[0,1,1,0,2]
-<b>解释：</b>一开始数组 nums = [0,0,0,0] ，0 表示数组中还没染色的元素。
-- 第 1 个操作后，nums = [2,0,0,0] 。相邻元素颜色相同的数目为 0 。
-- 第 2 个操作后，nums = [2,2,0,0] 。相邻元素颜色相同的数目为 1 。
-- 第 3 个操作后，nums = [2,2,0,1] 。相邻元素颜色相同的数目为 1 。
-- 第 4 个操作后，nums = [2,1,0,1] 。相邻元素颜色相同的数目为 0 。
-- 第 5 个操作后，nums = [2,1,1,1] 。相邻元素颜色相同的数目为 2 。
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 4, queries = [[0,2],[1,2],[3,1],[1,1],[2,1]]</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>[0,1,1,0,2]</span></p>
 
-<pre>
-<b>输入：</b>n = 1, queries = [[0,100000]]
-<b>输出：</b>[0]
-<b>解释：</b>一开始数组 nums = [0] ，0 表示数组中还没染色的元素。
-- 第 1 个操作后，nums = [100000] 。相邻元素颜色相同的数目为 0 。
-</pre>
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>一开始 colors = [0,0,0,0]，其中 0 表示数组中未染色的元素。</li>
+	<li>在第 1 次查询后&nbsp;colors = [2,0,0,0]。颜色相同的相邻对的数量是 0。</li>
+	<li>在第 2&nbsp;次查询后 colors = [2,2,0,0]。颜色相同的相邻对的数量是 1。</li>
+	<li>在第 3&nbsp;次查询后 colors = [2,2,0,1]。颜色相同的相邻对的数量是 1。</li>
+	<li>在第 4&nbsp;次查询后 colors = [2,1,0,1]。颜色相同的相邻对的数量是 0。</li>
+	<li>在第 5&nbsp;次查询后 colors = [2,1,1,1]。颜色相同的相邻对的数量是 2。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 1, queries = [[0,100000]]</span></p>
+
+<p><span class="example-io"><b>输出：</b>[0]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>在第一次查询后&nbsp;colors = [100000]。颜色相同的相邻对的数量是 0。</p>
+</div>
 
 <p>&nbsp;</p>
 

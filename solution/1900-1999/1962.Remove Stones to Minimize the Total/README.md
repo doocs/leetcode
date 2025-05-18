@@ -23,14 +23,14 @@ tags:
 <p>给你一个整数数组 <code>piles</code> ，数组 <strong>下标从 0 开始</strong> ，其中 <code>piles[i]</code> 表示第 <code>i</code> 堆石子中的石子数量。另给你一个整数 <code>k</code> ，请你执行下述操作 <strong>恰好</strong> <code>k</code> 次：</p>
 
 <ul>
-	<li>选出任一石子堆 <code>piles[i]</code> ，并从中 <strong>移除</strong> <code>floor(piles[i] / 2)</code> 颗石子。</li>
+	<li>选出任一石子堆 <code>piles[i]</code> ，并从中 <strong>移除</strong> <code>ceil(piles[i] / 2)</code> 颗石子。</li>
 </ul>
 
 <p><strong>注意：</strong>你可以对 <strong>同一堆</strong> 石子多次执行此操作。</p>
 
 <p>返回执行 <code>k</code> 次操作后，剩下石子的 <strong>最小</strong> 总数。</p>
 
-<p><code>floor(x)</code> 为 <strong>小于</strong> 或 <strong>等于</strong> <code>x</code> 的 <strong>最大</strong> 整数。（即，对 <code>x</code> 向下取整）。</p>
+<p><code>ceil(x)</code> 为 <strong>大于</strong> 或 <strong>等于</strong> <code>x</code> 的 <strong>最小</strong> 整数。（即，对 <code>x</code> 向上取整）。</p>
 
 <p>&nbsp;</p>
 

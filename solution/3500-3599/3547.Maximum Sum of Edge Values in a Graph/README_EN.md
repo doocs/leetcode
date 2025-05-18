@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md
+tags:
+    - Greedy
+    - Depth-First Search
+    - Graph
+    - Sorting
 ---
 
 <!-- problem:start -->
@@ -14,7 +19,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3547.Ma
 
 <!-- description:start -->
 
-<p>You are given an <strong>und</strong><strong>irected</strong> graph of <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>. Each node is connected to <strong>at most</strong> 2 other nodes.</p>
+<p>You are given an <strong>undirected connected</strong> graph of <code>n</code> nodes, numbered from <code>0</code> to <code>n - 1</code>. Each node is connected to <strong>at most</strong> 2 other nodes.</p>
 
 <p>The graph consists of <code>m</code> edges, represented by a 2D array <code>edges</code>, where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>.</p>
 
@@ -26,15 +31,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3547.Ma
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/images/graphproblemex1drawio.png" style="width: 400px; height: 157px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/images/screenshot-from-2025-05-13-01-27-52.png" style="width: 411px; height: 123px;" />
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 7, edges = [[0,1],[1,2],[2,0],[3,4],[4,5],[5,6]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">n = 4, edges =&nbsp;</span>[[0,1],[1,2],[2,3]]</p>
 
-<p><strong>Output:</strong> <span class="example-io">130</span></p>
+<p><strong>Output:</strong> 23</p>
 
 <p><strong>Explanation:</strong></p>
 
-<p>The diagram above illustrates an optimal assignment of values to nodes. The sum of the values of the edges is: <code>(7 * 6) + (7 * 5) + (6 * 5) + (1 * 3) + (3 * 4) + (4 * 2) = 130</code>.</p>
+<p>The diagram above illustrates an optimal assignment of values to nodes. The sum of the values of the edges is: <code>(1 * 3) + (3 * 4) + (4 * 2) = 23</code>.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -60,6 +65,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3547.Ma
 	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; n</code></li>
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>There are no repeated edges.</li>
+	<li>The graph is connected.</li>
 	<li>Each node is connected to at most 2 other nodes.</li>
 </ul>
 

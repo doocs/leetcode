@@ -21,11 +21,11 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a string array <code>words</code> and a <strong>binary</strong> array <code>groups</code> both of length <code>n</code>, where <code>words[i]</code> is associated with <code>groups[i]</code>.</p>
+<p>You are given a string array <code>words</code> and a <strong>binary</strong> array <code>groups</code> both of length <code>n</code>.</p>
 
-<p>Your task is to select the <strong>longest alternating</strong> <span data-keyword="subsequence-array">subsequence</span> from <code>words</code>. A subsequence of <code>words</code> is alternating if for any two consecutive strings in the sequence, their corresponding elements in the binary array <code>groups</code> differ. Essentially, you are to choose strings such that adjacent elements have non-matching corresponding bits in the <code>groups</code> array.</p>
+<p>A <span data-keyword="subsequence-array">subsequence</span> of <code>words</code> is <strong>alternating</strong> if for any two <em>consecutive</em> strings in the sequence, their corresponding elements at the <em>same</em> indices in <code>groups</code> are <strong>different</strong> (that is, there <em>cannot</em> be consecutive 0 or 1).</p>
 
-<p>Formally, you need to find the longest subsequence of an array of indices <code>[0, 1, ..., n - 1]</code> denoted as <code>[i<sub>0</sub>, i<sub>1</sub>, ..., i<sub>k-1</sub>]</code>, such that <code>groups[i<sub>j</sub>] != groups[i<sub>j+1</sub>]</code> for each <code>0 &lt;= j &lt; k - 1</code> and then find the words corresponding to these indices.</p>
+<p>Your task is to select the <strong>longest alternating</strong> subsequence from <code>words</code>.</p>
 
 <p>Return <em>the selected subsequence. If there are multiple answers, return <strong>any</strong> of them.</em></p>
 

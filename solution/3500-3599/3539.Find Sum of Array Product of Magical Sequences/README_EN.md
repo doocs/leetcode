@@ -2,6 +2,13 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Dynamic Programming
+    - Bitmask
+    - Combinatorics
 ---
 
 <!-- problem:start -->

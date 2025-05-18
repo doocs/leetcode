@@ -2079,7 +2079,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2068  |  [Check Whether Two Strings are Almost Equivalent](/solution/2000-2099/2068.Check%20Whether%20Two%20Strings%20are%20Almost%20Equivalent/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Biweekly Contest 65  |
 |  2069  |  [Walking Robot Simulation II](/solution/2000-2099/2069.Walking%20Robot%20Simulation%20II/README_EN.md)  |  `Design`,`Simulation`  |  Medium  |  Biweekly Contest 65  |
 |  2070  |  [Most Beautiful Item for Each Query](/solution/2000-2099/2070.Most%20Beautiful%20Item%20for%20Each%20Query/README_EN.md)  |  `Array`,`Binary Search`,`Sorting`  |  Medium  |  Biweekly Contest 65  |
-|  2071  |  [Maximum Number of Tasks You Can Assign](/solution/2000-2099/2071.Maximum%20Number%20of%20Tasks%20You%20Can%20Assign/README_EN.md)  |  `Greedy`,`Queue`,`Array`,`Binary Search`,`Sorting`,`Monotonic Queue`  |  Hard  |  Biweekly Contest 65  |
+|  2071  |  [Maximum Number of Tasks You Can Assign](/solution/2000-2099/2071.Maximum%20Number%20of%20Tasks%20You%20Can%20Assign/README_EN.md)  |  `Greedy`,`Queue`,`Array`,`Two Pointers`,`Binary Search`,`Sorting`,`Monotonic Queue`  |  Hard  |  Biweekly Contest 65  |
 |  2072  |  [The Winner University](/solution/2000-2099/2072.The%20Winner%20University/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  2073  |  [Time Needed to Buy Tickets](/solution/2000-2099/2073.Time%20Needed%20to%20Buy%20Tickets/README_EN.md)  |  `Queue`,`Array`,`Simulation`  |  Easy  |  Weekly Contest 267  |
 |  2074  |  [Reverse Nodes in Even Length Groups](/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/README_EN.md)  |  `Linked List`  |  Medium  |  Weekly Contest 267  |
@@ -3540,23 +3540,28 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3529  |  [Count Cells in Overlapping Horizontal and Vertical Substrings](/solution/3500-3599/3529.Count%20Cells%20in%20Overlapping%20Horizontal%20and%20Vertical%20Substrings/README_EN.md)  |  `Array`,`String`,`Matrix`,`String Matching`,`Hash Function`,`Rolling Hash`  |  Medium  |  Biweekly Contest 155  |
 |  3530  |  [Maximum Profit from Valid Topological Order in DAG](/solution/3500-3599/3530.Maximum%20Profit%20from%20Valid%20Topological%20Order%20in%20DAG/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Topological Sort`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Biweekly Contest 155  |
 |  3531  |  [Count Covered Buildings](/solution/3500-3599/3531.Count%20Covered%20Buildings/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Medium  |  Weekly Contest 447  |
-|  3532  |  [Path Existence Queries in a Graph I](/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README_EN.md)  |  `Union Find`,`Graph`,`Array`,`Binary Search`  |  Medium  |  Weekly Contest 447  |
+|  3532  |  [Path Existence Queries in a Graph I](/solution/3500-3599/3532.Path%20Existence%20Queries%20in%20a%20Graph%20I/README_EN.md)  |  `Union Find`,`Graph`,`Array`,`Hash Table`,`Binary Search`  |  Medium  |  Weekly Contest 447  |
 |  3533  |  [Concatenated Divisibility](/solution/3500-3599/3533.Concatenated%20Divisibility/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Weekly Contest 447  |
 |  3534  |  [Path Existence Queries in a Graph II](/solution/3500-3599/3534.Path%20Existence%20Queries%20in%20a%20Graph%20II/README_EN.md)  |  `Greedy`,`Graph`,`Array`,`Binary Search`,`Sorting`  |  Hard  |  Weekly Contest 447  |
-|  3535  |  [Unit Conversion II](/solution/3500-3599/3535.Unit%20Conversion%20II/README_EN.md)  |    |  Medium  |  🔒  |
-|  3536  |  [Maximum Product of Two Digits](/solution/3500-3599/3536.Maximum%20Product%20of%20Two%20Digits/README_EN.md)  |    |  Easy  |  Weekly Contest 448  |
-|  3537  |  [Fill a Special Grid](/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 448  |
-|  3538  |  [Merge Operations for Minimum Travel Time](/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README_EN.md)  |    |  Hard  |  Weekly Contest 448  |
-|  3539  |  [Find Sum of Array Product of Magical Sequences](/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README_EN.md)  |    |  Hard  |  Weekly Contest 448  |
-|  3540  |  [Minimum Time to Visit All Houses](/solution/3500-3599/3540.Minimum%20Time%20to%20Visit%20All%20Houses/README_EN.md)  |    |  Medium  |  🔒  |
-|  3541  |  [Find Most Frequent Vowel and Consonant](/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README_EN.md)  |    |  Easy  |  Biweekly Contest 156  |
-|  3542  |  [Minimum Operations to Convert All Elements to Zero](/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README_EN.md)  |    |  Medium  |  Biweekly Contest 156  |
-|  3543  |  [Maximum Weighted K-Edge Path](/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README_EN.md)  |    |  Medium  |  Biweekly Contest 156  |
-|  3544  |  [Subtree Inversion Sum](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README_EN.md)  |    |  Hard  |  Biweekly Contest 156  |
-|  3545  |  [Minimum Deletions for At Most K Distinct Characters](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README_EN.md)  |    |  Easy  |  Weekly Contest 449  |
-|  3546  |  [Equal Sum Grid Partition I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 449  |
-|  3547  |  [Maximum Sum of Edge Values in a Graph](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md)  |    |  Hard  |  Weekly Contest 449  |
-|  3548  |  [Equal Sum Grid Partition II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 449  |
+|  3535  |  [Unit Conversion II](/solution/3500-3599/3535.Unit%20Conversion%20II/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Array`,`Math`  |  Medium  |  🔒  |
+|  3536  |  [Maximum Product of Two Digits](/solution/3500-3599/3536.Maximum%20Product%20of%20Two%20Digits/README_EN.md)  |  `Math`,`Sorting`  |  Easy  |  Weekly Contest 448  |
+|  3537  |  [Fill a Special Grid](/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README_EN.md)  |  `Array`,`Divide and Conquer`,`Matrix`  |  Medium  |  Weekly Contest 448  |
+|  3538  |  [Merge Operations for Minimum Travel Time](/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README_EN.md)  |  `Array`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |  Weekly Contest 448  |
+|  3539  |  [Find Sum of Array Product of Magical Sequences](/solution/3500-3599/3539.Find%20Sum%20of%20Array%20Product%20of%20Magical%20Sequences/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`,`Dynamic Programming`,`Bitmask`,`Combinatorics`  |  Hard  |  Weekly Contest 448  |
+|  3540  |  [Minimum Time to Visit All Houses](/solution/3500-3599/3540.Minimum%20Time%20to%20Visit%20All%20Houses/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |  🔒  |
+|  3541  |  [Find Most Frequent Vowel and Consonant](/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Biweekly Contest 156  |
+|  3542  |  [Minimum Operations to Convert All Elements to Zero](/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Hash Table`,`Monotonic Stack`  |  Medium  |  Biweekly Contest 156  |
+|  3543  |  [Maximum Weighted K-Edge Path](/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README_EN.md)  |  `Graph`,`Hash Table`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 156  |
+|  3544  |  [Subtree Inversion Sum](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 156  |
+|  3545  |  [Minimum Deletions for At Most K Distinct Characters](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Counting`,`Sorting`  |  Easy  |  Weekly Contest 449  |
+|  3546  |  [Equal Sum Grid Partition I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md)  |  `Array`,`Enumeration`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 449  |
+|  3547  |  [Maximum Sum of Edge Values in a Graph](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md)  |  `Greedy`,`Depth-First Search`,`Graph`,`Sorting`  |  Hard  |  Weekly Contest 449  |
+|  3548  |  [Equal Sum Grid Partition II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`,`Matrix`,`Prefix Sum`  |  Hard  |  Weekly Contest 449  |
+|  3549  |  [Multiply Two Polynomials](/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README_EN.md)  |    |  Hard  |  🔒  |
+|  3550  |  [Smallest Index With Digit Sum Equal to Index](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README_EN.md)  |    |  Easy  |  Weekly Contest 450  |
+|  3551  |  [Minimum Swaps to Sort by Digit Sum](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 450  |
+|  3552  |  [Grid Teleportation Traversal](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README_EN.md)  |    |  Medium  |  Weekly Contest 450  |
+|  3553  |  [Minimum Weighted Subgraph With the Required Paths II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 450  |
 
 ## Copyright
 

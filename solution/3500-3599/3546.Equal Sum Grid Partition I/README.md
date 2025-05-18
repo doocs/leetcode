@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README.md
+tags:
+    - 数组
+    - 枚举
+    - 矩阵
+    - 前缀和
 ---
 
 <!-- problem:start -->

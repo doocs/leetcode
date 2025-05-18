@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 450 场周赛(2025-05-18 10:30, 90 分钟) 参赛人数 2522
+
+- [3550. 数位和等于下标的最小下标](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README.md)
+- [3551. 数位和排序需要的最小交换次数](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README.md)
+- [3552. 网格传送门旅游](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README.md)
+- [3553. 包含给定路径的最小带权子树 II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README.md)
+
 #### 第 449 场周赛(2025-05-11 10:30, 90 分钟) 参赛人数 2220
 
 - [3545. 不同字符数量最多为 K 时的最少删除数](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README.md)
@@ -126,7 +133,7 @@ comments: true
 
 #### 第 440 场周赛(2025-03-09 10:30, 90 分钟) 参赛人数 3056
 
-- [3477. 将水果放入篮子 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)
+- [3477. 水果成篮 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)
 - [3478. 选出和最大的 K 个元素](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README.md)
 - [3479. 将水果装入篮子 III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md)
 - [3480. 删除一个冲突对后最大子数组数目](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README.md)
