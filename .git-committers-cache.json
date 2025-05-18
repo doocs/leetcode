@@ -1,5 +1,5 @@
 {
-  "cache_date": 1747446984,
+  "cache_date": 1747569145,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -3292,7 +3292,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/99040799?v=4"
         }
       ],
-      "retrieved": 1745668862
+      "retrieved": 1747567730
     },
     "solution/1100-1199/1161.Maximum Level Sum of a Binary Tree/README.md": {
       "authors": [
@@ -5201,7 +5201,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745668905
+      "retrieved": 1747567749
     },
     "solution/1200-1299/1258.Synonymous Sentences/README.md": {
       "authors": [
@@ -18800,19 +18800,19 @@
     "solution/1900-1999/1962.Remove Stones to Minimize the Total/README.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745669211
+      "retrieved": 1747567888
     },
     "solution/1900-1999/1963.Minimum Number of Swaps to Make the String Balanced/README.md": {
       "authors": [
@@ -20814,7 +20814,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746058528
+      "retrieved": 1747567911
     },
     "solution/2000-2099/2072.The Winner University/README.md": {
       "authors": [
@@ -31577,7 +31577,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669508
+      "retrieved": 1747568029
     },
     "solution/2600-2699/2673.Make Costs of Paths Equal in a Binary Tree/README.md": {
       "authors": [
@@ -35421,7 +35421,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747262532
+      "retrieved": 1747568074
     },
     "solution/2900-2999/2901.Longest Unequal Adjacent Groups Subsequence II/README.md": {
       "authors": [
@@ -35444,7 +35444,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1747262532
+      "retrieved": 1747568075
     },
     "solution/2900-2999/2902.Count of Sub-Multisets With Bounded Sum/README.md": {
       "authors": [
@@ -41987,7 +41987,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746571230
+      "retrieved": 1747568162
     },
     "solution/3300-3399/3342.Find Minimum Time to Reach Last Room II/README.md": {
       "authors": [
@@ -43847,7 +43847,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745974837
+      "retrieved": 1747568186
     },
     "solution/3400-3499/3478.Choose K Elements With Maximum Sum/README.md": {
       "authors": [
@@ -50600,7 +50600,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745669972
+      "retrieved": 1747568258
     },
     "solution/0600-0699/0637.Average of Levels in Binary Tree/README.md": {
       "authors": [
@@ -54207,7 +54207,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670053
+      "retrieved": 1747568296
     },
     "solution/0000-0099/0082.Remove Duplicates from Sorted List II/README.md": {
       "authors": [
@@ -69223,7 +69223,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670422
+      "retrieved": 1747568522
     },
     "solution/1100-1199/1109.Corporate Flight Bookings/README_EN.md": {
       "authors": [
@@ -69309,7 +69309,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670424
+      "retrieved": 1747568523
     },
     "solution/1100-1199/1112.Highest Grade For Each Student/README_EN.md": {
       "authors": [
@@ -69796,7 +69796,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670435
+      "retrieved": 1747568529
     },
     "solution/1100-1199/1139.Largest 1-Bordered Square/README_EN.md": {
       "authors": [
@@ -69813,7 +69813,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670436
+      "retrieved": 1747568529
     },
     "solution/0100-0199/0114.Flatten Binary Tree to Linked List/README_EN.md": {
       "authors": [
@@ -70717,7 +70717,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745670456
+      "retrieved": 1747568538
     },
     "solution/1100-1199/1185.Day of the Week/README_EN.md": {
       "authors": [
@@ -71761,7 +71761,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670480
+      "retrieved": 1747568549
     },
     "solution/1200-1299/1239.Maximum Length of a Concatenated String with Unique Characters/README_EN.md": {
       "authors": [
@@ -72119,7 +72119,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670488
+      "retrieved": 1747568552
     },
     "solution/1200-1299/1257.Smallest Common Region/README_EN.md": {
       "authors": [
@@ -72136,7 +72136,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670488
+      "retrieved": 1747568553
     },
     "solution/1200-1299/1258.Synonymous Sentences/README_EN.md": {
       "authors": [
@@ -72968,7 +72968,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670507
+      "retrieved": 1747568561
     },
     "solution/1300-1399/1302.Deepest Leaves Sum/README_EN.md": {
       "authors": [
@@ -73280,7 +73280,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670514
+      "retrieved": 1747568565
     },
     "solution/1300-1399/1319.Number of Operations to Make Network Connected/README_EN.md": {
       "authors": [
@@ -73411,7 +73411,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670517
+      "retrieved": 1747568566
     },
     "solution/1300-1399/1325.Delete Leaves With a Given Value/README_EN.md": {
       "authors": [
@@ -75161,7 +75161,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670556
+      "retrieved": 1747568583
     },
     "solution/1400-1499/1419.Minimum Number of Frogs Croaking/README_EN.md": {
       "authors": [
@@ -75674,7 +75674,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670569
+      "retrieved": 1747568589
     },
     "solution/1400-1499/1449.Form Largest Integer With Digits That Add up to Target/README_EN.md": {
       "authors": [
@@ -76147,7 +76147,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670578
+      "retrieved": 1747568594
     },
     "solution/1400-1499/1471.The k Strongest Values in an Array/README_EN.md": {
       "authors": [
@@ -76345,7 +76345,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745670583
+      "retrieved": 1747568596
     },
     "solution/1400-1499/1482.Minimum Number of Days to Make m Bouquets/README_EN.md": {
       "authors": [
@@ -76453,7 +76453,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1747446470
+      "retrieved": 1747568597
     },
     "solution/1400-1499/1488.Avoid Flood in The City/README_EN.md": {
       "authors": [
@@ -77108,7 +77108,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670601
+      "retrieved": 1747568604
     },
     "solution/1500-1599/1524.Number of Sub-arrays With Odd Sum/README_EN.md": {
       "authors": [
@@ -77294,7 +77294,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670605
+      "retrieved": 1747568606
     },
     "solution/1500-1599/1535.Find the Winner of an Array Game/README_EN.md": {
       "authors": [
@@ -78966,7 +78966,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670639
+      "retrieved": 1747568622
     },
     "solution/1600-1699/1618.Maximum Font to Fit a Sentence in a Screen/README_EN.md": {
       "authors": [
@@ -78983,7 +78983,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670640
+      "retrieved": 1747568622
     },
     "solution/1600-1699/1619.Mean of Array After Removing Some Elements/README_EN.md": {
       "authors": [
@@ -79319,7 +79319,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670647
+      "retrieved": 1747568626
     },
     "solution/1600-1699/1635.Hopper Company Queries I/README_EN.md": {
       "authors": [
@@ -79633,7 +79633,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670653
+      "retrieved": 1747568629
     },
     "solution/0100-0199/0165.Compare Version Numbers/README_EN.md": {
       "authors": [
@@ -79890,7 +79890,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670658
+      "retrieved": 1747568631
     },
     "solution/1600-1699/1661.Average Time of Process per Machine/README_EN.md": {
       "authors": [
@@ -81318,7 +81318,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670685
+      "retrieved": 1747568644
     },
     "solution/1700-1799/1726.Tuple with Same Product/README_EN.md": {
       "authors": [
@@ -81775,7 +81775,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/91381303?v=4"
         }
       ],
-      "retrieved": 1745670693
+      "retrieved": 1747568648
     },
     "solution/1700-1799/1747.Leetflex Banned Accounts/README_EN.md": {
       "authors": [
@@ -82279,7 +82279,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670703
+      "retrieved": 1747568652
     },
     "solution/1700-1799/1769.Minimum Number of Operations to Move All Balls to Each Box/README_EN.md": {
       "authors": [
@@ -82635,7 +82635,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670711
+      "retrieved": 1747568656
     },
     "solution/1700-1799/1789.Primary Department for Each Employee/README_EN.md": {
       "authors": [
@@ -82943,7 +82943,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670717
+      "retrieved": 1747568660
     },
     "solution/1800-1899/1802.Maximum Value at a Given Index in a Bounded Array/README_EN.md": {
       "authors": [
@@ -82971,7 +82971,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670717
+      "retrieved": 1747568660
     },
     "solution/1800-1899/1804.Implement Trie II (Prefix Tree)/README_EN.md": {
       "authors": [
@@ -83044,7 +83044,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670719
+      "retrieved": 1747568661
     },
     "solution/1800-1899/1809.Ad-Free Sessions/README_EN.md": {
       "authors": [
@@ -83367,7 +83367,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670726
+      "retrieved": 1747568665
     },
     "solution/1800-1899/1826.Faulty Sensor/README_EN.md": {
       "authors": [
@@ -83401,7 +83401,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670727
+      "retrieved": 1747568665
     },
     "solution/1800-1899/1828.Queries on Number of Points Inside a Circle/README_EN.md": {
       "authors": [
@@ -83565,7 +83565,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670731
+      "retrieved": 1747568667
     },
     "solution/1800-1899/1837.Sum of Digits in Base K/README_EN.md": {
       "authors": [
@@ -83956,7 +83956,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670739
+      "retrieved": 1747568671
     },
     "solution/1800-1899/1858.Longest Word With All Prefixes/README_EN.md": {
       "authors": [
@@ -84245,7 +84245,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670746
+      "retrieved": 1747568674
     },
     "solution/1800-1899/1873.Calculate Special Bonus/README_EN.md": {
       "authors": [
@@ -84279,7 +84279,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670747
+      "retrieved": 1747568675
     },
     "solution/1800-1899/1875.Group Employees of the Same Salary/README_EN.md": {
       "authors": [
@@ -84354,7 +84354,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/10363766?v=4"
         }
       ],
-      "retrieved": 1745670748
+      "retrieved": 1747568676
     },
     "solution/1800-1899/1878.Get Biggest Three Rhombus Sums in a Grid/README_EN.md": {
       "authors": [
@@ -85071,7 +85071,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670763
+      "retrieved": 1747568683
     },
     "solution/1900-1999/1912.Design Movie Rental System/README_EN.md": {
       "authors": [
@@ -85111,7 +85111,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670763
+      "retrieved": 1747568683
     },
     "solution/1900-1999/1914.Cyclically Rotating a Grid/README_EN.md": {
       "authors": [
@@ -85128,7 +85128,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670764
+      "retrieved": 1747568684
     },
     "solution/1900-1999/1915.Number of Wonderful Substrings/README_EN.md": {
       "authors": [
@@ -85151,7 +85151,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670764
+      "retrieved": 1747568684
     },
     "solution/1900-1999/1916.Count Ways to Build Rooms in an Ant Colony/README_EN.md": {
       "authors": [
@@ -85174,7 +85174,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1885938?v=4"
         }
       ],
-      "retrieved": 1745670764
+      "retrieved": 1747568685
     },
     "solution/1900-1999/1917.Leetcodify Friends Recommendations/README_EN.md": {
       "authors": [
@@ -85731,7 +85731,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745670778
+      "retrieved": 1747568691
     },
     "solution/1900-1999/1950.Maximum of Minimum Values in All Subarrays/README_EN.md": {
       "authors": [
@@ -85933,19 +85933,19 @@
     "solution/1900-1999/1962.Remove Stones to Minimize the Total/README_EN.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745670783
+      "retrieved": 1747568693
     },
     "solution/1900-1999/1963.Minimum Number of Swaps to Make the String Balanced/README_EN.md": {
       "authors": [
@@ -87935,7 +87935,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746059300
+      "retrieved": 1747568715
     },
     "solution/2000-2099/2072.The Winner University/README_EN.md": {
       "authors": [
@@ -98590,7 +98590,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671069
+      "retrieved": 1747568830
     },
     "solution/2600-2699/2673.Make Costs of Paths Equal in a Binary Tree/README_EN.md": {
       "authors": [
@@ -102398,7 +102398,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747263305
+      "retrieved": 1747568873
     },
     "solution/2900-2999/2901.Longest Unequal Adjacent Groups Subsequence II/README_EN.md": {
       "authors": [
@@ -108880,7 +108880,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746571978
+      "retrieved": 1747568958
     },
     "solution/3300-3399/3342.Find Minimum Time to Reach Last Room II/README_EN.md": {
       "authors": [
@@ -117397,7 +117397,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745671522
+      "retrieved": 1747569053
     },
     "solution/0600-0699/0637.Average of Levels in Binary Tree/README_EN.md": {
       "authors": [
@@ -120436,7 +120436,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746404022
+      "retrieved": 1747569084
     },
     "solution/0700-0799/0791.Custom Sort String/README_EN.md": {
       "authors": [
@@ -120601,7 +120601,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745671594
+      "retrieved": 1747569086
     },
     "solution/0000-0099/0008.String to Integer (atoi)/README_EN.md": {
       "authors": [
@@ -126671,7 +126671,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746454281
+      "retrieved": 1747568195
     },
     "solution/3500-3599/3533.Concatenated Divisibility/README.md": {
       "authors": [
@@ -126704,7 +126704,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745974860
+      "retrieved": 1747568196
     },
     "solution/3500-3599/3526.Range XOR Queries with Subarray Reversals/README_EN.md": {
       "authors": [
@@ -126781,7 +126781,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746455050
+      "retrieved": 1747568990
     },
     "solution/3500-3599/3533.Concatenated Divisibility/README_EN.md": {
       "authors": [
@@ -126814,7 +126814,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746455051
+      "retrieved": 1747568991
     },
     "solution/3500-3599/3536.Maximum Product of Two Digits/README.md": {
       "authors": [
@@ -126825,7 +126825,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746454282
+      "retrieved": 1747568196
     },
     "solution/3500-3599/3537.Fill a Special Grid/README.md": {
       "authors": [
@@ -126836,7 +126836,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746454283
+      "retrieved": 1747568196
     },
     "solution/3500-3599/3538.Merge Operations for Minimum Travel Time/README.md": {
       "authors": [
@@ -126847,7 +126847,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746454283
+      "retrieved": 1747568197
     },
     "solution/3500-3599/3539.Find Sum of Array Product of Magical Sequences/README.md": {
       "authors": [
@@ -126858,7 +126858,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746454284
+      "retrieved": 1747568197
     },
     "solution/3500-3599/3536.Maximum Product of Two Digits/README_EN.md": {
       "authors": [
@@ -126869,7 +126869,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746455052
+      "retrieved": 1747568991
     },
     "solution/3500-3599/3537.Fill a Special Grid/README_EN.md": {
       "authors": [
@@ -126880,7 +126880,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746455052
+      "retrieved": 1747568991
     },
     "solution/3500-3599/3538.Merge Operations for Minimum Travel Time/README_EN.md": {
       "authors": [
@@ -126891,7 +126891,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746455053
+      "retrieved": 1747568992
     },
     "solution/3500-3599/3539.Find Sum of Array Product of Magical Sequences/README_EN.md": {
       "authors": [
@@ -126902,7 +126902,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1746455053
+      "retrieved": 1747568992
     },
     "solution/3500-3599/3540.Minimum Time to Visit All Houses/README.md": {
       "authors": [
@@ -126913,7 +126913,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747011504
+      "retrieved": 1747568198
     },
     "solution/3500-3599/3541.Find Most Frequent Vowel and Consonant/README.md": {
       "authors": [
@@ -126924,7 +126924,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747025024
+      "retrieved": 1747568198
     },
     "solution/3500-3599/3542.Minimum Operations to Convert All Elements to Zero/README.md": {
       "authors": [
@@ -126935,7 +126935,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747011505
+      "retrieved": 1747568198
     },
     "solution/3500-3599/3543.Maximum Weighted K-Edge Path/README.md": {
       "authors": [
@@ -126946,7 +126946,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747011505
+      "retrieved": 1747568199
     },
     "solution/3500-3599/3544.Subtree Inversion Sum/README.md": {
       "authors": [
@@ -126957,7 +126957,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747011505
+      "retrieved": 1747568199
     },
     "solution/3500-3599/3545.Minimum Deletions for At Most K Distinct Characters/README.md": {
       "authors": [
@@ -126968,7 +126968,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747055356
+      "retrieved": 1747568199
     },
     "solution/3500-3599/3546.Equal Sum Grid Partition I/README.md": {
       "authors": [
@@ -126979,7 +126979,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747058987
+      "retrieved": 1747568200
     },
     "solution/3500-3599/3547.Maximum Sum of Edge Values in a Graph/README.md": {
       "authors": [
@@ -126990,7 +126990,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747011506
+      "retrieved": 1747568200
     },
     "solution/3500-3599/3548.Equal Sum Grid Partition II/README.md": {
       "authors": [
@@ -127001,7 +127001,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747011506
+      "retrieved": 1747568200
     },
     "solution/3500-3599/3540.Minimum Time to Visit All Houses/README_EN.md": {
       "authors": [
@@ -127012,7 +127012,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747012263
+      "retrieved": 1747568993
     },
     "solution/3500-3599/3541.Find Most Frequent Vowel and Consonant/README_EN.md": {
       "authors": [
@@ -127023,7 +127023,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747025808
+      "retrieved": 1747568993
     },
     "solution/3500-3599/3542.Minimum Operations to Convert All Elements to Zero/README_EN.md": {
       "authors": [
@@ -127034,7 +127034,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747012264
+      "retrieved": 1747568993
     },
     "solution/3500-3599/3543.Maximum Weighted K-Edge Path/README_EN.md": {
       "authors": [
@@ -127045,7 +127045,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747012264
+      "retrieved": 1747568994
     },
     "solution/3500-3599/3544.Subtree Inversion Sum/README_EN.md": {
       "authors": [
@@ -127056,7 +127056,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747012264
+      "retrieved": 1747568994
     },
     "solution/3500-3599/3545.Minimum Deletions for At Most K Distinct Characters/README_EN.md": {
       "authors": [
@@ -127067,7 +127067,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747056109
+      "retrieved": 1747568994
     },
     "solution/3500-3599/3546.Equal Sum Grid Partition I/README_EN.md": {
       "authors": [
@@ -127078,7 +127078,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747059747
+      "retrieved": 1747568995
     },
     "solution/3500-3599/3547.Maximum Sum of Edge Values in a Graph/README_EN.md": {
       "authors": [
@@ -127089,7 +127089,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747012265
+      "retrieved": 1747568995
     },
     "solution/3500-3599/3548.Equal Sum Grid Partition II/README_EN.md": {
       "authors": [
@@ -127100,7 +127100,117 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1747012265
+      "retrieved": 1747568995
+    },
+    "solution/3500-3599/3549.Multiply Two Polynomials/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568200
+    },
+    "solution/3500-3599/3550.Smallest Index With Digit Sum Equal to Index/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568201
+    },
+    "solution/3500-3599/3551.Minimum Swaps to Sort by Digit Sum/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568201
+    },
+    "solution/3500-3599/3552.Grid Teleportation Traversal/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568202
+    },
+    "solution/3500-3599/3553.Minimum Weighted Subgraph With the Required Paths II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568202
+    },
+    "solution/3500-3599/3549.Multiply Two Polynomials/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568996
+    },
+    "solution/3500-3599/3550.Smallest Index With Digit Sum Equal to Index/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568998
+    },
+    "solution/3500-3599/3551.Minimum Swaps to Sort by Digit Sum/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568998
+    },
+    "solution/3500-3599/3552.Grid Teleportation Traversal/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568999
+    },
+    "solution/3500-3599/3553.Minimum Weighted Subgraph With the Required Paths II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1747568999
     }
   }
 }
