@@ -79,32 +79,102 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3550.Sm
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Digit Sum
+
+We can start from index $i = 0$ and iterate through each element $x$ in the array, calculating the digit sum $s$ of $x$. If $s = i$, return the index $i$. If no such index is found after traversing all elements, return -1.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, as only constant extra space is used.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def smallestIndex(self, nums: List[int]) -> int:
+        for i, x in enumerate(nums):
+            s = 0
+            while x:
+                s += x % 10
+                x //= 10
+            if s == i:
+                return i
+        return -1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int smallestIndex(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            int s = 0;
+            while (nums[i] != 0) {
+                s += nums[i] % 10;
+                nums[i] /= 10;
+            }
+            if (s == i) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int smallestIndex(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); ++i) {
+            int s = 0;
+            while (nums[i]) {
+                s += nums[i] % 10;
+                nums[i] /= 10;
+            }
+            if (s == i) {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func smallestIndex(nums []int) int {
+	for i, x := range nums {
+		s := 0
+		for ; x > 0; x /= 10 {
+			s += x % 10
+		}
+		if s == i {
+			return i
+		}
+	}
+	return -1
+}
+```
 
+#### TypeScript
+
+```ts
+function smallestIndex(nums: number[]): number {
+    for (let i = 0; i < nums.length; ++i) {
+        let s = 0;
+        for (; nums[i] > 0; nums[i] = Math.floor(nums[i] / 10)) {
+            s += nums[i] % 10;
+        }
+        if (s === i) {
+            return i;
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->

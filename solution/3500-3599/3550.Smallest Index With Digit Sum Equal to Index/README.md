@@ -81,32 +81,102 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3550.Sm
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举 + 数位和
+
+我们可以从下标 $i = 0$ 开始，遍历数组中的每个元素 $x$，计算 $x$ 的数位和 $s$。如果 $s = i$，则返回下标 $i$。如果遍历完所有元素都没有找到满足条件的下标，则返回 -1。
+
+时间复杂度 $o(n)$，其中 $n$ 是数组的长度。空间复杂度 $o(1)$，只使用了常数级别的额外空间。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def smallestIndex(self, nums: List[int]) -> int:
+        for i, x in enumerate(nums):
+            s = 0
+            while x:
+                s += x % 10
+                x //= 10
+            if s == i:
+                return i
+        return -1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int smallestIndex(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            int s = 0;
+            while (nums[i] != 0) {
+                s += nums[i] % 10;
+                nums[i] /= 10;
+            }
+            if (s == i) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int smallestIndex(vector<int>& nums) {
+        for (int i = 0; i < nums.size(); ++i) {
+            int s = 0;
+            while (nums[i]) {
+                s += nums[i] % 10;
+                nums[i] /= 10;
+            }
+            if (s == i) {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func smallestIndex(nums []int) int {
+	for i, x := range nums {
+		s := 0
+		for ; x > 0; x /= 10 {
+			s += x % 10
+		}
+		if s == i {
+			return i
+		}
+	}
+	return -1
+}
+```
 
+#### TypeScript
+
+```ts
+function smallestIndex(nums: number[]): number {
+    for (let i = 0; i < nums.length; ++i) {
+        let s = 0;
+        for (; nums[i] > 0; nums[i] = Math.floor(nums[i] / 10)) {
+            s += nums[i] % 10;
+        }
+        if (s === i) {
+            return i;
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
