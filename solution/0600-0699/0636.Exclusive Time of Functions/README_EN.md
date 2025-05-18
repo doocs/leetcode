@@ -73,7 +73,7 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li><code>1 &lt;= logs.length &lt;= 500</code></li>
+	<li><code>2 &lt;= logs.length &lt;= 500</code></li>
 	<li><code>0 &lt;= function_id &lt; n</code></li>
 	<li><code>0 &lt;= timestamp &lt;= 10<sup>9</sup></code></li>
 	<li>No two start events will happen at the same timestamp.</li>

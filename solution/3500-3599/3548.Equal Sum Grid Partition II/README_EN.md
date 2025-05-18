@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Enumeration
+    - Matrix
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

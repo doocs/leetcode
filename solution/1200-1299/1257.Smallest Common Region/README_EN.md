@@ -23,13 +23,13 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>
+<p>You are given some lists of <code>regions</code> where the first region of each list <strong>directly</strong> contains all other regions in that list.</p>
 
-<p>Naturally, if a region <code>x</code> contains another region <code>y</code> then <code>x</code> is bigger than <code>y</code>. Also, by definition, a region <code>x</code> contains itself.</p>
+<p>If a region <code>x</code> contains a region <code>y</code> <em>directly</em>, and region <code>y</code> contains region <code>z</code> <em>directly</em>, then region <code>x</code> is said to contain region <code>z</code> <strong>indirectly</strong>. Note that region <code>x</code> also <strong>indirectly</strong> contains all regions <strong>indirectly</strong> containd in <code>y</code>.</p>
+
+<p>Naturally, if a region <code>x</code> contains (either <em>directly</em> or <em>indirectly</em>) another region <code>y</code>, then <code>x</code> is bigger than or equal to <code>y</code> in size. Also, by definition, a region <code>x</code> contains itself.</p>
 
 <p>Given two regions: <code>region1</code> and <code>region2</code>, return <em>the smallest region that contains both of them</em>.</p>
-
-<p>If you are given regions <code>r1</code>, <code>r2</code>, and <code>r3</code> such that <code>r1</code> includes <code>r3</code>, it is guaranteed there is no <code>r2</code> such that <code>r2</code> includes <code>r3</code>.</p>
 
 <p>It is guaranteed the smallest region exists.</p>
 
@@ -65,6 +65,7 @@ region2 = &quot;New York&quot;
 	<li><code>region1 != region2</code></li>
 	<li><code>regions[i][j]</code>, <code>region1</code>, and <code>region2</code> consist of English letters.</li>
 	<li>The input is generated such that there exists a region which contains all the other regions, either directly or indirectly.</li>
+	<li>A region cannot be directly contained in more than one region.</li>
 </ul>
 
 <!-- description:end -->

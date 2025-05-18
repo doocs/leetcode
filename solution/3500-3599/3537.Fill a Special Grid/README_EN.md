@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3537.Fill%20a%20Special%20Grid/README_EN.md
+tags:
+    - Array
+    - Divide and Conquer
+    - Matrix
 ---
 
 <!-- problem:start -->

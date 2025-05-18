@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3542.Minimum%20Operations%20to%20Convert%20All%20Elements%20to%20Zero/README_EN.md
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Hash Table
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

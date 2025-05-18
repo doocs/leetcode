@@ -20,7 +20,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个下标从&nbsp;<strong>0</strong>&nbsp;开始的字符串数组&nbsp;<code>words</code>&nbsp;，和一个下标从&nbsp;<strong>0</strong>&nbsp;开始的数组&nbsp;<code>groups</code>&nbsp;，两个数组长度都是&nbsp;<code>n</code>&nbsp;。</p>
+<p>给定一个字符串数组&nbsp;<code>words</code>&nbsp;，和一个数组&nbsp;<code>groups</code>&nbsp;，两个数组长度都是&nbsp;<code>n</code>&nbsp;。</p>
 
 <p>两个长度相等字符串的 <strong>汉明距离</strong>&nbsp;定义为对应位置字符&nbsp;<strong>不同</strong>&nbsp;的数目。</p>
 
@@ -42,7 +42,7 @@ tags:
 <p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>n = 3, words = ["bab","dab","cab"], groups = [1,2,2]
+<b>输入：</b>words = ["bab","dab","cab"], groups = [1,2,2]
 <b>输出：</b>["bab","cab"]
 <b>解释：</b>一个可行的子序列是 [0,2] 。
 - groups[0] != groups[2]
@@ -57,7 +57,7 @@ tags:
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>n = 4, words = ["a","b","c","d"], groups = [1,2,3,4]
+<b>输入：</b>words = ["a","b","c","d"], groups = [1,2,3,4]
 <b>输出：</b>["a","b","c","d"]
 <b>解释：</b>我们选择子序列 [0,1,2,3] 。
 它同时满足两个条件。

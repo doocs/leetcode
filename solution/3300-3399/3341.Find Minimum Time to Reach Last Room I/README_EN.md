@@ -24,7 +24,7 @@ tags:
 
 <p>There is a dungeon with <code>n x m</code> rooms arranged as a grid.</p>
 
-<p>You are given a 2D array <code>moveTime</code> of size <code>n x m</code>, where <code>moveTime[i][j]</code> represents the <strong>minimum</strong> time in seconds when you can <strong>start moving</strong> to that room. You start from the room <code>(0, 0)</code> at time <code>t = 0</code> and can move to an <strong>adjacent</strong> room. Moving between adjacent rooms takes <em>exactly</em> one second.</p>
+<p>You are given a 2D array <code>moveTime</code> of size <code>n x m</code>, where <code>moveTime[i][j]</code> represents the <strong>minimum</strong> time in seconds <strong>after</strong> which the room opens and can be moved to. You start from the room <code>(0, 0)</code> at time <code>t = 0</code> and can move to an <strong>adjacent</strong> room. Moving between adjacent rooms takes <em>exactly</em> one second.</p>
 
 <p>Return the <strong>minimum</strong> time to reach the room <code>(n - 1, m - 1)</code>.</p>
 

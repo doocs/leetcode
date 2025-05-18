@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3540.Minimum%20Time%20to%20Visit%20All%20Houses/README.md
+tags:
+    - 数组
+    - 前缀和
 ---
 
 <!-- problem:start -->

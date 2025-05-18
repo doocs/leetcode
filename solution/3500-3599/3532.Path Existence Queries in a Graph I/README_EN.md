@@ -6,6 +6,7 @@ tags:
     - Union Find
     - Graph
     - Array
+    - Hash Table
     - Binary Search
 ---
 

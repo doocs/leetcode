@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3535.Unit%20Conversion%20II/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 图
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
@@ -20,7 +26,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3535.Un
 
 <p>同时给定一个长度为&nbsp;<code>q</code>&nbsp;的 2 维整数数组&nbsp;<code>queries</code>，其中&nbsp;<code>queries[i] = [unitA<sub>i</sub>, unitB<sub>i</sub>]</code>。</p>
 
-<p>返回一个长度为 <code>q</code>&nbsp;的数组&nbsp;<code face="monospace">answer</code>，其中&nbsp;<code>answer[i]</code>&nbsp;表示多少个&nbsp;<code>unitB<sub>i</sub></code>&nbsp;类型的单位等于 1 个&nbsp;<code>unitA<sub>i</sub></code>&nbsp;类型的单位。以&nbsp;<code>pq<sup>-1</sup></code>&nbsp;返回每个&nbsp;<code>answer[i]</code>&nbsp;对&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;<strong>取模</strong>&nbsp;的值，其中&nbsp;<code>q<sup>-1</sup></code>&nbsp;表示&nbsp;<code>q</code> 模&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;的乘法逆元。</p>
+<p>返回一个长度为 <code>q</code>&nbsp;的数组&nbsp;<code face="monospace">answer</code>，其中&nbsp;<code>answer[i]</code>&nbsp;表示多少个&nbsp;<code>unitB<sub>i</sub></code>&nbsp;类型的单位等于 1 个&nbsp;<code>unitA<sub>i</sub></code>&nbsp;类型的单位，并且当&nbsp;<code>p</code>&nbsp;和&nbsp;<code>q</code>&nbsp;互质的时候可以表示为 <code>p/q</code>。以&nbsp;<code>pq<sup>-1</sup></code>&nbsp;返回每个&nbsp;<code>answer[i]</code>&nbsp;对&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;<strong>取模</strong>&nbsp;的值，其中&nbsp;<code>q<sup>-1</sup></code>&nbsp;表示&nbsp;<code>q</code> 模&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;的乘法逆元。</p>
 
 <p>&nbsp;</p>
 

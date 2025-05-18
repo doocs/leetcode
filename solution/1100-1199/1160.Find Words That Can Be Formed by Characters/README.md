@@ -21,13 +21,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一份『词汇表』（字符串数组）&nbsp;<code>words</code>&nbsp;和一张『字母表』（字符串）&nbsp;<code>chars</code>。</p>
+<p>给定一个字符串数组&nbsp;<code>words</code>&nbsp;和一个字符串 <code>chars</code>。</p>
 
-<p>假如你可以用&nbsp;<code>chars</code>&nbsp;中的『字母』（字符）拼写出 <code>words</code>&nbsp;中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。</p>
+<p>如果字符串可以由 <code>chars</code> 中的字符组成（每个字符在 <strong>每个</strong>&nbsp;<code>words</code> 中只能使用一次），则认为它是好的。</p>
 
-<p>注意：每次拼写（指拼写词汇表中的一个单词）时，<code>chars</code> 中的每个字母都只能用一次。</p>
-
-<p>返回词汇表&nbsp;<code>words</code>&nbsp;中你掌握的所有单词的 <strong>长度之和</strong>。</p>
+<p>返回&nbsp;<code>words</code>&nbsp;中所有好的字符串的长度之和。</p>
 
 <p>&nbsp;</p>
 
@@ -56,7 +54,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= words[i].length, chars.length&nbsp;&lt;= 100</code></li>
-	<li>所有字符串中都仅包含小写英文字母</li>
+	<li><code>words[i]</code>&nbsp;和&nbsp;<code>chars</code> 中都仅包含小写英文字母</li>
 </ul>
 
 <!-- description:end -->

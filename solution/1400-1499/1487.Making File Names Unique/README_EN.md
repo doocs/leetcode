@@ -63,9 +63,9 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
- <li><code>1 &lt;= names.length &lt;= 5 * 10<sup>4</sup></code></li>
- <li><code>1 &lt;= names[i].length &lt;= 20</code></li>
- <li><code>names[i]</code> consists of lowercase English letters, digits, and/or round brackets.</li>
+	<li><code>1 &lt;= names.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= names[i].length &lt;= 20</code></li>
+	<li><code>names[i]</code> consists of lowercase English letters, digits, and/or round brackets.</li>
 </ul>
 
 <!-- description:end -->

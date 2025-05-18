@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3538.Merge%20Operations%20for%20Minimum%20Travel%20Time/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->
