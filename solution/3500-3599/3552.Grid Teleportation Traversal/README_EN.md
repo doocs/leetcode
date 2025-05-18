@@ -76,32 +76,281 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3552.Gr
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: 0-1 BFS
+
+We can use 0-1 BFS to solve this problem. We start from the top-left cell and use a double-ended queue to store the coordinates of the current cell. Each time we dequeue a cell, we check its four adjacent cells. If an adjacent cell is an empty cell and has not been visited, we add it to the queue and update its distance.
+
+If an adjacent cell is a portal, we add it to the front of the queue and update its distance. We also need to maintain a dictionary to store the positions of each portal so that we can quickly find them when using a portal.
+
+We also need a 2D array to store the distance for each cell, initialized to infinity. We set the distance of the starting point to 0 and then start BFS.
+
+During the BFS process, we check whether each cell is the destination. If it is, we return its distance. If the queue is empty and the destination has not been reached, we return -1.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minMoves(self, matrix: List[str]) -> int:
+        m, n = len(matrix), len(matrix[0])
+        g = defaultdict(list)
+        for i, row in enumerate(matrix):
+            for j, c in enumerate(row):
+                if c.isalpha():
+                    g[c].append((i, j))
+        dirs = (-1, 0, 1, 0, -1)
+        dist = [[inf] * n for _ in range(m)]
+        dist[0][0] = 0
+        q = deque([(0, 0)])
+        while q:
+            i, j = q.popleft()
+            d = dist[i][j]
+            if i == m - 1 and j == n - 1:
+                return d
+            c = matrix[i][j]
+            if c in g:
+                for x, y in g[c]:
+                    if d < dist[x][y]:
+                        dist[x][y] = d
+                        q.appendleft((x, y))
+                del g[c]
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if (
+                    0 <= x < m
+                    and 0 <= y < n
+                    and matrix[x][y] != "#"
+                    and d + 1 < dist[x][y]
+                ):
+                    dist[x][y] = d + 1
+                    q.append((x, y))
+        return -1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minMoves(String[] matrix) {
+        int m = matrix.length, n = matrix[0].length();
+        Map<Character, List<int[]>> g = new HashMap<>();
+        for (int i = 0; i < m; i++) {
+            String row = matrix[i];
+            for (int j = 0; j < n; j++) {
+                char c = row.charAt(j);
+                if (Character.isAlphabetic(c)) {
+                    g.computeIfAbsent(c, k -> new ArrayList<>()).add(new int[] {i, j});
+                }
+            }
+        }
+        int[] dirs = {-1, 0, 1, 0, -1};
+        int INF = Integer.MAX_VALUE / 2;
+        int[][] dist = new int[m][n];
+        for (int[] arr : dist) Arrays.fill(arr, INF);
+        dist[0][0] = 0;
+        Deque<int[]> q = new ArrayDeque<>();
+        q.add(new int[] {0, 0});
+        while (!q.isEmpty()) {
+            int[] cur = q.pollFirst();
+            int i = cur[0], j = cur[1];
+            int d = dist[i][j];
+            if (i == m - 1 && j == n - 1) return d;
+            char c = matrix[i].charAt(j);
+            if (g.containsKey(c)) {
+                for (int[] pos : g.get(c)) {
+                    int x = pos[0], y = pos[1];
+                    if (d < dist[x][y]) {
+                        dist[x][y] = d;
+                        q.addFirst(new int[] {x, y});
+                    }
+                }
+                g.remove(c);
+            }
+            for (int idx = 0; idx < 4; idx++) {
+                int a = dirs[idx], b = dirs[idx + 1];
+                int x = i + a, y = j + b;
+                if (0 <= x && x < m && 0 <= y && y < n && matrix[x].charAt(y) != '#'
+                    && d + 1 < dist[x][y]) {
+                    dist[x][y] = d + 1;
+                    q.addLast(new int[] {x, y});
+                }
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minMoves(vector<string>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        unordered_map<char, vector<pair<int, int>>> g;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j) {
+                char c = matrix[i][j];
+                if (isalpha(c)) g[c].push_back({i, j});
+            }
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        int INF = numeric_limits<int>::max() / 2;
+        vector<vector<int>> dist(m, vector<int>(n, INF));
+        dist[0][0] = 0;
+        deque<pair<int, int>> q;
+        q.push_back({0, 0});
+        while (!q.empty()) {
+            auto [i, j] = q.front();
+            q.pop_front();
+            int d = dist[i][j];
+            if (i == m - 1 && j == n - 1) return d;
+            char c = matrix[i][j];
+            if (g.count(c)) {
+                for (auto [x, y] : g[c])
+                    if (d < dist[x][y]) {
+                        dist[x][y] = d;
+                        q.push_front({x, y});
+                    }
+                g.erase(c);
+            }
+            for (int idx = 0; idx < 4; ++idx) {
+                int x = i + dirs[idx], y = j + dirs[idx + 1];
+                if (0 <= x && x < m && 0 <= y && y < n && matrix[x][y] != '#' && d + 1 < dist[x][y]) {
+                    dist[x][y] = d + 1;
+                    q.push_back({x, y});
+                }
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type pair struct{ x, y int }
 
+func minMoves(matrix []string) int {
+	m, n := len(matrix), len(matrix[0])
+	g := make(map[rune][]pair)
+	for i := 0; i < m; i++ {
+		for j, c := range matrix[i] {
+			if unicode.IsLetter(c) {
+				g[c] = append(g[c], pair{i, j})
+			}
+		}
+	}
+	dirs := []int{-1, 0, 1, 0, -1}
+	INF := 1 << 30
+	dist := make([][]int, m)
+	for i := range dist {
+		dist[i] = make([]int, n)
+		for j := range dist[i] {
+			dist[i][j] = INF
+		}
+	}
+	dist[0][0] = 0
+	q := list.New()
+	q.PushBack(pair{0, 0})
+	for q.Len() > 0 {
+		cur := q.Remove(q.Front()).(pair)
+		i, j := cur.x, cur.y
+		d := dist[i][j]
+		if i == m-1 && j == n-1 {
+			return d
+		}
+		c := rune(matrix[i][j])
+		if v, ok := g[c]; ok {
+			for _, p := range v {
+				x, y := p.x, p.y
+				if d < dist[x][y] {
+					dist[x][y] = d
+					q.PushFront(pair{x, y})
+				}
+			}
+			delete(g, c)
+		}
+		for idx := 0; idx < 4; idx++ {
+			x, y := i+dirs[idx], j+dirs[idx+1]
+			if 0 <= x && x < m && 0 <= y && y < n && matrix[x][y] != '#' && d+1 < dist[x][y] {
+				dist[x][y] = d + 1
+				q.PushBack(pair{x, y})
+			}
+		}
+	}
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function minMoves(matrix: string[]): number {
+    const m = matrix.length,
+        n = matrix[0].length;
+    const g = new Map<string, [number, number][]>();
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const c = matrix[i][j];
+            if (/^[A-Za-z]$/.test(c)) {
+                if (!g.has(c)) g.set(c, []);
+                g.get(c)!.push([i, j]);
+            }
+        }
+    }
+
+    const dirs = [-1, 0, 1, 0, -1];
+    const INF = Number.MAX_SAFE_INTEGER;
+    const dist: number[][] = Array.from({ length: m }, () => Array(n).fill(INF));
+    dist[0][0] = 0;
+
+    const cap = m * n * 2 + 5;
+    const dq = new Array<[number, number]>(cap);
+    let l = cap >> 1,
+        r = cap >> 1;
+    const pushFront = (v: [number, number]) => {
+        dq[--l] = v;
+    };
+    const pushBack = (v: [number, number]) => {
+        dq[r++] = v;
+    };
+    const popFront = (): [number, number] => dq[l++];
+    const empty = () => l === r;
+
+    pushBack([0, 0]);
+
+    while (!empty()) {
+        const [i, j] = popFront();
+        const d = dist[i][j];
+        if (i === m - 1 && j === n - 1) return d;
+
+        const c = matrix[i][j];
+        if (g.has(c)) {
+            for (const [x, y] of g.get(c)!) {
+                if (d < dist[x][y]) {
+                    dist[x][y] = d;
+                    pushFront([x, y]);
+                }
+            }
+            g.delete(c);
+        }
+
+        for (let idx = 0; idx < 4; idx++) {
+            const x = i + dirs[idx],
+                y = j + dirs[idx + 1];
+            if (0 <= x && x < m && 0 <= y && y < n && matrix[x][y] !== '#' && d + 1 < dist[x][y]) {
+                dist[x][y] = d + 1;
+                pushBack([x, y]);
+            }
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
