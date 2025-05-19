@@ -109,7 +109,21 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：差分数组 + 二分查找
+
+我们注意到，查询的个数越多，越容易使得数组变成零数组，这存在单调性。因此，我们可以二分枚举查询的个数，判断在前 k 个查询下，是否可以将数组变成零数组。
+
+我们定义二分查找的左边界 $l$ 和右边界 $r$，初始时 $l = 0$, $r = m + 1$，其中 $m$ 是查询的个数。我们定义一个函数 $\text{check}(k)$，表示在前 $k$ 个查询下，是否可以将数组变成零数组。我们可以使用差分数组来维护每个元素的值。
+
+定义一个长度为 $n + 1$ 的数组 $d$，初始值全部为 $0$。对于前 $k$ 个查询的每个查询 $[l, r]$，我们将 $d[l]$ 加 $1$，将 $d[r + 1]$ 减 $1$。
+
+然后我们遍历数组 $d$ 在 $[0, n - 1]$ 范围内的每个元素，累加前缀和 $s$，如果 $\textit{nums}[i] > s$，说明 $\textit{nums}$ 不能转换为零数组，返回 $\textit{false}$。
+
+我们在二分查找的过程中，如果 $\text{check}(k)$ 返回 $\text{true}$，说明可以将数组变成零数组，我们就将右边界 $r$ 更新为 $k$，否则将左边界 $l$ 更新为 $k + 1$。
+
+最后，我们判断 $l$ 是否大于 $m$，如果是，则返回 -1，否则返回 $l$。
+
+时间复杂度 $O((n + m) \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -275,6 +289,50 @@ function minZeroArray(nums: number[], queries: number[][]): number {
         }
     }
     return l > m ? -1 : l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_zero_array(nums: Vec<i32>, queries: Vec<Vec<i32>>) -> i32 {
+        let n = nums.len();
+        let m = queries.len();
+        let mut d: Vec<i64> = vec![0; n + 1];
+        let (mut l, mut r) = (0_usize, m + 1);
+
+        let check = |k: usize, d: &mut Vec<i64>| -> bool {
+            d.fill(0);
+            for i in 0..k {
+                let (l, r, val) = (
+                    queries[i][0] as usize,
+                    queries[i][1] as usize,
+                    queries[i][2] as i64,
+                );
+                d[l] += val;
+                d[r + 1] -= val;
+            }
+            let mut s: i64 = 0;
+            for i in 0..n {
+                s += d[i];
+                if nums[i] as i64 > s {
+                    return false;
+                }
+            }
+            true
+        };
+
+        while l < r {
+            let mid = (l + r) >> 1;
+            if check(mid, &mut d) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        if l > m { -1 } else { l as i32 }
+    }
 }
 ```
 
