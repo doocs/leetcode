@@ -3564,6 +3564,8 @@
 |  3551  |  [数位和排序需要的最小交换次数](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README.md)  |    |  中等  |  第 450 场周赛  |
 |  3552  |  [网格传送门旅游](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README.md)  |    |  中等  |  第 450 场周赛  |
 |  3553  |  [包含给定路径的最小带权子树 II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README.md)  |    |  困难  |  第 450 场周赛  |
+|  3554  |  [查找类别推荐对](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README.md)  |  `数据库`  |  困难  |    |
+|  3555  |  [排序每个滑动窗口中最小的子数组](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

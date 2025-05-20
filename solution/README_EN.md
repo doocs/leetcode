@@ -3562,6 +3562,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3551  |  [Minimum Swaps to Sort by Digit Sum](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 450  |
 |  3552  |  [Grid Teleportation Traversal](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README_EN.md)  |    |  Medium  |  Weekly Contest 450  |
 |  3553  |  [Minimum Weighted Subgraph With the Required Paths II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 450  |
+|  3554  |  [Find Category Recommendation Pairs](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README_EN.md)  |  `Database`  |  Hard  |    |
+|  3555  |  [Smallest Subarray to Sort in Every Sliding Window](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
