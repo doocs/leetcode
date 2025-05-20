@@ -171,14 +171,74 @@ product_id 是这张表的唯一主键。
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：连接 + 分组聚合
+
+我们先将表 `ProductPurchases` 和表 `ProductInfo` 按照 `product_id` 进行连接，得到由 `user_id` 和 `category` 组成的表 `user_category`。接着，我们在 `user_category` 表中自连接，得到每个用户购买的所有类别对。最后，我们对这些类别对进行分组，统计每个类别对的用户数量，并筛选出用户数量大于等于 3 的类别对。
+
+最后，我们按照用户数量降序、`category1` 升序、`category2` 升序的顺序进行排序，得到最终结果。
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    user_category AS (
+        SELECT DISTINCT
+            user_id,
+            category
+        FROM
+            ProductPurchases
+            JOIN ProductInfo USING (product_id)
+    ),
+    pair_per_user AS (
+        SELECT
+            a.user_id,
+            a.category AS category1,
+            b.category AS category2
+        FROM
+            user_category AS a
+            JOIN user_category AS b ON a.user_id = b.user_id AND a.category < b.category
+    )
+SELECT category1, category2, COUNT(DISTINCT user_id) AS customer_count
+FROM pair_per_user
+GROUP BY 1, 2
+HAVING customer_count >= 3
+ORDER BY 3 DESC, 1, 2;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def find_category_recommendation_pairs(
+    product_purchases: pd.DataFrame, product_info: pd.DataFrame
+) -> pd.DataFrame:
+    df = product_purchases[["user_id", "product_id"]].merge(
+        product_info[["product_id", "category"]], on="product_id", how="inner"
+    )
+    user_category = df.drop_duplicates(subset=["user_id", "category"])
+    pair_per_user = (
+        user_category.merge(user_category, on="user_id")
+        .query("category_x < category_y")
+        .rename(columns={"category_x": "category1", "category_y": "category2"})
+    )
+    pair_counts = (
+        pair_per_user.groupby(["category1", "category2"])["user_id"]
+        .nunique()
+        .reset_index(name="customer_count")
+    )
+    result = (
+        pair_counts.query("customer_count >= 3")
+        .sort_values(
+            ["customer_count", "category1", "category2"], ascending=[False, True, True]
+        )
+        .reset_index(drop=True)
+    )
+    return result
 ```
 
 <!-- tabs:end -->
