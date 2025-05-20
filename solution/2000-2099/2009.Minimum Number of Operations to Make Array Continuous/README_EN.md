@@ -179,6 +179,39 @@ func minOperations(nums []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function minOperations(nums: number[]): number {
+    const n = nums.length;
+    nums.sort((a, b) => a - b);
+    let m = 1;
+    for (let i = 1; i < n; ++i) {
+        if (nums[i] !== nums[i - 1]) {
+            nums[m++] = nums[i];
+        }
+    }
+    let ans = n;
+    for (let i = 0; i < m; ++i) {
+        const j = search(nums, nums[i] + n - 1, i, m);
+        ans = Math.min(ans, n - (j - i));
+    }
+    return ans;
+}
+
+function search(nums: number[], x: number, left: number, right: number): number {
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] > x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
 #### Rust
 
 ```rust
@@ -308,6 +341,60 @@ func minOperations(nums []int) int {
 		ans = min(ans, n-(j-i))
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minOperations(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let m = 1;
+    for (let i = 1; i < n; i++) {
+        if (nums[i] !== nums[i - 1]) {
+            nums[m] = nums[i];
+            m++;
+        }
+    }
+    let ans = n;
+    for (let i = 0, j = 0; i < m; i++) {
+        while (j < m && nums[j] - nums[i] <= n - 1) {
+            j++;
+        }
+        ans = Math.min(ans, n - (j - i));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        if n == 0 {
+            return 0;
+        }
+        let mut m = 1usize;
+        for i in 1..n {
+            if nums[i] != nums[i - 1] {
+                nums[m] = nums[i];
+                m += 1;
+            }
+        }
+        let mut ans = n as i32;
+        let mut j = 0usize;
+        for i in 0..m {
+            while j < m && nums[j] - nums[i] <= n as i32 - 1 {
+                j += 1;
+            }
+            ans = ans.min(n as i32 - (j as i32 - i as i32));
+        }
+        ans
+    }
 }
 ```
 
