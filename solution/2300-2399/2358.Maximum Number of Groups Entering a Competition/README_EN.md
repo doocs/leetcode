@@ -65,7 +65,17 @@ It can be shown that it is not possible to form more than 3 groups.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Binary Search
+
+Observing the conditions in the problem, the number of students in the $i$-th group must be less than that in the $(i+1)$-th group, and the total score of students in the $i$-th group must be less than that in the $(i+1)$-th group. We only need to sort the students by their scores in ascending order, and then assign $1$, $2$, ..., $k$ students to each group in order. If the last group does not have enough students for $k$, we can distribute these students to the previous last group.
+
+Therefore, we need to find the largest $k$ such that $\frac{(1 + k) \times k}{2} \leq n$, where $n$ is the total number of students. We can use binary search to solve this.
+
+We define the left boundary of binary search as $l = 1$ and the right boundary as $r = n$. Each time, the midpoint is $mid = \lfloor \frac{l + r + 1}{2} \rfloor$. If $(1 + mid) \times mid \gt 2 \times n$, it means $mid$ is too large, so we shrink the right boundary to $mid - 1$; otherwise, we increase the left boundary to $mid$.
+
+Finally, we return $l$ as the answer.
+
+The time complexity is $O(\log n)$ and the space complexity is $O(1)$, where $n$ is the total number of students.
 
 <!-- tabs:start -->
 
@@ -147,6 +157,26 @@ function maximumGroups(grades: number[]): number {
         }
     }
     return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_groups(grades: Vec<i32>) -> i32 {
+        let n = grades.len() as i64;
+        let (mut l, mut r) = (0i64, n);
+        while l < r {
+            let mid = (l + r + 1) / 2;
+            if mid * mid + mid > 2 * n {
+                r = mid - 1;
+            } else {
+                l = mid;
+            }
+        }
+        l as i32
+    }
 }
 ```
 

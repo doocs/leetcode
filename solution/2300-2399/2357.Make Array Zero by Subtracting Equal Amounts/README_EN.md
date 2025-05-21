@@ -66,7 +66,11 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table or Array
+
+We observe that in each operation, all identical nonzero elements in the array $\textit{nums}$ can be reduced to $0$. Therefore, we only need to count the number of distinct nonzero elements in $\textit{nums}$, which is the minimum number of operations required. To count the distinct nonzero elements, we can use a hash table or an array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -136,9 +140,9 @@ func minimumOperations(nums []int) (ans int) {
 
 ```ts
 function minimumOperations(nums: number[]): number {
-    const set = new Set(nums);
-    set.delete(0);
-    return set.size;
+    const s = new Set(nums);
+    s.delete(0);
+    return s.size;
 }
 ```
 
@@ -148,9 +152,9 @@ function minimumOperations(nums: number[]): number {
 use std::collections::HashSet;
 impl Solution {
     pub fn minimum_operations(nums: Vec<i32>) -> i32 {
-        let mut set = nums.iter().collect::<HashSet<&i32>>();
-        set.remove(&0);
-        set.len() as i32
+        let mut s = nums.iter().collect::<HashSet<&i32>>();
+        s.remove(&0);
+        s.len() as i32
     }
 }
 ```
