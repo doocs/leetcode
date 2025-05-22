@@ -97,32 +97,166 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 差分数组 + 优先队列（大根堆）
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxRemoval(self, nums: List[int], queries: List[List[int]]) -> int:
+        queries.sort()
+        pq = []
+        d = [0] * (len(nums) + 1)
+        s = j = 0
+        for i, x in enumerate(nums):
+            s += d[i]
+            while j < len(queries) and queries[j][0] <= i:
+                heappush(pq, -queries[j][1])
+                j += 1
+            while s < x and pq and -pq[0] >= i:
+                s += 1
+                d[-heappop(pq) + 1] -= 1
+            if s < x:
+                return -1
+        return len(pq)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxRemoval(int[] nums, int[][] queries) {
+        Arrays.sort(queries, (a, b) -> Integer.compare(a[0], b[0]));
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        int n = nums.length;
+        int[] d = new int[n + 1];
+        int s = 0, j = 0;
+        for (int i = 0; i < n; i++) {
+            s += d[i];
+            while (j < queries.length && queries[j][0] <= i) {
+                pq.offer(queries[j][1]);
+                j++;
+            }
+            while (s < nums[i] && !pq.isEmpty() && pq.peek() >= i) {
+                s++;
+                d[pq.poll() + 1]--;
+            }
+            if (s < nums[i]) {
+                return -1;
+            }
+        }
+        return pq.size();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxRemoval(vector<int>& nums, vector<vector<int>>& queries) {
+        sort(queries.begin(), queries.end());
+        priority_queue<int> pq;
+        int n = nums.size();
+        vector<int> d(n + 1, 0);
+        int s = 0, j = 0;
+        for (int i = 0; i < n; ++i) {
+            s += d[i];
+            while (j < queries.size() && queries[j][0] <= i) {
+                pq.push(queries[j][1]);
+                ++j;
+            }
+            while (s < nums[i] && !pq.empty() && pq.top() >= i) {
+                ++s;
+                int end = pq.top();
+                pq.pop();
+                --d[end + 1];
+            }
+            if (s < nums[i]) {
+                return -1;
+            }
+        }
+        return pq.size();
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxRemoval(nums []int, queries [][]int) int {
+	sort.Slice(queries, func(i, j int) bool {
+		return queries[i][0] < queries[j][0]
+	})
 
+	var h hp
+	heap.Init(&h)
+
+	n := len(nums)
+	d := make([]int, n+1)
+	s, j := 0, 0
+
+	for i := 0; i < n; i++ {
+		s += d[i]
+		for j < len(queries) && queries[j][0] <= i {
+			heap.Push(&h, queries[j][1])
+			j++
+		}
+		for s < nums[i] && h.Len() > 0 && h.IntSlice[0] >= i {
+			s++
+			end := heap.Pop(&h).(int)
+			if end+1 < len(d) {
+				d[end+1]--
+			}
+		}
+		if s < nums[i] {
+			return -1
+		}
+	}
+
+	return h.Len()
+}
+
+type hp struct{ sort.IntSlice }
+
+func (h hp) Less(i, j int) bool { return h.IntSlice[i] > h.IntSlice[j] }
+func (h *hp) Push(v any)        { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() any {
+	a := h.IntSlice
+	v := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return v
+}
+```
+
+#### TypeScript
+
+```ts
+function maxRemoval(nums: number[], queries: number[][]): number {
+    queries.sort((a, b) => a[0] - b[0]);
+    const pq = new MaxPriorityQueue<number>();
+    const n = nums.length;
+    const d: number[] = Array(n + 1).fill(0);
+    let [s, j] = [0, 0];
+    for (let i = 0; i < n; i++) {
+        s += d[i];
+        while (j < queries.length && queries[j][0] <= i) {
+            pq.enqueue(queries[j][1]);
+            j++;
+        }
+        while (s < nums[i] && !pq.isEmpty() && pq.front() >= i) {
+            s++;
+            d[pq.dequeue() + 1]--;
+        }
+        if (s < nums[i]) {
+            return -1;
+        }
+    }
+    return pq.size();
+}
 ```
 
 <!-- tabs:end -->
