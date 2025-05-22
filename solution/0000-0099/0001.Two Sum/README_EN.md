@@ -382,7 +382,7 @@ int contains(Entry *table, int key, int *out_value) {
             return 1;
         }
         idx = (idx + 1) % TABLE_SIZE;
-        if (idx == start) break; 
+        if (idx == start) break;
     }
     return 0;
 }
