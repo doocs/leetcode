@@ -353,7 +353,7 @@ class Solution {
 #### C
 
 ```c
-=#include <stdlib.h>
+#include <stdlib.h>
 
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
     int capacity = 1;
