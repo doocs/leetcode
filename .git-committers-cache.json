@@ -1,8 +1,14 @@
 {
-  "cache_date": 1747919321,
+  "cache_date": 1747954014,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
+        {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
         {
           "login": "yanglbme",
           "name": "yanglbme",
@@ -52,13 +58,13 @@
           "avatar": "https://avatars.githubusercontent.com/u/5190296?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "tchx626",
+          "name": "tchx626",
+          "url": "https://github.com/tchx626",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         }
       ],
-      "retrieved": 1745668791
+      "retrieved": 1747952629
     },
     "solution/0000-0099/0010.Regular Expression Matching/README.md": {
       "authors": [
@@ -66969,6 +66975,12 @@
     "solution/0000-0099/0001.Two Sum/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -67017,13 +67029,13 @@
           "avatar": "https://avatars.githubusercontent.com/u/5190296?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "tchx626",
+          "name": "tchx626",
+          "url": "https://github.com/tchx626",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         }
       ],
-      "retrieved": 1745670376
+      "retrieved": 1747953407
     },
     "solution/0000-0099/0010.Regular Expression Matching/README_EN.md": {
       "authors": [
