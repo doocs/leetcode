@@ -11,8 +11,8 @@ class Solution {
                 g[i].add(edges[i]);
             }
         }
-        int[] d1 = dijkstra(node1);
-        int[] d2 = dijkstra(node2);
+        int[] d1 = f(node1);
+        int[] d2 = f(node2);
         int d = 1 << 30;
         int ans = -1;
         for (int i = 0; i < n; ++i) {
@@ -25,19 +25,18 @@ class Solution {
         return ans;
     }
 
-    private int[] dijkstra(int i) {
+    private int[] f(int i) {
         int[] dist = new int[n];
         Arrays.fill(dist, 1 << 30);
         dist[i] = 0;
-        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        q.offer(new int[] {0, i});
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(i);
         while (!q.isEmpty()) {
-            var p = q.poll();
-            i = p[1];
+            i = q.poll();
             for (int j : g[i]) {
-                if (dist[j] > dist[i] + 1) {
+                if (dist[j] == 1 << 30) {
                     dist[j] = dist[i] + 1;
-                    q.offer(new int[] {dist[j], j});
+                    q.offer(j);
                 }
             }
         }
