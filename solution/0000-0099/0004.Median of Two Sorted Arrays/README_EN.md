@@ -348,7 +348,7 @@ proc medianOfTwoSortedArrays(nums1: seq[int], nums2: seq[int]): float =
 
 #### C
 
-``` c
+```c
 int findKth(int *nums1, int m, int i, int *nums2, int n, int j, int k) {
   if (i >= m)
     return nums2[j + k - 1];

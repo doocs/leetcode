@@ -300,7 +300,7 @@ class Solution {
 
 #### C
 
-```c 
+```c
 
 int lengthOfLongestSubstring(char *s) {
   int freq[256] = {0};
