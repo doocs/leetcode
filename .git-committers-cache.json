@@ -1,5 +1,5 @@
 {
-  "cache_date": 1747976818,
+  "cache_date": 1748004349,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -19437,6 +19437,12 @@
     "solution/0000-0099/0002.Add Two Numbers/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -19473,7 +19479,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/5190296?v=4"
         }
       ],
-      "retrieved": 1745669227
+      "retrieved": 1748003134
     },
     "solution/0000-0099/0020.Valid Parentheses/README.md": {
       "authors": [
@@ -86576,6 +86582,12 @@
     "solution/0000-0099/0002.Add Two Numbers/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -86612,7 +86624,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/5190296?v=4"
         }
       ],
-      "retrieved": 1745670797
+      "retrieved": 1748003917
     },
     "solution/0000-0099/0020.Valid Parentheses/README_EN.md": {
       "authors": [
