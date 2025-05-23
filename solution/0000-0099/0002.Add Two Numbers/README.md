@@ -538,12 +538,11 @@ struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2)
     }
 
     struct ListNode *result = dummy->next;
-    free(dummy); 
+    free(dummy);
     return result;
 }
 
 ```
-
 
 <!-- tabs:end -->
 
