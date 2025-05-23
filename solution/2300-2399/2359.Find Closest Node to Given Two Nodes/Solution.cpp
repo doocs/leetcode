@@ -10,26 +10,24 @@ public:
         }
         const int inf = 1 << 30;
         using pii = pair<int, int>;
-        auto dijkstra = [&](int i) {
+        auto f = [&](int i) {
             vector<int> dist(n, inf);
             dist[i] = 0;
-            priority_queue<pii, vector<pii>, greater<pii>> q;
-            q.emplace(0, i);
+            queue<int> q{{i}};
             while (!q.empty()) {
-                auto p = q.top();
+                i = q.front();
                 q.pop();
-                i = p.second;
                 for (int j : g[i]) {
-                    if (dist[j] > dist[i] + 1) {
+                    if (dist[j] == inf) {
                         dist[j] = dist[i] + 1;
-                        q.emplace(dist[j], j);
+                        q.push(j);
                     }
                 }
             }
             return dist;
         };
-        vector<int> d1 = dijkstra(node1);
-        vector<int> d2 = dijkstra(node2);
+        vector<int> d1 = f(node1);
+        vector<int> d2 = f(node2);
         int ans = -1, d = inf;
         for (int i = 0; i < n; ++i) {
             int t = max(d1[i], d2[i]);
