@@ -1,9 +1,3 @@
 function findWordsContaining(words: string[], x: string): number[] {
-    const ans: number[] = [];
-    for (let i = 0; i < words.length; ++i) {
-        if (words[i].includes(x)) {
-            ans.push(i);
-        }
-    }
-    return ans;
+    return words.flatMap((w, i) => (w.includes(x) ? [i] : []));
 }

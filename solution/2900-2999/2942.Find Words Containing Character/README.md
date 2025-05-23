@@ -139,13 +139,19 @@ func findWordsContaining(words []string, x byte) (ans []int) {
 
 ```ts
 function findWordsContaining(words: string[], x: string): number[] {
-    const ans: number[] = [];
-    for (let i = 0; i < words.length; ++i) {
-        if (words[i].includes(x)) {
-            ans.push(i);
-        }
+    return words.flatMap((w, i) => (w.includes(x) ? [i] : []));
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_words_containing(words: Vec<String>, x: char) -> Vec<i32> {
+        words.into_iter().enumerate()
+            .filter_map(|(i, w)| w.contains(x).then(|| i as i32))
+            .collect()
     }
-    return ans;
 }
 ```
 
