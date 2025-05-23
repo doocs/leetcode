@@ -490,7 +490,8 @@ proc addTwoNumbers(l1: var SinglyLinkedList, l2: var SinglyLinkedList): SinglyLi
   result = aggregate
 ```
 
-#### C 
+#### C
+
 ```c
 /**
  * Definition for singly-linked list.
@@ -533,9 +534,9 @@ struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2)
     }
 
     struct ListNode *result = dummy->next;
-    free(dummy); 
+    free(dummy);
     return result;
-} 
+}
 ```
 
 <!-- tabs:end -->
