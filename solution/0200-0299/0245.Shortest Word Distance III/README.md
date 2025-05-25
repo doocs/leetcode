@@ -56,13 +56,12 @@ tags:
 
 ### 方法一：分情况讨论
 
-先判断 `word1` 和 `word2` 是否相等：
+我们首先判断 $\textit{word1}$ 和 $\textit{word2}$ 是否相等：
 
-如果相等，遍历数组 `wordsDict`，找到两个 `word1` 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
+-   如果相等，遍历数组 $\textit{wordsDict}$，找到两个 $\textit{word1}$ 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
+-   如果不相等，遍历数组 $\textit{wordsDict}$，找到 $\textit{word1}$ 和 $\textit{word2}$ 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
 
-如果不相等，遍历数组 `wordsDict`，找到 `word1` 和 `word2` 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
-
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `wordsDict` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{wordsDict}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -196,6 +195,40 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function shortestWordDistance(wordsDict: string[], word1: string, word2: string): number {
+    let ans = wordsDict.length;
+    if (word1 === word2) {
+        let j = -1;
+        for (let i = 0; i < wordsDict.length; i++) {
+            if (wordsDict[i] === word1) {
+                if (j !== -1) {
+                    ans = Math.min(ans, i - j);
+                }
+                j = i;
+            }
+        }
+    } else {
+        let i = -1,
+            j = -1;
+        for (let k = 0; k < wordsDict.length; k++) {
+            if (wordsDict[k] === word1) {
+                i = k;
+            }
+            if (wordsDict[k] === word2) {
+                j = k;
+            }
+            if (i !== -1 && j !== -1) {
+                ans = Math.min(ans, Math.abs(i - j));
+            }
+        }
+    }
+    return ans;
 }
 ```
 
