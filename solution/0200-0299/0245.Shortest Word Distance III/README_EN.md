@@ -45,7 +45,14 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+First, we check whether $\textit{word1}$ and $\textit{word2}$ are equal:
+
+-   If they are equal, iterate through the array $\textit{wordsDict}$ to find two indices $i$ and $j$ of $\textit{word1}$, and compute the minimum value of $i-j$.
+-   If they are not equal, iterate through the array $\textit{wordsDict}$ to find the indices $i$ of $\textit{word1}$ and $j$ of $\textit{word2}$, and compute the minimum value of $i-j$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{wordsDict}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -179,6 +186,40 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function shortestWordDistance(wordsDict: string[], word1: string, word2: string): number {
+    let ans = wordsDict.length;
+    if (word1 === word2) {
+        let j = -1;
+        for (let i = 0; i < wordsDict.length; i++) {
+            if (wordsDict[i] === word1) {
+                if (j !== -1) {
+                    ans = Math.min(ans, i - j);
+                }
+                j = i;
+            }
+        }
+    } else {
+        let i = -1,
+            j = -1;
+        for (let k = 0; k < wordsDict.length; k++) {
+            if (wordsDict[k] === word1) {
+                i = k;
+            }
+            if (wordsDict[k] === word2) {
+                j = k;
+            }
+            if (i !== -1 && j !== -1) {
+                ans = Math.min(ans, Math.abs(i - j));
+            }
+        }
+    }
+    return ans;
 }
 ```
 
