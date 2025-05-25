@@ -87,7 +87,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Topological Sort + Dynamic Programming
+
+Calculate the in-degree of each node and perform a topological sort.
+
+Define a 2D array $dp$, where $dp[i][j]$ represents the number of nodes with color $j$ on the path from the start node to node $i$.
+
+From node $i$, traverse all outgoing edges $i \to j$, and update $dp[j][k] = \max(dp[j][k], dp[i][k] + (c == k))$, where $c$ is the color of node $j$.
+
+The answer is the maximum value in the $dp$ array.
+
+If there is a cycle in the graph, it is impossible to visit all nodes, so return $-1$.
+
+The time complexity is $O((n + m) \times |\Sigma|)$, and the space complexity is $O(m + n \times |\Sigma|)$. Here, $|\Sigma|$ is the size of the alphabet (26 in this case), and $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -262,6 +274,48 @@ func largestPathValue(colors string, edges [][]int) int {
 		return ans
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function largestPathValue(colors: string, edges: number[][]): number {
+    const n = colors.length;
+    const indeg = Array(n).fill(0);
+    const g: Map<number, number[]> = new Map();
+    for (const [a, b] of edges) {
+        if (!g.has(a)) g.set(a, []);
+        g.get(a)!.push(b);
+        indeg[b]++;
+    }
+    const q: number[] = [];
+    const dp: number[][] = Array.from({ length: n }, () => Array(26).fill(0));
+    for (let i = 0; i < n; i++) {
+        if (indeg[i] === 0) {
+            q.push(i);
+            const c = colors.charCodeAt(i) - 97;
+            dp[i][c]++;
+        }
+    }
+    let cnt = 0;
+    let ans = 1;
+    while (q.length) {
+        const i = q.pop()!;
+        cnt++;
+        if (g.has(i)) {
+            for (const j of g.get(i)!) {
+                indeg[j]--;
+                if (indeg[j] === 0) q.push(j);
+                const c = colors.charCodeAt(j) - 97;
+                for (let k = 0; k < 26; k++) {
+                    dp[j][k] = Math.max(dp[j][k], dp[i][k] + (c === k ? 1 : 0));
+                    ans = Math.max(ans, dp[j][k]);
+                }
+            }
+        }
+    }
+    return cnt < n ? -1 : ans;
 }
 ```
 
