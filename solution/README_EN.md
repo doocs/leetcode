@@ -3564,6 +3564,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3553  |  [Minimum Weighted Subgraph With the Required Paths II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 450  |
 |  3554  |  [Find Category Recommendation Pairs](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README_EN.md)  |  `Database`  |  Hard  |    |
 |  3555  |  [Smallest Subarray to Sort in Every Sliding Window](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README_EN.md)  |    |  Medium  |  🔒  |
+|  3556  |  [Sum of Largest Prime Substrings](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
+|  3557  |  [Find Maximum Number of Non Intersecting Substrings](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
+|  3558  |  [Number of Ways to Assign Edge Weights I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
+|  3559  |  [Number of Ways to Assign Edge Weights II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 157  |
 
 ## Copyright
 

@@ -3566,6 +3566,10 @@
 |  3553  |  [包含给定路径的最小带权子树 II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README.md)  |    |  困难  |  第 450 场周赛  |
 |  3554  |  [查找类别推荐对](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README.md)  |  `数据库`  |  困难  |    |
 |  3555  |  [排序每个滑动窗口中最小的子数组](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README.md)  |    |  中等  |  🔒  |
+|  3556  |  [最大质数子字符串之和](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README.md)  |    |  中等  |  第 157 场双周赛  |
+|  3557  |  [不相交子字符串的最大数量](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README.md)  |    |  中等  |  第 157 场双周赛  |
+|  3558  |  [给边赋权值的方案数 I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README.md)  |    |  中等  |  第 157 场双周赛  |
+|  3559  |  [给边赋权值的方案数 II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README.md)  |    |  困难  |  第 157 场双周赛  |
 
 ## 版权
 

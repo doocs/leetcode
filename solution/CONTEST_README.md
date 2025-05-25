@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 157 场双周赛(2025-05-24 22:30, 90 分钟) 参赛人数 1356
+
+- [3556. 最大质数子字符串之和](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README.md)
+- [3557. 不相交子字符串的最大数量](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README.md)
+- [3558. 给边赋权值的方案数 I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README.md)
+- [3559. 给边赋权值的方案数 II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README.md)
+
 #### 第 450 场周赛(2025-05-18 10:30, 90 分钟) 参赛人数 2522
 
 - [3550. 数位和等于下标的最小下标](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README.md)
