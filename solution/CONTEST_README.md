@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 451 场周赛(2025-05-25 10:30, 90 分钟) 参赛人数 1840
+
+- [3560. 木材运输的最小成本](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README.md)
+- [3561. 移除相邻字符](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README.md)
+- [3562. 折扣价交易股票的最大利润](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README.md)
+- [3563. 移除相邻字符后字典序最小的字符串](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README.md)
+
 #### 第 157 场双周赛(2025-05-24 22:30, 90 分钟) 参赛人数 1356
 
 - [3556. 最大质数子字符串之和](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README.md)

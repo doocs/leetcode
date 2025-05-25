@@ -3568,6 +3568,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3557  |  [Find Maximum Number of Non Intersecting Substrings](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
 |  3558  |  [Number of Ways to Assign Edge Weights I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
 |  3559  |  [Number of Ways to Assign Edge Weights II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 157  |
+|  3560  |  [Find Minimum Log Transportation Cost](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README_EN.md)  |    |  Easy  |  Weekly Contest 451  |
+|  3561  |  [Resulting String After Adjacent Removals](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 451  |
+|  3562  |  [Maximum Profit from Trading Stocks with Discounts](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README_EN.md)  |    |  Hard  |  Weekly Contest 451  |
+|  3563  |  [Lexicographically Smallest String After Adjacent Removals](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md)  |    |  Hard  |  Weekly Contest 451  |
 
 ## Copyright
 

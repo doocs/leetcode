@@ -3570,6 +3570,10 @@
 |  3557  |  [不相交子字符串的最大数量](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README.md)  |    |  中等  |  第 157 场双周赛  |
 |  3558  |  [给边赋权值的方案数 I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README.md)  |    |  中等  |  第 157 场双周赛  |
 |  3559  |  [给边赋权值的方案数 II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README.md)  |    |  困难  |  第 157 场双周赛  |
+|  3560  |  [木材运输的最小成本](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README.md)  |    |  简单  |  第 451 场周赛  |
+|  3561  |  [移除相邻字符](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README.md)  |    |  中等  |  第 451 场周赛  |
+|  3562  |  [折扣价交易股票的最大利润](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README.md)  |    |  困难  |  第 451 场周赛  |
+|  3563  |  [移除相邻字符后字典序最小的字符串](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README.md)  |    |  困难  |  第 451 场周赛  |
 
 ## 版权
 
