@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 排序
 ---
 
 <!-- problem:start -->

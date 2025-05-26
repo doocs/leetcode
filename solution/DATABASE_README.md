@@ -316,6 +316,7 @@
 | 3497 | [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)                                                                       | `数据库` | 中等 |      |
 | 3521 | [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)                                                                 | `数据库` | 中等 |      |
 | 3554 | [查找类别推荐对](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README.md)                                                                | `数据库` | 困难 |      |
+| 3564 | [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README.md)                                                                    |          | 中等 |      |
 
 ## 版权
 
