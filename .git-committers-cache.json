@@ -1,5 +1,5 @@
 {
-  "cache_date": 1748222543,
+  "cache_date": 1748261716,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -19437,6 +19437,12 @@
     "solution/0000-0099/0002.Add Two Numbers/README.md": {
       "authors": [
         {
+          "login": "gaganxsaini",
+          "name": "gaganxsaini",
+          "url": "https://github.com/gaganxsaini",
+          "avatar": "https://avatars.githubusercontent.com/u/32135369?v=4"
+        },
+        {
           "login": "pranjal030404",
           "name": "pranjal030404",
           "url": "https://github.com/pranjal030404",
@@ -19479,7 +19485,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/5190296?v=4"
         }
       ],
-      "retrieved": 1748003134
+      "retrieved": 1748260476
     },
     "solution/0000-0099/0020.Valid Parentheses/README.md": {
       "authors": [
@@ -36579,7 +36585,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745669628
+      "retrieved": 1748260670
     },
     "solution/2900-2999/2967.Minimum Cost to Make Array Equalindromic/README.md": {
       "authors": [
@@ -86594,6 +86600,12 @@
     "solution/0000-0099/0002.Add Two Numbers/README_EN.md": {
       "authors": [
         {
+          "login": "gaganxsaini",
+          "name": "gaganxsaini",
+          "url": "https://github.com/gaganxsaini",
+          "avatar": "https://avatars.githubusercontent.com/u/32135369?v=4"
+        },
+        {
           "login": "pranjal030404",
           "name": "pranjal030404",
           "url": "https://github.com/pranjal030404",
@@ -86636,7 +86648,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/5190296?v=4"
         }
       ],
-      "retrieved": 1748003917
+      "retrieved": 1748261278
     },
     "solution/0000-0099/0020.Valid Parentheses/README_EN.md": {
       "authors": [
@@ -103556,7 +103568,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745671186
+      "retrieved": 1748261464
     },
     "solution/2900-2999/2967.Minimum Cost to Make Array Equalindromic/README_EN.md": {
       "authors": [
