@@ -192,6 +192,111 @@ function divideArray(nums: number[], k: number): number[][] {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func divideArray(_ nums: [Int], _ k: Int) -> [[Int]] {
+        var sortedNums = nums.sorted()
+        var ans: [[Int]] = []
+
+        for i in stride(from: 0, to: sortedNums.count, by: 3) {
+            if i + 2 >= sortedNums.count {
+                return []
+            }
+
+            let t = Array(sortedNums[i..<i+3])
+            if t[2] - t[0] > k {
+                return []
+            }
+
+            ans.append(t)
+        }
+
+        return ans
+    }
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn divide_array(mut nums: Vec<i32>, k: i32) -> Vec<Vec<i32>> {
+        nums.sort();
+        let mut ans = Vec::new();
+        let n = nums.len();
+
+        for i in (0..n).step_by(3) {
+            if i + 2 >= n {
+                return vec![];
+            }
+
+            let t = &nums[i..i+3];
+            if t[2] - t[0] > k {
+                return vec![];
+            }
+
+            ans.push(t.to_vec());
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[][] DivideArray(int[] nums, int k) {
+        Array.Sort(nums);
+        List<int[]> ans = new List<int[]>();
+
+        for (int i = 0; i < nums.Length; i += 3) {
+            if (i + 2 >= nums.Length) {
+                return new int[0][];
+            }
+
+            int[] t = new int[] { nums[i], nums[i + 1], nums[i + 2] };
+            if (t[2] - t[0] > k) {
+                return new int[0][];
+            }
+
+            ans.Add(t);
+        }
+
+        return ans.ToArray();
+    }
+}
+```
+
+#### Dart
+
+```dart
+class Solution {
+  List<List<int>> divideArray(List<int> nums, int k) {
+    nums.sort();
+    List<List<int>> ans = [];
+
+    for (int i = 0; i < nums.length; i += 3) {
+      if (i + 2 >= nums.length) {
+        return [];
+      }
+
+      List<int> t = nums.sublist(i, i + 3);
+      if (t[2] - t[0] > k) {
+        return [];
+      }
+
+      ans.add(t);
+    }
+
+    return ans;
+  }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
