@@ -3559,11 +3559,11 @@
 |  3546  |  [等和矩阵分割 I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README.md)  |  `数组`,`枚举`,`矩阵`,`前缀和`  |  中等  |  第 449 场周赛  |
 |  3547  |  [图中边值的最大和](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README.md)  |  `贪心`,`深度优先搜索`,`图`,`排序`  |  困难  |  第 449 场周赛  |
 |  3548  |  [等和矩阵分割 II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README.md)  |  `数组`,`哈希表`,`枚举`,`矩阵`,`前缀和`  |  困难  |  第 449 场周赛  |
-|  3549  |  [两个多项式相乘](/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README.md)  |    |  困难  |  🔒  |
-|  3550  |  [数位和等于下标的最小下标](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README.md)  |    |  简单  |  第 450 场周赛  |
-|  3551  |  [数位和排序需要的最小交换次数](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README.md)  |    |  中等  |  第 450 场周赛  |
-|  3552  |  [网格传送门旅游](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README.md)  |    |  中等  |  第 450 场周赛  |
-|  3553  |  [包含给定路径的最小带权子树 II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README.md)  |    |  困难  |  第 450 场周赛  |
+|  3549  |  [两个多项式相乘](/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README.md)  |  `数组`,`数学`  |  困难  |  🔒  |
+|  3550  |  [数位和等于下标的最小下标](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README.md)  |  `数组`,`数学`  |  简单  |  第 450 场周赛  |
+|  3551  |  [数位和排序需要的最小交换次数](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README.md)  |  `数组`,`哈希表`,`排序`  |  中等  |  第 450 场周赛  |
+|  3552  |  [网格传送门旅游](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README.md)  |  `广度优先搜索`,`数组`,`哈希表`,`矩阵`  |  中等  |  第 450 场周赛  |
+|  3553  |  [包含给定路径的最小带权子树 II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README.md)  |  `树`,`深度优先搜索`,`数组`  |  困难  |  第 450 场周赛  |
 |  3554  |  [查找类别推荐对](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README.md)  |  `数据库`  |  困难  |    |
 |  3555  |  [排序每个滑动窗口中最小的子数组](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README.md)  |    |  中等  |  🔒  |
 |  3556  |  [最大质数子字符串之和](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README.md)  |    |  中等  |  第 157 场双周赛  |
@@ -3574,6 +3574,8 @@
 |  3561  |  [移除相邻字符](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README.md)  |    |  中等  |  第 451 场周赛  |
 |  3562  |  [折扣价交易股票的最大利润](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README.md)  |    |  困难  |  第 451 场周赛  |
 |  3563  |  [移除相邻字符后字典序最小的字符串](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README.md)  |    |  困难  |  第 451 场周赛  |
+|  3564  |  [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README.md)  |    |  中等  |    |
+|  3565  |  [Sequential Grid Path Cover](/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
