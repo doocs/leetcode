@@ -269,31 +269,31 @@ func (h *hp) Pop() (v any)      { a := *h; *h, v = a[:len(a)-1], a[len(a)-1]; re
 
 ```ts
 function minTimeToReach(moveTime: number[][]): number {
-    const [n, m] = [moveTime.length, moveTime[0].length];
-    const dist: number[][] = Array.from({ length: n }, () => Array(m).fill(Infinity));
+    const n = moveTime.length;
+    const m = moveTime[0].length;
+    const dist = Array.from({ length: n }, () => Array(m).fill(Infinity));
     dist[0][0] = 0;
-    const pq = new PriorityQueue({ compare: (a, b) => a[0] - b[0] });
+    type Node = [number, number, number];
+    const pq = new PriorityQueue<Node>((a, b) => a[0] - b[0]);
     pq.enqueue([0, 0, 0]);
     const dirs = [-1, 0, 1, 0, -1];
-    while (1) {
+    while (!pq.isEmpty()) {
         const [d, i, j] = pq.dequeue();
-        if (i === n - 1 && j === m - 1) {
-            return d;
-        }
-        if (d > dist[i][j]) {
-            continue;
-        }
-        for (let k = 0; k < 4; ++k) {
-            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+        if (d > dist[i][j]) continue;
+        if (i === n - 1 && j === m - 1) return d;
+        for (let k = 0; k < 4; k++) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
             if (x >= 0 && x < n && y >= 0 && y < m) {
-                const t = Math.max(moveTime[x][y], dist[i][j]) + ((i + j) % 2) + 1;
-                if (dist[x][y] > t) {
+                const t = Math.max(moveTime[x][y], d) + ((i + j) % 2) + 1;
+                if (t < dist[x][y]) {
                     dist[x][y] = t;
                     pq.enqueue([t, x, y]);
                 }
             }
         }
     }
+    return -1;
 }
 ```
 

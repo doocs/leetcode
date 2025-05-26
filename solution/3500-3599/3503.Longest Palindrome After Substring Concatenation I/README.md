@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3503.Longest%20Palindrome%20After%20Substring%20Concatenation%20I/README.md
+rating: 1548
+source: 第 443 场周赛 Q2
 tags:
     - 双指针
     - 字符串

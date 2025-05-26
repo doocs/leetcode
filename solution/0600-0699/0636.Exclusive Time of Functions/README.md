@@ -73,7 +73,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li><code>1 &lt;= logs.length &lt;= 500</code></li>
+	<li><code>2 &lt;= logs.length &lt;= 500</code></li>
 	<li><code>0 &lt;= function_id &lt; n</code></li>
 	<li><code>0 &lt;= timestamp &lt;= 10<sup>9</sup></code></li>
 	<li>两个开始事件不会在同一时间戳发生</li>

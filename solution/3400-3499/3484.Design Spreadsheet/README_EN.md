@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3484.Design%20Spreadsheet/README_EN.md
+rating: 1523
+source: Biweekly Contest 152 Q2
 tags:
     - Design
     - Array

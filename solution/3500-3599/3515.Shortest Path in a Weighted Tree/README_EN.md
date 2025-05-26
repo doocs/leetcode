@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3515.Shortest%20Path%20in%20a%20Weighted%20Tree/README_EN.md
+rating: 2312
+source: Biweekly Contest 154 Q4
 tags:
     - Tree
     - Depth-First Search

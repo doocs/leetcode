@@ -2,7 +2,7 @@ class Solution {
     public int longestPalindrome(String[] words) {
         Map<String, Integer> cnt = new HashMap<>();
         for (var w : words) {
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+            cnt.merge(w, 1, Integer::sum);
         }
         int ans = 0, x = 0;
         for (var e : cnt.entrySet()) {

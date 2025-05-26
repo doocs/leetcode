@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3486.Longest%20Special%20Path%20II/README_EN.md
+rating: 2924
+source: Biweekly Contest 152 Q4
 tags:
     - Tree
     - Depth-First Search

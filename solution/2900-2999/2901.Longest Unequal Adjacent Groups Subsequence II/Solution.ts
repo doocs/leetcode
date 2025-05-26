@@ -1,4 +1,5 @@
-function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
+function getWordsInLongestSubsequence(words: string[], groups: number[]): string[] {
+    const n = groups.length;
     const f: number[] = Array(n).fill(1);
     const g: number[] = Array(n).fill(-1);
     let mx = 1;

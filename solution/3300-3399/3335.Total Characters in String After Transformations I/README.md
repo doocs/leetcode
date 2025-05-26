@@ -112,32 +112,162 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：递推
+
+我们定义 $f[i][j]$ 表示经过 $i$ 次转换后，字母表中第 $j$ 个字母的个数。初始时 $f[0][j]$ 为字符串 $s$ 中字母表中第 $j$ 个字母的个数。
+
+每次转换后，字母表中第 $j$ 个字母的个数可以通过以下方式计算：
+
+$$
+\begin{align*}
+f[i][0] &= f[i - 1][25] \\
+f[i][1] &= f[i - 1][0] + f[i - 1][25] \\
+f[i][2] &= f[i - 1][1] \\
+f[i][3] &= f[i - 1][2] \\
+&\vdots \\
+f[i][25] &= f[i - 1][24]
+\end{align*}
+$$
+
+答案为 $f[t][0] + f[t][1] + \ldots + f[t][25]$。
+
+由于答案可能非常大，我们需要对 $10^9 + 7$ 取模。
+
+时间复杂度 $O(t \times |\Sigma|)$，空间复杂度 $O(t \times |\Sigma|)$，其中 $|\Sigma|$ 为字母表的大小。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def lengthAfterTransformations(self, s: str, t: int) -> int:
+        f = [[0] * 26 for _ in range(t + 1)]
+        for c in s:
+            f[0][ord(c) - ord("a")] += 1
+        for i in range(1, t + 1):
+            f[i][0] = f[i - 1][25]
+            f[i][1] = f[i - 1][0] + f[i - 1][25]
+            for j in range(2, 26):
+                f[i][j] = f[i - 1][j - 1]
+        mod = 10**9 + 7
+        return sum(f[t]) % mod
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int lengthAfterTransformations(String s, int t) {
+        final int mod = (int) 1e9 + 7;
+        int[][] f = new int[t + 1][26];
+        for (char c : s.toCharArray()) {
+            f[0][c - 'a']++;
+        }
+        for (int i = 1; i <= t; ++i) {
+            f[i][0] = f[i - 1][25] % mod;
+            f[i][1] = (f[i - 1][0] + f[i - 1][25]) % mod;
+            for (int j = 2; j < 26; j++) {
+                f[i][j] = f[i - 1][j - 1] % mod;
+            }
+        }
 
+        int ans = 0;
+        for (int j = 0; j < 26; ++j) {
+            ans = (ans + f[t][j]) % mod;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int lengthAfterTransformations(string s, int t) {
+        const int mod = 1e9 + 7;
+        vector<vector<int>> f(t + 1, vector<int>(26, 0));
 
+        for (char c : s) {
+            f[0][c - 'a']++;
+        }
+
+        for (int i = 1; i <= t; ++i) {
+            f[i][0] = f[i - 1][25] % mod;
+            f[i][1] = (f[i - 1][0] + f[i - 1][25]) % mod;
+            for (int j = 2; j < 26; ++j) {
+                f[i][j] = f[i - 1][j - 1] % mod;
+            }
+        }
+
+        int ans = 0;
+        for (int j = 0; j < 26; ++j) {
+            ans = (ans + f[t][j]) % mod;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func lengthAfterTransformations(s string, t int) int {
+	const mod = 1_000_000_007
+	f := make([][]int, t+1)
+	for i := range f {
+		f[i] = make([]int, 26)
+	}
 
+	for _, c := range s {
+		f[0][c-'a']++
+	}
+
+	for i := 1; i <= t; i++ {
+		f[i][0] = f[i-1][25] % mod
+		f[i][1] = (f[i-1][0] + f[i-1][25]) % mod
+		for j := 2; j < 26; j++ {
+			f[i][j] = f[i-1][j-1] % mod
+		}
+	}
+
+	ans := 0
+	for j := 0; j < 26; j++ {
+		ans = (ans + f[t][j]) % mod
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function lengthAfterTransformations(s: string, t: number): number {
+    const mod = 1_000_000_007;
+    const f: number[][] = Array.from({ length: t + 1 }, () => Array(26).fill(0));
+
+    for (const c of s) {
+        f[0][c.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+
+    for (let i = 1; i <= t; i++) {
+        f[i][0] = f[i - 1][25] % mod;
+        f[i][1] = (f[i - 1][0] + f[i - 1][25]) % mod;
+        for (let j = 2; j < 26; j++) {
+            f[i][j] = f[i - 1][j - 1] % mod;
+        }
+    }
+
+    let ans = 0;
+    for (let j = 0; j < 26; j++) {
+        ans = (ans + f[t][j]) % mod;
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

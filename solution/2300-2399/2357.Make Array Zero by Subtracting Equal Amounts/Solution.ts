@@ -1,5 +1,5 @@
 function minimumOperations(nums: number[]): number {
-    const set = new Set(nums);
-    set.delete(0);
-    return set.size;
+    const s = new Set(nums);
+    s.delete(0);
+    return s.size;
 }

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3508.Implement%20Router/README.md
+rating: 1851
+source: 第 444 场周赛 Q2
 tags:
     - 设计
     - 队列

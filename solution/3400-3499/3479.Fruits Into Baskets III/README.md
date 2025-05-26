@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md
+rating: 2178
+source: 第 440 场周赛 Q3
 tags:
     - 线段树
     - 数组

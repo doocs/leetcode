@@ -1,10 +1,11 @@
 class Solution:
     def getWordsInLongestSubsequence(
-        self, n: int, words: List[str], groups: List[int]
+        self, words: List[str], groups: List[int]
     ) -> List[str]:
         def check(s: str, t: str) -> bool:
             return len(s) == len(t) and sum(a != b for a, b in zip(s, t)) == 1
 
+        n = len(groups)
         f = [1] * n
         g = [-1] * n
         mx = 1

@@ -7,8 +7,8 @@ source: Weekly Contest 135 Q4
 tags:
     - Array
     - Math
-    - Two Pointers
     - Sorting
+    - Sliding Window
 ---
 
 <!-- problem:start -->

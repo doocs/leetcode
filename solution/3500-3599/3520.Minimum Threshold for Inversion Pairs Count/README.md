@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3520.Minimum%20Threshold%20for%20Inversion%20Pairs%20Count/README.md
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 二分查找
 ---
 
 <!-- problem:start -->

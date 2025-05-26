@@ -7,6 +7,7 @@ source: Weekly Contest 183 Q2
 tags:
     - Bit Manipulation
     - String
+    - Simulation
 ---
 
 <!-- problem:start -->

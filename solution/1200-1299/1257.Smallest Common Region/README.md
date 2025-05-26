@@ -23,13 +23,13 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一些区域列表&nbsp;<code>regions</code> ，每个列表的第一个区域都包含这个列表内所有其他区域。</p>
+<p>给你一些区域列表&nbsp;<code>regions</code> ，每个列表的第一个区域都&nbsp;<strong>直接</strong> 包含这个列表内所有其他区域。</p>
+
+<p>如果一个区域 <code>x</code> 直接包含区域 <code>y</code>，并且区域 <code>y</code> 直接包含区域 <code>z</code>，那么说区域 <code>x</code> <strong>间接</strong> 包含区域 <code>z</code>。请注意，区域 <code>x</code> 也 <strong>间接</strong> 包含所有在 <code>y</code> 中 <strong>间接</strong> 包含的区域。</p>
 
 <p>很自然地，如果区域&nbsp;<code>x</code> 包含区域&nbsp;<code>y</code> ，那么区域&nbsp;<code>x</code> &nbsp;比区域&nbsp;<code>y</code> 大。同时根据定义，区域&nbsp;<code>x</code> 包含自身。</p>
 
 <p>给定两个区域&nbsp;<code>region1</code>&nbsp;和&nbsp;<code>region2</code> ，找到同时包含这两个区域的&nbsp;<strong>最小&nbsp;</strong>区域。</p>
-
-<p>如果给定区域&nbsp;<code>r1</code>，<code>r2</code>&nbsp;和&nbsp;<code>r3</code>，使得&nbsp;<code>r1</code>&nbsp;包含&nbsp;<code>r3</code>，那么数据保证&nbsp;<code>r2</code> 不会包含&nbsp;<code>r3</code>&nbsp;。</p>
 
 <p>数据同样保证最小区域一定存在。</p>
 

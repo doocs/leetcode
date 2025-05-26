@@ -21,7 +21,7 @@ tags:
 
 <p>有一个有 <code>n</code> 个节点的有向图，节点按 <code>0</code> 到 <code>n - 1</code> 编号。图由一个 <strong>索引从 0 开始</strong> 的 2D 整数数组&nbsp;<code>graph</code>表示，&nbsp;<code>graph[i]</code>是与节点 <code>i</code> 相邻的节点的整数数组，这意味着从节点 <code>i</code> 到&nbsp;<code>graph[i]</code>中的每个节点都有一条边。</p>
 
-<p>如果一个节点没有连出的有向边，则该节点是 <strong>终端节点</strong> 。如果从该节点开始的所有可能路径都通向 <strong>终端节点</strong> ，则该节点为 <strong>安全节点</strong> 。</p>
+<p>如果一个节点没有连出的有向边，则该节点是 <strong>终端节点</strong> 。如果从该节点开始的所有可能路径都通向 <strong>终端节点</strong> ，则该节点为 <strong>终端节点</strong>（或另一个安全节点）。</p>
 
 <p>返回一个由图中所有 <strong>安全节点</strong> 组成的数组作为答案。答案数组中的元素应当按 <strong>升序</strong> 排列。</p>
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3500.Minimum%20Cost%20to%20Divide%20Array%20Into%20Subarrays/README_EN.md
+rating: 2569
+source: Biweekly Contest 153 Q3
 tags:
     - Array
     - Dynamic Programming

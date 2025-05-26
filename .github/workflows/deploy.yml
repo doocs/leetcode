@@ -1,6 +1,7 @@
 name: deploy
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -12,86 +13,118 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
-  workflow_dispatch:
-
-env:
-  MKDOCS_API_KEYS: ${{ secrets.MKDOCS_API_KEYS }}
-
-permissions:
-  contents: write
 
 concurrency:
-  group: ${{github.workflow}} - ${{github.ref}}
+  group: ${{ github.workflow }} - ${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    if: github.repository == 'doocs/leetcode'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout docs branch
+        uses: actions/checkout@v4
         with:
           ref: docs
           path: mkdocs
-      - run: |
-          mv -f mkdocs/* .
+          fetch-depth: 0
+
+      - name: Sync docs branch content
+        run: |
+          rsync -a --remove-source-files --exclude='.git' mkdocs/ ./
+          rm -rf mkdocs
           mv solution/CONTEST_README.md docs/contest.md
           mv solution/CONTEST_README_EN.md docs-en/contest.md
+
       - name: Configure Git Credentials
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
+      - name: Restore pip cache
+        uses: actions/cache@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Restore mkdocs-material cache
+        uses: actions/cache@v4
+        with:
           path: .cache
+          key: mkdocs-material-${{ env.cache_id }}
           restore-keys: |
             mkdocs-material-
-            
+
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
           python3 -m pip install "mkdocs-material[imaging]"
-          sudo apt-get install pngquant
+          sudo apt-get install -y pngquant
 
-      - run: |
+      - name: Set MKDOCS_API_KEYS
+        run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
+
+      - name: Build site
+        run: |
           python3 main.py
           mkdocs build -f mkdocs.yml
           mkdocs build -f mkdocs-en.yml
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Generate CNAME
+        run: echo "leetcode.doocs.org" > ./site/CNAME
+
+      - name: Commit committer cache to docs branch
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CACHE_FILE=".git-committers-cache.json"
+          if [[ ! -f "$CACHE_FILE" ]]; then
+            echo "Cache file not found; skip commit."
+            exit 0
+          fi
+
+          echo "Cloning docs branch ..."
+          git clone --depth 1 --branch docs "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git" docs-cache
+          cp "$CACHE_FILE" docs-cache/
+
+          cd docs-cache
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+          git add .git-committers-cache.json
+          git commit -m "chore: update committer cache [skip ci]" || echo "No changes to commit"
+          git push origin docs
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          cname: leetcode.doocs.org
+          path: ./site
 
-  # sync:
-  #   runs-on: ubuntu-latest
-  #   needs: deploy
-  #   if: github.repository == 'doocs/leetcode'
-  #   steps:
-  #     - name: Sync to gitee.com
-  #       uses: wearerequired/git-mirror-action@master
-  #       env:
-  #           SSH_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
-  #       with:
-  #           source-repo: git@github.com:doocs/leetcode.git
-  #           destination-repo: git@gitee.com:Doocs/leetcode.git
-
-  #     - name: Build Gitee Pages
-  #       uses: yanglbme/gitee-pages-action@main
-  #       with:
-  #           gitee-username: yanglbme
-  #           gitee-password: ${{ secrets.GITEE_PASSWORD }}
-  #           gitee-repo: doocs/leetcode
-  #           branch: gh-pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github_pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

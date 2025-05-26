@@ -157,4 +157,54 @@ function numRabbits(answers: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Greedy + Hash Map
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function numRabbits(answers: number[]): number {
+    const cnt: Record<number, number> = {};
+    let ans = 0;
+
+    for (const x of answers) {
+        if (cnt[x]) {
+            cnt[x]--;
+        } else {
+            cnt[x] = x;
+            ans += x + 1;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function numRabbits(answers) {
+    const cnt = {};
+    let ans = 0;
+
+    for (const x of answers) {
+        if (cnt[x]) {
+            cnt[x]--;
+        } else {
+            cnt[x] = x;
+            ans += x + 1;
+        }
+    }
+
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

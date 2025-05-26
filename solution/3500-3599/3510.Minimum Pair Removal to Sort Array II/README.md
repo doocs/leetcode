@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3510.Minimum%20Pair%20Removal%20to%20Sort%20Array%20II/README.md
+rating: 2608
+source: 第 444 场周赛 Q4
 tags:
     - 数组
     - 哈希表

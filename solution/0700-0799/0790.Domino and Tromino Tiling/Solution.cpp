@@ -1,11 +1,10 @@
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int numTilings(int n) {
-        long f[4] = {1, 0, 0, 0};
+        const int mod = 1e9 + 7;
+        long long f[4] = {1, 0, 0, 0};
         for (int i = 1; i <= n; ++i) {
-            long g[4] = {0, 0, 0, 0};
+            long long g[4];
             g[0] = (f[0] + f[1] + f[2] + f[3]) % mod;
             g[1] = (f[2] + f[3]) % mod;
             g[2] = (f[1] + f[3]) % mod;

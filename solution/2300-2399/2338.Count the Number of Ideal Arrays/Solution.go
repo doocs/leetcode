@@ -1,32 +1,8 @@
-func idealArrays(n int, maxValue int) int {
-	mod := int(1e9) + 7
-	m := maxValue
+func idealArrays(n int, maxValue int) (ans int) {
+	const mod = int(1e9 + 7)
 	c := make([][]int, n)
-	f := make([][]int, m+1)
-	for i := range c {
-		c[i] = make([]int, 16)
-	}
-	for i := range f {
-		f[i] = make([]int, 16)
-		for j := range f[i] {
-			f[i][j] = -1
-		}
-	}
-	var dfs func(int, int) int
-	dfs = func(i, cnt int) int {
-		if f[i][cnt] != -1 {
-			return f[i][cnt]
-		}
-		res := c[n-1][cnt-1]
-		if cnt < n {
-			for k := 2; k*i <= m; k++ {
-				res = (res + dfs(k*i, cnt+1)) % mod
-			}
-		}
-		f[i][cnt] = res
-		return res
-	}
 	for i := 0; i < n; i++ {
+		c[i] = make([]int, 16)
 		for j := 0; j <= i && j < 16; j++ {
 			if j == 0 {
 				c[i][j] = 1
@@ -35,9 +11,23 @@ func idealArrays(n int, maxValue int) int {
 			}
 		}
 	}
-	ans := 0
-	for i := 1; i <= m; i++ {
-		ans = (ans + dfs(i, 1)) % mod
+
+	f := make([][16]int, maxValue+1)
+	for i := 1; i <= maxValue; i++ {
+		f[i][1] = 1
 	}
-	return ans
+	for j := 1; j < 15; j++ {
+		for i := 1; i <= maxValue; i++ {
+			for k := 2; k*i <= maxValue; k++ {
+				f[k*i][j+1] = (f[k*i][j+1] + f[i][j]) % mod
+			}
+		}
+	}
+
+	for i := 1; i <= maxValue; i++ {
+		for j := 1; j < 16; j++ {
+			ans = (ans + f[i][j]*c[n-1][j-1]) % mod
+		}
+	}
+	return
 }

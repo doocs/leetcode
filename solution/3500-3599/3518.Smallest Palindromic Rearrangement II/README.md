@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3518.Smallest%20Palindromic%20Rearrangement%20II/README.md
+rating: 2375
+source: 第 445 场周赛 Q3
 tags:
     - 哈希表
     - 数学

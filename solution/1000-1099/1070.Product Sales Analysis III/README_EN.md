@@ -34,7 +34,7 @@ Each row of this table shows a sale on the product product_id in a certain year.
 Note that the price is per unit.
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p>Table: <code>Product</code></p>
 
@@ -49,13 +49,13 @@ product_id is the primary key (column with unique values) of this table.
 Each row of this table indicates the product name of each product.
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p>Write a solution to select&nbsp;the <strong>product id</strong>, <strong>year</strong>, <strong>quantity</strong>, and <strong>price</strong> for the <strong>first year</strong> of every product sold.</p>
+<p>Write a solution to select the <strong>product id</strong>, <strong>year</strong>, <strong>quantity</strong>, and <strong>price</strong> for the <strong>first year</strong> of every product sold. If any product is bought multiple times in its first year, return all sales separately.</p>
 
 <p>Return the resulting table in <strong>any order</strong>.</p>
 
-<p>The&nbsp;result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

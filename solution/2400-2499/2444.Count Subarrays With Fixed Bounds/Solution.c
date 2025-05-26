@@ -1,23 +1,12 @@
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
 long long countSubarrays(int* nums, int numsSize, int minK, int maxK) {
-    long long res = 0;
-    int minIndex = -1;
-    int maxIndex = -1;
-    int k = -1;
-    for (int i = 0; i < numsSize; i++) {
-        int num = nums[i];
-        if (num == minK) {
-            minIndex = i;
-        }
-        if (num == maxK) {
-            maxIndex = i;
-        }
-        if (num < minK || num > maxK) {
-            k = i;
-        }
-        res += max(min(minIndex, maxIndex) - k, 0);
+    long long ans = 0;
+    int j1 = -1, j2 = -1, k = -1;
+    for (int i = 0; i < numsSize; ++i) {
+        if (nums[i] < minK || nums[i] > maxK) k = i;
+        if (nums[i] == minK) j1 = i;
+        if (nums[i] == maxK) j2 = i;
+        int m = j1 < j2 ? j1 : j2;
+        if (m > k) ans += (long long) (m - k);
     }
-    return res;
+    return ans;
 }

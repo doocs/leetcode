@@ -25,13 +25,13 @@ tags:
 | id          | int  |
 | salary      | int  |
 +-------------+------+
-在 SQL 中，id 是该表的主键。
+id 是该表的主键（列中的值互不相同）。
 该表的每一行都包含有关员工工资的信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>查询&nbsp;<code>Employee</code> 表中第 <code>n</code> 高的工资。如果没有第 <code>n</code> 个最高工资，查询结果应该为&nbsp;<code>null</code> 。</p>
+<p>编写一个解决方案查询&nbsp;<code>Employee</code> 表中第 <code>n</code> 高的&nbsp;<strong>不同</strong> 工资。如果少于&nbsp;<code>n</code> 个不同工资，查询结果应该为&nbsp;<code>null</code> 。</p>
 
 <p>查询结果格式如下所示。</p>
 

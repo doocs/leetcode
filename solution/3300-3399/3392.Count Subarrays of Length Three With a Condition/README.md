@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;，请你返回长度为 3 的 <span data-keyword="subarray-nonempty">子数组</span>，满足第一个数和第三个数的和恰好为第二个数的一半。</p>
+<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;，请你返回长度为 3 的 <span data-keyword="subarray-nonempty">子数组</span> 的数量，满足第一个数和第三个数的和恰好为第二个数的一半。</p>
 
 <p><strong>子数组</strong>&nbsp;指的是一个数组中连续 <strong>非空</strong>&nbsp;的元素序列。</p>
 
@@ -140,6 +140,22 @@ function countSubarrays(nums: number[]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_subarrays(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        for i in 1..nums.len() - 1 {
+            if (nums[i - 1] + nums[i + 1]) * 2 == nums[i] {
+                ans += 1;
+            }
+        }
+        ans
+    }
 }
 ```
 
