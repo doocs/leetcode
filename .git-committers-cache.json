@@ -1,5 +1,5 @@
 {
-  "cache_date": 1748300795,
+  "cache_date": 1748312223,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -9165,6 +9165,12 @@
     "solution/0100-0199/0147.Insertion Sort List/README.md": {
       "authors": [
         {
+          "login": "taoyq1988",
+          "name": "taoyq1988",
+          "url": "https://github.com/taoyq1988",
+          "avatar": "https://avatars.githubusercontent.com/u/18185657?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -9177,7 +9183,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745668998
+      "retrieved": 1748310898
     },
     "solution/1400-1499/1470.Shuffle the Array/README.md": {
       "authors": [
@@ -76142,6 +76148,12 @@
     "solution/0100-0199/0147.Insertion Sort List/README_EN.md": {
       "authors": [
         {
+          "login": "taoyq1988",
+          "name": "taoyq1988",
+          "url": "https://github.com/taoyq1988",
+          "avatar": "https://avatars.githubusercontent.com/u/18185657?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -76154,7 +76166,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670578
+      "retrieved": 1748311691
     },
     "solution/1400-1499/1470.Shuffle the Array/README_EN.md": {
       "authors": [
@@ -127512,7 +127524,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748299880
+      "retrieved": 1748311306
     },
     "solution/3500-3599/3564.Seasonal Sales Analysis/README_EN.md": {
       "authors": [
@@ -127534,7 +127546,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748300653
+      "retrieved": 1748312079
     }
   }
 }
