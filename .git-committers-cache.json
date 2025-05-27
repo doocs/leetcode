@@ -1,5 +1,5 @@
 {
-  "cache_date": 1748356091,
+  "cache_date": 1748387089,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -42409,7 +42409,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669793
+      "retrieved": 1748386149
     },
     "solution/3300-3399/3373.Maximize the Number of Target Nodes After Connecting Trees II/README.md": {
       "authors": [
@@ -42420,7 +42420,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669793
+      "retrieved": 1748386150
     },
     "solution/3300-3399/3374.First Letter Capitalization II/README.md": {
       "authors": [
@@ -53893,6 +53893,12 @@
     "solution/0000-0099/0008.String to Integer (atoi)/README.md": {
       "authors": [
         {
+          "login": "gaganxsaini",
+          "name": "gaganxsaini",
+          "url": "https://github.com/gaganxsaini",
+          "avatar": "https://avatars.githubusercontent.com/u/32135369?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -53911,7 +53917,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745670044
+      "retrieved": 1748386271
     },
     "solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README.md": {
       "authors": [
@@ -109338,7 +109344,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671346
+      "retrieved": 1748386916
     },
     "solution/3300-3399/3373.Maximize the Number of Target Nodes After Connecting Trees II/README_EN.md": {
       "authors": [
@@ -109349,7 +109355,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671346
+      "retrieved": 1748386917
     },
     "solution/3300-3399/3374.First Letter Capitalization II/README_EN.md": {
       "authors": [
@@ -120690,6 +120696,12 @@
     "solution/0000-0099/0008.String to Integer (atoi)/README_EN.md": {
       "authors": [
         {
+          "login": "gaganxsaini",
+          "name": "gaganxsaini",
+          "url": "https://github.com/gaganxsaini",
+          "avatar": "https://avatars.githubusercontent.com/u/32135369?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -120708,7 +120720,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745671594
+      "retrieved": 1748387032
     },
     "solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README_EN.md": {
       "authors": [
