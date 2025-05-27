@@ -62,32 +62,67 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3560.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+If the lengths of both logs do not exceed the truck's maximum load $k$, then no cutting is needed, and we simply return $0$.
+
+Otherwise, it means that only one log has a length greater than $k$, and we need to cut it into two pieces. Let the longer log have length $x$, then the cutting cost is $k \times (x - k)$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCuttingCost(self, n: int, m: int, k: int) -> int:
+        x = max(n, m)
+        return 0 if x <= k else k * (x - k)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minCuttingCost(int n, int m, int k) {
+        int x = Math.max(n, m);
+        return x <= k ? 0 : 1L * k * (x - k);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long minCuttingCost(int n, int m, int k) {
+        int x = max(n, m);
+        return x <= k ? 0 : 1LL * k * (x - k);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCuttingCost(n int, m int, k int) int64 {
+	x := max(n, m)
+	if x <= k {
+		return 0
+	}
+	return int64(k * (x - k))
+}
+```
 
+#### TypeScript
+
+```ts
+function minCuttingCost(n: number, m: number, k: number): number {
+    const x = Math.max(n, m);
+    return x <= k ? 0 : k * (x - k);
+}
 ```
 
 <!-- tabs:end -->
