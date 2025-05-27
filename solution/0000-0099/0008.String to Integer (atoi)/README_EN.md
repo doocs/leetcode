@@ -353,6 +353,7 @@ class Solution {
 ```
 
 #### C++
+
 ```c++
 class Solution {
 public:
@@ -360,7 +361,7 @@ public:
         int i = 0, n = s.size();
         while (i < n && s[i] == ' ')
             ++i;
-        
+
         int sign = 1;
         if (i < n && (s[i] == '-' || s[i] == '+')) {
             sign = s[i] == '-' ? -1 : 1;
