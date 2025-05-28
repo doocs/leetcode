@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README_EN.md
+tags:
+    - Stack
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

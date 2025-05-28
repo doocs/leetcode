@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md
+tags:
+    - String
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

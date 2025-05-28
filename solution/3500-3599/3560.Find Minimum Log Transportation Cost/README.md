@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README.md
+tags:
+    - 数学
 ---
 
 <!-- problem:start -->

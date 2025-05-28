@@ -21,7 +21,7 @@ tags:
 
 <p>Let <code>A(x)</code> and <code>B(x)</code> be the polynomials represented by <code>poly1</code> and <code>poly2</code>, respectively.</p>
 
-<p>Return an integer array <code>result</code> representing the coefficients of the product polynomial <code>R(x) = A(x) * B(x)</code>, where <code>result[i]</code> denotes the coefficient of <code>x<sup>i</sup></code> in <code>R(x)</code>.</p>
+<p>Return an integer array <code>result</code> of length <code>(poly1.length + poly2.length - 1)</code> representing the coefficients of the product polynomial <code>R(x) = A(x) * B(x)</code>, where <code>result[i]</code> denotes the coefficient of <code>x<sup>i</sup></code> in <code>R(x)</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

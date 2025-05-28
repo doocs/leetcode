@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md
+tags:
+    - Hash Table
+    - Math
+    - String
+    - Number Theory
+    - Sorting
 ---
 
 <!-- problem:start -->

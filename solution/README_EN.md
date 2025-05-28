@@ -3563,16 +3563,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3552  |  [Grid Teleportation Traversal](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README_EN.md)  |  `Breadth-First Search`,`Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 450  |
 |  3553  |  [Minimum Weighted Subgraph With the Required Paths II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`  |  Hard  |  Weekly Contest 450  |
 |  3554  |  [Find Category Recommendation Pairs](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README_EN.md)  |  `Database`  |  Hard  |    |
-|  3555  |  [Smallest Subarray to Sort in Every Sliding Window](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README_EN.md)  |    |  Medium  |  🔒  |
-|  3556  |  [Sum of Largest Prime Substrings](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
-|  3557  |  [Find Maximum Number of Non Intersecting Substrings](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
-|  3558  |  [Number of Ways to Assign Edge Weights I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
-|  3559  |  [Number of Ways to Assign Edge Weights II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 157  |
-|  3560  |  [Find Minimum Log Transportation Cost](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README_EN.md)  |    |  Easy  |  Weekly Contest 451  |
-|  3561  |  [Resulting String After Adjacent Removals](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 451  |
-|  3562  |  [Maximum Profit from Trading Stocks with Discounts](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README_EN.md)  |    |  Hard  |  Weekly Contest 451  |
-|  3563  |  [Lexicographically Smallest String After Adjacent Removals](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md)  |    |  Hard  |  Weekly Contest 451  |
-|  3564  |  [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)  |    |  Medium  |    |
+|  3555  |  [Smallest Subarray to Sort in Every Sliding Window](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Two Pointers`,`Sorting`,`Monotonic Stack`  |  Medium  |  🔒  |
+|  3556  |  [Sum of Largest Prime Substrings](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Number Theory`,`Sorting`  |  Medium  |  Biweekly Contest 157  |
+|  3557  |  [Find Maximum Number of Non Intersecting Substrings](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 157  |
+|  3558  |  [Number of Ways to Assign Edge Weights I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README_EN.md)  |  `Tree`,`Depth-First Search`,`Math`  |  Medium  |  Biweekly Contest 157  |
+|  3559  |  [Number of Ways to Assign Edge Weights II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Math`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 157  |
+|  3560  |  [Find Minimum Log Transportation Cost](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 451  |
+|  3561  |  [Resulting String After Adjacent Removals](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README_EN.md)  |  `Stack`,`String`,`Simulation`  |  Medium  |  Weekly Contest 451  |
+|  3562  |  [Maximum Profit from Trading Stocks with Discounts](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 451  |
+|  3563  |  [Lexicographically Smallest String After Adjacent Removals](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 451  |
+|  3564  |  [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)  |  `Database`  |  Medium  |    |
 |  3565  |  [Sequential Grid Path Cover](/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
