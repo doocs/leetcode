@@ -1,26 +1,25 @@
 class Solution {
-    private int[] p;
+    private final int[] p = new int[26];
 
     public String smallestEquivalentString(String s1, String s2, String baseStr) {
-        p = new int[26];
-        for (int i = 0; i < 26; ++i) {
+        for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
         for (int i = 0; i < s1.length(); ++i) {
-            int a = s1.charAt(i) - 'a', b = s2.charAt(i) - 'a';
-            int pa = find(a), pb = find(b);
-            if (pa < pb) {
-                p[pb] = pa;
+            int x = s1.charAt(i) - 'a';
+            int y = s2.charAt(i) - 'a';
+            int px = find(x), py = find(y);
+            if (px < py) {
+                p[py] = px;
             } else {
-                p[pa] = pb;
+                p[px] = py;
             }
         }
-        StringBuilder sb = new StringBuilder();
-        for (char a : baseStr.toCharArray()) {
-            char b = (char) (find(a - 'a') + 'a');
-            sb.append(b);
+        char[] s = baseStr.toCharArray();
+        for (int i = 0; i < s.length; ++i) {
+            s[i] = (char) ('a' + find(s[i] - 'a'));
         }
-        return sb.toString();
+        return String.valueOf(s);
     }
 
     private int find(int x) {

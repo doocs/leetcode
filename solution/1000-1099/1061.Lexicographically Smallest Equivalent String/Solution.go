@@ -1,30 +1,33 @@
-var p []int
-
 func smallestEquivalentString(s1 string, s2 string, baseStr string) string {
-	p = make([]int, 26)
+	p := make([]int, 26)
 	for i := 0; i < 26; i++ {
 		p[i] = i
 	}
+
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+
 	for i := 0; i < len(s1); i++ {
-		a, b := int(s1[i]-'a'), int(s2[i]-'a')
-		pa, pb := find(a), find(b)
-		if pa < pb {
-			p[pb] = pa
+		x := int(s1[i] - 'a')
+		y := int(s2[i] - 'a')
+		px := find(x)
+		py := find(y)
+		if px < py {
+			p[py] = px
 		} else {
-			p[pa] = pb
+			p[px] = py
 		}
 	}
-	var res []byte
-	for _, a := range baseStr {
-		b := byte(find(int(a-'a'))) + 'a'
-		res = append(res, b)
-	}
-	return string(res)
-}
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
+	var s []byte
+	for i := 0; i < len(baseStr); i++ {
+		s = append(s, byte('a'+find(int(baseStr[i]-'a'))))
 	}
-	return p[x]
+
+	return string(s)
 }
