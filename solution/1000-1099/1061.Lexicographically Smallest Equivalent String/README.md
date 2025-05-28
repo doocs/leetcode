@@ -79,7 +79,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：并查集
+
+我们可以使用并查集来处理等价字符的关系。每个字符可以看作一个节点，等价关系可以看作是连接这些节点的边。通过并查集，我们可以将所有等价的字符归为一类，并且在查询时能够快速找到每个字符的代表元素。我们在进行合并操作时，始终将代表元素设置为字典序最小的字符，这样可以确保最终得到的字符串是按字典序排列的最小等价字符串。
+
+时间复杂度 $O((n + m) \times \log |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s1$ 和 $s2$ 的长度，而 $m$ 是字符串 $baseStr$ 的长度，而 $|\Sigma|$ 是字符集的大小，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
@@ -88,54 +92,47 @@ tags:
 ```python
 class Solution:
     def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
-        p = list(range(26))
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        for i in range(len(s1)):
-            a, b = ord(s1[i]) - ord('a'), ord(s2[i]) - ord('a')
-            pa, pb = find(a), find(b)
-            if pa < pb:
-                p[pb] = pa
+        p = list(range(26))
+        for a, b in zip(s1, s2):
+            x, y = ord(a) - ord("a"), ord(b) - ord("a")
+            px, py = find(x), find(y)
+            if px < py:
+                p[py] = px
             else:
-                p[pa] = pb
-
-        res = []
-        for a in baseStr:
-            a = ord(a) - ord('a')
-            res.append(chr(find(a) + ord('a')))
-        return ''.join(res)
+                p[px] = py
+        return "".join(chr(find(ord(c) - ord("a")) + ord("a")) for c in baseStr)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int[] p;
+    private final int[] p = new int[26];
 
     public String smallestEquivalentString(String s1, String s2, String baseStr) {
-        p = new int[26];
-        for (int i = 0; i < 26; ++i) {
+        for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
         for (int i = 0; i < s1.length(); ++i) {
-            int a = s1.charAt(i) - 'a', b = s2.charAt(i) - 'a';
-            int pa = find(a), pb = find(b);
-            if (pa < pb) {
-                p[pb] = pa;
+            int x = s1.charAt(i) - 'a';
+            int y = s2.charAt(i) - 'a';
+            int px = find(x), py = find(y);
+            if (px < py) {
+                p[py] = px;
             } else {
-                p[pa] = pb;
+                p[px] = py;
             }
         }
-        StringBuilder sb = new StringBuilder();
-        for (char a : baseStr.toCharArray()) {
-            char b = (char) (find(a - 'a') + 'a');
-            sb.append(b);
+        char[] s = baseStr.toCharArray();
+        for (int i = 0; i < s.length; ++i) {
+            s[i] = (char) ('a' + find(s[i] - 'a'));
         }
-        return sb.toString();
+        return String.valueOf(s);
     }
 
     private int find(int x) {
@@ -152,32 +149,30 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     string smallestEquivalentString(string s1, string s2, string baseStr) {
-        p.resize(26);
-        for (int i = 0; i < 26; ++i)
-            p[i] = i;
-        for (int i = 0; i < s1.size(); ++i) {
-            int a = s1[i] - 'a', b = s2[i] - 'a';
-            int pa = find(a), pb = find(b);
-            if (pa < pb)
-                p[pb] = pa;
-            else
-                p[pa] = pb;
+        vector<int> p(26);
+        iota(p.begin(), p.end(), 0);
+        auto find = [&](this auto&& find, int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        for (int i = 0; i < s1.length(); ++i) {
+            int x = s1[i] - 'a';
+            int y = s2[i] - 'a';
+            int px = find(x), py = find(y);
+            if (px < py) {
+                p[py] = px;
+            } else {
+                p[px] = py;
+            }
         }
-        string res = "";
-        for (char a : baseStr) {
-            char b = (char) (find(a - 'a') + 'a');
-            res += b;
+        string s;
+        for (char c : baseStr) {
+            s.push_back('a' + find(c - 'a'));
         }
-        return res;
-    }
-
-    int find(int x) {
-        if (p[x] != x)
-            p[x] = find(p[x]);
-        return p[x];
+        return s;
     }
 };
 ```
@@ -185,35 +180,72 @@ public:
 #### Go
 
 ```go
-var p []int
-
 func smallestEquivalentString(s1 string, s2 string, baseStr string) string {
-	p = make([]int, 26)
+	p := make([]int, 26)
 	for i := 0; i < 26; i++ {
 		p[i] = i
 	}
+
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+
 	for i := 0; i < len(s1); i++ {
-		a, b := int(s1[i]-'a'), int(s2[i]-'a')
-		pa, pb := find(a), find(b)
-		if pa < pb {
-			p[pb] = pa
+		x := int(s1[i] - 'a')
+		y := int(s2[i] - 'a')
+		px := find(x)
+		py := find(y)
+		if px < py {
+			p[py] = px
 		} else {
-			p[pa] = pb
+			p[px] = py
 		}
 	}
-	var res []byte
-	for _, a := range baseStr {
-		b := byte(find(int(a-'a'))) + 'a'
-		res = append(res, b)
-	}
-	return string(res)
-}
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
+	var s []byte
+	for i := 0; i < len(baseStr); i++ {
+		s = append(s, byte('a'+find(int(baseStr[i]-'a'))))
 	}
-	return p[x]
+
+	return string(s)
+}
+```
+
+#### TypeScript
+
+```ts
+function smallestEquivalentString(s1: string, s2: string, baseStr: string): string {
+    const p: number[] = Array.from({ length: 26 }, (_, i) => i);
+
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+
+    for (let i = 0; i < s1.length; i++) {
+        const x = s1.charCodeAt(i) - 'a'.charCodeAt(0);
+        const y = s2.charCodeAt(i) - 'a'.charCodeAt(0);
+        const px = find(x);
+        const py = find(y);
+        if (px < py) {
+            p[py] = px;
+        } else {
+            p[px] = py;
+        }
+    }
+
+    const s: string[] = [];
+    for (let i = 0; i < baseStr.length; i++) {
+        const c = baseStr.charCodeAt(i) - 'a'.charCodeAt(0);
+        s.push(String.fromCharCode('a'.charCodeAt(0) + find(c)));
+    }
+    return s.join('');
 }
 ```
 
