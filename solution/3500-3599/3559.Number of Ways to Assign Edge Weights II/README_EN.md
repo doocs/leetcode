@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Math
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

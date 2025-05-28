@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README.md
+tags:
+    - 栈
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3564. Seasonal Sales Analysis](https://leetcode.cn/problems/seasonal-sales-analysis)
+# [3564. 季节性销售分析](https://leetcode.cn/problems/seasonal-sales-analysis)
 
 [English Version](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>sales</code></p>
+<p>表：<code>sales</code></p>
 
 <pre>
 +---------------+---------+
@@ -28,11 +28,11 @@ tags:
 | quantity      | int     |
 | price         | decimal |
 +---------------+---------+
-sale_id is the unique identifier for this table.
-Each row contains information about a product sale including the product_id, date of sale, quantity sold, and price per unit.
+sale_id 是这张表的唯一主键。
+每一行包含一件产品的销售信息，包括 product_id，销售日期，销售数量，以及单价。
 </pre>
 
-<p>Table: <code>products</code></p>
+<p>表：<code>products</code></p>
 
 <pre>
 +---------------+---------+
@@ -42,32 +42,33 @@ Each row contains information about a product sale including the product_id, dat
 | product_name  | varchar |
 | category      | varchar |
 +---------------+---------+
-product_id is the unique identifier for this table.
-Each row contains information about a product including its name and category.
+product_id 是这张表的唯一主键。
+每一行包含一件产品的信息，包括它的名字和分类。
 </pre>
 
-<p>Write a solution to find the most popular product category for each season. The seasons are defined as:</p>
+<p>编写一个解决方案来找到每个季节最受欢迎的产品分类。季节定义如下：</p>
 
 <ul>
-	<li><strong>Winter</strong>: December, January, February</li>
-	<li><strong>Spring</strong>: March, April, May</li>
-	<li><strong>Summer</strong>: June, July, August</li>
-	<li><strong>Fall</strong>: September, October, November</li>
+	<li><strong>冬季</strong>：十二月，一月，二月</li>
+	<li><strong>春季</strong>：三月，四月，五月</li>
+	<li><strong>夏季</strong>：六月，七月，八月</li>
+	<li><strong>秋季</strong>：九月，十月，十一月</li>
 </ul>
 
-<p>The <strong>popularity</strong> of a <strong>category</strong> is determined by the <strong>total quantity sold</strong> in that <strong>season</strong>. If there is a <strong>tie</strong>, select the category with the highest <strong>total revenue</strong> (<code>quantity &times; price</code>).</p>
+<p>一个 <strong>分类</strong>&nbsp;的 <b>受欢迎度</b>&nbsp;由某个 <strong>季节</strong>&nbsp;的 <strong>总销售量</strong>&nbsp;决定。如果有并列，选择总收入最高的类别 (<code>quantity × price</code>)。</p>
 
-<p>Return <em>the result table ordered by season in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以季节 <strong>升序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>sales table:</p>
+<p>sales 表：</p>
 
 <pre class="example-io">
 +---------+------------+------------+----------+-------+
@@ -91,7 +92,7 @@ Each row contains information about a product including its name and category.
 +---------+------------+------------+----------+-------+
 </pre>
 
-<p>products table:</p>
+<p>products 表：</p>
 
 <pre class="example-io">
 +------------+-----------------+----------+
@@ -105,7 +106,7 @@ Each row contains information about a product including its name and category.
 +------------+-----------------+----------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------+----------+----------------+---------------+
@@ -118,47 +119,47 @@ Each row contains information about a product including its name and category.
 +---------+----------+----------------+---------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Fall (Sep, Oct, Nov):</strong>
+	<li><strong>秋季（九月，十月，十一月）：</strong>
 
     <ul>
-    	<li>Apparel: 10 items sold (6 Jackets in Sep, 4 Jeans in Nov), revenue $120.00 (6&times;$10.00 + 4&times;$15.00)</li>
-    	<li>Fitness: 3 Yoga Mats sold in Sep, revenue $36.00</li>
-    	<li>Most popular: Apparel with highest total quantity (10)</li>
+    	<li>服装：售出 10 件商品（在 9 月有 6 件夹克，在 11 月 有 4 条牛仔裤），收入 $120.00（6×$10.00 + 4×$15.00）</li>
+    	<li>健身: 9 月售出&nbsp;3 张瑜伽垫，收入&nbsp;$36.00</li>
+    	<li>最受欢迎：服装总数量最多（10）</li>
     </ul>
     </li>
-    <li><strong>Spring (Mar, Apr, May):</strong>
+    <li><strong>春季（三月，四月，五月）：</strong>
     <ul>
-    	<li>Kitchen: 3 Cutting Boards sold in Mar, revenue $54.00</li>
-    	<li>Tech: 1 Smart Speaker sold in Apr, revenue $20.00</li>
-    	<li>Apparel: 2 Warm Jackets sold in May, revenue $20.00</li>
-    	<li>Most popular: Kitchen with highest total quantity (3) and highest revenue ($54.00)</li>
+    	<li>厨房：5 月 售出 3 张菜板，收入 $54.00</li>
+    	<li>科技：4 月 售出 1 台智能音箱，收入&nbsp;$20.00</li>
+    	<li>服装: 五月售出 2 件保暖夹克，收入&nbsp;$20.00</li>
+    	<li>最受欢迎：厨房总数量最多（3）且收入最多（$54.00）</li>
     </ul>
     </li>
-    <li><strong>Summer (Jun, Jul, Aug):</strong>
+    <li><strong>夏季（六月，七月，八月</strong><strong>）：</strong>
     <ul>
-    	<li>Apparel: 4 Designer Jeans sold in Jun, revenue $60.00</li>
-    	<li>Fitness: 5 Yoga Mats sold in Jun, revenue $60.00</li>
-    	<li>Kitchen: 2 Cutting Boards sold in Jul, revenue $36.00</li>
-    	<li>Tech: 5 Smart Speakers sold in Aug, revenue $100.00</li>
-    	<li>Most popular: Tech and Fitness both have 5 items, but Tech has higher revenue ($100.00 vs $60.00)</li>
+    	<li>服装：六月售出 4 件名牌牛仔裤，收入 $60.00</li>
+    	<li>健身：六月售出 5&nbsp;张瑜伽垫，收入&nbsp;$60.00</li>
+    	<li>厨房：七月售出 2&nbsp;张菜板，收入 $36.00</li>
+    	<li>科技：八月售出 5&nbsp;台智能音箱，收入&nbsp;$100.00</li>
+    	<li>最受欢迎：科技和健身都有 5 件商品，但科技收入更多（$100.00 vs $60.00）</li>
     </ul>
     </li>
-    <li><strong>Winter (Dec, Jan, Feb):</strong>
+    <li><strong>冬季（十二月，一月，二月</strong><strong>）：</strong>
     <ul>
-    	<li>Apparel: 9 items sold (5 Jackets in Jan, 4 Jeans in Jan), revenue $110.00</li>
-    	<li>Kitchen: 6 Cutting Boards sold in Dec, revenue $108.00</li>
-    	<li>Tech: 3 Smart Speakers sold in Dec, revenue $60.00</li>
-    	<li>Fitness: 2 Yoga Mats sold in Feb, revenue $24.00</li>
-    	<li>Most popular: Apparel with highest total quantity (9) and highest revenue ($110.00)</li>
+    	<li>服装：售出 9 件商品（一月有 5 件夹克和&nbsp;4 条牛仔裤），收入 $110.00</li>
+    	<li>厨房：十二月售出 6 张菜板，收入 $108.00</li>
+    	<li>科技：十二月售出 3 台智能音箱，收入 $60.00</li>
+    	<li>健身：二月售出 2 张瑜伽垫，收入 $24.00</li>
+    	<li>最受欢迎：服装总数量最多（9）且收入最多（$110.00）</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The result table is ordered by season in ascending order.</p>
+<p>结果表以季节升序排序。</p>
 </div>
 
 <!-- description:end -->

@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3565.Se
 
 <!-- problem:start -->
 
-# [3565. Sequential Grid Path Cover 🔒](https://leetcode.cn/problems/sequential-grid-path-cover)
+# [3565. 顺序网格路径覆盖 🔒](https://leetcode.cn/problems/sequential-grid-path-cover)
 
 [English Version](/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/README_EN.md)
 
@@ -14,53 +14,55 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3565.Se
 
 <!-- description:start -->
 
-<p>You are given a 2D array <code>grid</code> of size <code>m x n</code>, and an integer <code>k</code>. There are <code>k</code> cells in <code>grid</code> containing the values from 1 to <code>k</code> <strong>exactly once</strong>, and the rest of the cells have a value 0.</p>
+<p>给定一个&nbsp;<code>m x n</code>&nbsp;大小的 2 维数组&nbsp;<code>grid</code>，和一个整数&nbsp;<code>k</code>。<code>grid</code> 中有 <code>k</code> 个单元格包含从 1 到 <code>k</code> 的值，每个值恰好出现一次，其余单元格的值为 0。</p>
 
-<p>You can start at any cell, and move from a cell to its neighbors (up, down, left, or right). You must find a path in <code>grid</code> which:</p>
+<p>你可以从任何单元格开始，并且从一个单元格移动到相邻的单元格（上，下，左，右）。你必须找到一条&nbsp;<code>grid</code>&nbsp;中的路径，满足：</p>
 
 <ul>
-	<li>Visits each cell in <code>grid</code> <strong>exactly once</strong>.</li>
-	<li>Visits the cells with values from 1 to <code>k</code> <strong>in order</strong>.</li>
+	<li>访问&nbsp;<code>grid</code>&nbsp;中的每个单元格&nbsp;<strong>恰好一次</strong>。</li>
+	<li><strong>按顺序</strong>&nbsp;访问值为 1 到&nbsp;<code>k</code>&nbsp;的单元格。</li>
 </ul>
 
-<p>Return a 2D array <code>result</code> of size <code>(m * n) x 2</code>, where <code>result[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the <code>i<sup>th</sup></code> cell visited in the path. If there are multiple such paths, you may return <strong>any</strong> one.</p>
+<p>返回一个大小为&nbsp;<code>(m * n) x 2</code>&nbsp;的二维数组&nbsp;<code>result</code>，其中&nbsp;<code>result[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示路径中访问的第&nbsp;<code>i</code>&nbsp;个单元格。如果存在多条这样的路径，你可以返回 <strong>任何</strong>&nbsp;一条。</p>
 
-<p>If no such path exists, return an <strong>empty</strong> array.</p>
+<p>如果不存在这样的路径，返回一个&nbsp;<strong>空</strong>&nbsp;数组。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">grid = [[0,0,0],[0,1,2]], k = 2</span></p>
+<p><span class="example-io"><b>输入：</b>grid = [[0,0,0],[0,1,2]], k = 2</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[[0,0],[1,0],[1,1],[1,2],[0,2],[0,1]]</span></p>
+<p><span class="example-io"><b>输出：</b>[[0,0],[1,0],[1,1],[1,2],[0,2],[0,1]]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/images/ezgifcom-animated-gif-maker1.gif" style="width: 200px; height: 160px;" /></p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">grid = [[1,0,4],[3,0,2]], k = 4</span></p>
+<p><span class="example-io"><b>输入：</b>grid = [[1,0,4],[3,0,2]], k = 4</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[]</span></p>
+<p><span class="example-io"><b>输出：</b>[]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>There is no possible path that satisfies the conditions.</p>
+<p>没有满足条件的路径。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= m == grid.length &lt;= 6</code></li>
 	<li><code>1 &lt;= n == grid[i].length &lt;= 6</code></li>
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= k</code></li>
-	<li><code>grid</code> contains all integers between 1 and <code>k</code> <strong>exactly</strong> once.</li>
+	<li><code>grid</code>&nbsp;包含 1 到 <code>k</code>&nbsp;的所有整数&nbsp;<strong>恰好</strong>&nbsp;一次。</li>
 </ul>
 
 <!-- description:end -->
