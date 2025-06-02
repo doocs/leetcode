@@ -75,14 +75,20 @@ Courses table:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：分组统计
+
+我们可以使用 `GROUP BY` 语句，按照班级分组，然后使用 `HAVING` 语句，筛选出学生数量大于等于 $5$ 的班级。
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT class
+FROM Courses
+GROUP BY 1
+HAVING COUNT(1) >= 5;
 ```
 
 <!-- tabs:end -->
