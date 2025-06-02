@@ -61,32 +61,134 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3566.Pa
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二进制枚举
+
+我们可以使用二进制枚举的方式来检查所有可能的子集划分。对于每个子集划分，我们可以计算两个子集的乘积，并检查它们是否都等于目标值。
+
+具体地，我们可以使用一个整数 $i$ 来表示子集划分的状态，其中 $i$ 的二进制位表示每个元素是否属于第一个子集。对于每个可能的 $i$，我们可以计算两个子集的乘积，并检查它们是否都等于目标值。
+
+时间复杂度 $O(2^n \times n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def checkEqualPartitions(self, nums: List[int], target: int) -> bool:
+        n = len(nums)
+        for i in range(1 << n):
+            x = y = 1
+            for j in range(n):
+                if i >> j & 1:
+                    x *= nums[j]
+                else:
+                    y *= nums[j]
+            if x == target and y == target:
+                return True
+        return False
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean checkEqualPartitions(int[] nums, long target) {
+        int n = nums.length;
+        for (int i = 0; i < 1 << n; ++i) {
+            long x = 1, y = 1;
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    x *= nums[j];
+                } else {
+                    y *= nums[j];
+                }
+            }
+            if (x == target && y == target) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool checkEqualPartitions(vector<int>& nums, long long target) {
+        int n = nums.size();
+        for (int i = 0; i < 1 << n; ++i) {
+            long long x = 1, y = 1;
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    x *= nums[j];
+                } else {
+                    y *= nums[j];
+                }
+                if (x > target || y > target) {
+                    break;
+                }
+            }
+            if (x == target && y == target) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func checkEqualPartitions(nums []int, target int64) bool {
+	n := len(nums)
+	for i := 0; i < 1<<n; i++ {
+		x, y := int64(1), int64(1)
+		for j, v := range nums {
+			if i>>j&1 == 1 {
+				x *= int64(v)
+			} else {
+				y *= int64(v)
+			}
+			if x > target || y > target {
+				break
+			}
+		}
+		if x == target && y == target {
+			return true
+		}
+	}
+	return false
+}
+```
 
+#### TypeScript
+
+```ts
+function checkEqualPartitions(nums: number[], target: number): boolean {
+    const n = nums.length;
+    for (let i = 0; i < 1 << n; ++i) {
+        let [x, y] = [1, 1];
+        for (let j = 0; j < n; ++j) {
+            if (((i >> j) & 1) === 1) {
+                x *= nums[j];
+            } else {
+                y *= nums[j];
+            }
+            if (x > target || y > target) {
+                break;
+            }
+        }
+        if (x === target && y === target) {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 <!-- tabs:end -->

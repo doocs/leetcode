@@ -107,32 +107,166 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3567.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举所有可能的 $k \times k$ 子矩阵的左上角坐标 $(i, j)$，对于每个子矩阵，我们可以提取出其中的所有元素，放入一个列表 $\textit{nums}$ 中。然后对 $\textit{nums}$ 进行排序，接着计算相邻的不同元素之间的绝对差，找到最小的绝对差值。最后将结果存储在一个二维数组中。
+
+时间复杂度 $O((m - k + 1) \times (n - k + 1) \times k^2 \log(k))$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数，而 $k$ 是子矩阵的大小。空间复杂度 $O(k^2)$，用于存储每个子矩阵的元素。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minAbsDiff(self, grid: List[List[int]], k: int) -> List[List[int]]:
+        m, n = len(grid), len(grid[0])
+        ans = [[0] * (n - k + 1) for _ in range(m - k + 1)]
+        for i in range(m - k + 1):
+            for j in range(n - k + 1):
+                nums = []
+                for x in range(i, i + k):
+                    for y in range(j, j + k):
+                        nums.append(grid[x][y])
+                nums.sort()
+                d = min((abs(a - b) for a, b in pairwise(nums) if a != b), default=0)
+                ans[i][j] = d
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[][] minAbsDiff(int[][] grid, int k) {
+        int m = grid.length, n = grid[0].length;
+        int[][] ans = new int[m - k + 1][n - k + 1];
+        for (int i = 0; i <= m - k; i++) {
+            for (int j = 0; j <= n - k; j++) {
+                List<Integer> nums = new ArrayList<>();
+                for (int x = i; x < i + k; x++) {
+                    for (int y = j; y < j + k; y++) {
+                        nums.add(grid[x][y]);
+                    }
+                }
+                Collections.sort(nums);
+                int d = Integer.MAX_VALUE;
+                for (int t = 1; t < nums.size(); t++) {
+                    int a = nums.get(t - 1);
+                    int b = nums.get(t);
+                    if (a != b) {
+                        d = Math.min(d, Math.abs(a - b));
+                    }
+                }
+                ans[i][j] = (d == Integer.MAX_VALUE) ? 0 : d;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> minAbsDiff(vector<vector<int>>& grid, int k) {
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<int>> ans(m - k + 1, vector<int>(n - k + 1, 0));
+        for (int i = 0; i <= m - k; ++i) {
+            for (int j = 0; j <= n - k; ++j) {
+                vector<int> nums;
+                for (int x = i; x < i + k; ++x) {
+                    for (int y = j; y < j + k; ++y) {
+                        nums.push_back(grid[x][y]);
+                    }
+                }
+                sort(nums.begin(), nums.end());
+                int d = INT_MAX;
+                for (int t = 1; t < nums.size(); ++t) {
+                    if (nums[t] != nums[t - 1]) {
+                        d = min(d, abs(nums[t] - nums[t - 1]));
+                    }
+                }
+                ans[i][j] = (d == INT_MAX) ? 0 : d;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minAbsDiff(grid [][]int, k int) [][]int {
+	m, n := len(grid), len(grid[0])
+	ans := make([][]int, m-k+1)
+	for i := range ans {
+		ans[i] = make([]int, n-k+1)
+	}
+	for i := 0; i <= m-k; i++ {
+		for j := 0; j <= n-k; j++ {
+			var nums []int
+			for x := i; x < i+k; x++ {
+				for y := j; y < j+k; y++ {
+					nums = append(nums, grid[x][y])
+				}
+			}
+			sort.Ints(nums)
+			d := math.MaxInt
+			for t := 1; t < len(nums); t++ {
+				if nums[t] != nums[t-1] {
+					diff := abs(nums[t] - nums[t-1])
+					if diff < d {
+						d = diff
+					}
+				}
+			}
+			if d != math.MaxInt {
+				ans[i][j] = d
+			}
+		}
+	}
+	return ans
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minAbsDiff(grid: number[][], k: number): number[][] {
+    const m = grid.length;
+    const n = grid[0].length;
+    const ans: number[][] = Array.from({ length: m - k + 1 }, () => Array(n - k + 1).fill(0));
+    for (let i = 0; i <= m - k; i++) {
+        for (let j = 0; j <= n - k; j++) {
+            const nums: number[] = [];
+            for (let x = i; x < i + k; x++) {
+                for (let y = j; y < j + k; y++) {
+                    nums.push(grid[x][y]);
+                }
+            }
+            nums.sort((a, b) => a - b);
+            let d = Number.MAX_SAFE_INTEGER;
+            for (let t = 1; t < nums.length; t++) {
+                if (nums[t] !== nums[t - 1]) {
+                    d = Math.min(d, Math.abs(nums[t] - nums[t - 1]));
+                }
+            }
+            ans[i][j] = d === Number.MAX_SAFE_INTEGER ? 0 : d;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
