@@ -604,7 +604,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0593  |  [Valid Square](/solution/0500-0599/0593.Valid%20Square/README_EN.md)  |  `Geometry`,`Math`  |  Medium  |    |
 |  0594  |  [Longest Harmonious Subsequence](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Sorting`,`Sliding Window`  |  Easy  |    |
 |  0595  |  [Big Countries](/solution/0500-0599/0595.Big%20Countries/README_EN.md)  |  `Database`  |  Easy  |    |
-|  0596  |  [Classes More Than 5 Students](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)  |  `Database`  |  Easy  |    |
+|  0596  |  [Classes With at Least 5 Students](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README_EN.md)  |  `Database`  |  Easy  |    |
 |  0597  |  [Friend Requests I Overall Acceptance Rate](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  0598  |  [Range Addition II](/solution/0500-0599/0598.Range%20Addition%20II/README_EN.md)  |  `Array`,`Math`  |  Easy  |    |
 |  0599  |  [Minimum Index Sum of Two Lists](/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |    |
@@ -3574,6 +3574,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3563  |  [Lexicographically Smallest String After Adjacent Removals](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 451  |
 |  3564  |  [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)  |  `Database`  |  Medium  |    |
 |  3565  |  [Sequential Grid Path Cover](/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/README_EN.md)  |    |  Medium  |  🔒  |
+|  3566  |  [Partition Array into Two Equal Product Subsets](/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README_EN.md)  |    |  Medium  |  Weekly Contest 452  |
+|  3567  |  [Minimum Absolute Difference in Sliding Submatrix](/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README_EN.md)  |    |  Medium  |  Weekly Contest 452  |
+|  3568  |  [Minimum Moves to Clean the Classroom](/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README_EN.md)  |    |  Medium  |  Weekly Contest 452  |
+|  3569  |  [Maximize Count of Distinct Primes After Split](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README_EN.md)  |    |  Hard  |  Weekly Contest 452  |
+|  3570  |  [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md)  |    |  Easy  |    |
 
 ## Copyright
 

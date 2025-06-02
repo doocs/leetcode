@@ -606,7 +606,7 @@
 |  0593  |  [有效的正方形](/solution/0500-0599/0593.Valid%20Square/README.md)  |  `几何`,`数学`  |  中等  |    |
 |  0594  |  [最长和谐子序列](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README.md)  |  `数组`,`哈希表`,`计数`,`排序`,`滑动窗口`  |  简单  |    |
 |  0595  |  [大的国家](/solution/0500-0599/0595.Big%20Countries/README.md)  |  `数据库`  |  简单  |    |
-|  0596  |  [超过 5 名学生的课](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md)  |  `数据库`  |  简单  |    |
+|  0596  |  [超过 5 名学生的课](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README.md)  |  `数据库`  |  简单  |    |
 |  0597  |  [好友申请 I：总体通过率](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  0598  |  [区间加法 II](/solution/0500-0599/0598.Range%20Addition%20II/README.md)  |  `数组`,`数学`  |  简单  |    |
 |  0599  |  [两个列表的最小索引总和](/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README.md)  |  `数组`,`哈希表`,`字符串`  |  简单  |    |
@@ -3576,6 +3576,11 @@
 |  3563  |  [移除相邻字符后字典序最小的字符串](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README.md)  |  `字符串`,`动态规划`  |  困难  |  第 451 场周赛  |
 |  3564  |  [季节性销售分析](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README.md)  |  `数据库`  |  中等  |    |
 |  3565  |  [顺序网格路径覆盖](/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/README.md)  |    |  中等  |  🔒  |
+|  3566  |  [等积子集的划分方案](/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README.md)  |    |  中等  |  第 452 场周赛  |
+|  3567  |  [子矩阵的最小绝对差](/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README.md)  |    |  中等  |  第 452 场周赛  |
+|  3568  |  [清理教室的最少移动](/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README.md)  |    |  中等  |  第 452 场周赛  |
+|  3569  |  [分割数组后不同质数的最大数目](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README.md)  |    |  困难  |  第 452 场周赛  |
+|  3570  |  [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README.md)  |    |  简单  |    |
 
 ## 版权
 
