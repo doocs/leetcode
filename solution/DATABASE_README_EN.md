@@ -38,6 +38,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 0586 | [Customer Placing the Largest Number of Orders](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README_EN.md)                                             | `Database` | Easy       |        |
 | 0595 | [Big Countries](/solution/0500-0599/0595.Big%20Countries/README_EN.md)                                                                                                                       | `Database` | Easy       |        |
 | 0596 | [Classes More Than 5 Students](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)                                                                                   | `Database` | Easy       |        |
+| 0596 | [Classes With at Least 5 Students](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README_EN.md)                                                                         | `Database` | Easy       |        |
 | 0597 | [Friend Requests I Overall Acceptance Rate](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README_EN.md)                                                       | `Database` | Easy       | 🔒     |
 | 0601 | [Human Traffic of Stadium](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)                                                                                             | `Database` | Hard       |        |
 | 0602 | [Friend Requests II Who Has the Most Friends](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README_EN.md)                                               | `Database` | Medium     |        |
@@ -315,6 +316,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3521 | [Find Product Recommendation Pairs](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README_EN.md)                                                                           | `Database` | Medium     |        |
 | 3554 | [Find Category Recommendation Pairs](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README_EN.md)                                                                         | `Database` | Hard       |        |
 | 3564 | [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)                                                                                                 | `Database` | Medium     |        |
+| 3570 | [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md)                                                                   |            | Easy       |        |
 
 ## Copyright
 

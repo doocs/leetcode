@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 452 场周赛(2025-06-01 10:30, 90 分钟) 参赛人数 1608
+
+- [3566. 等积子集的划分方案](/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README.md)
+- [3567. 子矩阵的最小绝对差](/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README.md)
+- [3568. 清理教室的最少移动](/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README.md)
+- [3569. 分割数组后不同质数的最大数目](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README.md)
+
 #### 第 451 场周赛(2025-05-25 10:30, 90 分钟) 参赛人数 1840
 
 - [3560. 木材运输的最小成本](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README.md)
