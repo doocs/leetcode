@@ -1,35 +1,36 @@
 class Solution {
     public int maxCandies(
         int[] status, int[] candies, int[][] keys, int[][] containedBoxes, int[] initialBoxes) {
-        int ans = 0;
-        int n = status.length;
-        boolean[] has = new boolean[n];
-        boolean[] took = new boolean[n];
         Deque<Integer> q = new ArrayDeque<>();
-        for (int i : initialBoxes) {
-            has[i] = true;
-            if (status[i] == 1) {
-                ans += candies[i];
-                took[i] = true;
-                q.offer(i);
+        Set<Integer> has = new HashSet<>();
+        Set<Integer> took = new HashSet<>();
+        int ans = 0;
+        for (int box : initialBoxes) {
+            has.add(box);
+            if (status[box] == 1) {
+                q.offer(box);
+                took.add(box);
+                ans += candies[box];
             }
         }
         while (!q.isEmpty()) {
-            int i = q.poll();
-            for (int k : keys[i]) {
-                status[k] = 1;
-                if (has[k] && !took[k]) {
-                    ans += candies[k];
-                    took[k] = true;
-                    q.offer(k);
+            int box = q.poll();
+            for (int k : keys[box]) {
+                if (status[k] == 0) {
+                    status[k] = 1;
+                    if (has.contains(k) && !took.contains(k)) {
+                        q.offer(k);
+                        took.add(k);
+                        ans += candies[k];
+                    }
                 }
             }
-            for (int j : containedBoxes[i]) {
-                has[j] = true;
-                if (status[j] == 1 && !took[j]) {
-                    ans += candies[j];
-                    took[j] = true;
-                    q.offer(j);
+            for (int b : containedBoxes[box]) {
+                has.add(b);
+                if (status[b] == 1 && !took.contains(b)) {
+                    q.offer(b);
+                    took.add(b);
+                    ans += candies[b];
                 }
             }
         }
