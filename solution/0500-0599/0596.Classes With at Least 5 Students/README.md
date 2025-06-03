@@ -1,16 +1,16 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README.md
 tags:
     - 数据库
 ---
 
 <!-- problem:start -->
 
-# [596. 超过 5 名学生的课](https://leetcode.cn/problems/classes-more-than-5-students)
+# [596. 超过 5 名学生的课](https://leetcode.cn/problems/classes-with-at-least-5-students)
 
-[English Version](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)
+[English Version](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README_EN.md)
 
 ## 题目描述
 

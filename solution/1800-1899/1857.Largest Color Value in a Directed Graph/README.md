@@ -72,9 +72,17 @@ tags:
 
 ### 方法一：拓扑排序 + 动态规划
 
-求出每个点的入度，进行拓扑排序。每个点维护一个长度为 $26$ 的数组，记录每个字母从任意起点到当前点的出现次数。
+求出每个点的入度，进行拓扑排序。
 
-时间复杂度 $O(n+m)$，空间复杂度 $O(n+m)$。
+定义一个二维数组 $dp$，其中 $dp[i][j]$ 表示从起点到 $i$ 点，颜色为 $j$ 的节点数目。
+
+从 $i$ 点出发，遍历所有出边 $i \to j$，更新 $dp[j][k] = \max(dp[j][k], dp[i][k] + (c == k))$，其中 $c$ 是 $j$ 点的颜色。
+
+答案为数组 $dp$ 中的最大值。
+
+如果图中有环，则无法遍历完所有点，返回 $-1$。
+
+时间复杂度 $O((n + m) \times |\Sigma|)$，空间复杂度 $O(m + n \times |\Sigma)$。其中 $|\Sigma|$ 是字母表大小，这里为 $26$，而且 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
 
@@ -249,6 +257,48 @@ func largestPathValue(colors string, edges [][]int) int {
 		return ans
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function largestPathValue(colors: string, edges: number[][]): number {
+    const n = colors.length;
+    const indeg = Array(n).fill(0);
+    const g: Map<number, number[]> = new Map();
+    for (const [a, b] of edges) {
+        if (!g.has(a)) g.set(a, []);
+        g.get(a)!.push(b);
+        indeg[b]++;
+    }
+    const q: number[] = [];
+    const dp: number[][] = Array.from({ length: n }, () => Array(26).fill(0));
+    for (let i = 0; i < n; i++) {
+        if (indeg[i] === 0) {
+            q.push(i);
+            const c = colors.charCodeAt(i) - 97;
+            dp[i][c]++;
+        }
+    }
+    let cnt = 0;
+    let ans = 1;
+    while (q.length) {
+        const i = q.pop()!;
+        cnt++;
+        if (g.has(i)) {
+            for (const j of g.get(i)!) {
+                indeg[j]--;
+                if (indeg[j] === 0) q.push(j);
+                const c = colors.charCodeAt(j) - 97;
+                for (let k = 0; k < 26; k++) {
+                    dp[j][k] = Math.max(dp[j][k], dp[i][k] + (c === k ? 1 : 0));
+                    ans = Math.max(ans, dp[j][k]);
+                }
+            }
+        }
+    }
+    return cnt < n ? -1 : ans;
 }
 ```
 

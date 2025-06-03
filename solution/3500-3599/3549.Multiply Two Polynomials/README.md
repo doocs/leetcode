@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README.md
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
@@ -18,7 +21,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3549.Mu
 
 <p>设&nbsp;<code>A(x)</code> 和&nbsp;<code>B(x)</code>&nbsp;分别是&nbsp;<code>poly1</code> 和&nbsp;<code>poly2</code>&nbsp;表示的多项式。</p>
 
-<p>返回一个整数数组&nbsp;<code>result</code>&nbsp;表示乘积多项式 <code>R(x) = A(x) * B(x)</code>&nbsp;的系数，其中&nbsp;<code>result[i]</code>&nbsp;表示&nbsp;<code>R(x)</code>&nbsp;中 <code>x<sup>i</sup></code>&nbsp;的系数。</p>
+<p>返回一个长度为&nbsp;<code>(poly1.length + poly2.length - 1)</code>&nbsp;的整数数组&nbsp;<code>result</code>&nbsp;表示乘积多项式 <code>R(x) = A(x) * B(x)</code>&nbsp;的系数，其中&nbsp;<code>result[i]</code>&nbsp;表示&nbsp;<code>R(x)</code>&nbsp;中 <code>x<sup>i</sup></code>&nbsp;的系数。</p>
 
 <p>&nbsp;</p>
 

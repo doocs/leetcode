@@ -3,9 +3,8 @@ func answerString(word string, numFriends int) (ans string) {
 		return word
 	}
 	n := len(word)
-	for i := range word {
-		k := min(n-i, n-numFriends+1)
-		t := word[i : i+k]
+	for i := 0; i < n; i++ {
+		t := word[i:min(n, i+n-(numFriends-1))]
 		ans = max(ans, t)
 	}
 	return

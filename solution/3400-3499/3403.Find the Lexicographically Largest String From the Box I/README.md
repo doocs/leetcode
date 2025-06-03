@@ -79,7 +79,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举子串左端点
+
+如果我们固定子字符串的左端点，那么子字符串越长，字典序越大。假设子字符串左端点为 $i$，剩余子字符串的最小长度为 $\text{numFriends} - 1$，那么子字符串的右端点可以取到 $\min(n, i + n - (\text{numFriends} - 1))$，其中 $n$ 为字符串的长度。注意我们说的是左开右闭。
+
+我们枚举所有可能的左端点，取出对应的子字符串，比较字典序，最终得到字典序最大的子字符串。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串的长度。
 
 <!-- tabs:start -->
 
@@ -91,11 +97,7 @@ class Solution:
         if numFriends == 1:
             return word
         n = len(word)
-        ans = ""
-        for i in range(n):
-            k = min(n - i, n - numFriends + 1)
-            ans = max(ans, word[i : i + k])
-        return ans
+        return max(word[i : i + n - (numFriends - 1)] for i in range(n))
 ```
 
 #### Java
@@ -109,8 +111,7 @@ class Solution {
         int n = word.length();
         String ans = "";
         for (int i = 0; i < n; ++i) {
-            int k = Math.min(n - i, n - numFriends + 1);
-            String t = word.substring(i, i + k);
+            String t = word.substring(i, Math.min(n, i + n - (numFriends - 1)));
             if (ans.compareTo(t) < 0) {
                 ans = t;
             }
@@ -129,12 +130,13 @@ public:
         if (numFriends == 1) {
             return word;
         }
-        int n = word.size();
-        string ans;
+        int n = word.length();
+        string ans = "";
         for (int i = 0; i < n; ++i) {
-            int k = min(n - i, n - numFriends + 1);
-            string t = word.substr(i, k);
-            ans = max(ans, t);
+            string t = word.substr(i, min(n - i, n - (numFriends - 1)));
+            if (ans < t) {
+                ans = t;
+            }
         }
         return ans;
     }
@@ -149,9 +151,8 @@ func answerString(word string, numFriends int) (ans string) {
 		return word
 	}
 	n := len(word)
-	for i := range word {
-		k := min(n-i, n-numFriends+1)
-		t := word[i : i+k]
+	for i := 0; i < n; i++ {
+		t := word[i:min(n, i+n-(numFriends-1))]
 		ans = max(ans, t)
 	}
 	return
@@ -165,14 +166,11 @@ function answerString(word: string, numFriends: number): string {
     if (numFriends === 1) {
         return word;
     }
-    let ans: string = '';
     const n = word.length;
-    for (let i = 0; i < n; ++i) {
-        const k = Math.min(n - i, n - numFriends + 1);
-        const t = word.slice(i, i + k);
-        if (ans < t) {
-            ans = t;
-        }
+    let ans = '';
+    for (let i = 0; i < n; i++) {
+        const t = word.slice(i, Math.min(n, i + n - (numFriends - 1)));
+        ans = t > ans ? t : ans;
     }
     return ans;
 }

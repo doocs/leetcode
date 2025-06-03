@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README_EN.md
+tags:
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->
@@ -18,7 +21,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3549.Mu
 
 <p>Let <code>A(x)</code> and <code>B(x)</code> be the polynomials represented by <code>poly1</code> and <code>poly2</code>, respectively.</p>
 
-<p>Return an integer array <code>result</code> representing the coefficients of the product polynomial <code>R(x) = A(x) * B(x)</code>, where <code>result[i]</code> denotes the coefficient of <code>x<sup>i</sup></code> in <code>R(x)</code>.</p>
+<p>Return an integer array <code>result</code> of length <code>(poly1.length + poly2.length - 1)</code> representing the coefficients of the product polynomial <code>R(x) = A(x) * B(x)</code>, where <code>result[i]</code> denotes the coefficient of <code>x<sup>i</sup></code> in <code>R(x)</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

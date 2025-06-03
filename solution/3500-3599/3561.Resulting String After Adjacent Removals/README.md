@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README.md
+tags:
+    - 栈
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->
@@ -90,32 +94,115 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3561.Re
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：栈
+
+我们可以使用栈来模拟移除相邻字符的过程。遍历字符串中的每个字符，如果栈顶字符与当前字符是连续的（即它们的 ASCII 值差为 1 或 25），则将栈顶字符弹出；否则，将当前字符压入栈中。最后，栈中的字符就是无法再移除的结果，我们将栈中的字符连接成字符串并返回。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def resultingString(self, s: str) -> str:
+        stk = []
+        for c in s:
+            if stk and abs(ord(c) - ord(stk[-1])) in (1, 25):
+                stk.pop()
+            else:
+                stk.append(c)
+        return "".join(stk)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String resultingString(String s) {
+        StringBuilder stk = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (stk.length() > 0 && isContiguous(stk.charAt(stk.length() - 1), c)) {
+                stk.deleteCharAt(stk.length() - 1);
+            } else {
+                stk.append(c);
+            }
+        }
+        return stk.toString();
+    }
 
+    private boolean isContiguous(char a, char b) {
+        int t = Math.abs(a - b);
+        return t == 1 || t == 25;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string resultingString(string s) {
+        string stk;
+        for (char c : s) {
+            if (stk.size() && (abs(stk.back() - c) == 1 || abs(stk.back() - c) == 25)) {
+                stk.pop_back();
+            } else {
+                stk.push_back(c);
+            }
+        }
+        return stk;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func resultingString(s string) string {
+	isContiguous := func(a, b rune) bool {
+		x := abs(int(a - b))
+		return x == 1 || x == 25
+	}
+	stk := []rune{}
+	for _, c := range s {
+		if len(stk) > 0 && isContiguous(stk[len(stk)-1], c) {
+			stk = stk[:len(stk)-1]
+		} else {
+			stk = append(stk, c)
+		}
+	}
+	return string(stk)
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function resultingString(s: string): string {
+    const stk: string[] = [];
+    const isContiguous = (a: string, b: string): boolean => {
+        const x = Math.abs(a.charCodeAt(0) - b.charCodeAt(0));
+        return x === 1 || x === 25;
+    };
+    for (const c of s) {
+        if (stk.length && isContiguous(stk.at(-1)!, c)) {
+            stk.pop();
+        } else {
+            stk.push(c);
+        }
+    }
+    return stk.join('');
+}
 ```
 
 <!-- tabs:end -->

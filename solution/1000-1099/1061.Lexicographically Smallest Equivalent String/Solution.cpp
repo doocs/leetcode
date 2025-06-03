@@ -1,30 +1,28 @@
 class Solution {
 public:
-    vector<int> p;
-
     string smallestEquivalentString(string s1, string s2, string baseStr) {
-        p.resize(26);
-        for (int i = 0; i < 26; ++i)
-            p[i] = i;
-        for (int i = 0; i < s1.size(); ++i) {
-            int a = s1[i] - 'a', b = s2[i] - 'a';
-            int pa = find(a), pb = find(b);
-            if (pa < pb)
-                p[pb] = pa;
-            else
-                p[pa] = pb;
+        vector<int> p(26);
+        iota(p.begin(), p.end(), 0);
+        auto find = [&](this auto&& find, int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        for (int i = 0; i < s1.length(); ++i) {
+            int x = s1[i] - 'a';
+            int y = s2[i] - 'a';
+            int px = find(x), py = find(y);
+            if (px < py) {
+                p[py] = px;
+            } else {
+                p[px] = py;
+            }
         }
-        string res = "";
-        for (char a : baseStr) {
-            char b = (char) (find(a - 'a') + 'a');
-            res += b;
+        string s;
+        for (char c : baseStr) {
+            s.push_back('a' + find(c - 'a'));
         }
-        return res;
-    }
-
-    int find(int x) {
-        if (p[x] != x)
-            p[x] = find(p[x]);
-        return p[x];
+        return s;
     }
 };
