@@ -491,7 +491,7 @@ class Solution {
 }
 ```
 
-#### 
+#### c
 
 ```c
 char *convert(char *s, int numRows) {
