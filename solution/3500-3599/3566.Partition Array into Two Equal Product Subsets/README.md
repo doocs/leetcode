@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README.md
+tags:
+    - 位运算
+    - 递归
+    - 数组
+    - 枚举
 ---
 
 <!-- problem:start -->

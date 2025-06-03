@@ -20,14 +20,16 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个由小写英文字母组成的字符串&nbsp;<code>s</code> 。请你找出字符串中两个字符的出现频次之间的 <strong>最大</strong> 差值，这两个字符需要满足：</p>
+<p>给你一个由小写英文字母组成的字符串&nbsp;<code>s</code> 。</p>
+
+<p>请你找出字符串中两个字符&nbsp;<code>a<sub>1</sub></code>&nbsp;和&nbsp;<code>a<sub>2</sub></code> 的出现频次之间的 <strong>最大</strong> 差值 <code>diff = a<sub>1</sub>&nbsp;- a<sub>2</sub></code>，这两个字符需要满足：</p>
 
 <ul>
-	<li>一个字符在字符串中出现 <strong>偶数次</strong> 。</li>
-	<li>另一个字符在字符串中出现 <strong>奇数次</strong>&nbsp;。</li>
+	<li><code>a<sub>1</sub></code>&nbsp;在字符串中出现 <strong>奇数次</strong> 。</li>
+	<li><code>a<sub>2</sub></code>&nbsp;在字符串中出现 <strong>偶数次</strong>&nbsp;。</li>
 </ul>
 
-<p>返回 <strong>最大</strong> 差值，计算方法是出现 <strong>奇数次</strong> 字符的次数 <strong>减去</strong> 出现 <strong>偶数次</strong> 字符的次数。</p>
+<p>返回 <strong>最大</strong> 差值。</p>
 
 <p>&nbsp;</p>
 

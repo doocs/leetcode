@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README_EN.md
+tags:
+    - Array
+    - Matrix
+    - Sorting
 ---
 
 <!-- problem:start -->
