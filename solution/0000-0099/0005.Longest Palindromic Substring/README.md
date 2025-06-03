@@ -576,7 +576,6 @@ char *longestPalindrome(char *s) {
 
 ```
 
-
 <!-- tabs:end -->
 
 <!-- solution:end -->

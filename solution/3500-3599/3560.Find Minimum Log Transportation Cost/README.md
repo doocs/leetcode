@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README.md
+tags:
+    - 数学
 ---
 
 <!-- problem:start -->
@@ -64,32 +66,68 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3560.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+如果两根木材的长度都不超过卡车的最大载重 $k$，则不需要切割，直接返回 $0$。
+
+否则，说明只有一个木材的长度超过了 $k$，我们需要将其切割成两段。设较长的木材长度为 $x$，则切割成本为 $k \times (x - k)$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCuttingCost(self, n: int, m: int, k: int) -> int:
+        x = max(n, m)
+        return 0 if x <= k else k * (x - k)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+public:
+    long long minCuttingCost(int n, int m, int k) {
+        int x = max(n, m);
+        return x <= k ? 0 : 1LL * k * (x - k);
+    }
+};
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long minCuttingCost(int n, int m, int k) {
+        int x = max(n, m);
+        return x <= k ? 0 : 1LL * k * (x - k);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCuttingCost(n int, m int, k int) int64 {
+	x := max(n, m)
+	if x <= k {
+		return 0
+	}
+	return int64(k * (x - k))
+}
+```
 
+#### TypeScript
+
+```ts
+function minCuttingCost(n: number, m: number, k: number): number {
+    const x = Math.max(n, m);
+    return x <= k ? 0 : k * (x - k);
+}
 ```
 
 <!-- tabs:end -->

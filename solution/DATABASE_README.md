@@ -39,7 +39,7 @@
 | 0585 | [2016年的投资](/solution/0500-0599/0585.Investments%20in%202016/README.md)                                                                                   | `数据库` | 中等 |      |
 | 0586 | [订单最多的客户](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README.md)                                               | `数据库` | 简单 |      |
 | 0595 | [大的国家](/solution/0500-0599/0595.Big%20Countries/README.md)                                                                                               | `数据库` | 简单 |      |
-| 0596 | [超过 5 名学生的课](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md)                                                                 | `数据库` | 简单 |      |
+| 0596 | [超过 5 名学生的课](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README.md)                                                           | `数据库` | 简单 |      |
 | 0597 | [好友申请 I：总体通过率](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README.md)                                             | `数据库` | 简单 | 🔒   |
 | 0601 | [体育馆的人流量](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)                                                                          | `数据库` | 困难 |      |
 | 0602 | [好友申请 II ：谁有最多的好友](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README.md)                                 | `数据库` | 中等 |      |
@@ -316,6 +316,8 @@
 | 3497 | [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)                                                                       | `数据库` | 中等 |      |
 | 3521 | [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)                                                                 | `数据库` | 中等 |      |
 | 3554 | [查找类别推荐对](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README.md)                                                                | `数据库` | 困难 |      |
+| 3564 | [季节性销售分析](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README.md)                                                                             | `数据库` | 中等 |      |
+| 3570 | [查找无可用副本的书籍](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README.md)                                                     | `数据库` | 简单 |      |
 
 ## 版权
 

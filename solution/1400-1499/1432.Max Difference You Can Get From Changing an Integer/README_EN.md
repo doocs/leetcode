@@ -19,18 +19,19 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given an integer <code>num</code>. You will apply the following steps exactly <strong>two</strong> times:</p>
+<p>You are given an integer <code>num</code>. You will apply the following steps to <code>nums</code> <strong>two</strong> times <strong>independently</strong>:</p>
 
 <ul>
 	<li>Pick a digit <code>x (0 &lt;= x &lt;= 9)</code>.</li>
-	<li>Pick another digit <code>y (0 &lt;= y &lt;= 9)</code>. The digit <code>y</code> can be equal to <code>x</code>.</li>
+	<li>Pick another digit <code>y (0 &lt;= y &lt;= 9)</code>. Note <code>y</code> can be equal to <code>x</code>.</li>
 	<li>Replace all the occurrences of <code>x</code> in the decimal representation of <code>num</code> by <code>y</code>.</li>
-	<li>The new integer <strong>cannot</strong> have any leading zeros, also the new integer <strong>cannot</strong> be 0.</li>
 </ul>
 
-<p>Let <code>a</code> and <code>b</code> be the results of applying the operations to <code>num</code> the first and second times, respectively.</p>
+<p>Let <code>a</code> and <code>b</code> be the two results from applying the operation to <code>num</code> <em>independently</em>.</p>
 
 <p>Return <em>the max difference</em> between <code>a</code> and <code>b</code>.</p>
+
+<p>Note that the new integer (either <code>a</code> or <code>b</code>) <strong>must not</strong> have any leading zeros, and it <strong>must not</strong> be 0.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

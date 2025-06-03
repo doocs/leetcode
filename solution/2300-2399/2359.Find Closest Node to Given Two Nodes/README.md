@@ -344,6 +344,99 @@ impl Solution {
 }
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public int ClosestMeetingNode(int[] edges, int node1, int node2) {
+        int n = edges.Length;
+        List<int>[] g = new List<int>[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new List<int>();
+            if (edges[i] != -1) {
+                g[i].Add(edges[i]);
+            }
+        }
+        int inf = 1 << 30;
+        int[] f(int i) {
+            int[] dist = new int[n];
+            Array.Fill(dist, inf);
+            dist[i] = 0;
+            Queue<int> q = new Queue<int>();
+            q.Enqueue(i);
+            while (q.Count > 0) {
+                i = q.Dequeue();
+                foreach (int j in g[i]) {
+                    if (dist[j] == inf) {
+                        dist[j] = dist[i] + 1;
+                        q.Enqueue(j);
+                    }
+                }
+            }
+            return dist;
+        }
+        int[] d1 = f(node1);
+        int[] d2 = f(node2);
+        int ans = -1, d = inf;
+        for (int i = 0; i < n; ++i) {
+            int t = Math.Max(d1[i], d2[i]);
+            if (t < d) {
+                d = t;
+                ans = i;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func closestMeetingNode(_ edges: [Int], _ node1: Int, _ node2: Int) -> Int {
+        let n = edges.count
+        var g = [[Int]](repeating: [], count: n)
+        for i in 0..<n {
+            if edges[i] != -1 {
+                g[i].append(edges[i])
+            }
+        }
+        let inf = 1 << 30
+
+        func f(_ i: Int) -> [Int] {
+            var dist = [Int](repeating: inf, count: n)
+            dist[i] = 0
+            var q = [i]
+            var idx = 0
+            while idx < q.count {
+                let i = q[idx]
+                idx += 1
+                for j in g[i] {
+                    if dist[j] == inf {
+                        dist[j] = dist[i] + 1
+                        q.append(j)
+                    }
+                }
+            }
+            return dist
+        }
+
+        let d1 = f(node1)
+        let d2 = f(node2)
+        var ans = -1, d = inf
+        for i in 0..<n {
+            let t = max(d1[i], d2[i])
+            if t < d {
+                d = t
+                ans = i
+            }
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

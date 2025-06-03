@@ -7,6 +7,7 @@ tags:
     - Brainteaser
     - Array
     - Math
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

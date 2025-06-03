@@ -77,7 +77,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Substring Left Endpoints
+
+If we fix the left endpoint of the substring, the longer the substring, the larger its lexicographical order. Suppose the left endpoint of the substring is $i$, and the minimum length of the remaining substrings is $\text{numFriends} - 1$, then the right endpoint of the substring can be up to $\min(n, i + n - (\text{numFriends} - 1))$, where $n$ is the length of the string. Note that we are talking about left-closed, right-open intervals.
+
+We enumerate all possible left endpoints, extract the corresponding substrings, compare their lexicographical order, and finally obtain the lexicographically largest substring.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -89,11 +95,7 @@ class Solution:
         if numFriends == 1:
             return word
         n = len(word)
-        ans = ""
-        for i in range(n):
-            k = min(n - i, n - numFriends + 1)
-            ans = max(ans, word[i : i + k])
-        return ans
+        return max(word[i : i + n - (numFriends - 1)] for i in range(n))
 ```
 
 #### Java
@@ -107,8 +109,7 @@ class Solution {
         int n = word.length();
         String ans = "";
         for (int i = 0; i < n; ++i) {
-            int k = Math.min(n - i, n - numFriends + 1);
-            String t = word.substring(i, i + k);
+            String t = word.substring(i, Math.min(n, i + n - (numFriends - 1)));
             if (ans.compareTo(t) < 0) {
                 ans = t;
             }
@@ -127,12 +128,13 @@ public:
         if (numFriends == 1) {
             return word;
         }
-        int n = word.size();
-        string ans;
+        int n = word.length();
+        string ans = "";
         for (int i = 0; i < n; ++i) {
-            int k = min(n - i, n - numFriends + 1);
-            string t = word.substr(i, k);
-            ans = max(ans, t);
+            string t = word.substr(i, min(n - i, n - (numFriends - 1)));
+            if (ans < t) {
+                ans = t;
+            }
         }
         return ans;
     }
@@ -147,9 +149,8 @@ func answerString(word string, numFriends int) (ans string) {
 		return word
 	}
 	n := len(word)
-	for i := range word {
-		k := min(n-i, n-numFriends+1)
-		t := word[i : i+k]
+	for i := 0; i < n; i++ {
+		t := word[i:min(n, i+n-(numFriends-1))]
 		ans = max(ans, t)
 	}
 	return
@@ -163,14 +164,11 @@ function answerString(word: string, numFriends: number): string {
     if (numFriends === 1) {
         return word;
     }
-    let ans: string = '';
     const n = word.length;
-    for (let i = 0; i < n; ++i) {
-        const k = Math.min(n - i, n - numFriends + 1);
-        const t = word.slice(i, i + k);
-        if (ans < t) {
-            ans = t;
-        }
+    let ans = '';
+    for (let i = 0; i < n; i++) {
+        const t = word.slice(i, Math.min(n, i + n - (numFriends - 1)));
+        ans = t > ans ? t : ans;
     }
     return ans;
 }

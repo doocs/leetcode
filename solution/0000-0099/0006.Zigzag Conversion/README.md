@@ -495,7 +495,7 @@ class Solution {
 
 #### C
 
-``` C 
+```C
 char *convert(char *s, int numRows) {
   if (numRows == 1 || numRows >= strlen(s)) {
     char *result = malloc(strlen(s) + 1);
