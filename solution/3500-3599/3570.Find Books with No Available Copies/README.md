@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3570. Find Books with No Available Copies](https://leetcode.cn/problems/find-books-with-no-available-copies)
+# [3570. 查找无可用副本的书籍](https://leetcode.cn/problems/find-books-with-no-available-copies)
 
 [English Version](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>library_books</code></p>
+<p>表：<code>library_books</code></p>
 
 <pre>
 +------------------+---------+
@@ -29,11 +29,11 @@ tags:
 | publication_year | int     |
 | total_copies     | int     |
 +------------------+---------+
-book_id is the unique identifier for this table.
-Each row contains information about a book in the library, including the total number of copies owned by the library.
+book_id 是这张表的唯一主键。
+每一行包含图书馆中一本书的信息，包括图书馆拥有的副本总数。
 </pre>
 
-<p>Table: <code>borrowing_records</code></p>
+<p>表：<code>borrowing_records</code></p>
 
 <pre>
 +---------------+---------+
@@ -45,27 +45,28 @@ Each row contains information about a book in the library, including the total n
 | borrow_date   | date    |
 | return_date   | date    |
 +---------------+---------+
-record_id is the unique identifier for this table.
-Each row represents a borrowing transaction and return_date is NULL if the book is currently borrowed and hasn&#39;t been returned yet.
+record_id 是这张表的唯一主键。
+每一行代表一笔借阅交易并且如果这本书目前被借出并且还没有被归还，return_date 为 NULL。
 </pre>
 
-<p>Write a solution to find <strong>all books</strong> that are <strong>currently borrowed (not returned)</strong> and have <strong>zero copies available</strong> in the library.</p>
+<p>编写一个解决方案以找到 <strong>所有</strong> <strong>当前被借出（未归还）&nbsp;</strong>且图书馆中 <strong>无可用副本</strong> 的书籍。</p>
 
 <ul>
-	<li>A book is considered <strong>currently borrowed</strong> if there exists a<strong> </strong>borrowing record with a <strong>NULL</strong> <code>return_date</code></li>
+	<li>如果存在一条借阅记录，其&nbsp;<code>return_date</code>&nbsp;为 <strong>NULL</strong>，那么这本书被认为 <strong>当前是借出的</strong>。</li>
 </ul>
 
-<p>Return <em>the result table ordered by current borrowers in <strong>descending</strong> order, then by book title in <strong>ascending</strong> order.</em></p>
+<p>返回结果表按当前借阅者数量 <strong>降序</strong> 排列，然后按书名 <strong>升序</strong> 排列。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>library_books table:</p>
+<p>library_books 表：</p>
 
 <pre class="example-io">
 +---------+------------------------+------------------+----------+------------------+--------------+
@@ -80,7 +81,7 @@ Each row represents a borrowing transaction and return_date is NULL if the book 
 +---------+------------------------+------------------+----------+------------------+--------------+
 </pre>
 
-<p>borrowing_records table:</p>
+<p>borrowing_records 表：</p>
 
 <pre class="example-io">
 +-----------+---------+---------------+-------------+-------------+
@@ -99,7 +100,7 @@ Each row represents a borrowing transaction and return_date is NULL if the book 
 +-----------+---------+---------------+-------------+-------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------+------------------+---------------+-----------+------------------+-------------------+
@@ -110,44 +111,44 @@ Each row represents a borrowing transaction and return_date is NULL if the book 
 +---------+------------------+---------------+-----------+------------------+-------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>The Great Gatsby (book_id = 1):</strong>
+	<li><strong>The Great Gatsby (book_id = 1)：</strong>
 
     <ul>
-    	<li>Total copies: 3</li>
-    	<li>Currently borrowed by Alice Smith, Bob Johnson, and Grace Miller (3 borrowers)</li>
-    	<li>Available copies: 3 - 3 = 0</li>
-    	<li>Included because available_copies = 0</li>
+    	<li>总副本数：3</li>
+    	<li>当前被 Alice Smith，Bob Johnson 和 Grace Miller 借阅（3 名借阅者）</li>
+    	<li>可用副本数：3 - 3 = 0</li>
+    	<li>因为 available_copies = 0，所以被包含</li>
     </ul>
     </li>
     <li><strong>1984 (book_id = 3):</strong>
     <ul>
-    	<li>Total copies: 1</li>
-    	<li>Currently borrowed by David Brown (1 borrower)</li>
-    	<li>Available copies: 1 - 1 = 0</li>
-    	<li>Included because available_copies = 0</li>
+    	<li>总副本数：1</li>
+    	<li>当前被 David Brown 借阅（1 名借阅者）</li>
+    	<li>可用副本数：1 - 1 = 0</li>
+    	<li>因为 available_copies = 0，所以被包含</li>
     </ul>
     </li>
-    <li><strong>Books not included:</strong>
+    <li><strong>为被包含的书：</strong>
     <ul>
-    	<li>To Kill a Mockingbird (book_id = 2): Total copies = 3, current borrowers = 2, available = 1</li>
-    	<li>Pride and Prejudice (book_id = 4): Total copies = 2, current borrowers = 1, available = 1</li>
-    	<li>The Catcher in the Rye (book_id = 5): Total copies = 1, current borrowers = 0, available = 1</li>
-    	<li>Brave New World (book_id = 6): Total copies = 4, current borrowers = 1, available = 3</li>
+    	<li>To Kill a Mockingbird (book_id = 2)：总副本数 = 3，当前借阅者&nbsp;= 2，可用副本 = 1</li>
+    	<li>Pride and Prejudice (book_id = 4)：总副本数 = 2，当前借阅者 = 1，可用副本 = 1</li>
+    	<li>The Catcher in the Rye (book_id = 5)：总副本数 = 1，当前借阅者 = 0，可用副本 = 1</li>
+    	<li>Brave New World (book_id = 6)：总副本数 = 4，当前借阅者 = 1，可用副本 = 3</li>
     </ul>
     </li>
-    <li><strong>Result ordering:</strong>
+    <li><strong>结果顺序：</strong>
     <ul>
-    	<li>The Great Gatsby appears first with 3 current borrowers</li>
-    	<li>1984 appears second with 1 current borrower</li>
+    	<li>The Great Gatsby 有 3 名当前借阅者，排序第一</li>
+    	<li>1984 有 1 名当前借阅者，排序第二</li>
     </ul>
     </li>
 
 </ul>
 
-<p>Output table is ordered by current_borrowers in descending order, then by book_title in ascending order.</p>
+<p>输出表以 current_borrowers 降序排序，然后以 book_title 升序排序。</p>
 </div>
 
 <!-- description:end -->

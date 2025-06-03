@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README.md
+tags:
+    - 位运算
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+    - 矩阵
 ---
 
 <!-- problem:start -->

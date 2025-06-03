@@ -5,7 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1016.Bi
 rating: 1779
 source: 第 129 场周赛 Q4
 tags:
+    - 位运算
+    - 哈希表
     - 字符串
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

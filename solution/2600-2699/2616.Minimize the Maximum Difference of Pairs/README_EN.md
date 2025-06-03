@@ -59,15 +59,15 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 
 <!-- solution:start -->
 
-### Solution 1: Binary search + Greedy
+### Solution 1: Binary Search + Greedy
 
-We find that the maximum difference has the monotonicity, that is, if the maximum difference $x$ satisfies the condition, then $x-1$ must also satisfy the condition. Therefore, we can use the binary search method to find the smallest maximum difference that satisfies the condition.
+We notice that the maximum difference has monotonicity: if a maximum difference $x$ is feasible, then $x-1$ is also feasible. Therefore, we can use binary search to find the minimal feasible maximum difference.
 
-We can sort the array `nums`, then enumerate the maximum difference $x$, and determine whether there are $p$ index pairs, where each index pair corresponds to the maximum value of the difference of the corresponding value. If it exists, we can reduce $x$, otherwise we can increase $x$.
+First, sort the array $\textit{nums}$. Then, for a given maximum difference $x$, check whether it is possible to form $p$ pairs of indices such that the maximum difference in each pair does not exceed $x$. If possible, we can try a smaller $x$; otherwise, we need to increase $x$.
 
-Determine whether there are $p$ index pairs, where each index pair corresponds to the maximum value of the difference of the corresponding value, which can be achieved by using the greedy method. We traverse the array `nums` from left to right, and for the current traversed index $i$, if the difference between the number at the $i+1$ position and the number at the $i$ position is no more than $x$, then we can take the number at the $i$ and $i+1$ positions as an index pair, update the number of index pairs $cnt$, and then increase the value of $i$ by $2$. Otherwise, we will increase the value of $i$ by $1$. When the traversal is over, if the value of $cnt$ is greater than or equal to $p$, then it means that there are $p$ index pairs, where each index pair corresponds to the maximum value of the difference of the corresponding value, otherwise it means that it does not exist.
+To check whether $p$ such pairs exist with maximum difference at most $x$, we can use a greedy approach. Traverse the sorted array $\textit{nums}$ from left to right. For the current index $i$, if the difference between $\textit{nums}[i+1]$ and $\textit{nums}[i]$ does not exceed $x$, we can form a pair with $i$ and $i+1$, increment the pair count $cnt$, and increase $i$ by $2$. Otherwise, increase $i$ by $1$. After traversing, if $cnt \geq p$, then such $p$ pairs exist; otherwise, they do not.
 
-The time complexity is $O(n \times (\log n + \log m))$, where $n$ is the length of the array `nums`, and $m$ is the difference between the maximum value and the minimum value in the array `nums`. The space complexity is $O(1)$.
+The time complexity is $O(n \times (\log n + \log m))$, where $n$ is the length of $\textit{nums}$ and $m$ is the difference between the maximum and minimum values in $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -171,6 +171,73 @@ func minimizeMax(nums []int, p int) int {
 		}
 		return cnt >= p
 	})
+}
+```
+
+#### TypeScript
+
+```ts
+function minimizeMax(nums: number[], p: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let l = 0,
+        r = nums[n - 1] - nums[0] + 1;
+    const check = (diff: number): boolean => {
+        let cnt = 0;
+        for (let i = 0; i < n - 1; ++i) {
+            if (nums[i + 1] - nums[i] <= diff) {
+                ++cnt;
+                ++i;
+            }
+        }
+        return cnt >= p;
+    };
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimize_max(mut nums: Vec<i32>, p: i32) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let (mut l, mut r) = (0, nums[n - 1] - nums[0] + 1);
+
+        let check = |diff: i32| -> bool {
+            let mut cnt = 0;
+            let mut i = 0;
+            while i < n - 1 {
+                if nums[i + 1] - nums[i] <= diff {
+                    cnt += 1;
+                    i += 2;
+                } else {
+                    i += 1;
+                }
+            }
+            cnt >= p
+        };
+
+        while l < r {
+            let mid = (l + r) / 2;
+            if check(mid) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        l
+    }
 }
 ```
 
