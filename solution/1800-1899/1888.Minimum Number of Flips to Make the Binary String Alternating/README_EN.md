@@ -5,7 +5,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1888.Mi
 rating: 2005
 source: Weekly Contest 244 Q3
 tags:
-    - Greedy
     - String
     - Dynamic Programming
     - Sliding Window

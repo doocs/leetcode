@@ -317,7 +317,7 @@
 | 3521 | [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)                                                                 | `数据库` | 中等 |      |
 | 3554 | [查找类别推荐对](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README.md)                                                                | `数据库` | 困难 |      |
 | 3564 | [季节性销售分析](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README.md)                                                                             | `数据库` | 中等 |      |
-| 3570 | [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README.md)                                      |          | 简单 |      |
+| 3570 | [查找无可用副本的书籍](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README.md)                                                     | `数据库` | 简单 |      |
 
 ## 版权
 

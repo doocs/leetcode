@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1062. 最长重复子串 🔒](https://leetcode.cn/problems/longest-repeating-substring)
+# [1062. 最长重复子串的长度 🔒](https://leetcode.cn/problems/longest-repeating-substring)
 
 [English Version](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README_EN.md)
 

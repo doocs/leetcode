@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README_EN.md
+tags:
+    - Bit Manipulation
+    - Breadth-First Search
+    - Array
+    - Hash Table
+    - Matrix
 ---
 
 <!-- problem:start -->

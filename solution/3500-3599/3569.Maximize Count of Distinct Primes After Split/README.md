@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README.md
+tags:
+    - 线段树
+    - 数组
+    - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

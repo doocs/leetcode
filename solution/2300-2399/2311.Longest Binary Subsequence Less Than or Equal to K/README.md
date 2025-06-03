@@ -23,7 +23,7 @@ tags:
 
 <p>给你一个二进制字符串&nbsp;<code>s</code>&nbsp;和一个正整数&nbsp;<code>k</code>&nbsp;。</p>
 
-<p>请你返回 <code>s</code>&nbsp;的 <strong>最长</strong>&nbsp;子序列，且该子序列对应的 <strong>二进制</strong>&nbsp;数字小于等于 <code>k</code>&nbsp;。</p>
+<p>请你返回 <code>s</code>&nbsp;的 <strong>最长</strong>&nbsp;子序列的长度，且该子序列对应的 <strong>二进制</strong>&nbsp;数字小于等于 <code>k</code>&nbsp;。</p>
 
 <p>注意：</p>
 
@@ -37,7 +37,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>s = "1001010", k = 5
+<pre>
+<b>输入：</b>s = "1001010", k = 5
 <b>输出：</b>5
 <b>解释：</b>s 中小于等于 5 的最长子序列是 "00010" ，对应的十进制数字是 2 。
 注意 "00100" 和 "00101" 也是可行的最长子序列，十进制分别对应 4 和 5 。
@@ -46,7 +47,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>s = "00101001", k = 1
+<pre>
+<b>输入：</b>s = "00101001", k = 1
 <b>输出：</b>6
 <b>解释：</b>"000001" 是 s 中小于等于 1 的最长子序列，对应的十进制数字是 1 。
 最长子序列的长度为 6 ，所以返回 6 。

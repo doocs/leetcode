@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

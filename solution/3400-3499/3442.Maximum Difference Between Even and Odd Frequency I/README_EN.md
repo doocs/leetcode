@@ -20,14 +20,16 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a string <code>s</code> consisting of lowercase English letters. Your task is to find the <strong>maximum</strong> difference between the frequency of <strong>two</strong> characters in the string such that:</p>
+<p>You are given a string <code>s</code> consisting of lowercase English letters. </p>
+
+<p>Your task is to find the <strong>maximum</strong> difference <code>diff = a<sub>1</sub> - a<sub>2</sub></code> between the frequency of characters <code>a<sub>1</sub></code> and <code>a<sub>2</sub></code> in the string such that:</p>
 
 <ul>
-	<li>One of the characters has an <strong>even frequency</strong> in the string.</li>
-	<li>The other character has an <strong>odd frequency</strong> in the string.</li>
+	<li><code>a<sub>1</sub></code> has an <strong>odd frequency</strong> in the string.</li>
+	<li><code>a<sub>2</sub></code> has an <strong>even frequency</strong> in the string.</li>
 </ul>
 
-<p>Return the <strong>maximum</strong> difference, calculated as the frequency of the character with an <b>odd</b> frequency <strong>minus</strong> the frequency of the character with an <b>even</b> frequency.</p>
+<p>Return this <strong>maximum</strong> difference.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

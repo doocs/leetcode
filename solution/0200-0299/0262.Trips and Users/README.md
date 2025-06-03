@@ -36,8 +36,6 @@ id 是这张表的主键（具有唯一值的列）。
 status 是一个表示行程状态的枚举类型，枚举成员为(‘completed’, ‘cancelled_by_driver’, ‘cancelled_by_client’) 。
 </pre>
 
-<p>&nbsp;</p>
-
 <div class="original__bRMd">
 <div>
 <p>表：<code>Users</code></p>
@@ -56,8 +54,6 @@ users_id 是这张表的主键（具有唯一值的列）。
 这张表中存所有用户，每个用户都有一个唯一的 users_id ，role 是一个表示用户身份的枚举类型，枚举成员为 (‘client’, ‘driver’, ‘partner’) 。
 banned 是一个表示用户是否被禁止的枚举类型，枚举成员为 (‘Yes’, ‘No’) 。
 </pre>
-
-<p>&nbsp;</p>
 
 <p><strong>取消率</strong> 的计算方式如下：(被司机或乘客取消的非禁止用户生成的订单数量) / (非禁止用户生成的订单总数)。</p>
 
