@@ -527,7 +527,7 @@ class Solution {
 
 #### C
 
-``` c 
+```c
 char *longestPalindrome(char *s) {
   int n = strlen(s);
   if (n == 0) {
