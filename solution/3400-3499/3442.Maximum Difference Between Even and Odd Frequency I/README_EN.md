@@ -185,6 +185,51 @@ function maxDifference(s: string): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_difference(s: String) -> i32 {
+        let mut cnt = [0; 26];
+        for c in s.bytes() {
+            cnt[(c - b'a') as usize] += 1;
+        }
+        let mut a = 0;
+        let mut b = 1 << 30;
+        for &v in cnt.iter() {
+            if v % 2 == 1 {
+                a = a.max(v);
+            } else if v > 0 {
+                b = b.min(v);
+            }
+        }
+        a - b
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxDifference(string s) {
+        int[] cnt = new int[26];
+        foreach (char c in s) {
+            ++cnt[c - 'a'];
+        }
+        int a = 0, b = 1 << 30;
+        foreach (int v in cnt) {
+            if (v % 2 == 1) {
+                a = Math.Max(a, v);
+            } else if (v > 0) {
+                b = Math.Min(b, v);
+            }
+        }
+        return a - b;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
