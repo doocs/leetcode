@@ -97,25 +97,181 @@ tags:
 #### Python3
 
 ```python
+mx = 10**5 + 10
+mod = 10**9 + 7
+f = [1] + [0] * mx
+g = [1] + [0] * mx
 
+for i in range(1, mx):
+    f[i] = f[i - 1] * i % mod
+    g[i] = pow(f[i], mod - 2, mod)
+
+
+def comb(m: int, n: int) -> int:
+    return f[m] * g[n] * g[m - n] % mod
+
+
+class Solution:
+    def countGoodArrays(self, n: int, m: int, k: int) -> int:
+        return comb(n - 1, k) * m * pow(m - 1, n - k - 1, mod) % mod
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final int N = (int) 1e5 + 10;
+    private static final int MOD = (int) 1e9 + 7;
+    private static final long[] f = new long[N];
+    private static final long[] g = new long[N];
 
+    static {
+        f[0] = 1;
+        g[0] = 1;
+        for (int i = 1; i < N; ++i) {
+            f[i] = f[i - 1] * i % MOD;
+            g[i] = qpow(f[i], MOD - 2);
+        }
+    }
+
+    public static long qpow(long a, int k) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % MOD;
+            }
+            k >>= 1;
+            a = a * a % MOD;
+        }
+        return res;
+    }
+
+    public static long comb(int m, int n) {
+        return (int) f[m] * g[n] % MOD * g[m - n] % MOD;
+    }
+
+    public int countGoodArrays(int n, int m, int k) {
+        return (int) (comb(n - 1, k) * m % MOD * qpow(m - 1, n - k - 1) % MOD);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+const int MX = 1e5 + 10;
+const int MOD = 1e9 + 7;
+long long f[MX];
+long long g[MX];
 
+long long qpow(long a, int k) {
+    long res = 1;
+    while (k != 0) {
+        if ((k & 1) == 1) {
+            res = res * a % MOD;
+        }
+        k >>= 1;
+        a = a * a % MOD;
+    }
+    return res;
+}
+
+int init = []() {
+    f[0] = g[0] = 1;
+    for (int i = 1; i < MX; ++i) {
+        f[i] = f[i - 1] * i % MOD;
+        g[i] = qpow(f[i], MOD - 2);
+    }
+    return 0;
+}();
+
+long long comb(int m, int n) {
+    return f[m] * g[n] % MOD * g[m - n] % MOD;
+}
+
+class Solution {
+public:
+    int countGoodArrays(int n, int m, int k) {
+        return comb(n - 1, k) * m % MOD * qpow(m - 1, n - k - 1) % MOD;
+    }
+};
 ```
 
 #### Go
 
 ```go
+const MX = 1e5 + 10
+const MOD = 1e9 + 7
 
+var f [MX]int64
+var g [MX]int64
+
+func qpow(a int64, k int) int64 {
+	res := int64(1)
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % MOD
+		}
+		a = a * a % MOD
+		k >>= 1
+	}
+	return res
+}
+
+func init() {
+	f[0], g[0] = 1, 1
+	for i := 1; i < MX; i++ {
+		f[i] = f[i-1] * int64(i) % MOD
+		g[i] = qpow(f[i], MOD-2)
+	}
+}
+
+func comb(m, n int) int64 {
+	return f[m] * g[n] % MOD * g[m-n] % MOD
+}
+
+func countGoodArrays(n int, m int, k int) int {
+	ans := comb(n-1, k) * int64(m) % MOD * qpow(int64(m-1), n-k-1) % MOD
+	return int(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+const MX = 1e5 + 10;
+const MOD = BigInt(1e9 + 7);
+
+const f: bigint[] = Array(MX).fill(1n);
+const g: bigint[] = Array(MX).fill(1n);
+
+function qpow(a: bigint, k: number): bigint {
+    let res = 1n;
+    while (k !== 0) {
+        if ((k & 1) === 1) {
+            res = (res * a) % MOD;
+        }
+        a = (a * a) % MOD;
+        k >>= 1;
+    }
+    return res;
+}
+
+(function init() {
+    for (let i = 1; i < MX; ++i) {
+        f[i] = (f[i - 1] * BigInt(i)) % MOD;
+        g[i] = qpow(f[i], Number(MOD - 2n));
+    }
+})();
+
+function comb(m: number, n: number): bigint {
+    return (((f[m] * g[n]) % MOD) * g[m - n]) % MOD;
+}
+
+export function countGoodArrays(n: number, m: number, k: number): number {
+    const ans = (((comb(n - 1, k) * BigInt(m)) % MOD) * qpow(BigInt(m - 1), n - k - 1)) % MOD;
+    return Number(ans);
+}
 ```
 
 <!-- tabs:end -->
