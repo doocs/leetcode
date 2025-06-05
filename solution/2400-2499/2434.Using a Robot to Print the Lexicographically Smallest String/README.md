@@ -82,13 +82,13 @@ tags:
 
 题目可以转化为，给定一个字符串序列，在借助一个辅助栈的情况下，将其转化为字典序最小的字符串序列。
 
-我们可以用数组 `cnt` 维护字符串 $s$ 中每个字符的出现次数，用栈 `stk` 作为题目中的辅助栈，用变量 `mi` 维护还未遍历到的字符串中最小的字符。
+我们可以用数组 $\textit{cnt}$ 维护字符串 $s$ 中每个字符的出现次数，用栈 $\textit{stk}$ 作为题目中的辅助栈，用变量 $\textit{mi}$ 维护还未遍历到的字符串中最小的字符。
 
-遍历字符串 $s$，对于每个字符 $c$，我们先将字符 $c$ 在数组 `cnt` 中的出现次数减一，更新 `mi`。然后将字符 $c$ 入栈，此时如果栈顶元素小于等于 `mi`，则循环将栈顶元素出栈，并将出栈的字符加入答案。
+遍历字符串 $s$，对于每个字符 $c$，我们先将字符 $c$ 在数组 $\textit{cnt}$ 中的出现次数减一，更新 $\textit{mi}$。然后将字符 $c$ 入栈，此时如果栈顶元素小于等于 $\textit{mi}$，则循环将栈顶元素出栈，并将出栈的字符加入答案。
 
 遍历结束，返回答案即可。
 
-时间复杂度 $O(n+C)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度，而 $C$ 为字符集大小，本题中 $C=26$。
+时间复杂度 $O(n + |\Sigma|)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度，而 $|\Sigma|$ 为字符集大小，本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
@@ -193,101 +193,59 @@ func robotWithString(s string) string {
 
 ```ts
 function robotWithString(s: string): string {
-    let cnt = new Array(128).fill(0);
-    for (let c of s) cnt[c.charCodeAt(0)] += 1;
-    let min_index = 'a'.charCodeAt(0);
-    let ans = [];
-    let stack = [];
-    for (let c of s) {
-        cnt[c.charCodeAt(0)] -= 1;
-        while (min_index <= 'z'.charCodeAt(0) && cnt[min_index] == 0) {
-            min_index += 1;
+    const cnt = new Map<string, number>();
+    for (const c of s) {
+        cnt.set(c, (cnt.get(c) || 0) + 1);
+    }
+    const ans: string[] = [];
+    const stk: string[] = [];
+    let mi = 'a';
+    for (const c of s) {
+        cnt.set(c, (cnt.get(c) || 0) - 1);
+        while (mi < 'z' && (cnt.get(mi) || 0) === 0) {
+            mi = String.fromCharCode(mi.charCodeAt(0) + 1);
         }
-        stack.push(c);
-        while (stack.length > 0 && stack[stack.length - 1].charCodeAt(0) <= min_index) {
-            ans.push(stack.pop());
+        stk.push(c);
+        while (stk.length > 0 && stk[stk.length - 1] <= mi) {
+            ans.push(stk.pop()!);
         }
     }
     return ans.join('');
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def robotWithString(self, s: str) -> str:
-        n = len(s)
-        right = [chr(ord('z') + 1)] * (n + 1)
-        for i in range(n - 1, -1, -1):
-            right[i] = min(s[i], right[i + 1])
-        ans = []
-        stk = []
-        for i, c in enumerate(s):
-            stk.append(c)
-            while stk and stk[-1] <= right[i + 1]:
-                ans.append(stk.pop())
-        return ''.join(ans)
-```
-
-#### Java
-
-```java
-class Solution {
-    public String robotWithString(String s) {
-        int n = s.length();
-        int[] right = new int[n];
-        right[n - 1] = n - 1;
-        for (int i = n - 2; i >= 0; --i) {
-            right[i] = s.charAt(i) < s.charAt(right[i + 1]) ? i : right[i + 1];
+```rust
+impl Solution {
+    pub fn robot_with_string(s: String) -> String {
+        let mut cnt = [0; 26];
+        for &c in s.as_bytes() {
+            cnt[(c - b'a') as usize] += 1;
         }
-        StringBuilder ans = new StringBuilder();
-        Deque<Character> stk = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            stk.push(s.charAt(i));
-            while (
-                !stk.isEmpty() && (stk.peek() <= (i > n - 2 ? 'z' + 1 : s.charAt(right[i + 1])))) {
-                ans.append(stk.pop());
+
+        let mut ans = Vec::with_capacity(s.len());
+        let mut stk = Vec::new();
+        let mut mi = 0;
+
+        for &c in s.as_bytes() {
+            cnt[(c - b'a') as usize] -= 1;
+            while mi < 26 && cnt[mi] == 0 {
+                mi += 1;
+            }
+            stk.push(c);
+            while let Some(&top) = stk.last() {
+                if (top - b'a') as usize <= mi {
+                    ans.push(stk.pop().unwrap());
+                } else {
+                    break;
+                }
             }
         }
-        return ans.toString();
+
+        String::from_utf8(ans).unwrap()
     }
 }
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    string robotWithString(string s) {
-        int n = s.size();
-        vector<int> right(n, n - 1);
-        for (int i = n - 2; i >= 0; --i) {
-            right[i] = s[i] < s[right[i + 1]] ? i : right[i + 1];
-        }
-        string ans;
-        string stk;
-        for (int i = 0; i < n; ++i) {
-            stk += s[i];
-            while (!stk.empty() && (stk.back() <= (i > n - 2 ? 'z' + 1 : s[right[i + 1]]))) {
-                ans += stk.back();
-                stk.pop_back();
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 <!-- tabs:end -->
