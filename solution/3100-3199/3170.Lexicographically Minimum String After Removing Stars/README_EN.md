@@ -233,6 +233,81 @@ function clearStars(s: string): string {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn clear_stars(s: String) -> String {
+        let n = s.len();
+        let s_bytes = s.as_bytes();
+        let mut g: Vec<Vec<usize>> = vec![vec![]; 26];
+        let mut rem = vec![false; n];
+        let chars: Vec<char> = s.chars().collect();
+
+        for (i, &ch) in chars.iter().enumerate() {
+            if ch == '*' {
+                rem[i] = true;
+                for j in 0..26 {
+                    if let Some(idx) = g[j].pop() {
+                        rem[idx] = true;
+                        break;
+                    }
+                }
+            } else {
+                g[(ch as u8 - b'a') as usize].push(i);
+            }
+        }
+
+        chars
+            .into_iter()
+            .enumerate()
+            .filter_map(|(i, ch)| if !rem[i] { Some(ch) } else { None })
+            .collect()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string ClearStars(string s) {
+        int n = s.Length;
+        List<int>[] g = new List<int>[26];
+        for (int i = 0; i < 26; i++) {
+            g[i] = new List<int>();
+        }
+
+        bool[] rem = new bool[n];
+        for (int i = 0; i < n; i++) {
+            char ch = s[i];
+            if (ch == '*') {
+                rem[i] = true;
+                for (int j = 0; j < 26; j++) {
+                    if (g[j].Count > 0) {
+                        int idx = g[j][g[j].Count - 1];
+                        g[j].RemoveAt(g[j].Count - 1);
+                        rem[idx] = true;
+                        break;
+                    }
+                }
+            } else {
+                g[ch - 'a'].Add(i);
+            }
+        }
+
+        var ans = new System.Text.StringBuilder();
+        for (int i = 0; i < n; i++) {
+            if (!rem[i]) {
+                ans.Append(s[i]);
+            }
+        }
+
+        return ans.ToString();
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
