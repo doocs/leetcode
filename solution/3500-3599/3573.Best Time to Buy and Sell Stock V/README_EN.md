@@ -80,32 +80,173 @@ We can make $36 of profit through 3 transactions:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j][k]$ to represent the maximum profit on the first $i$ days, with at most $j$ transactions, and the current state $k$. Here, the state $k$ has three possibilities:
+
+-   If $k = 0$, it means we do not hold any stock.
+-   If $k = 1$, it means we are holding a stock.
+-   If $k = 2$, it means we are holding a short position.
+
+Initially, for any $j \in [1, k]$, we have $f[0][j][1] = -prices[0]$ and $f[0][j][2] = prices[0]$. This means buying a stock or opening a short position on day 0.
+
+Next, we update $f[i][j][k]$ using state transitions. For each day $i$ and each transaction $j$, we update according to the current state $k$:
+
+-   If $k = 0$, meaning no stock is held, this state can be reached from three situations:
+    -   No stock was held the previous day.
+    -   A stock was held the previous day and sold today.
+    -   A short position was held the previous day and bought back today.
+-   If $k = 1$, meaning a stock is held, this state can be reached from two situations:
+    -   A stock was held the previous day.
+    -   No stock was held the previous day and a stock is bought today.
+-   If $k = 2$, meaning a short position is held, this state can be reached from two situations:
+    -   A short position was held the previous day.
+    -   No stock was held the previous day and a short position is opened (sold) today.
+
+That is, for $1 \leq i < n$ and $1 \leq j \leq k$, we have the following state transition equations:
+
+$$
+\begin{aligned}
+f[i][j][0] &= \max(f[i - 1][j][0], f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]) \\
+f[i][j][1] &= \max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]) \\
+f[i][j][2] &= \max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i])
+\end{aligned}
+$$
+
+Finally, we return $f[n - 1][k][0]$, which is the maximum profit after at most $k$ transactions and not holding any stock at the end of $n$ days.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the length of the array $\textit{prices}$ and $k$ is the maximum number of transactions.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumProfit(self, prices: List[int], k: int) -> int:
+        n = len(prices)
+        f = [[[0] * 3 for _ in range(k + 1)] for _ in range(n)]
+        for j in range(1, k + 1):
+            f[0][j][1] = -prices[0]
+            f[0][j][2] = prices[0]
+        for i in range(1, n):
+            for j in range(1, k + 1):
+                f[i][j][0] = max(
+                    f[i - 1][j][0],
+                    f[i - 1][j][1] + prices[i],
+                    f[i - 1][j][2] - prices[i],
+                )
+                f[i][j][1] = max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i])
+                f[i][j][2] = max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i])
+        return f[n - 1][k][0]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maximumProfit(int[] prices, int k) {
+        int n = prices.length;
+        long[][][] f = new long[n][k + 1][3];
+        for (int j = 1; j <= k; ++j) {
+            f[0][j][1] = -prices[0];
+            f[0][j][2] = prices[0];
+        }
+        for (int i = 1; i < n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j][0] = Math.max(f[i - 1][j][0],
+                    Math.max(f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]));
+                f[i][j][1] = Math.max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]);
+                f[i][j][2] = Math.max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i]);
+            }
+        }
+        return f[n - 1][k][0];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maximumProfit(vector<int>& prices, int k) {
+        int n = prices.size();
+        long long f[n][k + 1][3];
+        memset(f, 0, sizeof(f));
+        for (int j = 1; j <= k; ++j) {
+            f[0][j][1] = -prices[0];
+            f[0][j][2] = prices[0];
+        }
 
+        for (int i = 1; i < n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j][0] = max({f[i - 1][j][0], f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]});
+                f[i][j][1] = max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]);
+                f[i][j][2] = max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i]);
+            }
+        }
+
+        return f[n - 1][k][0];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumProfit(prices []int, k int) int64 {
+	n := len(prices)
+	f := make([][][3]int, n)
+	for i := range f {
+		f[i] = make([][3]int, k+1)
+	}
 
+	for j := 1; j <= k; j++ {
+		f[0][j][1] = -prices[0]
+		f[0][j][2] = prices[0]
+	}
+
+	for i := 1; i < n; i++ {
+		for j := 1; j <= k; j++ {
+			f[i][j][0] = max(f[i-1][j][0], f[i-1][j][1]+prices[i], f[i-1][j][2]-prices[i])
+			f[i][j][1] = max(f[i-1][j][1], f[i-1][j-1][0]-prices[i])
+			f[i][j][2] = max(f[i-1][j][2], f[i-1][j-1][0]+prices[i])
+		}
+	}
+
+	return int64(f[n-1][k][0])
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumProfit(prices: number[], k: number): number {
+    const n = prices.length;
+    const f: number[][][] = Array.from({ length: n }, () =>
+        Array.from({ length: k + 1 }, () => Array(3).fill(0)),
+    );
+
+    for (let j = 1; j <= k; ++j) {
+        f[0][j][1] = -prices[0];
+        f[0][j][2] = prices[0];
+    }
+
+    for (let i = 1; i < n; ++i) {
+        for (let j = 1; j <= k; ++j) {
+            f[i][j][0] = Math.max(
+                f[i - 1][j][0],
+                f[i - 1][j][1] + prices[i],
+                f[i - 1][j][2] - prices[i],
+            );
+            f[i][j][1] = Math.max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]);
+            f[i][j][2] = Math.max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i]);
+        }
+    }
+
+    return f[n - 1][k][0];
+}
 ```
 
 <!-- tabs:end -->

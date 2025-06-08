@@ -82,32 +82,173 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3573.Be
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[i][j][k]$ 表示在前 $i$ 天内，最多进行 $j$ 笔交易，且当前状态为 $k$ 时的最大利润。这里的状态 $k$ 有三种可能：
+
+-   若 $k = 0$，表示当前没有持有股票。
+-   若 $k = 1$，表示当前持有一支股票。
+-   若 $k = 2$，表示当前持有一支股票的空头。
+
+初始时，对任意 $j \in [1, k]$，都有 $f[0][j][1] = -prices[0]$ 和 $f[0][j][2] = prices[0]$。这表示在第 0 天买入一支股票或卖出一支股票的空头。
+
+接下来，我们可以通过状态转移来更新 $f[i][j][k]$ 的值。对于每一天 $i$ 和每笔交易 $j$，我们可以根据当前状态 $k$ 来决定如何更新：
+
+-   若 $k = 0$，表示当前没有持有股票，这个状态可以由以下三种情况转移而来：
+    -   前一天没有持有股票。
+    -   前一天持有一支股票，并在今天卖出。
+    -   前一天持有一支股票的空头，并在今天买回。
+-   若 $k = 1$，表示当前持有一支股票，这个状态可以由以下两种情况转移而来：
+    -   前一天持有一支股票。
+    -   前一天没有持有股票，并在今天买入。
+-   若 $k = 2$，表示当前持有一支股票的空头，这个状态可以由以下两种情况转移而来：
+    -   前一天持有一支股票的空头。
+    -   前一天没有持有股票，并在今天卖出。
+
+即，对于 $1 \leq i < n$ 和 $1 \leq j \leq k$，我们有以下状态转移方程：
+
+$$
+\begin{aligned}
+f[i][j][0] &= \max(f[i - 1][j][0], f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]) \\
+f[i][j][1] &= \max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]) \\
+f[i][j][2] &= \max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i])
+\end{aligned}
+$$
+
+最终，我们需要返回 $f[n - 1][k][0]$，即在前 $n$ 天内，最多进行 $k$ 笔交易，且当前没有持有股票时的最大利润。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 为数组 $\textit{prices}$ 的长度，而 $k$ 为最大交易次数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumProfit(self, prices: List[int], k: int) -> int:
+        n = len(prices)
+        f = [[[0] * 3 for _ in range(k + 1)] for _ in range(n)]
+        for j in range(1, k + 1):
+            f[0][j][1] = -prices[0]
+            f[0][j][2] = prices[0]
+        for i in range(1, n):
+            for j in range(1, k + 1):
+                f[i][j][0] = max(
+                    f[i - 1][j][0],
+                    f[i - 1][j][1] + prices[i],
+                    f[i - 1][j][2] - prices[i],
+                )
+                f[i][j][1] = max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i])
+                f[i][j][2] = max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i])
+        return f[n - 1][k][0]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maximumProfit(int[] prices, int k) {
+        int n = prices.length;
+        long[][][] f = new long[n][k + 1][3];
+        for (int j = 1; j <= k; ++j) {
+            f[0][j][1] = -prices[0];
+            f[0][j][2] = prices[0];
+        }
+        for (int i = 1; i < n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j][0] = Math.max(f[i - 1][j][0],
+                    Math.max(f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]));
+                f[i][j][1] = Math.max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]);
+                f[i][j][2] = Math.max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i]);
+            }
+        }
+        return f[n - 1][k][0];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maximumProfit(vector<int>& prices, int k) {
+        int n = prices.size();
+        long long f[n][k + 1][3];
+        memset(f, 0, sizeof(f));
+        for (int j = 1; j <= k; ++j) {
+            f[0][j][1] = -prices[0];
+            f[0][j][2] = prices[0];
+        }
 
+        for (int i = 1; i < n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                f[i][j][0] = max({f[i - 1][j][0], f[i - 1][j][1] + prices[i], f[i - 1][j][2] - prices[i]});
+                f[i][j][1] = max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]);
+                f[i][j][2] = max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i]);
+            }
+        }
+
+        return f[n - 1][k][0];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumProfit(prices []int, k int) int64 {
+	n := len(prices)
+	f := make([][][3]int, n)
+	for i := range f {
+		f[i] = make([][3]int, k+1)
+	}
 
+	for j := 1; j <= k; j++ {
+		f[0][j][1] = -prices[0]
+		f[0][j][2] = prices[0]
+	}
+
+	for i := 1; i < n; i++ {
+		for j := 1; j <= k; j++ {
+			f[i][j][0] = max(f[i-1][j][0], f[i-1][j][1]+prices[i], f[i-1][j][2]-prices[i])
+			f[i][j][1] = max(f[i-1][j][1], f[i-1][j-1][0]-prices[i])
+			f[i][j][2] = max(f[i-1][j][2], f[i-1][j-1][0]+prices[i])
+		}
+	}
+
+	return int64(f[n-1][k][0])
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumProfit(prices: number[], k: number): number {
+    const n = prices.length;
+    const f: number[][][] = Array.from({ length: n }, () =>
+        Array.from({ length: k + 1 }, () => Array(3).fill(0)),
+    );
+
+    for (let j = 1; j <= k; ++j) {
+        f[0][j][1] = -prices[0];
+        f[0][j][2] = prices[0];
+    }
+
+    for (let i = 1; i < n; ++i) {
+        for (let j = 1; j <= k; ++j) {
+            f[i][j][0] = Math.max(
+                f[i - 1][j][0],
+                f[i - 1][j][1] + prices[i],
+                f[i - 1][j][2] - prices[i],
+            );
+            f[i][j][1] = Math.max(f[i - 1][j][1], f[i - 1][j - 1][0] - prices[i]);
+            f[i][j][2] = Math.max(f[i - 1][j][2], f[i - 1][j - 1][0] + prices[i]);
+        }
+    }
+
+    return f[n - 1][k][0];
+}
 ```
 
 <!-- tabs:end -->
