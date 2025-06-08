@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README.md
+rating: 2036
+source: 第 450 场周赛 Q3
 tags:
     - 广度优先搜索
     - 数组

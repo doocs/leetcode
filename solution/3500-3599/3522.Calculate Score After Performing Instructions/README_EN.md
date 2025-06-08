@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3522.Calculate%20Score%20After%20Performing%20Instructions/README_EN.md
+rating: 1238
+source: Weekly Contest 446 Q1
 tags:
     - Array
     - Hash Table

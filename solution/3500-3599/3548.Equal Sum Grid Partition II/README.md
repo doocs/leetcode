@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README.md
+rating: 2245
+source: 第 449 场周赛 Q4
 tags:
     - 数组
     - 哈希表

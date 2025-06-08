@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README.md
+rating: 1845
+source: 第 157 场双周赛 Q3
 tags:
     - 树
     - 深度优先搜索

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3543.Maximum%20Weighted%20K-Edge%20Path/README.md
+rating: 2110
+source: 第 156 场双周赛 Q3
 tags:
     - 图
     - 哈希表
