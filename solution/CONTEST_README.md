@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 453 场周赛(2025-06-08 10:30, 90 分钟) 参赛人数 1597
+
+- [3576. 数组元素相等转换](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README.md)
+- [3577. 统计计算机解锁顺序排列数](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README.md)
+- [3578. 统计极差最大为 K 的分割方式数](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md)
+- [3579. 字符串转换需要的最小操作数](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README.md)
+
+#### 第 158 场双周赛(2025-06-07 22:30, 90 分钟) 参赛人数 1175
+
+- [3572. 选择不同 X 值三元组使 Y 值之和最大](/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README.md)
+- [3573. 买卖股票的最佳时机 V](/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README.md)
+- [3574. 最大子数组 GCD 分数](/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README.md)
+- [3575. 最大好子树分数](/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README.md)
+
 #### 第 452 场周赛(2025-06-01 10:30, 90 分钟) 参赛人数 1608
 
 - [3566. 等积子集的划分方案](/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README.md)

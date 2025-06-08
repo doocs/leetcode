@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md
+rating: 1411
+source: Weekly Contest 449 Q2
 tags:
     - Array
     - Enumeration

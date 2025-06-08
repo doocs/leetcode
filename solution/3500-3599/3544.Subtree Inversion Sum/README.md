@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README.md
+rating: 2544
+source: 第 156 场双周赛 Q4
 tags:
     - 树
     - 深度优先搜索

@@ -131,7 +131,7 @@ record_id 是这张表的唯一主键。
     	<li>因为 available_copies = 0，所以被包含</li>
     </ul>
     </li>
-    <li><strong>为被包含的书：</strong>
+    <li><strong>未被包含的书：</strong>
     <ul>
     	<li>To Kill a Mockingbird (book_id = 2)：总副本数 = 3，当前借阅者&nbsp;= 2，可用副本 = 1</li>
     	<li>Pride and Prejudice (book_id = 4)：总副本数 = 2，当前借阅者 = 1，可用副本 = 1</li>

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3530.Maximum%20Profit%20from%20Valid%20Topological%20Order%20in%20DAG/README_EN.md
+rating: 2352
+source: Biweekly Contest 155 Q4
 tags:
     - Bit Manipulation
     - Graph
