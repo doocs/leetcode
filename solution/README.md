@@ -3590,6 +3590,7 @@
 |  3577  |  [统计计算机解锁顺序排列数](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README.md)  |    |  中等  |  第 453 场周赛  |
 |  3578  |  [统计极差最大为 K 的分割方式数](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md)  |    |  中等  |  第 453 场周赛  |
 |  3579  |  [字符串转换需要的最小操作数](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README.md)  |    |  困难  |  第 453 场周赛  |
+|  3580  |  [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README.md)  |    |  中等  |    |
 
 ## 版权
 

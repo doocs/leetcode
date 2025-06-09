@@ -26,7 +26,7 @@ comments: true
 
 ## 往期竞赛
 
-#### 第 453 场周赛(2025-06-08 10:30, 90 分钟) 参赛人数 1597
+#### 第 453 场周赛(2025-06-08 10:30, 90 分钟) 参赛人数 1608
 
 - [3576. 数组元素相等转换](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README.md)
 - [3577. 统计计算机解锁顺序排列数](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README.md)
