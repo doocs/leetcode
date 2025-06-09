@@ -4,39 +4,35 @@ import pandas as pd
 def find_consistently_improving_employees(
     employees: pd.DataFrame, performance_reviews: pd.DataFrame
 ) -> pd.DataFrame:
-    recent = (
-        performance_reviews.sort_values(
-            ["employee_id", "review_date"], ascending=[True, False]
+    performance_reviews = performance_reviews.sort_values(
+        ["employee_id", "review_date"], ascending=[True, False]
+    )
+    performance_reviews["rn"] = (
+        performance_reviews.groupby("employee_id").cumcount() + 1
+    )
+    performance_reviews["lag_rating"] = performance_reviews.groupby("employee_id")[
+        "rating"
+    ].shift(1)
+    performance_reviews["delta"] = (
+        performance_reviews["lag_rating"] - performance_reviews["rating"]
+    )
+    recent = performance_reviews[
+        (performance_reviews["rn"] > 1) & (performance_reviews["rn"] <= 3)
+    ]
+    improvement = (
+        recent.groupby("employee_id")
+        .agg(
+            improvement_score=("delta", "sum"),
+            count=("delta", "count"),
+            min_delta=("delta", "min"),
         )
-        .groupby("employee_id")
-        .head(3)
+        .reset_index()
     )
-
-    three_reviews_ids = recent["employee_id"].value_counts().loc[lambda s: s == 3].index
-    recent = recent[recent["employee_id"].isin(three_reviews_ids)]
-    recent = recent.sort_values(["employee_id", "review_date"])
-
-    def strictly_increasing(ratings: pd.Series) -> bool:
-        return (ratings.diff().dropna() > 0).all()
-
-    improving_ids = (
-        recent.groupby("employee_id")["rating"]
-        .apply(strictly_increasing)
-        .loc[lambda s: s]
-        .index
+    improvement = improvement[
+        (improvement["count"] == 2) & (improvement["min_delta"] > 0)
+    ]
+    result = improvement.merge(employees[["employee_id", "name"]], on="employee_id")
+    result = result.sort_values(
+        by=["improvement_score", "name"], ascending=[False, True]
     )
-    improving = recent[recent["employee_id"].isin(improving_ids)]
-
-    scores = (
-        improving.groupby("employee_id")["rating"]
-        .agg(lambda x: x.iloc[-1] - x.iloc[0])
-        .reset_index(name="improvement_score")
-    )
-
-    result = (
-        scores.merge(employees, on="employee_id")
-        .loc[:, ["employee_id", "name", "improvement_score"]]
-        .sort_values(["improvement_score", "name"], ascending=[False, True])
-        .reset_index(drop=True)
-    )
-    return result
+    return result[["employee_id", "name", "improvement_score"]]
