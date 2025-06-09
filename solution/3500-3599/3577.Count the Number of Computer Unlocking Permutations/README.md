@@ -91,32 +91,95 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3577.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+由于编号为 $0$ 的计算机密码已经被解锁，那么对于其他计算机 $i$，如果存在 $\text{complexity}[i] \leq \text{complexity}[0]$，则无法解锁计算机 $i$，因此返回 $0$。否则，排列可以是任意的，一共有 $(n - 1)!$ 种排列方式。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\text{complexity}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countPermutations(self, complexity: List[int]) -> int:
+        mod = 10**9 + 7
+        ans = 1
+        for i in range(1, len(complexity)):
+            if complexity[i] <= complexity[0]:
+                return 0
+            ans = ans * i % mod
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countPermutations(int[] complexity) {
+        final int mod = (int) 1e9 + 7;
+        long ans = 1;
+        for (int i = 1; i < complexity.length; ++i) {
+            if (complexity[i] <= complexity[0]) {
+                return 0;
+            }
+            ans = ans * i % mod;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countPermutations(vector<int>& complexity) {
+        const int mod = 1e9 + 7;
+        long long ans = 1;
+        for (int i = 1; i < complexity.size(); ++i) {
+            if (complexity[i] <= complexity[0]) {
+                return 0;
+            }
+            ans = ans * i % mod;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countPermutations(complexity []int) int {
+	mod := int64(1e9 + 7)
+	ans := int64(1)
+	for i := 1; i < len(complexity); i++ {
+		if complexity[i] <= complexity[0] {
+			return 0
+		}
+		ans = ans * int64(i) % mod
+	}
+	return int(ans)
+}
+```
 
+#### TypeScript
+
+```ts
+function countPermutations(complexity: number[]): number {
+    const mod = 1e9 + 7;
+    let ans = 1;
+    for (let i = 1; i < complexity.length; i++) {
+        if (complexity[i] <= complexity[0]) {
+            return 0;
+        }
+        ans = (ans * i) % mod;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
