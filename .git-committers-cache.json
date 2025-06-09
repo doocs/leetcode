@@ -1,5 +1,5 @@
 {
-  "cache_date": 1749455662,
+  "cache_date": 1749460514,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -47524,6 +47524,12 @@
     "solution/0000-0099/0005.Longest Palindromic Substring/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "djvelimir",
           "name": "djvelimir",
           "url": "https://github.com/djvelimir",
@@ -47560,7 +47566,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/38415384?v=4"
         }
       ],
-      "retrieved": 1745669914
+      "retrieved": 1749459615
     },
     "solution/0000-0099/0050.Pow(x, n)/README.md": {
       "authors": [
@@ -49681,6 +49687,12 @@
     "solution/0000-0099/0006.Zigzag Conversion/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -49705,7 +49717,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745669956
+      "retrieved": 1749459635
     },
     "solution/0000-0099/0060.Permutation Sequence/README.md": {
       "authors": [
@@ -114405,6 +114417,12 @@
     "solution/0000-0099/0005.Longest Palindromic Substring/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "djvelimir",
           "name": "djvelimir",
           "url": "https://github.com/djvelimir",
@@ -114441,7 +114459,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/38415384?v=4"
         }
       ],
-      "retrieved": 1745671465
+      "retrieved": 1749460397
     },
     "solution/0000-0099/0050.Pow(x, n)/README_EN.md": {
       "authors": [
@@ -116538,6 +116556,12 @@
     "solution/0000-0099/0006.Zigzag Conversion/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -116556,7 +116580,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745671506
+      "retrieved": 1749460416
     },
     "solution/0000-0099/0060.Permutation Sequence/README_EN.md": {
       "authors": [
