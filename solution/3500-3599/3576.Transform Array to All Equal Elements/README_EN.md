@@ -73,32 +73,129 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3576.Tr
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal and Counting
+
+According to the problem description, to make all elements in the array equal, all elements must be either $\textit{nums}[0]$ or $-\textit{nums}[0]$. Therefore, we design a function $\textit{check}$ to determine whether the array can be transformed into all elements equal to $\textit{target}$ with at most $k$ operations.
+
+The idea of this function is to traverse the array and count the number of operations needed. Each element is either modified once or not at all. If the current element is equal to the target value, no modification is needed and we continue to the next element. If the current element is not equal to the target value, an operation is needed, increment the counter, and flip the sign, indicating that subsequent elements need the opposite operation.
+
+After the traversal, if the counter is less than or equal to $k$ and the sign of the last element matches the target value, return $\textit{true}$; otherwise, return $\textit{false}$.
+
+The final answer is the result of $\textit{check}(\textit{nums}[0], k)$ or $\textit{check}(-\textit{nums}[0], k)$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def canMakeEqual(self, nums: List[int], k: int) -> bool:
+        def check(target: int, k: int) -> bool:
+            cnt, sign = 0, 1
+            for i in range(len(nums) - 1):
+                x = nums[i] * sign
+                if x == target:
+                    sign = 1
+                else:
+                    sign = -1
+                    cnt += 1
+            return cnt <= k and nums[-1] * sign == target
 
+        return check(nums[0], k) or check(-nums[0], k)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public boolean canMakeEqual(int[] nums, int k) {
+        return check(nums, nums[0], k) || check(nums, -nums[0], k);
+    }
 
+    private boolean check(int[] nums, int target, int k) {
+        int cnt = 0, sign = 1;
+        for (int i = 0; i < nums.length - 1; ++i) {
+            int x = nums[i] * sign;
+            if (x == target) {
+                sign = 1;
+            } else {
+                sign = -1;
+                ++cnt;
+            }
+        }
+        return cnt <= k && nums[nums.length - 1] * sign == target;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool canMakeEqual(vector<int>& nums, int k) {
+        auto check = [&](int target, int k) -> bool {
+            int n = nums.size();
+            int cnt = 0, sign = 1;
+            for (int i = 0; i < n - 1; ++i) {
+                int x = nums[i] * sign;
+                if (x == target) {
+                    sign = 1;
+                } else {
+                    sign = -1;
+                    ++cnt;
+                }
+            }
+            return cnt <= k && nums[n - 1] * sign == target;
+        };
+        return check(nums[0], k) || check(-nums[0], k);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func canMakeEqual(nums []int, k int) bool {
+	check := func(target, k int) bool {
+		cnt, sign := 0, 1
+		for i := 0; i < len(nums)-1; i++ {
+			x := nums[i] * sign
+			if x == target {
+				sign = 1
+			} else {
+				sign = -1
+				cnt++
+			}
+		}
+		return cnt <= k && nums[len(nums)-1]*sign == target
+	}
+	return check(nums[0], k) || check(-nums[0], k)
+}
+```
 
+#### TypeScript
+
+```ts
+function canMakeEqual(nums: number[], k: number): boolean {
+    function check(target: number, k: number): boolean {
+        let [cnt, sign] = [0, 1];
+        for (let i = 0; i < nums.length - 1; i++) {
+            const x = nums[i] * sign;
+            if (x === target) {
+                sign = 1;
+            } else {
+                sign = -1;
+                cnt++;
+            }
+        }
+        return cnt <= k && nums[nums.length - 1] * sign === target;
+    }
+
+    return check(nums[0], k) || check(-nums[0], k);
+}
 ```
 
 <!-- tabs:end -->
