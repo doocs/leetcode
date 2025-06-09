@@ -1,29 +1,36 @@
-char *convert(char *s, int numRows) {
-  if (numRows == 1 || numRows >= strlen(s)) {
-    char *result = malloc(strlen(s) + 1);
-    strcpy(result, s);
-    return result;
-  }
-  char **rows = malloc(numRows * sizeof(char *));
-  for (int i = 0; i < numRows; i++) {
-    rows[i] = malloc(strlen(s) + 1);
-    rows[i][0] = '\0';
-  }
-  int currentRow = 0;
-  int goingDown = 0;
-  for (int i = 0; s[i] != '\0'; i++) {
-    strncat(rows[currentRow], &s[i], 1);
-    if (currentRow == 0 || currentRow == numRows - 1) {
-      goingDown = !goingDown;
+char* convert(char* s, int numRows) {
+    if (numRows == 1) {
+        return strdup(s);
     }
-    currentRow += goingDown ? 1 : -1;
-  }
-  char *result = malloc(strlen(s) + 1);
-  result[0] = '\0';
-  for (int i = 0; i < numRows; i++) {
-    strcat(result, rows[i]);
-    free(rows[i]);
-  }
-  free(rows);
-  return result;
+
+    int len = strlen(s);
+    char** g = (char**) malloc(numRows * sizeof(char*));
+    int* idx = (int*) malloc(numRows * sizeof(int));
+    for (int i = 0; i < numRows; ++i) {
+        g[i] = (char*) malloc((len + 1) * sizeof(char));
+        idx[i] = 0;
+    }
+
+    int i = 0, k = -1;
+    for (int p = 0; p < len; ++p) {
+        g[i][idx[i]++] = s[p];
+        if (i == 0 || i == numRows - 1) {
+            k = -k;
+        }
+        i += k;
+    }
+
+    char* ans = (char*) malloc((len + 1) * sizeof(char));
+    int pos = 0;
+    for (int r = 0; r < numRows; ++r) {
+        for (int j = 0; j < idx[r]; ++j) {
+            ans[pos++] = g[r][j];
+        }
+        free(g[r]);
+    }
+    ans[pos] = '\0';
+
+    free(g);
+    free(idx);
+    return ans;
 }
