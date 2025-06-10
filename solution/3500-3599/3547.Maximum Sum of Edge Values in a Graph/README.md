@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README.md
+rating: 2343
+source: 第 449 场周赛 Q3
 tags:
     - 贪心
     - 深度优先搜索

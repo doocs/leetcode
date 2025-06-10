@@ -44,7 +44,7 @@ tags:
 <pre>
 <strong>输入：</strong>s1 = "parker", s2 = "morris", baseStr = "parser"
 <strong>输出：</strong>"makkek"
-<strong>解释：</strong>根据 <code>A</code> 和 <code>B 中的等价信息，</code>我们可以将这些字符分为 <code>[m,p]</code>, <code>[a,o]</code>, <code>[k,r,s]</code>, <code>[e,i] 共 4 组</code>。每组中的字符都是等价的，并按字典序排列。所以答案是 <code>"makkek"</code>。
+<strong>解释：</strong>根据 <code>A</code> 和 <code>B</code> 中的等价信息，我们可以将这些字符分为 <code>[m,p]</code>, <code>[a,o]</code>, <code>[k,r,s]</code>, <code>[e,i]</code> 共 4 组。每组中的字符都是等价的，并按字典序排列。所以答案是 <code>"makkek"</code>。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -52,7 +52,7 @@ tags:
 <pre>
 <strong>输入：</strong>s1 = "hello", s2 = "world", baseStr = "hold"
 <strong>输出：</strong>"hdld"
-<strong>解释：</strong>根据 <code>A</code> 和 <code>B 中的等价信息，</code>我们可以将这些字符分为 <code>[h,w]</code>, <code>[d,e,o]</code>, <code>[l,r] 共 3 组</code>。所以只有 S 中的第二个字符 <code>'o'</code> 变成 <code>'d'，最后答案为 </code><code>"hdld"</code>。
+<strong>解释：</strong>根据 <code>A</code> 和 <code>B</code> 中的等价信息，我们可以将这些字符分为 <code>[h,w]</code>, <code>[d,e,o]</code>, <code>[l,r]</code> 共 3 组。所以只有 S 中的第二个字符 <code>'o'</code> 变成 <code>'d'</code>，最后答案为 <code>"hdld"</code>。
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -60,7 +60,7 @@ tags:
 <pre>
 <strong>输入：</strong>s1 = "leetcode", s2 = "programs", baseStr = "sourcecode"
 <strong>输出：</strong>"aauaaaaada"
-<strong>解释：</strong>我们可以把 A 和 B 中的等价字符分为 <code>[a,o,e,r,s,c]</code>, <code>[l,p]</code>, <code>[g,t]</code> 和 <code>[d,m] 共 4 组</code>，因此 <code>S</code> 中除了 <code>'u'</code> 和 <code>'d'</code> 之外的所有字母都转化成了 <code>'a'</code>，最后答案为 <code>"aauaaaaada"</code>。
+<strong>解释：</strong>我们可以把 <code>A</code> 和 <code>B</code> 中的等价字符分为 <code>[a,o,e,r,s,c]</code>, <code>[l,p]</code>, <code>[g,t]</code> 和 <code>[d,m]</code> 共 4 组，因此 <code>S</code> 中除了 <code>'u'</code> 和 <code>'d'</code> 之外的所有字母都转化成了 <code>'a'</code>，最后答案为 <code>"aauaaaaada"</code>。
 </pre>
 
 <p>&nbsp;</p>
@@ -246,6 +246,79 @@ function smallestEquivalentString(s1: string, s2: string, baseStr: string): stri
         s.push(String.fromCharCode('a'.charCodeAt(0) + find(c)));
     }
     return s.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_equivalent_string(s1: String, s2: String, base_str: String) -> String {
+        fn find(x: usize, p: &mut Vec<usize>) -> usize {
+            if p[x] != x {
+                p[x] = find(p[x], p);
+            }
+            p[x]
+        }
+
+        let mut p = (0..26).collect::<Vec<_>>();
+        for (a, b) in s1.bytes().zip(s2.bytes()) {
+            let x = (a - b'a') as usize;
+            let y = (b - b'a') as usize;
+            let px = find(x, &mut p);
+            let py = find(y, &mut p);
+            if px < py {
+                p[py] = px;
+            } else {
+                p[px] = py;
+            }
+        }
+
+        base_str
+            .bytes()
+            .map(|c| (b'a' + find((c - b'a') as usize, &mut p) as u8) as char)
+            .collect()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string SmallestEquivalentString(string s1, string s2, string baseStr) {
+        int[] p = new int[26];
+        for (int i = 0; i < 26; i++) {
+            p[i] = i;
+        }
+
+        int Find(int x) {
+            if (p[x] != x) {
+                p[x] = Find(p[x]);
+            }
+            return p[x];
+        }
+
+        for (int i = 0; i < s1.Length; i++) {
+            int x = s1[i] - 'a';
+            int y = s2[i] - 'a';
+            int px = Find(x);
+            int py = Find(y);
+            if (px < py) {
+                p[py] = px;
+            } else {
+                p[px] = py;
+            }
+        }
+
+        var res = new System.Text.StringBuilder();
+        foreach (char c in baseStr) {
+            int idx = Find(c - 'a');
+            res.Append((char)(idx + 'a'));
+        }
+
+        return res.ToString();
+    }
 }
 ```
 

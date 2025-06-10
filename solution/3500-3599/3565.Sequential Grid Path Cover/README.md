@@ -27,7 +27,7 @@ tags:
 	<li><strong>按顺序</strong>&nbsp;访问值为 1 到&nbsp;<code>k</code>&nbsp;的单元格。</li>
 </ul>
 
-<p>返回一个大小为&nbsp;<code>(m * n) x 2</code>&nbsp;的二维数组&nbsp;<code>result</code>，其中&nbsp;<code>result[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示路径中访问的第&nbsp;<code>i</code>&nbsp;个单元格。如果存在多条这样的路径，你可以返回 <strong>任何</strong>&nbsp;一条。</p>
+<p>返回一个大小为&nbsp;<code>(m * n)</code>&nbsp;的二维数组&nbsp;<code>result</code>，其中&nbsp;<code>result[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示路径中访问的第&nbsp;<code>i</code>&nbsp;个单元格。如果存在多条这样的路径，你可以返回 <strong>任何</strong>&nbsp;一条。</p>
 
 <p>如果不存在这样的路径，返回一个&nbsp;<strong>空</strong>&nbsp;数组。</p>
 

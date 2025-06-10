@@ -84,25 +84,161 @@ If the first <code>min(a.length, b.length)</code> characters do not differ, then
 #### Python3
 
 ```python
+class Solution:
+    def answerString(self, word: str, numFriends: int) -> str:
+        if numFriends == 1:
+            return word
+        s = self.lastSubstring(word)
+        return s[: len(word) - numFriends + 1]
 
+    def lastSubstring(self, s: str) -> str:
+        i, j, k = 0, 1, 0
+        while j + k < len(s):
+            if s[i + k] == s[j + k]:
+                k += 1
+            elif s[i + k] < s[j + k]:
+                i += k + 1
+                k = 0
+                if i >= j:
+                    j = i + 1
+            else:
+                j += k + 1
+                k = 0
+        return s[i:]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String answerString(String word, int numFriends) {
+        if (numFriends == 1) {
+            return word;
+        }
+        String s = lastSubstring(word);
+        return s.substring(0, Math.min(s.length(), word.length() - numFriends + 1));
+    }
 
+    public String lastSubstring(String s) {
+        int n = s.length();
+        int i = 0, j = 1, k = 0;
+        while (j + k < n) {
+            int d = s.charAt(i + k) - s.charAt(j + k);
+            if (d == 0) {
+                ++k;
+            } else if (d < 0) {
+                i += k + 1;
+                k = 0;
+                if (i >= j) {
+                    j = i + 1;
+                }
+            } else {
+                j += k + 1;
+                k = 0;
+            }
+        }
+        return s.substring(i);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    string answerString(string word, int numFriends) {
+        if (numFriends == 1) {
+            return word;
+        }
+        string s = lastSubstring(word);
+        return s.substr(0, min(s.length(), word.length() - numFriends + 1));
+    }
 
+    string lastSubstring(string& s) {
+        int n = s.size();
+        int i = 0, j = 1, k = 0;
+        while (j + k < n) {
+            if (s[i + k] == s[j + k]) {
+                ++k;
+            } else if (s[i + k] < s[j + k]) {
+                i += k + 1;
+                k = 0;
+                if (i >= j) {
+                    j = i + 1;
+                }
+            } else {
+                j += k + 1;
+                k = 0;
+            }
+        }
+        return s.substr(i);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func answerString(word string, numFriends int) string {
+	if numFriends == 1 {
+		return word
+	}
+	s := lastSubstring(word)
+	return s[:min(len(s), len(word)-numFriends+1)]
+}
 
+func lastSubstring(s string) string {
+	n := len(s)
+	i, j, k := 0, 1, 0
+	for j+k < n {
+		if s[i+k] == s[j+k] {
+			k++
+		} else if s[i+k] < s[j+k] {
+			i += k + 1
+			k = 0
+			if i >= j {
+				j = i + 1
+			}
+		} else {
+			j += k + 1
+			k = 0
+		}
+	}
+	return s[i:]
+}
+```
+
+#### TypeScript
+
+```ts
+function answerString(word: string, numFriends: number): string {
+    if (numFriends === 1) {
+        return word;
+    }
+    const s = lastSubstring(word);
+    return s.slice(0, word.length - numFriends + 1);
+}
+
+function lastSubstring(s: string): string {
+    const n = s.length;
+    let i = 0;
+    for (let j = 1, k = 0; j + k < n; ) {
+        if (s[i + k] === s[j + k]) {
+            ++k;
+        } else if (s[i + k] < s[j + k]) {
+            i += k + 1;
+            k = 0;
+            if (i >= j) {
+                j = i + 1;
+            }
+        } else {
+            j += k + 1;
+            k = 0;
+        }
+    }
+    return s.slice(i);
+}
 ```
 
 <!-- tabs:end -->

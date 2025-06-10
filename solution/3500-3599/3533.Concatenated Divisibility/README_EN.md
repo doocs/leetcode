@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3533.Concatenated%20Divisibility/README_EN.md
+rating: 2257
+source: Weekly Contest 447 Q3
 tags:
     - Bit Manipulation
     - Array

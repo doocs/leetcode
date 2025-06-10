@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3536.Maximum%20Product%20of%20Two%20Digits/README.md
+rating: 1199
+source: 第 448 场周赛 Q1
 tags:
     - 数学
     - 排序

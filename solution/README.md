@@ -3582,6 +3582,15 @@
 |  3569  |  [分割数组后不同质数的最大数目](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README.md)  |  `线段树`,`数组`,`数学`,`数论`  |  困难  |  第 452 场周赛  |
 |  3570  |  [查找无可用副本的书籍](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README.md)  |  `数据库`  |  简单  |    |
 |  3571  |  [最短超级串 II](/solution/3500-3599/3571.Find%20the%20Shortest%20Superstring%20II/README.md)  |    |  简单  |  🔒  |
+|  3572  |  [选择不同 X 值三元组使 Y 值之和最大](/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README.md)  |    |  中等  |  第 158 场双周赛  |
+|  3573  |  [买卖股票的最佳时机 V](/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README.md)  |    |  中等  |  第 158 场双周赛  |
+|  3574  |  [最大子数组 GCD 分数](/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README.md)  |    |  困难  |  第 158 场双周赛  |
+|  3575  |  [最大好子树分数](/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README.md)  |    |  困难  |  第 158 场双周赛  |
+|  3576  |  [数组元素相等转换](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README.md)  |    |  中等  |  第 453 场周赛  |
+|  3577  |  [统计计算机解锁顺序排列数](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README.md)  |    |  中等  |  第 453 场周赛  |
+|  3578  |  [统计极差最大为 K 的分割方式数](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md)  |    |  中等  |  第 453 场周赛  |
+|  3579  |  [字符串转换需要的最小操作数](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README.md)  |    |  困难  |  第 453 场周赛  |
+|  3580  |  [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README.md)  |    |  中等  |    |
 
 ## 版权
 
