@@ -224,19 +224,17 @@ graph TD;
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
 
-## 赞助者
-
-感谢以下个人、组织对本项目的支持和赞助！
-
-<a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
-
-<a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
-
-> "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
-
 ## 版权
 
 本项目著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 @yanglbme 获得授权，非商业转载请注明出处。
+
+## 支持我们
+
+如果你觉得这个项目对你有帮助，欢迎通过下方的二维码请我们喝一杯 ☕️～
+
+<div align="center">
+  <img src="./images/support1.jpg" width="260px" />
+</div>
 
 ## 联系我们
 

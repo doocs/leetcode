@@ -216,19 +216,14 @@ This project exists thanks to all the people who contribute.
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
 
-## Backers & Sponsors
-
-Thank you to all our backers and sponsors!
-
-<a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
-
-<a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
-
-> "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
-
 ## Copyright
 
 The copyright of this project belongs to [Doocs](https://github.com/doocs) community. For commercial reprints, please contact [@yanglbme](mailto:contact@yanglibin.info) for authorization. For non-commercial reprints, please indicate the source.
+
+## Support Us
+
+If you find this project helpful, consider supporting us by buying us a coffee ☕️  
+👉 [https://paypal.me/yanglbme](https://paypal.me/yanglbme)
 
 ## Contact Us
 
