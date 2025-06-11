@@ -1,5 +1,5 @@
 {
-  "cache_date": 1749606304,
+  "cache_date": 1749623800,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -43444,7 +43444,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749605351
+      "retrieved": 1749622865
     },
     "solution/3400-3499/3446.Sort Matrix by Diagonals/README.md": {
       "authors": [
@@ -49687,16 +49687,16 @@
     "solution/0000-0099/0006.Zigzag Conversion/README.md": {
       "authors": [
         {
-          "login": "pranjal030404",
-          "name": "pranjal030404",
-          "url": "https://github.com/pranjal030404",
-          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
         },
         {
           "login": "ZylalMinollari",
@@ -49717,7 +49717,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1749459635
+      "retrieved": 1749622938
     },
     "solution/0000-0099/0060.Permutation Sequence/README.md": {
       "authors": [
@@ -110373,7 +110373,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749606136
+      "retrieved": 1749623635
     },
     "solution/3400-3499/3446.Sort Matrix by Diagonals/README_EN.md": {
       "authors": [
@@ -116556,16 +116556,16 @@
     "solution/0000-0099/0006.Zigzag Conversion/README_EN.md": {
       "authors": [
         {
-          "login": "pranjal030404",
-          "name": "pranjal030404",
-          "url": "https://github.com/pranjal030404",
-          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
         },
         {
           "login": "ZylalMinollari",
@@ -116580,7 +116580,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1749460416
+      "retrieved": 1749623704
     },
     "solution/0000-0099/0060.Permutation Sequence/README_EN.md": {
       "authors": [
@@ -127572,7 +127572,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749372952
+      "retrieved": 1749622885
     },
     "solution/3500-3599/3564.Seasonal Sales Analysis/README_EN.md": {
       "authors": [
@@ -127594,7 +127594,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940986
+      "retrieved": 1749623654
     },
     "solution/3500-3599/3566.Partition Array into Two Equal Product Subsets/README.md": {
       "authors": [
@@ -127737,7 +127737,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940203
+      "retrieved": 1749622886
     },
     "solution/3500-3599/3571.Find the Shortest Superstring II/README_EN.md": {
       "authors": [
@@ -127748,7 +127748,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940988
+      "retrieved": 1749623655
     },
     "solution/3500-3599/3572.Maximize Y‑Sum by Picking a Triplet of Distinct X‑Values/README.md": {
       "authors": [
@@ -127759,7 +127759,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749372953
+      "retrieved": 1749622886
     },
     "solution/3500-3599/3573.Best Time to Buy and Sell Stock V/README.md": {
       "authors": [
@@ -127770,7 +127770,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749387708
+      "retrieved": 1749622887
     },
     "solution/3500-3599/3574.Maximize Subarray GCD Score/README.md": {
       "authors": [
@@ -127781,7 +127781,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749372954
+      "retrieved": 1749622887
     },
     "solution/3500-3599/3575.Maximum Good Subtree Score/README.md": {
       "authors": [
@@ -127792,7 +127792,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749372954
+      "retrieved": 1749622887
     },
     "solution/3500-3599/3576.Transform Array to All Equal Elements/README.md": {
       "authors": [
@@ -127803,7 +127803,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749431986
+      "retrieved": 1749622888
     },
     "solution/3500-3599/3577.Count the Number of Computer Unlocking Permutations/README.md": {
       "authors": [
@@ -127814,7 +127814,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749454718
+      "retrieved": 1749622888
     },
     "solution/3500-3599/3578.Count Partitions With Max-Min Difference at Most K/README.md": {
       "authors": [
@@ -127825,7 +127825,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749550475
+      "retrieved": 1749622889
     },
     "solution/3500-3599/3579.Minimum Steps to Convert String with Operations/README.md": {
       "authors": [
@@ -127836,7 +127836,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749372955
+      "retrieved": 1749622889
     },
     "solution/3500-3599/3572.Maximize Y‑Sum by Picking a Triplet of Distinct X‑Values/README_EN.md": {
       "authors": [
@@ -127847,7 +127847,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749373741
+      "retrieved": 1749623655
     },
     "solution/3500-3599/3573.Best Time to Buy and Sell Stock V/README_EN.md": {
       "authors": [
@@ -127858,7 +127858,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749388487
+      "retrieved": 1749623656
     },
     "solution/3500-3599/3574.Maximize Subarray GCD Score/README_EN.md": {
       "authors": [
@@ -127869,7 +127869,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749455514
+      "retrieved": 1749623656
     },
     "solution/3500-3599/3575.Maximum Good Subtree Score/README_EN.md": {
       "authors": [
@@ -127880,7 +127880,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749455514
+      "retrieved": 1749623656
     },
     "solution/3500-3599/3576.Transform Array to All Equal Elements/README_EN.md": {
       "authors": [
@@ -127891,7 +127891,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749432770
+      "retrieved": 1749623657
     },
     "solution/3500-3599/3577.Count the Number of Computer Unlocking Permutations/README_EN.md": {
       "authors": [
@@ -127902,7 +127902,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749455514
+      "retrieved": 1749623657
     },
     "solution/3500-3599/3578.Count Partitions With Max-Min Difference at Most K/README_EN.md": {
       "authors": [
@@ -127913,7 +127913,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749551251
+      "retrieved": 1749623658
     },
     "solution/3500-3599/3579.Minimum Steps to Convert String with Operations/README_EN.md": {
       "authors": [
@@ -127924,7 +127924,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749455515
+      "retrieved": 1749623658
     },
     "solution/3500-3599/3580.Find Consistently Improving Employees/README.md": {
       "authors": [
@@ -127935,7 +127935,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749509503
+      "retrieved": 1749622890
     },
     "solution/3500-3599/3580.Find Consistently Improving Employees/README_EN.md": {
       "authors": [
