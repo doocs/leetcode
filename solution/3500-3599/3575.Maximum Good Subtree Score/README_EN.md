@@ -2,6 +2,13 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README_EN.md
+tags:
+    - Bit Manipulation
+    - Tree
+    - Depth-First Search
+    - Array
+    - Dynamic Programming
+    - Bitmask
 ---
 
 <!-- problem:start -->

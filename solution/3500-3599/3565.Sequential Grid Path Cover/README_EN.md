@@ -60,8 +60,8 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= m == grid.length &lt;= 6</code></li>
-	<li><code>1 &lt;= n == grid[i].length &lt;= 6</code></li>
+	<li><code>1 &lt;= m == grid.length &lt;= 5</code></li>
+	<li><code>1 &lt;= n == grid[i].length &lt;= 5</code></li>
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= k</code></li>
 	<li><code>grid</code> contains all integers between 1 and <code>k</code> <strong>exactly</strong> once.</li>

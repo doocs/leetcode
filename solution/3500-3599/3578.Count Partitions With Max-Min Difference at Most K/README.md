@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md
+tags:
+    - 队列
+    - 数组
+    - 动态规划
+    - 前缀和
+    - 滑动窗口
+    - 单调队列
 ---
 
 <!-- problem:start -->
@@ -35,12 +42,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Co
 <p>共有 6 种有效的分割方式，使得每个子段中的最大值与最小值之差不超过 <code>k = 4</code>：</p>
 
 <ul>
- <li><code>[[9], [4], [1], [3], [7]]</code></li>
- <li><code>[[9], [4], [1], [3, 7]]</code></li>
- <li><code>[[9], [4], [1, 3], [7]]</code></li>
- <li><code>[[9], [4, 1], [3], [7]]</code></li>
- <li><code>[[9], [4, 1], [3, 7]]</code></li>
- <li><code>[[9], [4, 1, 3], [7]]</code></li>
+	<li><code>[[9], [4], [1], [3], [7]]</code></li>
+	<li><code>[[9], [4], [1], [3, 7]]</code></li>
+	<li><code>[[9], [4], [1, 3], [7]]</code></li>
+	<li><code>[[9], [4, 1], [3], [7]]</code></li>
+	<li><code>[[9], [4, 1], [3, 7]]</code></li>
+	<li><code>[[9], [4, 1, 3], [7]]</code></li>
 </ul>
 </div>
 
@@ -56,8 +63,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Co
 <p>共有 2 种有效的分割方式，满足给定条件：</p>
 
 <ul>
- <li><code>[[3], [3], [4]]</code></li>
- <li><code>[[3, 3], [4]]</code></li>
+	<li><code>[[3], [3], [4]]</code></li>
+	<li><code>[[3, 3], [4]]</code></li>
 </ul>
 </div>
 
@@ -66,9 +73,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Co
 <p><strong>提示：</strong></p>
 
 <ul>
- <li><code>2 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
- <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
- <li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
+	<li><code>2 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->

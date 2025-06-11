@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README.md
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 数论
 ---
 
 <!-- problem:start -->

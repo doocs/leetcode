@@ -62,8 +62,8 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= m == grid.length &lt;= 6</code></li>
-	<li><code>1 &lt;= n == grid[i].length &lt;= 6</code></li>
+	<li><code>1 &lt;= m == grid.length &lt;= 5</code></li>
+	<li><code>1 &lt;= n == grid[i].length &lt;= 5</code></li>
 	<li><code>1 &lt;= k &lt;= m * n</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= k</code></li>
 	<li><code>grid</code>&nbsp;包含 1 到 <code>k</code>&nbsp;的所有整数&nbsp;<strong>恰好</strong>&nbsp;一次。</li>
