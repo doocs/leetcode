@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README.md
+tags:
+    - 脑筋急转弯
+    - 数组
+    - 数学
+    - 组合数学
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3571.Find%20the%20Shortest%20Superstring%20II/README_EN.md
+tags:
+    - String
 ---
 
 <!-- problem:start -->

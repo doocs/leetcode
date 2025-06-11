@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3580. Find Consistently Improving Employees](https://leetcode.cn/problems/find-consistently-improving-employees)
+# [3580. 寻找持续进步的员工](https://leetcode.cn/problems/find-consistently-improving-employees)
 
 [English Version](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>employees</code></p>
+<p>表：<code>employees</code></p>
 
 <pre>
 +-------------+---------+
@@ -25,11 +25,11 @@ tags:
 | employee_id | int     |
 | name        | varchar |
 +-------------+---------+
-employee_id is the unique identifier for this table.
-Each row contains information about an employee.
+employee_id 是这张表的唯一主键。
+每一行包含一名员工的信息。
 </pre>
 
-<p>Table: <code>performance_reviews</code></p>
+<p>表：<code>performance_reviews</code></p>
 
 <pre>
 +-------------+------+
@@ -40,30 +40,31 @@ Each row contains information about an employee.
 | review_date | date |
 | rating      | int  |
 +-------------+------+
-review_id is the unique identifier for this table.
-Each row represents a performance review for an employee. The rating is on a scale of 1-5 where 5 is excellent and 1 is poor.
+review_id 是这张表的唯一主键。
+每一行表示一名员工的绩效评估。评分在 1-5 的范围内，5分代表优秀，1分代表较差。
 </pre>
 
-<p>Write a solution to find employees who have consistently improved their performance over <strong>their last three reviews</strong>.</p>
+<p>编写一个解决方案，以找到在过去三次评估中持续提高绩效的员工。</p>
 
 <ul>
-	<li>An employee must have <strong>at least </strong><code>3</code><strong> review</strong> to be considered</li>
-	<li>The employee&#39;s <strong>last </strong><code>3</code><strong> reviews</strong> must show <strong>strictly increasing ratings</strong> (each review better than the previous)</li>
-	<li>Use the most recent <code>3</code> reviews based on <code>review_date</code> for each employee</li>
-	<li>Calculate the <strong>improvement score</strong> as the difference between the latest rating and the earliest rating among the last <code>3</code> reviews</li>
+	<li>员工 <strong>至少需要</strong> <code>3</code>&nbsp;<strong>次评估&nbsp;</strong>才能被考虑</li>
+	<li>员工过去的&nbsp;<code>3</code> 次评估，评分必须&nbsp;<strong>严格递增</strong>（每次评价都比上一次好）</li>
+	<li>根据 <code>review_date</code> 为每位员工分析最近的 <code>3</code> 次评估</li>
+	<li><strong>进步分数</strong> 为最后 <code>3</code> 次评估中最后一次评分与最早一次评分之间的差值</li>
 </ul>
 
-<p>Return <em>the result table ordered by <strong>improvement score</strong> in <strong>descending</strong> order, then by <strong>name</strong> in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以<em>&nbsp;</em><strong>进步分数 降序</strong>&nbsp;排序，然后以&nbsp;<strong>名字</strong>&nbsp;<strong>升序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>employees table:</p>
+<p>employees 表：</p>
 
 <pre class="example-io">
 +-------------+----------------+
@@ -77,7 +78,7 @@ Each row represents a performance review for an employee. The rating is on a sca
 +-------------+----------------+
 </pre>
 
-<p>performance_reviews table:</p>
+<p>performance_reviews 表：</p>
 
 <pre class="example-io">
 +-----------+-------------+-------------+--------+
@@ -103,7 +104,7 @@ Each row represents a performance review for an employee. The rating is on a sca
 +-----------+-------------+-------------+--------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+----------------+-------------------+
@@ -115,44 +116,44 @@ Each row represents a performance review for an employee. The rating is on a sca
 +-------------+----------------+-------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Alice Johnson (employee_id = 1):</strong>
+	<li><strong>Alice Johnson (employee_id = 1)：</strong>
 
     <ul>
-    	<li>Has 4 reviews with ratings: 2, 3, 4, 5</li>
-    	<li>Last 3 reviews (by date): 2023-04-15 (3), 2023-07-15 (4), 2023-10-15 (5)</li>
-    	<li>Ratings are strictly increasing: 3 &rarr; 4 &rarr; 5</li>
-    	<li>Improvement score: 5 - 3 = 2</li>
+    	<li>有 4 次评估，分数：2, 3, 4, 5</li>
+    	<li>最后 3 次评估（按日期）：2023-04-15 (3), 2023-07-15 (4), 2023-10-15 (5)</li>
+    	<li>评分严格递增：3 → 4 → 5</li>
+    	<li>进步分数：5 - 3 = 2</li>
     </ul>
     </li>
-    <li><strong>Carol Davis (employee_id = 3):</strong>
+    <li><strong>Carol Davis (employee_id = 3)：</strong>
     <ul>
-    	<li>Has 4 reviews with ratings: 1, 2, 3, 4</li>
-    	<li>Last 3 reviews (by date): 2023-06-10 (2), 2023-09-10 (3), 2023-12-10 (4)</li>
-    	<li>Ratings are strictly increasing: 2 &rarr; 3 &rarr; 4</li>
-    	<li>Improvement score: 4 - 2 = 2</li>
+    	<li>有 4 次评估，分数：1, 2, 3, 4</li>
+    	<li>最后 3 次评估（按日期）：2023-06-10 (2)，2023-09-10 (3)，2023-12-10 (4)</li>
+    	<li>评分严格递增：2 → 3 → 4</li>
+    	<li>进步分数：4 - 2 = 2</li>
     </ul>
     </li>
-    <li><strong>Bob Smith (employee_id = 2):</strong>
+    <li><strong>Bob Smith (employee_id = 2)：</strong>
     <ul>
-    	<li>Has 4 reviews with ratings: 3, 2, 4, 5</li>
-    	<li>Last 3 reviews (by date): 2023-05-01 (2), 2023-08-01 (4), 2023-11-01 (5)</li>
-    	<li>Ratings are strictly increasing: 2 &rarr; 4 &rarr; 5</li>
-    	<li>Improvement score: 5 - 2 = 3</li>
+    	<li>有 4 次评估，分数：3，2，4，5</li>
+    	<li>最后 3 次评估（按日期）：2023-05-01 (2)，2023-08-01 (4)，2023-11-01 (5)</li>
+    	<li>评分严格递增：2 → 4 → 5</li>
+    	<li>进步分数：5 - 2 = 3</li>
     </ul>
     </li>
-    <li><strong>Employees not included:</strong>
+    <li><strong>未包含的员工：</strong>
     <ul>
-    	<li>David Wilson (employee_id = 4): Last 3 reviews are all 4 (no improvement)</li>
-    	<li>Emma Brown (employee_id = 5): Only has 2 reviews (needs at least 3)</li>
+    	<li>David Wilson (employee_id = 4)：之前 3 次评估都是 4 分（没有进步）</li>
+    	<li>Emma Brown (employee_id = 5)：只有 2 次评估（需要至少 3 次）</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The output table is ordered by improvement_score in descending order, then by name in ascending order.</p>
+<p>输出表以 improvement_score 降序排序，然后以 name 升序排序。</p>
 </div>
 
 <!-- description:end -->

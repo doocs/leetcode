@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README.md
+tags:
+    - 位运算
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 动态规划
+    - 状态压缩
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README_EN.md
+tags:
+    - Greedy
+    - Array
 ---
 
 <!-- problem:start -->
