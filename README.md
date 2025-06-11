@@ -193,7 +193,7 @@
 1. 你也可以参考帮助文档 <https://help.github.com/cn> 了解更多细节。
 
 <div align="center">
-  <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/pr.svg"/>
+  <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/pr.svg" width="320px"/>
 </div>
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location=SoutheastAsia)
