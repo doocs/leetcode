@@ -139,7 +139,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Dynamic Programming
+
+We define $f[i]$ as the minimum number of operations required to convert the first $i$ characters of $\textit{word1}$ to the first $i$ characters of $\textit{word2}$. The answer is $f[n]$, where $n$ is the length of both $\textit{word1}$ and $\textit{word2}$.
+
+We can compute $f[i]$ by enumerating all possible split points. For each split point $j$, we need to calculate the minimum number of operations required to convert $\textit{word1}[j:i]$ to $\textit{word2}[j:i]$.
+
+We can use a helper function $\text{calc}(l, r, \text{rev})$ to compute the minimum number of operations needed to convert $\textit{word1}[l:r]$ to $\textit{word2}[l:r]$, where $\text{rev}$ indicates whether to reverse the substring. Since the result of performing other operations before or after a reversal is the same, we only need to consider not reversing, and reversing once before other operations. Therefore, $f[i] = \min_{j < i} (f[j] + \min(\text{calc}(j, i-1, \text{false}), 1 + \text{calc}(j, i-1, \text{true})))$.
+
+Next, we need to implement the $\text{calc}(l, r, \text{rev})$ function. We use a 2D array $cnt$ to record the pairing status of characters between $\textit{word1}$ and $\textit{word2}$. For each character pair $(a, b)$, if $a \neq b$, we check whether $cnt[b][a] > 0$. If so, we can pair them and reduce one operation; otherwise, we need to add one operation and increment $cnt[a][b]$ by $1$.
+
+The time complexity is $O(n^3 + |\Sigma|^2)$ and the space complexity is $O(n + |\Sigma|^2)$, where $n$ is the length of the string and $|\Sigma|$ is the size of the character set (which is $26$ in this problem).
 
 <!-- tabs:start -->
 
