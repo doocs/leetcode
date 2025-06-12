@@ -83,7 +83,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 排序
+
+如果不允许对数组进行分割，那么我们可以直接计算两个数组的绝对差值之和，作为总代价 $c_1$。如果允许对数组进行分割，那么我们可以将数组 $\textit{arr}$ 分割成 $n$ 个长度为 1 的子数组，然后以任意顺序重新排列，然后与数组 $\textit{brr}$ 进行比较，计算绝对差值之和，作为总代价 $c_2$，要使得 $c_2$ 最小，我们可以将两个数组都排序，然后计算绝对差值之和。最终的结果为 $\min(c_1, c_2 + k)$。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -184,6 +188,29 @@ function minCost(arr: number[], brr: number[], k: number): number {
     brr.sort((a, b) => a - b);
     const c2 = calc(arr, brr) + k;
     return Math.min(c1, c2);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_cost(mut arr: Vec<i32>, mut brr: Vec<i32>, k: i64) -> i64 {
+        let c1: i64 = arr.iter()
+            .zip(&brr)
+            .map(|(a, b)| (*a - *b).abs() as i64)
+            .sum();
+
+        arr.sort_unstable();
+        brr.sort_unstable();
+
+        let c2: i64 = k + arr.iter()
+            .zip(&brr)
+            .map(|(a, b)| (*a - *b).abs() as i64)
+            .sum::<i64>();
+
+        c1.min(c2)
+    }
 }
 ```
 
