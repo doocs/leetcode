@@ -100,32 +100,210 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举 + 数学
+
+我们注意到，题目中数组的长度 $n \leq 1500$，因此，我们可以枚举所有的子数组。对于每个子数组，计算其 GCD 分数，找出最大值即为答案。
+
+由于每个数最多只能翻倍一次，那么子数组的 GCD 最多也只能乘以 $2$，因此，我们需要统计子数组中每个数的因子 $2$ 的个数的最小值，以及这个最小值的出现次数。如果次数大于 $k$，则 GCD 分数为 GCD，否则 GCD 分数为 GCD 乘以 $2$。
+
+因此，我们可以预处理每个数的因子 $2$ 的个数，然后在枚举子数组时，维护当前子数组的 GCD、最小因子 $2$ 的个数以及其出现次数即可。
+
+时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxGCDScore(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        cnt = [0] * n
+        for i, x in enumerate(nums):
+            while x % 2 == 0:
+                cnt[i] += 1
+                x //= 2
+        ans = 0
+        for l in range(n):
+            g = 0
+            mi = inf
+            t = 0
+            for r in range(l, n):
+                g = gcd(g, nums[r])
+                if cnt[r] < mi:
+                    mi = cnt[r]
+                    t = 1
+                elif cnt[r] == mi:
+                    t += 1
+                ans = max(ans, (g if t > k else g * 2) * (r - l + 1))
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long maxGCDScore(int[] nums, int k) {
+        int n = nums.length;
+        int[] cnt = new int[n];
+        for (int i = 0; i < n; ++i) {
+            for (int x = nums[i]; x % 2 == 0; x /= 2) {
+                ++cnt[i];
+            }
+        }
+        long ans = 0;
+        for (int l = 0; l < n; ++l) {
+            int g = 0;
+            int mi = 1 << 30;
+            int t = 0;
+            for (int r = l; r < n; ++r) {
+                g = gcd(g, nums[r]);
+                if (cnt[r] < mi) {
+                    mi = cnt[r];
+                    t = 1;
+                } else if (cnt[r] == mi) {
+                    ++t;
+                }
+                ans = Math.max(ans, (r - l + 1L) * (t > k ? g : g * 2));
+            }
+        }
+        return ans;
+    }
 
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maxGCDScore(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> cnt(n);
+        for (int i = 0; i < n; ++i) {
+            for (int x = nums[i]; x % 2 == 0; x /= 2) {
+                ++cnt[i];
+            }
+        }
 
+        long long ans = 0;
+        for (int l = 0; l < n; ++l) {
+            int g = 0;
+            int mi = INT32_MAX;
+            int t = 0;
+            for (int r = l; r < n; ++r) {
+                g = gcd(g, nums[r]);
+                if (cnt[r] < mi) {
+                    mi = cnt[r];
+                    t = 1;
+                } else if (cnt[r] == mi) {
+                    ++t;
+                }
+                long long score = static_cast<long long>(r - l + 1) * (t > k ? g : g * 2);
+                ans = max(ans, score);
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxGCDScore(nums []int, k int) int64 {
+	n := len(nums)
+	cnt := make([]int, n)
+	for i, x := range nums {
+		for x%2 == 0 {
+			cnt[i]++
+			x /= 2
+		}
+	}
 
+	ans := 0
+	for l := 0; l < n; l++ {
+		g := 0
+		mi := math.MaxInt32
+		t := 0
+		for r := l; r < n; r++ {
+			g = gcd(g, nums[r])
+			if cnt[r] < mi {
+				mi = cnt[r]
+				t = 1
+			} else if cnt[r] == mi {
+				t++
+			}
+			length := r - l + 1
+			score := g * length
+			if t <= k {
+				score *= 2
+			}
+			ans = max(ans, score)
+		}
+	}
+
+	return int64(ans)
+}
+
+func gcd(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
+}
+```
+
+#### TypeScript
+
+```ts
+function maxGCDScore(nums: number[], k: number): number {
+    const n = nums.length;
+    const cnt: number[] = Array(n).fill(0);
+
+    for (let i = 0; i < n; ++i) {
+        let x = nums[i];
+        while (x % 2 === 0) {
+            cnt[i]++;
+            x /= 2;
+        }
+    }
+
+    let ans = 0;
+    for (let l = 0; l < n; ++l) {
+        let g = 0;
+        let mi = Number.MAX_SAFE_INTEGER;
+        let t = 0;
+        for (let r = l; r < n; ++r) {
+            g = gcd(g, nums[r]);
+            if (cnt[r] < mi) {
+                mi = cnt[r];
+                t = 1;
+            } else if (cnt[r] === mi) {
+                t++;
+            }
+            const len = r - l + 1;
+            const score = (t > k ? g : g * 2) * len;
+            ans = Math.max(ans, score);
+        }
+    }
+
+    return ans;
+}
+
+function gcd(a: number, b: number): number {
+    while (b !== 0) {
+        const temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 ```
 
 <!-- tabs:end -->
