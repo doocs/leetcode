@@ -1,36 +1,29 @@
-int getLen(int num) {
-    int res = 0;
-    while (num) {
-        num /= 10;
-        res++;
-    }
-    return res;
-}
-
 int minMaxDifference(int num) {
-    int n = getLen(num);
-    int* nums = malloc(sizeof(int) * n);
-    int t = num;
-    for (int i = n - 1; i >= 0; i--) {
-        nums[i] = t % 10;
-        t /= 10;
+    char s[12];
+    sprintf(s, "%d", num);
+
+    int mi;
+    {
+        char tmp[12];
+        char t = s[0];
+        for (int i = 0; s[i]; i++) {
+            tmp[i] = (s[i] == t) ? '0' : s[i];
+        }
+        tmp[strlen(s)] = '\0';
+        mi = atoi(tmp);
     }
-    int min = 0;
-    for (int i = 0; i < n; i++) {
-        min *= 10;
-        if (nums[i] != nums[0]) {
-            min += nums[i];
+
+    for (int i = 0; s[i]; i++) {
+        char c = s[i];
+        if (c != '9') {
+            char tmp[12];
+            for (int j = 0; s[j]; j++) {
+                tmp[j] = (s[j] == c) ? '9' : s[j];
+            }
+            tmp[strlen(s)] = '\0';
+            return atoi(tmp) - mi;
         }
     }
-    int max = 0;
-    int target = 10;
-    for (int i = 0; i < n; i++) {
-        max *= 10;
-        if (target == 10 && nums[i] != 9) {
-            target = nums[i];
-        }
-        max += nums[i] == target ? 9 : nums[i];
-    }
-    free(nums);
-    return max - min;
+
+    return num - mi;
 }

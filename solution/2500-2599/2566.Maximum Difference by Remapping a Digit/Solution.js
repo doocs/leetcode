@@ -1,4 +1,8 @@
-function minMaxDifference(num: number): number {
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var minMaxDifference = function (num) {
     const s = num.toString();
     const mi = +s.replaceAll(s[0], '0');
     for (const c of s) {
@@ -8,4 +12,4 @@ function minMaxDifference(num: number): number {
         }
     }
     return num - mi;
-}
+};
