@@ -79,7 +79,7 @@ tags:
 
 最后返回最大值和最小值的差即可。
 
-时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数字 $num$ 的大小。
+时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数字 $\textit{num}$ 的值。
 
 <!-- tabs:start -->
 
@@ -177,14 +177,15 @@ func minMaxDifference(num int) int {
 
 ```ts
 function minMaxDifference(num: number): number {
-    const s = num + '';
-    const min = Number(s.replace(new RegExp(s[0], 'g'), '0'));
+    const s = num.toString();
+    const mi = +s.replaceAll(s[0], '0');
     for (const c of s) {
         if (c !== '9') {
-            return Number(s.replace(new RegExp(c, 'g'), '9')) - min;
+            const mx = +s.replaceAll(c, '9');
+            return mx - mi;
         }
     }
-    return num - min;
+    return num - mi;
 }
 ```
 
@@ -194,103 +195,69 @@ function minMaxDifference(num: number): number {
 impl Solution {
     pub fn min_max_difference(num: i32) -> i32 {
         let s = num.to_string();
-        let min = s
-            .replace(char::from(s.as_bytes()[0]), "0")
-            .parse::<i32>()
-            .unwrap();
-        for &c in s.as_bytes() {
-            if c != b'9' {
-                return s.replace(c, "9").parse().unwrap() - min;
+        let mi = s.replace(s.chars().next().unwrap(), "0").parse::<i32>().unwrap();
+        for c in s.chars() {
+            if c != '9' {
+                let mx = s.replace(c, "9").parse::<i32>().unwrap();
+                return mx - mi;
             }
         }
-        num - min
+        num - mi
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var minMaxDifference = function (num) {
+    const s = num.toString();
+    const mi = +s.replaceAll(s[0], '0');
+    for (const c of s) {
+        if (c !== '9') {
+            const mx = +s.replaceAll(c, '9');
+            return mx - mi;
+        }
+    }
+    return num - mi;
+};
 ```
 
 #### C
 
 ```c
-int getLen(int num) {
-    int res = 0;
-    while (num) {
-        num /= 10;
-        res++;
-    }
-    return res;
-}
-
 int minMaxDifference(int num) {
-    int n = getLen(num);
-    int* nums = malloc(sizeof(int) * n);
-    int t = num;
-    for (int i = n - 1; i >= 0; i--) {
-        nums[i] = t % 10;
-        t /= 10;
-    }
-    int min = 0;
-    for (int i = 0; i < n; i++) {
-        min *= 10;
-        if (nums[i] != nums[0]) {
-            min += nums[i];
+    char s[12];
+    sprintf(s, "%d", num);
+
+    int mi;
+    {
+        char tmp[12];
+        char t = s[0];
+        for (int i = 0; s[i]; i++) {
+            tmp[i] = (s[i] == t) ? '0' : s[i];
         }
+        tmp[strlen(s)] = '\0';
+        mi = atoi(tmp);
     }
-    int max = 0;
-    int target = 10;
-    for (int i = 0; i < n; i++) {
-        max *= 10;
-        if (target == 10 && nums[i] != 9) {
-            target = nums[i];
-        }
-        max += nums[i] == target ? 9 : nums[i];
-    }
-    free(nums);
-    return max - min;
-}
-```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn min_max_difference(num: i32) -> i32 {
-        let mut s = num.to_string().into_bytes();
-        let first = s[0];
-        for i in 0..s.len() {
-            if s[i] == first {
-                s[i] = b'0';
+    for (int i = 0; s[i]; i++) {
+        char c = s[i];
+        if (c != '9') {
+            char tmp[12];
+            for (int j = 0; s[j]; j++) {
+                tmp[j] = (s[j] == c) ? '9' : s[j];
             }
+            tmp[strlen(s)] = '\0';
+            return atoi(tmp) - mi;
         }
-        let mi = String::from_utf8_lossy(&s).parse::<i32>().unwrap();
-
-        let mut t = num.to_string().into_bytes();
-        for i in 0..t.len() {
-            if t[i] != b'9' {
-                let second = t[i];
-
-                for j in 0..t.len() {
-                    if t[j] == second {
-                        t[j] = b'9';
-                    }
-                }
-
-                let mx = String::from_utf8_lossy(&t).parse::<i32>().unwrap();
-                return mx - mi;
-            }
-        }
-
-        num - mi
     }
+
+    return num - mi;
 }
 ```
 
