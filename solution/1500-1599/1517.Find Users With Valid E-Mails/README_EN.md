@@ -83,7 +83,9 @@ The mail of user 7 starts with a period.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: REGEXP Pattern Matching
+
+We can use a regular expression to match valid email formats. The expression ensures that the username part meets the required rules and that the domain is fixed as `@leetcode.com`.
 
 <!-- tabs:start -->
 
@@ -93,7 +95,19 @@ The mail of user 7 starts with a period.
 # Write your MySQL query statement below
 SELECT *
 FROM Users
-WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$';
+WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\\.com$' AND BINARY mail LIKE '%@leetcode.com';
+```
+
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    pattern = r"^[A-Za-z][A-Za-z0-9_.-]*@leetcode\.com$"
+    mask = users["mail"].str.match(pattern, flags=0, na=False)
+    return users.loc[mask, ["user_id", "name", "mail"]]
 ```
 
 <!-- tabs:end -->
