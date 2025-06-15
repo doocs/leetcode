@@ -3589,6 +3589,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3578  |  [Count Partitions With Max-Min Difference at Most K](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README_EN.md)  |  `Queue`,`Array`,`Dynamic Programming`,`Prefix Sum`,`Sliding Window`,`Monotonic Queue`  |  Medium  |  Weekly Contest 453  |
 |  3579  |  [Minimum Steps to Convert String with Operations](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 453  |
 |  3580  |  [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3581  |  [Count Odd Letters from Number](/solution/3500-3599/3581.Count%20Odd%20Letters%20from%20Number/README_EN.md)  |    |  Easy  |  🔒  |
+|  3582  |  [Generate Tag for Video Caption](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README_EN.md)  |    |  Easy  |  Weekly Contest 454  |
+|  3583  |  [Count Special Triplets](/solution/3500-3599/3583.Count%20Special%20Triplets/README_EN.md)  |    |  Medium  |  Weekly Contest 454  |
+|  3584  |  [Maximum Product of First and Last Elements of a Subsequence](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README_EN.md)  |    |  Medium  |  Weekly Contest 454  |
+|  3585  |  [Find Weighted Median Node in Tree](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 454  |
 
 ## Copyright
 
