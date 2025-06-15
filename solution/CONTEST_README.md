@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 454 场周赛(2025-06-15 10:30, 90 分钟) 参赛人数 1388
+
+- [3582. 为视频标题生成标签](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README.md)
+- [3583. 统计特殊三元组](/solution/3500-3599/3583.Count%20Special%20Triplets/README.md)
+- [3584. 子序列首尾元素的最大乘积](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README.md)
+- [3585. 树中找到带权中位节点](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README.md)
+
 #### 第 453 场周赛(2025-06-08 10:30, 90 分钟) 参赛人数 1608
 
 - [3576. 数组元素相等转换](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README.md)

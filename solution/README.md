@@ -3591,6 +3591,11 @@
 |  3578  |  [统计极差最大为 K 的分割方式数](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md)  |  `队列`,`数组`,`动态规划`,`前缀和`,`滑动窗口`,`单调队列`  |  中等  |  第 453 场周赛  |
 |  3579  |  [字符串转换需要的最小操作数](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README.md)  |  `贪心`,`字符串`,`动态规划`  |  困难  |  第 453 场周赛  |
 |  3580  |  [寻找持续进步的员工](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README.md)  |  `数据库`  |  中等  |    |
+|  3581  |  [Count Odd Letters from Number](/solution/3500-3599/3581.Count%20Odd%20Letters%20from%20Number/README.md)  |    |  简单  |  🔒  |
+|  3582  |  [为视频标题生成标签](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README.md)  |    |  简单  |  第 454 场周赛  |
+|  3583  |  [统计特殊三元组](/solution/3500-3599/3583.Count%20Special%20Triplets/README.md)  |    |  中等  |  第 454 场周赛  |
+|  3584  |  [子序列首尾元素的最大乘积](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README.md)  |    |  中等  |  第 454 场周赛  |
+|  3585  |  [树中找到带权中位节点](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README.md)  |    |  困难  |  第 454 场周赛  |
 
 ## 版权
 
