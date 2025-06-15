@@ -67,7 +67,17 @@ We have now a = 9 and b = 1 and max difference = 8
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+To obtain the maximum difference, we should take the maximum and minimum values, as this yields the largest difference.
+
+Therefore, we first enumerate each digit in $\textit{nums}$ from high to low. If a digit is not `9`, we replace all occurrences of that digit with `9` to obtain the maximum integer $a$.
+
+Next, we enumerate each digit in $\textit{nums}$ from high to low again. The first digit cannot be `0`, so if the first digit is not `1`, we replace it with `1`; for non-leading digits that are different from the first digit, we replace them with `0` to obtain the minimum integer $b$.
+
+The answer is the difference $a - b$.
+
+The time complexity is $O(\log \textit{num})$, and the space complexity is $O(\log \textit{num})$, where $\textit{nums}$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -178,6 +188,65 @@ func maxDiff(num int) int {
 		}
 	}
 	return a - b
+}
+```
+
+#### TypeScript
+
+```ts
+function maxDiff(num: number): number {
+    let a = num.toString();
+    let b = a;
+    for (let i = 0; i < a.length; ++i) {
+        if (a[i] !== '9') {
+            a = a.split(a[i]).join('9');
+            break;
+        }
+    }
+    if (b[0] !== '1') {
+        b = b.split(b[0]).join('1');
+    } else {
+        for (let i = 1; i < b.length; ++i) {
+            if (b[i] !== '0' && b[i] !== '1') {
+                b = b.split(b[i]).join('0');
+                break;
+            }
+        }
+    }
+    return +a - +b;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_diff(num: i32) -> i32 {
+        let a = num.to_string();
+        let mut a = a.clone();
+        let mut b = a.clone();
+
+        for c in a.chars() {
+            if c != '9' {
+                a = a.replace(c, "9");
+                break;
+            }
+        }
+
+        let chars: Vec<char> = b.chars().collect();
+        if chars[0] != '1' {
+            b = b.replace(chars[0], "1");
+        } else {
+            for &c in &chars[1..] {
+                if c != '0' && c != '1' {
+                    b = b.replace(c, "0");
+                    break;
+                }
+            }
+        }
+
+        a.parse::<i32>().unwrap() - b.parse::<i32>().unwrap()
+    }
 }
 ```
 
