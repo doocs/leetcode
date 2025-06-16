@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3583.Count%20Special%20Triplets/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Counting
 ---
 
 <!-- problem:start -->

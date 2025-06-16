@@ -2,11 +2,16 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3581.Count%20Odd%20Letters%20from%20Number/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+    - 模拟
 ---
 
 <!-- problem:start -->
 
-# [3581. Count Odd Letters from Number 🔒](https://leetcode.cn/problems/count-odd-letters-from-number)
+# [3581. 计算数字中的奇数字母数量 🔒](https://leetcode.cn/problems/count-odd-letters-from-number)
 
 [English Version](/solution/3500-3599/3581.Count%20Odd%20Letters%20from%20Number/README_EN.md)
 
@@ -14,46 +19,48 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3581.Co
 
 <!-- description:start -->
 
-<p>You are given an integer <code>n</code> perform the following steps:</p>
+<p>你被给定一个整数 <code>n</code>，执行以下步骤：</p>
 
 <ul>
-	<li>Convert each digit of <code>n</code> into its <em>lowercase English word</em> (e.g., 4 &rarr; &quot;four&quot;, 1 &rarr; &quot;one&quot;).</li>
-	<li><strong>Concatenate</strong> those words in the <strong>original digit order</strong> to form a string <code>s</code>.</li>
+	<li>将&nbsp;<code>n</code>&nbsp;的每个数位转换为它的小写英文单词（例如 4 → "four", 1 → "one"）。</li>
+	<li>将那些单词按照 <strong>原始数字顺序</strong> <strong>连接</strong> 起来形成一个字符串 <code>s</code>。</li>
 </ul>
 
-<p>Return the number of <strong>distinct</strong> characters in <code>s</code> that appear an <strong>odd</strong> number of times.</p>
+<p>返回字符串 <code>s</code> 中出现 <strong>奇数</strong> 次的 <strong>不同</strong> 字符的数量。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 41</span></p>
+<p><span class="example-io"><b>输入：</b>n = 41</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">5</span></p>
+<p><span class="example-io"><b>输出：</b>5</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>41 &rarr; <code>&quot;fourone&quot;</code></p>
+<p>41 → <code>"fourone"</code></p>
 
-<p>Characters with odd frequencies: <code>&#39;f&#39;</code>, <code>&#39;u&#39;</code>, <code>&#39;r&#39;</code>, <code>&#39;n&#39;</code>, <code>&#39;e&#39;</code>. Thus, the answer is 5.</p>
+<p>出现奇数次的字母：<code>'f'</code>，<code>'u'</code>，<code>'r'</code>，<code>'n'</code>，<code>'e'</code>。因此，答案为 5。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 20</span></p>
+<p><span class="example-io"><b>输入：</b>n = 20</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">5</span></p>
+<p><span class="example-io"><b>输出：</b>5</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>20 &rarr; <code>&quot;twozero&quot;</code></p>
+<p>20 → <code>"twozero"</code></p>
 
-<p>Characters with odd frequencies: <code>&#39;t&#39;</code>, <code>&#39;w&#39;</code>, <code>&#39;z&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;r&#39;</code>. Thus, the answer is 5.</p>
+<p>出现奇数次的字母：<code>'t'</code>，<code>'w'</code>，<code>'z'</code>，<code>'e'</code>，<code>'r'</code>。因此，答案为 5。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
