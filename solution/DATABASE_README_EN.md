@@ -317,6 +317,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3564 | [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)                                                                                                 | `Database` | Medium     |        |
 | 3570 | [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md)                                                                   | `Database` | Easy       |        |
 | 3580 | [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md)                                                                   | `Database` | Medium     |        |
+| 3586 | [Find COVID Recovery Patients](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README_EN.md)                                                                                     |            | Medium     |        |
 
 ## Copyright
 

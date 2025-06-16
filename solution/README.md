@@ -3596,6 +3596,7 @@
 |  3583  |  [统计特殊三元组](/solution/3500-3599/3583.Count%20Special%20Triplets/README.md)  |    |  中等  |  第 454 场周赛  |
 |  3584  |  [子序列首尾元素的最大乘积](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README.md)  |    |  中等  |  第 454 场周赛  |
 |  3585  |  [树中找到带权中位节点](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README.md)  |    |  困难  |  第 454 场周赛  |
+|  3586  |  [Find COVID Recovery Patients](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README.md)  |    |  中等  |    |
 
 ## 版权
 
