@@ -65,32 +65,172 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3581.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation + Bit Manipulation
+
+We can convert each number into its corresponding English word, then count the frequency of each letter. Since the number of letters is limited, we can use an integer $\textit{mask}$ to represent the occurrence of each letter. Specifically, we can map each letter to a binary bit of the integer. If a letter appears an odd number of times, the corresponding binary bit is 1; otherwise, it's 0. Finally, we only need to count the number of bits that are 1 in $\textit{mask}$, which is the answer.
+
+The time complexity is $O(\log n)$, where $n$ is the input integer. And the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+d = {
+    0: "zero",
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six",
+    7: "seven",
+    8: "eight",
+    9: "nine",
+}
 
+
+class Solution:
+    def countOddLetters(self, n: int) -> int:
+        mask = 0
+        while n:
+            x = n % 10
+            n //= 10
+            for c in d[x]:
+                mask ^= 1 << (ord(c) - ord("a"))
+        return mask.bit_count()
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final Map<Integer, String> d = new HashMap<>();
+    static {
+        d.put(0, "zero");
+        d.put(1, "one");
+        d.put(2, "two");
+        d.put(3, "three");
+        d.put(4, "four");
+        d.put(5, "five");
+        d.put(6, "six");
+        d.put(7, "seven");
+        d.put(8, "eight");
+        d.put(9, "nine");
+    }
 
+    public int countOddLetters(int n) {
+        int mask = 0;
+        while (n > 0) {
+            int x = n % 10;
+            n /= 10;
+            for (char c : d.get(x).toCharArray()) {
+                mask ^= 1 << (c - 'a');
+            }
+        }
+        return Integer.bitCount(mask);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countOddLetters(int n) {
+        static const unordered_map<int, string> d = {
+            {0, "zero"},
+            {1, "one"},
+            {2, "two"},
+            {3, "three"},
+            {4, "four"},
+            {5, "five"},
+            {6, "six"},
+            {7, "seven"},
+            {8, "eight"},
+            {9, "nine"}};
 
+        int mask = 0;
+        while (n > 0) {
+            int x = n % 10;
+            n /= 10;
+            for (char c : d.at(x)) {
+                mask ^= 1 << (c - 'a');
+            }
+        }
+        return __builtin_popcount(mask);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countOddLetters(n int) int {
+	d := map[int]string{
+		0: "zero",
+		1: "one",
+		2: "two",
+		3: "three",
+		4: "four",
+		5: "five",
+		6: "six",
+		7: "seven",
+		8: "eight",
+		9: "nine",
+	}
 
+	mask := 0
+	for n > 0 {
+		x := n % 10
+		n /= 10
+		for _, c := range d[x] {
+			mask ^= 1 << (c - 'a')
+		}
+	}
+
+	return bits.OnesCount32(uint32(mask))
+}
+```
+
+#### TypeScript
+
+```ts
+function countOddLetters(n: number): number {
+    const d: Record<number, string> = {
+        0: 'zero',
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
+        6: 'six',
+        7: 'seven',
+        8: 'eight',
+        9: 'nine',
+    };
+
+    let mask = 0;
+    while (n > 0) {
+        const x = n % 10;
+        n = Math.floor(n / 10);
+        for (const c of d[x]) {
+            mask ^= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+        }
+    }
+
+    return bitCount(mask);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
 ```
 
 <!-- tabs:end -->
