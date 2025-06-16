@@ -70,32 +70,109 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3584.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Maintaining Prefix Extremes
+
+We can enumerate the last element of the subsequence, assuming it is $\textit{nums}[i]$. Then the first element of the subsequence can be $\textit{nums}[j]$, where $j \leq i - m + 1$. Therefore, we use two variables $\textit{mi}$ and $\textit{mx}$ to maintain the prefix minimum and maximum values respectively. When traversing to $\textit{nums}[i]$, we update $\textit{mi}$ and $\textit{mx}$, then calculate the products of $\textit{nums}[i]$ with $\textit{mi}$ and $\textit{mx}$, taking the maximum value.
+
+The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. And the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumProduct(self, nums: List[int], m: int) -> int:
+        ans = mx = -inf
+        mi = inf
+        for i in range(m - 1, len(nums)):
+            x = nums[i]
+            y = nums[i - m + 1]
+            mi = min(mi, y)
+            mx = max(mx, y)
+            ans = max(ans, x * mi, x * mx)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maximumProduct(int[] nums, int m) {
+        long ans = Long.MIN_VALUE;
+        int mx = Integer.MIN_VALUE;
+        int mi = Integer.MAX_VALUE;
+        for (int i = m - 1; i < nums.length; ++i) {
+            int x = nums[i];
+            int y = nums[i - m + 1];
+            mi = Math.min(mi, y);
+            mx = Math.max(mx, y);
+            ans = Math.max(ans, Math.max(1L * x * mi, 1L * x * mx));
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumProduct(vector<int>& nums, int m) {
+        long long ans = LLONG_MIN;
+        int mx = INT_MIN;
+        int mi = INT_MAX;
+        for (int i = m - 1; i < nums.size(); ++i) {
+            int x = nums[i];
+            int y = nums[i - m + 1];
+            mi = min(mi, y);
+            mx = max(mx, y);
+            ans = max(ans, max(1LL * x * mi, 1LL * x * mx));
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumProduct(nums []int, m int) int64 {
+	ans := int64(math.MinInt64)
+	mx := math.MinInt32
+	mi := math.MaxInt32
 
+	for i := m - 1; i < len(nums); i++ {
+		x := nums[i]
+		y := nums[i-m+1]
+		mi = min(mi, y)
+		mx = max(mx, y)
+		ans = max(ans, max(int64(x)*int64(mi), int64(x)*int64(mx)))
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumProduct(nums: number[], m: number): number {
+    let ans = Number.MIN_SAFE_INTEGER;
+    let mx = Number.MIN_SAFE_INTEGER;
+    let mi = Number.MAX_SAFE_INTEGER;
+
+    for (let i = m - 1; i < nums.length; i++) {
+        const x = nums[i];
+        const y = nums[i - m + 1];
+        mi = Math.min(mi, y);
+        mx = Math.max(mx, y);
+        ans = Math.max(ans, x * mi, x * mx);
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

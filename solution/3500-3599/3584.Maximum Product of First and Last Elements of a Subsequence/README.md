@@ -75,32 +75,109 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3584.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举 + 维护前缀最值
+
+我们可以枚举子序列的最后一个元素，假设它是 $\textit{nums}[i]$，那么子序列的第一个元素可以是 $\textit{nums}[j]$，其中 $j \leq i - m + 1$。因此，我们用两个变量 $\textit{mi}$ 和 $\textit{mx}$ 分别维护前缀最小值和最大值，遍历到 $\textit{nums}[i]$ 时，更新 $\textit{mi}$ 和 $\textit{mx}$，然后计算 $\textit{nums}[i]$ 和 $\textit{mi}$ 以及 $\textit{mx}$ 的乘积，取最大值即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumProduct(self, nums: List[int], m: int) -> int:
+        ans = mx = -inf
+        mi = inf
+        for i in range(m - 1, len(nums)):
+            x = nums[i]
+            y = nums[i - m + 1]
+            mi = min(mi, y)
+            mx = max(mx, y)
+            ans = max(ans, x * mi, x * mx)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maximumProduct(int[] nums, int m) {
+        long ans = Long.MIN_VALUE;
+        int mx = Integer.MIN_VALUE;
+        int mi = Integer.MAX_VALUE;
+        for (int i = m - 1; i < nums.length; ++i) {
+            int x = nums[i];
+            int y = nums[i - m + 1];
+            mi = Math.min(mi, y);
+            mx = Math.max(mx, y);
+            ans = Math.max(ans, Math.max(1L * x * mi, 1L * x * mx));
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maximumProduct(vector<int>& nums, int m) {
+        long long ans = LLONG_MIN;
+        int mx = INT_MIN;
+        int mi = INT_MAX;
+        for (int i = m - 1; i < nums.size(); ++i) {
+            int x = nums[i];
+            int y = nums[i - m + 1];
+            mi = min(mi, y);
+            mx = max(mx, y);
+            ans = max(ans, max(1LL * x * mi, 1LL * x * mx));
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumProduct(nums []int, m int) int64 {
+	ans := int64(math.MinInt64)
+	mx := math.MinInt32
+	mi := math.MaxInt32
 
+	for i := m - 1; i < len(nums); i++ {
+		x := nums[i]
+		y := nums[i-m+1]
+		mi = min(mi, y)
+		mx = max(mx, y)
+		ans = max(ans, max(int64(x)*int64(mi), int64(x)*int64(mx)))
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumProduct(nums: number[], m: number): number {
+    let ans = Number.MIN_SAFE_INTEGER;
+    let mx = Number.MIN_SAFE_INTEGER;
+    let mi = Number.MAX_SAFE_INTEGER;
+
+    for (let i = m - 1; i < nums.length; i++) {
+        const x = nums[i];
+        const y = nums[i - m + 1];
+        mi = Math.min(mi, y);
+        mx = Math.max(mx, y);
+        ans = Math.max(ans, x * mi, x * mx);
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
