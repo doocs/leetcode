@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README_EN.md
+tags:
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

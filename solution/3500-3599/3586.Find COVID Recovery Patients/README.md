@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3586. Find COVID Recovery Patients](https://leetcode.cn/problems/find-covid-recovery-patients)
+# [3586. 寻找 COVID 康复患者](https://leetcode.cn/problems/find-covid-recovery-patients)
 
 [English Version](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>patients</code></p>
+<p>表：<code>patients</code></p>
 
 <pre>
 +-------------+---------+
@@ -26,11 +26,11 @@ tags:
 | patient_name| varchar |
 | age         | int     |
 +-------------+---------+
-patient_id is the unique identifier for this table.
-Each row contains information about a patient.
+patient_id 是这张表的唯一主键。
+每一行表示一个患者的信息。
 </pre>
 
-<p>Table: <code>covid_tests</code></p>
+<p>表：<code>covid_tests</code></p>
 
 <pre>
 +-------------+---------+
@@ -41,29 +41,30 @@ Each row contains information about a patient.
 | test_date   | date    |
 | result      | varchar |
 +-------------+---------+
-test_id is the unique identifier for this table.
-Each row represents a COVID test result. The result can be Positive, Negative, or Inconclusive.
+test_id 是这张表的唯一主键。
+每一行代表一个 COVID 检测结果。结果可以是阳性、阴性或不确定。
 </pre>
 
-<p>Write a solution to find patients who have <strong>recovered from COVID</strong> - patients who tested positive but later tested negative.</p>
+<p>编写一个解决方案以找到从 COVID 中康复的患者——那些曾经检测呈阳性但后来检测呈阴性的患者。</p>
 
 <ul>
-	<li>A patient is considered recovered if they have <strong>at least one</strong> <strong>Positive</strong> test followed by at least one <strong>Negative</strong> test on a <strong>later date</strong></li>
-	<li>Calculate the <strong>recovery time</strong> in days as the <strong>difference</strong> between the <strong>first positive test</strong> and the <strong>first negative test</strong> after that <strong>positive test</strong></li>
-	<li><strong>Only include</strong> patients who have both positive and negative test results</li>
+	<li>患者如果 <strong>至少有一次阳性</strong> 检测结果后，在&nbsp;<strong>之后的日期</strong> 至少有一次 <strong>阴性</strong> 检测结果，则被认为已康复。</li>
+	<li>计算从 <strong>首次阳性检测</strong> 结果到 <strong>该阳性检测</strong> 后的 <strong>首次阴性检测结果</strong> 之间的 <strong>康复时间</strong>（以天为单位）</li>
+	<li><strong>仅包括&nbsp;</strong>同时具有阳性及阴性检测结果的患者</li>
 </ul>
 
-<p>Return <em>the result table ordered by </em><code>recovery_time</code><em> in <strong>ascending</strong> order, then by </em><code>patient_name</code><em> in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以<em>&nbsp;</em><code>recovery_time</code><em> </em><strong>升序 </strong>排序，然后以<em>&nbsp;</em><code>patient_name</code><em> </em><strong>升序&nbsp;</strong>排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>patients table:</p>
+<p>patients 表：</p>
 
 <pre class="example-io">
 +------------+--------------+-----+
@@ -77,7 +78,7 @@ Each row represents a COVID test result. The result can be Positive, Negative, o
 +------------+--------------+-----+
 </pre>
 
-<p>covid_tests table:</p>
+<p>covid_tests 表：</p>
 
 <pre class="example-io">
 +---------+------------+------------+--------------+
@@ -98,7 +99,7 @@ Each row represents a COVID test result. The result can be Positive, Negative, o
 +---------+------------+------------+--------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +------------+--------------+-----+---------------+
@@ -110,43 +111,43 @@ Each row represents a COVID test result. The result can be Positive, Negative, o
 +------------+--------------+-----+---------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
 	<li><strong>Alice Smith (patient_id = 1):</strong>
 
     <ul>
-    	<li>First positive test: 2023-01-15</li>
-    	<li>First negative test after positive: 2023-01-25</li>
-    	<li>Recovery time: 25 - 15 = 10 days</li>
+    	<li>首次阳性检测：2023-01-15</li>
+    	<li>阳性检测后的首次阴性检测：2023-01-25</li>
+    	<li>康复时间：25 - 15 = 10 天</li>
     </ul>
     </li>
     <li><strong>Bob Johnson (patient_id = 2):</strong>
     <ul>
-    	<li>First positive test: 2023-02-01</li>
-    	<li>Inconclusive test on 2023-02-05 (ignored for recovery calculation)</li>
-    	<li>First negative test after positive: 2023-02-12</li>
-    	<li>Recovery time: 12 - 1 = 11 days</li>
+    	<li>首次阳性检测：2023-02-01</li>
+    	<li>测试结果不明确：2023-02-05（忽略计算康复时间）</li>
+    	<li>阳性检测后的首次阴性检测：2023-02-12</li>
+    	<li>康复时间：12 - 1 = 11 天</li>
     </ul>
     </li>
     <li><strong>Carol Davis (patient_id = 3):</strong>
     <ul>
-    	<li>Had negative test on 2023-01-20 (before positive test)</li>
-    	<li>First positive test: 2023-02-10</li>
-    	<li>First negative test after positive: 2023-02-20</li>
-    	<li>Recovery time: 20 - 10 = 10 days</li>
+    	<li>检测呈阴性：2023-01-20（在阳性检测前）</li>
+    	<li>首次阳性检测：2023-02-10</li>
+    	<li>阳性检测后的首次阴性检测：2023-02-20</li>
+    	<li>康复时间：20 - 10 = 10 天</li>
     </ul>
     </li>
-    <li><strong>Patients not included:</strong>
+    <li><strong>没有包含的患者：</strong>
     <ul>
-    	<li>David Wilson (patient_id = 4): Only has positive tests, no negative test after positive</li>
-    	<li>Emma Brown (patient_id = 5): Only has negative tests, never tested positive</li>
+    	<li>David Wilson（patient_id = 4）：只有阳性检测，之后没有阴性检测。</li>
+    	<li>Emma Brown（patient_id = 5）：只有阴性检测，从未有阳性检测。</li>
     </ul>
     </li>
 
 </ul>
 
-<p>Output table is ordered by recovery_time in ascending order, and then by patient_name in ascending order.</p>
+<p>输出表以 recovery_time 升序排序，然后以 patient_name 升序排序。</p>
 </div>
 
 <!-- description:end -->
