@@ -94,7 +94,23 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：组合数学 + 快速幂
+
+长度为 $n$ 的数组，一共有 $n - 1$ 个相邻元素对。我们需要从这 $n - 1$ 个相邻元素对中选出 $k$ 个，使得这 $k$ 个相邻元素对的两个元素相等，那么剩下的 $n - 1 - k$ 个相邻元素对的两个元素不相等。
+
+这相当于我们对数组进行 $n - 1 - k$ 次分割，得到 $n - k$ 个分段，每个分段子数组中的元素都相等，分割方案为 $C_{n - 1}^{n - 1 - k} = C_{n - 1}^{k}$。
+
+第一段，我们可以任意选择一个元素，即在 $[1, m]$ 中选择一个元素，剩下的 $n - k - 1$ 个分段，只要确保每个分段的元素都不等于前一个分段的元素即可，因此剩下的每个分段都有 $m - 1$ 种选择，一共有 $m \times (m - 1)^{n - k - 1}$ 种选择。
+
+将上述两部分结合起来，我们可以得到答案为：
+
+$$
+C_{n - 1}^{k} \times m \times (m - 1)^{n - k - 1} \bmod (10^9 + 7)
+$$
+
+在代码实现上，我们可以预处理阶乘和逆元，使用快速幂计算组合数。
+
+忽略预处理的时间和空间，时间复杂度 $O(\log (n - k))$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -275,6 +291,67 @@ function comb(m: number, n: number): bigint {
 export function countGoodArrays(n: number, m: number, k: number): number {
     const ans = (((comb(n - 1, k) * BigInt(m)) % MOD) * qpow(BigInt(m - 1), n - k - 1)) % MOD;
     return Number(ans);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_good_arrays(n: i32, m: i32, k: i32) -> i32 {
+        const N: usize = 1e5 as usize + 10;
+        const MOD: i64 = 1_000_000_007;
+        use std::sync::OnceLock;
+
+        static F: OnceLock<Vec<i64>> = OnceLock::new();
+        static G: OnceLock<Vec<i64>> = OnceLock::new();
+
+        fn qpow(mut a: i64, mut k: i64, m: i64) -> i64 {
+            let mut res = 1;
+            while k != 0 {
+                if k & 1 == 1 {
+                    res = res * a % m;
+                }
+                a = a * a % m;
+                k >>= 1;
+            }
+            res
+        }
+
+        fn init() -> (&'static Vec<i64>, &'static Vec<i64>) {
+            F.get_or_init(|| {
+                let mut f = vec![1i64; N];
+                for i in 1..N {
+                    f[i] = f[i - 1] * i as i64 % MOD;
+                }
+                f
+            });
+
+            G.get_or_init(|| {
+                let f = F.get().unwrap();
+                let mut g = vec![1i64; N];
+                for i in 1..N {
+                    g[i] = qpow(f[i], MOD - 2, MOD);
+                }
+                g
+            });
+
+            (F.get().unwrap(), G.get().unwrap())
+        }
+
+        fn comb(f: &[i64], g: &[i64], m: usize, n: usize) -> i64 {
+            f[m] * g[n] % MOD * g[m - n] % MOD
+        }
+
+        let (f, g) = init();
+        let n = n as usize;
+        let m = m as i64;
+        let k = k as usize;
+
+        let c = comb(f, g, n - 1, k);
+        let pow = qpow(m - 1, (n - 1 - k) as i64, MOD);
+        (c * m % MOD * pow % MOD) as i32
+    }
 }
 ```
 
