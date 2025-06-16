@@ -155,14 +155,82 @@ Each row represents a COVID test result. The result can be Positive, Negative, o
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Group Statistics + Equi-join
+
+We can first find the date of the first positive test for each patient and record this in table first_positive. Next, we can find the date of the first negative test for each patient after their first positive test in the covid_tests table, and record this in table first_negative_after_positive. Finally, we join these two tables with the patients table, calculate the recovery time, and sort according to requirements.
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    first_positive AS (
+        SELECT
+            patient_id,
+            MIN(test_date) AS first_positive_date
+        FROM covid_tests
+        WHERE result = 'Positive'
+        GROUP BY patient_id
+    ),
+    first_negative_after_positive AS (
+        SELECT
+            t.patient_id,
+            MIN(t.test_date) AS first_negative_date
+        FROM
+            covid_tests t
+            JOIN first_positive p
+                ON t.patient_id = p.patient_id AND t.test_date > p.first_positive_date
+        WHERE t.result = 'Negative'
+        GROUP BY t.patient_id
+    )
+SELECT
+    p.patient_id,
+    p.patient_name,
+    p.age,
+    DATEDIFF(n.first_negative_date, f.first_positive_date) AS recovery_time
+FROM
+    first_positive f
+    JOIN first_negative_after_positive n ON f.patient_id = n.patient_id
+    JOIN patients p ON p.patient_id = f.patient_id
+ORDER BY recovery_time ASC, patient_name ASC;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def find_covid_recovery_patients(
+    patients: pd.DataFrame, covid_tests: pd.DataFrame
+) -> pd.DataFrame:
+    covid_tests["test_date"] = pd.to_datetime(covid_tests["test_date"])
+
+    pos = (
+        covid_tests[covid_tests["result"] == "Positive"]
+        .groupby("patient_id", as_index=False)["test_date"]
+        .min()
+    )
+    pos.rename(columns={"test_date": "first_positive_date"}, inplace=True)
+
+    neg = covid_tests.merge(pos, on="patient_id")
+    neg = neg[
+        (neg["result"] == "Negative") & (neg["test_date"] > neg["first_positive_date"])
+    ]
+    neg = neg.groupby("patient_id", as_index=False)["test_date"].min()
+    neg.rename(columns={"test_date": "first_negative_date"}, inplace=True)
+
+    df = pos.merge(neg, on="patient_id")
+    df["recovery_time"] = (
+        df["first_negative_date"] - df["first_positive_date"]
+    ).dt.days
+
+    out = df.merge(patients, on="patient_id")[
+        ["patient_id", "patient_name", "age", "recovery_time"]
+    ]
+    return out.sort_values(by=["recovery_time", "patient_name"]).reset_index(drop=True)
 ```
 
 <!-- tabs:end -->
