@@ -388,7 +388,7 @@ class Solution {
 
 #### C
 
-```C
+```c
 int myAtoi(char* s) {
     int i = 0;
 
