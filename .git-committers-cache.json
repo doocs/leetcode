@@ -1,5 +1,5 @@
 {
-  "cache_date": 1750203657,
+  "cache_date": 1750289450,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -24755,7 +24755,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745669351
+      "retrieved": 1750288278
     },
     "solution/2200-2299/2295.Replace Elements in an Array/README.md": {
       "authors": [
@@ -53911,6 +53911,12 @@
     "solution/0000-0099/0008.String to Integer (atoi)/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "gaganxsaini",
           "name": "gaganxsaini",
           "url": "https://github.com/gaganxsaini",
@@ -53935,7 +53941,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1748386271
+      "retrieved": 1750288618
     },
     "solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README.md": {
       "authors": [
@@ -55690,6 +55696,12 @@
     "solution/0000-0099/0009.Palindrome Number/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -55714,7 +55726,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670088
+      "retrieved": 1750288638
     },
     "solution/0000-0099/0090.Subsets II/README.md": {
       "authors": [
@@ -91948,7 +91960,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670918
+      "retrieved": 1750289066
     },
     "solution/2200-2299/2295.Replace Elements in an Array/README_EN.md": {
       "authors": [
@@ -120732,6 +120744,12 @@
     "solution/0000-0099/0008.String to Integer (atoi)/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "gaganxsaini",
           "name": "gaganxsaini",
           "url": "https://github.com/gaganxsaini",
@@ -120756,7 +120774,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1748387032
+      "retrieved": 1750289391
     },
     "solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README_EN.md": {
       "authors": [
@@ -122493,6 +122511,12 @@
     "solution/0000-0099/0009.Palindrome Number/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -122517,7 +122541,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745671636
+      "retrieved": 1750289411
     },
     "solution/0000-0099/0090.Subsets II/README_EN.md": {
       "authors": [
