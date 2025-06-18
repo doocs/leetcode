@@ -21,7 +21,7 @@
 
 ## 站点
 
-https://leetcode.doocs.org
+<https://leetcode.doocs.org>
 
 ## 算法全解
 
@@ -190,19 +190,10 @@ https://leetcode.doocs.org
 1. 进入 leetcode 目录，切换到一个新的分支；
 1. 对项目做出一些变更，然后使用 git add、commit、push 等命令将你的本地变更提交到你的远程 GitHub 仓库；
 1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
-1. 你也可以参考帮助文档 https://help.github.com/cn 了解更多细节。
+1. 你也可以参考帮助文档 <https://help.github.com/cn> 了解更多细节。
 
 <div align="center">
-
-```mermaid
-graph TD;
-    A[LeetCode 仓库 <br> doocs/leetcode.git] -- 1.Fork（派生） --> B[你的 GitHub 仓库 <br> yourusername/leetcode.git];
-    B -- 2.Git 克隆 --> C[本地开发环境];
-    C -- 3.创建新分支并修改代码 --> D[本地修改后的代码];
-    D -- 4.提交 & 推送到你的仓库 --> B;
-    B -- 5.提交 Pull Request（合并请求） --> A;
-```
-
+  <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/pr.svg" width="320px"/>
 </div>
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location=SoutheastAsia)
@@ -224,26 +215,18 @@ graph TD;
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
 
-## 赞助者
-
-感谢以下个人、组织对本项目的支持和赞助！
-
-<a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
-
-<a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
-
-> "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
-
 ## 版权
 
 本项目著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 @yanglbme 获得授权，非商业转载请注明出处。
 
-## 联系我们
+## 联系我们 & 支持项目
 
 欢迎各位小伙伴们添加 @yanglbme 的个人微信（微信号：YLB0109），备注 「**leetcode**」。后续我们会创建算法、技术相关的交流群，大家一起交流学习，分享经验，共同进步。
 
-| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="left"/> |
-| ------------------------------------------------------------------------------------------------------------------------------ |
+如果你觉得这个项目对你有帮助，也欢迎通过微信扫码赞赏我们 ☕️～
+
+| <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme.png" width="260px" align="center"/> | <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/support1.jpg" width="260px" align="center"/> |
+| -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 
 ## 许可证
 

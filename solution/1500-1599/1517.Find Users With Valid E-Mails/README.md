@@ -86,6 +86,8 @@ Users 表:
 
 ### 方法一：REGEXP 正则匹配
 
+我们可以使用正则表达式来匹配有效的电子邮件格式。正则表达式可以确保前缀名称符合要求，并且域名是固定的 `@leetcode.com`。
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -94,7 +96,19 @@ Users 表:
 # Write your MySQL query statement below
 SELECT *
 FROM Users
-WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$';
+WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\\.com$' AND BINARY mail LIKE '%@leetcode.com';
+```
+
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    pattern = r"^[A-Za-z][A-Za-z0-9_.-]*@leetcode\.com$"
+    mask = users["mail"].str.match(pattern, flags=0, na=False)
+    return users.loc[mask, ["user_id", "name", "mail"]]
 ```
 
 <!-- tabs:end -->

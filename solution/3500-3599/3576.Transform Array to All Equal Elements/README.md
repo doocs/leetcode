@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README.md
+tags:
+    - 贪心
+    - 数组
 ---
 
 <!-- problem:start -->
@@ -197,6 +200,31 @@ function canMakeEqual(nums: number[], k: number): boolean {
     }
 
     return check(nums[0], k) || check(-nums[0], k);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_make_equal(nums: Vec<i32>, k: i32) -> bool {
+        fn check(target: i32, k: i32, nums: &Vec<i32>) -> bool {
+            let mut cnt = 0;
+            let mut sign = 1;
+            for i in 0..nums.len() - 1 {
+                let x = nums[i] * sign;
+                if x == target {
+                    sign = 1;
+                } else {
+                    sign = -1;
+                    cnt += 1;
+                }
+            }
+            cnt <= k && nums[nums.len() - 1] * sign == target
+        }
+
+        check(nums[0], k, &nums) || check(-nums[0], k, &nums)
+    }
 }
 ```
 

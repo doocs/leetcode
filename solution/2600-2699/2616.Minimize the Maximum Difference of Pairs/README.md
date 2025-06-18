@@ -243,6 +243,118 @@ impl Solution {
 }
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public int MinimizeMax(int[] nums, int p) {
+        Array.Sort(nums);
+        int n = nums.Length;
+        int l = 0, r = nums[n - 1] - nums[0] + 1;
+
+        bool check(int diff) {
+            int cnt = 0;
+            for (int i = 0; i < n - 1; ++i) {
+                if (nums[i + 1] - nums[i] <= diff) {
+                    ++cnt;
+                    ++i;
+                }
+            }
+            return cnt >= p;
+        }
+
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        return l;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @param Integer $p
+     * @return Integer
+     */
+    function minimizeMax($nums, $p) {
+        sort($nums);
+        $n = count($nums);
+        $l = 0;
+        $r = $nums[$n - 1] - $nums[0] + 1;
+
+        $check = function ($diff) use ($nums, $n, $p) {
+            $cnt = 0;
+            for ($i = 0; $i < $n - 1; ++$i) {
+                if ($nums[$i + 1] - $nums[$i] <= $diff) {
+                    ++$cnt;
+                    ++$i;
+                }
+            }
+            return $cnt >= $p;
+        };
+
+        while ($l < $r) {
+            $mid = intdiv($l + $r, 2);
+            if ($check($mid)) {
+                $r = $mid;
+            } else {
+                $l = $mid + 1;
+            }
+        }
+
+        return $l;
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func minimizeMax(_ nums: [Int], _ p: Int) -> Int {
+        var nums = nums.sorted()
+        let n = nums.count
+        var l = 0
+        var r = nums[n - 1] - nums[0] + 1
+
+        func check(_ diff: Int) -> Bool {
+            var cnt = 0
+            var i = 0
+            while i < n - 1 {
+                if nums[i + 1] - nums[i] <= diff {
+                    cnt += 1
+                    i += 2
+                } else {
+                    i += 1
+                }
+            }
+            return cnt >= p
+        }
+
+        while l < r {
+            let mid = (l + r) >> 1
+            if check(mid) {
+                r = mid
+            } else {
+                l = mid + 1
+            }
+        }
+
+        return l
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

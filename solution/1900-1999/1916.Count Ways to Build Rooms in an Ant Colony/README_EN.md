@@ -30,39 +30,65 @@ tags:
 <p>Return <em>the <strong>number of different orders</strong> you can build all the rooms in</em>. Since the answer may be large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
+
 <p><strong class="example">Example 1:</strong></p>
+
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1916.Count%20Ways%20to%20Build%20Rooms%20in%20an%20Ant%20Colony/images/d1.jpg" style="width: 200px; height: 212px;" />
+
 <pre>
+
 <strong>Input:</strong> prevRoom = [-1,0,1]
+
 <strong>Output:</strong> 1
+
 <strong>Explanation:</strong>&nbsp;There is only one way to build the additional rooms: 0 &rarr; 1 &rarr; 2
+
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
+
 <strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1916.Count%20Ways%20to%20Build%20Rooms%20in%20an%20Ant%20Colony/images/d2.jpg" style="width: 200px; height: 239px;" /></strong>
 
 <pre>
+
 <strong>Input:</strong> prevRoom = [-1,0,0,1,2]
+
 <strong>Output:</strong> 6
+
 <strong>Explanation:
+
 </strong>The 6 ways are:
+
 0 &rarr; 1 &rarr; 3 &rarr; 2 &rarr; 4
+
 0 &rarr; 2 &rarr; 4 &rarr; 1 &rarr; 3
+
 0 &rarr; 1 &rarr; 2 &rarr; 3 &rarr; 4
+
 0 &rarr; 1 &rarr; 2 &rarr; 4 &rarr; 3
+
 0 &rarr; 2 &rarr; 1 &rarr; 3 &rarr; 4
+
 0 &rarr; 2 &rarr; 1 &rarr; 4 &rarr; 3
+
 </pre>
 
 <p>&nbsp;</p>
+
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == prevRoom.length</code></li>
-	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
-	<li><code>prevRoom[0] == -1</code></li>
-	<li><code>0 &lt;= prevRoom[i] &lt; n</code> for all <code>1 &lt;= i &lt; n</code></li>
-	<li>Every room is reachable from room <code>0</code> once all the rooms are built.</li>
+
+    <li><code>n == prevRoom.length</code></li>
+
+    <li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
+
+    <li><code>prevRoom[0] == -1</code></li>
+
+    <li><code>0 &lt;= prevRoom[i] &lt; n</code> for all <code>1 &lt;= i &lt; n</code></li>
+
+    <li>Every room is reachable from room <code>0</code> once all the rooms are built.</li>
+
 </ul>
 
 <!-- description:end -->

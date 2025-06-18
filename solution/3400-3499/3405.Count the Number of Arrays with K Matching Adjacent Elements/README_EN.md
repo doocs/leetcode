@@ -90,7 +90,23 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Combinatorics + Fast Power
+
+For an array of length $n$, there are $n - 1$ pairs of adjacent elements. We need to select $k$ of these $n - 1$ adjacent pairs such that the two elements in each of these $k$ pairs are equal, and the remaining $n - 1 - k$ adjacent pairs have different elements.
+
+This is equivalent to splitting the array $n - 1 - k$ times, resulting in $n - k$ segments, where all elements in each segment are equal. The number of ways to split is $C_{n - 1}^{n - 1 - k} = C_{n - 1}^{k}$.
+
+For the first segment, we can choose any element from $[1, m]$. For the remaining $n - k - 1$ segments, we just need to ensure that the element in each segment is different from the previous segment, so each of these segments has $m - 1$ choices. In total, there are $m \times (m - 1)^{n - k - 1}$ ways to choose.
+
+Combining the two parts above, we get the answer:
+
+$$
+C_{n - 1}^{k} \times m \times (m - 1)^{n - k - 1} \bmod (10^9 + 7)
+$$
+
+In the code implementation, we can precompute factorials and inverses, and use fast power to calculate combinations.
+
+Ignoring the preprocessing time and space, the time complexity is $O(\log (n - k))$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -271,6 +287,67 @@ function comb(m: number, n: number): bigint {
 export function countGoodArrays(n: number, m: number, k: number): number {
     const ans = (((comb(n - 1, k) * BigInt(m)) % MOD) * qpow(BigInt(m - 1), n - k - 1)) % MOD;
     return Number(ans);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_good_arrays(n: i32, m: i32, k: i32) -> i32 {
+        const N: usize = 1e5 as usize + 10;
+        const MOD: i64 = 1_000_000_007;
+        use std::sync::OnceLock;
+
+        static F: OnceLock<Vec<i64>> = OnceLock::new();
+        static G: OnceLock<Vec<i64>> = OnceLock::new();
+
+        fn qpow(mut a: i64, mut k: i64, m: i64) -> i64 {
+            let mut res = 1;
+            while k != 0 {
+                if k & 1 == 1 {
+                    res = res * a % m;
+                }
+                a = a * a % m;
+                k >>= 1;
+            }
+            res
+        }
+
+        fn init() -> (&'static Vec<i64>, &'static Vec<i64>) {
+            F.get_or_init(|| {
+                let mut f = vec![1i64; N];
+                for i in 1..N {
+                    f[i] = f[i - 1] * i as i64 % MOD;
+                }
+                f
+            });
+
+            G.get_or_init(|| {
+                let f = F.get().unwrap();
+                let mut g = vec![1i64; N];
+                for i in 1..N {
+                    g[i] = qpow(f[i], MOD - 2, MOD);
+                }
+                g
+            });
+
+            (F.get().unwrap(), G.get().unwrap())
+        }
+
+        fn comb(f: &[i64], g: &[i64], m: usize, n: usize) -> i64 {
+            f[m] * g[n] % MOD * g[m - n] % MOD
+        }
+
+        let (f, g) = init();
+        let n = n as usize;
+        let m = m as i64;
+        let k = k as usize;
+
+        let c = comb(f, g, n - 1, k);
+        let pow = qpow(m - 1, (n - 1 - k) as i64, MOD);
+        (c * m % MOD * pow % MOD) as i32
+    }
 }
 ```
 

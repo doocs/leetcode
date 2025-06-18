@@ -94,13 +94,13 @@ tags:
 
 要想得到最大差值，那么我们应该拿到最大值与最小值，这样差值最大。
 
-因此，我们先从高到低枚举 $nums$ 每个位置上的数，如果数字不为 `9`，就将所有该数字替换为 `9`，得到最大整数 $a$。
+因此，我们先从高到低枚举 $\textit{nums}$ 每个位置上的数，如果数字不为 `9`，就将所有该数字替换为 `9`，得到最大整数 $a$。
 
-接下来，我们再从高到低枚举 `nums` 每个位置上的数，首位不能为 `0`，因此如果首位不为 `1`，我们将其替换为 `1`；如果非首位，且数字不与首位相同，我们将其替换为 `0`，得到最大整数 $b$。
+接下来，我们再从高到低枚举 $\textit{nums}$ 每个位置上的数，首位不能为 `0`，因此如果首位不为 `1`，我们将其替换为 `1`；如果非首位，且数字不与首位相同，我们将其替换为 `0`，得到最大整数 $b$。
 
 答案为差值 $a - b$。
 
-时间复杂度 $O(\log num)$，空间复杂度 $O(\log num)$。其中 $num$ 为给定整数。
+时间复杂度 $O(\log \textit{num})$，空间复杂度 $O(\log \textit{num})$。其中 $\textit{nums}$ 为给定整数。
 
 <!-- tabs:start -->
 
@@ -211,6 +211,65 @@ func maxDiff(num int) int {
 		}
 	}
 	return a - b
+}
+```
+
+#### TypeScript
+
+```ts
+function maxDiff(num: number): number {
+    let a = num.toString();
+    let b = a;
+    for (let i = 0; i < a.length; ++i) {
+        if (a[i] !== '9') {
+            a = a.split(a[i]).join('9');
+            break;
+        }
+    }
+    if (b[0] !== '1') {
+        b = b.split(b[0]).join('1');
+    } else {
+        for (let i = 1; i < b.length; ++i) {
+            if (b[i] !== '0' && b[i] !== '1') {
+                b = b.split(b[i]).join('0');
+                break;
+            }
+        }
+    }
+    return +a - +b;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_diff(num: i32) -> i32 {
+        let a = num.to_string();
+        let mut a = a.clone();
+        let mut b = a.clone();
+
+        for c in a.chars() {
+            if c != '9' {
+                a = a.replace(c, "9");
+                break;
+            }
+        }
+
+        let chars: Vec<char> = b.chars().collect();
+        if chars[0] != '1' {
+            b = b.replace(chars[0], "1");
+        } else {
+            for &c in &chars[1..] {
+                if c != '0' && c != '1' {
+                    b = b.replace(c, "0");
+                    break;
+                }
+            }
+        }
+
+        a.parse::<i32>().unwrap() - b.parse::<i32>().unwrap()
+    }
 }
 ```
 
