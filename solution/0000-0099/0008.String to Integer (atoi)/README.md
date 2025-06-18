@@ -385,8 +385,10 @@ class Solution {
     }
 }
 ```
+
 #### C
-``` C 
+
+```C
 int myAtoi(char* s) {
     int i = 0;
     int sign = 1;
