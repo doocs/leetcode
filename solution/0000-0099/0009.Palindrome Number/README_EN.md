@@ -242,22 +242,20 @@ class Solution {
 
 #### C
 
-```C
+```c
 bool isPalindrome(int x) {
-    if (x < 0)
+    if (x < 0 || (x != 0 && x % 10 == 0)) {
         return false;
-    int original = x;
-    int reversed = 0;
-    while (x != 0) {
-        int digit = x % 10;
-        if (reversed > (2147483647 - digit) / 10)
-            return false;
-        reversed = reversed * 10 + digit;
+    }
+
+    int y = 0;
+    while (y < x) {
+        y = y * 10 + x % 10;
         x /= 10;
     }
-    return original == reversed;
-}
 
+    return (x == y || x == y / 10);
+}
 ```
 
 <!-- tabs:end -->
