@@ -1,38 +1,36 @@
 class Solution {
     /**
-     * @param string $s
-     * @param string $p
-     * @return boolean
+     * @param String $s
+     * @param String $p
+     * @return Boolean
      */
-
     function isMatch($s, $p) {
         $m = strlen($s);
         $n = strlen($p);
+        $f = array_fill(0, $m + 1, array_fill(0, $n + 1, 0));
 
-        $dp = array_fill(0, $m + 1, array_fill(0, $n + 1, false));
-        $dp[0][0] = true;
-
-        for ($j = 1; $j <= $n; $j++) {
-            if ($p[$j - 1] == '*') {
-                $dp[0][$j] = $dp[0][$j - 2];
+        $dfs = function ($i, $j) use (&$s, &$p, $m, $n, &$f, &$dfs) {
+            if ($j >= $n) {
+                return $i == $m;
             }
-        }
-
-        for ($i = 1; $i <= $m; $i++) {
-            for ($j = 1; $j <= $n; $j++) {
-                if ($p[$j - 1] == '.' || $p[$j - 1] == $s[$i - 1]) {
-                    $dp[$i][$j] = $dp[$i - 1][$j - 1];
-                } elseif ($p[$j - 1] == '*') {
-                    $dp[$i][$j] = $dp[$i][$j - 2];
-                    if ($p[$j - 2] == '.' || $p[$j - 2] == $s[$i - 1]) {
-                        $dp[$i][$j] = $dp[$i][$j] || $dp[$i - 1][$j];
-                    }
-                } else {
-                    $dp[$i][$j] = false;
+            if ($f[$i][$j] != 0) {
+                return $f[$i][$j] == 1;
+            }
+            $res = -1;
+            if ($j + 1 < $n && $p[$j + 1] == '*') {
+                if (
+                    $dfs($i, $j + 2) ||
+                    ($i < $m && ($s[$i] == $p[$j] || $p[$j] == '.') && $dfs($i + 1, $j))
+                ) {
+                    $res = 1;
                 }
+            } elseif ($i < $m && ($s[$i] == $p[$j] || $p[$j] == '.') && $dfs($i + 1, $j + 1)) {
+                $res = 1;
             }
-        }
+            $f[$i][$j] = $res;
+            return $res == 1;
+        };
 
-        return $dp[$m][$n];
+        return $dfs(0, 0);
     }
 }
