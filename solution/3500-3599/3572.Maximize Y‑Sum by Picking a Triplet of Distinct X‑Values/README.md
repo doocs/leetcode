@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README.md
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 排序
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

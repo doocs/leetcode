@@ -3579,16 +3579,22 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3568  |  [Minimum Moves to Clean the Classroom](/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README_EN.md)  |  `Bit Manipulation`,`Breadth-First Search`,`Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 452  |
 |  3569  |  [Maximize Count of Distinct Primes After Split](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README_EN.md)  |  `Segment Tree`,`Array`,`Math`,`Number Theory`  |  Hard  |  Weekly Contest 452  |
 |  3570  |  [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md)  |  `Database`  |  Easy  |    |
-|  3571  |  [Find the Shortest Superstring II](/solution/3500-3599/3571.Find%20the%20Shortest%20Superstring%20II/README_EN.md)  |    |  Easy  |  🔒  |
-|  3572  |  [Maximize Y‑Sum by Picking a Triplet of Distinct X‑Values](/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README_EN.md)  |    |  Medium  |  Biweekly Contest 158  |
-|  3573  |  [Best Time to Buy and Sell Stock V](/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README_EN.md)  |    |  Medium  |  Biweekly Contest 158  |
-|  3574  |  [Maximize Subarray GCD Score](/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README_EN.md)  |    |  Hard  |  Biweekly Contest 158  |
-|  3575  |  [Maximum Good Subtree Score](/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README_EN.md)  |    |  Hard  |  Biweekly Contest 158  |
-|  3576  |  [Transform Array to All Equal Elements](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 453  |
-|  3577  |  [Count the Number of Computer Unlocking Permutations](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README_EN.md)  |    |  Medium  |  Weekly Contest 453  |
-|  3578  |  [Count Partitions With Max-Min Difference at Most K](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 453  |
-|  3579  |  [Minimum Steps to Convert String with Operations](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 453  |
-|  3580  |  [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md)  |    |  Medium  |    |
+|  3571  |  [Find the Shortest Superstring II](/solution/3500-3599/3571.Find%20the%20Shortest%20Superstring%20II/README_EN.md)  |  `String`  |  Easy  |  🔒  |
+|  3572  |  [Maximize Y‑Sum by Picking a Triplet of Distinct X‑Values](/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 158  |
+|  3573  |  [Best Time to Buy and Sell Stock V](/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 158  |
+|  3574  |  [Maximize Subarray GCD Score](/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README_EN.md)  |  `Array`,`Math`,`Enumeration`,`Number Theory`  |  Hard  |  Biweekly Contest 158  |
+|  3575  |  [Maximum Good Subtree Score](/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README_EN.md)  |  `Bit Manipulation`,`Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Biweekly Contest 158  |
+|  3576  |  [Transform Array to All Equal Elements](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 453  |
+|  3577  |  [Count the Number of Computer Unlocking Permutations](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README_EN.md)  |  `Brainteaser`,`Array`,`Math`,`Combinatorics`  |  Medium  |  Weekly Contest 453  |
+|  3578  |  [Count Partitions With Max-Min Difference at Most K](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README_EN.md)  |  `Queue`,`Array`,`Dynamic Programming`,`Prefix Sum`,`Sliding Window`,`Monotonic Queue`  |  Medium  |  Weekly Contest 453  |
+|  3579  |  [Minimum Steps to Convert String with Operations](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 453  |
+|  3580  |  [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3581  |  [Count Odd Letters from Number](/solution/3500-3599/3581.Count%20Odd%20Letters%20from%20Number/README_EN.md)  |  `Hash Table`,`String`,`Counting`,`Simulation`  |  Easy  |  🔒  |
+|  3582  |  [Generate Tag for Video Caption](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README_EN.md)  |  `String`,`Simulation`  |  Easy  |  Weekly Contest 454  |
+|  3583  |  [Count Special Triplets](/solution/3500-3599/3583.Count%20Special%20Triplets/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Medium  |  Weekly Contest 454  |
+|  3584  |  [Maximum Product of First and Last Elements of a Subsequence](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |  Weekly Contest 454  |
+|  3585  |  [Find Weighted Median Node in Tree](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Binary Search`,`Dynamic Programming`  |  Hard  |  Weekly Contest 454  |
+|  3586  |  [Find COVID Recovery Patients](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README_EN.md)  |  `Database`  |  Medium  |    |
 
 ## Copyright
 

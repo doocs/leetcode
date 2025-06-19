@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README_EN.md
+tags:
+    - Brainteaser
+    - Array
+    - Math
+    - Combinatorics
 ---
 
 <!-- problem:start -->
@@ -175,6 +180,24 @@ function countPermutations(complexity: number[]): number {
         ans = (ans * i) % mod;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_permutations(complexity: Vec<i32>) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let mut ans = 1i64;
+        for i in 1..complexity.len() {
+            if complexity[i] <= complexity[0] {
+                return 0;
+            }
+            ans = ans * i as i64 % MOD;
+        }
+        ans as i32
+    }
 }
 ```
 

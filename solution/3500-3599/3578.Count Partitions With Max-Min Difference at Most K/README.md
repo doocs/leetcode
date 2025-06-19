@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md
+tags:
+    - 队列
+    - 数组
+    - 动态规划
+    - 前缀和
+    - 滑动窗口
+    - 单调队列
 ---
 
 <!-- problem:start -->
@@ -35,12 +42,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Co
 <p>共有 6 种有效的分割方式，使得每个子段中的最大值与最小值之差不超过 <code>k = 4</code>：</p>
 
 <ul>
- <li><code>[[9], [4], [1], [3], [7]]</code></li>
- <li><code>[[9], [4], [1], [3, 7]]</code></li>
- <li><code>[[9], [4], [1, 3], [7]]</code></li>
- <li><code>[[9], [4, 1], [3], [7]]</code></li>
- <li><code>[[9], [4, 1], [3, 7]]</code></li>
- <li><code>[[9], [4, 1, 3], [7]]</code></li>
+	<li><code>[[9], [4], [1], [3], [7]]</code></li>
+	<li><code>[[9], [4], [1], [3, 7]]</code></li>
+	<li><code>[[9], [4], [1, 3], [7]]</code></li>
+	<li><code>[[9], [4, 1], [3], [7]]</code></li>
+	<li><code>[[9], [4, 1], [3, 7]]</code></li>
+	<li><code>[[9], [4, 1, 3], [7]]</code></li>
 </ul>
 </div>
 
@@ -56,8 +63,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Co
 <p>共有 2 种有效的分割方式，满足给定条件：</p>
 
 <ul>
- <li><code>[[3], [3], [4]]</code></li>
- <li><code>[[3, 3], [4]]</code></li>
+	<li><code>[[3], [3], [4]]</code></li>
+	<li><code>[[3, 3], [4]]</code></li>
 </ul>
 </div>
 
@@ -66,9 +73,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Co
 <p><strong>提示：</strong></p>
 
 <ul>
- <li><code>2 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
- <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
- <li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
+	<li><code>2 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->
@@ -843,6 +850,42 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
             yield root.value;
         }
         yield* this.reverseInOrder(root.left);
+    }
+}
+```
+
+#### Rust
+
+```rust
+ use std::collections::BTreeMap;
+
+impl Solution {
+    pub fn count_partitions(nums: Vec<i32>, k: i32) -> i32 {
+        const mod_val: i32 = 1_000_000_007;
+        let n = nums.len();
+        let mut f = vec![0; n + 1];
+        let mut g = vec![0; n + 1];
+        f[0] = 1;
+        g[0] = 1;
+        let mut sl = BTreeMap::new();
+        let mut l = 1;
+        for r in 1..=n {
+            let x = nums[r - 1];
+            *sl.entry(x).or_insert(0) += 1;
+            while sl.keys().last().unwrap() - sl.keys().next().unwrap() > k {
+                let val = nums[l - 1];
+                if let Some(cnt) = sl.get_mut(&val) {
+                    *cnt -= 1;
+                    if *cnt == 0 {
+                        sl.remove(&val);
+                    }
+                }
+                l += 1;
+            }
+            f[r] = (g[r - 1] - if l >= 2 { g[l - 2] } else { 0 } + mod_val) % mod_val;
+            g[r] = (g[r - 1] + f[r]) % mod_val;
+        }
+        f[n]
     }
 }
 ```
