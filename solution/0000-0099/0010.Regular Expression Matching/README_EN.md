@@ -618,7 +618,7 @@ class Solution {
 
 #### C
 
-```C
+```c
 bool isMatch(char* s, char* p) {
     int m = strlen(s), n = strlen(p);
     bool f[m + 1][n + 1];
