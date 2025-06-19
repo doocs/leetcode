@@ -581,7 +581,7 @@ class Solution {
 
 #### C
 
-``` C
+```C
 bool isMatch(char *s, char *p) {
   int m = strlen(s), n = strlen(p);
   bool **dp = malloc((m + 1) * sizeof(bool *));
