@@ -343,28 +343,28 @@ end
 
 #### C
 
-```C
-
-int romanToInt(char *s) {
-  int map[26] = {0};
-  map['I' - 'A'] = 1;
-  map['V' - 'A'] = 5;
-  map['X' - 'A'] = 10;
-  map['L' - 'A'] = 50;
-  map['C' - 'A'] = 100;
-  map['D' - 'A'] = 500;
-  map['M' - 'A'] = 1000;
-
-  int res = 0, i = 0;
-  while (s[i]) {
-    int val = map[s[i] - 'A'];
-    int next = s[i + 1] ? map[s[i + 1] - 'A'] : 0;
-    res += (val < next) ? -val : val;
-    i++;
-  }
-  return res;
+```c
+int nums(char c) {
+    switch (c) {
+    case 'I': return 1;
+    case 'V': return 5;
+    case 'X': return 10;
+    case 'L': return 50;
+    case 'C': return 100;
+    case 'D': return 500;
+    case 'M': return 1000;
+    default: return 0;
+    }
 }
 
+int romanToInt(char* s) {
+    int ans = nums(s[strlen(s) - 1]);
+    for (int i = 0; i < (int) strlen(s) - 1; ++i) {
+        int sign = nums(s[i]) < nums(s[i + 1]) ? -1 : 1;
+        ans += sign * nums(s[i]);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
