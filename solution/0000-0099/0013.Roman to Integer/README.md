@@ -343,7 +343,7 @@ end
 
 #### C
 
-``` C
+```C
 
 int romanToInt(char *s) {
   int map[26] = {0};

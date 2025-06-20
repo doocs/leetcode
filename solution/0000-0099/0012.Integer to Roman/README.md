@@ -302,7 +302,7 @@ class Solution {
 
 #### C
 
-``` C
+```C
 
 char *intToRoman(int num) {
   static char res[20];

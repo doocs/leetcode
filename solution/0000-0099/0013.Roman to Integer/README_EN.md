@@ -326,9 +326,10 @@ def roman_to_int(s)
   ans
 end
 ```
+
 #### C
 
-``` C
+```C
 
 int romanToInt(char *s) {
   int map[26] = {0};
