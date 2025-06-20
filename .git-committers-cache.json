@@ -1,5 +1,5 @@
 {
-  "cache_date": 1750375129,
+  "cache_date": 1750461688,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -4083,6 +4083,12 @@
     "solution/0000-0099/0012.Integer to Roman/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -4113,7 +4119,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745668880
+      "retrieved": 1750460299
     },
     "solution/0100-0199/0120.Triangle/README.md": {
       "authors": [
@@ -5976,6 +5982,12 @@
     "solution/0000-0099/0013.Roman to Integer/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -6006,7 +6018,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745668924
+      "retrieved": 1750460320
     },
     "solution/0100-0199/0130.Surrounded Regions/README.md": {
       "authors": [
@@ -38630,7 +38642,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669678
+      "retrieved": 1750460675
     },
     "solution/3000-3099/3086.Minimum Moves to Pick K Ones/README.md": {
       "authors": [
@@ -71114,6 +71126,12 @@
     "solution/0000-0099/0012.Integer to Roman/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -71144,7 +71162,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745670463
+      "retrieved": 1750461103
     },
     "solution/0100-0199/0120.Triangle/README_EN.md": {
       "authors": [
@@ -72989,6 +73007,12 @@
     "solution/0000-0099/0013.Roman to Integer/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -73019,7 +73043,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745670506
+      "retrieved": 1750461122
     },
     "solution/0100-0199/0130.Surrounded Regions/README_EN.md": {
       "authors": [
@@ -105649,7 +105673,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671235
+      "retrieved": 1750461457
     },
     "solution/3000-3099/3086.Minimum Moves to Pick K Ones/README_EN.md": {
       "authors": [
