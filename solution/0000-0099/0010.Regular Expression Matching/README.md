@@ -365,7 +365,8 @@ bool isMatch(char* s, char* p) {
     m = strlen(s);
     n = strlen(p);
     memset(f, 0, sizeof(f));
-    return dfs(0, 0)
+    return dfs(0, 0);
+}
 ```
 
 #### PHP
