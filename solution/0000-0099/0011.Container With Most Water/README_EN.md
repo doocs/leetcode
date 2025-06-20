@@ -261,19 +261,31 @@ class Solution {
 
 #### C
 
- ``` C
-
- int maxArea(int *h, int n) {
-  int l = 0, r = n - 1, max = 0;
-  while (l < r) {
-    int area = (r - l) * (h[l] < h[r] ? h[l++] : h[r--]);
-    if (area > max)
-      max = area;
-  }
-  return max;
+```c
+int min(int a, int b) {
+    return a < b ? a : b;
 }
 
- ```
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+int maxArea(int* height, int heightSize) {
+    int l = 0, r = heightSize - 1;
+    int ans = 0;
+    while (l < r) {
+        int t = min(height[l], height[r]) * (r - l);
+        ans = max(ans, t);
+        if (height[l] < height[r]) {
+            ++l;
+        } else {
+            --r;
+        }
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

@@ -331,6 +331,44 @@ public class Solution {
 }
 ```
 
+#### C
+
+```c
+#define MAX_LEN 1000
+
+char *ss, *pp;
+int m, n;
+int f[MAX_LEN + 1][MAX_LEN + 1];
+
+bool dfs(int i, int j) {
+    if (j >= n) {
+        return i == m;
+    }
+    if (f[i][j] != 0) {
+        return f[i][j] == 1;
+    }
+    int res = -1;
+    if (j + 1 < n && pp[j + 1] == '*') {
+        if (dfs(i, j + 2) || (i < m && (ss[i] == pp[j] || pp[j] == '.') && dfs(i + 1, j))) {
+            res = 1;
+        }
+    } else if (i < m && (ss[i] == pp[j] || pp[j] == '.') && dfs(i + 1, j + 1)) {
+        res = 1;
+    }
+    f[i][j] = res;
+    return res == 1;
+}
+
+bool isMatch(char* s, char* p) {
+    ss = s;
+    pp = p;
+    m = strlen(s);
+    n = strlen(p);
+    memset(f, 0, sizeof(f));
+    return dfs(0, 0);
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -581,31 +619,26 @@ class Solution {
 
 #### C
 
-``` C
-bool isMatch(char *s, char *p) {
-  int m = strlen(s), n = strlen(p);
-  bool **dp = malloc((m + 1) * sizeof(bool *));
-  for (int i = 0; i <= m; i++)
-    dp[i] = calloc(n + 1, sizeof(bool));
-  dp[0][0] = 1;
-  for (int j = 2; j <= n; j++)
-    if (p[j - 1] == '*')
-      dp[0][j] = dp[0][j - 2];
+```c
+bool isMatch(char* s, char* p) {
+    int m = strlen(s), n = strlen(p);
+    bool f[m + 1][n + 1];
+    memset(f, 0, sizeof(f));
+    f[0][0] = true;
 
-  for (int i = 1; i <= m; i++)
-    for (int j = 1; j <= n; j++)
-      if (p[j - 1] == '*')
-        dp[i][j] = dp[i][j - 2] ||
-                   ((p[j - 2] == '.' || p[j - 2] == s[i - 1]) && dp[i - 1][j]);
-      else
-        dp[i][j] =
-            (p[j - 1] == '.' || p[j - 1] == s[i - 1]) && dp[i - 1][j - 1];
-
-  bool res = dp[m][n];
-  for (int i = 0; i <= m; i++)
-    free(dp[i]);
-  free(dp);
-  return res;
+    for (int i = 0; i <= m; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            if (p[j - 1] == '*') {
+                f[i][j] = f[i][j - 2];
+                if (i > 0 && (p[j - 2] == '.' || p[j - 2] == s[i - 1])) {
+                    f[i][j] = f[i][j] || f[i - 1][j];
+                }
+            } else if (i > 0 && (p[j - 1] == '.' || p[j - 1] == s[i - 1])) {
+                f[i][j] = f[i - 1][j - 1];
+            }
+        }
+    }
+    return f[m][n];
 }
 ```
 
