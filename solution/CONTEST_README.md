@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 159 场双周赛(2025-06-21 22:30, 90 分钟) 参赛人数 1075
+
+- [3587. 最小相邻交换至奇偶交替](/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README.md)
+- [3588. 找到最大三角形面积](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README.md)
+- [3589. 计数质数间隔平衡子数组](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README.md)
+- [3590. 第 K 小的路径异或和](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README.md)
+
 #### 第 454 场周赛(2025-06-15 10:30, 90 分钟) 参赛人数 1388
 
 - [3582. 为视频标题生成标签](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README.md)

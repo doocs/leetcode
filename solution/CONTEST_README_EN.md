@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 159
+
+- [3587. Minimum Adjacent Swaps to Alternate Parity](/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README_EN.md)
+- [3588. Find Maximum Area of a Triangle](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README_EN.md)
+- [3589. Count Prime-Gap Balanced Subarrays](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README_EN.md)
+- [3590. Kth Smallest Path XOR Sum](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README_EN.md)
+
 #### Weekly Contest 454
 
 - [3582. Generate Tag for Video Caption](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README_EN.md)
