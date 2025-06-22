@@ -76,21 +76,21 @@ tags:
 
 ### 方法一：记忆化搜索 + 二分查找
 
-我们先将会议按照开始时间从小到大排序，然后设计一个函数 $dfs(i, k)$ 表示从第 $i$ 个会议开始，最多参加 $k$ 个会议的最大价值和。答案即为 $dfs(0, k)$。
+我们先将会议按照开始时间从小到大排序，然后设计一个函数 $\text{dfs}(i, k)$ 表示从第 $i$ 个会议开始，最多参加 $k$ 个会议的最大价值和。答案即为 $\text{dfs}(0, k)$。
 
-函数 $dfs(i, k)$ 的计算过程如下：
+函数 $\text{dfs}(i, k)$ 的计算过程如下：
 
-对于第 $i$ 个会议，我们可以选择参加或者不参加。如果不参加，那么最大价值和就是 $dfs(i + 1, k)$，如果参加，我们可以通过二分查找，找到第一个开始时间大于第 $i$ 个会议结束时间的会议，记为 $j$，那么最大价值和就是 $dfs(j, k - 1) + value[i]$。取二者的较大值即可。即：
+如果不参加第 $i$ 个会议，那么最大价值和就是 $\text{dfs}(i + 1, k)$；如果参加第 $i$ 个会议，我们可以通过二分查找，找到第一个开始时间大于第 $i$ 个会议结束时间的会议，记为 $j$，那么最大价值和就是 $\text{dfs}(j, k - 1) + \text{value}[i]$。取二者的较大值即可。即：
 
 $$
-dfs(i, k) = \max(dfs(i + 1, k), dfs(j, k - 1) + value[i])
+\text{dfs}(i, k) = \max(\text{dfs}(i + 1, k), \text{dfs}(j, k - 1) + \text{value}[i])
 $$
 
 其中 $j$ 为第一个开始时间大于第 $i$ 个会议结束时间的会议，可以通过二分查找得到。
 
-由于函数 $dfs(i, k)$ 的计算过程中，会调用 $dfs(i + 1, k)$ 和 $dfs(j, k - 1)$，因此我们可以使用记忆化搜索，将计算过的值保存下来，避免重复计算。
+由于函数 $\text{dfs}(i, k)$ 的计算过程中，会调用 $\text{dfs}(i + 1, k)$ 和 $\text{dfs}(j, k - 1)$，因此我们可以使用记忆化搜索，将计算过的值保存下来，避免重复计算。
 
-时间复杂度 $O(n\times \log n + n\times k)$，其中 $n$ 为会议数量。
+时间复杂度 $O(n \times \log n + n \times k)$，空间复杂度 $O(n \times k)$，其中 $n$ 为会议数量。
 
 <!-- tabs:start -->
 
@@ -163,23 +163,29 @@ class Solution {
 class Solution {
 public:
     int maxValue(vector<vector<int>>& events, int k) {
-        sort(events.begin(), events.end());
+        ranges::sort(events);
         int n = events.size();
         int f[n][k + 1];
         memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int k) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int k) -> int {
             if (i >= n || k <= 0) {
                 return 0;
             }
             if (f[i][k] > 0) {
                 return f[i][k];
             }
+
             int ed = events[i][1], val = events[i][2];
             vector<int> t = {ed};
-            int p = upper_bound(events.begin() + i + 1, events.end(), t, [](const auto& a, const auto& b) { return a[0] < b[0]; }) - events.begin();
+
+            int p = upper_bound(events.begin() + i + 1, events.end(), t,
+                        [](const auto& a, const auto& b) { return a[0] < b[0]; })
+                - events.begin();
+
             f[i][k] = max(dfs(i + 1, k), dfs(p, k - 1) + val);
             return f[i][k];
         };
+
         return dfs(0, k);
     }
 };
@@ -216,30 +222,38 @@ func maxValue(events [][]int, k int) int {
 
 ```ts
 function maxValue(events: number[][], k: number): number {
-    events.sort((a, b) => a[1] - b[1]);
+    events.sort((a, b) => a[0] - b[0]);
     const n = events.length;
-    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
-    const search = (x: number, hi: number): number => {
-        let l = 0;
-        let r = hi;
-        while (l < r) {
-            const mid = (l + r) >> 1;
-            if (events[mid][1] >= x) {
-                r = mid;
+    const f: number[][] = Array.from({ length: n }, () => Array(k + 1).fill(0));
+
+    const dfs = (i: number, k: number): number => {
+        if (i >= n || k <= 0) {
+            return 0;
+        }
+        if (f[i][k] > 0) {
+            return f[i][k];
+        }
+
+        const ed = events[i][1],
+            val = events[i][2];
+
+        let left = i + 1,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (events[mid][0] > ed) {
+                right = mid;
             } else {
-                l = mid + 1;
+                left = mid + 1;
             }
         }
-        return l;
+        const p = left;
+
+        f[i][k] = Math.max(dfs(i + 1, k), dfs(p, k - 1) + val);
+        return f[i][k];
     };
-    for (let i = 1; i <= n; ++i) {
-        const [st, _, val] = events[i - 1];
-        const p = search(st, i - 1);
-        for (let j = 1; j <= k; ++j) {
-            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
-        }
-    }
-    return f[n][k];
+
+    return dfs(0, k);
 }
 ```
 
@@ -255,15 +269,15 @@ function maxValue(events: number[][], k: number): number {
 
 先将会议排序，这次我们按照结束时间从小到大排序。然后定义 $f[i][j]$ 表示前 $i$ 个会议中，最多参加 $j$ 个会议的最大价值和。答案即为 $f[n][k]$。
 
-对于第 $i$ 个会议，我们可以选择参加或者不参加。如果不参加，那么最大价值和就是 $f[i][j]$，如果参加，我们可以通过二分查找，找到最后一个结束时间小于第 $i$ 个会议开始时间的会议，记为 $h$，那么最大价值和就是 $f[h+1][j - 1] + value[i]$。取二者的较大值即可。即：
+对于第 $i$ 个会议，我们可以选择参加或者不参加。如果不参加，那么最大价值和就是 $f[i][j]$，如果参加，我们可以通过二分查找，找到最后一个结束时间小于第 $i$ 个会议开始时间的会议，记为 $h$，那么最大价值和就是 $f[h + 1][j - 1] + \text{value}[i]$。取二者的较大值即可。即：
 
 $$
-f[i+1][j] = \max(f[i][j], f[h+1][j - 1] + value[i])
+f[i + 1][j] = \max(f[i][j], f[h + 1][j - 1] + \text{value}[i])
 $$
 
 其中 $h$ 为最后一个结束时间小于第 $i$ 个会议开始时间的会议，可以通过二分查找得到。
 
-时间复杂度 $O(n\times \log n + n\times k)$，其中 $n$ 为会议数量。
+时间复杂度 $O(n \times \log n + n \times k)$，空间复杂度 $O(n \times k)$，其中 $n$ 为会议数量。
 
 相似题目：
 
@@ -361,6 +375,37 @@ func maxValue(events [][]int, k int) int {
 		}
 	}
 	return f[n][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxValue(events: number[][], k: number): number {
+    events.sort((a, b) => a[1] - b[1]);
+    const n = events.length;
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
+    const search = (x: number, hi: number): number => {
+        let l = 0;
+        let r = hi;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (events[mid][1] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 1; i <= n; ++i) {
+        const [st, _, val] = events[i - 1];
+        const p = search(st, i - 1);
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
+        }
+    }
+    return f[n][k];
 }
 ```
 
