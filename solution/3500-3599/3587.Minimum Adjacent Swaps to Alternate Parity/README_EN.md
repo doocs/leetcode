@@ -92,32 +92,169 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3587.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis + Greedy
+
+For a valid arrangement, the number of odd and even numbers can only differ by 1 or be equal. Therefore, if the difference between the number of odd and even numbers is greater than 1, it is impossible to form a valid arrangement, and we should return -1 directly.
+
+We use an array $\text{pos}$ to store the indices of odd and even numbers, where $\text{pos}[0]$ stores the indices of even numbers and $\text{pos}[1]$ stores the indices of odd numbers.
+
+If the number of odd and even numbers is equal, there are two valid arrangements: odd numbers before even numbers, or even numbers before odd numbers. We can calculate the number of swaps required for both arrangements and take the minimum.
+
+If the number of odd numbers is greater than the number of even numbers, there is only one valid arrangement, which is odd numbers before even numbers. In this case, we only need to calculate the number of swaps for this arrangement.
+
+Therefore, we define a function $\text{calc}(k)$, where $k$ indicates the parity of the first element (0 for even, 1 for odd). This function calculates the number of swaps needed to transform the current arrangement into a valid arrangement starting with $k$. We just need to iterate over the indices in $\text{pos}[k]$ and sum the differences between each index and its position in the valid arrangement.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minSwaps(self, nums: List[int]) -> int:
+        def calc(k: int) -> int:
+            return sum(abs(i - j) for i, j in zip(range(0, len(nums), 2), pos[k]))
 
+        pos = [[], []]
+        for i, x in enumerate(nums):
+            pos[x & 1].append(i)
+        if abs(len(pos[0]) - len(pos[1])) > 1:
+            return -1
+        if len(pos[0]) > len(pos[1]):
+            return calc(0)
+        if len(pos[0]) < len(pos[1]):
+            return calc(1)
+        return min(calc(0), calc(1))
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<Integer>[] pos = new List[2];
+    private int[] nums;
 
+    public int minSwaps(int[] nums) {
+        this.nums = nums;
+        Arrays.setAll(pos, k -> new ArrayList<>());
+        for (int i = 0; i < nums.length; ++i) {
+            pos[nums[i] & 1].add(i);
+        }
+        if (Math.abs(pos[0].size() - pos[1].size()) > 1) {
+            return -1;
+        }
+        if (pos[0].size() > pos[1].size()) {
+            return calc(0);
+        }
+        if (pos[0].size() < pos[1].size()) {
+            return calc(1);
+        }
+        return Math.min(calc(0), calc(1));
+    }
+
+    private int calc(int k) {
+        int res = 0;
+        for (int i = 0; i < nums.length; i += 2) {
+            res += Math.abs(pos[k].get(i / 2) - i);
+        }
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minSwaps(vector<int>& nums) {
+        vector<int> pos[2];
+        for (int i = 0; i < nums.size(); ++i) {
+            pos[nums[i] & 1].push_back(i);
+        }
+        if (abs(int(pos[0].size() - pos[1].size())) > 1) {
+            return -1;
+        }
+        auto calc = [&](int k) {
+            int res = 0;
+            for (int i = 0; i < nums.size(); i += 2) {
+                res += abs(pos[k][i / 2] - i);
+            }
+            return res;
+        };
+        if (pos[0].size() > pos[1].size()) {
+            return calc(0);
+        }
+        if (pos[0].size() < pos[1].size()) {
+            return calc(1);
+        }
+        return min(calc(0), calc(1));
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minSwaps(nums []int) int {
+	pos := [2][]int{}
+	for i, x := range nums {
+		pos[x&1] = append(pos[x&1], i)
+	}
+	if abs(len(pos[0])-len(pos[1])) > 1 {
+		return -1
+	}
+	calc := func(k int) int {
+		res := 0
+		for i := 0; i < len(nums); i += 2 {
+			res += abs(pos[k][i/2] - i)
+		}
+		return res
+	}
+	if len(pos[0]) > len(pos[1]) {
+		return calc(0)
+	}
+	if len(pos[0]) < len(pos[1]) {
+		return calc(1)
+	}
+	return min(calc(0), calc(1))
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minSwaps(nums: number[]): number {
+    const pos: number[][] = [[], []];
+    for (let i = 0; i < nums.length; ++i) {
+        pos[nums[i] & 1].push(i);
+    }
+    if (Math.abs(pos[0].length - pos[1].length) > 1) {
+        return -1;
+    }
+    const calc = (k: number): number => {
+        let res = 0;
+        for (let i = 0; i < nums.length; i += 2) {
+            res += Math.abs(pos[k][i >> 1] - i);
+        }
+        return res;
+    };
+    if (pos[0].length > pos[1].length) {
+        return calc(0);
+    }
+    if (pos[0].length < pos[1].length) {
+        return calc(1);
+    }
+    return Math.min(calc(0), calc(1));
+}
 ```
 
 <!-- tabs:end -->
