@@ -1,5 +1,5 @@
 {
-  "cache_date": 1750560767,
+  "cache_date": 1750598258,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -14948,7 +14948,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669121
+      "retrieved": 1750596981
     },
     "solution/1700-1799/1752.Check if Array Is Sorted and Rotated/README.md": {
       "authors": [
@@ -82063,7 +82063,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670696
+      "retrieved": 1750597776
     },
     "solution/1700-1799/1752.Check if Array Is Sorted and Rotated/README_EN.md": {
       "authors": [
@@ -128251,6 +128251,94 @@
         }
       ],
       "retrieved": 1750556738
+    },
+    "solution/3500-3599/3591.Check if Any Element Has Prime Frequency/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750597339
+    },
+    "solution/3500-3599/3592.Inverse Coin Change/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750597339
+    },
+    "solution/3500-3599/3593.Minimum Increments to Equalize Leaf Paths/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750597340
+    },
+    "solution/3500-3599/3594.Minimum Time to Transport All Individuals/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750597340
+    },
+    "solution/3500-3599/3591.Check if Any Element Has Prime Frequency/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750598115
+    },
+    "solution/3500-3599/3592.Inverse Coin Change/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750598115
+    },
+    "solution/3500-3599/3593.Minimum Increments to Equalize Leaf Paths/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750598115
+    },
+    "solution/3500-3599/3594.Minimum Time to Transport All Individuals/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1750598115
     }
   }
 }
