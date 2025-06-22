@@ -1,11 +1,12 @@
 class Solution {
-    public long kMirror(int k, int n) {
-        long ans = 0;
-        for (int l = 1;; l++) {
-            int x = (int) Math.pow(10, (l - 1) / 2);
-            int y = (int) Math.pow(10, (l + 1) / 2);
-            for (int i = x; i < y; i++) {
-                long v = i;
+public:
+    long long kMirror(int k, int n) {
+        long long ans = 0;
+        for (int l = 1;; ++l) {
+            int x = pow(10, (l - 1) / 2);
+            int y = pow(10, (l + 1) / 2);
+            for (int i = x; i < y; ++i) {
+                long long v = i;
                 int j = (l % 2 == 0) ? i : i / 10;
                 while (j > 0) {
                     v = v * 10 + j % 10;
@@ -13,8 +14,7 @@ class Solution {
                 }
                 if (check(v, k)) {
                     ans += v;
-                    n--;
-                    if (n == 0) {
+                    if (--n == 0) {
                         return ans;
                     }
                 }
@@ -22,17 +22,18 @@ class Solution {
         }
     }
 
-    private boolean check(long x, int k) {
-        List<Integer> s = new ArrayList<>();
+private:
+    bool check(long long x, int k) {
+        vector<int> s;
         while (x > 0) {
-            s.add((int) (x % k));
+            s.push_back(x % k);
             x /= k;
         }
         for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
-            if (!s.get(i).equals(s.get(j))) {
+            if (s[i] != s[j]) {
                 return false;
             }
         }
         return true;
     }
-}
+};
