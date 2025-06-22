@@ -3601,6 +3601,10 @@
 |  3588  |  [找到最大三角形面积](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README.md)  |    |  中等  |  第 159 场双周赛  |
 |  3589  |  [计数质数间隔平衡子数组](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README.md)  |    |  中等  |  第 159 场双周赛  |
 |  3590  |  [第 K 小的路径异或和](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README.md)  |    |  困难  |  第 159 场双周赛  |
+|  3591  |  [检查元素频次是否为质数](/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README.md)  |    |  简单  |  第 455 场周赛  |
+|  3592  |  [硬币面值还原](/solution/3500-3599/3592.Inverse%20Coin%20Change/README.md)  |    |  中等  |  第 455 场周赛  |
+|  3593  |  [使叶子路径成本相等的最小增量](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README.md)  |    |  中等  |  第 455 场周赛  |
+|  3594  |  [所有人渡河所需的最短时间](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md)  |    |  困难  |  第 455 场周赛  |
 
 ## 版权
 
