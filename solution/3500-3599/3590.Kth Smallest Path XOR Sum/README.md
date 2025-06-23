@@ -177,8 +177,11 @@ class BinarySumTrie:
         else:
             return -1
 
+
 class Solution:
-    def kthSmallest(self, par: List[int], vals: List[int], queries: List[List[int]]) -> List[int]:
+    def kthSmallest(
+        self, par: List[int], vals: List[int], queries: List[List[int]]
+    ) -> List[int]:
         n = len(par)
         tree = [[] for _ in range(n)]
         for i in range(1, n):
@@ -207,7 +210,10 @@ class Solution:
             for child in tree[node]:
                 dfs(child)
                 if trie_pool[node].count < trie_pool[child].count:
-                    trie_pool[node], trie_pool[child] = trie_pool[child], trie_pool[node]
+                    trie_pool[node], trie_pool[child] = (
+                        trie_pool[child],
+                        trie_pool[node],
+                    )
                 for val in trie_pool[child].collect():
                     if not trie_pool[node].exists(val):
                         trie_pool[node].add(val, 1)
@@ -219,7 +225,6 @@ class Solution:
 
         dfs(0)
         return result
-
 ```
 
 #### Java
