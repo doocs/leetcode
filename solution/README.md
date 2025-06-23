@@ -3597,6 +3597,14 @@
 |  3584  |  [子序列首尾元素的最大乘积](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README.md)  |  `数组`,`双指针`  |  中等  |  第 454 场周赛  |
 |  3585  |  [树中找到带权中位节点](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README.md)  |  `树`,`深度优先搜索`,`数组`,`二分查找`,`动态规划`  |  困难  |  第 454 场周赛  |
 |  3586  |  [寻找 COVID 康复患者](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README.md)  |  `数据库`  |  中等  |    |
+|  3587  |  [最小相邻交换至奇偶交替](/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README.md)  |    |  中等  |  第 159 场双周赛  |
+|  3588  |  [找到最大三角形面积](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README.md)  |    |  中等  |  第 159 场双周赛  |
+|  3589  |  [计数质数间隔平衡子数组](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README.md)  |    |  中等  |  第 159 场双周赛  |
+|  3590  |  [第 K 小的路径异或和](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README.md)  |    |  困难  |  第 159 场双周赛  |
+|  3591  |  [检查元素频次是否为质数](/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README.md)  |    |  简单  |  第 455 场周赛  |
+|  3592  |  [硬币面值还原](/solution/3500-3599/3592.Inverse%20Coin%20Change/README.md)  |    |  中等  |  第 455 场周赛  |
+|  3593  |  [使叶子路径成本相等的最小增量](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README.md)  |    |  中等  |  第 455 场周赛  |
+|  3594  |  [所有人渡河所需的最短时间](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md)  |    |  困难  |  第 455 场周赛  |
 
 ## 版权
 

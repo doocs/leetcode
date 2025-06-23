@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 455 场周赛(2025-06-22 10:30, 90 分钟) 参赛人数 1757
+
+- [3591. 检查元素频次是否为质数](/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README.md)
+- [3592. 硬币面值还原](/solution/3500-3599/3592.Inverse%20Coin%20Change/README.md)
+- [3593. 使叶子路径成本相等的最小增量](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README.md)
+- [3594. 所有人渡河所需的最短时间](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md)
+
+#### 第 159 场双周赛(2025-06-21 22:30, 90 分钟) 参赛人数 1075
+
+- [3587. 最小相邻交换至奇偶交替](/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README.md)
+- [3588. 找到最大三角形面积](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README.md)
+- [3589. 计数质数间隔平衡子数组](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README.md)
+- [3590. 第 K 小的路径异或和](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README.md)
+
 #### 第 454 场周赛(2025-06-15 10:30, 90 分钟) 参赛人数 1388
 
 - [3582. 为视频标题生成标签](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README.md)

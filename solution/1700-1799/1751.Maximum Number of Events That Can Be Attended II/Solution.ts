@@ -1,26 +1,34 @@
 function maxValue(events: number[][], k: number): number {
-    events.sort((a, b) => a[1] - b[1]);
+    events.sort((a, b) => a[0] - b[0]);
     const n = events.length;
-    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
-    const search = (x: number, hi: number): number => {
-        let l = 0;
-        let r = hi;
-        while (l < r) {
-            const mid = (l + r) >> 1;
-            if (events[mid][1] >= x) {
-                r = mid;
+    const f: number[][] = Array.from({ length: n }, () => Array(k + 1).fill(0));
+
+    const dfs = (i: number, k: number): number => {
+        if (i >= n || k <= 0) {
+            return 0;
+        }
+        if (f[i][k] > 0) {
+            return f[i][k];
+        }
+
+        const ed = events[i][1],
+            val = events[i][2];
+
+        let left = i + 1,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (events[mid][0] > ed) {
+                right = mid;
             } else {
-                l = mid + 1;
+                left = mid + 1;
             }
         }
-        return l;
+        const p = left;
+
+        f[i][k] = Math.max(dfs(i + 1, k), dfs(p, k - 1) + val);
+        return f[i][k];
     };
-    for (let i = 1; i <= n; ++i) {
-        const [st, _, val] = events[i - 1];
-        const p = search(st, i - 1);
-        for (let j = 1; j <= k; ++j) {
-            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
-        }
-    }
-    return f[n][k];
+
+    return dfs(0, k);
 }

@@ -218,6 +218,63 @@ func minimumDeletions(word string, k int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function minimumDeletions(word: string, k: number): number {
+    const freq: number[] = Array(26).fill(0);
+    for (const ch of word) {
+        ++freq[ch.charCodeAt(0) - 97];
+    }
+    const nums = freq.filter(x => x > 0);
+    const f = (v: number): number => {
+        let ans = 0;
+        for (const x of nums) {
+            if (x < v) {
+                ans += x;
+            } else if (x > v + k) {
+                ans += x - v - k;
+            }
+        }
+        return ans;
+    };
+    return Math.min(...Array.from({ length: word.length + 1 }, (_, i) => f(i)));
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_deletions(word: String, k: i32) -> i32 {
+        let mut freq = [0; 26];
+        for c in word.chars() {
+            freq[(c as u8 - b'a') as usize] += 1;
+        }
+        let mut nums = vec![];
+        for &v in freq.iter() {
+            if v > 0 {
+                nums.push(v);
+            }
+        }
+        let n = word.len() as i32;
+        let mut ans = n;
+        for i in 0..=n {
+            let mut cur = 0;
+            for &x in nums.iter() {
+                if x < i {
+                    cur += x;
+                } else if x > i + k {
+                    cur += x - i - k;
+                }
+            }
+            ans = ans.min(cur);
+        }
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
