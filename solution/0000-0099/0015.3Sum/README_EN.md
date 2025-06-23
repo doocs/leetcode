@@ -451,7 +451,7 @@ class Solution {
 
 #### C
 
-``` C
+```C
 
 int cmp(const void *a, const void *b) { return *(int *)a - *(int *)b; }
 

@@ -252,7 +252,7 @@ end
 
 #### C
 
-``` C
+```C
 
 char *longestCommonPrefix(char **strs, int strsSize) {
   if (strsSize == 0)
