@@ -3605,6 +3605,7 @@
 |  3592  |  [硬币面值还原](/solution/3500-3599/3592.Inverse%20Coin%20Change/README.md)  |    |  中等  |  第 455 场周赛  |
 |  3593  |  [使叶子路径成本相等的最小增量](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README.md)  |    |  中等  |  第 455 场周赛  |
 |  3594  |  [所有人渡河所需的最短时间](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md)  |    |  困难  |  第 455 场周赛  |
+|  3595  |  [一次或两次](/solution/3500-3599/3595.Once%20Twice/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

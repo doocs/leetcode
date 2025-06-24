@@ -3603,6 +3603,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3592  |  [Inverse Coin Change](/solution/3500-3599/3592.Inverse%20Coin%20Change/README_EN.md)  |    |  Medium  |  Weekly Contest 455  |
 |  3593  |  [Minimum Increments to Equalize Leaf Paths](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README_EN.md)  |    |  Medium  |  Weekly Contest 455  |
 |  3594  |  [Minimum Time to Transport All Individuals](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README_EN.md)  |    |  Hard  |  Weekly Contest 455  |
+|  3595  |  [Once Twice](/solution/3500-3599/3595.Once%20Twice/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
