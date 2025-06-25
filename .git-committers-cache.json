@@ -1,5 +1,5 @@
 {
-  "cache_date": 1750808868,
+  "cache_date": 1750858813,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -1388,7 +1388,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745668821
+      "retrieved": 1750857367
     },
     "solution/1000-1099/1066.Campus Bikes II/README.md": {
       "authors": [
@@ -3372,7 +3372,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745668864
+      "retrieved": 1750857387
     },
     "solution/1100-1199/1165.Single-Row Keyboard/README.md": {
       "authors": [
@@ -4828,7 +4828,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745668896
+      "retrieved": 1750857402
     },
     "solution/1200-1299/1237.Find Positive Integer Solution for a Given Equation/README.md": {
       "authors": [
@@ -6669,19 +6669,19 @@
     "solution/1300-1399/1334.Find the City With the Smallest Number of Neighbors at a Threshold Distance/README.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745668939
+      "retrieved": 1750857422
     },
     "solution/1300-1399/1335.Minimum Difficulty of a Job Schedule/README.md": {
       "authors": [
@@ -8492,7 +8492,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749991315
+      "retrieved": 1750857441
     },
     "solution/1400-1499/1433.Check If a String Can Break Another String/README.md": {
       "authors": [
@@ -8644,16 +8644,16 @@
     "solution/1400-1499/1441.Build an Array With Stack Operations/README.md": {
       "authors": [
         {
-          "login": "acbin",
-          "name": "acbin",
-          "url": "https://github.com/acbin",
-          "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "acbin",
+          "name": "acbin",
+          "url": "https://github.com/acbin",
+          "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         },
         {
           "login": "YangFong",
@@ -8662,7 +8662,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745668986
+      "retrieved": 1750857444
     },
     "solution/1400-1499/1442.Count Triplets That Can Form Two Arrays of Equal XOR/README.md": {
       "authors": [
@@ -15965,7 +15965,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669144
+      "retrieved": 1750857517
     },
     "solution/1800-1899/1803.Count Pairs With XOR in a Range/README.md": {
       "authors": [
@@ -16772,7 +16772,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669163
+      "retrieved": 1750857527
     },
     "solution/0100-0199/0185.Department Top Three Salaries/README.md": {
       "authors": [
@@ -23112,7 +23112,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1750719982
+      "retrieved": 1750857598
     },
     "solution/2200-2299/2201.Count Artifacts That Can Be Extracted/README.md": {
       "authors": [
@@ -24525,7 +24525,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/91381303?v=4"
         }
       ],
-      "retrieved": 1745669345
+      "retrieved": 1750857614
     },
     "solution/2200-2299/2280.Minimum Lines to Represent a Line Chart/README.md": {
       "authors": [
@@ -27184,7 +27184,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669406
+      "retrieved": 1750857643
     },
     "solution/2400-2499/2425.Bitwise XOR of All Pairings/README.md": {
       "authors": [
@@ -27587,7 +27587,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669414
+      "retrieved": 1750857647
     },
     "solution/2400-2499/2446.Determine if Two Events Have Conflict/README.md": {
       "authors": [
@@ -28564,7 +28564,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669437
+      "retrieved": 1750857659
     },
     "solution/2500-2599/2500.Delete Greatest Value in Each Row/README.md": {
       "authors": [
@@ -29601,7 +29601,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669462
+      "retrieved": 1750857671
     },
     "solution/2500-2599/2561.Rearranging Fruits/README.md": {
       "authors": [
@@ -29703,7 +29703,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1749864455
+      "retrieved": 1750857673
     },
     "solution/2500-2599/2567.Minimum Score by Changing Two Elements/README.md": {
       "authors": [
@@ -30123,7 +30123,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745669473
+      "retrieved": 1750857677
     },
     "solution/2500-2599/2589.Minimum Time to Complete All Tasks/README.md": {
       "authors": [
@@ -30673,7 +30673,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749768508
+      "retrieved": 1750857684
     },
     "solution/2600-2699/2617.Minimum Number of Visited Cells in a Grid/README.md": {
       "authors": [
@@ -31704,7 +31704,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745669509
+      "retrieved": 1750857695
     },
     "solution/2600-2699/2678.Number of Senior Citizens/README.md": {
       "authors": [
@@ -35847,7 +35847,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745669610
+      "retrieved": 1750857744
     },
     "solution/2900-2999/2923.Find Champion I/README.md": {
       "authors": [
@@ -36639,7 +36639,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1748260670
+      "retrieved": 1750857754
     },
     "solution/2900-2999/2967.Minimum Cost to Make Array Equalindromic/README.md": {
       "authors": [
@@ -39733,7 +39733,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669712
+      "retrieved": 1750857795
     },
     "solution/3100-3199/3168.Minimum Number of Chairs in a Waiting Room/README.md": {
       "authors": [
@@ -41222,7 +41222,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745669757
+      "retrieved": 1750857817
     },
     "solution/3200-3299/3280.Convert Date to Binary/README.md": {
       "authors": [
@@ -42707,7 +42707,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669800
+      "retrieved": 1750857839
     },
     "solution/3300-3399/3391.Design a 3D Binary Matrix with Efficient Layer Tracking/README.md": {
       "authors": [
@@ -43453,7 +43453,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749077057
+      "retrieved": 1750857848
     },
     "solution/3400-3499/3443.Maximum Manhattan Distance After K Changes/README.md": {
       "authors": [
@@ -43486,7 +43486,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749622865
+      "retrieved": 1750857849
     },
     "solution/3400-3499/3446.Sort Matrix by Diagonals/README.md": {
       "authors": [
@@ -45844,7 +45844,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/99040799?v=4"
         }
       ],
-      "retrieved": 1745669876
+      "retrieved": 1750857887
     },
     "solution/0400-0499/0413.Arithmetic Slices/README.md": {
       "authors": [
@@ -45946,7 +45946,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669879
+      "retrieved": 1750857889
     },
     "solution/0400-0499/0419.Battleships in a Board/README.md": {
       "authors": [
@@ -47403,7 +47403,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745669909
+      "retrieved": 1750857904
     },
     "solution/0400-0499/0490.The Maze/README.md": {
       "authors": [
@@ -48022,7 +48022,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745669923
+      "retrieved": 1750857910
     },
     "solution/0500-0599/0521.Longest Uncommon Subsequence I/README.md": {
       "authors": [
@@ -48643,7 +48643,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669936
+      "retrieved": 1750857917
     },
     "solution/0500-0599/0551.Student Attendance Record I/README.md": {
       "authors": [
@@ -51192,7 +51192,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745669982
+      "retrieved": 1750857939
     },
     "solution/0600-0699/0660.Remove 9/README.md": {
       "authors": [
@@ -51675,7 +51675,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669993
+      "retrieved": 1750857944
     },
     "solution/0600-0699/0685.Redundant Connection II/README.md": {
       "authors": [
@@ -51760,7 +51760,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745974931
+      "retrieved": 1750857945
     },
     "solution/0000-0099/0069.Sqrt(x)/README.md": {
       "authors": [
@@ -52108,7 +52108,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670002
+      "retrieved": 1750857949
     },
     "solution/0700-0799/0705.Design HashSet/README.md": {
       "authors": [
@@ -52426,7 +52426,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670009
+      "retrieved": 1750857953
     },
     "solution/0700-0799/0721.Accounts Merge/README.md": {
       "authors": [
@@ -53884,16 +53884,16 @@
     "solution/0700-0799/0797.All Paths From Source to Target/README.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         },
         {
           "login": "YangFong",
@@ -53908,7 +53908,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745670043
+      "retrieved": 1750857969
     },
     "solution/0700-0799/0798.Smallest Rotation with Highest Score/README.md": {
       "authors": [
@@ -55275,7 +55275,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670076
+      "retrieved": 1750857985
     },
     "solution/0800-0899/0874.Walking Robot Simulation/README.md": {
       "authors": [
@@ -70445,7 +70445,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745670446
+      "retrieved": 1750858211
     },
     "solution/1100-1199/1165.Single-Row Keyboard/README_EN.md": {
       "authors": [
@@ -75203,7 +75203,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745670554
+      "retrieved": 1750858258
     },
     "solution/1400-1499/1413.Minimum Value to Get Positive Step by Step Sum/README_EN.md": {
       "authors": [
@@ -75553,7 +75553,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749992116
+      "retrieved": 1750858262
     },
     "solution/1400-1499/1433.Check If a String Can Break Another String/README_EN.md": {
       "authors": [
@@ -83116,7 +83116,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670717
+      "retrieved": 1750858331
     },
     "solution/1800-1899/1803.Count Pairs With XOR in a Range/README_EN.md": {
       "authors": [
@@ -83959,7 +83959,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670736
+      "retrieved": 1750858340
     },
     "solution/0100-0199/0185.Department Top Three Salaries/README_EN.md": {
       "authors": [
@@ -94395,7 +94395,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670970
+      "retrieved": 1750858449
     },
     "solution/2400-2499/2425.Bitwise XOR of All Pairings/README_EN.md": {
       "authors": [
@@ -94786,7 +94786,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670978
+      "retrieved": 1750858454
     },
     "solution/2400-2499/2446.Determine if Two Events Have Conflict/README_EN.md": {
       "authors": [
@@ -96782,7 +96782,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671025
+      "retrieved": 1750858476
     },
     "solution/2500-2599/2561.Rearranging Fruits/README_EN.md": {
       "authors": [
@@ -97292,7 +97292,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745671036
+      "retrieved": 1750858481
     },
     "solution/2500-2599/2589.Minimum Time to Complete All Tasks/README_EN.md": {
       "authors": [
@@ -97830,7 +97830,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749769298
+      "retrieved": 1750858487
     },
     "solution/2600-2699/2617.Minimum Number of Visited Cells in a Grid/README_EN.md": {
       "authors": [
@@ -98825,7 +98825,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671070
+      "retrieved": 1750858498
     },
     "solution/2600-2699/2678.Number of Senior Citizens/README_EN.md": {
       "authors": [
@@ -103706,7 +103706,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1748261464
+      "retrieved": 1750858552
     },
     "solution/2900-2999/2967.Minimum Cost to Make Array Equalindromic/README_EN.md": {
       "authors": [
@@ -107705,7 +107705,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671295
+      "retrieved": 1750858605
     },
     "solution/3200-3299/3239.Minimum Number of Flips to Make Binary Grid Palindromic I/README_EN.md": {
       "authors": [
@@ -110436,7 +110436,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749077819
+      "retrieved": 1750858642
     },
     "solution/3400-3499/3443.Maximum Manhattan Distance After K Changes/README_EN.md": {
       "authors": [
@@ -110469,7 +110469,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749623635
+      "retrieved": 1750858643
     },
     "solution/3400-3499/3446.Sort Matrix by Diagonals/README_EN.md": {
       "authors": [
@@ -115578,7 +115578,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745671486
+      "retrieved": 1750858706
     },
     "solution/0500-0599/0551.Student Attendance Record I/README_EN.md": {
       "authors": [
@@ -118653,7 +118653,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745975740
+      "retrieved": 1750858733
     },
     "solution/0000-0099/0069.Sqrt(x)/README_EN.md": {
       "authors": [
@@ -128197,7 +128197,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750559848
+      "retrieved": 1750857873
     },
     "solution/3500-3599/3588.Find Maximum Area of a Triangle/README.md": {
       "authors": [
@@ -128208,7 +128208,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750555961
+      "retrieved": 1750857874
     },
     "solution/3500-3599/3589.Count Prime-Gap Balanced Subarrays/README.md": {
       "authors": [
@@ -128219,24 +128219,24 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750555961
+      "retrieved": 1750857874
     },
     "solution/3500-3599/3590.Kth Smallest Path XOR Sum/README.md": {
       "authors": [
-        {
-          "login": "Ishanssr",
-          "name": "Ishanssr",
-          "url": "https://github.com/Ishanssr",
-          "avatar": "https://avatars.githubusercontent.com/u/202025338?v=4"
-        },
         {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "Ishanssr",
+          "name": "Ishanssr",
+          "url": "https://github.com/Ishanssr",
+          "avatar": "https://avatars.githubusercontent.com/u/202025338?v=4"
         }
       ],
-      "retrieved": 1750720256
+      "retrieved": 1750857874
     },
     "solution/3500-3599/3587.Minimum Adjacent Swaps to Alternate Parity/README_EN.md": {
       "authors": [
@@ -128247,7 +128247,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750560623
+      "retrieved": 1750858666
     },
     "solution/3500-3599/3588.Find Maximum Area of a Triangle/README_EN.md": {
       "authors": [
@@ -128258,7 +128258,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750556737
+      "retrieved": 1750858666
     },
     "solution/3500-3599/3589.Count Prime-Gap Balanced Subarrays/README_EN.md": {
       "authors": [
@@ -128269,24 +128269,24 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750556737
+      "retrieved": 1750858666
     },
     "solution/3500-3599/3590.Kth Smallest Path XOR Sum/README_EN.md": {
       "authors": [
-        {
-          "login": "Ishanssr",
-          "name": "Ishanssr",
-          "url": "https://github.com/Ishanssr",
-          "avatar": "https://avatars.githubusercontent.com/u/202025338?v=4"
-        },
         {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "Ishanssr",
+          "name": "Ishanssr",
+          "url": "https://github.com/Ishanssr",
+          "avatar": "https://avatars.githubusercontent.com/u/202025338?v=4"
         }
       ],
-      "retrieved": 1750721050
+      "retrieved": 1750858667
     },
     "solution/3500-3599/3591.Check if Any Element Has Prime Frequency/README.md": {
       "authors": [
@@ -128297,7 +128297,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750597339
+      "retrieved": 1750857875
     },
     "solution/3500-3599/3592.Inverse Coin Change/README.md": {
       "authors": [
@@ -128308,7 +128308,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750597339
+      "retrieved": 1750857875
     },
     "solution/3500-3599/3593.Minimum Increments to Equalize Leaf Paths/README.md": {
       "authors": [
@@ -128319,7 +128319,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750597340
+      "retrieved": 1750857875
     },
     "solution/3500-3599/3594.Minimum Time to Transport All Individuals/README.md": {
       "authors": [
@@ -128330,7 +128330,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750597340
+      "retrieved": 1750857876
     },
     "solution/3500-3599/3591.Check if Any Element Has Prime Frequency/README_EN.md": {
       "authors": [
@@ -128341,7 +128341,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750598115
+      "retrieved": 1750858667
     },
     "solution/3500-3599/3592.Inverse Coin Change/README_EN.md": {
       "authors": [
@@ -128352,7 +128352,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750598115
+      "retrieved": 1750858668
     },
     "solution/3500-3599/3593.Minimum Increments to Equalize Leaf Paths/README_EN.md": {
       "authors": [
@@ -128363,7 +128363,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750598115
+      "retrieved": 1750858668
     },
     "solution/3500-3599/3594.Minimum Time to Transport All Individuals/README_EN.md": {
       "authors": [
@@ -128374,7 +128374,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750598115
+      "retrieved": 1750858668
     },
     "solution/3500-3599/3595.Once Twice/README.md": {
       "authors": [
