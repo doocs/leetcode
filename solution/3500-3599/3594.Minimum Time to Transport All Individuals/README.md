@@ -2,6 +2,14 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md
+tags:
+    - 位运算
+    - 图
+    - 数组
+    - 动态规划
+    - 状态压缩
+    - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

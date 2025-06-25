@@ -67,7 +67,7 @@ tags:
 <div class="example-block">
 <p><strong>Input:</strong> <span class="example-io">nums = [4,2,9,8,2,12,7,12,10,5,8,5,5,7,9,2,5,11], k = 14</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[[2,2,12],[4,8,5],[5,9,7],[7,8,5],[5,9,10],[11,12,2]]</span></p>
+<p><strong>Output:</strong> <span class="example-io">[[2,2,2],[4,5,5],[5,5,7],[7,8,8],[9,9,10],[11,12,12]]</span></p>
 
 <p><strong>Explanation:</strong></p>
 

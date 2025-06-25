@@ -70,7 +70,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= compressed.length &lt;= 6 * 10<sup>4</sup></code></li>
-	<li><code>compressed</code> 仅由大写英文字母和数字组成。</li>
+	<li><code>compressed</code> 仅由小写英文字母和数字组成。</li>
 	<li><code>compressed</code> 是有效的压缩，即，每个字符后面都有其出现频率。</li>
 	<li>出现频率在&nbsp;<code>[1, 10<sup>4</sup>]</code>&nbsp;之间并且没有前导 0。</li>
 </ul>

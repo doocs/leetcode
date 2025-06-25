@@ -7,6 +7,7 @@ source: 第 239 场周赛 Q2
 tags:
     - 字符串
     - 回溯
+    - 枚举
 ---
 
 <!-- problem:start -->

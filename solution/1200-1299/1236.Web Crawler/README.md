@@ -19,22 +19,22 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个链接&nbsp;<code>startUrl</code> 和一个接口&nbsp;<code>HtmlParser</code>&nbsp;，请你实现一个网络爬虫，以实现爬取同&nbsp;<code>startUrl</code>&nbsp;拥有相同&nbsp;<strong>主机名&nbsp;</strong>的全部链接。</p>
+<p>给定一个网址&nbsp;<code>startUrl</code> 和一个接口&nbsp;<code>HtmlParser</code>&nbsp;，请你实现一个网络爬虫，以实现爬取同&nbsp;<code>startUrl</code>&nbsp;拥有相同&nbsp;<strong>主机名&nbsp;</strong>的全部链接。</p>
 
-<p>该爬虫得到的全部链接可以&nbsp;<strong>任何顺序&nbsp;</strong>返回结果。</p>
+<p>该爬虫得到的全部网址可以&nbsp;<strong>任何顺序&nbsp;</strong>返回结果。</p>
 
 <p>你的网络爬虫应当按照如下模式工作：</p>
 
 <ul>
-	<li>自链接&nbsp;<code>startUrl</code>&nbsp;开始爬取</li>
-	<li>调用&nbsp;<code>HtmlParser.getUrls(url)</code>&nbsp;来获得链接<code>url</code>页面中的全部链接</li>
+	<li>自页面&nbsp;<code>startUrl</code>&nbsp;开始爬取</li>
+	<li>调用&nbsp;<code>HtmlParser.getUrls(url)</code>&nbsp;来获得给定&nbsp;<code>url</code>&nbsp;网址中的全部链接</li>
 	<li>同一个链接最多只爬取一次</li>
-	<li>只输出&nbsp;<strong>域名&nbsp;</strong>与<strong>&nbsp;</strong><code>startUrl</code>&nbsp;<strong>相同&nbsp;</strong>的链接集合</li>
+	<li>只浏览&nbsp;<strong>域名&nbsp;</strong>与<strong>&nbsp;</strong><code>startUrl</code>&nbsp;<strong>相同&nbsp;</strong>的链接集合</li>
 </ul>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1236.Web%20Crawler/images/urlhostname.png" style="height: 164px; width: 600px;" /></p>
 
-<p>如上所示的一个链接，其域名为&nbsp;<code>example.org</code>。简单起见，你可以假设所有的链接都采用&nbsp;<strong>http协议&nbsp;</strong>并没有指定&nbsp;<strong>端口</strong>。例如，链接&nbsp;<code>http://leetcode.com/problems</code>&nbsp;和&nbsp;<code>http://leetcode.com/contest</code>&nbsp;是同一个域名下的，而链接&nbsp;<code>http://example.org/test</code>&nbsp;和&nbsp;<code>http://example.com/abc</code> 是不在同一域名下的。</p>
+<p>如上所示的一个网址，其域名为&nbsp;<code>example.org</code>。简单起见，你可以假设所有的网址都采用&nbsp;<strong>http协议&nbsp;</strong>并没有指定&nbsp;<strong>端口</strong>。例如，网址&nbsp;<code>http://leetcode.com/problems</code>&nbsp;和&nbsp;<code>http://leetcode.com/contest</code>&nbsp;是同一个域名下的，而网址&nbsp;<code>http://example.org/test</code>&nbsp;和&nbsp;<code>http://example.com/abc</code> 是不在同一域名下的。</p>
 
 <p><code>HtmlParser</code> 接口定义如下：&nbsp;</p>
 
@@ -46,7 +46,7 @@ interface HtmlParser {
 
 <p>下面是两个实例，用以解释该问题的设计功能，对于自定义测试，你可以使用三个变量&nbsp;&nbsp;<code>urls</code>,&nbsp;<code>edges</code>&nbsp;和&nbsp;<code>startUrl</code>。注意在代码实现中，你只可以访问&nbsp;<code>startUrl</code>&nbsp;，而&nbsp;<code>urls</code>&nbsp;和&nbsp;<code>edges</code>&nbsp;不可以在你的代码中被直接访问。</p>
 
-<p>注意：将尾随斜线“/”的相同 URL 视为不同的 URL。例如，“http://news.yahoo.com” 和 “http://news.yahoo.com/” 是不同的域名。</p>
+<p>注意：将尾随斜线“/”的相同网址视为不同的网址。例如，“http://news.yahoo.com” 和 “http://news.yahoo.com/” 是不同的网址。</p>
 
 <p>&nbsp;</p>
 

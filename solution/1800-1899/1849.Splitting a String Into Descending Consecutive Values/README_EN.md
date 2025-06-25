@@ -7,6 +7,7 @@ source: Weekly Contest 239 Q2
 tags:
     - String
     - Backtracking
+    - Enumeration
 ---
 
 <!-- problem:start -->

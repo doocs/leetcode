@@ -8,6 +8,8 @@ tags:
     - 贪心
     - 数组
     - 二分查找
+    - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->
@@ -24,7 +26,7 @@ tags:
 
 <p>对于一个下标对&nbsp;<code>i</code>&nbsp;和&nbsp;<code>j</code>&nbsp;，这一对的差值为&nbsp;<code>|nums[i] - nums[j]|</code>&nbsp;，其中&nbsp;<code>|x|</code>&nbsp;表示 <code>x</code>&nbsp;的 <strong>绝对值</strong>&nbsp;。</p>
 
-<p>请你返回 <code>p</code>&nbsp;个下标对对应数值 <strong>最大差值</strong>&nbsp;的 <strong>最小值</strong>&nbsp;。</p>
+<p>请你返回 <code>p</code>&nbsp;个下标对对应数值 <strong>最大差值</strong>&nbsp;的 <strong>最小值</strong>&nbsp;。我们定义空集的最大值为零。</p>
 
 <p>&nbsp;</p>
 

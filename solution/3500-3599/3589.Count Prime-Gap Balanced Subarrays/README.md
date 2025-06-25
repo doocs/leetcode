@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README.md
+tags:
+    - 队列
+    - 数组
+    - 数学
+    - 数论
+    - 滑动窗口
+    - 单调队列
 ---
 
 <!-- problem:start -->

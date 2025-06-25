@@ -54,12 +54,12 @@ bcd-e-
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>sentence = ["I", "had", "apple", "pie"], rows = 4, cols = 5
+<strong>输入：</strong>sentence = ["i", "had", "apple", "pie"], rows = 4, cols = 5
 <strong>输出：</strong>1
 <strong>解释：</strong>
-I-had
+i-had
 apple
-pie-I
+pie-i
 had--
 字符 '-' 表示屏幕上的一个空白位置。
 </pre>

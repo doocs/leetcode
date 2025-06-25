@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 有序集合
 ---
 
 <!-- problem:start -->
