@@ -9,6 +9,7 @@ tags:
     - Design
     - Binary Indexed Tree
     - Segment Tree
+    - Hash Table
     - Binary Search
     - Ordered Set
     - Heap (Priority Queue)

@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3592.Inverse%20Coin%20Change/README.md
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

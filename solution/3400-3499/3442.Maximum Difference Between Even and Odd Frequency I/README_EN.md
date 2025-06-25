@@ -20,9 +20,9 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a string <code>s</code> consisting of lowercase English letters. </p>
+<p>You are given a string <code>s</code> consisting of lowercase English letters.</p>
 
-<p>Your task is to find the <strong>maximum</strong> difference <code>diff = a<sub>1</sub> - a<sub>2</sub></code> between the frequency of characters <code>a<sub>1</sub></code> and <code>a<sub>2</sub></code> in the string such that:</p>
+<p>Your task is to find the <strong>maximum</strong> difference <code>diff = freq(a<sub>1</sub>) - freq(a<sub>2</sub>)</code> between the frequency of characters <code>a<sub>1</sub></code> and <code>a<sub>2</sub></code> in the string such that:</p>
 
 <ul>
 	<li><code>a<sub>1</sub></code> has an <strong>odd frequency</strong> in the string.</li>

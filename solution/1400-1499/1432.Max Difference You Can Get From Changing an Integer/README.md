@@ -31,7 +31,7 @@ tags:
 
 <p>请你返回&nbsp;<code>a</code> 和&nbsp;<code>b</code>&nbsp;的 <strong>最大差值</strong> 。</p>
 
-<p>注意，新的整数（<code>a</code> 或 <code>b</code>）<strong>必须不能</strong> 含有前导 0，并且 <strong>非</strong> 0。</p>
+<p>注意，<code>a</code>&nbsp;和&nbsp;<code>b</code>&nbsp;<strong>必须不能</strong> 含有前导 0，并且 <strong>不为</strong> 0。</p>
 
 <p>&nbsp;</p>
 

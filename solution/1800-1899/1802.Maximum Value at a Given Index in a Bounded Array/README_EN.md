@@ -6,6 +6,7 @@ rating: 1929
 source: Weekly Contest 233 Q3
 tags:
     - Greedy
+    - Math
     - Binary Search
 ---
 
