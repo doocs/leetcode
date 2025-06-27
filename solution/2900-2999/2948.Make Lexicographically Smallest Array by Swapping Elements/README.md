@@ -109,9 +109,7 @@ class Solution {
     public int[] lexicographicallySmallestArray(int[] nums, int limit) {
         int n = nums.length;
         Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            idx[i] = i;
-        }
+        Arrays.setAll(idx, i -> i);
         Arrays.sort(idx, (i, j) -> nums[i] - nums[j]);
         int[] ans = new int[n];
         for (int i = 0; i < n;) {
