@@ -280,9 +280,7 @@ class Solution {
     public int maxJumps(int[] arr, int d) {
         int n = arr.length;
         Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            idx[i] = i;
-        }
+        Arrays.setAll(idx, i -> i);
         Arrays.sort(idx, (i, j) -> arr[i] - arr[j]);
         int[] f = new int[n];
         Arrays.fill(f, 1);
