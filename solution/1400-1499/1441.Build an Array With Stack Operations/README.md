@@ -20,19 +20,26 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个数组 <code>target</code> 和一个整数 <code>n</code>。每次迭代，需要从&nbsp; <code>list = { 1 , 2 , 3 ..., n }</code> 中依次读取一个数字。</p>
+<p>给你一个数组 <code>target</code> 和一个整数 <code>n</code>。</p>
 
-<p>请使用下述操作来构建目标数组 <code>target</code> ：</p>
+<p>给你一个空栈和两种操作：</p>
 
 <ul>
-	<li><code>"Push"</code>：从 <code>list</code> 中读取一个新元素， 并将其推入数组中。</li>
-	<li><code>"Pop"</code>：删除数组中的最后一个元素。</li>
-	<li>如果目标数组构建完成，就停止读取更多元素。</li>
+	<li><code>"Push"</code>：将一个整数加到栈顶。</li>
+	<li><code>"Pop"</code>：从栈顶删除一个整数。</li>
 </ul>
 
-<p>题目数据保证目标数组严格递增，并且只包含 <code>1</code> 到 <code>n</code> 之间的数字。</p>
+<p>同时给定一个范围 <code>[1, n]</code> 中的整数流。</p>
 
-<p>请返回构建目标数组所用的操作序列。如果存在多个可行方案，返回任一即可。</p>
+<p>使用两个栈操作使栈中的数字（从底部到顶部）等于 <code>target</code>。你应该遵循以下规则：</p>
+
+<ul>
+	<li>如果整数流不为空，从流中选取下一个整数并将其推送到栈顶。</li>
+	<li>如果栈不为空，弹出栈顶的整数。</li>
+	<li>如果，在任何时刻，栈中的元素（从底部到顶部）等于 <code>target</code>，则不要从流中读取新的整数，也不要对栈进行更多操作。</li>
+</ul>
+
+<p>请返回遵循上述规则构建&nbsp;<code>target</code> 所用的操作序列。如果存在多个合法答案，返回 <strong>任一</strong> 即可。</p>
 
 <p>&nbsp;</p>
 
@@ -41,10 +48,11 @@ tags:
 <pre>
 <strong>输入：</strong>target = [1,3], n = 3
 <strong>输出：</strong>["Push","Push","Pop","Push"]
-<strong>解释： 
-</strong>读取 1 并自动推入数组 -&gt; [1]
-读取 2 并自动推入数组，然后删除它 -&gt; [1]
-读取 3 并自动推入数组 -&gt; [1,3]
+<strong>解释：</strong>一开始栈为空。最后一个元素是栈顶。<strong>
+</strong>从流中读取 1 并推入数组 -&gt; [1]
+从流中读取 2 并推入数组 -&gt; [1,2]
+从栈顶删除整数 -&gt; [1]
+从流中读取 3 并推入数组 -&gt; [1,3]
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -52,6 +60,10 @@ tags:
 <pre>
 <strong>输入：</strong>target = [1,2,3], n = 3
 <strong>输出：</strong>["Push","Push","Push"]
+<strong>解释：</strong>一开始栈为空。最后一个元素是栈顶。
+从流中读取 1 并推入数组 -&gt; [1]
+从流中读取 2 并推入数组 -&gt; [1,2]
+从流中读取 3 并推入数组 -&gt; [1,2,3]
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -59,7 +71,11 @@ tags:
 <pre>
 <strong>输入：</strong>target = [1,2], n = 4
 <strong>输出：</strong>["Push","Push"]
-<strong>解释：</strong>只需要读取前 2 个数字就可以停止。
+<strong>解释：</strong>一开始栈为空。最后一个元素是栈顶。
+从流中读取 1 并推入数组 -&gt; [1]
+从流中读取 2 并推入数组 -&gt; [1,2]
+由于栈（从底部到顶部）等于 target，我们停止栈操作。
+从流中读取整数 3 的答案不被接受。
 </pre>
 
 <p>&nbsp;</p>

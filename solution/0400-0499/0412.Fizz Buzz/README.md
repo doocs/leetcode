@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数 <code>n</code> ，找出从 <code>1</code> 到 <code>n</code> 各个整数的 Fizz Buzz 表示，并用字符串数组 <code>answer</code>（<strong>下标从 1 开始</strong>）返回结果，其中：</p>
+<p>给你一个整数 <code>n</code> ，返回一个字符串数组 <code>answer</code>（<strong>下标从 1 开始</strong>），其中：</p>
 
 <ul>
 	<li><code>answer[i] == "FizzBuzz"</code> 如果 <code>i</code> 同时是 <code>3</code> 和 <code>5</code> 的倍数。</li>

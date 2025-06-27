@@ -16,13 +16,11 @@ tags:
 
 <!-- description:start -->
 
-<p>Given an array <code>arr</code> and&nbsp;a chunk size&nbsp;<code>size</code>, return a&nbsp;<strong>chunked</strong> array.</p>
+<p>Given an array <code>arr</code> and a chunk size <code>size</code>, return a <strong>chunked</strong> array.</p>
 
-<p>A&nbsp;<strong>chunked</strong>&nbsp;array contains the original elements in&nbsp;<code>arr</code>, but&nbsp;consists of subarrays each of length&nbsp;<code>size</code>. The length of the last subarray may be less than&nbsp;<code>size</code>&nbsp;if <code>arr.length</code>&nbsp;is not evenly divisible by <code>size</code>.</p>
+<p>A <strong>chunked</strong> array contains the original elements in <code>arr</code>, but consists of subarrays each of length <code>size</code>. The length of the last subarray may be less than <code>size</code> if <code>arr.length</code> is not evenly divisible by <code>size</code>.</p>
 
-<p>You may assume the&nbsp;array&nbsp;is&nbsp;the output of&nbsp;<code>JSON.parse</code>. In other words, it is valid JSON.</p>
-
-<p>Please solve it without using lodash&#39;s&nbsp;<code>_.chunk</code>&nbsp;function.</p>
+<p>Please solve it without using lodash&#39;s <code>_.chunk</code> function.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -60,8 +58,8 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>arr</code> is a valid JSON array</li>
-	<li><code>2 &lt;= JSON.stringify(arr).length &lt;= 10<sup>5</sup></code></li>
+	<li><code>arr</code> is a string representing the array.</li>
+	<li><code>2 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= size &lt;= arr.length + 1</code></li>
 </ul>
 

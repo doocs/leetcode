@@ -26,7 +26,7 @@ tags:
 <ul>
 	<li><code>subs</code> has a size of <strong>at least</strong> <code>k</code>.</li>
 	<li>Character <code>a</code> has an <em>odd frequency</em> in <code>subs</code>.</li>
-	<li>Character <code>b</code> has an <em>even frequency</em> in <code>subs</code>.</li>
+	<li>Character <code>b</code> has a <strong>non-zero</strong> <em>even frequency</em> in <code>subs</code>.</li>
 </ul>
 
 <p>Return the <strong>maximum</strong> difference.</p>

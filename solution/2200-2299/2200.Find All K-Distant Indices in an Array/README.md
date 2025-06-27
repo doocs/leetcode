@@ -30,15 +30,15 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [3,4,9,1,3,9,5], key = 9, k = 1
 <strong>输出：</strong>[1,2,3,4,5,6]
-<strong>解释：</strong>因此，<code>nums[2] == key</code> 且 <code>nums[5] == key 。
-- 对下标 0 ，|0 - 2| &gt; k 且 |0 - 5| &gt; k ，所以不存在 j</code> 使得 <code>|0 - j| &lt;= k</code> 且 <code>nums[j] == key 。所以 0 不是一个 K 近邻下标。
-- 对下标 1 ，|1 - 2| &lt;= k 且 nums[2] == key ，所以 1 是一个 K 近邻下标。
-- 对下标 2 ，|2 - 2| &lt;= k 且 nums[2] == key ，所以 2 是一个 K 近邻下标。
-- 对下标 3 ，|3 - 2| &lt;= k 且 nums[2] == key ，所以 3 是一个 K 近邻下标。
-- 对下标 4 ，|4 - 5| &lt;= k 且 nums[5] == key ，所以 4 是一个 K 近邻下标。
-- 对下标 5 ，|5 - 5| &lt;= k 且 nums[5] == key ，所以 5 是一个 K 近邻下标。
-- 对下标 6 ，|6 - 5| &lt;= k 且 nums[5] == key ，所以 6 是一个 K 近邻下标。
-</code>因此，按递增顺序返回 [1,2,3,4,5,6] 。 
+<strong>解释：</strong>因此，<code>nums[2] == key</code> 且 <code>nums[5] == key</code>。
+- 对下标 0 ，<code>|0 - 2| &gt; k</code> 且 <code>|0 - 5| &gt; k</code>，所以不存在 <code>j</code> 使得 <code>|0 - j| &lt;= k</code> 且 <code>nums[j] == key</code>。所以 0 不是一个 K 近邻下标。
+- 对下标 1 ，<code>|1 - 2| &lt;= k</code> 且 <code>nums[2] == key</code>，所以 1 是一个 K 近邻下标。
+- 对下标 2 ，<code>|2 - 2| &lt;= k</code> 且 <code>nums[2] == key</code>，所以 2 是一个 K 近邻下标。
+- 对下标 3 ，<code>|3 - 2| &lt;= k</code> 且 <code>nums[2] == key</code>，所以 3 是一个 K 近邻下标。
+- 对下标 4 ，<code>|4 - 5| &lt;= k</code> 且 <code>nums[5] == key</code>，所以 4 是一个 K 近邻下标。
+- 对下标 5 ，<code>|5 - 5| &lt;= k</code> 且 <code>nums[5] == key</code>，所以 5 是一个 K 近邻下标。
+- 对下标 6 ，<code>|6 - 5| &lt;= k</code> 且 <code>nums[5] == key</code>，所以 6 是一个 K 近邻下标。
+因此，按递增顺序返回 [1,2,3,4,5,6] 。 
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -46,7 +46,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [2,2,2,2,2], key = 2, k = 2
 <strong>输出：</strong>[0,1,2,3,4]
-<strong>解释：</strong>对 nums 的所有下标 i ，总存在某个下标 j 使得 |i - j| &lt;= k 且 nums[j] == key ，所以每个下标都是一个 <code>K 近邻下标。</code> 
+<strong>解释：</strong>对 <code>nums</code> 的所有下标 i ，总存在某个下标 j 使得 <code>|i - j| &lt;= k</code> 且 <code>nums[j] == key</code>，所以每个下标都是一个 K 近邻下标。 
 因此，返回 [0,1,2,3,4] 。
 </pre>
 

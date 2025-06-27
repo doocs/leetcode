@@ -73,7 +73,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Direct Traversal
+
+According to the problem description, if all adjacent characters are different, there is only 1 possible original input string. If there is 1 pair of adjacent identical characters, such as "abbc", then there are 2 possible original strings: "abc" and "abbc".
+
+By analogy, if there are $k$ pairs of adjacent identical characters, then there are $k + 1$ possible original input strings.
+
+Therefore, we just need to traverse the string, count the number of pairs of adjacent identical characters, and add 1.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -139,6 +147,16 @@ function possibleStringCount(word: string): number {
         f += word[i] === word[i - 1] ? 1 : 0;
     }
     return f;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn possible_string_count(word: String) -> i32 {
+        1 + word.as_bytes().windows(2).filter(|w| w[0] == w[1]).count() as i32
+    }
 }
 ```
 

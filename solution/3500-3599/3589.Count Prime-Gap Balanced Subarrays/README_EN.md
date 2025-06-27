@@ -2,6 +2,13 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README_EN.md
+tags:
+    - Queue
+    - Array
+    - Math
+    - Number Theory
+    - Sliding Window
+    - Monotonic Queue
 ---
 
 <!-- problem:start -->

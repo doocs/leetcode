@@ -20,9 +20,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个由小写英文字母组成的字符串&nbsp;<code>s</code> 。</p>
+<p>给你一个由小写英文字母组成的字符串&nbsp;<code>s</code>。</p>
 
-<p>请你找出字符串中两个字符&nbsp;<code>a<sub>1</sub></code>&nbsp;和&nbsp;<code>a<sub>2</sub></code> 的出现频次之间的 <strong>最大</strong> 差值 <code>diff = a<sub>1</sub>&nbsp;- a<sub>2</sub></code>，这两个字符需要满足：</p>
+<p>请你找出字符串中两个字符&nbsp;<code>a<sub>1</sub></code>&nbsp;和&nbsp;<code>a<sub>2</sub></code> 的出现频次之间的 <strong>最大</strong> 差值 <code>diff = freq(a<sub>1</sub>)&nbsp;- freq(a<sub>2</sub>)</code>，这两个字符需要满足：</p>
 
 <ul>
 	<li><code>a<sub>1</sub></code>&nbsp;在字符串中出现 <strong>奇数次</strong> 。</li>

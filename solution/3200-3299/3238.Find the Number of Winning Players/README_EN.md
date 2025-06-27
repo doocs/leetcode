@@ -28,7 +28,7 @@ tags:
 	<li>Player 0 wins if they pick any ball.</li>
 	<li>Player 1 wins if they pick at least two balls of the <em>same</em> color.</li>
 	<li>...</li>
-	<li>Player <code>i</code> wins if they pick at least<code>i + 1</code> balls of the <em>same</em> color.</li>
+	<li>Player <code>i</code> wins if they pick at least <code>i + 1</code> balls of the <em>same</em> color.</li>
 </ul>
 
 <p>Return the number of players who <strong>win</strong> the game.</p>
