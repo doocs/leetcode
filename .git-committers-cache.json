@@ -1,5 +1,5 @@
 {
-  "cache_date": 1751067652,
+  "cache_date": 1751115277,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -41605,7 +41605,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669768
+      "retrieved": 1751114284
     },
     "solution/3300-3399/3308.Find Top Performing Driver/README.md": {
       "authors": [
@@ -108612,7 +108612,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671321
+      "retrieved": 1751115083
     },
     "solution/3300-3399/3308.Find Top Performing Driver/README_EN.md": {
       "authors": [
@@ -128397,6 +128397,28 @@
         }
       ],
       "retrieved": 1750808725
+    },
+    "solution/3500-3599/3596.Minimum Cost Path with Alternating Directions I/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751114336
+    },
+    "solution/3500-3599/3596.Minimum Cost Path with Alternating Directions I/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751115132
     }
   }
 }
