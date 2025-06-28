@@ -85,7 +85,7 @@ Due to the movement rules given in the problem, in fact, only the following thre
 
 For all other cases, it is impossible to reach the target cell, so return $-1$.
 
-The time complexity is $O(1)$, and the space complexity is
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
