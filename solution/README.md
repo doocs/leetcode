@@ -3606,6 +3606,7 @@
 |  3593  |  [使叶子路径成本相等的最小增量](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README.md)  |  `树`,`深度优先搜索`,`数组`,`动态规划`  |  中等  |  第 455 场周赛  |
 |  3594  |  [所有人渡河所需的最短时间](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md)  |  `位运算`,`图`,`数组`,`动态规划`,`状态压缩`,`最短路`,`堆（优先队列）`  |  困难  |  第 455 场周赛  |
 |  3595  |  [一次或两次](/solution/3500-3599/3595.Once%20Twice/README.md)  |    |  中等  |  🔒  |
+|  3596  |  [最小花费路径交替方向 I](/solution/3500-3599/3596.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
