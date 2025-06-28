@@ -3604,6 +3604,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3593  |  [Minimum Increments to Equalize Leaf Paths](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 455  |
 |  3594  |  [Minimum Time to Transport All Individuals](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Array`,`Dynamic Programming`,`Bitmask`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 455  |
 |  3595  |  [Once Twice](/solution/3500-3599/3595.Once%20Twice/README_EN.md)  |    |  Medium  |  🔒  |
+|  3596  |  [Minimum Cost Path with Alternating Directions I](/solution/3500-3599/3596.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20I/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
