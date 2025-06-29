@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 456
+
+- [3597. Partition String](/solution/3500-3599/3597.Partition%20String/README_EN.md)
+- [3598. Longest Common Prefix Between Adjacent Strings After Removals](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md)
+- [3599. Partition Array to Minimize XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md)
+- [3600. Maximize Spanning Tree Stability with Upgrades](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md)
+
 #### Weekly Contest 455
 
 - [3591. Check if Any Element Has Prime Frequency](/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README_EN.md)
