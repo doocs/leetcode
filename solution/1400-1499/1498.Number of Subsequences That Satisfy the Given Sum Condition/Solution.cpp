@@ -10,10 +10,7 @@ public:
             f[i] = (f[i - 1] * 2) % mod;
         }
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] * 2L > target) {
-                break;
-            }
+        for (int i = 0; i < n && nums[i] * 2 <= target; ++i) {
             int j = upper_bound(nums.begin() + i + 1, nums.end(), target - nums[i]) - nums.begin() - 1;
             ans = (ans + f[j - i]) % mod;
         }
