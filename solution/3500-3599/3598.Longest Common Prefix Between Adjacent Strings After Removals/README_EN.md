@@ -97,32 +97,231 @@ A prefix of a string is a substring that starts from the beginning of the string
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Ordered Set
+
+We define a function $\textit{calc}(s, t)$, which calculates the length of the longest common prefix between strings $s$ and $t$. We can use an ordered set to maintain the longest common prefix lengths of all adjacent string pairs.
+
+Define a function $\textit{add}(i, j)$, which adds the longest common prefix length of the string pair at indices $i$ and $j$ to the ordered set. Define a function $\textit{remove}(i, j)$, which removes the longest common prefix length of the string pair at indices $i$ and $j$ from the ordered set.
+
+First, we compute the longest common prefix lengths for all adjacent string pairs and store them in the ordered set. Then, for each index $i$, we perform the following steps:
+
+1. Remove the longest common prefix length of the string pair at indices $i$ and $i + 1$.
+2. Remove the longest common prefix length of the string pair at indices $i - 1$ and $i$.
+3. Add the longest common prefix length of the string pair at indices $i - 1$ and $i + 1$.
+4. Add the current maximum value in the ordered set (if it exists and is greater than 0) to the answer.
+5. Remove the longest common prefix length of the string pair at indices $i - 1$ and $i + 1$.
+6. Add the longest common prefix length of the string pair at indices $i - 1$ and $i$.
+7. Add the longest common prefix length of the string pair at indices $i$ and $i + 1$.
+
+In this way, after removing each string, we can quickly compute the longest common prefix length between adjacent string pairs.
+
+The time complexity is $O(L + n \times \log n)$, and the space complexity is $O(n)$, where $L$ is the total length of all strings and $n$ is the number of strings.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def longestCommonPrefix(self, words: List[str]) -> List[int]:
+        @cache
+        def calc(s: str, t: str) -> int:
+            k = 0
+            for a, b in zip(s, t):
+                if a != b:
+                    break
+                k += 1
+            return k
 
+        def add(i: int, j: int):
+            if 0 <= i < n and 0 <= j < n:
+                sl.add(calc(words[i], words[j]))
+
+        def remove(i: int, j: int):
+            if 0 <= i < n and 0 <= j < n:
+                sl.remove(calc(words[i], words[j]))
+
+        n = len(words)
+        sl = SortedList(calc(a, b) for a, b in pairwise(words))
+        ans = []
+        for i in range(n):
+            remove(i, i + 1)
+            remove(i - 1, i)
+            add(i - 1, i + 1)
+            ans.append(sl[-1] if sl and sl[-1] > 0 else 0)
+            remove(i - 1, i + 1)
+            add(i - 1, i)
+            add(i, i + 1)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private final TreeMap<Integer, Integer> tm = new TreeMap<>();
+    private String[] words;
+    private int n;
 
+    public int[] longestCommonPrefix(String[] words) {
+        n = words.length;
+        this.words = words;
+        for (int i = 0; i + 1 < n; ++i) {
+            tm.merge(calc(words[i], words[i + 1]), 1, Integer::sum);
+        }
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            remove(i, i + 1);
+            remove(i - 1, i);
+            add(i - 1, i + 1);
+            ans[i] = !tm.isEmpty() && tm.lastKey() > 0 ? tm.lastKey() : 0;
+            remove(i - 1, i + 1);
+            add(i - 1, i);
+            add(i, i + 1);
+        }
+        return ans;
+    }
+
+    private void add(int i, int j) {
+        if (i >= 0 && i < n && j >= 0 && j < n) {
+            tm.merge(calc(words[i], words[j]), 1, Integer::sum);
+        }
+    }
+
+    private void remove(int i, int j) {
+        if (i >= 0 && i < n && j >= 0 && j < n) {
+            int x = calc(words[i], words[j]);
+            if (tm.merge(x, -1, Integer::sum) == 0) {
+                tm.remove(x);
+            }
+        }
+    }
+
+    private int calc(String s, String t) {
+        int m = Math.min(s.length(), t.length());
+        for (int k = 0; k < m; ++k) {
+            if (s.charAt(k) != t.charAt(k)) {
+                return k;
+            }
+        }
+        return m;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> longestCommonPrefix(vector<string>& words) {
+        multiset<int> ms;
+        int n = words.size();
+        auto calc = [&](const string& s, const string& t) {
+            int m = min(s.size(), t.size());
+            for (int k = 0; k < m; ++k) {
+                if (s[k] != t[k]) {
+                    return k;
+                }
+            }
+            return m;
+        };
+        for (int i = 0; i + 1 < n; ++i) {
+            ms.insert(calc(words[i], words[i + 1]));
+        }
+        vector<int> ans(n);
+        auto add = [&](int i, int j) {
+            if (i >= 0 && i < n && j >= 0 && j < n) {
+                ms.insert(calc(words[i], words[j]));
+            }
+        };
+        auto remove = [&](int i, int j) {
+            if (i >= 0 && i < n && j >= 0 && j < n) {
+                int x = calc(words[i], words[j]);
+                auto it = ms.find(x);
+                if (it != ms.end()) {
+                    ms.erase(it);
+                }
+            }
+        };
+        for (int i = 0; i < n; ++i) {
+            remove(i, i + 1);
+            remove(i - 1, i);
+            add(i - 1, i + 1);
+            ans[i] = ms.empty() ? 0 : *ms.rbegin();
+            remove(i - 1, i + 1);
+            add(i - 1, i);
+            add(i, i + 1);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func longestCommonPrefix(words []string) []int {
+	n := len(words)
+	tm := treemap.NewWithIntComparator()
 
+	calc := func(s, t string) int {
+		m := min(len(s), len(t))
+		for k := 0; k < m; k++ {
+			if s[k] != t[k] {
+				return k
+			}
+		}
+		return m
+	}
+
+	add := func(i, j int) {
+		if i >= 0 && i < n && j >= 0 && j < n {
+			x := calc(words[i], words[j])
+			if v, ok := tm.Get(x); ok {
+				tm.Put(x, v.(int)+1)
+			} else {
+				tm.Put(x, 1)
+			}
+		}
+	}
+
+	remove := func(i, j int) {
+		if i >= 0 && i < n && j >= 0 && j < n {
+			x := calc(words[i], words[j])
+			if v, ok := tm.Get(x); ok {
+				if v.(int) == 1 {
+					tm.Remove(x)
+				} else {
+					tm.Put(x, v.(int)-1)
+				}
+			}
+		}
+	}
+
+	for i := 0; i+1 < n; i++ {
+		add(i, i+1)
+	}
+
+	ans := make([]int, n)
+	for i := 0; i < n; i++ {
+		remove(i, i+1)
+		remove(i-1, i)
+		add(i-1, i+1)
+
+		if !tm.Empty() {
+			if maxKey, _ := tm.Max(); maxKey.(int) > 0 {
+				ans[i] = maxKey.(int)
+			}
+		}
+
+		remove(i-1, i+1)
+		add(i-1, i)
+		add(i, i+1)
+	}
+
+	return ans
+}
 ```
 
 <!-- tabs:end -->
