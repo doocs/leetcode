@@ -74,13 +74,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：排序 + 枚举贡献 + 二分查找
+### 方法一：排序 + 二分查找
 
-由于题目中描述的是子序列，并且涉及到最小元素与最大元素的和，因此我们可以先对数组 `nums` 进行排序。
+由于题目中描述的是子序列，并且涉及到最小元素与最大元素的和，因此我们可以先对数组 $\textit{nums}$ 进行排序。
 
-然后我们枚举最小元素 $nums[i]$，对于每个 $nums[i]$，我们可以在 $nums[i + 1]$ 到 $nums[n - 1]$ 中找到最大元素 $nums[j]$，使得 $nums[i] + nums[j] \leq target$，此时满足条件的子序列数目为 $2^{j - i}$，其中 $2^{j - i}$ 表示从 $nums[i + 1]$ 到 $nums[j]$ 的所有子序列的数目。我们将所有的子序列数目累加即可。
+然后我们枚举最小元素 $\textit{nums}[i]$，对于每个 $\textit{nums}[i]$，我们可以在 $\textit{nums}[i + 1]$ 到 $\textit{nums}[n - 1]$ 中找到最大元素 $\textit{nums}[j]$，使得 $\textit{nums}[i] + \textit{nums}[j] \leq \textit{target}$，此时满足条件的子序列数目为 $2^{j - i}$，其中 $2^{j - i}$ 表示从 $\textit{nums}[i + 1]$ 到 $\textit{nums}[j]$ 的所有子序列的数目。我们将所有的子序列数目累加即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -118,10 +118,7 @@ class Solution {
             f[i] = (f[i - 1] * 2) % mod;
         }
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] * 2L > target) {
-                break;
-            }
+        for (int i = 0; i < n && nums[i] * 2 <= target; ++i) {
             int j = search(nums, target - nums[i], i + 1) - 1;
             ans = (ans + f[j - i]) % mod;
         }
@@ -158,10 +155,7 @@ public:
             f[i] = (f[i - 1] * 2) % mod;
         }
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] * 2L > target) {
-                break;
-            }
+        for (int i = 0; i < n && nums[i] * 2 <= target; ++i) {
             int j = upper_bound(nums.begin() + i + 1, nums.end(), target - nums[i]) - nums.begin() - 1;
             ans = (ans + f[j - i]) % mod;
         }
@@ -190,6 +184,77 @@ func numSubseq(nums []int, target int) (ans int) {
 		ans = (ans + f[j-i]) % mod
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numSubseq(nums: number[], target: number): number {
+    nums.sort((a, b) => a - b);
+    const mod = 1e9 + 7;
+    const n = nums.length;
+    const f: number[] = Array(n + 1).fill(1);
+    for (let i = 1; i <= n; ++i) {
+        f[i] = (f[i - 1] * 2) % mod;
+    }
+
+    let ans = 0;
+    for (let i = 0; i < n && nums[i] * 2 <= target; ++i) {
+        const j = search(nums, target - nums[i], i + 1) - 1;
+        if (j >= i) {
+            ans = (ans + f[j - i]) % mod;
+        }
+    }
+    return ans;
+}
+
+function search(nums: number[], x: number, left: number): number {
+    let right = nums.length;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] > x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_subseq(mut nums: Vec<i32>, target: i32) -> i32 {
+        nums.sort();
+        const MOD: i32 = 1_000_000_007;
+        let n = nums.len();
+        let mut f = vec![1; n + 1];
+        for i in 1..=n {
+            f[i] = (f[i - 1] * 2) % MOD;
+        }
+        let mut ans = 0;
+        for i in 0..n {
+            if nums[i] * 2 > target {
+                break;
+            }
+            let mut l = i + 1;
+            let mut r = n;
+            while l < r {
+                let m = (l + r) / 2;
+                if nums[m] > target - nums[i] {
+                    r = m;
+                } else {
+                    l = m + 1;
+                }
+            }
+            let j = l - 1;
+            ans = (ans + f[j - i]) % MOD;
+        }
+        ans
+    }
 }
 ```
 
