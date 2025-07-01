@@ -22,7 +22,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0011  |  [Container With Most Water](/solution/0000-0099/0011.Container%20With%20Most%20Water/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`  |  Medium  |    |
 |  0012  |  [Integer to Roman](/solution/0000-0099/0012.Integer%20to%20Roman/README_EN.md)  |  `Hash Table`,`Math`,`String`  |  Medium  |    |
 |  0013  |  [Roman to Integer](/solution/0000-0099/0013.Roman%20to%20Integer/README_EN.md)  |  `Hash Table`,`Math`,`String`  |  Easy  |    |
-|  0014  |  [Longest Common Prefix](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)  |  `Trie`,`String`  |  Easy  |    |
+|  0014  |  [Longest Common Prefix](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)  |  `Trie`,`Array`,`String`  |  Easy  |    |
 |  0015  |  [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)  |  `Array`,`Two Pointers`,`Sorting`  |  Medium  |    |
 |  0016  |  [3Sum Closest](/solution/0000-0099/0016.3Sum%20Closest/README_EN.md)  |  `Array`,`Two Pointers`,`Sorting`  |  Medium  |    |
 |  0017  |  [Letter Combinations of a Phone Number](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README_EN.md)  |  `Hash Table`,`String`,`Backtracking`  |  Medium  |    |
@@ -1160,8 +1160,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1149  |  [Article Views II](/solution/1100-1199/1149.Article%20Views%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1150  |  [Check If a Number Is Majority Element in a Sorted Array](/solution/1100-1199/1150.Check%20If%20a%20Number%20Is%20Majority%20Element%20in%20a%20Sorted%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Easy  |  Biweekly Contest 6  |
 |  1151  |  [Minimum Swaps to Group All 1's Together](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |  Biweekly Contest 6  |
-|  1152  |  [Analyze User Website Visit Pattern](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Medium  |  Biweekly Contest 6  |
-|  1153  |  [String Transforms Into Another String](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)  |  `Hash Table`,`String`  |  Hard  |  Biweekly Contest 6  |
+|  1152  |  [Analyze User Website Visit Pattern](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |  Biweekly Contest 6  |
+|  1153  |  [String Transforms Into Another String](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)  |  `Graph`,`Hash Table`,`String`  |  Hard  |  Biweekly Contest 6  |
 |  1154  |  [Day of the Year](/solution/1100-1199/1154.Day%20of%20the%20Year/README_EN.md)  |  `Math`,`String`  |  Easy  |  Weekly Contest 149  |
 |  1155  |  [Number of Dice Rolls With Target Sum](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  Weekly Contest 149  |
 |  1156  |  [Swap For Longest Repeated Character Substring](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 149  |
@@ -3603,12 +3603,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3592  |  [Inverse Coin Change](/solution/3500-3599/3592.Inverse%20Coin%20Change/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 455  |
 |  3593  |  [Minimum Increments to Equalize Leaf Paths](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 455  |
 |  3594  |  [Minimum Time to Transport All Individuals](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Array`,`Dynamic Programming`,`Bitmask`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 455  |
-|  3595  |  [Once Twice](/solution/3500-3599/3595.Once%20Twice/README_EN.md)  |    |  Medium  |  🔒  |
-|  3596  |  [Minimum Cost Path with Alternating Directions I](/solution/3500-3599/3596.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20I/README_EN.md)  |    |  Medium  |  🔒  |
-|  3597  |  [Partition String](/solution/3500-3599/3597.Partition%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 456  |
-|  3598  |  [Longest Common Prefix Between Adjacent Strings After Removals](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 456  |
-|  3599  |  [Partition Array to Minimize XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md)  |    |  Medium  |  Weekly Contest 456  |
-|  3600  |  [Maximize Spanning Tree Stability with Upgrades](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md)  |    |  Hard  |  Weekly Contest 456  |
+|  3595  |  [Once Twice](/solution/3500-3599/3595.Once%20Twice/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |  🔒  |
+|  3596  |  [Minimum Cost Path with Alternating Directions I](/solution/3500-3599/3596.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20I/README_EN.md)  |  `Brainteaser`,`Math`  |  Medium  |  🔒  |
+|  3597  |  [Partition String](/solution/3500-3599/3597.Partition%20String/README_EN.md)  |  `Trie`,`Hash Table`,`String`,`Simulation`  |  Medium  |  Weekly Contest 456  |
+|  3598  |  [Longest Common Prefix Between Adjacent Strings After Removals](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md)  |  `Array`,`String`  |  Medium  |  Weekly Contest 456  |
+|  3599  |  [Partition Array to Minimize XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 456  |
+|  3600  |  [Maximize Spanning Tree Stability with Upgrades](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md)  |  `Greedy`,`Union Find`,`Graph`,`Binary Search`,`Minimum Spanning Tree`  |  Hard  |  Weekly Contest 456  |
 |  3601  |  [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright

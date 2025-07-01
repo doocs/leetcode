@@ -37,6 +37,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [5,2,3,1]
 <strong>输出：</strong>[1,2,3,5]
+<strong>解释：</strong>数组排序后，某些数字的位置没有改变（例如，2 和 3），而其他数字的位置发生了改变（例如，1 和 5）。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -44,6 +45,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [5,1,1,2,0,0]
 <strong>输出：</strong>[0,0,1,1,2,5]
+<strong>解释：</strong>请注意，nums 的值不一定唯一。
 </pre>
 
 <p>&nbsp;</p>

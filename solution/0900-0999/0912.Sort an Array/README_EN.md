@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [5,1,1,2,0,0]
 <strong>Output:</strong> [0,0,1,1,2,5]
-<strong>Explanation:</strong> Note that the values of nums are not necessairly unique.
+<strong>Explanation:</strong> Note that the values of nums are not necessarily unique.
 </pre>
 
 <p>&nbsp;</p>
