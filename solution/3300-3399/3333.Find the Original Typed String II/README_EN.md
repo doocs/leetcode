@@ -76,7 +76,24 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming + Prefix Sum
+
+For the constraint that the length is at least $k$, we can split it into two subproblems:
+
+-   Without length restriction, for each group of consecutive identical characters, we can choose any number from $1$ to the length of the group. Let the number of ways be $a$.
+-   For length less than $k$, let the number of ways be $b$.
+
+Thus, the final answer is $a - b$.
+
+We can group consecutive identical characters in the string $\textit{word}$. Since at least one character must be chosen from each group, if a group has more than $0$ remaining selectable characters, we add it to an array $\textit{nums}$. After initially selecting one character from each group, we update the remaining required character count $k$.
+
+If $k < 1$, it means that after selecting one character from each group, the requirement of length at least $k$ is already satisfied, so the answer is $a$.
+
+Otherwise, we need to calculate the value of $b$. We use a 2D array $\textit{f}$, where $\textit{f}[i][j]$ represents the number of ways to select $j$ characters from the first $i$ groups. Initially, $\textit{f}[0][0] = 1$, meaning there is $1$ way to select $0$ characters from $0$ groups. Then $b = \sum_{j=0}^{k-1} \text{f}[m][j]$, where $m$ is the length of $\textit{nums}$. The answer is $a - b$.
+
+Consider the transition equation for $\textit{f}[i][j]$. For the $i$-th group of characters, suppose its remaining length is $x$. For each $j$, we can enumerate the number of characters $l$ chosen from this group, where $l \in [0, \min(x, j)]$. Then, $\textit{f}[i][j]$ can be transferred from $\textit{f}[i-1][j-l]$. We can use prefix sums to optimize this transition.
+
+The time complexity is $O(n + k^2)$, and the space complexity is $O(k^2)$, where $n$ is the length of the string $\textit{word}$.
 
 <!-- tabs:start -->
 
