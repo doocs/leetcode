@@ -1,5 +1,5 @@
 {
-  "cache_date": 1751239974,
+  "cache_date": 1751381073,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -128507,6 +128507,28 @@
         }
       ],
       "retrieved": 1751174764
+    },
+    "solution/3600-3699/3601.Find Drivers with Improved Fuel Efficiency/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751380133
+    },
+    "solution/3600-3699/3601.Find Drivers with Improved Fuel Efficiency/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751380929
     }
   }
 }
