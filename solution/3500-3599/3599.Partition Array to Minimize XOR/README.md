@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README.md
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->

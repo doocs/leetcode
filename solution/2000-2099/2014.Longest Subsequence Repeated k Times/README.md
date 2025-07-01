@@ -70,7 +70,7 @@ tags:
 <ul>
 	<li><code>n == s.length</code></li>
 	<li><code>2 &lt;= k &lt;= 2000</code></li>
-	<li><code>2 &lt;= n &lt; k * 8</code></li>
+	<li><code>2 &lt;= n &lt; min(2001, k * 8)</code></li>
 	<li><code>s</code> 由小写英文字母组成</li>
 </ul>
 

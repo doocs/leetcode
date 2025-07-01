@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3597.Partition%20String/README.md
+tags:
+    - 字典树
+    - 哈希表
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

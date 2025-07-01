@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md
+tags:
+    - Array
+    - String
 ---
 
 <!-- problem:start -->
@@ -18,11 +21,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3598.Lo
 
 <ul>
 	<li>Remove the element at index <code>i</code> from the <code>words</code> array.</li>
-	<li>Compute the <strong>length</strong> of the <strong>longest common prefix</strong> among all <strong>adjacent</strong> pairs in the modified array.</li>
+	<li>Compute the <strong>length</strong> of the <strong>longest common <span data-keyword="string-prefix">prefix</span></strong> among all <strong>adjacent</strong> pairs in the modified array.</li>
 </ul>
 
 <p>Return an array <code>answer</code>, where <code>answer[i]</code> is the length of the longest common prefix between the adjacent pairs after removing the element at index <code>i</code>. If <strong>no</strong> adjacent pairs remain or if <strong>none</strong> share a common prefix, then <code>answer[i]</code> should be 0.</p>
-A prefix of a string is a substring that starts from the beginning of the string and extends to any point within it.
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

@@ -3593,7 +3593,7 @@ comments: true
 
 - [0922. 按奇偶排序数组 II](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 - [0921. 使括号有效的最少添加](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README.md)
-- [0923. 三数之和的多种可能](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
+- [0923. 多重三数之和](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
 - [0924. 尽量减少恶意软件的传播](/solution/0900-0999/0924.Minimize%20Malware%20Spread/README.md)
 
 #### 第 105 场周赛(2018-10-07 09:30, 90 分钟) 参赛人数 393

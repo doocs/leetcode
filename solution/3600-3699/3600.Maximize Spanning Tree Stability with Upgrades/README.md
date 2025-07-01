@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README.md
+tags:
+    - 贪心
+    - 并查集
+    - 图
+    - 二分查找
+    - 最小生成树
 ---
 
 <!-- problem:start -->

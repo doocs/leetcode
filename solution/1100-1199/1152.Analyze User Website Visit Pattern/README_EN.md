@@ -7,6 +7,7 @@ source: Biweekly Contest 6 Q3
 tags:
     - Array
     - Hash Table
+    - String
     - Sorting
 ---
 

@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3597.Partition%20String/README_EN.md
+tags:
+    - Trie
+    - Hash Table
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->
