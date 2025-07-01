@@ -320,6 +320,7 @@
 | 3570 | [查找无可用副本的书籍](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README.md)                                                     | `数据库` | 简单 |      |
 | 3580 | [寻找持续进步的员工](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README.md)                                                         | `数据库` | 中等 |      |
 | 3586 | [寻找 COVID 康复患者](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README.md)                                                                 | `数据库` | 中等 |      |
+| 3601 | [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README.md)                        |          | 中等 |      |
 
 ## 版权
 
