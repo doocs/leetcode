@@ -83,25 +83,254 @@ tags:
 #### Python3
 
 ```python
-
+class Solution:
+    def possibleStringCount(self, word: str, k: int) -> int:
+        mod = 10**9 + 7
+        nums = []
+        ans = 1
+        cur = 0
+        for i, c in enumerate(word):
+            cur += 1
+            if i == len(word) - 1 or c != word[i + 1]:
+                if cur > 1:
+                    if k > 0:
+                        nums.append(cur - 1)
+                    ans = ans * cur % mod
+                cur = 0
+                k -= 1
+        if k < 1:
+            return ans
+        m = len(nums)
+        f = [[0] * k for _ in range(m + 1)]
+        f[0][0] = 1
+        for i, x in enumerate(nums, 1):
+            s = list(accumulate(f[i - 1], initial=0))
+            for j in range(k):
+                f[i][j] = (s[j + 1] - s[j - min(x, j)] + mod) % mod
+        return (ans - sum(f[m][j] for j in range(k))) % mod
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int possibleStringCount(String word, int k) {
+        final int mod = (int) 1e9 + 7;
+        List<Integer> nums = new ArrayList<>();
+        long ans = 1;
+        int cur = 0;
+        int n = word.length();
 
+        for (int i = 0; i < n; i++) {
+            cur++;
+            if (i == n - 1 || word.charAt(i) != word.charAt(i + 1)) {
+                if (cur > 1) {
+                    if (k > 0) {
+                        nums.add(cur - 1);
+                    }
+                    ans = ans * cur % mod;
+                }
+                cur = 0;
+                k--;
+            }
+        }
+
+        if (k < 1) {
+            return (int) ans;
+        }
+
+        int m = nums.size();
+        int[][] f = new int[m + 1][k];
+        f[0][0] = 1;
+
+        for (int i = 1; i <= m; i++) {
+            int x = nums.get(i - 1);
+            long[] s = new long[k + 1];
+            for (int j = 0; j < k; j++) {
+                s[j + 1] = (s[j] + f[i - 1][j]) % mod;
+            }
+            for (int j = 0; j < k; j++) {
+                int l = Math.max(0, j - x);
+                f[i][j] = (int) ((s[j + 1] - s[l] + mod) % mod);
+            }
+        }
+
+        long sum = 0;
+        for (int j = 0; j < k; j++) {
+            sum = (sum + f[m][j]) % mod;
+        }
+
+        return (int) ((ans - sum + mod) % mod);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int possibleStringCount(string word, int k) {
+        const int mod = 1e9 + 7;
+        vector<int> nums;
+        long long ans = 1;
+        int cur = 0;
+        int n = word.size();
 
+        for (int i = 0; i < n; ++i) {
+            cur++;
+            if (i == n - 1 || word[i] != word[i + 1]) {
+                if (cur > 1) {
+                    if (k > 0) {
+                        nums.push_back(cur - 1);
+                    }
+                    ans = ans * cur % mod;
+                }
+                cur = 0;
+                k--;
+            }
+        }
+
+        if (k < 1) {
+            return ans;
+        }
+
+        int m = nums.size();
+        vector<vector<int>> f(m + 1, vector<int>(k, 0));
+        f[0][0] = 1;
+
+        for (int i = 1; i <= m; ++i) {
+            int x = nums[i - 1];
+            vector<long long> s(k + 1, 0);
+            for (int j = 0; j < k; ++j) {
+                s[j + 1] = (s[j] + f[i - 1][j]) % mod;
+            }
+            for (int j = 0; j < k; ++j) {
+                int l = max(0, j - x);
+                f[i][j] = (s[j + 1] - s[l] + mod) % mod;
+            }
+        }
+
+        long long sum = 0;
+        for (int j = 0; j < k; ++j) {
+            sum = (sum + f[m][j]) % mod;
+        }
+
+        return (ans - sum + mod) % mod;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func possibleStringCount(word string, k int) int {
+	const mod = 1_000_000_007
+	nums := []int{}
+	ans := 1
+	cur := 0
+	n := len(word)
 
+	for i := 0; i < n; i++ {
+		cur++
+		if i == n-1 || word[i] != word[i+1] {
+			if cur > 1 {
+				if k > 0 {
+					nums = append(nums, cur-1)
+				}
+				ans = ans * cur % mod
+			}
+			cur = 0
+			k--
+		}
+	}
+
+	if k < 1 {
+		return ans
+	}
+
+	m := len(nums)
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, k)
+	}
+	f[0][0] = 1
+
+	for i := 1; i <= m; i++ {
+		x := nums[i-1]
+		s := make([]int, k+1)
+		for j := 0; j < k; j++ {
+			s[j+1] = (s[j] + f[i-1][j]) % mod
+		}
+		for j := 0; j < k; j++ {
+			l := j - x
+			if l < 0 {
+				l = 0
+			}
+			f[i][j] = (s[j+1] - s[l] + mod) % mod
+		}
+	}
+
+	sum := 0
+	for j := 0; j < k; j++ {
+		sum = (sum + f[m][j]) % mod
+	}
+
+	return (ans - sum + mod) % mod
+}
+```
+
+#### TypeScript
+
+```ts
+function possibleStringCount(word: string, k: number): number {
+    const mod = 1_000_000_007;
+    const nums: number[] = [];
+    let ans = 1;
+    let cur = 0;
+    const n = word.length;
+
+    for (let i = 0; i < n; i++) {
+        cur++;
+        if (i === n - 1 || word[i] !== word[i + 1]) {
+            if (cur > 1) {
+                if (k > 0) {
+                    nums.push(cur - 1);
+                }
+                ans = (ans * cur) % mod;
+            }
+            cur = 0;
+            k--;
+        }
+    }
+
+    if (k < 1) {
+        return ans;
+    }
+
+    const m = nums.length;
+    const f: number[][] = Array.from({ length: m + 1 }, () => Array(k).fill(0));
+    f[0][0] = 1;
+
+    for (let i = 1; i <= m; i++) {
+        const x = nums[i - 1];
+        const s: number[] = Array(k + 1).fill(0);
+        for (let j = 0; j < k; j++) {
+            s[j + 1] = (s[j] + f[i - 1][j]) % mod;
+        }
+        for (let j = 0; j < k; j++) {
+            const l = Math.max(0, j - x);
+            f[i][j] = (s[j + 1] - s[l] + mod) % mod;
+        }
+    }
+
+    let sum = 0;
+    for (let j = 0; j < k; j++) {
+        sum = (sum + f[m][j]) % mod;
+    }
+
+    return (ans - sum + mod) % mod;
+}
 ```
 
 <!-- tabs:end -->
