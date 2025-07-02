@@ -152,14 +152,84 @@ Each row represents a trip made by a driver, including the distance traveled and
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Group Aggregation + Join Query
+
+First, we perform group aggregation on the `trips` table to calculate the average fuel efficiency for each driver in the first half and the second half of the year.
+
+Then, we join the results with the `drivers` table, filter out the drivers whose fuel efficiency has improved, and calculate the amount of improvement.
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
+# Write your MySQL query statement below
+WITH
+    T AS (
+        SELECT
+            driver_id,
+            AVG(distance_km / fuel_consumed) half_avg,
+            CASE
+                WHEN MONTH(trip_date) <= 6 THEN 1
+                ELSE 2
+            END half
+        FROM trips
+        GROUP BY driver_id, half
+    )
+SELECT
+    t1.driver_id,
+    d.driver_name,
+    ROUND(t1.half_avg, 2) first_half_avg,
+    ROUND(t2.half_avg, 2) second_half_avg,
+    ROUND(t2.half_avg - t1.half_avg, 2) efficiency_improvement
+FROM
+    T t1
+    JOIN T t2 ON t1.driver_id = t2.driver_id AND t1.half < t2.half AND t1.half_avg < t2.half_avg
+    JOIN drivers d ON t1.driver_id = d.driver_id
+ORDER BY efficiency_improvement DESC, d.driver_name;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def find_improved_efficiency_drivers(
+    drivers: pd.DataFrame, trips: pd.DataFrame
+) -> pd.DataFrame:
+    trips = trips.copy()
+    trips["trip_date"] = pd.to_datetime(trips["trip_date"])
+    trips["half"] = trips["trip_date"].dt.month.apply(lambda m: 1 if m <= 6 else 2)
+    trips["efficiency"] = trips["distance_km"] / trips["fuel_consumed"]
+    half_avg = (
+        trips.groupby(["driver_id", "half"])["efficiency"]
+        .mean()
+        .reset_index(name="half_avg")
+    )
+    pivot = half_avg.pivot(index="driver_id", columns="half", values="half_avg").rename(
+        columns={1: "first_half_avg", 2: "second_half_avg"}
+    )
+    pivot = pivot.dropna()
+    pivot = pivot[pivot["second_half_avg"] > pivot["first_half_avg"]]
+    pivot["efficiency_improvement"] = (
+        pivot["second_half_avg"] - pivot["first_half_avg"]
+    ).round(2)
+    pivot["first_half_avg"] = pivot["first_half_avg"].round(2)
+    pivot["second_half_avg"] = pivot["second_half_avg"].round(2)
+    result = pivot.reset_index().merge(drivers, on="driver_id")
+    result = result.sort_values(
+        by=["efficiency_improvement", "driver_name"], ascending=[False, True]
+    )
+    return result[
+        [
+            "driver_id",
+            "driver_name",
+            "first_half_avg",
+            "second_half_avg",
+            "efficiency_improvement",
+        ]
+    ]
 ```
 
 <!-- tabs:end -->
