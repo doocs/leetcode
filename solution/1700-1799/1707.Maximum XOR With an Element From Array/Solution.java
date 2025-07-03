@@ -35,9 +35,7 @@ class Solution {
         Arrays.sort(nums);
         int n = queries.length;
         Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            idx[i] = i;
-        }
+        Arrays.setAll(idx, i -> i);
         Arrays.sort(idx, (i, j) -> queries[i][1] - queries[j][1]);
         int[] ans = new int[n];
         Trie trie = new Trie();

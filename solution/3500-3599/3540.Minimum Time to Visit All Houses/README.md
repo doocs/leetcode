@@ -23,7 +23,7 @@ tags:
 
 <ul>
 	<li>对于所有的&nbsp;<code>0 &lt;= i &lt;= n - 2</code>，房屋&nbsp;<code>i</code>&nbsp;通过一条长度为&nbsp;<code>forward[i]</code>&nbsp;米的道路连接到房屋&nbsp;<code>i + 1</code>。另外，房屋&nbsp;<code>n - 1</code>&nbsp;通过一条长度为&nbsp;<code>forward[n - 1]</code>&nbsp;米的道路连接回房屋 0，形成一个环。</li>
-	<li>对于所有的 <code>1 &lt;= i &lt;= n - 1</code>，房屋&nbsp;<code>i</code>&nbsp;通过一条长度为&nbsp;<code>backward[i]</code>&nbsp;米的道路连接到房屋&nbsp;<code>i - 1</code>。另外，房屋&nbsp;0 通过一条长度为&nbsp;<code>backward[n - 1]</code>&nbsp;米的道路连接回房屋&nbsp;<code>n - 1</code>，形成一个环。</li>
+	<li>对于所有的 <code>1 &lt;= i &lt;= n - 1</code>，房屋&nbsp;<code>i</code>&nbsp;通过一条长度为&nbsp;<code>backward[i]</code>&nbsp;米的道路连接到房屋&nbsp;<code>i - 1</code>。另外，房屋&nbsp;0 通过一条长度为&nbsp;<code>backward[0]</code>&nbsp;米的道路连接回房屋&nbsp;<code>n - 1</code>，形成一个环。</li>
 </ul>
 
 <p>你可以以 <strong>1</strong> 米每秒的速度行走。从房屋&nbsp;0 开始，找到按照&nbsp;<code>queries</code>&nbsp;指定的顺序访问每所房屋的 <strong>最小</strong> 时间。</p>
@@ -55,7 +55,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>经过路径是&nbsp;<code><u>0</u> → <u>1</u> → <u>2</u> →​​​​​​​ <u>3</u> → <u>0</u></code>。每一步都在前向方向，需要 1 秒。</p>
+<p>经过路径是&nbsp;<code><u>0</u> → <u>1</u> → <u>2</u> → <u>3</u> → <u>0</u></code>。每一步都在前向方向，需要 1 秒。</p>
 </div>
 
 <p>&nbsp;</p>
