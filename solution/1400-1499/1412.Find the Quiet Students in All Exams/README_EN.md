@@ -93,7 +93,7 @@ Exam table:
 <strong>Explanation:</strong> 
 For exam 1: Student 1 and 3 hold the lowest and high scores respectively.
 For exam 2: Student 1 hold both highest and lowest score.
-For exam 3 and 4: Studnet 1 and 4 hold the lowest and high scores respectively.
+For exam 3 and 4: Student 1 and 4 hold the lowest and high scores respectively.
 Student 2 and 5 have never got the highest or lowest in any of the exams.
 Since student 5 is not taking any exam, he is excluded from the result.
 So, we only return the information of Student 2.

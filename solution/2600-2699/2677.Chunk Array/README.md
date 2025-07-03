@@ -62,7 +62,7 @@ tags:
 <p><b>提示：</b></p>
 
 <ul>
-	<li><code>arr</code>&nbsp;是一个有效的 JSON 数组</li>
+	<li><code>arr</code>&nbsp;是表示数组的字符串。</li>
 	<li><code>2 &lt;= JSON.stringify(arr).length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= size &lt;= arr.length + 1</code></li>
 </ul>

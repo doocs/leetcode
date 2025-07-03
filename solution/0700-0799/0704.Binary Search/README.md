@@ -17,19 +17,23 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个&nbsp;<code>n</code>&nbsp;个元素有序的（升序）整型数组&nbsp;<code>nums</code> 和一个目标值&nbsp;<code>target</code> &nbsp;，写一个函数搜索&nbsp;<code>nums</code>&nbsp;中的 <code>target</code>，如果目标值存在返回下标，否则返回 <code>-1</code>。</p>
+<p>给定一个&nbsp;<code>n</code>&nbsp;个元素有序的（升序）整型数组&nbsp;<code>nums</code> 和一个目标值&nbsp;<code>target</code> &nbsp;，写一个函数搜索&nbsp;<code>nums</code>&nbsp;中的 <code>target</code>，如果&nbsp;<code>target</code> 存在返回下标，否则返回 <code>-1</code>。</p>
 
-<p><br>
+<p>你必须编写一个具有 <code>O(log n)</code> 时间复杂度的算法。</p>
+
+<p><br />
 <strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 9
+<pre>
+<strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 9
 <strong>输出:</strong> 4
 <strong>解释:</strong> 9 出现在 <code>nums</code> 中并且下标为 4
 </pre>
 
 <p><strong>示例&nbsp;2:</strong></p>
 
-<pre><strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 2
+<pre>
+<strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 2
 <strong>输出:</strong> -1
 <strong>解释:</strong> 2 不存在 <code>nums</code> 中因此返回 -1
 </pre>

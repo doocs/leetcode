@@ -72,7 +72,23 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization + Binary Search
+
+First, we sort the events by their start time in ascending order. Then, we define a function $\text{dfs}(i, k)$, which represents the maximum total value achievable by attending at most $k$ events starting from the $i$-th event. The answer is $\text{dfs}(0, k)$.
+
+The calculation process of the function $\text{dfs}(i, k)$ is as follows:
+
+If we do not attend the $i$-th event, the maximum value is $\text{dfs}(i + 1, k)$. If we attend the $i$-th event, we can use binary search to find the first event whose start time is greater than the end time of the $i$-th event, denoted as $j$. Then, the maximum value is $\text{dfs}(j, k - 1) + \text{value}[i]$. We take the maximum of the two options:
+
+$$
+\text{dfs}(i, k) = \max(\text{dfs}(i + 1, k), \text{dfs}(j, k - 1) + \text{value}[i])
+$$
+
+Here, $j$ is the index of the first event whose start time is greater than the end time of the $i$-th event, which can be found using binary search.
+
+Since the calculation of $\text{dfs}(i, k)$ involves calls to $\text{dfs}(i + 1, k)$ and $\text{dfs}(j, k - 1)$, we can use memoization to store the computed values and avoid redundant calculations.
+
+The time complexity is $O(n \times \log n + n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the number of events.
 
 <!-- tabs:start -->
 
@@ -145,23 +161,29 @@ class Solution {
 class Solution {
 public:
     int maxValue(vector<vector<int>>& events, int k) {
-        sort(events.begin(), events.end());
+        ranges::sort(events);
         int n = events.size();
         int f[n][k + 1];
         memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int k) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int k) -> int {
             if (i >= n || k <= 0) {
                 return 0;
             }
             if (f[i][k] > 0) {
                 return f[i][k];
             }
+
             int ed = events[i][1], val = events[i][2];
             vector<int> t = {ed};
-            int p = upper_bound(events.begin() + i + 1, events.end(), t, [](const auto& a, const auto& b) { return a[0] < b[0]; }) - events.begin();
+
+            int p = upper_bound(events.begin() + i + 1, events.end(), t,
+                        [](const auto& a, const auto& b) { return a[0] < b[0]; })
+                - events.begin();
+
             f[i][k] = max(dfs(i + 1, k), dfs(p, k - 1) + val);
             return f[i][k];
         };
+
         return dfs(0, k);
     }
 };
@@ -198,30 +220,38 @@ func maxValue(events [][]int, k int) int {
 
 ```ts
 function maxValue(events: number[][], k: number): number {
-    events.sort((a, b) => a[1] - b[1]);
+    events.sort((a, b) => a[0] - b[0]);
     const n = events.length;
-    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
-    const search = (x: number, hi: number): number => {
-        let l = 0;
-        let r = hi;
-        while (l < r) {
-            const mid = (l + r) >> 1;
-            if (events[mid][1] >= x) {
-                r = mid;
+    const f: number[][] = Array.from({ length: n }, () => Array(k + 1).fill(0));
+
+    const dfs = (i: number, k: number): number => {
+        if (i >= n || k <= 0) {
+            return 0;
+        }
+        if (f[i][k] > 0) {
+            return f[i][k];
+        }
+
+        const ed = events[i][1],
+            val = events[i][2];
+
+        let left = i + 1,
+            right = n;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (events[mid][0] > ed) {
+                right = mid;
             } else {
-                l = mid + 1;
+                left = mid + 1;
             }
         }
-        return l;
+        const p = left;
+
+        f[i][k] = Math.max(dfs(i + 1, k), dfs(p, k - 1) + val);
+        return f[i][k];
     };
-    for (let i = 1; i <= n; ++i) {
-        const [st, _, val] = events[i - 1];
-        const p = search(st, i - 1);
-        for (let j = 1; j <= k; ++j) {
-            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
-        }
-    }
-    return f[n][k];
+
+    return dfs(0, k);
 }
 ```
 
@@ -231,7 +261,26 @@ function maxValue(events: number[][], k: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming + Binary Search
+
+We can convert the memoization approach in Solution 1 to dynamic programming.
+
+First, sort the events, this time by end time in ascending order. Then define $f[i][j]$ as the maximum total value by attending at most $j$ events among the first $i$ events. The answer is $f[n][k]$.
+
+For the $i$-th event, we can choose to attend it or not. If we do not attend, the maximum value is $f[i][j]$. If we attend, we can use binary search to find the last event whose end time is less than the start time of the $i$-th event, denoted as $h$. Then the maximum value is $f[h + 1][j - 1] + \text{value}[i]$. We take the maximum of the two options:
+
+$$
+f[i + 1][j] = \max(f[i][j], f[h + 1][j - 1] + \text{value}[i])
+$$
+
+Here, $h$ is the last event whose end time is less than the start time of the $i$-th event, which can be found by binary search.
+
+The time complexity is $O(n \times \log n + n \times k)$, and the space complexity is $O(n \times k)$, where $n$ is the number of events.
+
+Related problems:
+
+-   [1235. Maximum Profit in Job Scheduling](https://github.com/doocs/leetcode/blob/main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
+-   [2008. Maximum Earnings From Taxi](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -324,6 +373,37 @@ func maxValue(events [][]int, k int) int {
 		}
 	}
 	return f[n][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxValue(events: number[][], k: number): number {
+    events.sort((a, b) => a[1] - b[1]);
+    const n = events.length;
+    const f: number[][] = new Array(n + 1).fill(0).map(() => new Array(k + 1).fill(0));
+    const search = (x: number, hi: number): number => {
+        let l = 0;
+        let r = hi;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (events[mid][1] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = 1; i <= n; ++i) {
+        const [st, _, val] = events[i - 1];
+        const p = search(st, i - 1);
+        for (let j = 1; j <= k; ++j) {
+            f[i][j] = Math.max(f[i - 1][j], f[p][j - 1] + val);
+        }
+    }
+    return f[n][k];
 }
 ```
 

@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2560.Ho
 rating: 2081
 source: 第 331 场周赛 Q3
 tags:
+    - 贪心
     - 数组
     - 二分查找
+    - 动态规划
 ---
 
 <!-- problem:start -->

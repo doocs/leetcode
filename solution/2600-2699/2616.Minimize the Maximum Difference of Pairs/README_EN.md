@@ -8,6 +8,8 @@ tags:
     - Greedy
     - Array
     - Binary Search
+    - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->

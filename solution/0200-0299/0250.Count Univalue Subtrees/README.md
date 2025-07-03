@@ -18,23 +18,41 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个二叉树，统计该二叉树数值相同的<span data-keyword="subtree">子树</span>个数。</p>
+<p>给定一个二叉树，统计该二叉树数值相同的 <span data-keyword="subtree">子树</span> 个数。</p>
 
 <p>同值子树是指该子树的所有节点都拥有相同的数值。</p>
 
-<p><strong>示例：</strong></p>
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0250.Count%20Univalue%20Subtrees/images/unival_e1.jpg" style="width: 450px; height: 258px;" />
+<pre>
+<strong>输入：</strong>root = [5,1,5,5,5,null,5]
+<b>输出：</b>4
+</pre>
+
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>输入: </strong>root = [5,1,5,5,5,null,5]
-
-              5
-             / \
-            1   5
-           / \   \
-          5   5   5
-
-<strong>输出:</strong> 4
+<b>输入：</b>root = []
+<b>输出：</b>0
 </pre>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<b>输入：</b>root = [5,5,5,5,5,null,5]
+<b>输出：</b>6
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>树中节点的编号在 <code>[0, 1000]</code>&nbsp;范围内</li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
 
 <!-- description:end -->
 
