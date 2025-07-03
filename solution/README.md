@@ -3611,7 +3611,7 @@
 |  3598  |  [相邻字符串之间的最长公共前缀](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README.md)  |  `数组`,`字符串`  |  中等  |  第 456 场周赛  |
 |  3599  |  [划分数组得到最小 XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README.md)  |  `位运算`,`数组`,`动态规划`,`前缀和`  |  中等  |  第 456 场周赛  |
 |  3600  |  [升级后最大生成树稳定性](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README.md)  |  `贪心`,`并查集`,`图`,`二分查找`,`最小生成树`  |  困难  |  第 456 场周赛  |
-|  3601  |  [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README.md)  |    |  中等  |    |
+|  3601  |  [寻找燃油效率提升的驾驶员](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README.md)  |    |  中等  |    |
 
 ## 版权
 
