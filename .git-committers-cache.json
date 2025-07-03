@@ -1,5 +1,5 @@
 {
-  "cache_date": 1751500202,
+  "cache_date": 1751583802,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -11637,6 +11637,12 @@
     "solution/0000-0099/0016.3Sum Closest/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "djvelimir",
           "name": "djvelimir",
           "url": "https://github.com/djvelimir",
@@ -11655,13 +11661,13 @@
           "avatar": "https://avatars.githubusercontent.com/u/84593674?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "tchx626",
+          "name": "tchx626",
+          "url": "https://github.com/tchx626",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         }
       ],
-      "retrieved": 1745669053
+      "retrieved": 1751582485
     },
     "solution/0100-0199/0160.Intersection of Two Linked Lists/README.md": {
       "authors": [
@@ -13782,6 +13788,12 @@
     "solution/0000-0099/0017.Letter Combinations of a Phone Number/README.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -13800,7 +13812,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745669098
+      "retrieved": 1751582506
     },
     "solution/0100-0199/0170.Two Sum III - Data structure design/README.md": {
       "authors": [
@@ -41605,7 +41617,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1751114284
+      "retrieved": 1751582823
     },
     "solution/3300-3399/3308.Find Top Performing Driver/README.md": {
       "authors": [
@@ -78710,6 +78722,12 @@
     "solution/0000-0099/0016.3Sum Closest/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "djvelimir",
           "name": "djvelimir",
           "url": "https://github.com/djvelimir",
@@ -78728,13 +78746,13 @@
           "avatar": "https://avatars.githubusercontent.com/u/84593674?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "tchx626",
+          "name": "tchx626",
+          "url": "https://github.com/tchx626",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         }
       ],
-      "retrieved": 1745670631
+      "retrieved": 1751583281
     },
     "solution/0100-0199/0160.Intersection of Two Linked Lists/README_EN.md": {
       "authors": [
@@ -80891,6 +80909,12 @@
     "solution/0000-0099/0017.Letter Combinations of a Phone Number/README_EN.md": {
       "authors": [
         {
+          "login": "pranjal030404",
+          "name": "pranjal030404",
+          "url": "https://github.com/pranjal030404",
+          "avatar": "https://avatars.githubusercontent.com/u/182807087?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -80909,7 +80933,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670674
+      "retrieved": 1751583301
     },
     "solution/0100-0199/0170.Two Sum III - Data structure design/README_EN.md": {
       "authors": [
@@ -108612,7 +108636,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1751115083
+      "retrieved": 1751583607
     },
     "solution/3300-3399/3308.Find Top Performing Driver/README_EN.md": {
       "authors": [
@@ -128517,7 +128541,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1751499269
+      "retrieved": 1751582875
     },
     "solution/3600-3699/3601.Find Drivers with Improved Fuel Efficiency/README_EN.md": {
       "authors": [
