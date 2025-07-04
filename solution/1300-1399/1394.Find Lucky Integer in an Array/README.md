@@ -81,9 +81,9 @@ tags:
 
 ### 方法一：计数
 
-我们可以用哈希表或数组 $cnt$ 统计 $arr$ 中每个数字出现的次数，然后遍历 $cnt$，找到满足 $cnt[x] = x$ 的最大的 $x$ 即可。如果没有这样的 $x$，则返回 $-1$。
+我们可以用哈希表或数组 $\textit{cnt}$ 统计 $\textit{arr}$ 中每个数字出现的次数，然后遍历 $\textit{cnt}$，找到满足 $\textit{cnt}[x] = x$ 的最大的 $x$ 即可。如果没有这样的 $x$，则返回 $-1$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $arr$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -93,11 +93,7 @@ tags:
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
         cnt = Counter(arr)
-        ans = -1
-        for x, v in cnt.items():
-            if x == v and ans < x:
-                ans = x
-        return ans
+        return max((x for x, v in cnt.items() if x == v), default=-1)
 ```
 
 #### Java
@@ -105,17 +101,16 @@ class Solution:
 ```java
 class Solution {
     public int findLucky(int[] arr) {
-        int[] cnt = new int[510];
-        for (int x : cnt) {
+        int[] cnt = new int[501];
+        for (int x : arr) {
             ++cnt[x];
         }
-        int ans = -1;
-        for (int x = 1; x < cnt.length; ++x) {
-            if (cnt[x] == x) {
-                ans = x;
+        for (int x = cnt.length - 1; x > 0; --x) {
+            if (x == cnt[x]) {
+                return x;
             }
         }
-        return ans;
+        return -1;
     }
 }
 ```
@@ -126,18 +121,16 @@ class Solution {
 class Solution {
 public:
     int findLucky(vector<int>& arr) {
-        int cnt[510];
-        memset(cnt, 0, sizeof(cnt));
+        int cnt[501]{};
         for (int x : arr) {
             ++cnt[x];
         }
-        int ans = -1;
-        for (int x = 1; x < 510; ++x) {
-            if (cnt[x] == x) {
-                ans = x;
+        for (int x = 500; x; --x) {
+            if (x == cnt[x]) {
+                return x;
             }
         }
-        return ans;
+        return -1;
     }
 };
 ```
@@ -146,17 +139,16 @@ public:
 
 ```go
 func findLucky(arr []int) int {
-	cnt := [510]int{}
+	cnt := [501]int{}
 	for _, x := range arr {
 		cnt[x]++
 	}
-	ans := -1
-	for x := 1; x < len(cnt); x++ {
-		if cnt[x] == x {
-			ans = x
+	for x := len(cnt) - 1; x > 0; x-- {
+		if x == cnt[x] {
+			return x
 		}
 	}
-	return ans
+	return -1
 }
 ```
 
@@ -164,17 +156,34 @@ func findLucky(arr []int) int {
 
 ```ts
 function findLucky(arr: number[]): number {
-    const cnt = Array(510).fill(0);
+    const cnt: number[] = Array(501).fill(0);
     for (const x of arr) {
         ++cnt[x];
     }
-    let ans = -1;
-    for (let x = 1; x < cnt.length; ++x) {
-        if (cnt[x] === x) {
-            ans = x;
+    for (let x = cnt.length - 1; x; --x) {
+        if (x === cnt[x]) {
+            return x;
         }
     }
-    return ans;
+    return -1;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn find_lucky(arr: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        arr.iter().for_each(|&x| *cnt.entry(x).or_insert(0) += 1);
+        cnt.iter()
+            .filter(|(&x, &v)| x == v)
+            .map(|(&x, _)| x)
+            .max()
+            .unwrap_or(-1)
+    }
 }
 ```
 
@@ -187,17 +196,16 @@ class Solution {
      * @return Integer
      */
     function findLucky($arr) {
-        $max = -1;
-        for ($i = 0; $i < count($arr); $i++) {
-            $hashtable[$arr[$i]] += 1;
+        $cnt = array_fill(0, 501, 0);
+        foreach ($arr as $x) {
+            $cnt[$x]++;
         }
-        $keys = array_keys($hashtable);
-        for ($j = 0; $j < count($keys); $j++) {
-            if ($hashtable[$keys[$j]] == $keys[$j]) {
-                $max = max($max, $keys[$j]);
+        for ($x = 500; $x > 0; $x--) {
+            if ($cnt[$x] === $x) {
+                return $x;
             }
         }
-        return $max;
+        return -1;
     }
 }
 ```
