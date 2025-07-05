@@ -106,8 +106,8 @@ class Solution:
 class Solution {
     public int findLucky(int[] arr) {
         int[] cnt = new int[510];
-        for (int x : cnt) {
-            ++cnt[x];
+        for (int x : arr) {
+            cnt[x]++;
         }
         int ans = -1;
         for (int x = 1; x < cnt.length; ++x) {
