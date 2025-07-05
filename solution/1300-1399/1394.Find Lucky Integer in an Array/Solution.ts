@@ -1,13 +1,12 @@
 function findLucky(arr: number[]): number {
-    const cnt = Array(510).fill(0);
+    const cnt: number[] = Array(501).fill(0);
     for (const x of arr) {
         ++cnt[x];
     }
-    let ans = -1;
-    for (let x = 1; x < cnt.length; ++x) {
-        if (cnt[x] === x) {
-            ans = x;
+    for (let x = cnt.length - 1; x; --x) {
+        if (x === cnt[x]) {
+            return x;
         }
     }
-    return ans;
+    return -1;
 }
