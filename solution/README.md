@@ -3616,6 +3616,11 @@
 |  3603  |  [交替方向的最小路径代价 II](/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README.md)  |    |  中等  |  第 160 场双周赛  |
 |  3604  |  [有向图中到达终点的最少时间](/solution/3600-3699/3604.Minimum%20Time%20to%20Reach%20Destination%20in%20Directed%20Graph/README.md)  |    |  中等  |  第 160 场双周赛  |
 |  3605  |  [数组的最小稳定性因子](/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README.md)  |    |  困难  |  第 160 场双周赛  |
+|  3606  |  [优惠券校验器](/solution/3600-3699/3606.Coupon%20Code%20Validator/README.md)  |    |  简单  |  第 457 场周赛  |
+|  3607  |  [电网维护](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README.md)  |    |  中等  |  第 457 场周赛  |
+|  3608  |  [包含 K 个连通分量需要的最小时间](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README.md)  |    |  中等  |  第 457 场周赛  |
+|  3609  |  [到达目标点的最小移动次数](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README.md)  |    |  困难  |  第 457 场周赛  |
+|  3610  |  [Minimum Number of Primes to Sum to Target](/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

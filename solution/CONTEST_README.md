@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 457 场周赛(2025-07-06 10:30, 90 分钟) 参赛人数 1596
+
+- [3606. 优惠券校验器](/solution/3600-3699/3606.Coupon%20Code%20Validator/README.md)
+- [3607. 电网维护](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README.md)
+- [3608. 包含 K 个连通分量需要的最小时间](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README.md)
+- [3609. 到达目标点的最小移动次数](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README.md)
+
 #### 第 160 场双周赛(2025-07-05 22:30, 90 分钟) 参赛人数 1079
 
 - [3602. 十六进制和三十六进制转化](/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README.md)
