@@ -1,5 +1,5 @@
 {
-  "cache_date": 1751670437,
+  "cache_date": 1751763138,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -17066,7 +17066,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669170
+      "retrieved": 1751761854
     },
     "solution/1800-1899/1866.Number of Ways to Rearrange Sticks With K Sticks Visible/README.md": {
       "authors": [
@@ -84271,7 +84271,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670743
+      "retrieved": 1751762667
     },
     "solution/1800-1899/1866.Number of Ways to Rearrange Sticks With K Sticks Visible/README_EN.md": {
       "authors": [
@@ -128553,6 +128553,94 @@
         }
       ],
       "retrieved": 1751500059
+    },
+    "solution/3600-3699/3602.Hexadecimal and Hexatrigesimal Conversion/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762199
+    },
+    "solution/3600-3699/3603.Minimum Cost Path with Alternating Directions II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762199
+    },
+    "solution/3600-3699/3604.Minimum Time to Reach Destination in Directed Graph/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762199
+    },
+    "solution/3600-3699/3605.Minimum Stability Factor of Array/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762200
+    },
+    "solution/3600-3699/3602.Hexadecimal and Hexatrigesimal Conversion/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762992
+    },
+    "solution/3600-3699/3603.Minimum Cost Path with Alternating Directions II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762993
+    },
+    "solution/3600-3699/3604.Minimum Time to Reach Destination in Directed Graph/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762993
+    },
+    "solution/3600-3699/3605.Minimum Stability Factor of Array/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751762993
     }
   }
 }
