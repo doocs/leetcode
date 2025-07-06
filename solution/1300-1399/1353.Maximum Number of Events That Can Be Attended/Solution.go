@@ -1,36 +1,37 @@
-func maxEvents(events [][]int) int {
-	d := map[int][]int{}
-	i, j := math.MaxInt32, 0
-	for _, v := range events {
-		s, e := v[0], v[1]
-		d[s] = append(d[s], e)
-		i = min(i, s)
-		j = max(j, e)
+func maxEvents(events [][]int) (ans int) {
+	g := map[int][]int{}
+	l, r := math.MaxInt32, 0
+	for _, event := range events {
+		s, e := event[0], event[1]
+		g[s] = append(g[s], e)
+		l = min(l, s)
+		r = max(r, e)
 	}
-	q := hp{}
-	ans := 0
-	for s := i; s <= j; s++ {
-		for q.Len() > 0 && q.IntSlice[0] < s {
-			heap.Pop(&q)
+
+	pq := &hp{}
+	heap.Init(pq)
+	for s := l; s <= r; s++ {
+		for pq.Len() > 0 && pq.IntSlice[0] < s {
+			heap.Pop(pq)
 		}
-		for _, e := range d[s] {
-			heap.Push(&q, e)
+		for _, e := range g[s] {
+			heap.Push(pq, e)
 		}
-		if q.Len() > 0 {
-			heap.Pop(&q)
+		if pq.Len() > 0 {
+			heap.Pop(pq)
 			ans++
 		}
 	}
-	return ans
+	return
 }
 
 type hp struct{ sort.IntSlice }
 
 func (h *hp) Push(v any) { h.IntSlice = append(h.IntSlice, v.(int)) }
 func (h *hp) Pop() any {
-	a := h.IntSlice
-	v := a[len(a)-1]
-	h.IntSlice = a[:len(a)-1]
+	n := len(h.IntSlice)
+	v := h.IntSlice[n-1]
+	h.IntSlice = h.IntSlice[:n-1]
 	return v
 }
 func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }

@@ -1,19 +1,19 @@
 class Solution:
     def maxEvents(self, events: List[List[int]]) -> int:
-        d = defaultdict(list)
-        i, j = inf, 0
+        g = defaultdict(list)
+        l, r = inf, 0
         for s, e in events:
-            d[s].append(e)
-            i = min(i, s)
-            j = max(j, e)
-        h = []
+            g[s].append(e)
+            l = min(l, s)
+            r = max(r, e)
+        pq = []
         ans = 0
-        for s in range(i, j + 1):
-            while h and h[0] < s:
-                heappop(h)
-            for e in d[s]:
-                heappush(h, e)
-            if h:
+        for s in range(l, r + 1):
+            while pq and pq[0] < s:
+                heappop(pq)
+            for e in g[s]:
+                heappush(pq, e)
+            if pq:
+                heappop(pq)
                 ans += 1
-                heappop(h)
         return ans
