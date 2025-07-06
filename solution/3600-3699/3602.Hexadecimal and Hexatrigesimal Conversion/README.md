@@ -70,32 +70,137 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3602.He
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们定义一个函数 $\textit{f}(x, k)$，它将整数 $x$ 转换为以 $k$ 进制表示的字符串。该函数通过不断取模和整除来构建结果字符串。
+
+对于给定的整数 $n$，我们计算 $n^2$ 和 $n^3$，然后分别将它们转换为十六进制和三十六进制字符串。最后，将这两个字符串连接起来返回。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def concatHex36(self, n: int) -> str:
+        def f(x: int, k: int) -> str:
+            res = []
+            while x:
+                v = x % k
+                if v <= 9:
+                    res.append(str(v))
+                else:
+                    res.append(chr(ord("A") + v - 10))
+                x //= k
+            return "".join(res[::-1])
 
+        x, y = n**2, n**3
+        return f(x, 16) + f(y, 36)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String concatHex36(int n) {
+        int x = n * n;
+        int y = n * n * n;
+        return f(x, 16) + f(y, 36);
+    }
 
+    private String f(int x, int k) {
+        StringBuilder res = new StringBuilder();
+        while (x > 0) {
+            int v = x % k;
+            if (v <= 9) {
+                res.append((char) ('0' + v));
+            } else {
+                res.append((char) ('A' + v - 10));
+            }
+            x /= k;
+        }
+        return res.reverse().toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    string concatHex36(int n) {
+        int x = n * n;
+        int y = n * n * n;
+        return f(x, 16) + f(y, 36);
+    }
 
+private:
+    string f(int x, int k) {
+        string res;
+        while (x > 0) {
+            int v = x % k;
+            if (v <= 9) {
+                res += char('0' + v);
+            } else {
+                res += char('A' + v - 10);
+            }
+            x /= k;
+        }
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func concatHex36(n int) string {
+	x := n * n
+	y := n * n * n
+	return f(x, 16) + f(y, 36)
+}
 
+func f(x, k int) string {
+	res := []byte{}
+	for x > 0 {
+		v := x % k
+		if v <= 9 {
+			res = append(res, byte('0'+v))
+		} else {
+			res = append(res, byte('A'+v-10))
+		}
+		x /= k
+	}
+	for i, j := 0, len(res)-1; i < j; i, j = i+1, j-1 {
+		res[i], res[j] = res[j], res[i]
+	}
+	return string(res)
+}
+```
+
+#### TypeScript
+
+```ts
+function concatHex36(n: number): string {
+    function f(x: number, k: number): string {
+        const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let res = '';
+        while (x > 0) {
+            const v = x % k;
+            res = digits[v] + res;
+            x = Math.floor(x / k);
+        }
+        return res;
+    }
+
+    const x = n * n;
+    const y = n * n * n;
+    return f(x, 16) + f(y, 36);
+}
 ```
 
 <!-- tabs:end -->

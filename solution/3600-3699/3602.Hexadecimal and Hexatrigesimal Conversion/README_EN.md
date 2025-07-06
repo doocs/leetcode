@@ -68,32 +68,137 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3602.He
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We define a function $\textit{f}(x, k)$, which converts an integer $x$ to its string representation in base $k$. This function constructs the result string by repeatedly taking the modulus and dividing.
+
+For a given integer $n$, we compute $n^2$ and $n^3$, then convert them to hexadecimal and base-36 strings, respectively. Finally, we concatenate these two strings and return the result.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def concatHex36(self, n: int) -> str:
+        def f(x: int, k: int) -> str:
+            res = []
+            while x:
+                v = x % k
+                if v <= 9:
+                    res.append(str(v))
+                else:
+                    res.append(chr(ord("A") + v - 10))
+                x //= k
+            return "".join(res[::-1])
 
+        x, y = n**2, n**3
+        return f(x, 16) + f(y, 36)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String concatHex36(int n) {
+        int x = n * n;
+        int y = n * n * n;
+        return f(x, 16) + f(y, 36);
+    }
 
+    private String f(int x, int k) {
+        StringBuilder res = new StringBuilder();
+        while (x > 0) {
+            int v = x % k;
+            if (v <= 9) {
+                res.append((char) ('0' + v));
+            } else {
+                res.append((char) ('A' + v - 10));
+            }
+            x /= k;
+        }
+        return res.reverse().toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    string concatHex36(int n) {
+        int x = n * n;
+        int y = n * n * n;
+        return f(x, 16) + f(y, 36);
+    }
 
+private:
+    string f(int x, int k) {
+        string res;
+        while (x > 0) {
+            int v = x % k;
+            if (v <= 9) {
+                res += char('0' + v);
+            } else {
+                res += char('A' + v - 10);
+            }
+            x /= k;
+        }
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func concatHex36(n int) string {
+	x := n * n
+	y := n * n * n
+	return f(x, 16) + f(y, 36)
+}
 
+func f(x, k int) string {
+	res := []byte{}
+	for x > 0 {
+		v := x % k
+		if v <= 9 {
+			res = append(res, byte('0'+v))
+		} else {
+			res = append(res, byte('A'+v-10))
+		}
+		x /= k
+	}
+	for i, j := 0, len(res)-1; i < j; i, j = i+1, j-1 {
+		res[i], res[j] = res[j], res[i]
+	}
+	return string(res)
+}
+```
+
+#### TypeScript
+
+```ts
+function concatHex36(n: number): string {
+    function f(x: number, k: number): string {
+        const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let res = '';
+        while (x > 0) {
+            const v = x % k;
+            res = digits[v] + res;
+            x = Math.floor(x / k);
+        }
+        return res;
+    }
+
+    const x = n * n;
+    const y = n * n * n;
+    return f(x, 16) + f(y, 36);
+}
 ```
 
 <!-- tabs:end -->
