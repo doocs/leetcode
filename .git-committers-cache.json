@@ -1,5 +1,5 @@
 {
-  "cache_date": 1751764975,
+  "cache_date": 1751811697,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -128641,6 +128641,116 @@
         }
       ],
       "retrieved": 1751762993
+    },
+    "solution/3600-3699/3606.Coupon Code Validator/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751810768
+    },
+    "solution/3600-3699/3607.Power Grid Maintenance/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751810769
+    },
+    "solution/3600-3699/3608.Minimum Time for K Connected Components/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751810769
+    },
+    "solution/3600-3699/3609.Minimum Moves to Reach Target in Grid/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751810770
+    },
+    "solution/3600-3699/3610.Minimum Number of Primes to Sum to Target/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751810770
+    },
+    "solution/3600-3699/3606.Coupon Code Validator/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751811552
+    },
+    "solution/3600-3699/3607.Power Grid Maintenance/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751811553
+    },
+    "solution/3600-3699/3608.Minimum Time for K Connected Components/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751811553
+    },
+    "solution/3600-3699/3609.Minimum Moves to Reach Target in Grid/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751811554
+    },
+    "solution/3600-3699/3610.Minimum Number of Primes to Sum to Target/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1751811554
     }
   }
 }
