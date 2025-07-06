@@ -64,13 +64,17 @@ Attend the third event on day 3.
 
 ### Solution 1: Hash Table + Greedy + Priority Queue
 
-Define a hash table to record the start and end times of each meeting, where the key is the start time of the meeting, and the value is a list of end times.
+We use a hash table $\textit{g}$ to record the start and end times of each event. The key is the start time of the event, and the value is a list containing the end times of all events that start at that time. Two variables, $\textit{l}$ and $\textit{r}$, are used to record the minimum start time and the maximum end time among all events.
 
-Enumerate the current time $s$, find all meetings that start at the current time, and add their end times to the priority queue (min heap). At the same time, the priority queue needs to remove all meetings that end before the current time.
+For each time point $s$ from $\textit{l}$ to $\textit{r}$ in increasing order, we perform the following steps:
 
-Then, take out the meeting with the smallest end time from the priority queue, which is the meeting that can be attended at the current time, and accumulate the answer count. If the priority queue is empty, it means that there are no meetings that can be attended at the current time.
+1. Remove from the priority queue all events whose end time is less than the current time $s$.
+2. Add the end times of all events that start at the current time $s$ to the priority queue.
+3. If the priority queue is not empty, take out the event with the earliest end time, increment the answer count, and remove this event from the priority queue.
 
-The time complexity is $O(m \times \log n)$, and the space complexity is $O(n)$. Where $m$ and $n$ represent the maximum end time of the meetings and the number of meetings, respectively.
+In this way, we ensure that at each time point $s$, we always attend the event that ends the earliest, thus maximizing the number of events attended.
+
+The time complexity is $O(M \times \log n)$, and the space complexity is $O(n)$, where $M$ is the maximum end time and $n$ is the number of events.
 
 <!-- tabs:start -->
 
@@ -79,22 +83,22 @@ The time complexity is $O(m \times \log n)$, and the space complexity is $O(n)$.
 ```python
 class Solution:
     def maxEvents(self, events: List[List[int]]) -> int:
-        d = defaultdict(list)
-        i, j = inf, 0
+        g = defaultdict(list)
+        l, r = inf, 0
         for s, e in events:
-            d[s].append(e)
-            i = min(i, s)
-            j = max(j, e)
-        h = []
+            g[s].append(e)
+            l = min(l, s)
+            r = max(r, e)
+        pq = []
         ans = 0
-        for s in range(i, j + 1):
-            while h and h[0] < s:
-                heappop(h)
-            for e in d[s]:
-                heappush(h, e)
-            if h:
+        for s in range(l, r + 1):
+            while pq and pq[0] < s:
+                heappop(pq)
+            for e in g[s]:
+                heappush(pq, e)
+            if pq:
+                heappop(pq)
                 ans += 1
-                heappop(h)
         return ans
 ```
 
@@ -103,26 +107,26 @@ class Solution:
 ```java
 class Solution {
     public int maxEvents(int[][] events) {
-        Map<Integer, List<Integer>> d = new HashMap<>();
-        int i = Integer.MAX_VALUE, j = 0;
-        for (var v : events) {
-            int s = v[0], e = v[1];
-            d.computeIfAbsent(s, k -> new ArrayList<>()).add(e);
-            i = Math.min(i, s);
-            j = Math.max(j, e);
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        int l = Integer.MAX_VALUE, r = 0;
+        for (int[] event : events) {
+            int s = event[0], e = event[1];
+            g.computeIfAbsent(s, k -> new ArrayList<>()).add(e);
+            l = Math.min(l, s);
+            r = Math.max(r, e);
         }
-        PriorityQueue<Integer> q = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         int ans = 0;
-        for (int s = i; s <= j; ++s) {
-            while (!q.isEmpty() && q.peek() < s) {
-                q.poll();
+        for (int s = l; s <= r; s++) {
+            while (!pq.isEmpty() && pq.peek() < s) {
+                pq.poll();
             }
-            for (int e : d.getOrDefault(s, Collections.emptyList())) {
-                q.offer(e);
+            for (int e : g.getOrDefault(s, List.of())) {
+                pq.offer(e);
             }
-            if (!q.isEmpty()) {
-                q.poll();
-                ++ans;
+            if (!pq.isEmpty()) {
+                pq.poll();
+                ans++;
             }
         }
         return ans;
@@ -136,26 +140,26 @@ class Solution {
 class Solution {
 public:
     int maxEvents(vector<vector<int>>& events) {
-        unordered_map<int, vector<int>> d;
-        int i = INT_MAX, j = 0;
-        for (auto& v : events) {
-            int s = v[0], e = v[1];
-            d[s].push_back(e);
-            i = min(i, s);
-            j = max(j, e);
+        unordered_map<int, vector<int>> g;
+        int l = INT_MAX, r = 0;
+        for (auto& event : events) {
+            int s = event[0], e = event[1];
+            g[s].push_back(e);
+            l = min(l, s);
+            r = max(r, e);
         }
-        priority_queue<int, vector<int>, greater<int>> q;
+        priority_queue<int, vector<int>, greater<int>> pq;
         int ans = 0;
-        for (int s = i; s <= j; ++s) {
-            while (q.size() && q.top() < s) {
-                q.pop();
+        for (int s = l; s <= r; ++s) {
+            while (!pq.empty() && pq.top() < s) {
+                pq.pop();
             }
-            for (int e : d[s]) {
-                q.push(e);
+            for (int e : g[s]) {
+                pq.push(e);
             }
-            if (q.size()) {
+            if (!pq.empty()) {
+                pq.pop();
                 ++ans;
-                q.pop();
             }
         }
         return ans;
@@ -166,42 +170,121 @@ public:
 #### Go
 
 ```go
-func maxEvents(events [][]int) int {
-	d := map[int][]int{}
-	i, j := math.MaxInt32, 0
-	for _, v := range events {
-		s, e := v[0], v[1]
-		d[s] = append(d[s], e)
-		i = min(i, s)
-		j = max(j, e)
+func maxEvents(events [][]int) (ans int) {
+	g := map[int][]int{}
+	l, r := math.MaxInt32, 0
+	for _, event := range events {
+		s, e := event[0], event[1]
+		g[s] = append(g[s], e)
+		l = min(l, s)
+		r = max(r, e)
 	}
-	q := hp{}
-	ans := 0
-	for s := i; s <= j; s++ {
-		for q.Len() > 0 && q.IntSlice[0] < s {
-			heap.Pop(&q)
+
+	pq := &hp{}
+	heap.Init(pq)
+	for s := l; s <= r; s++ {
+		for pq.Len() > 0 && pq.IntSlice[0] < s {
+			heap.Pop(pq)
 		}
-		for _, e := range d[s] {
-			heap.Push(&q, e)
+		for _, e := range g[s] {
+			heap.Push(pq, e)
 		}
-		if q.Len() > 0 {
-			heap.Pop(&q)
+		if pq.Len() > 0 {
+			heap.Pop(pq)
 			ans++
 		}
 	}
-	return ans
+	return
 }
 
 type hp struct{ sort.IntSlice }
 
 func (h *hp) Push(v any) { h.IntSlice = append(h.IntSlice, v.(int)) }
 func (h *hp) Pop() any {
-	a := h.IntSlice
-	v := a[len(a)-1]
-	h.IntSlice = a[:len(a)-1]
+	n := len(h.IntSlice)
+	v := h.IntSlice[n-1]
+	h.IntSlice = h.IntSlice[:n-1]
 	return v
 }
 func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+```
+
+#### TypeScript
+
+```ts
+function maxEvents(events: number[][]): number {
+    const g: Map<number, number[]> = new Map();
+    let l = Infinity,
+        r = 0;
+    for (const [s, e] of events) {
+        if (!g.has(s)) g.set(s, []);
+        g.get(s)!.push(e);
+        l = Math.min(l, s);
+        r = Math.max(r, e);
+    }
+
+    const pq = new MinPriorityQueue<number>();
+    let ans = 0;
+    for (let s = l; s <= r; s++) {
+        while (!pq.isEmpty() && pq.front() < s) {
+            pq.dequeue();
+        }
+        for (const e of g.get(s) || []) {
+            pq.enqueue(e);
+        }
+        if (!pq.isEmpty()) {
+            pq.dequeue();
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{BinaryHeap, HashMap};
+use std::cmp::Reverse;
+
+impl Solution {
+    pub fn max_events(events: Vec<Vec<i32>>) -> i32 {
+        let mut g: HashMap<i32, Vec<i32>> = HashMap::new();
+        let mut l = i32::MAX;
+        let mut r = 0;
+
+        for event in events {
+            let s = event[0];
+            let e = event[1];
+            g.entry(s).or_default().push(e);
+            l = l.min(s);
+            r = r.max(e);
+        }
+
+        let mut pq = BinaryHeap::new();
+        let mut ans = 0;
+
+        for s in l..=r {
+            while let Some(&Reverse(top)) = pq.peek() {
+                if top < s {
+                    pq.pop();
+                } else {
+                    break;
+                }
+            }
+            if let Some(ends) = g.get(&s) {
+                for &e in ends {
+                    pq.push(Reverse(e));
+                }
+            }
+            if pq.pop().is_some() {
+                ans += 1;
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
