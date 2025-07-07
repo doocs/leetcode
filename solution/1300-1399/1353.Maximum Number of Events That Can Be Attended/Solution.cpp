@@ -1,26 +1,26 @@
 class Solution {
 public:
     int maxEvents(vector<vector<int>>& events) {
-        unordered_map<int, vector<int>> d;
-        int i = INT_MAX, j = 0;
-        for (auto& v : events) {
-            int s = v[0], e = v[1];
-            d[s].push_back(e);
-            i = min(i, s);
-            j = max(j, e);
+        unordered_map<int, vector<int>> g;
+        int l = INT_MAX, r = 0;
+        for (auto& event : events) {
+            int s = event[0], e = event[1];
+            g[s].push_back(e);
+            l = min(l, s);
+            r = max(r, e);
         }
-        priority_queue<int, vector<int>, greater<int>> q;
+        priority_queue<int, vector<int>, greater<int>> pq;
         int ans = 0;
-        for (int s = i; s <= j; ++s) {
-            while (q.size() && q.top() < s) {
-                q.pop();
+        for (int s = l; s <= r; ++s) {
+            while (!pq.empty() && pq.top() < s) {
+                pq.pop();
             }
-            for (int e : d[s]) {
-                q.push(e);
+            for (int e : g[s]) {
+                pq.push(e);
             }
-            if (q.size()) {
+            if (!pq.empty()) {
+                pq.pop();
                 ++ans;
-                q.pop();
             }
         }
         return ans;

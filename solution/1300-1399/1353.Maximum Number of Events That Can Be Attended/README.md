@@ -68,13 +68,17 @@ tags:
 
 ### 方法一：哈希表 + 贪心 + 优先队列
 
-定义哈希表记录每个会议的开始和结束时间，其中键为会议开始时间，值为结束时间列表。
+我们用一个哈希表 $\textit{g}$ 记录每个会议的开始和结束时间。键为会议的开始时间，值为一个列表，包含所有在该开始时间开始的会议的结束时间。用两个变量 $\textit{l}$ 和 $\textit{r}$ 分别记录会议的最小开始时间和最大结束时间。
 
-枚举当前时间 $s$，找出所有开始时间等于当前时间的会议，将其结束时间加入优先队列（小根堆）中。同时，优先队列要移除所有结束时间小于当前时间的会议。
+对于从小到大每个在 $\textit{l}$ 到 $\textit{r}$ 的时间点 $s$，我们需要做以下操作：
 
-然后从优先队列中取出结束时间最小的会议，即为当前时间可以参加的会议，累加答案数。如果优先队列为空，则说明当前时间没有可以参加的会议。
+1. 从优先队列中移除所有结束时间小于当前时间 $s$ 的会议。
+2. 将所有开始时间等于当前时间 $s$ 的会议的结束时间加入优先队列中。
+3. 如果优先队列不为空，则取出结束时间最小的会议，累加答案数，并从优先队列中移除该会议。
 
-时间复杂度 $O(m \times \log n)$，空间复杂度 $O(n)$。其中 $m$, $n$ 分别表示会议的最大结束时间，以及会议的数量。
+这样，我们可以确保在每个时间点 $s$，我们都能参加结束时间最早的会议，从而最大化参加的会议数。
+
+时间复杂度 $O(M \times \log n)$，空间复杂度 $O(n)$，其中 $M$ 和 $n$ 分别为会议的最大结束时间和会议的数量。
 
 <!-- tabs:start -->
 
@@ -83,22 +87,22 @@ tags:
 ```python
 class Solution:
     def maxEvents(self, events: List[List[int]]) -> int:
-        d = defaultdict(list)
-        i, j = inf, 0
+        g = defaultdict(list)
+        l, r = inf, 0
         for s, e in events:
-            d[s].append(e)
-            i = min(i, s)
-            j = max(j, e)
-        h = []
+            g[s].append(e)
+            l = min(l, s)
+            r = max(r, e)
+        pq = []
         ans = 0
-        for s in range(i, j + 1):
-            while h and h[0] < s:
-                heappop(h)
-            for e in d[s]:
-                heappush(h, e)
-            if h:
+        for s in range(l, r + 1):
+            while pq and pq[0] < s:
+                heappop(pq)
+            for e in g[s]:
+                heappush(pq, e)
+            if pq:
+                heappop(pq)
                 ans += 1
-                heappop(h)
         return ans
 ```
 
@@ -107,26 +111,26 @@ class Solution:
 ```java
 class Solution {
     public int maxEvents(int[][] events) {
-        Map<Integer, List<Integer>> d = new HashMap<>();
-        int i = Integer.MAX_VALUE, j = 0;
-        for (var v : events) {
-            int s = v[0], e = v[1];
-            d.computeIfAbsent(s, k -> new ArrayList<>()).add(e);
-            i = Math.min(i, s);
-            j = Math.max(j, e);
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        int l = Integer.MAX_VALUE, r = 0;
+        for (int[] event : events) {
+            int s = event[0], e = event[1];
+            g.computeIfAbsent(s, k -> new ArrayList<>()).add(e);
+            l = Math.min(l, s);
+            r = Math.max(r, e);
         }
-        PriorityQueue<Integer> q = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         int ans = 0;
-        for (int s = i; s <= j; ++s) {
-            while (!q.isEmpty() && q.peek() < s) {
-                q.poll();
+        for (int s = l; s <= r; s++) {
+            while (!pq.isEmpty() && pq.peek() < s) {
+                pq.poll();
             }
-            for (int e : d.getOrDefault(s, Collections.emptyList())) {
-                q.offer(e);
+            for (int e : g.getOrDefault(s, List.of())) {
+                pq.offer(e);
             }
-            if (!q.isEmpty()) {
-                q.poll();
-                ++ans;
+            if (!pq.isEmpty()) {
+                pq.poll();
+                ans++;
             }
         }
         return ans;
@@ -140,26 +144,26 @@ class Solution {
 class Solution {
 public:
     int maxEvents(vector<vector<int>>& events) {
-        unordered_map<int, vector<int>> d;
-        int i = INT_MAX, j = 0;
-        for (auto& v : events) {
-            int s = v[0], e = v[1];
-            d[s].push_back(e);
-            i = min(i, s);
-            j = max(j, e);
+        unordered_map<int, vector<int>> g;
+        int l = INT_MAX, r = 0;
+        for (auto& event : events) {
+            int s = event[0], e = event[1];
+            g[s].push_back(e);
+            l = min(l, s);
+            r = max(r, e);
         }
-        priority_queue<int, vector<int>, greater<int>> q;
+        priority_queue<int, vector<int>, greater<int>> pq;
         int ans = 0;
-        for (int s = i; s <= j; ++s) {
-            while (q.size() && q.top() < s) {
-                q.pop();
+        for (int s = l; s <= r; ++s) {
+            while (!pq.empty() && pq.top() < s) {
+                pq.pop();
             }
-            for (int e : d[s]) {
-                q.push(e);
+            for (int e : g[s]) {
+                pq.push(e);
             }
-            if (q.size()) {
+            if (!pq.empty()) {
+                pq.pop();
                 ++ans;
-                q.pop();
             }
         }
         return ans;
@@ -170,42 +174,121 @@ public:
 #### Go
 
 ```go
-func maxEvents(events [][]int) int {
-	d := map[int][]int{}
-	i, j := math.MaxInt32, 0
-	for _, v := range events {
-		s, e := v[0], v[1]
-		d[s] = append(d[s], e)
-		i = min(i, s)
-		j = max(j, e)
+func maxEvents(events [][]int) (ans int) {
+	g := map[int][]int{}
+	l, r := math.MaxInt32, 0
+	for _, event := range events {
+		s, e := event[0], event[1]
+		g[s] = append(g[s], e)
+		l = min(l, s)
+		r = max(r, e)
 	}
-	q := hp{}
-	ans := 0
-	for s := i; s <= j; s++ {
-		for q.Len() > 0 && q.IntSlice[0] < s {
-			heap.Pop(&q)
+
+	pq := &hp{}
+	heap.Init(pq)
+	for s := l; s <= r; s++ {
+		for pq.Len() > 0 && pq.IntSlice[0] < s {
+			heap.Pop(pq)
 		}
-		for _, e := range d[s] {
-			heap.Push(&q, e)
+		for _, e := range g[s] {
+			heap.Push(pq, e)
 		}
-		if q.Len() > 0 {
-			heap.Pop(&q)
+		if pq.Len() > 0 {
+			heap.Pop(pq)
 			ans++
 		}
 	}
-	return ans
+	return
 }
 
 type hp struct{ sort.IntSlice }
 
 func (h *hp) Push(v any) { h.IntSlice = append(h.IntSlice, v.(int)) }
 func (h *hp) Pop() any {
-	a := h.IntSlice
-	v := a[len(a)-1]
-	h.IntSlice = a[:len(a)-1]
+	n := len(h.IntSlice)
+	v := h.IntSlice[n-1]
+	h.IntSlice = h.IntSlice[:n-1]
 	return v
 }
 func (h *hp) Less(i, j int) bool { return h.IntSlice[i] < h.IntSlice[j] }
+```
+
+#### TypeScript
+
+```ts
+function maxEvents(events: number[][]): number {
+    const g: Map<number, number[]> = new Map();
+    let l = Infinity,
+        r = 0;
+    for (const [s, e] of events) {
+        if (!g.has(s)) g.set(s, []);
+        g.get(s)!.push(e);
+        l = Math.min(l, s);
+        r = Math.max(r, e);
+    }
+
+    const pq = new MinPriorityQueue<number>();
+    let ans = 0;
+    for (let s = l; s <= r; s++) {
+        while (!pq.isEmpty() && pq.front() < s) {
+            pq.dequeue();
+        }
+        for (const e of g.get(s) || []) {
+            pq.enqueue(e);
+        }
+        if (!pq.isEmpty()) {
+            pq.dequeue();
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{BinaryHeap, HashMap};
+use std::cmp::Reverse;
+
+impl Solution {
+    pub fn max_events(events: Vec<Vec<i32>>) -> i32 {
+        let mut g: HashMap<i32, Vec<i32>> = HashMap::new();
+        let mut l = i32::MAX;
+        let mut r = 0;
+
+        for event in events {
+            let s = event[0];
+            let e = event[1];
+            g.entry(s).or_default().push(e);
+            l = l.min(s);
+            r = r.max(e);
+        }
+
+        let mut pq = BinaryHeap::new();
+        let mut ans = 0;
+
+        for s in l..=r {
+            while let Some(&Reverse(top)) = pq.peek() {
+                if top < s {
+                    pq.pop();
+                } else {
+                    break;
+                }
+            }
+            if let Some(ends) = g.get(&s) {
+                for &e in ends {
+                    pq.push(Reverse(e));
+                }
+            }
+            if pq.pop().is_some() {
+                ans += 1;
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
