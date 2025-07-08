@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3601. Find Drivers with Improved Fuel Efficiency](https://leetcode.cn/problems/find-drivers-with-improved-fuel-efficiency)
+# [3601. 寻找燃油效率提升的驾驶员](https://leetcode.cn/problems/find-drivers-with-improved-fuel-efficiency)
 
 [English Version](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>drivers</code></p>
+<p>表：<code>drivers</code></p>
 
 <pre>
 +-------------+---------+
@@ -25,11 +25,11 @@ tags:
 | driver_id   | int     |
 | driver_name | varchar |
 +-------------+---------+
-driver_id is the unique identifier for this table.
-Each row contains information about a driver.
+driver_id 是这张表的唯一主键。
+每一行都包含一个司机的信息。
 </pre>
 
-<p>Table: <code>trips</code></p>
+<p>表：<code>trips</code></p>
 
 <pre>
 +---------------+---------+
@@ -41,31 +41,32 @@ Each row contains information about a driver.
 | distance_km   | decimal |
 | fuel_consumed | decimal |
 +---------------+---------+
-trip_id is the unique identifier for this table.
-Each row represents a trip made by a driver, including the distance traveled and fuel consumed for that trip.
+trip_id 是这张表的唯一主键。
+每一行表示一名司机完成的一次行程，包括该次行程行驶的距离和消耗的燃油量。
 </pre>
 
-<p>Write a solution to find drivers whose <strong>fuel efficiency has improved</strong> by <strong>comparing</strong> their average fuel efficiency in the<strong> first half</strong> of the year with the <strong>second half</strong> of the year.</p>
+<p>编写一个解决方案，通过 <strong>比较</strong> 司机在 <strong>上半年</strong> 和 <strong>下半年</strong> 的 <strong>平均燃油效率</strong> 来找出 <strong>燃油效率有所提高</strong> 的司机。</p>
 
 <ul>
-	<li>Calculate <strong>fuel efficiency</strong> as <code>distance_km / fuel_consumed</code> for <strong>each</strong> trip</li>
-	<li><strong>First half</strong>: January to June, <strong>Second half</strong>: July to December</li>
-	<li>Only include drivers who have trips in <strong>both halves</strong> of the year</li>
-	<li>Calculate the <strong>efficiency improvement</strong> as (<code>second_half_avg - first_half_avg</code>)</li>
-	<li><strong>Round </strong>all<strong> </strong>results<strong> </strong>to<strong> <code>2</code> </strong>decimal<strong> </strong>places</li>
+	<li>通过&nbsp;<code>distance_km / fuel_consumed</code>&nbsp;计算 <strong>每次</strong>&nbsp;行程的 <strong>燃油效率</strong>。</li>
+	<li><strong>上半年：</strong>一月到六月，<strong>下半年：</strong>七月到十二月</li>
+	<li>只包含在上半年和下半年都有行程的司机</li>
+	<li>通过（<code>second_half_avg - first_half_avg</code>）计算 <strong>提升效率</strong>。</li>
+	<li>将所有结果 <strong>四舍五入</strong> 到小数点后 <code>2</code>&nbsp;位</li>
 </ul>
 
-<p>Return <em>the result table ordered by efficiency improvement in <strong>descending</strong> order, then by driver name in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表按提升效率&nbsp;<strong>降序</strong> 排列，然后按司机姓名 <strong>升序</strong> 排列。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>drivers table:</p>
+<p>drivers 表：</p>
 
 <pre class="example-io">
 +-----------+---------------+
@@ -79,7 +80,7 @@ Each row represents a trip made by a driver, including the distance traveled and
 +-----------+---------------+
 </pre>
 
-<p>trips table:</p>
+<p>trips 表：</p>
 
 <pre class="example-io">
 +---------+-----------+------------+-------------+---------------+
@@ -100,7 +101,7 @@ Each row represents a trip made by a driver, including the distance traveled and
 +---------+-----------+------------+-------------+---------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-----------+---------------+------------------+-------------------+------------------------+
@@ -111,39 +112,39 @@ Each row represents a trip made by a driver, including the distance traveled and
 +-----------+---------------+------------------+-------------------+------------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
 	<li><strong>Alice Johnson (driver_id = 1):</strong>
 
     <ul>
-    	<li>First half trips (Jan-Jun): Feb 15 (120.5/10.2 = 11.81), Mar 20 (200.0/16.5 = 12.12)</li>
-    	<li>First half average efficiency: (11.81 + 12.12) / 2 = 11.97</li>
-    	<li>Second half trips (Jul-Dec): Aug 10 (150.0/11.0 = 13.64), Sep 25 (180.0/12.5 = 14.40)</li>
-    	<li>Second half average efficiency: (13.64 + 14.40) / 2 = 14.02</li>
-    	<li>Efficiency improvement: 14.02 - 11.97 = 2.05</li>
+    	<li>上半年行程（一月到六月）：Feb 15 (120.5/10.2 = 11.81), Mar 20 (200.0/16.5 = 12.12)</li>
+    	<li>上半年平均效率：(11.81 + 12.12) / 2 = 11.97</li>
+    	<li>下半年行程（七月到十二月）：Aug 10 (150.0/11.0 = 13.64), Sep 25 (180.0/12.5 = 14.40)</li>
+    	<li>下半年平均效率：(13.64 + 14.40) / 2 = 14.02</li>
+    	<li>效率提升：14.02 - 11.97 = 2.05</li>
     </ul>
     </li>
     <li><strong>Bob Smith (driver_id = 2):</strong>
     <ul>
-    	<li>First half trips: Jan 10 (100.0/9.0 = 11.11), Apr 15 (250.0/22.0 = 11.36)</li>
-    	<li>First half average efficiency: (11.11 + 11.36) / 2 = 11.24</li>
-    	<li>Second half trips: Oct 5 (200.0/15.0 = 13.33)</li>
-    	<li>Second half average efficiency: 13.33</li>
-    	<li>Efficiency improvement: 13.33 - 11.24 = 2.09</li>
+    	<li>上半年行程：Jan 10 (100.0/9.0 = 11.11), Apr 15 (250.0/22.0 = 11.36)</li>
+    	<li>上半年平均效率：(11.11 + 11.36) / 2 = 11.24</li>
+    	<li>下半年行程：Oct 5 (200.0/15.0 = 13.33)</li>
+    	<li>下半年平均效率：13.33</li>
+    	<li>效率提升：13.33 - 11.24 = 2.09</li>
     </ul>
     </li>
-    <li><strong>Drivers not included:</strong>
+    <li><strong>未包含的司机：</strong>
     <ul>
-    	<li>Carol Davis (driver_id = 3): Only has trips in first half (Mar, May)</li>
-    	<li>David Wilson (driver_id = 4): Only has trips in second half (Jul, Nov)</li>
-    	<li>Emma Brown (driver_id = 5): Only has trips in first half (Feb)</li>
+    	<li>Carol Davis (driver_id = 3)：只有上半年的行程（三月，五月）</li>
+    	<li>David Wilson (driver_id = 4)：只有下半年的行程（七月，十一月）</li>
+    	<li>Emma Brown (driver_id = 5)：只有上半年的行程（二月）</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The output table is ordered by efficiency improvement in descending order then by name in ascending order.</p>
+<p>输出表按提升效率降序排列，然后按司机名字升序排列。</p>
 </div>
 
 <!-- description:end -->

@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 457
+
+- [3606. Coupon Code Validator](/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md)
+- [3607. Power Grid Maintenance](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README_EN.md)
+- [3608. Minimum Time for K Connected Components](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md)
+- [3609. Minimum Moves to Reach Target in Grid](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README_EN.md)
+
+#### Biweekly Contest 160
+
+- [3602. Hexadecimal and Hexatrigesimal Conversion](/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README_EN.md)
+- [3603. Minimum Cost Path with Alternating Directions II](/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README_EN.md)
+- [3604. Minimum Time to Reach Destination in Directed Graph](/solution/3600-3699/3604.Minimum%20Time%20to%20Reach%20Destination%20in%20Directed%20Graph/README_EN.md)
+- [3605. Minimum Stability Factor of Array](/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README_EN.md)
+
 #### Weekly Contest 456
 
 - [3597. Partition String](/solution/3500-3599/3597.Partition%20String/README_EN.md)
