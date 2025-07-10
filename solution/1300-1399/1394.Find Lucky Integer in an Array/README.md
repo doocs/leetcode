@@ -101,18 +101,26 @@ class Solution:
 ```java
 class Solution {
     public int findLucky(int[] arr) {
-        int[] cnt = new int[501];
+        int[] cnt = new int[510];
+
+        // Count frequency of each number in arr
         for (int x : arr) {
-            ++cnt[x];
+            cnt[x]++;
         }
-        for (int x = cnt.length - 1; x > 0; --x) {
-            if (x == cnt[x]) {
-                return x;
+
+        int ans = -1;
+
+        // Check for lucky numbers
+        for (int x = 1; x < cnt.length; ++x) {
+            if (cnt[x] == x) {
+                ans = x;
             }
         }
-        return -1;
+
+        return ans;
     }
 }
+
 ```
 
 #### C++
