@@ -3,42 +3,22 @@ class Solution:
         self, eventTime: int, startTime: List[int], endTime: List[int]
     ) -> int:
         n = len(startTime)
-        res = 0
-
-        left_gaps = [0] * n
-        left_gaps[0] = startTime[0]
-        for meet in range(1, n):
-            left_gaps[meet] = max(
-                left_gaps[meet - 1], startTime[meet] - endTime[meet - 1]
-            )
-
-        right_gaps = [0] * n
-        right_gaps[n - 1] = eventTime - endTime[-1]
-        for meet in range(n - 2, -1, -1):
-            right_gaps[meet] = max(
-                right_gaps[meet + 1], startTime[meet + 1] - endTime[meet]
-            )
-
-        for meet in range(n):
-            left_gap = (
-                left_gaps[meet] if meet == 0 else startTime[meet] - endTime[meet - 1]
-            )
-            right_gap = (
-                right_gaps[meet]
-                if meet == n - 1
-                else startTime[meet + 1] - endTime[meet]
-            )
-
-            interval = 0
-
-            if (
-                meet != 0
-                and left_gaps[meet - 1] >= (endTime[meet] - startTime[meet])
-                or meet != n - 1
-                and right_gaps[meet + 1] >= (endTime[meet] - startTime[meet])
-            ):
-                interval = endTime[meet] - startTime[meet]
-
-            res = max(res, left_gap + interval + right_gap)
-
-        return res
+        pre = [0] * n
+        suf = [0] * n
+        pre[0] = startTime[0]
+        suf[n - 1] = eventTime - endTime[-1]
+        for i in range(1, n):
+            pre[i] = max(pre[i - 1], startTime[i] - endTime[i - 1])
+        for i in range(n - 2, -1, -1):
+            suf[i] = max(suf[i + 1], startTime[i + 1] - endTime[i])
+        ans = 0
+        for i in range(n):
+            l = 0 if i == 0 else endTime[i - 1]
+            r = eventTime if i == n - 1 else startTime[i + 1]
+            w = endTime[i] - startTime[i]
+            ans = max(ans, r - l - w)
+            if i and pre[i - 1] >= w:
+                ans = max(ans, r - l)
+            elif i + 1 < n and suf[i + 1] >= w:
+                ans = max(ans, r - l)
+        return ans
