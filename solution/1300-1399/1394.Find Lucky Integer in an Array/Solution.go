@@ -1,13 +1,12 @@
 func findLucky(arr []int) int {
-	cnt := [510]int{}
+	cnt := [501]int{}
 	for _, x := range arr {
 		cnt[x]++
 	}
-	ans := -1
-	for x := 1; x < len(cnt); x++ {
-		if cnt[x] == x {
-			ans = x
+	for x := len(cnt) - 1; x > 0; x-- {
+		if x == cnt[x] {
+			return x
 		}
 	}
-	return ans
+	return -1
 }

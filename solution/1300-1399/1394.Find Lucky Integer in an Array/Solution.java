@@ -4,12 +4,14 @@ class Solution {
         for (int x : arr) {
             cnt[x]++;
         }
+
         int ans = -1;
         for (int x = 1; x < cnt.length; ++x) {
             if (cnt[x] == x) {
                 ans = x;
             }
         }
+
         return ans;
     }
 }
