@@ -165,7 +165,7 @@ class Solution {
         int n = startTime.length;
         int maxGapBefore = 0;
         int maxFreeTime = 0;
-        int lastEnd = 0;        
+        int lastEnd = 0;
         for (int i = 0; i < n; i++) {
             int meetingTime = endTime[i] - startTime[i];
             int nextStart = (i == n - 1) ? eventTime : startTime[i + 1];
@@ -173,7 +173,7 @@ class Solution {
             if (meetingTime > maxGapBefore) {
                 freeTime -= meetingTime;
             }
-            
+
             maxFreeTime = Math.max(maxFreeTime, freeTime);
             maxGapBefore = Math.max(maxGapBefore, startTime[i] - lastEnd);
             lastEnd = endTime[i];
@@ -183,7 +183,7 @@ class Solution {
         for (int i = n - 1; i >= 0; i--) {
             int meetingTime = endTime[i] - startTime[i];
             int prevEnd = (i == 0) ? 0 : endTime[i - 1];
-            int freeTime = lastStart - prevEnd;            
+            int freeTime = lastStart - prevEnd;
             if (meetingTime <= maxGapAfter) {
                 maxFreeTime = Math.max(maxFreeTime, freeTime);
             }
@@ -239,16 +239,18 @@ public:
 
 ```
 
-#### Javascript 
+#### Javascript
 
 ```javascript
-var maxFreeTime = function(eventTime, startTime, endTime) {
+var maxFreeTime = function (eventTime, startTime, endTime) {
     let n = startTime.length;
-    let maxGapBefore = 0, maxFreeTime = 0, lastEnd = 0;
+    let maxGapBefore = 0,
+        maxFreeTime = 0,
+        lastEnd = 0;
 
     for (let i = 0; i < n; i++) {
         let duration = endTime[i] - startTime[i];
-        let nextStart = (i === n - 1) ? eventTime : startTime[i + 1];
+        let nextStart = i === n - 1 ? eventTime : startTime[i + 1];
         let freeTime = nextStart - lastEnd;
         if (duration > maxGapBefore) freeTime -= duration;
         maxFreeTime = Math.max(maxFreeTime, freeTime);
@@ -256,13 +258,13 @@ var maxFreeTime = function(eventTime, startTime, endTime) {
         lastEnd = endTime[i];
     }
 
-    let maxGapAfter = 0, lastStart = eventTime;
+    let maxGapAfter = 0,
+        lastStart = eventTime;
     for (let i = n - 1; i >= 0; i--) {
         let duration = endTime[i] - startTime[i];
-            let prevEnd = (i === 0) ? 0 : endTime[i - 1];
-            let freeTime = lastStart - prevEnd;
-        if (duration <= maxGapAfter)
-            maxFreeTime = Math.max(maxFreeTime, freeTime);
+        let prevEnd = i === 0 ? 0 : endTime[i - 1];
+        let freeTime = lastStart - prevEnd;
+        if (duration <= maxGapAfter) maxFreeTime = Math.max(maxFreeTime, freeTime);
         maxGapAfter = Math.max(maxGapAfter, lastStart - endTime[i]);
         lastStart = startTime[i];
     }
