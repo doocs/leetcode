@@ -106,7 +106,45 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+根据题目描述，对于会议 $i$，我们记它左侧非空闲位置为 $l_i$，右侧非空闲位置为 $r_i$，记会议 $i$ 的时长为 $w_i = \text{endTime}[i] - \text{startTime}[i]$，则：
+
+$$
+l_i = \begin{cases}
+0 & i = 0 \\\\
+\text{endTime}[i - 1] & i \gt 0
+\end{cases}
+$$
+
+$$
+r_i = \begin{cases}
+\text{eventTime} & i = n - 1 \\\\
+\text{startTime}[i + 1] & i \lt n - 1
+\end{cases}
+$$
+
+那么它可以向左移动，也可以向右移动，此时空闲时间为：
+
+$$
+r_i - l_i - w_i
+$$
+
+如果左侧存在最大的空闲时间 $\text{pre}_{i - 1}$，满足 $\text{pre}_{i - 1} \geq w_i$，则可以将会议 $i$ 向左移动到该位置，得到新的空闲时间：
+
+$$
+r_i - l_i
+$$
+
+同理，如果右侧存在最大的空闲时间 $\text{suf}_{i + 1}$，满足 $\text{suf}_{i + 1} \geq w_i$，则可以将会议 $i$ 向右移动到该位置，得到新的空闲时间：
+
+$$
+r_i - l_i
+$$
+
+因此，我们首先预处理两个数组 $\text{pre}$ 和 $\text{suf}$，其中 $\text{pre}[i]$ 表示 $[0, i]$ 范围内的最大空闲时间，$\text{suf}[i]$ 表示 $[i, n - 1]$ 范围内的最大空闲时间。然后遍历每个会议 $i$，计算它移动后的最大空闲时间，取最大值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为会议的数量。
 
 <!-- tabs:start -->
 
@@ -118,63 +156,223 @@ class Solution:
         self, eventTime: int, startTime: List[int], endTime: List[int]
     ) -> int:
         n = len(startTime)
-        res = 0
-
-        left_gaps = [0] * n
-        left_gaps[0] = startTime[0]
-        for meet in range(1, n):
-            left_gaps[meet] = max(
-                left_gaps[meet - 1], startTime[meet] - endTime[meet - 1]
-            )
-
-        right_gaps = [0] * n
-        right_gaps[n - 1] = eventTime - endTime[-1]
-        for meet in range(n - 2, -1, -1):
-            right_gaps[meet] = max(
-                right_gaps[meet + 1], startTime[meet + 1] - endTime[meet]
-            )
-
-        for meet in range(n):
-            left_gap = (
-                left_gaps[meet] if meet == 0 else startTime[meet] - endTime[meet - 1]
-            )
-            right_gap = (
-                right_gaps[meet]
-                if meet == n - 1
-                else startTime[meet + 1] - endTime[meet]
-            )
-
-            interval = 0
-
-            if (
-                meet != 0
-                and left_gaps[meet - 1] >= (endTime[meet] - startTime[meet])
-                or meet != n - 1
-                and right_gaps[meet + 1] >= (endTime[meet] - startTime[meet])
-            ):
-                interval = endTime[meet] - startTime[meet]
-
-            res = max(res, left_gap + interval + right_gap)
-
-        return res
+        pre = [0] * n
+        suf = [0] * n
+        pre[0] = startTime[0]
+        suf[n - 1] = eventTime - endTime[-1]
+        for i in range(1, n):
+            pre[i] = max(pre[i - 1], startTime[i] - endTime[i - 1])
+        for i in range(n - 2, -1, -1):
+            suf[i] = max(suf[i + 1], startTime[i + 1] - endTime[i])
+        ans = 0
+        for i in range(n):
+            l = 0 if i == 0 else endTime[i - 1]
+            r = eventTime if i == n - 1 else startTime[i + 1]
+            w = endTime[i] - startTime[i]
+            ans = max(ans, r - l - w)
+            if i and pre[i - 1] >= w:
+                ans = max(ans, r - l)
+            elif i + 1 < n and suf[i + 1] >= w:
+                ans = max(ans, r - l)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int maxFreeTime(int eventTime, int[] startTime, int[] endTime) {
+        int n = startTime.length;
+        int[] pre = new int[n];
+        int[] suf = new int[n];
 
+        pre[0] = startTime[0];
+        suf[n - 1] = eventTime - endTime[n - 1];
+
+        for (int i = 1; i < n; i++) {
+            pre[i] = Math.max(pre[i - 1], startTime[i] - endTime[i - 1]);
+        }
+
+        for (int i = n - 2; i >= 0; i--) {
+            suf[i] = Math.max(suf[i + 1], startTime[i + 1] - endTime[i]);
+        }
+
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int l = (i == 0) ? 0 : endTime[i - 1];
+            int r = (i == n - 1) ? eventTime : startTime[i + 1];
+            int w = endTime[i] - startTime[i];
+            ans = Math.max(ans, r - l - w);
+
+            if (i > 0 && pre[i - 1] >= w) {
+                ans = Math.max(ans, r - l);
+            } else if (i + 1 < n && suf[i + 1] >= w) {
+                ans = Math.max(ans, r - l);
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maxFreeTime(int eventTime, vector<int>& startTime, vector<int>& endTime) {
+        int n = startTime.size();
+        vector<int> pre(n), suf(n);
 
+        pre[0] = startTime[0];
+        suf[n - 1] = eventTime - endTime[n - 1];
+
+        for (int i = 1; i < n; ++i) {
+            pre[i] = max(pre[i - 1], startTime[i] - endTime[i - 1]);
+        }
+
+        for (int i = n - 2; i >= 0; --i) {
+            suf[i] = max(suf[i + 1], startTime[i + 1] - endTime[i]);
+        }
+
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int l = (i == 0) ? 0 : endTime[i - 1];
+            int r = (i == n - 1) ? eventTime : startTime[i + 1];
+            int w = endTime[i] - startTime[i];
+            ans = max(ans, r - l - w);
+
+            if (i > 0 && pre[i - 1] >= w) {
+                ans = max(ans, r - l);
+            } else if (i + 1 < n && suf[i + 1] >= w) {
+                ans = max(ans, r - l);
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxFreeTime(eventTime int, startTime []int, endTime []int) int {
+	n := len(startTime)
+	pre := make([]int, n)
+	suf := make([]int, n)
 
+	pre[0] = startTime[0]
+	suf[n-1] = eventTime - endTime[n-1]
+
+	for i := 1; i < n; i++ {
+		pre[i] = max(pre[i-1], startTime[i]-endTime[i-1])
+	}
+
+	for i := n - 2; i >= 0; i-- {
+		suf[i] = max(suf[i+1], startTime[i+1]-endTime[i])
+	}
+
+	ans := 0
+	for i := 0; i < n; i++ {
+		l := 0
+		if i > 0 {
+			l = endTime[i-1]
+		}
+		r := eventTime
+		if i < n-1 {
+			r = startTime[i+1]
+		}
+		w := endTime[i] - startTime[i]
+		ans = max(ans, r-l-w)
+
+		if i > 0 && pre[i-1] >= w {
+			ans = max(ans, r-l)
+		} else if i+1 < n && suf[i+1] >= w {
+			ans = max(ans, r-l)
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxFreeTime(eventTime: number, startTime: number[], endTime: number[]): number {
+    const n = startTime.length;
+    const pre: number[] = Array(n).fill(0);
+    const suf: number[] = Array(n).fill(0);
+
+    pre[0] = startTime[0];
+    suf[n - 1] = eventTime - endTime[n - 1];
+
+    for (let i = 1; i < n; i++) {
+        pre[i] = Math.max(pre[i - 1], startTime[i] - endTime[i - 1]);
+    }
+
+    for (let i = n - 2; i >= 0; i--) {
+        suf[i] = Math.max(suf[i + 1], startTime[i + 1] - endTime[i]);
+    }
+
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        const l = i === 0 ? 0 : endTime[i - 1];
+        const r = i === n - 1 ? eventTime : startTime[i + 1];
+        const w = endTime[i] - startTime[i];
+
+        ans = Math.max(ans, r - l - w);
+
+        if (i > 0 && pre[i - 1] >= w) {
+            ans = Math.max(ans, r - l);
+        } else if (i + 1 < n && suf[i + 1] >= w) {
+            ans = Math.max(ans, r - l);
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_free_time(event_time: i32, start_time: Vec<i32>, end_time: Vec<i32>) -> i32 {
+        let n = start_time.len();
+        let mut pre = vec![0; n];
+        let mut suf = vec![0; n];
+
+        pre[0] = start_time[0];
+        suf[n - 1] = event_time - end_time[n - 1];
+
+        for i in 1..n {
+            pre[i] = pre[i - 1].max(start_time[i] - end_time[i - 1]);
+        }
+
+        for i in (0..n - 1).rev() {
+            suf[i] = suf[i + 1].max(start_time[i + 1] - end_time[i]);
+        }
+
+        let mut ans = 0;
+        for i in 0..n {
+            let l = if i == 0 { 0 } else { end_time[i - 1] };
+            let r = if i == n - 1 { event_time } else { start_time[i + 1] };
+            let w = end_time[i] - start_time[i];
+            ans = ans.max(r - l - w);
+
+            if i > 0 && pre[i - 1] >= w {
+                ans = ans.max(r - l);
+            } else if i + 1 < n && suf[i + 1] >= w {
+                ans = ans.max(r - l);
+            }
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
