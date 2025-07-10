@@ -162,13 +162,78 @@ class Solution:
 #### Java
 
 ```java
+class Solution {
+    public int maxFreeTime(int eventTime, int[] startTime, int[] endTime) {
+        int n = startTime.length;
+        int maxGapBefore = 0;
+        int maxFreeTime = 0;
+        int lastEnd = 0;        
+        for (int i = 0; i < n; i++) {
+            int meetingTime = endTime[i] - startTime[i];
+            int nextStart = (i == n - 1) ? eventTime : startTime[i + 1];
+            int freeTime = nextStart - lastEnd;
+            if (meetingTime > maxGapBefore) {
+                freeTime -= meetingTime;
+            }
+            
+            maxFreeTime = Math.max(maxFreeTime, freeTime);
+            maxGapBefore = Math.max(maxGapBefore, startTime[i] - lastEnd);
+            lastEnd = endTime[i];
+        }
+        int maxGapAfter = 0;
+        int lastStart = eventTime;
+        for (int i = n - 1; i >= 0; i--) {
+            int meetingTime = endTime[i] - startTime[i];
+            int prevEnd = (i == 0) ? 0 : endTime[i - 1];
+            int freeTime = lastStart - prevEnd;            
+            if (meetingTime <= maxGapAfter) {
+                maxFreeTime = Math.max(maxFreeTime, freeTime);
+            }
+            maxGapAfter = Math.max(maxGapAfter, lastStart - endTime[i]);
+            lastStart = startTime[i];
+        }
+        return maxFreeTime;
+    }
+}
 
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+  int maxFreeTime(int eventTime, vector<int>& startTime, vector<int>& endTime) {
+    int n = startTime.size();
+    int max_gap_before = 0;
+    int last_end = 0;
+    int max_free_time = 0;
 
+    for (int i = 0; i < n; ++i) {
+      int meeting_time = endTime[i] - startTime[i];
+      int next_start = (i == n - 1) ? eventTime : startTime[i + 1];
+      int free_time = next_start - last_end;
+      if (meeting_time > max_gap_before) free_time -= meeting_time;
+      max_free_time = max(max_free_time, free_time);
+      max_gap_before = max(max_gap_before, startTime[i] - last_end);
+      last_end = endTime[i];
+    }
+
+    int max_gap_after = 0;
+    int last_start = eventTime;
+    for (int i = n - 1; i >= 0; --i) {
+      int meeting_time = endTime[i] - startTime[i];
+      int prev_end = (i == 0) ? 0 : endTime[i - 1];
+      int free_time = last_start - prev_end;
+      if (meeting_time <= max_gap_after)
+        max_free_time = max(max_free_time, free_time);
+      max_gap_after = max(max_gap_after, last_start - endTime[i]);
+      last_start = startTime[i];
+    }
+
+    return max_free_time;
+  }
+};
 ```
 
 #### Go
@@ -177,6 +242,37 @@ class Solution:
 
 ```
 
+#### Javascript
+
+```javascript
+var maxFreeTime = function(eventTime, startTime, endTime) {
+    let n = startTime.length;
+    let maxGapBefore = 0, maxFreeTime = 0, lastEnd = 0;
+
+    for (let i = 0; i < n; i++) {
+        let duration = endTime[i] - startTime[i];
+        let nextStart = (i === n - 1) ? eventTime : startTime[i + 1];
+        let freeTime = nextStart - lastEnd;
+        if (duration > maxGapBefore) freeTime -= duration;
+        maxFreeTime = Math.max(maxFreeTime, freeTime);
+        maxGapBefore = Math.max(maxGapBefore, startTime[i] - lastEnd);
+        lastEnd = endTime[i];
+    }
+
+    let maxGapAfter = 0, lastStart = eventTime;
+    for (let i = n - 1; i >= 0; i--) {
+        let duration = endTime[i] - startTime[i];
+        let prevEnd = (i === 0) ? 0 : endTime[i - 1];
+        let freeTime = lastStart - prevEnd;
+        if (duration <= maxGapAfter)
+            maxFreeTime = Math.max(maxFreeTime, freeTime);
+        maxGapAfter = Math.max(maxGapAfter, lastStart - endTime[i]);
+        lastStart = startTime[i];
+    }
+
+    return maxFreeTime;
+};
+```
 <!-- tabs:end -->
 
 <!-- solution:end -->
