@@ -259,8 +259,8 @@ var maxFreeTime = function(eventTime, startTime, endTime) {
     let maxGapAfter = 0, lastStart = eventTime;
     for (let i = n - 1; i >= 0; i--) {
         let duration = endTime[i] - startTime[i];
-        let prevEnd = (i === 0) ? 0 : endTime[i - 1];
-        let freeTime = lastStart - prevEnd;
+            let prevEnd = (i === 0) ? 0 : endTime[i - 1];
+            let freeTime = lastStart - prevEnd;
         if (duration <= maxGapAfter)
             maxFreeTime = Math.max(maxFreeTime, freeTime);
         maxGapAfter = Math.max(maxGapAfter, lastStart - endTime[i]);
