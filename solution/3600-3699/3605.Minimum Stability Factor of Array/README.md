@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README.md
+tags:
+    - 贪心
+    - 线段树
+    - 数组
+    - 数学
+    - 二分查找
+    - 数论
 ---
 
 <!-- problem:start -->

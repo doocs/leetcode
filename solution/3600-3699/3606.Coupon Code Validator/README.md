@@ -2,6 +2,11 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3606.Coupon%20Code%20Validator/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 排序
 ---
 
 <!-- problem:start -->

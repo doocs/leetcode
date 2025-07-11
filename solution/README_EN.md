@@ -3609,16 +3609,17 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3598  |  [Longest Common Prefix Between Adjacent Strings After Removals](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md)  |  `Array`,`String`  |  Medium  |  Weekly Contest 456  |
 |  3599  |  [Partition Array to Minimize XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 456  |
 |  3600  |  [Maximize Spanning Tree Stability with Upgrades](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md)  |  `Greedy`,`Union Find`,`Graph`,`Binary Search`,`Minimum Spanning Tree`  |  Hard  |  Weekly Contest 456  |
-|  3601  |  [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README_EN.md)  |    |  Medium  |    |
-|  3602  |  [Hexadecimal and Hexatrigesimal Conversion](/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README_EN.md)  |    |  Easy  |  Biweekly Contest 160  |
-|  3603  |  [Minimum Cost Path with Alternating Directions II](/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 160  |
-|  3604  |  [Minimum Time to Reach Destination in Directed Graph](/solution/3600-3699/3604.Minimum%20Time%20to%20Reach%20Destination%20in%20Directed%20Graph/README_EN.md)  |    |  Medium  |  Biweekly Contest 160  |
-|  3605  |  [Minimum Stability Factor of Array](/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README_EN.md)  |    |  Hard  |  Biweekly Contest 160  |
-|  3606  |  [Coupon Code Validator](/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md)  |    |  Easy  |  Weekly Contest 457  |
-|  3607  |  [Power Grid Maintenance](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README_EN.md)  |    |  Medium  |  Weekly Contest 457  |
-|  3608  |  [Minimum Time for K Connected Components](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md)  |    |  Medium  |  Weekly Contest 457  |
-|  3609  |  [Minimum Moves to Reach Target in Grid](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README_EN.md)  |    |  Hard  |  Weekly Contest 457  |
+|  3601  |  [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3602  |  [Hexadecimal and Hexatrigesimal Conversion](/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README_EN.md)  |  `Math`,`String`  |  Easy  |  Biweekly Contest 160  |
+|  3603  |  [Minimum Cost Path with Alternating Directions II](/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Biweekly Contest 160  |
+|  3604  |  [Minimum Time to Reach Destination in Directed Graph](/solution/3600-3699/3604.Minimum%20Time%20to%20Reach%20Destination%20in%20Directed%20Graph/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 160  |
+|  3605  |  [Minimum Stability Factor of Array](/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README_EN.md)  |  `Greedy`,`Segment Tree`,`Array`,`Math`,`Binary Search`,`Number Theory`  |  Hard  |  Biweekly Contest 160  |
+|  3606  |  [Coupon Code Validator](/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Easy  |  Weekly Contest 457  |
+|  3607  |  [Power Grid Maintenance](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`,`Array`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 457  |
+|  3608  |  [Minimum Time for K Connected Components](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md)  |  `Union Find`,`Graph`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 457  |
+|  3609  |  [Minimum Moves to Reach Target in Grid](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README_EN.md)  |  `Math`  |  Hard  |  Weekly Contest 457  |
 |  3610  |  [Minimum Number of Primes to Sum to Target](/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README_EN.md)  |    |  Medium  |  🔒  |
+|  3611  |  [Find Overbooked Employees](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 

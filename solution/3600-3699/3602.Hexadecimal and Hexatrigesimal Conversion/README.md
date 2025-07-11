@@ -2,6 +2,9 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README.md
+tags:
+    - 数学
+    - 字符串
 ---
 
 <!-- problem:start -->
