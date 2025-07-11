@@ -130,7 +130,7 @@ Each row represents a trip made by a driver, including the distance traveled and
     	<li>First half average efficiency: (11.11 + 11.36) / 2 = 11.24</li>
     	<li>Second half trips: Oct 5 (200.0/15.0 = 13.33)</li>
     	<li>Second half average efficiency: 13.33</li>
-    	<li>Efficiency improvement: 13.33 - 11.24 = 2.09</li>
+    	<li>Efficiency improvement: 13.33 - 11.24 = 2.10 (rounded to 2 decimal places)</li>
     </ul>
     </li>
     <li><strong>Drivers not included:</strong>

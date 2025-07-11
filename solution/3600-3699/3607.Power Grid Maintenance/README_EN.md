@@ -2,6 +2,15 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3607.Power%20Grid%20Maintenance/README_EN.md
+tags:
+    - Depth-First Search
+    - Breadth-First Search
+    - Union Find
+    - Graph
+    - Array
+    - Hash Table
+    - Ordered Set
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

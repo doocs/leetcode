@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3610.Mi
 
 <!-- problem:start -->
 
-# [3610. Minimum Number of Primes to Sum to Target 🔒](https://leetcode.cn/problems/minimum-number-of-primes-to-sum-to-target)
+# [3610. 目标和所需的最小质数个数 🔒](https://leetcode.cn/problems/minimum-number-of-primes-to-sum-to-target)
 
 [English Version](/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README_EN.md)
 
@@ -14,51 +14,53 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3610.Mi
 
 <!-- description:start -->
 
-<p>You are given two integers <code>n</code> and <code>m</code>.</p>
+<p>给定两个整数&nbsp;<code>n</code> 和&nbsp;<code>m</code>。</p>
 
-<p>You have to select a multiset of <strong><span data-keyword="prime-number">prime numbers</span></strong> from the <strong>first</strong> <code>m</code> prime numbers such that the sum of the selected primes is <strong>exactly</strong> <code>n</code>. You may use each prime number <strong>multiple</strong> times.</p>
+<p>你必须从 <strong>前</strong> <code>m</code> 个 <strong><span data-keyword="prime-number">质数</span></strong> 中选择一个多重集合，使得所选质数的和 <strong>恰好</strong> 为 <code>n</code>。你可以 <strong>多次</strong> 使用每个质数。</p>
 
-<p>Return the <strong>minimum</strong> number of prime numbers needed to sum up to <code>n</code>, or -1 if it is not possible.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 10, m = 2</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The first 2 primes are [2, 3]. The sum 10 can be formed as 2 + 2 + 3 + 3, requiring 4 primes.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 15, m = 5</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">3</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The first 5 primes are [2, 3, 5, 7, 11]. The sum 15 can be formed as 5 + 5 + 5, requiring 3 primes.</p>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 7, m = 6</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">1</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The first 6 primes are [2, 3, 5, 7, 11, 13]. The sum 7 can be formed directly by prime 7, requiring only 1 prime.</p>
-</div>
+<p>返回组成 <code>n</code> 所需的最小质数个数，如果不可能，则返回 -1。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">n = 10, m = 2</span></p>
+
+<p><strong>输出：</strong><span class="example-io">4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>前 2 个质数是&nbsp;[2, 3]。总和 10 可以通过&nbsp;2 + 2 + 3 + 3 构造，需要 4 个质数。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 15, m = 5</span></p>
+
+<p><span class="example-io"><b>输出：</b>3</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>前 5 个质数是 [2, 3, 5, 7, 11]。总和 15 可以通过 5 + 5 + 5 构造，需要 3 个质数。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 7, m = 6</span></p>
+
+<p><span class="example-io"><b>输出：</b>1</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>前 6 个质数是 [2, 3, 5, 7, 11, 13]。总和 7 可以直接通过质数 7 构造，只需要 1 个质数。</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 1000</code></li>

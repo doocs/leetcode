@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README.md
+tags:
+    - 并查集
+    - 图
+    - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

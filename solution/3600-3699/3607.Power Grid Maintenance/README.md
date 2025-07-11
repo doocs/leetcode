@@ -2,6 +2,15 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3607.Power%20Grid%20Maintenance/README.md
+tags:
+    - 深度优先搜索
+    - 广度优先搜索
+    - 并查集
+    - 图
+    - 数组
+    - 哈希表
+    - 有序集合
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
