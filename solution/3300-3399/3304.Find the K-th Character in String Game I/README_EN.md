@@ -35,8 +35,6 @@ tags:
 
 <p>Return the value of the <code>k<sup>th</sup></code> character in <code>word</code>, after enough operations have been done for <code>word</code> to have <strong>at least</strong> <code>k</code> characters.</p>
 
-<p><strong>Note</strong> that the character <code>&#39;z&#39;</code> can be changed to <code>&#39;a&#39;</code> in the operation.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

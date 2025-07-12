@@ -415,7 +415,7 @@
 |  0402  |  [移掉 K 位数字](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)  |  `栈`,`贪心`,`字符串`,`单调栈`  |  中等  |    |
 |  0403  |  [青蛙过河](/solution/0400-0499/0403.Frog%20Jump/README.md)  |  `数组`,`动态规划`  |  困难  |    |
 |  0404  |  [左叶子之和](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`二叉树`  |  简单  |    |
-|  0405  |  [数字转换为十六进制数](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md)  |  `位运算`,`数学`  |  简单  |    |
+|  0405  |  [数字转换为十六进制数](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md)  |  `位运算`,`数学`,`字符串`  |  简单  |    |
 |  0406  |  [根据身高重建队列](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README.md)  |  `树状数组`,`线段树`,`数组`,`排序`  |  中等  |    |
 |  0407  |  [接雨水 II](/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README.md)  |  `广度优先搜索`,`数组`,`矩阵`,`堆（优先队列）`  |  困难  |    |
 |  0408  |  [有效单词缩写](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README.md)  |  `双指针`,`字符串`  |  简单  |  🔒  |
@@ -514,7 +514,7 @@
 |  0501  |  [二叉搜索树中的众数](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README.md)  |  `树`,`深度优先搜索`,`二叉搜索树`,`二叉树`  |  简单  |    |
 |  0502  |  [IPO](/solution/0500-0599/0502.IPO/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  困难  |    |
 |  0503  |  [下一个更大元素 II](/solution/0500-0599/0503.Next%20Greater%20Element%20II/README.md)  |  `栈`,`数组`,`单调栈`  |  中等  |    |
-|  0504  |  [七进制数](/solution/0500-0599/0504.Base%207/README.md)  |  `数学`  |  简单  |    |
+|  0504  |  [七进制数](/solution/0500-0599/0504.Base%207/README.md)  |  `数学`,`字符串`  |  简单  |    |
 |  0505  |  [迷宫 II](/solution/0500-0599/0505.The%20Maze%20II/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  中等  |  🔒  |
 |  0506  |  [相对名次](/solution/0500-0599/0506.Relative%20Ranks/README.md)  |  `数组`,`排序`,`堆（优先队列）`  |  简单  |    |
 |  0507  |  [完美数](/solution/0500-0599/0507.Perfect%20Number/README.md)  |  `数学`  |  简单  |    |
@@ -985,7 +985,7 @@
 |  0972  |  [相等的有理数](/solution/0900-0999/0972.Equal%20Rational%20Numbers/README.md)  |  `数学`,`字符串`  |  困难  |  第 118 场周赛  |
 |  0973  |  [最接近原点的 K 个点](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README.md)  |  `几何`,`数组`,`数学`,`分治`,`快速选择`,`排序`,`堆（优先队列）`  |  中等  |  第 119 场周赛  |
 |  0974  |  [和可被 K 整除的子数组](/solution/0900-0999/0974.Subarray%20Sums%20Divisible%20by%20K/README.md)  |  `数组`,`哈希表`,`前缀和`  |  中等  |  第 119 场周赛  |
-|  0975  |  [奇偶跳](/solution/0900-0999/0975.Odd%20Even%20Jump/README.md)  |  `栈`,`数组`,`动态规划`,`有序集合`,`单调栈`  |  困难  |  第 119 场周赛  |
+|  0975  |  [奇偶跳](/solution/0900-0999/0975.Odd%20Even%20Jump/README.md)  |  `栈`,`数组`,`动态规划`,`有序集合`,`排序`,`单调栈`  |  困难  |  第 119 场周赛  |
 |  0976  |  [三角形的最大周长](/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README.md)  |  `贪心`,`数组`,`数学`,`排序`  |  简单  |  第 119 场周赛  |
 |  0977  |  [有序数组的平方](/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README.md)  |  `数组`,`双指针`,`排序`  |  简单  |  第 120 场周赛  |
 |  0978  |  [最长湍流子数组](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README.md)  |  `数组`,`动态规划`,`滑动窗口`  |  中等  |  第 120 场周赛  |
@@ -1771,7 +1771,7 @@
 |  1758  |  [生成交替二进制字符串的最少操作数](/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README.md)  |  `字符串`  |  简单  |  第 228 场周赛  |
 |  1759  |  [统计同质子字符串的数目](/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md)  |  `数学`,`字符串`  |  中等  |  第 228 场周赛  |
 |  1760  |  [袋子里最少数目的球](/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md)  |  `数组`,`二分查找`  |  中等  |  第 228 场周赛  |
-|  1761  |  [一个图中连通三元组的最小度数](/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README.md)  |  `图`  |  困难  |  第 228 场周赛  |
+|  1761  |  [一个图中连通三元组的最小度数](/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README.md)  |  `图`,`枚举`  |  困难  |  第 228 场周赛  |
 |  1762  |  [能看到海景的建筑物](/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README.md)  |  `栈`,`数组`,`单调栈`  |  中等  |  🔒  |
 |  1763  |  [最长的美好子字符串](/solution/1700-1799/1763.Longest%20Nice%20Substring/README.md)  |  `位运算`,`哈希表`,`字符串`,`分治`,`滑动窗口`  |  简单  |  第 46 场双周赛  |
 |  1764  |  [通过连接另一个数组的子数组得到一个数组](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README.md)  |  `贪心`,`数组`,`双指针`,`字符串匹配`  |  中等  |  第 46 场双周赛  |
@@ -1792,7 +1792,7 @@
 |  1779  |  [找到最近的有相同 X 或 Y 坐标的点](/solution/1700-1799/1779.Find%20Nearest%20Point%20That%20Has%20the%20Same%20X%20or%20Y%20Coordinate/README.md)  |  `数组`  |  简单  |  第 47 场双周赛  |
 |  1780  |  [判断一个数字是否可以表示成三的幂的和](/solution/1700-1799/1780.Check%20if%20Number%20is%20a%20Sum%20of%20Powers%20of%20Three/README.md)  |  `数学`  |  中等  |  第 47 场双周赛  |
 |  1781  |  [所有子字符串美丽值之和](/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README.md)  |  `哈希表`,`字符串`,`计数`  |  中等  |  第 47 场双周赛  |
-|  1782  |  [统计点对的数目](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README.md)  |  `图`,`数组`,`双指针`,`二分查找`,`排序`  |  困难  |  第 47 场双周赛  |
+|  1782  |  [统计点对的数目](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README.md)  |  `图`,`数组`,`哈希表`,`双指针`,`二分查找`,`计数`,`排序`  |  困难  |  第 47 场双周赛  |
 |  1783  |  [大满贯数量](/solution/1700-1799/1783.Grand%20Slam%20Titles/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  1784  |  [检查二进制字符串字段](/solution/1700-1799/1784.Check%20if%20Binary%20String%20Has%20at%20Most%20One%20Segment%20of%20Ones/README.md)  |  `字符串`  |  简单  |  第 231 场周赛  |
 |  1785  |  [构成特定和需要添加的最少元素](/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README.md)  |  `贪心`,`数组`  |  中等  |  第 231 场周赛  |
@@ -1868,7 +1868,7 @@
 |  1855  |  [下标对中的最大距离](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)  |  `数组`,`双指针`,`二分查找`  |  中等  |  第 240 场周赛  |
 |  1856  |  [子数组最小乘积的最大值](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)  |  `栈`,`数组`,`前缀和`,`单调栈`  |  中等  |  第 240 场周赛  |
 |  1857  |  [有向图中最大颜色值](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md)  |  `图`,`拓扑排序`,`记忆化搜索`,`哈希表`,`动态规划`,`计数`  |  困难  |  第 240 场周赛  |
-|  1858  |  [包含所有前缀的最长单词](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README.md)  |  `深度优先搜索`,`字典树`  |  中等  |  🔒  |
+|  1858  |  [包含所有前缀的最长单词](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README.md)  |  `深度优先搜索`,`字典树`,`数组`,`字符串`  |  中等  |  🔒  |
 |  1859  |  [将句子排序](/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md)  |  `字符串`,`排序`  |  简单  |  第 52 场双周赛  |
 |  1860  |  [增长的内存泄露](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)  |  `数学`,`模拟`  |  中等  |  第 52 场双周赛  |
 |  1861  |  [旋转盒子](/solution/1800-1899/1861.Rotating%20the%20Box/README.md)  |  `数组`,`双指针`,`矩阵`  |  中等  |  第 52 场双周赛  |

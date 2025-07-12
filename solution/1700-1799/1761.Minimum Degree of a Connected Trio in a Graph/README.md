@@ -6,6 +6,7 @@ rating: 2005
 source: 第 228 场周赛 Q4
 tags:
     - 图
+    - 枚举
 ---
 
 <!-- problem:start -->

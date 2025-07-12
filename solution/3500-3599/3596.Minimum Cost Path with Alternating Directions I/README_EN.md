@@ -21,7 +21,7 @@ tags:
 
 <p>The cost to enter cell <code>(i, j)</code> is defined as <code>(i + 1) * (j + 1)</code>.</p>
 
-<p>You start at cell <code>(0, 0)</code> on move 1.</p>
+<p>The path will always begin by entering cell <code>(0, 0)</code> on move 1 and paying the entrance cost.</p>
 
 <p>At each step, you move to an <strong>adjacent</strong> cell, following an alternating pattern:</p>
 

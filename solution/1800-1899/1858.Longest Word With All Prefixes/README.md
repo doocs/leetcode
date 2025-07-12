@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1858.Lo
 tags:
     - 深度优先搜索
     - 字典树
+    - 数组
+    - 字符串
 ---
 
 <!-- problem:start -->
