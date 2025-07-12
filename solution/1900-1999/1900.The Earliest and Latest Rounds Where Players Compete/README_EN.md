@@ -82,41 +82,341 @@ There is no way to make them compete in any other round.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization + Binary Enumeration
+
+We define a function $\text{dfs}(l, r, n)$, which represents the earliest and latest rounds where players numbered $l$ and $r$ compete among $n$ players in the current round.
+
+The execution logic of function $\text{dfs}(l, r, n)$ is as follows:
+
+1. If $l + r = n - 1$, it means the two players compete in the current round, return $[1, 1]$.
+2. If $f[l][r][n] \neq 0$, it means this state has been calculated before, directly return the result.
+3. Initialize the earliest round number as positive infinity and the latest round number as negative infinity.
+4. Calculate the number of players in the first half of the current round $m = n / 2$.
+5. Enumerate all possible winner combinations of the first half (using binary enumeration), for each combination:
+    - Determine which players win based on the current combination.
+    - Determine the positions of players numbered $l$ and $r$ in the current round.
+    - Count the positions of players numbered $l$ and $r$ among the remaining players, denoted as $a$ and $b$, and the total number of remaining players $c$.
+    - Recursively call $\text{dfs}(a, b, c)$ to get the earliest and latest round numbers for the current state.
+    - Update the earliest and latest round numbers.
+6. Store the calculation result in $f[l][r][n]$ and return the earliest and latest round numbers.
+
+The answer is $\text{dfs}(\text{firstPlayer} - 1, \text{secondPlayer} - 1, n)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+@cache
+def dfs(l: int, r: int, n: int):
+    if l + r == n - 1:
+        return [1, 1]
+    res = [inf, -inf]
+    m = n >> 1
+    for i in range(1 << m):
+        win = [False] * n
+        for j in range(m):
+            if i >> j & 1:
+                win[j] = True
+            else:
+                win[n - 1 - j] = True
+        if n & 1:
+            win[m] = True
+        win[n - 1 - l] = win[n - 1 - r] = False
+        win[l] = win[r] = True
+        a = b = c = 0
+        for j in range(n):
+            if j == l:
+                a = c
+            if j == r:
+                b = c
+            if win[j]:
+                c += 1
+        x, y = dfs(a, b, c)
+        res[0] = min(res[0], x + 1)
+        res[1] = max(res[1], y + 1)
+    return res
+
+
 class Solution:
     def earliestAndLatest(
         self, n: int, firstPlayer: int, secondPlayer: int
     ) -> List[int]:
-        # dp[i][j][k] := (earliest, latest) pair w/ firstPlayer is i-th player from
-        # Front, secondPlayer is j-th player from end, and there're k people
-        @functools.lru_cache(None)
-        def dp(l: int, r: int, k: int) -> List[int]:
-            if l == r:
-                return [1, 1]
-            if l > r:
-                return dp(r, l, k)
+        return dfs(firstPlayer - 1, secondPlayer - 1, n)
+```
 
-            a = math.inf
-            b = -math.inf
+#### Java
 
-            # Enumerate all possible positions
-            for i in range(1, l + 1):
-                for j in range(l - i + 1, r - i + 1):
-                    if not l + r - k // 2 <= i + j <= (k + 1) // 2:
-                        continue
-                    x, y = dp(i, j, (k + 1) // 2)
-                    a = min(a, x + 1)
-                    b = max(b, y + 1)
+```java
+class Solution {
+    static int[][][] f = new int[30][30][31];
 
-            return [a, b]
+    public int[] earliestAndLatest(int n, int firstPlayer, int secondPlayer) {
+        return dfs(firstPlayer - 1, secondPlayer - 1, n);
+    }
 
-        return dp(firstPlayer, n - secondPlayer + 1, n)
+    private int[] dfs(int l, int r, int n) {
+        if (f[l][r][n] != 0) {
+            return decode(f[l][r][n]);
+        }
+        if (l + r == n - 1) {
+            f[l][r][n] = encode(1, 1);
+            return new int[] {1, 1};
+        }
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        int m = n >> 1;
+        for (int i = 0; i < (1 << m); i++) {
+            boolean[] win = new boolean[n];
+            for (int j = 0; j < m; j++) {
+                if (((i >> j) & 1) == 1) {
+                    win[j] = true;
+                } else {
+                    win[n - 1 - j] = true;
+                }
+            }
+            if ((n & 1) == 1) {
+                win[m] = true;
+            }
+            win[n - 1 - l] = win[n - 1 - r] = false;
+            win[l] = win[r] = true;
+            int a = 0, b = 0, c = 0;
+            for (int j = 0; j < n; j++) {
+                if (j == l) {
+                    a = c;
+                }
+                if (j == r) {
+                    b = c;
+                }
+                if (win[j]) {
+                    c++;
+                }
+            }
+            int[] t = dfs(a, b, c);
+            min = Math.min(min, t[0] + 1);
+            max = Math.max(max, t[1] + 1);
+        }
+        f[l][r][n] = encode(min, max);
+        return new int[] {min, max};
+    }
+
+    private int encode(int x, int y) {
+        return (x << 8) | y;
+    }
+
+    private int[] decode(int val) {
+        return new int[] {val >> 8, val & 255};
+    }
+}
+```
+
+#### C++
+
+```cpp
+int f[30][30][31];
+class Solution {
+public:
+    vector<int> earliestAndLatest(int n, int firstPlayer, int secondPlayer) {
+        return dfs(firstPlayer - 1, secondPlayer - 1, n);
+    }
+
+private:
+    vector<int> dfs(int l, int r, int n) {
+        if (f[l][r][n] != 0) {
+            return decode(f[l][r][n]);
+        }
+        if (l + r == n - 1) {
+            f[l][r][n] = encode(1, 1);
+            return {1, 1};
+        }
+
+        int min = INT_MAX, max = INT_MIN;
+        int m = n >> 1;
+
+        for (int i = 0; i < (1 << m); i++) {
+            vector<bool> win(n, false);
+            for (int j = 0; j < m; j++) {
+                if ((i >> j) & 1) {
+                    win[j] = true;
+                } else {
+                    win[n - 1 - j] = true;
+                }
+            }
+            if (n & 1) {
+                win[m] = true;
+            }
+
+            win[n - 1 - l] = false;
+            win[n - 1 - r] = false;
+            win[l] = true;
+            win[r] = true;
+
+            int a = 0, b = 0, c = 0;
+            for (int j = 0; j < n; j++) {
+                if (j == l) a = c;
+                if (j == r) b = c;
+                if (win[j]) c++;
+            }
+
+            vector<int> t = dfs(a, b, c);
+            min = std::min(min, t[0] + 1);
+            max = std::max(max, t[1] + 1);
+        }
+
+        f[l][r][n] = encode(min, max);
+        return {min, max};
+    }
+
+    int encode(int x, int y) {
+        return (x << 8) | y;
+    }
+
+    vector<int> decode(int val) {
+        return {val >> 8, val & 255};
+    }
+};
+```
+
+#### Go
+
+```go
+var f [30][30][31]int
+
+func earliestAndLatest(n int, firstPlayer int, secondPlayer int) []int {
+	return dfs(firstPlayer-1, secondPlayer-1, n)
+}
+
+func dfs(l, r, n int) []int {
+	if f[l][r][n] != 0 {
+		return decode(f[l][r][n])
+	}
+	if l+r == n-1 {
+		f[l][r][n] = encode(1, 1)
+		return []int{1, 1}
+	}
+
+	min, max := 1<<30, -1<<31
+	m := n >> 1
+
+	for i := 0; i < (1 << m); i++ {
+		win := make([]bool, n)
+		for j := 0; j < m; j++ {
+			if (i>>j)&1 == 1 {
+				win[j] = true
+			} else {
+				win[n-1-j] = true
+			}
+		}
+		if n&1 == 1 {
+			win[m] = true
+		}
+		win[n-1-l] = false
+		win[n-1-r] = false
+		win[l] = true
+		win[r] = true
+
+		a, b, c := 0, 0, 0
+		for j := 0; j < n; j++ {
+			if j == l {
+				a = c
+			}
+			if j == r {
+				b = c
+			}
+			if win[j] {
+				c++
+			}
+		}
+
+		t := dfs(a, b, c)
+		if t[0]+1 < min {
+			min = t[0] + 1
+		}
+		if t[1]+1 > max {
+			max = t[1] + 1
+		}
+	}
+
+	f[l][r][n] = encode(min, max)
+	return []int{min, max}
+}
+
+func encode(x, y int) int {
+	return (x << 8) | y
+}
+
+func decode(val int) []int {
+	return []int{val >> 8, val & 255}
+}
+```
+
+#### TypeScript
+
+```ts
+function earliestAndLatest(n: number, firstPlayer: number, secondPlayer: number): number[] {
+    return dfs(firstPlayer - 1, secondPlayer - 1, n);
+}
+
+const f: number[][][] = Array.from({ length: 30 }, () =>
+    Array.from({ length: 30 }, () => Array(31).fill(0)),
+);
+
+function dfs(l: number, r: number, n: number): number[] {
+    if (f[l][r][n] !== 0) {
+        return decode(f[l][r][n]);
+    }
+    if (l + r === n - 1) {
+        f[l][r][n] = encode(1, 1);
+        return [1, 1];
+    }
+
+    let min = Number.MAX_SAFE_INTEGER;
+    let max = Number.MIN_SAFE_INTEGER;
+    const m = n >> 1;
+
+    for (let i = 0; i < 1 << m; i++) {
+        const win: boolean[] = Array(n).fill(false);
+        for (let j = 0; j < m; j++) {
+            if ((i >> j) & 1) {
+                win[j] = true;
+            } else {
+                win[n - 1 - j] = true;
+            }
+        }
+
+        if (n & 1) {
+            win[m] = true;
+        }
+
+        win[n - 1 - l] = false;
+        win[n - 1 - r] = false;
+        win[l] = true;
+        win[r] = true;
+
+        let a = 0,
+            b = 0,
+            c = 0;
+        for (let j = 0; j < n; j++) {
+            if (j === l) a = c;
+            if (j === r) b = c;
+            if (win[j]) c++;
+        }
+
+        const t = dfs(a, b, c);
+        min = Math.min(min, t[0] + 1);
+        max = Math.max(max, t[1] + 1);
+    }
+
+    f[l][r][n] = encode(min, max);
+    return [min, max];
+}
+
+function encode(x: number, y: number): number {
+    return (x << 8) | y;
+}
+
+function decode(val: number): number[] {
+    return [val >> 8, val & 255];
+}
 ```
 
 <!-- tabs:end -->
