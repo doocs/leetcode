@@ -1,28 +1,36 @@
+@cache
+def dfs(l: int, r: int, n: int):
+    if l + r == n - 1:
+        return [1, 1]
+    res = [inf, -inf]
+    m = n >> 1
+    for i in range(1 << m):
+        win = [False] * n
+        for j in range(m):
+            if i >> j & 1:
+                win[j] = True
+            else:
+                win[n - 1 - j] = True
+        if n & 1:
+            win[m] = True
+        win[n - 1 - l] = win[n - 1 - r] = False
+        win[l] = win[r] = True
+        a = b = c = 0
+        for j in range(n):
+            if j == l:
+                a = c
+            if j == r:
+                b = c
+            if win[j]:
+                c += 1
+        x, y = dfs(a, b, c)
+        res[0] = min(res[0], x + 1)
+        res[1] = max(res[1], y + 1)
+    return res
+
+
 class Solution:
     def earliestAndLatest(
         self, n: int, firstPlayer: int, secondPlayer: int
     ) -> List[int]:
-        # dp[i][j][k] := (earliest, latest) pair w/ firstPlayer is i-th player from
-        # Front, secondPlayer is j-th player from end, and there're k people
-        @functools.lru_cache(None)
-        def dp(l: int, r: int, k: int) -> List[int]:
-            if l == r:
-                return [1, 1]
-            if l > r:
-                return dp(r, l, k)
-
-            a = math.inf
-            b = -math.inf
-
-            # Enumerate all possible positions
-            for i in range(1, l + 1):
-                for j in range(l - i + 1, r - i + 1):
-                    if not l + r - k // 2 <= i + j <= (k + 1) // 2:
-                        continue
-                    x, y = dp(i, j, (k + 1) // 2)
-                    a = min(a, x + 1)
-                    b = max(b, y + 1)
-
-            return [a, b]
-
-        return dp(firstPlayer, n - secondPlayer + 1, n)
+        return dfs(firstPlayer - 1, secondPlayer - 1, n)
