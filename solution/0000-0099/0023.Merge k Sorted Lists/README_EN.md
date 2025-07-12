@@ -35,7 +35,7 @@ tags:
   1-&gt;3-&gt;4,
   2-&gt;6
 ]
-merging them into one sorted list:
+merging them into one sorted linked list:
 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
 </pre>
 

@@ -7,6 +7,7 @@ tags:
     - Array
     - Dynamic Programming
     - Ordered Set
+    - Sorting
     - Monotonic Stack
 ---
 

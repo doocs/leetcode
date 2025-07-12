@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0405.Co
 tags:
     - Bit Manipulation
     - Math
+    - String
 ---
 
 <!-- problem:start -->

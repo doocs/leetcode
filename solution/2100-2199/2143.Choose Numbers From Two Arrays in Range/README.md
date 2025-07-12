@@ -44,7 +44,7 @@ tags:
 <strong>输入:</strong> nums1 = [1,2,5], nums2 = [2,6,3]
 <strong>输出:</strong> 3
 <strong>解释:</strong> 平衡的区间有:
-- [0, 1], 我们选取 nums2[0] 和 nums2[1]。
+- [0, 1], 我们选取 nums2[0] 和 nums1[1]。
   从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 2 = 2.
 - [0, 2], 我们选取 nums1[0], nums2[1] 和 nums1[2]。
   从 <code>nums1</code> 中选取的数字和与从 <code>nums2</code> 中选取的数字和相等: 1 + 5 = 6。

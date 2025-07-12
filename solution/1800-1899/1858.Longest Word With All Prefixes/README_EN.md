@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1858.Lo
 tags:
     - Depth-First Search
     - Trie
+    - Array
+    - String
 ---
 
 <!-- problem:start -->

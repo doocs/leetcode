@@ -6,6 +6,7 @@ rating: 2005
 source: Weekly Contest 228 Q4
 tags:
     - Graph
+    - Enumeration
 ---
 
 <!-- problem:start -->
