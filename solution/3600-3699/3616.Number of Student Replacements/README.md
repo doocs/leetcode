@@ -70,32 +70,94 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3616.Nu
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们用一个变量 $\text{cur}$ 来记录当前选中的学生的排名。遍历数组 $\text{ranks}$，如果遇到一个排名更好的学生（即 $\text{ranks}[i] < \text{cur}$），则更新 $\text{cur}$ 并将答案加一。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是学生的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def totalReplacements(self, ranks: List[int]) -> int:
+        ans, cur = 0, ranks[0]
+        for x in ranks:
+            if x < cur:
+                cur = x
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int totalReplacements(int[] ranks) {
+        int ans = 0;
+        int cur = ranks[0];
+        for (int x : ranks) {
+            if (x < cur) {
+                cur = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int totalReplacements(vector<int>& ranks) {
+        int ans = 0;
+        int cur = ranks[0];
+        for (int x : ranks) {
+            if (x < cur) {
+                cur = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func totalReplacements(ranks []int) (ans int) {
+	cur := ranks[0]
+	for _, x := range ranks {
+		if x < cur {
+			cur = x
+			ans++
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function totalReplacements(ranks: number[]): number {
+    let [ans, cur] = [0, ranks[0]];
+    for (const x of ranks) {
+        if (x < cur) {
+            cur = x;
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
