@@ -70,32 +70,94 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3616.Nu
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We use a variable $\text{cur}$ to record the rank of the currently selected student. We iterate through the array $\text{ranks}$, and if we encounter a student with a better rank (i.e., $\text{ranks}[i] < \text{cur}$), we update $\text{cur}$ and increment the answer by one.
+
+After the iteration, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the number of students. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def totalReplacements(self, ranks: List[int]) -> int:
+        ans, cur = 0, ranks[0]
+        for x in ranks:
+            if x < cur:
+                cur = x
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int totalReplacements(int[] ranks) {
+        int ans = 0;
+        int cur = ranks[0];
+        for (int x : ranks) {
+            if (x < cur) {
+                cur = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int totalReplacements(vector<int>& ranks) {
+        int ans = 0;
+        int cur = ranks[0];
+        for (int x : ranks) {
+            if (x < cur) {
+                cur = x;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func totalReplacements(ranks []int) (ans int) {
+	cur := ranks[0]
+	for _, x := range ranks {
+		if x < cur {
+			cur = x
+			ans++
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function totalReplacements(ranks: number[]): number {
+    let [ans, cur] = [0, ranks[0]];
+    for (const x of ranks) {
+        if (x < cur) {
+            cur = x;
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
