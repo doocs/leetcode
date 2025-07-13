@@ -76,32 +76,184 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3613.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Union-Find
+
+If $k = n$, it means all edges can be removed. In this case, all connected components are isolated nodes, and the maximum cost is 0.
+
+Otherwise, we can sort all edges by weight in ascending order, then use a union-find data structure to maintain connected components.
+
+We assume that initially all nodes are not connected, with each node being an independent connected component. Starting from the edge with the smallest weight, we try to add it to the current connected components. If the number of connected components becomes less than or equal to $k$ after adding the edge, it means all remaining edges can be removed, and the weight of the current edge is the maximum cost we are looking for. We return this weight. Otherwise, we continue processing the next edge.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minCost(self, n: int, edges: List[List[int]], k: int) -> int:
+        def find(x: int) -> int:
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
 
+        if k == n:
+            return 0
+        edges.sort(key=lambda x: x[2])
+        cnt = n
+        p = list(range(n))
+        for u, v, w in edges:
+            pu, pv = find(u), find(v)
+            if pu != pv:
+                p[pu] = pv
+                cnt -= 1
+                if cnt <= k:
+                    return w
+        return 0
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int minCost(int n, int[][] edges, int k) {
+        if (k == n) {
+            return 0;
+        }
+        p = new int[n];
+        Arrays.setAll(p, i -> i);
+        Arrays.sort(edges, Comparator.comparingInt(a -> a[2]));
+        int cnt = n;
+        for (var e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            int pu = find(u), pv = find(v);
+            if (pu != pv) {
+                p[pu] = pv;
+                if (--cnt <= k) {
+                    return w;
+                }
+            }
+        }
+        return 0;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minCost(int n, vector<vector<int>>& edges, int k) {
+        if (k == n) {
+            return 0;
+        }
+        vector<int> p(n);
+        ranges::iota(p, 0);
+        ranges::sort(edges, {}, [](const auto& e) { return e[2]; });
+        auto find = [&](this auto&& find, int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        int cnt = n;
+        for (const auto& e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            int pu = find(u), pv = find(v);
+            if (pu != pv) {
+                p[pu] = pv;
+                if (--cnt <= k) {
+                    return w;
+                }
+            }
+        }
+        return 0;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCost(n int, edges [][]int, k int) int {
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
 
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+
+	if k == n {
+		return 0
+	}
+
+	slices.SortFunc(edges, func(a, b []int) int {
+		return a[2] - b[2]
+	})
+
+	cnt := n
+	for _, e := range edges {
+		u, v, w := e[0], e[1], e[2]
+		pu, pv := find(u), find(v)
+		if pu != pv {
+			p[pu] = pv
+			if cnt--; cnt <= k {
+				return w
+			}
+		}
+	}
+
+	return 0
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(n: number, edges: number[][], k: number): number {
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+
+    if (k === n) {
+        return 0;
+    }
+
+    edges.sort((a, b) => a[2] - b[2]);
+    let cnt = n;
+    for (const [u, v, w] of edges) {
+        const pu = find(u),
+            pv = find(v);
+        if (pu !== pv) {
+            p[pu] = pv;
+            if (--cnt <= k) {
+                return w;
+            }
+        }
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->

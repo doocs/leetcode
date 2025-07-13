@@ -142,32 +142,128 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3612.Pr
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们直接模拟题目中的操作即可。我们使用一个列表 $\text{result}$ 来存储当前的结果字符串。遍历输入字符串 $s$ 中的每个字符，根据字符的类型执行相应的操作：
+
+-   如果字符是小写英文字母，则将其添加到 $\text{result}$ 中。
+-   如果字符是 `*`，则删除 $\text{result}$ 中的最后一个字符（如果存在）。
+-   如果字符是 `#`，则将 $\text{result}$ 复制一遍并追加到其自身后面。
+-   如果字符是 `%`，则反转 $\text{result}$。
+
+最后，我们将 $\text{result}$ 转换为字符串并返回。
+
+时间复杂度 $O(2^n)$，其中 $n$ 是字符串 $s$ 的长度。最坏情况下，可能会因为 `#` 操作导致 $\text{result}$ 的长度每次翻倍，因此时间复杂度是指数级的。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def processStr(self, s: str) -> str:
+        result = []
+        for c in s:
+            if c.isalpha():
+                result.append(c)
+            elif c == "*" and result:
+                result.pop()
+            elif c == "#":
+                result.extend(result)
+            elif c == "%":
+                result.reverse()
+        return "".join(result)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String processStr(String s) {
+        StringBuilder result = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetter(c)) {
+                result.append(c);
+            } else if (c == '*') {
+                result.setLength(Math.max(0, result.length() - 1));
+            } else if (c == '#') {
+                result.append(result);
+            } else if (c == '%') {
+                result.reverse();
+            }
+        }
+        return result.toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string processStr(string s) {
+        string result;
+        for (char c : s) {
+            if (isalpha(c)) {
+                result += c;
+            } else if (c == '*') {
+                if (!result.empty()) {
+                    result.pop_back();
+                }
+            } else if (c == '#') {
+                result += result;
+            } else if (c == '%') {
+                ranges::reverse(result);
+            }
+        }
+        return result;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func processStr(s string) string {
+	var result []rune
+	for _, c := range s {
+		if unicode.IsLetter(c) {
+			result = append(result, c)
+		} else if c == '*' {
+			if len(result) > 0 {
+				result = result[:len(result)-1]
+			}
+		} else if c == '#' {
+			result = append(result, result...)
+		} else if c == '%' {
+			slices.Reverse(result)
+		}
+	}
+	return string(result)
+}
+```
 
+#### TypeScript
+
+```ts
+function processStr(s: string): string {
+    const result: string[] = [];
+    for (const c of s) {
+        if (/[a-zA-Z]/.test(c)) {
+            result.push(c);
+        } else if (c === '*') {
+            if (result.length > 0) {
+                result.pop();
+            }
+        } else if (c === '#') {
+            result.push(...result);
+        } else if (c === '%') {
+            result.reverse();
+        }
+    }
+    return result.join('');
+}
 ```
 
 <!-- tabs:end -->

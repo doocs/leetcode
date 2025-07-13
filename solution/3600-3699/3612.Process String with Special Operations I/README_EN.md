@@ -140,32 +140,128 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3612.Pr
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can directly simulate the operations described in the problem. We use a list $\text{result}$ to store the current result string. For each character in the input string $s$, we perform the corresponding operation based on the character type:
+
+-   If the character is a lowercase English letter, add it to $\text{result}$.
+-   If the character is `*`, delete the last character in $\text{result}$ (if it exists).
+-   If the character is `#`, copy $\text{result}$ and append it to itself.
+-   If the character is `%`, reverse $\text{result}$.
+
+Finally, we convert $\text{result}$ to a string and return it.
+
+The time complexity is $O(2^n)$, where $n$ is the length of string $s$. In the worst case, the `#` operation may cause the length of $\text{result}$ to double each time, resulting in exponential time complexity. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def processStr(self, s: str) -> str:
+        result = []
+        for c in s:
+            if c.isalpha():
+                result.append(c)
+            elif c == "*" and result:
+                result.pop()
+            elif c == "#":
+                result.extend(result)
+            elif c == "%":
+                result.reverse()
+        return "".join(result)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String processStr(String s) {
+        StringBuilder result = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetter(c)) {
+                result.append(c);
+            } else if (c == '*') {
+                result.setLength(Math.max(0, result.length() - 1));
+            } else if (c == '#') {
+                result.append(result);
+            } else if (c == '%') {
+                result.reverse();
+            }
+        }
+        return result.toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string processStr(string s) {
+        string result;
+        for (char c : s) {
+            if (isalpha(c)) {
+                result += c;
+            } else if (c == '*') {
+                if (!result.empty()) {
+                    result.pop_back();
+                }
+            } else if (c == '#') {
+                result += result;
+            } else if (c == '%') {
+                ranges::reverse(result);
+            }
+        }
+        return result;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func processStr(s string) string {
+	var result []rune
+	for _, c := range s {
+		if unicode.IsLetter(c) {
+			result = append(result, c)
+		} else if c == '*' {
+			if len(result) > 0 {
+				result = result[:len(result)-1]
+			}
+		} else if c == '#' {
+			result = append(result, result...)
+		} else if c == '%' {
+			slices.Reverse(result)
+		}
+	}
+	return string(result)
+}
+```
 
+#### TypeScript
+
+```ts
+function processStr(s: string): string {
+    const result: string[] = [];
+    for (const c of s) {
+        if (/[a-zA-Z]/.test(c)) {
+            result.push(c);
+        } else if (c === '*') {
+            if (result.length > 0) {
+                result.pop();
+            }
+        } else if (c === '#') {
+            result.push(...result);
+        } else if (c === '%') {
+            result.reverse();
+        }
+    }
+    return result.join('');
+}
 ```
 
 <!-- tabs:end -->
