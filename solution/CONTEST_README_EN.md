@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 458
+
+- [3612. Process String with Special Operations I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README_EN.md)
+- [3613. Minimize Maximum Component Cost](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md)
+- [3614. Process String with Special Operations II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md)
+- [3615. Longest Palindromic Path in Graph](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md)
+
 #### Weekly Contest 457
 
 - [3606. Coupon Code Validator](/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md)
