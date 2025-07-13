@@ -76,11 +76,11 @@ tags:
 
 ### 方法一：遍历链表
 
-我们用变量 `ans` 记录当前的十进制值，初始值为 $0$。
+我们用变量 $\textit{ans}$ 记录当前的十进制值，初始值为 $0$。
 
-遍历链表，对于每个结点，将 `ans` 左移一位，然后再或上当前结点的值。遍历结束后，`ans` 即为十进制值。
+遍历链表，对于每个结点，将 $\textit{ans}$ 左移一位，然后再或上当前结点的值。遍历结束后，$\textit{ans}$ 即为十进制值。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
+时间复杂度 $O(n)$，其中 $n$ 为链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -212,12 +212,11 @@ function getDecimalValue(head: ListNode | null): number {
 //   }
 // }
 impl Solution {
-    pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
+    pub fn get_decimal_value(mut head: Option<Box<ListNode>>) -> i32 {
         let mut ans = 0;
-        let mut cur = &head;
-        while let Some(node) = cur {
+        while let Some(node) = head {
             ans = (ans << 1) | node.val;
-            cur = &node.next;
+            head = node.next;
         }
         ans
     }
@@ -247,6 +246,31 @@ var getDecimalValue = function (head) {
 };
 ```
 
+#### C#
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public int GetDecimalValue(ListNode head) {
+        int ans = 0;
+        for (; head != null; head = head.next) {
+            ans = ans << 1 | head.val;
+        }
+        return ans;
+    }
+}
+```
+
 #### PHP
 
 ```php
@@ -267,13 +291,12 @@ class Solution {
      * @return Integer
      */
     function getDecimalValue($head) {
-        $rs = [];
-        while ($head != null) {
-            array_push($rs, $head->val);
+        $ans = 0;
+        while ($head !== null) {
+            $ans = ($ans << 1) | $head->val;
             $head = $head->next;
         }
-        $rsStr = implode($rs);
-        return bindec($rsStr);
+        return $ans;
     }
 }
 ```

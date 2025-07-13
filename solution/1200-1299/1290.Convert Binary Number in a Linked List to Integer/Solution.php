@@ -15,12 +15,11 @@ class Solution {
      * @return Integer
      */
     function getDecimalValue($head) {
-        $rs = [];
-        while ($head != null) {
-            array_push($rs, $head->val);
+        $ans = 0;
+        while ($head !== null) {
+            $ans = ($ans << 1) | $head->val;
             $head = $head->next;
         }
-        $rsStr = implode($rs);
-        return bindec($rsStr);
+        return $ans;
     }
 }
