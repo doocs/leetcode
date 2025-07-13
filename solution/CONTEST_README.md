@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 458 场周赛(2025-07-13 10:30, 90 分钟) 参赛人数 1677
+
+- [3612. 用特殊操作处理字符串 I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README.md)
+- [3613. 最小化连通分量的最大成本](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README.md)
+- [3614. 用特殊操作处理字符串 II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README.md)
+- [3615. 图中的最长回文路径](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README.md)
+
 #### 第 457 场周赛(2025-07-06 10:30, 90 分钟) 参赛人数 1596
 
 - [3606. 优惠券校验器](/solution/3600-3699/3606.Coupon%20Code%20Validator/README.md)
