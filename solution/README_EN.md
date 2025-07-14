@@ -3625,6 +3625,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3614  |  [Process String with Special Operations II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 458  |
 |  3615  |  [Longest Palindromic Path in Graph](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md)  |    |  Hard  |  Weekly Contest 458  |
 |  3616  |  [Number of Student Replacements](/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README_EN.md)  |    |  Medium  |  🔒  |
+|  3617  |  [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
