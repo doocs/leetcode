@@ -3627,6 +3627,7 @@
 |  3614  |  [用特殊操作处理字符串 II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README.md)  |    |  困难  |  第 458 场周赛  |
 |  3615  |  [图中的最长回文路径](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README.md)  |    |  困难  |  第 458 场周赛  |
 |  3616  |  [Number of Student Replacements](/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README.md)  |    |  中等  |  🔒  |
+|  3617  |  [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README.md)  |    |  困难  |    |
 
 ## 版权
 
