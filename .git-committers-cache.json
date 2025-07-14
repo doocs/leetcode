@@ -1,5 +1,5 @@
 {
-  "cache_date": 1752450084,
+  "cache_date": 1752536626,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -39347,7 +39347,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669700
+      "retrieved": 1752535605
     },
     "solution/3100-3199/3137.Minimum Number of Operations to Make Word K-Periodic/README.md": {
       "authors": [
@@ -106402,7 +106402,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671255
+      "retrieved": 1752536397
     },
     "solution/3100-3199/3137.Minimum Number of Operations to Make Word K-Periodic/README_EN.md": {
       "authors": [
@@ -128883,6 +128883,28 @@
         }
       ],
       "retrieved": 1752414158
+    },
+    "solution/3600-3699/3617.Find Students with Study Spiral Pattern/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1752535693
+    },
+    "solution/3600-3699/3617.Find Students with Study Spiral Pattern/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1752536481
     }
   }
 }
