@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md
+tags:
+    - Sort
+    - Union Find
+    - Graph
+    - Binary Search
 ---
 
 <!-- problem:start -->

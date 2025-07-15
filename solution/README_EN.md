@@ -3619,11 +3619,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3608  |  [Minimum Time for K Connected Components](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md)  |  `Union Find`,`Graph`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 457  |
 |  3609  |  [Minimum Moves to Reach Target in Grid](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README_EN.md)  |  `Math`  |  Hard  |  Weekly Contest 457  |
 |  3610  |  [Minimum Number of Primes to Sum to Target](/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README_EN.md)  |    |  Medium  |  🔒  |
-|  3611  |  [Find Overbooked Employees](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README_EN.md)  |    |  Medium  |    |
-|  3612  |  [Process String with Special Operations I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 458  |
-|  3613  |  [Minimize Maximum Component Cost](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md)  |    |  Medium  |  Weekly Contest 458  |
-|  3614  |  [Process String with Special Operations II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 458  |
-|  3615  |  [Longest Palindromic Path in Graph](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md)  |    |  Hard  |  Weekly Contest 458  |
+|  3611  |  [Find Overbooked Employees](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3612  |  [Process String with Special Operations I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README_EN.md)  |  `String`,`Simulation`  |  Medium  |  Weekly Contest 458  |
+|  3613  |  [Minimize Maximum Component Cost](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md)  |  `Sort`,`Union Find`,`Graph`,`Binary Search`  |  Medium  |  Weekly Contest 458  |
+|  3614  |  [Process String with Special Operations II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md)  |  `String`,`Simulation`  |  Hard  |  Weekly Contest 458  |
+|  3615  |  [Longest Palindromic Path in Graph](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md)  |  `Bit Manipulation`,`Graph`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 458  |
 |  3616  |  [Number of Student Replacements](/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README_EN.md)  |    |  Medium  |  🔒  |
 |  3617  |  [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md)  |    |  Hard  |    |
 

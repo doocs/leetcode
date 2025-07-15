@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README.md
+tags:
+    - 位运算
+    - 图
+    - 字符串
+    - 动态规划
 ---
 
 <!-- problem:start -->

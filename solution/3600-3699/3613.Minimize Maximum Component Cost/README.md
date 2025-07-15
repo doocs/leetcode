@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README.md
+tags:
+    - 排序
+    - 并查集
+    - 图
+    - 二分查找
 ---
 
 <!-- problem:start -->
