@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README.md
+tags:
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

@@ -24,13 +24,13 @@ tags:
 
 <p>You are also given a 2D integer array <code>waitCost</code> where <code>waitCost[i][j]</code> defines the cost to <strong>wait</strong> on that cell.</p>
 
-<p>You start at cell <code>(0, 0)</code> at second 1.</p>
+<p>The path will always begin by entering cell <code>(0, 0)</code> on move 1 and paying the entrance cost.</p>
 
 <p>At each step, you follow an alternating pattern:</p>
 
 <ul>
 	<li>On <strong>odd-numbered</strong> seconds, you must move <strong>right</strong> or <strong>down</strong> to an <strong>adjacent</strong> cell, paying its entry cost.</li>
-	<li>On <strong>even-numbered</strong> seconds, you must <strong>wait</strong> in place, paying <code>waitCost[i][j]</code>.</li>
+	<li>On <strong>even-numbered</strong> seconds, you must <strong>wait</strong> in place for <strong>exactly</strong> one second and pay <code>waitCost[i][j]</code> during that second.</li>
 </ul>
 
 <p>Return the <strong>minimum</strong> total cost required to reach <code>(m - 1, n - 1)</code>.</p>

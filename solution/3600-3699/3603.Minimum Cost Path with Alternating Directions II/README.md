@@ -24,13 +24,13 @@ tags:
 
 <p>另外给你一个二维整数数组 <code>waitCost</code>，其中 <code>waitCost[i][j]</code> 定义了在该单元格&nbsp;<strong>等待&nbsp;</strong>的成本。</p>
 
-<p>你从第 1 秒开始在单元格 <code>(0, 0)</code>。</p>
+<p>路径始终从第 1 步进入单元格 <code>(0, 0)</code>&nbsp;并支付入场花费开始。</p>
 
 <p>每一步，你都遵循交替模式：</p>
 
 <ul>
 	<li>在&nbsp;<strong>奇数秒&nbsp;</strong>，你必须向&nbsp;<strong>右&nbsp;</strong>或向&nbsp;<strong>下&nbsp;</strong>移动到&nbsp;<strong>相邻&nbsp;</strong>的单元格，并支付其进入成本。</li>
-	<li>在&nbsp;<strong>偶数秒&nbsp;</strong>，你必须原地&nbsp;<strong>等待&nbsp;</strong>，并支付 <code>waitCost[i][j]</code>。</li>
+	<li>在&nbsp;<strong>偶数秒&nbsp;</strong>，你必须原地&nbsp;<strong>等待</strong><strong>恰好</strong>&nbsp;1 秒并在 1 秒期间支付 <code>waitCost[i][j]</code>。</li>
 </ul>
 
 <p>返回到达 <code>(m - 1, n - 1)</code> 所需的&nbsp;<strong>最小&nbsp;</strong>总成本。</p>

@@ -199,6 +199,47 @@ function maximumLength(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_length(nums: Vec<i32>) -> i32 {
+        let mut f = [[0; 2]; 2];
+        let mut ans = 0;
+        for x in nums {
+            let x = (x % 2) as usize;
+            for j in 0..2 {
+                let y = ((j + 2 - x) % 2) as usize;
+                f[x][y] = f[y][x] + 1;
+                ans = ans.max(f[x][y]);
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaximumLength(int[] nums) {
+        int k = 2;
+        int[,] f = new int[k, k];
+        int ans = 0;
+        foreach (int num in nums) {
+            int x = num % k;
+            for (int j = 0; j < k; ++j) {
+                int y = (j - x + k) % k;
+                f[x, y] = f[y, x] + 1;
+                ans = Math.Max(ans, f[x, y]);
+            }
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

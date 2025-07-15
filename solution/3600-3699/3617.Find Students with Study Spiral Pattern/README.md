@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3617. Find Students with Study Spiral Pattern](https://leetcode.cn/problems/find-students-with-study-spiral-pattern)
+# [3617. 查找具有螺旋学习模式的学生](https://leetcode.cn/problems/find-students-with-study-spiral-pattern)
 
 [English Version](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>students</code></p>
+<p>表：<code>students</code></p>
 
 <pre>
 +--------------+---------+
@@ -26,11 +26,11 @@ tags:
 | student_name | varchar |
 | major        | varchar |
 +--------------+---------+
-student_id is the unique identifier for this table.
-Each row contains information about a student and their academic major.
+student_id 是这张表的唯一主键。
+每一行包含有关学生及其学术专业的信息。
 </pre>
 
-<p>Table: <code>study_sessions</code></p>
+<p>表：<code>study_sessions</code></p>
 
 <pre>
 +---------------+---------+
@@ -42,32 +42,33 @@ Each row contains information about a student and their academic major.
 | session_date  | date    |
 | hours_studied | decimal |
 +---------------+---------+
-session_id is the unique identifier for this table.
-Each row represents a study session by a student for a specific subject.
+session_id 是这张表的唯一主键。
+每一行代表一个学生针对特定学科的学习时段。
 </pre>
 
-<p>Write a solution to find students who follow the <strong>Study Spiral Pattern</strong>&nbsp;- students who consistently study multiple subjects in a rotating cycle.</p>
+<p>编写一个解决方案来找出遵循 <strong>螺旋学习模式</strong> 的学生——即那些持续学习多个学科并按循环周期进行学习的学生。</p>
 
 <ul>
-	<li>A Study Spiral Pattern means a student studies at least <code>3</code><strong> different subjects</strong> in a repeating sequence</li>
-	<li>The pattern must repeat for <strong>at least </strong><code>2</code><strong> complete cycles</strong> (minimum <code>6</code> study sessions)</li>
-	<li>Sessions must be <strong>consecutive dates</strong> with no gaps longer than <code>2</code> days between sessions</li>
-	<li>Calculate the <strong>cycle length</strong> (number of different subjects in the pattern)</li>
-	<li>Calculate the <strong>total study hours</strong> across all sessions in the pattern</li>
-	<li>Only include students with cycle length of <strong>at least </strong><code>3</code><strong> subjects</strong></li>
+	<li>螺旋学习模式意味着学生以重复的顺序学习至少 <code>3</code> 个 <strong>不同的学科</strong>。</li>
+	<li>模式必须重复 <strong>至少</strong><strong>&nbsp;</strong><code>2</code><strong>&nbsp;个完整周期</strong>（最少&nbsp;<code>6</code>&nbsp;次学习记录）。</li>
+	<li>两次学习记录必须是间隔不超过&nbsp;<code>2</code>&nbsp;天的 <strong>连续日期</strong>。</li>
+	<li>计算 <strong>循环长度</strong>（模式中不同的学科数量）。</li>
+	<li>计算模式中所有学习记录的 <strong>总学习时长</strong>。</li>
+	<li>仅包含循环长度 <strong>至少为&nbsp;</strong><strong>&nbsp;</strong><code>3</code><strong>&nbsp;门学科</strong>&nbsp;的学生。</li>
 </ul>
 
-<p>Return <em>the result table ordered by cycle length in <strong>descending</strong> order, then by total study hours in <strong>descending</strong> order</em>.</p>
+<p>返回结果表按循环长度 <strong>降序</strong>&nbsp;排序，然后按总学习时间 <strong>降序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>students table:</p>
+<p>students 表：</p>
 
 <pre class="example-io">
 +------------+--------------+------------------+
@@ -81,7 +82,7 @@ Each row represents a study session by a student for a specific subject.
 +------------+--------------+------------------+
 </pre>
 
-<p>study_sessions table:</p>
+<p>study_sessions 表：</p>
 
 <pre class="example-io">
 +------------+------------+------------+--------------+---------------+
@@ -110,7 +111,7 @@ Each row represents a study session by a student for a specific subject.
 +------------+------------+------------+--------------+---------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +------------+--------------+------------------+--------------+-------------------+
@@ -121,39 +122,39 @@ Each row represents a study session by a student for a specific subject.
 +------------+--------------+------------------+--------------+-------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
 	<li><strong>Alice Chen (student_id = 1):</strong>
 
     <ul>
-    	<li>Study sequence: Math &rarr; Physics &rarr; Chemistry &rarr; Math &rarr; Physics &rarr; Chemistry</li>
-    	<li>Pattern: 3 subjects (Math, Physics, Chemistry) repeating for 2 complete cycles</li>
-    	<li>Consecutive dates: Oct 1-6 with no gaps &gt; 2 days</li>
-    	<li>Cycle length: 3 subjects</li>
-    	<li>Total hours: 2.5 + 3.0 + 2.0 + 2.5 + 3.0 + 2.0 = 15.0 hours</li>
+    	<li>学习序列：Math → Physics → Chemistry → Math → Physics → Chemistry</li>
+    	<li>模式：3 门学科（Math，Physics，Chemistry）重复 2 个完整周期</li>
+    	<li>连续日期：十月 1-6，没有超过 2 天的间隔</li>
+    	<li>循环长度：3 门学科</li>
+    	<li>总时间：2.5 + 3.0 + 2.0 + 2.5 + 3.0 + 2.0 = 15.0 小时</li>
     </ul>
     </li>
     <li><strong>Bob Johnson (student_id = 2):</strong>
     <ul>
-    	<li>Study sequence: Algebra &rarr; Calculus &rarr; Statistics &rarr; Geometry &rarr; Algebra &rarr; Calculus &rarr; Statistics &rarr; Geometry</li>
-    	<li>Pattern: 4 subjects (Algebra, Calculus, Statistics, Geometry) repeating for 2 complete cycles</li>
-    	<li>Consecutive dates: Oct 1-8 with no gaps &gt; 2 days</li>
-    	<li>Cycle length: 4 subjects</li>
-    	<li>Total hours: 4.0 + 3.5 + 2.5 + 3.0 + 4.0 + 3.5 + 2.5 + 3.0 = 26.0&nbsp;hours</li>
+    	<li>学习序列：Algebra → Calculus → Statistics → Geometry → Algebra → Calculus → Statistics → Geometry</li>
+    	<li>模式：4 门学科（Algebra，Calculus，Statistics，Geometry）重复 2 个完整周期</li>
+    	<li>连续日期：十月 1-8，没有超过 2 天的间隔</li>
+    	<li>循环长度：4 门学科</li>
+    	<li>总时间：4.0 + 3.5 + 2.5 + 3.0 + 4.0 + 3.5 + 2.5 + 3.0 = 26.0&nbsp;小时</li>
     </ul>
     </li>
-    <li><strong>Students not included:</strong>
+    <li><strong>未包含学生：</strong>
     <ul>
-    	<li>Carol Davis (student_id = 3): Only 2 subjects (Biology, Chemistry) - doesn&#39;t meet minimum 3 subjects requirement</li>
-    	<li>David Wilson (student_id = 4): Only 2 study sessions with a 4-day gap - doesn&#39;t meet consecutive dates requirement</li>
-    	<li>Emma Brown (student_id = 5): No study sessions recorded</li>
+    	<li>Carol Davis (student_id = 3)：仅 2 门学科（生物，化学）- 未满足至少 3 门学科的要求</li>
+    	<li>David Wilson (student_id = 4)：仅 2 次学习课程，间隔 4 天 - 不符合连续日期要求</li>
+    	<li>Emma Brown (student_id = 5)：没有记录学习课程</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The result table is ordered by cycle_length in descending order, then by total_study_hours in descending order.</p>
+<p>结果表以 cycle_length 降序排序，然后以 total_study_hours 降序排序。</p>
 </div>
 
 <!-- description:end -->
@@ -299,7 +300,8 @@ WITH
                     SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 6), ',', -3),
                     '%'
                 )
-                OR subject_sequence LIKE CONCAT( -- 匹配4科循环2轮的模式
+                OR subject_sequence LIKE CONCAT(
+                    -- 匹配4科循环2轮的模式
                     SUBSTRING_INDEX(subject_sequence, ',', 4),
                     ',',
                     SUBSTRING_INDEX(SUBSTRING_INDEX(subject_sequence, ',', 8), ',', -4),

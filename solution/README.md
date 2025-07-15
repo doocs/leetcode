@@ -3621,13 +3621,13 @@
 |  3608  |  [包含 K 个连通分量需要的最小时间](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README.md)  |  `并查集`,`图`,`二分查找`,`排序`  |  中等  |  第 457 场周赛  |
 |  3609  |  [到达目标点的最小移动次数](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README.md)  |  `数学`  |  困难  |  第 457 场周赛  |
 |  3610  |  [目标和所需的最小质数个数](/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README.md)  |    |  中等  |  🔒  |
-|  3611  |  [查找超预订员工](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README.md)  |    |  中等  |    |
-|  3612  |  [用特殊操作处理字符串 I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README.md)  |    |  中等  |  第 458 场周赛  |
-|  3613  |  [最小化连通分量的最大成本](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README.md)  |    |  中等  |  第 458 场周赛  |
-|  3614  |  [用特殊操作处理字符串 II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README.md)  |    |  困难  |  第 458 场周赛  |
-|  3615  |  [图中的最长回文路径](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README.md)  |    |  困难  |  第 458 场周赛  |
-|  3616  |  [Number of Student Replacements](/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README.md)  |    |  中等  |  🔒  |
-|  3617  |  [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README.md)  |    |  困难  |    |
+|  3611  |  [查找超预订员工](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README.md)  |  `数据库`  |  中等  |    |
+|  3612  |  [用特殊操作处理字符串 I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README.md)  |  `字符串`,`模拟`  |  中等  |  第 458 场周赛  |
+|  3613  |  [最小化连通分量的最大成本](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README.md)  |  `排序`,`并查集`,`图`,`二分查找`  |  中等  |  第 458 场周赛  |
+|  3614  |  [用特殊操作处理字符串 II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README.md)  |  `字符串`,`模拟`  |  困难  |  第 458 场周赛  |
+|  3615  |  [图中的最长回文路径](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README.md)  |  `位运算`,`图`,`字符串`,`动态规划`  |  困难  |  第 458 场周赛  |
+|  3616  |  [学生替换人数](/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README.md)  |    |  中等  |  🔒  |
+|  3617  |  [查找具有螺旋学习模式的学生](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README.md)  |    |  困难  |    |
 
 ## 版权
 
