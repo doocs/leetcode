@@ -264,25 +264,25 @@ function minimumDifference(nums: number[]): number {
     const n = Math.floor(m / 3);
     let s = 0;
     const pre: number[] = Array(m + 1);
-    const q1 = new MaxPriorityQueue();
+    const q1 = new MaxPriorityQueue<number>();
     for (let i = 1; i <= n * 2; ++i) {
         const x = nums[i - 1];
         s += x;
-        q1.enqueue(x, x);
+        q1.enqueue(x);
         if (q1.size() > n) {
-            s -= q1.dequeue().element;
+            s -= q1.dequeue();
         }
         pre[i] = s;
     }
     s = 0;
     const suf: number[] = Array(m + 1);
-    const q2 = new MinPriorityQueue();
+    const q2 = new MinPriorityQueue<number>();
     for (let i = m; i > n; --i) {
         const x = nums[i - 1];
         s += x;
-        q2.enqueue(x, x);
+        q2.enqueue(x);
         if (q2.size() > n) {
-            s -= q2.dequeue().element;
+            s -= q2.dequeue();
         }
         suf[i] = s;
     }
@@ -291,6 +291,58 @@ function minimumDifference(nums: number[]): number {
         ans = Math.min(ans, pre[i] - suf[i + 1]);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::BinaryHeap;
+use std::cmp::Reverse;
+
+impl Solution {
+    pub fn minimum_difference(nums: Vec<i32>) -> i64 {
+        let m = nums.len();
+        let n = m / 3;
+        let mut s = 0i64;
+        let mut pre = vec![0i64; m + 1];
+        let mut pq = BinaryHeap::new(); // max-heap
+
+        for i in 1..=2 * n {
+            let x = nums[i - 1] as i64;
+            s += x;
+            pq.push(x);
+            if pq.len() > n {
+                if let Some(top) = pq.pop() {
+                    s -= top;
+                }
+            }
+            pre[i] = s;
+        }
+
+        s = 0;
+        let mut suf = vec![0i64; m + 1];
+        let mut pq = BinaryHeap::new();
+
+        for i in (n + 1..=m).rev() {
+            let x = nums[i - 1] as i64;
+            s += x;
+            pq.push(Reverse(x));
+            if pq.len() > n {
+                if let Some(Reverse(top)) = pq.pop() {
+                    s -= top;
+                }
+            }
+            suf[i] = s;
+        }
+
+        let mut ans = i64::MAX;
+        for i in n..=2 * n {
+            ans = ans.min(pre[i] - suf[i + 1]);
+        }
+
+        ans
+    }
 }
 ```
 
