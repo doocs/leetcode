@@ -8,11 +8,11 @@ var lastStoneWeight = function (stones) {
         pq.enqueue(x);
     }
     while (pq.size() > 1) {
-        const y = pq.dequeue()['priority'];
-        const x = pq.dequeue()['priority'];
+        const y = pq.dequeue();
+        const x = pq.dequeue();
         if (x != y) {
             pq.enqueue(y - x);
         }
     }
-    return pq.isEmpty() ? 0 : pq.dequeue()['priority'];
+    return pq.isEmpty() ? 0 : pq.dequeue();
 };
