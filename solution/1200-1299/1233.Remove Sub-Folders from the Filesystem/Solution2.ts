@@ -1,37 +1,45 @@
-function removeSubfolders(folder: string[]): string[] {
-    const createTrie = (): T => ({ '#': false, children: {} });
-    const trie = createTrie();
+class Trie {
+    children: Record<string, Trie>;
+    fid: number;
 
-    for (const f of folder) {
-        const path = f.split('/');
-        path.shift();
-
-        let node = trie;
-        for (const p of path) {
-            if (!node.children[p]) node.children[p] = createTrie();
-            node = node.children[p];
-        }
-        node['#'] = true;
+    constructor() {
+        this.children = {};
+        this.fid = -1;
     }
 
-    const ans: string[] = [];
-    const dfs = (trie: T, path = '') => {
-        if (trie['#']) {
-            ans.push(path);
-            return;
+    insert(i: number, f: string): void {
+        let node: Trie = this;
+        const ps = f.split('/');
+        for (let j = 1; j < ps.length; ++j) {
+            const p = ps[j];
+            if (!(p in node.children)) {
+                node.children[p] = new Trie();
+            }
+            node = node.children[p];
         }
+        node.fid = i;
+    }
 
-        for (const key in trie.children) {
-            dfs(trie.children[key], path + '/' + key);
-        }
-    };
-
-    dfs(trie);
-
-    return ans;
+    search(): number[] {
+        const ans: number[] = [];
+        const dfs = (root: Trie): void => {
+            if (root.fid !== -1) {
+                ans.push(root.fid);
+                return;
+            }
+            for (const child of Object.values(root.children)) {
+                dfs(child);
+            }
+        };
+        dfs(this);
+        return ans;
+    }
 }
 
-type T = {
-    '#': boolean;
-    children: Record<string, T>;
-};
+function removeSubfolders(folder: string[]): string[] {
+    const trie = new Trie();
+    for (let i = 0; i < folder.length; ++i) {
+        trie.insert(i, folder[i]);
+    }
+    return trie.search().map(i => folder[i]);
+}

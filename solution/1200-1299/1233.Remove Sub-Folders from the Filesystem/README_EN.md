@@ -347,149 +347,6 @@ public:
 ```go
 type Trie struct {
 	children map[string]*Trie
-	isEnd    bool
-}
-
-func newTrie() *Trie {
-	m := map[string]*Trie{}
-	return &Trie{children: m}
-}
-
-func (this *Trie) insert(w string) {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
-		if _, ok := node.children[p]; !ok {
-			node.children[p] = newTrie()
-		}
-		node, _ = node.children[p]
-	}
-	node.isEnd = true
-}
-
-func (this *Trie) search(w string) bool {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
-		if _, ok := node.children[p]; !ok {
-			return false
-		}
-		node, _ = node.children[p]
-		if node.isEnd {
-			return true
-		}
-	}
-	return false
-}
-
-func removeSubfolders(folder []string) []string {
-	sort.Slice(folder, func(i, j int) bool {
-		return len(strings.Split(folder[i], "/")) < len(strings.Split(folder[j], "/"))
-	})
-	trie := newTrie()
-	var ans []string
-	for _, v := range folder {
-		if !trie.search(v) {
-			trie.insert(v)
-			ans = append(ans, v)
-		}
-	}
-	return ans
-}
-```
-
-#### TypeScript
-
-```ts
-function removeSubfolders(folder: string[]): string[] {
-    const createTrie = (): T => ({ '#': false, children: {} });
-    const trie = createTrie();
-
-    for (const f of folder) {
-        const path = f.split('/');
-        path.shift();
-
-        let node = trie;
-        for (const p of path) {
-            if (!node.children[p]) node.children[p] = createTrie();
-            node = node.children[p];
-        }
-        node['#'] = true;
-    }
-
-    const ans: string[] = [];
-    const dfs = (trie: T, path = '') => {
-        if (trie['#']) {
-            ans.push(path);
-            return;
-        }
-
-        for (const key in trie.children) {
-            dfs(trie.children[key], path + '/' + key);
-        }
-    };
-
-    dfs(trie);
-
-    return ans;
-}
-
-type T = {
-    '#': boolean;
-    children: Record<string, T>;
-};
-```
-
-#### JavaScript
-
-```js
-function removeSubfolders(folder) {
-    const createTrie = () => ({ '#': false, children: {} });
-    const trie = createTrie();
-
-    for (const f of folder) {
-        const path = f.split('/');
-        path.shift();
-
-        let node = trie;
-        for (const p of path) {
-            if (!node.children[p]) node.children[p] = createTrie();
-            node = node.children[p];
-        }
-        node['#'] = true;
-    }
-
-    const ans = [];
-    const dfs = (trie, path = '') => {
-        if (trie['#']) {
-            ans.push(path);
-            return;
-        }
-
-        for (const key in trie.children) {
-            dfs(trie.children[key], path + '/' + key);
-        }
-    };
-
-    dfs(trie);
-
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### Go
-
-```go
-type Trie struct {
-	children map[string]*Trie
 	fid      int
 }
 
@@ -534,6 +391,107 @@ func removeSubfolders(folder []string) (ans []string) {
 	}
 	return
 }
+```
+
+#### TypeScript
+
+```ts
+class Trie {
+    children: Record<string, Trie>;
+    fid: number;
+
+    constructor() {
+        this.children = {};
+        this.fid = -1;
+    }
+
+    insert(i: number, f: string): void {
+        let node: Trie = this;
+        const ps = f.split('/');
+        for (let j = 1; j < ps.length; ++j) {
+            const p = ps[j];
+            if (!(p in node.children)) {
+                node.children[p] = new Trie();
+            }
+            node = node.children[p];
+        }
+        node.fid = i;
+    }
+
+    search(): number[] {
+        const ans: number[] = [];
+        const dfs = (root: Trie): void => {
+            if (root.fid !== -1) {
+                ans.push(root.fid);
+                return;
+            }
+            for (const child of Object.values(root.children)) {
+                dfs(child);
+            }
+        };
+        dfs(this);
+        return ans;
+    }
+}
+
+function removeSubfolders(folder: string[]): string[] {
+    const trie = new Trie();
+    for (let i = 0; i < folder.length; ++i) {
+        trie.insert(i, folder[i]);
+    }
+    return trie.search().map(i => folder[i]);
+}
+```
+
+#### JavaScript
+
+```js
+class Trie {
+    constructor() {
+        this.children = {};
+        this.fid = -1;
+    }
+
+    insert(i, f) {
+        let node = this;
+        const ps = f.split('/');
+        for (let j = 1; j < ps.length; ++j) {
+            const p = ps[j];
+            if (!(p in node.children)) {
+                node.children[p] = new Trie();
+            }
+            node = node.children[p];
+        }
+        node.fid = i;
+    }
+
+    search() {
+        const ans = [];
+        const dfs = root => {
+            if (root.fid !== -1) {
+                ans.push(root.fid);
+                return;
+            }
+            for (const child of Object.values(root.children)) {
+                dfs(child);
+            }
+        };
+        dfs(this);
+        return ans;
+    }
+}
+
+/**
+ * @param {string[]} folder
+ * @return {string[]}
+ */
+var removeSubfolders = function (folder) {
+    const trie = new Trie();
+    for (let i = 0; i < folder.length; ++i) {
+        trie.insert(i, folder[i]);
+    }
+    return trie.search().map(i => folder[i]);
+};
 ```
 
 <!-- tabs:end -->
