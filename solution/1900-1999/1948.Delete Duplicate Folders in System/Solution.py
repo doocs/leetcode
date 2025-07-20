@@ -1,52 +1,46 @@
-class TrieNode:
+class Trie:
     def __init__(self):
-        self.children = collections.defaultdict(TrieNode)
-        self.key = ""
-        self.deleted = False
+        self.children: Dict[str, "Trie"] = defaultdict(Trie)
+        self.deleted: bool = False
 
 
 class Solution:
     def deleteDuplicateFolder(self, paths: List[List[str]]) -> List[List[str]]:
-        root = TrieNode()
-
+        root = Trie()
         for path in paths:
-            current = root
-            for folder in path:
-                current = current.children[folder]
-                current.key = folder
+            cur = root
+            for name in path:
+                if cur.children[name] is None:
+                    cur.children[name] = Trie()
+                cur = cur.children[name]
 
-        seen = collections.defaultdict(list)
+        g: Dict[str, Trie] = {}
 
-        def dfs(node):
+        def dfs(node: Trie) -> str:
             if not node.children:
                 return ""
-            keys = []
-            for key, child in node.children.items():
-                serialized = dfs(child)
-                keys.append(f"{key}({serialized})")
-            keys.sort()
-            serialized = "".join(keys)
-            if len(seen[serialized]) > 0:
-                for duplicate in seen[serialized]:
-                    duplicate.deleted = True
-                node.deleted = True
-            seen[serialized].append(node)
-            return serialized
+            subs: List[str] = []
+            for name, child in node.children.items():
+                subs.append(f"{name}({dfs(child)})")
+            s = "".join(sorted(subs))
+            if s in g:
+                node.deleted = g[s].deleted = True
+            else:
+                g[s] = node
+            return s
 
-        dfs(root)
-
-        result = []
-        path = []
-
-        def collect(node):
+        def dfs2(node: Trie) -> None:
             if node.deleted:
                 return
             if path:
-                result.append(path.copy())
-            for key, child in node.children.items():
-                path.append(key)
-                collect(child)
+                ans.append(path[:])
+            for name, child in node.children.items():
+                path.append(name)
+                dfs2(child)
                 path.pop()
 
-        collect(root)
-        return result
+        dfs(root)
+        ans: List[List[str]] = []
+        path: List[str] = []
+        dfs2(root)
+        return ans
