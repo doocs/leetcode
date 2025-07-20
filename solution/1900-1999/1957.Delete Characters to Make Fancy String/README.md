@@ -72,11 +72,11 @@ tags:
 
 ### 方法一：模拟
 
-我们可以遍历字符串 $s$，并使用一个数组 $\textit{ans}$ 记录当前的答案。对于每一个字符 $c$，如果 $\textit{ans}$ 的长度小于 $2$ 或者 $\textit{ans}$ 的最后两个字符不等于 $c$，我们就将 $c$ 添加到 $\textit{ans}$ 中。
+我们可以遍历字符串 $s$，并使用一个数组 $\textit{ans}$ 记录当前的答案。对于每一个字符 $\textit{s[i]}$，如果 $i \lt 2$ 或者 $s[i]$ 与 $s[i - 1]$ 不等，或者 $s[i]$ 与 $s[i - 2]$ 不等，我们就将 $s[i]$ 添加到 $\textit{ans}$ 中。
 
 最后，我们将 $\textit{ans}$ 中的字符连接起来，就得到了答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -86,8 +86,8 @@ tags:
 class Solution:
     def makeFancyString(self, s: str) -> str:
         ans = []
-        for c in s:
-            if len(ans) < 2 or ans[-1] != c or ans[-2] != c:
+        for i, c in enumerate(s):
+            if i < 2 or c != s[i - 1] or c != s[i - 2]:
                 ans.append(c)
         return "".join(ans)
 ```
@@ -98,9 +98,9 @@ class Solution:
 class Solution {
     public String makeFancyString(String s) {
         StringBuilder ans = new StringBuilder();
-        for (char c : s.toCharArray()) {
-            int n = ans.length();
-            if (n < 2 || c != ans.charAt(n - 1) || c != ans.charAt(n - 2)) {
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (i < 2 || c != s.charAt(i - 1) || c != s.charAt(i - 2)) {
                 ans.append(c);
             }
         }
@@ -116,9 +116,9 @@ class Solution {
 public:
     string makeFancyString(string s) {
         string ans = "";
-        for (char& c : s) {
-            int n = ans.size();
-            if (n < 2 || ans[n - 1] != c || ans[n - 2] != c) {
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s[i];
+            if (i < 2 || c != s[i - 1] || c != s[i - 2]) {
                 ans += c;
             }
         }
@@ -131,9 +131,9 @@ public:
 
 ```go
 func makeFancyString(s string) string {
-	ans := []rune{}
-	for _, c := range s {
-		if n := len(ans); n < 2 || c != ans[n-1] || c != ans[n-2] {
+	ans := []byte{}
+	for i, ch := range s {
+		if c := byte(ch); i < 2 || c != s[i-1] || c != s[i-2] {
 			ans = append(ans, c)
 		}
 	}
@@ -145,28 +145,32 @@ func makeFancyString(s string) string {
 
 ```ts
 function makeFancyString(s: string): string {
-    let [n, ans] = [s.length, ''];
-    for (let i = 0; i < n; i++) {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; ++i) {
         if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
-            ans += s[i];
+            ans.push(s[i]);
         }
     }
-    return ans;
+    return ans.join('');
 }
 ```
 
 #### JavaScript
 
 ```js
-function makeFancyString(s) {
-    let [n, ans] = [s.length, ''];
-    for (let i = 0; i < n; i++) {
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var makeFancyString = function (s) {
+    const ans = [];
+    for (let i = 0; i < s.length; ++i) {
         if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
-            ans += s[i];
+            ans.push(s[i]);
         }
     }
-    return ans;
-}
+    return ans.join('');
+};
 ```
 
 #### PHP
@@ -178,17 +182,14 @@ class Solution {
      * @return String
      */
     function makeFancyString($s) {
-        $ans = [];
-        $length = strlen($s);
-
-        for ($i = 0; $i < $length; $i++) {
-            $n = count($ans);
-            if ($n < 2 || $s[$i] !== $ans[$n - 1] || $s[$i] !== $ans[$n - 2]) {
-                $ans[] = $s[$i];
+        $ans = '';
+        for ($i = 0; $i < strlen($s); $i++) {
+            $c = $s[$i];
+            if ($i < 2 || $c !== $s[$i - 1] || $c !== $s[$i - 2]) {
+                $ans .= $c;
             }
         }
-
-        return implode('', $ans);
+        return $ans;
     }
 }
 ```
