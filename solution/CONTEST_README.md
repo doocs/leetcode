@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 459 场周赛(2025-07-20 10:30, 90 分钟) 参赛人数 1639
+
+- [3622. 判断整除性](/solution/3600-3699/3622.Check%20Divisibility%20by%20Digit%20Sum%20and%20Product/README.md)
+- [3623. 统计梯形的数目 I](/solution/3600-3699/3623.Count%20Number%20of%20Trapezoids%20I/README.md)
+- [3624. 位计数深度为 K 的整数数目 II](/solution/3600-3699/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II/README.md)
+- [3625. 统计梯形的数目 II](/solution/3600-3699/3625.Count%20Number%20of%20Trapezoids%20II/README.md)
+
+#### 第 161 场双周赛(2025-07-19 22:30, 90 分钟) 参赛人数 1154
+
+- [3618. 根据质数下标分割数组](/solution/3600-3699/3618.Split%20Array%20by%20Prime%20Indices/README.md)
+- [3619. 总价值可以被 K 整除的岛屿数目](/solution/3600-3699/3619.Count%20Islands%20With%20Total%20Value%20Divisible%20by%20K/README.md)
+- [3620. 恢复网络路径](/solution/3600-3699/3620.Network%20Recovery%20Pathways/README.md)
+- [3621. 位计数深度为 K 的整数数目 I](/solution/3600-3699/3621.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20I/README.md)
+
 #### 第 458 场周赛(2025-07-13 10:30, 90 分钟) 参赛人数 1677
 
 - [3612. 用特殊操作处理字符串 I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README.md)
