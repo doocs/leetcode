@@ -80,32 +80,153 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3618.Sp
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：埃氏筛 + 模拟
+
+我们可以用埃氏筛法预处理出 $[0, 10^5]$ 范围内的所有质数。然后遍历数组 $
+\textit{nums}$，对于 $\textit{nums}[i]$，如果 $i$ 是质数，则将 $\textit{nums}[i]$ 加到答案中，否则将 $-\textit{nums}[i]$ 加到答案中。最后返回答案的绝对值。
+
+忽略预处理的时间和空间，时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+m = 10**5 + 10
+primes = [True] * m
+primes[0] = primes[1] = False
+for i in range(2, m):
+    if primes[i]:
+        for j in range(i + i, m, i):
+            primes[j] = False
 
+
+class Solution:
+    def splitArray(self, nums: List[int]) -> int:
+        return abs(sum(x if primes[i] else -x for i, x in enumerate(nums)))
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final int M = 100000 + 10;
+    private static boolean[] primes = new boolean[M];
 
+    static {
+        for (int i = 0; i < M; i++) {
+            primes[i] = true;
+        }
+        primes[0] = primes[1] = false;
+
+        for (int i = 2; i < M; i++) {
+            if (primes[i]) {
+                for (int j = i + i; j < M; j += i) {
+                    primes[j] = false;
+                }
+            }
+        }
+    }
+
+    public long splitArray(int[] nums) {
+        long ans = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            ans += primes[i] ? nums[i] : -nums[i];
+        }
+        return Math.abs(ans);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+const int M = 1e5 + 10;
+bool primes[M];
+auto init = [] {
+    memset(primes, true, sizeof(primes));
+    primes[0] = primes[1] = false;
+    for (int i = 2; i < M; ++i) {
+        if (primes[i]) {
+            for (int j = i + i; j < M; j += i) {
+                primes[j] = false;
+            }
+        }
+    }
+    return 0;
+}();
 
+class Solution {
+public:
+    long long splitArray(vector<int>& nums) {
+        long long ans = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            ans += primes[i] ? nums[i] : -nums[i];
+        }
+        return abs(ans);
+    }
+};
 ```
 
 #### Go
 
 ```go
+const M = 100000 + 10
 
+var primes [M]bool
+
+func init() {
+	for i := 0; i < M; i++ {
+		primes[i] = true
+	}
+	primes[0], primes[1] = false, false
+
+	for i := 2; i < M; i++ {
+		if primes[i] {
+			for j := i + i; j < M; j += i {
+				primes[j] = false
+			}
+		}
+	}
+}
+
+func splitArray(nums []int) (ans int64) {
+	for i, num := range nums {
+		if primes[i] {
+			ans += int64(num)
+		} else {
+			ans -= int64(num)
+		}
+	}
+	return max(ans, -ans)
+}
+```
+
+#### TypeScript
+
+```ts
+const M = 100000 + 10;
+const primes: boolean[] = Array(M).fill(true);
+
+const init = (() => {
+    primes[0] = primes[1] = false;
+
+    for (let i = 2; i < M; i++) {
+        if (primes[i]) {
+            for (let j = i + i; j < M; j += i) {
+                primes[j] = false;
+            }
+        }
+    }
+})();
+
+function splitArray(nums: number[]): number {
+    let ans = 0;
+    for (let i = 0; i < nums.length; i++) {
+        ans += primes[i] ? nums[i] : -nums[i];
+    }
+    return Math.abs(ans);
+}
 ```
 
 <!-- tabs:end -->
