@@ -150,7 +150,7 @@ class Solution {
 
     public List<List<String>> deleteDuplicateFolder(List<List<String>> paths) {
         TrieNode root = new TrieNode("");
-        
+
         // Step 1: Build the folder trie
         for (List<String> path : paths) {
             TrieNode curr = root;
