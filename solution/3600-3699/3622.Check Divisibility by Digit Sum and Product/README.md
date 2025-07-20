@@ -67,32 +67,95 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3622.Ch
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以遍历整数 $n$ 的每一位数字，计算出数字和 $s$ 和数字积 $p$。最后判断 $n$ 是否能被 $s + p$ 整除。
+
+时间复杂度 $O(\log n)$，其中 $n$ 为整数 $n$ 的值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def checkDivisibility(self, n: int) -> bool:
+        s, p = 0, 1
+        x = n
+        while x:
+            x, v = divmod(x, 10)
+            s += v
+            p *= v
+        return n % (s + p) == 0
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean checkDivisibility(int n) {
+        int s = 0, p = 1;
+        int x = n;
+        while (x != 0) {
+            int v = x % 10;
+            x /= 10;
+            s += v;
+            p *= v;
+        }
+        return n % (s + p) == 0;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool checkDivisibility(int n) {
+        int s = 0, p = 1;
+        int x = n;
+        while (x != 0) {
+            int v = x % 10;
+            x /= 10;
+            s += v;
+            p *= v;
+        }
+        return n % (s + p) == 0;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func checkDivisibility(n int) bool {
+	s, p := 0, 1
+	x := n
+	for x != 0 {
+		v := x % 10
+		x /= 10
+		s += v
+		p *= v
+	}
+	return n%(s+p) == 0
+}
+```
 
+#### TypeScript
+
+```ts
+function checkDivisibility(n: number): boolean {
+    let [s, p] = [0, 1];
+    let x = n;
+    while (x !== 0) {
+        const v = x % 10;
+        x = Math.floor(x / 10);
+        s += v;
+        p *= v;
+    }
+    return n % (s + p) === 0;
+}
 ```
 
 <!-- tabs:end -->

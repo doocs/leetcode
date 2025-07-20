@@ -65,32 +65,95 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3622.Ch
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can iterate through each digit of the integer $n$, calculating the digit sum $s$ and digit product $p$. Finally, we check whether $n$ is divisible by $s + p$.
+
+The time complexity is $O(\log n)$, where $n$ is the value of the integer $n$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def checkDivisibility(self, n: int) -> bool:
+        s, p = 0, 1
+        x = n
+        while x:
+            x, v = divmod(x, 10)
+            s += v
+            p *= v
+        return n % (s + p) == 0
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean checkDivisibility(int n) {
+        int s = 0, p = 1;
+        int x = n;
+        while (x != 0) {
+            int v = x % 10;
+            x /= 10;
+            s += v;
+            p *= v;
+        }
+        return n % (s + p) == 0;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool checkDivisibility(int n) {
+        int s = 0, p = 1;
+        int x = n;
+        while (x != 0) {
+            int v = x % 10;
+            x /= 10;
+            s += v;
+            p *= v;
+        }
+        return n % (s + p) == 0;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func checkDivisibility(n int) bool {
+	s, p := 0, 1
+	x := n
+	for x != 0 {
+		v := x % 10
+		x /= 10
+		s += v
+		p *= v
+	}
+	return n%(s+p) == 0
+}
+```
 
+#### TypeScript
+
+```ts
+function checkDivisibility(n: number): boolean {
+    let [s, p] = [0, 1];
+    let x = n;
+    while (x !== 0) {
+        const v = x % 10;
+        x = Math.floor(x / 10);
+        s += v;
+        p *= v;
+    }
+    return n % (s + p) === 0;
+}
 ```
 
 <!-- tabs:end -->
