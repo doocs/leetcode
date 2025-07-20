@@ -1,7 +1,7 @@
 var deleteDuplicateFolder = function (paths) {
     class Trie {
         constructor() {
-            this.serial = "";
+            this.serial = '';
             this.children = new Map();
         }
     }
@@ -26,7 +26,7 @@ var deleteDuplicateFolder = function (paths) {
             v.push(`${folder}(${child.serial})`);
         }
         v.sort();
-        node.serial = v.join("");
+        node.serial = v.join('');
         freq.set(node.serial, (freq.get(node.serial) || 0) + 1);
     }
     construct(root);

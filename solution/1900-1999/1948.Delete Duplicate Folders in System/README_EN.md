@@ -176,7 +176,7 @@ class Solution {
             }
         }
 
-        Map<String, Integer> freq = new HashMap<>(); 
+        Map<String, Integer> freq = new HashMap<>();
         construct(root, freq);
         List<List<String>> ans = new ArrayList<>();
         List<String> path = new ArrayList<>();
