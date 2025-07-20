@@ -1,70 +1,62 @@
-type TrieNode struct {
-    children map[string]*TrieNode
-    key      string
-    deleted  bool
+type Trie struct {
+	children map[string]*Trie
+	deleted  bool
 }
 
-func deleteDuplicateFolder(paths [][]string) [][]string {
-    root := &TrieNode{children: make(map[string]*TrieNode)}
+func NewTrie() *Trie {
+	return &Trie{
+		children: make(map[string]*Trie),
+	}
+}
 
-    for _, path := range paths {
-        current := root
-        for _, folder := range path {
-            if _, ok := current.children[folder]; !ok {
-                current.children[folder] = &TrieNode{
-                    children: make(map[string]*TrieNode),
-                    key:      folder,
-                }
-            }
-            current = current.children[folder]
-        }
-    }
+func deleteDuplicateFolder(paths [][]string) (ans [][]string) {
+	root := NewTrie()
+	for _, path := range paths {
+		cur := root
+		for _, name := range path {
+			if _, exists := cur.children[name]; !exists {
+				cur.children[name] = NewTrie()
+			}
+			cur = cur.children[name]
+		}
+	}
 
-    seen := make(map[string]*TrieNode)
-    var dfs func(*TrieNode) string
-    dfs = func(node *TrieNode) string {
-        if node == nil || len(node.children) == 0 {
-            return ""
-        }
+	g := make(map[string]*Trie)
 
-        var keys []string
-        for key, child := range node.children {
-            serialized := dfs(child)
-            keys = append(keys, key+"("+serialized+")")
-        }
-        sort.Strings(keys)
-        serialized := strings.Join(keys, "")
+	var dfs func(*Trie) string
+	dfs = func(node *Trie) string {
+		if len(node.children) == 0 {
+			return ""
+		}
+		var subs []string
+		for name, child := range node.children {
+			subs = append(subs, name+"("+dfs(child)+")")
+		}
+		sort.Strings(subs)
+		s := strings.Join(subs, "")
+		if existingNode, exists := g[s]; exists {
+			node.deleted = true
+			existingNode.deleted = true
+		} else {
+			g[s] = node
+		}
+		return s
+	}
 
-        if existing, ok := seen[serialized]; ok {
-            existing.deleted = true
-            node.deleted = true
-        } else {
-            seen[serialized] = node
-        }
+	var dfs2 func(*Trie, []string)
+	dfs2 = func(node *Trie, path []string) {
+		if node.deleted {
+			return
+		}
+		if len(path) > 0 {
+			ans = append(ans, append([]string{}, path...))
+		}
+		for name, child := range node.children {
+			dfs2(child, append(path, name))
+		}
+	}
 
-        return serialized
-    }
-    dfs(root)
-
-    var result [][]string
-    var path []string
-    var collect func(*TrieNode)
-    collect = func(node *TrieNode) {
-        if node.deleted {
-            return
-        }
-        if len(path) > 0 {
-            newPath := make([]string, len(path))
-            copy(newPath, path)
-            result = append(result, newPath)
-        }
-        for key, child := range node.children {
-            path = append(path, key)
-            collect(child)
-            path = path[:len(path)-1]
-        }
-    }
-    collect(root)
-
-    return result
+	dfs(root)
+	dfs2(root, []string{})
+	return ans
 }
