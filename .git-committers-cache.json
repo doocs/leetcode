@@ -1,5 +1,5 @@
 {
-  "cache_date": 1753006771,
+  "cache_date": 1753018096,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -18628,9 +18628,15 @@
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "Speccy-Rom",
+          "name": "Speccy-Rom",
+          "url": "https://github.com/Speccy-Rom",
+          "avatar": "https://avatars.githubusercontent.com/u/47747299?v=4"
         }
       ],
-      "retrieved": 1745669205
+      "retrieved": 1753016786
     },
     "solution/1900-1999/1949.Strong Friendship/README.md": {
       "authors": [
@@ -85881,9 +85887,15 @@
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "Speccy-Rom",
+          "name": "Speccy-Rom",
+          "url": "https://github.com/Speccy-Rom",
+          "avatar": "https://avatars.githubusercontent.com/u/47747299?v=4"
         }
       ],
-      "retrieved": 1745670777
+      "retrieved": 1753017626
     },
     "solution/1900-1999/1949.Strong Friendship/README_EN.md": {
       "authors": [
