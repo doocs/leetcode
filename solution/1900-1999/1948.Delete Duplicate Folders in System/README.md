@@ -129,7 +129,58 @@ tags:
 #### Python3
 
 ```python
+class TrieNode:
+    def __init__(self):
+        self.children = collections.defaultdict(TrieNode)
+        self.key = ""
+        self.deleted = False
 
+
+class Solution:
+    def deleteDuplicateFolder(self, paths: List[List[str]]) -> List[List[str]]:
+        root = TrieNode()
+
+        for path in paths:
+            current = root
+            for folder in path:
+                current = current.children[folder]
+                current.key = folder
+
+        seen = collections.defaultdict(list)
+
+        def dfs(node):
+            if not node.children:
+                return ""
+            keys = []
+            for key, child in node.children.items():
+                serialized = dfs(child)
+                keys.append(f"{key}({serialized})")
+            keys.sort()
+            serialized = "".join(keys)
+            if len(seen[serialized]) > 0:
+                for duplicate in seen[serialized]:
+                    duplicate.deleted = True
+                node.deleted = True
+            seen[serialized].append(node)
+            return serialized
+
+        dfs(root)
+
+        result = []
+        path = []
+
+        def collect(node):
+            if node.deleted:
+                return
+            if path:
+                result.append(path.copy())
+            for key, child in node.children.items():
+                path.append(key)
+                collect(child)
+                path.pop()
+
+        collect(root)
+        return result
 ```
 
 #### Java
@@ -147,6 +198,76 @@ tags:
 #### Go
 
 ```go
+type TrieNode struct {
+    children map[string]*TrieNode
+    key      string
+    deleted  bool
+}
+
+func deleteDuplicateFolder(paths [][]string) [][]string {
+    root := &TrieNode{children: make(map[string]*TrieNode)}
+
+    for _, path := range paths {
+        current := root
+        for _, folder := range path {
+            if _, ok := current.children[folder]; !ok {
+                current.children[folder] = &TrieNode{
+                    children: make(map[string]*TrieNode),
+                    key:      folder,
+                }
+            }
+            current = current.children[folder]
+        }
+    }
+
+    seen := make(map[string]*TrieNode)
+    var dfs func(*TrieNode) string
+    dfs = func(node *TrieNode) string {
+        if node == nil || len(node.children) == 0 {
+            return ""
+        }
+
+        var keys []string
+        for key, child := range node.children {
+            serialized := dfs(child)
+            keys = append(keys, key+"("+serialized+")")
+        }
+        sort.Strings(keys)
+        serialized := strings.Join(keys, "")
+
+        if existing, ok := seen[serialized]; ok {
+            existing.deleted = true
+            node.deleted = true
+        } else {
+            seen[serialized] = node
+        }
+
+        return serialized
+    }
+    dfs(root)
+
+    var result [][]string
+    var path []string
+    var collect func(*TrieNode)
+    collect = func(node *TrieNode) {
+        if node.deleted {
+            return
+        }
+        if len(path) > 0 {
+            newPath := make([]string, len(path))
+            copy(newPath, path)
+            result = append(result, newPath)
+        }
+        for key, child := range node.children {
+            path = append(path, key)
+            collect(child)
+            path = path[:len(path)-1]
+        }
+    }
+    collect(root)
+
+    return result
+}
 
 ```
 
