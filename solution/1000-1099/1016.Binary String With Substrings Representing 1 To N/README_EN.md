@@ -5,7 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1016.Bi
 rating: 1779
 source: Weekly Contest 129 Q4
 tags:
+    - Bit Manipulation
+    - Hash Table
     - String
+    - Sliding Window
 ---
 
 <!-- problem:start -->

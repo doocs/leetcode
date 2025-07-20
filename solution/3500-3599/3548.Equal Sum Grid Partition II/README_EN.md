@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md
+rating: 2245
+source: Weekly Contest 449 Q4
 tags:
     - Array
     - Hash Table

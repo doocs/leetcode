@@ -37,7 +37,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 0585 | [Investments in 2016](/solution/0500-0599/0585.Investments%20in%202016/README_EN.md)                                                                                                         | `Database` | Medium     |        |
 | 0586 | [Customer Placing the Largest Number of Orders](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README_EN.md)                                             | `Database` | Easy       |        |
 | 0595 | [Big Countries](/solution/0500-0599/0595.Big%20Countries/README_EN.md)                                                                                                                       | `Database` | Easy       |        |
-| 0596 | [Classes More Than 5 Students](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)                                                                                   | `Database` | Easy       |        |
+| 0596 | [Classes With at Least 5 Students](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README_EN.md)                                                                         | `Database` | Easy       |        |
 | 0597 | [Friend Requests I Overall Acceptance Rate](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README_EN.md)                                                       | `Database` | Easy       | 🔒     |
 | 0601 | [Human Traffic of Stadium](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)                                                                                             | `Database` | Hard       |        |
 | 0602 | [Friend Requests II Who Has the Most Friends](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README_EN.md)                                               | `Database` | Medium     |        |
@@ -314,6 +314,13 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3497 | [Analyze Subscription Conversion](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README_EN.md)                                                                                 | `Database` | Medium     |        |
 | 3521 | [Find Product Recommendation Pairs](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README_EN.md)                                                                           | `Database` | Medium     |        |
 | 3554 | [Find Category Recommendation Pairs](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README_EN.md)                                                                         | `Database` | Hard       |        |
+| 3564 | [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)                                                                                                 | `Database` | Medium     |        |
+| 3570 | [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md)                                                                   | `Database` | Easy       |        |
+| 3580 | [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md)                                                                   | `Database` | Medium     |        |
+| 3586 | [Find COVID Recovery Patients](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README_EN.md)                                                                                     | `Database` | Medium     |        |
+| 3601 | [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README_EN.md)                                                     | `Database` | Medium     |        |
+| 3611 | [Find Overbooked Employees](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README_EN.md)                                                                                             | `Database` | Medium     |        |
+| 3617 | [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md)                                                           |            | Hard       |        |
 
 ## Copyright
 

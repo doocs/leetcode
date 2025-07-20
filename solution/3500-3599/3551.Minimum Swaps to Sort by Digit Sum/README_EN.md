@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README_EN.md
+rating: 1506
+source: Weekly Contest 450 Q2
+tags:
+    - Array
+    - Hash Table
+    - Sorting
 ---
 
 <!-- problem:start -->

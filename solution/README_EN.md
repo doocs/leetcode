@@ -22,7 +22,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0011  |  [Container With Most Water](/solution/0000-0099/0011.Container%20With%20Most%20Water/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`  |  Medium  |    |
 |  0012  |  [Integer to Roman](/solution/0000-0099/0012.Integer%20to%20Roman/README_EN.md)  |  `Hash Table`,`Math`,`String`  |  Medium  |    |
 |  0013  |  [Roman to Integer](/solution/0000-0099/0013.Roman%20to%20Integer/README_EN.md)  |  `Hash Table`,`Math`,`String`  |  Easy  |    |
-|  0014  |  [Longest Common Prefix](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)  |  `Trie`,`String`  |  Easy  |    |
+|  0014  |  [Longest Common Prefix](/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md)  |  `Trie`,`Array`,`String`  |  Easy  |    |
 |  0015  |  [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)  |  `Array`,`Two Pointers`,`Sorting`  |  Medium  |    |
 |  0016  |  [3Sum Closest](/solution/0000-0099/0016.3Sum%20Closest/README_EN.md)  |  `Array`,`Two Pointers`,`Sorting`  |  Medium  |    |
 |  0017  |  [Letter Combinations of a Phone Number](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README_EN.md)  |  `Hash Table`,`String`,`Backtracking`  |  Medium  |    |
@@ -413,7 +413,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0402  |  [Remove K Digits](/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md)  |  `Stack`,`Greedy`,`String`,`Monotonic Stack`  |  Medium  |    |
 |  0403  |  [Frog Jump](/solution/0400-0499/0403.Frog%20Jump/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |    |
 |  0404  |  [Sum of Left Leaves](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Easy  |    |
-|  0405  |  [Convert a Number to Hexadecimal](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README_EN.md)  |  `Bit Manipulation`,`Math`  |  Easy  |    |
+|  0405  |  [Convert a Number to Hexadecimal](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README_EN.md)  |  `Bit Manipulation`,`Math`,`String`  |  Easy  |    |
 |  0406  |  [Queue Reconstruction by Height](/solution/0400-0499/0406.Queue%20Reconstruction%20by%20Height/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Sorting`  |  Medium  |    |
 |  0407  |  [Trapping Rain Water II](/solution/0400-0499/0407.Trapping%20Rain%20Water%20II/README_EN.md)  |  `Breadth-First Search`,`Array`,`Matrix`,`Heap (Priority Queue)`  |  Hard  |    |
 |  0408  |  [Valid Word Abbreviation](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |  🔒  |
@@ -512,7 +512,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0501  |  [Find Mode in Binary Search Tree](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Search Tree`,`Binary Tree`  |  Easy  |    |
 |  0502  |  [IPO](/solution/0500-0599/0502.IPO/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |    |
 |  0503  |  [Next Greater Element II](/solution/0500-0599/0503.Next%20Greater%20Element%20II/README_EN.md)  |  `Stack`,`Array`,`Monotonic Stack`  |  Medium  |    |
-|  0504  |  [Base 7](/solution/0500-0599/0504.Base%207/README_EN.md)  |  `Math`  |  Easy  |    |
+|  0504  |  [Base 7](/solution/0500-0599/0504.Base%207/README_EN.md)  |  `Math`,`String`  |  Easy  |    |
 |  0505  |  [The Maze II](/solution/0500-0599/0505.The%20Maze%20II/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  🔒  |
 |  0506  |  [Relative Ranks](/solution/0500-0599/0506.Relative%20Ranks/README_EN.md)  |  `Array`,`Sorting`,`Heap (Priority Queue)`  |  Easy  |    |
 |  0507  |  [Perfect Number](/solution/0500-0599/0507.Perfect%20Number/README_EN.md)  |  `Math`  |  Easy  |    |
@@ -604,7 +604,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0593  |  [Valid Square](/solution/0500-0599/0593.Valid%20Square/README_EN.md)  |  `Geometry`,`Math`  |  Medium  |    |
 |  0594  |  [Longest Harmonious Subsequence](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Sorting`,`Sliding Window`  |  Easy  |    |
 |  0595  |  [Big Countries](/solution/0500-0599/0595.Big%20Countries/README_EN.md)  |  `Database`  |  Easy  |    |
-|  0596  |  [Classes More Than 5 Students](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)  |  `Database`  |  Easy  |    |
+|  0596  |  [Classes With at Least 5 Students](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README_EN.md)  |  `Database`  |  Easy  |    |
 |  0597  |  [Friend Requests I Overall Acceptance Rate](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  0598  |  [Range Addition II](/solution/0500-0599/0598.Range%20Addition%20II/README_EN.md)  |  `Array`,`Math`  |  Easy  |    |
 |  0599  |  [Minimum Index Sum of Two Lists](/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Easy  |    |
@@ -983,7 +983,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0972  |  [Equal Rational Numbers](/solution/0900-0999/0972.Equal%20Rational%20Numbers/README_EN.md)  |  `Math`,`String`  |  Hard  |  Weekly Contest 118  |
 |  0973  |  [K Closest Points to Origin](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md)  |  `Geometry`,`Array`,`Math`,`Divide and Conquer`,`Quickselect`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 119  |
 |  0974  |  [Subarray Sums Divisible by K](/solution/0900-0999/0974.Subarray%20Sums%20Divisible%20by%20K/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 119  |
-|  0975  |  [Odd Even Jump](/solution/0900-0999/0975.Odd%20Even%20Jump/README_EN.md)  |  `Stack`,`Array`,`Dynamic Programming`,`Ordered Set`,`Monotonic Stack`  |  Hard  |  Weekly Contest 119  |
+|  0975  |  [Odd Even Jump](/solution/0900-0999/0975.Odd%20Even%20Jump/README_EN.md)  |  `Stack`,`Array`,`Dynamic Programming`,`Ordered Set`,`Sorting`,`Monotonic Stack`  |  Hard  |  Weekly Contest 119  |
 |  0976  |  [Largest Perimeter Triangle](/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Sorting`  |  Easy  |  Weekly Contest 119  |
 |  0977  |  [Squares of a Sorted Array](/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README_EN.md)  |  `Array`,`Two Pointers`,`Sorting`  |  Easy  |  Weekly Contest 120  |
 |  0978  |  [Longest Turbulent Subarray](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sliding Window`  |  Medium  |  Weekly Contest 120  |
@@ -1024,7 +1024,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1013  |  [Partition Array Into Three Parts With Equal Sum](/solution/1000-1099/1013.Partition%20Array%20Into%20Three%20Parts%20With%20Equal%20Sum/README_EN.md)  |  `Greedy`,`Array`  |  Easy  |  Weekly Contest 129  |
 |  1014  |  [Best Sightseeing Pair](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 129  |
 |  1015  |  [Smallest Integer Divisible by K](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md)  |  `Hash Table`,`Math`  |  Medium  |  Weekly Contest 129  |
-|  1016  |  [Binary String With Substrings Representing 1 To N](/solution/1000-1099/1016.Binary%20String%20With%20Substrings%20Representing%201%20To%20N/README_EN.md)  |  `String`  |  Medium  |  Weekly Contest 129  |
+|  1016  |  [Binary String With Substrings Representing 1 To N](/solution/1000-1099/1016.Binary%20String%20With%20Substrings%20Representing%201%20To%20N/README_EN.md)  |  `Bit Manipulation`,`Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 129  |
 |  1017  |  [Convert to Base -2](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 130  |
 |  1018  |  [Binary Prefix Divisible By 5](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Easy  |  Weekly Contest 130  |
 |  1019  |  [Next Greater Node In Linked List](/solution/1000-1099/1019.Next%20Greater%20Node%20In%20Linked%20List/README_EN.md)  |  `Stack`,`Array`,`Linked List`,`Monotonic Stack`  |  Medium  |  Weekly Contest 130  |
@@ -1160,8 +1160,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1149  |  [Article Views II](/solution/1100-1199/1149.Article%20Views%20II/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1150  |  [Check If a Number Is Majority Element in a Sorted Array](/solution/1100-1199/1150.Check%20If%20a%20Number%20Is%20Majority%20Element%20in%20a%20Sorted%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Easy  |  Biweekly Contest 6  |
 |  1151  |  [Minimum Swaps to Group All 1's Together](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |  Biweekly Contest 6  |
-|  1152  |  [Analyze User Website Visit Pattern](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Medium  |  Biweekly Contest 6  |
-|  1153  |  [String Transforms Into Another String](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)  |  `Hash Table`,`String`  |  Hard  |  Biweekly Contest 6  |
+|  1152  |  [Analyze User Website Visit Pattern](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Medium  |  Biweekly Contest 6  |
+|  1153  |  [String Transforms Into Another String](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)  |  `Graph`,`Hash Table`,`String`  |  Hard  |  Biweekly Contest 6  |
 |  1154  |  [Day of the Year](/solution/1100-1199/1154.Day%20of%20the%20Year/README_EN.md)  |  `Math`,`String`  |  Easy  |  Weekly Contest 149  |
 |  1155  |  [Number of Dice Rolls With Target Sum](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  Weekly Contest 149  |
 |  1156  |  [Swap For Longest Repeated Character Substring](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README_EN.md)  |  `Hash Table`,`String`,`Sliding Window`  |  Medium  |  Weekly Contest 149  |
@@ -1769,7 +1769,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1758  |  [Minimum Changes To Make Alternating Binary String](/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 228  |
 |  1759  |  [Count Number of Homogenous Substrings](/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README_EN.md)  |  `Math`,`String`  |  Medium  |  Weekly Contest 228  |
 |  1760  |  [Minimum Limit of Balls in a Bag](/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 228  |
-|  1761  |  [Minimum Degree of a Connected Trio in a Graph](/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README_EN.md)  |  `Graph`  |  Hard  |  Weekly Contest 228  |
+|  1761  |  [Minimum Degree of a Connected Trio in a Graph](/solution/1700-1799/1761.Minimum%20Degree%20of%20a%20Connected%20Trio%20in%20a%20Graph/README_EN.md)  |  `Graph`,`Enumeration`  |  Hard  |  Weekly Contest 228  |
 |  1762  |  [Buildings With an Ocean View](/solution/1700-1799/1762.Buildings%20With%20an%20Ocean%20View/README_EN.md)  |  `Stack`,`Array`,`Monotonic Stack`  |  Medium  |  🔒  |
 |  1763  |  [Longest Nice Substring](/solution/1700-1799/1763.Longest%20Nice%20Substring/README_EN.md)  |  `Bit Manipulation`,`Hash Table`,`String`,`Divide and Conquer`,`Sliding Window`  |  Easy  |  Biweekly Contest 46  |
 |  1764  |  [Form Array by Concatenating Subarrays of Another Array](/solution/1700-1799/1764.Form%20Array%20by%20Concatenating%20Subarrays%20of%20Another%20Array/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`String Matching`  |  Medium  |  Biweekly Contest 46  |
@@ -1790,7 +1790,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1779  |  [Find Nearest Point That Has the Same X or Y Coordinate](/solution/1700-1799/1779.Find%20Nearest%20Point%20That%20Has%20the%20Same%20X%20or%20Y%20Coordinate/README_EN.md)  |  `Array`  |  Easy  |  Biweekly Contest 47  |
 |  1780  |  [Check if Number is a Sum of Powers of Three](/solution/1700-1799/1780.Check%20if%20Number%20is%20a%20Sum%20of%20Powers%20of%20Three/README_EN.md)  |  `Math`  |  Medium  |  Biweekly Contest 47  |
 |  1781  |  [Sum of Beauty of All Substrings](/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Medium  |  Biweekly Contest 47  |
-|  1782  |  [Count Pairs Of Nodes](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md)  |  `Graph`,`Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Hard  |  Biweekly Contest 47  |
+|  1782  |  [Count Pairs Of Nodes](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README_EN.md)  |  `Graph`,`Array`,`Hash Table`,`Two Pointers`,`Binary Search`,`Counting`,`Sorting`  |  Hard  |  Biweekly Contest 47  |
 |  1783  |  [Grand Slam Titles](/solution/1700-1799/1783.Grand%20Slam%20Titles/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
 |  1784  |  [Check if Binary String Has at Most One Segment of Ones](/solution/1700-1799/1784.Check%20if%20Binary%20String%20Has%20at%20Most%20One%20Segment%20of%20Ones/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 231  |
 |  1785  |  [Minimum Elements to Add to Form a Given Sum](/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 231  |
@@ -1810,7 +1810,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1799  |  [Maximize Score After N Operations](/solution/1700-1799/1799.Maximize%20Score%20After%20N%20Operations/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`,`Dynamic Programming`,`Backtracking`,`Bitmask`,`Number Theory`  |  Hard  |  Biweekly Contest 48  |
 |  1800  |  [Maximum Ascending Subarray Sum](/solution/1800-1899/1800.Maximum%20Ascending%20Subarray%20Sum/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 233  |
 |  1801  |  [Number of Orders in the Backlog](/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/README_EN.md)  |  `Array`,`Simulation`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 233  |
-|  1802  |  [Maximum Value at a Given Index in a Bounded Array](/solution/1800-1899/1802.Maximum%20Value%20at%20a%20Given%20Index%20in%20a%20Bounded%20Array/README_EN.md)  |  `Greedy`,`Binary Search`  |  Medium  |  Weekly Contest 233  |
+|  1802  |  [Maximum Value at a Given Index in a Bounded Array](/solution/1800-1899/1802.Maximum%20Value%20at%20a%20Given%20Index%20in%20a%20Bounded%20Array/README_EN.md)  |  `Greedy`,`Math`,`Binary Search`  |  Medium  |  Weekly Contest 233  |
 |  1803  |  [Count Pairs With XOR in a Range](/solution/1800-1899/1803.Count%20Pairs%20With%20XOR%20in%20a%20Range/README_EN.md)  |  `Bit Manipulation`,`Trie`,`Array`  |  Hard  |  Weekly Contest 233  |
 |  1804  |  [Implement Trie II (Prefix Tree)](/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README_EN.md)  |  `Design`,`Trie`,`Hash Table`,`String`  |  Medium  |  🔒  |
 |  1805  |  [Number of Different Integers in a String](/solution/1800-1899/1805.Number%20of%20Different%20Integers%20in%20a%20String/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 234  |
@@ -1857,7 +1857,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1846  |  [Maximum Element After Decreasing and Rearranging](/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Biweekly Contest 51  |
 |  1847  |  [Closest Room](/solution/1800-1899/1847.Closest%20Room/README_EN.md)  |  `Array`,`Binary Search`,`Ordered Set`,`Sorting`  |  Hard  |  Biweekly Contest 51  |
 |  1848  |  [Minimum Distance to the Target Element](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 239  |
-|  1849  |  [Splitting a String Into Descending Consecutive Values](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README_EN.md)  |  `String`,`Backtracking`  |  Medium  |  Weekly Contest 239  |
+|  1849  |  [Splitting a String Into Descending Consecutive Values](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README_EN.md)  |  `String`,`Backtracking`,`Enumeration`  |  Medium  |  Weekly Contest 239  |
 |  1850  |  [Minimum Adjacent Swaps to Reach the Kth Smallest Number](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`  |  Medium  |  Weekly Contest 239  |
 |  1851  |  [Minimum Interval to Include Each Query](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README_EN.md)  |  `Array`,`Binary Search`,`Sorting`,`Line Sweep`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 239  |
 |  1852  |  [Distinct Numbers in Each Subarray](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  🔒  |
@@ -1866,7 +1866,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1855  |  [Maximum Distance Between a Pair of Values](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`  |  Medium  |  Weekly Contest 240  |
 |  1856  |  [Maximum Subarray Min-Product](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)  |  `Stack`,`Array`,`Prefix Sum`,`Monotonic Stack`  |  Medium  |  Weekly Contest 240  |
 |  1857  |  [Largest Color Value in a Directed Graph](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README_EN.md)  |  `Graph`,`Topological Sort`,`Memoization`,`Hash Table`,`Dynamic Programming`,`Counting`  |  Hard  |  Weekly Contest 240  |
-|  1858  |  [Longest Word With All Prefixes](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)  |  `Depth-First Search`,`Trie`  |  Medium  |  🔒  |
+|  1858  |  [Longest Word With All Prefixes](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)  |  `Depth-First Search`,`Trie`,`Array`,`String`  |  Medium  |  🔒  |
 |  1859  |  [Sorting the Sentence](/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md)  |  `String`,`Sorting`  |  Easy  |  Biweekly Contest 52  |
 |  1860  |  [Incremental Memory Leak](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README_EN.md)  |  `Math`,`Simulation`  |  Medium  |  Biweekly Contest 52  |
 |  1861  |  [Rotating the Box](/solution/1800-1899/1861.Rotating%20the%20Box/README_EN.md)  |  `Array`,`Two Pointers`,`Matrix`  |  Medium  |  Biweekly Contest 52  |
@@ -1896,7 +1896,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1885  |  [Count Pairs in Two Arrays](/solution/1800-1899/1885.Count%20Pairs%20in%20Two%20Arrays/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  🔒  |
 |  1886  |  [Determine Whether Matrix Can Be Obtained By Rotation](/solution/1800-1899/1886.Determine%20Whether%20Matrix%20Can%20Be%20Obtained%20By%20Rotation/README_EN.md)  |  `Array`,`Matrix`  |  Easy  |  Weekly Contest 244  |
 |  1887  |  [Reduction Operations to Make the Array Elements Equal](/solution/1800-1899/1887.Reduction%20Operations%20to%20Make%20the%20Array%20Elements%20Equal/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  Weekly Contest 244  |
-|  1888  |  [Minimum Number of Flips to Make the Binary String Alternating](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`,`Sliding Window`  |  Medium  |  Weekly Contest 244  |
+|  1888  |  [Minimum Number of Flips to Make the Binary String Alternating](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md)  |  `String`,`Dynamic Programming`,`Sliding Window`  |  Medium  |  Weekly Contest 244  |
 |  1889  |  [Minimum Space Wasted From Packaging](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`,`Sorting`  |  Hard  |  Weekly Contest 244  |
 |  1890  |  [The Latest Login in 2020](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md)  |  `Database`  |  Easy  |    |
 |  1891  |  [Cutting Ribbons](/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  🔒  |
@@ -2432,7 +2432,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2421  |  [Number of Good Paths](/solution/2400-2499/2421.Number%20of%20Good%20Paths/README_EN.md)  |  `Tree`,`Union Find`,`Graph`,`Array`,`Hash Table`,`Sorting`  |  Hard  |  Weekly Contest 312  |
 |  2422  |  [Merge Operations to Turn Array Into a Palindrome](/solution/2400-2499/2422.Merge%20Operations%20to%20Turn%20Array%20Into%20a%20Palindrome/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`  |  Medium  |  🔒  |
 |  2423  |  [Remove Letter To Equalize Frequency](/solution/2400-2499/2423.Remove%20Letter%20To%20Equalize%20Frequency/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Easy  |  Biweekly Contest 88  |
-|  2424  |  [Longest Uploaded Prefix](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)  |  `Union Find`,`Design`,`Binary Indexed Tree`,`Segment Tree`,`Binary Search`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 88  |
+|  2424  |  [Longest Uploaded Prefix](/solution/2400-2499/2424.Longest%20Uploaded%20Prefix/README_EN.md)  |  `Union Find`,`Design`,`Binary Indexed Tree`,`Segment Tree`,`Hash Table`,`Binary Search`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 88  |
 |  2425  |  [Bitwise XOR of All Pairings](/solution/2400-2499/2425.Bitwise%20XOR%20of%20All%20Pairings/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`  |  Medium  |  Biweekly Contest 88  |
 |  2426  |  [Number of Pairs Satisfying Inequality](/solution/2400-2499/2426.Number%20of%20Pairs%20Satisfying%20Inequality/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Divide and Conquer`,`Ordered Set`,`Merge Sort`  |  Hard  |  Biweekly Contest 88  |
 |  2427  |  [Number of Common Factors](/solution/2400-2499/2427.Number%20of%20Common%20Factors/README_EN.md)  |  `Math`,`Enumeration`,`Number Theory`  |  Easy  |  Weekly Contest 313  |
@@ -2453,7 +2453,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2442  |  [Count Number of Distinct Integers After Reverse Operations](/solution/2400-2499/2442.Count%20Number%20of%20Distinct%20Integers%20After%20Reverse%20Operations/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`  |  Medium  |  Weekly Contest 315  |
 |  2443  |  [Sum of Number and Its Reverse](/solution/2400-2499/2443.Sum%20of%20Number%20and%20Its%20Reverse/README_EN.md)  |  `Math`,`Enumeration`  |  Medium  |  Weekly Contest 315  |
 |  2444  |  [Count Subarrays With Fixed Bounds](/solution/2400-2499/2444.Count%20Subarrays%20With%20Fixed%20Bounds/README_EN.md)  |  `Queue`,`Array`,`Sliding Window`,`Monotonic Queue`  |  Hard  |  Weekly Contest 315  |
-|  2445  |  [Number of Nodes With Value One](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
+|  2445  |  [Number of Nodes With Value One](/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Array`,`Binary Tree`  |  Medium  |  🔒  |
 |  2446  |  [Determine if Two Events Have Conflict](/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/README_EN.md)  |  `Array`,`String`  |  Easy  |  Weekly Contest 316  |
 |  2447  |  [Number of Subarrays With GCD Equal to K](/solution/2400-2499/2447.Number%20of%20Subarrays%20With%20GCD%20Equal%20to%20K/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 316  |
 |  2448  |  [Minimum Cost to Make Array Equal](/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Prefix Sum`,`Sorting`  |  Hard  |  Weekly Contest 316  |
@@ -2513,7 +2513,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2502  |  [Design Memory Allocator](/solution/2500-2599/2502.Design%20Memory%20Allocator/README_EN.md)  |  `Design`,`Array`,`Hash Table`,`Simulation`  |  Medium  |  Weekly Contest 323  |
 |  2503  |  [Maximum Number of Points From Grid Queries](/solution/2500-2599/2503.Maximum%20Number%20of%20Points%20From%20Grid%20Queries/README_EN.md)  |  `Breadth-First Search`,`Union Find`,`Array`,`Two Pointers`,`Matrix`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 323  |
 |  2504  |  [Concatenate the Name and the Profession](/solution/2500-2599/2504.Concatenate%20the%20Name%20and%20the%20Profession/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
-|  2505  |  [Bitwise OR of All Subsequence Sums](/solution/2500-2599/2505.Bitwise%20OR%20of%20All%20Subsequence%20Sums/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`,`Math`  |  Medium  |  🔒  |
+|  2505  |  [Bitwise OR of All Subsequence Sums](/solution/2500-2599/2505.Bitwise%20OR%20of%20All%20Subsequence%20Sums/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`,`Math`,`Prefix Sum`  |  Medium  |  🔒  |
 |  2506  |  [Count Pairs Of Similar Strings](/solution/2500-2599/2506.Count%20Pairs%20Of%20Similar%20Strings/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`String`,`Counting`  |  Easy  |  Weekly Contest 324  |
 |  2507  |  [Smallest Value After Replacing With Sum of Prime Factors](/solution/2500-2599/2507.Smallest%20Value%20After%20Replacing%20With%20Sum%20of%20Prime%20Factors/README_EN.md)  |  `Math`,`Number Theory`,`Simulation`  |  Medium  |  Weekly Contest 324  |
 |  2508  |  [Add Edges to Make Degrees of All Nodes Even](/solution/2500-2599/2508.Add%20Edges%20to%20Make%20Degrees%20of%20All%20Nodes%20Even/README_EN.md)  |  `Graph`,`Hash Table`  |  Hard  |  Weekly Contest 324  |
@@ -2568,7 +2568,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2557  |  [Maximum Number of Integers to Choose From a Range II](/solution/2500-2599/2557.Maximum%20Number%20of%20Integers%20to%20Choose%20From%20a%20Range%20II/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Sorting`  |  Medium  |  🔒  |
 |  2558  |  [Take Gifts From the Richest Pile](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README_EN.md)  |  `Array`,`Simulation`,`Heap (Priority Queue)`  |  Easy  |  Weekly Contest 331  |
 |  2559  |  [Count Vowel Strings in Ranges](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README_EN.md)  |  `Array`,`String`,`Prefix Sum`  |  Medium  |  Weekly Contest 331  |
-|  2560  |  [House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 331  |
+|  2560  |  [House Robber IV](/solution/2500-2599/2560.House%20Robber%20IV/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Dynamic Programming`  |  Medium  |  Weekly Contest 331  |
 |  2561  |  [Rearranging Fruits](/solution/2500-2599/2561.Rearranging%20Fruits/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Hard  |  Weekly Contest 331  |
 |  2562  |  [Find the Array Concatenation Value](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README_EN.md)  |  `Array`,`Two Pointers`,`Simulation`  |  Easy  |  Weekly Contest 332  |
 |  2563  |  [Count the Number of Fair Pairs](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 332  |
@@ -2624,7 +2624,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2613  |  [Beautiful Pairs](/solution/2600-2699/2613.Beautiful%20Pairs/README_EN.md)  |  `Geometry`,`Array`,`Math`,`Divide and Conquer`,`Ordered Set`,`Sorting`  |  Hard  |  🔒  |
 |  2614  |  [Prime In Diagonal](/solution/2600-2699/2614.Prime%20In%20Diagonal/README_EN.md)  |  `Array`,`Math`,`Matrix`,`Number Theory`  |  Easy  |  Weekly Contest 340  |
 |  2615  |  [Sum of Distances](/solution/2600-2699/2615.Sum%20of%20Distances/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 340  |
-|  2616  |  [Minimize the Maximum Difference of Pairs](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`  |  Medium  |  Weekly Contest 340  |
+|  2616  |  [Minimize the Maximum Difference of Pairs](/solution/2600-2699/2616.Minimize%20the%20Maximum%20Difference%20of%20Pairs/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Dynamic Programming`,`Sorting`  |  Medium  |  Weekly Contest 340  |
 |  2617  |  [Minimum Number of Visited Cells in a Grid](/solution/2600-2699/2617.Minimum%20Number%20of%20Visited%20Cells%20in%20a%20Grid/README_EN.md)  |  `Stack`,`Breadth-First Search`,`Union Find`,`Array`,`Dynamic Programming`,`Matrix`,`Monotonic Stack`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 340  |
 |  2618  |  [Check if Object Instance of Class](/solution/2600-2699/2618.Check%20if%20Object%20Instance%20of%20Class/README_EN.md)  |    |  Medium  |    |
 |  2619  |  [Array Prototype Last](/solution/2600-2699/2619.Array%20Prototype%20Last/README_EN.md)  |    |  Easy  |    |
@@ -3557,21 +3557,75 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3546  |  [Equal Sum Grid Partition I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md)  |  `Array`,`Enumeration`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 449  |
 |  3547  |  [Maximum Sum of Edge Values in a Graph](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md)  |  `Greedy`,`Depth-First Search`,`Graph`,`Sorting`  |  Hard  |  Weekly Contest 449  |
 |  3548  |  [Equal Sum Grid Partition II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`,`Matrix`,`Prefix Sum`  |  Hard  |  Weekly Contest 449  |
-|  3549  |  [Multiply Two Polynomials](/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README_EN.md)  |    |  Hard  |  🔒  |
-|  3550  |  [Smallest Index With Digit Sum Equal to Index](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README_EN.md)  |    |  Easy  |  Weekly Contest 450  |
-|  3551  |  [Minimum Swaps to Sort by Digit Sum](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 450  |
-|  3552  |  [Grid Teleportation Traversal](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README_EN.md)  |    |  Medium  |  Weekly Contest 450  |
-|  3553  |  [Minimum Weighted Subgraph With the Required Paths II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 450  |
+|  3549  |  [Multiply Two Polynomials](/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README_EN.md)  |  `Array`,`Math`  |  Hard  |  🔒  |
+|  3550  |  [Smallest Index With Digit Sum Equal to Index](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 450  |
+|  3551  |  [Minimum Swaps to Sort by Digit Sum](/solution/3500-3599/3551.Minimum%20Swaps%20to%20Sort%20by%20Digit%20Sum/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Medium  |  Weekly Contest 450  |
+|  3552  |  [Grid Teleportation Traversal](/solution/3500-3599/3552.Grid%20Teleportation%20Traversal/README_EN.md)  |  `Breadth-First Search`,`Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 450  |
+|  3553  |  [Minimum Weighted Subgraph With the Required Paths II](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`  |  Hard  |  Weekly Contest 450  |
 |  3554  |  [Find Category Recommendation Pairs](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README_EN.md)  |  `Database`  |  Hard  |    |
-|  3555  |  [Smallest Subarray to Sort in Every Sliding Window](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README_EN.md)  |    |  Medium  |  🔒  |
-|  3556  |  [Sum of Largest Prime Substrings](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
-|  3557  |  [Find Maximum Number of Non Intersecting Substrings](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
-|  3558  |  [Number of Ways to Assign Edge Weights I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 157  |
-|  3559  |  [Number of Ways to Assign Edge Weights II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 157  |
-|  3560  |  [Find Minimum Log Transportation Cost](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README_EN.md)  |    |  Easy  |  Weekly Contest 451  |
-|  3561  |  [Resulting String After Adjacent Removals](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 451  |
-|  3562  |  [Maximum Profit from Trading Stocks with Discounts](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README_EN.md)  |    |  Hard  |  Weekly Contest 451  |
-|  3563  |  [Lexicographically Smallest String After Adjacent Removals](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md)  |    |  Hard  |  Weekly Contest 451  |
+|  3555  |  [Smallest Subarray to Sort in Every Sliding Window](/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Two Pointers`,`Sorting`,`Monotonic Stack`  |  Medium  |  🔒  |
+|  3556  |  [Sum of Largest Prime Substrings](/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md)  |  `Hash Table`,`Math`,`String`,`Number Theory`,`Sorting`  |  Medium  |  Biweekly Contest 157  |
+|  3557  |  [Find Maximum Number of Non Intersecting Substrings](/solution/3500-3599/3557.Find%20Maximum%20Number%20of%20Non%20Intersecting%20Substrings/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 157  |
+|  3558  |  [Number of Ways to Assign Edge Weights I](/solution/3500-3599/3558.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20I/README_EN.md)  |  `Tree`,`Depth-First Search`,`Math`  |  Medium  |  Biweekly Contest 157  |
+|  3559  |  [Number of Ways to Assign Edge Weights II](/solution/3500-3599/3559.Number%20of%20Ways%20to%20Assign%20Edge%20Weights%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Math`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 157  |
+|  3560  |  [Find Minimum Log Transportation Cost](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 451  |
+|  3561  |  [Resulting String After Adjacent Removals](/solution/3500-3599/3561.Resulting%20String%20After%20Adjacent%20Removals/README_EN.md)  |  `Stack`,`String`,`Simulation`  |  Medium  |  Weekly Contest 451  |
+|  3562  |  [Maximum Profit from Trading Stocks with Discounts](/solution/3500-3599/3562.Maximum%20Profit%20from%20Trading%20Stocks%20with%20Discounts/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 451  |
+|  3563  |  [Lexicographically Smallest String After Adjacent Removals](/solution/3500-3599/3563.Lexicographically%20Smallest%20String%20After%20Adjacent%20Removals/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 451  |
+|  3564  |  [Seasonal Sales Analysis](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3565  |  [Sequential Grid Path Cover](/solution/3500-3599/3565.Sequential%20Grid%20Path%20Cover/README_EN.md)  |  `Recursion`,`Array`,`Matrix`  |  Medium  |  🔒  |
+|  3566  |  [Partition Array into Two Equal Product Subsets](/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README_EN.md)  |  `Bit Manipulation`,`Recursion`,`Array`,`Enumeration`  |  Medium  |  Weekly Contest 452  |
+|  3567  |  [Minimum Absolute Difference in Sliding Submatrix](/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README_EN.md)  |  `Array`,`Matrix`,`Sorting`  |  Medium  |  Weekly Contest 452  |
+|  3568  |  [Minimum Moves to Clean the Classroom](/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README_EN.md)  |  `Bit Manipulation`,`Breadth-First Search`,`Array`,`Hash Table`,`Matrix`  |  Medium  |  Weekly Contest 452  |
+|  3569  |  [Maximize Count of Distinct Primes After Split](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README_EN.md)  |  `Segment Tree`,`Array`,`Math`,`Number Theory`  |  Hard  |  Weekly Contest 452  |
+|  3570  |  [Find Books with No Available Copies](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md)  |  `Database`  |  Easy  |    |
+|  3571  |  [Find the Shortest Superstring II](/solution/3500-3599/3571.Find%20the%20Shortest%20Superstring%20II/README_EN.md)  |  `String`  |  Easy  |  🔒  |
+|  3572  |  [Maximize Y‑Sum by Picking a Triplet of Distinct X‑Values](/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 158  |
+|  3573  |  [Best Time to Buy and Sell Stock V](/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 158  |
+|  3574  |  [Maximize Subarray GCD Score](/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README_EN.md)  |  `Array`,`Math`,`Enumeration`,`Number Theory`  |  Hard  |  Biweekly Contest 158  |
+|  3575  |  [Maximum Good Subtree Score](/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README_EN.md)  |  `Bit Manipulation`,`Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Biweekly Contest 158  |
+|  3576  |  [Transform Array to All Equal Elements](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 453  |
+|  3577  |  [Count the Number of Computer Unlocking Permutations](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README_EN.md)  |  `Brainteaser`,`Array`,`Math`,`Combinatorics`  |  Medium  |  Weekly Contest 453  |
+|  3578  |  [Count Partitions With Max-Min Difference at Most K](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README_EN.md)  |  `Queue`,`Array`,`Dynamic Programming`,`Prefix Sum`,`Sliding Window`,`Monotonic Queue`  |  Medium  |  Weekly Contest 453  |
+|  3579  |  [Minimum Steps to Convert String with Operations](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README_EN.md)  |  `Greedy`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 453  |
+|  3580  |  [Find Consistently Improving Employees](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3581  |  [Count Odd Letters from Number](/solution/3500-3599/3581.Count%20Odd%20Letters%20from%20Number/README_EN.md)  |  `Hash Table`,`String`,`Counting`,`Simulation`  |  Easy  |  🔒  |
+|  3582  |  [Generate Tag for Video Caption](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README_EN.md)  |  `String`,`Simulation`  |  Easy  |  Weekly Contest 454  |
+|  3583  |  [Count Special Triplets](/solution/3500-3599/3583.Count%20Special%20Triplets/README_EN.md)  |  `Array`,`Hash Table`,`Counting`  |  Medium  |  Weekly Contest 454  |
+|  3584  |  [Maximum Product of First and Last Elements of a Subsequence](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |  Weekly Contest 454  |
+|  3585  |  [Find Weighted Median Node in Tree](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Binary Search`,`Dynamic Programming`  |  Hard  |  Weekly Contest 454  |
+|  3586  |  [Find COVID Recovery Patients](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3587  |  [Minimum Adjacent Swaps to Alternate Parity](/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Biweekly Contest 159  |
+|  3588  |  [Find Maximum Area of a Triangle](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README_EN.md)  |  `Greedy`,`Geometry`,`Array`,`Hash Table`,`Math`,`Enumeration`  |  Medium  |  Biweekly Contest 159  |
+|  3589  |  [Count Prime-Gap Balanced Subarrays](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README_EN.md)  |  `Queue`,`Array`,`Math`,`Number Theory`,`Sliding Window`,`Monotonic Queue`  |  Medium  |  Biweekly Contest 159  |
+|  3590  |  [Kth Smallest Path XOR Sum](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Ordered Set`  |  Hard  |  Biweekly Contest 159  |
+|  3591  |  [Check if Any Element Has Prime Frequency](/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`,`Number Theory`  |  Easy  |  Weekly Contest 455  |
+|  3592  |  [Inverse Coin Change](/solution/3500-3599/3592.Inverse%20Coin%20Change/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 455  |
+|  3593  |  [Minimum Increments to Equalize Leaf Paths](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 455  |
+|  3594  |  [Minimum Time to Transport All Individuals](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README_EN.md)  |  `Bit Manipulation`,`Graph`,`Array`,`Dynamic Programming`,`Bitmask`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 455  |
+|  3595  |  [Once Twice](/solution/3500-3599/3595.Once%20Twice/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |  🔒  |
+|  3596  |  [Minimum Cost Path with Alternating Directions I](/solution/3500-3599/3596.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20I/README_EN.md)  |  `Brainteaser`,`Math`  |  Medium  |  🔒  |
+|  3597  |  [Partition String](/solution/3500-3599/3597.Partition%20String/README_EN.md)  |  `Trie`,`Hash Table`,`String`,`Simulation`  |  Medium  |  Weekly Contest 456  |
+|  3598  |  [Longest Common Prefix Between Adjacent Strings After Removals](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md)  |  `Array`,`String`  |  Medium  |  Weekly Contest 456  |
+|  3599  |  [Partition Array to Minimize XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 456  |
+|  3600  |  [Maximize Spanning Tree Stability with Upgrades](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md)  |  `Greedy`,`Union Find`,`Graph`,`Binary Search`,`Minimum Spanning Tree`  |  Hard  |  Weekly Contest 456  |
+|  3601  |  [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3602  |  [Hexadecimal and Hexatrigesimal Conversion](/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README_EN.md)  |  `Math`,`String`  |  Easy  |  Biweekly Contest 160  |
+|  3603  |  [Minimum Cost Path with Alternating Directions II](/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Biweekly Contest 160  |
+|  3604  |  [Minimum Time to Reach Destination in Directed Graph](/solution/3600-3699/3604.Minimum%20Time%20to%20Reach%20Destination%20in%20Directed%20Graph/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 160  |
+|  3605  |  [Minimum Stability Factor of Array](/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README_EN.md)  |  `Greedy`,`Segment Tree`,`Array`,`Math`,`Binary Search`,`Number Theory`  |  Hard  |  Biweekly Contest 160  |
+|  3606  |  [Coupon Code Validator](/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Sorting`  |  Easy  |  Weekly Contest 457  |
+|  3607  |  [Power Grid Maintenance](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`,`Array`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 457  |
+|  3608  |  [Minimum Time for K Connected Components](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md)  |  `Union Find`,`Graph`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 457  |
+|  3609  |  [Minimum Moves to Reach Target in Grid](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README_EN.md)  |  `Math`  |  Hard  |  Weekly Contest 457  |
+|  3610  |  [Minimum Number of Primes to Sum to Target](/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README_EN.md)  |    |  Medium  |  🔒  |
+|  3611  |  [Find Overbooked Employees](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README_EN.md)  |  `Database`  |  Medium  |    |
+|  3612  |  [Process String with Special Operations I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README_EN.md)  |  `String`,`Simulation`  |  Medium  |  Weekly Contest 458  |
+|  3613  |  [Minimize Maximum Component Cost](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md)  |  `Sort`,`Union Find`,`Graph`,`Binary Search`  |  Medium  |  Weekly Contest 458  |
+|  3614  |  [Process String with Special Operations II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md)  |  `String`,`Simulation`  |  Hard  |  Weekly Contest 458  |
+|  3615  |  [Longest Palindromic Path in Graph](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md)  |  `Bit Manipulation`,`Graph`,`String`,`Dynamic Programming`  |  Hard  |  Weekly Contest 458  |
+|  3616  |  [Number of Student Replacements](/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README_EN.md)  |    |  Medium  |  🔒  |
+|  3617  |  [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

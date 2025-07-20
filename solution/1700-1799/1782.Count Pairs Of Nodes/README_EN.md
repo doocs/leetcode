@@ -7,8 +7,10 @@ source: Biweekly Contest 47 Q4
 tags:
     - Graph
     - Array
+    - Hash Table
     - Two Pointers
     - Binary Search
+    - Counting
     - Sorting
 ---
 

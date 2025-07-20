@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3527.Find%20the%20Most%20Common%20Response/README.md
+rating: 1282
+source: 第 155 场双周赛 Q1
 tags:
     - 数组
     - 哈希表

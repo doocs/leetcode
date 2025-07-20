@@ -2,6 +2,14 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3556.Sum%20of%20Largest%20Prime%20Substrings/README_EN.md
+rating: 1439
+source: Biweekly Contest 157 Q1
+tags:
+    - Hash Table
+    - Math
+    - String
+    - Number Theory
+    - Sorting
 ---
 
 <!-- problem:start -->
@@ -14,13 +22,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3556.Su
 
 <!-- description:start -->
 
-<p data-end="157" data-start="30">Given a string <code>s</code>, find the sum of the <strong>3 largest unique prime numbers</strong> that can be formed using any of its<strong> substrings</strong>.</p>
+<p data-end="157" data-start="30">Given a string <code>s</code>, find the sum of the <strong>3 largest unique <span data-keyword="prime-number">prime numbers</span></strong> that can be formed using any of its<strong> <span data-keyword="substring">substrings</span></strong>.</p>
 
 <p data-end="269" data-start="166">Return the <strong>sum</strong> of the three largest unique prime numbers that can be formed. If fewer than three exist, return the sum of <strong>all</strong> available primes. If no prime numbers can be formed, return 0.</p>
-
-<p data-end="269" data-start="166">A prime number is a natural number greater than 1 with only two factors, 1 and itself.</p>
-
-<p>A <strong>substring</strong> is a contiguous sequence of characters within a string.</p>
 
 <p data-end="370" data-is-last-node="" data-is-only-node="" data-start="271"><strong data-end="280" data-start="271">Note:</strong> Each prime number should be counted only <strong>once</strong>, even if it appears in <strong>multiple</strong> substrings. Additionally, when converting a substring to an integer, any leading zeros are ignored.</p>
 

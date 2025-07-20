@@ -4,16 +4,15 @@ class Solution {
      * @return Integer
      */
     function findLucky($arr) {
-        $max = -1;
-        for ($i = 0; $i < count($arr); $i++) {
-            $hashtable[$arr[$i]] += 1;
+        $cnt = array_fill(0, 501, 0);
+        foreach ($arr as $x) {
+            $cnt[$x]++;
         }
-        $keys = array_keys($hashtable);
-        for ($j = 0; $j < count($keys); $j++) {
-            if ($hashtable[$keys[$j]] == $keys[$j]) {
-                $max = max($max, $keys[$j]);
+        for ($x = 500; $x > 0; $x--) {
+            if ($cnt[$x] === $x) {
+                return $x;
             }
         }
-        return $max;
+        return -1;
     }
 }

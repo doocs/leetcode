@@ -35,8 +35,6 @@ tags:
 
 <p>Return the value of the <code>k<sup>th</sup></code> character in <code>word</code>, after enough operations have been done for <code>word</code> to have <strong>at least</strong> <code>k</code> characters.</p>
 
-<p><strong>Note</strong> that the character <code>&#39;z&#39;</code> can be changed to <code>&#39;a&#39;</code> in the operation.</p>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
@@ -158,6 +156,23 @@ function kthCharacter(k: number): string {
         word.push(...word.map(x => (x + 1) % 26));
     }
     return String.fromCharCode(97 + word[k - 1]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn kth_character(k: i32) -> char {
+        let mut word = vec![0];
+        while word.len() < k as usize {
+            let m = word.len();
+            for i in 0..m {
+                word.push((word[i] + 1) % 26);
+            }
+        }
+        (b'a' + word[(k - 1) as usize] as u8) as char
+    }
 }
 ```
 

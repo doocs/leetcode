@@ -81,15 +81,15 @@ Perform second operation four times p=&quot;addb&quot;, s=&quot;&quot;, t=&quot;
 
 ### Solution 1: Greedy + Stack
 
-The problem can be transformed into, given a string sequence, convert it into the lexicographically smallest string sequence with the help of an auxiliary stack.
+The problem can be transformed into: given a string sequence, use an auxiliary stack to convert it into the lexicographically smallest string sequence.
 
-We can use an array `cnt` to maintain the occurrence count of each character in string $s$, use a stack `stk` as the auxiliary stack in the problem, and use a variable `mi` to maintain the smallest character in the string that has not been traversed yet.
+We can use an array $\textit{cnt}$ to maintain the count of each character in string $s$, use a stack $\textit{stk}$ as the auxiliary stack mentioned in the problem, and use a variable $\textit{mi}$ to keep track of the smallest character not yet traversed in the string.
 
-Traverse the string $s$, for each character $c$, we first decrement the occurrence count of character $c$ in array `cnt`, and update `mi`. Then push character $c$ into the stack. At this point, if the top element of the stack is less than or equal to `mi`, then loop to pop the top element of the stack, and add the popped character to the answer.
+Traverse the string $s$. For each character $c$, first decrement its count in the array $\textit{cnt}$ and update $\textit{mi}$. Then push $c$ onto the stack. At this point, if the top element of the stack is less than or equal to $\textit{mi}$, repeatedly pop the top element from the stack and add it to the answer.
 
-After the traversal ends, return the answer.
+After the traversal, return the answer.
 
-The time complexity is $O(n+C)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$, and $C$ is the size of the character set, in this problem $C=26$.
+The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$ and $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -194,101 +194,59 @@ func robotWithString(s string) string {
 
 ```ts
 function robotWithString(s: string): string {
-    let cnt = new Array(128).fill(0);
-    for (let c of s) cnt[c.charCodeAt(0)] += 1;
-    let min_index = 'a'.charCodeAt(0);
-    let ans = [];
-    let stack = [];
-    for (let c of s) {
-        cnt[c.charCodeAt(0)] -= 1;
-        while (min_index <= 'z'.charCodeAt(0) && cnt[min_index] == 0) {
-            min_index += 1;
+    const cnt = new Map<string, number>();
+    for (const c of s) {
+        cnt.set(c, (cnt.get(c) || 0) + 1);
+    }
+    const ans: string[] = [];
+    const stk: string[] = [];
+    let mi = 'a';
+    for (const c of s) {
+        cnt.set(c, (cnt.get(c) || 0) - 1);
+        while (mi < 'z' && (cnt.get(mi) || 0) === 0) {
+            mi = String.fromCharCode(mi.charCodeAt(0) + 1);
         }
-        stack.push(c);
-        while (stack.length > 0 && stack[stack.length - 1].charCodeAt(0) <= min_index) {
-            ans.push(stack.pop());
+        stk.push(c);
+        while (stk.length > 0 && stk[stk.length - 1] <= mi) {
+            ans.push(stk.pop()!);
         }
     }
     return ans.join('');
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def robotWithString(self, s: str) -> str:
-        n = len(s)
-        right = [chr(ord('z') + 1)] * (n + 1)
-        for i in range(n - 1, -1, -1):
-            right[i] = min(s[i], right[i + 1])
-        ans = []
-        stk = []
-        for i, c in enumerate(s):
-            stk.append(c)
-            while stk and stk[-1] <= right[i + 1]:
-                ans.append(stk.pop())
-        return ''.join(ans)
-```
-
-#### Java
-
-```java
-class Solution {
-    public String robotWithString(String s) {
-        int n = s.length();
-        int[] right = new int[n];
-        right[n - 1] = n - 1;
-        for (int i = n - 2; i >= 0; --i) {
-            right[i] = s.charAt(i) < s.charAt(right[i + 1]) ? i : right[i + 1];
+```rust
+impl Solution {
+    pub fn robot_with_string(s: String) -> String {
+        let mut cnt = [0; 26];
+        for &c in s.as_bytes() {
+            cnt[(c - b'a') as usize] += 1;
         }
-        StringBuilder ans = new StringBuilder();
-        Deque<Character> stk = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            stk.push(s.charAt(i));
-            while (
-                !stk.isEmpty() && (stk.peek() <= (i > n - 2 ? 'z' + 1 : s.charAt(right[i + 1])))) {
-                ans.append(stk.pop());
+
+        let mut ans = Vec::with_capacity(s.len());
+        let mut stk = Vec::new();
+        let mut mi = 0;
+
+        for &c in s.as_bytes() {
+            cnt[(c - b'a') as usize] -= 1;
+            while mi < 26 && cnt[mi] == 0 {
+                mi += 1;
+            }
+            stk.push(c);
+            while let Some(&top) = stk.last() {
+                if (top - b'a') as usize <= mi {
+                    ans.push(stk.pop().unwrap());
+                } else {
+                    break;
+                }
             }
         }
-        return ans.toString();
+
+        String::from_utf8(ans).unwrap()
     }
 }
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    string robotWithString(string s) {
-        int n = s.size();
-        vector<int> right(n, n - 1);
-        for (int i = n - 2; i >= 0; --i) {
-            right[i] = s[i] < s[right[i + 1]] ? i : right[i + 1];
-        }
-        string ans;
-        string stk;
-        for (int i = 0; i < n; ++i) {
-            stk += s[i];
-            while (!stk.empty() && (stk.back() <= (i > n - 2 ? 'z' + 1 : s[right[i + 1]]))) {
-                ans += stk.back();
-                stk.pop_back();
-            }
-        }
-        return ans;
-    }
-};
 ```
 
 <!-- tabs:end -->

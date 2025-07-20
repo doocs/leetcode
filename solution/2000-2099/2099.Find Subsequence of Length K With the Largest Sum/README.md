@@ -95,9 +95,7 @@ class Solution {
     public int[] maxSubsequence(int[] nums, int k) {
         int n = nums.length;
         Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            idx[i] = i;
-        }
+        Arrays.setAll(idx, i -> i);
         Arrays.sort(idx, (i, j) -> nums[i] - nums[j]);
         Arrays.sort(idx, n - k, n);
         int[] ans = new int[k];
@@ -109,20 +107,41 @@ class Solution {
 }
 ```
 
+#### C++
+
+```cpp
+#include <ranges>
+
+class Solution {
+public:
+    vector<int> maxSubsequence(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> idx(n);
+        ranges::iota(idx, 0);
+        ranges::sort(idx, [&](int i, int j) { return nums[i] < nums[j]; });
+        ranges::sort(idx | views::drop(n - k));
+        vector<int> ans(k);
+        for (int i = n - k; i < n; ++i) {
+            ans[i - (n - k)] = nums[idx[i]];
+        }
+        return ans;
+    }
+};
+```
+
 #### Go
 
 ```go
 func maxSubsequence(nums []int, k int) []int {
-	n := len(nums)
-	idx := make([]int, n)
+	idx := slices.Clone(make([]int, len(nums)))
 	for i := range idx {
 		idx[i] = i
 	}
-	sort.Slice(idx, func(i, j int) bool { return nums[idx[i]] < nums[idx[j]] })
-	sort.Ints(idx[n-k:])
+	slices.SortFunc(idx, func(i, j int) int { return nums[i] - nums[j] })
+	slices.Sort(idx[len(idx)-k:])
 	ans := make([]int, k)
-	for i := n - k; i < n; i++ {
-		ans[i-(n-k)] = nums[idx[i]]
+	for i := range ans {
+		ans[i] = nums[idx[len(idx)-k+i]]
 	}
 	return ans
 }
@@ -139,6 +158,28 @@ function maxSubsequence(nums: number[], k: number): number[] {
         .slice(n - k)
         .sort((i, j) => i - j)
         .map(i => nums[i]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_subsequence(nums: Vec<i32>, k: i32) -> Vec<i32> {
+        let n = nums.len();
+        let k = k as usize;
+        let mut idx: Vec<usize> = (0..n).collect();
+
+        idx.sort_by_key(|&i| nums[i]);
+        idx[n - k..].sort();
+
+        let mut ans = Vec::with_capacity(k);
+        for i in n - k..n {
+            ans.push(nums[idx[i]]);
+        }
+
+        ans
+    }
 }
 ```
 

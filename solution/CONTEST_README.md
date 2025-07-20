@@ -26,6 +26,76 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 458 场周赛(2025-07-13 10:30, 90 分钟) 参赛人数 1677
+
+- [3612. 用特殊操作处理字符串 I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README.md)
+- [3613. 最小化连通分量的最大成本](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README.md)
+- [3614. 用特殊操作处理字符串 II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README.md)
+- [3615. 图中的最长回文路径](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README.md)
+
+#### 第 457 场周赛(2025-07-06 10:30, 90 分钟) 参赛人数 1596
+
+- [3606. 优惠券校验器](/solution/3600-3699/3606.Coupon%20Code%20Validator/README.md)
+- [3607. 电网维护](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README.md)
+- [3608. 包含 K 个连通分量需要的最小时间](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README.md)
+- [3609. 到达目标点的最小移动次数](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README.md)
+
+#### 第 160 场双周赛(2025-07-05 22:30, 90 分钟) 参赛人数 1079
+
+- [3602. 十六进制和三十六进制转化](/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README.md)
+- [3603. 交替方向的最小路径代价 II](/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README.md)
+- [3604. 有向图中到达终点的最少时间](/solution/3600-3699/3604.Minimum%20Time%20to%20Reach%20Destination%20in%20Directed%20Graph/README.md)
+- [3605. 数组的最小稳定性因子](/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README.md)
+
+#### 第 456 场周赛(2025-06-29 10:30, 90 分钟) 参赛人数 1433
+
+- [3597. 分割字符串](/solution/3500-3599/3597.Partition%20String/README.md)
+- [3598. 相邻字符串之间的最长公共前缀](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README.md)
+- [3599. 划分数组得到最小 XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README.md)
+- [3600. 升级后最大生成树稳定性](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README.md)
+
+#### 第 455 场周赛(2025-06-22 10:30, 90 分钟) 参赛人数 1757
+
+- [3591. 检查元素频次是否为质数](/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README.md)
+- [3592. 硬币面值还原](/solution/3500-3599/3592.Inverse%20Coin%20Change/README.md)
+- [3593. 使叶子路径成本相等的最小增量](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README.md)
+- [3594. 所有人渡河所需的最短时间](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md)
+
+#### 第 159 场双周赛(2025-06-21 22:30, 90 分钟) 参赛人数 1075
+
+- [3587. 最小相邻交换至奇偶交替](/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README.md)
+- [3588. 找到最大三角形面积](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README.md)
+- [3589. 计数质数间隔平衡子数组](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README.md)
+- [3590. 第 K 小的路径异或和](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README.md)
+
+#### 第 454 场周赛(2025-06-15 10:30, 90 分钟) 参赛人数 1388
+
+- [3582. 为视频标题生成标签](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README.md)
+- [3583. 统计特殊三元组](/solution/3500-3599/3583.Count%20Special%20Triplets/README.md)
+- [3584. 子序列首尾元素的最大乘积](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README.md)
+- [3585. 树中找到带权中位节点](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README.md)
+
+#### 第 453 场周赛(2025-06-08 10:30, 90 分钟) 参赛人数 1608
+
+- [3576. 数组元素相等转换](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README.md)
+- [3577. 统计计算机解锁顺序排列数](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README.md)
+- [3578. 统计极差最大为 K 的分割方式数](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md)
+- [3579. 字符串转换需要的最小操作数](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README.md)
+
+#### 第 158 场双周赛(2025-06-07 22:30, 90 分钟) 参赛人数 1175
+
+- [3572. 选择不同 X 值三元组使 Y 值之和最大](/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README.md)
+- [3573. 买卖股票的最佳时机 V](/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README.md)
+- [3574. 最大子数组 GCD 分数](/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README.md)
+- [3575. 最大好子树分数](/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README.md)
+
+#### 第 452 场周赛(2025-06-01 10:30, 90 分钟) 参赛人数 1608
+
+- [3566. 等积子集的划分方案](/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README.md)
+- [3567. 子矩阵的最小绝对差](/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README.md)
+- [3568. 清理教室的最少移动](/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README.md)
+- [3569. 分割数组后不同质数的最大数目](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README.md)
+
 #### 第 451 场周赛(2025-05-25 10:30, 90 分钟) 参赛人数 1840
 
 - [3560. 木材运输的最小成本](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README.md)
@@ -3544,7 +3614,7 @@ comments: true
 
 - [0922. 按奇偶排序数组 II](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 - [0921. 使括号有效的最少添加](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README.md)
-- [0923. 三数之和的多种可能](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
+- [0923. 多重三数之和](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
 - [0924. 尽量减少恶意软件的传播](/solution/0900-0999/0924.Minimize%20Malware%20Spread/README.md)
 
 #### 第 105 场周赛(2018-10-07 09:30, 90 分钟) 参赛人数 393

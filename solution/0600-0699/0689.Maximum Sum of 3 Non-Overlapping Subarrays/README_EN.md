@@ -30,7 +30,7 @@ tags:
 <strong>Input:</strong> nums = [1,2,1,2,6,7,5,1], k = 2
 <strong>Output:</strong> [0,3,5]
 <strong>Explanation:</strong> Subarrays [1, 2], [2, 6], [7, 5] correspond to the starting indices [0, 3, 5].
-We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically smaller.
+We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically larger.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

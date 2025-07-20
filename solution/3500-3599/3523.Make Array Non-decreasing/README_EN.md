@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README_EN.md
+rating: 1435
+source: Weekly Contest 446 Q2
 tags:
     - Stack
     - Greedy

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3533.Concatenated%20Divisibility/README.md
+rating: 2257
+source: 第 447 场周赛 Q3
 tags:
     - 位运算
     - 数组

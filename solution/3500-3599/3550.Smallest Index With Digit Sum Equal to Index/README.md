@@ -2,6 +2,11 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README.md
+rating: 1200
+source: 第 450 场周赛 Q1
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->

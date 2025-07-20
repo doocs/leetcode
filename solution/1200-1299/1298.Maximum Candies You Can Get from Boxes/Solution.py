@@ -7,23 +7,29 @@ class Solution:
         containedBoxes: List[List[int]],
         initialBoxes: List[int],
     ) -> int:
-        q = deque([i for i in initialBoxes if status[i] == 1])
-        ans = sum(candies[i] for i in initialBoxes if status[i] == 1)
-        has = set(initialBoxes)
-        took = {i for i in initialBoxes if status[i] == 1}
+        q = deque()
+        has, took = set(initialBoxes), set()
+        ans = 0
 
+        for box in initialBoxes:
+            if status[box]:
+                q.append(box)
+                took.add(box)
+                ans += candies[box]
         while q:
-            i = q.popleft()
-            for k in keys[i]:
-                status[k] = 1
-                if k in has and k not in took:
-                    ans += candies[k]
-                    took.add(k)
-                    q.append(k)
-            for j in containedBoxes[i]:
-                has.add(j)
-                if status[j] and j not in took:
-                    ans += candies[j]
-                    took.add(j)
-                    q.append(j)
+            box = q.popleft()
+            for k in keys[box]:
+                if not status[k]:
+                    status[k] = 1
+                    if k in has and k not in took:
+                        q.append(k)
+                        took.add(k)
+                        ans += candies[k]
+
+            for b in containedBoxes[box]:
+                has.add(b)
+                if status[b] and b not in took:
+                    q.append(b)
+                    took.add(b)
+                    ans += candies[b]
         return ans

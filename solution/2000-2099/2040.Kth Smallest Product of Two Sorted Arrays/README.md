@@ -293,6 +293,128 @@ func abs(x int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function kthSmallestProduct(nums1: number[], nums2: number[], k: number): number {
+    const m = nums1.length;
+    const n = nums2.length;
+
+    const a = BigInt(Math.max(Math.abs(nums1[0]), Math.abs(nums1[m - 1])));
+    const b = BigInt(Math.max(Math.abs(nums2[0]), Math.abs(nums2[n - 1])));
+
+    let l = -a * b;
+    let r = a * b;
+
+    const count = (p: bigint): bigint => {
+        let cnt = 0n;
+        for (const x of nums1) {
+            const bx = BigInt(x);
+            if (bx > 0n) {
+                let l = 0,
+                    r = n;
+                while (l < r) {
+                    const mid = (l + r) >> 1;
+                    const prod = bx * BigInt(nums2[mid]);
+                    if (prod > p) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+                cnt += BigInt(l);
+            } else if (bx < 0n) {
+                let l = 0,
+                    r = n;
+                while (l < r) {
+                    const mid = (l + r) >> 1;
+                    const prod = bx * BigInt(nums2[mid]);
+                    if (prod <= p) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+                cnt += BigInt(n - l);
+            } else if (p >= 0n) {
+                cnt += BigInt(n);
+            }
+        }
+        return cnt;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1n;
+        if (count(mid) >= BigInt(k)) {
+            r = mid;
+        } else {
+            l = mid + 1n;
+        }
+    }
+
+    return Number(l);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn kth_smallest_product(nums1: Vec<i32>, nums2: Vec<i32>, k: i64) -> i64 {
+        let m = nums1.len();
+        let n = nums2.len();
+        let a = nums1[0].abs().max(nums1[m - 1].abs()) as i64;
+        let b = nums2[0].abs().max(nums2[n - 1].abs()) as i64;
+        let mut l = -a * b;
+        let mut r = a * b;
+
+        let count = |p: i64| -> i64 {
+            let mut cnt = 0i64;
+            for &x in &nums1 {
+                if x > 0 {
+                    let mut left = 0;
+                    let mut right = n;
+                    while left < right {
+                        let mid = (left + right) / 2;
+                        if (x as i64) * (nums2[mid] as i64) > p {
+                            right = mid;
+                        } else {
+                            left = mid + 1;
+                        }
+                    }
+                    cnt += left as i64;
+                } else if x < 0 {
+                    let mut left = 0;
+                    let mut right = n;
+                    while left < right {
+                        let mid = (left + right) / 2;
+                        if (x as i64) * (nums2[mid] as i64) <= p {
+                            right = mid;
+                        } else {
+                            left = mid + 1;
+                        }
+                    }
+                    cnt += (n - left) as i64;
+                } else if p >= 0 {
+                    cnt += n as i64;
+                }
+            }
+            cnt
+        };
+
+        while l < r {
+            let mid = l + (r - l) / 2;
+            if count(mid) >= k {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

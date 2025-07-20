@@ -71,7 +71,13 @@ Number of valid subsequences (63 - 2 = 61).
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Binary Search
+
+Since the problem is about subsequences and involves the sum of the minimum and maximum elements, we can first sort the array $\textit{nums}$.
+
+Then we enumerate the minimum element $\textit{nums}[i]$. For each $\textit{nums}[i]$, we can find the maximum element $\textit{nums}[j]$ in $\textit{nums}[i + 1]$ to $\textit{nums}[n - 1]$ such that $\textit{nums}[i] + \textit{nums}[j] \leq \textit{target}$. The number of valid subsequences in this case is $2^{j - i}$, where $2^{j - i}$ represents all possible subsequences from $\textit{nums}[i + 1]$ to $\textit{nums}[j]$. We sum up the counts of all such subsequences.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -109,10 +115,7 @@ class Solution {
             f[i] = (f[i - 1] * 2) % mod;
         }
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] * 2L > target) {
-                break;
-            }
+        for (int i = 0; i < n && nums[i] * 2 <= target; ++i) {
             int j = search(nums, target - nums[i], i + 1) - 1;
             ans = (ans + f[j - i]) % mod;
         }
@@ -149,10 +152,7 @@ public:
             f[i] = (f[i - 1] * 2) % mod;
         }
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] * 2L > target) {
-                break;
-            }
+        for (int i = 0; i < n && nums[i] * 2 <= target; ++i) {
             int j = upper_bound(nums.begin() + i + 1, nums.end(), target - nums[i]) - nums.begin() - 1;
             ans = (ans + f[j - i]) % mod;
         }
@@ -181,6 +181,77 @@ func numSubseq(nums []int, target int) (ans int) {
 		ans = (ans + f[j-i]) % mod
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numSubseq(nums: number[], target: number): number {
+    nums.sort((a, b) => a - b);
+    const mod = 1e9 + 7;
+    const n = nums.length;
+    const f: number[] = Array(n + 1).fill(1);
+    for (let i = 1; i <= n; ++i) {
+        f[i] = (f[i - 1] * 2) % mod;
+    }
+
+    let ans = 0;
+    for (let i = 0; i < n && nums[i] * 2 <= target; ++i) {
+        const j = search(nums, target - nums[i], i + 1) - 1;
+        if (j >= i) {
+            ans = (ans + f[j - i]) % mod;
+        }
+    }
+    return ans;
+}
+
+function search(nums: number[], x: number, left: number): number {
+    let right = nums.length;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] > x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_subseq(mut nums: Vec<i32>, target: i32) -> i32 {
+        nums.sort();
+        const MOD: i32 = 1_000_000_007;
+        let n = nums.len();
+        let mut f = vec![1; n + 1];
+        for i in 1..=n {
+            f[i] = (f[i - 1] * 2) % MOD;
+        }
+        let mut ans = 0;
+        for i in 0..n {
+            if nums[i] * 2 > target {
+                break;
+            }
+            let mut l = i + 1;
+            let mut r = n;
+            while l < r {
+                let m = (l + r) / 2;
+                if nums[m] > target - nums[i] {
+                    r = m;
+                } else {
+                    l = m + 1;
+                }
+            }
+            let j = l - 1;
+            ans = (ans + f[j - i]) % MOD;
+        }
+        ans
+    }
 }
 ```
 

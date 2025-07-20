@@ -1,36 +1,36 @@
-func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]int, initialBoxes []int) int {
-	ans := 0
-	n := len(status)
-	has := make([]bool, n)
-	took := make([]bool, n)
-	var q []int
-	for _, i := range initialBoxes {
-		has[i] = true
-		if status[i] == 1 {
-			ans += candies[i]
-			took[i] = true
-			q = append(q, i)
+func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]int, initialBoxes []int) (ans int) {
+	q := []int{}
+	has := make(map[int]bool)
+	took := make(map[int]bool)
+	for _, box := range initialBoxes {
+		has[box] = true
+		if status[box] == 1 {
+			q = append(q, box)
+			took[box] = true
+			ans += candies[box]
 		}
 	}
 	for len(q) > 0 {
-		i := q[0]
+		box := q[0]
 		q = q[1:]
-		for _, k := range keys[i] {
-			status[k] = 1
-			if has[k] && !took[k] {
-				ans += candies[k]
-				took[k] = true
-				q = append(q, k)
+		for _, k := range keys[box] {
+			if status[k] == 0 {
+				status[k] = 1
+				if has[k] && !took[k] {
+					q = append(q, k)
+					took[k] = true
+					ans += candies[k]
+				}
 			}
 		}
-		for _, j := range containedBoxes[i] {
-			has[j] = true
-			if status[j] == 1 && !took[j] {
-				ans += candies[j]
-				took[j] = true
-				q = append(q, j)
+		for _, b := range containedBoxes[box] {
+			has[b] = true
+			if status[b] == 1 && !took[b] {
+				q = append(q, b)
+				took[b] = true
+				ans += candies[b]
 			}
 		}
 	}
-	return ans
+	return
 }

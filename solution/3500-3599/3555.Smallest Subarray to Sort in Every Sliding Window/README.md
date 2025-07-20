@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3555.Smallest%20Subarray%20to%20Sort%20in%20Every%20Sliding%20Window/README.md
+tags:
+    - 栈
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+    - 单调栈
 ---
 
 <!-- problem:start -->

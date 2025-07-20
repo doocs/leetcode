@@ -80,7 +80,11 @@ So only the second letter &#39;o&#39; in baseStr is changed to &#39;d&#39;, the 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Union Find
+
+We can use Union Find (Disjoint Set Union, DSU) to handle the equivalence relations between characters. Each character can be regarded as a node, and the equivalence relations can be seen as edges connecting these nodes. With Union Find, we can group all equivalent characters together and quickly find the representative element for each character during queries. When performing union operations, we always set the representative element to be the lexicographically smallest character. This ensures that the final string is the lexicographically smallest equivalent string.
+
+The time complexity is $O((n + m) \times \log |\Sigma|)$ and the space complexity is $O(|\Sigma|)$, where $n$ is the length of strings $s1$ and $s2$, $m$ is the length of $baseStr$, and $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
 
 <!-- tabs:start -->
 
@@ -89,54 +93,47 @@ So only the second letter &#39;o&#39; in baseStr is changed to &#39;d&#39;, the 
 ```python
 class Solution:
     def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
-        p = list(range(26))
-
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        for i in range(len(s1)):
-            a, b = ord(s1[i]) - ord('a'), ord(s2[i]) - ord('a')
-            pa, pb = find(a), find(b)
-            if pa < pb:
-                p[pb] = pa
+        p = list(range(26))
+        for a, b in zip(s1, s2):
+            x, y = ord(a) - ord("a"), ord(b) - ord("a")
+            px, py = find(x), find(y)
+            if px < py:
+                p[py] = px
             else:
-                p[pa] = pb
-
-        res = []
-        for a in baseStr:
-            a = ord(a) - ord('a')
-            res.append(chr(find(a) + ord('a')))
-        return ''.join(res)
+                p[px] = py
+        return "".join(chr(find(ord(c) - ord("a")) + ord("a")) for c in baseStr)
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int[] p;
+    private final int[] p = new int[26];
 
     public String smallestEquivalentString(String s1, String s2, String baseStr) {
-        p = new int[26];
-        for (int i = 0; i < 26; ++i) {
+        for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
         for (int i = 0; i < s1.length(); ++i) {
-            int a = s1.charAt(i) - 'a', b = s2.charAt(i) - 'a';
-            int pa = find(a), pb = find(b);
-            if (pa < pb) {
-                p[pb] = pa;
+            int x = s1.charAt(i) - 'a';
+            int y = s2.charAt(i) - 'a';
+            int px = find(x), py = find(y);
+            if (px < py) {
+                p[py] = px;
             } else {
-                p[pa] = pb;
+                p[px] = py;
             }
         }
-        StringBuilder sb = new StringBuilder();
-        for (char a : baseStr.toCharArray()) {
-            char b = (char) (find(a - 'a') + 'a');
-            sb.append(b);
+        char[] s = baseStr.toCharArray();
+        for (int i = 0; i < s.length; ++i) {
+            s[i] = (char) ('a' + find(s[i] - 'a'));
         }
-        return sb.toString();
+        return String.valueOf(s);
     }
 
     private int find(int x) {
@@ -153,32 +150,30 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     string smallestEquivalentString(string s1, string s2, string baseStr) {
-        p.resize(26);
-        for (int i = 0; i < 26; ++i)
-            p[i] = i;
-        for (int i = 0; i < s1.size(); ++i) {
-            int a = s1[i] - 'a', b = s2[i] - 'a';
-            int pa = find(a), pb = find(b);
-            if (pa < pb)
-                p[pb] = pa;
-            else
-                p[pa] = pb;
+        vector<int> p(26);
+        iota(p.begin(), p.end(), 0);
+        auto find = [&](this auto&& find, int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+        for (int i = 0; i < s1.length(); ++i) {
+            int x = s1[i] - 'a';
+            int y = s2[i] - 'a';
+            int px = find(x), py = find(y);
+            if (px < py) {
+                p[py] = px;
+            } else {
+                p[px] = py;
+            }
         }
-        string res = "";
-        for (char a : baseStr) {
-            char b = (char) (find(a - 'a') + 'a');
-            res += b;
+        string s;
+        for (char c : baseStr) {
+            s.push_back('a' + find(c - 'a'));
         }
-        return res;
-    }
-
-    int find(int x) {
-        if (p[x] != x)
-            p[x] = find(p[x]);
-        return p[x];
+        return s;
     }
 };
 ```
@@ -186,35 +181,145 @@ public:
 #### Go
 
 ```go
-var p []int
-
 func smallestEquivalentString(s1 string, s2 string, baseStr string) string {
-	p = make([]int, 26)
+	p := make([]int, 26)
 	for i := 0; i < 26; i++ {
 		p[i] = i
 	}
+
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+
 	for i := 0; i < len(s1); i++ {
-		a, b := int(s1[i]-'a'), int(s2[i]-'a')
-		pa, pb := find(a), find(b)
-		if pa < pb {
-			p[pb] = pa
+		x := int(s1[i] - 'a')
+		y := int(s2[i] - 'a')
+		px := find(x)
+		py := find(y)
+		if px < py {
+			p[py] = px
 		} else {
-			p[pa] = pb
+			p[px] = py
 		}
 	}
-	var res []byte
-	for _, a := range baseStr {
-		b := byte(find(int(a-'a'))) + 'a'
-		res = append(res, b)
-	}
-	return string(res)
-}
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
+	var s []byte
+	for i := 0; i < len(baseStr); i++ {
+		s = append(s, byte('a'+find(int(baseStr[i]-'a'))))
 	}
-	return p[x]
+
+	return string(s)
+}
+```
+
+#### TypeScript
+
+```ts
+function smallestEquivalentString(s1: string, s2: string, baseStr: string): string {
+    const p: number[] = Array.from({ length: 26 }, (_, i) => i);
+
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+
+    for (let i = 0; i < s1.length; i++) {
+        const x = s1.charCodeAt(i) - 'a'.charCodeAt(0);
+        const y = s2.charCodeAt(i) - 'a'.charCodeAt(0);
+        const px = find(x);
+        const py = find(y);
+        if (px < py) {
+            p[py] = px;
+        } else {
+            p[px] = py;
+        }
+    }
+
+    const s: string[] = [];
+    for (let i = 0; i < baseStr.length; i++) {
+        const c = baseStr.charCodeAt(i) - 'a'.charCodeAt(0);
+        s.push(String.fromCharCode('a'.charCodeAt(0) + find(c)));
+    }
+    return s.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_equivalent_string(s1: String, s2: String, base_str: String) -> String {
+        fn find(x: usize, p: &mut Vec<usize>) -> usize {
+            if p[x] != x {
+                p[x] = find(p[x], p);
+            }
+            p[x]
+        }
+
+        let mut p = (0..26).collect::<Vec<_>>();
+        for (a, b) in s1.bytes().zip(s2.bytes()) {
+            let x = (a - b'a') as usize;
+            let y = (b - b'a') as usize;
+            let px = find(x, &mut p);
+            let py = find(y, &mut p);
+            if px < py {
+                p[py] = px;
+            } else {
+                p[px] = py;
+            }
+        }
+
+        base_str
+            .bytes()
+            .map(|c| (b'a' + find((c - b'a') as usize, &mut p) as u8) as char)
+            .collect()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string SmallestEquivalentString(string s1, string s2, string baseStr) {
+        int[] p = new int[26];
+        for (int i = 0; i < 26; i++) {
+            p[i] = i;
+        }
+
+        int Find(int x) {
+            if (p[x] != x) {
+                p[x] = Find(p[x]);
+            }
+            return p[x];
+        }
+
+        for (int i = 0; i < s1.Length; i++) {
+            int x = s1[i] - 'a';
+            int y = s2[i] - 'a';
+            int px = Find(x);
+            int py = Find(y);
+            if (px < py) {
+                p[py] = px;
+            } else {
+                p[px] = py;
+            }
+        }
+
+        var res = new System.Text.StringBuilder();
+        foreach (char c in baseStr) {
+            int idx = Find(c - 'a');
+            res.Append((char)(idx + 'a'));
+        }
+
+        return res.ToString();
+    }
 }
 ```
 

@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3390. Longest Team Pass Streak 🔒](https://leetcode.cn/problems/longest-team-pass-streak)
+# [3390. 最长团队传球连击 🔒](https://leetcode.cn/problems/longest-team-pass-streak)
 
 [English Version](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>Teams</code></p>
+<p>表：<code>Teams</code></p>
 
 <pre>
 +-------------+---------+
@@ -25,11 +25,11 @@ tags:
 | player_id   | int     |
 | team_name   | varchar | 
 +-------------+---------+
-player_id is the unique key for this table.
-Each row contains the unique identifier for player and the name of one of the teams participating in that match.
+player_id 是这张表的唯一主键。
+每行包含队员的唯一标识符以及在该场比赛中参赛的某支队伍的名称。
 </pre>
 
-<p>Table: <code>Passes</code></p>
+<p>表：<code>Passes</code></p>
 
 <pre>
 +-------------+---------+
@@ -39,38 +39,39 @@ Each row contains the unique identifier for player and the name of one of the te
 | time_stamp  | varchar |
 | pass_to     | int     |
 +-------------+---------+
-(pass_from, time_stamp) is the unique key for this table.
-pass_from is a foreign key to player_id from Teams table.
-Each row represents a pass made during a match, time_stamp represents the time in minutes (00:00-90:00) when the pass was made,
-pass_to is the player_id of the player receiving the pass.
+(pass_from, time_stamp) 是这张表的唯一主键。
+pass_from 是 Teams 表中 player_id 的外键。
+每一行代表比赛中的一次传球，time_stamp 表示传球发生的分钟时间（00:00-90:00）。
+pass_to 是接收传球队员的 player_id。
 </pre>
 
-<p>Write a solution to find the <strong>longest successful pass streak</strong> for <strong>each team</strong> during the match. The rules are as follows:</p>
+<p>编写一个解决方案以找到比赛中 <strong>每个队伍</strong> 的 <strong>最长连续成功传球</strong>。规则如下：</p>
 
 <ul>
-	<li>A successful pass streak is defined as consecutive passes where:
+	<li>成功连击的定义为连续传球，其中：
 	<ul>
-		<li>Both the <code>pass_from</code> and <code>pass_to</code> players belong to the same team</li>
+		<li><code>pass_from</code> 和&nbsp;<code>pass_to</code>&nbsp;表示的队员来自同一队伍</li>
 	</ul>
 	</li>
-	<li>A streak breaks when either:
+	<li>当出现以下情况时，连击就会中断：
 	<ul>
-		<li>The pass is intercepted (received by a player from the opposing team)</li>
+		<li>传球被截获（由对方球队的一名球员接住）</li>
 	</ul>
 	</li>
 </ul>
 
-<p>Return <em>the result table ordered by</em> <code>team_name</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以&nbsp;<code>team_name</code> <strong>升序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Teams table:</p>
+<p>Teams 表：</p>
 
 <pre>
 +-----------+-----------+
@@ -87,7 +88,7 @@ pass_to is the player_id of the player receiving the pass.
 +-----------+-----------+
 </pre>
 
-<p>Passes table:</p>
+<p>Passes 表：</p>
 
 <pre>
 +-----------+------------+---------+
@@ -106,7 +107,7 @@ pass_to is the player_id of the player receiving the pass.
 +-----------+------------+---------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre>
 +-----------+----------------+
@@ -117,21 +118,21 @@ pass_to is the player_id of the player receiving the pass.
 +-----------+----------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Arsenal</strong>&#39;s streaks:
+	<li><strong>阿森纳的</strong>&nbsp;连击：
 
     <ul>
-    	<li>First streak: 3 passes (1&rarr;2&rarr;3&rarr;4) ended when player 4 passed to Chelsea&#39;s player 5</li>
-    	<li>Second streak: 2 passes (1&rarr;2&rarr;3)</li>
-    	<li>Longest streak = 3</li>
+    	<li>第一次连击：3 次传球（1→2→3→4）当队员 4 传球给切尔西的队员 5 时结束</li>
+    	<li>第二次连击：2 次传球（1→2→3）</li>
+    	<li>最长连击 = 3</li>
     </ul>
     </li>
-    <li><strong>Chelsea</strong>&#39;s streaks:
+    <li><strong>切尔西的</strong>&nbsp;连击：
     <ul>
-    	<li>First streak: 3 passes (6&rarr;7&rarr;8&rarr;6&rarr;5)</li>
-    	<li>Longest streak = 4</li>
+    	<li>第一次连击：3 次传球（6→7→8→6→5）</li>
+    	<li>最长连击 = 4</li>
     </ul>
     </li>
 

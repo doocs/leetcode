@@ -1,39 +1,49 @@
 class Solution {
 public:
-    int maxCandies(vector<int>& status, vector<int>& candies, vector<vector<int>>& keys, vector<vector<int>>& containedBoxes, vector<int>& initialBoxes) {
-        int ans = 0;
-        int n = status.size();
-        vector<bool> has(n);
-        vector<bool> took(n);
+    int maxCandies(
+        vector<int>& status,
+        vector<int>& candies,
+        vector<vector<int>>& keys,
+        vector<vector<int>>& containedBoxes,
+        vector<int>& initialBoxes) {
         queue<int> q;
-        for (int& i : initialBoxes) {
-            has[i] = true;
-            if (status[i]) {
-                ans += candies[i];
-                took[i] = true;
-                q.push(i);
+        unordered_set<int> has, took;
+        int ans = 0;
+
+        for (int box : initialBoxes) {
+            has.insert(box);
+            if (status[box]) {
+                q.push(box);
+                took.insert(box);
+                ans += candies[box];
             }
         }
+
         while (!q.empty()) {
-            int i = q.front();
+            int box = q.front();
             q.pop();
-            for (int k : keys[i]) {
-                status[k] = 1;
-                if (has[k] && !took[k]) {
-                    ans += candies[k];
-                    took[k] = true;
-                    q.push(k);
+
+            for (int k : keys[box]) {
+                if (!status[k]) {
+                    status[k] = 1;
+                    if (has.count(k) && !took.count(k)) {
+                        q.push(k);
+                        took.insert(k);
+                        ans += candies[k];
+                    }
                 }
             }
-            for (int j : containedBoxes[i]) {
-                has[j] = true;
-                if (status[j] && !took[j]) {
-                    ans += candies[j];
-                    took[j] = true;
-                    q.push(j);
+
+            for (int b : containedBoxes[box]) {
+                has.insert(b);
+                if (status[b] && !took.count(b)) {
+                    q.push(b);
+                    took.insert(b);
+                    ans += candies[b];
                 }
             }
         }
+
         return ans;
     }
 };

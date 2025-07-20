@@ -19,18 +19,19 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given an integer <code>num</code>. You will apply the following steps exactly <strong>two</strong> times:</p>
+<p>You are given an integer <code>num</code>. You will apply the following steps to <code>num</code> <strong>two</strong> separate times:</p>
 
 <ul>
 	<li>Pick a digit <code>x (0 &lt;= x &lt;= 9)</code>.</li>
-	<li>Pick another digit <code>y (0 &lt;= y &lt;= 9)</code>. The digit <code>y</code> can be equal to <code>x</code>.</li>
+	<li>Pick another digit <code>y (0 &lt;= y &lt;= 9)</code>. Note <code>y</code> can be equal to <code>x</code>.</li>
 	<li>Replace all the occurrences of <code>x</code> in the decimal representation of <code>num</code> by <code>y</code>.</li>
-	<li>The new integer <strong>cannot</strong> have any leading zeros, also the new integer <strong>cannot</strong> be 0.</li>
 </ul>
 
-<p>Let <code>a</code> and <code>b</code> be the results of applying the operations to <code>num</code> the first and second times, respectively.</p>
+<p>Let <code>a</code> and <code>b</code> be the two results from applying the operation to <code>num</code> <em>independently</em>.</p>
 
 <p>Return <em>the max difference</em> between <code>a</code> and <code>b</code>.</p>
+
+<p>Note that neither <code>a</code> nor <code>b</code> may have any leading zeros, and <strong>must not</strong> be 0.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -66,7 +67,17 @@ We have now a = 9 and b = 1 and max difference = 8
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+To obtain the maximum difference, we should take the maximum and minimum values, as this yields the largest difference.
+
+Therefore, we first enumerate each digit in $\textit{nums}$ from high to low. If a digit is not `9`, we replace all occurrences of that digit with `9` to obtain the maximum integer $a$.
+
+Next, we enumerate each digit in $\textit{nums}$ from high to low again. The first digit cannot be `0`, so if the first digit is not `1`, we replace it with `1`; for non-leading digits that are different from the first digit, we replace them with `0` to obtain the minimum integer $b$.
+
+The answer is the difference $a - b$.
+
+The time complexity is $O(\log \textit{num})$, and the space complexity is $O(\log \textit{num})$, where $\textit{nums}$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -177,6 +188,65 @@ func maxDiff(num int) int {
 		}
 	}
 	return a - b
+}
+```
+
+#### TypeScript
+
+```ts
+function maxDiff(num: number): number {
+    let a = num.toString();
+    let b = a;
+    for (let i = 0; i < a.length; ++i) {
+        if (a[i] !== '9') {
+            a = a.split(a[i]).join('9');
+            break;
+        }
+    }
+    if (b[0] !== '1') {
+        b = b.split(b[0]).join('1');
+    } else {
+        for (let i = 1; i < b.length; ++i) {
+            if (b[i] !== '0' && b[i] !== '1') {
+                b = b.split(b[i]).join('0');
+                break;
+            }
+        }
+    }
+    return +a - +b;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_diff(num: i32) -> i32 {
+        let a = num.to_string();
+        let mut a = a.clone();
+        let mut b = a.clone();
+
+        for c in a.chars() {
+            if c != '9' {
+                a = a.replace(c, "9");
+                break;
+            }
+        }
+
+        let chars: Vec<char> = b.chars().collect();
+        if chars[0] != '1' {
+            b = b.replace(chars[0], "1");
+        } else {
+            for &c in &chars[1..] {
+                if c != '0' && c != '1' {
+                    b = b.replace(c, "0");
+                    break;
+                }
+            }
+        }
+
+        a.parse::<i32>().unwrap() - b.parse::<i32>().unwrap()
+    }
 }
 ```
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3531.Count%20Covered%20Buildings/README.md
+rating: 1518
+source: 第 447 场周赛 Q1
 tags:
     - 数组
     - 哈希表

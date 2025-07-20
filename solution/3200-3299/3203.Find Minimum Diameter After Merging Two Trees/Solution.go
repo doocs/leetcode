@@ -1,7 +1,7 @@
 func minimumDiameterAfterMerge(edges1 [][]int, edges2 [][]int) int {
 	d1 := treeDiameter(edges1)
 	d2 := treeDiameter(edges2)
-	return max(max(d1, d2), (d1+1)/2+(d2+1)/2+1)
+	return max(d1, d2, (d1+1)/2+(d2+1)/2+1)
 }
 
 func treeDiameter(edges [][]int) (ans int) {

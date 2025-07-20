@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3528.Unit%20Conversion%20I/README_EN.md
+rating: 1579
+source: Biweekly Contest 155 Q2
 tags:
     - Depth-First Search
     - Breadth-First Search

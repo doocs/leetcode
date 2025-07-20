@@ -20,14 +20,16 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a string <code>s</code> consisting of lowercase English letters. Your task is to find the <strong>maximum</strong> difference between the frequency of <strong>two</strong> characters in the string such that:</p>
+<p>You are given a string <code>s</code> consisting of lowercase English letters.</p>
+
+<p>Your task is to find the <strong>maximum</strong> difference <code>diff = freq(a<sub>1</sub>) - freq(a<sub>2</sub>)</code> between the frequency of characters <code>a<sub>1</sub></code> and <code>a<sub>2</sub></code> in the string such that:</p>
 
 <ul>
-	<li>One of the characters has an <strong>even frequency</strong> in the string.</li>
-	<li>The other character has an <strong>odd frequency</strong> in the string.</li>
+	<li><code>a<sub>1</sub></code> has an <strong>odd frequency</strong> in the string.</li>
+	<li><code>a<sub>2</sub></code> has an <strong>even frequency</strong> in the string.</li>
 </ul>
 
-<p>Return the <strong>maximum</strong> difference, calculated as the frequency of the character with an <b>odd</b> frequency <strong>minus</strong> the frequency of the character with an <b>even</b> frequency.</p>
+<p>Return this <strong>maximum</strong> difference.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -180,6 +182,51 @@ function maxDifference(s: string): number {
         }
     }
     return a - b;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_difference(s: String) -> i32 {
+        let mut cnt = [0; 26];
+        for c in s.bytes() {
+            cnt[(c - b'a') as usize] += 1;
+        }
+        let mut a = 0;
+        let mut b = 1 << 30;
+        for &v in cnt.iter() {
+            if v % 2 == 1 {
+                a = a.max(v);
+            } else if v > 0 {
+                b = b.min(v);
+            }
+        }
+        a - b
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxDifference(string s) {
+        int[] cnt = new int[26];
+        foreach (char c in s) {
+            ++cnt[c - 'a'];
+        }
+        int a = 0, b = 1 << 30;
+        foreach (int v in cnt) {
+            if (v % 2 == 1) {
+                a = Math.Max(a, v);
+            } else if (v > 0) {
+                b = Math.Min(b, v);
+            }
+        }
+        return a - b;
+    }
 }
 ```
 

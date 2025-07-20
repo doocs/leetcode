@@ -2,6 +2,11 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README_EN.md
+rating: 1200
+source: Weekly Contest 450 Q1
+tags:
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->

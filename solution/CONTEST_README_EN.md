@@ -29,6 +29,76 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 458
+
+- [3612. Process String with Special Operations I](/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README_EN.md)
+- [3613. Minimize Maximum Component Cost](/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md)
+- [3614. Process String with Special Operations II](/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md)
+- [3615. Longest Palindromic Path in Graph](/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md)
+
+#### Weekly Contest 457
+
+- [3606. Coupon Code Validator](/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md)
+- [3607. Power Grid Maintenance](/solution/3600-3699/3607.Power%20Grid%20Maintenance/README_EN.md)
+- [3608. Minimum Time for K Connected Components](/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md)
+- [3609. Minimum Moves to Reach Target in Grid](/solution/3600-3699/3609.Minimum%20Moves%20to%20Reach%20Target%20in%20Grid/README_EN.md)
+
+#### Biweekly Contest 160
+
+- [3602. Hexadecimal and Hexatrigesimal Conversion](/solution/3600-3699/3602.Hexadecimal%20and%20Hexatrigesimal%20Conversion/README_EN.md)
+- [3603. Minimum Cost Path with Alternating Directions II](/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README_EN.md)
+- [3604. Minimum Time to Reach Destination in Directed Graph](/solution/3600-3699/3604.Minimum%20Time%20to%20Reach%20Destination%20in%20Directed%20Graph/README_EN.md)
+- [3605. Minimum Stability Factor of Array](/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README_EN.md)
+
+#### Weekly Contest 456
+
+- [3597. Partition String](/solution/3500-3599/3597.Partition%20String/README_EN.md)
+- [3598. Longest Common Prefix Between Adjacent Strings After Removals](/solution/3500-3599/3598.Longest%20Common%20Prefix%20Between%20Adjacent%20Strings%20After%20Removals/README_EN.md)
+- [3599. Partition Array to Minimize XOR](/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md)
+- [3600. Maximize Spanning Tree Stability with Upgrades](/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md)
+
+#### Weekly Contest 455
+
+- [3591. Check if Any Element Has Prime Frequency](/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README_EN.md)
+- [3592. Inverse Coin Change](/solution/3500-3599/3592.Inverse%20Coin%20Change/README_EN.md)
+- [3593. Minimum Increments to Equalize Leaf Paths](/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README_EN.md)
+- [3594. Minimum Time to Transport All Individuals](/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README_EN.md)
+
+#### Biweekly Contest 159
+
+- [3587. Minimum Adjacent Swaps to Alternate Parity](/solution/3500-3599/3587.Minimum%20Adjacent%20Swaps%20to%20Alternate%20Parity/README_EN.md)
+- [3588. Find Maximum Area of a Triangle](/solution/3500-3599/3588.Find%20Maximum%20Area%20of%20a%20Triangle/README_EN.md)
+- [3589. Count Prime-Gap Balanced Subarrays](/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README_EN.md)
+- [3590. Kth Smallest Path XOR Sum](/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README_EN.md)
+
+#### Weekly Contest 454
+
+- [3582. Generate Tag for Video Caption](/solution/3500-3599/3582.Generate%20Tag%20for%20Video%20Caption/README_EN.md)
+- [3583. Count Special Triplets](/solution/3500-3599/3583.Count%20Special%20Triplets/README_EN.md)
+- [3584. Maximum Product of First and Last Elements of a Subsequence](/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README_EN.md)
+- [3585. Find Weighted Median Node in Tree](/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README_EN.md)
+
+#### Weekly Contest 453
+
+- [3576. Transform Array to All Equal Elements](/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README_EN.md)
+- [3577. Count the Number of Computer Unlocking Permutations](/solution/3500-3599/3577.Count%20the%20Number%20of%20Computer%20Unlocking%20Permutations/README_EN.md)
+- [3578. Count Partitions With Max-Min Difference at Most K](/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README_EN.md)
+- [3579. Minimum Steps to Convert String with Operations](/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README_EN.md)
+
+#### Biweekly Contest 158
+
+- [3572. Maximize Y‑Sum by Picking a Triplet of Distinct X‑Values](/solution/3500-3599/3572.Maximize%20Y%E2%80%91Sum%20by%20Picking%20a%20Triplet%20of%20Distinct%20X%E2%80%91Values/README_EN.md)
+- [3573. Best Time to Buy and Sell Stock V](/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README_EN.md)
+- [3574. Maximize Subarray GCD Score](/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README_EN.md)
+- [3575. Maximum Good Subtree Score](/solution/3500-3599/3575.Maximum%20Good%20Subtree%20Score/README_EN.md)
+
+#### Weekly Contest 452
+
+- [3566. Partition Array into Two Equal Product Subsets](/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README_EN.md)
+- [3567. Minimum Absolute Difference in Sliding Submatrix](/solution/3500-3599/3567.Minimum%20Absolute%20Difference%20in%20Sliding%20Submatrix/README_EN.md)
+- [3568. Minimum Moves to Clean the Classroom](/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README_EN.md)
+- [3569. Maximize Count of Distinct Primes After Split](/solution/3500-3599/3569.Maximize%20Count%20of%20Distinct%20Primes%20After%20Split/README_EN.md)
+
 #### Weekly Contest 451
 
 - [3560. Find Minimum Log Transportation Cost](/solution/3500-3599/3560.Find%20Minimum%20Log%20Transportation%20Cost/README_EN.md)

@@ -20,7 +20,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个&nbsp;<strong>循环&nbsp;</strong>数组&nbsp;<code>nums</code>&nbsp;和一个数组&nbsp;<code>queries</code>&nbsp;。</p>
+<p>给你一个&nbsp;<strong>环形&nbsp;</strong>数组&nbsp;<code>nums</code>&nbsp;和一个数组&nbsp;<code>queries</code>&nbsp;。</p>
 
 <p>对于每个查询&nbsp;<code>i</code>&nbsp;，你需要找到以下内容：</p>
 

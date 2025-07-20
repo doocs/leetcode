@@ -1,15 +1,14 @@
 class Solution {
     public int findLucky(int[] arr) {
-        int[] cnt = new int[510];
-        for (int x : cnt) {
+        int[] cnt = new int[501];
+        for (int x : arr) {
             ++cnt[x];
         }
-        int ans = -1;
-        for (int x = 1; x < cnt.length; ++x) {
-            if (cnt[x] == x) {
-                ans = x;
+        for (int x = cnt.length - 1; x > 0; --x) {
+            if (x == cnt[x]) {
+                return x;
             }
         }
-        return ans;
+        return -1;
     }
 }

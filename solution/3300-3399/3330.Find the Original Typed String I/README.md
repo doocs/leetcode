@@ -75,7 +75,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：直接遍历
+
+根据题目描述，如果所有相邻字符都不相同，那么只有 1 种可能的输入字符串；如果有 1 对相邻字符相同，例如 "abbc"，那么可能的输入字符串有 2 种："abc" 和 "abbc"。
+
+依此类推，如果有 $k$ 对相邻字符相同，那么可能的输入字符串有 $k + 1$ 种。
+
+因此，我们只需要遍历字符串，统计相邻字符相同的对数再加 1 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -141,6 +149,16 @@ function possibleStringCount(word: string): number {
         f += word[i] === word[i - 1] ? 1 : 0;
     }
     return f;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn possible_string_count(word: String) -> i32 {
+        1 + word.as_bytes().windows(2).filter(|w| w[0] == w[1]).count() as i32
+    }
 }
 ```
 

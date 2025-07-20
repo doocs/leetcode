@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3541.Find%20Most%20Frequent%20Vowel%20and%20Consonant/README.md
+rating: 1238
+source: 第 156 场双周赛 Q1
 tags:
     - 哈希表
     - 字符串

@@ -21,7 +21,7 @@ tags:
 
 <p>在<meta charset="UTF-8" />&nbsp;<code>n x n</code>&nbsp;的网格<meta charset="UTF-8" />&nbsp;<code>grid</code>&nbsp;中，我们放置了一些与 x，y，z 三轴对齐的<meta charset="UTF-8" />&nbsp;<code>1 x 1 x 1</code>&nbsp;立方体。</p>
 
-<p>每个值&nbsp;<code>v = grid[i][j]</code>&nbsp;表示 <code>v</code>&nbsp;个正方体叠放在单元格&nbsp;<code>(i, j)</code>&nbsp;上。</p>
+<p>每个值&nbsp;<code>v = grid[i][j]</code>&nbsp;表示有一列&nbsp;<code>v</code>&nbsp;个正方体叠放在格子&nbsp;<code>(i, j)</code>&nbsp;上。</p>
 
 <p>现在，我们查看这些立方体在 <code>xy</code>&nbsp;、<code>yz</code>&nbsp;和 <code>zx</code>&nbsp;平面上的<em>投影</em>。</p>
 

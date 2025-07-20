@@ -223,6 +223,86 @@ function kthCharacter(k: number, operations: number[]): string {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn kth_character(mut k: i64, operations: Vec<i32>) -> char {
+        let mut n = 1i64;
+        let mut i = 0;
+        while n < k {
+            n *= 2;
+            i += 1;
+        }
+        let mut d = 0;
+        while n > 1 {
+            if k > n / 2 {
+                k -= n / 2;
+                d += operations[i - 1] as i64;
+            }
+            n /= 2;
+            i -= 1;
+        }
+        ((b'a' + (d % 26) as u8) as char)
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public char KthCharacter(long k, int[] operations) {
+        long n = 1;
+        int i = 0;
+        while (n < k) {
+            n *= 2;
+            ++i;
+        }
+        int d = 0;
+        while (n > 1) {
+            if (k > n / 2) {
+                k -= n / 2;
+                d += operations[i - 1];
+            }
+            n /= 2;
+            --i;
+        }
+        return (char)('a' + (d % 26));
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer $k
+     * @param Integer[] $operations
+     * @return String
+     */
+    function kthCharacter($k, $operations) {
+        $n = 1;
+        $i = 0;
+        while ($n < $k) {
+            $n *= 2;
+            ++$i;
+        }
+        $d = 0;
+        while ($n > 1) {
+            if ($k > $n / 2) {
+                $k -= $n / 2;
+                $d += $operations[$i - 1];
+            }
+            $n /= 2;
+            --$i;
+        }
+        return chr(ord('a') + ($d % 26));
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
