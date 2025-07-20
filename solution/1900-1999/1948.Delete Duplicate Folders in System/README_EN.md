@@ -109,11 +109,118 @@ Note that the returned array can be in a different order as the order does not m
 
 ```python
 
+class Trie:
+    serial: str = ""
+    children: dict
+
+    def __init__(self):
+        self.children = dict()
+
+
+class Solution:
+    def deleteDuplicateFolder(self, paths: List[List[str]]) -> List[List[str]]:
+        root = Trie()
+        for path in paths:
+            cur = root
+            for node in path:
+                if node not in cur.children:
+                    cur.children[node] = Trie()
+                cur = cur.children[node]
+        freq = Counter()
+        def construct(node: Trie) -> None:
+            if not node.children:
+                return
+            v = list()
+            for folder, child in node.children.items():
+                construct(child)
+                v.append(folder + "(" + child.serial + ")")
+            v.sort()
+            node.serial = "".join(v)
+            freq[node.serial] += 1
+        construct(root)
+        ans = list()
+        path = list()
+        def operate(node: Trie) -> None:
+            if freq[node.serial] > 1:
+                return
+            if path:
+                ans.append(path[:])
+            for folder, child in node.children.items():
+                path.append(folder)
+                operate(child)
+                path.pop()
+        operate(root)
+        return ans
+
 ```
 
 #### Java
 
 ```java
+
+class Solution {
+
+    class Trie {
+
+        String serial;
+        Map<String, Trie> children = new HashMap<>();
+    }
+
+    public List<List<String>> deleteDuplicateFolder(List<List<String>> paths) {
+        Trie root = new Trie();
+        for (List<String> path : paths) {
+            Trie cur = root;
+            for (String node : path) {
+                cur.children.putIfAbsent(node, new Trie());
+                cur = cur.children.get(node);
+            }
+        }
+
+        Map<String, Integer> freq = new HashMap<>(); 
+        construct(root, freq);
+        List<List<String>> ans = new ArrayList<>();
+        List<String> path = new ArrayList<>();
+        operate(root, freq, path, ans);
+        return ans;
+    }
+
+    private void construct(Trie node, Map<String, Integer> freq) {
+        if (node.children.isEmpty()) return;
+
+        List<String> v = new ArrayList<>();
+        for (Map.Entry<String, Trie> entry : node.children.entrySet()) {
+            construct(entry.getValue(), freq);
+            v.add(entry.getKey() + "(" + entry.getValue().serial + ")");
+        }
+
+        Collections.sort(v);
+        StringBuilder sb = new StringBuilder();
+        for (String s : v) {
+            sb.append(s);
+        }
+        node.serial = sb.toString();
+        freq.put(node.serial, freq.getOrDefault(node.serial, 0) + 1);
+    }
+
+    private void operate(
+        Trie node,
+        Map<String, Integer> freq,
+        List<String> path,
+        List<List<String>> ans
+    ) {
+        if (freq.getOrDefault(node.serial, 0) > 1) return;
+
+        if (!path.isEmpty()) {
+            ans.add(new ArrayList<>(path));
+        }
+
+        for (Map.Entry<String, Trie> entry : node.children.entrySet()) {
+            path.add(entry.getKey());
+            operate(entry.getValue(), freq, path, ans);
+            path.remove(path.size() - 1);
+        }
+    }
+}
 
 ```
 
@@ -121,11 +228,131 @@ Note that the returned array can be in a different order as the order does not m
 
 ```cpp
 
+struct Trie {
+    string serial;
+    unordered_map<string, Trie*> children;
+};
+
+class Solution {
+public:
+    vector<vector<string>> deleteDuplicateFolder(
+        vector<vector<string>>& paths) {
+        Trie* root = new Trie();
+
+        for (const vector<string>& path : paths) {
+            Trie* cur = root;
+            for (const string& node : path) {
+                if (!cur->children.count(node)) {
+                    cur->children[node] = new Trie();
+                }
+                cur = cur->children[node];
+            }
+        }
+        unordered_map<string, int> freq;
+        function<void(Trie*)> construct = [&](Trie* node) {
+            if (node->children.empty()) {
+                return;
+            }
+
+            vector<string> v;
+            for (const auto& [folder, child] : node->children) {
+                construct(child);
+                v.push_back(folder + "(" + child->serial + ")");
+            }
+            sort(v.begin(), v.end());
+            for (string& s : v) {
+                node->serial += move(s);
+            }
+            ++freq[node->serial];
+        };
+
+        construct(root);
+
+        vector<vector<string>> ans;
+        vector<string> path;
+
+        function<void(Trie*)> operate = [&](Trie* node) {
+            if (freq[node->serial] > 1) {
+                return;
+            }
+            if (!path.empty()) {
+                ans.push_back(path);
+            }
+            for (const auto& [folder, child] : node->children) {
+                path.push_back(folder);
+                operate(child);
+                path.pop_back();
+            }
+        };
+
+        operate(root);
+        return ans;
+    }
+};
+
 ```
 
 #### Go
 
 ```go
+
+type Trie struct {
+	serial   string
+	children map[string]*Trie
+}
+
+func deleteDuplicateFolder(paths [][]string) [][]string {
+	root := &Trie{children: make(map[string]*Trie)}
+	for _, path := range paths {
+		cur := root
+		for _, node := range path {
+			if _, ok := cur.children[node]; !ok {
+				cur.children[node] = &Trie{children: make(map[string]*Trie)}
+			}
+			cur = cur.children[node]
+		}
+	}
+
+	freq := make(map[string]int)
+	var construct func(*Trie)
+	construct = func(node *Trie) {
+		if len(node.children) == 0 {
+			return
+		}
+		v := make([]string, 0, len(node.children))
+		for folder, child := range node.children {
+			construct(child)
+			v = append(v, folder+"("+child.serial+")")
+		}
+		sort.Strings(v)
+		node.serial = strings.Join(v, "")
+		freq[node.serial]++
+	}
+	construct(root)
+
+	ans := make([][]string, 0)
+	path := make([]string, 0)
+	var operate func(*Trie)
+	operate = func(node *Trie) {
+		if freq[node.serial] > 1 {
+			return
+		}
+		if len(path) > 0 {
+			tmp := make([]string, len(path))
+			copy(tmp, path)
+			ans = append(ans, tmp)
+		}
+		for folder, child := range node.children {
+			path = append(path, folder)
+			operate(child)
+			path = path[:len(path)-1]
+		}
+	}
+	operate(root)
+
+	return ans
+}
+
 
 ```
 
