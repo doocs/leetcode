@@ -70,11 +70,11 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 
 ### Solution 1: Simulation
 
-We can traverse the string $s$ and use an array $\textit{ans}$ to record the current answer. For each character $c$, if the length of $\textit{ans}$ is less than $2$ or the last two characters of $\textit{ans}$ are not equal to $c$, we add $c$ to $\textit{ans}$.
+We can iterate through the string $s$ and use an array $\textit{ans}$ to record the current answer. For each character $\textit{s[i]}$, if $i < 2$ or $s[i]$ is not equal to $s[i - 1]$, or $s[i]$ is not equal to $s[i - 2]$, we add $s[i]$ to $\textit{ans}$.
 
 Finally, we concatenate the characters in $\textit{ans}$ to get the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -84,8 +84,8 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 class Solution:
     def makeFancyString(self, s: str) -> str:
         ans = []
-        for c in s:
-            if len(ans) < 2 or ans[-1] != c or ans[-2] != c:
+        for i, c in enumerate(s):
+            if i < 2 or c != s[i - 1] or c != s[i - 2]:
                 ans.append(c)
         return "".join(ans)
 ```
@@ -96,9 +96,9 @@ class Solution:
 class Solution {
     public String makeFancyString(String s) {
         StringBuilder ans = new StringBuilder();
-        for (char c : s.toCharArray()) {
-            int n = ans.length();
-            if (n < 2 || c != ans.charAt(n - 1) || c != ans.charAt(n - 2)) {
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (i < 2 || c != s.charAt(i - 1) || c != s.charAt(i - 2)) {
                 ans.append(c);
             }
         }
@@ -114,9 +114,9 @@ class Solution {
 public:
     string makeFancyString(string s) {
         string ans = "";
-        for (char& c : s) {
-            int n = ans.size();
-            if (n < 2 || ans[n - 1] != c || ans[n - 2] != c) {
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s[i];
+            if (i < 2 || c != s[i - 1] || c != s[i - 2]) {
                 ans += c;
             }
         }
@@ -129,9 +129,9 @@ public:
 
 ```go
 func makeFancyString(s string) string {
-	ans := []rune{}
-	for _, c := range s {
-		if n := len(ans); n < 2 || c != ans[n-1] || c != ans[n-2] {
+	ans := []byte{}
+	for i, ch := range s {
+		if c := byte(ch); i < 2 || c != s[i-1] || c != s[i-2] {
 			ans = append(ans, c)
 		}
 	}
@@ -143,28 +143,32 @@ func makeFancyString(s string) string {
 
 ```ts
 function makeFancyString(s: string): string {
-    let [n, ans] = [s.length, ''];
-    for (let i = 0; i < n; i++) {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; ++i) {
         if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
-            ans += s[i];
+            ans.push(s[i]);
         }
     }
-    return ans;
+    return ans.join('');
 }
 ```
 
 #### JavaScript
 
 ```js
-function makeFancyString(s) {
-    let [n, ans] = [s.length, ''];
-    for (let i = 0; i < n; i++) {
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var makeFancyString = function (s) {
+    const ans = [];
+    for (let i = 0; i < s.length; ++i) {
         if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
-            ans += s[i];
+            ans.push(s[i]);
         }
     }
-    return ans;
-}
+    return ans.join('');
+};
 ```
 
 #### PHP
@@ -176,17 +180,14 @@ class Solution {
      * @return String
      */
     function makeFancyString($s) {
-        $ans = [];
-        $length = strlen($s);
-
-        for ($i = 0; $i < $length; $i++) {
-            $n = count($ans);
-            if ($n < 2 || $s[$i] !== $ans[$n - 1] || $s[$i] !== $ans[$n - 2]) {
-                $ans[] = $s[$i];
+        $ans = '';
+        for ($i = 0; $i < strlen($s); $i++) {
+            $c = $s[$i];
+            if ($i < 2 || $c !== $s[$i - 1] || $c !== $s[$i - 2]) {
+                $ans .= $c;
             }
         }
-
-        return implode('', $ans);
+        return $ans;
     }
 }
 ```

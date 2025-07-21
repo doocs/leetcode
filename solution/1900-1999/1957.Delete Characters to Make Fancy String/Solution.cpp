@@ -2,9 +2,9 @@ class Solution {
 public:
     string makeFancyString(string s) {
         string ans = "";
-        for (char& c : s) {
-            int n = ans.size();
-            if (n < 2 || ans[n - 1] != c || ans[n - 2] != c) {
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s[i];
+            if (i < 2 || c != s[i - 1] || c != s[i - 2]) {
                 ans += c;
             }
         }

@@ -1,9 +1,9 @@
 function makeFancyString(s: string): string {
-    let [n, ans] = [s.length, ''];
-    for (let i = 0; i < n; i++) {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; ++i) {
         if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
-            ans += s[i];
+            ans.push(s[i]);
         }
     }
-    return ans;
+    return ans.join('');
 }
