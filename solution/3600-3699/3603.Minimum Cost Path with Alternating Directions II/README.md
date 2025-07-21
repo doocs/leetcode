@@ -125,7 +125,34 @@ tags:
 #### Python3
 
 ```python
+class Solution:
+    def minCost(self, m: int, n: int, waitCost: List[List[int]]) -> int:
+        directions = [(1, 0), (0, 1)]  # only down and right
+        visited = dict()
 
+        heap = [(1 * 1, 0, 0, 1)]  # (cost, i, j, time)
+
+        while heap:
+            cost, i, j, time = heapq.heappop(heap)
+
+            if (i, j, time % 2) in visited and visited[(i, j, time % 2)] <= cost:
+                continue
+            visited[(i, j, time % 2)] = cost
+
+            if i == m - 1 and j == n - 1:
+                return cost
+
+            if time % 2 == 1:  # move step
+                for dx, dy in directions:
+                    ni, nj = i + dx, j + dy
+                    if 0 <= ni < m and 0 <= nj < n:
+                        next_cost = cost + (ni + 1) * (nj + 1)
+                        heapq.heappush(heap, (next_cost, ni, nj, time + 1))
+            else:  # wait step
+                next_cost = cost + waitCost[i][j]
+                heapq.heappush(heap, (next_cost, i, j, time + 1))
+
+        return -1
 ```
 
 #### Java
@@ -143,7 +170,25 @@ tags:
 #### Go
 
 ```go
+func minCost(m int, n int, cost [][]int) int64 {
+	dp := make([]int64, n)
+	for i := 0; i < n; i++ {
+		dp[i] = int64(i + 1)
+	}
+	for i := 1; i < n; i++ {
+		dp[i] += dp[i-1] + int64(cost[0][i])
+	}
 
+	for y := 1; y < m; y++ {
+		dp[0] += int64(cost[y][0]) + int64(y+1)
+		for x := 1; x < n; x++ {
+			enter := int64(y+1) * int64(x+1)
+			dp[x] = min(dp[x], dp[x-1]) + int64(cost[y][x]) + enter
+		}
+	}
+
+	return dp[n-1] - int64(cost[m-1][n-1])
+}
 ```
 
 <!-- tabs:end -->
