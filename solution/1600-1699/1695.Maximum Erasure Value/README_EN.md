@@ -59,11 +59,11 @@ tags:
 
 ### Solution 1: Array or Hash Table + Prefix Sum
 
-We use an array or hash table $d$ to record the last occurrence of each number, use $s$ to record the prefix sum, and use $j$ to record the left endpoint of the current non-repeating subarray.
+We use an array or hash table $\text{d}$ to record the last occurrence position of each number, and use a prefix sum array $\text{s}$ to record the sum from the starting point to the current position. We use a variable $j$ to record the left endpoint of the current non-repeating subarray.
 
-We traverse the array, for each number $v$, if $d[v]$ exists, then we update $j$ to $max(j, d[v])$, which ensures that the current non-repeating subarray does not contain $v$. Then we update the answer to $max(ans, s[i] - s[j])$, and finally update $d[v]$ to $i$.
+We iterate through the array. For each number $v$, if $\text{d}[v]$ exists, we update $j$ to $\max(j, \text{d}[v])$, which ensures that the current non-repeating subarray does not contain $v$. Then we update the answer to $\max(\text{ans}, \text{s}[i] - \text{s}[j])$, and finally update $\text{d}[v]$ to $i$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
@@ -72,7 +72,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 ```python
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
-        d = defaultdict(int)
+        d = [0] * (max(nums) + 1)
         s = list(accumulate(nums, initial=0))
         ans = j = 0
         for i, v in enumerate(nums, 1):
@@ -171,21 +171,48 @@ function maximumUniqueSubarray(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_unique_subarray(nums: Vec<i32>) -> i32 {
+        let m = *nums.iter().max().unwrap() as usize;
+        let mut d = vec![0; m + 1];
+        let n = nums.len();
+
+        let mut s = vec![0; n + 1];
+        for i in 0..n {
+            s[i + 1] = s[i] + nums[i];
+        }
+
+        let mut ans = 0;
+        let mut j = 0;
+        for (i, &v) in nums.iter().enumerate().map(|(i, v)| (i + 1, v)) {
+            j = j.max(d[v as usize]);
+            ans = ans.max(s[i] - s[j]);
+            d[v as usize] = i;
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2: Two Pointers
+### Solution 2: Two Pointers (Sliding Window)
 
-The problem is actually asking us to find the longest subarray in which all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$, $j = 0$. In addition, we use a hash table $vis$ to record the elements in the subarray.
+The problem is essentially asking us to find the longest subarray where all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$ and $j = 0$. Additionally, we use a hash table $\text{vis}$ to record the elements in the subarray.
 
-We traverse the array, for each number $x$, if $x$ is in $vis$, then we continuously remove $nums[i]$ from $vis$, until $x$ is not in $vis$. In this way, we find a subarray without duplicate elements. We add $x$ to $vis$, update the sum of the subarray $s$, and then update the answer $ans = \max(ans, s)$.
+We iterate through the array. For each number $x$, if $x$ is in $\text{vis}$, we continuously remove $\text{nums}[i]$ from $\text{vis}$ until $x$ is no longer in $\text{vis}$. This way, we find a subarray that contains no duplicate elements. We add $x$ to $\text{vis}$, update the subarray sum $s$, and then update the answer $\text{ans} = \max(\text{ans}, s)$.
 
-After the traversal, we can get the maximum sum of the subarray.
+After the iteration, we can get the maximum subarray sum.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
@@ -287,6 +314,33 @@ function maximumUniqueSubarray(nums: number[]): number {
         ans = Math.max(ans, s);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn maximum_unique_subarray(nums: Vec<i32>) -> i32 {
+        let mut vis = HashSet::new();
+        let (mut ans, mut s, mut i) = (0, 0, 0);
+
+        for &x in &nums {
+            while vis.contains(&x) {
+                let y = nums[i];
+                s -= y;
+                vis.remove(&y);
+                i += 1;
+            }
+            vis.insert(x);
+            s += x;
+            ans = ans.max(s);
+        }
+
+        ans
+    }
 }
 ```
 
