@@ -1,5 +1,5 @@
 {
-  "cache_date": 1753021498,
+  "cache_date": 1753056649,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -18752,16 +18752,16 @@
     "solution/1900-1999/1957.Delete Characters to Make Fancy String/README.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         },
         {
           "login": "acbin",
@@ -18776,7 +18776,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/99040799?v=4"
         }
       ],
-      "retrieved": 1745669209
+      "retrieved": 1753055358
     },
     "solution/1900-1999/1958.Check if Move is Legal/README.md": {
       "authors": [
@@ -86017,16 +86017,16 @@
     "solution/1900-1999/1957.Delete Characters to Make Fancy String/README_EN.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         },
         {
           "login": "acbin",
@@ -86041,7 +86041,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/99040799?v=4"
         }
       ],
-      "retrieved": 1745670780
+      "retrieved": 1753056180
     },
     "solution/1900-1999/1958.Check if Move is Legal/README_EN.md": {
       "authors": [
@@ -128971,7 +128971,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1753005814
+      "retrieved": 1753055688
     },
     "solution/3600-3699/3623.Count Number of Trapezoids I/README.md": {
       "authors": [
@@ -129059,7 +129059,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1753006623
+      "retrieved": 1753056500
     },
     "solution/3600-3699/3623.Count Number of Trapezoids I/README_EN.md": {
       "authors": [
