@@ -1,5 +1,5 @@
 {
-  "cache_date": 1753141197,
+  "cache_date": 1753226968,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -14200,16 +14200,16 @@
     "solution/1700-1799/1717.Maximum Score From Removing Substrings/README.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         },
         {
           "login": "LjyYano",
@@ -14218,7 +14218,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669106
+      "retrieved": 1753225658
     },
     "solution/1700-1799/1718.Construct the Lexicographically Largest Valid Sequence/README.md": {
       "authors": [
@@ -18844,13 +18844,19 @@
     "solution/1900-1999/1960.Maximum Product of the Length of Two Palindromic Substrings/README.md": {
       "authors": [
         {
+          "login": "samarthswami1016",
+          "name": "samarthswami1016",
+          "url": "https://github.com/samarthswami1016",
+          "avatar": "https://avatars.githubusercontent.com/u/70163465?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669210
+      "retrieved": 1753225706
     },
     "solution/1900-1999/1961.Check If String Is a Prefix of Array/README.md": {
       "authors": [
@@ -81327,16 +81333,16 @@
     "solution/1700-1799/1717.Maximum Score From Removing Substrings/README_EN.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         },
         {
           "login": "LjyYano",
@@ -81345,7 +81351,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670681
+      "retrieved": 1753226464
     },
     "solution/1700-1799/1718.Construct the Lexicographically Largest Valid Sequence/README_EN.md": {
       "authors": [
@@ -86109,13 +86115,19 @@
     "solution/1900-1999/1960.Maximum Product of the Length of Two Palindromic Substrings/README_EN.md": {
       "authors": [
         {
+          "login": "samarthswami1016",
+          "name": "samarthswami1016",
+          "url": "https://github.com/samarthswami1016",
+          "avatar": "https://avatars.githubusercontent.com/u/70163465?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670782
+      "retrieved": 1753226509
     },
     "solution/1900-1999/1961.Check If String Is a Prefix of Array/README_EN.md": {
       "authors": [
