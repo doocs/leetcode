@@ -1,21 +1,19 @@
-func longestRepeatingSubstring(s string) int {
+func longestRepeatingSubstring(s string) (ans int) {
 	n := len(s)
-	dp := make([][]int, n)
-	for i := range dp {
-		dp[i] = make([]int, n)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
 	}
-	ans := 0
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
 			if s[i] == s[j] {
-				if i == 0 {
-					dp[i][j] = 1
-				} else {
-					dp[i][j] = dp[i-1][j-1] + 1
+				if j > 0 {
+					f[i][j] = f[i-1][j-1]
 				}
-				ans = max(ans, dp[i][j])
+				f[i][j]++
+				ans = max(ans, f[i][j])
 			}
 		}
 	}
-	return ans
+	return
 }

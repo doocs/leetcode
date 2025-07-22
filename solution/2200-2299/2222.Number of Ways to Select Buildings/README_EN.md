@@ -74,7 +74,13 @@ No other selection is valid. Thus, there are 6 total ways.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting + Enumeration
+
+According to the problem description, we need to choose $3$ buildings, and two adjacent buildings cannot be of the same type.
+
+We can enumerate the middle building, assuming it is $x$, then the types of buildings on the left and right sides can only be $x \oplus 1$, where $\oplus$ denotes the XOR operation. Therefore, we can use two arrays $l$ and $r$ to record the number of building types on the left and right sides, respectively. Then, we enumerate the middle building and calculate the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -83,18 +89,13 @@ No other selection is valid. Thus, there are 6 total ways.
 ```python
 class Solution:
     def numberOfWays(self, s: str) -> int:
-        n = len(s)
-        cnt0 = s.count("0")
-        cnt1 = n - cnt0
-        c0 = c1 = 0
+        l = [0, 0]
+        r = [s.count("0"), s.count("1")]
         ans = 0
-        for c in s:
-            if c == "0":
-                ans += c1 * (cnt1 - c1)
-                c0 += 1
-            else:
-                ans += c0 * (cnt0 - c0)
-                c1 += 1
+        for x in map(int, s):
+            r[x] -= 1
+            ans += l[x ^ 1] * r[x ^ 1]
+            l[x] += 1
         return ans
 ```
 
@@ -104,23 +105,17 @@ class Solution:
 class Solution {
     public long numberOfWays(String s) {
         int n = s.length();
-        int cnt0 = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '0') {
-                ++cnt0;
-            }
+        int[] l = new int[2];
+        int[] r = new int[2];
+        for (int i = 0; i < n; ++i) {
+            r[s.charAt(i) - '0']++;
         }
-        int cnt1 = n - cnt0;
         long ans = 0;
-        int c0 = 0, c1 = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '0') {
-                ans += c1 * (cnt1 - c1);
-                ++c0;
-            } else {
-                ans += c0 * (cnt0 - c0);
-                ++c1;
-            }
+        for (int i = 0; i < n; ++i) {
+            int x = s.charAt(i) - '0';
+            r[x]--;
+            ans += 1L * l[x ^ 1] * r[x ^ 1];
+            l[x]++;
         }
         return ans;
     }
@@ -134,19 +129,16 @@ class Solution {
 public:
     long long numberOfWays(string s) {
         int n = s.size();
-        int cnt0 = 0;
-        for (char& c : s) cnt0 += c == '0';
-        int cnt1 = n - cnt0;
-        int c0 = 0, c1 = 0;
+        int l[2]{};
+        int r[2]{};
+        r[0] = ranges::count(s, '0');
+        r[1] = n - r[0];
         long long ans = 0;
-        for (char& c : s) {
-            if (c == '0') {
-                ans += c1 * (cnt1 - c1);
-                ++c0;
-            } else {
-                ans += c0 * (cnt0 - c0);
-                ++c1;
-            }
+        for (int i = 0; i < n; ++i) {
+            int x = s[i] - '0';
+            r[x]--;
+            ans += 1LL * l[x ^ 1] * r[x ^ 1];
+            l[x]++;
         }
         return ans;
     }
@@ -156,22 +148,38 @@ public:
 #### Go
 
 ```go
-func numberOfWays(s string) int64 {
+func numberOfWays(s string) (ans int64) {
 	n := len(s)
-	cnt0 := strings.Count(s, "0")
-	cnt1 := n - cnt0
-	c0, c1 := 0, 0
-	ans := 0
+	l := [2]int{}
+	r := [2]int{}
+	r[0] = strings.Count(s, "0")
+	r[1] = n - r[0]
 	for _, c := range s {
-		if c == '0' {
-			ans += c1 * (cnt1 - c1)
-			c0++
-		} else {
-			ans += c0 * (cnt0 - c0)
-			c1++
-		}
+		x := int(c - '0')
+		r[x]--
+		ans += int64(l[x^1] * r[x^1])
+		l[x]++
 	}
-	return int64(ans)
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfWays(s: string): number {
+    const n = s.length;
+    const l: number[] = [0, 0];
+    const r: number[] = [s.split('').filter(c => c === '0').length, 0];
+    r[1] = n - r[0];
+    let ans: number = 0;
+    for (const c of s) {
+        const x = c === '0' ? 0 : 1;
+        r[x]--;
+        ans += l[x ^ 1] * r[x ^ 1];
+        l[x]++;
+    }
+    return ans;
 }
 ```
 

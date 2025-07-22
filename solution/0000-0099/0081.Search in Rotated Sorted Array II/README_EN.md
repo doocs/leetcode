@@ -54,17 +54,17 @@ tags:
 
 ### Solution 1: Binary Search
 
-We define the left boundary $l=0$ and the right boundary $r=n-1$ for the binary search, where $n$ is the length of the array.
+We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n - 1$, where $n$ is the length of the array.
 
-During each binary search process, we get the current midpoint $mid=(l+r)/2$.
+Each time during the binary search, we get the current midpoint $\textit{mid} = (l + r) / 2$.
 
--   If $nums[mid] \gt nums[r]$, it means that $[l,mid]$ is ordered. At this time, if $nums[l] \le target \le nums[mid]$, it means that $target$ is in $[l,mid]$, otherwise $target$ is in $[mid+1,r]$.
--   If $nums[mid] \lt nums[r]$, it means that $[mid+1,r]$ is ordered. At this time, if $nums[mid] \lt target \le nums[r]$, it means that $target$ is in $[mid+1,r]$, otherwise $target$ is in $[l,mid]$.
--   If $nums[mid] = nums[r]$, it means that the elements $nums[mid]$ and $nums[r]$ are equal. At this time, we cannot determine which interval $target$ is in, so we can only decrease $r$ by $1$.
+-   If $\textit{nums}[\textit{mid}] > \textit{nums}[r]$, it means $[l, \textit{mid}]$ is ordered. If $\textit{nums}[l] \le \textit{target} \le \textit{nums}[\textit{mid}]$, it means $\textit{target}$ is in $[l, \textit{mid}]$. Otherwise, $\textit{target}$ is in $[\textit{mid} + 1, r]$.
+-   If $\textit{nums}[\textit{mid}] < \textit{nums}[r]$, it means $[\textit{mid} + 1, r]$ is ordered. If $\textit{nums}[\textit{mid}] < \textit{target} \le \textit{nums}[r]$, it means $\textit{target}$ is in $[\textit{mid} + 1, r]$. Otherwise, $\textit{target}$ is in $[l, \textit{mid}]$.
+-   If $\textit{nums}[\textit{mid}] = \textit{nums}[r]$, it means the elements $\textit{nums}[\textit{mid}]$ and $\textit{nums}[r]$ are equal. In this case, we cannot determine which interval $\textit{target}$ is in, so we can only decrease $r$ by $1$.
 
-After the binary search ends, if $nums[l] = target$, it means that the target value $target$ exists in the array, otherwise it means it does not exist.
+After the binary search, if $\textit{nums}[l] = \textit{target}$, it means the target value $\textit{target}$ exists in the array. Otherwise, it does not exist.
 
-The time complexity is approximately $O(\log n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -203,6 +203,67 @@ function search(nums: number[], target: number): boolean {
     }
     return nums[l] === target;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn search(nums: Vec<i32>, target: i32) -> bool {
+        let (mut l, mut r) = (0, nums.len() - 1);
+        while l < r {
+            let mid = (l + r) >> 1;
+            if nums[mid] > nums[r] {
+                if nums[l] <= target && target <= nums[mid] {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            } else if nums[mid] < nums[r] {
+                if nums[mid] < target && target <= nums[r] {
+                    l = mid + 1;
+                } else {
+                    r = mid;
+                }
+            } else {
+                r -= 1;
+            }
+        }
+        nums[l] == target
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {boolean}
+ */
+var search = function (nums, target) {
+    let [l, r] = [0, nums.length - 1];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (nums[mid] > nums[r]) {
+            if (nums[l] <= target && target <= nums[mid]) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        } else if (nums[mid] < nums[r]) {
+            if (nums[mid] < target && target <= nums[r]) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        } else {
+            --r;
+        }
+    }
+    return nums[l] === target;
+};
 ```
 
 <!-- tabs:end -->

@@ -1,37 +1,27 @@
-class UnionFind:
-    def __init__(self, n):
-        self.p = list(range(n))
-        self.n = n
-
-    def union(self, a, b):
-        if self.find(a) == self.find(b):
-            return False
-        self.p[self.find(a)] = self.find(b)
-        self.n -= 1
-        return True
-
-    def find(self, x):
-        if self.p[x] != x:
-            self.p[x] = self.find(self.p[x])
-        return self.p[x]
-
-
 class Solution:
     def findRedundantDirectedConnection(self, edges: List[List[int]]) -> List[int]:
+        def find(x: int) -> int:
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
         n = len(edges)
-        p = list(range(n + 1))
-        uf = UnionFind(n + 1)
-        conflict = cycle = None
+        ind = [0] * n
+        for _, v in edges:
+            ind[v - 1] += 1
+        dup = [i for i, (_, v) in enumerate(edges) if ind[v - 1] == 2]
+        p = list(range(n))
+        if dup:
+            for i, (u, v) in enumerate(edges):
+                if i == dup[1]:
+                    continue
+                pu, pv = find(u - 1), find(v - 1)
+                if pu == pv:
+                    return edges[dup[0]]
+                p[pu] = pv
+            return edges[dup[1]]
         for i, (u, v) in enumerate(edges):
-            if p[v] != v:
-                conflict = i
-            else:
-                p[v] = u
-                if not uf.union(u, v):
-                    cycle = i
-        if conflict is None:
-            return edges[cycle]
-        v = edges[conflict][1]
-        if cycle is not None:
-            return [p[v], v]
-        return edges[conflict]
+            pu, pv = find(u - 1), find(v - 1)
+            if pu == pv:
+                return edges[i]
+            p[pu] = pv

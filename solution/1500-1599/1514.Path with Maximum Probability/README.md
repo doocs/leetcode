@@ -78,7 +78,15 @@ tags:
 
 ### 方法一：堆优化 Dijkstra 算法
 
-时间复杂度 O(mlogn)。
+我们可以使用 Dijkstra 算法求解最短路径，这里我们稍微修改一下，求解最大概率路径。
+
+我们可以使用一个优先队列（大根堆） $\textit{pq}$ 来存储从起点到各个节点的概率以及节点编号。初始时我们将起点的概率设为 $1$，其余节点的概率设为 $0$，然后将起点加入到 $\textit{pq}$ 中。
+
+在每一次的迭代中，我们取出 $\textit{pq}$ 中概率最大的节点 $a$，以及 $a$ 的概率 $w$。如果节点 $a$ 的概率已经大于 $w$，那么我们就可以跳过这个节点。否则我们遍历 $a$ 的所有邻接边 $(a, b)$。如果 $b$ 的概率小于 $a$ 的概率乘以 $(a, b)$ 的概率，那么我们就可以更新 $b$ 的概率，并将 $b$ 加入到 $\textit{pq}$ 中。
+
+最终，我们可以得到从起点到终点的最大概率。
+
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(m)$。其中 $m$ 为边的数量。
 
 <!-- tabs:start -->
 
@@ -91,61 +99,66 @@ class Solution:
         n: int,
         edges: List[List[int]],
         succProb: List[float],
-        start: int,
-        end: int,
+        start_node: int,
+        end_node: int,
     ) -> float:
-        g = defaultdict(list)
-        for (a, b), s in zip(edges, succProb):
-            g[a].append((b, s))
-            g[b].append((a, s))
-        q = [(-1, start)]
-        d = [0] * n
-        d[start] = 1
-        while q:
-            w, u = heappop(q)
+        g: List[List[Tuple[int, float]]] = [[] for _ in range(n)]
+        for (a, b), p in zip(edges, succProb):
+            g[a].append((b, p))
+            g[b].append((a, p))
+        pq = [(-1, start_node)]
+        dist = [0] * n
+        dist[start_node] = 1
+        while pq:
+            w, a = heappop(pq)
             w = -w
-            if d[u] > w:
+            if dist[a] > w:
                 continue
-            for v, t in g[u]:
-                if d[v] < d[u] * t:
-                    d[v] = d[u] * t
-                    heappush(q, (-d[v], v))
-        return d[end]
+            for b, p in g[a]:
+                if (t := w * p) > dist[b]:
+                    dist[b] = t
+                    heappush(pq, (-t, b))
+        return dist[end_node]
 ```
 
 #### Java
 
 ```java
 class Solution {
-    public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
+    public double maxProbability(
+        int n, int[][] edges, double[] succProb, int start_node, int end_node) {
         List<Pair<Integer, Double>>[] g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (int i = 0; i < edges.length; ++i) {
-            int a = edges[i][0], b = edges[i][1];
-            double s = succProb[i];
-            g[a].add(new Pair<>(b, s));
-            g[b].add(new Pair<>(a, s));
+            var e = edges[i];
+            int a = e[0], b = e[1];
+            double p = succProb[i];
+            g[a].add(new Pair<>(b, p));
+            g[b].add(new Pair<>(a, p));
         }
-        PriorityQueue<Pair<Double, Integer>> q
-            = new PriorityQueue<>(Comparator.comparingDouble(Pair::getKey));
-        double[] d = new double[n];
-        d[start] = 1.0;
-        q.offer(new Pair<>(-1.0, start));
-        while (!q.isEmpty()) {
-            Pair<Double, Integer> p = q.poll();
-            double w = p.getKey();
-            w *= -1;
-            int u = p.getValue();
-            for (Pair<Integer, Double> ne : g[u]) {
-                int v = ne.getKey();
-                double t = ne.getValue();
-                if (d[v] < d[u] * t) {
-                    d[v] = d[u] * t;
-                    q.offer(new Pair<>(-d[v], v));
+        double[] dist = new double[n];
+        dist[start_node] = 1;
+        PriorityQueue<Pair<Integer, Double>> pq
+            = new PriorityQueue<>(Comparator.comparingDouble(p -> - p.getValue()));
+        pq.offer(new Pair<>(start_node, 1.0));
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int a = p.getKey();
+            double w = p.getValue();
+            if (dist[a] > w) {
+                continue;
+            }
+            for (var e : g[a]) {
+                int b = e.getKey();
+                double pab = e.getValue();
+                double wab = w * pab;
+                if (wab > dist[b]) {
+                    dist[b] = wab;
+                    pq.offer(new Pair<>(b, wab));
                 }
             }
         }
-        return d[end];
+        return dist[end_node];
     }
 }
 ```
@@ -155,34 +168,34 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
-        vector<vector<pair<int, double>>> g(n);
+    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start_node, int end_node) {
+        using pdi = pair<double, int>;
+        vector<pdi> g[n];
         for (int i = 0; i < edges.size(); ++i) {
             int a = edges[i][0], b = edges[i][1];
-            double s = succProb[i];
-            g[a].push_back({b, s});
-            g[b].push_back({a, s});
+            double p = succProb[i];
+            g[a].emplace_back(p, b);
+            g[b].emplace_back(p, a);
         }
-        vector<double> d(n);
-        d[start] = 1.0;
-        queue<pair<double, int>> q;
-        q.push({1.0, start});
-        while (!q.empty()) {
-            auto p = q.front();
-            q.pop();
-            double w = p.first;
-            int u = p.second;
-            if (d[u] > w) continue;
-            for (auto& e : g[u]) {
-                int v = e.first;
-                double t = e.second;
-                if (d[v] < d[u] * t) {
-                    d[v] = d[u] * t;
-                    q.push({d[v], v});
+        vector<double> dist(n);
+        dist[start_node] = 1;
+        priority_queue<pdi> pq;
+        pq.emplace(1, start_node);
+        while (!pq.empty()) {
+            auto [w, a] = pq.top();
+            pq.pop();
+            if (dist[a] > w) {
+                continue;
+            }
+            for (auto [p, b] : g[a]) {
+                auto nw = w * p;
+                if (nw > dist[b]) {
+                    dist[b] = nw;
+                    pq.emplace(nw, b);
                 }
             }
         }
-        return d[end];
+        return dist[end_node];
     }
 };
 ```
@@ -190,163 +203,82 @@ public:
 #### Go
 
 ```go
-func maxProbability(n int, edges [][]int, succProb []float64, start int, end int) float64 {
+func maxProbability(n int, edges [][]int, succProb []float64, start_node int, end_node int) float64 {
 	g := make([][]pair, n)
 	for i, e := range edges {
-		a, b, s := e[0], e[1], succProb[i]
-		g[a] = append(g[a], pair{b, s})
-		g[b] = append(g[b], pair{a, s})
+		a, b := e[0], e[1]
+		p := succProb[i]
+		g[a] = append(g[a], pair{p, b})
+		g[b] = append(g[b], pair{p, a})
 	}
-	d := make([]float64, n)
-	d[start] = 1
-	vis := make([]bool, n)
-	q := []int{start}
-	vis[start] = true
-	for len(q) > 0 {
-		i := q[0]
-		q = q[1:]
-		vis[i] = false
-		for _, ne := range g[i] {
-			j, s := ne.idx, ne.s
-			if d[j] < d[i]*s {
-				d[j] = d[i] * s
-				if !vis[j] {
-					q = append(q, j)
-					vis[j] = true
-				}
+	pq := hp{{1, start_node}}
+	dist := make([]float64, n)
+	dist[start_node] = 1
+	for len(pq) > 0 {
+		p := heap.Pop(&pq).(pair)
+		w, a := p.p, p.a
+		if dist[a] > w {
+			continue
+		}
+		for _, e := range g[a] {
+			b, p := e.a, e.p
+			if nw := w * p; nw > dist[b] {
+				dist[b] = nw
+				heap.Push(&pq, pair{nw, b})
 			}
 		}
 	}
-	return d[end]
+	return dist[end_node]
 }
 
 type pair struct {
-	idx int
-	s   float64
+	p float64
+	a int
 }
+type hp []pair
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].p > h[j].p }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *hp) Push(x any)        { *h = append(*h, x.(pair)) }
+func (h *hp) Pop() (x any)      { a := *h; x = a[len(a)-1]; *h = a[:len(a)-1]; return }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：SPFA 算法
-
-时间复杂度，平均情况下 O(m)，最坏情况下 O(nm)，n 表示点数，m 表示边数。
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def maxProbability(
-        self,
-        n: int,
-        edges: List[List[int]],
-        succProb: List[float],
-        start: int,
-        end: int,
-    ) -> float:
-        g = defaultdict(list)
-        for (a, b), s in zip(edges, succProb):
-            g[a].append((b, s))
-            g[b].append((a, s))
-        d = [0] * n
-        vis = [False] * n
-        d[start] = 1
-        q = deque([start])
-        vis[start] = True
-        while q:
-            i = q.popleft()
-            vis[i] = False
-            for j, s in g[i]:
-                if d[j] < d[i] * s:
-                    d[j] = d[i] * s
-                    if not vis[j]:
-                        q.append(j)
-                        vis[j] = True
-        return d[end]
-```
-
-#### Java
-
-```java
-class Solution {
-    public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
-        List<Pair<Integer, Double>>[] g = new List[n];
-        Arrays.setAll(g, k -> new ArrayList<>());
-        for (int i = 0; i < edges.length; ++i) {
-            int a = edges[i][0], b = edges[i][1];
-            double s = succProb[i];
-            g[a].add(new Pair<>(b, s));
-            g[b].add(new Pair<>(a, s));
+```ts
+function maxProbability(
+    n: number,
+    edges: number[][],
+    succProb: number[],
+    start_node: number,
+    end_node: number,
+): number {
+    const pq = new MaxPriorityQueue({ priority: v => v[0] });
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (let i = 0; i < edges.length; ++i) {
+        const [a, b] = edges[i];
+        g[a].push([b, succProb[i]]);
+        g[b].push([a, succProb[i]]);
+    }
+    const dist = Array.from({ length: n }, () => 0);
+    dist[start_node] = 1;
+    pq.enqueue([1, start_node]);
+    while (!pq.isEmpty()) {
+        const [w, a] = pq.dequeue().element;
+        if (dist[a] > w) {
+            continue;
         }
-        double[] d = new double[n];
-        d[start] = 1.0;
-        boolean[] vis = new boolean[n];
-        Deque<Integer> q = new ArrayDeque<>();
-        q.offer(start);
-        vis[start] = true;
-        while (!q.isEmpty()) {
-            int i = q.poll();
-            vis[i] = false;
-            for (Pair<Integer, Double> ne : g[i]) {
-                int j = ne.getKey();
-                double s = ne.getValue();
-                if (d[j] < d[i] * s) {
-                    d[j] = d[i] * s;
-                    if (!vis[j]) {
-                        q.offer(j);
-                        vis[j] = true;
-                    }
-                }
+        for (const [b, p] of g[a]) {
+            const nw = w * p;
+            if (nw > dist[b]) {
+                dist[b] = nw;
+                pq.enqueue([nw, b]);
             }
         }
-        return d[end];
     }
+    return dist[end_node];
 }
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
-        vector<vector<pair<int, double>>> g(n);
-        for (int i = 0; i < edges.size(); ++i) {
-            int a = edges[i][0], b = edges[i][1];
-            double s = succProb[i];
-            g[a].push_back({b, s});
-            g[b].push_back({a, s});
-        }
-        vector<double> d(n);
-        vector<bool> vis(n);
-        d[start] = 1.0;
-        queue<int> q{{start}};
-        vis[start] = true;
-        while (!q.empty()) {
-            int i = q.front();
-            q.pop();
-            vis[i] = false;
-            for (auto& ne : g[i]) {
-                int j = ne.first;
-                double s = ne.second;
-                if (d[j] < d[i] * s) {
-                    d[j] = d[i] * s;
-                    if (!vis[j]) {
-                        q.push(j);
-                        vis[j] = true;
-                    }
-                }
-            }
-        }
-        return d[end];
-    }
-};
 ```
 
 <!-- tabs:end -->

@@ -3,10 +3,9 @@ class Solution:
         self, n: int, edges: List[List[int]], source: int, destination: int
     ) -> bool:
         g = [[] for _ in range(n)]
-        for a, b in edges:
-            g[a].append(b)
-            g[b].append(a)
-
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
         q = deque([source])
         vis = {source}
         while q:

@@ -85,7 +85,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 $$
 f[i][j] = \begin{cases}
 1 & i = 0, j = 0 \\
-f[i - 1][j] + f[i][j - 1] & \text{otherwise}
+f[i - 1][j] + f[i][j - 1] & \textit{otherwise}
 \end{cases}
 $$
 
@@ -247,6 +247,30 @@ var uniquePaths = function (m, n) {
 };
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func uniquePaths(_ m: Int, _ n: Int) -> Int {
+        var dp = Array(repeating: Array(repeating: 0, count: n), count: m)
+        dp[0][0] = 1
+
+        for i in 0..<m {
+            for j in 0..<n {
+                if i > 0 {
+                    dp[i][j] += dp[i - 1][j]
+                }
+                if j > 0 {
+                    dp[i][j] += dp[i][j - 1]
+                }
+            }
+        }
+
+        return dp[m - 1][n - 1]
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -360,6 +384,24 @@ var uniquePaths = function (m, n) {
     }
     return f[m - 1][n - 1];
 };
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func uniquePaths(_ m: Int, _ n: Int) -> Int {
+        var dp = Array(repeating: Array(repeating: 1, count: n), count: m)
+
+        for i in 1..<m {
+            for j in 1..<n {
+                dp[i][j] = dp[i-1][j] + dp[i][j-1]
+            }
+        }
+
+        return dp[m-1][n-1]
+    }
+}
 ```
 
 <!-- tabs:end -->

@@ -34,7 +34,7 @@ The table holds all taxi trips. Each trip has a unique id, while client_id and d
 Status is an ENUM (category) type of (&#39;completed&#39;, &#39;cancelled_by_driver&#39;, &#39;cancelled_by_client&#39;).
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p>Table: <code>Users</code></p>
 
@@ -51,15 +51,15 @@ The table holds all users. Each user has a unique users_id, and role is an ENUM 
 banned is an ENUM (category) type of (&#39;Yes&#39;, &#39;No&#39;).
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p>The <strong>cancellation rate</strong> is computed by dividing the number of canceled (by client or driver) requests with unbanned users by the total number of requests with unbanned users on that day.</p>
 
-<p>Write a solution to find the <strong>cancellation rate</strong> of requests with unbanned users (<strong>both client and driver must not be banned</strong>) each day between <code>&quot;2013-10-01&quot;</code> and <code>&quot;2013-10-03&quot;</code>. Round <code>Cancellation Rate</code> to <strong>two decimal</strong> points.</p>
+<p>Write a solution to find the <strong>cancellation rate</strong> of requests with unbanned users (<strong>both client and driver must not be banned</strong>) each day between <code>&quot;2013-10-01&quot;</code> and <code>&quot;2013-10-03&quot;</code> with <strong>at least</strong> one trip. Round <code>Cancellation Rate</code> to <strong>two decimal</strong> points.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The&nbsp;result format is in the following example.</p>
+<p>The result format is in the following example.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

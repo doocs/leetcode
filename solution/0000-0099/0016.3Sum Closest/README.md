@@ -31,7 +31,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [-1,2,1,-4], target = 1
 <strong>输出：</strong>2
-<strong>解释：</strong>与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
+<strong>解释：</strong>与 target 最接近的和是 2 (-1 + 2 + 1 = 2)。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [0,0,0], target = 1
 <strong>输出：</strong>0
-</pre>
+<strong>解释：</strong>与 target 最接近的和是 0（0 + 0 + 0 = 0）。</pre>
 
 <p>&nbsp;</p>
 
@@ -242,6 +242,36 @@ var threeSumClosest = function (nums, target) {
 };
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public int ThreeSumClosest(int[] nums, int target) {
+        Array.Sort(nums);
+        int ans = 1 << 30;
+        int n = nums.Length;
+        for (int i = 0; i < n; ++i) {
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                int t = nums[i] + nums[j] + nums[k];
+                if (t == target) {
+                    return t;
+                }
+                if (Math.Abs(t - target) < Math.Abs(ans - target)) {
+                    ans = t;
+                }
+                if (t > target) {
+                    --k;
+                } else {
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
 #### PHP
 
 ```php
@@ -282,6 +312,37 @@ class Solution {
 
         return $closestSum;
     }
+}
+```
+
+#### C
+
+```c
+int cmp(const void* a, const void* b) {
+    return (*(int*) a - *(int*) b);
+}
+
+int threeSumClosest(int* nums, int numsSize, int target) {
+    qsort(nums, numsSize, sizeof(int), cmp);
+    int ans = 1 << 30;
+    for (int i = 0; i < numsSize; ++i) {
+        int j = i + 1, k = numsSize - 1;
+        while (j < k) {
+            int t = nums[i] + nums[j] + nums[k];
+            if (t == target) {
+                return t;
+            }
+            if (abs(t - target) < abs(ans - target)) {
+                ans = t;
+            }
+            if (t > target) {
+                --k;
+            } else {
+                ++j;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

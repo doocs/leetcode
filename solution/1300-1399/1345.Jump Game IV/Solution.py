@@ -1,24 +1,18 @@
 class Solution:
     def minJumps(self, arr: List[int]) -> int:
-        idx = defaultdict(list)
-        for i, v in enumerate(arr):
-            idx[v].append(i)
-        q = deque([(0, 0)])
+        g = defaultdict(list)
+        for i, x in enumerate(arr):
+            g[x].append(i)
+        q = deque([0])
         vis = {0}
-        while q:
-            i, step = q.popleft()
-            if i == len(arr) - 1:
-                return step
-            v = arr[i]
-            step += 1
-            for j in idx[v]:
-                if j not in vis:
-                    vis.add(j)
-                    q.append((j, step))
-            del idx[v]
-            if i + 1 < len(arr) and (i + 1) not in vis:
-                vis.add(i + 1)
-                q.append((i + 1, step))
-            if i - 1 >= 0 and (i - 1) not in vis:
-                vis.add(i - 1)
-                q.append((i - 1, step))
+        ans = 0
+        while 1:
+            for _ in range(len(q)):
+                i = q.popleft()
+                if i == len(arr) - 1:
+                    return ans
+                for j in (i + 1, i - 1, *g.pop(arr[i], [])):
+                    if 0 <= j < len(arr) and j not in vis:
+                        q.append(j)
+                        vis.add(j)
+            ans += 1

@@ -95,6 +95,16 @@ encrypter.decrypt("eizfeiam"); // return 2.
 
 ### 方法一：哈希表
 
+我们用一个哈希表 $\textit{mp}$ 记录每个字符的加密结果，用另一个哈希表 $\textit{cnt}$ 记录每个加密结果出现的次数。
+
+在构造函数中，我们遍历 $\textit{keys}$ 和 $\textit{values}$，将每个字符和其对应的加密结果存入 $\textit{mp}$ 中。然后遍历 $\textit{dictionary}$，统计每个加密结果出现的次数。时间复杂度 $(n + m)$，其中 $n$ 和 $m$ 分别是 $\textit{keys}$ 和 $\textit{dictionary}$ 的长度。
+
+在加密函数中，我们遍历输入字符串 $\textit{word1}$ 的每个字符，查找其加密结果并拼接起来。如果某个字符没有对应的加密结果，说明无法加密，返回空字符串。时间复杂度 $O(k)$，其中 $k$ 是 $\textit{word1}$ 的长度。
+
+在解密函数中，我们直接返回 $\textit{cnt}$ 中 $\textit{word2}$ 对应的次数。时间复杂度 $O(1)$。
+
+空间复杂度 $O(n + m)$。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -135,8 +145,7 @@ class Encrypter {
             mp.put(keys[i], values[i]);
         }
         for (String w : dictionary) {
-            w = encrypt(w);
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+            cnt.merge(encrypt(w), 1, Integer::sum);
         }
     }
 
@@ -173,14 +182,20 @@ public:
     unordered_map<char, string> mp;
 
     Encrypter(vector<char>& keys, vector<string>& values, vector<string>& dictionary) {
-        for (int i = 0; i < keys.size(); ++i) mp[keys[i]] = values[i];
-        for (auto v : dictionary) cnt[encrypt(v)]++;
+        for (int i = 0; i < keys.size(); ++i) {
+            mp[keys[i]] = values[i];
+        }
+        for (auto v : dictionary) {
+            cnt[encrypt(v)]++;
+        }
     }
 
     string encrypt(string word1) {
         string res = "";
         for (char c : word1) {
-            if (!mp.count(c)) return "";
+            if (!mp.count(c)) {
+                return "";
+            }
             res += mp[c];
         }
         return res;
@@ -241,6 +256,49 @@ func (this *Encrypter) Decrypt(word2 string) int {
  * obj := Constructor(keys, values, dictionary);
  * param_1 := obj.Encrypt(word1);
  * param_2 := obj.Decrypt(word2);
+ */
+```
+
+#### TypeScript
+
+```ts
+class Encrypter {
+    private mp: Map<string, string> = new Map();
+    private cnt: Map<string, number> = new Map();
+
+    constructor(keys: string[], values: string[], dictionary: string[]) {
+        for (let i = 0; i < keys.length; i++) {
+            this.mp.set(keys[i], values[i]);
+        }
+        for (const w of dictionary) {
+            const encrypted = this.encrypt(w);
+            if (encrypted !== '') {
+                this.cnt.set(encrypted, (this.cnt.get(encrypted) || 0) + 1);
+            }
+        }
+    }
+
+    encrypt(word: string): string {
+        let res = '';
+        for (const c of word) {
+            if (!this.mp.has(c)) {
+                return '';
+            }
+            res += this.mp.get(c);
+        }
+        return res;
+    }
+
+    decrypt(word: string): number {
+        return this.cnt.get(word) || 0;
+    }
+}
+
+/**
+ * Your Encrypter object will be instantiated and called as such:
+ * const obj = new Encrypter(keys, values, dictionary);
+ * const param_1 = obj.encrypt(word1);
+ * const param_2 = obj.decrypt(word2);
  */
 ```
 

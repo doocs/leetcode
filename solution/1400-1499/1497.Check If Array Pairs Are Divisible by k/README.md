@@ -24,7 +24,7 @@ tags:
 
 <p>现在需要把数组恰好分成 <code>n /&nbsp;2</code> 对，以使每对数字的和都能够被 <code>k</code> 整除。</p>
 
-<p>如果存在这样的分法，请返回 <em>True</em> ；否则，返回 <em>False</em> 。</p>
+<p>如果存在这样的分法，请返回&nbsp;<code>true</code> ；否则，返回<i>&nbsp;</i><code>false</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -142,6 +142,42 @@ func canArrange(arr []int, k int) bool {
 		}
 	}
 	return cnt[0]%2 == 0
+}
+```
+
+#### TypeScript
+
+```ts
+function canArrange(arr: number[], k: number): boolean {
+    const cnt = Array(k).fill(0);
+
+    for (const x of arr) {
+        cnt[((x % k) + k) % k]++;
+    }
+
+    for (let i = 1; i < k; i++) {
+        if (cnt[i] !== cnt[k - i]) return false;
+    }
+
+    return cnt[0] % 2 === 0;
+}
+```
+
+#### JavaScript
+
+```js
+function canArrange(arr, k) {
+    const cnt = Array(k).fill(0);
+
+    for (const x of arr) {
+        cnt[((x % k) + k) % k]++;
+    }
+
+    for (let i = 1; i < k; i++) {
+        if (cnt[i] !== cnt[k - i]) return false;
+    }
+
+    return cnt[0] % 2 === 0;
 }
 ```
 

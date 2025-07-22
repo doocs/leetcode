@@ -7,6 +7,7 @@ source: Weekly Contest 234 Q4
 tags:
     - Recursion
     - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

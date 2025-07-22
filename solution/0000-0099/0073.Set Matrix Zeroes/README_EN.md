@@ -78,15 +78,15 @@ The time complexity is $O(m\times n)$, and the space complexity is $O(m+n)$. Whe
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
         m, n = len(matrix), len(matrix[0])
-        rows = [0] * m
-        cols = [0] * n
-        for i, row in enumerate(matrix):
-            for j, v in enumerate(row):
-                if v == 0:
-                    rows[i] = cols[j] = 1
+        row = [False] * m
+        col = [False] * n
         for i in range(m):
             for j in range(n):
-                if rows[i] or cols[j]:
+                if matrix[i][j] == 0:
+                    row[i] = col[j] = True
+        for i in range(m):
+            for j in range(n):
+                if row[i] or col[j]:
                     matrix[i][j] = 0
 ```
 
@@ -96,19 +96,18 @@ class Solution:
 class Solution {
     public void setZeroes(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
-        boolean[] rows = new boolean[m];
-        boolean[] cols = new boolean[n];
+        boolean[] row = new boolean[m];
+        boolean[] col = new boolean[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (matrix[i][j] == 0) {
-                    rows[i] = true;
-                    cols[j] = true;
+                    row[i] = col[j] = true;
                 }
             }
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (rows[i] || cols[j]) {
+                if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
             }
@@ -124,19 +123,18 @@ class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
-        vector<bool> rows(m);
-        vector<bool> cols(n);
+        vector<bool> row(m);
+        vector<bool> col(n);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (!matrix[i][j]) {
-                    rows[i] = 1;
-                    cols[j] = 1;
+                if (matrix[i][j] == 0) {
+                    row[i] = col[j] = true;
                 }
             }
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (rows[i] || cols[j]) {
+                if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
             }
@@ -149,20 +147,19 @@ public:
 
 ```go
 func setZeroes(matrix [][]int) {
-	m, n := len(matrix), len(matrix[0])
-	rows := make([]bool, m)
-	cols := make([]bool, n)
-	for i, row := range matrix {
-		for j, v := range row {
-			if v == 0 {
-				rows[i] = true
-				cols[j] = true
+	row := make([]bool, len(matrix))
+	col := make([]bool, len(matrix[0]))
+	for i := range matrix {
+		for j, x := range matrix[i] {
+			if x == 0 {
+				row[i] = true
+				col[j] = true
 			}
 		}
 	}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if rows[i] || cols[j] {
+	for i := range matrix {
+		for j := range matrix[i] {
+			if row[i] || col[j] {
 				matrix[i][j] = 0
 			}
 		}
@@ -179,20 +176,47 @@ func setZeroes(matrix [][]int) {
 function setZeroes(matrix: number[][]): void {
     const m = matrix.length;
     const n = matrix[0].length;
-    const rows: boolean[] = new Array(m).fill(false);
-    const cols: boolean[] = new Array(n).fill(false);
+    const row: boolean[] = Array(m).fill(false);
+    const col: boolean[] = Array(n).fill(false);
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (matrix[i][j] === 0) {
-                rows[i] = true;
-                cols[j] = true;
+                row[i] = col[j] = true;
             }
         }
     }
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (rows[i] || cols[j]) {
+            if (row[i] || col[j]) {
                 matrix[i][j] = 0;
+            }
+        }
+    }
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
+        let m = matrix.len();
+        let n = matrix[0].len();
+        let mut row = vec![false; m];
+        let mut col = vec![false; n];
+        for i in 0..m {
+            for j in 0..n {
+                if matrix[i][j] == 0 {
+                    row[i] = true;
+                    col[j] = true;
+                }
+            }
+        }
+        for i in 0..m {
+            for j in 0..n {
+                if row[i] || col[j] {
+                    matrix[i][j] = 0;
+                }
             }
         }
     }
@@ -209,19 +233,18 @@ function setZeroes(matrix: number[][]): void {
 var setZeroes = function (matrix) {
     const m = matrix.length;
     const n = matrix[0].length;
-    const rows = new Array(m).fill(false);
-    const cols = new Array(n).fill(false);
+    const row = Array(m).fill(false);
+    const col = Array(n).fill(false);
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (matrix[i][j] == 0) {
-                rows[i] = true;
-                cols[j] = true;
+            if (matrix[i][j] === 0) {
+                row[i] = col[j] = true;
             }
         }
     }
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (rows[i] || cols[j]) {
+            if (row[i] || col[j]) {
                 matrix[i][j] = 0;
             }
         }
@@ -235,18 +258,18 @@ var setZeroes = function (matrix) {
 public class Solution {
     public void SetZeroes(int[][] matrix) {
         int m = matrix.Length, n = matrix[0].Length;
-        bool[] rows = new bool[m], cols = new bool[n];
+        bool[] row = new bool[m], col = new bool[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (matrix[i][j] == 0) {
-                    rows[i] = true;
-                    cols[j] = true;
+                    row[i] = true;
+                    col[j] = true;
                 }
             }
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (rows[i] || cols[j]) {
+                if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
             }

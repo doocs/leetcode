@@ -1,22 +1,21 @@
 func commonChars(words []string) (ans []string) {
-	cnt := [26]int{}
+	cnt := make([]int, 26)
 	for i := range cnt {
-		cnt[i] = 1 << 30
+		cnt[i] = 20000
 	}
 	for _, w := range words {
-		ccnt := [26]int{}
+		t := make([]int, 26)
 		for _, c := range w {
-			ccnt[c-'a']++
+			t[c-'a']++
 		}
-		for i, v := range cnt {
-			cnt[i] = min(v, ccnt[i])
-		}
-	}
-	for i, v := range cnt {
-		for v > 0 {
-			ans = append(ans, string(i+'a'))
-			v--
+		for i := 0; i < 26; i++ {
+			cnt[i] = min(cnt[i], t[i])
 		}
 	}
-	return
+	for i := 0; i < 26; i++ {
+		for j := 0; j < cnt[i]; j++ {
+			ans = append(ans, string('a'+rune(i)))
+		}
+	}
+	return ans
 }

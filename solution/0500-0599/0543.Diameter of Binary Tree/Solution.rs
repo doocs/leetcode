@@ -19,20 +19,23 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, res: &mut i32) -> i32 {
-        if root.is_none() {
-            return 0;
-        }
-        let root = root.as_ref().unwrap().as_ref().borrow();
-        let left = Self::dfs(&root.left, res);
-        let right = Self::dfs(&root.right, res);
-        *res = (*res).max(left + right);
-        left.max(right) + 1
-    }
-
     pub fn diameter_of_binary_tree(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        let mut res = 0;
-        Self::dfs(&root, &mut res);
-        res
+        let mut ans = 0;
+        fn dfs(root: Option<Rc<RefCell<TreeNode>>>, ans: &mut i32) -> i32 {
+            match root {
+                Some(node) => {
+                    let node = node.borrow();
+                    let l = dfs(node.left.clone(), ans);
+                    let r = dfs(node.right.clone(), ans);
+
+                    *ans = (*ans).max(l + r);
+
+                    1 + l.max(r)
+                }
+                None => 0,
+            }
+        }
+        dfs(root, &mut ans);
+        ans
     }
 }

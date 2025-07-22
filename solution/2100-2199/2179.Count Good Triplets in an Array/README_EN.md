@@ -65,7 +65,28 @@ Out of those triplets, only the triplet (0,1,3) satisfies pos2<sub>x</sub> &lt; 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Indexed Tree (Fenwick Tree)
+
+For this problem, we first use `pos` to record the position of each number in `nums2`, and then process each element in `nums1` sequentially.
+
+Consider the number of good triplets **with the current number as the middle number**. The first number must have already been traversed and must appear earlier than the current number in `nums2`. The third number must not yet have been traversed and must appear later than the current number in `nums2`.
+
+Take `nums1 = [4,0,1,3,2]` and `nums2 = [4,1,0,2,3]` as an example. Consider the traversal process:
+
+1. First, process `4`. At this point, the state of `nums2` is `[4,X,X,X,X]`. The number of values before `4` is `0`, and the number of values after `4` is `4`. Therefore, `4` as the middle number forms `0` good triplets.
+2. Next, process `0`. The state of `nums2` becomes `[4,X,0,X,X]`. The number of values before `0` is `1`, and the number of values after `0` is `2`. Therefore, `0` as the middle number forms `2` good triplets.
+3. Next, process `1`. The state of `nums2` becomes `[4,1,0,X,X]`. The number of values before `1` is `1`, and the number of values after `1` is `2`. Therefore, `1` as the middle number forms `2` good triplets.
+4. ...
+5. Finally, process `2`. The state of `nums2` becomes `[4,1,0,2,3]`. The number of values before `2` is `4`, and the number of values after `2` is `0`. Therefore, `2` as the middle number forms `0` good triplets.
+
+We can use a **Binary Indexed Tree (Fenwick Tree)** to update the occurrence of numbers at each position in `nums2`, and quickly calculate the number of `1`s to the left of each number and the number of `0`s to the right of each number.
+
+A Binary Indexed Tree, also known as a Fenwick Tree, efficiently supports the following operations:
+
+1. **Point Update** `update(x, delta)`: Add a value `delta` to the number at position `x` in the sequence.
+2. **Prefix Sum Query** `query(x)`: Query the sum of the sequence in the range `[1, ..., x]`, i.e., the prefix sum at position `x`.
+
+Both operations have a time complexity of $O(\log n)$. Therefore, the overall time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums1}$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -268,13 +289,78 @@ func goodTriplets(nums1 []int, nums2 []int) int64 {
 }
 ```
 
+#### TypeScript
+
+```ts
+class BinaryIndexedTree {
+    private c: number[];
+    private n: number;
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    private static lowbit(x: number): number {
+        return x & -x;
+    }
+
+    update(x: number, delta: number): void {
+        while (x <= this.n) {
+            this.c[x] += delta;
+            x += BinaryIndexedTree.lowbit(x);
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= BinaryIndexedTree.lowbit(x);
+        }
+        return s;
+    }
+}
+
+function goodTriplets(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const pos = new Map<number, number>();
+    nums2.forEach((v, i) => pos.set(v, i + 1));
+
+    const tree = new BinaryIndexedTree(n);
+    let ans = 0;
+
+    for (const num of nums1) {
+        const p = pos.get(num)!;
+        const left = tree.query(p);
+        const total = tree.query(n);
+        const right = n - p - (total - left);
+        ans += left * right;
+        tree.update(p, 1);
+    }
+
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Segment Tree
+
+We can also use a segment tree to solve this problem. A segment tree is a data structure that efficiently supports range queries and updates. The basic idea is to divide an interval into multiple subintervals, with each subinterval represented by a node.
+
+The segment tree divides the entire interval into multiple non-overlapping subintervals, with the number of subintervals not exceeding `log(width)`. To update the value of an element, we only need to update `log(width)` intervals, all of which are contained within a larger interval that includes the element.
+
+-   Each node of the segment tree represents an interval.
+-   The segment tree has a unique root node, representing the entire range, such as `[1, N]`.
+-   Each leaf node of the segment tree represents a unit interval `[x, x]`.
+-   For each internal node `[l, r]`, its left child represents `[l, mid]`, and its right child represents `[mid + 1, r]`, where `mid = ⌊(l + r) / 2⌋` (floor division).
+
+The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums1}$. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -282,6 +368,8 @@ func goodTriplets(nums1 []int, nums2 []int) int64 {
 
 ```python
 class Node:
+    __slots__ = ("l", "r", "v")
+
     def __init__(self):
         self.l = 0
         self.r = 0
@@ -503,6 +591,174 @@ public:
         return ans;
     }
 };
+```
+
+#### Go
+
+```go
+type Node struct {
+	l, r, v int
+}
+
+type SegmentTree struct {
+	tr []Node
+}
+
+func NewSegmentTree(n int) *SegmentTree {
+	tr := make([]Node, 4*n)
+	st := &SegmentTree{tr: tr}
+	st.build(1, 1, n)
+	return st
+}
+
+func (st *SegmentTree) build(u, l, r int) {
+	st.tr[u].l = l
+	st.tr[u].r = r
+	if l == r {
+		return
+	}
+	mid := (l + r) >> 1
+	st.build(u<<1, l, mid)
+	st.build(u<<1|1, mid+1, r)
+}
+
+func (st *SegmentTree) modify(u, x, v int) {
+	if st.tr[u].l == x && st.tr[u].r == x {
+		st.tr[u].v += v
+		return
+	}
+	mid := (st.tr[u].l + st.tr[u].r) >> 1
+	if x <= mid {
+		st.modify(u<<1, x, v)
+	} else {
+		st.modify(u<<1|1, x, v)
+	}
+	st.pushup(u)
+}
+
+func (st *SegmentTree) pushup(u int) {
+	st.tr[u].v = st.tr[u<<1].v + st.tr[u<<1|1].v
+}
+
+func (st *SegmentTree) query(u, l, r int) int {
+	if st.tr[u].l >= l && st.tr[u].r <= r {
+		return st.tr[u].v
+	}
+	mid := (st.tr[u].l + st.tr[u].r) >> 1
+	res := 0
+	if l <= mid {
+		res += st.query(u<<1, l, r)
+	}
+	if r > mid {
+		res += st.query(u<<1|1, l, r)
+	}
+	return res
+}
+
+func goodTriplets(nums1 []int, nums2 []int) int64 {
+	n := len(nums1)
+	pos := make(map[int]int)
+	for i, v := range nums2 {
+		pos[v] = i + 1
+	}
+
+	tree := NewSegmentTree(n)
+	var ans int64
+
+	for _, num := range nums1 {
+		p := pos[num]
+		left := tree.query(1, 1, p)
+		right := n - p - (tree.query(1, 1, n) - tree.query(1, 1, p))
+		ans += int64(left * right)
+		tree.modify(1, p, 1)
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    l: number = 0;
+    r: number = 0;
+    v: number = 0;
+}
+
+class SegmentTree {
+    private tr: Node[];
+
+    constructor(n: number) {
+        this.tr = Array(4 * n);
+        for (let i = 0; i < 4 * n; i++) {
+            this.tr[i] = new Node();
+        }
+        this.build(1, 1, n);
+    }
+
+    private build(u: number, l: number, r: number): void {
+        this.tr[u].l = l;
+        this.tr[u].r = r;
+        if (l === r) return;
+        const mid = (l + r) >> 1;
+        this.build(u << 1, l, mid);
+        this.build((u << 1) | 1, mid + 1, r);
+    }
+
+    modify(u: number, x: number, v: number): void {
+        if (this.tr[u].l === x && this.tr[u].r === x) {
+            this.tr[u].v += v;
+            return;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        if (x <= mid) {
+            this.modify(u << 1, x, v);
+        } else {
+            this.modify((u << 1) | 1, x, v);
+        }
+        this.pushup(u);
+    }
+
+    private pushup(u: number): void {
+        this.tr[u].v = this.tr[u << 1].v + this.tr[(u << 1) | 1].v;
+    }
+
+    query(u: number, l: number, r: number): number {
+        if (this.tr[u].l >= l && this.tr[u].r <= r) {
+            return this.tr[u].v;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        let res = 0;
+        if (l <= mid) {
+            res += this.query(u << 1, l, r);
+        }
+        if (r > mid) {
+            res += this.query((u << 1) | 1, l, r);
+        }
+        return res;
+    }
+}
+
+function goodTriplets(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const pos = new Map<number, number>();
+    nums2.forEach((v, i) => pos.set(v, i + 1));
+
+    const tree = new SegmentTree(n);
+    let ans = 0;
+
+    for (const num of nums1) {
+        const p = pos.get(num)!;
+        const left = tree.query(1, 1, p);
+        const total = tree.query(1, 1, n);
+        const right = n - p - (total - left);
+        ans += left * right;
+        tree.modify(1, p, 1);
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

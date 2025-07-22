@@ -1,15 +1,15 @@
 impl Solution {
     pub fn find_longest_chain(mut pairs: Vec<Vec<i32>>) -> i32 {
-        pairs.sort_by(|a, b| a[0].cmp(&b[0]));
-        let n = pairs.len();
-        let mut dp = vec![1; n];
-        for i in 0..n {
-            for j in 0..i {
-                if pairs[i][0] > pairs[j][1] {
-                    dp[i] = dp[i].max(dp[j] + 1);
-                }
+        pairs.sort_by_key(|pair| pair[1]);
+        let mut ans = 0;
+        let mut pre = i32::MIN;
+        for pair in pairs {
+            let (a, b) = (pair[0], pair[1]);
+            if pre < a {
+                ans += 1;
+                pre = b;
             }
         }
-        dp[n - 1]
+        ans
     }
 }

@@ -56,9 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Iteration
+### Solution 1: Simulation
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the linked list.
+We can simulate the entire reversal process according to the problem description.
+
+First, we define a helper function $\textit{reverse}$ to reverse a linked list. Then, we define a dummy head node $\textit{dummy}$ and set its $\textit{next}$ pointer to $\textit{head}$.
+
+Next, we traverse the linked list, processing $k$ nodes at a time. If the remaining nodes are fewer than $k$, we do not perform the reversal. Otherwise, we extract $k$ nodes and call the $\textit{reverse}$ function to reverse these $k$ nodes. Then, we connect the reversed linked list back to the original linked list. We continue to process the next $k$ nodes until the entire linked list is traversed.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -71,30 +77,30 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 #         self.val = val
 #         self.next = next
 class Solution:
-    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
-        def reverseList(head):
-            pre, p = None, head
-            while p:
-                q = p.next
-                p.next = pre
-                pre = p
-                p = q
-            return pre
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        def reverse(head: Optional[ListNode]) -> Optional[ListNode]:
+            dummy = ListNode()
+            cur = head
+            while cur:
+                nxt = cur.next
+                cur.next = dummy.next
+                dummy.next = cur
+                cur = nxt
+            return dummy.next
 
-        dummy = ListNode(next=head)
-        pre = cur = dummy
-        while cur.next:
+        dummy = pre = ListNode(next=head)
+        while pre:
+            cur = pre
             for _ in range(k):
                 cur = cur.next
                 if cur is None:
                     return dummy.next
-            t = cur.next
+            node = pre.next
+            nxt = cur.next
             cur.next = None
-            start = pre.next
-            pre.next = reverseList(start)
-            start.next = t
-            pre = start
-            cur = pre
+            pre.next = reverse(node)
+            node.next = nxt
+            pre = node
         return dummy.next
 ```
 
@@ -114,34 +120,36 @@ class Solution:
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode dummy = new ListNode(0, head);
-        ListNode pre = dummy, cur = dummy;
-        while (cur.next != null) {
-            for (int i = 0; i < k && cur != null; ++i) {
+        dummy.next = head;
+        ListNode pre = dummy;
+        while (pre != null) {
+            ListNode cur = pre;
+            for (int i = 0; i < k; i++) {
                 cur = cur.next;
+                if (cur == null) {
+                    return dummy.next;
+                }
             }
-            if (cur == null) {
-                return dummy.next;
-            }
-            ListNode t = cur.next;
+            ListNode node = pre.next;
+            ListNode nxt = cur.next;
             cur.next = null;
-            ListNode start = pre.next;
-            pre.next = reverseList(start);
-            start.next = t;
-            pre = start;
-            cur = pre;
+            pre.next = reverse(node);
+            node.next = nxt;
+            pre = node;
         }
         return dummy.next;
     }
 
-    private ListNode reverseList(ListNode head) {
-        ListNode pre = null, p = head;
-        while (p != null) {
-            ListNode q = p.next;
-            p.next = pre;
-            pre = p;
-            p = q;
+    private ListNode reverse(ListNode head) {
+        ListNode dummy = new ListNode();
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode nxt = cur.next;
+            cur.next = dummy.next;
+            dummy.next = cur;
+            cur = nxt;
         }
-        return pre;
+        return dummy.next;
     }
 }
 ```
@@ -157,30 +165,38 @@ class Solution {
  * }
  */
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	var dummy *ListNode = &ListNode{}
-	p, cur := dummy, head
-	for cur != nil {
-		start := cur
+	dummy := &ListNode{Next: head}
+	pre := dummy
+
+	for pre != nil {
+		cur := pre
 		for i := 0; i < k; i++ {
+			cur = cur.Next
 			if cur == nil {
-				p.Next = start
 				return dummy.Next
 			}
-			cur = cur.Next
 		}
-		p.Next, p = reverse(start, cur), start
+
+		node := pre.Next
+		nxt := cur.Next
+		cur.Next = nil
+		pre.Next = reverse(node)
+		node.Next = nxt
+		pre = node
 	}
 	return dummy.Next
 }
 
-func reverse(start, end *ListNode) *ListNode {
-	var pre *ListNode = nil
-	for start != end {
-		tmp := start.Next
-		start.Next, pre = pre, start
-		start = tmp
+func reverse(head *ListNode) *ListNode {
+	var dummy *ListNode
+	cur := head
+	for cur != nil {
+		nxt := cur.Next
+		cur.Next = dummy
+		dummy = cur
+		cur = nxt
 	}
-	return pre
+	return dummy
 }
 ```
 
@@ -200,40 +216,40 @@ func reverse(start, end *ListNode) *ListNode {
  */
 
 function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
-    let dummy = new ListNode(0, head);
+    const dummy = new ListNode(0, head);
     let pre = dummy;
-    // pre->head-> ... ->tail-> next
-    while (head != null) {
-        let tail = pre;
-        for (let i = 0; i < k; ++i) {
-            tail = tail.next;
-            if (tail == null) {
+    while (pre !== null) {
+        let cur: ListNode | null = pre;
+        for (let i = 0; i < k; i++) {
+            cur = cur?.next || null;
+            if (cur === null) {
                 return dummy.next;
             }
         }
-        let t = tail.next;
-        [head, tail] = reverse(head, tail);
-        // set next
-        pre.next = head;
-        tail.next = t;
-        // set new pre and new head
-        pre = tail;
-        head = t;
+
+        const node = pre.next;
+        const nxt = cur?.next || null;
+        cur!.next = null;
+        pre.next = reverse(node);
+        node!.next = nxt;
+        pre = node!;
     }
+
     return dummy.next;
 }
 
-function reverse(head: ListNode, tail: ListNode) {
+function reverse(head: ListNode | null): ListNode | null {
+    let dummy: ListNode | null = null;
     let cur = head;
-    let pre = tail.next;
-    // head -> next -> ... -> tail -> pre
-    while (pre != tail) {
-        let t = cur.next;
-        cur.next = pre;
-        pre = cur;
-        cur = t;
+
+    while (cur !== null) {
+        const nxt = cur.next;
+        cur.next = dummy;
+        dummy = cur;
+        cur = nxt;
     }
-    return [tail, head];
+
+    return dummy;
 }
 ```
 
@@ -305,7 +321,7 @@ impl Solution {
  * public class ListNode {
  *     public int val;
  *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
+ *     public ListNode(int val = 0, ListNode next = null) {
  *         this.val = val;
  *         this.next = next;
  *     }
@@ -313,39 +329,40 @@ impl Solution {
  */
 public class Solution {
     public ListNode ReverseKGroup(ListNode head, int k) {
-        ListNode dummy = new ListNode(0, head);
-        ListNode pre = dummy, cur = dummy;
-        while (cur.next != null)
-        {
-            for (int i = 0; i < k && cur != null; ++i)
-            {
+        var dummy = new ListNode(0);
+        dummy.next = head;
+        var pre = dummy;
+
+        while (pre != null) {
+            var cur = pre;
+            for (int i = 0; i < k; i++) {
+                if (cur.next == null) {
+                    return dummy.next;
+                }
                 cur = cur.next;
             }
-            if (cur == null)
-            {
-                return dummy.next;
-            }
-            ListNode t = cur.next;
+
+            var node = pre.next;
+            var nxt = cur.next;
             cur.next = null;
-            ListNode start = pre.next;
-            pre.next = ReverseList(start);
-            start.next = t;
-            pre = start;
-            cur = pre;
+            pre.next = Reverse(node);
+            node.next = nxt;
+            pre = node;
         }
+
         return dummy.next;
     }
 
-    private ListNode ReverseList(ListNode head) {
-        ListNode pre = null, p = head;
-        while (p != null)
-        {
-            ListNode q = p.next;
-            p.next = pre;
-            pre = p;
-            p = q;
+    private ListNode Reverse(ListNode head) {
+        ListNode prev = null;
+        var cur = head;
+        while (cur != null) {
+            var nxt = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = nxt;
         }
-        return pre;
+        return prev;
     }
 }
 ```
@@ -353,153 +370,64 @@ public class Solution {
 #### PHP
 
 ```php
-# Definition for singly-linked list.
-# class ListNode {
-#     public $val;
-#     public $next;
-#     public function __construct($val = 0, $next = null)
-#     {
-#         $this->val = $val;
-#         $this->next = $next;
-#     }
-# }
-
+/**
+ * Definition for a singly-linked list.
+ * class ListNode {
+ *     public $val = 0;
+ *     public $next = null;
+ *     function __construct($val = 0, $next = null) {
+ *         $this->val = $val;
+ *         $this->next = $next;
+ *     }
+ * }
+ */
 class Solution {
     /**
      * @param ListNode $head
-     * @param int $k
+     * @param Integer $k
      * @return ListNode
      */
-
     function reverseKGroup($head, $k) {
         $dummy = new ListNode(0);
         $dummy->next = $head;
-        $prevGroupTail = $dummy;
+        $pre = $dummy;
 
-        while ($head !== null) {
-            $count = 0;
-            $groupHead = $head;
-            $groupTail = $head;
-
-            while ($count < $k && $head !== null) {
-                $head = $head->next;
-                $count++;
-            }
-            if ($count < $k) {
-                $prevGroupTail->next = $groupHead;
-                break;
-            }
-
-            $prev = null;
+        while ($pre !== null) {
+            $cur = $pre;
             for ($i = 0; $i < $k; $i++) {
-                $next = $groupHead->next;
-                $groupHead->next = $prev;
-                $prev = $groupHead;
-                $groupHead = $next;
+                if ($cur->next === null) {
+                    return $dummy->next;
+                }
+                $cur = $cur->next;
             }
-            $prevGroupTail->next = $prev;
-            $prevGroupTail = $groupTail;
+
+            $node = $pre->next;
+            $nxt = $cur->next;
+            $cur->next = null;
+            $pre->next = $this->reverse($node);
+            $node->next = $nxt;
+            $pre = $node;
         }
 
         return $dummy->next;
     }
-}
-```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Recursion
-
-The time complexity is $O(n)$, and the space complexity is $O(\log_k n)$. Here, $n$ is the length of the linked list.
-
-<!-- tabs:start -->
-
-#### Go
-
-```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func reverseKGroup(head *ListNode, k int) *ListNode {
-	start, end := head, head
-	for i := 0; i < k; i++ {
-		if end == nil {
-			return head
-		}
-		end = end.Next
-	}
-	res := reverse(start, end)
-	start.Next = reverseKGroup(end, k)
-	return res
-}
-
-func reverse(start, end *ListNode) *ListNode {
-	var pre *ListNode = nil
-	for start != end {
-		tmp := start.Next
-		start.Next, pre = pre, start
-		start = tmp
-	}
-	return pre
-}
-```
-
-#### TypeScript
-
-```ts
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
-function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
-    if (k === 1) {
-        return head;
-    }
-
-    const dummy = new ListNode(0, head);
-    let root = dummy;
-    while (root != null) {
-        let pre = root;
-        let cur = root;
-
-        let count = 0;
-        while (count !== k) {
-            count++;
-            cur = cur.next;
-            if (cur == null) {
-                return dummy.next;
-            }
+    /**
+     * Helper function to reverse a linked list.
+     * @param ListNode $head
+     * @return ListNode
+     */
+    function reverse($head) {
+        $prev = null;
+        $cur = $head;
+        while ($cur !== null) {
+            $nxt = $cur->next;
+            $cur->next = $prev;
+            $prev = $cur;
+            $cur = $nxt;
         }
-
-        const nextRoot = pre.next;
-        pre.next = cur;
-
-        let node = nextRoot;
-        let next = node.next;
-        node.next = cur.next;
-        while (node != cur) {
-            [next.next, node, next] = [node, next, next.next];
-        }
-        root = nextRoot;
+        return $prev;
     }
-
-    return dummy.next;
 }
 ```
 

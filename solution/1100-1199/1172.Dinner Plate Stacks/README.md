@@ -124,9 +124,6 @@ D.pop()            // 返回 -1。仍然没有栈。
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class DinnerPlates:
     def __init__(self, capacity: int):
         self.capacity = capacity

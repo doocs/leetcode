@@ -1,9 +1,12 @@
 function minBitFlips(start: number, goal: number): number {
-    let tmp = start ^ goal;
-    let ans = 0;
-    while (tmp !== 0) {
-        ans += tmp & 1;
-        tmp >>= 1;
-    }
-    return ans;
+    return bitCount(start ^ goal);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }

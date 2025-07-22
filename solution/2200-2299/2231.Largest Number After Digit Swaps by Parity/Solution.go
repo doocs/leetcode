@@ -1,23 +1,22 @@
 func largestInteger(num int) int {
-	cnt := make([]int, 10)
-	x := num
-	for x != 0 {
-		cnt[x%10]++
-		x /= 10
+	s := []byte(fmt.Sprint(num))
+	cnt := [10]int{}
+
+	for _, c := range s {
+		cnt[c-'0']++
 	}
-	x = num
-	ans, t := 0, 1
-	for x != 0 {
-		v := x % 10
-		x /= 10
-		for y := 0; y < 10; y++ {
-			if ((v^y)&1) == 0 && cnt[y] > 0 {
-				cnt[y]--
-				ans += y * t
-				t *= 10
-				break
-			}
+
+	idx := [2]int{8, 9}
+	ans := 0
+
+	for _, c := range s {
+		x := int(c - '0')
+		for cnt[idx[x&1]] == 0 {
+			idx[x&1] -= 2
 		}
+		ans = ans*10 + idx[x&1]
+		cnt[idx[x&1]]--
 	}
+
 	return ans
 }

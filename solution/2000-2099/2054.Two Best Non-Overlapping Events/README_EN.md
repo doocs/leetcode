@@ -68,7 +68,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Binary Search
+
+We can sort the events by their start times, and then preprocess the maximum value starting from each event, i.e., $f[i]$ represents the maximum value of choosing one event from the $i$-th event to the last event.
+
+Then we enumerate each event. For each event, we use binary search to find the first event whose start time is greater than the end time of the current event, denoted as $\textit{idx}$. The maximum value starting from the current event is $f[\textit{idx}]$ plus the value of the current event, which is the maximum value that can be obtained by choosing the current event as the first event. We take the maximum value among all these values.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of events.
 
 <!-- tabs:start -->
 
@@ -130,22 +136,27 @@ class Solution {
 class Solution {
 public:
     int maxTwoEvents(vector<vector<int>>& events) {
-        sort(events.begin(), events.end());
+        ranges::sort(events);
         int n = events.size();
         vector<int> f(n + 1);
-        for (int i = n - 1; ~i; --i) f[i] = max(f[i + 1], events[i][2]);
+        for (int i = n - 1; ~i; --i) {
+            f[i] = max(f[i + 1], events[i][2]);
+        }
         int ans = 0;
-        for (auto& e : events) {
+        for (const auto& e : events) {
             int v = e[2];
             int left = 0, right = n;
             while (left < right) {
                 int mid = (left + right) >> 1;
-                if (events[mid][0] > e[1])
+                if (events[mid][0] > e[1]) {
                     right = mid;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
-            if (left < n) v += f[left];
+            if (left < n) {
+                v += f[left];
+            }
             ans = max(ans, v);
         }
         return ans;
@@ -183,6 +194,34 @@ func maxTwoEvents(events [][]int) int {
 		ans = max(ans, v)
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxTwoEvents(events: number[][]): number {
+    events.sort((a, b) => a[0] - b[0]);
+    const n = events.length;
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; ~i; --i) {
+        f[i] = Math.max(f[i + 1], events[i][2]);
+    }
+    let ans = 0;
+    for (const [_, end, v] of events) {
+        let [left, right] = [0, n];
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (events[mid][0] > end) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        const t = left < n ? f[left] : 0;
+        ans = Math.max(ans, t + v);
+    }
+    return ans;
 }
 ```
 

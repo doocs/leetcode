@@ -11,7 +11,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1911. 最大子序列交替和](https://leetcode.cn/problems/maximum-alternating-subsequence-sum)
+# [1911. 最大交替子序列和](https://leetcode.cn/problems/maximum-alternating-subsequence-sum)
 
 [English Version](/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README_EN.md)
 

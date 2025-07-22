@@ -5,17 +5,17 @@
  */
 var threeSumSmaller = function (nums, target) {
     nums.sort((a, b) => a - b);
+    const n = nums.length;
     let ans = 0;
-    for (let i = 0, n = nums.length; i < n; ++i) {
-        let j = i + 1;
-        let k = n - 1;
+    for (let i = 0; i < n - 2; ++i) {
+        let [j, k] = [i + 1, n - 1];
         while (j < k) {
-            s = nums[i] + nums[j] + nums[k];
-            if (s >= target) {
-                --k;
-            } else {
+            const x = nums[i] + nums[j] + nums[k];
+            if (x < target) {
                 ans += k - j;
                 ++j;
+            } else {
+                --k;
             }
         }
     }

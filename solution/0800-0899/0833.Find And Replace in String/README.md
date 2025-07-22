@@ -4,6 +4,7 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README.md
 tags:
     - 数组
+    - 哈希表
     - 字符串
     - 排序
 ---
@@ -86,7 +87,7 @@ tags:
 
 ### 方法一：模拟
 
-我们遍历每个替换操作，对于当前第 $k$ 个替换操作 $(i, src)$，如果 $s[i..i+|src|-1]$ 与 $src$ 相等，此时我们记录下标 $i$ 处需要替换的是 $targets$ 的第 $k$ 个字符串，否则不需要替换。
+我们遍历每个替换操作，对于当前第 $k$ 个替换操作 $(i, \text{src})$，如果 $s[i..i+|\text{src}|-1]$ 与 $\text{src}$ 相等，此时我们记录下标 $i$ 处需要替换的是 $\text{targets}$ 的第 $k$ 个字符串，否则不需要替换。
 
 接下来，我们只需要遍历原字符串 $s$，根据记录的信息进行替换即可。
 

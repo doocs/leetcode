@@ -87,9 +87,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def minAbsoluteDifference(self, nums: List[int], x: int) -> int:
         sl = SortedList()

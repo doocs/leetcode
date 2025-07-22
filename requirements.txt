@@ -1,2 +1,2 @@
 black==24.3.0
-Requests==2.32.0
+Requests==2.32.4

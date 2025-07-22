@@ -17,16 +17,16 @@ public:
             return ans;
         }
         queue<TreeNode*> q{{root}};
-        while (!q.empty()) {
-            ans.emplace_back(q.back()->val);
-            for (int n = q.size(); n; --n) {
-                TreeNode* node = q.front();
+        while (q.size()) {
+            ans.push_back(q.front()->val);
+            for (int k = q.size(); k; --k) {
+                auto node = q.front();
                 q.pop();
-                if (node->left) {
-                    q.push(node->left);
-                }
                 if (node->right) {
                     q.push(node->right);
+                }
+                if (node->left) {
+                    q.push(node->left);
                 }
             }
         }

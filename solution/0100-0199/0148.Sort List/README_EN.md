@@ -61,7 +61,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Merge Sort
+
+We can use the merge sort approach to solve this problem.
+
+First, we use the fast and slow pointers to find the middle of the linked list and break the list from the middle to form two separate sublists $\textit{l1}$ and $\textit{l2}$.
+
+Then, we recursively sort $\textit{l1}$ and $\textit{l2}$, and finally merge $\textit{l1}$ and $\textit{l2}$ into a sorted linked list.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 
@@ -74,26 +82,27 @@ tags:
 #         self.val = val
 #         self.next = next
 class Solution:
-    def sortList(self, head: ListNode) -> ListNode:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None or head.next is None:
             return head
         slow, fast = head, head.next
         while fast and fast.next:
-            slow, fast = slow.next, fast.next.next
-        t = slow.next
+            slow = slow.next
+            fast = fast.next.next
+        l1, l2 = head, slow.next
         slow.next = None
-        l1, l2 = self.sortList(head), self.sortList(t)
+        l1, l2 = self.sortList(l1), self.sortList(l2)
         dummy = ListNode()
-        cur = dummy
+        tail = dummy
         while l1 and l2:
             if l1.val <= l2.val:
-                cur.next = l1
+                tail.next = l1
                 l1 = l1.next
             else:
-                cur.next = l2
+                tail.next = l2
                 l2 = l2.next
-            cur = cur.next
-        cur.next = l1 or l2
+            tail = tail.next
+        tail.next = l1 or l2
         return dummy.next
 ```
 
@@ -120,23 +129,23 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode t = slow.next;
+        ListNode l1 = head, l2 = slow.next;
         slow.next = null;
-        ListNode l1 = sortList(head);
-        ListNode l2 = sortList(t);
+        l1 = sortList(l1);
+        l2 = sortList(l2);
         ListNode dummy = new ListNode();
-        ListNode cur = dummy;
+        ListNode tail = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
-                cur.next = l1;
+                tail.next = l1;
                 l1 = l1.next;
             } else {
-                cur.next = l2;
+                tail.next = l2;
                 l2 = l2.next;
             }
-            cur = cur.next;
+            tail = tail.next;
         }
-        cur.next = l1 == null ? l2 : l1;
+        tail.next = l1 != null ? l1 : l2;
         return dummy.next;
     }
 }
@@ -158,30 +167,33 @@ class Solution {
 class Solution {
 public:
     ListNode* sortList(ListNode* head) {
-        if (!head || !head->next) return head;
-        auto* slow = head;
-        auto* fast = head->next;
+        if (!head || !head->next) {
+            return head;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head->next;
         while (fast && fast->next) {
             slow = slow->next;
             fast = fast->next->next;
         }
-        auto* t = slow->next;
+        ListNode* l1 = head;
+        ListNode* l2 = slow->next;
         slow->next = nullptr;
-        auto* l1 = sortList(head);
-        auto* l2 = sortList(t);
-        auto* dummy = new ListNode();
-        auto* cur = dummy;
+        l1 = sortList(l1);
+        l2 = sortList(l2);
+        ListNode* dummy = new ListNode();
+        ListNode* tail = dummy;
         while (l1 && l2) {
             if (l1->val <= l2->val) {
-                cur->next = l1;
+                tail->next = l1;
                 l1 = l1->next;
             } else {
-                cur->next = l2;
+                tail->next = l2;
                 l2 = l2->next;
             }
-            cur = cur->next;
+            tail = tail->next;
         }
-        cur->next = l1 ? l1 : l2;
+        tail->next = l1 ? l1 : l2;
         return dummy->next;
     }
 };
@@ -205,25 +217,27 @@ func sortList(head *ListNode) *ListNode {
 	for fast != nil && fast.Next != nil {
 		slow, fast = slow.Next, fast.Next.Next
 	}
-	t := slow.Next
+	l1 := head
+	l2 := slow.Next
 	slow.Next = nil
-	l1, l2 := sortList(head), sortList(t)
+	l1 = sortList(l1)
+	l2 = sortList(l2)
 	dummy := &ListNode{}
-	cur := dummy
+	tail := dummy
 	for l1 != nil && l2 != nil {
 		if l1.Val <= l2.Val {
-			cur.Next = l1
+			tail.Next = l1
 			l1 = l1.Next
 		} else {
-			cur.Next = l2
+			tail.Next = l2
 			l2 = l2.Next
 		}
-		cur = cur.Next
+		tail = tail.Next
 	}
 	if l1 != nil {
-		cur.Next = l1
+		tail.Next = l1
 	} else {
-		cur.Next = l2
+		tail.Next = l2
 	}
 	return dummy.Next
 }
@@ -245,32 +259,31 @@ func sortList(head *ListNode) *ListNode {
  */
 
 function sortList(head: ListNode | null): ListNode | null {
-    if (head == null || head.next == null) return head;
-    // 快慢指针定位中点
-    let slow: ListNode = head,
-        fast: ListNode = head.next;
-    while (fast != null && fast.next != null) {
-        slow = slow.next;
+    if (head === null || head.next === null) {
+        return head;
+    }
+    let [slow, fast] = [head, head.next];
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next!;
         fast = fast.next.next;
     }
-    // 归并排序
-    let mid: ListNode = slow.next;
+    let [l1, l2] = [head, slow.next];
     slow.next = null;
-    let l1: ListNode = sortList(head);
-    let l2: ListNode = sortList(mid);
-    let dummy: ListNode = new ListNode();
-    let cur: ListNode = dummy;
-    while (l1 != null && l2 != null) {
+    l1 = sortList(l1);
+    l2 = sortList(l2);
+    const dummy = new ListNode();
+    let tail = dummy;
+    while (l1 !== null && l2 !== null) {
         if (l1.val <= l2.val) {
-            cur.next = l1;
+            tail.next = l1;
             l1 = l1.next;
         } else {
-            cur.next = l2;
+            tail.next = l2;
             l2 = l2.next;
         }
-        cur = cur.next;
+        tail = tail.next;
     }
-    cur.next = l1 == null ? l2 : l1;
+    tail.next = l1 ?? l2;
     return dummy.next;
 }
 ```
@@ -351,32 +364,31 @@ impl Solution {
  * @return {ListNode}
  */
 var sortList = function (head) {
-    if (!head || !head.next) {
+    if (head === null || head.next === null) {
         return head;
     }
-    let slow = head;
-    let fast = head.next;
-    while (fast && fast.next) {
+    let [slow, fast] = [head, head.next];
+    while (fast !== null && fast.next !== null) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    let t = slow.next;
+    let [l1, l2] = [head, slow.next];
     slow.next = null;
-    let l1 = sortList(head);
-    let l2 = sortList(t);
+    l1 = sortList(l1);
+    l2 = sortList(l2);
     const dummy = new ListNode();
-    let cur = dummy;
-    while (l1 && l2) {
+    let tail = dummy;
+    while (l1 !== null && l2 !== null) {
         if (l1.val <= l2.val) {
-            cur.next = l1;
+            tail.next = l1;
             l1 = l1.next;
         } else {
-            cur.next = l2;
+            tail.next = l2;
             l2 = l2.next;
         }
-        cur = cur.next;
+        tail = tail.next;
     }
-    cur.next = l1 || l2;
+    tail.next = l1 ?? l2;
     return dummy.next;
 };
 ```
@@ -397,37 +409,31 @@ var sortList = function (head) {
  */
 public class Solution {
     public ListNode SortList(ListNode head) {
-        if (head == null || head.next == null)
-        {
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode slow = head, fast = head.next;
-        while (fast != null && fast.next != null)
-        {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode t = slow.next;
+        ListNode l1 = head, l2 = slow.next;
         slow.next = null;
-        ListNode l1 = SortList(head);
-        ListNode l2 = SortList(t);
+        l1 = SortList(l1);
+        l2 = SortList(l2);
         ListNode dummy = new ListNode();
-        ListNode cur = dummy;
-        while (l1 != null && l2 != null)
-        {
-            if (l1.val <= l2.val)
-            {
-                cur.next = l1;
+        ListNode tail = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                tail.next = l1;
                 l1 = l1.next;
-            }
-            else
-            {
-                cur.next = l2;
+            } else {
+                tail.next = l2;
                 l2 = l2.next;
             }
-            cur = cur.next;
+            tail = tail.next;
         }
-        cur.next = l1 == null ? l2 : l1;
+        tail.next = l1 != null ? l1 : l2;
         return dummy.next;
     }
 }

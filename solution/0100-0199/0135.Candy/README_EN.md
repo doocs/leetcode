@@ -202,6 +202,35 @@ function candy(ratings: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn candy(ratings: Vec<i32>) -> i32 {
+        let n = ratings.len();
+        let mut left = vec![1; n];
+        let mut right = vec![1; n];
+
+        for i in 1..n {
+            if ratings[i] > ratings[i - 1] {
+                left[i] = left[i - 1] + 1;
+            }
+        }
+
+        for i in (0..n - 1).rev() {
+            if ratings[i] > ratings[i + 1] {
+                right[i] = right[i + 1] + 1;
+            }
+        }
+
+        ratings.iter()
+            .enumerate()
+            .map(|(i, _)| left[i].max(right[i]) as i32)
+            .sum()
+    }
+}
+```
+
 #### C#
 
 ```cs
@@ -227,48 +256,6 @@ public class Solution {
             ans += Math.Max(left[i], right[i]);
         }
         return ans;
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
-    public int candy(int[] ratings) {
-        int n = ratings.length;
-        int up = 0;
-        int down = 0;
-        int peak = 0;
-        int candies = 1;
-        for (int i = 1; i < n; i++) {
-            if (ratings[i - 1] < ratings[i]) {
-                up++;
-                peak = up + 1;
-                down = 0;
-                candies += peak;
-            } else if (ratings[i] == ratings[i - 1]) {
-                peak = 0;
-                up = 0;
-                down = 0;
-                candies++;
-            } else {
-                down++;
-                up = 0;
-                candies += down + (peak > down ? 0 : 1);
-            }
-        }
-        return candies;
     }
 }
 ```

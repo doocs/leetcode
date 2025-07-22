@@ -53,7 +53,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以将字符串 $\textit{s}$ 按照空格分割成单词数组 $\textit{words}$，然后将每个单词反转后再拼接成字符串。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{s}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -62,7 +66,7 @@ tags:
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
-        return ' '.join([t[::-1] for t in s.split(' ')])
+        return " ".join(t[::-1] for t in s.split())
 ```
 
 #### Java
@@ -70,14 +74,11 @@ class Solution:
 ```java
 class Solution {
     public String reverseWords(String s) {
-        StringBuilder res = new StringBuilder();
-        for (String t : s.split(" ")) {
-            for (int i = t.length() - 1; i >= 0; --i) {
-                res.append(t.charAt(i));
-            }
-            res.append(" ");
+        String[] words = s.split(" ");
+        for (int i = 0; i < words.length; ++i) {
+            words[i] = new StringBuilder(words[i]).reverse().toString();
         }
-        return res.substring(0, res.length() - 1);
+        return String.join(" ", words);
     }
 }
 ```
@@ -88,14 +89,16 @@ class Solution {
 class Solution {
 public:
     string reverseWords(string s) {
-        for (int i = 0, n = s.size(); i < n; ++i) {
-            int j = i;
-            while (++j < n && s[j] != ' ')
-                ;
-            reverse(s.begin() + i, s.begin() + j);
-            i = j;
+        stringstream ss(s);
+        string t;
+        string ans;
+        while (ss >> t) {
+            reverse(t.begin(), t.end());
+            ans += t;
+            ans.push_back(' ');
         }
-        return s;
+        ans.pop_back();
+        return ans;
     }
 };
 ```
@@ -104,18 +107,13 @@ public:
 
 ```go
 func reverseWords(s string) string {
-	t := []byte(s)
-	for i := 0; i < len(t); i++ {
-		j := i
-		for j < len(t) && t[j] != ' ' {
-			j++
-		}
-		for st, ed := i, j-1; st < ed; st, ed = st+1, ed-1 {
-			t[st], t[ed] = t[ed], t[st]
-		}
-		i = j
+	words := strings.Fields(s)
+	for i, w := range words {
+		t := []byte(w)
+		slices.Reverse(t)
+		words[i] = string(t)
 	}
-	return string(t)
+	return strings.Join(words, " ")
 }
 ```
 
@@ -124,14 +122,8 @@ func reverseWords(s string) string {
 ```ts
 function reverseWords(s: string): string {
     return s
-        .split(/\s+/)
-        .map(str => {
-            let res = '';
-            for (const c of str) {
-                res = c + res;
-            }
-            return res;
-        })
+        .split(' ')
+        .map(t => t.split('').reverse().join(''))
         .join(' ');
 }
 ```
@@ -149,6 +141,21 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function (s) {
+    return s
+        .split(' ')
+        .map(t => t.split('').reverse().join(''))
+        .join(' ');
+};
+```
+
 #### PHP
 
 ```php
@@ -158,11 +165,11 @@ class Solution {
      * @return String
      */
     function reverseWords($s) {
-        $sArr = explode(' ', $s);
-        for ($i = 0; $i < count($sArr); $i++) {
-            $sArr[$i] = strrev($sArr[$i]);
+        $words = explode(' ', $s);
+        foreach ($words as $i => $word) {
+            $words[$i] = strrev($word);
         }
-        return implode(' ', $sArr);
+        return implode(' ', $words);
     }
 }
 ```

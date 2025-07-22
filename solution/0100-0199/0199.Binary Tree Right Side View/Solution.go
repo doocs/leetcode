@@ -12,15 +12,15 @@ func rightSideView(root *TreeNode) (ans []int) {
 	}
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		ans = append(ans, q[len(q)-1].Val)
-		for n := len(q); n > 0; n-- {
+		ans = append(ans, q[0].Val)
+		for k := len(q); k > 0; k-- {
 			node := q[0]
 			q = q[1:]
-			if node.Left != nil {
-				q = append(q, node.Left)
-			}
 			if node.Right != nil {
 				q = append(q, node.Right)
+			}
+			if node.Left != nil {
+				q = append(q, node.Left)
 			}
 		}
 	}

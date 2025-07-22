@@ -74,9 +74,9 @@ tags:
 
 ### 方法一：哈希表
 
-将所有起点存入哈希表中，然后遍历所有终点，找出没出现在哈希表中的终点，即为答案。
+根据题目描述，终点一定不会出现在所有 $\textit{cityA}$ 中，因此，我们可以先遍历一遍 $\textit{paths}$，将所有 $\textit{cityA}$ 放入一个集合 $\textit{s}$ 中，然后再遍历一遍 $\textit{paths}$，找到不在 $\textit{s}$ 中的 $\textit{cityB}$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是线路数。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{paths}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -98,12 +98,12 @@ class Solution {
         for (var p : paths) {
             s.add(p.get(0));
         }
-        for (var p : paths) {
-            if (!s.contains(p.get(1))) {
-                return p.get(1);
+        for (int i = 0;; ++i) {
+            var b = paths.get(i).get(1);
+            if (!s.contains(b)) {
+                return b;
             }
         }
-        return "";
     }
 }
 ```
@@ -118,12 +118,12 @@ public:
         for (auto& p : paths) {
             s.insert(p[0]);
         }
-        for (auto& p : paths) {
-            if (!s.count(p[1])) {
-                return p[1];
+        for (int i = 0;; ++i) {
+            auto b = paths[i][1];
+            if (!s.contains(b)) {
+                return b;
             }
         }
-        return "";
     }
 };
 ```
@@ -149,13 +149,8 @@ func destCity(paths [][]string) string {
 
 ```ts
 function destCity(paths: string[][]): string {
-    const set = new Set(paths.map(([a]) => a));
-    for (const [_, b] of paths) {
-        if (!set.has(b)) {
-            return b;
-        }
-    }
-    return '';
+    const s = new Set<string>(paths.map(([a, _]) => a));
+    return paths.find(([_, b]) => !s.has(b))![1];
 }
 ```
 
@@ -163,15 +158,14 @@ function destCity(paths: string[][]): string {
 
 ```rust
 use std::collections::HashSet;
+
 impl Solution {
     pub fn dest_city(paths: Vec<Vec<String>>) -> String {
-        let set = paths.iter().map(|v| &v[0]).collect::<HashSet<&String>>();
-        for path in paths.iter() {
-            if !set.contains(&path[1]) {
-                return path[1].clone();
-            }
-        }
-        String::new()
+        let s = paths
+            .iter()
+            .map(|p| p[0].clone())
+            .collect::<HashSet<String>>();
+        paths.into_iter().find(|p| !s.contains(&p[1])).unwrap()[1].clone()
     }
 }
 ```
@@ -184,37 +178,9 @@ impl Solution {
  * @return {string}
  */
 var destCity = function (paths) {
-    const s = new Set();
-    for (const [a, _] of paths) {
-        s.add(a);
-    }
-    for (const [_, b] of paths) {
-        if (!s.has(b)) {
-            return b;
-        }
-    }
-    return '';
+    const s = new Set(paths.map(([a, _]) => a));
+    return paths.find(([_, b]) => !s.has(b))[1];
 };
-```
-
-#### C
-
-```c
-char* destCity(char*** paths, int pathsSize, int* pathsColSize) {
-    for (int i = 0; i < pathsSize; i++) {
-        int flag = 1;
-        for (int j = 0; j < pathsSize; j++) {
-            if (strcmp(paths[i][1], paths[j][0]) == 0) {
-                flag = 0;
-                break;
-            }
-        }
-        if (flag) {
-            return paths[i][1];
-        }
-    }
-    return NULL;
-}
 ```
 
 <!-- tabs:end -->

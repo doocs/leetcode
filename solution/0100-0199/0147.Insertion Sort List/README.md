@@ -31,13 +31,13 @@ tags:
 
 <p>对链表进行插入排序。</p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/Insertion-sort-example-300px.gif" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/1724130387-qxfMwx-Insertion-sort-example-300px.gif" /></p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/sort1linked-list.jpg" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/1724130414-QbPAjl-image.png" /></p>
 
 <pre>
 <strong>输入:</strong> head = [4,2,1,3]
@@ -45,7 +45,7 @@ tags:
 
 <p><strong>示例&nbsp;2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/sort2linked-list.jpg" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0147.Insertion%20Sort%20List/images/1724130432-zoOvdI-image.png" /></p>
 
 <pre>
 <strong>输入:</strong> head = [-1,5,3,4,0]
@@ -179,6 +179,42 @@ var insertionSortList = function (head) {
     }
     return dummy.next;
 };
+```
+
+#### Go
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func insertionSortList(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	dummy := &ListNode{head.Val, head}
+	pre, cur := dummy, head
+	for cur != nil {
+		if pre.Val <= cur.Val {
+			pre = cur
+			cur = cur.Next
+			continue
+		}
+		p := dummy
+		for p.Next.Val <= cur.Val {
+			p = p.Next
+		}
+		t := cur.Next
+		cur.Next = p.Next
+		p.Next = cur
+		pre.Next = t
+		cur = t
+	}
+	return dummy.Next
+}
 ```
 
 <!-- tabs:end -->

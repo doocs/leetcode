@@ -8,6 +8,7 @@ tags:
     - 数组
     - 双指针
     - 二分查找
+    - 前缀和
     - 排序
 ---
 
@@ -67,11 +68,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：排序
+### 方法一：模拟
 
-按照题意生成 `arr` 数组，排序后，对 $[left-1,.. right-1]$ 范围的所有元素求和，得到结果。
+我们可以按照题目的要求，生成数组 $\textit{arr}$，然后对数组进行排序，最后求出 $[\textit{left}-1, \textit{right}-1]$ 范围的所有元素的和，得到结果。
 
-时间复杂度 $O(n^2\log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为题目给定的数组长度。
+时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为题目给定的数组长度。
 
 <!-- tabs:start -->
 
@@ -158,6 +159,44 @@ func rangeSum(nums []int, n int, left int, right int) (ans int) {
 		ans = (ans + x) % mod
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function rangeSum(nums: number[], n: number, left: number, right: number): number {
+    let arr = Array((n * (n + 1)) / 2).fill(0);
+    const mod = 10 ** 9 + 7;
+
+    for (let i = 0, s = 0, k = 0; i < n; i++, s = 0) {
+        for (let j = i; j < n; j++, k++) {
+            s += nums[j];
+            arr[k] = s;
+        }
+    }
+
+    arr = arr.sort((a, b) => a - b).slice(left - 1, right);
+    return arr.reduce((acc, cur) => (acc + cur) % mod, 0);
+}
+```
+
+#### JavaScript
+
+```js
+function rangeSum(nums, n, left, right) {
+    let arr = Array((n * (n + 1)) / 2).fill(0);
+    const mod = 10 ** 9 + 7;
+
+    for (let i = 0, s = 0, k = 0; i < n; i++, s = 0) {
+        for (let j = i; j < n; j++, k++) {
+            s += nums[j];
+            arr[k] = s;
+        }
+    }
+
+    arr = arr.sort((a, b) => a - b).slice(left - 1, right);
+    return arr.reduce((acc, cur) => acc + cur, 0) % mod;
 }
 ```
 

@@ -39,7 +39,7 @@
 | 0585 | [2016年的投资](/solution/0500-0599/0585.Investments%20in%202016/README.md)                                                                                   | `数据库` | 中等 |      |
 | 0586 | [订单最多的客户](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README.md)                                               | `数据库` | 简单 |      |
 | 0595 | [大的国家](/solution/0500-0599/0595.Big%20Countries/README.md)                                                                                               | `数据库` | 简单 |      |
-| 0596 | [超过5名学生的课](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md)                                                                   | `数据库` | 简单 |      |
+| 0596 | [超过 5 名学生的课](/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README.md)                                                           | `数据库` | 简单 |      |
 | 0597 | [好友申请 I：总体通过率](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README.md)                                             | `数据库` | 简单 | 🔒   |
 | 0601 | [体育馆的人流量](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)                                                                          | `数据库` | 困难 |      |
 | 0602 | [好友申请 II ：谁有最多的好友](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README.md)                                 | `数据库` | 中等 |      |
@@ -66,7 +66,7 @@
 | 1077 | [项目员工 III](/solution/1000-1099/1077.Project%20Employees%20III/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
 | 1082 | [销售分析 I ](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)                                                                                       | `数据库` | 简单 | 🔒   |
 | 1083 | [销售分析 II](/solution/1000-1099/1083.Sales%20Analysis%20II/README.md)                                                                                      | `数据库` | 简单 | 🔒   |
-| 1084 | [销售分析III](/solution/1000-1099/1084.Sales%20Analysis%20III/README.md)                                                                                     | `数据库` | 简单 |      |
+| 1084 | [销售分析 III](/solution/1000-1099/1084.Sales%20Analysis%20III/README.md)                                                                                    | `数据库` | 简单 |      |
 | 1097 | [游戏玩法分析 V](/solution/1000-1099/1097.Game%20Play%20Analysis%20V/README.md)                                                                              | `数据库` | 困难 | 🔒   |
 | 1098 | [小众书籍](/solution/1000-1099/1098.Unpopular%20Books/README.md)                                                                                             | `数据库` | 中等 | 🔒   |
 | 1107 | [每日新用户统计](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)                                                                             | `数据库` | 中等 | 🔒   |
@@ -274,7 +274,7 @@
 | 3087 | [查找热门话题标签](/solution/3000-3099/3087.Find%20Trending%20Hashtags/README.md)                                                                            | `数据库` | 中等 | 🔒   |
 | 3089 | [查找突发行为](/solution/3000-3099/3089.Find%20Bursty%20Behavior/README.md)                                                                                  | `数据库` | 中等 | 🔒   |
 | 3103 | [查找热门话题标签 II](/solution/3100-3199/3103.Find%20Trending%20Hashtags%20II/README.md)                                                                    | `数据库` | 困难 | 🔒   |
-| 3118 | [Friday Purchase III](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)                                                                            | `数据库` | 中等 | 🔒   |
+| 3118 | [发生在周五的交易 III](/solution/3100-3199/3118.Friday%20Purchase%20III/README.md)                                                                           | `数据库` | 中等 | 🔒   |
 | 3124 | [查找最长的电话](/solution/3100-3199/3124.Find%20Longest%20Calls/README.md)                                                                                  | `数据库` | 中等 | 🔒   |
 | 3126 | [服务器利用时间](/solution/3100-3199/3126.Server%20Utilization%20Time/README.md)                                                                             | `数据库` | 中等 | 🔒   |
 | 3140 | [连续空余座位 II](/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md)                                                                   | `数据库` | 中等 | 🔒   |
@@ -287,6 +287,42 @@
 | 3198 | [查找每个州的城市](/solution/3100-3199/3198.Find%20Cities%20in%20Each%20State/README.md)                                                                     | `数据库` | 简单 | 🔒   |
 | 3204 | [按位用户权限分析](/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README.md)                                                               | `数据库` | 中等 | 🔒   |
 | 3214 | [同比增长率](/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README.md)                                                                            | `数据库` | 困难 | 🔒   |
+| 3220 | [奇数和偶数交易](/solution/3200-3299/3220.Odd%20and%20Even%20Transactions/README.md)                                                                         | `数据库` | 中等 |      |
+| 3230 | [客户购买行为分析](/solution/3200-3299/3230.Customer%20Purchasing%20Behavior%20Analysis/README.md)                                                           | `数据库` | 中等 | 🔒   |
+| 3236 | [首席执行官下属层级](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README.md)                                                                       | `数据库` | 困难 | 🔒   |
+| 3246 | [英超积分榜排名](/solution/3200-3299/3246.Premier%20League%20Table%20Ranking/README.md)                                                                      | `数据库` | 简单 | 🔒   |
+| 3252 | [英超积分榜排名 II](/solution/3200-3299/3252.Premier%20League%20Table%20Ranking%20II/README.md)                                                              | `数据库` | 中等 | 🔒   |
+| 3262 | [查找重叠的班次](/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README.md)                                                                             | `数据库` | 中等 | 🔒   |
+| 3268 | [查找重叠的班次 II](/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README.md)                                                                     | `数据库` | 困难 | 🔒   |
+| 3278 | [寻找数据科学家职位的候选人 II](/solution/3200-3299/3278.Find%20Candidates%20for%20Data%20Scientist%20Position%20II/README.md)                               | `数据库` | 中等 | 🔒   |
+| 3293 | [计算产品最终价格](/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README.md)                                                                   | `数据库` | 中等 | 🔒   |
+| 3308 | [寻找表现最佳的司机](/solution/3300-3399/3308.Find%20Top%20Performing%20Driver/README.md)                                                                    | `数据库` | 中等 | 🔒   |
+| 3322 | [英超积分榜排名 III](/solution/3300-3399/3322.Premier%20League%20Table%20Ranking%20III/README.md)                                                            | `数据库` | 中等 | 🔒   |
+| 3328 | [查找每个州的城市 II](/solution/3300-3399/3328.Find%20Cities%20in%20Each%20State%20II/README.md)                                                             | `数据库` | 中等 | 🔒   |
+| 3338 | [第二高的薪水 II](/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README.md)                                                                         | `数据库` | 中等 | 🔒   |
+| 3358 | [评分为 NULL 的图书](/solution/3300-3399/3358.Books%20with%20NULL%20Ratings/README.md)                                                                       | `数据库` | 简单 | 🔒   |
+| 3368 | [首字母大写](/solution/3300-3399/3368.First%20Letter%20Capitalization/README.md)                                                                             | `数据库` | 困难 | 🔒   |
+| 3374 | [首字母大写 II](/solution/3300-3399/3374.First%20Letter%20Capitalization%20II/README.md)                                                                     | `数据库` | 困难 |      |
+| 3384 | [球队传球成功的优势得分](/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md)                                                          | `数据库` | 困难 | 🔒   |
+| 3390 | [最长团队传球连击](/solution/3300-3399/3390.Longest%20Team%20Pass%20Streak/README.md)                                                                        | `数据库` | 困难 | 🔒   |
+| 3401 | [寻找环形礼物交换链](/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README.md)                                                          | `数据库` | 困难 | 🔒   |
+| 3415 | [查找具有三个连续数字的产品](/solution/3400-3499/3415.Find%20Products%20with%20Three%20Consecutive%20Digits/README.md)                                       | `数据库` | 简单 | 🔒   |
+| 3421 | [查找进步的学生](/solution/3400-3499/3421.Find%20Students%20Who%20Improved/README.md)                                                                        | `数据库` | 中等 |      |
+| 3436 | [查找合法邮箱](/solution/3400-3499/3436.Find%20Valid%20Emails/README.md)                                                                                     | `数据库` | 简单 |      |
+| 3451 | [查找无效的 IP 地址](/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README.md)                                                                     | `数据库` | 困难 |      |
+| 3465 | [查找具有有效序列号的产品](/solution/3400-3499/3465.Find%20Products%20with%20Valid%20Serial%20Numbers/README.md)                                             | `数据库` | 简单 |      |
+| 3475 | [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)                                                                               |          | 中等 |      |
+| 3482 | [分析组织层级](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README.md)                                                                        | `数据库` | 困难 |      |
+| 3497 | [分析订阅转化](/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md)                                                                       | `数据库` | 中等 |      |
+| 3521 | [查找推荐产品对](/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README.md)                                                                 | `数据库` | 中等 |      |
+| 3554 | [查找类别推荐对](/solution/3500-3599/3554.Find%20Category%20Recommendation%20Pairs/README.md)                                                                | `数据库` | 困难 |      |
+| 3564 | [季节性销售分析](/solution/3500-3599/3564.Seasonal%20Sales%20Analysis/README.md)                                                                             | `数据库` | 中等 |      |
+| 3570 | [查找无可用副本的书籍](/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README.md)                                                     | `数据库` | 简单 |      |
+| 3580 | [寻找持续进步的员工](/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README.md)                                                         | `数据库` | 中等 |      |
+| 3586 | [寻找 COVID 康复患者](/solution/3500-3599/3586.Find%20COVID%20Recovery%20Patients/README.md)                                                                 | `数据库` | 中等 |      |
+| 3601 | [寻找燃油效率提升的驾驶员](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README.md)                                          | `数据库` | 中等 |      |
+| 3611 | [查找超预订员工](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README.md)                                                                           | `数据库` | 中等 |      |
+| 3617 | [查找具有螺旋学习模式的学生](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README.md)                                           |          | 困难 |      |
 
 ## 版权
 

@@ -7,6 +7,7 @@ source: 第 229 场周赛 Q2
 tags:
     - 数组
     - 字符串
+    - 前缀和
 ---
 
 <!-- problem:start -->
@@ -438,6 +439,64 @@ int* minOperations(char* boxes, int* returnSize) {
         ans[i] += sum;
     }
     *returnSize = n;
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minOperations(boxes: string): number[] {
+    const n = boxes.length;
+    const ans = Array(n).fill(0);
+    const ones: number[] = [];
+
+    for (let i = 0; i < n; i++) {
+        if (+boxes[i]) {
+            ones.push(i);
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        for (const j of ones) {
+            ans[i] += Math.abs(i - j);
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function minOperations(boxes) {
+    const n = boxes.length;
+    const ans = Array(n).fill(0);
+    const ones = [];
+
+    for (let i = 0; i < n; i++) {
+        if (+boxes[i]) {
+            ones.push(i);
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        for (const j of ones) {
+            ans[i] += Math.abs(i - j);
+        }
+    }
+
     return ans;
 }
 ```

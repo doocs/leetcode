@@ -18,9 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请</p>
-
-<p>你返回所有和为 <code>0</code> 且不重复的三元组。</p>
+<p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请你返回所有和为 <code>0</code> 且不重复的三元组。</p>
 
 <p><strong>注意：</strong>答案中不可以包含重复的三元组。</p>
 
@@ -452,6 +450,54 @@ class Solution {
         }
         return $ans;
     }
+}
+```
+
+#### C
+
+```c
+int cmp(const void* a, const void* b) {
+    return *(int*) a - *(int*) b;
+}
+
+int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes) {
+    *returnSize = 0;
+    int cap = 1000;
+    int** ans = (int**) malloc(sizeof(int*) * cap);
+    *returnColumnSizes = (int*) malloc(sizeof(int) * cap);
+
+    qsort(nums, numsSize, sizeof(int), cmp);
+
+    for (int i = 0; i < numsSize - 2 && nums[i] <= 0; ++i) {
+        if (i > 0 && nums[i] == nums[i - 1]) continue;
+        int j = i + 1, k = numsSize - 1;
+        while (j < k) {
+            int sum = nums[i] + nums[j] + nums[k];
+            if (sum < 0) {
+                ++j;
+            } else if (sum > 0) {
+                --k;
+            } else {
+                if (*returnSize >= cap) {
+                    cap *= 2;
+                    ans = (int**) realloc(ans, sizeof(int*) * cap);
+                    *returnColumnSizes = (int*) realloc(*returnColumnSizes, sizeof(int) * cap);
+                }
+                ans[*returnSize] = (int*) malloc(sizeof(int) * 3);
+                ans[*returnSize][0] = nums[i];
+                ans[*returnSize][1] = nums[j];
+                ans[*returnSize][2] = nums[k];
+                (*returnColumnSizes)[*returnSize] = 3;
+                (*returnSize)++;
+
+                ++j;
+                --k;
+                while (j < k && nums[j] == nums[j - 1]) ++j;
+                while (j < k && nums[k] == nums[k + 1]) --k;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

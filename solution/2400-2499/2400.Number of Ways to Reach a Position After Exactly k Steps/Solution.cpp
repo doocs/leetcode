@@ -4,7 +4,7 @@ public:
         const int mod = 1e9 + 7;
         int f[k + 1][k + 1];
         memset(f, -1, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i > j || j < 0) {
                 return 0;
             }

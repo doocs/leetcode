@@ -30,33 +30,33 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [3,0,1]
-<strong>输出：</strong>2
-<b>解释：</b>n = 3，因为有 3 个数字，所以所有的数字都在范围 [0,3] 内。2 是丢失的数字，因为它没有出现在 nums 中。</pre>
+<div class="example-block">
+<p><strong>输入：</strong>nums = [3,0,1]</p>
+
+<p><strong>输出：</strong>2</p>
+
+<p><b>解释：</b><code>n = 3</code>，因为有 3 个数字，所以所有的数字都在范围 <code>[0,3]</code> 内。2 是丢失的数字，因为它没有出现在 <code>nums</code> 中。</p>
+</div>
 
 <p><strong>示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [0,1]
-<strong>输出：</strong>2
-<b>解释：</b>n = 2，因为有 2 个数字，所以所有的数字都在范围 [0,2] 内。2 是丢失的数字，因为它没有出现在 nums 中。</pre>
+<div class="example-block">
+<p><strong>输入：</strong>nums = [0,1]</p>
+
+<p><strong>输出：</strong>2</p>
+
+<p><b>解释：</b><code>n = 2</code>，因为有 2 个数字，所以所有的数字都在范围 <code>[0,2]</code> 内。2 是丢失的数字，因为它没有出现在 <code>nums</code> 中。</p>
+</div>
 
 <p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>nums = [9,6,4,2,3,5,7,0,1]
-<strong>输出：</strong>8
-<b>解释：</b>n = 9，因为有 9 个数字，所以所有的数字都在范围 [0,9] 内。8 是丢失的数字，因为它没有出现在 nums 中。</pre>
+<div class="example-block">
+<p><strong>输入：</strong>nums = [9,6,4,2,3,5,7,0,1]</p>
 
-<p><strong>示例 4：</strong></p>
+<p><strong>输出：</strong>8</p>
 
-<pre>
-<strong>输入：</strong>nums = [0]
-<strong>输出：</strong>1
-<b>解释：</b>n = 1，因为有 1 个数字，所以所有的数字都在范围 [0,1] 内。1 是丢失的数字，因为它没有出现在 nums 中。</pre>
-
-<p>&nbsp;</p>
+<p><b>解释：</b><code>n = 9</code>，因为有 9 个数字，所以所有的数字都在范围 <code>[0,9]</code> 内。8 是丢失的数字，因为它没有出现在 <code>nums</code> 中。</p>
+</div>
 
 <p><strong>提示：</strong></p>
 

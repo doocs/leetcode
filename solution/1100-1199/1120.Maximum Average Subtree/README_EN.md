@@ -163,7 +163,7 @@ class Solution {
 public:
     double maximumAverageSubtree(TreeNode* root) {
         double ans = 0;
-        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> pair<int, int> {
             if (!root) {
                 return {0, 0};
             }

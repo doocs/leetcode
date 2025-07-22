@@ -54,6 +54,7 @@ tags:
 <ul>
 	<li><code>0 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>s</code> consists of digits, <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, and <code>&#39;-&#39;</code> only.</li>
+	<li>All numbers in the tree have value <strong>at most</strong> than <code>2<sup>30</sup></code>.</li>
 </ul>
 
 <!-- description:end -->

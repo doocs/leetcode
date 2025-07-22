@@ -5,8 +5,8 @@ func maximumProduct(nums []int, k int) int {
 		heap.Fix(&h, 0)
 	}
 	ans := 1
-	for _, v := range nums {
-		ans = (ans * v) % (1e9 + 7)
+	for _, x := range nums {
+		ans = (ans * x) % (1e9 + 7)
 	}
 	return ans
 }

@@ -6,6 +6,7 @@ rating: 1674
 source: Biweekly Contest 10 Q3
 tags:
     - Breadth-First Search
+    - Math
     - Backtracking
 ---
 

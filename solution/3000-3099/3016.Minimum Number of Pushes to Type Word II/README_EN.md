@@ -49,7 +49,7 @@ It can be shown that no other mapping can provide a lower cost.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/images/keypadv2e2.png" style="width: 329px; height: 313px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3016.Minimum%20Number%20of%20Pushes%20to%20Type%20Word%20II/images/edited.png" style="width: 329px; height: 313px;" />
 <pre>
 <strong>Input:</strong> word = &quot;xyzxyzxyzxyz&quot;
 <strong>Output:</strong> 12
@@ -184,6 +184,83 @@ function minimumPushes(word: string): number {
         ans += (((i / 8) | 0) + 1) * cnt[i];
     }
     return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function minimumPushes(word) {
+    const cnt = Array(26).fill(0);
+    for (const c of word) {
+        ++cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)];
+    }
+    cnt.sort((a, b) => b - a);
+    let ans = 0;
+    for (let i = 0; i < 26; ++i) {
+        ans += (((i / 8) | 0) + 1) * cnt[i];
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Priority Queue
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function minimumPushes(word: string): number {
+    const pq = new MaxPriorityQueue();
+    const cnt = new Map<string, number>();
+    let [i, res] = [0, 0];
+
+    for (const x of word) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        pq.enqueue(x, c);
+    }
+
+    while (!pq.isEmpty()) {
+        const c = pq.dequeue().priority;
+        res += c * (((i++ / 8) | 0) + 1);
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function minimumPushes(word) {
+    const pq = new MaxPriorityQueue();
+    const cnt = new Map();
+    let [i, res] = [0, 0];
+
+    for (const x of word) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    for (const [x, c] of cnt) {
+        pq.enqueue(x, c);
+    }
+
+    while (!pq.isEmpty()) {
+        const c = pq.dequeue().priority;
+        res += c * (((i++ / 8) | 0) + 1);
+    }
+
+    return res;
 }
 ```
 

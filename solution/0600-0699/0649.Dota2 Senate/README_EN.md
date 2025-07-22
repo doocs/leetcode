@@ -72,7 +72,16 @@ And in round 2, the third senator can just announce the victory since he is the 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Queue + Simulation
+
+We create two queues $qr$ and $qd$ to record the indices of the Radiant and Dire senators, respectively. Then we start the simulation, where in each round we dequeue one senator from each queue and perform different operations based on their factions:
+
+-   If the Radiant senator's index is less than the Dire senator's index, the Radiant senator can permanently ban the voting rights of the Dire senator. We add $n$ to the Radiant senator's index and enqueue it back to the end of the queue, indicating that this senator will participate in the next round of voting.
+-   If the Dire senator's index is less than the Radiant senator's index, the Dire senator can permanently ban the voting rights of the Radiant senator. We add $n$ to the Dire senator's index and enqueue it back to the end of the queue, indicating that this senator will participate in the next round of voting.
+
+Finally, when there are only senators from one faction left in the queues, the senators from that faction win.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of senators.
 
 <!-- tabs:start -->
 

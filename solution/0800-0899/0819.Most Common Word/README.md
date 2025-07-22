@@ -23,6 +23,8 @@ tags:
 
 <p><code>paragraph</code> 中的单词 <strong>不区分大小写</strong> ，答案应以 <strong>小写 </strong>形式返回。</p>
 
+<p><b>注意</b>&nbsp;单词不包含标点符号。</p>
+
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>

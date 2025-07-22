@@ -77,7 +77,18 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Tree DP
+
+We design a function $dfs(i)$, which represents the maximum sum of the weights of selected edges in the subtree rooted at node $i$, such that no two selected edges are adjacent. This function returns two values $(a, b)$. The first value $a$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is selected. The second value $b$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is not selected.
+
+We can observe the following for the current node $i$:
+
+-   If the edge between $i$ and its parent node is selected, then none of the edges between $i$ and its child nodes can be selected. In this case, the value of $a$ for the current node is the sum of the $b$ values of all its child nodes.
+-   If the edge between $i$ and its parent node is not selected, then we can select at most one edge between $i$ and its child nodes. In this case, the value of $b$ for the current node is the sum of the $a$ values of the selected child nodes and the $b$ values of the unselected child nodes, plus the weight of the edge between $i$ and the selected child node.
+
+We call the function $dfs(0)$, and the second value returned is the answer, which is the sum of the weights of selected edges when the edge between the root node and its parent node is not selected.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
 <!-- tabs:start -->
 

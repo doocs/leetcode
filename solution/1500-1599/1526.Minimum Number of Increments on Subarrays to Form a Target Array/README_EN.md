@@ -73,7 +73,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the minimum number of operations required to obtain $target[0,..i]$, initially setting $f[0] = target[0]$.
+
+For $target[i]$, if $target[i] \leq target[i-1]$, then $f[i] = f[i-1]$; otherwise, $f[i] = f[i-1] + target[i] - target[i-1]$.
+
+The final answer is $f[n-1]$.
+
+We notice that $f[i]$ only depends on $f[i-1]$, so we can maintain the operation count using just one variable.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $target$. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [3229. Minimum Operations to Make Array Equal to Target](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)
 
 <!-- tabs:start -->
 

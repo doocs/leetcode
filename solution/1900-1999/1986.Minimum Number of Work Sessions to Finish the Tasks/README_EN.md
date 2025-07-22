@@ -81,7 +81,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: State Compression Dynamic Programming + Subset Enumeration
+
+We note that $n$ does not exceed $14$, so we can consider using state compression dynamic programming to solve this problem.
+
+We use a binary number $i$ of length $n$ to represent the current task state, where the $j$-th bit of $i$ is $1$ if and only if the $j$-th task is completed. We use $f[i]$ to represent the minimum number of work sessions needed to complete all tasks with state $i$.
+
+We can enumerate all subsets $j$ of $i$, where each bit of the binary representation of $j$ is a subset of the corresponding bit of the binary representation of $i$, i.e., $j \subseteq i$. If the tasks corresponding to $j$ can be completed in one work session, then we can update $f[i]$ using $f[i \oplus j] + 1$, where $i \oplus j$ represents the bitwise XOR of $i$ and $j$.
+
+The final answer is $f[2^n - 1]$.
+
+The time complexity is $O(n \times 3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the number of tasks.
 
 <!-- tabs:start -->
 

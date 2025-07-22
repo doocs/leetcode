@@ -2,24 +2,25 @@ func isPossibleDivide(nums []int, k int) bool {
 	if len(nums)%k != 0 {
 		return false
 	}
-	m := treemap.NewWithIntComparator()
-	for _, h := range nums {
-		if v, ok := m.Get(h); ok {
-			m.Put(h, v.(int)+1)
+	tm := treemap.NewWithIntComparator()
+	for _, x := range nums {
+		if v, ok := tm.Get(x); ok {
+			tm.Put(x, v.(int)+1)
 		} else {
-			m.Put(h, 1)
+			tm.Put(x, 1)
 		}
 	}
-	for !m.Empty() {
-		v, _ := m.Min()
-		for i := v.(int); i < v.(int)+k; i++ {
-			if _, ok := m.Get(i); !ok {
-				return false
-			}
-			if v, _ := m.Get(i); v.(int) == 1 {
-				m.Remove(i)
+	for !tm.Empty() {
+		x, _ := tm.Min()
+		for y := x.(int); y < x.(int)+k; y++ {
+			if v, ok := tm.Get(y); ok {
+				if v.(int) == 1 {
+					tm.Remove(y)
+				} else {
+					tm.Put(y, v.(int)-1)
+				}
 			} else {
-				m.Put(i, v.(int)-1)
+				return false
 			}
 		}
 	}

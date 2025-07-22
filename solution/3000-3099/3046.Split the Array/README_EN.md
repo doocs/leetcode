@@ -140,6 +140,38 @@ function isPossibleToSplit(nums: number[]): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn is_possible_to_split(nums: Vec<i32>) -> bool {
+        let mut cnt = HashMap::new();
+        for &x in &nums {
+            *cnt.entry(x).or_insert(0) += 1;
+        }
+        *cnt.values().max().unwrap_or(&0) < 3
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool IsPossibleToSplit(int[] nums) {
+        int[] cnt = new int[101];
+        foreach (int x in nums) {
+            if (++cnt[x] >= 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

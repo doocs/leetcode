@@ -74,7 +74,33 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数位 DP
+
+这道题实际上是求在给定区间 $[l,..r]$ 中，满足条件的数的个数。个数与数的位数以及每一位上的数字有关。我们可以用数位 DP 的思路来解决这道题。数位 DP 中，数的大小对复杂度的影响很小。
+
+对于区间 $[l,..r]$ 问题，我们一般会将其转化为 $[1,..r]$ 然后再减去 $[1,..l - 1]$ 的问题，即：
+
+$$
+ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+$$
+
+对于本题而言，我们求出 $[1, \textit{finish}]$ 中满足条件的数的个数，然后减去 $[1, \textit{start} - 1]$ 中满足条件的数的个数，即可得到答案。
+
+这里我们用记忆化搜索来实现数位 DP。从起点向下搜索，到最底层得到方案数，一层层向上返回答案并累加，最后从搜索起点得到最终的答案。
+
+基本步骤如下：
+
+1. 先将 $\textit{start}$ 和 $\textit{finish}$ 转化为字符串，方便后续的数位 DP。
+2. 设计一个函数 $\textit{dfs}(\textit{pos}, \textit{lim})$，表示从第 $\textit{pos}$ 位开始搜索，当前的限制条件为 $\textit{lim}$。
+3. 如果最大的数字位数小于 $\textit{s}$ 的长度，返回 0。
+4. 如果当前剩余的数字位数等于 $\textit{s}$ 的长度，判断当前的数字是否满足条件，返回 1 或 0。
+5. 否则，我们计算当前位的上限 $\textit{up} = \min(\textit{lim} ? \textit{t}[\textit{pos}] : 9, \textit{limit})$。然后遍历当前位的数字 $i$，从 0 到 $\textit{up}$，递归调用 $\textit{dfs}(\textit{pos} + 1, \textit{lim} \&\& i == \textit{t}[\textit{pos}])$，将结果累加到答案中。
+6. 如果当前的 $\textit{lim}$ 为 false，则将当前的答案存入缓存中，避免重复计算。
+7. 最后返回答案。
+
+答案为区间 $[1, \textit{finish}]$ 中满足条件的数的个数减去区间 $[1, \textit{start} - 1]$ 中满足条件的数的个数。
+
+时间复杂度 $O(\log M \times D)$，空间复杂度 $O(\log M)$，其中 $M$ 为数字的上限，而 $D = 10$。
 
 <!-- tabs:start -->
 
@@ -84,7 +110,7 @@ tags:
 class Solution:
     def numberOfPowerfulInt(self, start: int, finish: int, limit: int, s: str) -> int:
         @cache
-        def dfs(pos: int, lim: int):
+        def dfs(pos: int, lim: int) -> int:
             if len(t) < n:
                 return 0
             if len(t) - pos == n:
@@ -159,7 +185,7 @@ public:
         long long f[20];
         memset(f, -1, sizeof(f));
 
-        function<long long(int, bool)> dfs = [&](int pos, bool lim) -> long long {
+        auto dfs = [&](this auto&& dfs, int pos, int lim) -> long long {
             if (t.size() < s.size()) {
                 return 0;
             }
@@ -281,6 +307,120 @@ function numberOfPowerfulInt(start: number, finish: number, limit: number, s: st
     const b: number = dfs(0, true);
 
     return b - a;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_powerful_int(start: i64, finish: i64, limit: i32, s: String) -> i64 {
+        fn count(x: i64, limit: i32, s: &str) -> i64 {
+            let t = x.to_string();
+            if t.len() < s.len() {
+                return 0;
+            }
+
+            let t_bytes: Vec<u8> = t.bytes().collect();
+            let mut f = [-1_i64; 20];
+
+            fn dfs(
+                pos: usize,
+                lim: bool,
+                t: &[u8],
+                s: &str,
+                limit: i32,
+                f: &mut [i64; 20],
+            ) -> i64 {
+                if t.len() < s.len() {
+                    return 0;
+                }
+
+                if !lim && f[pos] != -1 {
+                    return f[pos];
+                }
+
+                if t.len() - pos == s.len() {
+                    if lim {
+                        let suffix = &t[pos..];
+                        let suffix_str = String::from_utf8_lossy(suffix);
+                        return if suffix_str.as_ref() >= s { 1 } else { 0 };
+                    } else {
+                        return 1;
+                    }
+                }
+
+                let mut ans = 0;
+                let up = if lim {
+                    (t[pos] - b'0').min(limit as u8)
+                } else {
+                    limit as u8
+                };
+
+                for i in 0..=up {
+                    let next_lim = lim && i == t[pos] - b'0';
+                    ans += dfs(pos + 1, next_lim, t, s, limit, f);
+                }
+
+                if !lim {
+                    f[pos] = ans;
+                }
+
+                ans
+            }
+
+            dfs(0, true, &t_bytes, s, limit, &mut f)
+        }
+
+        let a = count(start - 1, limit, &s);
+        let b = count(finish, limit, &s);
+        b - a
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private string s;
+    private string t;
+    private long?[] f;
+    private int limit;
+
+    public long NumberOfPowerfulInt(long start, long finish, int limit, string s) {
+        this.s = s;
+        this.limit = limit;
+        t = (start - 1).ToString();
+        f = new long?[20];
+        long a = Dfs(0, true);
+        t = finish.ToString();
+        f = new long?[20];
+        long b = Dfs(0, true);
+        return b - a;
+    }
+
+    private long Dfs(int pos, bool lim) {
+        if (t.Length < s.Length) {
+            return 0;
+        }
+        if (!lim && f[pos].HasValue) {
+            return f[pos].Value;
+        }
+        if (t.Length - pos == s.Length) {
+            return lim ? (string.Compare(s, t.Substring(pos)) <= 0 ? 1 : 0) : 1;
+        }
+        int up = lim ? t[pos] - '0' : 9;
+        up = Math.Min(up, limit);
+        long ans = 0;
+        for (int i = 0; i <= up; ++i) {
+            ans += Dfs(pos + 1, lim && i == (t[pos] - '0'));
+        }
+        if (!lim) {
+            f[pos] = ans;
+        }
+        return ans;
+    }
 }
 ```
 

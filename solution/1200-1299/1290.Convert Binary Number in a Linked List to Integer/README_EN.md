@@ -56,7 +56,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traverse the Linked List
+
+We use a variable $\textit{ans}$ to record the current decimal value, with an initial value of $0$.
+
+Traverse the linked list. For each node, left-shift $\textit{ans}$ by one bit, then perform a bitwise OR with the current node's value. After traversal, $\textit{ans}$ is the decimal value.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -188,12 +194,11 @@ function getDecimalValue(head: ListNode | null): number {
 //   }
 // }
 impl Solution {
-    pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
+    pub fn get_decimal_value(mut head: Option<Box<ListNode>>) -> i32 {
         let mut ans = 0;
-        let mut cur = &head;
-        while let Some(node) = cur {
+        while let Some(node) = head {
             ans = (ans << 1) | node.val;
-            cur = &node.next;
+            head = node.next;
         }
         ans
     }
@@ -223,6 +228,31 @@ var getDecimalValue = function (head) {
 };
 ```
 
+#### C#
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public int GetDecimalValue(ListNode head) {
+        int ans = 0;
+        for (; head != null; head = head.next) {
+            ans = ans << 1 | head.val;
+        }
+        return ans;
+    }
+}
+```
+
 #### PHP
 
 ```php
@@ -243,13 +273,12 @@ class Solution {
      * @return Integer
      */
     function getDecimalValue($head) {
-        $rs = [];
-        while ($head != null) {
-            array_push($rs, $head->val);
+        $ans = 0;
+        while ($head !== null) {
+            $ans = ($ans << 1) | $head->val;
             $head = $head->next;
         }
-        $rsStr = implode($rs);
-        return bindec($rsStr);
+        return $ans;
     }
 }
 ```

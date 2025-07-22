@@ -76,7 +76,17 @@ The bag with the most number of balls has 2 balls, so your penalty is 2, and you
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search
+
+This problem requires us to minimize the cost, which is the maximum number of balls in a single bag. As the maximum value increases, the number of operations decreases, making it easier to meet the condition.
+
+Therefore, we can use binary search to enumerate the maximum number of balls in a single bag and determine if it can be achieved within $\textit{maxOperations}$ operations.
+
+Specifically, we define the left boundary of the binary search as $l = 1$ and the right boundary as $r = \max(\textit{nums})$. Then we continuously perform binary search on the middle value $\textit{mid} = \frac{l + r}{2}$. For each $\textit{mid}$, we calculate the number of operations needed. If the number of operations is less than or equal to $\textit{maxOperations}$, it means $\textit{mid}$ meets the condition, and we update the right boundary $r$ to $\textit{mid}$. Otherwise, we update the left boundary $l$ to $\textit{mid} + 1$.
+
+Finally, we return the left boundary $l$.
+
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length and the maximum value of the array $\textit{nums}$, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -88,7 +98,7 @@ class Solution:
         def check(mx: int) -> bool:
             return sum((x - 1) // mx for x in nums) <= maxOperations
 
-        return bisect_left(range(1, max(nums)), True, key=check) + 1
+        return bisect_left(range(1, max(nums) + 1), True, key=check) + 1
 ```
 
 #### Java
@@ -96,23 +106,20 @@ class Solution:
 ```java
 class Solution {
     public int minimumSize(int[] nums, int maxOperations) {
-        int left = 1, right = 0;
-        for (int x : nums) {
-            right = Math.max(right, x);
-        }
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            long cnt = 0;
+        int l = 1, r = Arrays.stream(nums).max().getAsInt();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            long s = 0;
             for (int x : nums) {
-                cnt += (x - 1) / mid;
+                s += (x - 1) / mid;
             }
-            if (cnt <= maxOperations) {
-                right = mid;
+            if (s <= maxOperations) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 }
 ```
@@ -123,20 +130,20 @@ class Solution {
 class Solution {
 public:
     int minimumSize(vector<int>& nums, int maxOperations) {
-        int left = 1, right = *max_element(nums.begin(), nums.end());
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            long long cnt = 0;
+        int l = 1, r = ranges::max(nums);
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            long long s = 0;
             for (int x : nums) {
-                cnt += (x - 1) / mid;
+                s += (x - 1) / mid;
             }
-            if (cnt <= maxOperations) {
-                right = mid;
+            if (s <= maxOperations) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 };
 ```
@@ -148,11 +155,11 @@ func minimumSize(nums []int, maxOperations int) int {
 	r := slices.Max(nums)
 	return 1 + sort.Search(r, func(mx int) bool {
 		mx++
-		cnt := 0
+		s := 0
 		for _, x := range nums {
-			cnt += (x - 1) / mx
+			s += (x - 1) / mx
 		}
-		return cnt <= maxOperations
+		return s <= maxOperations
 	})
 }
 ```
@@ -161,21 +168,45 @@ func minimumSize(nums []int, maxOperations int) int {
 
 ```ts
 function minimumSize(nums: number[], maxOperations: number): number {
-    let left = 1;
-    let right = Math.max(...nums);
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let cnt = 0;
-        for (const x of nums) {
-            cnt += ~~((x - 1) / mid);
-        }
-        if (cnt <= maxOperations) {
-            right = mid;
+    let [l, r] = [1, Math.max(...nums)];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        const s = nums.map(x => ((x - 1) / mid) | 0).reduce((a, b) => a + b);
+        if (s <= maxOperations) {
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_size(nums: Vec<i32>, max_operations: i32) -> i32 {
+        let mut l = 1;
+        let mut r = *nums.iter().max().unwrap();
+
+        while l < r {
+            let mid = (l + r) / 2;
+            let mut s: i64 = 0;
+
+            for &x in &nums {
+                s += ((x - 1) / mid) as i64;
+            }
+
+            if s <= max_operations as i64 {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        l
+    }
 }
 ```
 
@@ -188,22 +219,41 @@ function minimumSize(nums: number[], maxOperations: number): number {
  * @return {number}
  */
 var minimumSize = function (nums, maxOperations) {
-    let left = 1;
-    let right = Math.max(...nums);
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        let cnt = 0;
-        for (const x of nums) {
-            cnt += ~~((x - 1) / mid);
-        }
-        if (cnt <= maxOperations) {
-            right = mid;
+    let [l, r] = [1, Math.max(...nums)];
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        const s = nums.map(x => ((x - 1) / mid) | 0).reduce((a, b) => a + b);
+        if (s <= maxOperations) {
+            r = mid;
         } else {
-            left = mid + 1;
+            l = mid + 1;
         }
     }
-    return left;
+    return l;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinimumSize(int[] nums, int maxOperations) {
+        int l = 1, r = nums.Max();
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            long s = 0;
+            foreach (int x in nums) {
+                s += (x - 1) / mid;
+            }
+            if (s <= maxOperations) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
 ```
 
 <!-- tabs:end -->

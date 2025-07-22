@@ -23,7 +23,7 @@ tags:
 
 <p>你是一位系统管理员，手里有一份文件夹列表 <code>folder</code>，你的任务是要删除该列表中的所有 <strong>子文件夹</strong>，并以 <strong>任意顺序</strong> 返回剩下的文件夹。</p>
 
-<p>如果文件夹&nbsp;<code>folder[i]</code>&nbsp;位于另一个文件夹&nbsp;<code>folder[j]</code>&nbsp;下，那么&nbsp;<code>folder[i]</code>&nbsp;就是&nbsp;<code>folder[j]</code>&nbsp;的 <strong>子文件夹</strong> 。</p>
+<p>如果文件夹&nbsp;<code>folder[i]</code>&nbsp;位于另一个文件夹&nbsp;<code>folder[j]</code>&nbsp;下，那么&nbsp;<code>folder[i]</code>&nbsp;就是&nbsp;<code>folder[j]</code>&nbsp;的 <strong>子文件夹</strong> 。<code>folder[j]</code>&nbsp;的子文件夹必须以&nbsp;<code>folder[j]</code> 开头，后跟一个 <code>"/"</code>。例如，<code>"/a/b"</code> 是&nbsp;<code>"/a"</code>&nbsp;的一个子文件夹，但&nbsp;<code>"/b"</code> 不是&nbsp;<code>"/a/b/c"</code> 的一个子文件夹。</p>
 
 <p>文件夹的「路径」是由一个或多个按以下格式串联形成的字符串：<font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'/'</span></span></font></font>&nbsp;后跟一个或者多个小写英文字母。</p>
 
@@ -152,6 +152,24 @@ func removeSubfolders(folder []string) []string {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function removeSubfolders(folder: string[]): string[] {
+    let s = folder[1];
+    return folder.sort().filter(x => !x.startsWith(s + '/') && (s = x));
+}
+```
+
+#### JavaScript
+
+```js
+function removeSubfolders(folder) {
+    let s = folder[1];
+    return folder.sort().filter(x => !x.startsWith(s + '/') && (s = x));
 }
 ```
 
@@ -330,70 +348,6 @@ public:
 ```go
 type Trie struct {
 	children map[string]*Trie
-	isEnd    bool
-}
-
-func newTrie() *Trie {
-	m := map[string]*Trie{}
-	return &Trie{children: m}
-}
-
-func (this *Trie) insert(w string) {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
-		if _, ok := node.children[p]; !ok {
-			node.children[p] = newTrie()
-		}
-		node, _ = node.children[p]
-	}
-	node.isEnd = true
-}
-
-func (this *Trie) search(w string) bool {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
-		if _, ok := node.children[p]; !ok {
-			return false
-		}
-		node, _ = node.children[p]
-		if node.isEnd {
-			return true
-		}
-	}
-	return false
-}
-
-func removeSubfolders(folder []string) []string {
-	sort.Slice(folder, func(i, j int) bool {
-		return len(strings.Split(folder[i], "/")) < len(strings.Split(folder[j], "/"))
-	})
-	trie := newTrie()
-	var ans []string
-	for _, v := range folder {
-		if !trie.search(v) {
-			trie.insert(v)
-			ans = append(ans, v)
-		}
-	}
-	return ans
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### Go
-
-```go
-type Trie struct {
-	children map[string]*Trie
 	fid      int
 }
 
@@ -438,6 +392,107 @@ func removeSubfolders(folder []string) (ans []string) {
 	}
 	return
 }
+```
+
+#### TypeScript
+
+```ts
+class Trie {
+    children: Record<string, Trie>;
+    fid: number;
+
+    constructor() {
+        this.children = {};
+        this.fid = -1;
+    }
+
+    insert(i: number, f: string): void {
+        let node: Trie = this;
+        const ps = f.split('/');
+        for (let j = 1; j < ps.length; ++j) {
+            const p = ps[j];
+            if (!(p in node.children)) {
+                node.children[p] = new Trie();
+            }
+            node = node.children[p];
+        }
+        node.fid = i;
+    }
+
+    search(): number[] {
+        const ans: number[] = [];
+        const dfs = (root: Trie): void => {
+            if (root.fid !== -1) {
+                ans.push(root.fid);
+                return;
+            }
+            for (const child of Object.values(root.children)) {
+                dfs(child);
+            }
+        };
+        dfs(this);
+        return ans;
+    }
+}
+
+function removeSubfolders(folder: string[]): string[] {
+    const trie = new Trie();
+    for (let i = 0; i < folder.length; ++i) {
+        trie.insert(i, folder[i]);
+    }
+    return trie.search().map(i => folder[i]);
+}
+```
+
+#### JavaScript
+
+```js
+class Trie {
+    constructor() {
+        this.children = {};
+        this.fid = -1;
+    }
+
+    insert(i, f) {
+        let node = this;
+        const ps = f.split('/');
+        for (let j = 1; j < ps.length; ++j) {
+            const p = ps[j];
+            if (!(p in node.children)) {
+                node.children[p] = new Trie();
+            }
+            node = node.children[p];
+        }
+        node.fid = i;
+    }
+
+    search() {
+        const ans = [];
+        const dfs = root => {
+            if (root.fid !== -1) {
+                ans.push(root.fid);
+                return;
+            }
+            for (const child of Object.values(root.children)) {
+                dfs(child);
+            }
+        };
+        dfs(this);
+        return ans;
+    }
+}
+
+/**
+ * @param {string[]} folder
+ * @return {string[]}
+ */
+var removeSubfolders = function (folder) {
+    const trie = new Trie();
+    for (let i = 0; i < folder.length; ++i) {
+        trie.insert(i, folder[i]);
+    }
+    return trie.search().map(i => folder[i]);
+};
 ```
 
 <!-- tabs:end -->

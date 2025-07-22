@@ -125,6 +125,17 @@ function expectNumber(scores: number[]): number {
 }
 ```
 
+#### Swift
+
+```swift
+class Solution {
+    func expectNumber(_ scores: [Int]) -> Int {
+        let uniqueScores = Set(scores)
+        return uniqueScores.count
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

@@ -27,11 +27,11 @@ tags:
 	<li>例如，第 <code>1</code> 趟列车需要 <code>1.5</code> 小时，那你必须再等待 <code>0.5</code> 小时，搭乘在第 2 小时发车的第 <code>2</code> 趟列车。</li>
 </ul>
 
-<p>返回能满足你准时到达办公室所要求全部列车的<strong> 最小正整数 </strong>时速（单位：千米每小时），如果无法准时到达，则返回 <code>-1</code> 。</p>
+<p>返回能满足你在时限前到达办公室所要求全部列车的<strong> 最小正整数 </strong>时速（单位：千米每小时），如果无法准时到达，则返回 <code>-1</code> 。</p>
 
 <p>生成的测试用例保证答案不超过 <code>10<sup>7</sup></code> ，且 <code>hour</code> 的 <strong>小数点后最多存在两位数字</strong> 。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -63,15 +63,15 @@ tags:
 <strong>输出：</strong>-1
 <strong>解释：</strong>不可能准时到达，因为第 3 趟列车最早是在第 2 小时发车。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>n == dist.length</code></li>
-	<li><code>1 <= n <= 10<sup>5</sup></code></li>
-	<li><code>1 <= dist[i] <= 10<sup>5</sup></code></li>
-	<li><code>1 <= hour <= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= dist[i] &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= hour &lt;= 10<sup>9</sup></code></li>
 	<li><code>hours</code> 中，小数点后最多存在两位数字</li>
 </ul>
 
@@ -87,7 +87,7 @@ tags:
 
 在二分查找之前，我们需要先判断是否有可能在规定时间内到达。如果列车数量大于向上取整的规定时间，那么一定无法在规定时间内到达，直接返回 $-1$。
 
-接下来，我们定义二分的左右边界为 $l = 1$, $r = 10^7 + 1$，然后我们每次取中间值 $\text{mid} = \frac{l + r}{2}$，判断是否满足条件。如果满足条件，我们将右边界移动到 $\text{mid}$，否则将左边界移动到 $\text{mid} + 1$。
+接下来，我们定义二分的左右边界为 $l = 1$, $r = 10^7 + 1$，然后我们每次取中间值 $\textit{mid} = \frac{l + r}{2}$，判断是否满足条件。如果满足条件，我们将右边界移动到 $\textit{mid}$，否则将左边界移动到 $\textit{mid} + 1$。
 
 问题转化为判断一个速度值 $v$ 是否能够在规定时间内到达。我们可以遍历每一趟列车，计算每一趟列车的运行时间 $t = \frac{d}{v}$，如果是最后一趟列车，我们直接加上 $t$，否则我们向上取整加上 $t$。最后判断总时间是否小于等于规定时间，如果是则说明满足条件。
 
@@ -310,6 +310,36 @@ var minSpeedOnTime = function (dist, hour) {
     }
     return l > m ? -1 : l;
 };
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun minSpeedOnTime(dist: IntArray, hour: Double): Int {
+        val n = dist.size
+        if (n > Math.ceil(hour)) {
+            return -1
+        }
+        val m = 1e7.toInt()
+        var left = 1
+        var right = m + 1
+        while (left < right) {
+            val middle = (left + right) / 2
+            var time = 0.0
+            dist.forEachIndexed { i, item ->
+                val t = item.toDouble() / middle
+                time += if (i == n - 1) t else Math.ceil(t)
+            }
+            if (time > hour) {
+                left = middle + 1
+            } else {
+                right = middle
+            }
+        }
+        return if (left > m) -1 else left
+    }
+}
 ```
 
 <!-- tabs:end -->

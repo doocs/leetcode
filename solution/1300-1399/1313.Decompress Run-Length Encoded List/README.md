@@ -58,7 +58,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以直接模拟题目描述的过程，从左到右遍历数组 $\textit{nums}$，每次取出两个数 $\textit{freq}$ 和 $\textit{val}$，然后将 $\textit{val}$ 重复 $\textit{freq}$ 次，将这 $\textit{freq}$ 个 $\textit{val}$ 加入答案数组即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。我们只需要遍历一次数组 $\textit{nums}$ 即可。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -67,10 +71,7 @@ tags:
 ```python
 class Solution:
     def decompressRLElist(self, nums: List[int]) -> List[int]:
-        res = []
-        for i in range(1, len(nums), 2):
-            res.extend([nums[i]] * nums[i - 1])
-        return res
+        return [nums[i + 1] for i in range(0, len(nums), 2) for _ in range(nums[i])]
 ```
 
 #### Java
@@ -78,17 +79,13 @@ class Solution:
 ```java
 class Solution {
     public int[] decompressRLElist(int[] nums) {
-        int n = 0;
+        List<Integer> ans = new ArrayList<>();
         for (int i = 0; i < nums.length; i += 2) {
-            n += nums[i];
-        }
-        int[] res = new int[n];
-        for (int i = 1, k = 0; i < nums.length; i += 2) {
-            for (int j = 0; j < nums[i - 1]; ++j) {
-                res[k++] = nums[i];
+            for (int j = 0; j < nums[i]; ++j) {
+                ans.add(nums[i + 1]);
             }
         }
-        return res;
+        return ans.stream().mapToInt(i -> i).toArray();
     }
 }
 ```
@@ -99,13 +96,13 @@ class Solution {
 class Solution {
 public:
     vector<int> decompressRLElist(vector<int>& nums) {
-        vector<int> res;
-        for (int i = 1; i < nums.size(); i += 2) {
-            for (int j = 0; j < nums[i - 1]; ++j) {
-                res.push_back(nums[i]);
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); i += 2) {
+            for (int j = 0; j < nums[i]; j++) {
+                ans.push_back(nums[i + 1]);
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -113,14 +110,13 @@ public:
 #### Go
 
 ```go
-func decompressRLElist(nums []int) []int {
-	var res []int
+func decompressRLElist(nums []int) (ans []int) {
 	for i := 1; i < len(nums); i += 2 {
 		for j := 0; j < nums[i-1]; j++ {
-			res = append(res, nums[i])
+			ans = append(ans, nums[i])
 		}
 	}
-	return res
+	return
 }
 ```
 
@@ -128,12 +124,11 @@ func decompressRLElist(nums []int) []int {
 
 ```ts
 function decompressRLElist(nums: number[]): number[] {
-    let n = nums.length >> 1;
-    let ans = [];
-    for (let i = 0; i < n; i++) {
-        let freq = nums[2 * i],
-            val = nums[2 * i + 1];
-        ans.push(...new Array(freq).fill(val));
+    const ans: number[] = [];
+    for (let i = 0; i < nums.length; i += 2) {
+        for (let j = 0; j < nums[i]; j++) {
+            ans.push(nums[i + 1]);
+        }
     }
     return ans;
 }
@@ -144,12 +139,16 @@ function decompressRLElist(nums: number[]): number[] {
 ```rust
 impl Solution {
     pub fn decompress_rl_elist(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len() >> 1;
         let mut ans = Vec::new();
-        for i in 0..n {
-            for _ in 0..nums[2 * i] {
-                ans.push(nums[2 * i + 1]);
+        let n = nums.len();
+        let mut i = 0;
+        while i < n {
+            let freq = nums[i];
+            let val = nums[i + 1];
+            for _ in 0..freq {
+                ans.push(val);
             }
+            i += 2;
         }
         ans
     }
@@ -163,17 +162,20 @@ impl Solution {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* decompressRLElist(int* nums, int numsSize, int* returnSize) {
-    int size = 0;
+    int n = 0;
     for (int i = 0; i < numsSize; i += 2) {
-        size += nums[i];
+        n += nums[i];
     }
-    int* ans = malloc(size * sizeof(int));
-    for (int i = 0, j = 0; j < numsSize; j += 2) {
-        for (int k = 0; k < nums[j]; k++) {
-            ans[i++] = nums[j + 1];
+    int* ans = (int*) malloc(n * sizeof(int));
+    *returnSize = n;
+    int k = 0;
+    for (int i = 0; i < numsSize; i += 2) {
+        int freq = nums[i];
+        int val = nums[i + 1];
+        for (int j = 0; j < freq; j++) {
+            ans[k++] = val;
         }
     }
-    *returnSize = size;
     return ans;
 }
 ```

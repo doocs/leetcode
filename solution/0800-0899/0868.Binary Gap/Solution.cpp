@@ -2,11 +2,12 @@ class Solution {
 public:
     int binaryGap(int n) {
         int ans = 0;
-        for (int i = 0, j = -1; n; ++i, n >>= 1) {
+        for (int pre = 100, cur = 0; n != 0; n >>= 1) {
             if (n & 1) {
-                if (j != -1) ans = max(ans, i - j);
-                j = i;
+                ans = max(ans, cur - pre);
+                pre = cur;
             }
+            ++cur;
         }
         return ans;
     }

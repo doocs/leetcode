@@ -126,7 +126,7 @@ class Solution {
 class Solution {
 public:
     int countTriplets(vector<int>& nums) {
-        int mx = *max_element(nums.begin(), nums.end());
+        int mx = ranges::max(nums);
         int cnt[mx + 1];
         memset(cnt, 0, sizeof cnt);
         for (int& x : nums) {

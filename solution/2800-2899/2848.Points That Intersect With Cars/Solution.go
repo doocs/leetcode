@@ -1,8 +1,9 @@
 func numberOfPoints(nums [][]int) (ans int) {
-	d := [110]int{}
+	d := [102]int{}
 	for _, e := range nums {
-		d[e[0]]++
-		d[e[1]+1]--
+		start, end := e[0], e[1]
+		d[start]++
+		d[end+1]--
 	}
 	s := 0
 	for _, x := range d {

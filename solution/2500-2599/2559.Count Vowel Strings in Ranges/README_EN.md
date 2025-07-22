@@ -22,7 +22,7 @@ tags:
 
 <p>You are given a <strong>0-indexed</strong> array of strings <code>words</code> and a 2D array of integers <code>queries</code>.</p>
 
-<p>Each query <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> asks us to find the number of strings present in the range <code>l<sub>i</sub></code> to <code>r<sub>i</sub></code> (both <strong>inclusive</strong>) of <code>words</code> that start and end with a vowel.</p>
+<p>Each query <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> asks us to find the number of strings present at the indices ranging from <code>l<sub>i</sub></code> to <code>r<sub>i</sub></code> (both <strong>inclusive</strong>) of <code>words</code> that start and end with a vowel.</p>
 
 <p>Return <em>an array </em><code>ans</code><em> of size </em><code>queries.length</code><em>, where </em><code>ans[i]</code><em> is the answer to the </em><code>i</code><sup>th</sup><em> query</em>.</p>
 
@@ -304,15 +304,29 @@ func vowelStrings(words []string, queries [][]int) []int {
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-    const n = words.length;
-    const s: number[] = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        if (vowels.has(words[i][0]) && vowels.has(words[i][words[i].length - 1])) {
-            s[i + 1] = s[i] + 1;
-        } else {
-            s[i + 1] = s[i];
-        }
-    }
+    const s = new Array(words.length + 1).fill(0);
+
+    words.forEach((w, i) => {
+        const x = +(vowels.has(w[0]) && vowels.has(w.at(-1)!));
+        s[i + 1] = s[i] + x;
+    });
+
+    return queries.map(([l, r]) => s[r + 1] - s[l]);
+}
+```
+
+#### JavaScript
+
+```js
+function vowelStrings(words, queries) {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    const s = new Array(words.length + 1).fill(0);
+
+    words.forEach((w, i) => {
+        const x = +(vowels.has(w[0]) && vowels.has(w.at(-1)));
+        s[i + 1] = s[i] + x;
+    });
+
     return queries.map(([l, r]) => s[r + 1] - s[l]);
 }
 ```

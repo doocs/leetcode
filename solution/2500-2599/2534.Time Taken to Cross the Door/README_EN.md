@@ -82,32 +82,217 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Queue + Simulation
+
+We define two queues, where $q[0]$ stores the indices of people who want to enter, and $q[1]$ stores the indices of people who want to exit.
+
+We maintain a variable $t$ to represent the current time, and a variable $st$ to represent the current state of the door. When $st = 1$, it means the door is not in use or someone exited in the previous second. When $st = 0$, it means someone entered in the previous second. Initially, $t = 0$ and $st = 1$.
+
+We traverse the array $\textit{arrival}$. For each person, if the current time $t$ is less than or equal to the time the person arrives at the door $\textit{arrival}[i]$, we add the person's index to the corresponding queue $q[\text{state}[i]]$.
+
+Then we check if both queues $q[0]$ and $q[1]$ are not empty. If both are not empty, we dequeue the front element from the queue $q[st]$ and assign the current time $t$ to the person's passing time. If only one queue is not empty, we update the value of $st$ based on which queue is not empty, then dequeue the front element from that queue and assign the current time $t$ to the person's passing time. If both queues are empty, we update the value of $st$ to $1$, indicating the door is not in use.
+
+Next, we increment the time $t$ by $1$ and continue traversing the array $\textit{arrival}$ until all people have passed through the door.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of the array $\textit{arrival}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def timeTaken(self, arrival: List[int], state: List[int]) -> List[int]:
+        q = [deque(), deque()]
+        n = len(arrival)
+        t = i = 0
+        st = 1
+        ans = [0] * n
+        while i < n or q[0] or q[1]:
+            while i < n and arrival[i] <= t:
+                q[state[i]].append(i)
+                i += 1
+            if q[0] and q[1]:
+                ans[q[st].popleft()] = t
+            elif q[0] or q[1]:
+                st = 0 if q[0] else 1
+                ans[q[st].popleft()] = t
+            else:
+                st = 1
+            t += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] timeTaken(int[] arrival, int[] state) {
+        Deque<Integer>[] q = new Deque[2];
+        Arrays.setAll(q, i -> new ArrayDeque<>());
+        int n = arrival.length;
+        int t = 0, i = 0, st = 1;
+        int[] ans = new int[n];
+        while (i < n || !q[0].isEmpty() || !q[1].isEmpty()) {
+            while (i < n && arrival[i] <= t) {
+                q[state[i]].add(i++);
+            }
+            if (!q[0].isEmpty() && !q[1].isEmpty()) {
+                ans[q[st].poll()] = t;
+            } else if (!q[0].isEmpty() || !q[1].isEmpty()) {
+                st = q[0].isEmpty() ? 1 : 0;
+                ans[q[st].poll()] = t;
+            } else {
+                st = 1;
+            }
+            ++t;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> timeTaken(vector<int>& arrival, vector<int>& state) {
+        int n = arrival.size();
+        queue<int> q[2];
+        int t = 0, i = 0, st = 1;
+        vector<int> ans(n);
 
+        while (i < n || !q[0].empty() || !q[1].empty()) {
+            while (i < n && arrival[i] <= t) {
+                q[state[i]].push(i++);
+            }
+
+            if (!q[0].empty() && !q[1].empty()) {
+                ans[q[st].front()] = t;
+                q[st].pop();
+            } else if (!q[0].empty() || !q[1].empty()) {
+                st = q[0].empty() ? 1 : 0;
+                ans[q[st].front()] = t;
+                q[st].pop();
+            } else {
+                st = 1;
+            }
+
+            ++t;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func timeTaken(arrival []int, state []int) []int {
+	n := len(arrival)
+	q := [2][]int{}
+	t, i, st := 0, 0, 1
+	ans := make([]int, n)
 
+	for i < n || len(q[0]) > 0 || len(q[1]) > 0 {
+		for i < n && arrival[i] <= t {
+			q[state[i]] = append(q[state[i]], i)
+			i++
+		}
+
+		if len(q[0]) > 0 && len(q[1]) > 0 {
+			ans[q[st][0]] = t
+			q[st] = q[st][1:]
+		} else if len(q[0]) > 0 || len(q[1]) > 0 {
+			if len(q[0]) == 0 {
+				st = 1
+			} else {
+				st = 0
+			}
+			ans[q[st][0]] = t
+			q[st] = q[st][1:]
+		} else {
+			st = 1
+		}
+
+		t++
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function timeTaken(arrival: number[], state: number[]): number[] {
+    const n = arrival.length;
+    const q: number[][] = [[], []];
+    let [t, i, st] = [0, 0, 1];
+    const ans: number[] = Array(n).fill(0);
+
+    while (i < n || q[0].length || q[1].length) {
+        while (i < n && arrival[i] <= t) {
+            q[state[i]].push(i++);
+        }
+
+        if (q[0].length && q[1].length) {
+            ans[q[st][0]] = t;
+            q[st].shift();
+        } else if (q[0].length || q[1].length) {
+            st = q[0].length ? 0 : 1;
+            ans[q[st][0]] = t;
+            q[st].shift();
+        } else {
+            st = 1;
+        }
+
+        t++;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn time_taken(arrival: Vec<i32>, state: Vec<i32>) -> Vec<i32> {
+        let n = arrival.len();
+        let mut q = vec![VecDeque::new(), VecDeque::new()];
+        let mut t = 0;
+        let mut i = 0;
+        let mut st = 1;
+        let mut ans = vec![-1; n];
+
+        while i < n || !q[0].is_empty() || !q[1].is_empty() {
+            while i < n && arrival[i] <= t {
+                q[state[i] as usize].push_back(i);
+                i += 1;
+            }
+
+            if !q[0].is_empty() && !q[1].is_empty() {
+                ans[*q[st].front().unwrap()] = t;
+                q[st].pop_front();
+            } else if !q[0].is_empty() || !q[1].is_empty() {
+                st = if q[0].is_empty() { 1 } else { 0 };
+                ans[*q[st].front().unwrap()] = t;
+                q[st].pop_front();
+            } else {
+                st = 1;
+            }
+
+            t += 1;
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->

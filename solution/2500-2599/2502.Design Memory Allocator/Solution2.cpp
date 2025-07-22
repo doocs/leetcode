@@ -21,7 +21,7 @@ public:
         return -1;
     }
 
-    int free(int mID) {
+    int freeMemory(int mID) {
         int ans = 0;
         for (int& s : d[mID]) {
             int e = tm[s];
@@ -41,5 +41,5 @@ private:
  * Your Allocator object will be instantiated and called as such:
  * Allocator* obj = new Allocator(n);
  * int param_1 = obj->allocate(size,mID);
- * int param_2 = obj->free(mID);
+ * int param_2 = obj->freeMemory(mID);
  */

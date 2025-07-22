@@ -1,4 +1,4 @@
-func PredictTheWinner(nums []int) bool {
+func predictTheWinner(nums []int) bool {
 	n := len(nums)
 	f := make([][]int, n)
 	for i := range f {

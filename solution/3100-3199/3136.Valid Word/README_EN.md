@@ -235,6 +235,71 @@ function isValid(word: string): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_valid(word: String) -> bool {
+        if word.len() < 3 {
+            return false;
+        }
+
+        let mut has_vowel = false;
+        let mut has_consonant = false;
+        let vowels = ['a', 'e', 'i', 'o', 'u'];
+
+        for c in word.chars() {
+            if !c.is_alphanumeric() {
+                return false;
+            }
+            if c.is_alphabetic() {
+                let lower_c = c.to_ascii_lowercase();
+                if vowels.contains(&lower_c) {
+                    has_vowel = true;
+                } else {
+                    has_consonant = true;
+                }
+            }
+        }
+
+        has_vowel && has_consonant
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool IsValid(string word) {
+        if (word.Length < 3) {
+            return false;
+        }
+
+        bool hasVowel = false, hasConsonant = false;
+        bool[] vs = new bool[26];
+        foreach (char c in "aeiou") {
+            vs[c - 'a'] = true;
+        }
+
+        foreach (char c in word) {
+            if (char.IsLetter(c)) {
+                char lower = char.ToLower(c);
+                if (vs[lower - 'a']) {
+                    hasVowel = true;
+                } else {
+                    hasConsonant = true;
+                }
+            } else if (!char.IsDigit(c)) {
+                return false;
+            }
+        }
+
+        return hasVowel && hasConsonant;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

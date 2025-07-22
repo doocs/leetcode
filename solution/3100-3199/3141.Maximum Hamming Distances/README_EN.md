@@ -88,12 +88,12 @@ We can use Breadth-First Search (BFS) to find the minimum Hamming distance from 
 
 The specific steps are as follows:
 
-1. Initialize an array $\text{dist}$ with a length of $2^m$ to record the minimum Hamming distance from each complemented element to other elements. Initially, all are set to $-1$.
-2. Traverse the array $\text{nums}$, set the complement of each element to $0$, and add it to the queue $\text{q}$.
-3. Starting from $k = 1$, continuously traverse the queue $\text{q}$. Each time, take out the elements in the queue, perform $m$ complement operations on them, add the complemented elements to the queue $\text{t}$, and set the minimum Hamming distance to the original element to $k$.
+1. Initialize an array $\textit{dist}$ with a length of $2^m$ to record the minimum Hamming distance from each complemented element to other elements. Initially, all are set to $-1$.
+2. Traverse the array $\textit{nums}$, set the complement of each element to $0$, and add it to the queue $\textit{q}$.
+3. Starting from $k = 1$, continuously traverse the queue $\textit{q}$. Each time, take out the elements in the queue, perform $m$ complement operations on them, add the complemented elements to the queue $\textit{t}$, and set the minimum Hamming distance to the original element to $k$.
 4. Repeat step 3 until the queue is empty.
 
-Finally, we traverse the array $\text{nums}$, take the complement of each element as the index, and take out the corresponding minimum Hamming distance from the $\text{dist}$ array. Then, $m$ minus this value is the maximum Hamming distance we are looking for.
+Finally, we traverse the array $\textit{nums}$, take the complement of each element as the index, and take out the corresponding minimum Hamming distance from the $\textit{dist}$ array. Then, $m$ minus this value is the maximum Hamming distance we are looking for.
 
 The time complexity is $O(2^m)$, and the space complexity is $O(2^m)$, where $m$ is the integer given in the problem.
 

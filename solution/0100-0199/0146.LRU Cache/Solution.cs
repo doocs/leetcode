@@ -1,16 +1,9 @@
 public class LRUCache {
-    class Node {
-        public Node Prev;
-        public Node Next;
-        public int Key;
-        public int Val;
-    }
-
+    private int size;
+    private int capacity;
+    private Dictionary<int, Node> cache = new Dictionary<int, Node>();
     private Node head = new Node();
     private Node tail = new Node();
-    private Dictionary<int, Node> cache = new Dictionary<int, Node>();
-    private readonly int capacity;
-    private int size;
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
@@ -19,52 +12,59 @@ public class LRUCache {
     }
 
     public int Get(int key) {
-        Node node;
-        if (cache.TryGetValue(key, out node)) {
-            moveToHead(node);
-            return node.Val;
+        if (!cache.ContainsKey(key)) {
+            return -1;
         }
-        return -1;
+        Node node = cache[key];
+        RemoveNode(node);
+        AddToHead(node);
+        return node.Val;
     }
 
-    public void Put(int key, int Val) {
-        Node node;
-        if (cache.TryGetValue(key, out node)) {
-            moveToHead(node);
-            node.Val = Val;
+    public void Put(int key, int value) {
+        if (cache.ContainsKey(key)) {
+            Node node = cache[key];
+            RemoveNode(node);
+            node.Val = value;
+            AddToHead(node);
         } else {
-            node = new Node() { Key = key, Val = Val };
-            cache.Add(key, node);
-            addToHead(node);
+            Node node = new Node(key, value);
+            cache[key] = node;
+            AddToHead(node);
             if (++size > capacity) {
-                node = removeTail();
+                node = tail.Prev;
                 cache.Remove(node.Key);
+                RemoveNode(node);
                 --size;
             }
         }
     }
 
-    private void moveToHead(Node node) {
-        removeNode(node);
-        addToHead(node);
-    }
-
-    private void removeNode(Node node) {
+    private void RemoveNode(Node node) {
         node.Prev.Next = node.Next;
         node.Next.Prev = node.Prev;
     }
 
-    private void addToHead(Node node) {
+    private void AddToHead(Node node) {
         node.Next = head.Next;
         node.Prev = head;
         head.Next = node;
         node.Next.Prev = node;
     }
 
-    private Node removeTail() {
-        Node node = tail.Prev;
-        removeNode(node);
-        return node;
+    // Node class to represent each entry in the cache.
+    private class Node {
+        public int Key;
+        public int Val;
+        public Node Prev;
+        public Node Next;
+
+        public Node() {}
+
+        public Node(int key, int val) {
+            Key = key;
+            Val = val;
+        }
     }
 }
 
@@ -72,5 +72,5 @@ public class LRUCache {
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache obj = new LRUCache(capacity);
  * int param_1 = obj.Get(key);
- * obj.Put(key,Val);
+ * obj.Put(key,value);
  */

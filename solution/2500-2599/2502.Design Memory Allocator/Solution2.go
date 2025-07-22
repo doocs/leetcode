@@ -28,7 +28,7 @@ func (this *Allocator) Allocate(size int, mID int) int {
 	return -1
 }
 
-func (this *Allocator) Free(mID int) int {
+func (this *Allocator) FreeMemory(mID int) int {
 	ans := 0
 	for _, s := range this.d[mID] {
 		if e, ok := this.rbt.Get(s); ok {
@@ -44,5 +44,5 @@ func (this *Allocator) Free(mID int) int {
  * Your Allocator object will be instantiated and called as such:
  * obj := Constructor(n);
  * param_1 := obj.Allocate(size,mID);
- * param_2 := obj.Free(mID);
+ * param_2 := obj.FreeMemory(mID);
  */

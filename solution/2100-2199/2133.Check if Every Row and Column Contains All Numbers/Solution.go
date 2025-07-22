@@ -1,23 +1,21 @@
 func checkValid(matrix [][]int) bool {
 	n := len(matrix)
-	for i := 0; i < n; i++ {
-		seen := make([]bool, n)
-		for j := 0; j < n; j++ {
-			v := matrix[i][j] - 1
-			if seen[v] {
+	for _, row := range matrix {
+		vis := make([]bool, n+1)
+		for _, x := range row {
+			if vis[x] {
 				return false
 			}
-			seen[v] = true
+			vis[x] = true
 		}
 	}
 	for j := 0; j < n; j++ {
-		seen := make([]bool, n)
+		vis := make([]bool, n+1)
 		for i := 0; i < n; i++ {
-			v := matrix[i][j] - 1
-			if seen[v] {
+			if vis[matrix[i][j]] {
 				return false
 			}
-			seen[v] = true
+			vis[matrix[i][j]] = true
 		}
 	}
 	return true

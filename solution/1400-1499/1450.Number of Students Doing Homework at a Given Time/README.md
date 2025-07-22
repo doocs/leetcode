@@ -78,11 +78,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：遍历计数
+### 方法一：直接遍历
 
-同时遍历 $startTime$ 和 $endTime$，统计正在做作业的学生人数。
+我们可以直接遍历两个数组，对于每个学生，判断 $\textit{queryTime}$ 是否在他们的作业时间区间内，若是，答案加一。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是 $startTime$ 和 $endTime$ 的长度。
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为学生数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -93,7 +95,7 @@ class Solution:
     def busyStudent(
         self, startTime: List[int], endTime: List[int], queryTime: int
     ) -> int:
-        return sum(a <= queryTime <= b for a, b in zip(startTime, endTime))
+        return sum(x <= queryTime <= y for x, y in zip(startTime, endTime))
 ```
 
 #### Java
@@ -130,15 +132,13 @@ public:
 #### Go
 
 ```go
-func busyStudent(startTime []int, endTime []int, queryTime int) int {
-	ans := 0
-	for i, a := range startTime {
-		b := endTime[i]
-		if a <= queryTime && queryTime <= b {
+func busyStudent(startTime []int, endTime []int, queryTime int) (ans int) {
+	for i, x := range startTime {
+		if x <= queryTime && queryTime <= endTime[i] {
 			ans++
 		}
 	}
-	return ans
+	return
 }
 ```
 
@@ -147,13 +147,13 @@ func busyStudent(startTime []int, endTime []int, queryTime int) int {
 ```ts
 function busyStudent(startTime: number[], endTime: number[], queryTime: number): number {
     const n = startTime.length;
-    let res = 0;
+    let ans = 0;
     for (let i = 0; i < n; i++) {
-        if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
-            res++;
+        if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
+            ans++;
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -162,13 +162,13 @@ function busyStudent(startTime: number[], endTime: number[], queryTime: number):
 ```rust
 impl Solution {
     pub fn busy_student(start_time: Vec<i32>, end_time: Vec<i32>, query_time: i32) -> i32 {
-        let mut res = 0;
+        let mut ans = 0;
         for i in 0..start_time.len() {
             if start_time[i] <= query_time && end_time[i] >= query_time {
-                res += 1;
+                ans += 1;
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -177,116 +177,13 @@ impl Solution {
 
 ```c
 int busyStudent(int* startTime, int startTimeSize, int* endTime, int endTimeSize, int queryTime) {
-    int res = 0;
+    int ans = 0;
     for (int i = 0; i < startTimeSize; i++) {
         if (startTime[i] <= queryTime && endTime[i] >= queryTime) {
-            res++;
+            ans++;
         }
     }
-    return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：差分数组
-
-差分数组可以 $O(1)$ 时间处理区间加减操作。例如，对区间 $[l, r]$ 中的每个数加上 $c$。
-
-假设数组 $a$ 的所有元素分别为 $a[1], a[2], ... a[n]$，则差分数组 $b$ 的元素 $b[i]=a[i]-a[i-1]$。
-
-$$
-\begin{cases}
-b[1]=a[1]\\
-b[2]=a[2]-a[1]\\
-b[3]=a[3]-a[2]\\
-...\\
-b[i]=a[i]-a[i-1]\\
-\end{cases}
-$$
-
-那么 $a[i]=b[1]+b[2]+...+b[i]$，原数组 $a$ 是差分数组 $b$ 的前缀和。
-
-在这道题中，我们定义差分数组 $c$，然后遍历两个数组中对应位置的两个数 $a$, $b$，则 $c[a]+=1$, $c[b+1]-=1$。
-
-遍历结束后，对差分数组 $c$ 进行求前缀和操作，即可得到 $queryTime$ 时刻正在做作业的学生人数。
-
-时间复杂度 $O(n+queryTime)$，空间复杂度 $O(1010)$。
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def busyStudent(
-        self, startTime: List[int], endTime: List[int], queryTime: int
-    ) -> int:
-        c = [0] * 1010
-        for a, b in zip(startTime, endTime):
-            c[a] += 1
-            c[b + 1] -= 1
-        return sum(c[: queryTime + 1])
-```
-
-#### Java
-
-```java
-class Solution {
-    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
-        int[] c = new int[1010];
-        for (int i = 0; i < startTime.length; ++i) {
-            c[startTime[i]]++;
-            c[endTime[i] + 1]--;
-        }
-        int ans = 0;
-        for (int i = 0; i <= queryTime; ++i) {
-            ans += c[i];
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
-        vector<int> c(1010);
-        for (int i = 0; i < startTime.size(); ++i) {
-            c[startTime[i]]++;
-            c[endTime[i] + 1]--;
-        }
-        int ans = 0;
-        for (int i = 0; i <= queryTime; ++i) {
-            ans += c[i];
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func busyStudent(startTime []int, endTime []int, queryTime int) int {
-	c := make([]int, 1010)
-	for i, a := range startTime {
-		b := endTime[i]
-		c[a]++
-		c[b+1]--
-	}
-	ans := 0
-	for i := 0; i <= queryTime; i++ {
-		ans += c[i]
-	}
-	return ans
+    return ans;
 }
 ```
 

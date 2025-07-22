@@ -67,7 +67,17 @@ All sub-arrays have even sum and the answer is 0.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Counter
+
+We define an array $\textit{cnt}$ of length 2 as a counter, where $\textit{cnt}[0]$ and $\textit{cnt}[1]$ represent the number of subarrays with even and odd prefix sums, respectively. Initially, $\textit{cnt}[0] = 1$ and $\textit{cnt}[1] = 0$.
+
+Next, we maintain the current prefix sum $s$, initially $s = 0$.
+
+Traverse the array $\textit{arr}$, for each element $x$ encountered, add the value of $x$ to $s$, then based on the parity of $s$, add the value of $\textit{cnt}[s \mod 2 \oplus 1]$ to the answer, and then increment the value of $\textit{cnt}[s \mod 2]$ by 1.
+
+After the traversal, we get the answer. Note the modulo operation for the answer.
+
+Time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. Space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -153,6 +163,25 @@ function numOfSubarrays(arr: number[]): number {
         cnt[s & 1]++;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_of_subarrays(arr: Vec<i32>) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let mut cnt = [1, 0];
+        let mut ans = 0;
+        let mut s = 0;
+        for &x in arr.iter() {
+            s += x;
+            ans = (ans + cnt[((s & 1) ^ 1) as usize]) % MOD;
+            cnt[(s & 1) as usize] += 1;
+        }
+        ans
+    }
 }
 ```
 

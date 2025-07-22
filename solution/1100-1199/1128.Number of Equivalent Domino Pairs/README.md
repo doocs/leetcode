@@ -62,7 +62,7 @@ tags:
 
 我们可以将每个多米诺骨牌的两个数字按照大小顺序拼接成一个两位数，这样就可以将等价的多米诺骨牌拼接成相同的两位数。例如，`[1, 2]` 和 `[2, 1]` 拼接成的两位数都是 `12`，`[3, 4]` 和 `[4, 3]` 拼接成的两位数都是 `34`。
 
-然后我们遍历所有的多米诺骨牌，用一个长度为 $100$ 的数组 $cnt$ 记录每个两位数出现的次数。对于每个多米诺骨牌，我们拼接成的两位数为 $x$，那么答案就会增加 $cnt[x]$，接着我们将 $cnt[x]$ 的值加 $1$。继续遍历下一个多米诺骨牌，就可以统计出所有等价的多米诺骨牌对的数量。
+然后我们遍历所有的多米诺骨牌，用一个哈希表或者一个长度为 $100$ 的数组 $cnt$ 记录每个两位数出现的次数。对于每个多米诺骨牌，我们拼接成的两位数为 $x$，那么答案就会增加 $cnt[x]$，接着我们将 $cnt[x]$ 的值加 $1$。继续遍历下一个多米诺骨牌，就可以统计出所有等价的多米诺骨牌对的数量。
 
 时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是多米诺骨牌的数量，而 $C$ 是多米诺骨牌中拼接成的两位数的最大数量，即 $100$。
 
@@ -129,6 +129,44 @@ func numEquivDominoPairs(dominoes [][]int) (ans int) {
 		cnt[x]++
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numEquivDominoPairs(dominoes: number[][]): number {
+    const cnt: number[] = new Array(100).fill(0);
+    let ans = 0;
+
+    for (const [a, b] of dominoes) {
+        const key = a < b ? a * 10 + b : b * 10 + a;
+        ans += cnt[key];
+        cnt[key]++;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_equiv_domino_pairs(dominoes: Vec<Vec<i32>>) -> i32 {
+        let mut cnt = [0i32; 100];
+        let mut ans = 0;
+
+        for d in dominoes {
+            let a = d[0] as usize;
+            let b = d[1] as usize;
+            let key = if a < b { a * 10 + b } else { b * 10 + a };
+            ans += cnt[key];
+            cnt[key] += 1;
+        }
+
+        ans
+    }
 }
 ```
 

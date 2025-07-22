@@ -1,20 +1,20 @@
+import static java.lang.Math.*;
+
 class Solution {
     public int minDistance(int height, int width, int[] tree, int[] squirrel, int[][] nuts) {
-        int ans = Integer.MAX_VALUE;
+        int tr = tree[0], tc = tree[1];
+        int sr = squirrel[0], sc = squirrel[1];
         int s = 0;
-        for (int[] a : nuts) {
-            s += f(a, tree);
+        for (var e : nuts) {
+            s += abs(e[0] - tr) + abs(e[1] - tc);
         }
-        s *= 2;
-        for (int[] a : nuts) {
-            int c = f(a, tree);
-            int d = f(a, squirrel) + c;
-            ans = Math.min(ans, s + d - c * 2);
+        s <<= 1;
+        int ans = Integer.MAX_VALUE;
+        for (var e : nuts) {
+            int a = abs(e[0] - tr) + abs(e[1] - tc);
+            int b = abs(e[0] - sr) + abs(e[1] - sc);
+            ans = min(ans, s - a + b);
         }
         return ans;
-    }
-
-    private int f(int[] a, int[] b) {
-        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
     }
 }

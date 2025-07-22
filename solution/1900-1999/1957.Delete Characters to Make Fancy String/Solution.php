@@ -4,14 +4,13 @@ class Solution {
      * @return String
      */
     function makeFancyString($s) {
-        $rs = '';
+        $ans = '';
         for ($i = 0; $i < strlen($s); $i++) {
-            if ($s[$i] == $s[$i + 1] && $s[$i] == $s[$i + 2]) {
-                continue;
-            } else {
-                $rs .= $s[$i];
+            $c = $s[$i];
+            if ($i < 2 || $c !== $s[$i - 1] || $c !== $s[$i - 2]) {
+                $ans .= $c;
             }
         }
-        return $rs;
+        return $ans;
     }
 }

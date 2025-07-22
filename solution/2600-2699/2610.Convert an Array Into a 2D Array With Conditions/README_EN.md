@@ -68,13 +68,13 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 
 ### Solution 1: Array or Hash Table
 
-We use an array or hash table $cnt$ to count the number of occurrences of each element in the array $nums$.
+We first use an array or hash table $\textit{cnt}$ to count the frequency of each element in the array $\textit{nums}$.
 
-Then we traverse the $cnt$ array, add $x$ to the $0$th row, the $1$st row, the $2$nd row, ..., the ($cnt[x]-1$)th row of the answer list.
+Then we iterate through $\textit{cnt}$. For each element $x$, we add it to the 0th row, 1st row, 2nd row, ..., and $(cnt[x]-1)$th row of the answer list.
 
-Finally, return the answer list.
+Finally, we return the answer list.
 
-The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -171,7 +171,7 @@ func findMatrix(nums []int) (ans [][]int) {
 function findMatrix(nums: number[]): number[][] {
     const ans: number[][] = [];
     const n = nums.length;
-    const cnt: number[] = new Array(n + 1).fill(0);
+    const cnt: number[] = Array(n + 1).fill(0);
     for (const x of nums) {
         ++cnt[x];
     }
@@ -184,6 +184,33 @@ function findMatrix(nums: number[]): number[][] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_matrix(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let n = nums.len();
+        let mut cnt = vec![0; n + 1];
+        let mut ans: Vec<Vec<i32>> = Vec::new();
+
+        for &x in &nums {
+            cnt[x as usize] += 1;
+        }
+
+        for x in 1..=n as i32 {
+            for j in 0..cnt[x as usize] {
+                if ans.len() <= j {
+                    ans.push(Vec::new());
+                }
+                ans[j].push(x);
+            }
+        }
+
+        ans
+    }
 }
 ```
 

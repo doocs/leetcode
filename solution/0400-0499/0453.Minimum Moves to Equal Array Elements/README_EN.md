@@ -54,7 +54,32 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+Let the minimum value of the array $\textit{nums}$ be $\textit{mi}$, the sum of the array be $\textit{s}$, and the length of the array be $\textit{n}$.
+
+Assume the minimum number of operations is $\textit{k}$, and the final value of all elements in the array is $\textit{x}$. Then we have:
+
+$$
+\begin{aligned}
+\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times \textit{x} \\
+\textit{x} &= \textit{mi} + \textit{k} \\
+\end{aligned}
+$$
+
+Substituting the second equation into the first equation, we get:
+
+$$
+\begin{aligned}
+\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times (\textit{mi} + \textit{k}) \\
+\textit{s} + (\textit{n} - 1) \times \textit{k} &= \textit{n} \times \textit{mi} + \textit{n} \times \textit{k} \\
+\textit{k} &= \textit{s} - \textit{n} \times \textit{mi} \\
+\end{aligned}
+$$
+
+Therefore, the minimum number of operations is $\textit{s} - \textit{n} \times \textit{mi}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -120,32 +145,6 @@ function minMoves(nums: number[]): number {
         mi = Math.min(mi, x);
     }
     return s - mi * nums.length;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
-    public int minMoves(int[] nums) {
-        int s = 0;
-        int mi = 1 << 30;
-        for (int x : nums) {
-            s += x;
-            mi = Math.min(mi, x);
-        }
-        return s - mi * nums.length;
-    }
 }
 ```
 

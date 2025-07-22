@@ -73,7 +73,7 @@ tags:
 接下来，我们考虑 $f[i]$ 如何进行状态转移。我们可以枚举上一个分割点 $j$，如果子串 $s[j..i]$ 是一个回文串，那么 $f[i]$ 就可以从 $f[j]$ 转移而来。如果 $j=0$，那么说明 $s[0..i]$ 本身就是一个回文串，此时不需要进行分割，即 $f[i]=0$。因此，状态转移方程如下：
 
 $$
-f[i]=\min_{0\leq j \leq i}\begin{cases} f[j-1]+1, & \text{if}\ g[j][i]=\text{True} \\ 0, & \text{if}\ g[0][i]=\text{True} \end{cases}
+f[i]=\min_{0\leq j \leq i}\begin{cases} f[j-1]+1, & \textit{if}\ g[j][i]=\textit{True} \\ 0, & \textit{if}\ g[0][i]=\textit{True} \end{cases}
 $$
 
 答案即为 $f[n]$，其中 $n$ 是字符串 $s$ 的长度。
@@ -198,17 +198,13 @@ func minCut(s string) int {
 ```ts
 function minCut(s: string): number {
     const n = s.length;
-    const g: boolean[][] = Array(n)
-        .fill(0)
-        .map(() => Array(n).fill(true));
+    const g: boolean[][] = Array.from({ length: n }, () => Array(n).fill(true));
     for (let i = n - 1; ~i; --i) {
         for (let j = i + 1; j < n; ++j) {
             g[i][j] = s[i] === s[j] && g[i + 1][j - 1];
         }
     }
-    const f: number[] = Array(n)
-        .fill(0)
-        .map((_, i) => i);
+    const f: number[] = Array.from({ length: n }, (_, i) => i);
     for (let i = 1; i < n; ++i) {
         for (let j = 0; j <= i; ++j) {
             if (g[j][i]) {

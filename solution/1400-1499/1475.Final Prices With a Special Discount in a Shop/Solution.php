@@ -4,14 +4,20 @@ class Solution {
      * @return Integer[]
      */
     function finalPrices($prices) {
-        for ($i = 0; $i < count($prices); $i++) {
-            for ($j = $i + 1; $j < count($prices); $j++) {
-                if ($prices[$i] >= $prices[$j]) {
-                    $prices[$i] -= $prices[$j];
-                    break;
-                }
+        $stk = [];
+        $n = count($prices);
+
+        for ($i = $n - 1; $i >= 0; $i--) {
+            $x = $prices[$i];
+            while (!empty($stk) && $x < end($stk)) {
+                array_pop($stk);
             }
+            if (!empty($stk)) {
+                $prices[$i] -= end($stk);
+            }
+            $stk[] = $x;
         }
+
         return $prices;
     }
 }

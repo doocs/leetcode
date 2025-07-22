@@ -98,9 +98,6 @@ stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Node:
     def __init__(self, val=0):
         self.val = val

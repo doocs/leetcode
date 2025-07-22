@@ -2,25 +2,27 @@ class Solution {
     public String minWindow(String s, String t) {
         int[] need = new int[128];
         int[] window = new int[128];
-        int m = s.length(), n = t.length();
-        for (int i = 0; i < n; ++i) {
-            ++need[t.charAt(i)];
+        for (char c : t.toCharArray()) {
+            ++need[c];
         }
-        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
-        for (int i = 0; i < m; ++i) {
-            ++window[s.charAt(i)];
-            if (need[s.charAt(i)] >= window[s.charAt(i)]) {
+        int m = s.length(), n = t.length();
+        int k = -1, mi = m + 1, cnt = 0;
+        for (int l = 0, r = 0; r < m; ++r) {
+            char c = s.charAt(r);
+            if (++window[c] <= need[c]) {
                 ++cnt;
             }
             while (cnt == n) {
-                if (i - j + 1 < mi) {
-                    mi = i - j + 1;
-                    k = j;
+                if (r - l + 1 < mi) {
+                    mi = r - l + 1;
+                    k = l;
                 }
-                if (need[s.charAt(j)] >= window[s.charAt(j)]) {
+                c = s.charAt(l);
+                if (window[c] <= need[c]) {
                     --cnt;
                 }
-                --window[s.charAt(j++)];
+                --window[c];
+                ++l;
             }
         }
         return k < 0 ? "" : s.substring(k, k + mi);

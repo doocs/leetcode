@@ -68,9 +68,11 @@ tags:
 
 ### 方法一：DFS + 哈希表
 
-我们先用 DFS 遍历整棵树，记录每个结点的父结点，然后从目标结点开始，向上、向下分别搜索距离为 $k$ 的结点，添加到答案数组中。
+我们先用 DFS 遍历整棵树，将每个节点的父节点保存到哈希表 $\textit{g}$ 中。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的结点数。
+接下来，我们再次用 DFS，从 $\textit{target}$ 出发，向上向下搜索距离为 $k$ 的节点，添加到结果数组中。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点个数。
 
 <!-- tabs:start -->
 
@@ -87,31 +89,27 @@ tags:
 
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        def parents(root, prev):
-            nonlocal p
+        def dfs(root, fa):
             if root is None:
                 return
-            p[root] = prev
-            parents(root.left, root)
-            parents(root.right, root)
+            g[root] = fa
+            dfs(root.left, root)
+            dfs(root.right, root)
 
-        def dfs(root, k):
-            nonlocal ans, vis
-            if root is None or root.val in vis:
+        def dfs2(root, fa, k):
+            if root is None:
                 return
-            vis.add(root.val)
             if k == 0:
                 ans.append(root.val)
                 return
-            dfs(root.left, k - 1)
-            dfs(root.right, k - 1)
-            dfs(p[root], k - 1)
+            for nxt in (root.left, root.right, g[root]):
+                if nxt != fa:
+                    dfs2(nxt, root, k - 1)
 
-        p = {}
-        parents(root, None)
+        g = {}
+        dfs(root, None)
         ans = []
-        vis = set()
-        dfs(target, k)
+        dfs2(target, None, k)
         return ans
 ```
 
@@ -128,40 +126,37 @@ class Solution:
  * }
  */
 class Solution {
-    private Map<TreeNode, TreeNode> p;
-    private Set<Integer> vis;
-    private List<Integer> ans;
+    private Map<TreeNode, TreeNode> g = new HashMap<>();
+    private List<Integer> ans = new ArrayList<>();
 
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
-        p = new HashMap<>();
-        vis = new HashSet<>();
-        ans = new ArrayList<>();
-        parents(root, null);
-        dfs(target, k);
+        dfs(root, null);
+        dfs2(target, null, k);
         return ans;
     }
 
-    private void parents(TreeNode root, TreeNode prev) {
+    private void dfs(TreeNode root, TreeNode fa) {
         if (root == null) {
             return;
         }
-        p.put(root, prev);
-        parents(root.left, root);
-        parents(root.right, root);
+        g.put(root, fa);
+        dfs(root.left, root);
+        dfs(root.right, root);
     }
 
-    private void dfs(TreeNode root, int k) {
-        if (root == null || vis.contains(root.val)) {
+    private void dfs2(TreeNode root, TreeNode fa, int k) {
+        if (root == null) {
             return;
         }
-        vis.add(root.val);
         if (k == 0) {
             ans.add(root.val);
             return;
         }
-        dfs(root.left, k - 1);
-        dfs(root.right, k - 1);
-        dfs(p.get(root), k - 1);
+        for (TreeNode nxt : new TreeNode[] {root.left, root.right, g.get(root)}) {
+            if (nxt != fa) {
+                dfs2(nxt, root, k - 1);
+            }
+        }
     }
 }
 ```
@@ -180,33 +175,33 @@ class Solution {
  */
 class Solution {
 public:
-    unordered_map<TreeNode*, TreeNode*> p;
-    unordered_set<int> vis;
-    vector<int> ans;
-
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        parents(root, nullptr);
-        dfs(target, k);
+        unordered_map<TreeNode*, TreeNode*> g;
+        vector<int> ans;
+
+        auto dfs = [&](this auto&& dfs, TreeNode* node, TreeNode* fa) {
+            if (!node) return;
+            g[node] = fa;
+            dfs(node->left, node);
+            dfs(node->right, node);
+        };
+
+        auto dfs2 = [&](this auto&& dfs2, TreeNode* node, TreeNode* fa, int k) {
+            if (!node) return;
+            if (k == 0) {
+                ans.push_back(node->val);
+                return;
+            }
+            for (auto&& nxt : {node->left, node->right, g[node]}) {
+                if (nxt != fa) {
+                    dfs2(nxt, node, k - 1);
+                }
+            }
+        };
+
+        dfs(root, nullptr);
+        dfs2(target, nullptr, k);
         return ans;
-    }
-
-    void parents(TreeNode* root, TreeNode* prev) {
-        if (!root) return;
-        p[root] = prev;
-        parents(root->left, root);
-        parents(root->right, root);
-    }
-
-    void dfs(TreeNode* root, int k) {
-        if (!root || vis.count(root->val)) return;
-        vis.insert(root->val);
-        if (k == 0) {
-            ans.push_back(root->val);
-            return;
-        }
-        dfs(root->left, k - 1);
-        dfs(root->right, k - 1);
-        dfs(p[root], k - 1);
     }
 };
 ```
@@ -214,92 +209,41 @@ public:
 #### Go
 
 ```go
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
 func distanceK(root *TreeNode, target *TreeNode, k int) []int {
-	p := make(map[*TreeNode]*TreeNode)
-	vis := make(map[int]bool)
-	var ans []int
-	var parents func(root, prev *TreeNode)
-	parents = func(root, prev *TreeNode) {
-		if root == nil {
+	g := make(map[*TreeNode]*TreeNode)
+	ans := []int{}
+
+	var dfs func(node, fa *TreeNode)
+	dfs = func(node, fa *TreeNode) {
+		if node == nil {
 			return
 		}
-		p[root] = prev
-		parents(root.Left, root)
-		parents(root.Right, root)
+		g[node] = fa
+		dfs(node.Left, node)
+		dfs(node.Right, node)
 	}
-	parents(root, nil)
-	var dfs func(root *TreeNode, k int)
-	dfs = func(root *TreeNode, k int) {
-		if root == nil || vis[root.Val] {
+
+	var dfs2 func(node, fa *TreeNode, k int)
+	dfs2 = func(node, fa *TreeNode, k int) {
+		if node == nil {
 			return
 		}
-		vis[root.Val] = true
 		if k == 0 {
-			ans = append(ans, root.Val)
+			ans = append(ans, node.Val)
 			return
 		}
-		dfs(root.Left, k-1)
-		dfs(root.Right, k-1)
-		dfs(p[root], k-1)
+		for _, nxt := range []*TreeNode{node.Left, node.Right, g[node]} {
+			if nxt != fa {
+				dfs2(nxt, node, k-1)
+			}
+		}
 	}
-	dfs(target, k)
+
+	dfs(root, nil)
+	dfs2(target, nil, k)
+
 	return ans
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
-class Solution:
-    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        def dfs1(root, fa):
-            if root is None:
-                return
-            p[root] = fa
-            dfs1(root.left, root)
-            dfs1(root.right, root)
-
-        def dfs2(root, fa, k):
-            if root is None:
-                return
-            if k == 0:
-                ans.append(root.val)
-                return
-            for nxt in (root.left, root.right, p[root]):
-                if nxt != fa:
-                    dfs2(nxt, root, k - 1)
-
-        p = {}
-        dfs1(root, None)
-        ans = []
-        dfs2(target, None, k)
-        return ans
 ```
 
 #### TypeScript
@@ -320,43 +264,36 @@ class Solution:
  */
 
 function distanceK(root: TreeNode | null, target: TreeNode | null, k: number): number[] {
-    if (!root) return [0];
+    const g = new Map<TreeNode, TreeNode | null>();
+    const ans: number[] = [];
 
-    const g: Record<number, number[]> = {};
-
-    const dfs = (node: TreeNode | null, parent: TreeNode | null = null) => {
-        if (!node) return;
-
-        g[node.val] ??= [];
-        if (parent) g[node.val].push(parent.val);
-        if (node.left) g[node.val].push(node.left.val);
-        if (node.right) g[node.val].push(node.right.val);
-
+    const dfs = (node: TreeNode | null, fa: TreeNode | null) => {
+        if (!node) {
+            return;
+        }
+        g.set(node, fa);
         dfs(node.left, node);
         dfs(node.right, node);
     };
 
-    dfs(root);
-
-    const vis = new Set<number>();
-    let q = [target!.val];
-
-    while (q.length) {
-        if (!k--) return q;
-
-        const nextQ: number[] = [];
-
-        for (const x of q) {
-            if (vis.has(x)) continue;
-
-            vis.add(x);
-            nextQ.push(...g[x].filter(x => !vis.has(x)));
+    const dfs2 = (node: TreeNode | null, fa: TreeNode | null, k: number) => {
+        if (!node) {
+            return;
         }
+        if (k === 0) {
+            ans.push(node.val);
+            return;
+        }
+        for (const nxt of [node.left, node.right, g.get(node) || null]) {
+            if (nxt !== fa) {
+                dfs2(nxt, node, k - 1);
+            }
+        }
+    };
 
-        q = nextQ;
-    }
-
-    return [];
+    dfs(root, null);
+    dfs2(target, null, k);
+    return ans;
 }
 ```
 

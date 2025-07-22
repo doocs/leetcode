@@ -76,7 +76,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We traverse the indices $i$ in the range $[0, n)$. Each time, we take $\textit{nums}[i]$ and $\textit{nums}[i+n]$ and place them sequentially into the answer array.
+
+After the traversal is complete, we return the answer array.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -85,11 +91,7 @@ tags:
 ```python
 class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
-        ans = []
-        for i in range(n):
-            ans.append(nums[i])
-            ans.append(nums[i + n])
-        return ans
+        return [x for pair in zip(nums[:n], nums[n:]) for x in pair]
 ```
 
 #### Java
@@ -126,13 +128,12 @@ public:
 #### Go
 
 ```go
-func shuffle(nums []int, n int) []int {
-	var ans []int
+func shuffle(nums []int, n int) (ans []int) {
 	for i := 0; i < n; i++ {
 		ans = append(ans, nums[i])
 		ans = append(ans, nums[i+n])
 	}
-	return ans
+	return
 }
 ```
 
@@ -140,9 +141,9 @@ func shuffle(nums []int, n int) []int {
 
 ```ts
 function shuffle(nums: number[], n: number): number[] {
-    let ans = [];
-    for (let i = 0; i < n; i++) {
-        ans.push(nums[i], nums[n + i]);
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        ans.push(nums[i], nums[i + n]);
     }
     return ans;
 }
@@ -154,12 +155,12 @@ function shuffle(nums: number[], n: number): number[] {
 impl Solution {
     pub fn shuffle(nums: Vec<i32>, n: i32) -> Vec<i32> {
         let n = n as usize;
-        let mut res = Vec::new();
+        let mut ans = Vec::new();
         for i in 0..n {
-            res.push(nums[i]);
-            res.push(nums[n + i]);
+            ans.push(nums[i]);
+            ans.push(nums[i + n]);
         }
-        res
+        ans
     }
 }
 ```
@@ -171,54 +172,13 @@ impl Solution {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* shuffle(int* nums, int numsSize, int n, int* returnSize) {
-    int* res = (int*) malloc(sizeof(int) * n * 2);
+    int* ans = (int*) malloc(sizeof(int) * n * 2);
     for (int i = 0; i < n; i++) {
-        res[2 * i] = nums[i];
-        res[2 * i + 1] = nums[i + n];
+        ans[2 * i] = nums[i];
+        ans[2 * i + 1] = nums[i + n];
     }
     *returnSize = n * 2;
-    return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def shuffle(self, nums: List[int], n: int) -> List[int]:
-        nums[::2], nums[1::2] = nums[:n], nums[n:]
-        return nums
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn shuffle(mut nums: Vec<i32>, n: i32) -> Vec<i32> {
-        let n = n as usize;
-        for i in 0..n * 2 {
-            let mut j = i;
-            while nums[i] > 0 {
-                j = if j < n { 2 * j } else { 2 * (j - n) + 1 };
-                nums.swap(i, j);
-                nums[j] *= -1;
-            }
-        }
-        for i in 0..n * 2 {
-            nums[i] *= -1;
-        }
-        nums
-    }
+    return ans;
 }
 ```
 

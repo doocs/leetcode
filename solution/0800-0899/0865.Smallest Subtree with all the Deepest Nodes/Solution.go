@@ -6,26 +6,25 @@
  *     Right *TreeNode
  * }
  */
-type pair struct {
-	first  *TreeNode
-	second int
-}
-
 func subtreeWithAllDeepest(root *TreeNode) *TreeNode {
-	var dfs func(root *TreeNode) pair
+	type pair struct {
+		node  *TreeNode
+		depth int
+	}
+	var dfs func(*TreeNode) pair
 	dfs = func(root *TreeNode) pair {
 		if root == nil {
 			return pair{nil, 0}
 		}
 		l, r := dfs(root.Left), dfs(root.Right)
-		d1, d2 := l.second, r.second
-		if d1 > d2 {
-			return pair{l.first, d1 + 1}
+		ld, rd := l.depth, r.depth
+		if ld > rd {
+			return pair{l.node, ld + 1}
 		}
-		if d1 < d2 {
-			return pair{r.first, d2 + 1}
+		if ld < rd {
+			return pair{r.node, rd + 1}
 		}
-		return pair{root, d1 + 1}
+		return pair{root, ld + 1}
 	}
-	return dfs(root).first
+	return dfs(root).node
 }

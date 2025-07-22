@@ -55,7 +55,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
+
+According to the problem description, we know that the number of 0s and 1s on the path from the top-left corner to the bottom-right corner is equal, and the total number is $m + n - 1$, which means the number of 0s and 1s are both $(m + n - 1) / 2$.
+
+Therefore, we can use memoization search, starting from the top-left corner and moving right or down until reaching the bottom-right corner, to check if the number of 0s and 1s on the path is equal.
+
+The time complexity is $O(m \times n \times (m + n))$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 

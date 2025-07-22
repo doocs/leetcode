@@ -77,19 +77,19 @@ tags:
 
 ### 方法一：二分查找
 
-我们可以二分枚举乘积的值 $p$，定义二分的区间为 $[l, r]$，其中 $l = -\text{max}(|\text{nums1}[0]|, |\text{nums1}[n - 1]|) \times \text{max}(|\text{nums2}[0]|, |\text{nums2}[n - 1]|)$, $r = -l$。
+我们可以二分枚举乘积的值 $p$，定义二分的区间为 $[l, r]$，其中 $l = -\textit{max}(|\textit{nums1}[0]|, |\textit{nums1}[n - 1]|) \times \textit{max}(|\textit{nums2}[0]|, |\textit{nums2}[n - 1]|)$, $r = -l$。
 
 对于每个 $p$，我们计算出乘积小于等于 $p$ 的乘积的个数，如果这个个数大于等于 $k$，那么说明第 $k$ 小的乘积一定小于等于 $p$，我们就可以将区间右端点缩小到 $p$，否则我们将区间左端点增大到 $p + 1$。
 
-那么问题的关键就是如何计算乘积小于等于 $p$ 的乘积的个数。我们可以枚举 $\text{nums1}$ 中的每个数 $x$，分类讨论：
+那么问题的关键就是如何计算乘积小于等于 $p$ 的乘积的个数。我们可以枚举 $\textit{nums1}$ 中的每个数 $x$，分类讨论：
 
--   如果 $x > 0$，那么 $x \times \text{nums2}[i]$ 随着 $i$ 的增大是单调递增的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \text{nums2}[i] > p$，那么 $i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中；
--   如果 $x < 0$，那么 $x \times \text{nums2}[i]$ 随着 $i$ 的增大是单调递减的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \text{nums2}[i] \leq p$，那么 $n - i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中；
--   如果 $x = 0$，那么 $x \times \text{nums2}[i] = 0$，如果 $p \geq 0$，那么 $n$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\text{cnt}$ 中。
+-   如果 $x > 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递增的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] > p$，那么 $i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
+-   如果 $x < 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递减的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] \leq p$，那么 $n - i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
+-   如果 $x = 0$，那么 $x \times \textit{nums2}[i] = 0$，如果 $p \geq 0$，那么 $n$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中。
 
 这样我们就可以通过二分查找找到第 $k$ 小的乘积。
 
-时间复杂度 $O(m \times \log n \times \log M)$，其中 $m$ 和 $n$ 分别为 $\text{nums1}$ 和 $\text{nums2}$ 的长度，而 $M$ 为 $\text{nums1}$ 和 $\text{nums2}$ 中的最大值的绝对值。
+时间复杂度 $O(m \times \log n \times \log M)$，其中 $m$ 和 $n$ 分别为 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $M$ 为 $\textit{nums1}$ 和 $\textit{nums2}$ 中的最大值的绝对值。
 
 <!-- tabs:start -->
 
@@ -290,6 +290,128 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function kthSmallestProduct(nums1: number[], nums2: number[], k: number): number {
+    const m = nums1.length;
+    const n = nums2.length;
+
+    const a = BigInt(Math.max(Math.abs(nums1[0]), Math.abs(nums1[m - 1])));
+    const b = BigInt(Math.max(Math.abs(nums2[0]), Math.abs(nums2[n - 1])));
+
+    let l = -a * b;
+    let r = a * b;
+
+    const count = (p: bigint): bigint => {
+        let cnt = 0n;
+        for (const x of nums1) {
+            const bx = BigInt(x);
+            if (bx > 0n) {
+                let l = 0,
+                    r = n;
+                while (l < r) {
+                    const mid = (l + r) >> 1;
+                    const prod = bx * BigInt(nums2[mid]);
+                    if (prod > p) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+                cnt += BigInt(l);
+            } else if (bx < 0n) {
+                let l = 0,
+                    r = n;
+                while (l < r) {
+                    const mid = (l + r) >> 1;
+                    const prod = bx * BigInt(nums2[mid]);
+                    if (prod <= p) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+                cnt += BigInt(n - l);
+            } else if (p >= 0n) {
+                cnt += BigInt(n);
+            }
+        }
+        return cnt;
+    };
+
+    while (l < r) {
+        const mid = (l + r) >> 1n;
+        if (count(mid) >= BigInt(k)) {
+            r = mid;
+        } else {
+            l = mid + 1n;
+        }
+    }
+
+    return Number(l);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn kth_smallest_product(nums1: Vec<i32>, nums2: Vec<i32>, k: i64) -> i64 {
+        let m = nums1.len();
+        let n = nums2.len();
+        let a = nums1[0].abs().max(nums1[m - 1].abs()) as i64;
+        let b = nums2[0].abs().max(nums2[n - 1].abs()) as i64;
+        let mut l = -a * b;
+        let mut r = a * b;
+
+        let count = |p: i64| -> i64 {
+            let mut cnt = 0i64;
+            for &x in &nums1 {
+                if x > 0 {
+                    let mut left = 0;
+                    let mut right = n;
+                    while left < right {
+                        let mid = (left + right) / 2;
+                        if (x as i64) * (nums2[mid] as i64) > p {
+                            right = mid;
+                        } else {
+                            left = mid + 1;
+                        }
+                    }
+                    cnt += left as i64;
+                } else if x < 0 {
+                    let mut left = 0;
+                    let mut right = n;
+                    while left < right {
+                        let mid = (left + right) / 2;
+                        if (x as i64) * (nums2[mid] as i64) <= p {
+                            right = mid;
+                        } else {
+                            left = mid + 1;
+                        }
+                    }
+                    cnt += (n - left) as i64;
+                } else if p >= 0 {
+                    cnt += n as i64;
+                }
+            }
+            cnt
+        };
+
+        while l < r {
+            let mid = l + (r - l) / 2;
+            if count(mid) >= k {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        l
+    }
 }
 ```
 

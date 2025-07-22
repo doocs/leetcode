@@ -71,7 +71,13 @@ Note that [10,2,4,12], [6,2,4,16], etc. are also accepted.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+If $\textit{finalSum}$ is odd, it cannot be split into the sum of several distinct positive even integers, so we directly return an empty array.
+
+Otherwise, we can greedily split $\textit{finalSum}$ in the order of $2, 4, 6, \cdots$, until $\textit{finalSum}$ can no longer be split into a different positive even integer. At this point, we add the remaining $\textit{finalSum}$ to the last positive even integer.
+
+The time complexity is $O(\sqrt{\textit{finalSum}})$, and ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -80,13 +86,13 @@ Note that [10,2,4,12], [6,2,4,16], etc. are also accepted.
 ```python
 class Solution:
     def maximumEvenSplit(self, finalSum: int) -> List[int]:
-        if finalSum % 2:
+        if finalSum & 1:
             return []
-        i = 2
         ans = []
+        i = 2
         while i <= finalSum:
-            ans.append(i)
             finalSum -= i
+            ans.append(i)
             i += 2
         ans[-1] += finalSum
         return ans
@@ -118,7 +124,9 @@ class Solution {
 public:
     vector<long long> maximumEvenSplit(long long finalSum) {
         vector<long long> ans;
-        if (finalSum % 2) return ans;
+        if (finalSum % 2) {
+            return ans;
+        }
         for (long long i = 2; i <= finalSum; i += 2) {
             ans.push_back(i);
             finalSum -= i;
@@ -159,6 +167,29 @@ function maximumEvenSplit(finalSum: number): number[] {
     }
     ans[ans.length - 1] += finalSum;
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_even_split(mut final_sum: i64) -> Vec<i64> {
+        let mut ans = Vec::new();
+        if final_sum % 2 != 0 {
+            return ans;
+        }
+        let mut i = 2;
+        while i <= final_sum {
+            ans.push(i);
+            final_sum -= i;
+            i += 2;
+        }
+        if let Some(last) = ans.last_mut() {
+            *last += final_sum;
+        }
+        ans
+    }
 }
 ```
 

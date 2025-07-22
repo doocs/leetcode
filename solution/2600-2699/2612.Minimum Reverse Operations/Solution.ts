@@ -1,6 +1,6 @@
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
-    const ans = new Array(n).fill(-1);
-    const ts = new Array(2).fill(0).map(() => new TreeSet<number>());
+    const ans: number[] = Array(n).fill(-1);
+    const ts = [new TreeSet<number>(), new TreeSet<number>()];
     for (let i = 0; i < n; ++i) {
         ts[i % 2].add(i);
     }

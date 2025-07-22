@@ -59,7 +59,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：递归
+
+我们首先判断 $\textit{root}$ 是否为空，若为空则返回 0。否则我们初始化一个变量 $\textit{mx}$ 用来记录子节点的最大深度，然后遍历 $\textit{root}$ 的所有子节点，递归调用 $\text{maxDepth}$ 函数，更新 $\textit{mx}$ 的值。最后返回 $\textit{mx} + 1$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点的数量。
 
 <!-- tabs:start -->
 
@@ -69,17 +73,20 @@ tags:
 """
 # Definition for a Node.
 class Node:
-    def __init__(self, val=None, children=None):
+    def __init__(self, val: Optional[int] = None, children: Optional[List['Node']] = None):
         self.val = val
         self.children = children
 """
 
 
 class Solution:
-    def maxDepth(self, root: 'Node') -> int:
+    def maxDepth(self, root: "Node") -> int:
         if root is None:
             return 0
-        return 1 + max([self.maxDepth(child) for child in root.children], default=0)
+        mx = 0
+        for child in root.children:
+            mx = max(mx, self.maxDepth(child))
+        return 1 + mx
 ```
 
 #### Java
@@ -109,11 +116,11 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        int ans = 1;
+        int mx = 0;
         for (Node child : root.children) {
-            ans = Math.max(ans, 1 + maxDepth(child));
+            mx = Math.max(mx, maxDepth(child));
         }
-        return ans;
+        return 1 + mx;
     }
 }
 ```
@@ -144,10 +151,14 @@ public:
 class Solution {
 public:
     int maxDepth(Node* root) {
-        if (!root) return 0;
-        int ans = 1;
-        for (auto& child : root->children) ans = max(ans, 1 + maxDepth(child));
-        return ans;
+        if (!root) {
+            return 0;
+        }
+        int mx = 0;
+        for (Node* child : root->children) {
+            mx = max(mx, maxDepth(child));
+        }
+        return mx + 1;
     }
 };
 ```
@@ -167,11 +178,35 @@ func maxDepth(root *Node) int {
 	if root == nil {
 		return 0
 	}
-	ans := 1
+	mx := 0
 	for _, child := range root.Children {
-		ans = max(ans, 1+maxDepth(child))
+		mx = max(mx, maxDepth(child))
 	}
-	return ans
+	return 1 + mx
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for _Node.
+ * class _Node {
+ *     val: number
+ *     children: _Node[]
+ *
+ *     constructor(val?: number, children?: _Node[]) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = (children===undefined ? [] : children)
+ *     }
+ * }
+ */
+
+function maxDepth(root: _Node | null): number {
+    if (!root) {
+        return 0;
+    }
+    return 1 + Math.max(...root.children.map(child => maxDepth(child)), 0);
 }
 ```
 

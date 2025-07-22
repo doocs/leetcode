@@ -144,7 +144,7 @@ public:
         int n = num.size();
         int f[n][25];
         memset(f, -1, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int k) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int k) -> int {
             if (i == n) {
                 return k == 0 ? 0 : n;
             }

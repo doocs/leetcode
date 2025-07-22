@@ -141,7 +141,7 @@ class Solution {
 class Solution {
 public:
     vector<int> largestDivisibleSubset(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int n = nums.size();
         int f[n];
         int k = 0;
@@ -198,6 +198,79 @@ func largestDivisibleSubset(nums []int) (ans []int) {
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function largestDivisibleSubset(nums: number[]): number[] {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    const f: number[] = Array(n).fill(1);
+    let k = 0;
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (nums[i] % nums[j] === 0) {
+                f[i] = Math.max(f[i], f[j] + 1);
+            }
+        }
+        if (f[k] < f[i]) {
+            k = i;
+        }
+    }
+
+    let m = f[k];
+    const ans: number[] = [];
+    for (let i = k; m > 0; --i) {
+        if (nums[k] % nums[i] === 0 && f[i] === m) {
+            ans.push(nums[i]);
+            k = i;
+            --m;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn largest_divisible_subset(nums: Vec<i32>) -> Vec<i32> {
+        let mut nums = nums;
+        nums.sort();
+
+        let n = nums.len();
+        let mut f = vec![1; n];
+        let mut k = 0;
+
+        for i in 0..n {
+            for j in 0..i {
+                if nums[i] % nums[j] == 0 {
+                    f[i] = f[i].max(f[j] + 1);
+                }
+            }
+            if f[k] < f[i] {
+                k = i;
+            }
+        }
+
+        let mut m = f[k];
+        let mut ans = Vec::new();
+
+        for i in (0..=k).rev() {
+            if nums[k] % nums[i] == 0 && f[i] == m {
+                ans.push(nums[i]);
+                k = i;
+                m -= 1;
+            }
+        }
+
+        ans
+    }
 }
 ```
 

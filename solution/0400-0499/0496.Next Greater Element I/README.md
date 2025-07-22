@@ -72,19 +72,13 @@ tags:
 
 ### 方法一：单调栈
 
-单调栈常见模型：找出每个数左/右边**离它最近的**且**比它大/小的数**。模板：
+我们可以从右往左遍历数组 $\textit{nums2}$，维护一个从栈顶到栈底单调递增的栈 $\textit{stk}$，并且用哈希表 $\textit{d}$ 记录每个元素的下一个更大元素。
 
-```python
-stk = []
-for i in range(n):
-    while stk and check(stk[-1], i):
-        stk.pop()
-    stk.append(i)
-```
+遍历到元素 $x$ 时，如果栈不为空且栈顶元素小于 $x$，我们就不断弹出栈顶元素，直到栈为空或者栈顶元素大于等于 $x$。此时，如果栈不为空，栈顶元素就是 $x$ 的下一个更大元素，否则 $x$ 没有下一个更大元素。
 
-对于本题，先对将 `nums2` 中的每一个元素，求出其下一个更大的元素。随后对于将这些答案放入哈希表 $m$ 中，再遍历数组 `nums1`，并直接找出答案。对于 `nums2`，可以使用单调栈来解决这个问题。
+最后我们遍历数组 $\textit{nums1}$，根据哈希表 $\textit{d}$ 得到答案。
 
-时间复杂度 $O(M+N)$，其中 $M$ 和 $N$ 分别为数组 `nums1` 和 `nums2` 的长度。
+时间复杂度 $O(m + n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别为数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -93,13 +87,15 @@ for i in range(n):
 ```python
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        m = {}
         stk = []
-        for v in nums2:
-            while stk and stk[-1] < v:
-                m[stk.pop()] = v
-            stk.append(v)
-        return [m.get(v, -1) for v in nums1]
+        d = {}
+        for x in nums2[::-1]:
+            while stk and stk[-1] < x:
+                stk.pop()
+            if stk:
+                d[x] = stk[-1]
+            stk.append(x)
+        return [d.get(x, -1) for x in nums1]
 ```
 
 #### Java
@@ -108,17 +104,21 @@ class Solution:
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Deque<Integer> stk = new ArrayDeque<>();
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int v : nums2) {
-            while (!stk.isEmpty() && stk.peek() < v) {
-                m.put(stk.pop(), v);
+        int m = nums1.length, n = nums2.length;
+        Map<Integer, Integer> d = new HashMap(n);
+        for (int i = n - 1; i >= 0; --i) {
+            int x = nums2[i];
+            while (!stk.isEmpty() && stk.peek() < x) {
+                stk.pop();
             }
-            stk.push(v);
+            if (!stk.isEmpty()) {
+                d.put(x, stk.peek());
+            }
+            stk.push(x);
         }
-        int n = nums1.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            ans[i] = m.getOrDefault(nums1[i], -1);
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            ans[i] = d.getOrDefault(nums1[i], -1);
         }
         return ans;
     }
@@ -132,16 +132,21 @@ class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         stack<int> stk;
-        unordered_map<int, int> m;
-        for (int& v : nums2) {
-            while (!stk.empty() && stk.top() < v) {
-                m[stk.top()] = v;
+        unordered_map<int, int> d;
+        ranges::reverse(nums2);
+        for (int x : nums2) {
+            while (!stk.empty() && stk.top() < x) {
                 stk.pop();
             }
-            stk.push(v);
+            if (!stk.empty()) {
+                d[x] = stk.top();
+            }
+            stk.push(x);
         }
         vector<int> ans;
-        for (int& v : nums1) ans.push_back(m.count(v) ? m[v] : -1);
+        for (int x : nums1) {
+            ans.push_back(d.contains(x) ? d[x] : -1);
+        }
         return ans;
     }
 };
@@ -150,25 +155,27 @@ public:
 #### Go
 
 ```go
-func nextGreaterElement(nums1 []int, nums2 []int) []int {
+func nextGreaterElement(nums1 []int, nums2 []int) (ans []int) {
 	stk := []int{}
-	m := map[int]int{}
-	for _, v := range nums2 {
-		for len(stk) > 0 && stk[len(stk)-1] < v {
-			m[stk[len(stk)-1]] = v
+	d := map[int]int{}
+	for i := len(nums2) - 1; i >= 0; i-- {
+		x := nums2[i]
+		for len(stk) > 0 && stk[len(stk)-1] < x {
 			stk = stk[:len(stk)-1]
 		}
-		stk = append(stk, v)
-	}
-	var ans []int
-	for _, v := range nums1 {
-		val, ok := m[v]
-		if !ok {
-			val = -1
+		if len(stk) > 0 {
+			d[x] = stk[len(stk)-1]
 		}
-		ans = append(ans, val)
+		stk = append(stk, x)
 	}
-	return ans
+	for _, x := range nums1 {
+		if v, ok := d[x]; ok {
+			ans = append(ans, v)
+		} else {
+			ans = append(ans, -1)
+		}
+	}
+	return
 }
 ```
 
@@ -176,15 +183,16 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 
 ```ts
 function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
-    const map = new Map<number, number>();
-    const stack: number[] = [Infinity];
-    for (const num of nums2) {
-        while (num > stack[stack.length - 1]) {
-            map.set(stack.pop(), num);
+    const stk: number[] = [];
+    const d: Record<number, number> = {};
+    for (const x of nums2.reverse()) {
+        while (stk.length && stk.at(-1)! < x) {
+            stk.pop();
         }
-        stack.push(num);
+        d[x] = stk.length ? stk.at(-1)! : -1;
+        stk.push(x);
     }
-    return nums1.map(num => map.get(num) || -1);
+    return nums1.map(x => d[x]);
 }
 ```
 
@@ -195,162 +203,26 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn next_greater_element(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
-        let mut map = HashMap::new();
-        let mut stack = Vec::new();
-        for num in nums2 {
-            while num > *stack.last().unwrap_or(&i32::MAX) {
-                map.insert(stack.pop().unwrap(), num);
-            }
-            stack.push(num);
-        }
-        nums1
-            .iter()
-            .map(|n| *map.get(n).unwrap_or(&-1))
-            .collect::<Vec<i32>>()
-    }
-}
-```
-
-#### JavaScript
-
-```js
-/**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number[]}
- */
-var nextGreaterElement = function (nums1, nums2) {
-    let stk = [];
-    let m = {};
-    for (let v of nums2) {
-        while (stk && stk[stk.length - 1] < v) {
-            m[stk.pop()] = v;
-        }
-        stk.push(v);
-    }
-    return nums1.map(e => m[e] || -1);
-};
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        m = {}
-        stk = []
-        for v in nums2[::-1]:
-            while stk and stk[-1] <= v:
-                stk.pop()
-            if stk:
-                m[v] = stk[-1]
-            stk.append(v)
-        return [m.get(x, -1) for x in nums1]
-```
-
-#### Java
-
-```java
-class Solution {
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        Deque<Integer> stk = new ArrayDeque<>();
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int i = nums2.length - 1; i >= 0; --i) {
-            while (!stk.isEmpty() && stk.peek() <= nums2[i]) {
-                stk.pop();
-            }
-            if (!stk.isEmpty()) {
-                m.put(nums2[i], stk.peek());
-            }
-            stk.push(nums2[i]);
-        }
-        int n = nums1.length;
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            ans[i] = m.getOrDefault(nums1[i], -1);
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        stack<int> stk;
-        unordered_map<int, int> m;
-        for (int i = nums2.size() - 1; ~i; --i) {
-            while (!stk.empty() && stk.top() <= nums2[i]) stk.pop();
-            if (!stk.empty()) m[nums2[i]] = stk.top();
-            stk.push(nums2[i]);
-        }
-        vector<int> ans;
-        for (int& v : nums1) ans.push_back(m.count(v) ? m[v] : -1);
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func nextGreaterElement(nums1 []int, nums2 []int) []int {
-	stk := []int{}
-	m := map[int]int{}
-	for i := len(nums2) - 1; i >= 0; i-- {
-		for len(stk) > 0 && stk[len(stk)-1] <= nums2[i] {
-			stk = stk[:len(stk)-1]
-		}
-		if len(stk) > 0 {
-			m[nums2[i]] = stk[len(stk)-1]
-		}
-		stk = append(stk, nums2[i])
-	}
-	var ans []int
-	for _, v := range nums1 {
-		val, ok := m[v]
-		if !ok {
-			val = -1
-		}
-		ans = append(ans, val)
-	}
-	return ans
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn next_greater_element(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
-        nums1
-            .iter()
-            .map(|target| {
-                let mut res = -1;
-                for num in nums2.iter().rev() {
-                    if num == target {
-                        break;
-                    }
-                    if num > target {
-                        res = *num;
-                    }
+        let mut stk = Vec::new();
+        let mut d = HashMap::new();
+        for &x in nums2.iter().rev() {
+            while let Some(&top) = stk.last() {
+                if top <= x {
+                    stk.pop();
+                } else {
+                    break;
                 }
-                res
-            })
-            .collect::<Vec<i32>>()
+            }
+            if let Some(&top) = stk.last() {
+                d.insert(x, top);
+            }
+            stk.push(x);
+        }
+
+        nums1
+            .into_iter()
+            .map(|x| *d.get(&x).unwrap_or(&-1))
+            .collect()
     }
 }
 ```
@@ -364,18 +236,16 @@ impl Solution {
  * @return {number[]}
  */
 var nextGreaterElement = function (nums1, nums2) {
-    let stk = [];
-    let m = {};
-    for (let v of nums2.reverse()) {
-        while (stk && stk[stk.length - 1] <= v) {
+    const stk = [];
+    const d = {};
+    for (const x of nums2.reverse()) {
+        while (stk.length && stk.at(-1) < x) {
             stk.pop();
         }
-        if (stk) {
-            m[v] = stk[stk.length - 1];
-        }
-        stk.push(v);
+        d[x] = stk.length ? stk.at(-1) : -1;
+        stk.push(x);
     }
-    return nums1.map(e => m[e] || -1);
+    return nums1.map(x => d[x]);
 };
 ```
 

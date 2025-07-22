@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2623.Memoize/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->
@@ -83,7 +85,7 @@ values = [[5],[]]
 <ul>
 	<li><code>0 &lt;= a, b &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= n &lt;= 10</code></li>
-	<li><code>0 &lt;= actions.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= actions.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>actions.length === values.length</code></li>
 	<li><code>actions[i]</code> is one of &quot;call&quot; and &quot;getCallCount&quot;</li>
 	<li><code>fnName</code> is one of &quot;sum&quot;, &quot;factorial&quot; and&nbsp;&quot;fib&quot;</li>

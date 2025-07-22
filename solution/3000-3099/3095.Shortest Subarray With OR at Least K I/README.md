@@ -38,6 +38,8 @@ tags:
 <p><strong>解释：</strong></p>
 
 <p>子数组&nbsp;<code>[3]</code>&nbsp;的按位&nbsp;<code>OR</code> 值为&nbsp;<code>3</code>&nbsp;，所以我们返回 <code>1</code>&nbsp;。</p>
+
+<p>注意，<code>[2]</code> 也是一个特别子数组。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -241,6 +243,44 @@ function minimumSubarrayLength(nums: number[], k: number): number {
         }
     }
     return ans === n + 1 ? -1 : ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_subarray_length(nums: Vec<i32>, k: i32) -> i32 {
+        let n = nums.len();
+        let mut cnt = vec![0; 32];
+        let mut ans = n as i32 + 1;
+        let mut s = 0;
+        let mut i = 0;
+
+        for (j, &x) in nums.iter().enumerate() {
+            s |= x;
+            for h in 0..32 {
+                if (x >> h) & 1 == 1 {
+                    cnt[h] += 1;
+                }
+            }
+
+            while s >= k && i <= j {
+                ans = ans.min((j - i + 1) as i32);
+                let y = nums[i];
+                for h in 0..32 {
+                    if (y >> h) & 1 == 1 {
+                        cnt[h] -= 1;
+                        if cnt[h] == 0 {
+                            s ^= 1 << h;
+                        }
+                    }
+                }
+                i += 1;
+            }
+        }
+        if ans > n as i32 { -1 } else { ans }
+    }
 }
 ```
 

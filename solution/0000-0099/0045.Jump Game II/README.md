@@ -20,7 +20,7 @@ tags:
 
 <p>给定一个长度为 <code>n</code> 的 <strong>0 索引</strong>整数数组 <code>nums</code>。初始位置为 <code>nums[0]</code>。</p>
 
-<p>每个元素 <code>nums[i]</code> 表示从索引 <code>i</code> 向前跳转的最大长度。换句话说，如果你在 <code>nums[i]</code> 处，你可以跳转到任意 <code>nums[i + j]</code> 处:</p>
+<p>每个元素 <code>nums[i]</code> 表示从索引 <code>i</code> 向后跳转的最大长度。换句话说，如果你在 <code>nums[i]</code> 处，你可以跳转到任意 <code>nums[i + j]</code> 处:</p>
 
 <ul>
 	<li><code>0 &lt;= j &lt;= nums[i]</code>&nbsp;</li>
@@ -169,18 +169,17 @@ function jump(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn jump(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let mut dp = vec![i32::MAX; n];
-        dp[0] = 0;
-        for i in 0..n - 1 {
-            for j in 1..=nums[i] as usize {
-                if i + j >= n {
-                    break;
-                }
-                dp[i + j] = dp[i + j].min(dp[i] + 1);
+        let mut ans = 0;
+        let mut mx = 0;
+        let mut last = 0;
+        for i in 0..(nums.len() - 1) {
+            mx = mx.max(i as i32 + nums[i]);
+            if last == i as i32 {
+                ans += 1;
+                last = mx;
             }
         }
-        dp[n - 1]
+        ans
     }
 }
 ```
@@ -206,19 +205,18 @@ public class Solution {
 #### C
 
 ```c
-#define min(a, b) a < b ? a : b
 int jump(int* nums, int numsSize) {
-    int dp[numsSize];
-    for (int i = 0; i < numsSize; i++) {
-        dp[i] = numsSize;
-    }
-    dp[0] = 0;
-    for (int i = 0; i < numsSize - 1; i++) {
-        for (int j = i + 1; j < (min(i + nums[i] + 1, numsSize)); j++) {
-            dp[j] = min(dp[j], dp[i] + 1);
+    int ans = 0;
+    int mx = 0;
+    int last = 0;
+    for (int i = 0; i < numsSize - 1; ++i) {
+        mx = (mx > i + nums[i]) ? mx : (i + nums[i]);
+        if (last == i) {
+            ++ans;
+            last = mx;
         }
     }
-    return dp[numsSize - 1];
+    return ans;
 }
 ```
 
@@ -227,23 +225,23 @@ int jump(int* nums, int numsSize) {
 ```php
 class Solution {
     /**
-     * @param integer[] $nums
-     * @return integer
+     * @param Integer[] $nums
+     * @return Integer
      */
-
     function jump($nums) {
-        $maxReach = 0;
-        $steps = 0;
-        $lastJump = 0;
-        for ($i = 0; $i <= count($nums) - 2; $i++) {
-            $maxReach = max($maxReach, $i + $nums[$i]);
-            if ($i == $lastJump) {
-                $lastJump = $maxReach;
-                $steps++;
+        $ans = 0;
+        $mx = 0;
+        $last = 0;
+
+        for ($i = 0; $i < count($nums) - 1; $i++) {
+            $mx = max($mx, $i + $nums[$i]);
+            if ($last == $i) {
+                $ans++;
+                $last = $mx;
             }
         }
 
-        return $steps;
+        return $ans;
     }
 }
 ```

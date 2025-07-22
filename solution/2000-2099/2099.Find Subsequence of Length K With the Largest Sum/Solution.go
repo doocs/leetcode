@@ -1,13 +1,13 @@
 func maxSubsequence(nums []int, k int) []int {
-	idx := make([]int, len(nums))
+	idx := slices.Clone(make([]int, len(nums)))
 	for i := range idx {
 		idx[i] = i
 	}
-	sort.Slice(idx, func(i, j int) bool { return nums[idx[i]] > nums[idx[j]] })
-	sort.Ints(idx[:k])
+	slices.SortFunc(idx, func(i, j int) int { return nums[i] - nums[j] })
+	slices.Sort(idx[len(idx)-k:])
 	ans := make([]int, k)
-	for i, j := range idx[:k] {
-		ans[i] = nums[j]
+	for i := range ans {
+		ans[i] = nums[idx[len(idx)-k+i]]
 	}
 	return ans
 }

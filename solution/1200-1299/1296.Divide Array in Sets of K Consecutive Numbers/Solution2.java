@@ -4,19 +4,18 @@ class Solution {
             return false;
         }
         TreeMap<Integer, Integer> tm = new TreeMap<>();
-        for (int h : nums) {
-            tm.put(h, tm.getOrDefault(h, 0) + 1);
+        for (int x : nums) {
+            tm.merge(x, 1, Integer::sum);
         }
         while (!tm.isEmpty()) {
-            int v = tm.firstKey();
-            for (int i = v; i < v + k; ++i) {
-                if (!tm.containsKey(i)) {
+            int x = tm.firstKey();
+            for (int y = x; y < x + k; ++y) {
+                int t = tm.merge(y, -1, Integer::sum);
+                if (t < 0) {
                     return false;
                 }
-                if (tm.get(i) == 1) {
-                    tm.remove(i);
-                } else {
-                    tm.put(i, tm.get(i) - 1);
+                if (t == 0) {
+                    tm.remove(y);
                 }
             }
         }

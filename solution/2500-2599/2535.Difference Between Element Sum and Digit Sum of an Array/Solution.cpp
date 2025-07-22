@@ -1,13 +1,13 @@
 class Solution {
 public:
     int differenceOfSum(vector<int>& nums) {
-        int a = 0, b = 0;
-        for (int x : nums) {
-            a += x;
-            for (; x; x /= 10) {
-                b += x % 10;
+        int x = 0, y = 0;
+        for (int v : nums) {
+            x += v;
+            for (; v; v /= 10) {
+                y += v % 10;
             }
         }
-        return abs(a - b);
+        return x - y;
     }
 };

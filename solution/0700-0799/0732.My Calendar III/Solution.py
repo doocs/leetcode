@@ -13,7 +13,7 @@ class SegmentTree:
     def __init__(self):
         self.root = Node(1, int(1e9 + 1))
 
-    def modify(self, l, r, v, node=None):
+    def modify(self, l: int, r: int, v: int, node: Node = None):
         if l > r:
             return
         if node is None:
@@ -29,7 +29,7 @@ class SegmentTree:
             self.modify(l, r, v, node.right)
         self.pushup(node)
 
-    def query(self, l, r, node=None):
+    def query(self, l: int, r: int, node: Node = None) -> int:
         if l > r:
             return 0
         if node is None:
@@ -44,10 +44,10 @@ class SegmentTree:
             v = max(v, self.query(l, r, node.right))
         return v
 
-    def pushup(self, node):
+    def pushup(self, node: Node):
         node.v = max(node.left.v, node.right.v)
 
-    def pushdown(self, node):
+    def pushdown(self, node: Node):
         if node.left is None:
             node.left = Node(node.l, node.mid)
         if node.right is None:

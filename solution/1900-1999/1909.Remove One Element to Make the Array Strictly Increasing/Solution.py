@@ -1,16 +1,16 @@
 class Solution:
     def canBeIncreasing(self, nums: List[int]) -> bool:
-        def check(nums, i):
-            prev = -inf
-            for j, num in enumerate(nums):
-                if i == j:
+        def check(k: int) -> bool:
+            pre = -inf
+            for i, x in enumerate(nums):
+                if i == k:
                     continue
-                if prev >= nums[j]:
+                if pre >= x:
                     return False
-                prev = nums[j]
+                pre = x
             return True
 
-        i, n = 1, len(nums)
-        while i < n and nums[i - 1] < nums[i]:
+        i = 0
+        while i + 1 < len(nums) and nums[i] < nums[i + 1]:
             i += 1
-        return check(nums, i - 1) or check(nums, i)
+        return check(i) or check(i + 1)

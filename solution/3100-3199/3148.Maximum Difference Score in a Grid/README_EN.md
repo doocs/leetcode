@@ -79,7 +79,7 @@ $$
 f[i][j] = \min(f[i-1][j], f[i][j-1], grid[i][j])
 $$
 
-So the answer is the maximum value of $\text{grid}[i][j] - \min(f[i-1][j], f[i][j-1])$.
+So the answer is the maximum value of $\textit{grid}[i][j] - \min(f[i-1][j], f[i][j-1])$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 

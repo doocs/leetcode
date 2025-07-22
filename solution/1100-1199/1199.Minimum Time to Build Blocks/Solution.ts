@@ -5,7 +5,7 @@ function minBuildTime(blocks: number[], split: number): number {
     }
     while (pq.size() > 1) {
         pq.dequeue()!;
-        pq.enqueue(pq.dequeue()!.element + split);
+        pq.enqueue(pq.dequeue()! + split);
     }
-    return pq.dequeue()!.element;
+    return pq.dequeue()!;
 }

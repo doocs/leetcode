@@ -78,7 +78,7 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 	<li><code>1 &lt;= dictionary[i].length &lt;= 100</code></li>
 	<li>All <code>keys[i]</code> and <code>dictionary[i]</code> are <strong>unique</strong>.</li>
 	<li><code>1 &lt;= word1.length &lt;= 2000</code></li>
-	<li><code>1 &lt;= word2.length &lt;= 200</code></li>
+	<li><code>2 &lt;= word2.length &lt;= 200</code></li>
 	<li>All <code>word1[i]</code> appear in <code>keys</code>.</li>
 	<li><code>word2.length</code> is even.</li>
 	<li><code>keys</code>, <code>values[i]</code>, <code>dictionary[i]</code>, <code>word1</code>, and <code>word2</code> only contain lowercase English letters.</li>
@@ -91,7 +91,17 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table $\textit{mp}$ to record the encryption result of each character, and another hash table $\textit{cnt}$ to record the number of occurrences of each encryption result.
+
+In the constructor, we traverse $\textit{keys}$ and $\textit{values}$, storing each character and its corresponding encryption result in $\textit{mp}$. Then, we traverse $\textit{dictionary}$ to count the occurrences of each encryption result. The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{keys}$ and $\textit{dictionary}$, respectively.
+
+In the encryption function, we traverse each character of the input string $\textit{word1}$, look up its encryption result, and concatenate them. If a character does not have a corresponding encryption result, it means encryption is not possible, and we return an empty string. The time complexity is $O(k)$, where $k$ is the length of $\textit{word1}$.
+
+In the decryption function, we directly return the count of $\textit{word2}$ in $\textit{cnt}$. The time complexity is $O(1)$.
+
+The space complexity is $O(n + m)$.
 
 <!-- tabs:start -->
 
@@ -133,8 +143,7 @@ class Encrypter {
             mp.put(keys[i], values[i]);
         }
         for (String w : dictionary) {
-            w = encrypt(w);
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+            cnt.merge(encrypt(w), 1, Integer::sum);
         }
     }
 
@@ -171,14 +180,20 @@ public:
     unordered_map<char, string> mp;
 
     Encrypter(vector<char>& keys, vector<string>& values, vector<string>& dictionary) {
-        for (int i = 0; i < keys.size(); ++i) mp[keys[i]] = values[i];
-        for (auto v : dictionary) cnt[encrypt(v)]++;
+        for (int i = 0; i < keys.size(); ++i) {
+            mp[keys[i]] = values[i];
+        }
+        for (auto v : dictionary) {
+            cnt[encrypt(v)]++;
+        }
     }
 
     string encrypt(string word1) {
         string res = "";
         for (char c : word1) {
-            if (!mp.count(c)) return "";
+            if (!mp.count(c)) {
+                return "";
+            }
             res += mp[c];
         }
         return res;
@@ -239,6 +254,49 @@ func (this *Encrypter) Decrypt(word2 string) int {
  * obj := Constructor(keys, values, dictionary);
  * param_1 := obj.Encrypt(word1);
  * param_2 := obj.Decrypt(word2);
+ */
+```
+
+#### TypeScript
+
+```ts
+class Encrypter {
+    private mp: Map<string, string> = new Map();
+    private cnt: Map<string, number> = new Map();
+
+    constructor(keys: string[], values: string[], dictionary: string[]) {
+        for (let i = 0; i < keys.length; i++) {
+            this.mp.set(keys[i], values[i]);
+        }
+        for (const w of dictionary) {
+            const encrypted = this.encrypt(w);
+            if (encrypted !== '') {
+                this.cnt.set(encrypted, (this.cnt.get(encrypted) || 0) + 1);
+            }
+        }
+    }
+
+    encrypt(word: string): string {
+        let res = '';
+        for (const c of word) {
+            if (!this.mp.has(c)) {
+                return '';
+            }
+            res += this.mp.get(c);
+        }
+        return res;
+    }
+
+    decrypt(word: string): number {
+        return this.cnt.get(word) || 0;
+    }
+}
+
+/**
+ * Your Encrypter object will be instantiated and called as such:
+ * const obj = new Encrypter(keys, values, dictionary);
+ * const param_1 = obj.encrypt(word1);
+ * const param_2 = obj.decrypt(word2);
  */
 ```
 

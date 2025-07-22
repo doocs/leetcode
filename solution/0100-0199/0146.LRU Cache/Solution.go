@@ -1,68 +1,76 @@
-type node struct {
+type Node struct {
 	key, val   int
-	prev, next *node
+	prev, next *Node
 }
 
 type LRUCache struct {
-	capacity   int
-	cache      map[int]*node
-	head, tail *node
+	size, capacity int
+	head, tail     *Node
+	cache          map[int]*Node
 }
 
 func Constructor(capacity int) LRUCache {
-	head := new(node)
-	tail := new(node)
+	head := &Node{}
+	tail := &Node{}
 	head.next = tail
 	tail.prev = head
 	return LRUCache{
 		capacity: capacity,
-		cache:    make(map[int]*node, capacity),
 		head:     head,
 		tail:     tail,
+		cache:    make(map[int]*Node),
 	}
 }
 
 func (this *LRUCache) Get(key int) int {
-	n, ok := this.cache[key]
-	if !ok {
-		return -1
+	if node, exists := this.cache[key]; exists {
+		this.removeNode(node)
+		this.addToHead(node)
+		return node.val
 	}
-	this.moveToFront(n)
-	return n.val
+	return -1
 }
 
 func (this *LRUCache) Put(key int, value int) {
-	n, ok := this.cache[key]
-	if ok {
-		n.val = value
-		this.moveToFront(n)
-		return
+	if node, exists := this.cache[key]; exists {
+		this.removeNode(node)
+		node.val = value
+		this.addToHead(node)
+	} else {
+		node := &Node{key: key, val: value}
+		this.cache[key] = node
+		this.addToHead(node)
+		if this.size++; this.size > this.capacity {
+			node = this.tail.prev
+			delete(this.cache, node.key)
+			this.removeNode(node)
+			this.size--
+		}
 	}
-	if len(this.cache) == this.capacity {
-		back := this.tail.prev
-		this.remove(back)
-		delete(this.cache, back.key)
-	}
-	n = &node{key: key, val: value}
-	this.pushFront(n)
-	this.cache[key] = n
 }
 
-func (this *LRUCache) moveToFront(n *node) {
-	this.remove(n)
-	this.pushFront(n)
+func (this *LRUCache) removeNode(node *Node) {
+	node.prev.next = node.next
+	node.next.prev = node.prev
 }
 
-func (this *LRUCache) remove(n *node) {
-	n.prev.next = n.next
-	n.next.prev = n.prev
-	n.prev = nil
-	n.next = nil
+func (this *LRUCache) addToHead(node *Node) {
+	node.next = this.head.next
+	node.prev = this.head
+	this.head.next = node
+	node.next.prev = node
 }
 
-func (this *LRUCache) pushFront(n *node) {
-	n.prev = this.head
-	n.next = this.head.next
-	this.head.next.prev = n
-	this.head.next = n
-}
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * obj := Constructor(capacity);
+ * param_1 := obj.Get(key);
+ * obj.Put(key,value);
+ */
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * obj := Constructor(capacity);
+ * param_1 := obj.Get(key);
+ * obj.Put(key,value);
+ */

@@ -17,7 +17,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Write a function that takes the binary representation of a positive integer and returns the number of <span data-keyword="set-bit">set bits</span> it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank">Hamming weight</a>).</p>
+<p>Given a positive integer <code>n</code>, write a function that returns the number of <span data-keyword="set-bit">set bits</span> in its binary representation (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank">Hamming weight</a>).</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -60,7 +60,7 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n&nbsp;&lt;= 2<sup>31</sup>&nbsp;- 1</code></li>
+	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -186,6 +186,22 @@ int hammingWeight(uint32_t n) {
 }
 ```
 
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun hammingWeight(n: Int): Int {
+        var count = 0
+        var num = n
+        while (num != 0) {
+            num = num and (num - 1)
+            count++
+        }
+        return count
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -253,6 +269,19 @@ func hammingWeight(num uint32) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function hammingWeight(n: number): number {
+    let count = 0;
+    while (n) {
+        n -= n & -n;
+        count++;
+    }
+    return count;
+}
+```
+
 #### Rust
 
 ```rust
@@ -264,6 +293,39 @@ impl Solution {
             res += 1;
         }
         res
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+    let count = 0;
+    while (n) {
+        n -= n & -n;
+        count++;
+    }
+    return count;
+};
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun hammingWeight(n: Int): Int {
+        var count = 0
+        var num = n
+        while (num != 0) {
+            num -= num and (-num)
+            count++
+        }
+        return count
     }
 }
 ```

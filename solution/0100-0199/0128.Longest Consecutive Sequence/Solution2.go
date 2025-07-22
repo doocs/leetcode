@@ -3,7 +3,7 @@ func longestConsecutive(nums []int) (ans int) {
 	for _, x := range nums {
 		s[x] = true
 	}
-	for _, x := range nums {
+	for x, _ := range s {
 		if !s[x-1] {
 			y := x + 1
 			for s[y] {

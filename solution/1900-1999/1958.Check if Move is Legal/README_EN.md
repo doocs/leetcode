@@ -64,9 +64,9 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 
 ### Solution 1: Enumeration
 
-We enumerate all possible directions. For each direction $(a, b)$, we start from $(\textit{rMove}, \textit{cMove})$ and use a variable $\textit{cnt}$ to record the number of cells we have passed. If, during our traversal, we encounter a cell of color $\textit{color}$ and $\textit{cnt} > 1$, then we have found a good line segment and return $\text{true}$.
+We enumerate all possible directions. For each direction $(a, b)$, we start from $(\textit{rMove}, \textit{cMove})$ and use a variable $\textit{cnt}$ to record the number of cells we have passed. If, during our traversal, we encounter a cell of color $\textit{color}$ and $\textit{cnt} > 1$, then we have found a good line segment and return $\textit{true}$.
 
-If no good line segments are found after the enumeration, we return $\text{false}$.
+If no good line segments are found after the enumeration, we return $\textit{false}$.
 
 The time complexity is $O(m + n)$, where $m$ is the number of rows and $n$ is the number of columns in $\textit{board}$, with $m = n = 8$ in this problem. The space complexity is $O(1)$.
 

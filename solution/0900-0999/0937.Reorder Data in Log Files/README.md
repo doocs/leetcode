@@ -75,6 +75,14 @@ tags:
 
 ### 方法一：自定义排序
 
+我们可以使用自定义排序的方法，将日志分为两类：字母日志和数字日志。
+
+对于字母日志，我们需要按照题目要求进行排序，即先按内容排序，再按标识符排序。
+
+对于数字日志，我们只需要保留原来的相对顺序。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是日志的数量。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -82,11 +90,11 @@ tags:
 ```python
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        def cmp(x):
-            a, b = x.split(' ', 1)
-            return (0, b, a) if b[0].isalpha() else (1,)
+        def f(log: str):
+            id_, rest = log.split(" ", 1)
+            return (0, rest, id_) if rest[0].isalpha() else (1,)
 
-        return sorted(logs, key=cmp)
+        return sorted(logs, key=f)
 ```
 
 #### Java
@@ -94,24 +102,86 @@ class Solution:
 ```java
 class Solution {
     public String[] reorderLogFiles(String[] logs) {
-        Arrays.sort(logs, this::cmp);
+        Arrays.sort(logs, (log1, log2) -> {
+            String[] split1 = log1.split(" ", 2);
+            String[] split2 = log2.split(" ", 2);
+
+            boolean isLetter1 = Character.isLetter(split1[1].charAt(0));
+            boolean isLetter2 = Character.isLetter(split2[1].charAt(0));
+
+            if (isLetter1 && isLetter2) {
+                int cmp = split1[1].compareTo(split2[1]);
+                if (cmp != 0) {
+                    return cmp;
+                }
+                return split1[0].compareTo(split2[0]);
+            }
+
+            return isLetter1 ? -1 : (isLetter2 ? 1 : 0);
+        });
+
         return logs;
     }
+}
+```
 
-    private int cmp(String a, String b) {
-        String[] t1 = a.split(" ", 2);
-        String[] t2 = b.split(" ", 2);
-        boolean d1 = Character.isDigit(t1[1].charAt(0));
-        boolean d2 = Character.isDigit(t2[1].charAt(0));
-        if (!d1 && !d2) {
-            int v = t1[1].compareTo(t2[1]);
-            return v == 0 ? t1[0].compareTo(t2[0]) : v;
-        }
-        if (d1 && d2) {
-            return 0;
-        }
-        return d1 ? 1 : -1;
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> reorderLogFiles(vector<string>& logs) {
+        stable_sort(logs.begin(), logs.end(), [](const string& log1, const string& log2) {
+            int idx1 = log1.find(' ');
+            int idx2 = log2.find(' ');
+            string id1 = log1.substr(0, idx1);
+            string id2 = log2.substr(0, idx2);
+            string content1 = log1.substr(idx1 + 1);
+            string content2 = log2.substr(idx2 + 1);
+
+            bool isLetter1 = isalpha(content1[0]);
+            bool isLetter2 = isalpha(content2[0]);
+
+            if (isLetter1 && isLetter2) {
+                if (content1 != content2) {
+                    return content1 < content2;
+                }
+                return id1 < id2;
+            }
+
+            return isLetter1 > isLetter2;
+        });
+
+        return logs;
     }
+};
+```
+
+#### Go
+
+```go
+func reorderLogFiles(logs []string) []string {
+	sort.SliceStable(logs, func(i, j int) bool {
+		log1, log2 := logs[i], logs[j]
+		idx1 := strings.IndexByte(log1, ' ')
+		idx2 := strings.IndexByte(log2, ' ')
+		id1, content1 := log1[:idx1], log1[idx1+1:]
+		id2, content2 := log2[:idx2], log2[idx2+1:]
+
+		isLetter1 := 'a' <= content1[0] && content1[0] <= 'z'
+		isLetter2 := 'a' <= content2[0] && content2[0] <= 'z'
+
+		if isLetter1 && isLetter2 {
+			if content1 != content2 {
+				return content1 < content2
+			}
+			return id1 < id2
+		}
+
+		return isLetter1 && !isLetter2
+	})
+
+	return logs
 }
 ```
 
@@ -119,25 +189,22 @@ class Solution {
 
 ```ts
 function reorderLogFiles(logs: string[]): string[] {
-    const isDigit = (c: string) => c >= '0' && c <= '9';
-    return logs.sort((a, b) => {
-        const end1 = a[a.length - 1];
-        const end2 = b[b.length - 1];
-        if (isDigit(end1) && isDigit(end2)) {
-            return 0;
+    return logs.sort((log1, log2) => {
+        const [id1, content1] = log1.split(/ (.+)/);
+        const [id2, content2] = log2.split(/ (.+)/);
+
+        const isLetter1 = isNaN(Number(content1[0]));
+        const isLetter2 = isNaN(Number(content2[0]));
+
+        if (isLetter1 && isLetter2) {
+            const cmp = content1.localeCompare(content2);
+            if (cmp !== 0) {
+                return cmp;
+            }
+            return id1.localeCompare(id2);
         }
-        if (isDigit(end1)) {
-            return 1;
-        }
-        if (isDigit(end2)) {
-            return -1;
-        }
-        const content1 = a.split(' ').slice(1).join(' ');
-        const content2 = b.split(' ').slice(1).join(' ');
-        if (content1 === content2) {
-            return a < b ? -1 : 1;
-        }
-        return content1 < content2 ? -1 : 1;
+
+        return isLetter1 ? -1 : isLetter2 ? 1 : 0;
     });
 }
 ```
@@ -145,21 +212,36 @@ function reorderLogFiles(logs: string[]): string[] {
 #### Rust
 
 ```rust
+use std::cmp::Ordering;
+
 impl Solution {
-    pub fn reorder_log_files(mut logs: Vec<String>) -> Vec<String> {
-        logs.sort_by(|s1, s2| {
-            let (start1, content1) = s1.split_once(' ').unwrap();
-            let (start2, content2) = s2.split_once(' ').unwrap();
-            match (
-                content1.chars().nth(0).unwrap().is_digit(10),
-                content2.chars().nth(0).unwrap().is_digit(10),
-            ) {
-                (true, true) => std::cmp::Ordering::Equal,
-                (true, false) => std::cmp::Ordering::Greater,
-                (false, true) => std::cmp::Ordering::Less,
-                (false, false) => content1.cmp(&content2).then(start1.cmp(&start2)),
+    pub fn reorder_log_files(logs: Vec<String>) -> Vec<String> {
+        let mut logs = logs;
+
+        logs.sort_by(|log1, log2| {
+            let split1: Vec<&str> = log1.splitn(2, ' ').collect();
+            let split2: Vec<&str> = log2.splitn(2, ' ').collect();
+
+            let is_letter1 = split1[1].chars().next().unwrap().is_alphabetic();
+            let is_letter2 = split2[1].chars().next().unwrap().is_alphabetic();
+
+            if is_letter1 && is_letter2 {
+                let cmp = split1[1].cmp(split2[1]);
+                if cmp != Ordering::Equal {
+                    return cmp;
+                }
+                return split1[0].cmp(split2[0]);
+            }
+
+            if is_letter1 {
+                Ordering::Less
+            } else if is_letter2 {
+                Ordering::Greater
+            } else {
+                Ordering::Equal
             }
         });
+
         logs
     }
 }

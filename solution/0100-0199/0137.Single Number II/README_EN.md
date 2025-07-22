@@ -137,6 +137,19 @@ function singleNumber(nums: number[]): number {
 }
 ```
 
+#### JavaScript
+
+```js
+function singleNumber(nums) {
+    let ans = 0;
+    for (let i = 0; i < 32; i++) {
+        const count = nums.reduce((r, v) => r + ((v >> i) & 1), 0);
+        ans |= count % 3 << i;
+    }
+    return ans;
+}
+```
+
 #### Rust
 
 ```rust
@@ -310,6 +323,22 @@ function singleNumber(nums: number[]): number {
 }
 ```
 
+#### JavaScript
+
+```js
+function singleNumber(nums) {
+    let a = 0;
+    let b = 0;
+    for (const c of nums) {
+        const aa = (~a & b & c) | (a & ~b & ~c);
+        const bb = ~a & (b ^ c);
+        a = aa;
+        b = bb;
+    }
+    return b;
+}
+```
+
 #### Rust
 
 ```rust
@@ -327,6 +356,76 @@ impl Solution {
 
         return b;
     }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Set + Math
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function singleNumber(nums: number[]): number {
+    const sumOfUnique = [...new Set(nums)].reduce((a, b) => a + b, 0);
+    const sum = nums.reduce((a, b) => a + b, 0);
+    return (sumOfUnique * 3 - sum) / 2;
+}
+```
+
+#### JavaScript
+
+```js
+function singleNumber(nums) {
+    const sumOfUnique = [...new Set(nums)].reduce((a, b) => a + b, 0);
+    const sum = nums.reduce((a, b) => a + b, 0);
+    return (sumOfUnique * 3 - sum) / 2;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 4: Bit Manipulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function singleNumber(nums: number[]): number {
+    let [ans, acc] = [0, 0];
+
+    for (const x of nums) {
+        ans ^= x & ~acc;
+        acc ^= x & ~ans;
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```ts
+function singleNumber(nums) {
+    let [ans, acc] = [0, 0];
+
+    for (const x of nums) {
+        ans ^= x & ~acc;
+        acc ^= x & ~ans;
+    }
+
+    return ans;
 }
 ```
 

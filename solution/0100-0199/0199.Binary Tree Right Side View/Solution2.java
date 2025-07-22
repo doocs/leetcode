@@ -21,14 +21,14 @@ class Solution {
         return ans;
     }
 
-    private void dfs(TreeNode node, int depth) {
-        if (node == null) {
+    private void dfs(TreeNode root, int depth) {
+        if (root == null) {
             return;
         }
-        if (depth == ans.size()) {
-            ans.add(node.val);
+        if (ans.size() == depth) {
+            ans.add(root.val);
         }
-        dfs(node.right, depth + 1);
-        dfs(node.left, depth + 1);
+        dfs(root.right, depth + 1);
+        dfs(root.left, depth + 1);
     }
 }

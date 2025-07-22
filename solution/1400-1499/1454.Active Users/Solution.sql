@@ -1,13 +1,25 @@
 # Write your MySQL query statement below
-WITH t AS
-    (SELECT *,
-		 SUM(id) over(partition by id
-    ORDER BY  login_date range interval 4 day preceding)/id cnt
-    FROM
-        (SELECT DISTINCT *
-        FROM Accounts
-        JOIN Logins using(id) ) tt )
-    SELECT DISTINCT id,
-		 name
-FROM t
-WHERE cnt=5;
+WITH
+    T AS (
+        SELECT DISTINCT *
+        FROM
+            Logins
+            JOIN Accounts USING (id)
+    ),
+    P AS (
+        SELECT
+            *,
+            DATE_SUB(
+                login_date,
+                INTERVAL ROW_NUMBER() OVER (
+                    PARTITION BY id
+                    ORDER BY login_date
+                ) DAY
+            ) g
+        FROM T
+    )
+SELECT DISTINCT id, name
+FROM P
+GROUP BY id, g
+HAVING COUNT(*) >= 5
+ORDER BY 1;

@@ -1,8 +1,7 @@
 class Solution:
     def makeFancyString(self, s: str) -> str:
         ans = []
-        for c in s:
-            if len(ans) > 1 and ans[-1] == ans[-2] == c:
-                continue
-            ans.append(c)
-        return ''.join(ans)
+        for i, c in enumerate(s):
+            if i < 2 or c != s[i - 1] or c != s[i - 2]:
+                ans.append(c)
+        return "".join(ans)

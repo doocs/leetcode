@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Cl
 rating: 1255
 source: 第 132 场双周赛 Q1
 tags:
-    - 哈希表
+    - 栈
     - 字符串
     - 模拟
 ---
@@ -30,7 +30,7 @@ tags:
 
 <p>请你返回删除所有数字字符以后剩下的字符串。</p>
 
-<p>&nbsp;</p>
+<p><strong>注意</strong>，该操作不能对左侧没有任何非数字字符的数字执行。</p>
 
 <p><strong class="example">示例 1：</strong></p>
 

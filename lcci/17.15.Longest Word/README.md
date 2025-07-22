@@ -32,117 +32,79 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/
 
 <!-- solution:start -->
 
-### 方法一：前缀树 + DFS
+### 方法一：哈希表 + 排序 + DFS
+
+注意，题目中，每个单词实际上允许重复使用。
+
+我们可以用一个哈希表 $\textit{s}$ 存储所有单词，然后对单词按照长度降序排序，如果长度相同，按照字典序升序排序。
+
+接下来，我们遍历排序后的单词列表，对于每个单词 $\textit{w}$，我们先将其从哈希表 $\textit{s}$ 中移除，然后使用深度优先搜索 $\textit{dfs}$ 判断 $\textit{w}$ 是否可以由其他单词组成，如果可以，返回 $\textit{w}$。
+
+函数 $\textit{dfs}$ 的执行逻辑如下：
+
+-   如果 $\textit{w}$ 为空，返回 $\text{true}$；
+-   遍历 $\textit{w}$ 的所有前缀，如果前缀在哈希表 $\textit{s}$ 中且 $\textit{dfs}$ 返回 $\text{true}$，则返回 $\text{true}$；
+-   如果没有符合条件的前缀，返回 $\text{false}$。
+
+如果没有找到符合条件的单词，返回空字符串。
+
+时间复杂度 $O(m \times n \times \log n + n \times 2^M)$，空间复杂度 $O(m \times n)$。其中 $n$ 和 $m$ 分别为单词列表的长度和单词的平均长度，而 $M$ 为最长单词的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-class Trie:
-    def __init__(self):
-        self.children = [None] * 26
-        self.is_end = False
-
-    def insert(self, word):
-        node = self
-        for c in word:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-        node.is_end = True
-
-    def search(self, word):
-        node = self
-        for c in word:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                return False
-            node = node.children[idx]
-        return node.is_end
-
-
 class Solution:
     def longestWord(self, words: List[str]) -> str:
-        def cmp(a, b):
-            if len(a) != len(b):
-                return len(a) - len(b)
-            return -1 if a > b else 1
+        def dfs(w: str) -> bool:
+            if not w:
+                return True
+            for k in range(1, len(w) + 1):
+                if w[:k] in s and dfs(w[k:]):
+                    return True
+            return False
 
-        def dfs(w):
-            return not w or any(
-                trie.search(w[:i]) and dfs(w[i:]) for i in range(1, len(w) + 1)
-            )
-
-        words.sort(key=cmp_to_key(cmp))
-        trie = Trie()
-        ans = ""
+        s = set(words)
+        words.sort(key=lambda x: (-len(x), x))
         for w in words:
+            s.remove(w)
             if dfs(w):
-                ans = w
-            trie.insert(w)
-        return ans
+                return w
+        return ""
 ```
 
 #### Java
 
 ```java
-class Trie {
-    Trie[] children = new Trie[26];
-    boolean isEnd;
-
-    void insert(String word) {
-        Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
-            }
-            node = node.children[c];
-        }
-        node.isEnd = true;
-    }
-
-    boolean search(String word) {
-        Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                return false;
-            }
-            node = node.children[c];
-        }
-        return node.isEnd;
-    }
-}
-
 class Solution {
-    private Trie trie = new Trie();
+    private Set<String> s = new HashSet<>();
 
     public String longestWord(String[] words) {
+        for (String w : words) {
+            s.add(w);
+        }
         Arrays.sort(words, (a, b) -> {
             if (a.length() != b.length()) {
-                return a.length() - b.length();
+                return b.length() - a.length();
             }
-            return b.compareTo(a);
+            return a.compareTo(b);
         });
-        String ans = "";
         for (String w : words) {
+            s.remove(w);
             if (dfs(w)) {
-                ans = w;
+                return w;
             }
-            trie.insert(w);
         }
-        return ans;
+        return "";
     }
 
     private boolean dfs(String w) {
-        if ("".equals(w)) {
+        if (w.length() == 0) {
             return true;
         }
-        for (int i = 1; i <= w.length(); ++i) {
-            if (trie.search(w.substring(0, i)) && dfs(w.substring(i))) {
+        for (int k = 1; k <= w.length(); ++k) {
+            if (s.contains(w.substring(0, k)) && dfs(w.substring(k))) {
                 return true;
             }
         }
@@ -151,131 +113,171 @@ class Solution {
 }
 ```
 
+#### C++
+
+```cpp
+class Solution {
+public:
+    string longestWord(vector<string>& words) {
+        unordered_set<string> s(words.begin(), words.end());
+        ranges::sort(words, [&](const string& a, const string& b) {
+            return a.size() > b.size() || (a.size() == b.size() && a < b);
+        });
+        auto dfs = [&](this auto&& dfs, string w) -> bool {
+            if (w.empty()) {
+                return true;
+            }
+            for (int k = 1; k <= w.size(); ++k) {
+                if (s.contains(w.substr(0, k)) && dfs(w.substr(k))) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        for (const string& w : words) {
+            s.erase(w);
+            if (dfs(w)) {
+                return w;
+            }
+        }
+        return "";
+    }
+};
+```
+
 #### Go
 
 ```go
-type Trie struct {
-	children [26]*Trie
-	isEnd    bool
-}
-
-func newTrie() *Trie {
-	return &Trie{}
-}
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
-		}
-		node = node.children[c]
-	}
-	node.isEnd = true
-}
-
-func (this *Trie) search(word string) bool {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			return false
-		}
-		node = node.children[c]
-	}
-	return node.isEnd
-}
-
 func longestWord(words []string) string {
+	s := map[string]bool{}
+	for _, w := range words {
+		s[w] = true
+	}
 	sort.Slice(words, func(i, j int) bool {
-		a, b := words[i], words[j]
-		if len(a) != len(b) {
-			return len(a) < len(b)
-		}
-		return a > b
+		return len(words[i]) > len(words[j]) || (len(words[i]) == len(words[j]) && words[i] < words[j])
 	})
-	trie := newTrie()
 	var dfs func(string) bool
 	dfs = func(w string) bool {
 		if len(w) == 0 {
 			return true
 		}
-		for i := 1; i <= len(w); i++ {
-			if trie.search(w[:i]) && dfs(w[i:]) {
+		for k := 1; k <= len(w); k++ {
+			if s[w[:k]] && dfs(w[k:]) {
 				return true
 			}
 		}
 		return false
 	}
-	ans := ""
 	for _, w := range words {
+		s[w] = false
 		if dfs(w) {
-			ans = w
+			return w
 		}
-		trie.insert(w)
 	}
-	return ans
+	return ""
+}
+```
+
+#### TypeScript
+
+```ts
+function longestWord(words: string[]): string {
+    const s = new Set(words);
+
+    words.sort((a, b) => (a.length === b.length ? a.localeCompare(b) : b.length - a.length));
+
+    const dfs = (w: string): boolean => {
+        if (w === '') {
+            return true;
+        }
+        for (let k = 1; k <= w.length; ++k) {
+            if (s.has(w.substring(0, k)) && dfs(w.substring(k))) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    for (const w of words) {
+        s.delete(w);
+        if (dfs(w)) {
+            return w;
+        }
+    }
+
+    return '';
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn longest_word(words: Vec<String>) -> String {
+        let mut s: HashSet<String> = words.iter().cloned().collect();
+        let mut words = words;
+        words.sort_by(|a, b| b.len().cmp(&a.len()).then(a.cmp(b)));
+
+        fn dfs(w: String, s: &mut HashSet<String>) -> bool {
+            if w.is_empty() {
+                return true;
+            }
+            for k in 1..=w.len() {
+                if s.contains(&w[0..k]) && dfs(w[k..].to_string(), s) {
+                    return true;
+                }
+            }
+            false
+        }
+        for w in words {
+            s.remove(&w);
+            if dfs(w.clone(), &mut s) {
+                return w;
+            }
+        }
+        String::new()
+    }
 }
 ```
 
 #### Swift
 
 ```swift
-class Trie {
-    var children = [Trie?](repeating: nil, count: 26)
-    var isEnd = false
-
-    func insert(_ word: String) {
-        var node = self
-        for ch in word {
-            let index = Int(ch.asciiValue! - Character("a").asciiValue!)
-            if node.children[index] == nil {
-                node.children[index] = Trie()
-            }
-            node = node.children[index]!
-        }
-        node.isEnd = true
-    }
-
-    func search(_ word: String) -> Bool {
-        var node = self
-        for ch in word {
-            let index = Int(ch.asciiValue! - Character("a").asciiValue!)
-            if node.children[index] == nil {
-                return false
-            }
-            node = node.children[index]!
-        }
-        return node.isEnd
-    }
-}
-
 class Solution {
     func longestWord(_ words: [String]) -> String {
-        var words = words.sorted(by: { $0.count < $1.count || ($0.count == $1.count && $0 > $1) })
-        let trie = Trie()
+        var s: Set<String> = Set(words)
+        var words = words
+        words.sort { (a, b) -> Bool in
+            if a.count == b.count {
+                return a < b
+            } else {
+                return a.count > b.count
+            }
+        }
 
-        var dfs: ((String) -> Bool)!
-        dfs = { w in
+        func dfs(_ w: String) -> Bool {
             if w.isEmpty {
                 return true
             }
-            for i in 1...w.count {
-                if trie.search(String(w.prefix(i))) && dfs(String(w.suffix(w.count - i))) {
+            for k in 1...w.count {
+                let prefix = String(w.prefix(k))
+                if s.contains(prefix) && dfs(String(w.dropFirst(k))) {
                     return true
                 }
             }
             return false
         }
 
-        var ans = ""
         for w in words {
+            s.remove(w)
             if dfs(w) {
-                ans = w
+                return w
             }
-            trie.insert(w)
         }
-        return ans
+
+        return ""
     }
 }
 ```

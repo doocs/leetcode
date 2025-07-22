@@ -16,9 +16,7 @@ var sortedArrayToBST = function (nums) {
             return null;
         }
         const mid = (l + r) >> 1;
-        const left = dfs(l, mid - 1);
-        const right = dfs(mid + 1, r);
-        return new TreeNode(nums[mid], left, right);
+        return new TreeNode(nums[mid], dfs(l, mid - 1), dfs(mid + 1, r));
     };
     return dfs(0, nums.length - 1);
 };

@@ -1,14 +1,16 @@
 function containsPattern(arr: number[], m: number, k: number): boolean {
-    const n = arr.length;
-    for (let i = 0; i <= n - m * k; ++i) {
-        let j = 0;
-        for (; j < m * k; ++j) {
-            if (arr[i + j] != arr[i + (j % m)]) {
-                break;
+    if (arr.length < m * k) {
+        return false;
+    }
+    const target = (k - 1) * m;
+    let cnt = 0;
+    for (let i = m; i < arr.length; ++i) {
+        if (arr[i] === arr[i - m]) {
+            if (++cnt === target) {
+                return true;
             }
-        }
-        if (j == m * k) {
-            return true;
+        } else {
+            cnt = 0;
         }
     }
     return false;

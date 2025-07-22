@@ -68,7 +68,11 @@ The length of this subsequence is 6, so 6 is returned.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+The longest binary subsequence must include all the $0$s in the original string. On this basis, we traverse $s$ from right to left. If we encounter a $1$, we check if adding this $1$ to the subsequence keeps the binary number $v \leq k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -196,6 +200,27 @@ public class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_subsequence(s: String, k: i32) -> i32 {
+        let mut ans = 0;
+        let mut v = 0;
+        let s = s.as_bytes();
+        for i in (0..s.len()).rev() {
+            if s[i] == b'0' {
+                ans += 1;
+            } else if ans < 30 && (v | (1 << ans)) <= k {
+                v |= 1 << ans;
+                ans += 1;
+            }
+        }
+        ans
     }
 }
 ```

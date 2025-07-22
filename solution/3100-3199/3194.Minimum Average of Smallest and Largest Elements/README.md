@@ -176,9 +176,9 @@ tags:
 
 ### 方法一：排序
 
-我们首先对数组 $\text{nums}$ 进行排序，然后从数组的两端开始取元素，分别计算两个元素的和，取最小值。最后将最小值除以 2 作为答案返回即可。
+我们首先对数组 $\textit{nums}$ 进行排序，然后从数组的两端开始取元素，分别计算两个元素的和，取最小值。最后将最小值除以 2 作为答案返回即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\text{nums}$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -189,7 +189,7 @@ class Solution:
     def minimumAverage(self, nums: List[int]) -> float:
         nums.sort()
         n = len(nums)
-        return min(nums[i] + nums[n - i - 1] for i in range(n // 2)) / 2
+        return min(nums[i] + nums[-i - 1] for i in range(n // 2)) / 2
 ```
 
 #### Java
@@ -249,6 +249,19 @@ function minimumAverage(nums: number[]): number {
         ans = Math.min(ans, nums[i] + nums[n - 1 - i]);
     }
     return ans / 2;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_average(mut nums: Vec<i32>) -> f64 {
+        nums.sort();
+        let n = nums.len();
+        let ans = (0..n / 2).map(|i| nums[i] + nums[n - i - 1]).min().unwrap();
+        ans as f64 / 2.0
+    }
 }
 ```
 

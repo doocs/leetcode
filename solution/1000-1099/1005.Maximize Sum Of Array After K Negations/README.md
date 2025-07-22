@@ -76,13 +76,13 @@ tags:
 
 我们观察发现，要使得数组的和尽可能大，就应该尽可能地将数组中的最小负数变成正数。
 
-而题目中元素的范围为 $[-100,100]$，因此，我们可以先用哈希表 $cnt$ 统计数组 $nums$ 中每个元素出现的次数。接着从 $-100$ 开始遍历 $x$，如果哈希表中存在 $x$，那么我们取 $m = \min(cnt[x], k)$ 作为元素 $x$ 取反的个数，然后我们将 $cnt[x]$ 减去 $m$，将 $cnt[-x]$ 加上 $m$，并将 $k$ 减去 $m$。如果 $k$ 为 $0$，说明操作已经结束，直接退出循环即可。
+而题目中元素的范围为 $[-100,100]$，因此，我们可以先用哈希表 $\textit{cnt}$ 统计数组 $\textit{nums}$ 中每个元素出现的次数。接着从 $-100$ 开始遍历 $x$，如果哈希表中存在 $x$，那么我们取 $m = \min(cnt[x], k)$ 作为元素 $x$ 取反的个数，然后我们将 $\textit{cnt}[x]$ 减去 $m$，将 $\textit{cnt}[-x]$ 加上 $m$，并将 $k$ 减去 $m$。如果 $k$ 为 $0$，说明操作已经结束，直接退出循环即可。
 
-如果 $k$ 仍然为奇数，且 $cnt[0]=0$，那么我们还需要取 $cnt$ 中最小的一个正数 $x$，将 $cnt[x]$ 减去 $1$，将 $cnt[-x]$ 加上 $1$。
+如果 $k$ 仍然为奇数，且 $\textit{cnt}[0]=0$，那么我们还需要取 $\textit{cnt}$ 中最小的一个正数 $x$，将 $\textit{cnt}[x]$ 减去 $1$，将 $\textit{cnt}[-x]$ 加上 $1$。
 
-最后，我们遍历哈希表 $cnt$，将 $x$ 与 $cnt[x]$ 相乘的结果累加，即为答案。
+最后，我们遍历哈希表 $\textit{cnt}$，将 $x$ 与 $\textit{cnt}[x]$ 相乘的结果累加，即为答案。
 
-时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为数组 $nums$ 的长度和 $nums$ 的数据范围大小。
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 和 $M$ 分别为数组 $\textit{nums}$ 的长度和 $\textit{nums}$ 的数据范围大小。
 
 <!-- tabs:start -->
 
@@ -237,11 +237,7 @@ function largestSumAfterKNegations(nums: number[], k: number): number {
             }
         }
     }
-    let ans = 0;
-    for (const [key, value] of cnt.entries()) {
-        ans += key * value;
-    }
-    return ans;
+    return Array.from(cnt.entries()).reduce((acc, [k, v]) => acc + k * v, 0);
 }
 ```
 

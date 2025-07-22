@@ -91,9 +91,6 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def busiestServers(self, k: int, arrival: List[int], load: List[int]) -> List[int]:
         free = SortedList(range(k))

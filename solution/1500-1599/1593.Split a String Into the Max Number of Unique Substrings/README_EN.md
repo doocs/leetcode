@@ -69,7 +69,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Backtracking + Pruning
+
+We define a hash table $\textit{st}$ to store the currently split substrings. Then we use a depth-first search approach to try to split the string $\textit{s}$ into several unique substrings.
+
+Specifically, we design a function $\text{dfs}(i)$, which means we are considering splitting $\textit{s}[i:]$.
+
+In the function $\text{dfs}(i)$, we first check if the number of substrings already split plus the remaining characters is less than or equal to the current answer. If so, there is no need to continue splitting, and we return directly. If $i \geq n$, it means we have completed the splitting of the entire string, and we update the answer to the maximum of the current number of substrings and the answer. Otherwise, we enumerate the end position $j$ (exclusive) of the current substring and check if $\textit{s}[i..j)$ has already been split. If not, we add it to the hash table $\textit{st}$ and continue to recursively consider splitting the remaining part. After the recursive call, we need to remove $\textit{s}[i..j)$ from the hash table $\textit{st}$.
+
+Finally, we return the answer.
+
+The time complexity is $O(n^2 \times 2^n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 
@@ -78,20 +88,22 @@ tags:
 ```python
 class Solution:
     def maxUniqueSplit(self, s: str) -> int:
-        def dfs(i, t):
+        def dfs(i: int):
+            nonlocal ans
+            if len(st) + len(s) - i <= ans:
+                return
             if i >= len(s):
-                nonlocal ans
-                ans = max(ans, t)
+                ans = max(ans, len(st))
                 return
             for j in range(i + 1, len(s) + 1):
-                if s[i:j] not in vis:
-                    vis.add(s[i:j])
-                    dfs(j, t + 1)
-                    vis.remove(s[i:j])
+                if s[i:j] not in st:
+                    st.add(s[i:j])
+                    dfs(j)
+                    st.remove(s[i:j])
 
-        vis = set()
-        ans = 1
-        dfs(0, 0)
+        ans = 0
+        st = set()
+        dfs(0)
         return ans
 ```
 
@@ -99,26 +111,29 @@ class Solution:
 
 ```java
 class Solution {
-    private Set<String> vis = new HashSet<>();
-    private int ans = 1;
+    private Set<String> st = new HashSet<>();
+    private int ans;
     private String s;
 
     public int maxUniqueSplit(String s) {
         this.s = s;
-        dfs(0, 0);
+        dfs(0);
         return ans;
     }
 
-    private void dfs(int i, int t) {
+    private void dfs(int i) {
+        if (st.size() + s.length() - i <= ans) {
+            return;
+        }
         if (i >= s.length()) {
-            ans = Math.max(ans, t);
+            ans = Math.max(ans, st.size());
             return;
         }
         for (int j = i + 1; j <= s.length(); ++j) {
-            String x = s.substring(i, j);
-            if (vis.add(x)) {
-                dfs(j, t + 1);
-                vis.remove(x);
+            String t = s.substring(i, j);
+            if (st.add(t)) {
+                dfs(j);
+                st.remove(t);
             }
         }
     }
@@ -130,29 +145,29 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    unordered_set<string> vis;
-    string s;
-    int ans = 1;
-
     int maxUniqueSplit(string s) {
-        this->s = s;
-        dfs(0, 0);
-        return ans;
-    }
-
-    void dfs(int i, int t) {
-        if (i >= s.size()) {
-            ans = max(ans, t);
-            return;
-        }
-        for (int j = i + 1; j <= s.size(); ++j) {
-            string x = s.substr(i, j - i);
-            if (!vis.count(x)) {
-                vis.insert(x);
-                dfs(j, t + 1);
-                vis.erase(x);
+        unordered_set<string> st;
+        int n = s.size();
+        int ans = 0;
+        auto dfs = [&](this auto&& dfs, int i) -> void {
+            if (st.size() + n - i <= ans) {
+                return;
             }
-        }
+            if (i >= n) {
+                ans = max(ans, (int) st.size());
+                return;
+            }
+            for (int j = i + 1; j <= n; ++j) {
+                string t = s.substr(i, j - i);
+                if (!st.contains(t)) {
+                    st.insert(t);
+                    dfs(j);
+                    st.erase(t);
+                }
+            }
+        };
+        dfs(0);
+        return ans;
     }
 };
 ```
@@ -160,27 +175,57 @@ public:
 #### Go
 
 ```go
-func maxUniqueSplit(s string) int {
-	ans := 1
-	vis := map[string]bool{}
-
-	var dfs func(i, t int)
-	dfs = func(i, t int) {
-		if i >= len(s) {
-			ans = max(ans, t)
+func maxUniqueSplit(s string) (ans int) {
+	st := map[string]bool{}
+	n := len(s)
+	var dfs func(int)
+	dfs = func(i int) {
+		if len(st)+n-i <= ans {
 			return
 		}
-		for j := i + 1; j <= len(s); j++ {
-			x := s[i:j]
-			if !vis[x] {
-				vis[x] = true
-				dfs(j, t+1)
-				vis[x] = false
+		if i >= n {
+			ans = max(ans, len(st))
+			return
+		}
+		for j := i + 1; j <= n; j++ {
+			if t := s[i:j]; !st[t] {
+				st[t] = true
+				dfs(j)
+				delete(st, t)
 			}
 		}
 	}
-	dfs(0, 0)
-	return ans
+	dfs(0)
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxUniqueSplit(s: string): number {
+    const n = s.length;
+    const st = new Set<string>();
+    let ans = 0;
+    const dfs = (i: number): void => {
+        if (st.size + n - i <= ans) {
+            return;
+        }
+        if (i >= n) {
+            ans = Math.max(ans, st.size);
+            return;
+        }
+        for (let j = i + 1; j <= n; ++j) {
+            const t = s.slice(i, j);
+            if (!st.has(t)) {
+                st.add(t);
+                dfs(j);
+                st.delete(t);
+            }
+        }
+    };
+    dfs(0);
+    return ans;
 }
 ```
 

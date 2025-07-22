@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool CheckPermutation(string s1, string s2) {
-        sort(s1.begin(), s1.end());
-        sort(s2.begin(), s2.end());
+        ranges::sort(s1);
+        ranges::sort(s2);
         return s1 == s2;
     }
 };

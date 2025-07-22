@@ -4,7 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README.md
 tags:
     - 数组
+    - 数学
     - 动态规划
+    - 组合数学
     - 排序
 ---
 

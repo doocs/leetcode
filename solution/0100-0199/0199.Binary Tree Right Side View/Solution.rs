@@ -21,27 +21,27 @@ use std::collections::VecDeque;
 use std::rc::Rc;
 impl Solution {
     pub fn right_side_view(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-        let mut res = vec![];
+        let mut ans = vec![];
         if root.is_none() {
-            return res;
+            return ans;
         }
         let mut q = VecDeque::new();
         q.push_back(root);
         while !q.is_empty() {
-            let n = q.len();
-            res.push(q[n - 1].as_ref().unwrap().borrow().val);
-            for _ in 0..n {
+            let k = q.len();
+            ans.push(q[0].as_ref().unwrap().borrow().val);
+            for _ in 0..k {
                 if let Some(node) = q.pop_front().unwrap() {
                     let mut node = node.borrow_mut();
-                    if node.left.is_some() {
-                        q.push_back(node.left.take());
-                    }
                     if node.right.is_some() {
                         q.push_back(node.right.take());
+                    }
+                    if node.left.is_some() {
+                        q.push_back(node.left.take());
                     }
                 }
             }
         }
-        res
+        ans
     }
 }

@@ -58,7 +58,13 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We can use an array $\textit{cnt}$ of length $10$ to count the occurrences of each digit in the integer $\textit{num}$. We also use an index array $\textit{idx}$ to record the largest available even and odd digits, initially set to $[8, 9]$.
+
+Next, we traverse each digit of the integer $\textit{num}$. If the digit is odd, we take the digit corresponding to index $1$ in $\textit{idx}$; otherwise, we take the digit corresponding to index $0$. If the count of the digit is $0$, we decrement the digit by $2$ and continue checking until we find a digit that meets the condition. Then, we update the answer and the count of the digit, and continue traversing until we have processed all digits of the integer $\textit{num}$.
+
+The time complexity is $O(\log \textit{num})$, and the space complexity is $O(\log \textit{num})$.
 
 <!-- tabs:start -->
 
@@ -67,22 +73,15 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 ```python
 class Solution:
     def largestInteger(self, num: int) -> int:
-        cnt = Counter()
-        x = num
-        while x:
-            x, v = divmod(x, 10)
-            cnt[v] += 1
-        x = num
+        nums = [int(c) for c in str(num)]
+        cnt = Counter(nums)
+        idx = [8, 9]
         ans = 0
-        t = 1
-        while x:
-            x, v = divmod(x, 10)
-            for y in range(10):
-                if ((v ^ y) & 1) == 0 and cnt[y]:
-                    ans += y * t
-                    t *= 10
-                    cnt[y] -= 1
-                    break
+        for x in nums:
+            while cnt[idx[x & 1]] == 0:
+                idx[x & 1] -= 2
+            ans = ans * 10 + idx[x & 1]
+            cnt[idx[x & 1]] -= 1
         return ans
 ```
 
@@ -91,26 +90,20 @@ class Solution:
 ```java
 class Solution {
     public int largestInteger(int num) {
+        char[] s = String.valueOf(num).toCharArray();
         int[] cnt = new int[10];
-        int x = num;
-        while (x != 0) {
-            cnt[x % 10]++;
-            x /= 10;
+        for (char c : s) {
+            ++cnt[c - '0'];
         }
-        x = num;
+        int[] idx = {8, 9};
         int ans = 0;
-        int t = 1;
-        while (x != 0) {
-            int v = x % 10;
-            x /= 10;
-            for (int y = 0; y < 10; ++y) {
-                if (((v ^ y) & 1) == 0 && cnt[y] > 0) {
-                    cnt[y]--;
-                    ans += y * t;
-                    t *= 10;
-                    break;
-                }
+        for (char c : s) {
+            int x = c - '0';
+            while (cnt[idx[x & 1]] == 0) {
+                idx[x & 1] -= 2;
             }
+            ans = ans * 10 + idx[x & 1];
+            cnt[idx[x & 1]]--;
         }
         return ans;
     }
@@ -123,26 +116,20 @@ class Solution {
 class Solution {
 public:
     int largestInteger(int num) {
-        vector<int> cnt(10);
-        int x = num;
-        while (x) {
-            cnt[x % 10]++;
-            x /= 10;
+        string s = to_string(num);
+        int cnt[10] = {0};
+        for (char c : s) {
+            cnt[c - '0']++;
         }
-        x = num;
+        int idx[2] = {8, 9};
         int ans = 0;
-        long t = 1;
-        while (x) {
-            int v = x % 10;
-            x /= 10;
-            for (int y = 0; y < 10; ++y) {
-                if (((v ^ y) & 1) == 0 && cnt[y] > 0) {
-                    cnt[y]--;
-                    ans += y * t;
-                    t *= 10;
-                    break;
-                }
+        for (char c : s) {
+            int x = c - '0';
+            while (cnt[idx[x & 1]] == 0) {
+                idx[x & 1] -= 2;
             }
+            ans = ans * 10 + idx[x & 1];
+            cnt[idx[x & 1]]--;
         }
         return ans;
     }
@@ -153,26 +140,25 @@ public:
 
 ```go
 func largestInteger(num int) int {
-	cnt := make([]int, 10)
-	x := num
-	for x != 0 {
-		cnt[x%10]++
-		x /= 10
+	s := []byte(fmt.Sprint(num))
+	cnt := [10]int{}
+
+	for _, c := range s {
+		cnt[c-'0']++
 	}
-	x = num
-	ans, t := 0, 1
-	for x != 0 {
-		v := x % 10
-		x /= 10
-		for y := 0; y < 10; y++ {
-			if ((v^y)&1) == 0 && cnt[y] > 0 {
-				cnt[y]--
-				ans += y * t
-				t *= 10
-				break
-			}
+
+	idx := [2]int{8, 9}
+	ans := 0
+
+	for _, c := range s {
+		x := int(c - '0')
+		for cnt[idx[x&1]] == 0 {
+			idx[x&1] -= 2
 		}
+		ans = ans*10 + idx[x&1]
+		cnt[idx[x&1]]--
 	}
+
 	return ans
 }
 ```
@@ -181,23 +167,26 @@ func largestInteger(num int) int {
 
 ```ts
 function largestInteger(num: number): number {
-    const arrs: number[] = String(num).split('').map(Number);
-    const odds: number[] = []; // 奇数
-    const evens: number[] = [];
-    for (const i of arrs) {
-        if ((i & 1) == 1) {
-            odds.push(i);
-        } else {
-            evens.push(i);
+    const s = num.toString().split('');
+    const cnt = Array(10).fill(0);
+
+    for (const c of s) {
+        cnt[+c]++;
+    }
+
+    const idx = [8, 9];
+    let ans = 0;
+
+    for (const c of s) {
+        const x = +c;
+        while (cnt[idx[x % 2]] === 0) {
+            idx[x % 2] -= 2;
         }
+        ans = ans * 10 + idx[x % 2];
+        cnt[idx[x % 2]]--;
     }
-    odds.sort((a, b) => a - b);
-    evens.sort((a, b) => a - b);
-    const ans: number[] = [];
-    for (const i of arrs) {
-        ans.push((i & 1) === 1 ? odds.pop() : evens.pop());
-    }
-    return Number(ans.join(''));
+
+    return ans;
 }
 ```
 

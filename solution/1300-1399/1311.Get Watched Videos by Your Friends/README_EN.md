@@ -75,7 +75,15 @@ You have id = 0 (green color in the figure) and the only friend of your friends 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+We can use the Breadth-First Search (BFS) method to start from $\textit{id}$ and find all friends at a distance of $\textit{level}$, then count the videos watched by these friends.
+
+Specifically, we can use a queue $\textit{q}$ to store the friends at the current level. Initially, add $\textit{id}$ to the queue $\textit{q}$. Use a hash table or a boolean array $\textit{vis}$ to record the friends that have already been visited. Then, perform $\textit{level}$ iterations, in each iteration dequeue all friends from the queue and enqueue their friends until all friends at distance $\textit{level}$ are found.
+
+Next, we use a hash table $\textit{cnt}$ to count the videos watched by these friends and their frequencies. Finally, sort the key-value pairs in the hash table in ascending order by frequency, and if frequencies are the same, sort by video name in ascending order. Return the sorted list of video names.
+
+Time complexity is $O(n + m + v \times \log v)$, and space complexity is $O(n + v)$. Here, $n$ and $m$ are the lengths of the arrays $\textit{watchedVideos}$ and $\textit{friends}$, respectively, and $v$ is the total number of videos watched by all friends.
 
 <!-- tabs:start -->
 
@@ -90,26 +98,20 @@ class Solution:
         id: int,
         level: int,
     ) -> List[str]:
-        n = len(friends)
-        vis = [False] * n
         q = deque([id])
-        vis[id] = True
+        vis = {id}
         for _ in range(level):
-            size = len(q)
-            for _ in range(size):
-                u = q.popleft()
-                for v in friends[u]:
-                    if not vis[v]:
-                        q.append(v)
-                        vis[v] = True
-        freq = Counter()
-        for _ in range(len(q)):
-            u = q.pop()
-            for w in watchedVideos[u]:
-                freq[w] += 1
-        videos = list(freq.items())
-        videos.sort(key=lambda x: (x[1], x[0]))
-        return [v[0] for v in videos]
+            for _ in range(len(q)):
+                i = q.popleft()
+                for j in friends[i]:
+                    if j not in vis:
+                        vis.add(j)
+                        q.append(j)
+        cnt = Counter()
+        for i in q:
+            for v in watchedVideos[i]:
+                cnt[v] += 1
+        return sorted(cnt.keys(), key=lambda k: (cnt[k], k))
 ```
 
 #### Java
@@ -118,44 +120,160 @@ class Solution:
 class Solution {
     public List<String> watchedVideosByFriends(
         List<List<String>> watchedVideos, int[][] friends, int id, int level) {
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(id);
         int n = friends.length;
         boolean[] vis = new boolean[n];
-        Deque<Integer> q = new LinkedList<>();
-        q.offerLast(id);
         vis[id] = true;
         while (level-- > 0) {
-            for (int i = q.size(); i > 0; --i) {
-                int u = q.pollFirst();
-                for (int v : friends[u]) {
-                    if (!vis[v]) {
-                        q.offerLast(v);
-                        vis[v] = true;
+            for (int k = q.size(); k > 0; --k) {
+                int i = q.poll();
+                for (int j : friends[i]) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        q.offer(j);
                     }
                 }
             }
         }
-        Map<String, Integer> freq = new HashMap<>();
-        while (!q.isEmpty()) {
-            for (String w : watchedVideos.get(q.pollFirst())) {
-                freq.put(w, freq.getOrDefault(w, 0) + 1);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (int i : q) {
+            for (var v : watchedVideos.get(i)) {
+                cnt.merge(v, 1, Integer::sum);
             }
         }
-        List<Map.Entry<String, Integer>> t = new ArrayList<>(freq.entrySet());
-        t.sort((a, b) -> {
-            if (a.getValue() > b.getValue()) {
-                return 1;
-            }
-            if (a.getValue() < b.getValue()) {
-                return -1;
-            }
-            return a.getKey().compareTo(b.getKey());
+        List<String> ans = new ArrayList<>(cnt.keySet());
+        ans.sort((a, b) -> {
+            int x = cnt.get(a), y = cnt.get(b);
+            return x == y ? a.compareTo(b) : Integer.compare(x, y);
         });
-        List<String> ans = new ArrayList<>();
-        for (Map.Entry<String, Integer> e : t) {
-            ans.add(e.getKey());
-        }
         return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> watchedVideosByFriends(vector<vector<string>>& watchedVideos, vector<vector<int>>& friends, int id, int level) {
+        queue<int> q{{id}};
+        int n = friends.size();
+        vector<bool> vis(n);
+        vis[id] = true;
+        while (level--) {
+            for (int k = q.size(); k; --k) {
+                int i = q.front();
+                q.pop();
+                for (int j : friends[i]) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        q.push(j);
+                    }
+                }
+            }
+        }
+        unordered_map<string, int> cnt;
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            for (const auto& v : watchedVideos[i]) {
+                cnt[v]++;
+            }
+        }
+        vector<string> ans;
+        for (const auto& [key, _] : cnt) {
+            ans.push_back(key);
+        }
+        sort(ans.begin(), ans.end(), [&cnt](const string& a, const string& b) {
+            return cnt[a] == cnt[b] ? a < b : cnt[a] < cnt[b];
+        });
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func watchedVideosByFriends(watchedVideos [][]string, friends [][]int, id int, level int) []string {
+	q := []int{id}
+	n := len(friends)
+	vis := make([]bool, n)
+	vis[id] = true
+	for level > 0 {
+		level--
+		nextQ := []int{}
+		for _, i := range q {
+			for _, j := range friends[i] {
+				if !vis[j] {
+					vis[j] = true
+					nextQ = append(nextQ, j)
+				}
+			}
+		}
+		q = nextQ
+	}
+	cnt := make(map[string]int)
+	for _, i := range q {
+		for _, v := range watchedVideos[i] {
+			cnt[v]++
+		}
+	}
+	ans := []string{}
+	for key := range cnt {
+		ans = append(ans, key)
+	}
+	sort.Slice(ans, func(i, j int) bool {
+		if cnt[ans[i]] == cnt[ans[j]] {
+			return ans[i] < ans[j]
+		}
+		return cnt[ans[i]] < cnt[ans[j]]
+	})
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function watchedVideosByFriends(
+    watchedVideos: string[][],
+    friends: number[][],
+    id: number,
+    level: number,
+): string[] {
+    let q: number[] = [id];
+    const n: number = friends.length;
+    const vis: boolean[] = Array(n).fill(false);
+    vis[id] = true;
+    while (level-- > 0) {
+        const nq: number[] = [];
+        for (const i of q) {
+            for (const j of friends[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    nq.push(j);
+                }
+            }
+        }
+        q = nq;
+    }
+    const cnt: { [key: string]: number } = {};
+    for (const i of q) {
+        for (const v of watchedVideos[i]) {
+            cnt[v] = (cnt[v] || 0) + 1;
+        }
+    }
+    const ans: string[] = Object.keys(cnt);
+    ans.sort((a, b) => {
+        if (cnt[a] === cnt[b]) {
+            return a.localeCompare(b);
+        }
+        return cnt[a] - cnt[b];
+    });
+    return ans;
 }
 ```
 

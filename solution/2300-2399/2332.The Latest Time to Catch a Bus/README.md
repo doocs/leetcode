@@ -25,7 +25,7 @@ tags:
 
 <p>给你一个整数&nbsp;<code>capacity</code>&nbsp;，表示每辆公交车&nbsp;<strong>最多</strong>&nbsp;能容纳的乘客数目。</p>
 
-<p>每位乘客都会搭乘下一辆有座位的公交车。如果你在 <code>y</code>&nbsp;时刻到达，公交在&nbsp;<code>x</code>&nbsp;时刻出发，满足&nbsp;<code>y &lt;= x</code>&nbsp;&nbsp;且公交没有满，那么你可以搭乘这一辆公交。<strong>最早</strong>&nbsp;到达的乘客优先上车。</p>
+<p>每位乘客都会排队搭乘下一辆有座位的公交车。如果你在 <code>y</code>&nbsp;时刻到达，公交在&nbsp;<code>x</code>&nbsp;时刻出发，满足&nbsp;<code>y &lt;= x</code>&nbsp;&nbsp;且公交没有满，那么你可以搭乘这一辆公交。<strong>最早</strong>&nbsp;到达的乘客优先上车。</p>
 
 <p>返回你可以搭乘公交车的最晚到达公交站时间。你 <strong>不能</strong>&nbsp;跟别的乘客同时刻到达。</p>
 
@@ -35,7 +35,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>buses = [10,20], passengers = [2,17,18,19], capacity = 2
+<pre>
+<b>输入：</b>buses = [10,20], passengers = [2,17,18,19], capacity = 2
 <b>输出：</b>16
 <strong>解释：</strong>
 第 1 辆公交车载着第 1 位乘客。
@@ -44,7 +45,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>buses = [20,30,10], passengers = [19,13,26,4,25,11,21], capacity = 2
+<pre>
+<b>输入：</b>buses = [20,30,10], passengers = [19,13,26,4,25,11,21], capacity = 2
 <b>输出：</b>20
 <b>解释：</b>
 第 1 辆公交车载着第 4 位乘客。

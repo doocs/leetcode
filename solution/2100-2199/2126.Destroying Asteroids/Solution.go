@@ -1,11 +1,10 @@
 func asteroidsDestroyed(mass int, asteroids []int) bool {
-	m := mass
 	sort.Ints(asteroids)
-	for _, v := range asteroids {
-		if m < v {
+	for _, x := range asteroids {
+		if mass < x {
 			return false
 		}
-		m += v
+		mass += x
 	}
 	return true
 }

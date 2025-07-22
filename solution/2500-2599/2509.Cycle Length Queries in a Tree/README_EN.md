@@ -84,7 +84,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Finding the Lowest Common Ancestor
+
+For each query, we find the lowest common ancestor of the two nodes $a$ and $b$, and record the number of steps taken upwards. The answer to the query is the number of steps plus one.
+
+To find the lowest common ancestor, if $a > b$, we move $a$ to its parent node; if $a < b$, we move $b$ to its parent node. We accumulate the number of steps until $a = b$.
+
+The time complexity is $O(n \times m)$, where $m$ is the length of the `queries` array.
 
 <!-- tabs:start -->
 

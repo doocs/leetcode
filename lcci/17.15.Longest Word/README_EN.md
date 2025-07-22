@@ -41,117 +41,79 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Sorting + DFS
+
+Note that in the problem, each word can actually be reused.
+
+We can use a hash table $\textit{s}$ to store all the words, then sort the words in descending order of length, and if the lengths are the same, sort them in ascending lexicographical order.
+
+Next, we iterate through the sorted list of words. For each word $\textit{w}$, we first remove it from the hash table $\textit{s}$, then use depth-first search $\textit{dfs}$ to determine if $\textit{w}$ can be composed of other words. If it can, we return $\textit{w}$.
+
+The execution logic of the function $\textit{dfs}$ is as follows:
+
+-   If $\textit{w}$ is empty, return $\text{true}$;
+-   Iterate through all prefixes of $\textit{w}$. If a prefix is in the hash table $\textit{s}$ and $\textit{dfs}$ returns $\text{true}$, then return $\text{true}$;
+-   If no prefix meets the condition, return $\text{false}$.
+
+If no word meets the condition, return an empty string.
+
+The time complexity is $O(m \times n \times \log n + n \times 2^M)$, and the space complexity is $O(m \times n)$. Here, $n$ and $m$ are the length of the word list and the average length of the words, respectively, and $M$ is the length of the longest word.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-class Trie:
-    def __init__(self):
-        self.children = [None] * 26
-        self.is_end = False
-
-    def insert(self, word):
-        node = self
-        for c in word:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-        node.is_end = True
-
-    def search(self, word):
-        node = self
-        for c in word:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                return False
-            node = node.children[idx]
-        return node.is_end
-
-
 class Solution:
     def longestWord(self, words: List[str]) -> str:
-        def cmp(a, b):
-            if len(a) != len(b):
-                return len(a) - len(b)
-            return -1 if a > b else 1
+        def dfs(w: str) -> bool:
+            if not w:
+                return True
+            for k in range(1, len(w) + 1):
+                if w[:k] in s and dfs(w[k:]):
+                    return True
+            return False
 
-        def dfs(w):
-            return not w or any(
-                trie.search(w[:i]) and dfs(w[i:]) for i in range(1, len(w) + 1)
-            )
-
-        words.sort(key=cmp_to_key(cmp))
-        trie = Trie()
-        ans = ""
+        s = set(words)
+        words.sort(key=lambda x: (-len(x), x))
         for w in words:
+            s.remove(w)
             if dfs(w):
-                ans = w
-            trie.insert(w)
-        return ans
+                return w
+        return ""
 ```
 
 #### Java
 
 ```java
-class Trie {
-    Trie[] children = new Trie[26];
-    boolean isEnd;
-
-    void insert(String word) {
-        Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                node.children[c] = new Trie();
-            }
-            node = node.children[c];
-        }
-        node.isEnd = true;
-    }
-
-    boolean search(String word) {
-        Trie node = this;
-        for (char c : word.toCharArray()) {
-            c -= 'a';
-            if (node.children[c] == null) {
-                return false;
-            }
-            node = node.children[c];
-        }
-        return node.isEnd;
-    }
-}
-
 class Solution {
-    private Trie trie = new Trie();
+    private Set<String> s = new HashSet<>();
 
     public String longestWord(String[] words) {
+        for (String w : words) {
+            s.add(w);
+        }
         Arrays.sort(words, (a, b) -> {
             if (a.length() != b.length()) {
-                return a.length() - b.length();
+                return b.length() - a.length();
             }
-            return b.compareTo(a);
+            return a.compareTo(b);
         });
-        String ans = "";
         for (String w : words) {
+            s.remove(w);
             if (dfs(w)) {
-                ans = w;
+                return w;
             }
-            trie.insert(w);
         }
-        return ans;
+        return "";
     }
 
     private boolean dfs(String w) {
-        if ("".equals(w)) {
+        if (w.length() == 0) {
             return true;
         }
-        for (int i = 1; i <= w.length(); ++i) {
-            if (trie.search(w.substring(0, i)) && dfs(w.substring(i))) {
+        for (int k = 1; k <= w.length(); ++k) {
+            if (s.contains(w.substring(0, k)) && dfs(w.substring(k))) {
                 return true;
             }
         }
@@ -160,131 +122,171 @@ class Solution {
 }
 ```
 
+#### C++
+
+```cpp
+class Solution {
+public:
+    string longestWord(vector<string>& words) {
+        unordered_set<string> s(words.begin(), words.end());
+        ranges::sort(words, [&](const string& a, const string& b) {
+            return a.size() > b.size() || (a.size() == b.size() && a < b);
+        });
+        auto dfs = [&](this auto&& dfs, string w) -> bool {
+            if (w.empty()) {
+                return true;
+            }
+            for (int k = 1; k <= w.size(); ++k) {
+                if (s.contains(w.substr(0, k)) && dfs(w.substr(k))) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        for (const string& w : words) {
+            s.erase(w);
+            if (dfs(w)) {
+                return w;
+            }
+        }
+        return "";
+    }
+};
+```
+
 #### Go
 
 ```go
-type Trie struct {
-	children [26]*Trie
-	isEnd    bool
-}
-
-func newTrie() *Trie {
-	return &Trie{}
-}
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			node.children[c] = newTrie()
-		}
-		node = node.children[c]
-	}
-	node.isEnd = true
-}
-
-func (this *Trie) search(word string) bool {
-	node := this
-	for _, c := range word {
-		c -= 'a'
-		if node.children[c] == nil {
-			return false
-		}
-		node = node.children[c]
-	}
-	return node.isEnd
-}
-
 func longestWord(words []string) string {
+	s := map[string]bool{}
+	for _, w := range words {
+		s[w] = true
+	}
 	sort.Slice(words, func(i, j int) bool {
-		a, b := words[i], words[j]
-		if len(a) != len(b) {
-			return len(a) < len(b)
-		}
-		return a > b
+		return len(words[i]) > len(words[j]) || (len(words[i]) == len(words[j]) && words[i] < words[j])
 	})
-	trie := newTrie()
 	var dfs func(string) bool
 	dfs = func(w string) bool {
 		if len(w) == 0 {
 			return true
 		}
-		for i := 1; i <= len(w); i++ {
-			if trie.search(w[:i]) && dfs(w[i:]) {
+		for k := 1; k <= len(w); k++ {
+			if s[w[:k]] && dfs(w[k:]) {
 				return true
 			}
 		}
 		return false
 	}
-	ans := ""
 	for _, w := range words {
+		s[w] = false
 		if dfs(w) {
-			ans = w
+			return w
 		}
-		trie.insert(w)
 	}
-	return ans
+	return ""
+}
+```
+
+#### TypeScript
+
+```ts
+function longestWord(words: string[]): string {
+    const s = new Set(words);
+
+    words.sort((a, b) => (a.length === b.length ? a.localeCompare(b) : b.length - a.length));
+
+    const dfs = (w: string): boolean => {
+        if (w === '') {
+            return true;
+        }
+        for (let k = 1; k <= w.length; ++k) {
+            if (s.has(w.substring(0, k)) && dfs(w.substring(k))) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    for (const w of words) {
+        s.delete(w);
+        if (dfs(w)) {
+            return w;
+        }
+    }
+
+    return '';
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn longest_word(words: Vec<String>) -> String {
+        let mut s: HashSet<String> = words.iter().cloned().collect();
+        let mut words = words;
+        words.sort_by(|a, b| b.len().cmp(&a.len()).then(a.cmp(b)));
+
+        fn dfs(w: String, s: &mut HashSet<String>) -> bool {
+            if w.is_empty() {
+                return true;
+            }
+            for k in 1..=w.len() {
+                if s.contains(&w[0..k]) && dfs(w[k..].to_string(), s) {
+                    return true;
+                }
+            }
+            false
+        }
+        for w in words {
+            s.remove(&w);
+            if dfs(w.clone(), &mut s) {
+                return w;
+            }
+        }
+        String::new()
+    }
 }
 ```
 
 #### Swift
 
 ```swift
-class Trie {
-    var children = [Trie?](repeating: nil, count: 26)
-    var isEnd = false
-
-    func insert(_ word: String) {
-        var node = self
-        for ch in word {
-            let index = Int(ch.asciiValue! - Character("a").asciiValue!)
-            if node.children[index] == nil {
-                node.children[index] = Trie()
-            }
-            node = node.children[index]!
-        }
-        node.isEnd = true
-    }
-
-    func search(_ word: String) -> Bool {
-        var node = self
-        for ch in word {
-            let index = Int(ch.asciiValue! - Character("a").asciiValue!)
-            if node.children[index] == nil {
-                return false
-            }
-            node = node.children[index]!
-        }
-        return node.isEnd
-    }
-}
-
 class Solution {
     func longestWord(_ words: [String]) -> String {
-        var words = words.sorted(by: { $0.count < $1.count || ($0.count == $1.count && $0 > $1) })
-        let trie = Trie()
+        var s: Set<String> = Set(words)
+        var words = words
+        words.sort { (a, b) -> Bool in
+            if a.count == b.count {
+                return a < b
+            } else {
+                return a.count > b.count
+            }
+        }
 
-        var dfs: ((String) -> Bool)!
-        dfs = { w in
+        func dfs(_ w: String) -> Bool {
             if w.isEmpty {
                 return true
             }
-            for i in 1...w.count {
-                if trie.search(String(w.prefix(i))) && dfs(String(w.suffix(w.count - i))) {
+            for k in 1...w.count {
+                let prefix = String(w.prefix(k))
+                if s.contains(prefix) && dfs(String(w.dropFirst(k))) {
                     return true
                 }
             }
             return false
         }
 
-        var ans = ""
         for w in words {
+            s.remove(w)
             if dfs(w) {
-                ans = w
+                return w
             }
-            trie.insert(w)
         }
-        return ans
+
+        return ""
     }
 }
 ```

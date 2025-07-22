@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sleep/README.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->
@@ -15,6 +17,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sl
 <!-- description:start -->
 
 <p>请你编写一个异步函数，它接收一个正整数参数 <code>millis</code>&nbsp;，并休眠 <code>millis</code> 毫秒。要求此函数可以解析任何值。</p>
+
+<p><strong>请注意</strong>，实际睡眠持续时间与&nbsp;<code>millis</code> 之间的微小偏差是可以接受的。</p>
 
 <p>&nbsp;</p>
 
@@ -61,6 +65,23 @@ sleep(100).then(() =&gt; {
 
 ```ts
 async function sleep(millis: number): Promise<void> {
+    return new Promise(r => setTimeout(r, millis));
+}
+
+/**
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
     return new Promise(r => setTimeout(r, millis));
 }
 

@@ -2,10 +2,10 @@ class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
         vector<vector<int>> g(n);
-        for (auto& e : edges) {
-            int a = e[0], b = e[1];
-            g[a].push_back(b);
-            g[b].push_back(a);
+        for (const auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
         }
         queue<int> q{{source}};
         vector<bool> vis(n);

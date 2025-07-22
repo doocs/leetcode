@@ -64,7 +64,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+First, for a string $s$ of length $n$, the number of substrings of length $k$ is $n - k + 1$. If $n - k + 1 < 2^k$, then there must exist a binary string of length $k$ that is not a substring of $s$, so we return `false`.
+
+Next, we traverse the string $s$ and store all substrings of length $k$ in a set $ss$. Finally, we check if the size of the set $ss$ is equal to $2^k$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -73,8 +79,12 @@ tags:
 ```python
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
-        ss = {s[i : i + k] for i in range(len(s) - k + 1)}
-        return len(ss) == 1 << k
+        n = len(s)
+        m = 1 << k
+        if n - k + 1 < m:
+            return False
+        ss = {s[i : i + k] for i in range(n - k + 1)}
+        return len(ss) == m
 ```
 
 #### Java
@@ -82,11 +92,16 @@ class Solution:
 ```java
 class Solution {
     public boolean hasAllCodes(String s, int k) {
+        int n = s.length();
+        int m = 1 << k;
+        if (n - k + 1 < m) {
+            return false;
+        }
         Set<String> ss = new HashSet<>();
-        for (int i = 0; i < s.length() - k + 1; ++i) {
+        for (int i = 0; i < n - k + 1; ++i) {
             ss.add(s.substring(i, i + k));
         }
-        return ss.size() == 1 << k;
+        return ss.size() == m;
     }
 }
 ```
@@ -97,11 +112,16 @@ class Solution {
 class Solution {
 public:
     bool hasAllCodes(string s, int k) {
+        int n = s.size();
+        int m = 1 << k;
+        if (n - k + 1 < m) {
+            return false;
+        }
         unordered_set<string> ss;
-        for (int i = 0; i + k <= s.size(); ++i) {
+        for (int i = 0; i + k <= n; ++i) {
             ss.insert(move(s.substr(i, k)));
         }
-        return ss.size() == 1 << k;
+        return ss.size() == m;
     }
 };
 ```
@@ -110,11 +130,32 @@ public:
 
 ```go
 func hasAllCodes(s string, k int) bool {
+	n, m := len(s), 1<<k
+	if n-k+1 < m {
+		return false
+	}
 	ss := map[string]bool{}
-	for i := 0; i+k <= len(s); i++ {
+	for i := 0; i+k <= n; i++ {
 		ss[s[i:i+k]] = true
 	}
-	return len(ss) == 1<<k
+	return len(ss) == m
+}
+```
+
+#### TypeScript
+
+```ts
+function hasAllCodes(s: string, k: number): boolean {
+    const n = s.length;
+    const m = 1 << k;
+    if (n - k + 1 < m) {
+        return false;
+    }
+    const ss = new Set<string>();
+    for (let i = 0; i + k <= n; ++i) {
+        ss.add(s.slice(i, i + k));
+    }
+    return ss.size === m;
 }
 ```
 
@@ -124,7 +165,11 @@ func hasAllCodes(s string, k int) bool {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Sliding Window
+
+In Solution 1, we stored all distinct substrings of length $k$, and processing each substring requires $O(k)$ time. We can instead use a sliding window, where each time we add the latest character, we remove the leftmost character from the window. During this process, we use an integer $x$ to store the substring.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -133,17 +178,19 @@ func hasAllCodes(s string, k int) bool {
 ```python
 class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
-        if len(s) - k + 1 < (1 << k):
+        n = len(s)
+        m = 1 << k
+        if n - k + 1 < m:
             return False
-        vis = [False] * (1 << k)
-        num = int(s[:k], 2)
-        vis[num] = True
-        for i in range(k, len(s)):
-            a = (ord(s[i - k]) - ord('0')) << (k - 1)
-            b = ord(s[i]) - ord('0')
-            num = ((num - a) << 1) + b
-            vis[num] = True
-        return all(v for v in vis)
+        ss = set()
+        x = int(s[:k], 2)
+        ss.add(x)
+        for i in range(k, n):
+            a = int(s[i - k]) << (k - 1)
+            b = int(s[i])
+            x = (x - a) << 1 | b
+            ss.add(x)
+        return len(ss) == m
 ```
 
 #### Java
@@ -152,19 +199,20 @@ class Solution:
 class Solution {
     public boolean hasAllCodes(String s, int k) {
         int n = s.length();
-        if (n - k + 1 < (1 << k)) {
+        int m = 1 << k;
+        if (n - k + 1 < m) {
             return false;
         }
-        boolean[] vis = new boolean[1 << k];
-        int num = Integer.parseInt(s.substring(0, k), 2);
-        vis[num] = true;
+        boolean[] ss = new boolean[m];
+        int x = Integer.parseInt(s.substring(0, k), 2);
+        ss[x] = true;
         for (int i = k; i < n; ++i) {
             int a = (s.charAt(i - k) - '0') << (k - 1);
             int b = s.charAt(i) - '0';
-            num = (num - a) << 1 | b;
-            vis[num] = true;
+            x = (x - a) << 1 | b;
+            ss[x] = true;
         }
-        for (boolean v : vis) {
+        for (boolean v : ss) {
             if (!v) {
                 return false;
             }
@@ -181,19 +229,21 @@ class Solution {
 public:
     bool hasAllCodes(string s, int k) {
         int n = s.size();
-        if (n - k + 1 < (1 << k)) return false;
-        vector<bool> vis(1 << k);
-        int num = stoi(s.substr(0, k), nullptr, 2);
-        vis[num] = true;
+        int m = 1 << k;
+        if (n - k + 1 < m) {
+            return false;
+        }
+        bool ss[m];
+        memset(ss, false, sizeof(ss));
+        int x = stoi(s.substr(0, k), nullptr, 2);
+        ss[x] = true;
         for (int i = k; i < n; ++i) {
             int a = (s[i - k] - '0') << (k - 1);
             int b = s[i] - '0';
-            num = (num - a) << 1 | b;
-            vis[num] = true;
+            x = (x - a) << 1 | b;
+            ss[x] = true;
         }
-        for (bool v : vis)
-            if (!v) return false;
-        return true;
+        return all_of(ss, ss + m, [](bool v) { return v; });
     }
 };
 ```
@@ -202,27 +252,47 @@ public:
 
 ```go
 func hasAllCodes(s string, k int) bool {
-	n := len(s)
-	if n-k+1 < (1 << k) {
+	n, m := len(s), 1<<k
+	if n-k+1 < m {
 		return false
 	}
-	vis := make([]bool, 1<<k)
-	num := 0
-	for i := 0; i < k; i++ {
-		num = num<<1 | int(s[i]-'0')
-	}
-	vis[num] = true
+	ss := make([]bool, m)
+	x, _ := strconv.ParseInt(s[:k], 2, 64)
+	ss[x] = true
 	for i := k; i < n; i++ {
-		a := int(s[i-k]-'0') << (k - 1)
-		num = (num-a)<<1 | int(s[i]-'0')
-		vis[num] = true
+		a := int64(s[i-k]-'0') << (k - 1)
+		b := int64(s[i] - '0')
+		x = (x-a)<<1 | b
+		ss[x] = true
 	}
-	for _, v := range vis {
+	for _, v := range ss {
 		if !v {
 			return false
 		}
 	}
 	return true
+}
+```
+
+#### TypeScript
+
+```ts
+function hasAllCodes(s: string, k: number): boolean {
+    const n = s.length;
+    const m = 1 << k;
+    if (n - k + 1 < m) {
+        return false;
+    }
+    let x = +`0b${s.slice(0, k)}`;
+    const ss = new Set<number>();
+    ss.add(x);
+    for (let i = k; i < n; ++i) {
+        const a = +s[i - k] << (k - 1);
+        const b = +s[i];
+        x = ((x - a) << 1) | b;
+        ss.add(x);
+    }
+    return ss.size === m;
 }
 ```
 

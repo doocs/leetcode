@@ -23,20 +23,27 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = "hello"
-<strong>输出：</strong>"holle"
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong><span class="example-io">s = "IceCreAm"</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>"AceCreIm"</span></p>
 
-<pre>
-<strong>输入：</strong>s = "leetcode"
-<strong>输出：</strong>"leotcede"</pre>
+<p><strong>解释：</strong></p>
+
+<p><code>s</code>&nbsp;中的元音是&nbsp;<code>['I', 'e', 'e', 'A']</code>。反转这些元音，<code>s</code> 变为&nbsp;<code>"AceCreIm"</code>.</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "leetcode"</span></p>
+
+<p><strong>输出：</strong><span class="example-io">"leotcede"</span></p>
 
 <p>&nbsp;</p>
+</div>
 
 <p><strong>提示：</strong></p>
 

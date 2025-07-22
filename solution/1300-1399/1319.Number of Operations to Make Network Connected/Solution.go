@@ -12,11 +12,11 @@ func makeConnected(n int, connections [][]int) int {
 		return p[x]
 	}
 	for _, e := range connections {
-		a, b := e[0], e[1]
-		if find(a) == find(b) {
+		pa, pb := find(e[0]), find(e[1])
+		if pa == pb {
 			cnt++
 		} else {
-			p[find(a)] = find(b)
+			p[pa] = pb
 			n--
 		}
 	}

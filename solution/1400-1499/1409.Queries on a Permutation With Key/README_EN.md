@@ -72,7 +72,9 @@ Therefore, the array containing the result is [2,1,2,1].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+The problem's data scale is not large, so we can directly simulate it.
 
 <!-- tabs:start -->
 
@@ -170,7 +172,20 @@ func processQueries(queries []int, m int) []int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Binary Indexed Tree
+
+The Binary Indexed Tree (BIT), also known as the Fenwick Tree, efficiently supports the following two operations:
+
+1. **Point Update** `update(x, delta)`: Adds a value `delta` to the element at position `x` in the sequence.
+2. **Prefix Sum Query** `query(x)`: Queries the sum of the sequence over the interval `[1,...,x]`, i.e., the prefix sum at position `x`.
+
+Both operations have a time complexity of $O(\log n)$.
+
+The fundamental functionality of the Binary Indexed Tree is to count the number of elements smaller than a given element `x`. This comparison is abstract and can refer to size, coordinate, mass, etc.
+
+For example, given the array `a[5] = {2, 5, 3, 4, 1}`, the task is to compute `b[i] = the number of elements to the left of position i that are less than or equal to a[i]`. For this example, `b[5] = {0, 1, 1, 2, 0}`.
+
+The solution is to traverse the array, first calculating `query(a[i])` for each position, and then updating the Binary Indexed Tree with `update(a[i], 1)`. When the range of numbers is large, discretization is necessary, which involves removing duplicates, sorting, and then assigning an index to each number.
 
 <!-- tabs:start -->
 

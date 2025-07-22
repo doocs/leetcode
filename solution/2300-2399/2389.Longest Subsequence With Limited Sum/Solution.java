@@ -7,21 +7,9 @@ class Solution {
         int m = queries.length;
         int[] ans = new int[m];
         for (int i = 0; i < m; ++i) {
-            ans[i] = search(nums, queries[i]);
+            int j = Arrays.binarySearch(nums, queries[i] + 1);
+            ans[i] = j < 0 ? -j - 1 : j;
         }
         return ans;
-    }
-
-    private int search(int[] nums, int x) {
-        int l = 0, r = nums.length;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (nums[mid] > x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
     }
 }

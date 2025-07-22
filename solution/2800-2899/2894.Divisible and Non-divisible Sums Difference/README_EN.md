@@ -20,11 +20,11 @@ tags:
 
 <p>You are given positive integers <code>n</code> and <code>m</code>.</p>
 
-<p>Define two integers, <code>num1</code> and <code>num2</code>, as follows:</p>
+<p>Define two integers as follows:</p>
 
 <ul>
-	<li><code>num1</code>: The sum of all integers in the range <code>[1, n]</code> that are <strong>not divisible</strong> by <code>m</code>.</li>
-	<li><code>num2</code>: The sum of all integers in the range <code>[1, n]</code> that are <strong>divisible</strong> by <code>m</code>.</li>
+	<li><code>num1</code>: The sum of all integers in the range <code>[1, n]</code> (both <strong>inclusive</strong>) that are <strong>not divisible</strong> by <code>m</code>.</li>
+	<li><code>num2</code>: The sum of all integers in the range <code>[1, n]</code> (both <strong>inclusive</strong>) that are <strong>divisible</strong> by <code>m</code>.</li>
 </ul>
 
 <p>Return <em>the integer</em> <code>num1 - num2</code>.</p>
@@ -147,6 +147,24 @@ function differenceOfSums(n: number, m: number): number {
         ans += i % m ? i : -i;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn difference_of_sums(n: i32, m: i32) -> i32 {
+        let mut ans = 0;
+        for i in 1..=n {
+            if i % m != 0 {
+                ans += i;
+            } else {
+                ans -= i;
+            }
+        }
+        ans
+    }
 }
 ```
 

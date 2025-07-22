@@ -73,7 +73,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li><code>1 &lt;= logs.length &lt;= 500</code></li>
+	<li><code>2 &lt;= logs.length &lt;= 500</code></li>
 	<li><code>0 &lt;= function_id &lt; n</code></li>
 	<li><code>0 &lt;= timestamp &lt;= 10<sup>9</sup></code></li>
 	<li>两个开始事件不会在同一时间戳发生</li>
@@ -87,9 +87,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：栈模拟
+### 方法一：栈 + 模拟
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。
+我们定义一个栈 $\textit{stk}$，用于存储当前正在执行的函数的标识符。同时，我们定义一个数组 $\textit{ans}$，用于存储每个函数的独占时间，初始时每个函数的独占时间都为 $0$。用一个变量 $\textit{pre}$ 记录上一个时间戳。
+
+遍历日志数组，对于每一条日志，我们首先将其按照冒号分隔，得到函数标识符 $\textit{i}$，操作类型 $\textit{op}$ 和时间戳 $\textit{t}$。
+
+如果 $\textit{op}$ 为 $\text{start}$，则表示函数 $\textit{i}$ 开始执行，我们需要判断栈是否为空，如果不为空，则将栈顶函数的独占时间增加 $\textit{cur} - \textit{pre}$，然后将 $\textit{i}$ 入栈，更新 $\textit{pre}$ 为 $\textit{cur}$；如果 $\textit{op}$ 为 $\text{end}$，则表示函数 $\textit{i}$ 结束执行，我们将栈顶函数的独占时间增加 $\textit{cur} - \textit{pre} + 1$，然后将栈顶元素出栈，更新 $\textit{pre}$ 为 $\textit{cur} + 1$。
+
+最后返回数组 $\textit{ans}$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为日志数组的长度。
 
 <!-- tabs:start -->
 
@@ -98,22 +106,20 @@ tags:
 ```python
 class Solution:
     def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
-        ans = [0] * n
         stk = []
-        curr = -1
+        ans = [0] * n
+        pre = 0
         for log in logs:
-            t = log.split(':')
-            fid = int(t[0])
-            ts = int(t[2])
-            if t[1] == 'start':
+            i, op, t = log.split(":")
+            i, cur = int(i), int(t)
+            if op[0] == "s":
                 if stk:
-                    ans[stk[-1]] += ts - curr
-                stk.append(fid)
-                curr = ts
+                    ans[stk[-1]] += cur - pre
+                stk.append(i)
+                pre = cur
             else:
-                fid = stk.pop()
-                ans[fid] += ts - curr + 1
-                curr = ts + 1
+                ans[stk.pop()] += cur - pre + 1
+                pre = cur + 1
         return ans
 ```
 
@@ -124,21 +130,20 @@ class Solution {
     public int[] exclusiveTime(int n, List<String> logs) {
         int[] ans = new int[n];
         Deque<Integer> stk = new ArrayDeque<>();
-        int curr = -1;
-        for (String log : logs) {
-            String[] t = log.split(":");
-            int fid = Integer.parseInt(t[0]);
-            int ts = Integer.parseInt(t[2]);
-            if ("start".equals(t[1])) {
+        int pre = 0;
+        for (var log : logs) {
+            var parts = log.split(":");
+            int i = Integer.parseInt(parts[0]);
+            int cur = Integer.parseInt(parts[2]);
+            if (parts[1].charAt(0) == 's') {
                 if (!stk.isEmpty()) {
-                    ans[stk.peek()] += ts - curr;
+                    ans[stk.peek()] += cur - pre;
                 }
-                stk.push(fid);
-                curr = ts;
+                stk.push(i);
+                pre = cur;
             } else {
-                fid = stk.pop();
-                ans[fid] += ts - curr + 1;
-                curr = ts + 1;
+                ans[stk.pop()] += cur - pre + 1;
+                pre = cur + 1;
             }
         }
         return ans;
@@ -154,20 +159,21 @@ public:
     vector<int> exclusiveTime(int n, vector<string>& logs) {
         vector<int> ans(n);
         stack<int> stk;
-        int curr = -1;
-        for (auto& log : logs) {
-            char type[10];
-            int fid, ts;
-            sscanf(log.c_str(), "%d:%[^:]:%d", &fid, type, &ts);
-            if (type[0] == 's') {
-                if (!stk.empty()) ans[stk.top()] += ts - curr;
-                curr = ts;
-                stk.push(fid);
+        int pre = 0;
+        for (const auto& log : logs) {
+            int i, cur;
+            char c[10];
+            sscanf(log.c_str(), "%d:%[^:]:%d", &i, c, &cur);
+            if (c[0] == 's') {
+                if (stk.size()) {
+                    ans[stk.top()] += cur - pre;
+                }
+                stk.push(i);
+                pre = cur;
             } else {
-                fid = stk.top();
+                ans[stk.top()] += cur - pre + 1;
                 stk.pop();
-                ans[fid] += ts - curr + 1;
-                curr = ts + 1;
+                pre = cur + 1;
             }
         }
         return ans;
@@ -181,22 +187,21 @@ public:
 func exclusiveTime(n int, logs []string) []int {
 	ans := make([]int, n)
 	stk := []int{}
-	curr := 1
+	pre := 0
 	for _, log := range logs {
-		t := strings.Split(log, ":")
-		fid, _ := strconv.Atoi(t[0])
-		ts, _ := strconv.Atoi(t[2])
-		if t[1][0] == 's' {
+		parts := strings.Split(log, ":")
+		i, _ := strconv.Atoi(parts[0])
+		cur, _ := strconv.Atoi(parts[2])
+		if parts[1][0] == 's' {
 			if len(stk) > 0 {
-				ans[stk[len(stk)-1]] += ts - curr
+				ans[stk[len(stk)-1]] += cur - pre
 			}
-			stk = append(stk, fid)
-			curr = ts
+			stk = append(stk, i)
+			pre = cur
 		} else {
-			fid := stk[len(stk)-1]
+			ans[stk[len(stk)-1]] += cur - pre + 1
 			stk = stk[:len(stk)-1]
-			ans[fid] += ts - curr + 1
-			curr = ts + 1
+			pre = cur + 1
 		}
 	}
 	return ans
@@ -207,29 +212,23 @@ func exclusiveTime(n int, logs []string) []int {
 
 ```ts
 function exclusiveTime(n: number, logs: string[]): number[] {
-    const res = new Array(n).fill(0);
-    const stack: [number, number][] = [];
-
+    const ans: number[] = Array(n).fill(0);
+    let pre = 0;
+    const stk: number[] = [];
     for (const log of logs) {
-        const t = log.split(':');
-        const [id, state, time] = [Number(t[0]), t[1], Number(t[2])];
-
-        if (state === 'start') {
-            if (stack.length !== 0) {
-                const pre = stack[stack.length - 1];
-                res[pre[0]] += time - pre[1];
+        const [i, op, cur] = log.split(':');
+        if (op[0] === 's') {
+            if (stk.length) {
+                ans[stk.at(-1)!] += +cur - pre;
             }
-            stack.push([id, time]);
+            stk.push(+i);
+            pre = +cur;
         } else {
-            const pre = stack.pop();
-            res[pre[0]] += time - pre[1] + 1;
-            if (stack.length !== 0) {
-                stack[stack.length - 1][1] = time + 1;
-            }
+            ans[stk.pop()!] += +cur - pre + 1;
+            pre = +cur + 1;
         }
     }
-
-    return res;
+    return ans;
 }
 ```
 

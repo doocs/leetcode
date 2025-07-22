@@ -1,32 +1,29 @@
 class Solution {
     private int n;
-    private long[] f;
     private int[] power;
+    private Long[] f;
 
     public long minimumTime(int[] power) {
         n = power.length;
-        f = new long[1 << n];
-        Arrays.fill(f, -1);
         this.power = power;
-        return dfs(0);
+        f = new Long[1 << n];
+        return dfs((1 << n) - 1);
     }
 
     private long dfs(int mask) {
-        if (f[mask] != -1) {
-            return f[mask];
-        }
-        int cnt = Integer.bitCount(mask);
-        if (cnt == n) {
+        if (mask == 0) {
             return 0;
         }
-        long ans = Long.MAX_VALUE;
-        for (int i = 0; i < n; ++i) {
-            if (((mask >> i) & 1) == 1) {
-                continue;
-            }
-            ans = Math.min(ans, dfs(mask | 1 << i) + (power[i] + cnt) / (cnt + 1));
+        if (f[mask] != null) {
+            return f[mask];
         }
-        f[mask] = ans;
-        return ans;
+        f[mask] = Long.MAX_VALUE;
+        int gain = 1 + (n - Integer.bitCount(mask));
+        for (int i = 0; i < n; ++i) {
+            if ((mask >> i & 1) == 1) {
+                f[mask] = Math.min(f[mask], dfs(mask ^ 1 << i) + (power[i] + gain - 1) / gain);
+            }
+        }
+        return f[mask];
     }
 }

@@ -66,7 +66,11 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Traversal
+
+According to the problem description, the characteristic of a Toeplitz matrix is that each element is equal to the element in its upper left corner. Therefore, we only need to iterate through each element in the matrix and check if it is equal to the element in its upper left corner.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -76,11 +80,11 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 class Solution:
     def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
         m, n = len(matrix), len(matrix[0])
-        return all(
-            matrix[i][j] == matrix[i - 1][j - 1]
-            for i in range(1, m)
-            for j in range(1, n)
-        )
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][j] != matrix[i - 1][j - 1]:
+                    return False
+        return True
 ```
 
 #### Java
@@ -136,6 +140,40 @@ func isToeplitzMatrix(matrix [][]int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function isToeplitzMatrix(matrix: number[][]): boolean {
+    const [m, n] = [matrix.length, matrix[0].length];
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            if (matrix[i][j] !== matrix[i - 1][j - 1]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_toeplitz_matrix(matrix: Vec<Vec<i32>>) -> bool {
+        let (m, n) = (matrix.len(), matrix[0].len());
+        for i in 1..m {
+            for j in 1..n {
+                if matrix[i][j] != matrix[i - 1][j - 1] {
+                    return false;
+                }
+            }
+        }
+        true
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -144,11 +182,10 @@ func isToeplitzMatrix(matrix [][]int) bool {
  * @return {boolean}
  */
 var isToeplitzMatrix = function (matrix) {
-    const m = matrix.length;
-    const n = matrix[0].length;
+    const [m, n] = [matrix.length, matrix[0].length];
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
-            if (matrix[i][j] != matrix[i - 1][j - 1]) {
+            if (matrix[i][j] !== matrix[i - 1][j - 1]) {
                 return false;
             }
         }

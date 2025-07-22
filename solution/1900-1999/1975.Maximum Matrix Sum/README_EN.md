@@ -65,7 +65,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+If there is a zero in the matrix, or the number of negative numbers in the matrix is even, then the maximum sum is the sum of the absolute values of all elements in the matrix.
+
+Otherwise, if there are an odd number of negative numbers in the matrix, there will be one negative number left in the end. We choose the number with the smallest absolute value and make it negative, so that the final sum is maximized.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -74,17 +80,15 @@ tags:
 ```python
 class Solution:
     def maxMatrixSum(self, matrix: List[List[int]]) -> int:
-        s = cnt = 0
         mi = inf
+        s = cnt = 0
         for row in matrix:
-            for v in row:
-                s += abs(v)
-                mi = min(mi, abs(v))
-                if v < 0:
-                    cnt += 1
-        if cnt % 2 == 0 or mi == 0:
-            return s
-        return s - mi * 2
+            for x in row:
+                cnt += x < 0
+                y = abs(x)
+                mi = min(mi, y)
+                s += y
+        return s if cnt % 2 == 0 else s - mi * 2
 ```
 
 #### Java
@@ -93,21 +97,16 @@ class Solution:
 class Solution {
     public long maxMatrixSum(int[][] matrix) {
         long s = 0;
-        int cnt = 0;
-        int mi = Integer.MAX_VALUE;
+        int mi = 1 << 30, cnt = 0;
         for (var row : matrix) {
-            for (var v : row) {
-                s += Math.abs(v);
-                mi = Math.min(mi, Math.abs(v));
-                if (v < 0) {
-                    ++cnt;
-                }
+            for (int x : row) {
+                cnt += x < 0 ? 1 : 0;
+                int y = Math.abs(x);
+                mi = Math.min(mi, y);
+                s += y;
             }
         }
-        if (cnt % 2 == 0 || mi == 0) {
-            return s;
-        }
-        return s - mi * 2;
+        return cnt % 2 == 0 ? s : s - mi * 2;
     }
 }
 ```
@@ -119,16 +118,16 @@ class Solution {
 public:
     long long maxMatrixSum(vector<vector<int>>& matrix) {
         long long s = 0;
-        int cnt = 0, mi = INT_MAX;
-        for (auto& row : matrix) {
-            for (int& v : row) {
-                s += abs(v);
-                mi = min(mi, abs(v));
-                cnt += v < 0;
+        int mi = 1 << 30, cnt = 0;
+        for (const auto& row : matrix) {
+            for (int x : row) {
+                cnt += x < 0 ? 1 : 0;
+                int y = abs(x);
+                mi = min(mi, y);
+                s += y;
             }
         }
-        if (cnt % 2 == 0 || mi == 0) return s;
-        return s - mi * 2;
+        return cnt % 2 == 0 ? s : s - mi * 2;
     }
 };
 ```
@@ -137,28 +136,66 @@ public:
 
 ```go
 func maxMatrixSum(matrix [][]int) int64 {
-	s := 0
-	cnt, mi := 0, math.MaxInt32
+	var s int64
+	mi, cnt := 1<<30, 0
 	for _, row := range matrix {
-		for _, v := range row {
-			s += abs(v)
-			mi = min(mi, abs(v))
-			if v < 0 {
+		for _, x := range row {
+			if x < 0 {
 				cnt++
+				x = -x
 			}
+			mi = min(mi, x)
+			s += int64(x)
 		}
 	}
-	if cnt%2 == 1 {
-		s -= mi * 2
+	if cnt%2 == 0 {
+		return s
 	}
-	return int64(s)
+	return s - int64(mi*2)
 }
+```
 
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+#### TypeScript
+
+```ts
+function maxMatrixSum(matrix: number[][]): number {
+    let [s, cnt, mi] = [0, 0, Infinity];
+    for (const row of matrix) {
+        for (const x of row) {
+            if (x < 0) {
+                ++cnt;
+            }
+            const y = Math.abs(x);
+            s += y;
+            mi = Math.min(mi, y);
+        }
+    }
+    return cnt % 2 === 0 ? s : s - 2 * mi;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_matrix_sum(matrix: Vec<Vec<i32>>) -> i64 {
+        let mut s = 0;
+        let mut mi = i32::MAX;
+        let mut cnt = 0;
+        for row in matrix {
+            for &x in row.iter() {
+                cnt += if x < 0 { 1 } else { 0 };
+                let y = x.abs();
+                mi = mi.min(y);
+                s += y as i64;
+            }
+        }
+        if cnt % 2 == 0 {
+            s
+        } else {
+            s - (mi as i64 * 2)
+        }
+    }
 }
 ```
 
@@ -170,20 +207,18 @@ func abs(x int) int {
  * @return {number}
  */
 var maxMatrixSum = function (matrix) {
-    let cnt = 0;
-    let s = 0;
-    let mi = Infinity;
+    let [s, cnt, mi] = [0, 0, Infinity];
     for (const row of matrix) {
-        for (const v of row) {
-            s += Math.abs(v);
-            mi = Math.min(mi, Math.abs(v));
-            cnt += v < 0;
+        for (const x of row) {
+            if (x < 0) {
+                ++cnt;
+            }
+            const y = Math.abs(x);
+            s += y;
+            mi = Math.min(mi, y);
         }
     }
-    if (cnt % 2 == 0) {
-        return s;
-    }
-    return s - mi * 2;
+    return cnt % 2 === 0 ? s : s - 2 * mi;
 };
 ```
 

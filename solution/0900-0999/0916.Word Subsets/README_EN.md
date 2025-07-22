@@ -33,17 +33,27 @@ tags:
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;e&quot;,&quot;o&quot;]
-<strong>Output:</strong> [&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;e&quot;,&quot;o&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;]</span></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;l&quot;,&quot;e&quot;]
-<strong>Output:</strong> [&quot;apple&quot;,&quot;google&quot;,&quot;leetcode&quot;]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">words1 = [&quot;amazon&quot;,&quot;apple&quot;,&quot;facebook&quot;,&quot;google&quot;,&quot;leetcode&quot;], words2 = [&quot;lc&quot;,&quot;eo&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;leetcode&quot;]</span></p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">words1 = [&quot;acaac&quot;,&quot;cccbb&quot;,&quot;aacbb&quot;,&quot;caacc&quot;,&quot;bcbbb&quot;], words2 = [&quot;c&quot;,&quot;cc&quot;,&quot;b&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;cccbb&quot;]</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -197,6 +207,94 @@ func wordSubsets(words1 []string, words2 []string) (ans []string) {
 	}
 	return
 }
+```
+
+#### TypeScript
+
+```ts
+function wordSubsets(words1: string[], words2: string[]): string[] {
+    const cnt: number[] = Array(26).fill(0);
+    for (const b of words2) {
+        const t: number[] = Array(26).fill(0);
+        for (const c of b) {
+            t[c.charCodeAt(0) - 97]++;
+        }
+        for (let i = 0; i < 26; i++) {
+            cnt[i] = Math.max(cnt[i], t[i]);
+        }
+    }
+
+    const ans: string[] = [];
+    for (const a of words1) {
+        const t: number[] = Array(26).fill(0);
+        for (const c of a) {
+            t[c.charCodeAt(0) - 97]++;
+        }
+
+        let ok = true;
+        for (let i = 0; i < 26; i++) {
+            if (cnt[i] > t[i]) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            ans.push(a);
+        }
+    }
+
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string[]} words1
+ * @param {string[]} words2
+ * @return {string[]}
+ */
+var wordSubsets = function (words1, words2) {
+    const cnt = Array(26).fill(0);
+
+    for (const b of words2) {
+        const t = Array(26).fill(0);
+
+        for (const c of b) {
+            t[c.charCodeAt(0) - 97]++;
+        }
+
+        for (let i = 0; i < 26; i++) {
+            cnt[i] = Math.max(cnt[i], t[i]);
+        }
+    }
+
+    const ans = [];
+
+    for (const a of words1) {
+        const t = Array(26).fill(0);
+
+        for (const c of a) {
+            t[c.charCodeAt(0) - 97]++;
+        }
+
+        let ok = true;
+        for (let i = 0; i < 26; i++) {
+            if (cnt[i] > t[i]) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            ans.push(a);
+        }
+    }
+
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

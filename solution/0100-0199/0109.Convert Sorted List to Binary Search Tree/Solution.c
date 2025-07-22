@@ -13,28 +13,36 @@
  *     struct TreeNode *right;
  * };
  */
-struct ListNode* find(struct ListNode* start, struct ListNode* end) {
-    struct ListNode* fast = start;
-    struct ListNode* slow = start;
-    while (fast != end && fast->next != end) {
-        fast = fast->next->next;
-        slow = slow->next;
-    }
-    return slow;
-}
-
-struct TreeNode* bulid(struct ListNode* start, struct ListNode* end) {
-    if (start == end) {
+struct TreeNode* dfs(int* nums, int i, int j) {
+    if (i > j) {
         return NULL;
     }
-    struct ListNode* node = find(start, end);
-    struct TreeNode* ans = malloc(sizeof(struct TreeNode));
-    ans->val = node->val;
-    ans->left = bulid(start, node);
-    ans->right = bulid(node->next, end);
-    return ans;
+    int mid = (i + j) >> 1;
+    struct TreeNode* left = dfs(nums, i, mid - 1);
+    struct TreeNode* right = dfs(nums, mid + 1, j);
+    struct TreeNode* root = (struct TreeNode*) malloc(sizeof(struct TreeNode));
+    root->val = nums[mid];
+    root->left = left;
+    root->right = right;
+    return root;
 }
 
 struct TreeNode* sortedListToBST(struct ListNode* head) {
-    return bulid(head, NULL);
+    int size = 0;
+    struct ListNode* temp = head;
+    while (temp) {
+        size++;
+        temp = temp->next;
+    }
+
+    int* nums = (int*) malloc(size * sizeof(int));
+    temp = head;
+    for (int i = 0; i < size; i++) {
+        nums[i] = temp->val;
+        temp = temp->next;
+    }
+
+    struct TreeNode* root = dfs(nums, 0, size - 1);
+    free(nums);
+    return root;
 }

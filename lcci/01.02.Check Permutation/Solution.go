@@ -7,8 +7,7 @@ func CheckPermutation(s1 string, s2 string) bool {
 		cnt[c-'a']++
 	}
 	for _, c := range s2 {
-		cnt[c-'a']--
-		if cnt[c-'a'] < 0 {
+		if cnt[c-'a']--; cnt[c-'a'] < 0 {
 			return false
 		}
 	}

@@ -4,35 +4,23 @@ class Solution:
     ) -> int:
         if source == target:
             return 0
-
-        # 一条公交线路有哪些公交站
-        s = [set(r) for r in routes]
-
-        # 一个公交站在哪些公交线路有
-        d = defaultdict(list)
-        for i, r in enumerate(routes):
-            for v in r:
-                d[v].append(i)
-
         g = defaultdict(list)
-        for ids in d.values():
-            m = len(ids)
-            for i in range(m):
-                for j in range(i + 1, m):
-                    a, b = ids[i], ids[j]
-                    g[a].append(b)
-                    g[b].append(a)
-        q = deque(d[source])
-        ans = 1
-        vis = set(d[source])
-        while q:
-            for _ in range(len(q)):
-                i = q.popleft()
-                if target in s[i]:
-                    return ans
-                for j in g[i]:
-                    if j not in vis:
-                        vis.add(j)
-                        q.append(j)
-            ans += 1
+        for i, route in enumerate(routes):
+            for stop in route:
+                g[stop].append(i)
+        if source not in g or target not in g:
+            return -1
+        q = [(source, 0)]
+        vis_bus = set()
+        vis_stop = {source}
+        for stop, bus_count in q:
+            if stop == target:
+                return bus_count
+            for bus in g[stop]:
+                if bus not in vis_bus:
+                    vis_bus.add(bus)
+                    for next_stop in routes[bus]:
+                        if next_stop not in vis_stop:
+                            vis_stop.add(next_stop)
+                            q.append((next_stop, bus_count + 1))
         return -1

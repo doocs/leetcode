@@ -6,6 +6,7 @@ tags:
     - Tree
     - Depth-First Search
     - Breadth-First Search
+    - Array
     - Binary Tree
 ---
 

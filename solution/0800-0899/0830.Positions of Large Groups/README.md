@@ -110,7 +110,7 @@ class Solution {
                 ++j;
             }
             if (j - i >= 3) {
-                ans.add(Arrays.asList(i, j - 1));
+                ans.add(List.of(i, j - 1));
             }
             i = j;
         }
@@ -160,6 +160,28 @@ func largeGroupPositions(s string) [][]int {
 		i = j
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function largeGroupPositions(s: string): number[][] {
+    const n = s.length;
+    const ans: number[][] = [];
+
+    for (let i = 0; i < n; ) {
+        let j = i;
+        while (j < n && s[j] === s[i]) {
+            ++j;
+        }
+        if (j - i >= 3) {
+            ans.push([i, j - 1]);
+        }
+        i = j;
+    }
+
+    return ans;
 }
 ```
 

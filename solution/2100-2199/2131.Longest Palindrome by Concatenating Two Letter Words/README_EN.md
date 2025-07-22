@@ -73,7 +73,19 @@ Note that &quot;ll&quot; is another longest palindrome that can be created, and 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Hash Table
+
+First, we use a hash table $\textit{cnt}$ to count the occurrences of each word.
+
+Iterate through each word $k$ and its count $v$ in $\textit{cnt}$:
+
+-   If the two letters in $k$ are the same, we can concatenate $\left \lfloor \frac{v}{2}  \right \rfloor \times 2$ copies of $k$ to the front and back of the palindrome. If there is one $k$ left, we can record it in $x$ for now.
+
+-   If the two letters in $k$ are different, we need to find a word $k'$ such that the two letters in $k'$ are the reverse of $k$, i.e., $k' = k[1] + k[0]$. If $k'$ exists, we can concatenate $\min(v, \textit{cnt}[k'])$ copies of $k$ to the front and back of the palindrome.
+
+After the iteration, if $x$ is not empty, we can also place one word in the middle of the palindrome.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of words.
 
 <!-- tabs:start -->
 
@@ -101,7 +113,7 @@ class Solution {
     public int longestPalindrome(String[] words) {
         Map<String, Integer> cnt = new HashMap<>();
         for (var w : words) {
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+            cnt.merge(w, 1, Integer::sum);
         }
         int ans = 0, x = 0;
         for (var e : cnt.entrySet()) {
@@ -170,6 +182,26 @@ func longestPalindrome(words []string) int {
 		ans += 2
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPalindrome(words: string[]): number {
+    const cnt = new Map<string, number>();
+    for (const w of words) cnt.set(w, (cnt.get(w) || 0) + 1);
+    let [ans, x] = [0, 0];
+    for (const [k, v] of cnt.entries()) {
+        if (k[0] === k[1]) {
+            x += v & 1;
+            ans += Math.floor(v / 2) * 2 * 2;
+        } else {
+            ans += Math.min(v, cnt.get(k[1] + k[0]) || 0) * 2;
+        }
+    }
+    ans += x ? 2 : 0;
+    return ans;
 }
 ```
 

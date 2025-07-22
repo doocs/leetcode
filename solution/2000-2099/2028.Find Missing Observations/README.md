@@ -82,7 +82,7 @@ tags:
 
 ### 方法一：构造
 
-根据题目描述，所有数字之和为 $(n + m) \times \text{mean}$，已知的数字之和为 $\sum_{i=0}^{m-1} \text{rolls}[i]$，那么缺失的数字之和为 $s = (n + m) \times \text{mean} - \sum_{i=0}^{m-1} \text{rolls}[i]$。
+根据题目描述，所有数字之和为 $(n + m) \times \textit{mean}$，已知的数字之和为 $\sum_{i=0}^{m-1} \textit{rolls}[i]$，那么缺失的数字之和为 $s = (n + m) \times \textit{mean} - \sum_{i=0}^{m-1} \textit{rolls}[i]$。
 
 如果 $s \gt n \times 6$ 或者 $s \lt n$，说明不存在满足条件的答案，返回空数组。
 

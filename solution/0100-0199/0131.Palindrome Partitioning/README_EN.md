@@ -42,7 +42,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Preprocessing + DFS (Backtracking)
+
+We can use dynamic programming to preprocess whether any substring in the string is a palindrome, i.e., $f[i][j]$ indicates whether the substring $s[i..j]$ is a palindrome.
+
+Next, we design a function $dfs(i)$, which represents starting from the $i$-th character of the string and partitioning it into several palindromic substrings, with the current partition scheme being $t$.
+
+If $i = |s|$, it means the partitioning is complete, and we add $t$ to the answer array and then return.
+
+Otherwise, we can start from $i$ and enumerate the end position $j$ from small to large. If $s[i..j]$ is a palindrome, we add $s[i..j]$ to $t$, then continue to recursively call $dfs(j+1)$. When backtracking, we need to pop $s[i..j]$.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -130,14 +140,14 @@ public:
         }
         vector<vector<string>> ans;
         vector<string> t;
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> void {
             if (i == n) {
-                ans.push_back(t);
+                ans.emplace_back(t);
                 return;
             }
             for (int j = i; j < n; ++j) {
                 if (f[i][j]) {
-                    t.push_back(s.substr(i, j - i + 1));
+                    t.emplace_back(s.substr(i, j - i + 1));
                     dfs(j + 1);
                     t.pop_back();
                 }
@@ -191,7 +201,7 @@ func partition(s string) (ans [][]string) {
 ```ts
 function partition(s: string): string[][] {
     const n = s.length;
-    const f: boolean[][] = new Array(n).fill(0).map(() => new Array(n).fill(true));
+    const f: boolean[][] = Array.from({ length: n }, () => Array(n).fill(true));
     for (let i = n - 1; i >= 0; --i) {
         for (let j = i + 1; j < n; ++j) {
             f[i][j] = s[i] === s[j] && f[i + 1][j - 1];

@@ -6,8 +6,11 @@ rating: 2023
 source: Weekly Contest 337 Q3
 tags:
     - Array
+    - Hash Table
+    - Math
     - Dynamic Programming
     - Backtracking
+    - Combinatorics
     - Sorting
 ---
 
@@ -52,7 +55,7 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 20</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 18</code></li>
 	<li><code>1 &lt;= nums[i], k &lt;= 1000</code></li>
 </ul>
 
@@ -64,16 +67,16 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 
 ### Solution 1: Counting + Backtracking
 
-We use a hash table or an array $cnt$ to record the currently selected numbers and their counts, and use $ans$ to record the number of beautiful subsets, initially $ans = -1$, indicating that the empty set is excluded.
+We use a hash table or array $\textit{cnt}$ to record the currently selected numbers and their counts, and use $\textit{ans}$ to record the number of beautiful subsets. Initially, $\textit{ans} = -1$ to exclude the empty set.
 
-For each number $x$ in the array $nums$, we have two choices:
+For each number $x$ in the array $\textit{nums}$, we have two choices:
 
--   Do not choose $x$, and then directly recurse to the next number;
--   Choose $x$, then we need to check whether $x + k$ and $x - k$ have appeared in $cnt$ before, if neither has appeared before, then we can choose $x$, at this time we add one to the number of $x$, and then recurse to the next number, and finally subtract one from the number of $x$.
+-   Do not select $x$, and directly recurse to the next number;
+-   Select $x$, and check if $x + k$ and $x - k$ have already appeared in $\textit{cnt}$. If neither has appeared, we can select $x$. In this case, we increment the count of $x$ by one, recurse to the next number, and then decrement the count of $x$ by one.
 
-Finally, we return $ans$.
+Finally, we return $\textit{ans}$.
 
-Time complexity $O(2^n)$, space complexity $O(n)$, where $n$ is the length of the array $nums$.
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -142,7 +145,7 @@ public:
         int cnt[1010]{};
         int n = nums.size();
 
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) {
             if (i >= n) {
                 ++ans;
                 return;
@@ -212,6 +215,36 @@ function beautifulSubsets(nums: number[], k: number): number {
     };
     dfs(0);
     return ans;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int BeautifulSubsets(int[] nums, int k) {
+        int ans = -1;
+        int[] cnt = new int[1010];
+        int n = nums.Length;
+
+        void Dfs(int i) {
+            if (i >= n) {
+                ans++;
+                return;
+            }
+            Dfs(i + 1);
+            bool ok1 = nums[i] + k >= 1010 || cnt[nums[i] + k] == 0;
+            bool ok2 = nums[i] - k < 0 || cnt[nums[i] - k] == 0;
+            if (ok1 && ok2) {
+                cnt[nums[i]]++;
+                Dfs(i + 1);
+                cnt[nums[i]]--;
+            }
+        }
+
+        Dfs(0);
+        return ans;
+    }
 }
 ```
 

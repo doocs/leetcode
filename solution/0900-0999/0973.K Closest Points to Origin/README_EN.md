@@ -67,7 +67,7 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 
 We sort all points by their distance from the origin in ascending order, and then take the first $k$ points.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\text{points}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 
@@ -151,7 +151,7 @@ impl Solution {
 
 We can use a priority queue (max heap) to maintain the $k$ closest points to the origin.
 
-The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\text{points}$.
+The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 
@@ -255,15 +255,15 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 
 ```ts
 function kClosest(points: number[][], k: number): number[][] {
-    const maxQ = new MaxPriorityQueue();
+    const maxQ = new MaxPriorityQueue<{ point: number[]; dist: number }>(entry => entry.dist);
     for (const [x, y] of points) {
         const dist = x * x + y * y;
-        maxQ.enqueue([x, y], dist);
+        maxQ.enqueue({ point: [x, y], dist });
         if (maxQ.size() > k) {
             maxQ.dequeue();
         }
     }
-    return maxQ.toArray().map(item => item.element);
+    return maxQ.toArray().map(entry => entry.point);
 }
 ```
 
@@ -281,7 +281,7 @@ Therefore, we can use binary search to enumerate the distance. In each binary se
 
 After the binary search is finished, we just need to return the points whose distance is less than or equal to the left boundary.
 
-The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{points}$, and $M$ is the maximum value of the distance.
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{points}$, and $M$ is the maximum value of the distance.
 
 <!-- tabs:start -->
 

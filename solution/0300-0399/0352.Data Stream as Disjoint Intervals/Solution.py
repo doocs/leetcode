@@ -1,6 +1,3 @@
-from sortedcontainers import SortedDict
-
-
 class SummaryRanges:
     def __init__(self):
         self.mp = SortedDict()

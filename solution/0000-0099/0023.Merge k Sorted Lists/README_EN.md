@@ -35,7 +35,7 @@ tags:
   1-&gt;3-&gt;4,
   2-&gt;6
 ]
-merging them into one sorted list:
+merging them into one sorted linked list:
 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
 </pre>
 
@@ -233,11 +233,7 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
 
 function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
     const pq = new MinPriorityQueue({ priority: (node: ListNode) => node.val });
-    for (const head of lists) {
-        if (head) {
-            pq.enqueue(head);
-        }
-    }
+    lists.filter(head => head).forEach(head => pq.enqueue(head));
     const dummy: ListNode = new ListNode();
     let cur: ListNode = dummy;
     while (!pq.isEmpty()) {
@@ -319,11 +315,7 @@ impl Solution {
  */
 var mergeKLists = function (lists) {
     const pq = new MinPriorityQueue({ priority: node => node.val });
-    for (const head of lists) {
-        if (head) {
-            pq.enqueue(head);
-        }
-    }
+    lists.filter(head => head).forEach(head => pq.enqueue(head));
     const dummy = new ListNode();
     let cur = dummy;
     while (!pq.isEmpty()) {

@@ -1,15 +1,11 @@
 func isBipartite(graph [][]int) bool {
 	n := len(graph)
 	color := make([]int, n)
-	var dfs func(u, c int) bool
-	dfs = func(u, c int) bool {
-		color[u] = c
-		for _, v := range graph[u] {
-			if color[v] == 0 {
-				if !dfs(v, 3-c) {
-					return false
-				}
-			} else if color[v] == c {
+	var dfs func(int, int) bool
+	dfs = func(a, c int) bool {
+		color[a] = c
+		for _, b := range graph[a] {
+			if color[b] == c || (color[b] == 0 && !dfs(b, -c)) {
 				return false
 			}
 		}

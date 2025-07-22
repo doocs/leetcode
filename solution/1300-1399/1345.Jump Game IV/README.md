@@ -85,28 +85,22 @@ tags:
 ```python
 class Solution:
     def minJumps(self, arr: List[int]) -> int:
-        idx = defaultdict(list)
-        for i, v in enumerate(arr):
-            idx[v].append(i)
-        q = deque([(0, 0)])
+        g = defaultdict(list)
+        for i, x in enumerate(arr):
+            g[x].append(i)
+        q = deque([0])
         vis = {0}
-        while q:
-            i, step = q.popleft()
-            if i == len(arr) - 1:
-                return step
-            v = arr[i]
-            step += 1
-            for j in idx[v]:
-                if j not in vis:
-                    vis.add(j)
-                    q.append((j, step))
-            del idx[v]
-            if i + 1 < len(arr) and (i + 1) not in vis:
-                vis.add(i + 1)
-                q.append((i + 1, step))
-            if i - 1 >= 0 and (i - 1) not in vis:
-                vis.add(i - 1)
-                q.append((i - 1, step))
+        ans = 0
+        while 1:
+            for _ in range(len(q)):
+                i = q.popleft()
+                if i == len(arr) - 1:
+                    return ans
+                for j in (i + 1, i - 1, *g.pop(arr[i], [])):
+                    if 0 <= j < len(arr) and j not in vis:
+                        q.append(j)
+                        vis.add(j)
+            ans += 1
 ```
 
 #### Java
@@ -114,40 +108,36 @@ class Solution:
 ```java
 class Solution {
     public int minJumps(int[] arr) {
-        Map<Integer, List<Integer>> idx = new HashMap<>();
+        Map<Integer, List<Integer>> g = new HashMap<>();
         int n = arr.length;
-        for (int i = 0; i < n; ++i) {
-            idx.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
+        for (int i = 0; i < n; i++) {
+            g.computeIfAbsent(arr[i], k -> new ArrayList<>()).add(i);
         }
-        Deque<int[]> q = new LinkedList<>();
-        Set<Integer> vis = new HashSet<>();
-        vis.add(0);
-        q.offer(new int[] {0, 0});
-        while (!q.isEmpty()) {
-            int[] e = q.pollFirst();
-            int i = e[0], step = e[1];
-            if (i == n - 1) {
-                return step;
-            }
-            int v = arr[i];
-            ++step;
-            for (int j : idx.getOrDefault(v, new ArrayList<>())) {
-                if (!vis.contains(j)) {
-                    vis.add(j);
-                    q.offer(new int[] {j, step});
+        boolean[] vis = new boolean[n];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        vis[0] = true;
+        for (int ans = 0;; ++ans) {
+            for (int k = q.size(); k > 0; --k) {
+                int i = q.poll();
+                if (i == n - 1) {
+                    return ans;
+                }
+                for (int j : g.get(arr[i])) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        q.offer(j);
+                    }
+                }
+                g.get(arr[i]).clear();
+                for (int j : new int[] {i - 1, i + 1}) {
+                    if (0 <= j && j < n && !vis[j]) {
+                        vis[j] = true;
+                        q.offer(j);
+                    }
                 }
             }
-            idx.remove(v);
-            if (i + 1 < n && !vis.contains(i + 1)) {
-                vis.add(i + 1);
-                q.offer(new int[] {i + 1, step});
-            }
-            if (i - 1 >= 0 && !vis.contains(i - 1)) {
-                vis.add(i - 1);
-                q.offer(new int[] {i - 1, step});
-            }
         }
-        return -1;
     }
 }
 ```
@@ -158,39 +148,36 @@ class Solution {
 class Solution {
 public:
     int minJumps(vector<int>& arr) {
-        unordered_map<int, vector<int>> idx;
+        unordered_map<int, vector<int>> g;
         int n = arr.size();
-        for (int i = 0; i < n; ++i) idx[arr[i]].push_back(i);
-        queue<pair<int, int>> q;
-        q.emplace(0, 0);
-        unordered_set<int> vis;
-        vis.insert(0);
-        while (!q.empty()) {
-            auto e = q.front();
-            q.pop();
-            int i = e.first, step = e.second;
-            if (i == n - 1) return step;
-            int v = arr[i];
-            ++step;
-            if (idx.count(v)) {
-                for (int j : idx[v]) {
-                    if (!vis.count(j)) {
-                        vis.insert(j);
-                        q.emplace(j, step);
+        for (int i = 0; i < n; ++i) {
+            g[arr[i]].push_back(i);
+        }
+        vector<bool> vis(n);
+        queue<int> q{{0}};
+        vis[0] = true;
+        for (int ans = 0;; ++ans) {
+            for (int k = q.size(); k; --k) {
+                int i = q.front();
+                q.pop();
+                if (i == n - 1) {
+                    return ans;
+                }
+                for (int j : g[arr[i]]) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        q.push(j);
                     }
                 }
-                idx.erase(v);
-            }
-            if (i + 1 < n && !vis.count(i + 1)) {
-                vis.insert(i + 1);
-                q.emplace(i + 1, step);
-            }
-            if (i - 1 >= 0 && !vis.count(i - 1)) {
-                vis.insert(i - 1);
-                q.emplace(i - 1, step);
+                g[arr[i]].clear();
+                for (int j : {i - 1, i + 1}) {
+                    if (0 <= j && j < n && !vis[j]) {
+                        vis[j] = true;
+                        q.push(j);
+                    }
+                }
             }
         }
-        return -1;
     }
 };
 ```
@@ -199,38 +186,76 @@ public:
 
 ```go
 func minJumps(arr []int) int {
-	idx := map[int][]int{}
-	for i, v := range arr {
-		idx[v] = append(idx[v], i)
+	g := map[int][]int{}
+	for i, x := range arr {
+		g[x] = append(g[x], i)
 	}
-	vis := map[int]bool{0: true}
-	type pair struct{ idx, step int }
-	q := []pair{{0, 0}}
-	for len(q) > 0 {
-		e := q[0]
-		q = q[1:]
-		i, step := e.idx, e.step
-		if i == len(arr)-1 {
-			return step
-		}
-		step++
-		for _, j := range idx[arr[i]] {
-			if !vis[j] {
-				vis[j] = true
-				q = append(q, pair{j, step})
+	n := len(arr)
+	q := []int{0}
+	vis := make([]bool, n)
+	vis[0] = true
+	for ans := 0; ; ans++ {
+		for k := len(q); k > 0; k-- {
+			i := q[0]
+			q = q[1:]
+			if i == n-1 {
+				return ans
+			}
+			for _, j := range g[arr[i]] {
+				if !vis[j] {
+					vis[j] = true
+					q = append(q, j)
+				}
+			}
+			g[arr[i]] = nil
+			for _, j := range []int{i - 1, i + 1} {
+				if 0 <= j && j < n && !vis[j] {
+					vis[j] = true
+					q = append(q, j)
+				}
 			}
 		}
-		delete(idx, arr[i])
-		if i+1 < len(arr) && !vis[i+1] {
-			vis[i+1] = true
-			q = append(q, pair{i + 1, step})
-		}
-		if i-1 >= 0 && !vis[i-1] {
-			vis[i-1] = true
-			q = append(q, pair{i - 1, step})
-		}
 	}
-	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function minJumps(arr: number[]): number {
+    const g: Map<number, number[]> = new Map();
+    const n = arr.length;
+    for (let i = 0; i < n; ++i) {
+        if (!g.has(arr[i])) {
+            g.set(arr[i], []);
+        }
+        g.get(arr[i])!.push(i);
+    }
+    let q: number[] = [0];
+    const vis: boolean[] = Array(n).fill(false);
+    vis[0] = true;
+    for (let ans = 0; ; ++ans) {
+        const nq: number[] = [];
+        for (const i of q) {
+            if (i === n - 1) {
+                return ans;
+            }
+            for (const j of g.get(arr[i])!) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    nq.push(j);
+                }
+            }
+            g.get(arr[i])!.length = 0;
+            for (const j of [i - 1, i + 1]) {
+                if (j >= 0 && j < n && !vis[j]) {
+                    vis[j] = true;
+                    nq.push(j);
+                }
+            }
+        }
+        q = nq;
+    }
 }
 ```
 

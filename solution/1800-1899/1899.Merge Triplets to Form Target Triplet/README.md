@@ -92,13 +92,20 @@ tags:
 
 ### 方法一：贪心
 
-我们记 $target = [x, y, z]$，初始时 $d = e = f = 0$，表示当前的 $a, b, c$ 的最大值。
+我们记 $\textit{target} = [x, y, z]$，我们需要判断是否存在三元组 $[a, b, c]$ 使得 $a \le x, b \le y, c \le z$。
 
-我们遍历数组 $triplets$，对于每个三元组 $[a, b, c]$，如果 $a \le x, b \le y, c \le z$，则将 $d, e, f$ 分别更新为 $max(d, a), max(e, b), max(f, c)$。
+我们可以将所有的三元组分为两类：
 
-最后判断 $[d, e, f]$ 是否等于 $target$ 即可。
+1. 满足 $a \le x, b \le y, c \le z$ 的三元组。
+2. 不满足 $a \le x, b \le y, c \le z$ 的三元组。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $triplets$ 的长度。
+对于第一类三元组，我们可以将它们的 $a, b, c$ 分别取最大值，得到一个新的三元组 $[d, e, f]$。
+
+对于第二类三元组，我们可以忽略它们，因为它们无法帮助我们得到目标三元组。
+
+最后，我们只需要判断 $[d, e, f]$ 是否等于 $\textit{target}$ 即可。如果等于，返回 $\textit{true}$，否则返回 $\textit{false}$。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{triplets}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -190,6 +197,50 @@ function mergeTriplets(triplets: number[][], target: number[]): boolean {
         }
     }
     return d === x && e === y && f === z;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn merge_triplets(triplets: Vec<Vec<i32>>, target: Vec<i32>) -> bool {
+        let [x, y, z]: [i32; 3] = target.try_into().unwrap();
+        let (mut d, mut e, mut f) = (0, 0, 0);
+
+        for triplet in triplets {
+            if let [a, b, c] = triplet[..] {
+                if a <= x && b <= y && c <= z {
+                    d = d.max(a);
+                    e = e.max(b);
+                    f = f.max(c);
+                }
+            }
+        }
+
+        [d, e, f] == [x, y, z]
+    }
+}
+```
+
+#### Scala
+
+```scala
+object Solution {
+    def mergeTriplets(triplets: Array[Array[Int]], target: Array[Int]): Boolean = {
+        val Array(x, y, z) = target
+        var (d, e, f) = (0, 0, 0)
+
+        for (Array(a, b, c) <- triplets) {
+            if (a <= x && b <= y && c <= z) {
+                d = d.max(a)
+                e = e.max(b)
+                f = f.max(c)
+            }
+        }
+
+        d == x && e == y && f == z
+    }
 }
 ```
 

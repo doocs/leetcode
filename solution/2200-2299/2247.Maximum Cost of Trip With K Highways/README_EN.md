@@ -79,7 +79,7 @@ We use $f[i][j]$ to represent the maximum travel cost when the cities that have 
 Consider how $f[i][j]$ transitions. For $f[i]$, we enumerate all cities $j$. If the $j$-th bit of $i$ is $1$, then we can reach city $j$ from other city $h$ through the road, at this time the value of $f[i][j]$ is the maximum value of $f[i][h]+cost(h, j)$, where $cost(h, j)$ represents the travel cost from city $h$ to city $j$. Therefore, we can get the state transition equation:
 
 $$
-f[i][j]=\max_{h \in \text{city}}\{f[i \backslash j][h]+cost(h, j)\}
+f[i][j]=\max_{h \in \textit{city}}\{f[i \backslash j][h]+cost(h, j)\}
 $$
 
 where $i \backslash j$ represents changing the $j$-th bit of $i$ to $0$.

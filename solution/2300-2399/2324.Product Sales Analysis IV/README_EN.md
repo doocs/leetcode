@@ -94,7 +94,7 @@ User 101:
     - Spent 7 * 15 = 105 on product 3.
 User 101 spent the most money on product 3.
 User 102:
-    - Spent (9 + 7) * 10 = 150 on product 1.
+    - Spent (9 + 6) * 10 = 150 on product 1.
     - Spent 6 * 25 = 150 on product 2.
     - Spent 10 * 15 = 150 on product 3.
 User 102 spent the most money on products 1, 2, and 3.

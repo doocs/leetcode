@@ -17,7 +17,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给你两个字符串 <code>s</code><strong> </strong>和 <code>t</code> ，统计并返回在 <code>s</code> 的 <strong>子序列</strong> 中 <code>t</code> 出现的个数，结果需要对&nbsp;10<sup>9</sup> + 7 取模。</p>
+<p>给你两个字符串 <code>s</code><strong> </strong>和 <code>t</code> ，统计并返回在 <code>s</code> 的 <strong>子序列</strong> 中 <code>t</code> 出现的个数。</p>
+
+<p>测试用例保证结果在 32 位有符号整数范围内。</p>
 
 <p>&nbsp;</p>
 

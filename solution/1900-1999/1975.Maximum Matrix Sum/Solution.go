@@ -1,24 +1,18 @@
 func maxMatrixSum(matrix [][]int) int64 {
-	s := 0
-	cnt, mi := 0, math.MaxInt32
+	var s int64
+	mi, cnt := 1<<30, 0
 	for _, row := range matrix {
-		for _, v := range row {
-			s += abs(v)
-			mi = min(mi, abs(v))
-			if v < 0 {
+		for _, x := range row {
+			if x < 0 {
 				cnt++
+				x = -x
 			}
+			mi = min(mi, x)
+			s += int64(x)
 		}
 	}
-	if cnt%2 == 1 {
-		s -= mi * 2
+	if cnt%2 == 0 {
+		return s
 	}
-	return int64(s)
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+	return s - int64(mi*2)
 }

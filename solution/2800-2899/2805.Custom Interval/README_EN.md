@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2805.Custom%20Interval/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->

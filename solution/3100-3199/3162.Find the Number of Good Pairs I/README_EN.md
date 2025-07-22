@@ -65,11 +65,11 @@ The 5 good pairs are <code>(0, 0)</code>, <code>(1, 0)</code>, <code>(1, 1)</cod
 
 ### Solution 1: Brute Force Enumeration
 
-We directly enumerate all digits $(x, y)$, and check whether $x \mod (y \times k) = 0$. If it is, we increment the answer.
+We directly enumerate all digit pairs $(x, y)$ and check whether $x \bmod (y \times k) = 0$. If it satisfies the condition, increment the answer by one.
 
-After the enumeration ends, we return the answer.
+After the enumeration is complete, return the answer.
 
-The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of arrays `nums1` and `nums2` respectively. The space complexity is $O(1)$.
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -159,7 +159,7 @@ function numberOfPairs(nums1: number[], nums2: number[], k: number): number {
 
 We use a hash table `cnt1` to record the occurrence times of each number divided by $k$ in array `nums1`, and a hash table `cnt2` to record the occurrence times of each number in array `nums2`.
 
-Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, \text{mx}]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
+Next, we enumerate each number $x$ in array `nums2`. For each number $x$, we enumerate its multiples $y$, where the range of $y$ is $[x, \textit{mx}]$, where `mx` is the maximum key value in `cnt1`. Then we count the sum of `cnt1[y]`, denoted as $s$. Finally, we add $s \times v$ to the answer, where $v$ is `cnt2[x]`.
 
 The time complexity is $O(n + m + (M / k) \times \log m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of arrays `nums1` and `nums2` respectively, and $M$ is the maximum value in array `nums1`.
 

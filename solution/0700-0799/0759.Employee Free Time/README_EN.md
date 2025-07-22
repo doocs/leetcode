@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0759.Em
 tags:
     - Array
     - Sorting
+    - Line Sweep
     - Heap (Priority Queue)
 ---
 

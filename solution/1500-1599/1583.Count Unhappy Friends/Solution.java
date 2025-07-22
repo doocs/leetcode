@@ -15,15 +15,14 @@ class Solution {
         int ans = 0;
         for (int x = 0; x < n; ++x) {
             int y = p[x];
-            int find = 0;
             for (int i = 0; i < d[x][y]; ++i) {
                 int u = preferences[x][i];
-                if (d[u][x] < d[u][p[u]]) {
-                    find = 1;
+                int v = p[u];
+                if (d[u][x] < d[u][v]) {
+                    ++ans;
                     break;
                 }
             }
-            ans += find;
         }
         return ans;
     }

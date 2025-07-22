@@ -66,7 +66,7 @@ tags:
 
 根据题目，我们可以发现，从左到右，每个分块都有一个最大值，并且这些分块的最大值呈单调递增（非严格递增）。我们可以用一个栈来存储这些分块的最大值。最后得到的栈的大小，也就是题目所求的最多能完成排序的块。
 
-时间复杂度 $O(n)$，其中 $n$ 表示 $arr$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 表示 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -156,19 +156,19 @@ func maxChunksToSorted(arr []int) int {
 
 ```ts
 function maxChunksToSorted(arr: number[]): number {
-    const stack = [];
-    for (const num of arr) {
-        if (stack.length !== 0 && num < stack[stack.length - 1]) {
-            const max = stack.pop();
-            while (stack.length !== 0 && num < stack[stack.length - 1]) {
-                stack.pop();
-            }
-            stack.push(max);
+    const stk: number[] = [];
+    for (let v of arr) {
+        if (stk.length === 0 || v >= stk[stk.length - 1]) {
+            stk.push(v);
         } else {
-            stack.push(num);
+            let mx = stk.pop()!;
+            while (stk.length > 0 && stk[stk.length - 1] > v) {
+                stk.pop();
+            }
+            stk.push(mx);
         }
     }
-    return stack.length;
+    return stk.length;
 }
 ```
 
@@ -177,19 +177,23 @@ function maxChunksToSorted(arr: number[]): number {
 ```rust
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
-        let mut stack = vec![];
-        for num in arr.iter() {
-            if !stack.is_empty() && num < stack.last().unwrap() {
-                let max = stack.pop().unwrap();
-                while !stack.is_empty() && num < stack.last().unwrap() {
-                    stack.pop();
-                }
-                stack.push(max);
+        let mut stk = Vec::new();
+        for &v in arr.iter() {
+            if stk.is_empty() || v >= *stk.last().unwrap() {
+                stk.push(v);
             } else {
-                stack.push(*num);
+                let mut mx = stk.pop().unwrap();
+                while let Some(&top) = stk.last() {
+                    if top > v {
+                        stk.pop();
+                    } else {
+                        break;
+                    }
+                }
+                stk.push(mx);
             }
         }
-        stack.len() as i32
+        stk.len() as i32
     }
 }
 ```

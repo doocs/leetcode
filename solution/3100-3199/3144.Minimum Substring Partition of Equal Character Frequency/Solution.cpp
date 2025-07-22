@@ -4,7 +4,7 @@ public:
         int n = s.size();
         int f[n];
         memset(f, -1, sizeof(f));
-        function<int(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (i >= n) {
                 return 0;
             }

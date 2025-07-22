@@ -300,4 +300,111 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 3: Bit Manipulation (Space Optimization)
+
+Since the elements of arrays $A$ and $B$ are in the range $[1, n]$ and do not exceed $50$, we can use an integer $x$ and an integer $y$ to represent the occurrence of each element in arrays $A$ and $B$, respectively. Specifically, we use the $i$-th bit of integer $x$ to indicate whether element $i$ has appeared in array $A$, and the $i$-th bit of integer $y$ to indicate whether element $i$ has appeared in array $B$.
+
+The time complexity of this solution is $O(n)$, where $n$ is the length of arrays $A$ and $B$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+        ans = []
+        x = y = 0
+        for a, b in zip(A, B):
+            x |= 1 << a
+            y |= 1 << b
+            ans.append((x & y).bit_count())
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] findThePrefixCommonArray(int[] A, int[] B) {
+        int n = A.length;
+        int[] ans = new int[n];
+        long x = 0, y = 0;
+        for (int i = 0; i < n; i++) {
+            x |= 1L << A[i];
+            y |= 1L << B[i];
+            ans[i] = Long.bitCount(x & y);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
+        int n = A.size();
+        vector<int> ans(n);
+        long long x = 0, y = 0;
+        for (int i = 0; i < n; ++i) {
+            x |= (1LL << A[i]);
+            y |= (1LL << B[i]);
+            ans[i] = __builtin_popcountll(x & y);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func findThePrefixCommonArray(A []int, B []int) []int {
+	n := len(A)
+	ans := make([]int, n)
+	var x, y int
+	for i := 0; i < n; i++ {
+		x |= 1 << A[i]
+		y |= 1 << B[i]
+		ans[i] = bits.OnesCount(uint(x & y))
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findThePrefixCommonArray(A: number[], B: number[]): number[] {
+    const n = A.length;
+    const ans: number[] = [];
+    let [x, y] = [0n, 0n];
+    for (let i = 0; i < n; i++) {
+        x |= 1n << BigInt(A[i]);
+        y |= 1n << BigInt(B[i]);
+        ans.push(bitCount64(x & y));
+    }
+    return ans;
+}
+
+function bitCount64(i: bigint): number {
+    i = i - ((i >> 1n) & 0x5555555555555555n);
+    i = (i & 0x3333333333333333n) + ((i >> 2n) & 0x3333333333333333n);
+    i = (i + (i >> 4n)) & 0x0f0f0f0f0f0f0f0fn;
+    i = i + (i >> 8n);
+    i = i + (i >> 16n);
+    i = i + (i >> 32n);
+    return Number(i & 0x7fn);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

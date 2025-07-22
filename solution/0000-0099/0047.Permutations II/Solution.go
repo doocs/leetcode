@@ -1,5 +1,5 @@
 func permuteUnique(nums []int) (ans [][]int) {
-	sort.Ints(nums)
+	slices.Sort(nums)
 	n := len(nums)
 	t := make([]int, n)
 	vis := make([]bool, n)

@@ -82,9 +82,9 @@ Note that you did not use your armor ability.
 
 ### Solution 1: Greedy
 
-We can greedily choose to use the armor skill in the round with the maximum damage. Suppose the maximum damage is $mx$, then we can avoid $min(mx, armor)$ damage, so the minimum life value we need is $sum(damage) - min(mx, armor) + 1$.
+We can greedily choose to use the armor skill in the round with the highest damage. Suppose the maximum damage is $\textit{mx}$, then we can avoid $\min(\textit{mx}, \textit{armor})$ damage. Therefore, the minimum health required is $\sum(\textit{damage}) - \min(\textit{mx}, \textit{armor}) + 1$.
 
-The time complexity is $O(n)$, where $n$ is the length of the `damage` array. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{damage}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

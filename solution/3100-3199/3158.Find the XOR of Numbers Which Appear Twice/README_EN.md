@@ -166,4 +166,110 @@ function duplicateNumbersXOR(nums: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Bit Manipulation
+
+Since the given number range in the problem is $1 \leq \textit{nums}[i] \leq 50$, we can use a $64$-bit integer to store the occurrence of each number.
+
+We define an integer $\textit{mask}$ to record whether each number has appeared.
+
+Next, we traverse the array $\textit{nums}$. When a number appears twice, i.e., the $x$-th bit in the binary representation of $\textit{mask}$ is $1$, we perform an XOR operation with the answer. Otherwise, we set the $x$-th bit of $\textit{mask}$ to $1$.
+
+Finally, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        ans = mask = 0
+        for x in nums:
+            if mask >> x & 1:
+                ans ^= x
+            else:
+                mask |= 1 << x
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int duplicateNumbersXOR(int[] nums) {
+        int ans = 0;
+        long mask = 0;
+        for (int x : nums) {
+            if ((mask >> x & 1) == 1) {
+                ans ^= x;
+            } else {
+                mask |= 1L << x;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int duplicateNumbersXOR(vector<int>& nums) {
+        int ans = 0;
+        long long mask = 0;
+        for (int x : nums) {
+            if (mask >> x & 1) {
+                ans ^= x;
+            } else {
+                mask |= 1LL << x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func duplicateNumbersXOR(nums []int) (ans int) {
+	mask := 0
+	for _, x := range nums {
+		if mask>>x&1 == 1 {
+			ans ^= x
+		} else {
+			mask |= 1 << x
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function duplicateNumbersXOR(nums: number[]): number {
+    let ans = 0;
+    let mask = 0n;
+    for (const x of nums) {
+        if ((mask >> BigInt(x)) & 1n) {
+            ans ^= x;
+        } else {
+            mask |= 1n << BigInt(x);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

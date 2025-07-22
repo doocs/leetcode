@@ -20,49 +20,60 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数&nbsp;<code>n</code>&nbsp;和一个在范围 <code>[0, n - 1]</code>&nbsp;以内的整数&nbsp;<code>p</code>&nbsp;，它们表示一个长度为 <code>n</code> 且下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>arr</code>&nbsp;，数组中除了下标为&nbsp;<code>p</code>&nbsp;处是 <code>1</code>&nbsp;以外，其他所有数都是 <code>0</code>&nbsp;。</p>
-
-<p>同时给你一个整数数组&nbsp;<code>banned</code>&nbsp;，它包含数组中的一些位置。<code>banned</code>&nbsp;中第&nbsp;<strong>i</strong>&nbsp;个位置表示&nbsp;<code>arr[banned[i]] = 0</code>&nbsp;，题目保证&nbsp;<code>banned[i] != p</code>&nbsp;。</p>
-
-<p>你可以对 <code>arr</code>&nbsp;进行 <strong>若干次</strong>&nbsp;操作。一次操作中，你选择大小为 <code>k</code>&nbsp;的一个 <strong>子数组</strong>&nbsp;，并将它 <b>翻转</b>&nbsp;。在任何一次翻转操作后，你都需要确保 <code>arr</code>&nbsp;中唯一的 <code>1</code>&nbsp;不会到达任何 <code>banned</code>&nbsp;中的位置。换句话说，<code>arr[banned[i]]</code>&nbsp;始终&nbsp;<strong>保持</strong>&nbsp;<code>0</code>&nbsp;。</p>
-
-<p>请你返回一个数组&nbsp;<code>ans</code>&nbsp;，对于<em>&nbsp;</em><code>[0, n - 1]</code>&nbsp;之间的任意下标&nbsp;<code>i</code>&nbsp;，<code>ans[i]</code>&nbsp;是将&nbsp;<code>1</code>&nbsp;放到位置&nbsp;<code>i</code>&nbsp;处的&nbsp;<strong>最少</strong>&nbsp;翻转操作次数，如果无法放到位置&nbsp;<code>i</code>&nbsp;处，此数为&nbsp;<code>-1</code>&nbsp;。</p>
+<p>给定一个整数&nbsp;<code>n</code>&nbsp;和一个整数&nbsp;<code>p</code>，它们表示一个长度为 <code>n</code> 且除了下标为&nbsp;<code>p</code>&nbsp;处是 <code>1</code>&nbsp;以外，其他所有数都是 <code>0</code>&nbsp;的数组&nbsp;<code>arr</code>。同时给定一个整数数组&nbsp;<code>banned</code>&nbsp;，它包含数组中的一些限制位置。在&nbsp;<code>arr</code>&nbsp;上进行下列操作：</p>
 
 <ul>
-	<li><strong>子数组</strong>&nbsp;指的是一个数组里一段连续 <strong>非空</strong>&nbsp;的元素序列。</li>
-	<li>对于所有的 <code>i</code>&nbsp;，<code>ans[i]</code>&nbsp;相互之间独立计算。</li>
-	<li>将一个数组中的元素 <strong>翻转</strong> 指的是将数组中的值变成 <strong>相反顺序</strong>&nbsp;。</li>
+	<li>如果单个 1 不在&nbsp;<code>banned</code>&nbsp;中的位置上，反转大小为 <code>k</code> 的 <strong><span data-keyword="subarray-nonempty">子数组</span></strong>。</li>
 </ul>
+
+<p>返回一个包含&nbsp;<code>n</code>&nbsp;个结果的整数数组&nbsp;<code>answer</code>，其中第&nbsp;<code>i</code>&nbsp;个结果是将&nbsp;<code>1</code>&nbsp;放到位置&nbsp;<code>i</code>&nbsp;处所需的&nbsp;<strong>最少</strong>&nbsp;翻转操作次数，如果无法放到位置&nbsp;<code>i</code>&nbsp;处，此数为&nbsp;<code>-1</code>&nbsp;。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<b>输入：</b>n = 4, p = 0, banned = [1,2], k = 4
-<b>输出：</b>[0,-1,-1,1]
-<b>解释：</b><code>k = 4，所以只有一种可行的翻转操作，就是将整个数组翻转。一开始 </code>1<strong> </strong>在位置 0 处，所以将它翻转到位置 0 处需要的操作数为 0 。
-我们不能将 1 翻转到 banned 中的位置，所以位置 1 和 2 处的答案都是 -1 。
-通过一次翻转操作，可以将 1 放到位置 3 处，所以位置 3 的答案是 1 。
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 4, p = 0, banned = [1,2], k = 4</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>[0,-1,-1,1]</span></p>
 
-<pre>
-<b>输入：</b>n = 5, p = 0, banned = [2,4], k = 3
-<b>输出：</b>[0,-1,-1,-1,-1]
-<b>解释：</b>这个例子中 1 一开始在位置 0 处，所以此下标的答案为 0 。
-翻转的子数组长度为 k = 3 ，1 此时在位置 0 处，所以我们可以翻转子数组 [0, 2]，但翻转后的下标 2 在 banned 中，所以不能执行此操作。
-由于 1 没法离开位置 0 ，所以其他位置的答案都是 -1 。
-</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<ul>
+	<li>一开始 1 位于位置 0，因此我们需要在位置 0 上的操作数是 0。</li>
+	<li>我们不能将 1 放置在被禁止的位置上，所以位置 1 和 2 的答案是 -1。</li>
+	<li>执行大小为 4 的操作以反转整个数组。</li>
+	<li>在一次操作后，1 位于位置 3，因此位置 3 的答案是 1。</li>
+</ul>
+</div>
 
-<pre>
-<b>输入：</b>n = 4, p = 2, banned = [0,1,3], k = 1
-<b>输出：</b>[-1,-1,0,-1]
-<b>解释：</b>这个例子中，我们只能对长度为 1 的子数组执行翻转操作，所以 1 无法离开初始位置。
-</pre>
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 5, p = 0, banned = [2,4], k = 3</span></p>
+
+<p><span class="example-io"><b>输出：</b>[0,-1,-1,-1,-1]</span></p>
+
+<p><b>解释：</b></p>
+
+<ul>
+	<li>一开始 1 位于位置 0，因此我们需要在位置 0 上的操作数是 0。</li>
+	<li>我们不能在&nbsp;<code>[0, 2]</code>&nbsp;的子数组位置上执行操作，因为位置 2 在 banned 中。</li>
+	<li>由于 1 不能够放置在位置 2 上，使用更多操作将 1 放置在其它位置上是不可能的。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 4, p = 2, banned = [0,1,3], k = 1</span></p>
+
+<p><span class="example-io"><b>输出：</b>[-1,-1,0,-1]</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>执行大小为 1 的操作，且 1 永远不会改变位置。</p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -113,9 +124,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def minReverseOperations(
         self, n: int, p: int, banned: List[int], k: int
@@ -257,8 +265,8 @@ func minReverseOperations(n int, p int, banned []int, k int) []int {
 
 ```ts
 function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
-    const ans = new Array(n).fill(-1);
-    const ts = new Array(2).fill(0).map(() => new TreeSet<number>());
+    const ans: number[] = Array(n).fill(-1);
+    const ts = [new TreeSet<number>(), new TreeSet<number>()];
     for (let i = 0; i < n; ++i) {
         ts[i % 2].add(i);
     }
@@ -928,665 +936,44 @@ class TreeMultiSet<T = number> {
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
+```rust
+use std::collections::{BTreeSet, VecDeque};
 
-<!-- solution:start -->
+impl Solution {
+    pub fn min_reverse_operations(n: i32, p: i32, banned: Vec<i32>, k: i32) -> Vec<i32> {
+        let mut ans = vec![-1; n as usize];
+        let mut ts = [BTreeSet::new(), BTreeSet::new()];
 
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function minReverseOperations(n: number, p: number, banned: number[], k: number): number[] {
-    const ans = new Array(n).fill(-1);
-    const ts = new Array(2).fill(0).map(() => new TreapMultiSet<number>());
-    for (let i = 0; i < n; ++i) {
-        ts[i % 2].add(i);
-    }
-    ans[p] = 0;
-    ts[p % 2].delete(p);
-    for (const i of banned) {
-        ts[i % 2].delete(i);
-    }
-    ts[0].add(n);
-    ts[1].add(n);
-    let q = [p];
-    while (q.length) {
-        const t: number[] = [];
-        for (const i of q) {
-            const mi = Math.max(i - k + 1, k - i - 1);
-            const mx = Math.min(i + k - 1, n * 2 - k - i - 1);
-            const s = ts[mi % 2];
-            for (let j = s.ceil(mi)!; j <= mx; j = s.ceil(j)!) {
-                t.push(j);
-                ans[j] = ans[i] + 1;
-                s.delete(j);
-            }
+        for i in 0..n {
+            ts[(i % 2) as usize].insert(i);
         }
-        q = t;
-    }
-    return ans;
-}
-
-type CompareFunction<T, R extends 'number' | 'boolean'> = (
-    a: T,
-    b: T,
-) => R extends 'number' ? number : boolean;
-
-interface ITreapMultiSet<T> extends Iterable<T> {
-    add: (...value: T[]) => this;
-    has: (value: T) => boolean;
-    delete: (value: T) => void;
-
-    bisectLeft: (value: T) => number;
-    bisectRight: (value: T) => number;
-
-    indexOf: (value: T) => number;
-    lastIndexOf: (value: T) => number;
-
-    at: (index: number) => T | undefined;
-    first: () => T | undefined;
-    last: () => T | undefined;
-
-    lower: (value: T) => T | undefined;
-    higher: (value: T) => T | undefined;
-    floor: (value: T) => T | undefined;
-    ceil: (value: T) => T | undefined;
-
-    shift: () => T | undefined;
-    pop: (index?: number) => T | undefined;
-
-    count: (value: T) => number;
-
-    keys: () => IterableIterator<T>;
-    values: () => IterableIterator<T>;
-    rvalues: () => IterableIterator<T>;
-    entries: () => IterableIterator<[number, T]>;
-
-    readonly size: number;
-}
-
-class TreapNode<T = number> {
-    value: T;
-    count: number;
-    size: number;
-    priority: number;
-    left: TreapNode<T> | null;
-    right: TreapNode<T> | null;
-
-    constructor(value: T) {
-        this.value = value;
-        this.count = 1;
-        this.size = 1;
-        this.priority = Math.random();
-        this.left = null;
-        this.right = null;
-    }
-
-    static getSize(node: TreapNode<any> | null): number {
-        return node?.size ?? 0;
-    }
-
-    static getFac(node: TreapNode<any> | null): number {
-        return node?.priority ?? 0;
-    }
-
-    pushUp(): void {
-        let tmp = this.count;
-        tmp += TreapNode.getSize(this.left);
-        tmp += TreapNode.getSize(this.right);
-        this.size = tmp;
-    }
-
-    rotateRight(): TreapNode<T> {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        let node: TreapNode<T> = this;
-        const left = node.left;
-        node.left = left?.right ?? null;
-        left && (left.right = node);
-        left && (node = left);
-        node.right?.pushUp();
-        node.pushUp();
-        return node;
-    }
-
-    rotateLeft(): TreapNode<T> {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        let node: TreapNode<T> = this;
-        const right = node.right;
-        node.right = right?.left ?? null;
-        right && (right.left = node);
-        right && (node = right);
-        node.left?.pushUp();
-        node.pushUp();
-        return node;
-    }
-}
-
-class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
-    private readonly root: TreapNode<T>;
-    private readonly compareFn: CompareFunction<T, 'number'>;
-    private readonly leftBound: T;
-    private readonly rightBound: T;
-
-    constructor(compareFn?: CompareFunction<T, 'number'>);
-    constructor(compareFn: CompareFunction<T, 'number'>, leftBound: T, rightBound: T);
-    constructor(
-        compareFn: CompareFunction<T, any> = (a: any, b: any) => a - b,
-        leftBound: any = -Infinity,
-        rightBound: any = Infinity,
-    ) {
-        this.root = new TreapNode<T>(rightBound);
-        this.root.priority = Infinity;
-        this.root.left = new TreapNode<T>(leftBound);
-        this.root.left.priority = -Infinity;
-        this.root.pushUp();
-
-        this.leftBound = leftBound;
-        this.rightBound = rightBound;
-        this.compareFn = compareFn;
-    }
-
-    get size(): number {
-        return this.root.size - 2;
-    }
-
-    get height(): number {
-        const getHeight = (node: TreapNode<T> | null): number => {
-            if (node == null) return 0;
-            return 1 + Math.max(getHeight(node.left), getHeight(node.right));
-        };
-
-        return getHeight(this.root);
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns true if value is a member.
-     */
-    has(value: T): boolean {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): boolean => {
-            if (node == null) return false;
-            if (compare(node.value, value) === 0) return true;
-            if (compare(node.value, value) < 0) return dfs(node.right, value);
-            return dfs(node.left, value);
-        };
-
-        return dfs(this.root, value);
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Add value to sorted set.
-     */
-    add(...values: T[]): this {
-        const compare = this.compareFn;
-        const dfs = (
-            node: TreapNode<T> | null,
-            value: T,
-            parent: TreapNode<T>,
-            direction: 'left' | 'right',
-        ): void => {
-            if (node == null) return;
-            if (compare(node.value, value) === 0) {
-                node.count++;
-                node.pushUp();
-            } else if (compare(node.value, value) > 0) {
-                if (node.left) {
-                    dfs(node.left, value, node, 'left');
-                } else {
-                    node.left = new TreapNode(value);
-                    node.pushUp();
-                }
-
-                if (TreapNode.getFac(node.left) > node.priority) {
-                    parent[direction] = node.rotateRight();
-                }
-            } else if (compare(node.value, value) < 0) {
-                if (node.right) {
-                    dfs(node.right, value, node, 'right');
-                } else {
-                    node.right = new TreapNode(value);
-                    node.pushUp();
-                }
-
-                if (TreapNode.getFac(node.right) > node.priority) {
-                    parent[direction] = node.rotateLeft();
-                }
-            }
-            parent.pushUp();
-        };
-
-        values.forEach(value => dfs(this.root.left, value, this.root, 'left'));
-        return this;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Remove value from sorted set if it is a member.
-     * If value is not a member, do nothing.
-     */
-    delete(value: T): void {
-        const compare = this.compareFn;
-        const dfs = (
-            node: TreapNode<T> | null,
-            value: T,
-            parent: TreapNode<T>,
-            direction: 'left' | 'right',
-        ): void => {
-            if (node == null) return;
-
-            if (compare(node.value, value) === 0) {
-                if (node.count > 1) {
-                    node.count--;
-                    node?.pushUp();
-                } else if (node.left == null && node.right == null) {
-                    parent[direction] = null;
-                } else {
-                    // 旋到根节点
-                    if (
-                        node.right == null ||
-                        TreapNode.getFac(node.left) > TreapNode.getFac(node.right)
-                    ) {
-                        parent[direction] = node.rotateRight();
-                        dfs(parent[direction]?.right ?? null, value, parent[direction]!, 'right');
-                    } else {
-                        parent[direction] = node.rotateLeft();
-                        dfs(parent[direction]?.left ?? null, value, parent[direction]!, 'left');
-                    }
-                }
-            } else if (compare(node.value, value) > 0) {
-                dfs(node.left, value, node, 'left');
-            } else if (compare(node.value, value) < 0) {
-                dfs(node.right, value, node, 'right');
-            }
-
-            parent?.pushUp();
-        };
-
-        dfs(this.root.left, value, this.root, 'left');
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns an index to insert value in the sorted set.
-     * If the value is already present, the insertion point will be before (to the left of) any existing values.
-     */
-    bisectLeft(value: T): number {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                return TreapNode.getSize(node.left);
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
-            }
-
-            return 0;
-        };
-
-        return dfs(this.root, value) - 1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns an index to insert value in the sorted set.
-     * If the value is already present, the insertion point will be before (to the right of) any existing values.
-     */
-    bisectRight(value: T): number {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                return TreapNode.getSize(node.left) + node.count;
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
-            }
-
-            return 0;
-        };
-        return dfs(this.root, value) - 1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns the index of the first occurrence of a value in the set, or -1 if it is not present.
-     */
-    indexOf(value: T): number {
-        const compare = this.compareFn;
-        let isExist = false;
-
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                isExist = true;
-                return TreapNode.getSize(node.left);
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
-            }
-
-            return 0;
-        };
-        const res = dfs(this.root, value) - 1;
-        return isExist ? res : -1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns the index of the last occurrence of a value in the set, or -1 if it is not present.
-     */
-    lastIndexOf(value: T): number {
-        const compare = this.compareFn;
-        let isExist = false;
-
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-
-            if (compare(node.value, value) === 0) {
-                isExist = true;
-                return TreapNode.getSize(node.left) + node.count - 1;
-            } else if (compare(node.value, value) > 0) {
-                return dfs(node.left, value);
-            } else if (compare(node.value, value) < 0) {
-                return dfs(node.right, value) + TreapNode.getSize(node.left) + node.count;
-            }
-
-            return 0;
-        };
-
-        const res = dfs(this.root, value) - 1;
-        return isExist ? res : -1;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Returns the item located at the specified index.
-     * @param index The zero-based index of the desired code unit. A negative index will count back from the last item.
-     */
-    at(index: number): T | undefined {
-        if (index < 0) index += this.size;
-        if (index < 0 || index >= this.size) return undefined;
-
-        const dfs = (node: TreapNode<T> | null, rank: number): T | undefined => {
-            if (node == null) return undefined;
-
-            if (TreapNode.getSize(node.left) >= rank) {
-                return dfs(node.left, rank);
-            } else if (TreapNode.getSize(node.left) + node.count >= rank) {
-                return node.value;
-            } else {
-                return dfs(node.right, rank - TreapNode.getSize(node.left) - node.count);
-            }
-        };
-
-        const res = dfs(this.root, index + 2);
-        return ([this.leftBound, this.rightBound] as any[]).includes(res) ? undefined : res;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element less than `val`, return `undefined` if no such element found.
-     */
-    lower(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) >= 0) return dfs(node.left, value);
-
-            const tmp = dfs(node.right, value);
-            if (tmp == null || compare(node.value, tmp) > 0) {
-                return node.value;
-            } else {
-                return tmp;
-            }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.leftBound ? undefined : res;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element greater than `val`, return `undefined` if no such element found.
-     */
-    higher(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) <= 0) return dfs(node.right, value);
-
-            const tmp = dfs(node.left, value);
-
-            if (tmp == null || compare(node.value, tmp) < 0) {
-                return node.value;
-            } else {
-                return tmp;
-            }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.rightBound ? undefined : res;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element less than or equal to `val`, return `undefined` if no such element found.
-     */
-    floor(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) === 0) return node.value;
-            if (compare(node.value, value) >= 0) return dfs(node.left, value);
-
-            const tmp = dfs(node.right, value);
-            if (tmp == null || compare(node.value, tmp) > 0) {
-                return node.value;
-            } else {
-                return tmp;
-            }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.leftBound ? undefined : res;
-    }
-
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description Find and return the element greater than or equal to `val`, return `undefined` if no such element found.
-     */
-    ceil(value: T): T | undefined {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): T | undefined => {
-            if (node == null) return undefined;
-            if (compare(node.value, value) === 0) return node.value;
-            if (compare(node.value, value) <= 0) return dfs(node.right, value);
-
-            const tmp = dfs(node.left, value);
-
-            if (tmp == null || compare(node.value, tmp) < 0) {
-                return node.value;
-            } else {
-                return tmp;
-            }
-        };
-
-        const res = dfs(this.root, value) as any;
-        return res === this.rightBound ? undefined : res;
-    }
-
-    /**
-     * @complexity `O(logn)`
-     * @description
-     * Returns the last element from set.
-     * If the set is empty, undefined is returned.
-     */
-    first(): T | undefined {
-        const iter = this.inOrder();
-        iter.next();
-        const res = iter.next().value;
-        return res === this.rightBound ? undefined : res;
-    }
-
-    /**
-     * @complexity `O(logn)`
-     * @description
-     * Returns the last element from set.
-     * If the set is empty, undefined is returned .
-     */
-    last(): T | undefined {
-        const iter = this.reverseInOrder();
-        iter.next();
-        const res = iter.next().value;
-        return res === this.leftBound ? undefined : res;
-    }
-
-    /**
-     * @complexity `O(logn)`
-     * @description
-     * Removes the first element from an set and returns it.
-     * If the set is empty, undefined is returned and the set is not modified.
-     */
-    shift(): T | undefined {
-        const first = this.first();
-        if (first === undefined) return undefined;
-        this.delete(first);
-        return first;
-    }
-
-    /**
-     * @complexity `O(logn)`
-     * @description
-     * Removes the last element from an set and returns it.
-     * If the set is empty, undefined is returned and the set is not modified.
-     */
-    pop(index?: number): T | undefined {
-        if (index == null) {
-            const last = this.last();
-            if (last === undefined) return undefined;
-            this.delete(last);
-            return last;
+        ans[p as usize] = 0;
+        ts[(p % 2) as usize].remove(&p);
+
+        for &b in &banned {
+            ts[(b % 2) as usize].remove(&b);
         }
 
-        const toDelete = this.at(index);
-        if (toDelete == null) return;
-        this.delete(toDelete);
-        return toDelete;
-    }
+        ts[0].insert(n);
+        ts[1].insert(n);
+        let mut q = VecDeque::new();
+        q.push_back(p);
 
-    /**
-     *
-     * @complexity `O(logn)`
-     * @description
-     * Returns number of occurrences of value in the sorted set.
-     */
-    count(value: T): number {
-        const compare = this.compareFn;
-        const dfs = (node: TreapNode<T> | null, value: T): number => {
-            if (node == null) return 0;
-            if (compare(node.value, value) === 0) return node.count;
-            if (compare(node.value, value) < 0) return dfs(node.right, value);
-            return dfs(node.left, value);
-        };
+        while let Some(i) = q.pop_front() {
+            let mi = (i - k + 1).max(k - i - 1);
+            let mx = (i + k - 1).min(2 * n - k - i - 1);
+            let s = &mut ts[(mi % 2) as usize];
 
-        return dfs(this.root, value);
-    }
-
-    *[Symbol.iterator](): Generator<T, any, any> {
-        yield* this.values();
-    }
-
-    /**
-     * @description
-     * Returns an iterable of keys in the set.
-     */
-    *keys(): Generator<T, any, any> {
-        yield* this.values();
-    }
-
-    /**
-     * @description
-     * Returns an iterable of values in the set.
-     */
-    *values(): Generator<T, any, any> {
-        const iter = this.inOrder();
-        iter.next();
-        const steps = this.size;
-        for (let _ = 0; _ < steps; _++) {
-            yield iter.next().value;
+            while let Some(&j) = s.range(mi..=mx).next() {
+                q.push_back(j);
+                ans[j as usize] = ans[i as usize] + 1;
+                s.remove(&j);
+            }
         }
-    }
 
-    /**
-     * @description
-     * Returns a generator for reversed order traversing the set.
-     */
-    *rvalues(): Generator<T, any, any> {
-        const iter = this.reverseInOrder();
-        iter.next();
-        const steps = this.size;
-        for (let _ = 0; _ < steps; _++) {
-            yield iter.next().value;
-        }
-    }
-
-    /**
-     * @description
-     * Returns an iterable of key, value pairs for every entry in the set.
-     */
-    *entries(): IterableIterator<[number, T]> {
-        const iter = this.inOrder();
-        iter.next();
-        const steps = this.size;
-        for (let i = 0; i < steps; i++) {
-            yield [i, iter.next().value];
-        }
-    }
-
-    private *inOrder(root: TreapNode<T> | null = this.root): Generator<T, any, any> {
-        if (root == null) return;
-        yield* this.inOrder(root.left);
-        const count = root.count;
-        for (let _ = 0; _ < count; _++) {
-            yield root.value;
-        }
-        yield* this.inOrder(root.right);
-    }
-
-    private *reverseInOrder(root: TreapNode<T> | null = this.root): Generator<T, any, any> {
-        if (root == null) return;
-        yield* this.reverseInOrder(root.right);
-        const count = root.count;
-        for (let _ = 0; _ < count; _++) {
-            yield root.value;
-        }
-        yield* this.reverseInOrder(root.left);
+        ans
     }
 }
 ```

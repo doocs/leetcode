@@ -3,7 +3,7 @@ func minOperations(nums []int, k int) (ans int) {
 	heap.Init(pq)
 	for ; pq.Len() > 1 && pq.IntSlice[0] < k; ans++ {
 		x, y := heap.Pop(pq).(int), heap.Pop(pq).(int)
-		heap.Push(pq, min(x, y)*2+max(x, y))
+		heap.Push(pq, x*2+y)
 	}
 	return
 }

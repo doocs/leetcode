@@ -1,10 +1,5 @@
 function sumEvenAfterQueries(nums: number[], queries: number[][]): number[] {
-    let s = 0;
-    for (const x of nums) {
-        if (x % 2 === 0) {
-            s += x;
-        }
-    }
+    let s = nums.reduce((acc, x) => acc + (x % 2 === 0 ? x : 0), 0);
     const ans: number[] = [];
     for (const [v, i] of queries) {
         if (nums[i] % 2 === 0) {

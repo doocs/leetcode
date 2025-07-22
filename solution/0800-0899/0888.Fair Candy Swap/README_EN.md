@@ -63,7 +63,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We can first calculate the difference in the total number of candies between Alice and Bob, divide it by two to get the difference in the number of candies to be exchanged $\textit{diff}$, and use a hash table $\textit{s}$ to store the number of candies in Bob's candy boxes. Then, we traverse Alice's candy boxes, and for each candy count $\textit{a}$, we check if $\textit{a} - \textit{diff}$ is in the hash table $\textit{s}$. If it exists, it means we have found a valid answer, and we return it.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(n)$. Where $m$ and $n$ are the number of candy boxes Alice and Bob have, respectively.
 
 <!-- tabs:start -->
 
@@ -75,9 +79,8 @@ class Solution:
         diff = (sum(aliceSizes) - sum(bobSizes)) >> 1
         s = set(bobSizes)
         for a in aliceSizes:
-            target = a - diff
-            if target in s:
-                return [a, target]
+            if (b := (a - diff)) in s:
+                return [a, b]
 ```
 
 #### Java
@@ -96,9 +99,9 @@ class Solution {
         }
         int diff = (s1 - s2) >> 1;
         for (int a : aliceSizes) {
-            int target = a - diff;
-            if (s.contains(target)) {
-                return new int[] {a, target};
+            int b = a - diff;
+            if (s.contains(b)) {
+                return new int[] {a, b};
             }
         }
         return null;
@@ -118,9 +121,9 @@ public:
         unordered_set<int> s(bobSizes.begin(), bobSizes.end());
         vector<int> ans;
         for (int& a : aliceSizes) {
-            int target = a - diff;
-            if (s.count(target)) {
-                ans = vector<int>{a, target};
+            int b = a - diff;
+            if (s.count(b)) {
+                ans = vector<int>{a, b};
                 break;
             }
         }
@@ -129,19 +132,44 @@ public:
 };
 ```
 
+#### Go
+
+```go
+func fairCandySwap(aliceSizes []int, bobSizes []int) []int {
+	s1, s2 := 0, 0
+	s := map[int]bool{}
+	for _, a := range aliceSizes {
+		s1 += a
+	}
+	for _, b := range bobSizes {
+		s2 += b
+		s[b] = true
+	}
+	diff := (s1 - s2) / 2
+	for _, a := range aliceSizes {
+		if b := a - diff; s[b] {
+			return []int{a, b}
+		}
+	}
+	return nil
+}
+```
+
 #### TypeScript
 
 ```ts
 function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
-    let s1 = aliceSizes.reduce((a, c) => a + c, 0);
-    let s2 = bobSizes.reduce((a, c) => a + c, 0);
-    let diff = (s1 - s2) >> 1;
-    for (let num of aliceSizes) {
-        let target = num - diff;
-        if (bobSizes.includes(target)) {
-            return [num, target];
+    const s1 = aliceSizes.reduce((acc, cur) => acc + cur, 0);
+    const s2 = bobSizes.reduce((acc, cur) => acc + cur, 0);
+    const diff = (s1 - s2) >> 1;
+    const s = new Set(bobSizes);
+    for (const a of aliceSizes) {
+        const b = a - diff;
+        if (s.has(b)) {
+            return [a, b];
         }
     }
+    return [];
 }
 ```
 

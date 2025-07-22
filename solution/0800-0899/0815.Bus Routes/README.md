@@ -64,17 +64,27 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：建图 + BFS
+### 方法一：BFS
 
-对于本题，我们可以将公交线路看成图中的节点，对于任意两条公交线路，如果它们有公共的公交站点，那么这两个公交线路之间就有一条边。
+我们首先判断 $\textit{source}$ 和 $\textit{target}$ 是否相同，如果相同则直接返回 $0$。
 
-我们用 $s[i]$ 表示公交线路 $i$ 上的所有公交站点，用哈希表 $d$ 存储每个公交站对应的所有公交线路。
+然后我们使用一个哈希表 $\textit{g}$ 来构建站点到公交线路的映射。对于每一条公交线路，我们遍历其经过的所有站点，将每个站点映射到该公交线路，即 $\textit{g}[\textit{stop}]$ 为经过站点 $\textit{stop}$ 的所有公交线路。
 
-接下来我们开始建图。遍历哈希表 $d$ 中每个公交站对应的公交线路，同个公交站的任意两条公交线路之间都有一条边，因此我们可以将这些公交线路看成图中的节点，将这些节点之间的边加入图 $g$ 中。
+接着我们判断 $\textit{source}$ 和 $\textit{target}$ 是否在站点映射中，如果不在则返回 $-1$。
 
-接下来，我们可以通过 BFS 求出从 $source$ 到 $target$ 的最短路径，即为最少乘坐的公交车数量。
+我们使用一个队列 $\textit{q}$ 来进行广度优先搜索，队列中的每个元素为一个二元组 $(\textit{stop}, \textit{busCount})$，表示当前站点 $\textit{stop}$ 和到达当前站点所需的公交次数 $\textit{busCount}$。
 
-时间复杂度 $O(n\times m + n^2)$。其中 $n$, $m$ 分别表示公交线路的数量和公交站的数量。
+我们初始化一个集合 $\textit{visBus}$ 来记录已经访问过的公交线路，一个集合 $\textit{visStop}$ 来记录已经访问过的站点。然后我们将 $\textit{source}$ 加入到 $\textit{visStop}$ 中，并将 $(\textit{source}, 0)$ 加入到队列 $\textit{q}$ 中。
+
+接下来我们开始广度优先搜索，当队列 $\textit{q}$ 不为空时，我们取出队列的第一个元素，即当前站点 $\textit{stop}$ 和到达当前站点所需的公交次数 $\textit{busCount}$。
+
+如果当前站点 $\textit{stop}$ 是目标站点 $\textit{target}$，我们返回到达目标站点所需的公交次数 $\textit{busCount}$。
+
+否则，我们遍历经过当前站点的所有公交线路，对于每一条公交线路，我们遍历该线路上的所有站点，如果某个站点 $\textit{nextStop}$ 没有被访问过，则将其加入到 $\textit{visStop}$ 中，并将 $(\textit{nextStop}, \textit{busCount} + 1)$ 加入到队列 $\textit{q}$ 中。
+
+最后，如果无法到达目标站点，则返回 $-1$。
+
+时间复杂度 $O(L)$，空间复杂度 $O(L)$，其中 $L$ 为所有公交线路上的站点总数。
 
 <!-- tabs:start -->
 
@@ -87,38 +97,38 @@ class Solution:
     ) -> int:
         if source == target:
             return 0
-
-        # 一条公交线路有哪些公交站
-        s = [set(r) for r in routes]
-
-        # 一个公交站在哪些公交线路有
-        d = defaultdict(list)
-        for i, r in enumerate(routes):
-            for v in r:
-                d[v].append(i)
-
+        # 使用 defaultdict 构建站点到公交线路的映射
         g = defaultdict(list)
-        for ids in d.values():
-            m = len(ids)
-            for i in range(m):
-                for j in range(i + 1, m):
-                    a, b = ids[i], ids[j]
-                    g[a].append(b)
-                    g[b].append(a)
-        q = deque(d[source])
-        ans = 1
-        vis = set(d[source])
-        while q:
-            for _ in range(len(q)):
-                i = q.popleft()
-                if target in s[i]:
-                    return ans
-                for j in g[i]:
-                    if j not in vis:
-                        vis.add(j)
-                        q.append(j)
-            ans += 1
-        return -1
+        for i, route in enumerate(routes):
+            for stop in route:
+                g[stop].append(i)
+
+        # 如果 source 或 target 不在站点映射中，返回 -1
+        if source not in g or target not in g:
+            return -1
+
+        # 初始化队列和访问集合
+        q = [(source, 0)]
+        vis_bus = set()
+        vis_stop = {source}
+
+        # 开始广度优先搜索
+        for stop, bus_count in q:
+            # 如果当前站点是目标站点，返回所需的公交次数
+            if stop == target:
+                return bus_count
+
+            # 遍历经过当前站点的所有公交线路
+            for bus in g[stop]:
+                if bus not in vis_bus:
+                    vis_bus.add(bus)
+
+                    # 遍历该线路上的所有站点
+                    for next_stop in routes[bus]:
+                        if next_stop not in vis_stop:
+                            vis_stop.add(next_stop)
+                            q.append((next_stop, bus_count + 1))
+        return -1 # 如果无法到达目标站点，返回 -1
 ```
 
 #### Java
@@ -129,51 +139,51 @@ class Solution {
         if (source == target) {
             return 0;
         }
-        int n = routes.length;
-        Set<Integer>[] s = new Set[n];
-        List<Integer>[] g = new List[n];
-        Arrays.setAll(s, k -> new HashSet<>());
-        Arrays.setAll(g, k -> new ArrayList<>());
-        Map<Integer, List<Integer>> d = new HashMap<>();
-        for (int i = 0; i < n; ++i) {
-            for (int v : routes[i]) {
-                s[i].add(v);
-                d.computeIfAbsent(v, k -> new ArrayList<>()).add(i);
+
+        // 使用 HashMap 构建站点到公交线路的映射
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int i = 0; i < routes.length; i++) {
+            for (int stop : routes[i]) {
+                g.computeIfAbsent(stop, k -> new ArrayList<>()).add(i);
             }
         }
-        for (var ids : d.values()) {
-            int m = ids.size();
-            for (int i = 0; i < m; ++i) {
-                for (int j = i + 1; j < m; ++j) {
-                    int a = ids.get(i), b = ids.get(j);
-                    g[a].add(b);
-                    g[b].add(a);
-                }
-            }
+
+        // 如果 source 或 target 不在站点映射中，返回 -1
+        if (!g.containsKey(source) || !g.containsKey(target)) {
+            return -1;
         }
-        Deque<Integer> q = new ArrayDeque<>();
-        Set<Integer> vis = new HashSet<>();
-        int ans = 1;
-        for (int v : d.get(source)) {
-            q.offer(v);
-            vis.add(v);
-        }
+
+        // 初始化队列和访问集合
+        Deque<int[]> q = new ArrayDeque<>();
+        Set<Integer> visBus = new HashSet<>();
+        Set<Integer> visStop = new HashSet<>();
+        q.offer(new int[] {source, 0});
+        visStop.add(source);
+
+        // 开始广度优先搜索
         while (!q.isEmpty()) {
-            for (int k = q.size(); k > 0; --k) {
-                int i = q.pollFirst();
-                if (s[i].contains(target)) {
-                    return ans;
-                }
-                for (int j : g[i]) {
-                    if (!vis.contains(j)) {
-                        vis.add(j);
-                        q.offer(j);
+            int[] current = q.poll();
+            int stop = current[0], busCount = current[1];
+
+            // 如果当前站点是目标站点，返回所需的公交次数
+            if (stop == target) {
+                return busCount;
+            }
+
+            // 遍历经过当前站点的所有公交线路
+            for (int bus : g.get(stop)) {
+                if (visBus.add(bus)) {
+                    // 遍历该线路上的所有站点
+                    for (int nextStop : routes[bus]) {
+                        if (visStop.add(nextStop)) {
+                            q.offer(new int[] {nextStop, busCount + 1});
+                        }
                     }
                 }
             }
-            ++ans;
         }
-        return -1;
+
+        return -1; // 如果无法到达目标站点，返回 -1
     }
 }
 ```
@@ -187,50 +197,53 @@ public:
         if (source == target) {
             return 0;
         }
-        int n = routes.size();
-        vector<unordered_set<int>> s(n);
-        vector<vector<int>> g(n);
-        unordered_map<int, vector<int>> d;
-        for (int i = 0; i < n; ++i) {
-            for (int v : routes[i]) {
-                s[i].insert(v);
-                d[v].push_back(i);
+
+        // 使用 unordered_map 构建站点到公交线路的映射
+        unordered_map<int, vector<int>> g;
+        for (int i = 0; i < routes.size(); i++) {
+            for (int stop : routes[i]) {
+                g[stop].push_back(i);
             }
         }
-        for (auto& [_, ids] : d) {
-            int m = ids.size();
-            for (int i = 0; i < m; ++i) {
-                for (int j = i + 1; j < m; ++j) {
-                    int a = ids[i], b = ids[j];
-                    g[a].push_back(b);
-                    g[b].push_back(a);
-                }
-            }
+
+        // 如果 source 或 target 不在站点映射中，返回 -1
+        if (!g.contains(source) || !g.contains(target)) {
+            return -1;
         }
-        queue<int> q;
-        unordered_set<int> vis;
-        int ans = 1;
-        for (int v : d[source]) {
-            q.push(v);
-            vis.insert(v);
-        }
+
+        // 初始化队列和访问集合
+        queue<pair<int, int>> q;
+        unordered_set<int> visBus;
+        unordered_set<int> visStop;
+        q.push({source, 0});
+        visStop.insert(source);
+
+        // 开始广度优先搜索
         while (!q.empty()) {
-            for (int k = q.size(); k; --k) {
-                int i = q.front();
-                q.pop();
-                if (s[i].count(target)) {
-                    return ans;
-                }
-                for (int j : g[i]) {
-                    if (!vis.count(j)) {
-                        vis.insert(j);
-                        q.push(j);
+            auto [stop, busCount] = q.front();
+            q.pop();
+
+            // 如果当前站点是目标站点，返回所需的公交次数
+            if (stop == target) {
+                return busCount;
+            }
+
+            // 遍历经过当前站点的所有公交线路
+            for (int bus : g[stop]) {
+                if (!visBus.contains(bus)) {
+                    visBus.insert(bus);
+                    // 遍历该线路上的所有站点
+                    for (int nextStop : routes[bus]) {
+                        if (!visStop.contains(nextStop)) {
+                            visStop.insert(nextStop);
+                            q.push({nextStop, busCount + 1});
+                        }
                     }
                 }
             }
-            ++ans;
         }
-        return -1;
+
+        return -1; // 如果无法到达目标站点，返回 -1
     }
 };
 ```
@@ -242,52 +255,109 @@ func numBusesToDestination(routes [][]int, source int, target int) int {
 	if source == target {
 		return 0
 	}
-	n := len(routes)
-	s := make([]map[int]bool, n)
-	g := make([][]int, n)
-	d := map[int][]int{}
-	for i, r := range routes {
-		for _, v := range r {
-			if s[i] == nil {
-				s[i] = make(map[int]bool)
-			}
-			s[i][v] = true
-			d[v] = append(d[v], i)
+
+	// 使用 map 构建站点到公交线路的映射
+	g := make(map[int][]int)
+	for i, route := range routes {
+		for _, stop := range route {
+			g[stop] = append(g[stop], i)
 		}
 	}
-	for _, ids := range d {
-		m := len(ids)
-		for i := 0; i < m; i++ {
-			for j := i + 1; j < m; j++ {
-				a, b := ids[i], ids[j]
-				g[a] = append(g[a], b)
-				g[b] = append(g[b], a)
-			}
+
+	// 如果 source 或 target 不在站点映射中，返回 -1
+	if g[source] == nil || g[target] == nil {
+		return -1
+	}
+
+	// 初始化队列和访问集合
+	q := list.New()
+	q.PushBack([2]int{source, 0})
+	visBus := make(map[int]bool)
+	visStop := make(map[int]bool)
+	visStop[source] = true
+
+	// 开始广度优先搜索
+	for q.Len() > 0 {
+		front := q.Front()
+		q.Remove(front)
+		stop, busCount := front.Value.([2]int)[0], front.Value.([2]int)[1]
+
+		// 如果当前站点是目标站点，返回所需的公交次数
+		if stop == target {
+			return busCount
 		}
-	}
-	q := d[source]
-	vis := map[int]bool{}
-	for _, v := range d[source] {
-		vis[v] = true
-	}
-	ans := 1
-	for len(q) > 0 {
-		for k := len(q); k > 0; k-- {
-			i := q[0]
-			q = q[1:]
-			if s[i][target] {
-				return ans
-			}
-			for _, j := range g[i] {
-				if !vis[j] {
-					vis[j] = true
-					q = append(q, j)
+
+		// 遍历经过当前站点的所有公交线路
+		for _, bus := range g[stop] {
+			if !visBus[bus] {
+				visBus[bus] = true
+				// 遍历该线路上的所有站点
+				for _, nextStop := range routes[bus] {
+					if !visStop[nextStop] {
+						visStop[nextStop] = true
+						q.PushBack([2]int{nextStop, busCount + 1})
+					}
 				}
 			}
 		}
-		ans++
 	}
-	return -1
+
+	return -1 // 如果无法到达目标站点，返回
+}
+```
+
+#### TypeScript
+
+```ts
+function numBusesToDestination(routes: number[][], source: number, target: number): number {
+    if (source === target) {
+        return 0;
+    }
+
+    // 使用 Map 构建站点到公交线路的映射
+    const g: Map<number, number[]> = new Map();
+    for (let i = 0; i < routes.length; i++) {
+        for (const stop of routes[i]) {
+            if (!g.has(stop)) {
+                g.set(stop, []);
+            }
+            g.get(stop)!.push(i);
+        }
+    }
+
+    // 如果 source 或 target 不在站点映射中，返回 -1
+    if (!g.has(source) || !g.has(target)) {
+        return -1;
+    }
+
+    // 初始化队列和访问集合
+    const q: [number, number][] = [[source, 0]];
+    const visBus: Set<number> = new Set();
+    const visStop: Set<number> = new Set([source]);
+
+    // 开始广度优先搜索
+    for (const [stop, busCount] of q) {
+        // 如果当前站点是目标站点，返回所需的公交次数
+        if (stop === target) {
+            return busCount;
+        }
+
+        // 遍历经过当前站点的所有公交线路
+        for (const bus of g.get(stop)!) {
+            if (!visBus.has(bus)) {
+                visBus.add(bus);
+                // 遍历该线路上的所有站点
+                for (const nextStop of routes[bus]) {
+                    if (!visStop.has(nextStop)) {
+                        visStop.add(nextStop);
+                        q.push([nextStop, busCount + 1]);
+                    }
+                }
+            }
+        }
+    }
+
+    return -1; // 如果无法到达目标站点，返回 -1
 }
 ```
 
@@ -297,55 +367,56 @@ func numBusesToDestination(routes [][]int, source int, target int) int {
 public class Solution {
     public int NumBusesToDestination(int[][] routes, int source, int target) {
         if (source == target) {
-            return 0;
+            return 0; // 如果起点和终点相同，直接返回 0
         }
 
-        Dictionary<int, HashSet<int>> stopToRoutes = new Dictionary<int, HashSet<int>>();
-        List<HashSet<int>> routeToStops = new List<HashSet<int>>();
-
+        // 使用 Dictionary 构建站点到公交线路的映射
+        var g = new Dictionary<int, List<int>>();
         for (int i = 0; i < routes.Length; i++) {
-            routeToStops.Add(new HashSet<int>());
             foreach (int stop in routes[i]) {
-                routeToStops[i].Add(stop);
-                if (!stopToRoutes.ContainsKey(stop)) {
-                    stopToRoutes[stop] = new HashSet<int>();
+                if (!g.ContainsKey(stop)) {
+                    g[stop] = new List<int>();
                 }
-                stopToRoutes[stop].Add(i);
+                g[stop].Add(i); // 将公交线路编号添加到该站点的列表中
             }
         }
 
-        Queue<int> queue = new Queue<int>();
-        HashSet<int> visited = new HashSet<int>();
-        int ans = 0;
-
-        foreach (int routeId in stopToRoutes[source]) {
-            queue.Enqueue(routeId);
-            visited.Add(routeId);
+        // 如果 source 或 target 不在站点映射中，返回 -1
+        if (!g.ContainsKey(source) || !g.ContainsKey(target)) {
+            return -1;
         }
 
-        while (queue.Count > 0) {
-            int count = queue.Count;
-            ans++;
+        // 初始化队列和访问集合
+        var q = new Queue<int[]>();
+        var visBus = new HashSet<int>(); // 记录访问过的公交线路
+        var visStop = new HashSet<int>(); // 记录访问过的站点
+        q.Enqueue(new int[] { source, 0 }); // 将起点加入队列，公交次数初始化为 0
+        visStop.Add(source); // 将起点标记为已访问
 
-            for (int i = 0; i < count; i++) {
-                int routeId = queue.Dequeue();
+        // 开始广度优先搜索
+        while (q.Count > 0) {
+            var current = q.Dequeue(); // 从队列中取出当前站点
+            int stop = current[0], busCount = current[1];
 
-                foreach (int stop in routeToStops[routeId]) {
-                    if (stop == target) {
-                        return ans;
-                    }
+            // 如果当前站点是目标站点，返回所需的公交次数
+            if (stop == target) {
+                return busCount;
+            }
 
-                    foreach (int nextRoute in stopToRoutes[stop]) {
-                        if (!visited.Contains(nextRoute)) {
-                            visited.Add(nextRoute);
-                            queue.Enqueue(nextRoute);
+            // 遍历经过当前站点的所有公交线路
+            foreach (int bus in g[stop]) {
+                if (visBus.Add(bus)) { // 如果公交线路没有被访问过
+                    // 遍历该线路上的所有站点
+                    foreach (int nextStop in routes[bus]) {
+                        if (visStop.Add(nextStop)) { // 如果该站点没有被访问过
+                            q.Enqueue(new int[] { nextStop, busCount + 1 }); // 将新站点加入队列，公交次数加 1
                         }
                     }
                 }
             }
         }
 
-        return -1;
+        return -1; // 如果无法到达目标站点，返回 -1
     }
 }
 ```

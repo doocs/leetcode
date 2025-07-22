@@ -1,19 +1,19 @@
 class Solution {
 public:
     int minimumSize(vector<int>& nums, int maxOperations) {
-        int left = 1, right = *max_element(nums.begin(), nums.end());
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            long long cnt = 0;
+        int l = 1, r = ranges::max(nums);
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            long long s = 0;
             for (int x : nums) {
-                cnt += (x - 1) / mid;
+                s += (x - 1) / mid;
             }
-            if (cnt <= maxOperations) {
-                right = mid;
+            if (s <= maxOperations) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l;
     }
 };

@@ -1,13 +1,12 @@
 int singleNonDuplicate(int* nums, int numsSize) {
-    int left = 0;
-    int right = numsSize - 1;
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] == nums[mid ^ 1]) {
-            left = mid + 1;
+    int l = 0, r = numsSize - 1;
+    while (l < r) {
+        int mid = (l + r) >> 1;
+        if (nums[mid] != nums[mid ^ 1]) {
+            r = mid;
         } else {
-            right = mid;
+            l = mid + 1;
         }
     }
-    return nums[left];
+    return nums[l];
 }

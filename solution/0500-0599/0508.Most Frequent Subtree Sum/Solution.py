@@ -5,16 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findFrequentTreeSum(self, root: TreeNode) -> List[int]:
-        def dfs(root):
+    def findFrequentTreeSum(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
-            left, right = dfs(root.left), dfs(root.right)
-            s = root.val + left + right
-            counter[s] += 1
+            l, r = dfs(root.left), dfs(root.right)
+            s = l + r + root.val
+            cnt[s] += 1
             return s
 
-        counter = Counter()
+        cnt = Counter()
         dfs(root)
-        mx = max(counter.values())
-        return [k for k, v in counter.items() if v == mx]
+        mx = max(cnt.values())
+        return [k for k, v in cnt.items() if v == mx]

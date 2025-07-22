@@ -1,25 +1,24 @@
 func maxLength(arr []string) (ans int) {
-	masks := []int{0}
-	for _, s := range arr {
-		mask := 0
-		for _, c := range s {
-			i := int(c - 'a')
-			if mask>>i&1 == 1 {
-				mask = 0
+	s := []int{0}
+	for _, t := range arr {
+		x := 0
+		for _, c := range t {
+			b := int(c - 'a')
+			if (x>>b)&1 == 1 {
+				x = 0
 				break
 			}
-			mask |= 1 << i
+			x |= 1 << b
 		}
-		if mask == 0 {
-			continue
-		}
-		n := len(masks)
-		for _, m := range masks[:n] {
-			if m&mask == 0 {
-				masks = append(masks, m|mask)
-				ans = max(ans, bits.OnesCount(uint(m|mask)))
+		if x > 0 {
+			for i := len(s) - 1; i >= 0; i-- {
+				y := s[i]
+				if (x & y) == 0 {
+					s = append(s, x|y)
+					ans = max(ans, bits.OnesCount(uint(x|y)))
+				}
 			}
 		}
 	}
-	return
+	return ans
 }

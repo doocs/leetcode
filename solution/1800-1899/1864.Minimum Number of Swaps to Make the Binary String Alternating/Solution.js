@@ -3,26 +3,23 @@
  * @return {number}
  */
 var minSwaps = function (s) {
-    let n = s.length;
-    let n1 = [...s].reduce((a, c) => parseInt(c) + a, 0);
-    let n0 = n - n1;
-    let count = Infinity;
-    let half = n / 2;
-    // 101、1010
-    if (n1 == Math.ceil(half) && n0 == Math.floor(half)) {
-        let cur = 0;
-        for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '1') cur++;
-        }
-        count = Math.min(count, cur);
+    const n0 = (s.match(/0/g) || []).length;
+    const n1 = s.length - n0;
+    if (Math.abs(n0 - n1) > 1) {
+        return -1;
     }
-    // 010、0101
-    if (n0 == Math.ceil(half) && n1 == Math.floor(half)) {
-        let cur = 0;
-        for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '0') cur++;
+    const calc = c => {
+        let cnt = 0;
+        for (let i = 0; i < s.length; i++) {
+            const x = +s[i];
+            if (((i & 1) ^ c) !== x) {
+                cnt++;
+            }
         }
-        count = Math.min(count, cur);
+        return Math.floor(cnt / 2);
+    };
+    if (n0 === n1) {
+        return Math.min(calc(0), calc(1));
     }
-    return count == Infinity ? -1 : count;
+    return calc(n0 > n1 ? 0 : 1);
 };

@@ -82,7 +82,7 @@ First, we count the number of each continuous pothole, recorded in the array $cn
 
 Since we want to repair as many potholes as possible, and for a continuous pothole of length $k$, we need to spend a cost of $k + 1$, we should prioritize repairing longer potholes to minimize the cost.
 
-Therefore, we start repairing from the longest pothole. For a pothole of length $k$, the maximum number we can repair is $t = \min(\text{budget} / (k + 1), \text{cnt}[k])$. We add the number of repairs multiplied by the length $k$ to the answer, then update the remaining budget. For the remaining $cnt[k] - t$ potholes of length $k$, we merge them into the potholes of length $k - 1$. Continue this process until all potholes are traversed.
+Therefore, we start repairing from the longest pothole. For a pothole of length $k$, the maximum number we can repair is $t = \min(\textit{budget} / (k + 1), \textit{cnt}[k])$. We add the number of repairs multiplied by the length $k$ to the answer, then update the remaining budget. For the remaining $cnt[k] - t$ potholes of length $k$, we merge them into the potholes of length $k - 1$. Continue this process until all potholes are traversed.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $road$.
 

@@ -5,8 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1778.Sh
 tags:
     - 深度优先搜索
     - 广度优先搜索
-    - 图
+    - 数组
     - 交互
+    - 矩阵
 ---
 
 <!-- problem:start -->

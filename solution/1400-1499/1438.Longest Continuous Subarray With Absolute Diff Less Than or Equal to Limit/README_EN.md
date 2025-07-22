@@ -86,9 +86,6 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, 
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
         sl = SortedList()

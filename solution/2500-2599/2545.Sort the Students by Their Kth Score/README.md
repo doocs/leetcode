@@ -74,9 +74,9 @@ tags:
 
 ### 方法一：排序
 
-我们将 `score` 按照第 $k$ 列的分数从大到小排序，然后返回即可。
+我们直接将 $\textit{score}$ 按照第 $k$ 列的分数从大到小排序，然后返回即可。
 
-时间复杂度 $O(m \times \log m)$，空间复杂度 $O(1)$。其中 $m$ 为 `score` 的行数。
+时间复杂度 $O(m \times \log m)$，空间复杂度 $O(\log m)$。其中 $m$ 为 $\textit{score}$ 的行数。
 
 <!-- tabs:start -->
 
@@ -105,7 +105,7 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> sortTheStudents(vector<vector<int>>& score, int k) {
-        sort(score.begin(), score.end(), [&](const auto& a, const auto& b) { return a[k] > b[k]; });
+        ranges::sort(score, [k](const auto& a, const auto& b) { return a[k] > b[k]; });
         return score;
     }
 };

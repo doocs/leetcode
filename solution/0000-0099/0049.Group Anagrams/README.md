@@ -19,30 +19,41 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个字符串数组，请你将 <strong>字母异位词</strong> 组合在一起。可以按任意顺序返回结果列表。</p>
-
-<p><strong>字母异位词</strong> 是由重新排列源单词的所有字母得到的一个新单词。</p>
+<p>给你一个字符串数组，请你将 <span data-keyword="anagram">字母异位词</span> 组合在一起。可以按任意顺序返回结果列表。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
-<pre>
-<strong>输入:</strong> strs = <code>["eat", "tea", "tan", "ate", "nat", "bat"]</code>
-<strong>输出: </strong>[["bat"],["nat","tan"],["ate","eat","tea"]]</pre>
+<div class="example-block">
+<p><strong>输入:</strong> strs = ["eat", "tea", "tan", "ate", "nat", "bat"]</p>
+
+<p><strong>输出: </strong>[["bat"],["nat","tan"],["ate","eat","tea"]]</p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>在 strs 中没有字符串可以通过重新排列来形成 <code>"bat"</code>。</li>
+	<li>字符串 <code>"nat"</code> 和 <code>"tan"</code> 是字母异位词，因为它们可以重新排列以形成彼此。</li>
+	<li>字符串 <code>"ate"</code>&nbsp;，<code>"eat"</code>&nbsp;和 <code>"tea"</code> 是字母异位词，因为它们可以重新排列以形成彼此。</li>
+</ul>
+</div>
 
 <p><strong>示例 2:</strong></p>
 
-<pre>
-<strong>输入:</strong> strs = <code>[""]</code>
-<strong>输出: </strong>[[""]]
-</pre>
+<div class="example-block">
+<p><strong>输入:</strong> strs = [""]</p>
+
+<p><strong>输出: </strong>[[""]]</p>
+</div>
 
 <p><strong>示例 3:</strong></p>
 
-<pre>
-<strong>输入:</strong> strs = <code>["a"]</code>
-<strong>输出: </strong>[["a"]]</pre>
+<div class="example-block">
+<p><strong>输入:</strong> strs = ["a"]</p>
+
+<p><strong>输出: </strong>[["a"]]</p>
+</div>
 
 <p>&nbsp;</p>
 

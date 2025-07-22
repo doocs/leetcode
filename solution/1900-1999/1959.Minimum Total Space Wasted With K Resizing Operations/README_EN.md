@@ -73,7 +73,20 @@ The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 
 
 <!-- solution:start -->
 
-### Solution 1
+Solution 1: Dynamic Programming
+The problem is equivalent to dividing the array $\textit{nums}$ into $k + 1$ segments. The wasted space for each segment is the maximum value of that segment multiplied by the length of the segment minus the sum of the elements in that segment. By summing the wasted space of each segment, we get the total wasted space. By adding 1 to $k$, we are effectively dividing the array into $k$ segments.
+
+Therefore, we define an array $\textit{g}[i][j]$ to represent the wasted space for the segment $\textit{nums}[i..j]$, which is the maximum value of $\textit{nums}[i..j]$ multiplied by the length of $\textit{nums}[i..j]$ minus the sum of the elements in $\textit{nums}[i..j]$. We iterate over $i$ in the range $[0, n)$ and $j$ in the range $[i, n)$, using a variable $s$ to maintain the sum of the elements in $\textit{nums}[i..j]$ and a variable $\textit{mx}$ to maintain the maximum value of $\textit{nums}[i..j]$. Then we can get:
+
+$$ \textit{g}[i][j] = \textit{mx} \times (j - i + 1) - s $$
+
+Next, we define $\textit{f}[i][j]$ to represent the minimum wasted space for dividing the first $i$ elements into $j$ segments. We initialize $\textit{f}[0][0] = 0$ and the other positions to infinity. We iterate over $i$ in the range $[1, n]$ and $j$ in the range $[1, k]$, then we iterate over the last element $h$ of the previous $j - 1$ segments. Then we have:
+
+$$ \textit{f}[i][j] = \min(\textit{f}[i][j], \textit{f}[h][j - 1] + \textit{g}[h][i - 1]) $$
+
+The final answer is $\textit{f}[n][k]$.
+
+The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times (n + k))$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -201,6 +214,75 @@ func minSpaceWastedKResizing(nums []int, k int) int {
 		}
 	}
 	return f[n][k]
+}
+```
+
+#### TypeScript
+
+```ts
+function minSpaceWastedKResizing(nums: number[], k: number): number {
+    k += 1;
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (let i = 0; i < n; i++) {
+        let s = 0,
+            mx = 0;
+        for (let j = i; j < n; j++) {
+            s += nums[j];
+            mx = Math.max(mx, nums[j]);
+            g[i][j] = mx * (j - i + 1) - s;
+        }
+    }
+
+    const inf = Number.POSITIVE_INFINITY;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(inf));
+    f[0][0] = 0;
+
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= k; j++) {
+            for (let h = 0; h < i; h++) {
+                f[i][j] = Math.min(f[i][j], f[h][j - 1] + g[h][i - 1]);
+            }
+        }
+    }
+
+    return f[n][k];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_space_wasted_k_resizing(nums: Vec<i32>, k: i32) -> i32 {
+        let mut k = k + 1;
+        let n = nums.len();
+        let mut g = vec![vec![0; n]; n];
+
+        for i in 0..n {
+            let (mut s, mut mx) = (0, 0);
+            for j in i..n {
+                s += nums[j];
+                mx = mx.max(nums[j]);
+                g[i][j] = mx * (j as i32 - i as i32 + 1) - s;
+            }
+        }
+
+        let inf = 0x3f3f3f3f;
+        let mut f = vec![vec![inf; (k + 1) as usize]; n + 1];
+        f[0][0] = 0;
+
+        for i in 1..=n {
+            for j in 1..=k as usize {
+                for h in 0..i {
+                    f[i][j] = f[i][j].min(f[h][j - 1] + g[h][i - 1]);
+                }
+            }
+        }
+
+        f[n][k as usize]
+    }
 }
 ```
 

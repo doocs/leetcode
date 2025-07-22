@@ -67,27 +67,27 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
-Let's denote the sum of all elements in the array $\text{nums}$ as $s$, and the sum of elements to which we assign a negative sign as $x$. Therefore, the sum of elements with a positive sign is $s - x$. We have:
+Let's denote the sum of all elements in the array $\textit{nums}$ as $s$, and the sum of elements to which we assign a negative sign as $x$. Therefore, the sum of elements with a positive sign is $s - x$. We have:
 
 $$
-(s - x) - x = \text{target} \Rightarrow x = \frac{s - \text{target}}{2}
+(s - x) - x = \textit{target} \Rightarrow x = \frac{s - \textit{target}}{2}
 $$
 
-Since $x \geq 0$ and $x$ must be an integer, it follows that $s \geq \text{target}$ and $s - \text{target}$ must be even. If these two conditions are not met, we directly return $0$.
+Since $x \geq 0$ and $x$ must be an integer, it follows that $s \geq \textit{target}$ and $s - \textit{target}$ must be even. If these two conditions are not met, we directly return $0$.
 
-Next, we can transform the problem into: selecting several elements from the array $\text{nums}$ such that the sum of these elements equals $\frac{s - \text{target}}{2}$. We are asked how many ways there are to make such a selection.
+Next, we can transform the problem into: selecting several elements from the array $\textit{nums}$ such that the sum of these elements equals $\frac{s - \textit{target}}{2}$. We are asked how many ways there are to make such a selection.
 
-We can use dynamic programming to solve this problem. Define $f[i][j]$ as the number of ways to select several elements from the first $i$ elements of the array $\text{nums}$ such that the sum of these elements equals $j$.
+We can use dynamic programming to solve this problem. Define $f[i][j]$ as the number of ways to select several elements from the first $i$ elements of the array $\textit{nums}$ such that the sum of these elements equals $j$.
 
-For $\text{nums}[i - 1]$, we have two choices: to select or not to select. If we do not select $\text{nums}[i - 1]$, then $f[i][j] = f[i - 1][j]$; if we do select $\text{nums}[i - 1]$, then $f[i][j] = f[i - 1][j - \text{nums}[i - 1]]$. Therefore, the state transition equation is:
+For $\textit{nums}[i - 1]$, we have two choices: to select or not to select. If we do not select $\textit{nums}[i - 1]$, then $f[i][j] = f[i - 1][j]$; if we do select $\textit{nums}[i - 1]$, then $f[i][j] = f[i - 1][j - \textit{nums}[i - 1]]$. Therefore, the state transition equation is:
 
 $$
-f[i][j] = f[i - 1][j] + f[i - 1][j - \text{nums}[i - 1]]
+f[i][j] = f[i - 1][j] + f[i - 1][j - \textit{nums}[i - 1]]
 $$
 
-This selection is based on the premise that $j \geq \text{nums}[i - 1]$.
+This selection is based on the premise that $j \geq \textit{nums}[i - 1]$.
 
-The final answer is $f[m][n]$, where $m$ is the length of the array $\text{nums}$, and $n = \frac{s - \text{target}}{2}$.
+The final answer is $f[m][n]$, where $m$ is the length of the array $\textit{nums}$, and $n = \frac{s - \textit{target}}{2}$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$.
 
@@ -280,7 +280,7 @@ var findTargetSumWays = function (nums, target) {
 
 ### Solution 2: Dynamic Programming (Space Optimization)
 
-We can observe that in the state transition equation of Solution 1, the value of $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i - 1][j - \text{nums}[i - 1]]$. Therefore, we can eliminate the first dimension of the space and use only a one-dimensional array.
+We can observe that in the state transition equation of Solution 1, the value of $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i - 1][j - \textit{nums}[i - 1]]$. Therefore, we can eliminate the first dimension of the space and use only a one-dimensional array.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(n)$.
 

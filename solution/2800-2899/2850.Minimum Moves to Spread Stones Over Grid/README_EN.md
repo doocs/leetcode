@@ -180,6 +180,293 @@ class Solution {
 class Solution {
 public:
     int minimumMoves(vector<vector<int>>& grid) {
+        queue<string> q;
+        q.push(f(grid));
+        unordered_set<string> vis;
+        vis.insert(f(grid));
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+
+        for (int ans = 0;; ++ans) {
+            int sz = q.size();
+            while (sz--) {
+                string p = q.front();
+                q.pop();
+                if (p == "111111111") {
+                    return ans;
+                }
+                vector<vector<int>> cur = g(p);
+
+                for (int i = 0; i < 3; ++i) {
+                    for (int j = 0; j < 3; ++j) {
+                        if (cur[i][j] > 1) {
+                            for (int d = 0; d < 4; ++d) {
+                                int x = i + dirs[d];
+                                int y = j + dirs[d + 1];
+                                if (x >= 0 && x < 3 && y >= 0 && y < 3 && cur[x][y] < 2) {
+                                    vector<vector<int>> nxt = cur;
+                                    nxt[i][j]--;
+                                    nxt[x][y]++;
+                                    string s = f(nxt);
+                                    if (!vis.count(s)) {
+                                        vis.insert(s);
+                                        q.push(s);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+private:
+    string f(const vector<vector<int>>& grid) {
+        string s;
+        for (const auto& row : grid) {
+            for (int x : row) {
+                s += to_string(x);
+            }
+        }
+        return s;
+    }
+
+    vector<vector<int>> g(const string& s) {
+        vector<vector<int>> grid(3, vector<int>(3));
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                grid[i][j] = s[i * 3 + j] - '0';
+            }
+        }
+        return grid;
+    }
+};
+```
+
+#### Go
+
+```go
+type Queue []string
+
+func (q *Queue) Push(s string) {
+	*q = append(*q, s)
+}
+
+func (q *Queue) Pop() string {
+	s := (*q)[0]
+	*q = (*q)[1:]
+	return s
+}
+
+func (q *Queue) Empty() bool {
+	return len(*q) == 0
+}
+
+func minimumMoves(grid [][]int) int {
+	q := Queue{f(grid)}
+	vis := map[string]bool{f(grid): true}
+	dirs := []int{-1, 0, 1, 0, -1}
+
+	for ans := 0; ; ans++ {
+		sz := len(q)
+		for ; sz > 0; sz-- {
+			p := q.Pop()
+			if p == "111111111" {
+				return ans
+			}
+			cur := g(p)
+
+			for i := 0; i < 3; i++ {
+				for j := 0; j < 3; j++ {
+					if cur[i][j] > 1 {
+						for d := 0; d < 4; d++ {
+							x, y := i+dirs[d], j+dirs[d+1]
+							if x >= 0 && x < 3 && y >= 0 && y < 3 && cur[x][y] < 2 {
+								nxt := make([][]int, 3)
+								for r := range nxt {
+									nxt[r] = append([]int(nil), cur[r]...)
+								}
+								nxt[i][j]--
+								nxt[x][y]++
+								s := f(nxt)
+								if !vis[s] {
+									vis[s] = true
+									q.Push(s)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+func f(grid [][]int) string {
+	var sb strings.Builder
+	for _, row := range grid {
+		for _, x := range row {
+			sb.WriteByte(byte(x) + '0')
+		}
+	}
+	return sb.String()
+}
+
+func g(s string) [][]int {
+	grid := make([][]int, 3)
+	for i := range grid {
+		grid[i] = make([]int, 3)
+		for j := 0; j < 3; j++ {
+			grid[i][j] = int(s[i*3+j] - '0')
+		}
+	}
+	return grid
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumMoves(grid: number[][]): number {
+    const q: string[] = [f(grid)];
+    const vis: Set<string> = new Set([f(grid)]);
+    const dirs: number[] = [-1, 0, 1, 0, -1];
+
+    for (let ans = 0; ; ans++) {
+        let sz = q.length;
+        while (sz-- > 0) {
+            const p = q.shift()!;
+            if (p === '111111111') {
+                return ans;
+            }
+            const cur = g(p);
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (cur[i][j] > 1) {
+                        for (let d = 0; d < 4; d++) {
+                            const x = i + dirs[d],
+                                y = j + dirs[d + 1];
+                            if (x >= 0 && x < 3 && y >= 0 && y < 3 && cur[x][y] < 2) {
+                                const nxt = cur.map(row => [...row]);
+                                nxt[i][j]--;
+                                nxt[x][y]++;
+                                const s = f(nxt);
+                                if (!vis.has(s)) {
+                                    vis.add(s);
+                                    q.push(s);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function f(grid: number[][]): string {
+    return grid.flat().join('');
+}
+
+function g(s: string): number[][] {
+    return Array.from({ length: 3 }, (_, i) =>
+        Array.from({ length: 3 }, (_, j) => Number(s[i * 3 + j])),
+    );
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: State Compression Dynamic Programming
+
+We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.
+
+Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $left$ is filled by a coordinate in $right$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.
+
+Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $cal(left[k-1], right[j])$, where $cal$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
+
+The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of $left$, and in this problem, $n \le 9$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumMoves(self, grid: List[List[int]]) -> int:
+        def cal(a: tuple, b: tuple) -> int:
+            return abs(a[0] - b[0]) + abs(a[1] - b[1])
+
+        left, right = [], []
+        for i in range(3):
+            for j in range(3):
+                if grid[i][j] == 0:
+                    left.append((i, j))
+                else:
+                    for _ in range(grid[i][j] - 1):
+                        right.append((i, j))
+
+        n = len(left)
+        f = [inf] * (1 << n)
+        f[0] = 0
+        for i in range(1, 1 << n):
+            k = i.bit_count()
+            for j in range(n):
+                if i >> j & 1:
+                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
+        return f[-1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumMoves(int[][] grid) {
+        List<int[]> left = new ArrayList<>();
+        List<int[]> right = new ArrayList<>();
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (grid[i][j] == 0) {
+                    left.add(new int[] {i, j});
+                } else {
+                    for (int k = 1; k < grid[i][j]; ++k) {
+                        right.add(new int[] {i, j});
+                    }
+                }
+            }
+        }
+        int n = left.size();
+        int[] f = new int[1 << n];
+        Arrays.fill(f, 1 << 30);
+        f[0] = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            int k = Integer.bitCount(i);
+            for (int j = 0; j < n; ++j) {
+                if ((i >> j & 1) == 1) {
+                    f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left.get(k - 1), right.get(j)));
+                }
+            }
+        }
+        return f[(1 << n) - 1];
+    }
+
+    private int cal(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumMoves(vector<vector<int>>& grid) {
         using pii = pair<int, int>;
         vector<pii> left, right;
         for (int i = 0; i < 3; ++i) {
@@ -293,91 +580,6 @@ function minimumMoves(grid: number[][]): number {
         }
     }
     return f[(1 << n) - 1];
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: State Compression Dynamic Programming
-
-We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.
-
-Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $left$ is filled by a coordinate in $right$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.
-
-Consider $f[i]$, let the number of $1$s in the binary representation of $i$ be $k$. We enumerate $j$ in the range $[0..n)$, if the $j$th bit of $i$ is $1$, then $f[i]$ can be transferred from $f[i \oplus (1 << j)]$, and the cost of the transfer is $cal(left[k-1], right[j])$, where $cal$ represents the Manhattan distance between two coordinates. The final answer is $f[(1 << n) - 1]$.
-
-The time complexity is $O(n \times 2^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of $left$, and in this problem, $n \le 9$.
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minimumMoves(self, grid: List[List[int]]) -> int:
-        def cal(a: tuple, b: tuple) -> int:
-            return abs(a[0] - b[0]) + abs(a[1] - b[1])
-
-        left, right = [], []
-        for i in range(3):
-            for j in range(3):
-                if grid[i][j] == 0:
-                    left.append((i, j))
-                else:
-                    for _ in range(grid[i][j] - 1):
-                        right.append((i, j))
-
-        n = len(left)
-        f = [inf] * (1 << n)
-        f[0] = 0
-        for i in range(1, 1 << n):
-            k = i.bit_count()
-            for j in range(n):
-                if i >> j & 1:
-                    f[i] = min(f[i], f[i ^ (1 << j)] + cal(left[k - 1], right[j]))
-        return f[-1]
-```
-
-#### Java
-
-```java
-class Solution {
-    public int minimumMoves(int[][] grid) {
-        List<int[]> left = new ArrayList<>();
-        List<int[]> right = new ArrayList<>();
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                if (grid[i][j] == 0) {
-                    left.add(new int[] {i, j});
-                } else {
-                    for (int k = 1; k < grid[i][j]; ++k) {
-                        right.add(new int[] {i, j});
-                    }
-                }
-            }
-        }
-        int n = left.size();
-        int[] f = new int[1 << n];
-        Arrays.fill(f, 1 << 30);
-        f[0] = 0;
-        for (int i = 1; i < 1 << n; ++i) {
-            int k = Integer.bitCount(i);
-            for (int j = 0; j < n; ++j) {
-                if ((i >> j & 1) == 1) {
-                    f[i] = Math.min(f[i], f[i ^ (1 << j)] + cal(left.get(k - 1), right.get(j)));
-                }
-            }
-        }
-        return f[(1 << n) - 1];
-    }
-
-    private int cal(int[] a, int[] b) {
-        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
-    }
 }
 ```
 

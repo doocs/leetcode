@@ -69,7 +69,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以直接模拟题目描述的操作，对数组 $\textit{nums}$ 进行 $n - 1$ 轮操作，每轮操作都按照题目描述的规则更新数组 $\textit{nums}$。最后返回数组 $\textit{nums}$ 中剩下的唯一元素即可。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -78,10 +82,9 @@ tags:
 ```python
 class Solution:
     def triangularSum(self, nums: List[int]) -> int:
-        n = len(nums)
-        for i in range(n, 0, -1):
-            for j in range(i - 1):
-                nums[j] = (nums[j] + nums[j + 1]) % 10
+        for k in range(len(nums) - 1, 0, -1):
+            for i in range(k):
+                nums[i] = (nums[i] + nums[i + 1]) % 10
         return nums[0]
 ```
 
@@ -90,10 +93,9 @@ class Solution:
 ```java
 class Solution {
     public int triangularSum(int[] nums) {
-        int n = nums.length;
-        for (int i = n; i >= 0; --i) {
-            for (int j = 0; j < i - 1; ++j) {
-                nums[j] = (nums[j] + nums[j + 1]) % 10;
+        for (int k = nums.length - 1; k > 0; --k) {
+            for (int i = 0; i < k; ++i) {
+                nums[i] = (nums[i] + nums[i + 1]) % 10;
             }
         }
         return nums[0];
@@ -107,10 +109,11 @@ class Solution {
 class Solution {
 public:
     int triangularSum(vector<int>& nums) {
-        int n = nums.size();
-        for (int i = n; i >= 0; --i)
-            for (int j = 0; j < i - 1; ++j)
-                nums[j] = (nums[j] + nums[j + 1]) % 10;
+        for (int k = nums.size() - 1; k; --k) {
+            for (int i = 0; i < k; ++i) {
+                nums[i] = (nums[i] + nums[i + 1]) % 10;
+            }
+        }
         return nums[0];
     }
 };
@@ -120,13 +123,25 @@ public:
 
 ```go
 func triangularSum(nums []int) int {
-	n := len(nums)
-	for i := n; i >= 0; i-- {
-		for j := 0; j < i-1; j++ {
-			nums[j] = (nums[j] + nums[j+1]) % 10
+	for k := len(nums) - 1; k > 0; k-- {
+		for i := 0; i < k; i++ {
+			nums[i] = (nums[i] + nums[i+1]) % 10
 		}
 	}
 	return nums[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function triangularSum(nums: number[]): number {
+    for (let k = nums.length - 1; k; --k) {
+        for (let i = 0; i < k; ++i) {
+            nums[i] = (nums[i] + nums[i + 1]) % 10;
+        }
+    }
+    return nums[0];
 }
 ```
 

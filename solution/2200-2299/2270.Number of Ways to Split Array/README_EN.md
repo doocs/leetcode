@@ -69,7 +69,13 @@ There are two valid splits in nums:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+First, we calculate the total sum $s$ of the array $\textit{nums}$. Then, we traverse the first $n-1$ elements of the array $\textit{nums}$, using the variable $t$ to record the prefix sum. If $t \geq s - t$, we increment the answer by one.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -80,10 +86,9 @@ class Solution:
     def waysToSplitArray(self, nums: List[int]) -> int:
         s = sum(nums)
         ans = t = 0
-        for v in nums[:-1]:
-            t += v
-            if t >= s - t:
-                ans += 1
+        for x in nums[:-1]:
+            t += x
+            ans += t >= s - t
         return ans
 ```
 
@@ -93,16 +98,14 @@ class Solution:
 class Solution {
     public int waysToSplitArray(int[] nums) {
         long s = 0;
-        for (int v : nums) {
-            s += v;
+        for (int x : nums) {
+            s += x;
         }
-        int ans = 0;
         long t = 0;
-        for (int i = 0; i < nums.length - 1; ++i) {
+        int ans = 0;
+        for (int i = 0; i + 1 < nums.length; ++i) {
             t += nums[i];
-            if (t >= s - t) {
-                ++ans;
-            }
+            ans += t >= s - t ? 1 : 0;
         }
         return ans;
     }
@@ -115,10 +118,10 @@ class Solution {
 class Solution {
 public:
     int waysToSplitArray(vector<int>& nums) {
-        long long s = accumulate(nums.begin(), nums.end(), 0ll);
+        long long s = accumulate(nums.begin(), nums.end(), 0LL);
         long long t = 0;
         int ans = 0;
-        for (int i = 0; i < nums.size() - 1; ++i) {
+        for (int i = 0; i + 1 < nums.size(); ++i) {
             t += nums[i];
             ans += t >= s - t;
         }
@@ -130,19 +133,34 @@ public:
 #### Go
 
 ```go
-func waysToSplitArray(nums []int) int {
-	s := 0
-	for _, v := range nums {
-		s += v
+func waysToSplitArray(nums []int) (ans int) {
+	var s, t int
+	for _, x := range nums {
+		s += x
 	}
-	ans, t := 0, 0
-	for _, v := range nums[:len(nums)-1] {
-		t += v
+	for _, x := range nums[:len(nums)-1] {
+		t += x
 		if t >= s-t {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function waysToSplitArray(nums: number[]): number {
+    const s = nums.reduce((acc, cur) => acc + cur, 0);
+    let [ans, t] = [0, 0];
+    for (const x of nums.slice(0, -1)) {
+        t += x;
+        if (t >= s - t) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

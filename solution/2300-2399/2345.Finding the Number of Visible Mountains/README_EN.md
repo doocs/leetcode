@@ -61,7 +61,15 @@ Both mountains are not visible since their peaks lie within each other.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Interval Sorting + Traversal
+
+We first convert each mountain $(x, y)$ into a horizontal interval $(x - y, x + y)$, then sort the intervals by left endpoint in ascending order and right endpoint in descending order.
+
+Next, we initialize the right endpoint of the current interval as $-\infty$. We traverse each mountain. If the right endpoint of the current mountain is less than or equal to the right endpoint of the current interval, we skip this mountain. Otherwise, we update the right endpoint of the current interval to the right endpoint of the current mountain. If the interval of the current mountain appears only once, we increment the answer.
+
+Finally, we return the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of mountains.
 
 <!-- tabs:start -->
 
@@ -90,22 +98,20 @@ class Solution {
     public int visibleMountains(int[][] peaks) {
         int n = peaks.length;
         int[][] arr = new int[n][2];
-        Map<String, Integer> cnt = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             int x = peaks[i][0], y = peaks[i][1];
             arr[i] = new int[] {x - y, x + y};
-            cnt.merge((x - y) + "" + (x + y), 1, Integer::sum);
         }
         Arrays.sort(arr, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
         int ans = 0;
         int cur = Integer.MIN_VALUE;
-        for (int[] e : arr) {
-            int l = e[0], r = e[1];
+        for (int i = 0; i < n; ++i) {
+            int l = arr[i][0], r = arr[i][1];
             if (r <= cur) {
                 continue;
             }
             cur = r;
-            if (cnt.get(l + "" + r) == 1) {
+            if (!(i < n - 1 && arr[i][0] == arr[i + 1][0] && arr[i][1] == arr[i + 1][1])) {
                 ++ans;
             }
         }
@@ -165,45 +171,6 @@ func visibleMountains(peaks [][]int) (ans int) {
 		}
 	}
 	return
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
-    public int visibleMountains(int[][] peaks) {
-        int n = peaks.length;
-        int[][] arr = new int[n][2];
-        for (int i = 0; i < n; ++i) {
-            int x = peaks[i][0], y = peaks[i][1];
-            arr[i] = new int[] {x - y, x + y};
-        }
-        Arrays.sort(arr, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
-        int ans = 0;
-        int cur = Integer.MIN_VALUE;
-        for (int i = 0; i < n; ++i) {
-            int l = arr[i][0], r = arr[i][1];
-            if (r <= cur) {
-                continue;
-            }
-            cur = r;
-            if (!(i < n - 1 && arr[i][0] == arr[i + 1][0] && arr[i][1] == arr[i + 1][1])) {
-                ++ans;
-            }
-        }
-        return ans;
-    }
 }
 ```
 

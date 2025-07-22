@@ -58,14 +58,14 @@ tags:
 
 We define the left boundary $l=0$ and the right boundary $r=n-1$ for binary search.
 
-In each iteration, we calculate the middle position $\text{mid}=(l+r)/2$, then compare the size of $\text{nums}[\text{mid}]$ and $\text{target}$.
+In each iteration, we calculate the middle position $\textit{mid}=(l+r)/2$, then compare the size of $\textit{nums}[\textit{mid}]$ and $\textit{target}$.
 
--   If $\text{nums}[\text{mid}] \geq \text{target}$, it means $\text{target}$ is in the left half, so we move the right boundary $r$ to $\text{mid}$;
--   Otherwise, it means $\text{target}$ is in the right half, so we move the left boundary $l$ to $\text{mid}+1$.
+-   If $\textit{nums}[\textit{mid}] \geq \textit{target}$, it means $\textit{target}$ is in the left half, so we move the right boundary $r$ to $\textit{mid}$;
+-   Otherwise, it means $\textit{target}$ is in the right half, so we move the left boundary $l$ to $\textit{mid}+1$.
 
-The loop ends when $l<r$, at this point $\text{nums}[l]$ is the target value we are looking for. If $\text{nums}[l]=\text{target}$, return $l$; otherwise, return $-1$.
+The loop ends when $l<r$, at this point $\textit{nums}[l]$ is the target value we are looking for. If $\textit{nums}[l]=\textit{target}$, return $l$; otherwise, return $-1$.
 
-The time complexity is $O(\log n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.
+The time complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

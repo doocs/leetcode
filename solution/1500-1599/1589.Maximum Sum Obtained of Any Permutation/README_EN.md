@@ -75,7 +75,13 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array + Sorting + Greedy
+
+We observe that for a query operation, it returns the sum of all elements in the query interval $[l, r]$. The problem requires the maximum sum of the results of all query operations, which means we need to accumulate the results of all query operations to maximize the sum. Therefore, if an index $i$ appears more frequently in the query operations, we should assign a larger value to index $i$ to maximize the sum of the results of all query operations.
+
+Therefore, we can use the idea of a difference array to count the number of times each index appears in the query operations, then sort these counts in ascending order, and also sort the array $\textit{nums}$ in ascending order. This ensures that the more frequently an index $i$ appears in the query operations, the larger the value $\textit{nums}[i]$ corresponding to that index will be. Next, we only need to multiply the values $\textit{nums}[i]$ corresponding to these indices by the number of times they appear in the query operations, and then sum them up to get the maximum sum of the results of all query operations.
+
+Time complexity $O(n \times \log n)$, space complexity $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

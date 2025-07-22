@@ -74,7 +74,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We can use a hash table $d$ to record the minimum available index for each folder name, where $d[name] = k$ means the minimum available index for the folder $name$ is $k$. Initially, $d$ is empty since there are no folders.
+
+Next, we iterate through the folder names array. For each file name $name$:
+
+-   If $name$ is already in $d$, it means the folder $name$ already exists, and we need to find a new folder name. We can keep trying $name(k)$, where $k$ starts from $d[name]$, until we find a folder name $name(k)$ that does not exist in $d$. We add $name(k)$ to $d$, update $d[name]$ to $k + 1$, and then update $name$ to $name(k)$.
+-   If $name$ is not in $d$, we can directly add $name$ to $d$ and set $d[name]$ to $1$.
+-   Then, we add $name$ to the answer array and continue to the next file name.
+
+After traversing all file names, we obtain the answer array.
+
+> In the code implementation below, we directly modify the $names$ array without using an extra answer array.
+
+The complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the sum of the lengths of all file names in the $names$ array.
 
 <!-- tabs:start -->
 
@@ -144,22 +158,22 @@ public:
 
 ```go
 func getFolderNames(names []string) []string {
-	d := map[string]int{}
-	for i, name := range names {
-		if k, ok := d[name]; ok {
-			for {
-				newName := fmt.Sprintf("%s(%d)", name, k)
-				if d[newName] == 0 {
-					d[name] = k + 1
-					names[i] = newName
-					break
-				}
-				k++
-			}
-		}
-		d[names[i]] = 1
-	}
-	return names
+ d := map[string]int{}
+ for i, name := range names {
+  if k, ok := d[name]; ok {
+   for {
+    newName := fmt.Sprintf("%s(%d)", name, k)
+    if d[newName] == 0 {
+     d[name] = k + 1
+     names[i] = newName
+     break
+    }
+    k++
+   }
+  }
+  d[names[i]] = 1
+ }
+ return names
 }
 ```
 

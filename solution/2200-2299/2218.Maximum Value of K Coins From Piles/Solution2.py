@@ -1,10 +1,11 @@
 class Solution:
     def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
-        presum = [list(accumulate(p, initial=0)) for p in piles]
-        dp = [0] * (k + 1)
-        for s in presum:
+        f = [0] * (k + 1)
+        for nums in piles:
+            s = list(accumulate(nums, initial=0))
             for j in range(k, -1, -1):
-                for idx, v in enumerate(s):
-                    if j >= idx:
-                        dp[j] = max(dp[j], dp[j - idx] + v)
-        return dp[-1]
+                for h, w in enumerate(s):
+                    if j < h:
+                        break
+                    f[j] = max(f[j], f[j - h] + w)
+        return f[k]

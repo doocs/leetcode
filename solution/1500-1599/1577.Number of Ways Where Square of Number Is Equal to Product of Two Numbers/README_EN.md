@@ -71,7 +71,13 @@ Type 2: (3,0,1).  nums2[3]<sup>2</sup> = nums1[0] * nums1[1].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We use a hash table $\textit{cnt1}$ to count the occurrences of each pair $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums1}$, where $0 \leq j < k < m$, and $m$ is the length of the array $\textit{nums1}$. Similarly, we use a hash table $\textit{cnt2}$ to count the occurrences of each pair $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums2}$, where $0 \leq j < k < n$, and $n$ is the length of the array $\textit{nums2}$.
+
+Next, we enumerate each number $x$ in the array $\textit{nums1}$ and calculate the value of $\textit{cnt2}[x^2]$, which is the number of pairs $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums2}$ that satisfy $\textit{nums}[j] \times \textit{nums}[k] = x^2$. Similarly, we enumerate each number $x$ in the array $\textit{nums2}$ and calculate the value of $\textit{cnt1}[x^2]$, which is the number of pairs $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums1}$ that satisfy $\textit{nums}[j] \times \textit{nums}[k] = x^2$. Finally, we return the sum of the two results.
+
+The time complexity is $O(m^2 + n^2 + m + n)$, and the space complexity is $O(m^2 + n^2)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 <!-- tabs:start -->
 
@@ -80,24 +86,19 @@ Type 2: (3,0,1).  nums2[3]<sup>2</sup> = nums1[0] * nums1[1].
 ```python
 class Solution:
     def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
-        cnt1 = Counter(nums1)
-        cnt2 = Counter(nums2)
-        ans = 0
-        for a, x in cnt1.items():
-            for b, y in cnt2.items():
-                if a * a % b == 0:
-                    c = a * a // b
-                    if b == c:
-                        ans += x * y * (y - 1)
-                    else:
-                        ans += x * y * cnt2[c]
-                if b * b % a == 0:
-                    c = b * b // a
-                    if a == c:
-                        ans += x * (x - 1) * y
-                    else:
-                        ans += x * y * cnt1[c]
-        return ans >> 1
+        def count(nums: List[int]) -> Counter:
+            cnt = Counter()
+            for j in range(len(nums)):
+                for k in range(j + 1, len(nums)):
+                    cnt[nums[j] * nums[k]] += 1
+            return cnt
+
+        def cal(nums: List[int], cnt: Counter) -> int:
+            return sum(cnt[x * x] for x in nums)
+
+        cnt1 = count(nums1)
+        cnt2 = count(nums2)
+        return cal(nums1, cnt2) + cal(nums2, cnt1)
 ```
 
 #### Java
@@ -105,38 +106,184 @@ class Solution:
 ```java
 class Solution {
     public int numTriplets(int[] nums1, int[] nums2) {
-        Map<Integer, Integer> cnt1 = new HashMap<>();
-        Map<Integer, Integer> cnt2 = new HashMap<>();
-        for (int v : nums1) {
-            cnt1.put(v, cnt1.getOrDefault(v, 0) + 1);
+        var cnt1 = count(nums1);
+        var cnt2 = count(nums2);
+        return cal(cnt1, nums2) + cal(cnt2, nums1);
+    }
+
+    private Map<Long, Integer> count(int[] nums) {
+        Map<Long, Integer> cnt = new HashMap<>();
+        int n = nums.length;
+        for (int j = 0; j < n; ++j) {
+            for (int k = j + 1; k < n; ++k) {
+                long x = (long) nums[j] * nums[k];
+                cnt.merge(x, 1, Integer::sum);
+            }
         }
-        for (int v : nums2) {
-            cnt2.put(v, cnt2.getOrDefault(v, 0) + 1);
+        return cnt;
+    }
+
+    private int cal(Map<Long, Integer> cnt, int[] nums) {
+        int ans = 0;
+        for (int x : nums) {
+            long y = (long) x * x;
+            ans += cnt.getOrDefault(y, 0);
         }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numTriplets(vector<int>& nums1, vector<int>& nums2) {
+        auto cnt1 = count(nums1);
+        auto cnt2 = count(nums2);
+        return cal(cnt1, nums2) + cal(cnt2, nums1);
+    }
+
+    unordered_map<long long, int> count(vector<int>& nums) {
+        unordered_map<long long, int> cnt;
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = i + 1; j < nums.size(); j++) {
+                cnt[(long long) nums[i] * nums[j]]++;
+            }
+        }
+        return cnt;
+    }
+
+    int cal(unordered_map<long long, int>& cnt, vector<int>& nums) {
+        int ans = 0;
+        for (int x : nums) {
+            ans += cnt[(long long) x * x];
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numTriplets(nums1 []int, nums2 []int) int {
+	cnt1 := count(nums1)
+	cnt2 := count(nums2)
+	return cal(cnt1, nums2) + cal(cnt2, nums1)
+}
+
+func count(nums []int) map[int]int {
+	cnt := map[int]int{}
+	for j, x := range nums {
+		for _, y := range nums[j+1:] {
+			cnt[x*y]++
+		}
+	}
+	return cnt
+}
+
+func cal(cnt map[int]int, nums []int) (ans int) {
+	for _, x := range nums {
+		ans += cnt[x*x]
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numTriplets(nums1: number[], nums2: number[]): number {
+    const cnt1 = count(nums1);
+    const cnt2 = count(nums2);
+    return cal(cnt1, nums2) + cal(cnt2, nums1);
+}
+
+function count(nums: number[]): Map<number, number> {
+    const cnt: Map<number, number> = new Map();
+    for (let j = 0; j < nums.length; ++j) {
+        for (let k = j + 1; k < nums.length; ++k) {
+            const x = nums[j] * nums[k];
+            cnt.set(x, (cnt.get(x) || 0) + 1);
+        }
+    }
+    return cnt;
+}
+
+function cal(cnt: Map<number, number>, nums: number[]): number {
+    return nums.reduce((acc, x) => acc + (cnt.get(x * x) || 0), 0);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Hash Table + Enumeration Optimization
+
+We use a hash table $\textit{cnt1}$ to count the occurrences of each number in $\textit{nums1}$, and a hash table $\textit{cnt2}$ to count the occurrences of each number in $\textit{nums2}$.
+
+Next, we enumerate each number $x$ in the array $\textit{nums1}$, and then enumerate each pair $(y, v1)$ in $\textit{cnt2}$, where $y$ is the key of $\textit{cnt2}$ and $v1$ is the value of $\textit{cnt2}$. We calculate $z = x^2 / y$. If $y \times z = x^2$, and if $y = z$, it means $y$ and $z$ are the same number, then the number of ways to choose two numbers from $v1$ is $v1 \times (v1 - 1) = v1 \times (v2 - 1)$. If $y \neq z$, then the number of ways to choose two numbers from $v1$ is $v1 \times v2$. Finally, we sum all the ways and divide by $2$. The division by $2$ is because we count the number of ways for the pair $(j, k)$, but $(j, k)$ and $(k, j)$ are the same way.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the lengths of the arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numTriplets(self, nums1: List[int], nums2: List[int]) -> int:
+        def cal(nums: List[int], cnt: Counter) -> int:
+            ans = 0
+            for x in nums:
+                for y, v1 in cnt.items():
+                    z = x * x // y
+                    if y * z == x * x:
+                        v2 = cnt[z]
+                        ans += v1 * (v2 - int(y == z))
+            return ans // 2
+
+        cnt1 = Counter(nums1)
+        cnt2 = Counter(nums2)
+        return cal(nums1, cnt2) + cal(nums2, cnt1)
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numTriplets(int[] nums1, int[] nums2) {
+        var cnt1 = count(nums1);
+        var cnt2 = count(nums2);
+        return cal(cnt1, nums2) + cal(cnt2, nums1);
+    }
+
+    private Map<Integer, Integer> count(int[] nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        return cnt;
+    }
+
+    private int cal(Map<Integer, Integer> cnt, int[] nums) {
         long ans = 0;
-        for (var e1 : cnt1.entrySet()) {
-            long a = e1.getKey(), x = e1.getValue();
-            for (var e2 : cnt2.entrySet()) {
-                long b = e2.getKey(), y = e2.getValue();
-                if ((a * a) % b == 0) {
-                    long c = a * a / b;
-                    if (b == c) {
-                        ans += x * y * (y - 1);
-                    } else {
-                        ans += x * y * cnt2.getOrDefault((int) c, 0);
-                    }
-                }
-                if ((b * b) % a == 0) {
-                    long c = b * b / a;
-                    if (a == c) {
-                        ans += x * (x - 1) * y;
-                    } else {
-                        ans += x * y * cnt1.getOrDefault((int) c, 0);
-                    }
+        for (int x : nums) {
+            for (var e : cnt.entrySet()) {
+                int y = e.getKey(), v1 = e.getValue();
+                int z = (int) (1L * x * x / y);
+                if (y * z == x * x) {
+                    int v2 = cnt.getOrDefault(z, 0);
+                    ans += v1 * (y == z ? v2 - 1 : v2);
                 }
             }
         }
-        return (int) (ans >> 1);
+        return (int) (ans / 2);
     }
 }
 ```
@@ -144,37 +291,68 @@ class Solution {
 #### Go
 
 ```go
-func numTriplets(nums1 []int, nums2 []int) (ans int) {
-	cnt1 := map[int]int{}
-	cnt2 := map[int]int{}
-	for _, v := range nums1 {
-		cnt1[v]++
+func numTriplets(nums1 []int, nums2 []int) int {
+	cnt1 := count(nums1)
+	cnt2 := count(nums2)
+	return cal(cnt1, nums2) + cal(cnt2, nums1)
+}
+
+func count(nums []int) map[int]int {
+	cnt := map[int]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
-	for _, v := range nums2 {
-		cnt2[v]++
-	}
-	for a, x := range cnt1 {
-		for b, y := range cnt2 {
-			if a*a%b == 0 {
-				c := a * a / b
-				if b == c {
-					ans += x * y * (y - 1)
-				} else {
-					ans += x * y * cnt2[c]
-				}
-			}
-			if b*b%a == 0 {
-				c := b * b / a
-				if a == c {
-					ans += x * (x - 1) * y
-				} else {
-					ans += x * y * cnt1[c]
+	return cnt
+}
+
+func cal(cnt map[int]int, nums []int) (ans int) {
+	for _, x := range nums {
+		for y, v1 := range cnt {
+			z := x * x / y
+			if y*z == x*x {
+				if v2, ok := cnt[z]; ok {
+					if y == z {
+						v2--
+					}
+					ans += v1 * v2
 				}
 			}
 		}
 	}
 	ans /= 2
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numTriplets(nums1: number[], nums2: number[]): number {
+    const cnt1 = count(nums1);
+    const cnt2 = count(nums2);
+    return cal(cnt1, nums2) + cal(cnt2, nums1);
+}
+
+function count(nums: number[]): Map<number, number> {
+    const cnt: Map<number, number> = new Map();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) || 0) + 1);
+    }
+    return cnt;
+}
+
+function cal(cnt: Map<number, number>, nums: number[]): number {
+    let ans: number = 0;
+    for (const x of nums) {
+        for (const [y, v1] of cnt) {
+            const z = Math.floor((x * x) / y);
+            if (y * z == x * x) {
+                const v2 = cnt.get(z) || 0;
+                ans += v1 * (y === z ? v2 - 1 : v2);
+            }
+        }
+    }
+    return ans / 2;
 }
 ```
 

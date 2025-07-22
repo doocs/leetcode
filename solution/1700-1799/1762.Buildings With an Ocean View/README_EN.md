@@ -63,7 +63,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Reverse Traversal to Find the Maximum on the Right
+
+We traverse the array $\textit{height}$ in reverse order for each element $v$, comparing $v$ with the maximum element $mx$ on the right. If $mx \lt v$, it means all elements to the right are smaller than the current element, so the current position can see the ocean and is added to the result array $\textit{ans}$. Then we update $mx$ to $v$.
+
+After the traversal, return $\textit{ans}$ in reverse order.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

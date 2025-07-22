@@ -1,7 +1,6 @@
 class SeatManager:
     def __init__(self, n: int):
         self.q = list(range(1, n + 1))
-        heapify(self.q)
 
     def reserve(self) -> int:
         return heappop(self.q)

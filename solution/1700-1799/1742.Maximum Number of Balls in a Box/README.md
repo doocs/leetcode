@@ -76,11 +76,11 @@ tags:
 
 ### 方法一：数组 + 模拟
 
-观察题目的数据范围，小球的编号最大不超过 $10^5$，那么每个编号的各个位数之和的最大值小于 $50$。因此，我们可以直接开一个长度为 $50$ 的数组 $cnt$ 来统计每个编号的各个位数之和的数量。
+观察题目的数据范围，小球的编号最大不超过 $10^5$，那么每个编号的各个位数之和的最大值小于 $50$。因此，我们可以直接开一个长度为 $50$ 的数组 $\textit{cnt}$ 来统计每个编号的各个位数之和的数量。
 
-答案就是数组 $cnt$ 中的最大值。
+答案就是数组 $\textit{cnt}$ 中的最大值。
 
-时间复杂度 $O(n \times \log_{10}m)$。其中 $n = highLimit - lowLimit + 1$，而 $m = highLimit$。
+时间复杂度 $O(n \times \log_{10}m)$。其中 $n = \textit{highLimit} - \textit{lowLimit} + 1$，而 $m = \textit{highLimit}$。
 
 <!-- tabs:start -->
 
@@ -169,6 +169,67 @@ function countBalls(lowLimit: number, highLimit: number): number {
         ++cnt[y];
     }
     return Math.max(...cnt);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_balls(low_limit: i32, high_limit: i32) -> i32 {
+        let mut cnt = vec![0; 50];
+        for x in low_limit..=high_limit {
+            let mut y = 0;
+            let mut n = x;
+            while n > 0 {
+                y += n % 10;
+                n /= 10;
+            }
+            cnt[y as usize] += 1;
+        }
+        *cnt.iter().max().unwrap()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} lowLimit
+ * @param {number} highLimit
+ * @return {number}
+ */
+var countBalls = function (lowLimit, highLimit) {
+    const cnt = Array(50).fill(0);
+    for (let i = lowLimit; i <= highLimit; ++i) {
+        let y = 0;
+        for (let x = i; x; x = Math.floor(x / 10)) {
+            y += x % 10;
+        }
+        ++cnt[y];
+    }
+    return Math.max(...cnt);
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountBalls(int lowLimit, int highLimit) {
+        int[] cnt = new int[50];
+        for (int x = lowLimit; x <= highLimit; x++) {
+            int y = 0;
+            int n = x;
+            while (n > 0) {
+                y += n % 10;
+                n /= 10;
+            }
+            cnt[y]++;
+        }
+        return cnt.Max();
+    }
 }
 ```
 

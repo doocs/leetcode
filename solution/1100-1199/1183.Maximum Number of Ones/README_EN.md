@@ -6,6 +6,8 @@ rating: 2366
 source: Biweekly Contest 8 Q4
 tags:
     - Greedy
+    - Math
+    - Sorting
     - Heap (Priority Queue)
 ---
 

@@ -28,7 +28,7 @@ tags:
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>candidates = <code>[2,3,6,7], </code>target = <code>7</code>
+<strong>输入：</strong>candidates = <code>[2,3,6,7]</code>, target = <code>7</code>
 <strong>输出：</strong>[[2,2,3],[7]]
 <strong>解释：</strong>
 2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。

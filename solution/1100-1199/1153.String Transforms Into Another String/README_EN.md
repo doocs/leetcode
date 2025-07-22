@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1153.St
 rating: 1949
 source: Biweekly Contest 6 Q4
 tags:
+    - Graph
     - Hash Table
     - String
 ---

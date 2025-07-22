@@ -94,9 +94,6 @@ The time complexity is $O(n^2 \times \log n)$ and the space complexity is $O(n)$
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def sumImbalanceNumbers(self, nums: List[int]) -> int:
         n = len(nums)

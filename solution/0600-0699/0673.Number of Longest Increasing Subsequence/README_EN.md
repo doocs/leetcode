@@ -46,6 +46,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 2000</code></li>
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
+	<li>The answer is guaranteed to fit inside a 32-bit integer.</li>
 </ul>
 
 <!-- description:end -->

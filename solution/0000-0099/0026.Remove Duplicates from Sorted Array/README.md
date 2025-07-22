@@ -250,26 +250,4 @@ class Solution {
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        nums.erase(unique(nums.begin(), nums.end()), nums.end());
-        return nums.size();
-    }
-};
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->

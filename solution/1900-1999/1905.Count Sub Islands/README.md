@@ -220,38 +220,33 @@ function countSubIslands(grid1: number[][], grid2: number[][]): number {
 }
 ```
 
-<!-- tabs:end -->
+#### JavaScript
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        def bfs(i: int, j: int) -> int:
-            ok = grid1[i][j]
-            q = deque([(i, j)])
-            grid2[i][j] = 0
-            while q:
-                i, j = q.popleft()
-                for a, b in pairwise(dirs):
-                    x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
-                        q.append((x, y))
-                        ok = ok & grid1[x][y]
-                        grid2[x][y] = 0
-            return ok
-
-        m, n = len(grid1), len(grid1[0])
-        dirs = (-1, 0, 1, 0, -1)
-        return sum(bfs(i, j) for i in range(m) for j in range(n) if grid2[i][j])
+```js
+function countSubIslands(grid1, grid2) {
+    const [m, n] = [grid1.length, grid1[0].length];
+    let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+    const dfs = (i, j) => {
+        let ok = grid1[i][j];
+        grid2[i][j] = 0;
+        for (let k = 0; k < 4; ++k) {
+            const [x, y] = [i + dirs[k], j + dirs[k + 1]];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y]) {
+                ok &= dfs(x, y);
+            }
+        }
+        return ok;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (grid2[i][j]) {
+                ans += dfs(i, j);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

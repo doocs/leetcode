@@ -182,4 +182,109 @@ function longestSemiRepetitiveSubstring(s: string): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：双指针（优化）
+
+由于题目只需要我们找到最长的半重复子字符串的长度，因此，每次当区间内相邻字符相等的个数超过 $1$ 时，我们可以只移动左指针 $l$ 一次，右指针 $r$ 继续向右移动。这样可以保证子字符串的长度不会减小。
+
+最后答案为 $n - l$，其中 $n$ 是字符串的长度。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestSemiRepetitiveSubstring(self, s: str) -> int:
+        n = len(s)
+        cnt = l = 0
+        for i in range(1, n):
+            cnt += s[i] == s[i - 1]
+            if cnt > 1:
+                cnt -= s[l] == s[l + 1]
+                l += 1
+        return n - l
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestSemiRepetitiveSubstring(String s) {
+        int n = s.length();
+        int cnt = 0, l = 0;
+        for (int i = 1; i < n; ++i) {
+            cnt += s.charAt(i) == s.charAt(i - 1) ? 1 : 0;
+            if (cnt > 1) {
+                cnt -= s.charAt(l) == s.charAt(++l) ? 1 : 0;
+            }
+        }
+        return n - l;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestSemiRepetitiveSubstring(string s) {
+        int n = s.length();
+        int cnt = 0, l = 0;
+        for (int i = 1; i < n; ++i) {
+            cnt += s[i] == s[i - 1] ? 1 : 0;
+            if (cnt > 1) {
+                cnt -= s[l] == s[++l] ? 1 : 0;
+            }
+        }
+        return n - l;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestSemiRepetitiveSubstring(s string) (ans int) {
+	cnt, l := 0, 0
+	for i, c := range s[1:] {
+		if byte(c) == s[i] {
+			cnt++
+		}
+		if cnt > 1 {
+			if s[l] == s[l+1] {
+				cnt--
+			}
+			l++
+		}
+	}
+	return len(s) - l
+}
+```
+
+#### TypeScript
+
+```ts
+function longestSemiRepetitiveSubstring(s: string): number {
+    const n = s.length;
+    let [cnt, l] = [0, 0];
+    for (let i = 1; i < n; ++i) {
+        cnt += s[i] === s[i - 1] ? 1 : 0;
+        if (cnt > 1) {
+            cnt -= s[l] === s[l + 1] ? 1 : 0;
+            ++l;
+        }
+    }
+    return n - l;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

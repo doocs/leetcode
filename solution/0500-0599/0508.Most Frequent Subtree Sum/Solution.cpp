@@ -11,24 +11,24 @@
  */
 class Solution {
 public:
-    unordered_map<int, int> counter;
-    int mx = 0;
-
     vector<int> findFrequentTreeSum(TreeNode* root) {
-        mx = INT_MIN;
+        unordered_map<int, int> cnt;
+        int mx = 0;
+        function<int(TreeNode*)> dfs = [&](TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int s = root->val + dfs(root->left) + dfs(root->right);
+            mx = max(mx, ++cnt[s]);
+            return s;
+        };
         dfs(root);
         vector<int> ans;
-        for (auto& entry : counter)
-            if (entry.second == mx)
-                ans.push_back(entry.first);
+        for (const auto& [k, v] : cnt) {
+            if (v == mx) {
+                ans.push_back(k);
+            }
+        }
         return ans;
-    }
-
-    int dfs(TreeNode* root) {
-        if (!root) return 0;
-        int s = root->val + dfs(root->left) + dfs(root->right);
-        ++counter[s];
-        mx = max(mx, counter[s]);
-        return s;
     }
 };

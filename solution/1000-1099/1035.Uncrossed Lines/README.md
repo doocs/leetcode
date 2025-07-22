@@ -79,19 +79,15 @@ tags:
 
 ### 方法一：动态规划
 
-最长公共子序列问题。
+我们定义 $f[i][j]$ 表示 $\textit{nums1}$ 前 $i$ 个数和 $\textit{nums2}$ 前 $j$ 个数的最大连线数。初始时 $f[i][j] = 0$，答案即为 $f[m][n]$。
 
-定义 $dp[i][j]$ 表示数组 `nums1` 的前 $i$ 个元素和数组 `nums2` 的前 $j$ 个元素的最长公共子序列的长度。则有：
+当 $\textit{nums1}[i-1] = \textit{nums2}[j-1]$ 时，我们可以在 $\textit{nums1}$ 的前 $i-1$ 个数和 $\textit{nums2}$ 的前 $j-1$ 个数的基础上增加一条连线，此时 $f[i][j] = f[i-1][j-1] + 1$。
 
-$$
-dp[i][j]=
-\begin{cases}
-dp[i-1][j-1]+1, & nums1[i-1]=nums2[j-1] \\
-\max(dp[i-1][j], dp[i][j-1]), & nums1[i-1]\neq nums2[j-1]
-\end{cases}
-$$
+当 $\textit{nums1}[i-1] \neq \textit{nums2}[j-1]$ 时，我们要么在 $\textit{nums1}$ 的前 $i-1$ 个数和 $\textit{nums2}$ 的前 $j$ 个数的基础上求解，要么在 $\textit{nums1}$ 的前 $i$ 个数和 $\textit{nums2}$ 的前 $j-1$ 个数的基础上求解，取两者的最大值，即 $f[i][j] = \max(f[i-1][j], f[i][j-1])$。
 
-时间复杂度 $O(m\times n)$，空间复杂度 $O(m\times n)$。其中 $m$, $n$ 分别为数组 `nums1` 和 `nums2` 的长度。
+最后返回 $f[m][n]$ 即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -101,14 +97,14 @@ $$
 class Solution:
     def maxUncrossedLines(self, nums1: List[int], nums2: List[int]) -> int:
         m, n = len(nums1), len(nums2)
-        dp = [[0] * (n + 1) for i in range(m + 1)]
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                if nums1[i - 1] == nums2[j - 1]:
-                    dp[i][j] = dp[i - 1][j - 1] + 1
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+        for i, x in enumerate(nums1, 1):
+            for j, y in enumerate(nums2, 1):
+                if x == y:
+                    f[i][j] = f[i - 1][j - 1] + 1
                 else:
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-        return dp[m][n]
+                    f[i][j] = max(f[i - 1][j], f[i][j - 1])
+        return f[m][n]
 ```
 
 #### Java
@@ -116,19 +112,18 @@ class Solution:
 ```java
 class Solution {
     public int maxUncrossedLines(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        int[][] dp = new int[m + 1][n + 1];
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
+        int m = nums1.length, n = nums2.length;
+        int[][] f = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
                 if (nums1[i - 1] == nums2[j - 1]) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                    f[i][j] = f[i - 1][j - 1] + 1;
                 } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -140,17 +135,18 @@ class Solution {
 public:
     int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
         int m = nums1.size(), n = nums2.size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+        int f[m + 1][n + 1];
+        memset(f, 0, sizeof(f));
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
                 if (nums1[i - 1] == nums2[j - 1]) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                    f[i][j] = f[i - 1][j - 1] + 1;
                 } else {
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                    f[i][j] = max(f[i - 1][j], f[i][j - 1]);
                 }
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -160,20 +156,20 @@ public:
 ```go
 func maxUncrossedLines(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
-	dp := make([][]int, m+1)
-	for i := range dp {
-		dp[i] = make([]int, n+1)
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
 	}
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
 			if nums1[i-1] == nums2[j-1] {
-				dp[i][j] = dp[i-1][j-1] + 1
+				f[i][j] = f[i-1][j-1] + 1
 			} else {
-				dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+				f[i][j] = max(f[i-1][j], f[i][j-1])
 			}
 		}
 	}
-	return dp[m][n]
+	return f[m][n]
 }
 ```
 
@@ -183,17 +179,43 @@ func maxUncrossedLines(nums1 []int, nums2 []int) int {
 function maxUncrossedLines(nums1: number[], nums2: number[]): number {
     const m = nums1.length;
     const n = nums2.length;
-    const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    const f: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
     for (let i = 1; i <= m; ++i) {
         for (let j = 1; j <= n; ++j) {
-            dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-            if (nums1[i - 1] == nums2[j - 1]) {
-                dp[i][j] = dp[i - 1][j - 1] + 1;
+            if (nums1[i - 1] === nums2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1] + 1;
+            } else {
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
             }
         }
     }
-    return dp[m][n];
+    return f[m][n];
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var maxUncrossedLines = function (nums1, nums2) {
+    const m = nums1.length;
+    const n = nums2.length;
+    const f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (nums1[i - 1] === nums2[j - 1]) {
+                f[i][j] = f[i - 1][j - 1] + 1;
+            } else {
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
+            }
+        }
+    }
+    return f[m][n];
+};
 ```
 
 <!-- tabs:end -->

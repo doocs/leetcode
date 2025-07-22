@@ -63,6 +63,15 @@ We change s[0] and s[4] to &#39;(&#39; while leaving s[2] and s[5] unchanged to 
 Changing s[0] to either &#39;(&#39; or &#39;)&#39; will not make s valid.
 </pre>
 
+<p><strong class="example">Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;(((())(((())&quot;, locked = &quot;111111010111&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> locked permits us to change s[6] and s[8]. 
+We change s[6] and s[8] to &#39;)&#39; to make s valid.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -79,7 +88,23 @@ Changing s[0] to either &#39;(&#39; or &#39;)&#39; will not make s valid.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Two Passes
+
+We observe that a string of odd length cannot be a valid parentheses string because there will always be one unmatched parenthesis. Therefore, if the length of the string $s$ is odd, return $\textit{false}$ immediately.
+
+Next, we perform two passes.
+
+The first pass goes from left to right, checking if all `'('` parentheses can be matched by `')'` or changeable parentheses. If not, return $\textit{false}$.
+
+The second pass goes from right to left, checking if all `')'` parentheses can be matched by `'('` or changeable parentheses. If not, return $\textit{false}$.
+
+If both passes complete successfully, it means all parentheses can be matched, and the string $s$ is a valid parentheses string. Return $\textit{true}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [678. Valid Parenthesis String](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0678.Valid%20Parenthesis%20String/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -208,6 +233,38 @@ func canBeValid(s string, locked string) bool {
 		}
 	}
 	return true
+}
+```
+
+#### TypeScript
+
+```ts
+function canBeValid(s: string, locked: string): boolean {
+    const n = s.length;
+    if (n & 1) {
+        return false;
+    }
+    let x = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === '(' || locked[i] === '0') {
+            ++x;
+        } else if (x > 0) {
+            --x;
+        } else {
+            return false;
+        }
+    }
+    x = 0;
+    for (let i = n - 1; i >= 0; --i) {
+        if (s[i] === ')' || locked[i] === '0') {
+            ++x;
+        } else if (x > 0) {
+            --x;
+        } else {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 

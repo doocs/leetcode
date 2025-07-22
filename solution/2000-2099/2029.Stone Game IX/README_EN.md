@@ -218,6 +218,96 @@ function stoneGameIX(stones: number[]): boolean {
 }
 ```
 
+#### JavaScript
+
+```js
+function stoneGameIX(stones) {
+    const c1 = Array(3).fill(0);
+    for (const x of stones) {
+        ++c1[x % 3];
+    }
+    const c2 = [c1[0], c1[2], c1[1]];
+    const check = cnt => {
+        if (--cnt[1] < 0) {
+            return false;
+        }
+        let r = 1 + Math.min(cnt[1], cnt[2]) * 2 + cnt[0];
+        if (cnt[1] > cnt[2]) {
+            --cnt[1];
+            ++r;
+        }
+        return r % 2 === 1 && cnt[1] !== cnt[2];
+    };
+    return check(c1) || check(c2);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Simulation
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function stoneGameIX(stones: number[]): boolean {
+    if (stones.length === 1) return false;
+
+    const cnt = Array(3).fill(0);
+    for (const x of stones) cnt[x % 3]++;
+
+    const check = (x: number, cnt: number[]): boolean => {
+        let c = 1;
+        if (--cnt[x] < 0) return false;
+
+        while (cnt[1] || cnt[2]) {
+            if (cnt[x]) {
+                cnt[x]--;
+                x = x === 1 ? 2 : 1;
+            } else return (c + cnt[0]) % 2 === 1;
+            c++;
+        }
+
+        return false;
+    };
+
+    return check(1, [...cnt]) || check(2, [...cnt]);
+}
+```
+
+#### JavaScript
+
+```js
+function stoneGameIX(stones) {
+    if (stones.length === 1) return false;
+
+    const cnt = Array(3).fill(0);
+    for (const x of stones) cnt[x % 3]++;
+
+    const check = (x, cnt) => {
+        let c = 1;
+        if (--cnt[x] < 0) return false;
+
+        while (cnt[1] || cnt[2]) {
+            if (cnt[x]) {
+                cnt[x]--;
+                x = x === 1 ? 2 : 1;
+            } else return (c + cnt[0]) % 2 === 1;
+            c++;
+        }
+
+        return false;
+    };
+
+    return check(1, [...cnt]) || check(2, [...cnt]);
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

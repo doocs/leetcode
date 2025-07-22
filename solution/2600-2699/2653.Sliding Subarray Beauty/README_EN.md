@@ -120,9 +120,6 @@ class Solution:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def getSubarrayBeauty(self, nums: List[int], k: int, x: int) -> List[int]:
         sl = SortedList(nums[:k])

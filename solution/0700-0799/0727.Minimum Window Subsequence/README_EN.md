@@ -55,7 +55,23 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ to represent the starting position of the shortest substring of the first $i$ characters of string $\textit{s1}$ that contains the first $j$ characters of string $\textit{s2}$. If it does not exist, it is $0$.
+
+We can derive the state transition equation:
+
+$$
+f[i][j] = \begin{cases}
+i, & j = 1 \textit{ and } s1[i-1] = s2[j] \\
+f[i - 1][j - 1], & j > 1 \textit{ and } s1[i-1] = s2[j-1] \\
+f[i - 1][j], & s1[i-1] \ne s2[j-1]
+\end{cases}
+$$
+
+Next, we only need to traverse $\textit{s1}$. If $f[i][n] \gt 0$, update the starting position and length of the shortest substring. Finally, return the shortest substring.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the lengths of strings $\textit{s1}$ and $\textit{s2}$, respectively.
 
 <!-- tabs:start -->
 

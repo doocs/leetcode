@@ -23,7 +23,7 @@ tags:
 
 <p>给你一个数组 <code>arr</code>&nbsp;，数组中有 <code>n</code>&nbsp;个 <b>非空</b>&nbsp;字符串。</p>
 
-<p>请你求出一个长度为 <code>n</code>&nbsp;的字符串&nbsp;<code>answer</code>&nbsp;，满足：</p>
+<p>请你求出一个长度为 <code>n</code>&nbsp;的字符串数组&nbsp;<code>answer</code>&nbsp;，满足：</p>
 
 <ul>
 	<li><code>answer[i]</code>&nbsp;是 <code>arr[i]</code>&nbsp;<strong>最短</strong>&nbsp;的子字符串，且它不是 <code>arr</code>&nbsp;中其他任何字符串的子字符串。如果有多个这样的子字符串存在，<code>answer[i]</code>&nbsp;应该是它们中字典序最小的一个。如果不存在这样的子字符串，<code>answer[i]</code>&nbsp;为空字符串。</li>

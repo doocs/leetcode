@@ -7,6 +7,7 @@ source: Weekly Contest 351 Q2
 tags:
     - Bit Manipulation
     - Brainteaser
+    - Enumeration
 ---
 
 <!-- problem:start -->
@@ -34,9 +35,9 @@ tags:
 <strong>Input:</strong> num1 = 3, num2 = -2
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> We can make 3 equal to 0 with the following operations:
-- We choose i = 2 and substract 2<sup>2</sup> + (-2) from 3, 3 - (4 + (-2)) = 1.
-- We choose i = 2 and substract 2<sup>2</sup>&nbsp;+ (-2) from 1, 1 - (4 + (-2)) = -1.
-- We choose i = 0 and substract 2<sup>0</sup>&nbsp;+ (-2) from -1, (-1) - (1 + (-2)) = 0.
+- We choose i = 2 and subtract 2<sup>2</sup> + (-2) from 3, 3 - (4 + (-2)) = 1.
+- We choose i = 2 and subtract 2<sup>2</sup>&nbsp;+ (-2) from 1, 1 - (4 + (-2)) = -1.
+- We choose i = 0 and subtract 2<sup>0</sup>&nbsp;+ (-2) from -1, (-1) - (1 + (-2)) = 0.
 It can be proven, that 3 is the minimum number of operations that we need to perform.
 </pre>
 
@@ -64,9 +65,9 @@ It can be proven, that 3 is the minimum number of operations that we need to per
 
 ### Solution 1: Enumeration
 
-If we operate $k$ times, then the problem essentially becomes: determining whether $\text{num1} - k \times \text{num2}$ can be split into the sum of $k$ $2^i$s.
+If we operate $k$ times, then the problem essentially becomes: determining whether $\textit{num1} - k \times \textit{num2}$ can be split into the sum of $k$ $2^i$s.
 
-Let's assume $x = \text{num1} - k \times \text{num2}$. Next, we discuss in categories:
+Let's assume $x = \textit{num1} - k \times \textit{num2}$. Next, we discuss in categories:
 
 -   If $x < 0$, then $x$ cannot be split into the sum of $k$ $2^i$s, because $2^i > 0$, which obviously has no solution;
 -   If the number of $1$s in the binary representation of $x$ is greater than $k$, there is also no solution in this case;
@@ -146,6 +147,23 @@ func makeTheIntegerZero(num1 int, num2 int) int {
 		}
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function makeTheIntegerZero(num1: number, num2: number): number {
+    for (let k = 1; ; ++k) {
+        let x = num1 - k * num2;
+        if (x < 0) {
+            break;
+        }
+        if (x.toString(2).replace(/0/g, '').length <= k && k <= x) {
+            return k;
+        }
+    }
+    return -1;
 }
 ```
 

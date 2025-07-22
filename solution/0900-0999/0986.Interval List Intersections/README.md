@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0986.In
 tags:
     - 数组
     - 双指针
+    - 扫描线
 ---
 
 <!-- problem:start -->

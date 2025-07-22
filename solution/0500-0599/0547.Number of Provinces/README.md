@@ -68,9 +68,9 @@ tags:
 
 ### 方法一：DFS
 
-我们创建一个数组 $vis$，用于记录每个城市是否被访问过。
+我们创建一个数组 $\textit{vis}$，用于记录每个城市是否被访问过。
 
-接下来，遍历每个城市 $i$，如果该城市未被访问过，则从该城市开始深度优先搜索，通过矩阵 $isConnected$ 得到与该城市直接相连的城市有哪些，这些城市和该城市属于同一个省，然后对这些城市继续深度优先搜索，直到同一个省的所有城市都被访问到，即可得到一个省，将答案 $ans$ 加 $1$，然后遍历下一个未被访问过的城市，直到遍历完所有的城市。
+接下来，遍历每个城市 $i$，如果该城市未被访问过，则从该城市开始深度优先搜索，通过矩阵 $\textit{isConnected}$ 得到与该城市直接相连的城市有哪些，这些城市和该城市属于同一个省，然后对这些城市继续深度优先搜索，直到同一个省的所有城市都被访问到，即可得到一个省，将答案 $\textit{ans}$ 加 $1$，然后遍历下一个未被访问过的城市，直到遍历完所有的城市。
 
 最后返回答案即可。
 
@@ -141,7 +141,7 @@ public:
         int ans = 0;
         bool vis[n];
         memset(vis, false, sizeof(vis));
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> void {
             vis[i] = true;
             for (int j = 0; j < n; ++j) {
                 if (!vis[j] && isConnected[i][j]) {
@@ -250,11 +250,11 @@ impl Solution {
 
 我们也可以用并查集维护每个连通分量，初始时，每个城市都属于不同的连通分量，所以省份数量为 $n$。
 
-接下来，遍历矩阵 $isConnected$，如果两个城市 $(i, j)$ 之间有相连关系，并且处于两个不同的连通分量，则它们将被合并成为一个连通分量，然后将省份数量减去 $1$。
+接下来，遍历矩阵 $\textit{isConnected}$，如果两个城市 $(i, j)$ 之间有相连关系，并且处于两个不同的连通分量，则它们将被合并成为一个连通分量，然后将省份数量减去 $1$。
 
 最后返回省份数量即可。
 
-时间复杂度 $O(n^2 \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 是城市的数量，而 $\alpha$ 是阿克曼函数的反函数，在渐进意义下 $\alpha(n)$ 可以认为是一个很小的常数。
+时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是城市的数量，而 $\log n$ 是并查集的路径压缩的时间复杂度。
 
 <!-- tabs:start -->
 
@@ -326,7 +326,7 @@ public:
         int n = isConnected.size();
         int p[n];
         iota(p, p + n, 0);
-        function<int(int)> find = [&](int x) -> int {
+        auto find = [&](this auto&& find, int x) -> int {
             if (p[x] != x) {
                 p[x] = find(p[x]);
             }
@@ -386,10 +386,7 @@ func findCircleNum(isConnected [][]int) (ans int) {
 ```ts
 function findCircleNum(isConnected: number[][]): number {
     const n = isConnected.length;
-    const p: number[] = new Array(n);
-    for (let i = 0; i < n; ++i) {
-        p[i] = i;
-    }
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
     const find = (x: number): number => {
         if (p[x] !== x) {
             p[x] = find(p[x]);

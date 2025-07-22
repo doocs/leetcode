@@ -92,9 +92,6 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def secondGreaterElement(self, nums: List[int]) -> List[int]:
         arr = [(x, i) for i, x in enumerate(nums)]

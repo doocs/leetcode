@@ -1,16 +1,15 @@
-func lengthOfLongestSubstringKDistinct(s string, k int) (ans int) {
+func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	cnt := map[byte]int{}
-	j := 0
-	for i := range s {
-		cnt[s[i]]++
-		for len(cnt) > k {
-			cnt[s[j]]--
-			if cnt[s[j]] == 0 {
-				delete(cnt, s[j])
+	l := 0
+	for _, c := range s {
+		cnt[byte(c)]++
+		if len(cnt) > k {
+			cnt[s[l]]--
+			if cnt[s[l]] == 0 {
+				delete(cnt, s[l])
 			}
-			j++
+			l++
 		}
-		ans = max(ans, i-j+1)
 	}
-	return
+	return len(s) - l
 }

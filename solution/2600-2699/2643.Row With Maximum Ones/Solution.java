@@ -4,9 +4,7 @@ class Solution {
         for (int i = 0; i < mat.length; ++i) {
             int cnt = 0;
             for (int x : mat[i]) {
-                if (x == 1) {
-                    ++cnt;
-                }
+                cnt += x;
             }
             if (ans[1] < cnt) {
                 ans[0] = i;

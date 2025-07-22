@@ -102,9 +102,6 @@ $$
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def minimumDistance(self, points: List[List[int]]) -> int:
         sl1 = SortedList()

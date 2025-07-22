@@ -306,15 +306,29 @@ func vowelStrings(words []string, queries [][]int) []int {
 ```ts
 function vowelStrings(words: string[], queries: number[][]): number[] {
     const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
-    const n = words.length;
-    const s: number[] = new Array(n + 1).fill(0);
-    for (let i = 0; i < n; ++i) {
-        if (vowels.has(words[i][0]) && vowels.has(words[i][words[i].length - 1])) {
-            s[i + 1] = s[i] + 1;
-        } else {
-            s[i + 1] = s[i];
-        }
-    }
+    const s = new Array(words.length + 1).fill(0);
+
+    words.forEach((w, i) => {
+        const x = +(vowels.has(w[0]) && vowels.has(w.at(-1)!));
+        s[i + 1] = s[i] + x;
+    });
+
+    return queries.map(([l, r]) => s[r + 1] - s[l]);
+}
+```
+
+#### JavaScript
+
+```js
+function vowelStrings(words, queries) {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+    const s = new Array(words.length + 1).fill(0);
+
+    words.forEach((w, i) => {
+        const x = +(vowels.has(w[0]) && vowels.has(w.at(-1)));
+        s[i + 1] = s[i] + x;
+    });
+
     return queries.map(([l, r]) => s[r + 1] - s[l]);
 }
 ```

@@ -6,18 +6,17 @@
  *     Right *TreeNode
  * }
  */
-func largestValues(root *TreeNode) []int {
-	var ans []int
+func largestValues(root *TreeNode) (ans []int) {
 	if root == nil {
-		return ans
+		return
 	}
 	q := []*TreeNode{root}
 	for len(q) > 0 {
-		t := q[0].Val
+		x := q[0].Val
 		for i := len(q); i > 0; i-- {
 			node := q[0]
 			q = q[1:]
-			t = max(t, node.Val)
+			x = max(x, node.Val)
 			if node.Left != nil {
 				q = append(q, node.Left)
 			}
@@ -25,7 +24,7 @@ func largestValues(root *TreeNode) []int {
 				q = append(q, node.Right)
 			}
 		}
-		ans = append(ans, t)
+		ans = append(ans, x)
 	}
-	return ans
+	return
 }

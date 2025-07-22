@@ -13,30 +13,31 @@ public:
     }
 };
 */
+
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
         if (!head) {
             return nullptr;
         }
-        for (Node* cur = head; cur;) {
+        Node* cur = head;
+        while (cur != nullptr) {
             Node* node = new Node(cur->val);
             node->next = cur->next;
             cur->next = node;
             cur = node->next;
         }
-        for (Node* cur = head; cur; cur = cur->next->next) {
-            if (cur->random) {
-                cur->next->random = cur->random->next;
-            }
+        cur = head;
+        while (cur != nullptr) {
+            cur->next->random = cur->random == nullptr ? nullptr : cur->random->next;
+            cur = cur->next->next;
         }
+        cur = head;
         Node* ans = head->next;
-        for (Node* cur = head; cur;) {
-            Node* nxt = cur->next;
-            if (nxt) {
-                cur->next = nxt->next;
-            }
-            cur = nxt;
+        while (cur->next != nullptr) {
+            Node* node = cur->next;
+            cur->next = node->next;
+            cur = node;
         }
         return ans;
     }

@@ -67,13 +67,13 @@ tags:
 
 ### Solution 1: Counting
 
-We can use a hash table or an array $\text{cnt}$ of length $24$ to record the occurrence count of each hour modulo $24$.
+We can use a hash table or an array $\textit{cnt}$ of length $24$ to record the occurrence count of each hour modulo $24$.
 
-Iterate through the array $\text{hours}$. For each hour $x$, we can find the number that, when added to $x$, results in a multiple of $24$, and after modulo $24$, this number is $(24 - x \bmod 24) \bmod 24$. We then accumulate the occurrence count of this number from the hash table or array. After that, we increment the occurrence count of $x$ modulo $24$ by one.
+Iterate through the array $\textit{hours}$. For each hour $x$, we can find the number that, when added to $x$, results in a multiple of $24$, and after modulo $24$, this number is $(24 - x \bmod 24) \bmod 24$. We then accumulate the occurrence count of this number from the hash table or array. After that, we increment the occurrence count of $x$ modulo $24$ by one.
 
-After iterating through the array $\text{hours}$, we can obtain the number of index pairs that meet the problem requirements.
+After iterating through the array $\textit{hours}$, we can obtain the number of index pairs that meet the problem requirements.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $\text{hours}$. The space complexity is $O(C)$, where $C=24$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{hours}$. The space complexity is $O(C)$, where $C=24$.
 
 <!-- tabs:start -->
 

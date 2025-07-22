@@ -1,31 +1,22 @@
 class Solution {
-    void dfs(Map<String, Queue<String>> adjLists, List<String> ans, String curr) {
-        Queue<String> neighbors = adjLists.get(curr);
-        if (neighbors == null) {
-            ans.add(curr);
-            return;
-        }
-        while (!neighbors.isEmpty()) {
-            String neighbor = neighbors.poll();
-            dfs(adjLists, ans, neighbor);
-        }
-        ans.add(curr);
-        return;
-    }
+    private Map<String, List<String>> g = new HashMap<>();
+    private List<String> ans = new ArrayList<>();
 
     public List<String> findItinerary(List<List<String>> tickets) {
-        Map<String, Queue<String>> adjLists = new HashMap<>();
+        Collections.sort(tickets, (a, b) -> b.get(1).compareTo(a.get(1)));
         for (List<String> ticket : tickets) {
-            String from = ticket.get(0);
-            String to = ticket.get(1);
-            if (!adjLists.containsKey(from)) {
-                adjLists.put(from, new PriorityQueue<>());
-            }
-            adjLists.get(from).add(to);
+            g.computeIfAbsent(ticket.get(0), k -> new ArrayList<>()).add(ticket.get(1));
         }
-        List<String> ans = new ArrayList<>();
-        dfs(adjLists, ans, "JFK");
+        dfs("JFK");
         Collections.reverse(ans);
         return ans;
+    }
+
+    private void dfs(String f) {
+        while (g.containsKey(f) && !g.get(f).isEmpty()) {
+            String t = g.get(f).remove(g.get(f).size() - 1);
+            dfs(t);
+        }
+        ans.add(f);
     }
 }

@@ -65,7 +65,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：树状数组或线段树
+### 方法一：树状数组
 
 对于本题，我们先用 pos 记录每个数在 nums2 中的位置，然后依次对 nums1 中的每个元素进行处理。
 
@@ -79,27 +79,14 @@ tags:
 1. ...
 1. 最后是 2，此时 nums2 中出现情况为 `[4,1,0,2,3]`，2 之前有值的个数是 4，2 之后没有值的个数是 0。因此以 2 为中间数字能形成 0 个好三元组。
 
-我们可以用**树状数组**或**线段树**这两种数据结构来更新 nums2 中各个位置数字的出现情况，快速算出每个数字左侧 1 的个数，以及右侧 0 的个数。
-
-**数据结构 1：树状数组**
+我们可以用**树状数组**来更新 nums2 中各个位置数字的出现情况，快速算出每个数字左侧 1 的个数，以及右侧 0 的个数。
 
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
 1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
 1. **前缀和查询** `query(x)`：查询序列 `[1,...x]` 区间的区间和，即位置 x 的前缀和。
 
-这两个操作的时间复杂度均为 $O(\log n)$。
-
-**数据结构 2：线段树**
-
-线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
-
--   线段树的每个节点代表一个区间；
--   线段树具有唯一的根节点，代表的区间是整个统计范围，如 `[1, N]`；
--   线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
--   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
-
-> 本题 Python3 线段树代码 TLE。
+这两个操作的时间复杂度均为 $O(\log n)$。因此，整体的时间复杂度为 $O(n \log n)$，其中 $n$ 为数组 $\textit{nums1}$ 的长度。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -302,13 +289,78 @@ func goodTriplets(nums1 []int, nums2 []int) int64 {
 }
 ```
 
+#### TypeScript
+
+```ts
+class BinaryIndexedTree {
+    private c: number[];
+    private n: number;
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    private static lowbit(x: number): number {
+        return x & -x;
+    }
+
+    update(x: number, delta: number): void {
+        while (x <= this.n) {
+            this.c[x] += delta;
+            x += BinaryIndexedTree.lowbit(x);
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= BinaryIndexedTree.lowbit(x);
+        }
+        return s;
+    }
+}
+
+function goodTriplets(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const pos = new Map<number, number>();
+    nums2.forEach((v, i) => pos.set(v, i + 1));
+
+    const tree = new BinaryIndexedTree(n);
+    let ans = 0;
+
+    for (const num of nums1) {
+        const p = pos.get(num)!;
+        const left = tree.query(p);
+        const total = tree.query(n);
+        const right = n - p - (total - left);
+        ans += left * right;
+        tree.update(p, 1);
+    }
+
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：线段树
+
+我们也可以用线段树来实现。线段树是一种数据结构，能够高效地进行区间查询和更新操作。它的基本思想是将一个区间划分为多个子区间，并且每个子区间都可以用一个节点来表示。
+
+线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
+
+-   线段树的每个节点代表一个区间；
+-   线段树具有唯一的根节点，代表的区间是整个统计范围，如 `[1, N]`；
+-   线段树的每个叶子节点代表一个长度为 1 的元区间 `[x, x]`；
+-   对于每个内部节点 `[l, r]`，它的左儿子是 `[l, mid]`，右儿子是 `[mid + 1, r]`, 其中 `mid = ⌊(l + r) / 2⌋` (即向下取整)。
+
+时间复杂度 $O(n \log n)$，其中 $n$ 为数组 $\textit{nums1}$ 的长度。空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
@@ -316,6 +368,8 @@ func goodTriplets(nums1 []int, nums2 []int) int64 {
 
 ```python
 class Node:
+    __slots__ = ("l", "r", "v")
+
     def __init__(self):
         self.l = 0
         self.r = 0
@@ -537,6 +591,174 @@ public:
         return ans;
     }
 };
+```
+
+#### Go
+
+```go
+type Node struct {
+	l, r, v int
+}
+
+type SegmentTree struct {
+	tr []Node
+}
+
+func NewSegmentTree(n int) *SegmentTree {
+	tr := make([]Node, 4*n)
+	st := &SegmentTree{tr: tr}
+	st.build(1, 1, n)
+	return st
+}
+
+func (st *SegmentTree) build(u, l, r int) {
+	st.tr[u].l = l
+	st.tr[u].r = r
+	if l == r {
+		return
+	}
+	mid := (l + r) >> 1
+	st.build(u<<1, l, mid)
+	st.build(u<<1|1, mid+1, r)
+}
+
+func (st *SegmentTree) modify(u, x, v int) {
+	if st.tr[u].l == x && st.tr[u].r == x {
+		st.tr[u].v += v
+		return
+	}
+	mid := (st.tr[u].l + st.tr[u].r) >> 1
+	if x <= mid {
+		st.modify(u<<1, x, v)
+	} else {
+		st.modify(u<<1|1, x, v)
+	}
+	st.pushup(u)
+}
+
+func (st *SegmentTree) pushup(u int) {
+	st.tr[u].v = st.tr[u<<1].v + st.tr[u<<1|1].v
+}
+
+func (st *SegmentTree) query(u, l, r int) int {
+	if st.tr[u].l >= l && st.tr[u].r <= r {
+		return st.tr[u].v
+	}
+	mid := (st.tr[u].l + st.tr[u].r) >> 1
+	res := 0
+	if l <= mid {
+		res += st.query(u<<1, l, r)
+	}
+	if r > mid {
+		res += st.query(u<<1|1, l, r)
+	}
+	return res
+}
+
+func goodTriplets(nums1 []int, nums2 []int) int64 {
+	n := len(nums1)
+	pos := make(map[int]int)
+	for i, v := range nums2 {
+		pos[v] = i + 1
+	}
+
+	tree := NewSegmentTree(n)
+	var ans int64
+
+	for _, num := range nums1 {
+		p := pos[num]
+		left := tree.query(1, 1, p)
+		right := n - p - (tree.query(1, 1, n) - tree.query(1, 1, p))
+		ans += int64(left * right)
+		tree.modify(1, p, 1)
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    l: number = 0;
+    r: number = 0;
+    v: number = 0;
+}
+
+class SegmentTree {
+    private tr: Node[];
+
+    constructor(n: number) {
+        this.tr = Array(4 * n);
+        for (let i = 0; i < 4 * n; i++) {
+            this.tr[i] = new Node();
+        }
+        this.build(1, 1, n);
+    }
+
+    private build(u: number, l: number, r: number): void {
+        this.tr[u].l = l;
+        this.tr[u].r = r;
+        if (l === r) return;
+        const mid = (l + r) >> 1;
+        this.build(u << 1, l, mid);
+        this.build((u << 1) | 1, mid + 1, r);
+    }
+
+    modify(u: number, x: number, v: number): void {
+        if (this.tr[u].l === x && this.tr[u].r === x) {
+            this.tr[u].v += v;
+            return;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        if (x <= mid) {
+            this.modify(u << 1, x, v);
+        } else {
+            this.modify((u << 1) | 1, x, v);
+        }
+        this.pushup(u);
+    }
+
+    private pushup(u: number): void {
+        this.tr[u].v = this.tr[u << 1].v + this.tr[(u << 1) | 1].v;
+    }
+
+    query(u: number, l: number, r: number): number {
+        if (this.tr[u].l >= l && this.tr[u].r <= r) {
+            return this.tr[u].v;
+        }
+        const mid = (this.tr[u].l + this.tr[u].r) >> 1;
+        let res = 0;
+        if (l <= mid) {
+            res += this.query(u << 1, l, r);
+        }
+        if (r > mid) {
+            res += this.query((u << 1) | 1, l, r);
+        }
+        return res;
+    }
+}
+
+function goodTriplets(nums1: number[], nums2: number[]): number {
+    const n = nums1.length;
+    const pos = new Map<number, number>();
+    nums2.forEach((v, i) => pos.set(v, i + 1));
+
+    const tree = new SegmentTree(n);
+    let ans = 0;
+
+    for (const num of nums1) {
+        const p = pos.get(num)!;
+        const left = tree.query(1, 1, p);
+        const total = tree.query(1, 1, n);
+        const right = n - p - (total - left);
+        ans += left * right;
+        tree.modify(1, p, 1);
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -51,7 +51,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: String Splitting
+
+We split the string $\textit{s}$ by spaces and then count the number of non-empty words.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
 
 <!-- tabs:start -->
 
@@ -107,6 +111,14 @@ func countSegments(s string) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function countSegments(s: string): number {
+    return s.split(/\s+/).filter(Boolean).length;
+}
+```
+
 #### PHP
 
 ```php
@@ -134,7 +146,13 @@ class Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Simulation
+
+We can also directly traverse each character $\text{s[i]}$ in the string. If $\text{s[i]}$ is not a space and $\text{s[i-1]}$ is a space or $i = 0$, then $\text{s[i]}$ marks the beginning of a new word, and we increment the answer by one.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -194,6 +212,43 @@ func countSegments(s string) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSegments(s: string): number {
+    let ans = 0;
+    for (let i = 0; i < s.length; i++) {
+        let c = s[i];
+        if (c !== ' ' && (i === 0 || s[i - 1] === ' ')) {
+            ans++;
+        }
+    }
+    return ans;
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param String $s
+     * @return Integer
+     */
+    function countSegments($s) {
+        $ans = 0;
+        $n = strlen($s);
+        for ($i = 0; $i < $n; $i++) {
+            $c = $s[$i];
+            if ($c !== ' ' && ($i === 0 || $s[$i - 1] === ' ')) {
+                $ans++;
+            }
+        }
+        return $ans;
+    }
 }
 ```
 

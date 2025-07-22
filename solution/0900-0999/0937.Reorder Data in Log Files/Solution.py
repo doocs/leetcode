@@ -1,7 +1,7 @@
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        def cmp(x):
-            a, b = x.split(' ', 1)
-            return (0, b, a) if b[0].isalpha() else (1,)
+        def f(log: str):
+            id_, rest = log.split(" ", 1)
+            return (0, rest, id_) if rest[0].isalpha() else (1,)
 
-        return sorted(logs, key=cmp)
+        return sorted(logs, key=f)

@@ -1,18 +1,10 @@
-func bitwiseComplement(n int) int {
+func bitwiseComplement(n int) (ans int) {
 	if n == 0 {
 		return 1
 	}
-	ans := 0
-	find := false
-	for i := 30; i >= 0; i-- {
-		b := n & (1 << i)
-		if !find && b == 0 {
-			continue
-		}
-		find = true
-		if b == 0 {
-			ans |= (1 << i)
-		}
+	for i := 0; n != 0; n >>= 1 {
+		ans |= (n&1 ^ 1) << i
+		i++
 	}
-	return ans
+	return
 }

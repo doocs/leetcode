@@ -80,17 +80,16 @@ tags:
 
 ### 方法一：动态规划
 
-定义 $dp[i][j]$ 表示 $nums1$ 前 $i$ 个元素和 $nums2$ 前 $j$ 个元素得到的最大点积。
+我们定义 $f[i][j]$ 表示 $\textit{nums1}$ 的前 $i$ 个元素和 $\textit{nums2}$ 的前 $j$ 个元素构成的两个子序列的最大点积。初始时 $f[i][j] = -\infty$。
 
-那么有：
+对于 $f[i][j]$，我们有以下几种情况：
 
-$$
-dp[i][j]=max(dp[i-1][j], dp[i][j - 1], max(dp[i - 1][j - 1], 0) + nums1[i] \times nums2[j])
-$$
+1. 不选 $\textit{nums1}[i-1]$ 或者不选 $\textit{nums2}[j-1]$，即 $f[i][j] = \max(f[i-1][j], f[i][j-1])$；
+2. 选 $\textit{nums1}[i-1]$ 和 $\textit{nums2}[j-1]$，即 $f[i][j] = \max(f[i][j], \max(0, f[i-1][j-1]) + \textit{nums1}[i-1] \times \textit{nums2}[j-1])$。
 
-答案为 $dp[m][n]$。
+最终答案即为 $f[m][n]$。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是数组 $nums1$ 和 $nums2$ 的长度。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -100,12 +99,12 @@ $$
 class Solution:
     def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
         m, n = len(nums1), len(nums2)
-        dp = [[-inf] * (n + 1) for _ in range(m + 1)]
-        for i in range(1, m + 1):
-            for j in range(1, n + 1):
-                v = nums1[i - 1] * nums2[j - 1]
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1], max(dp[i - 1][j - 1], 0) + v)
-        return dp[-1][-1]
+        f = [[-inf] * (n + 1) for _ in range(m + 1)]
+        for i, x in enumerate(nums1, 1):
+            for j, y in enumerate(nums2, 1):
+                v = x * y
+                f[i][j] = max(f[i - 1][j], f[i][j - 1], max(0, f[i - 1][j - 1]) + v)
+        return f[m][n]
 ```
 
 #### Java
@@ -114,18 +113,18 @@ class Solution:
 class Solution {
     public int maxDotProduct(int[] nums1, int[] nums2) {
         int m = nums1.length, n = nums2.length;
-        int[][] dp = new int[m + 1][n + 1];
-        for (int[] e : dp) {
-            Arrays.fill(e, Integer.MIN_VALUE);
+        int[][] f = new int[m + 1][n + 1];
+        for (var g : f) {
+            Arrays.fill(g, Integer.MIN_VALUE);
         }
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
-                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-                dp[i][j] = Math.max(
-                    dp[i][j], Math.max(0, dp[i - 1][j - 1]) + nums1[i - 1] * nums2[j - 1]);
+                int v = nums1[i - 1] * nums2[j - 1];
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
+                f[i][j] = Math.max(f[i][j], Math.max(f[i - 1][j - 1], 0) + v);
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 }
 ```
@@ -137,15 +136,16 @@ class Solution {
 public:
     int maxDotProduct(vector<int>& nums1, vector<int>& nums2) {
         int m = nums1.size(), n = nums2.size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1, INT_MIN));
+        int f[m + 1][n + 1];
+        memset(f, 0xc0, sizeof f);
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
                 int v = nums1[i - 1] * nums2[j - 1];
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-                dp[i][j] = max(dp[i][j], max(0, dp[i - 1][j - 1]) + v);
+                f[i][j] = max(f[i - 1][j], f[i][j - 1]);
+                f[i][j] = max(f[i][j], max(0, f[i - 1][j - 1]) + v);
             }
         }
-        return dp[m][n];
+        return f[m][n];
     }
 };
 ```
@@ -155,21 +155,39 @@ public:
 ```go
 func maxDotProduct(nums1 []int, nums2 []int) int {
 	m, n := len(nums1), len(nums2)
-	dp := make([][]int, m+1)
-	for i := range dp {
-		dp[i] = make([]int, n+1)
-		for j := range dp[i] {
-			dp[i][j] = math.MinInt32
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+		for j := range f[i] {
+			f[i][j] = math.MinInt32
 		}
 	}
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
 			v := nums1[i-1] * nums2[j-1]
-			dp[i][j] = max(dp[i-1][j], dp[i][j-1])
-			dp[i][j] = max(dp[i][j], max(0, dp[i-1][j-1])+v)
+			f[i][j] = max(f[i-1][j], f[i][j-1])
+			f[i][j] = max(f[i][j], max(0, f[i-1][j-1])+v)
 		}
 	}
-	return dp[m][n]
+	return f[m][n]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxDotProduct(nums1: number[], nums2: number[]): number {
+    const m = nums1.length;
+    const n = nums2.length;
+    const f = Array.from({ length: m + 1 }, () => Array.from({ length: n + 1 }, () => -Infinity));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            const v = nums1[i - 1] * nums2[j - 1];
+            f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);
+            f[i][j] = Math.max(f[i][j], Math.max(0, f[i - 1][j - 1]) + v);
+        }
+    }
+    return f[m][n];
 }
 ```
 
@@ -177,23 +195,20 @@ func maxDotProduct(nums1 []int, nums2 []int) int {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn max_dot_product(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
-        let n = nums1.len();
-        let m = nums2.len();
-        let mut dp = vec![vec![i32::MIN; m + 1]; n + 1];
+        let m = nums1.len();
+        let n = nums2.len();
+        let mut f = vec![vec![i32::MIN; n + 1]; m + 1];
 
-        // Begin the actual dp process
-        for i in 1..=n {
-            for j in 1..=m {
-                dp[i][j] = std::cmp::max(
-                    std::cmp::max(dp[i - 1][j], dp[i][j - 1]),
-                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1],
-                );
+        for i in 1..=m {
+            for j in 1..=n {
+                let v = nums1[i - 1] * nums2[j - 1];
+                f[i][j] = f[i][j].max(f[i - 1][j]).max(f[i][j - 1]);
+                f[i][j] = f[i][j].max(f[i - 1][j - 1].max(0) + v);
             }
         }
 
-        dp[n][m]
+        f[m][n]
     }
 }
 ```

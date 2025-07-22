@@ -1,20 +1,22 @@
 func findSmallestRegion(regions [][]string, region1 string, region2 string) string {
-	m := make(map[string]string)
-	for _, region := range regions {
-		for i := 1; i < len(region); i++ {
-			m[region[i]] = region[0]
+	g := make(map[string]string)
+
+	for _, r := range regions {
+		x := r[0]
+		for _, y := range r[1:] {
+			g[y] = x
 		}
 	}
+
 	s := make(map[string]bool)
-	for region1 != "" {
-		s[region1] = true
-		region1 = m[region1]
+	for x := region1; x != ""; x = g[x] {
+		s[x] = true
 	}
-	for region2 != "" {
-		if s[region2] {
-			return region2
-		}
-		region2 = m[region2]
+
+	x := region2
+	for g[x] != "" && !s[x] {
+		x = g[x]
 	}
-	return region1
+
+	return x
 }

@@ -1,22 +1,21 @@
-<?php
 class Solution {
     /**
-     * @param integer[] $nums
-     * @return integer
+     * @param Integer[] $nums
+     * @return Integer
      */
-
     function jump($nums) {
-        $maxReach = 0;
-        $steps = 0;
-        $lastJump = 0;
-        for ($i = 0; $i <= count($nums) - 2; $i++) {
-            $maxReach = max($maxReach, $i + $nums[$i]);
-            if ($i == $lastJump) {
-                $lastJump = $maxReach;
-                $steps++;
+        $ans = 0;
+        $mx = 0;
+        $last = 0;
+
+        for ($i = 0; $i < count($nums) - 1; $i++) {
+            $mx = max($mx, $i + $nums[$i]);
+            if ($last == $i) {
+                $ans++;
+                $last = $mx;
             }
         }
 
-        return $steps;
+        return $ans;
     }
 }

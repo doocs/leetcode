@@ -1,13 +1,24 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
 var minDiffInBST = function (root) {
-    let ans = Number.MAX_SAFE_INTEGER,
-        prev = Number.MAX_SAFE_INTEGER;
+    let [ans, pre] = [Infinity, -Infinity];
     const dfs = root => {
         if (!root) {
             return;
         }
         dfs(root.left);
-        ans = Math.min(ans, Math.abs(root.val - prev));
-        prev = root.val;
+        ans = Math.min(ans, root.val - pre);
+        pre = root.val;
         dfs(root.right);
     };
     dfs(root);

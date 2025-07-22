@@ -1,19 +1,11 @@
 function countSubarrays(nums: number[], minK: number, maxK: number): number {
-    let res = 0;
-    let minIndex = -1;
-    let maxIndex = -1;
-    let k = -1;
-    nums.forEach((num, i) => {
-        if (num === minK) {
-            minIndex = i;
-        }
-        if (num === maxK) {
-            maxIndex = i;
-        }
-        if (num < minK || num > maxK) {
-            k = i;
-        }
-        res += Math.max(Math.min(minIndex, maxIndex) - k, 0);
-    });
-    return res;
+    let ans = 0;
+    let [j1, j2, k] = [-1, -1, -1];
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] < minK || nums[i] > maxK) k = i;
+        if (nums[i] === minK) j1 = i;
+        if (nums[i] === maxK) j2 = i;
+        ans += Math.max(0, Math.min(j1, j2) - k);
+    }
+    return ans;
 }

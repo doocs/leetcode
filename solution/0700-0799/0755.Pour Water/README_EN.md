@@ -80,7 +80,11 @@ Finally, the fourth droplet falls at index k = 3. Since moving left would not ev
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can simulate the process of each unit of water dropping. Each time a drop falls, we first try to move left. If it can move to a lower height, it moves to the lowest height; if it cannot move to a lower height, we try to move right. If it can move to a lower height, it moves to the lowest height; if it cannot move to a lower height, it rises at the current position.
+
+The time complexity is $O(v \times n)$, and the space complexity is $O(1)$, where $v$ and $n$ are the number of water drops and the length of the height array, respectively.
 
 <!-- tabs:start -->
 

@@ -1,37 +1,29 @@
 function numDupDigitsAtMostN(n: number): number {
-    return n - f(n);
-}
+    const s = n.toString();
+    const m = s.length;
+    const f = Array.from({ length: m }, () => Array(1 << 10).fill(-1));
 
-function f(n: number): number {
-    const nums: number[] = [];
-    let i = -1;
-    for (; n; n = Math.floor(n / 10)) {
-        nums[++i] = n % 10;
-    }
-    const dp = Array.from({ length: 11 }, () => Array(1 << 11).fill(-1));
-    const dfs = (pos: number, mask: number, lead: boolean, limit: boolean): number => {
-        if (pos < 0) {
+    const dfs = (i: number, mask: number, lead: boolean, limit: boolean): number => {
+        if (i >= m) {
             return lead ? 0 : 1;
         }
-        if (!lead && !limit && dp[pos][mask] !== -1) {
-            return dp[pos][mask];
+        if (!lead && !limit && f[i][mask] !== -1) {
+            return f[i][mask];
         }
-        const up = limit ? nums[pos] : 9;
+        const up = limit ? parseInt(s[i]) : 9;
         let ans = 0;
-        for (let i = 0; i <= up; ++i) {
-            if ((mask >> i) & 1) {
-                continue;
-            }
-            if (lead && i === 0) {
-                ans += dfs(pos - 1, mask, lead, limit && i === up);
-            } else {
-                ans += dfs(pos - 1, mask | (1 << i), false, limit && i === up);
+        for (let j = 0; j <= up; j++) {
+            if (lead && j === 0) {
+                ans += dfs(i + 1, mask, true, limit && j === up);
+            } else if (((mask >> j) & 1) === 0) {
+                ans += dfs(i + 1, mask | (1 << j), false, limit && j === up);
             }
         }
         if (!lead && !limit) {
-            dp[pos][mask] = ans;
+            f[i][mask] = ans;
         }
         return ans;
     };
-    return dfs(i, 0, true, true);
+
+    return n - dfs(0, 0, true, true);
 }

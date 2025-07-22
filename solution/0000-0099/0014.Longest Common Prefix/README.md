@@ -4,6 +4,7 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0014.Longest%20Common%20Prefix/README.md
 tags:
     - 字典树
+    - 数组
     - 字符串
 ---
 
@@ -44,7 +45,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= strs.length &lt;= 200</code></li>
 	<li><code>0 &lt;= strs[i].length &lt;= 200</code></li>
-	<li><code>strs[i]</code> 仅由小写英文字母组成</li>
+	<li><code>strs[i]</code>&nbsp;如果非空，则仅由小写英文字母组成</li>
 </ul>
 
 <!-- description:end -->
@@ -249,6 +250,22 @@ def longest_common_prefix(strs)
 
   idx > 0 ? strs[0][0..idx] : ''
 end
+```
+
+#### C
+
+```c
+char* longestCommonPrefix(char** strs, int strsSize) {
+    for (int i = 0; strs[0][i]; i++) {
+        for (int j = 1; j < strsSize; j++) {
+            if (strs[j][i] != strs[0][i]) {
+                strs[0][i] = '\0';
+                return strs[0];
+            }
+        }
+    }
+    return strs[0];
+}
 ```
 
 <!-- tabs:end -->

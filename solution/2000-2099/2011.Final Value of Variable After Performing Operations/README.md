@@ -85,11 +85,11 @@ X--：X 减 1 ，X = 1 - 1 = 0
 
 <!-- solution:start -->
 
-### 方法一：模拟
+### 方法一：计数
 
-遍历数组 `operations`，对于每个操作 $operations[i]$，如果包含 `'+'`，那么答案加 $1$，否则答案减 $1$。
+我们遍历数组 $\textit{operations}$，对于每个操作 $\textit{operations}[i]$，如果包含 `'+'`，那么答案加 $1$，否则答案减 $1$。
 
-时间复杂度为 $O(n)$，其中 $n$ 为数组 `operations` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{operations}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -122,7 +122,9 @@ class Solution {
 public:
     int finalValueAfterOperations(vector<string>& operations) {
         int ans = 0;
-        for (auto& s : operations) ans += (s[1] == '+' ? 1 : -1);
+        for (auto& s : operations) {
+            ans += s[1] == '+' ? 1 : -1;
+        }
         return ans;
     }
 };
@@ -147,11 +149,7 @@ func finalValueAfterOperations(operations []string) (ans int) {
 
 ```ts
 function finalValueAfterOperations(operations: string[]): number {
-    let ans = 0;
-    for (let operation of operations) {
-        ans += operation.includes('+') ? 1 : -1;
-    }
-    return ans;
+    return operations.reduce((acc, op) => acc + (op[1] === '+' ? 1 : -1), 0);
 }
 ```
 
@@ -177,11 +175,7 @@ impl Solution {
  * @return {number}
  */
 var finalValueAfterOperations = function (operations) {
-    let ans = 0;
-    for (const s of operations) {
-        ans += s[1] === '+' ? 1 : -1;
-    }
-    return ans;
+    return operations.reduce((acc, op) => acc + (op[1] === '+' ? 1 : -1), 0);
 };
 ```
 
@@ -194,24 +188,6 @@ int finalValueAfterOperations(char** operations, int operationsSize) {
         ans += operations[i][1] == '+' ? 1 : -1;
     }
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function finalValueAfterOperations(operations: string[]): number {
-    return operations.reduce((r, v) => r + (v[1] === '+' ? 1 : -1), 0);
 }
 ```
 

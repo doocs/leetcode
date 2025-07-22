@@ -2,7 +2,7 @@ class Solution:
     def unhappyFriends(
         self, n: int, preferences: List[List[int]], pairs: List[List[int]]
     ) -> int:
-        d = [{p: i for i, p in enumerate(v)} for v in preferences]
+        d = [{x: j for j, x in enumerate(p)} for p in preferences]
         p = {}
         for x, y in pairs:
             p[x] = y
@@ -10,5 +10,10 @@ class Solution:
         ans = 0
         for x in range(n):
             y = p[x]
-            ans += any(d[u][x] < d[u][p[u]] for u in preferences[x][: d[x][y]])
+            for i in range(d[x][y]):
+                u = preferences[x][i]
+                v = p[u]
+                if d[u][x] < d[u][v]:
+                    ans += 1
+                    break
         return ans

@@ -1,17 +1,17 @@
 func minimumTime(power []int) int64 {
 	n := len(power)
-	dp := make([]int64, 1<<n)
-	for i := range dp {
-		dp[i] = math.MaxInt64
+	f := make([]int64, 1<<n)
+	for i := range f {
+		f[i] = 1e18
 	}
-	dp[0] = 0
+	f[0] = 0
 	for mask := 1; mask < 1<<n; mask++ {
-		cnt := bits.OnesCount(uint(mask))
-		for i, v := range power {
-			if ((mask >> i) & 1) == 1 {
-				dp[mask] = min(dp[mask], dp[mask^(1<<i)]+int64((v+cnt-1)/cnt))
+		gain := bits.OnesCount(uint(mask))
+		for i, x := range power {
+			if mask>>i&1 == 1 {
+				f[mask] = min(f[mask], f[mask^(1<<i)]+int64(x+gain-1)/int64(gain))
 			}
 		}
 	}
-	return dp[len(dp)-1]
+	return f[1<<n-1]
 }

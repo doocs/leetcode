@@ -2,7 +2,7 @@ function permutation(S: string): string[] {
     const n = S.length;
     const vis: boolean[] = Array(n).fill(false);
     const ans: string[] = [];
-    const t: string[] = [];
+    const t: string[] = Array(n).fill('');
     const dfs = (i: number) => {
         if (i >= n) {
             ans.push(t.join(''));
@@ -13,9 +13,8 @@ function permutation(S: string): string[] {
                 continue;
             }
             vis[j] = true;
-            t.push(S[j]);
+            t[i] = S[j];
             dfs(i + 1);
-            t.pop();
             vis[j] = false;
         }
     };

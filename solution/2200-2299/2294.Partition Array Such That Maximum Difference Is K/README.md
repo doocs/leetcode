@@ -83,9 +83,9 @@ tags:
 
 ### 方法一：贪心 + 排序
 
-题目是要求划分子序列，而不是子数组，因此子序列中的元素可以不连续。我们可以将数组 `nums` 排序，假设当前子序列的第一个元素为 $a$，则子序列中的最大值和最小值的差值不会超过 $k$。因此我们可以遍历数组 `nums`，如果当前元素 $b$ 与 $a$ 的差值大于 $k$，则更新 $a$ 为 $b$，并将子序列数目加 1。遍历结束后，即可得到最少子序列数目，注意初始时子序列数目为 $1$。
+题目要求划分子序列，而不是子数组，因此子序列中的元素可以不连续。我们可以将数组 $\textit{nums}$ 排序，假设当前子序列的第一个元素为 $a$，则子序列中的最大值和最小值的差值不会超过 $k$。因此我们可以遍历数组 $\textit{nums}$，如果当前元素 $b$ 与 $a$ 的差值大于 $k$，则更新 $a$ 为 $b$，并将子序列数目加 1。遍历结束后，即可得到最少子序列数目，注意初始时子序列数目为 $1$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -170,6 +170,48 @@ function partitionArray(nums: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn partition_array(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort();
+        let mut ans = 1;
+        let mut a = nums[0];
+
+        for &b in nums.iter() {
+            if b - a > k {
+                a = b;
+                ans += 1;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### Rust
+
+```rust
+public class Solution {
+    public int PartitionArray(int[] nums, int k) {
+        Array.Sort(nums);
+        int ans = 1;
+        int a = nums[0];
+
+        foreach (int b in nums) {
+            if (b - a > k) {
+                a = b;
+                ans++;
+            }
+        }
+
+        return ans;
+    }
 }
 ```
 

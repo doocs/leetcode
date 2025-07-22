@@ -3,7 +3,7 @@ public:
     int houseOfCards(int n) {
         int f[n + 1][n / 3 + 1];
         memset(f, -1, sizeof(f));
-        function<int(int, int)> dfs = [&](int n, int k) -> int {
+        auto dfs = [&](this auto&& dfs, int n, int k) -> int {
             int x = 3 * k + 2;
             if (x > n) {
                 return 0;

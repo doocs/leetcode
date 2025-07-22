@@ -87,11 +87,13 @@ tags:
 
 ### 方法一：DFS + 子树异或和
 
-枚举 $[0,n)$ 的每个点 $i$ 作为树的根节点，将根节点与某个子节点相连的边作为第一条被删除的边。这样我们就获得了两个连通块，我们记包含根节点 $i$ 的连通块为 $A$，不包含根节点 $i$ 的连通块为 $B$。
+我们记树的异或和为 $s$，即 $s = \text{nums}[0] \oplus \text{nums}[1] \oplus \ldots \oplus \text{nums}[n-1]$。
 
-在 $A$ 中枚举第二条被删除的边。那么 $A$ 也会被划分成两个连通块 $C$ 和 $D$。
+接下来，枚举 $[0..n)$ 的每个点 $i$ 作为树的根节点，将根节点与某个子节点 $j$ 相连的边作为第一条被删除的边。这样我们就获得了两个连通块，我们记包含根节点 $i$ 的连通块的异或和为 $s_1$，然后我们对包含根节点 $i$ 的连通块进行 DFS，计算出每个子树的异或和，记每次 DFS 计算出的子树异或和为 $s_2$。那么三个连通块的异或和分别为 $s \oplus s_1$, $s_2$ 和 $s_1 \oplus s_2$。我们需要计算这三个异或和的最大值和最小值，记为 $\textit{mx}$ 和 $\textit{mn}$，那么对于枚举的每一种情况，得到的分数为 $\textit{mx} - \textit{mn}$。求所有情况的最小值作为答案。
 
-记每个连通块的异或和为 $S_i$，那么对于枚举的每一种情况，得到的分数为 $max(S_B, S_C, S_D)-min(S_B, S_C, S_D)$。求所有情况的最小值作为答案。
+计算每个子树的异或和可以通过 DFS 实现。定义一个函数 $\text{dfs}(i, fa)$，表示从节点 $i$ 开始 DFS，而 $fa$ 是节点 $i$ 的父节点。函数返回值为以节点 $i$ 为根的子树的异或和。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
 
 <!-- tabs:start -->
 
@@ -100,40 +102,36 @@ tags:
 ```python
 class Solution:
     def minimumScore(self, nums: List[int], edges: List[List[int]]) -> int:
-        def dfs(i, fa, x):
+        def dfs(i: int, fa: int) -> int:
             res = nums[i]
             for j in g[i]:
-                if j != fa and j != x:
-                    res ^= dfs(j, i, x)
+                if j != fa:
+                    res ^= dfs(j, i)
             return res
 
-        def dfs2(i, fa, x):
+        def dfs2(i: int, fa: int) -> int:
             nonlocal s, s1, ans
             res = nums[i]
             for j in g[i]:
-                if j != fa and j != x:
-                    a = dfs2(j, i, x)
-                    res ^= a
-                    b = s1 ^ a
-                    c = s ^ s1
-                    t = max(a, b, c) - min(a, b, c)
-                    ans = min(ans, t)
+                if j != fa:
+                    s2 = dfs2(j, i)
+                    res ^= s2
+                    mx = max(s ^ s1, s2, s1 ^ s2)
+                    mn = min(s ^ s1, s2, s1 ^ s2)
+                    ans = min(ans, mx - mn)
             return res
 
         g = defaultdict(list)
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
-
-        s = 0
-        for v in nums:
-            s ^= v
+        s = reduce(lambda x, y: x ^ y, nums)
         n = len(nums)
         ans = inf
         for i in range(n):
             for j in g[i]:
-                s1 = dfs(i, -1, j)
-                dfs2(i, -1, j)
+                s1 = dfs(i, j)
+                dfs2(i, j)
         return ans
 ```
 
@@ -141,55 +139,53 @@ class Solution:
 
 ```java
 class Solution {
-    private int s;
-    private int s1;
-    private int n;
-    private int ans = Integer.MAX_VALUE;
     private int[] nums;
     private List<Integer>[] g;
+    private int ans = Integer.MAX_VALUE;
+    private int s;
+    private int s1;
 
     public int minimumScore(int[] nums, int[][] edges) {
-        n = nums.length;
-        g = new List[n];
+        int n = nums.length;
         this.nums = nums;
+        g = new List[n];
         Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             int a = e[0], b = e[1];
             g[a].add(b);
             g[b].add(a);
         }
-        for (int v : nums) {
-            s ^= v;
+        for (int x : nums) {
+            s ^= x;
         }
         for (int i = 0; i < n; ++i) {
             for (int j : g[i]) {
-                s1 = dfs(i, -1, j);
-                dfs2(i, -1, j);
+                s1 = dfs(i, j);
+                dfs2(i, j);
             }
         }
         return ans;
     }
 
-    private int dfs(int i, int fa, int x) {
+    private int dfs(int i, int fa) {
         int res = nums[i];
         for (int j : g[i]) {
-            if (j != fa && j != x) {
-                res ^= dfs(j, i, x);
+            if (j != fa) {
+                res ^= dfs(j, i);
             }
         }
         return res;
     }
 
-    private int dfs2(int i, int fa, int x) {
+    private int dfs2(int i, int fa) {
         int res = nums[i];
         for (int j : g[i]) {
-            if (j != fa && j != x) {
-                int a = dfs2(j, i, x);
-                res ^= a;
-                int b = s1 ^ a;
-                int c = s ^ s1;
-                int t = Math.max(Math.max(a, b), c) - Math.min(Math.min(a, b), c);
-                ans = Math.min(ans, t);
+            if (j != fa) {
+                int s2 = dfs2(j, i);
+                res ^= s2;
+                int mx = Math.max(Math.max(s ^ s1, s2), s1 ^ s2);
+                int mn = Math.min(Math.min(s ^ s1, s2), s1 ^ s2);
+                ans = Math.min(ans, mx - mn);
             }
         }
         return res;
@@ -202,51 +198,48 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> nums;
-    int s;
-    int s1;
-    int n;
-    int ans = INT_MAX;
-    vector<vector<int>> g;
-
     int minimumScore(vector<int>& nums, vector<vector<int>>& edges) {
-        n = nums.size();
-        g.resize(n, vector<int>());
-        for (auto& e : edges) {
+        int n = nums.size();
+        vector<int> g[n];
+        for (const auto& e : edges) {
             int a = e[0], b = e[1];
             g[a].push_back(b);
             g[b].push_back(a);
         }
-        for (int& v : nums) s ^= v;
-        this->nums = nums;
+        int s = 0, s1 = 0;
+        int ans = INT_MAX;
+        for (int x : nums) {
+            s ^= x;
+        }
+        auto dfs = [&](this auto&& dfs, int i, int fa) -> int {
+            int res = nums[i];
+            for (int j : g[i]) {
+                if (j != fa) {
+                    res ^= dfs(j, i);
+                }
+            }
+            return res;
+        };
+        auto dfs2 = [&](this auto&& dfs2, int i, int fa) -> int {
+            int res = nums[i];
+            for (int j : g[i]) {
+                if (j != fa) {
+                    int s2 = dfs2(j, i);
+                    res ^= s2;
+                    int mx = max({s ^ s1, s2, s1 ^ s2});
+                    int mn = min({s ^ s1, s2, s1 ^ s2});
+                    ans = min(ans, mx - mn);
+                }
+            }
+            return res;
+        };
         for (int i = 0; i < n; ++i) {
             for (int j : g[i]) {
-                s1 = dfs(i, -1, j);
-                dfs2(i, -1, j);
+                s1 = dfs(i, j);
+                dfs2(i, j);
             }
         }
         return ans;
-    }
-
-    int dfs(int i, int fa, int x) {
-        int res = nums[i];
-        for (int j : g[i])
-            if (j != fa && j != x) res ^= dfs(j, i, x);
-        return res;
-    }
-
-    int dfs2(int i, int fa, int x) {
-        int res = nums[i];
-        for (int j : g[i])
-            if (j != fa && j != x) {
-                int a = dfs2(j, i, x);
-                res ^= a;
-                int b = s1 ^ a;
-                int c = s ^ s1;
-                int t = max(max(a, b), c) - min(min(a, b), c);
-                ans = min(ans, t);
-            }
-        return res;
     }
 };
 ```
@@ -262,44 +255,147 @@ func minimumScore(nums []int, edges [][]int) int {
 		g[a] = append(g[a], b)
 		g[b] = append(g[b], a)
 	}
-	s := 0
-	for _, v := range nums {
-		s ^= v
-	}
-	s1 := 0
+	s, s1 := 0, 0
 	ans := math.MaxInt32
-	var dfs func(int, int, int) int
-	var dfs2 func(int, int, int) int
-	dfs = func(i, fa, x int) int {
+	for _, x := range nums {
+		s ^= x
+	}
+	var dfs func(i, fa int) int
+	dfs = func(i, fa int) int {
 		res := nums[i]
 		for _, j := range g[i] {
-			if j != fa && j != x {
-				res ^= dfs(j, i, x)
+			if j != fa {
+				res ^= dfs(j, i)
 			}
 		}
 		return res
 	}
-	dfs2 = func(i, fa, x int) int {
+	var dfs2 func(i, fa int) int
+	dfs2 = func(i, fa int) int {
 		res := nums[i]
 		for _, j := range g[i] {
-			if j != fa && j != x {
-				a := dfs2(j, i, x)
-				res ^= a
-				b := s1 ^ a
-				c := s ^ s1
-				t := max(max(a, b), c) - min(min(a, b), c)
-				ans = min(ans, t)
+			if j != fa {
+				s2 := dfs2(j, i)
+				res ^= s2
+				mx := max(s^s1, s2, s1^s2)
+				mn := min(s^s1, s2, s1^s2)
+				ans = min(ans, mx-mn)
 			}
 		}
 		return res
 	}
 	for i := 0; i < n; i++ {
 		for _, j := range g[i] {
-			s1 = dfs(i, -1, j)
-			dfs2(i, -1, j)
+			s1 = dfs(i, j)
+			dfs2(i, j)
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumScore(nums: number[], edges: number[][]): number {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const s = nums.reduce((a, b) => a ^ b, 0);
+    let s1 = 0;
+    let ans = Number.MAX_SAFE_INTEGER;
+    function dfs(i: number, fa: number): number {
+        let res = nums[i];
+        for (const j of g[i]) {
+            if (j !== fa) {
+                res ^= dfs(j, i);
+            }
+        }
+        return res;
+    }
+    function dfs2(i: number, fa: number): number {
+        let res = nums[i];
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const s2 = dfs2(j, i);
+                res ^= s2;
+                const mx = Math.max(s ^ s1, s2, s1 ^ s2);
+                const mn = Math.min(s ^ s1, s2, s1 ^ s2);
+                ans = Math.min(ans, mx - mn);
+            }
+        }
+        return res;
+    }
+    for (let i = 0; i < n; ++i) {
+        for (const j of g[i]) {
+            s1 = dfs(i, j);
+            dfs2(i, j);
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_score(nums: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
+        let n = nums.len();
+        let mut g = vec![vec![]; n];
+        for e in edges.iter() {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+        let mut s1 = 0;
+        let mut ans = i32::MAX;
+        let s = nums.iter().fold(0, |acc, &x| acc ^ x);
+
+        fn dfs(i: usize, fa: usize, g: &Vec<Vec<usize>>, nums: &Vec<i32>) -> i32 {
+            let mut res = nums[i];
+            for &j in &g[i] {
+                if j != fa {
+                    res ^= dfs(j, i, g, nums);
+                }
+            }
+            res
+        }
+
+        fn dfs2(
+            i: usize,
+            fa: usize,
+            g: &Vec<Vec<usize>>,
+            nums: &Vec<i32>,
+            s: i32,
+            s1: i32,
+            ans: &mut i32
+        ) -> i32 {
+            let mut res = nums[i];
+            for &j in &g[i] {
+                if j != fa {
+                    let s2 = dfs2(j, i, g, nums, s, s1, ans);
+                    res ^= s2;
+                    let mx = (s ^ s1).max(s2).max(s1 ^ s2);
+                    let mn = (s ^ s1).min(s2).min(s1 ^ s2);
+                    *ans = (*ans).min(mx - mn);
+                }
+            }
+            res
+        }
+
+        for i in 0..n {
+            for &j in &g[i] {
+                s1 = dfs(i, j, &g, &nums);
+                dfs2(i, j, &g, &nums, s, s1, &mut ans);
+            }
+        }
+        ans
+    }
 }
 ```
 

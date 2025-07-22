@@ -5,7 +5,7 @@ func mincostToHireWorkers(quality []int, wage []int, k int) float64 {
 	}
 	sort.Slice(t, func(i, j int) bool { return t[i].x < t[j].x })
 	tot := 0
-	var ans float64 = 1e9
+	var ans float64 = 1e18
 	pq := hp{}
 	for _, e := range t {
 		tot += e.q

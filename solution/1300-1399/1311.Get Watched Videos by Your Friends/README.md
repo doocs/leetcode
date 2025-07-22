@@ -79,7 +79,15 @@ C -&gt; 2
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：BFS
+
+我们可以使用广度优先搜索的方法，从 $\textit{id}$ 出发，找到所有距离为 $\textit{level}$ 的好友，然后统计这些好友观看的视频。
+
+具体地，我们可以使用一个队列 $\textit{q}$ 来存储当前层的好友，初始时将 $\textit{id}$ 加入队列 $\textit{q}$ 中，用一个哈希表或者布尔数组 $\textit{vis}$ 来记录已经访问过的好友，然后进行 $\textit{level}$ 次循环，每次循环将队列中的所有好友出队，并将他们的好友加入队列，直到找到所有距禒为 $\textit{level}$ 的好友。
+
+然后，我们使用一个哈希表 $\textit{cnt}$ 来统计这些好友观看的视频及其频率，最后将哈希表中的键值对按照频率升序排序，如果频率相同，则按照视频名称升序排序。最后返回排序后的视频名称列表。
+
+时间复杂度 $O(n + m + v \times \log v)$，空间复杂度 $O(n + v)$。其中 $n$ 和 $m$ 分别是数组 $\textit{watchedVideos}$ 和 $\textit{friends}$ 的长度，而 $v$ 是所有好友观看的视频数量。
 
 <!-- tabs:start -->
 
@@ -94,26 +102,20 @@ class Solution:
         id: int,
         level: int,
     ) -> List[str]:
-        n = len(friends)
-        vis = [False] * n
         q = deque([id])
-        vis[id] = True
+        vis = {id}
         for _ in range(level):
-            size = len(q)
-            for _ in range(size):
-                u = q.popleft()
-                for v in friends[u]:
-                    if not vis[v]:
-                        q.append(v)
-                        vis[v] = True
-        freq = Counter()
-        for _ in range(len(q)):
-            u = q.pop()
-            for w in watchedVideos[u]:
-                freq[w] += 1
-        videos = list(freq.items())
-        videos.sort(key=lambda x: (x[1], x[0]))
-        return [v[0] for v in videos]
+            for _ in range(len(q)):
+                i = q.popleft()
+                for j in friends[i]:
+                    if j not in vis:
+                        vis.add(j)
+                        q.append(j)
+        cnt = Counter()
+        for i in q:
+            for v in watchedVideos[i]:
+                cnt[v] += 1
+        return sorted(cnt.keys(), key=lambda k: (cnt[k], k))
 ```
 
 #### Java
@@ -122,44 +124,160 @@ class Solution:
 class Solution {
     public List<String> watchedVideosByFriends(
         List<List<String>> watchedVideos, int[][] friends, int id, int level) {
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(id);
         int n = friends.length;
         boolean[] vis = new boolean[n];
-        Deque<Integer> q = new LinkedList<>();
-        q.offerLast(id);
         vis[id] = true;
         while (level-- > 0) {
-            for (int i = q.size(); i > 0; --i) {
-                int u = q.pollFirst();
-                for (int v : friends[u]) {
-                    if (!vis[v]) {
-                        q.offerLast(v);
-                        vis[v] = true;
+            for (int k = q.size(); k > 0; --k) {
+                int i = q.poll();
+                for (int j : friends[i]) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        q.offer(j);
                     }
                 }
             }
         }
-        Map<String, Integer> freq = new HashMap<>();
-        while (!q.isEmpty()) {
-            for (String w : watchedVideos.get(q.pollFirst())) {
-                freq.put(w, freq.getOrDefault(w, 0) + 1);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (int i : q) {
+            for (var v : watchedVideos.get(i)) {
+                cnt.merge(v, 1, Integer::sum);
             }
         }
-        List<Map.Entry<String, Integer>> t = new ArrayList<>(freq.entrySet());
-        t.sort((a, b) -> {
-            if (a.getValue() > b.getValue()) {
-                return 1;
-            }
-            if (a.getValue() < b.getValue()) {
-                return -1;
-            }
-            return a.getKey().compareTo(b.getKey());
+        List<String> ans = new ArrayList<>(cnt.keySet());
+        ans.sort((a, b) -> {
+            int x = cnt.get(a), y = cnt.get(b);
+            return x == y ? a.compareTo(b) : Integer.compare(x, y);
         });
-        List<String> ans = new ArrayList<>();
-        for (Map.Entry<String, Integer> e : t) {
-            ans.add(e.getKey());
-        }
         return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> watchedVideosByFriends(vector<vector<string>>& watchedVideos, vector<vector<int>>& friends, int id, int level) {
+        queue<int> q{{id}};
+        int n = friends.size();
+        vector<bool> vis(n);
+        vis[id] = true;
+        while (level--) {
+            for (int k = q.size(); k; --k) {
+                int i = q.front();
+                q.pop();
+                for (int j : friends[i]) {
+                    if (!vis[j]) {
+                        vis[j] = true;
+                        q.push(j);
+                    }
+                }
+            }
+        }
+        unordered_map<string, int> cnt;
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            for (const auto& v : watchedVideos[i]) {
+                cnt[v]++;
+            }
+        }
+        vector<string> ans;
+        for (const auto& [key, _] : cnt) {
+            ans.push_back(key);
+        }
+        sort(ans.begin(), ans.end(), [&cnt](const string& a, const string& b) {
+            return cnt[a] == cnt[b] ? a < b : cnt[a] < cnt[b];
+        });
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func watchedVideosByFriends(watchedVideos [][]string, friends [][]int, id int, level int) []string {
+	q := []int{id}
+	n := len(friends)
+	vis := make([]bool, n)
+	vis[id] = true
+	for level > 0 {
+		level--
+		nextQ := []int{}
+		for _, i := range q {
+			for _, j := range friends[i] {
+				if !vis[j] {
+					vis[j] = true
+					nextQ = append(nextQ, j)
+				}
+			}
+		}
+		q = nextQ
+	}
+	cnt := make(map[string]int)
+	for _, i := range q {
+		for _, v := range watchedVideos[i] {
+			cnt[v]++
+		}
+	}
+	ans := []string{}
+	for key := range cnt {
+		ans = append(ans, key)
+	}
+	sort.Slice(ans, func(i, j int) bool {
+		if cnt[ans[i]] == cnt[ans[j]] {
+			return ans[i] < ans[j]
+		}
+		return cnt[ans[i]] < cnt[ans[j]]
+	})
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function watchedVideosByFriends(
+    watchedVideos: string[][],
+    friends: number[][],
+    id: number,
+    level: number,
+): string[] {
+    let q: number[] = [id];
+    const n: number = friends.length;
+    const vis: boolean[] = Array(n).fill(false);
+    vis[id] = true;
+    while (level-- > 0) {
+        const nq: number[] = [];
+        for (const i of q) {
+            for (const j of friends[i]) {
+                if (!vis[j]) {
+                    vis[j] = true;
+                    nq.push(j);
+                }
+            }
+        }
+        q = nq;
+    }
+    const cnt: { [key: string]: number } = {};
+    for (const i of q) {
+        for (const v of watchedVideos[i]) {
+            cnt[v] = (cnt[v] || 0) + 1;
+        }
+    }
+    const ans: string[] = Object.keys(cnt);
+    ans.sort((a, b) => {
+        if (cnt[a] === cnt[b]) {
+            return a.localeCompare(b);
+        }
+        return cnt[a] - cnt[b];
+    });
+    return ans;
 }
 ```
 

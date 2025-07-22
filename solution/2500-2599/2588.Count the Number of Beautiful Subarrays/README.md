@@ -29,11 +29,13 @@ tags:
 	<li>将 <code>nums[i]</code>&nbsp;和 <code>nums[j]</code>&nbsp;都减去&nbsp;<code>2<sup>k</sup></code>&nbsp;。</li>
 </ul>
 
-<p>如果一个子数组内执行上述操作若干次后，该子数组可以变成一个全为 <code>0</code>&nbsp;的数组，那么我们称它是一个 <strong>美丽</strong>&nbsp;的子数组。</p>
+<p>如果一个子数组内执行上述操作若干次（包括 0 次）后，该子数组可以变成一个全为 <code>0</code>&nbsp;的数组，那么我们称它是一个 <strong>美丽</strong>&nbsp;的子数组。</p>
 
 <p>请你返回数组 <code>nums</code>&nbsp;中 <strong>美丽子数组</strong>&nbsp;的数目。</p>
 
 <p>子数组是一个数组中一段连续 <strong>非空</strong>&nbsp;的元素序列。</p>
+
+<p><strong>注意：</strong>所有元素最初都是 0 的子数组被认为是美丽的，因为不需要进行任何操作。</p>
 
 <p>&nbsp;</p>
 
@@ -114,8 +116,7 @@ class Solution {
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt.getOrDefault(mask, 0);
-            cnt.merge(mask, 1, Integer::sum);
+            ans += cnt.merge(mask, 1, Integer::sum) - 1;
         }
         return ans;
     }
@@ -133,8 +134,7 @@ public:
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt[mask];
-            ++cnt[mask];
+            ans += cnt[mask]++;
         }
         return ans;
     }
@@ -170,6 +170,27 @@ function beautifulSubarrays(nums: number[]): number {
         cnt.set(mask, (cnt.get(mask) || 0) + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn beautiful_subarrays(nums: Vec<i32>) -> i64 {
+        let mut cnt = HashMap::new();
+        cnt.insert(0, 1);
+        let mut ans = 0;
+        let mut mask = 0;
+        for &x in nums.iter() {
+            mask ^= x;
+            ans += *cnt.get(&mask).unwrap_or(&0);
+            *cnt.entry(mask).or_insert(0) += 1;
+        }
+        ans
+    }
 }
 ```
 

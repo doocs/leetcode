@@ -182,21 +182,21 @@ function subsets(nums: number[]): number[][] {
 
 ```rust
 impl Solution {
-    fn dfs(i: usize, t: &mut Vec<i32>, res: &mut Vec<Vec<i32>>, nums: &Vec<i32>) {
+    fn dfs(i: usize, t: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>, nums: &Vec<i32>) {
         if i == nums.len() {
-            res.push(t.clone());
+            ans.push(t.clone());
             return;
         }
-        Self::dfs(i + 1, t, res, nums);
+        Self::dfs(i + 1, t, ans, nums);
         t.push(nums[i]);
-        Self::dfs(i + 1, t, res, nums);
+        Self::dfs(i + 1, t, ans, nums);
         t.pop();
     }
 
     pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        let mut res = Vec::new();
-        Self::dfs(0, &mut Vec::new(), &mut res, &nums);
-        res
+        let mut ans = Vec::new();
+        Self::dfs(0, &mut Vec::new(), &mut ans, &nums);
+        ans
     }
 }
 ```
@@ -309,26 +309,24 @@ function subsets(nums: number[]): number[][] {
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function subsets(nums: number[]): number[][] {
-    const res: number[][] = [[]];
-    for (const x of nums) {
-        res.push(...res.map(arr => [...arr, x]));
+```rust
+impl Solution {
+    pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let n = nums.len();
+        let mut ans = Vec::new();
+        for mask in 0..(1 << n) {
+            let mut t = Vec::new();
+            for i in 0..n {
+                if (mask >> i) & 1 == 1 {
+                    t.push(nums[i]);
+                }
+            }
+            ans.push(t);
+        }
+        ans
     }
-
-    return res;
 }
 ```
 

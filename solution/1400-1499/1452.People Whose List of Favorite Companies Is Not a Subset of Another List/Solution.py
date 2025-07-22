@@ -1,23 +1,17 @@
 class Solution:
     def peopleIndexes(self, favoriteCompanies: List[List[str]]) -> List[int]:
-        d = {}
         idx = 0
-        t = []
-        for v in favoriteCompanies:
-            for c in v:
-                if c not in d:
-                    d[c] = idx
+        d = {}
+        n = len(favoriteCompanies)
+        nums = [set() for _ in range(n)]
+        for i, ss in enumerate(favoriteCompanies):
+            for s in ss:
+                if s not in d:
+                    d[s] = idx
                     idx += 1
-            t.append({d[c] for c in v})
+                nums[i].add(d[s])
         ans = []
-        for i, nums1 in enumerate(t):
-            ok = True
-            for j, nums2 in enumerate(t):
-                if i == j:
-                    continue
-                if not (nums1 - nums2):
-                    ok = False
-                    break
-            if ok:
+        for i in range(n):
+            if not any(i != j and (nums[i] & nums[j]) == nums[i] for j in range(n)):
                 ans.append(i)
         return ans

@@ -1,24 +1,25 @@
 class Solution {
     public String reorderSpaces(String text) {
-        int cnt = 0;
+        int spaces = 0;
         for (char c : text.toCharArray()) {
             if (c == ' ') {
-                ++cnt;
+                ++spaces;
             }
         }
-        String[] words = text.split("\\s+");
-        List<String> res = new ArrayList<>();
-        for (String w : words) {
-            if (!"".equals(w)) {
-                res.add(w);
+        String[] words = text.trim().split("\\s+");
+        if (words.length == 1) {
+            return words[0] + " ".repeat(spaces);
+        }
+        int cnt = spaces / (words.length - 1);
+        int mod = spaces % (words.length - 1);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < words.length; ++i) {
+            sb.append(words[i]);
+            if (i < words.length - 1) {
+                sb.append(" ".repeat(cnt));
             }
         }
-        int m = res.size() - 1;
-        if (m == 0) {
-            return res.get(0) + " ".repeat(cnt);
-        }
-        String ans = String.join(" ".repeat(cnt / m), res);
-        ans += " ".repeat(cnt % m);
-        return ans;
+        sb.append(" ".repeat(mod));
+        return sb.toString();
     }
 }

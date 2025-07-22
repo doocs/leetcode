@@ -1,44 +1,41 @@
 func numDupDigitsAtMostN(n int) int {
-	return n - f(n)
-}
-
-func f(n int) int {
-	digits := []int{}
-	for n != 0 {
-		digits = append(digits, n%10)
-		n /= 10
-	}
-	m := len(digits)
-	vis := make([]bool, 10)
-	ans := 0
-	for i := 1; i < m; i++ {
-		ans += 9 * A(9, i-1)
-	}
-	for i := m - 1; i >= 0; i-- {
-		v := digits[i]
-		j := 0
-		if i == m-1 {
-			j = 1
+	s := []byte(strconv.Itoa(n))
+	m := len(s)
+	f := make([][]int, m)
+	for i := range f {
+		f[i] = make([]int, 1<<10)
+		for j := range f[i] {
+			f[i][j] = -1
 		}
-		for ; j < v; j++ {
-			if !vis[j] {
-				ans += A(10-(m-i), i)
+	}
+
+	var dfs func(i, mask int, lead, limit bool) int
+	dfs = func(i, mask int, lead, limit bool) int {
+		if i >= m {
+			if lead {
+				return 0
+			}
+			return 1
+		}
+		if !lead && !limit && f[i][mask] != -1 {
+			return f[i][mask]
+		}
+		up := 9
+		if limit {
+			up = int(s[i] - '0')
+		}
+		ans := 0
+		for j := 0; j <= up; j++ {
+			if lead && j == 0 {
+				ans += dfs(i+1, mask, true, limit && j == up)
+			} else if mask>>j&1 == 0 {
+				ans += dfs(i+1, mask|(1<<j), false, limit && j == up)
 			}
 		}
-		if vis[v] {
-			break
+		if !lead && !limit {
+			f[i][mask] = ans
 		}
-		vis[v] = true
-		if i == 0 {
-			ans++
-		}
+		return ans
 	}
-	return ans
-}
-
-func A(m, n int) int {
-	if n == 0 {
-		return 1
-	}
-	return A(m, n-1) * (m - n + 1)
+	return n - dfs(0, 0, true, true)
 }

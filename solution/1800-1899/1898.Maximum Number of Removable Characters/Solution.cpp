@@ -1,30 +1,32 @@
 class Solution {
 public:
     int maximumRemovals(string s, string p, vector<int>& removable) {
-        int left = 0, right = removable.size();
-        while (left < right) {
-            int mid = left + right + 1 >> 1;
-            if (check(s, p, removable, mid)) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left;
-    }
+        int m = s.size(), n = p.size();
+        int l = 0, r = removable.size();
+        bool rem[m];
 
-    bool check(string s, string p, vector<int>& removable, int mid) {
-        int m = s.size(), n = p.size(), i = 0, j = 0;
-        unordered_set<int> ids;
-        for (int k = 0; k < mid; ++k) {
-            ids.insert(removable[k]);
-        }
-        while (i < m && j < n) {
-            if (ids.count(i) == 0 && s[i] == p[j]) {
-                ++j;
+        auto check = [&](int k) {
+            memset(rem, false, sizeof(rem));
+            for (int i = 0; i < k; i++) {
+                rem[removable[i]] = true;
             }
-            ++i;
+            int i = 0, j = 0;
+            while (i < m && j < n) {
+                if (!rem[i] && s[i] == p[j]) {
+                    ++j;
+                }
+                ++i;
+            }
+            return j == n;
+        };
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
         }
-        return j == n;
+        return l;
     }
 };

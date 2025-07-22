@@ -122,32 +122,348 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：字典树 + DFS
+
+我们可以使用字典树来存储文件夹的结构，字典树的每个节点数据如下：
+
+-   `children`：一个字典，键为子文件夹的名称，值为对应的子节点。
+-   `deleted`：一个布尔值，表示该节点是否被标记为待删除。
+
+我们将所有路径插入到字典树中，然后使用 DFS 遍历字典树，构建每个子树的字符串表示。对于每个子树，如果它的字符串表示已经存在于一个全局字典中，则将该节点和全局字典中的对应节点都标记为待删除。最后，再次使用 DFS 遍历字典树，将未被标记的节点的路径添加到结果列表中。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Trie:
+    def __init__(self):
+        self.children: Dict[str, "Trie"] = defaultdict(Trie)
+        self.deleted: bool = False
 
+
+class Solution:
+    def deleteDuplicateFolder(self, paths: List[List[str]]) -> List[List[str]]:
+        root = Trie()
+        for path in paths:
+            cur = root
+            for name in path:
+                if cur.children[name] is None:
+                    cur.children[name] = Trie()
+                cur = cur.children[name]
+
+        g: Dict[str, Trie] = {}
+
+        def dfs(node: Trie) -> str:
+            if not node.children:
+                return ""
+            subs: List[str] = []
+            for name, child in node.children.items():
+                subs.append(f"{name}({dfs(child)})")
+            s = "".join(sorted(subs))
+            if s in g:
+                node.deleted = g[s].deleted = True
+            else:
+                g[s] = node
+            return s
+
+        def dfs2(node: Trie) -> None:
+            if node.deleted:
+                return
+            if path:
+                ans.append(path[:])
+            for name, child in node.children.items():
+                path.append(name)
+                dfs2(child)
+                path.pop()
+
+        dfs(root)
+        ans: List[List[str]] = []
+        path: List[str] = []
+        dfs2(root)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Trie {
+    Map<String, Trie> children;
+    boolean deleted;
 
+    public Trie() {
+        children = new HashMap<>();
+        deleted = false;
+    }
+}
+
+class Solution {
+    public List<List<String>> deleteDuplicateFolder(List<List<String>> paths) {
+        Trie root = new Trie();
+        for (List<String> path : paths) {
+            Trie cur = root;
+            for (String name : path) {
+                if (!cur.children.containsKey(name)) {
+                    cur.children.put(name, new Trie());
+                }
+                cur = cur.children.get(name);
+            }
+        }
+
+        Map<String, Trie> g = new HashMap<>();
+
+        var dfs = new Function<Trie, String>() {
+            @Override
+            public String apply(Trie node) {
+                if (node.children.isEmpty()) {
+                    return "";
+                }
+                List<String> subs = new ArrayList<>();
+                for (var entry : node.children.entrySet()) {
+                    subs.add(entry.getKey() + "(" + apply(entry.getValue()) + ")");
+                }
+                Collections.sort(subs);
+                String s = String.join("", subs);
+                if (g.containsKey(s)) {
+                    node.deleted = true;
+                    g.get(s).deleted = true;
+                } else {
+                    g.put(s, node);
+                }
+                return s;
+            }
+        };
+
+        dfs.apply(root);
+
+        List<List<String>> ans = new ArrayList<>();
+        List<String> path = new ArrayList<>();
+
+        var dfs2 = new Function<Trie, Void>() {
+            @Override
+            public Void apply(Trie node) {
+                if (node.deleted) {
+                    return null;
+                }
+                if (!path.isEmpty()) {
+                    ans.add(new ArrayList<>(path));
+                }
+                for (Map.Entry<String, Trie> entry : node.children.entrySet()) {
+                    path.add(entry.getKey());
+                    apply(entry.getValue());
+                    path.remove(path.size() - 1);
+                }
+                return null;
+            }
+        };
+
+        dfs2.apply(root);
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Trie {
+public:
+    unordered_map<string, Trie*> children;
+    bool deleted = false;
+};
 
+class Solution {
+public:
+    vector<vector<string>> deleteDuplicateFolder(vector<vector<string>>& paths) {
+        Trie* root = new Trie();
+
+        for (auto& path : paths) {
+            Trie* cur = root;
+            for (auto& name : path) {
+                if (cur->children.find(name) == cur->children.end()) {
+                    cur->children[name] = new Trie();
+                }
+                cur = cur->children[name];
+            }
+        }
+
+        unordered_map<string, Trie*> g;
+
+        auto dfs = [&](this auto&& dfs, Trie* node) -> string {
+            if (node->children.empty()) return "";
+
+            vector<string> subs;
+            for (auto& child : node->children) {
+                subs.push_back(child.first + "(" + dfs(child.second) + ")");
+            }
+            sort(subs.begin(), subs.end());
+            string s = "";
+            for (auto& sub : subs) s += sub;
+
+            if (g.contains(s)) {
+                node->deleted = true;
+                g[s]->deleted = true;
+            } else {
+                g[s] = node;
+            }
+            return s;
+        };
+
+        dfs(root);
+
+        vector<vector<string>> ans;
+        vector<string> path;
+
+        auto dfs2 = [&](this auto&& dfs2, Trie* node) -> void {
+            if (node->deleted) return;
+            if (!path.empty()) {
+                ans.push_back(path);
+            }
+            for (auto& child : node->children) {
+                path.push_back(child.first);
+                dfs2(child.second);
+                path.pop_back();
+            }
+        };
+
+        dfs2(root);
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type Trie struct {
+	children map[string]*Trie
+	deleted  bool
+}
 
+func NewTrie() *Trie {
+	return &Trie{
+		children: make(map[string]*Trie),
+	}
+}
+
+func deleteDuplicateFolder(paths [][]string) (ans [][]string) {
+	root := NewTrie()
+	for _, path := range paths {
+		cur := root
+		for _, name := range path {
+			if _, exists := cur.children[name]; !exists {
+				cur.children[name] = NewTrie()
+			}
+			cur = cur.children[name]
+		}
+	}
+
+	g := make(map[string]*Trie)
+
+	var dfs func(*Trie) string
+	dfs = func(node *Trie) string {
+		if len(node.children) == 0 {
+			return ""
+		}
+		var subs []string
+		for name, child := range node.children {
+			subs = append(subs, name+"("+dfs(child)+")")
+		}
+		sort.Strings(subs)
+		s := strings.Join(subs, "")
+		if existingNode, exists := g[s]; exists {
+			node.deleted = true
+			existingNode.deleted = true
+		} else {
+			g[s] = node
+		}
+		return s
+	}
+
+	var dfs2 func(*Trie, []string)
+	dfs2 = func(node *Trie, path []string) {
+		if node.deleted {
+			return
+		}
+		if len(path) > 0 {
+			ans = append(ans, append([]string{}, path...))
+		}
+		for name, child := range node.children {
+			dfs2(child, append(path, name))
+		}
+	}
+
+	dfs(root)
+	dfs2(root, []string{})
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function deleteDuplicateFolder(paths: string[][]): string[][] {
+    class Trie {
+        children: { [key: string]: Trie } = {};
+        deleted: boolean = false;
+    }
+
+    const root = new Trie();
+
+    for (const path of paths) {
+        let cur = root;
+        for (const name of path) {
+            if (!cur.children[name]) {
+                cur.children[name] = new Trie();
+            }
+            cur = cur.children[name];
+        }
+    }
+
+    const g: { [key: string]: Trie } = {};
+
+    const dfs = (node: Trie): string => {
+        if (Object.keys(node.children).length === 0) return '';
+
+        const subs: string[] = [];
+        for (const [name, child] of Object.entries(node.children)) {
+            subs.push(`${name}(${dfs(child)})`);
+        }
+        subs.sort();
+        const s = subs.join('');
+
+        if (g[s]) {
+            node.deleted = true;
+            g[s].deleted = true;
+        } else {
+            g[s] = node;
+        }
+        return s;
+    };
+
+    dfs(root);
+
+    const ans: string[][] = [];
+    const path: string[] = [];
+
+    const dfs2 = (node: Trie): void => {
+        if (node.deleted) return;
+        if (path.length > 0) {
+            ans.push([...path]);
+        }
+        for (const [name, child] of Object.entries(node.children)) {
+            path.push(name);
+            dfs2(child);
+            path.pop();
+        }
+    };
+
+    dfs2(root);
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

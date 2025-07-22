@@ -67,9 +67,9 @@ tags:
 
 ### 方法一：头插法
 
-创建虚拟头节点 $dummy$，遍历链表，将每个节点依次插入 $dummy$ 的下一个节点。遍历结束，返回 $dummy.next$。
+我们创建一个虚拟头节点 $\textit{dummy}$，然后遍历链表，将每个节点依次插入 $\textit{dummy}$ 的下一个节点。遍历结束，返回 $\textit{dummy.next}$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
+时间复杂度 $O(n)$，其中 $n$ 为链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -279,15 +279,15 @@ var reverseList = function (head) {
  */
 public class Solution {
     public ListNode ReverseList(ListNode head) {
-        ListNode pre = null;
-        for (ListNode p = head; p != null;)
-        {
-            ListNode t = p.next;
-            p.next = pre;
-            pre = p;
-            p = t;
+        ListNode dummy = new ListNode();
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = dummy.next;
+            dummy.next = curr;
+            curr = next;
         }
-        return pre;
+        return dummy.next;
     }
 }
 ```
@@ -462,6 +462,33 @@ impl Solution {
 
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         Self::rev(None, head)
+    }
+}
+```
+
+#### C#
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode ans = ReverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return ans;
     }
 }
 ```

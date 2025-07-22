@@ -66,7 +66,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+如果 $n$ 是负数，那么我们要找到第一个大于 $x$ 的位置，然后在这个位置插入 $x$；如果 $n$ 是正数，那么我们要找到第一个小于 $x$ 的位置，然后在这个位置插入 $x$。
+
+时间复杂度 $O(m)$，其中 $m$ 为 $n$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -75,16 +79,15 @@ tags:
 ```python
 class Solution:
     def maxValue(self, n: str, x: int) -> str:
-        if n[0] != '-':
-            for i, c in enumerate(n):
-                if int(c) < x:
-                    return n[:i] + str(x) + n[i:]
-            return n + str(x)
+        i = 0
+        if n[0] == "-":
+            i += 1
+            while i < len(n) and int(n[i]) <= x:
+                i += 1
         else:
-            for i, c in enumerate(n[1:]):
-                if int(c) > x:
-                    return n[: i + 1] + str(x) + n[i + 1 :]
-            return n + str(x)
+            while i < len(n) and int(n[i]) >= x:
+                i += 1
+        return n[:i] + str(x) + n[i:]
 ```
 
 #### Java
@@ -93,12 +96,15 @@ class Solution:
 class Solution {
     public String maxValue(String n, int x) {
         int i = 0;
-        if (n.charAt(0) != '-') {
-            for (; i < n.length() && n.charAt(i) - '0' >= x; ++i)
-                ;
+        if (n.charAt(0) == '-') {
+            ++i;
+            while (i < n.length() && n.charAt(i) - '0' <= x) {
+                ++i;
+            }
         } else {
-            for (i = 1; i < n.length() && n.charAt(i) - '0' <= x; ++i)
-                ;
+            while (i < n.length() && n.charAt(i) - '0' >= x) {
+                ++i;
+            }
         }
         return n.substring(0, i) + x + n.substring(i);
     }
@@ -112,13 +118,18 @@ class Solution {
 public:
     string maxValue(string n, int x) {
         int i = 0;
-        if (n[0] != '-')
-            for (; i < n.size() && n[i] - '0' >= x; ++i)
-                ;
-        else
-            for (i = 1; i < n.size() && n[i] - '0' <= x; ++i)
-                ;
-        return n.substr(0, i) + to_string(x) + n.substr(i);
+        if (n[0] == '-') {
+            ++i;
+            while (i < n.size() && n[i] - '0' <= x) {
+                ++i;
+            }
+        } else {
+            while (i < n.size() && n[i] - '0' >= x) {
+                ++i;
+            }
+        }
+        n.insert(i, 1, x + '0');
+        return n;
     }
 };
 ```
@@ -129,14 +140,62 @@ public:
 func maxValue(n string, x int) string {
 	i := 0
 	y := byte('0' + x)
-	if n[0] != '-' {
-		for ; i < len(n) && n[i] >= y; i++ {
+	if n[0] == '-' {
+		i++
+		for i < len(n) && n[i] <= y {
+			i++
 		}
 	} else {
-		for i = 1; i < len(n) && n[i] <= y; i++ {
+		for i < len(n) && n[i] >= y {
+			i++
 		}
 	}
 	return n[:i] + string(y) + n[i:]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxValue(n: string, x: number): string {
+    let i = 0;
+    if (n[0] === '-') {
+        i++;
+        while (i < n.length && +n[i] <= x) {
+            i++;
+        }
+    } else {
+        while (i < n.length && +n[i] >= x) {
+            i++;
+        }
+    }
+    return n.slice(0, i) + x + n.slice(i);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_value(n: String, x: i32) -> String {
+        let s = n.as_bytes();
+        let mut i = 0;
+        if n.starts_with('-') {
+            i += 1;
+            while i < s.len() && (s[i] - b'0') as i32 <= x {
+                i += 1;
+            }
+        } else {
+            while i < s.len() && (s[i] - b'0') as i32 >= x {
+                i += 1;
+            }
+        }
+        let mut ans = String::new();
+        ans.push_str(&n[0..i]);
+        ans.push_str(&x.to_string());
+        ans.push_str(&n[i..]);
+        ans
+    }
 }
 ```
 
@@ -149,18 +208,18 @@ func maxValue(n string, x int) string {
  * @return {string}
  */
 var maxValue = function (n, x) {
-    let nums = [...n];
-    let sign = 1,
-        i = 0;
-    if (nums[0] == '-') {
-        sign = -1;
+    let i = 0;
+    if (n[0] === '-') {
         i++;
+        while (i < n.length && +n[i] <= x) {
+            i++;
+        }
+    } else {
+        while (i < n.length && +n[i] >= x) {
+            i++;
+        }
     }
-    while (i < n.length && (nums[i] - x) * sign >= 0) {
-        i++;
-    }
-    nums.splice(i, 0, x);
-    return nums.join('');
+    return n.slice(0, i) + x + n.slice(i);
 };
 ```
 

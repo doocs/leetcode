@@ -86,7 +86,7 @@ tags:
 
 注意，过程中的状态数值可能会很大，因此需要对 $10^9+7$ 取模。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为面板的列数。
+时间复杂度 $O(n)$，其中 $n$ 为面板的列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -95,28 +95,16 @@ tags:
 ```python
 class Solution:
     def numTilings(self, n: int) -> int:
-        @cache
-        def dfs(i, j):
-            if i > n or j > n:
-                return 0
-            if i == n and j == n:
-                return 1
-            ans = 0
-            if i == j:
-                ans = (
-                    dfs(i + 2, j + 2)
-                    + dfs(i + 1, j + 1)
-                    + dfs(i + 2, j + 1)
-                    + dfs(i + 1, j + 2)
-                )
-            elif i > j:
-                ans = dfs(i, j + 2) + dfs(i + 1, j + 2)
-            else:
-                ans = dfs(i + 2, j) + dfs(i + 2, j + 1)
-            return ans % mod
-
+        f = [1, 0, 0, 0]
         mod = 10**9 + 7
-        return dfs(0, 0)
+        for i in range(1, n + 1):
+            g = [0] * 4
+            g[0] = (f[0] + f[1] + f[2] + f[3]) % mod
+            g[1] = (f[2] + f[3]) % mod
+            g[2] = (f[1] + f[3]) % mod
+            g[3] = f[0]
+            f = g
+        return f[0]
 ```
 
 #### Java
@@ -144,12 +132,11 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int numTilings(int n) {
-        long f[4] = {1, 0, 0, 0};
+        const int mod = 1e9 + 7;
+        long long f[4] = {1, 0, 0, 0};
         for (int i = 1; i <= n; ++i) {
-            long g[4] = {0, 0, 0, 0};
+            long long g[4];
             g[0] = (f[0] + f[1] + f[2] + f[3]) % mod;
             g[1] = (f[2] + f[3]) % mod;
             g[2] = (f[1] + f[3]) % mod;
@@ -180,31 +167,44 @@ func numTilings(n int) int {
 }
 ```
 
-<!-- tabs:end -->
+#### TypeScript
 
-<!-- solution:end -->
+```ts
+function numTilings(n: number): number {
+    const mod = 1_000_000_007;
+    let f: number[] = [1, 0, 0, 0];
 
-<!-- solution:start -->
+    for (let i = 1; i <= n; ++i) {
+        const g: number[] = Array(4);
+        g[0] = (f[0] + f[1] + f[2] + f[3]) % mod;
+        g[1] = (f[2] + f[3]) % mod;
+        g[2] = (f[1] + f[3]) % mod;
+        g[3] = f[0] % mod;
+        f = g;
+    }
 
-### 方法二
+    return f[0];
+}
+```
 
-<!-- tabs:start -->
+#### Rust
 
-#### Python3
-
-```python
-class Solution:
-    def numTilings(self, n: int) -> int:
-        f = [1, 0, 0, 0]
-        mod = 10**9 + 7
-        for i in range(1, n + 1):
-            g = [0] * 4
-            g[0] = (f[0] + f[1] + f[2] + f[3]) % mod
-            g[1] = (f[2] + f[3]) % mod
-            g[2] = (f[1] + f[3]) % mod
-            g[3] = f[0]
-            f = g
-        return f[0]
+```rust
+impl Solution {
+    pub fn num_tilings(n: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let mut f: [i64; 4] = [1, 0, 0, 0];
+        for _ in 1..=n {
+            let mut g = [0i64; 4];
+            g[0] = (f[0] + f[1] + f[2] + f[3]) % MOD;
+            g[1] = (f[2] + f[3]) % MOD;
+            g[2] = (f[1] + f[3]) % MOD;
+            g[3] = f[0] % MOD;
+            f = g;
+        }
+        f[0] as i32
+    }
+}
 ```
 
 <!-- tabs:end -->

@@ -80,7 +80,37 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: State Compression + BFS
+
+According to the problem description, we need to start from the initial position, move in four directions (up, down, left, right), collect all keys, and finally return the minimum number of moves required to collect all keys. If it is not possible to collect all keys, return $-1$.
+
+First, we traverse the 2D grid to find the starting position $(si, sj)$ and count the number of keys $k$.
+
+Then, we can use Breadth-First Search (BFS) to solve this problem. Since the number of keys ranges from $1$ to $6$, we can use a binary number to represent the state of the keys, where the $i$-th bit being $1$ indicates that the $i$-th key has been collected, and $0$ indicates that the $i$-th key has not been collected.
+
+For example, in the following case, there are $4$ bits set to $1$, indicating that keys `'b', 'c', 'd', 'f'` have been collected.
+
+```
+1 0 1 1 1 0
+^   ^ ^ ^
+f   d c b
+```
+
+We define a queue $q$ to store the current position and the state of the collected keys, i.e., $(i, j, \textit{state})$, where $(i, j)$ represents the current position, and $\textit{state}$ represents the state of the collected keys. The $i$-th bit of $\textit{state}$ being $1$ indicates that the $i$-th key has been collected; otherwise, it indicates that the $i$-th key has not been collected.
+
+Additionally, we define a hash table or array $vis$ to record whether the current position and the state of the collected keys have been visited. If visited, there is no need to visit again. $vis[i][j][\textit{state}]$ indicates whether the position $(i, j)$ and the state of the collected keys $state$ have been visited.
+
+We start from the initial position $(si, sj)$, add it to the queue $q$, and set $vis[si][sj][0]$ to $true$, indicating that the initial position and the state of the collected keys $0$ have been visited.
+
+During the BFS process, we take out a position $(i, j, \textit{state})$ from the front of the queue and check whether the current position is the endpoint, i.e., whether the current position has collected all keys, which means the number of $1$s in the binary representation of $state$ is $k$. If so, we return the current number of steps as the answer.
+
+Otherwise, we move from the current position in four directions (up, down, left, right). If we can move to the next position $(x, y)$, we add $(x, y, nxt)$ to the queue $q$, where $nxt$ represents the state of the keys at the next position.
+
+Here, $(x, y)$ must first be within the grid range, i.e., $0 \leq x < m$ and $0 \leq y < n$. Secondly, if the position $(x, y)$ is a wall, i.e., `grid[x][y] == '#'`, or the position $(x, y)$ is a lock but we do not have the corresponding key, i.e., `grid[x][y] >= 'A' && grid[x][y] <= 'F' && (state >> (grid[x][y] - 'A') & 1) == 0)`, then we cannot move to the position $(x, y)`. Otherwise, we can move to the position $(x, y)`.
+
+If the search ends and we have not collected all keys, return $-1$.
+
+The time complexity is $O(m \times n \times 2^k)$, and the space complexity is $O(m \times n \times 2^k)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively, and $k$ is the number of keys.
 
 <!-- tabs:start -->
 
@@ -90,9 +120,9 @@ tags:
 class Solution:
     def shortestPathAllKeys(self, grid: List[str]) -> int:
         m, n = len(grid), len(grid[0])
-        # 找起点 (si, sj)
+        # Find the starting point (si, sj)
         si, sj = next((i, j) for i in range(m) for j in range(n) if grid[i][j] == '@')
-        # 统计钥匙数量
+        # Count the number of keys
         k = sum(v.islower() for row in grid for v in row)
         dirs = (-1, 0, 1, 0, -1)
         q = deque([(si, sj, 0)])
@@ -101,33 +131,33 @@ class Solution:
         while q:
             for _ in range(len(q)):
                 i, j, state = q.popleft()
-                # 找到所有钥匙，返回当前步数
+                # If all keys are found, return the current step count
                 if state == (1 << k) - 1:
                     return ans
 
-                # 往四个方向搜索
+                # Search in the four directions
                 for a, b in pairwise(dirs):
                     x, y = i + a, j + b
                     nxt = state
-                    # 在边界范围内
+                    # Within boundary limits
                     if 0 <= x < m and 0 <= y < n:
                         c = grid[x][y]
-                        # 是墙，或者是锁，但此时没有对应的钥匙，无法通过
+                        # It's a wall, or it's a lock but we don't have the key for it
                         if (
                             c == '#'
                             or c.isupper()
                             and (state & (1 << (ord(c) - ord('A')))) == 0
                         ):
                             continue
-                        # 是钥匙
+                        # It's a key
                         if c.islower():
-                            # 更新状态
+                            # Update the state
                             nxt |= 1 << (ord(c) - ord('a'))
-                        # 此状态未访问过，入队
+                        # If this state has not been visited, enqueue it
                         if (x, y, nxt) not in vis:
                             vis.add((x, y, nxt))
                             q.append((x, y, nxt))
-            # 步数加一
+            # Increment the step count
             ans += 1
         return -1
 ```
@@ -146,10 +176,10 @@ class Solution {
             for (int j = 0; j < n; ++j) {
                 char c = grid[i].charAt(j);
                 if (Character.isLowerCase(c)) {
-                    // 累加钥匙数量
+                    // Count the number of keys
                     ++k;
                 } else if (c == '@') {
-                    // 起点
+                    // Starting point
                     si = i;
                     sj = j;
                 }
@@ -164,28 +194,28 @@ class Solution {
             for (int t = q.size(); t > 0; --t) {
                 var p = q.poll();
                 int i = p[0], j = p[1], state = p[2];
-                // 找到所有钥匙，返回当前步数
+                // If all keys are found, return the current step count
                 if (state == (1 << k) - 1) {
                     return ans;
                 }
-                // 往四个方向搜索
+                // Search in the four directions
                 for (int h = 0; h < 4; ++h) {
                     int x = i + dirs[h], y = j + dirs[h + 1];
-                    // 在边界范围内
+                    // Within boundary limits
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x].charAt(y);
-                        // 是墙，或者是锁，但此时没有对应的钥匙，无法通过
+                        // It's a wall, or it's a lock without the corresponding key
                         if (c == '#'
                             || (Character.isUpperCase(c) && ((state >> (c - 'A')) & 1) == 0)) {
                             continue;
                         }
                         int nxt = state;
-                        // 是钥匙
+                        // If it's a key
                         if (Character.isLowerCase(c)) {
-                            // 更新状态
+                            // Update the state
                             nxt |= 1 << (c - 'a');
                         }
-                        // 此状态未访问过，入队
+                        // If this state has not been visited, enqueue it
                         if (!vis[x][y][nxt]) {
                             vis[x][y][nxt] = true;
                             q.offer(new int[] {x, y, nxt});
@@ -193,7 +223,7 @@ class Solution {
                     }
                 }
             }
-            // 步数加一
+            // Increment the step count
             ++ans;
         }
         return -1;
@@ -215,9 +245,9 @@ public:
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 char c = grid[i][j];
-                // 累加钥匙数量
+                // Count the number of keys
                 if (islower(c)) ++k;
-                // 起点
+                // Starting point
                 else if (c == '@')
                     si = i, sj = j;
             }
@@ -230,20 +260,20 @@ public:
             for (int t = q.size(); t; --t) {
                 auto [i, j, state] = q.front();
                 q.pop();
-                // 找到所有钥匙，返回当前步数
+                // If all keys are found, return the current step count
                 if (state == (1 << k) - 1) return ans;
-                // 往四个方向搜索
+                // Search in the four directions
                 for (int h = 0; h < 4; ++h) {
                     int x = i + dirs[h], y = j + dirs[h + 1];
-                    // 在边界范围内
+                    // Within boundary limits
                     if (x >= 0 && x < m && y >= 0 && y < n) {
                         char c = grid[x][y];
-                        // 是墙，或者是锁，但此时没有对应的钥匙，无法通过
+                        // It's a wall, or it's a lock without the corresponding key
                         if (c == '#' || (isupper(c) && (state >> (c - 'A') & 1) == 0)) continue;
                         int nxt = state;
-                        // 是钥匙，更新状态
+                        // If it's a key, update the state
                         if (islower(c)) nxt |= 1 << (c - 'a');
-                        // 此状态未访问过，入队
+                        // If this state has not been visited, enqueue it
                         if (!vis[x][y][nxt]) {
                             vis[x][y][nxt] = true;
                             q.push({x, y, nxt});
@@ -251,7 +281,7 @@ public:
                     }
                 }
             }
-            // 步数加一
+            // Increment the step count
             ++ans;
         }
         return -1;
@@ -268,10 +298,10 @@ func shortestPathAllKeys(grid []string) int {
 	for i, row := range grid {
 		for j, c := range row {
 			if c >= 'a' && c <= 'z' {
-				// 累加钥匙数量
+				// Count the number of keys
 				k++
 			} else if c == '@' {
-				// 起点
+				// Starting point
 				si, sj = i, j
 			}
 		}
@@ -286,26 +316,26 @@ func shortestPathAllKeys(grid []string) int {
 			p := q[0]
 			q = q[1:]
 			i, j, state := p.i, p.j, p.state
-			// 找到所有钥匙，返回当前步数
+			// If all keys are found, return the current step count
 			if state == 1<<k-1 {
 				return ans
 			}
-			// 往四个方向搜索
+			// Search in the four directions
 			for h := 0; h < 4; h++ {
 				x, y := i+dirs[h], j+dirs[h+1]
-				// 在边界范围内
+				// Within boundary limits
 				if x >= 0 && x < m && y >= 0 && y < n {
 					c := grid[x][y]
-					// 是墙，或者是锁，但此时没有对应的钥匙，无法通过
+					// It's a wall, or it's a lock without the corresponding key
 					if c == '#' || (c >= 'A' && c <= 'Z' && (state>>(c-'A')&1 == 0)) {
 						continue
 					}
 					nxt := state
-					// 是钥匙，更新状态
+					// If it's a key, update the state
 					if c >= 'a' && c <= 'z' {
 						nxt |= 1 << (c - 'a')
 					}
-					// 此状态未访问过，入队
+					// If this state has not been visited, enqueue it
 					if !vis[tuple{x, y, nxt}] {
 						vis[tuple{x, y, nxt}] = true
 						q = append(q, tuple{x, y, nxt})
@@ -313,7 +343,7 @@ func shortestPathAllKeys(grid []string) int {
 				}
 			}
 		}
-		// 步数加一
+		// Increment the step count
 		ans++
 	}
 	return -1

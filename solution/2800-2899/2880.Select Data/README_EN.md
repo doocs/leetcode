@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2880.Select%20Data/README_EN.md
+tags:
+    - Pandas
 ---
 
 <!-- problem:start -->

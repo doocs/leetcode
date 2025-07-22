@@ -4,6 +4,7 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md
 tags:
     - Math
+    - String
     - Enumeration
 ---
 

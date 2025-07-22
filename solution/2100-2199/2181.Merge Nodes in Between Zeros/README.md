@@ -69,7 +69,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们定义一个虚拟头节点 $\textit{dummy}$，以及一个指向当前节点的指针 $\textit{tail}$，一个变量 $\textit{s}$ 用来记录当前节点的值之和。
+
+接下来，我们从链表的第二个节点开始遍历，如果当前节点的值不为 0，我们将其加到 $\textit{s}$ 上，否则我们将 $\textit{s}$ 加到 $\textit{tail}$ 的后面，并将 $\textit{s}$ 置为 0，更新 $\textit{tail}$ 为 $\textit{tail}$ 的下一个节点。
+
+最后，我们返回 $\textit{dummy}$ 的下一个节点。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为链表的长度。
 
 <!-- tabs:start -->
 
@@ -87,7 +95,7 @@ class Solution:
         s = 0
         cur = head.next
         while cur:
-            if cur.val != 0:
+            if cur.val:
                 s += cur.val
             else:
                 tail.next = ListNode(s)
@@ -149,9 +157,9 @@ public:
         ListNode* tail = dummy;
         int s = 0;
         for (ListNode* cur = head->next; cur; cur = cur->next) {
-            if (cur->val)
+            if (cur->val) {
                 s += cur->val;
-            else {
+            } else {
                 tail->next = new ListNode(s);
                 tail = tail->next;
                 s = 0;
@@ -206,16 +214,16 @@ func mergeNodes(head *ListNode) *ListNode {
 
 function mergeNodes(head: ListNode | null): ListNode | null {
     const dummy = new ListNode();
-    let cur = dummy;
-    let sum = 0;
-    while (head) {
-        if (head.val === 0 && sum !== 0) {
-            cur.next = new ListNode(sum);
-            cur = cur.next;
-            sum = 0;
+    let tail = dummy;
+    let s = 0;
+    for (let cur = head.next; cur; cur = cur.next) {
+        if (cur.val) {
+            s += cur.val;
+        } else {
+            tail.next = new ListNode(s);
+            tail = tail.next;
+            s = 0;
         }
-        sum += head.val;
-        head = head.next;
     }
     return dummy.next;
 }
@@ -241,20 +249,24 @@ function mergeNodes(head: ListNode | null): ListNode | null {
 //   }
 // }
 impl Solution {
-    pub fn merge_nodes(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut dummy = Box::new(ListNode::new(-1));
-        let mut cur = &mut dummy;
-        let mut sum = 0;
-        while let Some(node) = head {
-            if node.val == 0 && sum != 0 {
-                cur.next = Some(Box::new(ListNode::new(sum)));
-                cur = cur.as_mut().next.as_mut().unwrap();
-                sum = 0;
+    pub fn merge_nodes(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut dummy = Box::new(ListNode::new(0));
+        let mut tail = &mut dummy;
+        let mut s = 0;
+        let mut cur = head.unwrap().next;
+
+        while let Some(mut node) = cur {
+            if node.val != 0 {
+                s += node.val;
+            } else {
+                tail.next = Some(Box::new(ListNode::new(s)));
+                tail = tail.next.as_mut().unwrap();
+                s = 0;
             }
-            sum += node.val;
-            head = node.next;
+            cur = node.next.take();
         }
-        dummy.next.take()
+
+        dummy.next
     }
 }
 ```

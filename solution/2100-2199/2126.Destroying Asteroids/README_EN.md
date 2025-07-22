@@ -66,7 +66,13 @@ This is less than 23, so a collision would not destroy the last asteroid.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Greedy
+
+According to the problem description, we can sort the asteroids by mass in ascending order, and then iterate through the asteroids. If the planet's mass is less than the asteroid's mass, the planet will be destroyed, and we return `false`. Otherwise, the planet will gain the mass of the asteroid.
+
+If all asteroids can be destroyed, return `true`.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the number of asteroids.
 
 <!-- tabs:start -->
 
@@ -76,10 +82,10 @@ This is less than 23, so a collision would not destroy the last asteroid.</pre>
 class Solution:
     def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
         asteroids.sort()
-        for v in asteroids:
-            if mass < v:
+        for x in asteroids:
+            if mass < x:
                 return False
-            mass += v
+            mass += x
         return True
 ```
 
@@ -90,11 +96,11 @@ class Solution {
     public boolean asteroidsDestroyed(int mass, int[] asteroids) {
         Arrays.sort(asteroids);
         long m = mass;
-        for (int v : asteroids) {
-            if (m < v) {
+        for (int x : asteroids) {
+            if (m < x) {
                 return false;
             }
-            m += v;
+            m += x;
         }
         return true;
     }
@@ -107,11 +113,13 @@ class Solution {
 class Solution {
 public:
     bool asteroidsDestroyed(int mass, vector<int>& asteroids) {
-        sort(asteroids.begin(), asteroids.end());
+        ranges::sort(asteroids);
         long long m = mass;
-        for (int v : asteroids) {
-            if (m < v) return false;
-            m += v;
+        for (int x : asteroids) {
+            if (m < x) {
+                return false;
+            }
+            m += x;
         }
         return true;
     }
@@ -122,13 +130,12 @@ public:
 
 ```go
 func asteroidsDestroyed(mass int, asteroids []int) bool {
-	m := mass
 	sort.Ints(asteroids)
-	for _, v := range asteroids {
-		if m < v {
+	for _, x := range asteroids {
+		if mass < x {
 			return false
 		}
-		m += v
+		mass += x
 	}
 	return true
 }
@@ -139,14 +146,52 @@ func asteroidsDestroyed(mass int, asteroids []int) bool {
 ```ts
 function asteroidsDestroyed(mass: number, asteroids: number[]): boolean {
     asteroids.sort((a, b) => a - b);
-
     for (const x of asteroids) {
-        if (mass < x) return false;
+        if (mass < x) {
+            return false;
+        }
         mass += x;
     }
-
     return true;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn asteroids_destroyed(mass: i32, mut asteroids: Vec<i32>) -> bool {
+        let mut mass = mass as i64;
+        asteroids.sort_unstable();
+        for &x in &asteroids {
+            if mass < x as i64 {
+                return false;
+            }
+            mass += x as i64;
+        }
+        true
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} mass
+ * @param {number[]} asteroids
+ * @return {boolean}
+ */
+var asteroidsDestroyed = function (mass, asteroids) {
+    asteroids.sort((a, b) => a - b);
+    for (const x of asteroids) {
+        if (mass < x) {
+            return false;
+        }
+        mass += x;
+    }
+    return true;
+};
 ```
 
 <!-- tabs:end -->

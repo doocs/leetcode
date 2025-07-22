@@ -1,12 +1,22 @@
 class Solution {
 public:
     int findMinFibonacciNumbers(int k) {
-        if (k < 2) return k;
         int a = 1, b = 1;
         while (b <= k) {
-            b = a + b;
-            a = b - a;
+            int c = a + b;
+            a = b;
+            b = c;
         }
-        return 1 + findMinFibonacciNumbers(k - a);
+        int ans = 0;
+        while (k > 0) {
+            if (k >= b) {
+                k -= b;
+                ++ans;
+            }
+            int c = b - a;
+            b = a;
+            a = c;
+        }
+        return ans;
     }
 };

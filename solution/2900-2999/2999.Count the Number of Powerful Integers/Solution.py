@@ -1,7 +1,7 @@
 class Solution:
     def numberOfPowerfulInt(self, start: int, finish: int, limit: int, s: str) -> int:
         @cache
-        def dfs(pos: int, lim: int):
+        def dfs(pos: int, lim: int) -> int:
             if len(t) < n:
                 return 0
             if len(t) - pos == n:

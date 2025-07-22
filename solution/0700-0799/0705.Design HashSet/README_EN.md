@@ -65,7 +65,13 @@ myHashSet.contains(2); // return False, (already removed)</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Static Array Implementation
+
+Directly create an array of size $1000001$, initially with each element set to `false`, indicating that the element does not exist in the hash set.
+
+When adding an element to the hash set, set the corresponding position in the array to `true`; when deleting an element, set the corresponding position in the array to `false`; when checking if an element exists, directly return the value at the corresponding position in the array.
+
+The time complexity of the above operations is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -227,7 +233,9 @@ class MyHashSet {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Array of Linked Lists
+
+We can also create an array of size $SIZE=1000$, where each position in the array is a linked list.
 
 <!-- tabs:start -->
 

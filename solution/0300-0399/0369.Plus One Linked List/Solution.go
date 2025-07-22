@@ -15,10 +15,8 @@ func plusOne(head *ListNode) *ListNode {
 		head = head.Next
 	}
 	target.Val++
-	target = target.Next
-	for target != nil {
+	for target = target.Next; target != nil; target = target.Next {
 		target.Val = 0
-		target = target.Next
 	}
 	if dummy.Val == 1 {
 		return dummy

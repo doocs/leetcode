@@ -1,7 +1,7 @@
 function kInversePairs(n: number, k: number): number {
-    const f: number[] = new Array(k + 1).fill(0);
+    const f: number[] = Array(k + 1).fill(0);
     f[0] = 1;
-    const s: number[] = new Array(k + 2).fill(1);
+    const s: number[] = Array(k + 2).fill(1);
     s[0] = 0;
     const mod: number = 1e9 + 7;
     for (let i = 1; i <= n; ++i) {

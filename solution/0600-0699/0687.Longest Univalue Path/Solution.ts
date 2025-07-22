@@ -13,26 +13,17 @@
  */
 
 function longestUnivaluePath(root: TreeNode | null): number {
-    if (root == null) {
-        return 0;
-    }
-
-    let res = 0;
-    const dfs = (root: TreeNode | null, target: number) => {
-        if (root == null) {
+    let ans: number = 0;
+    const dfs = (root: TreeNode | null): number => {
+        if (!root) {
             return 0;
         }
-
-        const { val, left, right } = root;
-
-        let l = dfs(left, val);
-        let r = dfs(right, val);
-        res = Math.max(res, l + r);
-        if (val === target) {
-            return Math.max(l, r) + 1;
-        }
-        return 0;
+        let [l, r] = [dfs(root.left), dfs(root.right)];
+        l = root.left && root.left.val === root.val ? l + 1 : 0;
+        r = root.right && root.right.val === root.val ? r + 1 : 0;
+        ans = Math.max(ans, l + r);
+        return Math.max(l, r);
     };
-    dfs(root, root.val);
-    return res;
+    dfs(root);
+    return ans;
 }

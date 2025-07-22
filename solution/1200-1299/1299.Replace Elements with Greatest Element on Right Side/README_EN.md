@@ -59,7 +59,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Reverse Traversal
+
+We use a variable $mx$ to record the maximum value to the right of the current position, initially $mx = -1$.
+
+Then we traverse the array from right to left. For each position $i$, we denote the current value as $x$, update the current position's value to $mx$, and then update $mx = \max(mx, x)$.
+
+Finally, return the original array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -68,11 +76,11 @@ tags:
 ```python
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
-        m = -1
-        for i in range(len(arr) - 1, -1, -1):
-            t = arr[i]
-            arr[i] = m
-            m = max(m, t)
+        mx = -1
+        for i in reversed(range(len(arr))):
+            x = arr[i]
+            arr[i] = mx
+            mx = max(mx, x)
         return arr
 ```
 
@@ -81,13 +89,55 @@ class Solution:
 ```java
 class Solution {
     public int[] replaceElements(int[] arr) {
-        for (int i = arr.length - 1, max = -1; i >= 0; --i) {
-            int t = arr[i];
-            arr[i] = max;
-            max = Math.max(max, t);
+        for (int i = arr.length - 1, mx = -1; i >= 0; --i) {
+            int x = arr[i];
+            arr[i] = mx;
+            mx = Math.max(mx, x);
         }
         return arr;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        for (int i = arr.size() - 1, mx = -1; ~i; --i) {
+            int x = arr[i];
+            arr[i] = mx;
+            mx = max(mx, x);
+        }
+        return arr;
+    }
+};
+```
+
+#### Go
+
+```go
+func replaceElements(arr []int) []int {
+	for i, mx := len(arr)-1, -1; i >= 0; i-- {
+		x := arr[i]
+		arr[i] = mx
+		mx = max(mx, x)
+	}
+	return arr
+}
+```
+
+#### TypeScript
+
+```ts
+function replaceElements(arr: number[]): number[] {
+    for (let i = arr.length - 1, mx = -1; ~i; --i) {
+        const x = arr[i];
+        arr[i] = mx;
+        mx = Math.max(mx, x);
+    }
+    return arr;
 }
 ```
 

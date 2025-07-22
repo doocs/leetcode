@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2472.Ma
 rating: 2013
 source: Weekly Contest 319 Q4
 tags:
+    - Greedy
+    - Two Pointers
     - String
     - Dynamic Programming
 ---

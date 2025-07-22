@@ -1,14 +1,14 @@
-func maximumSubsequenceCount(text string, pattern string) int64 {
-	ans := 0
-	cnt := make([]int, 26)
-	a, b := pattern[0], pattern[1]
-	for i := range text {
-		c := text[i]
-		if c == b {
-			ans += cnt[a-'a']
+func maximumSubsequenceCount(text string, pattern string) (ans int64) {
+	x, y := 0, 0
+	for _, c := range text {
+		if byte(c) == pattern[1] {
+			y++
+			ans += int64(x)
 		}
-		cnt[c-'a']++
+		if byte(c) == pattern[0] {
+			x++
+		}
 	}
-	ans += max(cnt[a-'a'], cnt[b-'a'])
-	return int64(ans)
+	ans += int64(max(x, y))
+	return
 }

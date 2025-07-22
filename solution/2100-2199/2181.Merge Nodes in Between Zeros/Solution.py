@@ -9,7 +9,7 @@ class Solution:
         s = 0
         cur = head.next
         while cur:
-            if cur.val != 0:
+            if cur.val:
                 s += cur.val
             else:
                 tail.next = ListNode(s)

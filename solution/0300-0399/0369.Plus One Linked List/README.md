@@ -57,13 +57,13 @@ tags:
 
 ### 方法一：链表遍历
 
-我们先设置一个虚拟头节点 `dummy`，初始值为 $0$，指向链表头节点 `head`。
+我们先设置一个虚拟头节点 $\textit{dummy}$，初始时 $\textit{dummy}$ 的值为 $0$，并且 $\textit{dummy}$ 的后继节点为链表 $\textit{head}$。
 
-然后从链表头节点开始遍历，找出链表最后一个值不等于 $9$ 的节点 `target`，将 `target` 的值加 $1$。接着将 `target` 之后的所有节点值置为 $0$。
+接下来，我们从虚拟头节点开始遍历链表，找到最后一个不为 $9$ 的节点，将其值加 $1$，并将该节点之后的所有节点的值置为 $0$。
 
-需要注意的是，如果链表中所有节点值都为 $9$，那么遍历结束后，`target` 会指向空节点，这时我们需要将 `dummy` 的值加 $1$，然后返回 `dummy`，否则返回 `dummy` 的下一个节点。
+最后，我们判断虚拟头节点的值是否为 $1$，如果为 $1$，则返回 $\textit{dummy}$，否则返回 $\textit{dummy}$ 的后继节点。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
+时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -76,7 +76,7 @@ tags:
 #         self.val = val
 #         self.next = next
 class Solution:
-    def plusOne(self, head: ListNode) -> ListNode:
+    def plusOne(self, head: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(0, head)
         target = dummy
         while head:
@@ -143,17 +143,16 @@ public:
     ListNode* plusOne(ListNode* head) {
         ListNode* dummy = new ListNode(0, head);
         ListNode* target = dummy;
-        while (head) {
-            if (head->val != 9) target = head;
-            head = head->next;
+        for (; head; head = head->next) {
+            if (head->val != 9) {
+                target = head;
+            }
         }
-        ++target->val;
-        target = target->next;
-        while (target) {
+        target->val++;
+        for (target = target->next; target; target = target->next) {
             target->val = 0;
-            target = target->next;
         }
-        return dummy->val == 1 ? dummy : dummy->next;
+        return dummy->val ? dummy : dummy->next;
     }
 };
 ```
@@ -178,15 +177,45 @@ func plusOne(head *ListNode) *ListNode {
 		head = head.Next
 	}
 	target.Val++
-	target = target.Next
-	for target != nil {
+	for target = target.Next; target != nil; target = target.Next {
 		target.Val = 0
-		target = target.Next
 	}
 	if dummy.Val == 1 {
 		return dummy
 	}
 	return dummy.Next
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function plusOne(head: ListNode | null): ListNode | null {
+    const dummy = new ListNode(0, head);
+    let target = dummy;
+    while (head) {
+        if (head.val !== 9) {
+            target = head;
+        }
+        head = head.next;
+    }
+    target.val++;
+    for (target = target.next; target; target = target.next) {
+        target.val = 0;
+    }
+    return dummy.val ? dummy : dummy.next;
 }
 ```
 

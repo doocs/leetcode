@@ -1,20 +1,17 @@
 impl Solution {
-    #[allow(dead_code)]
     pub fn max_dot_product(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
-        let n = nums1.len();
-        let m = nums2.len();
-        let mut dp = vec![vec![i32::MIN; m + 1]; n + 1];
+        let m = nums1.len();
+        let n = nums2.len();
+        let mut f = vec![vec![i32::MIN; n + 1]; m + 1];
 
-        // Begin the actual dp process
-        for i in 1..=n {
-            for j in 1..=m {
-                dp[i][j] = std::cmp::max(
-                    std::cmp::max(dp[i - 1][j], dp[i][j - 1]),
-                    std::cmp::max(dp[i - 1][j - 1], 0) + nums1[i - 1] * nums2[j - 1],
-                );
+        for i in 1..=m {
+            for j in 1..=n {
+                let v = nums1[i - 1] * nums2[j - 1];
+                f[i][j] = f[i][j].max(f[i - 1][j]).max(f[i][j - 1]);
+                f[i][j] = f[i][j].max(f[i - 1][j - 1].max(0) + v);
             }
         }
 
-        dp[n][m]
+        f[m][n]
     }
 }

@@ -1,33 +1,23 @@
 use std::collections::BTreeMap;
 
 struct MyCalendar {
-    bt: BTreeMap<i32, i32>,
+    tm: BTreeMap<i32, i32>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MyCalendar {
     fn new() -> Self {
         MyCalendar {
-            bt: BTreeMap::new(),
+            tm: BTreeMap::new(),
         }
     }
 
-    fn book(&mut self, start: i32, end: i32) -> bool {
-        if let Some((_, &val)) = self.bt.range(..=start).last() {
-            println!("{} {} {}", start, end, val);
-            if val > start {
+    fn book(&mut self, start_time: i32, end_time: i32) -> bool {
+        if let Some((&key, &value)) = self.tm.range(start_time + 1..).next() {
+            if value < end_time {
                 return false;
             }
         }
-        if let Some((&key, _)) = self.bt.range(start..).next() {
-            if key < end {
-                return false;
-            }
-        }
-        self.bt.insert(start, end);
+        self.tm.insert(end_time, start_time);
         true
     }
 }

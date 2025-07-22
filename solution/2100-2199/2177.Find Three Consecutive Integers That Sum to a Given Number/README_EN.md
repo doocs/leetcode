@@ -52,7 +52,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+Assume the three consecutive integers are $x-1$, $x$, and $x+1$. Their sum is $3x$, so $\textit{num}$ must be a multiple of $3$. If $\textit{num}$ is not a multiple of $3$, it cannot be represented as the sum of three consecutive integers, and we return an empty array. Otherwise, let $x = \frac{\textit{num}}{3}$, then $x-1$, $x$, and $x+1$ are the three consecutive integers whose sum is $\textit{num}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -116,6 +120,36 @@ function sumOfThree(num: number): number[] {
     const x = Math.floor(num / 3);
     return [x - 1, x, x + 1];
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_of_three(num: i64) -> Vec<i64> {
+        if num % 3 != 0 {
+            return Vec::new();
+        }
+        let x = num / 3;
+        vec![x - 1, x, x + 1]
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number[]}
+ */
+var sumOfThree = function (num) {
+    if (num % 3) {
+        return [];
+    }
+    const x = Math.floor(num / 3);
+    return [x - 1, x, x + 1];
+};
 ```
 
 <!-- tabs:end -->

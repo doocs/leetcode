@@ -71,7 +71,13 @@ Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+We design a function $\text{dfs}$ to calculate the sum of nodes in the subtree rooted at the current node. In the $\text{dfs}$ function, we first check if the current node is null. If it is, we return 0. Then we recursively call the $\text{dfs}$ function to calculate the sum of nodes in the left subtree $l$ and the sum of nodes in the right subtree $r$. Next, we calculate the tilt of the current node, which is $|l - r|$, and add it to the answer. Finally, we return the sum of nodes of the current node, which is $l + r + \textit{root.val}$.
+
+In the main function, we initialize the answer to 0, then call the $\text{dfs}$ function to calculate the tilt of the entire tree and return the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -85,19 +91,17 @@ Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findTilt(self, root: TreeNode) -> int:
-        ans = 0
-
-        def sum(root):
+    def findTilt(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode]) -> int:
             if root is None:
                 return 0
+            l, r = dfs(root.left), dfs(root.right)
             nonlocal ans
-            left = sum(root.left)
-            right = sum(root.right)
-            ans += abs(left - right)
-            return root.val + left + right
+            ans += abs(l - r)
+            return l + r + root.val
 
-        sum(root)
+        ans = 0
+        dfs(root)
         return ans
 ```
 
@@ -123,19 +127,17 @@ class Solution {
     private int ans;
 
     public int findTilt(TreeNode root) {
-        ans = 0;
-        sum(root);
+        dfs(root);
         return ans;
     }
 
-    private int sum(TreeNode root) {
+    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int left = sum(root.left);
-        int right = sum(root.right);
-        ans += Math.abs(left - right);
-        return root.val + left + right;
+        int l = dfs(root.left), r = dfs(root.right);
+        ans += Math.abs(l - r);
+        return l + r + root.val;
     }
 }
 ```
@@ -156,19 +158,18 @@ class Solution {
  */
 class Solution {
 public:
-    int ans;
-
     int findTilt(TreeNode* root) {
-        ans = 0;
-        sum(root);
+        int ans = 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> int {
+            if (!root) {
+                return 0;
+            }
+            int l = dfs(root->left), r = dfs(root->right);
+            ans += abs(l - r);
+            return l + r + root->val;
+        };
+        dfs(root);
         return ans;
-    }
-
-    int sum(TreeNode* root) {
-        if (!root) return 0;
-        int left = sum(root->left), right = sum(root->right);
-        ans += abs(left - right);
-        return root->val + left + right;
     }
 };
 ```
@@ -184,28 +185,57 @@ public:
  *     Right *TreeNode
  * }
  */
-var ans int
-
-func findTilt(root *TreeNode) int {
-	ans = 0
-	sum(root)
-	return ans
-}
-
-func sum(root *TreeNode) int {
-	if root == nil {
-		return 0
+func findTilt(root *TreeNode) (ans int) {
+	var dfs func(*TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		ans += abs(l - r)
+		return l + r + root.Val
 	}
-	left, right := sum(root.Left), sum(root.Right)
-	ans += abs(left - right)
-	return root.Val + left + right
+	dfs(root)
+	return
 }
 
 func abs(x int) int {
-	if x > 0 {
-		return x
+	if x < 0 {
+		return -x
 	}
-	return -x
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function findTilt(root: TreeNode | null): number {
+    let ans: number = 0;
+    const dfs = (root: TreeNode | null): number => {
+        if (!root) {
+            return 0;
+        }
+        const [l, r] = [dfs(root.left), dfs(root.right)];
+        ans += Math.abs(l - r);
+        return l + r + root.val;
+    };
+    dfs(root);
+    return ans;
 }
 ```
 

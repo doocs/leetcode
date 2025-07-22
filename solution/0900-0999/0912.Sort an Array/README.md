@@ -25,6 +25,8 @@ tags:
 
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你将该数组升序排列。</p>
 
+<p>你必须在 <strong>不使用任何内置函数</strong> 的情况下解决问题，时间复杂度为 <code>O(nlog(n))</code>，并且空间复杂度尽可能小。</p>
+
 <p>&nbsp;</p>
 
 <ol>
@@ -35,6 +37,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [5,2,3,1]
 <strong>输出：</strong>[1,2,3,5]
+<strong>解释：</strong>数组排序后，某些数字的位置没有改变（例如，2 和 3），而其他数字的位置发生了改变（例如，1 和 5）。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -42,6 +45,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [5,1,1,2,0,0]
 <strong>输出：</strong>[0,0,1,1,2,5]
+<strong>解释：</strong>请注意，nums 的值不一定唯一。
 </pre>
 
 <p>&nbsp;</p>
@@ -250,6 +254,76 @@ var sortArray = function (nums) {
     quickSort(0, n - 1);
     return nums;
 };
+```
+
+#### Rust
+
+```rs
+impl Solution {
+    pub fn sort_array(mut nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        Self::quick_sort(&mut nums, 0, n - 1);
+        return nums;
+    }
+
+    fn quick_sort(nums: &mut Vec<i32>, left: usize, right: usize) {
+        if left >= right {
+            return;
+        }
+        let mut i = left as i32 - 1;
+        let mut j = right as i32 + 1;
+        let pivot = nums[left];
+        while i < j {
+            loop {
+                i += 1;
+                if nums[i as usize] >= pivot {
+                    break;
+                }
+            }
+            loop {
+                j -= 1;
+                if nums[j as usize] <= pivot {
+                    break;
+                }
+            }
+            if i < j {
+                nums.swap(i as usize, j as usize);
+            }
+        }
+        Self::quick_sort(nums, left, j as usize);
+        Self::quick_sort(nums, j as usize + 1, right);
+    }
+}
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun sortArray(nums: IntArray): IntArray {
+        fun quickSort(left: Int, right: Int) {
+            if (left >= right) {
+                return
+            }
+            var i = left - 1
+            var j = right + 1
+            val pivot = nums[left]
+            while (i < j) {
+                while (nums[++i] < pivot) ;
+                while (nums[--j] > pivot) ;
+                if (i < j) {
+                    val temp = nums[i]
+                    nums[i] = nums[j]
+                    nums[j] = temp
+                }
+            }
+            quickSort(left, j)
+            quickSort(j + 1, right)
+        }
+        quickSort(0, nums.size - 1)
+        return nums
+    }
+}
 ```
 
 <!-- tabs:end -->

@@ -62,7 +62,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+如果数字是 $0$，或者数字的个位不是 $0$，那么反转两次后的数字一定和原数字相等。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -101,6 +105,36 @@ public:
 func isSameAfterReversals(num int) bool {
 	return num == 0 || num%10 != 0
 }
+```
+
+#### TypeScript
+
+```ts
+function isSameAfterReversals(num: number): boolean {
+    return num === 0 || num % 10 !== 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_same_after_reversals(num: i32) -> bool {
+        num == 0 || num % 10 != 0
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isSameAfterReversals = function (num) {
+    return num === 0 || num % 10 !== 0;
+};
 ```
 
 <!-- tabs:end -->

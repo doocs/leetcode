@@ -48,6 +48,7 @@ tags:
 	<li><code>text</code> 中的所有单词之间都由 <strong>单个空格字符</strong> 分隔</li>
 	<li><code>1 &lt;= first.length, second.length &lt;= 10</code></li>
 	<li><code>first</code> 和&nbsp;<code>second</code>&nbsp;由小写英文字母组成</li>
+	<li><code>text</code>&nbsp;不包含任何前缀或尾随空格。</li>
 </ul>
 
 <!-- description:end -->

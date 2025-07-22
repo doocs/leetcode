@@ -118,11 +118,12 @@ The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. He
 ```python
 class Solution:
     def getWordsInLongestSubsequence(
-        self, n: int, words: List[str], groups: List[int]
+        self, words: List[str], groups: List[int]
     ) -> List[str]:
         def check(s: str, t: str) -> bool:
             return len(s) == len(t) and sum(a != b for a, b in zip(s, t)) == 1
 
+        n = len(groups)
         f = [1] * n
         g = [-1] * n
         mx = 1
@@ -147,7 +148,8 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+    public List<String> getWordsInLongestSubsequence(String[] words, int[] groups) {
+        int n = groups.length;
         int[] f = new int[n];
         int[] g = new int[n];
         Arrays.fill(f, 1);
@@ -195,7 +197,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+    vector<string> getWordsInLongestSubsequence(vector<string>& words, vector<int>& groups) {
         auto check = [](string& s, string& t) {
             if (s.size() != t.size()) {
                 return false;
@@ -206,6 +208,7 @@ public:
             }
             return cnt == 1;
         };
+        int n = groups.size();
         vector<int> f(n, 1);
         vector<int> g(n, -1);
         int mx = 1;
@@ -236,7 +239,7 @@ public:
 #### Go
 
 ```go
-func getWordsInLongestSubsequence(n int, words []string, groups []int) []string {
+func getWordsInLongestSubsequence(words []string, groups []int) []string {
 	check := func(s, t string) bool {
 		if len(s) != len(t) {
 			return false
@@ -249,6 +252,7 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 		}
 		return cnt == 1
 	}
+	n := len(groups)
 	f := make([]int, n)
 	g := make([]int, n)
 	for i := range f {
@@ -276,9 +280,7 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 			break
 		}
 	}
-	for i, j := 0, len(ans)-1; i < j; i, j = i+1, j-1 {
-		ans[i], ans[j] = ans[j], ans[i]
-	}
+	slices.Reverse(ans)
 	return ans
 }
 ```
@@ -286,7 +288,8 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) []string 
 #### TypeScript
 
 ```ts
-function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
+function getWordsInLongestSubsequence(words: string[], groups: number[]): string[] {
+    const n = groups.length;
     const f: number[] = Array(n).fill(1);
     const g: number[] = Array(n).fill(-1);
     let mx = 1;
@@ -328,16 +331,12 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
 
 ```rust
 impl Solution {
-    pub fn get_words_in_longest_subsequence(
-        n: i32,
-        words: Vec<String>,
-        groups: Vec<i32>,
-    ) -> Vec<String> {
+    pub fn get_words_in_longest_subsequence(words: Vec<String>, groups: Vec<i32>) -> Vec<String> {
         fn check(s: &str, t: &str) -> bool {
             s.len() == t.len() && s.chars().zip(t.chars()).filter(|(a, b)| a != b).count() == 1
         }
 
-        let n = n as usize;
+        let n = groups.len();
 
         let mut f = vec![1; n];
         let mut g = vec![-1; n];
@@ -371,68 +370,6 @@ impl Solution {
 
         ans.reverse();
         ans
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Dynamic Programming + Hash Table
-
-In Solution 1, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
-    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
-        int[] dp = new int[n];
-        int[] next = new int[n];
-        Map<String, List<Integer>> strToIdxMap = new HashMap<>();
-        int maxIdx = n;
-        for (int i = n - 1; i >= 0; i--) {
-            int prevIdx = n;
-            char[] word = words[i].toCharArray();
-            for (int j = 0; j < word.length; j++) {
-                // convert word to pattern with '*'.
-                char temp = word[j];
-                word[j] = '*';
-                String curr = new String(word);
-
-                // search matches and update dp.
-                List<Integer> prevList = strToIdxMap.getOrDefault(curr, List.of());
-                for (int prev : prevList) {
-                    if (groups[prev] == groups[i] || dp[prev] < dp[i]) {
-                        continue;
-                    }
-                    dp[i] = dp[prev] + 1;
-                    prevIdx = prev;
-                }
-
-                // append current pattern to dictionary.
-                strToIdxMap.computeIfAbsent(curr, k -> new ArrayList<>()).add(i);
-
-                // restore pattern to orignal word.
-                word[j] = temp;
-            }
-            if (maxIdx >= n || dp[i] > dp[maxIdx]) {
-                maxIdx = i;
-            }
-            next[i] = prevIdx;
-        }
-        int curr = maxIdx;
-        List<String> ans = new ArrayList<>();
-        while (curr < n) {
-            ans.add(words[curr]);
-            curr = next[curr];
-        }
-        return ans;
     }
 }
 ```

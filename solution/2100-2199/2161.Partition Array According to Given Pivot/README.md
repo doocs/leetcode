@@ -27,7 +27,7 @@ tags:
 	<li>所有等于&nbsp;<code>pivot</code>&nbsp;的元素都出现在小于和大于 <code>pivot</code>&nbsp;的元素 <strong>中间</strong>&nbsp;。</li>
 	<li>小于 <code>pivot</code>&nbsp;的元素之间和大于 <code>pivot</code>&nbsp;的元素之间的 <strong>相对顺序</strong>&nbsp;不发生改变。
 	<ul>
-		<li>更正式的，考虑每一对&nbsp;<code>p<sub>i</sub></code>，<code>p<sub>j</sub></code>&nbsp;，<code>p<sub>i</sub></code>&nbsp;是初始时位置 <code>i</code>&nbsp;元素的新位置，<code>p<sub>j</sub></code>&nbsp;是初始时位置&nbsp;<code>j</code>&nbsp;元素的新位置。对于小于&nbsp;<code>pivot</code>&nbsp;的元素，如果&nbsp;<code>i &lt; j</code>&nbsp;且&nbsp;<code>nums[i] &lt; pivot</code> 和&nbsp;<code>nums[j] &lt; pivot</code>&nbsp;都成立，那么&nbsp;<code>p<sub>i</sub> &lt; p<sub>j</sub></code>&nbsp;也成立。类似的，对于大于&nbsp;<code>pivot</code>&nbsp;的元素，如果&nbsp;<code>i &lt; j</code> 且&nbsp;<code>nums[i] &gt; pivot</code> 和&nbsp;<code>nums[j] &gt; pivot</code>&nbsp;都成立，那么&nbsp;<code>p<sub>i</sub> &lt; p<sub>j</sub></code>&nbsp;。</li>
+		<li>更正式的，考虑每一对&nbsp;<code>p<sub>i</sub></code>，<code>p<sub>j</sub></code>&nbsp;，<code>p<sub>i</sub></code>&nbsp;是初始时位置 <code>i</code>&nbsp;元素的新位置，<code>p<sub>j</sub></code>&nbsp;是初始时位置&nbsp;<code>j</code>&nbsp;元素的新位置。如果&nbsp;<code>i &lt; j</code> 且两个元素&nbsp;<strong>都</strong>&nbsp;小于（或大于）<code>pivot</code>，那么&nbsp;<code>p<sub>i</sub> &lt; p<sub>j</sub></code>&nbsp;。</li>
 	</ul>
 	</li>
 </ul>
@@ -38,7 +38,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>nums = [9,12,5,10,14,3,10], pivot = 10
+<pre>
+<b>输入：</b>nums = [9,12,5,10,14,3,10], pivot = 10
 <b>输出：</b>[9,5,3,10,10,12,14]
 <b>解释：</b>
 元素 9 ，5 和 3 小于 pivot ，所以它们在数组的最左边。
@@ -48,7 +49,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [-3,4,3,2], pivot = 2
+<pre>
+<b>输入：</b>nums = [-3,4,3,2], pivot = 2
 <b>输出：</b>[-3,2,4,3]
 <b>解释：</b>
 元素 -3 小于 pivot ，所以在数组的最左边。
@@ -72,7 +74,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以遍历数组 $\textit{nums}$，按顺序找出所有小于 $\textit{pivot}$ 的元素，所有等于 $\textit{pivot}$ 的元素，以及所有大于 $\textit{pivot}$ 的元素，然后将它们按照题目要求的顺序拼接起来。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -127,12 +133,21 @@ class Solution {
 public:
     vector<int> pivotArray(vector<int>& nums, int pivot) {
         vector<int> ans;
-        for (int& x : nums)
-            if (x < pivot) ans.push_back(x);
-        for (int& x : nums)
-            if (x == pivot) ans.push_back(x);
-        for (int& x : nums)
-            if (x > pivot) ans.push_back(x);
+        for (int& x : nums) {
+            if (x < pivot) {
+                ans.push_back(x);
+            }
+        }
+        for (int& x : nums) {
+            if (x == pivot) {
+                ans.push_back(x);
+            }
+        }
+        for (int& x : nums) {
+            if (x > pivot) {
+                ans.push_back(x);
+            }
+        }
         return ans;
     }
 };
@@ -159,6 +174,71 @@ func pivotArray(nums []int, pivot int) []int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function pivotArray(nums: number[], pivot: number): number[] {
+    const ans: number[] = [];
+    for (const x of nums) {
+        if (x < pivot) {
+            ans.push(x);
+        }
+    }
+        if (x === pivot) {
+            ans.push(x);
+        }
+    }
+    for (const x of nums) {
+        if (x > pivot) {
+            ans.push(x);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：双指针
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function pivotArray(nums: number[], pivot: number): number[] {
+    const n = nums.length;
+    const res = Array(n).fill(pivot);
+
+    for (let i = 0, l = 0, j = n - 1, r = n - 1; i < n; i++, j--) {
+        if (nums[i] < pivot) res[l++] = nums[i];
+        if (nums[j] > pivot) res[r--] = nums[j];
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function pivotArray(nums, pivot) {
+    const n = nums.length;
+    const res = Array(n).fill(pivot);
+
+    for (let i = 0, l = 0, j = n - 1, r = n - 1; i < n; i++, j--) {
+        if (nums[i] < pivot) res[l++] = nums[i];
+        if (nums[j] > pivot) res[r--] = nums[j];
+    }
+
+    return res;
 }
 ```
 

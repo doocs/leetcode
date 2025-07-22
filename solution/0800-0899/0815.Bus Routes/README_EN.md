@@ -64,7 +64,27 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+First, we check if $\textit{source}$ and $\textit{target}$ are the same. If they are, we directly return $0$.
+
+Next, we use a hash table $\textit{g}$ to build a mapping from stops to bus routes. For each bus route, we traverse all the stops it passes through and map each stop to that bus route, i.e., $\textit{g}[\textit{stop}]$ represents all bus routes passing through stop $\textit{stop}$.
+
+Then, we check if $\textit{source}$ and $\textit{target}$ are in the stop mapping. If they are not, we return $-1$.
+
+We use a queue $\textit{q}$ to perform a breadth-first search (BFS). Each element in the queue is a tuple $(\textit{stop}, \textit{busCount})$, representing the current stop $\textit{stop}$ and the number of buses taken to reach the current stop $\textit{busCount}$.
+
+We initialize a set $\textit{visBus}$ to record the bus routes that have been visited and a set $\textit{visStop}$ to record the stops that have been visited. Then, we add $\textit{source}$ to $\textit{visStop}$ and $(\textit{source}, 0)$ to the queue $\textit{q}$.
+
+Next, we start the BFS. While the queue $\textit{q}$ is not empty, we take out the first element from the queue, which is the current stop $\textit{stop}$ and the number of buses taken to reach the current stop $\textit{busCount}$.
+
+If the current stop $\textit{stop}$ is the target stop $\textit{target}$, we return the number of buses taken to reach the target stop $\textit{busCount}$.
+
+Otherwise, we traverse all bus routes passing through the current stop. For each bus route, we traverse all stops on that route. If a stop $\textit{nextStop}$ has not been visited, we add it to $\textit{visStop}$ and add $(\textit{nextStop}, \textit{busCount} + 1)$ to the queue $\textit{q}$.
+
+Finally, if we cannot reach the target stop, we return $-1$.
+
+The time complexity is $O(L)$, and the space complexity is $O(L)$, where $L$ is the total number of stops on all bus routes.
 
 <!-- tabs:start -->
 
@@ -77,37 +97,25 @@ class Solution:
     ) -> int:
         if source == target:
             return 0
-
-        # 一条公交线路有哪些公交站
-        s = [set(r) for r in routes]
-
-        # 一个公交站在哪些公交线路有
-        d = defaultdict(list)
-        for i, r in enumerate(routes):
-            for v in r:
-                d[v].append(i)
-
         g = defaultdict(list)
-        for ids in d.values():
-            m = len(ids)
-            for i in range(m):
-                for j in range(i + 1, m):
-                    a, b = ids[i], ids[j]
-                    g[a].append(b)
-                    g[b].append(a)
-        q = deque(d[source])
-        ans = 1
-        vis = set(d[source])
-        while q:
-            for _ in range(len(q)):
-                i = q.popleft()
-                if target in s[i]:
-                    return ans
-                for j in g[i]:
-                    if j not in vis:
-                        vis.add(j)
-                        q.append(j)
-            ans += 1
+        for i, route in enumerate(routes):
+            for stop in route:
+                g[stop].append(i)
+        if source not in g or target not in g:
+            return -1
+        q = [(source, 0)]
+        vis_bus = set()
+        vis_stop = {source}
+        for stop, bus_count in q:
+            if stop == target:
+                return bus_count
+            for bus in g[stop]:
+                if bus not in vis_bus:
+                    vis_bus.add(bus)
+                    for next_stop in routes[bus]:
+                        if next_stop not in vis_stop:
+                            vis_stop.add(next_stop)
+                            q.append((next_stop, bus_count + 1))
         return -1
 ```
 
@@ -119,50 +127,42 @@ class Solution {
         if (source == target) {
             return 0;
         }
-        int n = routes.length;
-        Set<Integer>[] s = new Set[n];
-        List<Integer>[] g = new List[n];
-        Arrays.setAll(s, k -> new HashSet<>());
-        Arrays.setAll(g, k -> new ArrayList<>());
-        Map<Integer, List<Integer>> d = new HashMap<>();
-        for (int i = 0; i < n; ++i) {
-            for (int v : routes[i]) {
-                s[i].add(v);
-                d.computeIfAbsent(v, k -> new ArrayList<>()).add(i);
+
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int i = 0; i < routes.length; i++) {
+            for (int stop : routes[i]) {
+                g.computeIfAbsent(stop, k -> new ArrayList<>()).add(i);
             }
         }
-        for (var ids : d.values()) {
-            int m = ids.size();
-            for (int i = 0; i < m; ++i) {
-                for (int j = i + 1; j < m; ++j) {
-                    int a = ids.get(i), b = ids.get(j);
-                    g[a].add(b);
-                    g[b].add(a);
-                }
-            }
+
+        if (!g.containsKey(source) || !g.containsKey(target)) {
+            return -1;
         }
-        Deque<Integer> q = new ArrayDeque<>();
-        Set<Integer> vis = new HashSet<>();
-        int ans = 1;
-        for (int v : d.get(source)) {
-            q.offer(v);
-            vis.add(v);
-        }
+
+        Deque<int[]> q = new ArrayDeque<>();
+        Set<Integer> visBus = new HashSet<>();
+        Set<Integer> visStop = new HashSet<>();
+        q.offer(new int[] {source, 0});
+        visStop.add(source);
+
         while (!q.isEmpty()) {
-            for (int k = q.size(); k > 0; --k) {
-                int i = q.pollFirst();
-                if (s[i].contains(target)) {
-                    return ans;
-                }
-                for (int j : g[i]) {
-                    if (!vis.contains(j)) {
-                        vis.add(j);
-                        q.offer(j);
+            int[] current = q.poll();
+            int stop = current[0], busCount = current[1];
+
+            if (stop == target) {
+                return busCount;
+            }
+            for (int bus : g.get(stop)) {
+                if (visBus.add(bus)) {
+                    for (int nextStop : routes[bus]) {
+                        if (visStop.add(nextStop)) {
+                            q.offer(new int[] {nextStop, busCount + 1});
+                        }
                     }
                 }
             }
-            ++ans;
         }
+
         return -1;
     }
 }
@@ -177,49 +177,45 @@ public:
         if (source == target) {
             return 0;
         }
-        int n = routes.size();
-        vector<unordered_set<int>> s(n);
-        vector<vector<int>> g(n);
-        unordered_map<int, vector<int>> d;
-        for (int i = 0; i < n; ++i) {
-            for (int v : routes[i]) {
-                s[i].insert(v);
-                d[v].push_back(i);
+
+        unordered_map<int, vector<int>> g;
+        for (int i = 0; i < routes.size(); i++) {
+            for (int stop : routes[i]) {
+                g[stop].push_back(i);
             }
         }
-        for (auto& [_, ids] : d) {
-            int m = ids.size();
-            for (int i = 0; i < m; ++i) {
-                for (int j = i + 1; j < m; ++j) {
-                    int a = ids[i], b = ids[j];
-                    g[a].push_back(b);
-                    g[b].push_back(a);
-                }
-            }
+
+        if (!g.contains(source) || !g.contains(target)) {
+            return -1;
         }
-        queue<int> q;
-        unordered_set<int> vis;
-        int ans = 1;
-        for (int v : d[source]) {
-            q.push(v);
-            vis.insert(v);
-        }
+
+        queue<pair<int, int>> q;
+        unordered_set<int> visBus;
+        unordered_set<int> visStop;
+        q.push({source, 0});
+        visStop.insert(source);
+
         while (!q.empty()) {
-            for (int k = q.size(); k; --k) {
-                int i = q.front();
-                q.pop();
-                if (s[i].count(target)) {
-                    return ans;
-                }
-                for (int j : g[i]) {
-                    if (!vis.count(j)) {
-                        vis.insert(j);
-                        q.push(j);
+            auto [stop, busCount] = q.front();
+            q.pop();
+
+            if (stop == target) {
+                return busCount;
+            }
+
+            for (int bus : g[stop]) {
+                if (!visBus.contains(bus)) {
+                    for (int nextStop : routes[bus]) {
+                        if (!visStop.contains(nextStop)) {
+                            visBus.insert(bus);
+                            visStop.insert(nextStop);
+                            q.push({nextStop, busCount + 1});
+                        }
                     }
                 }
             }
-            ++ans;
         }
+
         return -1;
     }
 };
@@ -232,52 +228,93 @@ func numBusesToDestination(routes [][]int, source int, target int) int {
 	if source == target {
 		return 0
 	}
-	n := len(routes)
-	s := make([]map[int]bool, n)
-	g := make([][]int, n)
-	d := map[int][]int{}
-	for i, r := range routes {
-		for _, v := range r {
-			if s[i] == nil {
-				s[i] = make(map[int]bool)
-			}
-			s[i][v] = true
-			d[v] = append(d[v], i)
+
+	g := make(map[int][]int)
+	for i, route := range routes {
+		for _, stop := range route {
+			g[stop] = append(g[stop], i)
 		}
 	}
-	for _, ids := range d {
-		m := len(ids)
-		for i := 0; i < m; i++ {
-			for j := i + 1; j < m; j++ {
-				a, b := ids[i], ids[j]
-				g[a] = append(g[a], b)
-				g[b] = append(g[b], a)
-			}
+
+	if g[source] == nil || g[target] == nil {
+		return -1
+	}
+
+	q := list.New()
+	q.PushBack([2]int{source, 0})
+	visBus := make(map[int]bool)
+	visStop := make(map[int]bool)
+	visStop[source] = true
+
+	for q.Len() > 0 {
+		front := q.Front()
+		q.Remove(front)
+		stop, busCount := front.Value.([2]int)[0], front.Value.([2]int)[1]
+
+		if stop == target {
+			return busCount
 		}
-	}
-	q := d[source]
-	vis := map[int]bool{}
-	for _, v := range d[source] {
-		vis[v] = true
-	}
-	ans := 1
-	for len(q) > 0 {
-		for k := len(q); k > 0; k-- {
-			i := q[0]
-			q = q[1:]
-			if s[i][target] {
-				return ans
-			}
-			for _, j := range g[i] {
-				if !vis[j] {
-					vis[j] = true
-					q = append(q, j)
+
+		for _, bus := range g[stop] {
+			if !visBus[bus] {
+				visBus[bus] = true
+				for _, nextStop := range routes[bus] {
+					if !visStop[nextStop] {
+						visStop[nextStop] = true
+						q.PushBack([2]int{nextStop, busCount + 1})
+					}
 				}
 			}
 		}
-		ans++
 	}
+
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function numBusesToDestination(routes: number[][], source: number, target: number): number {
+    if (source === target) {
+        return 0;
+    }
+
+    const g: Map<number, number[]> = new Map();
+    for (let i = 0; i < routes.length; i++) {
+        for (const stop of routes[i]) {
+            if (!g.has(stop)) {
+                g.set(stop, []);
+            }
+            g.get(stop)!.push(i);
+        }
+    }
+
+    if (!g.has(source) || !g.has(target)) {
+        return -1;
+    }
+
+    const q: [number, number][] = [[source, 0]];
+    const visBus: Set<number> = new Set();
+    const visStop: Set<number> = new Set([source]);
+
+    for (const [stop, busCount] of q) {
+        if (stop === target) {
+            return busCount;
+        }
+        for (const bus of g.get(stop)!) {
+            if (!visBus.has(bus)) {
+                visBus.add(bus);
+                for (const nextStop of routes[bus]) {
+                    if (!visStop.has(nextStop)) {
+                        visStop.add(nextStop);
+                        q.push([nextStop, busCount + 1]);
+                    }
+                }
+            }
+        }
+    }
+    return -1;
 }
 ```
 
@@ -290,52 +327,53 @@ public class Solution {
             return 0;
         }
 
-        Dictionary<int, HashSet<int>> stopToRoutes = new Dictionary<int, HashSet<int>>();
-        List<HashSet<int>> routeToStops = new List<HashSet<int>>();
-
+        // Use Dictionary to map stops to bus routes
+        var g = new Dictionary<int, List<int>>();
         for (int i = 0; i < routes.Length; i++) {
-            routeToStops.Add(new HashSet<int>());
             foreach (int stop in routes[i]) {
-                routeToStops[i].Add(stop);
-                if (!stopToRoutes.ContainsKey(stop)) {
-                    stopToRoutes[stop] = new HashSet<int>();
+                if (!g.ContainsKey(stop)) {
+                    g[stop] = new List<int>();
                 }
-                stopToRoutes[stop].Add(i);
+                g[stop].Add(i);
             }
         }
 
-        Queue<int> queue = new Queue<int>();
-        HashSet<int> visited = new HashSet<int>();
-        int ans = 0;
-
-        foreach (int routeId in stopToRoutes[source]) {
-            queue.Enqueue(routeId);
-            visited.Add(routeId);
+        // If source or target is not in the mapping, return -1
+        if (!g.ContainsKey(source) || !g.ContainsKey(target)) {
+            return -1;
         }
 
-        while (queue.Count > 0) {
-            int count = queue.Count;
-            ans++;
+        // Initialize queue and visited sets
+        var q = new Queue<int[]>();
+        var visBus = new HashSet<int>();
+        var visStop = new HashSet<int>();
+        q.Enqueue(new int[] { source, 0 });
+        visStop.Add(source);
 
-            for (int i = 0; i < count; i++) {
-                int routeId = queue.Dequeue();
+        // Begin BFS
+        while (q.Count > 0) {
+            var current = q.Dequeue();
+            int stop = current[0], busCount = current[1];
 
-                foreach (int stop in routeToStops[routeId]) {
-                    if (stop == target) {
-                        return ans;
-                    }
+            // If the current stop is the target stop, return the bus count
+            if (stop == target) {
+                return busCount;
+            }
 
-                    foreach (int nextRoute in stopToRoutes[stop]) {
-                        if (!visited.Contains(nextRoute)) {
-                            visited.Add(nextRoute);
-                            queue.Enqueue(nextRoute);
+            // Traverse all bus routes passing through the current stop
+            foreach (int bus in g[stop]) {
+                if (visBus.Add(bus)) {
+                    // Traverse all stops on this bus route
+                    foreach (int nextStop in routes[bus]) {
+                        if (visStop.Add(nextStop)) {
+                            q.Enqueue(new int[] { nextStop, busCount + 1 });
                         }
                     }
                 }
             }
         }
 
-        return -1;
+        return -1; // If unable to reach the target stop, return -1
     }
 }
 ```

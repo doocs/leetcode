@@ -1,10 +1,10 @@
 func divideArray(nums []int) bool {
-	cnt := make([]int, 510)
-	for _, v := range nums {
-		cnt[v]++
+	cnt := [510]int{}
+	for _, x := range nums {
+		cnt[x]++
 	}
 	for _, v := range cnt {
-		if v%2 == 1 {
+		if v%2 != 0 {
 			return false
 		}
 	}

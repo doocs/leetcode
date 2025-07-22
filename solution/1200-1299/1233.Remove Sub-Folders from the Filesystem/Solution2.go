@@ -1,49 +1,46 @@
 type Trie struct {
 	children map[string]*Trie
-	isEnd    bool
+	fid      int
 }
 
 func newTrie() *Trie {
-	m := map[string]*Trie{}
-	return &Trie{children: m}
+	return &Trie{map[string]*Trie{}, -1}
 }
 
-func (this *Trie) insert(w string) {
+func (this *Trie) insert(fid int, f string) {
 	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
+	ps := strings.Split(f, "/")
+	for _, p := range ps[1:] {
 		if _, ok := node.children[p]; !ok {
 			node.children[p] = newTrie()
 		}
-		node, _ = node.children[p]
+		node = node.children[p]
 	}
-	node.isEnd = true
+	node.fid = fid
 }
 
-func (this *Trie) search(w string) bool {
-	node := this
-	for _, p := range strings.Split(w, "/")[1:] {
-		if _, ok := node.children[p]; !ok {
-			return false
+func (this *Trie) search() (ans []int) {
+	var dfs func(*Trie)
+	dfs = func(root *Trie) {
+		if root.fid != -1 {
+			ans = append(ans, root.fid)
+			return
 		}
-		node, _ = node.children[p]
-		if node.isEnd {
-			return true
+		for _, child := range root.children {
+			dfs(child)
 		}
 	}
-	return false
+	dfs(this)
+	return
 }
 
-func removeSubfolders(folder []string) []string {
-	sort.Slice(folder, func(i, j int) bool {
-		return len(strings.Split(folder[i], "/")) < len(strings.Split(folder[j], "/"))
-	})
+func removeSubfolders(folder []string) (ans []string) {
 	trie := newTrie()
-	var ans []string
-	for _, v := range folder {
-		if !trie.search(v) {
-			trie.insert(v)
-			ans = append(ans, v)
-		}
+	for i, f := range folder {
+		trie.insert(i, f)
 	}
-	return ans
+	for _, i := range trie.search() {
+		ans = append(ans, folder[i])
+	}
+	return
 }

@@ -1,14 +1,14 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        boolean[] ss = new boolean[128];
-        int ans = 0;
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            char c = s.charAt(j);
-            while (ss[c]) {
-                ss[s.charAt(i++)] = false;
+        int[] cnt = new int[128];
+        int ans = 0, n = s.length();
+        for (int l = 0, r = 0; r < n; ++r) {
+            char c = s.charAt(r);
+            ++cnt[c];
+            while (cnt[c] > 1) {
+                --cnt[s.charAt(l++)];
             }
-            ss[c] = true;
-            ans = Math.max(ans, j - i + 1);
+            ans = Math.max(ans, r - l + 1);
         }
         return ans;
     }

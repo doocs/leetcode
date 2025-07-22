@@ -1,0 +1,22 @@
+# REF: https://spec.editorconfig.org/#supported-pairs
+
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+# tab_width = 4
+# end_of_line = lf
+charset = utf-8
+# spelling_language = en-US
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{md}]
+trim_trailing_whitespace = false
+
+[*.{go}]
+indent_style = tab
+
+[*.{yml,yaml}]
+indent_size = 2

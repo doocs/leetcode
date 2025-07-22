@@ -21,7 +21,7 @@ tags:
 
 <p>给你两个整数数组 <code>nums1</code> 和 <code>nums2</code>，长度分别为 <code>n</code> 和 <code>m</code>。同时给你一个<strong>正整数</strong> <code>k</code>。</p>
 
-<p>如果 <code>nums1[i]</code> 可以被 <code>nums2[j] * k</code> 整除，则称数对 <code>(i, j)</code> 为 <strong>优质数对</strong>（<code>0 &lt;= i &lt;= n - 1</code>, <code>0 &lt;= j &lt;= m - 1</code>）。</p>
+<p>如果 <code>nums1[i]</code> 可以除尽&nbsp;<code>nums2[j] * k</code>，则称数对 <code>(i, j)</code> 为 <strong>优质数对</strong>（<code>0 &lt;= i &lt;= n - 1</code>, <code>0 &lt;= j &lt;= m - 1</code>）。</p>
 
 <p>返回<strong> 优质数对 </strong>的总数。</p>
 
@@ -69,11 +69,11 @@ tags:
 
 ### 方法一：暴力枚举
 
-我们直接枚举所有的数位 $(x, y)$，判断是否满足 $x \mod (y \times k) = 0$，如果满足则答案加一。
+我们直接枚举所有的数位 $(x, y)$，判断是否满足 $x \bmod (y \times k) = 0$，如果满足则答案加一。
 
 枚举结束后，返回答案即可。
 
-时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是数组 `nums1` 和 `nums2` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -161,11 +161,11 @@ function numberOfPairs(nums1: number[], nums2: number[], k: number): number {
 
 ### 方法二：哈希表 + 枚举倍数
 
-我们用一个哈希表 $\text{cnt1}$ 记录数组 $\text{nums1}$ 中每个数除以 $k$ 的商的出现次数，用一个哈希表 $\text{cnt2}$ 记录数组 $\text{nums2}$ 中每个数的出现次数。
+我们用一个哈希表 $\textit{cnt1}$ 记录数组 $\textit{nums1}$ 中每个数除以 $k$ 的商的出现次数，用一个哈希表 $\textit{cnt2}$ 记录数组 $\textit{nums2}$ 中每个数的出现次数。
 
-接下来，我们枚举数组 $\text{nums2}$ 中的每个数 $x$，对于每个数 $x$，我们枚举 $x$ 的倍数 $y$，其中 $y$ 的范围是 $[x, \text{mx}]$，其中 $\text{mx}$ 是 $\text{cnt1}$ 中的最大键值，然后我们统计 $\text{cnt1}[y]$ 的和，记为 $s$，最后我们将 $s \times v$ 累加到答案中，其中 $v$ 是 $\text{cnt2}[x]$。
+接下来，我们枚举数组 $\textit{nums2}$ 中的每个数 $x$，对于每个数 $x$，我们枚举 $x$ 的倍数 $y$，其中 $y$ 的范围是 $[x, \textit{mx}]$，其中 $\textit{mx}$ 是 $\textit{cnt1}$ 中的最大键值，然后我们统计 $\textit{cnt1}[y]$ 的和，记为 $s$，最后我们将 $s \times v$ 累加到答案中，其中 $v$ 是 $\textit{cnt2}[x]$。
 
-时间复杂度 $O(n + m + (M / k) \times \log m)$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是数组 $\text{nums1}$ 和 $\text{nums2}$ 的长度，而 $M$ 是数组 $\text{nums1}$ 中的最大值。
+时间复杂度 $O(n + m + (M / k) \times \log m)$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $M$ 是数组 $\textit{nums1}$ 中的最大值。
 
 <!-- tabs:start -->
 

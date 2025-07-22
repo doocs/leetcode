@@ -69,7 +69,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation + Bit Manipulation
+
+According to the problem description, we can simulate the process of checking whether the password meets the requirements.
+
+First, we check if the length of the password is less than $8$. If it is, we return $\textit{false}$.
+
+Next, we use a mask $\textit{mask}$ to record whether the password contains lowercase letters, uppercase letters, digits, and special characters. We traverse the password, and for each character, we first check if it is the same as the previous character. If it is, we return $\textit{false}$. Then, we update the mask $\textit{mask}$ based on the character type. Finally, we check if the mask $\textit{mask}$ is $15$. If it is, we return $\textit{true}$; otherwise, we return $\textit{false}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the password.
 
 <!-- tabs:start -->
 

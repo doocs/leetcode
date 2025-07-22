@@ -43,8 +43,8 @@ b<sub>prefix</sub> = "", b<sub>suffix</sub> = "y"
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>a = "abdef", b = "fecab"
-<strong>输出：</strong>true
+<strong>输入：</strong>a = "xbdef", b = "xecab"
+<strong>输出：</strong>false
 </pre>
 
 <p><strong>示例 3：</strong></p>

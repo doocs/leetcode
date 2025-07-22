@@ -73,7 +73,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brute Force Enumeration + Hash Table
+
+We can enumerate the left endpoint $i$ of the substring. For the current left endpoint, maintain a hash table to record the vowels that appear in the current substring. Then enumerate the right endpoint $j$. If the character at the current right endpoint is not a vowel, break the loop. Otherwise, add the character at the current right endpoint to the hash table. If the number of elements in the hash table is $5$, it means the current substring is a vowel substring, and increment the result by $1$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string $word$, and $C$ is the size of the character set, which is $5$ in this problem.
 
 <!-- tabs:start -->
 
@@ -82,9 +86,16 @@ tags:
 ```python
 class Solution:
     def countVowelSubstrings(self, word: str) -> int:
-        n = len(word)
-        s = set('aeiou')
-        return sum(set(word[i:j]) == s for i in range(n) for j in range(i + 1, n + 1))
+        s = set("aeiou")
+        ans, n = 0, len(word)
+        for i in range(n):
+            t = set()
+            for c in word[i:]:
+                if c not in s:
+                    break
+                t.add(c)
+                ans += len(t) == 5
+        return ans
 ```
 
 #### Java
@@ -185,33 +196,6 @@ function countVowelSubstrings(word: string): number {
     }
     return ans;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def countVowelSubstrings(self, word: str) -> int:
-        s = set('aeiou')
-        ans, n = 0, len(word)
-        for i in range(n):
-            t = set()
-            for c in word[i:]:
-                if c not in s:
-                    break
-                t.add(c)
-                ans += len(t) == 5
-        return ans
 ```
 
 <!-- tabs:end -->

@@ -1,26 +1,21 @@
 impl Solution {
-    #[allow(dead_code)]
     pub fn predict_the_winner(nums: Vec<i32>) -> bool {
         let n = nums.len();
-        let mut dp: Vec<Vec<i32>> = vec![vec![0; n]; n];
+        let mut f = vec![vec![0; n]; n];
+        Self::dfs(&nums, &mut f, 0, n - 1) >= 0
+    }
 
-        // Initialize the dp vector
-        for i in 0..n {
-            dp[i][i] = nums[i];
+    fn dfs(nums: &Vec<i32>, f: &mut Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
+        if i == j {
+            return nums[i] as i32;
         }
-
-        // Begin the dp process
-        for i in (0..n - 1).rev() {
-            for j in i + 1..n {
-                dp[i][j] = std::cmp::max(
-                    // Take i-th num
-                    nums[i] - dp[i + 1][j],
-                    // Take j-th num
-                    nums[j] - dp[i][j - 1],
-                );
-            }
+        if f[i][j] != 0 {
+            return f[i][j];
         }
-
-        dp[0][n - 1] >= 0
+        f[i][j] = std::cmp::max(
+            nums[i] - Self::dfs(nums, f, i + 1, j),
+            nums[j] - Self::dfs(nums, f, i, j - 1),
+        );
+        f[i][j]
     }
 }

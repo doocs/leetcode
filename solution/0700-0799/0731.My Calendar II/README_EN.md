@@ -25,13 +25,13 @@ tags:
 
 <p>A <strong>triple booking</strong> happens when three events have some non-empty intersection (i.e., some moment is common to all the three events.).</p>
 
-<p>The event can be represented as a pair of integers <code>start</code> and <code>end</code> that represents a booking on the half-open interval <code>[start, end)</code>, the range of real numbers <code>x</code> such that <code>start &lt;= x &lt; end</code>.</p>
+<p>The event can be represented as a pair of integers <code>startTime</code> and <code>endTime</code> that represents a booking on the half-open interval <code>[startTime, endTime)</code>, the range of real numbers <code>x</code> such that <code>startTime &lt;= x &lt; endTime</code>.</p>
 
 <p>Implement the <code>MyCalendarTwo</code> class:</p>
 
 <ul>
 	<li><code>MyCalendarTwo()</code> Initializes the calendar object.</li>
-	<li><code>boolean book(int start, int end)</code> Returns <code>true</code> if the event can be added to the calendar successfully without causing a <strong>triple booking</strong>. Otherwise, return <code>false</code> and do not add the event to the calendar.</li>
+	<li><code>boolean book(int startTime, int endTime)</code> Returns <code>true</code> if the event can be added to the calendar successfully without causing a <strong>triple booking</strong>. Otherwise, return <code>false</code> and do not add the event to the calendar.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -68,56 +68,58 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+We can use the concept of a difference array to record the booking status at each time point. Then, we traverse all the time points and count the booking status at the current time point. If the number of bookings exceeds $2$, we return $\textit{false}$. Otherwise, we return $\textit{true}$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of bookings.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-from sortedcontainers import SortedDict
-
-
 class MyCalendarTwo:
+
     def __init__(self):
         self.sd = SortedDict()
 
-    def book(self, start: int, end: int) -> bool:
-        self.sd[start] = self.sd.get(start, 0) + 1
-        self.sd[end] = self.sd.get(end, 0) - 1
+    def book(self, startTime: int, endTime: int) -> bool:
+        self.sd[startTime] = self.sd.get(startTime, 0) + 1
+        self.sd[endTime] = self.sd.get(endTime, 0) - 1
         s = 0
         for v in self.sd.values():
             s += v
             if s > 2:
-                self.sd[start] -= 1
-                self.sd[end] += 1
+                self.sd[startTime] -= 1
+                self.sd[endTime] += 1
                 return False
         return True
 
 
 # Your MyCalendarTwo object will be instantiated and called as such:
 # obj = MyCalendarTwo()
-# param_1 = obj.book(start,end)
+# param_1 = obj.book(startTime,endTime)
 ```
 
 #### Java
 
 ```java
 class MyCalendarTwo {
-    private Map<Integer, Integer> tm = new TreeMap<>();
+    private final Map<Integer, Integer> tm = new TreeMap<>();
 
     public MyCalendarTwo() {
     }
 
-    public boolean book(int start, int end) {
-        tm.put(start, tm.getOrDefault(start, 0) + 1);
-        tm.put(end, tm.getOrDefault(end, 0) - 1);
+    public boolean book(int startTime, int endTime) {
+        tm.merge(startTime, 1, Integer::sum);
+        tm.merge(endTime, -1, Integer::sum);
         int s = 0;
         for (int v : tm.values()) {
             s += v;
             if (s > 2) {
-                tm.put(start, tm.get(start) - 1);
-                tm.put(end, tm.get(end) + 1);
+                tm.merge(startTime, -1, Integer::sum);
+                tm.merge(endTime, 1, Integer::sum);
                 return false;
             }
         }
@@ -128,7 +130,7 @@ class MyCalendarTwo {
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * MyCalendarTwo obj = new MyCalendarTwo();
- * boolean param_1 = obj.book(start,end);
+ * boolean param_1 = obj.book(startTime,endTime);
  */
 ```
 
@@ -137,31 +139,32 @@ class MyCalendarTwo {
 ```cpp
 class MyCalendarTwo {
 public:
-    map<int, int> m;
-
     MyCalendarTwo() {
     }
 
-    bool book(int start, int end) {
-        ++m[start];
-        --m[end];
+    bool book(int startTime, int endTime) {
+        ++m[startTime];
+        --m[endTime];
         int s = 0;
         for (auto& [_, v] : m) {
             s += v;
             if (s > 2) {
-                --m[start];
-                ++m[end];
+                --m[startTime];
+                ++m[endTime];
                 return false;
             }
         }
         return true;
     }
+
+private:
+    map<int, int> m;
 };
 
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * MyCalendarTwo* obj = new MyCalendarTwo();
- * bool param_1 = obj->book(start,end);
+ * bool param_1 = obj->book(startTime,endTime);
  */
 ```
 
@@ -169,30 +172,32 @@ public:
 
 ```go
 type MyCalendarTwo struct {
-	*redblacktree.Tree
+	rbt *redblacktree.Tree[int, int]
 }
 
 func Constructor() MyCalendarTwo {
-	return MyCalendarTwo{redblacktree.NewWithIntComparator()}
+	return MyCalendarTwo{rbt: redblacktree.New[int, int]()}
 }
 
-func (this *MyCalendarTwo) Book(start int, end int) bool {
-	add := func(key, val int) {
-		if v, ok := this.Get(key); ok {
-			this.Put(key, v.(int)+val)
+func (this *MyCalendarTwo) Book(startTime int, endTime int) bool {
+	merge := func(x, v int) {
+		c, _ := this.rbt.Get(x)
+		if c+v == 0 {
+			this.rbt.Remove(x)
 		} else {
-			this.Put(key, val)
+			this.rbt.Put(x, c+v)
 		}
 	}
-	add(start, 1)
-	add(end, -1)
+
+	merge(startTime, 1)
+	merge(endTime, -1)
+
 	s := 0
-	it := this.Iterator()
-	for it.Next() {
-		s += it.Value().(int)
+	for _, v := range this.rbt.Values() {
+		s += v
 		if s > 2 {
-			add(start, -1)
-			add(end, 1)
+			merge(startTime, -1)
+			merge(endTime, 1)
 			return false
 		}
 	}
@@ -202,7 +207,81 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * obj := Constructor();
- * param_1 := obj.Book(start,end);
+ * param_1 := obj.Book(startTime,endTime);
+ */
+```
+
+#### TypeScript
+
+```ts
+class MyCalendarTwo {
+    private tm: Record<number, number> = {};
+
+    constructor() {}
+
+    book(startTime: number, endTime: number): boolean {
+        this.tm[startTime] = (this.tm[startTime] ?? 0) + 1;
+        this.tm[endTime] = (this.tm[endTime] ?? 0) - 1;
+        let s = 0;
+        for (const v of Object.values(this.tm)) {
+            s += v;
+            if (s > 2) {
+                if (--this.tm[startTime] === 0) {
+                    delete this.tm[startTime];
+                }
+                if (++this.tm[endTime] === 0) {
+                    delete this.tm[endTime];
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * var obj = new MyCalendarTwo()
+ * var param_1 = obj.book(startTime,endTime)
+ */
+```
+
+#### JavaScript
+
+```js
+var MyCalendarTwo = function () {
+    this.tm = {};
+};
+
+/**
+ * @param {number} startTime
+ * @param {number} endTime
+ * @return {boolean}
+ */
+MyCalendarTwo.prototype.book = function (startTime, endTime) {
+    this.tm[startTime] = (this.tm[startTime] || 0) + 1;
+    this.tm[endTime] = (this.tm[endTime] || 0) - 1;
+    let s = 0;
+
+    for (const v of Object.values(this.tm)) {
+        s += v;
+        if (s > 2) {
+            if (--this.tm[startTime] === 0) {
+                delete this.tm[startTime];
+            }
+            if (++this.tm[endTime] === 0) {
+                delete this.tm[endTime];
+            }
+            return false;
+        }
+    }
+    return true;
+};
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * var obj = new MyCalendarTwo()
+ * var param_1 = obj.book(startTime,endTime)
  */
 ```
 
@@ -212,7 +291,23 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Segment Tree
+
+A segment tree divides the entire interval into multiple non-contiguous subintervals, with the number of subintervals not exceeding $\log(\textit{width})$. To update the value of an element, only $\log(\textit{width})$ intervals need to be updated, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, a **lazy mark** is used to ensure efficiency.
+
+-   Each node of the segment tree represents an interval;
+-   The segment tree has a unique root node representing the entire statistical range, such as $[1, N]$;
+-   Each leaf node of the segment tree represents a unit interval of length 1, $[x, x]$;
+-   For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$ and its right child is $[\textit{mid} + 1, r]$, where $\textit{mid} = \lfloor(l + r) / 2\rfloor$ (i.e., floor division).
+
+For this problem, the segment tree nodes maintain the following information:
+
+1. The maximum number of bookings within the interval $v$
+2. Lazy mark $\textit{add}$
+
+Since the time range is $10^9$, which is very large, we use dynamic node creation.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of bookings.
 
 <!-- tabs:start -->
 
@@ -220,7 +315,7 @@ func (this *MyCalendarTwo) Book(start int, end int) bool {
 
 ```python
 class Node:
-    def __init__(self, l, r):
+    def __init__(self, l: int, r: int):
         self.left = None
         self.right = None
         self.l = l
@@ -232,9 +327,9 @@ class Node:
 
 class SegmentTree:
     def __init__(self):
-        self.root = Node(1, int(1e9 + 1))
+        self.root = Node(1, 10**9 + 1)
 
-    def modify(self, l, r, v, node=None):
+    def modify(self, l: int, r: int, v: int, node: Node = None):
         if l > r:
             return
         if node is None:
@@ -250,7 +345,7 @@ class SegmentTree:
             self.modify(l, r, v, node.right)
         self.pushup(node)
 
-    def query(self, l, r, node=None):
+    def query(self, l: int, r: int, node: Node = None) -> int:
         if l > r:
             return 0
         if node is None:
@@ -265,10 +360,10 @@ class SegmentTree:
             v = max(v, self.query(l, r, node.right))
         return v
 
-    def pushup(self, node):
+    def pushup(self, node: Node):
         node.v = max(node.left.v, node.right.v)
 
-    def pushdown(self, node):
+    def pushdown(self, node: Node):
         if node.left is None:
             node.left = Node(node.l, node.mid)
         if node.right is None:
@@ -285,16 +380,16 @@ class MyCalendarTwo:
     def __init__(self):
         self.tree = SegmentTree()
 
-    def book(self, start: int, end: int) -> bool:
-        if self.tree.query(start + 1, end) >= 2:
+    def book(self, startTime: int, endTime: int) -> bool:
+        if self.tree.query(startTime + 1, endTime) >= 2:
             return False
-        self.tree.modify(start + 1, end, 1)
+        self.tree.modify(startTime + 1, endTime, 1)
         return True
 
 
 # Your MyCalendarTwo object will be instantiated and called as such:
 # obj = MyCalendarTwo()
-# param_1 = obj.book(start,end)
+# param_1 = obj.book(startTime,endTime)
 ```
 
 #### Java
@@ -394,11 +489,11 @@ class MyCalendarTwo {
     public MyCalendarTwo() {
     }
 
-    public boolean book(int start, int end) {
-        if (tree.query(start + 1, end) >= 2) {
+    public boolean book(int startTime, int endTime) {
+        if (tree.query(startTime + 1, endTime) >= 2) {
             return false;
         }
-        tree.modify(start + 1, end, 1);
+        tree.modify(startTime + 1, endTime, 1);
         return true;
     }
 }
@@ -406,7 +501,7 @@ class MyCalendarTwo {
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * MyCalendarTwo obj = new MyCalendarTwo();
- * boolean param_1 = obj.book(start,end);
+ * boolean param_1 = obj.book(startTime,endTime);
  */
 ```
 
@@ -415,77 +510,90 @@ class MyCalendarTwo {
 ```cpp
 class Node {
 public:
+    int l, r, mid, v, add;
     Node* left;
     Node* right;
-    int l;
-    int r;
-    int mid;
-    int v;
-    int add;
 
-    Node(int l, int r) {
-        this->l = l;
-        this->r = r;
-        this->mid = (l + r) >> 1;
-        this->left = this->right = nullptr;
-        v = add = 0;
-    }
+    Node(int l, int r)
+        : l(l)
+        , r(r)
+        , mid((l + r) >> 1)
+        , v(0)
+        , add(0)
+        , left(nullptr)
+        , right(nullptr) {}
 };
 
 class SegmentTree {
-private:
+public:
     Node* root;
 
-public:
     SegmentTree() {
         root = new Node(1, 1e9 + 1);
     }
 
-    void modify(int l, int r, int v) {
-        modify(l, r, v, root);
-    }
+    void modify(int l, int r, int v, Node* node = nullptr) {
+        if (l > r) {
+            return;
+        }
+        if (node == nullptr) {
+            node = root;
+        }
 
-    void modify(int l, int r, int v, Node* node) {
-        if (l > r) return;
         if (node->l >= l && node->r <= r) {
             node->v += v;
             node->add += v;
             return;
         }
         pushdown(node);
-        if (l <= node->mid) modify(l, r, v, node->left);
-        if (r > node->mid) modify(l, r, v, node->right);
+        if (l <= node->mid) {
+            modify(l, r, v, node->left);
+        }
+        if (r > node->mid) {
+            modify(l, r, v, node->right);
+        }
         pushup(node);
     }
 
-    int query(int l, int r) {
-        return query(l, r, root);
-    }
+    int query(int l, int r, Node* node = nullptr) {
+        if (l > r) {
+            return 0;
+        }
+        if (node == nullptr) {
+            node = root;
+        }
 
-    int query(int l, int r, Node* node) {
-        if (l > r) return 0;
-        if (node->l >= l && node->r <= r) return node->v;
+        if (node->l >= l && node->r <= r) {
+            return node->v;
+        }
         pushdown(node);
         int v = 0;
-        if (l <= node->mid) v = max(v, query(l, r, node->left));
-        if (r > node->mid) v = max(v, query(l, r, node->right));
+        if (l <= node->mid) {
+            v = max(v, query(l, r, node->left));
+        }
+        if (r > node->mid) {
+            v = max(v, query(l, r, node->right));
+        }
         return v;
     }
 
+private:
     void pushup(Node* node) {
         node->v = max(node->left->v, node->right->v);
     }
 
     void pushdown(Node* node) {
-        if (!node->left) node->left = new Node(node->l, node->mid);
-        if (!node->right) node->right = new Node(node->mid + 1, node->r);
+        if (node->left == nullptr) {
+            node->left = new Node(node->l, node->mid);
+        }
+        if (node->right == nullptr) {
+            node->right = new Node(node->mid + 1, node->r);
+        }
         if (node->add) {
-            Node* left = node->left;
-            Node* right = node->right;
-            left->v += node->add;
-            right->v += node->add;
-            left->add += node->add;
-            right->add += node->add;
+            node->left->v += node->add;
+            node->right->v += node->add;
+            node->left->add += node->add;
+            node->right->add += node->add;
             node->add = 0;
         }
     }
@@ -493,14 +601,15 @@ public:
 
 class MyCalendarTwo {
 public:
-    SegmentTree* tree = new SegmentTree();
+    SegmentTree tree;
 
-    MyCalendarTwo() {
-    }
+    MyCalendarTwo() {}
 
-    bool book(int start, int end) {
-        if (tree->query(start + 1, end) >= 2) return false;
-        tree->modify(start + 1, end, 1);
+    bool book(int startTime, int endTime) {
+        if (tree.query(startTime + 1, endTime) >= 2) {
+            return false;
+        }
+        tree.modify(startTime + 1, endTime, 1);
         return true;
     }
 };
@@ -508,7 +617,7 @@ public:
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * MyCalendarTwo* obj = new MyCalendarTwo();
- * bool param_1 = obj->book(start,end);
+ * bool param_1 = obj->book(startTime,endTime);
  */
 ```
 
@@ -605,18 +714,229 @@ func Constructor() MyCalendarTwo {
 	return MyCalendarTwo{newSegmentTree()}
 }
 
-func (this *MyCalendarTwo) Book(start int, end int) bool {
-	if this.tree.query(start+1, end, this.tree.root) >= 2 {
+func (this *MyCalendarTwo) Book(startTime int, endTime int) bool {
+	if this.tree.query(startTime+1, endTime, this.tree.root) >= 2 {
 		return false
 	}
-	this.tree.modify(start+1, end, 1, this.tree.root)
+	this.tree.modify(startTime+1, endTime, 1, this.tree.root)
 	return true
 }
 
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:
  * obj := Constructor();
- * param_1 := obj.Book(start,end);
+ * param_1 := obj.Book(startTime,endTime);
+ */
+```
+
+#### TypeScript
+
+```ts
+class Node {
+    left: Node | null = null;
+    right: Node | null = null;
+    l: number;
+    r: number;
+    mid: number;
+    v: number = 0;
+    add: number = 0;
+
+    constructor(l: number, r: number) {
+        this.l = l;
+        this.r = r;
+        this.mid = (l + r) >> 1;
+    }
+}
+
+class SegmentTree {
+    private root: Node = new Node(1, 1e9 + 1);
+
+    modify(l: number, r: number, v: number, node: Node | null = this.root): void {
+        if (l > r || !node) {
+            return;
+        }
+        if (node.l >= l && node.r <= r) {
+            node.v += v;
+            node.add += v;
+            return;
+        }
+        this.pushdown(node);
+        if (l <= node.mid) {
+            this.modify(l, r, v, node.left);
+        }
+        if (r > node.mid) {
+            this.modify(l, r, v, node.right);
+        }
+        this.pushup(node);
+    }
+
+    query(l: number, r: number, node: Node | null = this.root): number {
+        if (l > r || !node) {
+            return 0;
+        }
+        if (node.l >= l && node.r <= r) {
+            return node.v;
+        }
+        this.pushdown(node);
+        let v = 0;
+        if (l <= node.mid) {
+            v = Math.max(v, this.query(l, r, node.left));
+        }
+        if (r > node.mid) {
+            v = Math.max(v, this.query(l, r, node.right));
+        }
+        return v;
+    }
+
+    private pushup(node: Node): void {
+        if (node.left && node.right) {
+            node.v = Math.max(node.left.v, node.right.v);
+        }
+    }
+
+    private pushdown(node: Node): void {
+        if (!node.left) {
+            node.left = new Node(node.l, node.mid);
+        }
+        if (!node.right) {
+            node.right = new Node(node.mid + 1, node.r);
+        }
+        if (node.add) {
+            let left = node.left;
+            let right = node.right;
+            left.add += node.add;
+            right.add += node.add;
+            left.v += node.add;
+            right.v += node.add;
+            node.add = 0;
+        }
+    }
+}
+
+class MyCalendarTwo {
+    private tree: SegmentTree = new SegmentTree();
+
+    constructor() {}
+
+    book(startTime: number, endTime: number): boolean {
+        if (this.tree.query(startTime + 1, endTime) >= 2) {
+            return false;
+        }
+        this.tree.modify(startTime + 1, endTime, 1);
+        return true;
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * var obj = new MyCalendarTwo()
+ * var param_1 = obj.book(startTime,endTime)
+ */
+```
+
+#### JavaScript
+
+```js
+class Node {
+    constructor(l, r) {
+        this.left = null;
+        this.right = null;
+        this.l = l;
+        this.r = r;
+        this.mid = (l + r) >> 1;
+        this.v = 0;
+        this.add = 0;
+    }
+}
+
+class SegmentTree {
+    constructor() {
+        this.root = new Node(1, 1e9 + 1);
+    }
+
+    modify(l, r, v, node = this.root) {
+        if (l > r || !node) {
+            return;
+        }
+        if (node.l >= l && node.r <= r) {
+            node.v += v;
+            node.add += v;
+            return;
+        }
+        this.pushdown(node);
+        if (l <= node.mid) {
+            this.modify(l, r, v, node.left);
+        }
+        if (r > node.mid) {
+            this.modify(l, r, v, node.right);
+        }
+        this.pushup(node);
+    }
+
+    query(l, r, node = this.root) {
+        if (l > r || !node) {
+            return 0;
+        }
+        if (node.l >= l && node.r <= r) {
+            return node.v;
+        }
+        this.pushdown(node);
+        let v = 0;
+        if (l <= node.mid) {
+            v = Math.max(v, this.query(l, r, node.left));
+        }
+        if (r > node.mid) {
+            v = Math.max(v, this.query(l, r, node.right));
+        }
+        return v;
+    }
+
+    pushup(node) {
+        if (node.left && node.right) {
+            node.v = Math.max(node.left.v, node.right.v);
+        }
+    }
+
+    pushdown(node) {
+        if (!node.left) {
+            node.left = new Node(node.l, node.mid);
+        }
+        if (!node.right) {
+            node.right = new Node(node.mid + 1, node.r);
+        }
+        if (node.add) {
+            const left = node.left;
+            const right = node.right;
+            left.add += node.add;
+            right.add += node.add;
+            left.v += node.add;
+            right.v += node.add;
+            node.add = 0;
+        }
+    }
+}
+
+var MyCalendarTwo = function () {
+    this.tree = new SegmentTree();
+};
+
+/**
+ * @param {number} startTime
+ * @param {number} endTime
+ * @return {boolean}
+ */
+MyCalendarTwo.prototype.book = function (startTime, endTime) {
+    if (this.tree.query(startTime + 1, endTime) >= 2) {
+        return false;
+    }
+    this.tree.modify(startTime + 1, endTime, 1);
+    return true;
+};
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * var obj = new MyCalendarTwo()
+ * var param_1 = obj.book(startTime,endTime)
  */
 ```
 

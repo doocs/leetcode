@@ -1,6 +1,6 @@
 /**
- * // Definition for a Node.
- * function Node(val, next, random) {
+ * // Definition for a _Node.
+ * function _Node(val, next, random) {
  *    this.val = val;
  *    this.next = next;
  *    this.random = random;
@@ -8,30 +8,31 @@
  */
 
 /**
- * @param {Node} head
- * @return {Node}
+ * @param {_Node} head
+ * @return {_Node}
  */
 var copyRandomList = function (head) {
-    if (!head) {
+    if (head === null) {
         return null;
     }
-    for (let cur = head; cur; ) {
-        const node = new Node(cur.val, cur.next, null);
+    let cur = head;
+    while (cur !== null) {
+        const node = new _Node(cur.val);
+        node.next = cur.next;
         cur.next = node;
         cur = node.next;
     }
-    for (let cur = head; cur; cur = cur.next.next) {
-        if (cur.random) {
-            cur.next.random = cur.random.next;
-        }
+    cur = head;
+    while (cur !== null) {
+        cur.next.random = cur.random === null ? null : cur.random.next;
+        cur = cur.next.next;
     }
+    cur = head;
     const ans = head.next;
-    for (let cur = head; cur; ) {
-        const nxt = cur.next;
-        if (nxt) {
-            cur.next = nxt.next;
-        }
-        cur = nxt;
+    while (cur.next !== null) {
+        const node = cur.next;
+        cur.next = node.next;
+        cur = node;
     }
     return ans;
 };

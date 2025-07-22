@@ -195,4 +195,134 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: KMP Algorithm
+
+According to the problem description, we need to find the longest happy prefix of a string, which is the longest prefix of the string that is also a suffix of the string. We can use the KMP algorithm to solve this problem.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPrefix(self, s: str) -> str:
+        s += "#"
+        n = len(s)
+        next = [0] * n
+        next[0] = -1
+        i, j = 2, 0
+        while i < n:
+            if s[i - 1] == s[j]:
+                j += 1
+                next[i] = j
+                i += 1
+            elif j:
+                j = next[j]
+            else:
+                next[i] = 0
+                i += 1
+        return s[: next[-1]]
+```
+
+#### Java
+
+```java
+class Solution {
+    public String longestPrefix(String s) {
+        s += "#";
+        int n = s.length();
+        int[] next = new int[n];
+        next[0] = -1;
+        for (int i = 2, j = 0; i < n;) {
+            if (s.charAt(i - 1) == s.charAt(j)) {
+                next[i++] = ++j;
+            } else if (j > 0) {
+                j = next[j];
+            } else {
+                next[i++] = 0;
+            }
+        }
+        return s.substring(0, next[n - 1]);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string longestPrefix(string s) {
+        s.push_back('#');
+        int n = s.size();
+        int next[n];
+        next[0] = -1;
+        next[1] = 0;
+        for (int i = 2, j = 0; i < n;) {
+            if (s[i - 1] == s[j]) {
+                next[i++] = ++j;
+            } else if (j > 0) {
+                j = next[j];
+            } else {
+                next[i++] = 0;
+            }
+        }
+        return s.substr(0, next[n - 1]);
+    }
+};
+```
+
+#### Go
+
+```go
+func longestPrefix(s string) string {
+	s += "#"
+	n := len(s)
+	next := make([]int, n)
+	next[0], next[1] = -1, 0
+	for i, j := 2, 0; i < n; {
+		if s[i-1] == s[j] {
+			j++
+			next[i] = j
+			i++
+		} else if j > 0 {
+			j = next[j]
+		} else {
+			next[i] = 0
+			i++
+		}
+	}
+	return s[:next[n-1]]
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPrefix(s: string): string {
+    s += '#';
+    const n = s.length;
+    const next: number[] = Array(n).fill(0);
+    next[0] = -1;
+    for (let i = 2, j = 0; i < n; ) {
+        if (s[i - 1] === s[j]) {
+            next[i++] = ++j;
+        } else if (j > 0) {
+            j = next[j];
+        } else {
+            next[i++] = 0;
+        }
+    }
+    return s.slice(0, next[n - 1]);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

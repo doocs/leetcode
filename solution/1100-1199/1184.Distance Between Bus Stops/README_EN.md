@@ -94,9 +94,9 @@ tags:
 
 ### Solution 1: Simulation
 
-First, we can calculate the total distance $s$ that the bus travels. Then, we simulate the bus's journey, starting from the departure point, moving one stop to the right each time, until we reach the destination. During the simulation, we can record the distance $a$ from the departure point to the destination. Therefore, the shortest distance from the destination to the departure point is $\min(a, s - a)$.
+We can first calculate the total distance $s$ that the bus travels, then simulate the bus's journey. Starting from the departure point, we move one stop to the right each time until we reach the destination, recording the travel distance $t$ during this process. Finally, we return the minimum value between $t$ and $s - t$.
 
-The time complexity is $O(n)$, where $n$ is the number of bus stops. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{distance}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -107,11 +107,12 @@ class Solution:
     def distanceBetweenBusStops(
         self, distance: List[int], start: int, destination: int
     ) -> int:
-        a, n = 0, len(distance)
+        s = sum(distance)
+        t, n = 0, len(distance)
         while start != destination:
-            a += distance[start]
+            t += distance[start]
             start = (start + 1) % n
-        return min(a, sum(distance) - a)
+        return min(t, s - t)
 ```
 
 #### Java
@@ -120,13 +121,12 @@ class Solution:
 class Solution {
     public int distanceBetweenBusStops(int[] distance, int start, int destination) {
         int s = Arrays.stream(distance).sum();
-        int n = distance.length;
-        int a = 0;
+        int n = distance.length, t = 0;
         while (start != destination) {
-            a += distance[start];
+            t += distance[start];
             start = (start + 1) % n;
         }
-        return Math.min(a, s - a);
+        return Math.min(t, s - t);
     }
 }
 ```
@@ -138,12 +138,12 @@ class Solution {
 public:
     int distanceBetweenBusStops(vector<int>& distance, int start, int destination) {
         int s = accumulate(distance.begin(), distance.end(), 0);
-        int a = 0, n = distance.size();
+        int t = 0, n = distance.size();
         while (start != destination) {
-            a += distance[start];
+            t += distance[start];
             start = (start + 1) % n;
         }
-        return min(a, s - a);
+        return min(t, s - t);
     }
 };
 ```
@@ -152,16 +152,15 @@ public:
 
 ```go
 func distanceBetweenBusStops(distance []int, start int, destination int) int {
-	s := 0
+	s, t := 0, 0
 	for _, x := range distance {
 		s += x
 	}
-	a, n := 0, len(distance)
 	for start != destination {
-		a += distance[start]
-		start = (start + 1) % n
+		t += distance[start]
+		start = (start + 1) % len(distance)
 	}
-	return min(a, s-a)
+	return min(t, s-t)
 }
 ```
 
@@ -170,13 +169,34 @@ func distanceBetweenBusStops(distance []int, start int, destination int) int {
 ```ts
 function distanceBetweenBusStops(distance: number[], start: number, destination: number): number {
     const s = distance.reduce((a, b) => a + b, 0);
-    let a = 0;
     const n = distance.length;
-    while (start != destination) {
-        a += distance[start];
+    let t = 0;
+    while (start !== destination) {
+        t += distance[start];
         start = (start + 1) % n;
     }
-    return Math.min(a, s - a);
+    return Math.min(t, s - t);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn distance_between_bus_stops(distance: Vec<i32>, start: i32, destination: i32) -> i32 {
+        let s: i32 = distance.iter().sum();
+        let mut t = 0;
+        let n = distance.len();
+        let mut start = start as usize;
+        let destination = destination as usize;
+
+        while start != destination {
+            t += distance[start];
+            start = (start + 1) % n;
+        }
+
+        t.min(s - t)
+    }
 }
 ```
 
@@ -191,13 +211,13 @@ function distanceBetweenBusStops(distance: number[], start: number, destination:
  */
 var distanceBetweenBusStops = function (distance, start, destination) {
     const s = distance.reduce((a, b) => a + b, 0);
-    let a = 0;
     const n = distance.length;
-    while (start != destination) {
-        a += distance[start];
+    let t = 0;
+    while (start !== destination) {
+        t += distance[start];
         start = (start + 1) % n;
     }
-    return Math.min(a, s - a);
+    return Math.min(t, s - t);
 };
 ```
 

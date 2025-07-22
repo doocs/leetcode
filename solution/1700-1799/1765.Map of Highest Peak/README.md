@@ -74,6 +74,7 @@ tags:
 	<li><code>isWater[i][j]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;，要么是&nbsp;<code>1</code>&nbsp;。</li>
 	<li>至少有 <strong>1</strong>&nbsp;个水域格子。</li>
 </ul>
+<strong>注意：</strong>本题与 <a href="https://leetcode.cn/problems/01-matrix/">542</a> 题相同。
 
 <!-- description:end -->
 

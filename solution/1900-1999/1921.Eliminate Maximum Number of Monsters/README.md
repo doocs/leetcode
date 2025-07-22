@@ -83,13 +83,13 @@ tags:
 
 ### 方法一：排序 + 贪心
 
-我们用 $times$ 数组记录每个怪物最晚可被消灭的时间。对于第 $i$ 个怪物，最晚可被消灭的时间满足：
+我们用 $\textit{times}$ 数组记录每个怪物最晚可被消灭的时间。对于第 $i$ 个怪物，最晚可被消灭的时间满足：
 
-$$times[i] = \lfloor \frac{dist[i]-1}{speed[i]} \rfloor$$
+$$\textit{times}[i] = \left\lfloor \frac{\textit{dist}[i]-1}{\textit{speed}[i]} \right\rfloor$$
 
-接下来，我们对 $times$ 数组升序排列。
+接下来，我们对 $\textit{times}$ 数组升序排列。
 
-然后遍历 $times$ 数组，对于第 $i$ 个怪物，如果 $times[i] \geq i$，说明第 $i$ 个怪物可以被消灭，否则说明第 $i$ 个怪物无法被消灭，直接返回 $i$ 即可。
+然后遍历 $\textit{times}$ 数组，对于第 $i$ 个怪物，如果 $\textit{times}[i] \geq i$，说明第 $i$ 个怪物可以被消灭，否则说明第 $i$ 个怪物无法被消灭，直接返回 $i$ 即可。
 
 若所有怪物都可以被消灭，则返回 $n$。
 
@@ -176,7 +176,7 @@ func eliminateMaximum(dist []int, speed []int) int {
 ```ts
 function eliminateMaximum(dist: number[], speed: number[]): number {
     const n = dist.length;
-    const times = new Array(n).fill(0);
+    const times: number[] = Array(n).fill(0);
     for (let i = 0; i < n; ++i) {
         times[i] = Math.floor((dist[i] - 1) / speed[i]);
     }
@@ -199,17 +199,18 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
  * @return {number}
  */
 var eliminateMaximum = function (dist, speed) {
-    let arr = [];
-    for (let i = 0; i < dist.length; i++) {
-        arr[i] = dist[i] / speed[i];
+    const n = dist.length;
+    const times = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        times[i] = Math.floor((dist[i] - 1) / speed[i]);
     }
-    arr.sort((a, b) => a - b);
-    let ans = 0;
-    while (arr[0] > ans) {
-        arr.shift();
-        ++ans;
+    times.sort((a, b) => a - b);
+    for (let i = 0; i < n; ++i) {
+        if (times[i] < i) {
+            return i;
+        }
     }
-    return ans;
+    return n;
 };
 ```
 

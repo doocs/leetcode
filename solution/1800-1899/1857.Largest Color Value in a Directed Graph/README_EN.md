@@ -32,19 +32,14 @@ tags:
 <p>Return <em>the <strong>largest color value</strong> of any valid path in the given graph, or </em><code>-1</code><em> if the graph contains a cycle</em>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong class="example">Example 1:</strong></p>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/images/leet1.png" style="width: 400px; height: 182px;" /></p>
 
 <pre>
-
 <strong>Input:</strong> colors = &quot;abaca&quot;, edges = [[0,1],[0,2],[2,3],[3,4]]
-
 <strong>Output:</strong> 3
-
 <strong>Explanation:</strong> The path 0 -&gt; 2 -&gt; 3 -&gt; 4 contains 3 nodes that are colored <code>&quot;a&quot; (red in the above image)</code>.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -52,33 +47,21 @@ tags:
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/images/leet2.png" style="width: 85px; height: 85px;" /></p>
 
 <pre>
-
 <strong>Input:</strong> colors = &quot;a&quot;, edges = [[0,0]]
-
 <strong>Output:</strong> -1
-
 <strong>Explanation:</strong> There is a cycle from 0 to 0.
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
-    <li><code>n == colors.length</code></li>
-
-    <li><code>m == edges.length</code></li>
-
-    <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-
-    <li><code>0 &lt;= m &lt;= 10<sup>5</sup></code></li>
-
-    <li><code>colors</code> consists of lowercase English letters.</li>
-
-    <li><code>0 &lt;= a<sub>j</sub>, b<sub>j</sub>&nbsp;&lt; n</code></li>
-
+	<li><code>n == colors.length</code></li>
+	<li><code>m == edges.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= m &lt;= 10<sup>5</sup></code></li>
+	<li><code>colors</code> consists of lowercase English letters.</li>
+	<li><code>0 &lt;= a<sub>j</sub>, b<sub>j</sub>&nbsp;&lt; n</code></li>
 </ul>
 
 <!-- description:end -->
@@ -87,7 +70,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Topological Sort + Dynamic Programming
+
+Calculate the in-degree of each node and perform a topological sort.
+
+Define a 2D array $dp$, where $dp[i][j]$ represents the number of nodes with color $j$ on the path from the start node to node $i$.
+
+From node $i$, traverse all outgoing edges $i \to j$, and update $dp[j][k] = \max(dp[j][k], dp[i][k] + (c == k))$, where $c$ is the color of node $j$.
+
+The answer is the maximum value in the $dp$ array.
+
+If there is a cycle in the graph, it is impossible to visit all nodes, so return $-1$.
+
+The time complexity is $O((n + m) \times |\Sigma|)$, and the space complexity is $O(m + n \times |\Sigma|)$. Here, $|\Sigma|$ is the size of the alphabet (26 in this case), and $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -262,6 +257,48 @@ func largestPathValue(colors string, edges [][]int) int {
 		return ans
 	}
 	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function largestPathValue(colors: string, edges: number[][]): number {
+    const n = colors.length;
+    const indeg = Array(n).fill(0);
+    const g: Map<number, number[]> = new Map();
+    for (const [a, b] of edges) {
+        if (!g.has(a)) g.set(a, []);
+        g.get(a)!.push(b);
+        indeg[b]++;
+    }
+    const q: number[] = [];
+    const dp: number[][] = Array.from({ length: n }, () => Array(26).fill(0));
+    for (let i = 0; i < n; i++) {
+        if (indeg[i] === 0) {
+            q.push(i);
+            const c = colors.charCodeAt(i) - 97;
+            dp[i][c]++;
+        }
+    }
+    let cnt = 0;
+    let ans = 1;
+    while (q.length) {
+        const i = q.pop()!;
+        cnt++;
+        if (g.has(i)) {
+            for (const j of g.get(i)!) {
+                indeg[j]--;
+                if (indeg[j] === 0) q.push(j);
+                const c = colors.charCodeAt(j) - 97;
+                for (let k = 0; k < 26; k++) {
+                    dp[j][k] = Math.max(dp[j][k], dp[i][k] + (c === k ? 1 : 0));
+                    ans = Math.max(ans, dp[j][k]);
+                }
+            }
+        }
+    }
+    return cnt < n ? -1 : ans;
 }
 ```
 

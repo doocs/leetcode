@@ -79,7 +79,11 @@ Since three subsequences were created, we return 3. It can be shown that 3 is th
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+The problem requires dividing into subsequences, not subarrays, so the elements in a subsequence can be non-continuous. We can sort the array $\textit{nums}$. Assuming the first element of the current subsequence is $a$, the difference between the maximum and minimum values in the subsequence will not exceed $k$. Therefore, we can iterate through the array $\textit{nums}$. If the difference between the current element $b$ and $a$ is greater than $k$, then update $a$ to $b$ and increase the number of subsequences by 1. After the iteration, we can obtain the minimum number of subsequences, noting that the initial number of subsequences is $1$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -164,6 +168,48 @@ function partitionArray(nums: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn partition_array(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort();
+        let mut ans = 1;
+        let mut a = nums[0];
+
+        for &b in nums.iter() {
+            if b - a > k {
+                a = b;
+                ans += 1;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### Rust
+
+```rust
+public class Solution {
+    public int PartitionArray(int[] nums, int k) {
+        Array.Sort(nums);
+        int ans = 1;
+        int a = nums[0];
+
+        foreach (int b in nums) {
+            if (b - a > k) {
+                a = b;
+                ans++;
+            }
+        }
+
+        return ans;
+    }
 }
 ```
 

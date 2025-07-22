@@ -1,4 +1,6 @@
 class Trie:
+    __slots__ = "children", "cnt"
+
     def __init__(self):
         self.children = [None] * 26
         self.cnt = 0
@@ -6,7 +8,7 @@ class Trie:
     def insert(self, w):
         node = self
         for c in w:
-            idx = ord(c) - ord('a')
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
@@ -16,7 +18,7 @@ class Trie:
         node = self
         ans = 0
         for c in w:
-            idx = ord(c) - ord('a')
+            idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 return ans
             node = node.children[idx]

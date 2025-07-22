@@ -181,10 +181,9 @@ func lemonadeChange(bills []int) bool {
 
 ```ts
 function lemonadeChange(bills: number[]): boolean {
-    let five = 0;
-    let ten = 0;
-    for (let bill of bills) {
-        switch (bill) {
+    let [five, ten] = [0, 0];
+    for (const x of bills) {
+        switch (x) {
             case 5:
                 five++;
                 break;
@@ -193,11 +192,44 @@ function lemonadeChange(bills: number[]): boolean {
                 ten++;
                 break;
             case 20:
-                if (ten !== 0) {
-                    ten -= 1;
-                    bill -= 10;
+                if (ten) {
+                    ten--;
+                    five--;
+                } else {
+                    five -= 3;
                 }
-                five -= bill / 5 - 1;
+                break;
+        }
+
+        if (five < 0) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+#### JavaScript
+
+```js
+function lemonadeChange(bills) {
+    let [five, ten] = [0, 0];
+    for (const x of bills) {
+        switch (x) {
+            case 5:
+                five++;
+                break;
+            case 10:
+                five--;
+                ten++;
+                break;
+            case 20:
+                if (ten) {
+                    ten--;
+                    five--;
+                } else {
+                    five -= 3;
+                }
                 break;
         }
 
@@ -241,6 +273,44 @@ impl Solution {
         true
     }
 }
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: One-liner
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+const lemonadeChange = (bills: number[], f = 0, t = 0): boolean =>
+    bills.every(
+        x => (
+            (!(x ^ 5) && ++f) ||
+                (!(x ^ 10) && (--f, ++t)) ||
+                (!(x ^ 20) && (t ? (f--, t--) : (f -= 3), 1)),
+            f >= 0
+        ),
+    );
+```
+
+#### JavaScript
+
+```js
+const lemonadeChange = (bills, f = 0, t = 0) =>
+    bills.every(
+        x => (
+            (!(x ^ 5) && ++f) ||
+                (!(x ^ 10) && (--f, ++t)) ||
+                (!(x ^ 20) && (t ? (f--, t--) : (f -= 3), 1)),
+            f >= 0
+        ),
+    );
 ```
 
 <!-- tabs:end -->

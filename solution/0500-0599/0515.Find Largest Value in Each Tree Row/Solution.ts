@@ -13,21 +13,26 @@
  */
 
 function largestValues(root: TreeNode | null): number[] {
-    const res: number[] = [];
-    const queue: TreeNode[] = [];
-    if (root) {
-        queue.push(root);
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
     }
-    while (queue.length) {
-        const n = queue.length;
-        let max = -Infinity;
-        for (let i = 0; i < n; i++) {
-            const { val, left, right } = queue.shift();
-            max = Math.max(max, val);
-            left && queue.push(left);
-            right && queue.push(right);
+    const q: TreeNode[] = [root];
+    while (q.length) {
+        const nq: TreeNode[] = [];
+        let x = -Infinity;
+        for (const { val, left, right } of q) {
+            x = Math.max(x, val);
+            if (left) {
+                nq.push(left);
+            }
+            if (right) {
+                nq.push(right);
+            }
         }
-        res.push(max);
+        ans.push(x);
+        q.length = 0;
+        q.push(...nq);
     }
-    return res;
+    return ans;
 }

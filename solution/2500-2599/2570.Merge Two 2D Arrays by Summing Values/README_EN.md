@@ -33,7 +33,7 @@ tags:
 
 <ul>
 	<li>Only ids that appear in at least one of the two arrays should be included in the resulting array.</li>
-	<li>Each id should be included <strong>only once</strong> and its value should be the sum of the values of this id in the two arrays. If the id does not exist in one of the two arrays then its value in that array is considered to be <code>0</code>.</li>
+	<li>Each id should be included <strong>only once</strong> and its value should be the sum of the values of this id in the two arrays. If the id does not exist in one of the two arrays, then assume its value in that array to be <code>0</code>.</li>
 </ul>
 
 <p>Return <em>the resulting array</em>. The returned array must be sorted in ascending order by id.</p>

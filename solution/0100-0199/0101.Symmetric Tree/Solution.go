@@ -7,9 +7,9 @@
  * }
  */
 func isSymmetric(root *TreeNode) bool {
-	var dfs func(*TreeNode, *TreeNode) bool
+	var dfs func(root1, root2 *TreeNode) bool
 	dfs = func(root1, root2 *TreeNode) bool {
-		if root1 == nil && root2 == nil {
+		if root1 == root2 {
 			return true
 		}
 		if root1 == nil || root2 == nil || root1.Val != root2.Val {
@@ -17,5 +17,5 @@ func isSymmetric(root *TreeNode) bool {
 		}
 		return dfs(root1.Left, root2.Right) && dfs(root1.Right, root2.Left)
 	}
-	return dfs(root, root)
+	return dfs(root.Left, root.Right)
 }

@@ -1,6 +1,3 @@
-import java.util.Map;
-import java.util.TreeMap;
-
 class MyCalendar {
 
     private final TreeMap<Integer, Integer> tm = new TreeMap<>();

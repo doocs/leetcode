@@ -68,11 +68,11 @@ tags:
 
 ### 方法一：枚举
 
-我们可以枚举所有的 $i$, $j$ 和 $k$，其中 $i \lt j \lt k$，判断是否同时满足 $|arr[i] - arr[j]| \le a$，$|arr[j] - arr[k]| \le b$ 和 $|arr[i] - arr[k]| \le c$，如果满足则将答案加一。
+我们可以枚举所有的 $i$, $j$ 和 $k$，其中 $i \lt j \lt k$，判断是否同时满足 $|\textit{arr}[i] - \textit{arr}[j]| \le a$，$|\textit{arr}[j] - \textit{arr}[k]| \le b$ 和 $|\textit{arr}[i] - \textit{arr}[k]| \le c$，如果满足则将答案加一。
 
 枚举结束后，即可得到答案。
 
-时间复杂度 $O(n^3)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n^3)$，其中 $n$ 为数组 $\textit{arr}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -157,6 +157,75 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function countGoodTriplets(arr: number[], a: number, b: number, c: number): number {
+    let n = arr.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            for (let k = j + 1; k < n; ++k) {
+                if (
+                    Math.abs(arr[i] - arr[j]) <= a &&
+                    Math.abs(arr[j] - arr[k]) <= b &&
+                    Math.abs(arr[i] - arr[k]) <= c
+                ) {
+                    ++ans;
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_good_triplets(arr: Vec<i32>, a: i32, b: i32, c: i32) -> i32 {
+        let n = arr.len();
+        let mut ans = 0;
+
+        for i in 0..n {
+            for j in i + 1..n {
+                for k in j + 1..n {
+                    if (arr[i] - arr[j]).abs() <= a && (arr[j] - arr[k]).abs() <= b && (arr[i] - arr[k]).abs() <= c {
+                        ans += 1;
+                    }
+                }
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountGoodTriplets(int[] arr, int a, int b, int c) {
+        int n = arr.Length;
+        int ans = 0;
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                for (int k = j + 1; k < n; ++k) {
+                    if (Math.Abs(arr[i] - arr[j]) <= a && Math.Abs(arr[j] - arr[k]) <= b && Math.Abs(arr[i] - arr[k]) <= c) {
+                        ++ans;
+                    }
+                }
+            }
+        }
+
+        return ans;
+    }
 }
 ```
 

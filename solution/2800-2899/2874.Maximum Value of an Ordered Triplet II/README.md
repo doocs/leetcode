@@ -69,7 +69,11 @@ tags:
 
 ### 方法一：维护前缀最大值和最大差值
 
-我们可以用两个变量 $mx$ 和 $mx\_diff$ 分别维护前缀最大值和最大差值。遍历数组时，更新这两个变量，答案为所有 $mx\_diff \times nums[i]$ 的最大值。
+我们用两个变量 $\textit{mx}$ 和 $\textit{mxDiff}$ 分别维护前缀最大值和最大差值，用一个变量 $\textit{ans}$ 维护答案。初始时，这些变量都为 $0$。
+
+接下来，我们枚举数组的每个元素 $x$ 作为 $\textit{nums}[k]$，首先更新答案 $\textit{ans} = \max(\textit{ans}, \textit{mxDiff} \times x)$，然后我们更新最大差值 $\textit{mxDiff} = \max(\textit{mxDiff}, \textit{mx} - x)$，最后更新前缀最大值 $\textit{mx} = \max(\textit{mx}, x)$。
+
+枚举完所有元素后，返回答案 $\textit{ans}$。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组长度。空间复杂度 $O(1)$。
 
@@ -81,10 +85,10 @@ tags:
 class Solution:
     def maximumTripletValue(self, nums: List[int]) -> int:
         ans = mx = mx_diff = 0
-        for num in nums:
-            ans = max(ans, mx_diff * num)
-            mx = max(mx, num)
-            mx_diff = max(mx_diff, mx - num)
+        for x in nums:
+            ans = max(ans, mx_diff * x)
+            mx_diff = max(mx_diff, mx - x)
+            mx = max(mx, x)
         return ans
 ```
 
@@ -93,14 +97,12 @@ class Solution:
 ```java
 class Solution {
     public long maximumTripletValue(int[] nums) {
-        long max, maxDiff, ans;
-        max = 0;
-        maxDiff = 0;
-        ans = 0;
-        for (int num : nums) {
-            ans = Math.max(ans, num * maxDiff);
-            max = Math.max(max, num);
-            maxDiff = Math.max(maxDiff, max - num);
+        long ans = 0, mxDiff = 0;
+        int mx = 0;
+        for (int x : nums) {
+            ans = Math.max(ans, mxDiff * x);
+            mxDiff = Math.max(mxDiff, mx - x);
+            mx = Math.max(mx, x);
         }
         return ans;
     }
@@ -113,12 +115,12 @@ class Solution {
 class Solution {
 public:
     long long maximumTripletValue(vector<int>& nums) {
-        long long ans = 0;
-        int mx = 0, mx_diff = 0;
-        for (int num : nums) {
-            ans = max(ans, 1LL * mx_diff * num);
-            mx = max(mx, num);
-            mx_diff = max(mx_diff, mx - num);
+        long long ans = 0, mxDiff = 0;
+        int mx = 0;
+        for (int x : nums) {
+            ans = max(ans, mxDiff * x);
+            mxDiff = max(mxDiff, 1LL * mx - x);
+            mx = max(mx, x);
         }
         return ans;
     }
@@ -129,11 +131,11 @@ public:
 
 ```go
 func maximumTripletValue(nums []int) int64 {
-	ans, mx, mx_diff := 0, 0, 0
-	for _, num := range nums {
-		ans = max(ans, mx_diff*num)
-		mx = max(mx, num)
-		mx_diff = max(mx_diff, mx-num)
+	ans, mx, mxDiff := 0, 0, 0
+	for _, x := range nums {
+		ans = max(ans, mxDiff*x)
+		mxDiff = max(mxDiff, mx-x)
+		mx = max(mx, x)
 	}
 	return int64(ans)
 }
@@ -143,13 +145,33 @@ func maximumTripletValue(nums []int) int64 {
 
 ```ts
 function maximumTripletValue(nums: number[]): number {
-    let [ans, mx, mx_diff] = [0, 0, 0];
-    for (const num of nums) {
-        ans = Math.max(ans, mx_diff * num);
-        mx = Math.max(mx, num);
-        mx_diff = Math.max(mx_diff, mx - num);
+    let [ans, mx, mxDiff] = [0, 0, 0];
+    for (const x of nums) {
+        ans = Math.max(ans, mxDiff * x);
+        mxDiff = Math.max(mxDiff, mx - x);
+        mx = Math.max(mx, x);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_triplet_value(nums: Vec<i32>) -> i64 {
+        let mut ans: i64 = 0;
+        let mut mx: i32 = 0;
+        let mut mx_diff: i32 = 0;
+
+        for &x in &nums {
+            ans = ans.max(mx_diff as i64 * x as i64);
+            mx_diff = mx_diff.max(mx - x);
+            mx = mx.max(x);
+        }
+
+        ans
+    }
 }
 ```
 

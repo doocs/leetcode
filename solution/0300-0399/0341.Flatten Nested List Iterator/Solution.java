@@ -11,38 +11,34 @@
  *     public Integer getInteger();
  *
  *     // @return the nested list that this NestedInteger holds, if it holds a nested list
- *     // Return null if this NestedInteger holds a single integer
+ *     // Return empty list if this NestedInteger holds a single integer
  *     public List<NestedInteger> getList();
  * }
  */
 public class NestedIterator implements Iterator<Integer> {
-
-    private List<Integer> vals;
-
-    private Iterator<Integer> cur;
+    private List<Integer> nums = new ArrayList<>();
+    private int i = -1;
 
     public NestedIterator(List<NestedInteger> nestedList) {
-        vals = new ArrayList<>();
         dfs(nestedList);
-        cur = vals.iterator();
     }
 
     @Override
     public Integer next() {
-        return cur.next();
+        return nums.get(++i);
     }
 
     @Override
     public boolean hasNext() {
-        return cur.hasNext();
+        return i + 1 < nums.size();
     }
 
-    private void dfs(List<NestedInteger> nestedList) {
-        for (NestedInteger e : nestedList) {
-            if (e.isInteger()) {
-                vals.add(e.getInteger());
+    private void dfs(List<NestedInteger> ls) {
+        for (var x : ls) {
+            if (x.isInteger()) {
+                nums.add(x.getInteger());
             } else {
-                dfs(e.getList());
+                dfs(x.getList());
             }
         }
     }

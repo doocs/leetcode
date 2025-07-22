@@ -61,21 +61,21 @@ The total probability the knight stays on the board is 0.0625.
 
 ### Solution 1: Dynamic Programming
 
-Let $f[h][i][j]$ denotes the probability that the knight is still on the chessboard after $h$ steps starting from the position $(i, j)$. Then the final answer is $f[k][row][column]$.
+We define $f[h][i][j]$ to represent the probability that the knight remains on the board after taking $h$ steps starting from position $(i, j)$. The final answer is $f[k][\textit{row}][\textit{column}]$.
 
-When $h = 0$, the knight is always on the chessboard, so $f[0][i][j] = 1$.
+When $h=0$, the knight is definitely on the board, so the probability is $1$, i.e., $f[0][i][j]=1$.
 
-When $h \gt 0$, the probability that the knight is on the position $(i, j)$ can be transferred from the probability on its $8$ adjacent positions, which are:
+When $h \gt 0$, the probability that the knight is at position $(i, j)$ can be derived from the probabilities of the $8$ possible positions it could have come from in the previous step, i.e.,
 
 $$
-f[h][i][j] = \sum_{a, b} f[h - 1][a][b] \times \frac{1}{8}
+f[h][i][j] = \sum_{x, y} f[h - 1][x][y] \times \frac{1}{8}
 $$
 
-where $(a, b)$ is one of the $8$ adjacent positions.
+where $(x, y)$ is one of the $8$ positions the knight can move to from $(i, j)$.
 
-The final answer is $f[k][row][column]$.
+The final answer is $f[k][\textit{row}][\textit{column}]$.
 
-The time complexity is $O(k \times n^2)$, and the space complexity is $O(k \times n^2)$. Here $k$ and $n$ are the given steps and the chessboard size, respectively.
+The time complexity is $O(k \times n^2)$, and the space complexity is $O(k \times n^2)$. Here, $k$ and $n$ are the given number of steps and the size of the board, respectively.
 
 <!-- tabs:start -->
 
@@ -193,9 +193,9 @@ func knightProbability(n int, k int, row int, column int) float64 {
 
 ```ts
 function knightProbability(n: number, k: number, row: number, column: number): number {
-    const f = new Array(k + 1)
-        .fill(0)
-        .map(() => new Array(n).fill(0).map(() => new Array(n).fill(0)));
+    const f = Array.from({ length: k + 1 }, () =>
+        Array.from({ length: n }, () => Array(n).fill(0)),
+    );
     for (let i = 0; i < n; ++i) {
         for (let j = 0; j < n; ++j) {
             f[0][i][j] = 1;
@@ -222,55 +222,39 @@ function knightProbability(n: number, k: number, row: number, column: number): n
 #### Rust
 
 ```rust
-const DIR: [(i32, i32); 8] = [
-    (-2, -1),
-    (2, -1),
-    (-1, -2),
-    (1, -2),
-    (2, 1),
-    (-2, 1),
-    (1, 2),
-    (-1, 2),
-];
-const P: f64 = 1.0 / 8.0;
-
 impl Solution {
-    #[allow(dead_code)]
     pub fn knight_probability(n: i32, k: i32, row: i32, column: i32) -> f64 {
-        // Here dp[i][j][k] represents through `i` steps, the probability that the knight stays on the board
-        // Starts from row: `j`, column: `k`
-        let mut dp: Vec<Vec<Vec<f64>>> =
-            vec![vec![vec![0 as f64; n as usize]; n as usize]; k as usize + 1];
+        let n = n as usize;
+        let k = k as usize;
 
-        // Initialize the dp vector, since dp[0][j][k] should be 1
-        for j in 0..n as usize {
-            for k in 0..n as usize {
-                dp[0][j][k] = 1.0;
+        let mut f = vec![vec![vec![0.0; n]; n]; k + 1];
+
+        for i in 0..n {
+            for j in 0..n {
+                f[0][i][j] = 1.0;
             }
         }
 
-        // Begin the actual dp process
-        for i in 1..=k {
-            for j in 0..n {
-                for k in 0..n {
-                    for (dx, dy) in DIR {
-                        let x = j + dx;
-                        let y = k + dy;
-                        if Self::check_bounds(x, y, n, n) {
-                            dp[i as usize][j as usize][k as usize] +=
-                                P * dp[(i as usize) - 1][x as usize][y as usize];
+        let dirs = [-2, -1, 2, 1, -2, 1, 2, -1, -2];
+
+        for h in 1..=k {
+            for i in 0..n {
+                for j in 0..n {
+                    for p in 0..8 {
+                        let x = i as isize + dirs[p];
+                        let y = j as isize + dirs[p + 1];
+
+                        if x >= 0 && x < n as isize && y >= 0 && y < n as isize {
+                            let x = x as usize;
+                            let y = y as usize;
+                            f[h][i][j] += f[h - 1][x][y] / 8.0;
                         }
                     }
                 }
             }
         }
 
-        dp[k as usize][row as usize][column as usize]
-    }
-
-    #[allow(dead_code)]
-    fn check_bounds(i: i32, j: i32, n: i32, m: i32) -> bool {
-        i >= 0 && i < n && j >= 0 && j < m
+        f[k][row as usize][column as usize]
     }
 }
 ```

@@ -61,7 +61,13 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Circular Array
+
+We define a variable $\textit{s}$ to calculate the sum of the last $\textit{size}$ elements, and a variable $\textit{cnt}$ to record the total number of current elements. Additionally, we use an array $\textit{data}$ of length $\textit{size}$ to record the value of each element at each position.
+
+When calling the $\textit{next}$ function, we first calculate the index $i$ where $\textit{val}$ should be stored, then update the sum $s$, set the value at index $i$ to $\textit{val}$, and increment the element count by one. Finally, we return the value of $\frac{s}{\min(\textit{cnt}, \textit{size})}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(n)$, where $n$ is the integer $\textit{size}$ given in the problem.
 
 <!-- tabs:start -->
 
@@ -69,17 +75,18 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 
 ```python
 class MovingAverage:
+
     def __init__(self, size: int):
-        self.arr = [0] * size
         self.s = 0
+        self.data = [0] * size
         self.cnt = 0
 
     def next(self, val: int) -> float:
-        idx = self.cnt % len(self.arr)
-        self.s += val - self.arr[idx]
-        self.arr[idx] = val
+        i = self.cnt % len(self.data)
+        self.s += val - self.data[i]
+        self.data[i] = val
         self.cnt += 1
-        return self.s / min(self.cnt, len(self.arr))
+        return self.s / min(self.cnt, len(self.data))
 
 
 # Your MovingAverage object will be instantiated and called as such:
@@ -91,20 +98,20 @@ class MovingAverage:
 
 ```java
 class MovingAverage {
-    private int[] arr;
     private int s;
     private int cnt;
+    private int[] data;
 
     public MovingAverage(int size) {
-        arr = new int[size];
+        data = new int[size];
     }
 
     public double next(int val) {
-        int idx = cnt % arr.length;
-        s += val - arr[idx];
-        arr[idx] = val;
+        int i = cnt % data.length;
+        s += val - data[i];
+        data[i] = val;
         ++cnt;
-        return s * 1.0 / Math.min(cnt, arr.length);
+        return s * 1.0 / Math.min(cnt, data.length);
     }
 }
 
@@ -121,21 +128,21 @@ class MovingAverage {
 class MovingAverage {
 public:
     MovingAverage(int size) {
-        arr.resize(size);
+        data.resize(size);
     }
 
     double next(int val) {
-        int idx = cnt % arr.size();
-        s += val - arr[idx];
-        arr[idx] = val;
+        int i = cnt % data.size();
+        s += val - data[i];
+        data[i] = val;
         ++cnt;
-        return (double) s / min(cnt, (int) arr.size());
+        return s * 1.0 / min(cnt, (int) data.size());
     }
 
 private:
-    vector<int> arr;
-    int cnt = 0;
     int s = 0;
+    int cnt = 0;
+    vector<int> data;
 };
 
 /**
@@ -149,22 +156,23 @@ private:
 
 ```go
 type MovingAverage struct {
-	arr []int
-	cnt int
-	s   int
+	s    int
+	cnt  int
+	data []int
 }
 
 func Constructor(size int) MovingAverage {
-	arr := make([]int, size)
-	return MovingAverage{arr, 0, 0}
+	return MovingAverage{
+		data: make([]int, size),
+	}
 }
 
 func (this *MovingAverage) Next(val int) float64 {
-	idx := this.cnt % len(this.arr)
-	this.s += val - this.arr[idx]
-	this.arr[idx] = val
+	i := this.cnt % len(this.data)
+	this.s += val - this.data[i]
+	this.data[i] = val
 	this.cnt++
-	return float64(this.s) / float64(min(this.cnt, len(this.arr)))
+	return float64(this.s) / float64(min(this.cnt, len(this.data)))
 }
 
 /**
@@ -174,13 +182,47 @@ func (this *MovingAverage) Next(val int) float64 {
  */
 ```
 
+#### TypeScript
+
+```ts
+class MovingAverage {
+    private s: number = 0;
+    private cnt: number = 0;
+    private data: number[];
+
+    constructor(size: number) {
+        this.data = Array(size).fill(0);
+    }
+
+    next(val: number): number {
+        const i = this.cnt % this.data.length;
+        this.s += val - this.data[i];
+        this.data[i] = val;
+        this.cnt++;
+        return this.s / Math.min(this.cnt, this.data.length);
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * var obj = new MovingAverage(size)
+ * var param_1 = obj.next(val)
+ */
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Queue
+
+We can use a queue $\textit{q}$ to store the last $\textit{size}$ elements, and a variable $\textit{s}$ to record the sum of these $\textit{size}$ elements.
+
+When calling the $\textit{next}$ function, we first check if the length of the queue $\textit{q}$ is equal to $\textit{size}$. If it is, we dequeue the front element of the queue $\textit{q}$ and update the value of $\textit{s}$. Then we enqueue $\textit{val}$ and update the value of $\textit{s}$. Finally, we return the value of $\frac{s}{\text{len}(q)}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(n)$, where $n$ is the integer $\textit{size}$ given in the problem.
 
 <!-- tabs:start -->
 
@@ -294,6 +336,35 @@ func (this *MovingAverage) Next(val int) float64 {
  * Your MovingAverage object will be instantiated and called as such:
  * obj := Constructor(size);
  * param_1 := obj.Next(val);
+ */
+```
+
+#### TypeScript
+
+```ts
+class MovingAverage {
+    private q: number[] = [];
+    private s: number = 0;
+    private n: number;
+
+    constructor(size: number) {
+        this.n = size;
+    }
+
+    next(val: number): number {
+        if (this.q.length === this.n) {
+            this.s -= this.q.shift()!;
+        }
+        this.q.push(val);
+        this.s += val;
+        return this.s / this.q.length;
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * var obj = new MovingAverage(size)
+ * var param_1 = obj.next(val)
  */
 ```
 

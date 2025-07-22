@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1282.Gr
 rating: 1267
 source: Weekly Contest 166 Q2
 tags:
+    - Greedy
     - Array
     - Hash Table
 ---

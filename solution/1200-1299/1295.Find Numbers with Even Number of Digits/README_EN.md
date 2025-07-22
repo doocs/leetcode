@@ -6,6 +6,7 @@ rating: 1139
 source: Weekly Contest 168 Q1
 tags:
     - Array
+    - Math
 ---
 
 <!-- problem:start -->
@@ -58,7 +59,13 @@ Only 1771 contains an even number of digits.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We traverse each element $x$ in the array $\textit{nums}$. For the current element $x$, we directly convert it to a string and then check if its length is even. If it is, we increment the answer by one.
+
+After the traversal is complete, we return the answer.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value of the elements in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -67,7 +74,7 @@ Only 1771 contains an even number of digits.
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        return sum(len(str(v)) % 2 == 0 for v in nums)
+        return sum(len(str(x)) % 2 == 0 for x in nums)
 ```
 
 #### Java
@@ -76,8 +83,8 @@ class Solution:
 class Solution {
     public int findNumbers(int[] nums) {
         int ans = 0;
-        for (int v : nums) {
-            if (String.valueOf(v).length() % 2 == 0) {
+        for (int x : nums) {
+            if (String.valueOf(x).length() % 2 == 0) {
                 ++ans;
             }
         }
@@ -93,8 +100,8 @@ class Solution {
 public:
     int findNumbers(vector<int>& nums) {
         int ans = 0;
-        for (int& v : nums) {
-            ans += to_string(v).size() % 2 == 0;
+        for (int& x : nums) {
+            ans += to_string(x).size() % 2 == 0;
         }
         return ans;
     }
@@ -105,12 +112,30 @@ public:
 
 ```go
 func findNumbers(nums []int) (ans int) {
-	for _, v := range nums {
-		if len(strconv.Itoa(v))%2 == 0 {
+	for _, x := range nums {
+		if len(strconv.Itoa(x))%2 == 0 {
 			ans++
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function findNumbers(nums: number[]): number {
+    return nums.filter(x => x.toString().length % 2 === 0).length;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_numbers(nums: Vec<i32>) -> i32 {
+        nums.iter().filter(|&x| x.to_string().len() % 2 == 0).count() as i32
+    }
 }
 ```
 
@@ -122,12 +147,18 @@ func findNumbers(nums []int) (ans int) {
  * @return {number}
  */
 var findNumbers = function (nums) {
-    let ans = 0;
-    for (const v of nums) {
-        ans += String(v).length % 2 == 0;
-    }
-    return ans;
+    return nums.filter(x => x.toString().length % 2 === 0).length;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int FindNumbers(int[] nums) {
+        return nums.Count(x => x.ToString().Length % 2 == 0);
+    }
+}
 ```
 
 <!-- tabs:end -->

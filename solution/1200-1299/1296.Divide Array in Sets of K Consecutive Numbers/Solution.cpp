@@ -1,17 +1,22 @@
 class Solution {
 public:
     bool isPossibleDivide(vector<int>& nums, int k) {
+        if (nums.size() % k) {
+            return false;
+        }
+        ranges::sort(nums);
         unordered_map<int, int> cnt;
-        for (int& v : nums) ++cnt[v];
-        sort(nums.begin(), nums.end());
-        for (int& v : nums) {
-            if (cnt.count(v)) {
-                for (int x = v; x < v + k; ++x) {
-                    if (!cnt.count(x)) {
+        for (int x : nums) {
+            ++cnt[x];
+        }
+        for (int x : nums) {
+            if (cnt.contains(x)) {
+                for (int y = x; y < x + k; ++y) {
+                    if (!cnt.contains(y)) {
                         return false;
                     }
-                    if (--cnt[x] == 0) {
-                        cnt.erase(x);
+                    if (--cnt[y] == 0) {
+                        cnt.erase(y);
                     }
                 }
             }

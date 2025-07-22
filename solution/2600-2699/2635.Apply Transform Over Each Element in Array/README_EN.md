@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2635.Apply%20Transform%20Over%20Each%20Element%20in%20Array/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->
@@ -53,7 +55,7 @@ The function increases each value in the array by one.
 <ul>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></font></code></li>
-	<li><code>fn</code> returns a number</li>
+	<li><code>fn</code> returns an integer.</li>
 </ul>
 
 <!-- description:end -->

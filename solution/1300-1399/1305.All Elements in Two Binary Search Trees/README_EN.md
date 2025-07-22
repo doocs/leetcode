@@ -53,7 +53,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS + Merge
+
+Since both trees are binary search trees, we can obtain the node value sequences $\textit{a}$ and $\textit{b}$ of the two trees through in-order traversal. Then, we use two pointers to merge the two sorted arrays to get the final answer.
+
+The time complexity is $O(n+m)$, and the space complexity is $O(n+m)$. Here, $n$ and $m$ are the number of nodes in the two trees, respectively.
 
 <!-- tabs:start -->
 
@@ -67,36 +71,36 @@ tags:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getAllElements(self, root1: TreeNode, root2: TreeNode) -> List[int]:
-        def dfs(root, t):
+    def getAllElements(
+        self, root1: Optional[TreeNode], root2: Optional[TreeNode]
+    ) -> List[int]:
+        def dfs(root: Optional[TreeNode], nums: List[int]) -> int:
             if root is None:
                 return
-            dfs(root.left, t)
-            t.append(root.val)
-            dfs(root.right, t)
+            dfs(root.left, nums)
+            nums.append(root.val)
+            dfs(root.right, nums)
 
-        def merge(t1, t2):
-            ans = []
-            i = j = 0
-            while i < len(t1) and j < len(t2):
-                if t1[i] <= t2[j]:
-                    ans.append(t1[i])
-                    i += 1
-                else:
-                    ans.append(t2[j])
-                    j += 1
-            while i < len(t1):
-                ans.append(t1[i])
+        a, b = [], []
+        dfs(root1, a)
+        dfs(root2, b)
+        m, n = len(a), len(b)
+        i = j = 0
+        ans = []
+        while i < m and j < n:
+            if a[i] <= b[j]:
+                ans.append(a[i])
                 i += 1
-            while j < len(t2):
-                ans.append(t2[j])
+            else:
+                ans.append(b[j])
                 j += 1
-            return ans
-
-        t1, t2 = [], []
-        dfs(root1, t1)
-        dfs(root2, t2)
-        return merge(t1, t2)
+        while i < m:
+            ans.append(a[i])
+            i += 1
+        while j < n:
+            ans.append(b[j])
+            j += 1
+        return ans
 ```
 
 #### Java
@@ -119,39 +123,36 @@ class Solution:
  */
 class Solution {
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
-        List<Integer> t1 = new ArrayList<>();
-        List<Integer> t2 = new ArrayList<>();
-        dfs(root1, t1);
-        dfs(root2, t2);
-        return merge(t1, t2);
+        List<Integer> a = new ArrayList<>();
+        List<Integer> b = new ArrayList<>();
+        dfs(root1, a);
+        dfs(root2, b);
+        int m = a.size(), n = b.size();
+        int i = 0, j = 0;
+        List<Integer> ans = new ArrayList<>();
+        while (i < m && j < n) {
+            if (a.get(i) <= b.get(j)) {
+                ans.add(a.get(i++));
+            } else {
+                ans.add(b.get(j++));
+            }
+        }
+        while (i < m) {
+            ans.add(a.get(i++));
+        }
+        while (j < n) {
+            ans.add(b.get(j++));
+        }
+        return ans;
     }
 
-    private void dfs(TreeNode root, List<Integer> t) {
+    private void dfs(TreeNode root, List<Integer> nums) {
         if (root == null) {
             return;
         }
-        dfs(root.left, t);
-        t.add(root.val);
-        dfs(root.right, t);
-    }
-
-    private List<Integer> merge(List<Integer> t1, List<Integer> t2) {
-        List<Integer> ans = new ArrayList<>();
-        int i = 0, j = 0;
-        while (i < t1.size() && j < t2.size()) {
-            if (t1.get(i) <= t2.get(j)) {
-                ans.add(t1.get(i++));
-            } else {
-                ans.add(t2.get(j++));
-            }
-        }
-        while (i < t1.size()) {
-            ans.add(t1.get(i++));
-        }
-        while (j < t2.size()) {
-            ans.add(t2.get(j++));
-        }
-        return ans;
+        dfs(root.left, nums);
+        nums.add(root.val);
+        dfs(root.right, nums);
     }
 }
 ```
@@ -173,32 +174,35 @@ class Solution {
 class Solution {
 public:
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
-        vector<int> t1;
-        vector<int> t2;
-        dfs(root1, t1);
-        dfs(root2, t2);
-        return merge(t1, t2);
-    }
+        vector<int> a, b, ans;
+        dfs(root1, a);
+        dfs(root2, b);
 
-    void dfs(TreeNode* root, vector<int>& t) {
-        if (!root) return;
-        dfs(root->left, t);
-        t.push_back(root->val);
-        dfs(root->right, t);
-    }
-
-    vector<int> merge(vector<int>& t1, vector<int>& t2) {
-        vector<int> ans;
         int i = 0, j = 0;
-        while (i < t1.size() && j < t2.size()) {
-            if (t1[i] <= t2[j])
-                ans.push_back(t1[i++]);
-            else
-                ans.push_back(t2[j++]);
+        while (i < a.size() && j < b.size()) {
+            if (a[i] <= b[j]) {
+                ans.push_back(a[i++]);
+            } else {
+                ans.push_back(b[j++]);
+            }
         }
-        while (i < t1.size()) ans.push_back(t1[i++]);
-        while (j < t2.size()) ans.push_back(t2[j++]);
+        while (i < a.size()) {
+            ans.push_back(a[i++]);
+        }
+        while (j < b.size()) {
+            ans.push_back(b[j++]);
+        }
         return ans;
+    }
+
+private:
+    void dfs(TreeNode* root, vector<int>& nums) {
+        if (root == nullptr) {
+            return;
+        }
+        dfs(root->left, nums);
+        nums.push_back(root->val);
+        dfs(root->right, nums);
     }
 };
 ```
@@ -214,42 +218,37 @@ public:
  *     Right *TreeNode
  * }
  */
-func getAllElements(root1 *TreeNode, root2 *TreeNode) []int {
-	var dfs func(root *TreeNode) []int
-	dfs = func(root *TreeNode) []int {
+func getAllElements(root1 *TreeNode, root2 *TreeNode) (ans []int) {
+	var dfs func(*TreeNode, *[]int)
+	dfs = func(root *TreeNode, nums *[]int) {
 		if root == nil {
-			return []int{}
+			return
 		}
-		left := dfs(root.Left)
-		right := dfs(root.Right)
-		left = append(left, root.Val)
-		left = append(left, right...)
-		return left
+		dfs(root.Left, nums)
+		*nums = append(*nums, root.Val)
+		dfs(root.Right, nums)
 	}
-	merge := func(t1, t2 []int) []int {
-		var ans []int
-		i, j := 0, 0
-		for i < len(t1) && j < len(t2) {
-			if t1[i] <= t2[j] {
-				ans = append(ans, t1[i])
-				i++
-			} else {
-				ans = append(ans, t2[j])
-				j++
-			}
-		}
-		for i < len(t1) {
-			ans = append(ans, t1[i])
+	a, b := []int{}, []int{}
+	dfs(root1, &a)
+	dfs(root2, &b)
+	i, j := 0, 0
+	m, n := len(a), len(b)
+	for i < m && j < n {
+		if a[i] < b[j] {
+			ans = append(ans, a[i])
 			i++
-		}
-		for j < len(t2) {
-			ans = append(ans, t2[j])
+		} else {
+			ans = append(ans, b[j])
 			j++
 		}
-		return ans
 	}
-	t1, t2 := dfs(root1), dfs(root2)
-	return merge(t1, t2)
+	for ; i < m; i++ {
+		ans = append(ans, a[i])
+	}
+	for ; j < n; j++ {
+		ans = append(ans, b[j])
+	}
+	return
 }
 ```
 
@@ -271,31 +270,35 @@ func getAllElements(root1 *TreeNode, root2 *TreeNode) []int {
  */
 
 function getAllElements(root1: TreeNode | null, root2: TreeNode | null): number[] {
-    const res = [];
-    const stacks = [[], []];
-    while (root1 != null || stacks[0].length !== 0 || root2 != null || stacks[1].length !== 0) {
-        if (root1 != null) {
-            stacks[0].push(root1);
-            root1 = root1.left;
-        } else if (root2 != null) {
-            stacks[1].push(root2);
-            root2 = root2.left;
+    const dfs = (root: TreeNode | null, nums: number[]) => {
+        if (!root) {
+            return;
+        }
+        dfs(root.left, nums);
+        nums.push(root.val);
+        dfs(root.right, nums);
+    };
+    const a: number[] = [];
+    const b: number[] = [];
+    dfs(root1, a);
+    dfs(root2, b);
+    const [m, n] = [a.length, b.length];
+    const ans: number[] = [];
+    let [i, j] = [0, 0];
+    while (i < m && j < n) {
+        if (a[i] < b[j]) {
+            ans.push(a[i++]);
         } else {
-            if (
-                (stacks[0][stacks[0].length - 1] ?? { val: Infinity }).val <
-                (stacks[1][stacks[1].length - 1] ?? { val: Infinity }).val
-            ) {
-                const { val, right } = stacks[0].pop();
-                res.push(val);
-                root1 = right;
-            } else {
-                const { val, right } = stacks[1].pop();
-                res.push(val);
-                root2 = right;
-            }
+            ans.push(b[j++]);
         }
     }
-    return res;
+    while (i < m) {
+        ans.push(a[i++]);
+    }
+    while (j < n) {
+        ans.push(b[j++]);
+    }
+    return ans;
 }
 ```
 
@@ -327,40 +330,45 @@ impl Solution {
         root1: Option<Rc<RefCell<TreeNode>>>,
         root2: Option<Rc<RefCell<TreeNode>>>,
     ) -> Vec<i32> {
-        fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, t: &mut Vec<i32>) {
-            if let Some(root) = root {
-                dfs(&root.borrow().left, t);
-                t.push(root.borrow().val);
-                dfs(&root.borrow().right, t);
-            }
-        }
+        let mut a = Vec::new();
+        let mut b = Vec::new();
 
-        let mut t1 = Vec::new();
-        let mut t2 = Vec::new();
-        dfs(&root1, &mut t1);
-        dfs(&root2, &mut t2);
+        Solution::dfs(&root1, &mut a);
+        Solution::dfs(&root2, &mut b);
 
         let mut ans = Vec::new();
-        let mut i = 0;
-        let mut j = 0;
-        while i < t1.len() && j < t2.len() {
-            if t1[i] < t2[j] {
-                ans.push(t1[i]);
+        let (mut i, mut j) = (0, 0);
+
+        while i < a.len() && j < b.len() {
+            if a[i] <= b[j] {
+                ans.push(a[i]);
                 i += 1;
             } else {
-                ans.push(t2[j]);
+                ans.push(b[j]);
                 j += 1;
             }
         }
-        while i < t1.len() {
-            ans.push(t1[i]);
+
+        while i < a.len() {
+            ans.push(a[i]);
             i += 1;
         }
-        while j < t2.len() {
-            ans.push(t2[j]);
+
+        while j < b.len() {
+            ans.push(b[j]);
             j += 1;
         }
+
         ans
+    }
+
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, nums: &mut Vec<i32>) {
+        if let Some(node) = root {
+            let node = node.borrow();
+            Solution::dfs(&node.left, nums);
+            nums.push(node.val);
+            Solution::dfs(&node.right, nums);
+        }
     }
 }
 ```

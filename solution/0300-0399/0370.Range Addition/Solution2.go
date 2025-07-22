@@ -3,41 +3,33 @@ type BinaryIndexedTree struct {
 	c []int
 }
 
-func newBinaryIndexedTree(n int) *BinaryIndexedTree {
-	c := make([]int, n+1)
-	return &BinaryIndexedTree{n, c}
+func NewBinaryIndexedTree(n int) *BinaryIndexedTree {
+	return &BinaryIndexedTree{n: n, c: make([]int, n+1)}
 }
 
-func (this *BinaryIndexedTree) lowbit(x int) int {
-	return x & -x
-}
-
-func (this *BinaryIndexedTree) update(x, delta int) {
-	for x <= this.n {
-		this.c[x] += delta
-		x += this.lowbit(x)
+func (bit *BinaryIndexedTree) update(x, delta int) {
+	for ; x <= bit.n; x += x & -x {
+		bit.c[x] += delta
 	}
 }
 
-func (this *BinaryIndexedTree) query(x int) int {
+func (bit *BinaryIndexedTree) query(x int) int {
 	s := 0
-	for x > 0 {
-		s += this.c[x]
-		x -= this.lowbit(x)
+	for ; x > 0; x -= x & -x {
+		s += bit.c[x]
 	}
 	return s
 }
 
-func getModifiedArray(length int, updates [][]int) []int {
-	tree := newBinaryIndexedTree(length)
+func getModifiedArray(length int, updates [][]int) (ans []int) {
+	bit := NewBinaryIndexedTree(length)
 	for _, e := range updates {
-		start, end, inc := e[0], e[1], e[2]
-		tree.update(start+1, inc)
-		tree.update(end+2, -inc)
+		l, r, c := e[0], e[1], e[2]
+		bit.update(l+1, c)
+		bit.update(r+2, -c)
 	}
-	ans := make([]int, length)
-	for i := range ans {
-		ans[i] = tree.query(i + 1)
+	for i := 1; i <= length; i++ {
+		ans = append(ans, bit.query(i))
 	}
-	return ans
+	return
 }

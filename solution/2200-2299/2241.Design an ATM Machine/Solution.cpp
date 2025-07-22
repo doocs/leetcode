@@ -10,23 +10,24 @@ public:
     }
 
     vector<int> withdraw(int amount) {
-        vector<int> ans(5);
-        for (int i = 4; ~i; --i) {
+        vector<int> ans(m);
+        for (int i = m - 1; ~i; --i) {
             ans[i] = min(1ll * amount / d[i], cnt[i]);
             amount -= ans[i] * d[i];
         }
         if (amount > 0) {
             return {-1};
         }
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < m; ++i) {
             cnt[i] -= ans[i];
         }
         return ans;
     }
 
 private:
-    long long cnt[5] = {0};
-    int d[5] = {20, 50, 100, 200, 500};
+    static constexpr int d[5] = {20, 50, 100, 200, 500};
+    static constexpr int m = size(d);
+    long long cnt[m] = {0};
 };
 
 /**

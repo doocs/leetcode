@@ -1,9 +1,10 @@
 class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
-        int n = arr.size();
-        for (int i = 0; i < n; ++i)
-            if (arr[i] == arr[i + (n >> 2)]) return arr[i];
-        return 0;
+        for (int i = 0;; ++i) {
+            if (arr[i] == (arr[i + (arr.size() >> 2)])) {
+                return arr[i];
+            }
+        }
     }
 };

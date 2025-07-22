@@ -5,7 +5,7 @@ public:
         ll l = 1, r = 1e17;
         ll num = 0;
         ll f[65][65];
-        function<ll(int, int, bool)> dfs = [&](int pos, int cnt, bool limit) -> ll {
+        auto dfs = [&](this auto&& dfs, int pos, int cnt, bool limit) -> ll {
             if (pos == 0) {
                 return cnt;
             }

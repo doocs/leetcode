@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3209.Number%20of%20Subarrays%20With%20AND%20Value%20of%20K/README_EN.md
+rating: 2050
+source: Biweekly Contest 134 Q4
 tags:
     - Bit Manipulation
     - Segment Tree

@@ -73,17 +73,17 @@ tags:
 
 ### 方法一：贪心 + 哈希表
 
-我们先用哈希表 `cnt` 统计每个单词出现的次数。
+我们先用一个哈希表 $\textit{cnt}$ 统计每个单词出现的次数。
 
-遍历 `cnt` 中的每个单词 $k$ 以及其出现次数 $v$：
+遍历 $\textit{cnt}$ 中的每个单词 $k$ 以及其出现次数 $v$：
 
-如果 $k$ 中两个字母相同，那么我们可以将 $\left \lfloor \frac{v}{2}  \right \rfloor \times 2$ 个 $k$ 连接到回文串的前后，此时如果 $k$ 还剩余一个，那么我们可以先记录到 $x$ 中。
+-   如果 $k$ 中两个字母相同，那么我们可以将 $\left \lfloor \frac{v}{2}  \right \rfloor \times 2$ 个 $k$ 连接到回文串的前后，此时如果 $k$ 还剩余一个，那么我们可以先记录到 $x$ 中。
 
-如果 $k$ 中两个字母不同，那么我们要找到一个单词 $k'$，使得 $k'$ 中的两个字母与 $k$ 相反，即 $k' = k[1] + k[0]$。如果 $k'$ 存在，那么我们可以将 $\min(v, cnt[k'])$ 个 $k$ 连接到回文串的前后。
+-   如果 $k$ 中两个字母不同，那么我们要找到一个单词 $k'$，使得 $k'$ 中的两个字母与 $k$ 相反，即 $k' = k[1] + k[0]$。如果 $k'$ 存在，那么我们可以将 $\min(v, \textit{cnt}[k'])$ 个 $k$ 连接到回文串的前后。
 
 遍历结束后，如果 $x$ 不为空，那么我们还可以将一个单词连接到回文串的中间。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `words` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为单词的数量。
 
 <!-- tabs:start -->
 
@@ -111,7 +111,7 @@ class Solution {
     public int longestPalindrome(String[] words) {
         Map<String, Integer> cnt = new HashMap<>();
         for (var w : words) {
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+            cnt.merge(w, 1, Integer::sum);
         }
         int ans = 0, x = 0;
         for (var e : cnt.entrySet()) {
@@ -180,6 +180,26 @@ func longestPalindrome(words []string) int {
 		ans += 2
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPalindrome(words: string[]): number {
+    const cnt = new Map<string, number>();
+    for (const w of words) cnt.set(w, (cnt.get(w) || 0) + 1);
+    let [ans, x] = [0, 0];
+    for (const [k, v] of cnt.entries()) {
+        if (k[0] === k[1]) {
+            x += v & 1;
+            ans += Math.floor(v / 2) * 2 * 2;
+        } else {
+            ans += Math.min(v, cnt.get(k[1] + k[0]) || 0) * 2;
+        }
+    }
+    ans += x ? 2 : 0;
+    return ans;
 }
 ```
 

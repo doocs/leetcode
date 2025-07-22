@@ -57,6 +57,7 @@ tags:
 	<li><code>1 &lt;= expression.length &lt;= 20</code></li>
 	<li><code>expression</code> 由数字和算符 <code>'+'</code>、<code>'-'</code> 和 <code>'*'</code> 组成。</li>
 	<li>输入表达式中的所有整数值在范围 <code>[0, 99]</code>&nbsp;</li>
+	<li>输入表达式中的所有整数都没有前导&nbsp;<code>'-'</code>&nbsp;或&nbsp;<code>'+'</code> 表示符号。</li>
 </ul>
 
 <!-- description:end -->

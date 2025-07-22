@@ -1,24 +1,30 @@
 use std::collections::HashMap;
-use std::collections::HashSet;
+
 impl Solution {
     pub fn count_complete_subarrays(nums: Vec<i32>) -> i32 {
-        let n = nums.len();
-        let m = nums.iter().collect::<HashSet<&i32>>().len();
-        let mut map = HashMap::new();
+        let mut d = HashMap::new();
+        for &x in &nums {
+            d.insert(x, 1);
+        }
+        let cnt = d.len();
         let mut ans = 0;
-        let mut i = 0;
-        for j in 0..n {
-            *map.entry(nums[j]).or_insert(0) += 1;
-            while map.len() == m {
-                ans += n - j;
-                let v = map.entry(nums[i]).or_default();
-                *v -= 1;
-                if *v == 0 {
-                    map.remove(&nums[i]);
+        let n = nums.len();
+        d.clear();
+
+        let (mut i, mut j) = (0, 0);
+        while j < n {
+            *d.entry(nums[j]).or_insert(0) += 1;
+            while d.len() == cnt {
+                ans += (n - j) as i32;
+                let e = d.get_mut(&nums[i]).unwrap();
+                *e -= 1;
+                if *e == 0 {
+                    d.remove(&nums[i]);
                 }
                 i += 1;
             }
+            j += 1;
         }
-        ans as i32
+        ans
     }
 }

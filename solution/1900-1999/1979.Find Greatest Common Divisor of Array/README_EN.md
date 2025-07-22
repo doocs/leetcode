@@ -72,7 +72,11 @@ The greatest common divisor of 3 and 3 is 3.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can simulate according to the problem description. First, find the maximum and minimum values in the array $\textit{nums}$, then find the greatest common divisor of the maximum and minimum values.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -109,9 +113,8 @@ class Solution {
 class Solution {
 public:
     int findGCD(vector<int>& nums) {
-        int a = *max_element(nums.begin(), nums.end());
-        int b = *min_element(nums.begin(), nums.end());
-        return gcd(a, b);
+        auto [min, max] = ranges::minmax_element(nums);
+        return gcd(*min, *max);
     }
 };
 ```
@@ -136,13 +139,9 @@ func gcd(a, b int) int {
 
 ```ts
 function findGCD(nums: number[]): number {
-    let a = 1;
-    let b = 1000;
-    for (const x of nums) {
-        a = Math.max(a, x);
-        b = Math.min(b, x);
-    }
-    return gcd(a, b);
+    const min = Math.min(...nums);
+    const max = Math.max(...nums);
+    return gcd(min, max);
 }
 
 function gcd(a: number, b: number): number {
@@ -150,6 +149,27 @@ function gcd(a: number, b: number): number {
         return a;
     }
     return gcd(b, a % b);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_gcd(nums: Vec<i32>) -> i32 {
+        let min_val = *nums.iter().min().unwrap();
+        let max_val = *nums.iter().max().unwrap();
+        gcd(min_val, max_val)
+    }
+}
+
+fn gcd(mut a: i32, mut b: i32) -> i32 {
+    while b != 0 {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    a
 }
 ```
 

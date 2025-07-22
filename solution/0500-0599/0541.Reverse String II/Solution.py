@@ -1,6 +1,6 @@
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:
-        t = list(s)
-        for i in range(0, len(t), k << 1):
-            t[i : i + k] = reversed(t[i : i + k])
-        return ''.join(t)
+        cs = list(s)
+        for i in range(0, len(cs), 2 * k):
+            cs[i : i + k] = reversed(cs[i : i + k])
+        return "".join(cs)

@@ -60,14 +60,14 @@ tags:
 
 ### 方法一：排序 + 分类讨论
 
-我们先对数组 $nums$ 进行排序，接下来分两种情况讨论：
+我们先对数组 $\textit{nums}$ 进行排序，接下来分两种情况讨论：
 
--   如果 $nums$ 中全是非负数或者全是非正数，那么答案即为最后三个数的乘积，即 $nums[n-1] \times nums[n-2] \times nums[n-3]$；
--   如果 $nums$ 中既有正数也有负数，那么答案可能是两个最小负数和一个最大整数的乘积，即 $nums[n-1] \times nums[0] \times nums[1]$；也可能是最后三个数的乘积，即 $nums[n-1] \times nums[n-2] \times nums[n-3]$。
+-   如果 $\textit{nums}$ 中全是非负数或者全是非正数，那么答案即为最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$；
+-   如果 $\textit{nums}$ 中既有正数也有负数，那么答案可能是两个最小负数和一个最大整数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[0] \times \textit{nums}[1]$；也可能是最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$。
 
 最后返回两种情况的最大值即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -146,11 +146,11 @@ function maximumProduct(nums: number[]): number {
 
 ### 方法二：一次遍历
 
-我们可以不用对数组进行排序，而是维护五个变量，其中 $mi1$ 和 $mi2$ 表示数组中最小的两个数，而 $mx1$、$mx2$ 和 $mx3$ 表示数组中最大的三个数。
+我们可以不用对数组进行排序，而是维护五个变量，其中 $\textit{mi1}$ 和 $\textit{mi2}$ 表示数组中最小的两个数，而 $\textit{mx1}$, $\textit{mx2}$ 和 $\textit{mx3}$ 表示数组中最大的三个数。
 
-最后返回 $max(mi1 \times mi2 \times mx1, mx1 \times mx2 \times mx3)$ 即可。
+最后返回 $\max(\textit{mi1} \times \textit{mi2} \times \textit{mx1}, \textit{mx1} \times \textit{mx2} \times \textit{mx3})$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

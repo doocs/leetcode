@@ -83,9 +83,6 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def recoverArray(self, n: int, sums: List[int]) -> List[int]:
         m = -min(sums)

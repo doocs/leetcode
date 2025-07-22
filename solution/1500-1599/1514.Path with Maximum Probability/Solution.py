@@ -4,23 +4,23 @@ class Solution:
         n: int,
         edges: List[List[int]],
         succProb: List[float],
-        start: int,
-        end: int,
+        start_node: int,
+        end_node: int,
     ) -> float:
-        g = defaultdict(list)
-        for (a, b), s in zip(edges, succProb):
-            g[a].append((b, s))
-            g[b].append((a, s))
-        q = [(-1, start)]
-        d = [0] * n
-        d[start] = 1
-        while q:
-            w, u = heappop(q)
+        g: List[List[Tuple[int, float]]] = [[] for _ in range(n)]
+        for (a, b), p in zip(edges, succProb):
+            g[a].append((b, p))
+            g[b].append((a, p))
+        pq = [(-1, start_node)]
+        dist = [0] * n
+        dist[start_node] = 1
+        while pq:
+            w, a = heappop(pq)
             w = -w
-            if d[u] > w:
+            if dist[a] > w:
                 continue
-            for v, t in g[u]:
-                if d[v] < d[u] * t:
-                    d[v] = d[u] * t
-                    heappush(q, (-d[v], v))
-        return d[end]
+            for b, p in g[a]:
+                if (t := w * p) > dist[b]:
+                    dist[b] = t
+                    heappush(pq, (-t, b))
+        return dist[end_node]

@@ -62,112 +62,120 @@ tags:
 
 ### 方法一：并查集
 
-有两个入度时，当一条边被记为 conflict，就相当于删掉了这条边，因为并没有调用并查集 union 进行合并，如果还出现了无向环，则说明是要删另一条入度的边。
+根据题目描述，对于一棵有根树，根节点的入度为 $0$，其余节点的入度为 $1$。在向树中添加一条边之后，可能会出现以下三种情况：
 
-每个节点都只有一个入度时，则说明是一个有向环，删最后一条出现的边即可。
+1. 添加的边指向了非根节点，该节点的入度变为 $2$，此时图中不存在有向环；
+
+    ```plaintext
+       1
+      / \
+     v   v
+     2-->3
+    ```
+
+1. 添加的边指向了非根节点，该节点的入度变为 $2$，此时图中存在有向环；
+
+    ```plaintext
+       1
+       |
+       v
+       2 <--> 3
+    ```
+
+1. 添加的边指向了根节点，根节点的入度变为 $1$，此时图中存在有向环，但不存在入度为 $2$ 的节点。
+
+    ```plaintext
+        1
+        /^
+       v  \
+       2-->3
+    ```
+
+因此，我们首先计算每个节点的入度，如果存在入度为 $2$ 的节点，我们定位到该节点对应的两条边，分别记为 $\textit{dup}[0]$ 和 $\textit{dup}[1]$。如果在删除 $\textit{dup}[1]$ 之后，剩余的边无法形成树，则说明 $\textit{dup}[0]$ 是需要删除的边；否则 $\textit{dup}[1]$ 是需要删除的边。
+
+如果不存在入度为 $2$ 的节点，我们遍历数组 $\textit{edges}$，对于每条边 $(u, v)$，我们使用并查集维护节点之间的连通性。如果 $u$ 和 $v$ 已经连通，说明图中存在有向环，此时当前边即为需要删除的边。
+
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为边的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-class UnionFind:
-    def __init__(self, n):
-        self.p = list(range(n))
-        self.n = n
-
-    def union(self, a, b):
-        if self.find(a) == self.find(b):
-            return False
-        self.p[self.find(a)] = self.find(b)
-        self.n -= 1
-        return True
-
-    def find(self, x):
-        if self.p[x] != x:
-            self.p[x] = self.find(self.p[x])
-        return self.p[x]
-
-
 class Solution:
     def findRedundantDirectedConnection(self, edges: List[List[int]]) -> List[int]:
+        def find(x: int) -> int:
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
         n = len(edges)
-        p = list(range(n + 1))
-        uf = UnionFind(n + 1)
-        conflict = cycle = None
+        ind = [0] * n
+        for _, v in edges:
+            ind[v - 1] += 1
+        dup = [i for i, (_, v) in enumerate(edges) if ind[v - 1] == 2]
+        p = list(range(n))
+        if dup:
+            for i, (u, v) in enumerate(edges):
+                if i == dup[1]:
+                    continue
+                pu, pv = find(u - 1), find(v - 1)
+                if pu == pv:
+                    return edges[dup[0]]
+                p[pu] = pv
+            return edges[dup[1]]
         for i, (u, v) in enumerate(edges):
-            if p[v] != v:
-                conflict = i
-            else:
-                p[v] = u
-                if not uf.union(u, v):
-                    cycle = i
-        if conflict is None:
-            return edges[cycle]
-        v = edges[conflict][1]
-        if cycle is not None:
-            return [p[v], v]
-        return edges[conflict]
+            pu, pv = find(u - 1), find(v - 1)
+            if pu == pv:
+                return edges[i]
+            p[pu] = pv
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private int[] p;
+
     public int[] findRedundantDirectedConnection(int[][] edges) {
         int n = edges.length;
-        int[] p = new int[n + 1];
-        for (int i = 0; i <= n; ++i) {
-            p[i] = i;
+        int[] ind = new int[n];
+        for (var e : edges) {
+            ++ind[e[1] - 1];
         }
-        UnionFind uf = new UnionFind(n + 1);
-        int conflict = -1, cycle = -1;
-        for (int i = 0; i < n; ++i) {
-            int u = edges[i][0], v = edges[i][1];
-            if (p[v] != v) {
-                conflict = i;
-            } else {
-                p[v] = u;
-                if (!uf.union(u, v)) {
-                    cycle = i;
-                }
-            }
-        }
-        if (conflict == -1) {
-            return edges[cycle];
-        }
-        int v = edges[conflict][1];
-        if (cycle != -1) {
-            return new int[] {p[v], v};
-        }
-        return edges[conflict];
-    }
-}
-
-class UnionFind {
-    public int[] p;
-    public int n;
-
-    public UnionFind(int n) {
+        List<Integer> dup = new ArrayList<>();
         p = new int[n];
         for (int i = 0; i < n; ++i) {
+            if (ind[edges[i][1] - 1] == 2) {
+                dup.add(i);
+            }
             p[i] = i;
         }
-        this.n = n;
-    }
-
-    public boolean union(int a, int b) {
-        int pa = find(a);
-        int pb = find(b);
-        if (pa == pb) {
-            return false;
+        if (!dup.isEmpty()) {
+            for (int i = 0; i < n; ++i) {
+                if (i == dup.get(1)) {
+                    continue;
+                }
+                int pu = find(edges[i][0] - 1);
+                int pv = find(edges[i][1] - 1);
+                if (pu == pv) {
+                    return edges[dup.get(0)];
+                }
+                p[pu] = pv;
+            }
+            return edges[dup.get(1)];
         }
-        p[pa] = pb;
-        --n;
-        return true;
+        for (int i = 0;; ++i) {
+            int pu = find(edges[i][0] - 1);
+            int pv = find(edges[i][1] - 1);
+            if (pu == pv) {
+                return edges[i];
+            }
+            p[pu] = pv;
+        }
     }
 
-    public int find(int x) {
+    private int find(int x) {
         if (p[x] != x) {
             p[x] = find(p[x]);
         }
@@ -179,52 +187,398 @@ class UnionFind {
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
+        int n = edges.size();
+        vector<int> ind(n);
+        for (const auto& e : edges) {
+            ++ind[e[1] - 1];
+        }
+        vector<int> dup;
+        for (int i = 0; i < n; ++i) {
+            if (ind[edges[i][1] - 1] == 2) {
+                dup.push_back(i);
+            }
+        }
+        vector<int> p(n);
+        iota(p.begin(), p.end(), 0);
+        function<int(int)> find = [&](int x) {
+            return x == p[x] ? x : p[x] = find(p[x]);
+        };
+        if (!dup.empty()) {
+            for (int i = 0; i < n; ++i) {
+                if (i == dup[1]) {
+                    continue;
+                }
+                int pu = find(edges[i][0] - 1);
+                int pv = find(edges[i][1] - 1);
+                if (pu == pv) {
+                    return edges[dup[0]];
+                }
+                p[pu] = pv;
+            }
+            return edges[dup[1]];
+        }
+        for (int i = 0;; ++i) {
+            int pu = find(edges[i][0] - 1);
+            int pv = find(edges[i][1] - 1);
+            if (pu == pv) {
+                return edges[i];
+            }
+            p[pu] = pv;
+        }
+    }
+};
+```
+
+#### Go
+
+```go
+func findRedundantDirectedConnection(edges [][]int) []int {
+	n := len(edges)
+	ind := make([]int, n)
+	for _, e := range edges {
+		ind[e[1]-1]++
+	}
+	dup := []int{}
+	for i, e := range edges {
+		if ind[e[1]-1] == 2 {
+			dup = append(dup, i)
+		}
+	}
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	if len(dup) > 0 {
+		for i, e := range edges {
+			if i == dup[1] {
+				continue
+			}
+			pu, pv := find(e[0]-1), find(e[1]-1)
+			if pu == pv {
+				return edges[dup[0]]
+			}
+			p[pu] = pv
+		}
+		return edges[dup[1]]
+	}
+	for _, e := range edges {
+		pu, pv := find(e[0]-1), find(e[1]-1)
+		if pu == pv {
+			return e
+		}
+		p[pu] = pv
+	}
+	return nil
+}
+```
+
+#### TypeScript
+
+```ts
+function findRedundantDirectedConnection(edges: number[][]): number[] {
+    const n = edges.length;
+    const ind: number[] = Array(n).fill(0);
+    for (const [_, v] of edges) {
+        ++ind[v - 1];
+    }
+    const dup: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (ind[edges[i][1] - 1] === 2) {
+            dup.push(i);
+        }
+    }
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const find = (x: number): number => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    if (dup.length) {
+        for (let i = 0; i < n; ++i) {
+            if (i === dup[1]) {
+                continue;
+            }
+            const [pu, pv] = [find(edges[i][0] - 1), find(edges[i][1] - 1)];
+            if (pu === pv) {
+                return edges[dup[0]];
+            }
+            p[pu] = pv;
+        }
+        return edges[dup[1]];
+    }
+    for (let i = 0; ; ++i) {
+        const [pu, pv] = [find(edges[i][0] - 1), find(edges[i][1] - 1)];
+        if (pu === pv) {
+            return edges[i];
+        }
+        p[pu] = pv;
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} edges
+ * @return {number[]}
+ */
+var findRedundantDirectedConnection = function (edges) {
+    const n = edges.length;
+    const ind = Array(n).fill(0);
+    for (const [_, v] of edges) {
+        ++ind[v - 1];
+    }
+    const dup = [];
+    for (let i = 0; i < n; ++i) {
+        if (ind[edges[i][1] - 1] === 2) {
+            dup.push(i);
+        }
+    }
+    const p = Array.from({ length: n }, (_, i) => i);
+    const find = x => {
+        if (p[x] !== x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    };
+    if (dup.length) {
+        for (let i = 0; i < n; ++i) {
+            if (i === dup[1]) {
+                continue;
+            }
+            const [pu, pv] = [find(edges[i][0] - 1), find(edges[i][1] - 1)];
+            if (pu === pv) {
+                return edges[dup[0]];
+            }
+            p[pu] = pv;
+        }
+        return edges[dup[1]];
+    }
+    for (let i = 0; ; ++i) {
+        const [pu, pv] = [find(edges[i][0] - 1), find(edges[i][1] - 1)];
+        if (pu === pv) {
+            return edges[i];
+        }
+        p[pu] = pv;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：并查集（模板做法）
+
+这里给出一个并查集的模板做法，供大家参考。
+
+时间复杂度 $O(n \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 为边的数量，而 $\alpha(n)$ 是阿克曼函数的反函数，可以认为是一个很小的常数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class UnionFind:
+    __slots__ = "p", "size"
+
+    def __init__(self, n: int):
+        self.p: List[int] = list(range(n))
+        self.size: List[int] = [1] * n
+
+    def find(self, x: int) -> int:
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a: int, b: int) -> bool:
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
+
+
+class Solution:
+    def findRedundantDirectedConnection(self, edges: List[List[int]]) -> List[int]:
+        n = len(edges)
+        ind = [0] * n
+        for _, v in edges:
+            ind[v - 1] += 1
+        dup = [i for i, (_, v) in enumerate(edges) if ind[v - 1] == 2]
+        uf = UnionFind(n)
+        if dup:
+            for i, (u, v) in enumerate(edges):
+                if i == dup[1]:
+                    continue
+                if not uf.union(u - 1, v - 1):
+                    return edges[dup[0]]
+            return edges[dup[1]]
+        for i, (u, v) in enumerate(edges):
+            if not uf.union(u - 1, v - 1):
+                return edges[i]
+```
+
+#### Java
+
+```java
+class UnionFind {
+    private final int[] p;
+    private final int[] size;
+
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public boolean union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+}
+
+class Solution {
+    public int[] findRedundantDirectedConnection(int[][] edges) {
+        int n = edges.length;
+        int[] ind = new int[n];
+        for (var e : edges) {
+            ++ind[e[1] - 1];
+        }
+        List<Integer> dup = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (ind[edges[i][1] - 1] == 2) {
+                dup.add(i);
+            }
+        }
+        UnionFind uf = new UnionFind(n);
+        if (!dup.isEmpty()) {
+            for (int i = 0; i < n; ++i) {
+                if (i == dup.get(1)) {
+                    continue;
+                }
+                if (!uf.union(edges[i][0] - 1, edges[i][1] - 1)) {
+                    return edges[dup.get(0)];
+                }
+            }
+            return edges[dup.get(1)];
+        }
+        for (int i = 0;; ++i) {
+            if (!uf.union(edges[i][0] - 1, edges[i][1] - 1)) {
+                return edges[i];
+            }
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
 class UnionFind {
 public:
-    vector<int> p;
-    int n;
-
-    UnionFind(int _n)
-        : n(_n)
-        , p(_n) {
+    UnionFind(int n) {
+        p = vector<int>(n);
+        size = vector<int>(n, 1);
         iota(p.begin(), p.end(), 0);
     }
 
     bool unite(int a, int b) {
         int pa = find(a), pb = find(b);
-        if (pa == pb) return false;
-        p[pa] = pb;
-        --n;
+        if (pa == pb) {
+            return false;
+        }
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
         return true;
     }
 
     int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
         return p[x];
     }
+
+private:
+    vector<int> p, size;
 };
 
 class Solution {
 public:
     vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
         int n = edges.size();
-        vector<int> p(n + 1);
-        for (int i = 0; i <= n; ++i) p[i] = i;
-        UnionFind uf(n + 1);
-        int conflict = -1, cycle = -1;
+        vector<int> ind(n);
+        for (const auto& e : edges) {
+            ++ind[e[1] - 1];
+        }
+        vector<int> dup;
         for (int i = 0; i < n; ++i) {
-            int u = edges[i][0], v = edges[i][1];
-            if (p[v] != v)
-                conflict = i;
-            else {
-                p[v] = u;
-                if (!uf.unite(u, v)) cycle = i;
+            if (ind[edges[i][1] - 1] == 2) {
+                dup.push_back(i);
             }
         }
-        if (conflict == -1) return edges[cycle];
-        int v = edges[conflict][1];
-        if (cycle != -1) return {p[v], v};
-        return edges[conflict];
+        UnionFind uf(n);
+        if (!dup.empty()) {
+            for (int i = 0; i < n; ++i) {
+                if (i == dup[1]) {
+                    continue;
+                }
+                if (!uf.unite(edges[i][0] - 1, edges[i][1] - 1)) {
+                    return edges[dup[0]];
+                }
+            }
+            return edges[dup[1]];
+        }
+        for (int i = 0;; ++i) {
+            if (!uf.unite(edges[i][0] - 1, edges[i][1] - 1)) {
+                return edges[i];
+            }
+        }
     }
 };
 ```
@@ -233,16 +587,17 @@ public:
 
 ```go
 type unionFind struct {
-	p []int
-	n int
+	p, size []int
 }
 
 func newUnionFind(n int) *unionFind {
 	p := make([]int, n)
+	size := make([]int, n)
 	for i := range p {
 		p[i] = i
+		size[i] = 1
 	}
-	return &unionFind{p, n}
+	return &unionFind{p, size}
 }
 
 func (uf *unionFind) find(x int) int {
@@ -253,42 +608,186 @@ func (uf *unionFind) find(x int) int {
 }
 
 func (uf *unionFind) union(a, b int) bool {
-	if uf.find(a) == uf.find(b) {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
 		return false
 	}
-	uf.p[uf.find(a)] = uf.find(b)
-	uf.n--
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
 	return true
 }
 
 func findRedundantDirectedConnection(edges [][]int) []int {
 	n := len(edges)
-	p := make([]int, n+1)
-	for i := range p {
-		p[i] = i
+	ind := make([]int, n)
+	for _, e := range edges {
+		ind[e[1]-1]++
 	}
-	uf := newUnionFind(n + 1)
-	conflict, cycle := -1, -1
+	dup := []int{}
 	for i, e := range edges {
-		u, v := e[0], e[1]
-		if p[v] != v {
-			conflict = i
-		} else {
-			p[v] = u
-			if !uf.union(u, v) {
-				cycle = i
-			}
+		if ind[e[1]-1] == 2 {
+			dup = append(dup, i)
 		}
 	}
-	if conflict == -1 {
-		return edges[cycle]
+	uf := newUnionFind(n)
+	if len(dup) > 0 {
+		for i, e := range edges {
+			if i == dup[1] {
+				continue
+			}
+			if !uf.union(e[0]-1, e[1]-1) {
+				return edges[dup[0]]
+			}
+		}
+		return edges[dup[1]]
 	}
-	v := edges[conflict][1]
-	if cycle != -1 {
-		return []int{p[v], v}
+	for _, e := range edges {
+		if !uf.union(e[0]-1, e[1]-1) {
+			return e
+		}
 	}
-	return edges[conflict]
+	return nil
 }
+```
+
+#### TypeScript
+
+```ts
+class UnionFind {
+    p: number[];
+    size: number[];
+    constructor(n: number) {
+        this.p = Array.from({ length: n }, (_, i) => i);
+        this.size = Array(n).fill(1);
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        const [pa, pb] = [this.find(a), this.find(b)];
+        if (pa === pb) {
+            return false;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+function findRedundantDirectedConnection(edges: number[][]): number[] {
+    const n = edges.length;
+    const ind: number[] = Array(n).fill(0);
+    for (const [_, v] of edges) {
+        ++ind[v - 1];
+    }
+    const dup: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (ind[edges[i][1] - 1] === 2) {
+            dup.push(i);
+        }
+    }
+    const uf = new UnionFind(n);
+    if (dup.length) {
+        for (let i = 0; i < n; ++i) {
+            if (i === dup[1]) {
+                continue;
+            }
+            if (!uf.union(edges[i][0] - 1, edges[i][1] - 1)) {
+                return edges[dup[0]];
+            }
+        }
+        return edges[dup[1]];
+    }
+    for (let i = 0; ; ++i) {
+        if (!uf.union(edges[i][0] - 1, edges[i][1] - 1)) {
+            return edges[i];
+        }
+    }
+}
+```
+
+#### JavaScript
+
+```js
+class UnionFind {
+    constructor(n) {
+        this.p = Array.from({ length: n }, (_, i) => i);
+        this.size = Array(n).fill(1);
+    }
+
+    find(x) {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a, b) {
+        const pa = this.find(a);
+        const pb = this.find(b);
+        if (pa === pb) {
+            return false;
+        }
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+/**
+ * @param {number[][]} edges
+ * @return {number[]}
+ */
+var findRedundantDirectedConnection = function (edges) {
+    const n = edges.length;
+    const ind = Array(n).fill(0);
+    for (const [_, v] of edges) {
+        ++ind[v - 1];
+    }
+    const dup = [];
+    for (let i = 0; i < n; ++i) {
+        if (ind[edges[i][1] - 1] === 2) {
+            dup.push(i);
+        }
+    }
+    const uf = new UnionFind(n);
+    if (dup.length) {
+        for (let i = 0; i < n; ++i) {
+            if (i === dup[1]) {
+                continue;
+            }
+            if (!uf.union(edges[i][0] - 1, edges[i][1] - 1)) {
+                return edges[dup[0]];
+            }
+        }
+        return edges[dup[1]];
+    }
+    for (let i = 0; ; ++i) {
+        if (!uf.union(edges[i][0] - 1, edges[i][1] - 1)) {
+            return edges[i];
+        }
+    }
+};
 ```
 
 <!-- tabs:end -->

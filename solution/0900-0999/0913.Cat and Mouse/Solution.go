@@ -10,7 +10,7 @@ const (
 )
 
 func catMouseGame(graph [][]int) int {
-	res := [50][50][2]int{}
+	ans := [50][50][2]int{}
 	degree := [50][50][2]int{}
 	n := len(graph)
 	for i := 0; i < n; i++ {
@@ -25,12 +25,12 @@ func catMouseGame(graph [][]int) int {
 	type tuple struct{ m, c, t int }
 	q := []tuple{}
 	for j := 1; j < n; j++ {
-		res[0][j][mouseTurn], res[0][j][catTurn] = mouseWin, mouseWin
+		ans[0][j][mouseTurn], ans[0][j][catTurn] = mouseWin, mouseWin
 		q = append(q, tuple{0, j, mouseTurn})
 		q = append(q, tuple{0, j, catTurn})
 	}
 	for i := 1; i < n; i++ {
-		res[i][i][mouseTurn], res[i][i][catTurn] = catWin, catWin
+		ans[i][i][mouseTurn], ans[i][i][catTurn] = catWin, catWin
 		q = append(q, tuple{i, i, mouseTurn})
 		q = append(q, tuple{i, i, catTurn})
 	}
@@ -54,23 +54,23 @@ func catMouseGame(graph [][]int) int {
 		state := q[0]
 		m, c, t := state.m, state.c, state.t
 		q = q[1:]
-		x := res[m][c][t]
+		x := ans[m][c][t]
 		for _, prevState := range getPrevStates(m, c, t) {
 			pm, pc, pt := prevState.m, prevState.c, prevState.t
-			if res[pm][pc][pt] == tie {
+			if ans[pm][pc][pt] == tie {
 				win := (x == mouseWin && pt == mouseTurn) || (x == catWin && pt == catTurn)
 				if win {
-					res[pm][pc][pt] = x
+					ans[pm][pc][pt] = x
 					q = append(q, tuple{pm, pc, pt})
 				} else {
 					degree[pm][pc][pt]--
 					if degree[pm][pc][pt] == 0 {
-						res[pm][pc][pt] = x
+						ans[pm][pc][pt] = x
 						q = append(q, tuple{pm, pc, pt})
 					}
 				}
 			}
 		}
 	}
-	return res[mouseStart][catStart][mouseTurn]
+	return ans[mouseStart][catStart][mouseTurn]
 }

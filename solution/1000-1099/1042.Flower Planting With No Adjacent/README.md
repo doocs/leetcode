@@ -77,7 +77,7 @@ tags:
 
 ### 方法一：枚举
 
-我们先根据数组 $paths$ 构建图 $g$，其中 $g[x]$ 表示与花园 $x$ 相邻的花园列表。
+我们先根据数组 $\textit{paths}$ 构建图 $g$，其中 $g[x]$ 表示与花园 $x$ 相邻的花园列表。
 
 接下来，对于每个花园 $x$，我们先找出与 $x$ 相邻的花园 $y$，并将 $y$ 花园中种植的花的种类标记为已使用。然后我们从花的种类 $1$ 开始枚举，直到找到一个未被使用的花的种类 $c$，将 $c$ 标记为 $x$ 花园中种植的花的种类，然后继续枚举下一个花园。
 
@@ -200,14 +200,14 @@ func gardenNoAdj(n int, paths [][]int) []int {
 
 ```ts
 function gardenNoAdj(n: number, paths: number[][]): number[] {
-    const g: number[][] = new Array(n).fill(0).map(() => []);
+    const g: number[][] = Array.from({ length: n }, () => []);
     for (const [x, y] of paths) {
         g[x - 1].push(y - 1);
         g[y - 1].push(x - 1);
     }
-    const ans: number[] = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let x = 0; x < n; ++x) {
-        const used: boolean[] = new Array(5).fill(false);
+        const used: boolean[] = Array(5).fill(false);
         for (const y of g[x]) {
             used[ans[y]] = true;
         }
@@ -219,6 +219,38 @@ function gardenNoAdj(n: number, paths: number[][]): number[] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn garden_no_adj(n: i32, paths: Vec<Vec<i32>>) -> Vec<i32> {
+        let n = n as usize;
+        let mut g = vec![vec![]; n];
+
+        for path in paths {
+            let (x, y) = (path[0] as usize - 1, path[1] as usize - 1);
+            g[x].push(y);
+            g[y].push(x);
+        }
+
+        let mut ans = vec![0; n];
+        for x in 0..n {
+            let mut used = [false; 5];
+            for &y in &g[x] {
+                used[ans[y] as usize] = true;
+            }
+            for c in 1..5 {
+                if !used[c] {
+                    ans[x] = c as i32;
+                    break;
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 

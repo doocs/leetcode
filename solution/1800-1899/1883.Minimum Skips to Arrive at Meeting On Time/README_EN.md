@@ -89,7 +89,7 @@ We define $f[i][j]$ as the shortest time considering the first $i$ roads and exa
 Since we can choose to skip or not skip the rest time of the $i$-th road, we can list the state transition equation:
 
 $$
-f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \text{Do not skip the rest time of the $i$-th road} \\ f[i-1][j-1]+\frac{d_i}{s} & \text{Skip the rest time of the $i$-th road} \end{aligned}\right.
+f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \textit{Do not skip the rest time of the $i$-th road} \\ f[i-1][j-1]+\frac{d_i}{s} & \textit{Skip the rest time of the $i$-th road} \end{aligned}\right.
 $$
 
 Where $\lceil x\rceil$ represents rounding $x$ up. It should be noted that since we need to ensure that exactly $j$ rest times are skipped, we must have $j\le i$; moreover, if $j=0$, no rest time can be skipped.
@@ -117,26 +117,6 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i - 1][j - 1] + x / speed)
         for j in range(n + 1):
             if f[n][j] <= hoursBefore + eps:
-                return j
-        return -1
-```
-
-#### Python3
-
-```python
-class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
-        n = len(dist)
-        f = [[inf] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        for i, x in enumerate(dist, 1):
-            for j in range(i + 1):
-                if j < i:
-                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
-                if j:
-                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
-        for j in range(n + 1):
-            if f[n][j] <= hoursBefore * speed:
                 return j
         return -1
 ```

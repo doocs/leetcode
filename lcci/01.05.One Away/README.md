@@ -43,13 +43,13 @@ second = &quot;pal&quot;
 
 ### 方法一：分情况讨论 + 双指针
 
-我们将字符串 $first$ 和 $second$ 的长度记为 $m$ 和 $n$，不妨设 $m \geq n$。
+我们将字符串 $\textit{first}$ 和 $\textit{second}$ 的长度记为 $m$ 和 $n$，不妨设 $m \geq n$。
 
 接下来分情况讨论：
 
--   当 $m - n \gt 1$ 时，$first$ 和 $second$ 无法通过一次编辑得到，返回 `false`；
--   当 $m = n$ 时，$first$ 和 $second$ 只有在且仅在有且仅有一个字符不同的情况下才能通过一次编辑得到；
--   当 $m - n = 1$ 时，$first$ 和 $second$ 只有在且仅在 $second$ 是 $first$ 删除一个字符后得到的情况下才能通过一次编辑得到，我们可以使用双指针来实现。
+-   当 $m - n \gt 1$ 时，$\textit{first}$ 和 $\textit{second}$ 无法通过一次编辑得到，返回 `false`；
+-   当 $m = n$ 时，$\textit{first}$ 和 $\textit{second}$ 只有在且仅在有且仅有一个字符不同的情况下才能通过一次编辑得到；
+-   当 $m - n = 1$ 时，$\textit{first}$ 和 $\textit{second}$ 只有在且仅在 $\textit{second}$ 是 $\textit{first}$ 删除一个字符后得到的情况下才能通过一次编辑得到，我们可以使用双指针来实现。
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串长度。空间复杂度 $O(1)$。
 

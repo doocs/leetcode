@@ -61,7 +61,13 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Sliding Window
+
+We construct a data item $(x, i)$ for each number $x$ and its group $i$, and store these items in a new array $t$. Then, we sort $t$ by the value of the numbers (similar to merging multiple sorted arrays into a new sorted array).
+
+Next, we traverse each data item in $t$, focusing on the group to which each number belongs. We use a hash table to record the groups of numbers within the sliding window. If the number of groups is $k$, it means the current window meets the problem's requirements. At this point, we calculate the start and end positions of the window and update the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the total number of numbers in all arrays.
 
 <!-- tabs:start -->
 
@@ -113,7 +119,7 @@ class Solution {
         for (int[] e : t) {
             int b = e[0];
             int v = e[1];
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+            cnt.merge(v, 1, Integer::sum);
             while (cnt.size() == k) {
                 int a = t[j][0];
                 int w = t[j][1];
@@ -122,8 +128,7 @@ class Solution {
                     ans[0] = a;
                     ans[1] = b;
                 }
-                cnt.put(w, cnt.get(w) - 1);
-                if (cnt.get(w) == 0) {
+                if (cnt.merge(w, -1, Integer::sum) == 0) {
                     cnt.remove(w);
                 }
                 ++j;
@@ -251,6 +256,82 @@ impl Solution {
         ans
     }
 }
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Priority Queue (Heap)
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+const smallestRange = (nums: number[][]): number[] => {
+    const pq = new MinPriorityQueue<[number, number, number]>({ priority: ([x]) => x });
+    const n = nums.length;
+    let [l, r, max] = [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+
+    for (let j = 0; j < n; j++) {
+        const x = nums[j][0];
+        pq.enqueue([x, j, 0]);
+        max = Math.max(max, x);
+    }
+
+    while (pq.size() === n) {
+        const [min, j, i] = pq.dequeue().element;
+
+        if (max - min < r - l) {
+            [l, r] = [min, max];
+        }
+
+        const iNext = i + 1;
+        if (iNext < nums[j].length) {
+            const next = nums[j][iNext];
+            pq.enqueue([next, j, iNext]);
+            max = Math.max(max, next);
+        }
+    }
+
+    return [l, r];
+};
+```
+
+#### JavaScript
+
+```js
+const smallestRange = nums => {
+    const pq = new MinPriorityQueue({ priority: ([x]) => x });
+    const n = nums.length;
+    let [l, r, max] = [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+
+    for (let j = 0; j < n; j++) {
+        const x = nums[j][0];
+        pq.enqueue([x, j, 0]);
+        max = Math.max(max, x);
+    }
+
+    while (pq.size() === n) {
+        const [min, j, i] = pq.dequeue().element;
+
+        if (max - min < r - l) {
+            [l, r] = [min, max];
+        }
+
+        const iNext = i + 1;
+        if (iNext < nums[j].length) {
+            const next = nums[j][iNext];
+            pq.enqueue([next, j, iNext]);
+            max = Math.max(max, next);
+        }
+    }
+
+    return [l, r];
+};
 ```
 
 <!-- tabs:end -->

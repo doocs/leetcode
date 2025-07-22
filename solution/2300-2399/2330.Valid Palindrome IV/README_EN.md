@@ -65,7 +65,11 @@ Two operations could be performed to make s a palindrome so return true.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+We can use two pointers $i$ and $j$, pointing to the beginning and end of the string, respectively, and then move towards the center, counting the number of different characters. If the number of different characters is greater than $2$, return $\textit{false}$; otherwise, return $\textit{true}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

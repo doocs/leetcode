@@ -1,21 +1,20 @@
 func permutation(S string) (ans []string) {
-	t := []byte{}
-	vis := make([]bool, len(S))
+	t := []byte(S)
+	n := len(t)
+	vis := make([]bool, n)
 	var dfs func(int)
 	dfs = func(i int) {
-		if i >= len(S) {
+		if i >= n {
 			ans = append(ans, string(t))
 			return
 		}
 		for j := range S {
-			if vis[j] {
-				continue
+			if !vis[j] {
+				vis[j] = true
+				t[i] = S[j]
+				dfs(i + 1)
+				vis[j] = false
 			}
-			vis[j] = true
-			t = append(t, S[j])
-			dfs(i + 1)
-			t = t[:len(t)-1]
-			vis[j] = false
 		}
 	}
 	dfs(0)

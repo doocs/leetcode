@@ -6,11 +6,10 @@
  *     Right *TreeNode
  * }
  */
-func getLonelyNodes(root *TreeNode) []int {
-	ans := []int{}
+ func getLonelyNodes(root *TreeNode) (ans []int) {
 	var dfs func(*TreeNode)
 	dfs = func(root *TreeNode) {
-		if root == nil || (root.Left == nil && root.Right == nil) {
+		if root == nil || (root.Left == root.Right) {
 			return
 		}
 		if root.Left == nil {
@@ -23,5 +22,5 @@ func getLonelyNodes(root *TreeNode) []int {
 		dfs(root.Right)
 	}
 	dfs(root)
-	return ans
+	return
 }

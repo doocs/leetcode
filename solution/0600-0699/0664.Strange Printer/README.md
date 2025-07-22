@@ -67,9 +67,9 @@ tags:
 $$
 f[i][j]=
 \begin{cases}
-1, & \text{if } i=j \\
-f[i][j-1], & \text{if } s[i]=s[j] \\
-\min_{i \leq k < j} \{f[i][k]+f[k+1][j]\}, & \text{otherwise}
+1, & \textit{if } i=j \\
+f[i][j-1], & \textit{if } s[i]=s[j] \\
+\min_{i \leq k < j} \{f[i][k]+f[k+1][j]\}, & \textit{otherwise}
 \end{cases}
 $$
 

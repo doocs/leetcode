@@ -71,7 +71,7 @@ tags:
 
 $v$ 在数组 $nums$ 中的下标为 $i$，若下标 $i-1$ 对应的元素遍历过，可以将 $i-1$ 与 $i$ 进行合并，同理，若下标 $i+1$ 对应的元素也遍历过了，将 $i$ 与 $i+1$ 合并。合并过程中更新连通块的大小。
 
-$v$ 作为当前连通块的最小值，当前连通块的大小为 $size[find(i)]$，若 $v>\frac{\text{threshold}}{size[find(i)]}$，说明找到了满足条件的子数组，返回 $true$。
+$v$ 作为当前连通块的最小值，当前连通块的大小为 $size[find(i)]$，若 $v>\frac{\textit{threshold}}{size[find(i)]}$，说明找到了满足条件的子数组，返回 $true$。
 
 否则遍历结束，返回 $-1$。
 
@@ -277,7 +277,7 @@ func validSubarraySize(nums []int, threshold int) int {
 
 利用单调栈，得到以当前元素 $nums[i]$ 作为最小元素的左右边界 $left[i]$（左边第一个比 $nums[i]$ 小的元素的位置）, $right[i]$（右边第一个比 $nums[i]$ 小的元素的位置）。
 
-那么对于当前元素 $nums[i]$，有 $k=right[i]-left[i]-1$，若 $nums[i]>\frac{\text{threshold}}{k}$，说明找到了满足条件的子数组，返回 $true$。
+那么对于当前元素 $nums[i]$，有 $k=right[i]-left[i]-1$，若 $nums[i]>\frac{\textit{threshold}}{k}$，说明找到了满足条件的子数组，返回 $true$。
 
 否则遍历结束，返回 $-1$。
 

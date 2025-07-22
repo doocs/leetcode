@@ -3,19 +3,21 @@ public:
     int maximumRobots(vector<int>& chargeTimes, vector<int>& runningCosts, long long budget) {
         deque<int> q;
         long long s = 0;
-        int ans = 0, j = 0, n = chargeTimes.size();
-        for (int i = 0; i < n; ++i) {
-            int a = chargeTimes[i], b = runningCosts[i];
-            while (!q.empty() && chargeTimes[q.back()] <= a) q.pop_back();
-            q.push_back(i);
-            s += b;
-            while (!q.empty() && chargeTimes[q.front()] + (i - j + 1) * s > budget) {
-                if (q.front() == j) {
+        int ans = 0;
+        int n = chargeTimes.size();
+        for (int l = 0, r = 0; r < n; ++r) {
+            s += runningCosts[r];
+            while (q.size() && chargeTimes[q.back()] <= chargeTimes[r]) {
+                q.pop_back();
+            }
+            q.push_back(r);
+            while (q.size() && (r - l + 1) * s + chargeTimes[q.front()] > budget) {
+                if (q.front() == l) {
                     q.pop_front();
                 }
-                s -= runningCosts[j++];
+                s -= runningCosts[l++];
             }
-            ans = max(ans, i - j + 1);
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }

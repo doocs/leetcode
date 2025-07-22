@@ -1,41 +1,35 @@
 class Solution {
-    private int[] a = new int[12];
-    private int[][] dp = new int[12][2];
-    private Set<Integer> s = new HashSet<>();
+    private Set<Integer> nums = new HashSet<>();
+    private char[] s;
+    private Integer[] f;
 
     public int atMostNGivenDigitSet(String[] digits, int n) {
-        for (var e : dp) {
-            Arrays.fill(e, -1);
+        s = String.valueOf(n).toCharArray();
+        f = new Integer[s.length];
+        for (var x : digits) {
+            nums.add(Integer.parseInt(x));
         }
-        for (String d : digits) {
-            s.add(Integer.parseInt(d));
-        }
-        int len = 0;
-        while (n > 0) {
-            a[++len] = n % 10;
-            n /= 10;
-        }
-        return dfs(len, 1, true);
+        return dfs(0, true, true);
     }
 
-    private int dfs(int pos, int lead, boolean limit) {
-        if (pos <= 0) {
-            return lead ^ 1;
+    private int dfs(int i, boolean lead, boolean limit) {
+        if (i >= s.length) {
+            return lead ? 0 : 1;
         }
-        if (!limit && lead != 1 && dp[pos][lead] != -1) {
-            return dp[pos][lead];
+        if (!lead && !limit && f[i] != null) {
+            return f[i];
         }
+        int up = limit ? s[i] - '0' : 9;
         int ans = 0;
-        int up = limit ? a[pos] : 9;
-        for (int i = 0; i <= up; ++i) {
-            if (i == 0 && lead == 1) {
-                ans += dfs(pos - 1, lead, limit && i == up);
-            } else if (s.contains(i)) {
-                ans += dfs(pos - 1, 0, limit && i == up);
+        for (int j = 0; j <= up; ++j) {
+            if (j == 0 && lead) {
+                ans += dfs(i + 1, true, limit && j == up);
+            } else if (nums.contains(j)) {
+                ans += dfs(i + 1, false, limit && j == up);
             }
         }
-        if (!limit && lead == 0) {
-            dp[pos][lead] = ans;
+        if (!lead && !limit) {
+            f[i] = ans;
         }
         return ans;
     }

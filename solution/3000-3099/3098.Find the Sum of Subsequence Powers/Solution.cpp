@@ -5,9 +5,12 @@ public:
         const int mod = 1e9 + 7;
         int n = nums.size();
         sort(nums.begin(), nums.end());
-        function<int(int, int, int, int)> dfs = [&](int i, int j, int k, int mi) {
+        auto dfs = [&](this auto&& dfs, int i, int j, int k, int mi) -> int {
             if (i >= n) {
                 return k == 0 ? mi : 0;
+            }
+            if (n - i < k) {
+                return 0;
             }
             long long key = (1LL * mi) << 18 | (i << 12) | (j << 6) | k;
             if (f.contains(key)) {

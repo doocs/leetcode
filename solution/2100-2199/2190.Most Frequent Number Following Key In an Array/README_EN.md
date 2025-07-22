@@ -67,7 +67,15 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal and Counting
+
+We use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each $\textit{target}$, and use a variable $\textit{mx}$ to maintain the maximum number of occurrences of $\textit{target}$. Initially, $\textit{mx} = 0$.
+
+Traverse the array $\textit{nums}$. If $\textit{nums}[i] = \textit{key}$, increment the count of $\textit{nums}[i + 1]$ in $\textit{cnt}[\textit{nums}[i + 1]]$. If $\textit{mx} \lt \textit{cnt}[\textit{nums}[i + 1]]$, update $\textit{mx} = \textit{cnt}[\textit{nums}[i + 1]]$ and update the answer $\textit{ans} = \textit{nums}[i + 1]$.
+
+After the traversal, return the answer $\textit{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value of the elements in the array $\textit{nums}$, respectively.
 
 <!-- tabs:start -->
 
@@ -151,9 +159,8 @@ func mostFrequent(nums []int, key int) (ans int) {
 
 ```ts
 function mostFrequent(nums: number[], key: number): number {
-    const cnt: number[] = new Array(1001).fill(0);
-    let ans = 0;
-    let mx = 0;
+    const cnt: number[] = Array(Math.max(...nums) + 1).fill(0);
+    let [ans, mx] = [0, 0];
     for (let i = 0; i < nums.length - 1; ++i) {
         if (nums[i] === key) {
             if (mx < ++cnt[nums[i + 1]]) {
@@ -166,28 +173,47 @@ function mostFrequent(nums: number[], key: number): number {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} key
+ * @return {number}
+ */
+var mostFrequent = function (nums, key) {
+    const cnt = Array(Math.max(...nums) + 1).fill(0);
+    let [ans, mx] = [0, 0];
+    for (let i = 0; i < nums.length - 1; ++i) {
+        if (nums[i] === key) {
+            if (mx < ++cnt[nums[i + 1]]) {
+                mx = cnt[nums[i + 1]];
+                ans = nums[i + 1];
+            }
+        }
+    }
+    return ans;
+};
+```
+
 #### PHP
 
 ```php
 class Solution {
-    /**
-     * @param Integer[] $nums
-     * @param Integer $key
-     * @return Integer
-     */
     function mostFrequent($nums, $key) {
-        $max = $maxNum = 0;
-        for ($i = 0; $i < count($nums) - 1; $i++) {
-            if ($nums[$i] == $key) {
-                $hashtable[$nums[$i + 1]] += 1;
-                $tmp = $hashtable[$nums[$i + 1]];
-                if ($tmp > $max) {
-                    $max = $tmp;
-                    $maxNum = $nums[$i + 1];
+        $cnt = array_fill(0, max($nums) + 1, 0);
+        $ans = 0;
+        $mx = 0;
+        for ($i = 0; $i < count($nums) - 1; ++$i) {
+            if ($nums[$i] === $key) {
+                $cnt[$nums[$i + 1]]++;
+                if ($mx < $cnt[$nums[$i + 1]]) {
+                    $mx = $cnt[$nums[$i + 1]];
+                    $ans = $nums[$i + 1];
                 }
             }
         }
-        return $maxNum;
+        return $ans;
     }
 }
 ```

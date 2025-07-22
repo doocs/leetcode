@@ -3,14 +3,14 @@
  * @return {number}
  */
 var findMiddleIndex = function (nums) {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+    let l = 0;
+    let r = nums.reduce((a, b) => a + b, 0);
     for (let i = 0; i < nums.length; ++i) {
-        right -= nums[i];
-        if (left == right) {
+        r -= nums[i];
+        if (l === r) {
             return i;
         }
-        left += nums[i];
+        l += nums[i];
     }
     return -1;
 };

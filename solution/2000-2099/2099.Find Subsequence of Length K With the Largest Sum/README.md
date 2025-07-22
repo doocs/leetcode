@@ -69,7 +69,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序
+
+我们先创建一个索引数组 $\textit{idx}$，数组中的每个元素是数组 $\textit{nums}$ 的下标。然后我们根据数组 $\textit{nums}$ 的值对索引数组 $\textit{idx}$ 进行排序，排序的规则是 $\textit{nums}[i] < \textit{nums}[j]$，其中 $i$ 和 $j$ 是索引数组 $\textit{idx}$ 中的两个下标。
+
+排序完成后，我们取索引数组 $\textit{idx}$ 的最后 $k$ 个元素，这 $k$ 个元素对应的就是数组 $\textit{nums}$ 中最大的 $k$ 个元素。然后我们对这 $k$ 个下标进行排序，得到的就是最大的 $k$ 个元素在数组 $\textit{nums}$ 中的顺序。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组的长度。
 
 <!-- tabs:start -->
 
@@ -78,9 +84,8 @@ tags:
 ```python
 class Solution:
     def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
-        idx = list(range(len(nums)))
-        idx.sort(key=lambda i: nums[i])
-        return [nums[i] for i in sorted(idx[-k:])]
+        idx = sorted(range(len(nums)), key=lambda i: nums[i])[-k:]
+        return [nums[i] for i in sorted(idx)]
 ```
 
 #### Java
@@ -88,20 +93,14 @@ class Solution:
 ```java
 class Solution {
     public int[] maxSubsequence(int[] nums, int k) {
-        int[] ans = new int[k];
-        List<Integer> idx = new ArrayList<>();
         int n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            idx.add(i);
-        }
-        idx.sort(Comparator.comparingInt(i -> - nums[i]));
-        int[] t = new int[k];
-        for (int i = 0; i < k; ++i) {
-            t[i] = idx.get(i);
-        }
-        Arrays.sort(t);
-        for (int i = 0; i < k; ++i) {
-            ans[i] = nums[t[i]];
+        Integer[] idx = new Integer[n];
+        Arrays.setAll(idx, i -> i);
+        Arrays.sort(idx, (i, j) -> nums[i] - nums[j]);
+        Arrays.sort(idx, n - k, n);
+        int[] ans = new int[k];
+        for (int i = n - k; i < n; ++i) {
+            ans[i - (n - k)] = nums[idx[i]];
         }
         return ans;
     }
@@ -111,18 +110,20 @@ class Solution {
 #### C++
 
 ```cpp
+#include <ranges>
+
 class Solution {
 public:
     vector<int> maxSubsequence(vector<int>& nums, int k) {
         int n = nums.size();
-        vector<pair<int, int>> vals;
-        for (int i = 0; i < n; ++i) vals.push_back({i, nums[i]});
-        sort(vals.begin(), vals.end(), [&](auto x1, auto x2) {
-            return x1.second > x2.second;
-        });
-        sort(vals.begin(), vals.begin() + k);
-        vector<int> ans;
-        for (int i = 0; i < k; ++i) ans.push_back(vals[i].second);
+        vector<int> idx(n);
+        ranges::iota(idx, 0);
+        ranges::sort(idx, [&](int i, int j) { return nums[i] < nums[j]; });
+        ranges::sort(idx | views::drop(n - k));
+        vector<int> ans(k);
+        for (int i = n - k; i < n; ++i) {
+            ans[i - (n - k)] = nums[idx[i]];
+        }
         return ans;
     }
 };
@@ -132,17 +133,53 @@ public:
 
 ```go
 func maxSubsequence(nums []int, k int) []int {
-	idx := make([]int, len(nums))
+	idx := slices.Clone(make([]int, len(nums)))
 	for i := range idx {
 		idx[i] = i
 	}
-	sort.Slice(idx, func(i, j int) bool { return nums[idx[i]] > nums[idx[j]] })
-	sort.Ints(idx[:k])
+	slices.SortFunc(idx, func(i, j int) int { return nums[i] - nums[j] })
+	slices.Sort(idx[len(idx)-k:])
 	ans := make([]int, k)
-	for i, j := range idx[:k] {
-		ans[i] = nums[j]
+	for i := range ans {
+		ans[i] = nums[idx[len(idx)-k+i]]
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxSubsequence(nums: number[], k: number): number[] {
+    const n = nums.length;
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((i, j) => nums[i] - nums[j]);
+    return idx
+        .slice(n - k)
+        .sort((i, j) => i - j)
+        .map(i => nums[i]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_subsequence(nums: Vec<i32>, k: i32) -> Vec<i32> {
+        let n = nums.len();
+        let k = k as usize;
+        let mut idx: Vec<usize> = (0..n).collect();
+
+        idx.sort_by_key(|&i| nums[i]);
+        idx[n - k..].sort();
+
+        let mut ans = Vec::with_capacity(k);
+        for i in n - k..n {
+            ans.push(nums[idx[i]]);
+        }
+
+        ans
+    }
 }
 ```
 

@@ -77,17 +77,17 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $dfs(i, j)$，表示将多边形的顶点 $i$ 到 $j$ 进行三角剖分后的最低分数。那么答案就是 $dfs(0, n - 1)$。
+我们设计一个函数 $\text{dfs}(i, j)$，表示将多边形的顶点 $i$ 到 $j$ 进行三角剖分后的最低分数。那么答案就是 $\text{dfs}(0, n - 1)$。
 
-函数 $dfs(i, j)$ 的计算过程如下：
+函数 $\text{dfs}(i, j)$ 的计算过程如下：
 
 如果 $i + 1 = j$，说明多边形只有两个顶点，无法进行三角剖分，返回 $0$；
 
-否则，我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $dfs(i, k)$ 和 $dfs(k, j)$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $values[i] \times values[k] \times values[j]$。那么，此次三角剖分的最低分数为 $dfs(i, k) + dfs(k, j) + values[i] \times values[k] \times values[j]$，我们取所有可能的最小值，即为 $dfs(i, j)$ 的值。
+否则，我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $\text{dfs}(i, k)$ 和 $\text{dfs}(k, j)$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$。那么，此次三角剖分的最低分数为 $\text{dfs}(i, k) + \text{dfs}(k, j) + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$，我们取所有可能的最小值，即为 $\text{dfs}(i, j)$ 的值。
 
 为了避免重复计算，我们可以使用记忆化搜索，即使用哈希表或者数组来存储已经计算过的函数值。
 
-最后，我们返回 $dfs(0, n - 1)$ 即可。
+最后，我们返回 $\text{dfs}(0, n - 1)$ 即可。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为多边形的顶点数。
 
@@ -230,7 +230,7 @@ function minScoreTriangulation(values: number[]): number {
 
 对于 $f[i][j]$（这里要求 $i + 1 \lt j$），我们先将 $f[i][j]$ 初始化为 $\infty$。
 
-我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $f[i][k]$ 和 $f[k][j]$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $values[i] \times values[k] \times values[j]$。那么，此次三角剖分的最低分数为 $f[i][k] + f[k][j] + values[i] \times values[k] \times values[j]$，我们取所有可能的最小值，即为 $f[i][j]$ 的值。
+我们枚举 $i$ 和 $j$ 之间的一个顶点 $k$，即 $i \lt k \lt j$，将多边形的顶点 $i$ 到 $j$ 进行三角剖分，可以分为两个子问题：将多边形的顶点 $i$ 到 $k$ 进行三角剖分，以及将多边形的顶点 $k$ 到 $j$ 进行三角剖分。这两个子问题的最低分数分别为 $f[i][k]$ 和 $f[k][j]$，而顶点 $i$, $j$ 和 $k$ 构成的三角形的分数为 $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$。那么，此次三角剖分的最低分数为 $f[i][k] + f[k][j] + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$，我们取所有可能的最小值，即为 $f[i][j]$ 的值。
 
 综上，我们可以得到状态转移方程：
 
@@ -238,7 +238,8 @@ $$
 f[i][j]=
 \begin{cases}
 0, & i+1=j \\
-\min_{i<k<j} \{f[i][k]+f[k][j]+values[i] \times values[k] \times values[j]\}, & i+1<j
+\infty, & i+1<j \\
+\min_{i<k<j} \{f[i][k]+f[k][j]+\text{values}[i] \times \text{values}[k] \times \text{values}[j]\}, & i+1<j
 \end{cases}
 $$
 
@@ -358,7 +359,11 @@ function minScoreTriangulation(values: number[]): number {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法三：动态规划（另一种实现方式）
+
+方法二中，我们提到了两种枚举方式。这里我们使用第二种方式，从小到大枚举区间长度 $l$，其中 $3 \leq l \leq n$，然后枚举区间左端点 $i$，那么可以得到右端点 $j=i + l - 1$。
+
+时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为多边形的顶点数。
 
 <!-- tabs:start -->
 

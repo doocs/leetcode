@@ -1,16 +1,14 @@
 class Solution {
 public:
-    int countCollisions(string directions) {
-        int l = 0, r = directions.size() - 1, count = 0;
-        while (l <= r && directions[l] == 'L') {
-            l++;
+    int countCollisions(string s) {
+        int n = s.size();
+        int l = 0, r = n - 1;
+        while (l < n && s[l] == 'L') {
+            ++l;
         }
-        while (l <= r && directions[r] == 'R') {
-            r--;
+        while (r >= 0 && s[r] == 'R') {
+            --r;
         }
-        for (int i = l; i <= r; i++) {
-            count += directions[i] != 'S';
-        }
-        return count;
+        return r - l + 1 - count(s.begin() + l, s.begin() + r + 1, 'S');
     }
 };

@@ -67,7 +67,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+First, we check if $n$ is $0$. If it is, we return $1$.
+
+Next, we define two variables $\textit{ans}$ and $i$, both initialized to $0$. Then we iterate through $n$. In each iteration, we set the $i$-th bit of $\textit{ans}$ to the inverse of the $i$-th bit of $n$, increment $i$ by $1$, and right shift $n$ by $1$.
+
+Finally, we return $\textit{ans}$.
+
+The time complexity is $O(\log n)$, where $n$ is the given decimal number. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -78,15 +86,11 @@ class Solution:
     def bitwiseComplement(self, n: int) -> int:
         if n == 0:
             return 1
-        ans = 0
-        find = False
-        for i in range(30, -1, -1):
-            b = n & (1 << i)
-            if not find and b == 0:
-                continue
-            find = True
-            if b == 0:
-                ans |= 1 << i
+        ans = i = 0
+        while n:
+            ans |= ((n & 1 ^ 1) << i)
+            i += 1
+            n >>= 1
         return ans
 ```
 
@@ -98,17 +102,10 @@ class Solution {
         if (n == 0) {
             return 1;
         }
-        int ans = 0;
-        boolean find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = n & (1 << i);
-            if (!find && b == 0) {
-                continue;
-            }
-            find = true;
-            if (b == 0) {
-                ans |= (1 << i);
-            }
+        int ans = 0, i = 0;
+        while (n != 0) {
+            ans |= (n & 1 ^ 1) << (i++);
+            n >>= 1;
         }
         return ans;
     }
@@ -121,14 +118,13 @@ class Solution {
 class Solution {
 public:
     int bitwiseComplement(int n) {
-        if (n == 0) return 1;
-        int ans = 0;
-        bool find = false;
-        for (int i = 30; i >= 0; --i) {
-            int b = n & (1 << i);
-            if (!find && b == 0) continue;
-            find = true;
-            if (b == 0) ans |= (1 << i);
+        if (n == 0) {
+            return 1;
+        }
+        int ans = 0, i = 0;
+        while (n != 0) {
+            ans |= (n & 1 ^ 1) << (i++);
+            n >>= 1;
         }
         return ans;
     }
@@ -138,23 +134,50 @@ public:
 #### Go
 
 ```go
-func bitwiseComplement(n int) int {
+func bitwiseComplement(n int) (ans int) {
 	if n == 0 {
 		return 1
 	}
-	ans := 0
-	find := false
-	for i := 30; i >= 0; i-- {
-		b := n & (1 << i)
-		if !find && b == 0 {
-			continue
-		}
-		find = true
-		if b == 0 {
-			ans |= (1 << i)
-		}
+	for i := 0; n != 0; n >>= 1 {
+		ans |= (n&1 ^ 1) << i
+		i++
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function bitwiseComplement(n: number): number {
+    if (n === 0) {
+        return 1;
+    }
+    let ans = 0;
+    for (let i = 0; n; n >>= 1) {
+        ans |= ((n & 1) ^ 1) << i++;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn bitwise_complement(mut n: i32) -> i32 {
+        if n == 0 {
+            return 1;
+        }
+        let mut ans = 0;
+        let mut i = 0;
+        while n != 0 {
+            ans |= ((n & 1) ^ 1) << i;
+            n >>= 1;
+            i += 1;
+        }
+        ans
+    }
 }
 ```
 

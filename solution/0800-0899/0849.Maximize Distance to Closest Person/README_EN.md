@@ -69,7 +69,15 @@ This is the maximum distance possible, so the answer is 3.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Traversal
+
+We define two variables $\textit{first}$ and $\textit{last}$ to represent the positions of the first and last person, respectively. We use the variable $d$ to represent the maximum distance between two people.
+
+Then, we traverse the array $\textit{seats}$. If the current position is occupied, and if $\textit{last}$ has been updated before, it means there was someone before, so we update $d = \max(d, i - \textit{last})$. If $\textit{first}$ has not been updated before, it means there was no one before, so we update $\textit{first} = i$. Next, we update $\textit{last} = i$.
+
+Finally, we return $\max(\textit{first}, n - \textit{last} - 1, d / 2)$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{seats}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

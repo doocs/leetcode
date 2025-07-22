@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2706.Bu
 rating: 1207
 source: Biweekly Contest 105 Q1
 tags:
+    - Greedy
     - Array
     - Sorting
 ---

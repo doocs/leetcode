@@ -8,10 +8,10 @@ func permute(nums []int) (ans [][]int) {
 			ans = append(ans, slices.Clone(t))
 			return
 		}
-		for j, v := range nums {
+		for j, x := range nums {
 			if !vis[j] {
 				vis[j] = true
-				t[i] = v
+				t[i] = x
 				dfs(i + 1)
 				vis[j] = false
 			}

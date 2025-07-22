@@ -9,7 +9,7 @@ class Node:
 
 
 class Solution:
-    def copyRandomList(self, head: "Node") -> "Node":
+    def copyRandomList(self, head: "Optional[Node]") -> "Optional[Node]":
         if head is None:
             return None
         cur = head
@@ -17,18 +17,14 @@ class Solution:
             node = Node(cur.val, cur.next)
             cur.next = node
             cur = node.next
-
         cur = head
         while cur:
-            if cur.random:
-                cur.next.random = cur.random.next
+            cur.next.random = cur.random.next if cur.random else None
             cur = cur.next.next
-
-        ans = head.next
         cur = head
-        while cur:
-            nxt = cur.next
-            if nxt:
-                cur.next = nxt.next
-            cur = nxt
+        ans = head.next
+        while cur.next:
+            node = cur.next
+            cur.next = node.next
+            cur = node
         return ans

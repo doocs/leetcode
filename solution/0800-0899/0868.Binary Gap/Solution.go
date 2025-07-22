@@ -1,12 +1,10 @@
-func binaryGap(n int) int {
-	ans := 0
-	for i, j := 0, -1; n != 0; i, n = i+1, n>>1 {
-		if (n & 1) == 1 {
-			if j != -1 && ans < i-j {
-				ans = i - j
-			}
-			j = i
+func binaryGap(n int) (ans int) {
+	for pre, cur := 100, 0; n != 0; n >>= 1 {
+		if n&1 == 1 {
+			ans = max(ans, cur-pre)
+			pre = cur
 		}
+		cur++
 	}
-	return ans
+	return
 }

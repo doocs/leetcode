@@ -72,6 +72,12 @@ tags:
 
 ### 方法一：前缀和
 
+我们首先计算数组 $\textit{nums}$ 的总和 $s$，然后遍历数组 $\textit{nums}$ 的前 $n-1$ 个元素，用变量 $t$ 记录前缀和，如果 $t \geq s - t$，则将答案加一。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -81,10 +87,9 @@ class Solution:
     def waysToSplitArray(self, nums: List[int]) -> int:
         s = sum(nums)
         ans = t = 0
-        for v in nums[:-1]:
-            t += v
-            if t >= s - t:
-                ans += 1
+        for x in nums[:-1]:
+            t += x
+            ans += t >= s - t
         return ans
 ```
 
@@ -94,16 +99,14 @@ class Solution:
 class Solution {
     public int waysToSplitArray(int[] nums) {
         long s = 0;
-        for (int v : nums) {
-            s += v;
+        for (int x : nums) {
+            s += x;
         }
-        int ans = 0;
         long t = 0;
-        for (int i = 0; i < nums.length - 1; ++i) {
+        int ans = 0;
+        for (int i = 0; i + 1 < nums.length; ++i) {
             t += nums[i];
-            if (t >= s - t) {
-                ++ans;
-            }
+            ans += t >= s - t ? 1 : 0;
         }
         return ans;
     }
@@ -116,10 +119,10 @@ class Solution {
 class Solution {
 public:
     int waysToSplitArray(vector<int>& nums) {
-        long long s = accumulate(nums.begin(), nums.end(), 0ll);
+        long long s = accumulate(nums.begin(), nums.end(), 0LL);
         long long t = 0;
         int ans = 0;
-        for (int i = 0; i < nums.size() - 1; ++i) {
+        for (int i = 0; i + 1 < nums.size(); ++i) {
             t += nums[i];
             ans += t >= s - t;
         }
@@ -131,19 +134,34 @@ public:
 #### Go
 
 ```go
-func waysToSplitArray(nums []int) int {
-	s := 0
-	for _, v := range nums {
-		s += v
+func waysToSplitArray(nums []int) (ans int) {
+	var s, t int
+	for _, x := range nums {
+		s += x
 	}
-	ans, t := 0, 0
-	for _, v := range nums[:len(nums)-1] {
-		t += v
+	for _, x := range nums[:len(nums)-1] {
+		t += x
 		if t >= s-t {
 			ans++
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function waysToSplitArray(nums: number[]): number {
+    const s = nums.reduce((acc, cur) => acc + cur, 0);
+    let [ans, t] = [0, 0];
+    for (const x of nums.slice(0, -1)) {
+        t += x;
+        if (t >= s - t) {
+            ++ans;
+        }
+    }
+    return ans;
 }
 ```
 

@@ -65,7 +65,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brute Force Simulation
+
+According to the problem statement, we can perform a process of prime factorization, i.e., continuously decompose a number into its prime factors until it can no longer be decomposed. During the process, add the prime factors each time they are decomposed, and perform this recursively or iteratively.
+
+The time complexity is $O(\sqrt{n})$.
 
 <!-- tabs:start -->
 

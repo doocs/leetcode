@@ -10,11 +10,11 @@ class Solution {
 
     private void dfs(int i) {
         if (i >= t.length) {
-            ans.add(String.valueOf(t));
+            ans.add(new String(t));
             return;
         }
         dfs(i + 1);
-        if (t[i] >= 'A') {
+        if (Character.isLetter(t[i])) {
             t[i] ^= 32;
             dfs(i + 1);
         }

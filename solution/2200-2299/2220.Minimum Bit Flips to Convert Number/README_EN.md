@@ -57,13 +57,20 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 	<li><code>0 &lt;= start, goal &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/hamming-distance/description/" target="_blank">461: Hamming Distance.</a></p>
+
 <!-- description:end -->
 
 ## Solutions
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+According to the problem description, we only need to count the number of 1s in the binary representation of $\textit{start} \oplus \textit{goal}$.
+
+The time complexity is $O(\log n)$, where $n$ is the size of the integers in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -72,12 +79,7 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 ```python
 class Solution:
     def minBitFlips(self, start: int, goal: int) -> int:
-        t = start ^ goal
-        ans = 0
-        while t:
-            ans += t & 1
-            t >>= 1
-        return ans
+        return (start ^ goal).bit_count()
 ```
 
 #### Java
@@ -85,13 +87,7 @@ class Solution:
 ```java
 class Solution {
     public int minBitFlips(int start, int goal) {
-        int t = start ^ goal;
-        int ans = 0;
-        while (t != 0) {
-            ans += t & 1;
-            t >>= 1;
-        }
-        return ans;
+        return Integer.bitCount(start ^ goal);
     }
 }
 ```
@@ -102,13 +98,7 @@ class Solution {
 class Solution {
 public:
     int minBitFlips(int start, int goal) {
-        int t = start ^ goal;
-        int ans = 0;
-        while (t) {
-            ans += t & 1;
-            t >>= 1;
-        }
-        return ans;
+        return __builtin_popcount(start ^ goal);
     }
 };
 ```
@@ -117,13 +107,7 @@ public:
 
 ```go
 func minBitFlips(start int, goal int) int {
-	t := start ^ goal
-	ans := 0
-	for t != 0 {
-		ans += t & 1
-		t >>= 1
-	}
-	return ans
+	return bits.OnesCount(uint(start ^ goal))
 }
 ```
 
@@ -131,13 +115,16 @@ func minBitFlips(start int, goal int) int {
 
 ```ts
 function minBitFlips(start: number, goal: number): number {
-    let tmp = start ^ goal;
-    let ans = 0;
-    while (tmp !== 0) {
-        ans += tmp & 1;
-        tmp >>= 1;
-    }
-    return ans;
+    return bitCount(start ^ goal);
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -146,14 +133,30 @@ function minBitFlips(start: number, goal: number): number {
 ```rust
 impl Solution {
     pub fn min_bit_flips(start: i32, goal: i32) -> i32 {
-        let mut tmp = start ^ goal;
-        let mut ans = 0;
-        while tmp != 0 {
-            ans += tmp & 1;
-            tmp >>= 1;
-        }
-        ans
+        (start ^ goal).count_ones() as i32
     }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} start
+ * @param {number} goal
+ * @return {number}
+ */
+var minBitFlips = function (start, goal) {
+    return bitCount(start ^ goal);
+};
+
+function bitCount(i) {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -161,11 +164,11 @@ impl Solution {
 
 ```c
 int minBitFlips(int start, int goal) {
-    int tmp = start ^ goal;
+    int x = start ^ goal;
     int ans = 0;
-    while (tmp) {
-        ans += tmp & 1;
-        tmp >>= 1;
+    while (x) {
+        ans += (x & 1);
+        x >>= 1;
     }
     return ans;
 }

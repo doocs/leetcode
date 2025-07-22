@@ -57,7 +57,13 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+First, we check if the length of the string is $1$. If it is, we directly return an empty string.
+
+Otherwise, we traverse the first half of the string from left to right, find the first character that is not `'a'`, and change it to `'a'`. If no such character exists, we change the last character to `'b'`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -89,17 +95,17 @@ class Solution {
         if (n == 1) {
             return "";
         }
-        char[] cs = palindrome.toCharArray();
+        char[] s = palindrome.toCharArray();
         int i = 0;
-        while (i < n / 2 && cs[i] == 'a') {
+        while (i < n / 2 && s[i] == 'a') {
             ++i;
         }
         if (i == n / 2) {
-            cs[n - 1] = 'b';
+            s[n - 1] = 'b';
         } else {
-            cs[i] = 'a';
+            s[i] = 'a';
         }
-        return String.valueOf(cs);
+        return String.valueOf(s);
     }
 }
 ```
@@ -169,6 +175,33 @@ function breakPalindrome(palindrome: string): string {
         s[i] = 'a';
     }
     return s.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn break_palindrome(palindrome: String) -> String {
+        let n = palindrome.len();
+        if n == 1 {
+            return "".to_string();
+        }
+        let mut s: Vec<char> = palindrome.chars().collect();
+        let mut i = 0;
+
+        while i < n / 2 && s[i] == 'a' {
+            i += 1;
+        }
+
+        if i == n / 2 {
+            s[n - 1] = 'b';
+        } else {
+            s[i] = 'a';
+        }
+
+        s.into_iter().collect()
+    }
 }
 ```
 

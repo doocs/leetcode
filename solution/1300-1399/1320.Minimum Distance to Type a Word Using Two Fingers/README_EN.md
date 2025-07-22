@@ -74,7 +74,26 @@ Total distance = 6
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j][k]$ to represent the minimum distance after typing $\textit{word}[i]$, with finger 1 at position $j$ and finger 2 at position $k$. Here, positions $j$ and $k$ represent the numbers corresponding to the letters, ranging from $[0,..25]$. Initially, $f[i][j][k] = \infty$.
+
+We implement a function $\textit{dist}(a, b)$ to represent the distance between positions $a$ and $b$, i.e., $\textit{dist}(a, b) = |\frac{a}{6} - \frac{b}{6}| + |a \bmod 6 - b \bmod 6|$.
+
+Next, we consider typing $\textit{word}[0]$, i.e., the case with only one letter. There are two choices:
+
+-   Finger 1 is at the position of $\textit{word}[0]$, and finger 2 is at any position. In this case, $f[0][\textit{word}[0]][k] = 0$, where $k \in [0,..25]$.
+-   Finger 2 is at the position of $\textit{word}[0]$, and finger 1 is at any position. In this case, $f[0][k][\textit{word}[0]] = 0$, where $k \in [0,..25]$.
+
+Then we consider typing $\textit{word}[1,..n-1]$. Let the positions of the previous letter and the current letter be $a$ and $b$, respectively. Next, we discuss the following cases:
+
+If the current finger 1 is at position $b$, we enumerate the position $j$ of finger 2. If the previous position $a$ was also the position of finger 1, then $f[i][b][j] = \min(f[i][b][j], f[i-1][a][j] + \textit{dist}(a, b))$. If the position of finger 2 is the same as the previous position $a$, i.e., $j = a$, then we enumerate the position $k$ of finger 1 in the previous position. In this case, $f[i][b][j] = \min(f[i][b][j], f[i-1][k][a] + \textit{dist}(k, b))$.
+
+Similarly, if the current finger 2 is at position $b$, we enumerate the position $j$ of finger 1. If the previous position $a$ was also the position of finger 2, then $f[i][j][b] = \min(f[i][j][b], f[i-1][j][a] + \textit{dist}(a, b))$. If the position of finger 1 is the same as the previous position $a$, i.e., $j = a$, then we enumerate the position $k$ of finger 2 in the previous position. In this case, $f[i][j][b] = \min(f[i][j][b], f[i-1][a][k] + \textit{dist}(k, b))$.
+
+Finally, we enumerate the positions of finger 1 and finger 2 at the last position and take the minimum value as the answer.
+
+The time complexity is $O(n \times |\Sigma|^2)$, and the space complexity is $O(n \times |\Sigma|^2)$. Here, $n$ is the length of the string $\textit{word}$, and $|\Sigma|$ is the size of the alphabet, which is $26$ in this problem.
 
 <!-- tabs:start -->
 

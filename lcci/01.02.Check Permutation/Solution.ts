@@ -1,18 +1,16 @@
 function CheckPermutation(s1: string, s2: string): boolean {
-    const n = s1.length;
-    const m = s2.length;
-    if (n !== m) {
+    if (s1.length !== s2.length) {
         return false;
     }
-    const map = new Map<string, number>();
-    for (let i = 0; i < n; i++) {
-        map.set(s1[i], (map.get(s1[i]) ?? 0) + 1);
-        map.set(s2[i], (map.get(s2[i]) ?? 0) - 1);
+    const cnt: Record<string, number> = {};
+    for (const c of s1) {
+        cnt[c] = (cnt[c] || 0) + 1;
     }
-    for (const v of map.values()) {
-        if (v !== 0) {
+    for (const c of s2) {
+        if (!cnt[c]) {
             return false;
         }
+        cnt[c]--;
     }
     return true;
 }

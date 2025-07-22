@@ -1,27 +1,33 @@
 func maxmiumScore(cards []int, cnt int) int {
+	sort.Ints(cards)
 	ans := 0
-	sort.Slice(cards, func(i, j int) bool { return cards[i] > cards[j] })
-	for _, v := range cards[:cnt] {
-		ans += v
+	n := len(cards)
+	for i := 0; i < cnt; i++ {
+		ans += cards[n-1-i]
 	}
 	if ans%2 == 0 {
 		return ans
 	}
-	inf := 0x3f3f3f3f
-	a, b, c, d := inf, inf, -inf, -inf
-	for _, v := range cards[:cnt] {
-		if v%2 == 1 {
-			a = min(a, v)
+	const inf = 1 << 29
+	mx1, mx2 := -inf, -inf
+	for _, x := range cards[:n-cnt] {
+		if x%2 == 1 {
+			mx1 = x
 		} else {
-			b = min(b, v)
+			mx2 = x
 		}
 	}
-	for _, v := range cards[cnt:] {
-		if v%2 == 0 {
-			c = max(c, v)
+	mi1, mi2 := inf, inf
+	for i := n - 1; i >= n-cnt; i-- {
+		if cards[i]%2 == 1 {
+			mi2 = cards[i]
 		} else {
-			d = max(d, v)
+			mi1 = cards[i]
 		}
 	}
-	return max(0, max(ans-a+c, ans-b+d))
+	ans = max(-1, max(ans-mi1+mx1, ans-mi2+mx2))
+	if ans < 0 {
+		return 0
+	}
+	return ans
 }

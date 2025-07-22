@@ -86,7 +86,13 @@ Thus, we return 4.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+Since the array $\textit{differences}$ is already determined, the difference between the maximum and minimum values of the elements in the array $\textit{hidden}$ is also fixed. We just need to ensure that this difference does not exceed $\textit{upper} - \textit{lower}$.
+
+Let's assume the first element of the array $\textit{hidden}$ is $0$. Then, $\textit{hidden}[i] = \textit{hidden}[i - 1] + \textit{differences}[i - 1]$, where $1 \leq i \leq n$. Let the maximum value of the array $\textit{hidden}$ be $mx$ and the minimum value be $mi$. If $mx - mi \leq \textit{upper} - \textit{lower}$, then we can construct a valid $\textit{hidden}$ array. The number of possible constructions is $\textit{upper} - \textit{lower} - (mx - mi) + 1$. Otherwise, it is impossible to construct a valid $\textit{hidden}$ array, and we return $0$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{differences}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -95,12 +101,12 @@ Thus, we return 4.
 ```python
 class Solution:
     def numberOfArrays(self, differences: List[int], lower: int, upper: int) -> int:
-        num = mi = mx = 0
+        x = mi = mx = 0
         for d in differences:
-            num += d
-            mi = min(mi, num)
-            mx = max(mx, num)
-        return max(0, upper - lower - (mx - mi) + 1)
+            x += d
+            mi = min(mi, x)
+            mx = max(mx, x)
+        return max(upper - lower - (mx - mi) + 1, 0)
 ```
 
 #### Java
@@ -108,13 +114,13 @@ class Solution:
 ```java
 class Solution {
     public int numberOfArrays(int[] differences, int lower, int upper) {
-        long num = 0, mi = 0, mx = 0;
+        long x = 0, mi = 0, mx = 0;
         for (int d : differences) {
-            num += d;
-            mi = Math.min(mi, num);
-            mx = Math.max(mx, num);
+            x += d;
+            mi = Math.min(mi, x);
+            mx = Math.max(mx, x);
         }
-        return Math.max(0, (int) (upper - lower - (mx - mi) + 1));
+        return (int) Math.max(upper - lower - (mx - mi) + 1, 0);
     }
 }
 ```
@@ -125,13 +131,13 @@ class Solution {
 class Solution {
 public:
     int numberOfArrays(vector<int>& differences, int lower, int upper) {
-        long long num = 0, mi = 0, mx = 0;
-        for (int& d : differences) {
-            num += d;
-            mi = min(mi, num);
-            mx = max(mx, num);
+        long long x = 0, mi = 0, mx = 0;
+        for (int d : differences) {
+            x += d;
+            mi = min(mi, x);
+            mx = max(mx, x);
         }
-        return max(0, (int) (upper - lower - (mx - mi) + 1));
+        return max(upper - lower - (mx - mi) + 1, 0LL);
     }
 };
 ```
@@ -140,13 +146,27 @@ public:
 
 ```go
 func numberOfArrays(differences []int, lower int, upper int) int {
-	num, mi, mx := 0, 0, 0
+	x, mi, mx := 0, 0, 0
 	for _, d := range differences {
-		num += d
-		mi = min(mi, num)
-		mx = max(mx, num)
+		x += d
+		mi = min(mi, x)
+		mx = max(mx, x)
 	}
 	return max(0, upper-lower-(mx-mi)+1)
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfArrays(differences: number[], lower: number, upper: number): number {
+    let [x, mi, mx] = [0, 0, 0];
+    for (const d of differences) {
+        x += d;
+        mi = Math.min(mi, x);
+        mx = Math.max(mx, x);
+    }
+    return Math.max(0, upper - lower - (mx - mi) + 1);
 }
 ```
 

@@ -1,21 +1,19 @@
 function isBipartite(graph: number[][]): boolean {
     const n = graph.length;
-    let p = new Array(n);
-    for (let i = 0; i < n; ++i) {
-        p[i] = i;
-    }
-    function find(x) {
-        if (p[x] != x) {
+    const p: number[] = Array.from({ length: n }, (_, i) => i);
+    const find = (x: number): number => {
+        if (x !== p[x]) {
             p[x] = find(p[x]);
         }
         return p[x];
-    }
-    for (let u = 0; u < n; ++u) {
-        for (let v of graph[u]) {
-            if (find(u) == find(v)) {
+    };
+    for (let a = 0; a < n; ++a) {
+        for (const b of graph[a]) {
+            const [pa, pb] = [find(a), find(b)];
+            if (pa === pb) {
                 return false;
             }
-            p[find(v)] = find(graph[u][0]);
+            p[pb] = find(graph[a][0]);
         }
     }
     return true;

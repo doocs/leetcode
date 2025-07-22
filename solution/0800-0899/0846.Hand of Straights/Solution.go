@@ -1,19 +1,19 @@
 func isNStraightHand(hand []int, groupSize int) bool {
-	cnt := map[int]int{}
-	for _, v := range hand {
-		cnt[v]++
+	if len(hand)%groupSize != 0 {
+		return false
 	}
 	sort.Ints(hand)
-	for _, v := range hand {
-		if _, ok := cnt[v]; ok {
-			for x := v; x < v+groupSize; x++ {
-				if _, ok := cnt[x]; !ok {
+	cnt := map[int]int{}
+	for _, x := range hand {
+		cnt[x]++
+	}
+	for _, x := range hand {
+		if cnt[x] > 0 {
+			for y := x; y < x+groupSize; y++ {
+				if cnt[y] == 0 {
 					return false
 				}
-				cnt[x]--
-				if cnt[x] == 0 {
-					delete(cnt, x)
-				}
+				cnt[y]--
 			}
 		}
 	}

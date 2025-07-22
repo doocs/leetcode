@@ -1,22 +1,14 @@
 class Solution:
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
-        if m * k > len(bloomDay):
-            return -1
-
-        def check(day: int) -> bool:
+        def check(days: int) -> int:
             cnt = cur = 0
-            for bd in bloomDay:
-                cur = cur + 1 if bd <= day else 0
+            for x in bloomDay:
+                cur = cur + 1 if x <= days else 0
                 if cur == k:
                     cnt += 1
                     cur = 0
             return cnt >= m
 
-        left, right = min(bloomDay), max(bloomDay)
-        while left < right:
-            mid = (left + right) >> 1
-            if check(mid):
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        mx = max(bloomDay)
+        l = bisect_left(range(mx + 2), True, key=check)
+        return -1 if l > mx else l

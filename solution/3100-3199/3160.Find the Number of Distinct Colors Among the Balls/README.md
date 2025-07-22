@@ -22,9 +22,9 @@ tags:
 
 <p>给你一个整数&nbsp;<code>limit</code>&nbsp;和一个大小为 <code>n x 2</code>&nbsp;的二维数组&nbsp;<code>queries</code>&nbsp;。</p>
 
-<p>总共有&nbsp;<code>limit + 1</code>&nbsp;个球，每个球的编号为&nbsp;<code>[0, limit]</code>&nbsp;中一个&nbsp;<strong>互不相同</strong>&nbsp;的数字。一开始，所有球都没有颜色。<code>queries</code>&nbsp;中每次操作的格式为&nbsp;<code>[x, y]</code>&nbsp;，你需要将球&nbsp;<code>x</code>&nbsp;染上颜色&nbsp;<code>y</code>&nbsp;。每次操作之后，你需要求出所有球中&nbsp;<strong>不同</strong>&nbsp;颜色的数目。</p>
+<p>总共有&nbsp;<code>limit + 1</code>&nbsp;个球，每个球的编号为&nbsp;<code>[0, limit]</code>&nbsp;中一个&nbsp;<strong>互不相同</strong>&nbsp;的数字。一开始，所有球都没有颜色。<code>queries</code>&nbsp;中每次操作的格式为&nbsp;<code>[x, y]</code>&nbsp;，你需要将球&nbsp;<code>x</code>&nbsp;染上颜色&nbsp;<code>y</code>&nbsp;。每次操作之后，你需要求出所有球颜色的数目。</p>
 
-<p>请你返回一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>result</code>&nbsp;，其中&nbsp;<code>result[i]</code>&nbsp;是第 <code>i</code>&nbsp;次操作以后不同颜色的数目。</p>
+<p>请你返回一个长度为 <code>n</code>&nbsp;的数组&nbsp;<code>result</code>&nbsp;，其中&nbsp;<code>result[i]</code>&nbsp;是第 <code>i</code>&nbsp;次操作以后颜色的数目。</p>
 
 <p><strong>注意</strong>&nbsp;，没有染色的球不算作一种颜色。</p>
 
@@ -89,13 +89,13 @@ tags:
 
 ### 方法一：双哈希表
 
-我们使用一个哈希表 $\text{g}$ 记录每个球的颜色，使用一个哈希表 $\text{cnt}$ 记录每种颜色的球的个数。
+我们使用一个哈希表 $\textit{g}$ 记录每个球的颜色，使用一个哈希表 $\textit{cnt}$ 记录每种颜色的球的个数。
 
-接下来，遍历数组 $\text{queries}$，对于每个查询 $(x, y)$，我们将颜色 $y$ 的球的个数加 $1$，然后判断球 $x$ 是否已经染色，如果已经染色，我们将球 $x$ 的颜色的球的个数减 $1$，如果减到 $0$，我们将其从哈希表 $\text{cnt}$ 中移除。接下来，我们将球 $x$ 的颜色更新为 $y$，并将当前哈希表 $\text{cnt}$ 的大小加入答案数组。
+接下来，遍历数组 $\textit{queries}$，对于每个查询 $(x, y)$，我们将颜色 $y$ 的球的个数加 $1$，然后判断球 $x$ 是否已经染色，如果已经染色，我们将球 $x$ 的颜色的球的个数减 $1$，如果减到 $0$，我们将其从哈希表 $\textit{cnt}$ 中移除。接下来，我们将球 $x$ 的颜色更新为 $y$，并将当前哈希表 $\textit{cnt}$ 的大小加入答案数组。
 
 遍历结束后，返回答案数组即可。
 
-时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 为数组 $\text{queries}$ 的长度。
+时间复杂度 $O(m)$，空间复杂度 $O(m)$，其中 $m$ 为数组 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 

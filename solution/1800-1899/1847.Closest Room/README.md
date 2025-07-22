@@ -7,6 +7,7 @@ source: 第 51 场双周赛 Q4
 tags:
     - 数组
     - 二分查找
+    - 有序集合
     - 排序
 ---
 
@@ -89,9 +90,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def closestRoom(
         self, rooms: List[List[int]], queries: List[List[int]]

@@ -7,6 +7,7 @@ source: Biweekly Contest 91 Q4
 tags:
     - String
     - Binary Search
+    - Enumeration
 ---
 
 <!-- problem:start -->

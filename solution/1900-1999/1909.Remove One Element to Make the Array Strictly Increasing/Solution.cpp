@@ -1,19 +1,24 @@
 class Solution {
 public:
     bool canBeIncreasing(vector<int>& nums) {
-        int i = 1, n = nums.size();
-        for (; i < n && nums[i - 1] < nums[i]; ++i)
-            ;
-        return check(nums, i - 1) || check(nums, i);
-    }
-
-    bool check(vector<int>& nums, int i) {
-        int prev = 0;
-        for (int j = 0; j < nums.size(); ++j) {
-            if (i == j) continue;
-            if (prev >= nums[j]) return false;
-            prev = nums[j];
+        int n = nums.size();
+        auto check = [&](int k) -> bool {
+            int pre = 0;
+            for (int i = 0; i < n; ++i) {
+                if (i == k) {
+                    continue;
+                }
+                if (pre >= nums[i]) {
+                    return false;
+                }
+                pre = nums[i];
+            }
+            return true;
+        };
+        int i = 0;
+        while (i + 1 < n && nums[i] < nums[i + 1]) {
+            ++i;
         }
-        return true;
+        return check(i) || check(i + 1);
     }
 };

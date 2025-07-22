@@ -4,7 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2638.Count%20the%20Number%20of%20K-Free%20Subsets/README_EN.md
 tags:
     - Array
+    - Math
     - Dynamic Programming
+    - Combinatorics
     - Sorting
 ---
 

@@ -5,7 +5,7 @@ class Solution:
         for _ in range(n):
             while i in vis:
                 i += 1
-            vis.add(i)
             vis.add(k - i)
             s += i
+            i += 1
         return s

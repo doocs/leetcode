@@ -52,7 +52,8 @@ tags:
 <ul>
 	<li><code>1 &lt;= rectangles.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>rectangles[i].length == 4</code></li>
-	<li><code>-10<sup>5</sup> &lt;= x<sub>i</sub>, y<sub>i</sub>, a<sub>i</sub>, b<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>5</sup> &lt;= x<sub>i</sub> &lt; a<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>5</sup> &lt;= y<sub>i</sub> &lt; b<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 <!-- description:end -->

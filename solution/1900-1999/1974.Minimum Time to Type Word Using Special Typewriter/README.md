@@ -93,7 +93,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+我们初始化答案变量 $\textit{ans}$ 为字符串的长度，表示我们至少需要 $\textit{ans}$ 秒来键入字符串。
+
+接下来，我们遍历字符串，对于每个字符，我们计算当前字符和前一个字符之间的最小距离，将这个距离加到答案中。然后我们更新当前字符为前一个字符，继续遍历。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -102,13 +108,11 @@ tags:
 ```python
 class Solution:
     def minTimeToType(self, word: str) -> int:
-        ans = prev = 0
-        for c in word:
-            curr = ord(c) - ord('a')
-            t = abs(prev - curr)
-            t = min(t, 26 - t)
-            ans += t + 1
-            prev = curr
+        ans, a = len(word), ord("a")
+        for c in map(ord, word):
+            d = abs(c - a)
+            ans += min(d, 26 - d)
+            a = c
         return ans
 ```
 
@@ -117,14 +121,12 @@ class Solution:
 ```java
 class Solution {
     public int minTimeToType(String word) {
-        int ans = 0;
-        int prev = 0;
+        int ans = word.length();
+        char a = 'a';
         for (char c : word.toCharArray()) {
-            int curr = c - 'a';
-            int t = Math.abs(prev - curr);
-            t = Math.min(t, 26 - t);
-            ans += t + 1;
-            prev = curr;
+            int d = Math.abs(a - c);
+            ans += Math.min(d, 26 - d);
+            a = c;
         }
         return ans;
     }
@@ -137,14 +139,12 @@ class Solution {
 class Solution {
 public:
     int minTimeToType(string word) {
-        int ans = 0;
-        int prev = 0;
-        for (char& c : word) {
-            int curr = c - 'a';
-            int t = abs(prev - curr);
-            t = min(t, 26 - t);
-            ans += t + 1;
-            prev = curr;
+        int ans = word.length();
+        char a = 'a';
+        for (char c : word) {
+            int d = abs(a - c);
+            ans += min(d, 26 - d);
+            a = c;
         }
         return ans;
     }
@@ -155,22 +155,29 @@ public:
 
 ```go
 func minTimeToType(word string) int {
-	ans, prev := 0, 0
+	ans := len(word)
+	a := rune('a')
 	for _, c := range word {
-		curr := int(c - 'a')
-		t := abs(prev - curr)
-		t = min(t, 26-t)
-		ans += t + 1
-		prev = curr
+		d := int(max(a-c, c-a))
+		ans += min(d, 26-d)
+		a = c
 	}
 	return ans
 }
+```
 
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+#### TypeScript
+
+```ts
+function minTimeToType(word: string): number {
+    let a = 'a'.charCodeAt(0);
+    let ans = word.length;
+    for (const c of word) {
+        const d = Math.abs(c.charCodeAt(0) - a);
+        ans += Math.min(d, 26 - d);
+        a = c.charCodeAt(0);
+    }
+    return ans;
 }
 ```
 

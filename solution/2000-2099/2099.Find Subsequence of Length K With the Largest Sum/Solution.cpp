@@ -1,15 +1,17 @@
+#include <ranges>
+
 class Solution {
 public:
     vector<int> maxSubsequence(vector<int>& nums, int k) {
         int n = nums.size();
-        vector<pair<int, int>> vals;
-        for (int i = 0; i < n; ++i) vals.push_back({i, nums[i]});
-        sort(vals.begin(), vals.end(), [&](auto x1, auto x2) {
-            return x1.second > x2.second;
-        });
-        sort(vals.begin(), vals.begin() + k);
-        vector<int> ans;
-        for (int i = 0; i < k; ++i) ans.push_back(vals[i].second);
+        vector<int> idx(n);
+        ranges::iota(idx, 0);
+        ranges::sort(idx, [&](int i, int j) { return nums[i] < nums[j]; });
+        ranges::sort(idx | views::drop(n - k));
+        vector<int> ans(k);
+        for (int i = n - k; i < n; ++i) {
+            ans[i - (n - k)] = nums[idx[i]];
+        }
         return ans;
     }
 };

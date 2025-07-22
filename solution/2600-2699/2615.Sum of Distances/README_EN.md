@@ -55,6 +55,9 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as <a href="https://leetcode.com/problems/intervals-between-identical-elements/description/" target="_blank"> 2121: Intervals Between Identical Elements.</a></p>
+
 <!-- description:end -->
 
 ## Solutions

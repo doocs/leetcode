@@ -9,7 +9,7 @@ tags:
 
 <!-- problem:start -->
 
-# [624. 数组列表中的最大距离 🔒](https://leetcode.cn/problems/maximum-distance-in-arrays)
+# [624. 数组列表中的最大距离](https://leetcode.cn/problems/maximum-distance-in-arrays)
 
 [English Version](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README_EN.md)
 
@@ -17,28 +17,40 @@ tags:
 
 <!-- description:start -->
 
-<p>给定&nbsp;<code>m</code>&nbsp;个数组，每个数组都已经按照升序排好序了。现在你需要从两个不同的数组中选择两个整数（每个数组选一个）并且计算它们的距离。两个整数&nbsp;<code>a</code>&nbsp;和&nbsp;<code>b</code>&nbsp;之间的距离定义为它们差的绝对值&nbsp;<code>|a-b|</code>&nbsp;。你的任务就是去找到最大距离</p>
+<p>给定&nbsp;<code>m</code>&nbsp;个数组，每个数组都已经按照升序排好序了。</p>
+
+<p>现在你需要从两个不同的数组中选择两个整数（每个数组选一个）并且计算它们的距离。两个整数&nbsp;<code>a</code>&nbsp;和&nbsp;<code>b</code>&nbsp;之间的距离定义为它们差的绝对值&nbsp;<code>|a-b|</code>&nbsp;。</p>
+
+<p>返回最大距离。</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong> 
-[[1,2,3],
- [4,5],
- [1,2,3]]
-<strong>输出：</strong> 4
+<pre>
+<strong>输入：</strong>[[1,2,3],[4,5],[1,2,3]]
+<strong>输出：</strong>4
 <strong>解释：</strong>
 一种得到答案 4 的方法是从第一个数组或者第三个数组中选择 1，同时从第二个数组中选择 5 。
 </pre>
 
+<p><strong class="example">示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>arrays = [[1],[1]]
+<b>输出：</b>0
+</pre>
+
 <p>&nbsp;</p>
 
-<p><strong>注意：</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li>每个给定数组至少会有 1 个数字。列表中至少有两个非空数组。</li>
-	<li><strong>所有</strong>&nbsp;<code>m</code>&nbsp;个数组中的数字总数目在范围 [2, 10000] 内。</li>
-	<li><code>m</code>&nbsp;个数组中所有整数的范围在 [-10000, 10000] 内。</li>
-</ol>
+<ul>
+	<li><code>m == arrays.length</code></li>
+	<li><code>2 &lt;= m &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= arrays[i].length &lt;= 500</code></li>
+	<li><code>-10<sup>4</sup> &lt;= arrays[i][j] &lt;= 10<sup>4</sup></code></li>
+	<li><code>arrays[i]</code>&nbsp;以&nbsp;<strong>升序</strong>&nbsp;排序。</li>
+	<li>所有数组中最多有&nbsp;<code>10<sup>5</sup></code> 个整数。</li>
+</ul>
 
 <p>&nbsp;</p>
 
@@ -50,11 +62,13 @@ tags:
 
 ### 方法一：维护最大值和最小值
 
-我们注意到，最大距离一定是两个数组中的一个最大值和另一个最小值之间的距离。因此，我们可以维护两个变量，分别表示当前数组中的最大值和最小值，然后遍历数组，更新最大距离，同时更新最大值和最小值。
+我们注意到，最大距离一定是两个数组中的一个最大值和另一个最小值之间的距离。因此，我们可以维护两个变量 $\textit{mi}$ 和 $\textit{mx}$，分别表示已经遍历过的数组中的最小值和最大值。初始时 $\textit{mi}$ 和 $\textit{mx}$ 分别为第一个数组的第一个元素和最后一个元素。
+
+接下来，我们从第二个数组开始遍历，对于每个数组，我们首先计算当前数组的第一个元素和 $\textit{mx}$ 之间的距离，以及当前数组的最后一个元素和 $\textit{mi}$ 之间的距离，然后更新最大距离。同时，我们更新 $\textit{mi} = \min(\textit{mi}, \textit{arr}[0])$ 和 $\textit{mx} = \max(\textit{mx}, \textit{arr}[\textit{size} - 1])$。
 
 遍历结束后，即可得到最大距离。
 
-时间复杂度 $O(m)$，空间复杂度 $O(1)$。其中 $m$ 为数组的个数。
+时间复杂度 $O(m)$，其中 $m$ 为数组的个数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -134,6 +148,70 @@ func abs(x int) int {
 	}
 	return x
 }
+```
+
+#### TypeScript
+
+```ts
+function maxDistance(arrays: number[][]): number {
+    let ans = 0;
+    let [mi, mx] = [arrays[0][0], arrays[0].at(-1)!];
+    for (let i = 1; i < arrays.length; ++i) {
+        const arr = arrays[i];
+        const a = Math.abs(arr[0] - mx);
+        const b = Math.abs(arr.at(-1)! - mi);
+        ans = Math.max(ans, a, b);
+        mi = Math.min(mi, arr[0]);
+        mx = Math.max(mx, arr.at(-1)!);
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_distance(arrays: Vec<Vec<i32>>) -> i32 {
+        let mut ans = 0;
+        let mut mi = arrays[0][0];
+        let mut mx = arrays[0][arrays[0].len() - 1];
+
+        for i in 1..arrays.len() {
+            let arr = &arrays[i];
+            let a = (arr[0] - mx).abs();
+            let b = (arr[arr.len() - 1] - mi).abs();
+            ans = ans.max(a).max(b);
+
+            mi = mi.min(arr[0]);
+            mx = mx.max(arr[arr.len() - 1]);
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} arrays
+ * @return {number}
+ */
+var maxDistance = function (arrays) {
+    let ans = 0;
+    let [mi, mx] = [arrays[0][0], arrays[0].at(-1)];
+    for (let i = 1; i < arrays.length; ++i) {
+        const arr = arrays[i];
+        const a = Math.abs(arr[0] - mx);
+        const b = Math.abs(arr.at(-1) - mi);
+        ans = Math.max(ans, a, b);
+        mi = Math.min(mi, arr[0]);
+        mx = Math.max(mx, arr.at(-1));
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

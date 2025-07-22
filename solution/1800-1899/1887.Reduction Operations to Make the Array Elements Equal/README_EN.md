@@ -75,7 +75,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We first sort the array $\textit{nums}$, then iterate from the second element of the array. If the current element is not equal to the previous element, we increment $\textit{cnt}$, indicating the number of operations needed to reduce the current element to the minimum value. Then we add $\textit{cnt}$ to $\textit{ans}$ and continue to the next element.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -86,8 +90,8 @@ class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
         nums.sort()
         ans = cnt = 0
-        for i, v in enumerate(nums[1:]):
-            if v != nums[i]:
+        for a, b in pairwise(nums):
+            if a != b:
                 cnt += 1
             ans += cnt
         return ans
@@ -117,7 +121,7 @@ class Solution {
 class Solution {
 public:
     int reductionOperations(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int ans = 0, cnt = 0;
         for (int i = 1; i < nums.size(); ++i) {
             cnt += nums[i] != nums[i - 1];
@@ -131,16 +135,16 @@ public:
 #### Go
 
 ```go
-func reductionOperations(nums []int) int {
+func reductionOperations(nums []int) (ans int) {
 	sort.Ints(nums)
-	ans, cnt := 0, 0
-	for i, v := range nums[1:] {
-		if v != nums[i] {
+	cnt := 0
+	for i, x := range nums[1:] {
+		if x != nums[i] {
 			cnt++
 		}
 		ans += cnt
 	}
-	return ans
+	return
 }
 ```
 
@@ -149,10 +153,9 @@ func reductionOperations(nums []int) int {
 ```ts
 function reductionOperations(nums: number[]): number {
     nums.sort((a, b) => a - b);
-    let ans = 0;
-    let cnt = 0;
+    let [ans, cnt] = [0, 0];
     for (let i = 1; i < nums.length; ++i) {
-        if (nums[i] != nums[i - 1]) {
+        if (nums[i] !== nums[i - 1]) {
             ++cnt;
         }
         ans += cnt;
@@ -161,81 +164,42 @@ function reductionOperations(nums: number[]): number {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var reductionOperations = function (nums) {
+    nums.sort((a, b) => a - b);
+    let [ans, cnt] = [0, 0];
+    for (let i = 1; i < nums.length; ++i) {
+        if (nums[i] !== nums[i - 1]) {
+            ++cnt;
+        }
+        ans += cnt;
+    }
+    return ans;
+};
+```
+
 #### C#
 
 ```cs
 public class Solution {
     public int ReductionOperations(int[] nums) {
         Array.Sort(nums);
-        int ans = 0, up = 0;
+        int ans = 0, cnt = 0;
         for (int i = 1; i < nums.Length; i++) {
             if (nums[i] != nums[i - 1]) {
-                up++;
+                ++cnt;
             }
-            ans += up;
+            ans += cnt;
         }
         return ans;
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def reductionOperations(self, nums: List[int]) -> int:
-        ans = cnt = 0
-        for _, v in sorted(Counter(nums).items()):
-            ans += cnt * v
-            cnt += 1
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    public int reductionOperations(int[] nums) {
-        Map<Integer, Integer> tm = new TreeMap<>();
-        for (int v : nums) {
-            tm.put(v, tm.getOrDefault(v, 0) + 1);
-        }
-        int ans = 0, cnt = 0;
-        for (int v : tm.values()) {
-            ans += cnt * v;
-            ++cnt;
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int reductionOperations(vector<int>& nums) {
-        map<int, int> m;
-        for (int v : nums) ++m[v];
-        int ans = 0, cnt = 0;
-        for (auto [_, v] : m) {
-            ans += cnt * v;
-            ++cnt;
-        }
-        return ans;
-    }
-};
 ```
 
 <!-- tabs:end -->

@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> x = 2, y = 5, z = 1
 <strong>Output:</strong> 12
-<strong>Explanation: </strong>We can concactenate the strings &quot;BB&quot;, &quot;AA&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;BB&quot;, and &quot;AB&quot; in that order. Then, our new string is &quot;BBAABBAABBAB&quot;. 
+<strong>Explanation: </strong>We can concatenate the strings &quot;BB&quot;, &quot;AA&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;BB&quot;, and &quot;AB&quot; in that order. Then, our new string is &quot;BBAABBAABBAB&quot;. 
 That string has length 12, and we can show that it is impossible to construct a string of longer length.
 </pre>
 
@@ -44,7 +44,7 @@ That string has length 12, and we can show that it is impossible to construct a 
 <pre>
 <strong>Input:</strong> x = 3, y = 2, z = 2
 <strong>Output:</strong> 14
-<strong>Explanation:</strong> We can concactenate the strings &quot;AB&quot;, &quot;AB&quot;, &quot;AA&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;BB&quot;, and &quot;AA&quot; in that order. Then, our new string is &quot;ABABAABBAABBAA&quot;. 
+<strong>Explanation:</strong> We can concatenate the strings &quot;AB&quot;, &quot;AB&quot;, &quot;AA&quot;, &quot;BB&quot;, &quot;AA&quot;, &quot;BB&quot;, and &quot;AA&quot; in that order. Then, our new string is &quot;ABABAABBAABBAA&quot;. 
 That string has length 14, and we can show that it is impossible to construct a string of longer length.
 </pre>
 

@@ -76,27 +76,33 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 ### 方法一：差分数组
 
-我们不妨设 $a$ 为 $nums[i]$ 和 $nums[n-i-1]$ 的较小值，设 $b$ 为 $nums[i]$ 和 $nums[n-i-1]$ 的较大值。
+假设最终的数组中，数对 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的和为 $s$。
 
-假设经过替换后，两数之和为 $x$。由题意，我们知道 $x$ 最小值为 $2$，即两个数替换为 $1$；最大值为 $2 \times limit$，即两个数都替换为 $limit$。因此 $x$ 的取值范围是 $[2,... 2 \times limit]$。
+我们不妨设 $x$ 为 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的较小值，设 $y$ 为 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的较大值。
 
-如何求出对于不同的 $x$，需要替换的最少次数呢？
+对于每一对数，我们有以下几种情况：
 
-我们分析发现：
+-   如果不需要替换，那么 $x + y = s$。
+-   如果替换一次，那么 $x + 1 \le s \le y + \textit{limit}$。
+-   如果替换两次，那么 $2 \le s \le x$ 或 $y + \textit{limit} + 1 \le s \le 2 \times \textit{limit}$。
 
--   如果 $x = a + b$，那么我们需要替换的次数为 $0$，即当前的数对已经满足互补的要求；
--   否则如果 $1 + a \le x \le limit + b $，那么我们需要替换的次数为 $1$，即把其中一个数替换即可；
--   否则如果 $2 \le x \le 2 \times limit$，那么我们需要替换的次数为 $2$，即把两个数都替换。
+即：
 
-因此，我们可以遍历每一对数，执行如下操作：
+-   在 $[2,..x]$ 范围内，需要替换 $2$ 次。
+-   在 $[x+1,..x+y-1]$ 范围内，需要替换 $1$ 次。
+-   在 $[x+y]$ 时，不需要替换。
+-   在 $[x+y+1,..y + \textit{limit}]$ 范围内，需要替换 $1$ 次。
+-   在 $[y + \textit{limit} + 1,..2 \times \textit{limit}]$ 范围内，需要替换 $2$ 次。
 
-1. 先将 $[2,... 2 \times limit]$ 范围需要的操作次数加 $2$。
-1. 再将 $[1 + a,... limit + b]$ 范围需要的操作次数减 $1$。
-1. 最后将 $[a + b,... a + b]$ 范围需要的操作次数减 $1$。
+我们枚举每一个数对，利用差分数组，更新每个数对在不同区间范围内的替换次数。
 
-可以发现，这实际上是在对一个连续区间内的元素进行加减操作，因此我们可以使用差分数组来实现。
+最后，我们求出下标 $2$ 到 $2 \times \textit{limit}$ 的前缀和中的最小值，即为最少的替换次数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
+
+相似题目：
+
+-   [3224. 使差值相等的最少数组改动次数](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README.md)
 
 <!-- tabs:start -->
 
@@ -105,27 +111,20 @@ nums[3] + nums[0] = 3 + 1 = 4.
 ```python
 class Solution:
     def minMoves(self, nums: List[int], limit: int) -> int:
-        d = [0] * (limit * 2 + 2)
+        d = [0] * (2 * limit + 2)
         n = len(nums)
-
-        for i in range(n >> 1):
-            a, b = min(nums[i], nums[n - i - 1]), max(nums[i], nums[n - i - 1])
-
+        for i in range(n // 2):
+            x, y = nums[i], nums[-i - 1]
+            if x > y:
+                x, y = y, x
             d[2] += 2
-            d[limit * 2 + 1] -= 2
-
-            d[a + 1] -= 1
-            d[b + limit + 1] += 1
-
-            d[a + b] -= 1
-            d[a + b + 1] += 1
-
-        ans, s = n, 0
-        for v in d[2 : limit * 2 + 1]:
-            s += v
-            if ans > s:
-                ans = s
-        return ans
+            d[x + 1] -= 2
+            d[x + 1] += 1
+            d[x + y] -= 1
+            d[x + y + 1] += 1
+            d[y + limit + 1] -= 1
+            d[y + limit + 1] += 2
+        return min(accumulate(d[2:]))
 ```
 
 #### Java
@@ -133,27 +132,23 @@ class Solution:
 ```java
 class Solution {
     public int minMoves(int[] nums, int limit) {
+        int[] d = new int[2 * limit + 2];
         int n = nums.length;
-        int[] d = new int[limit * 2 + 2];
-        for (int i = 0; i < n >> 1; ++i) {
-            int a = Math.min(nums[i], nums[n - i - 1]);
-            int b = Math.max(nums[i], nums[n - i - 1]);
-
+        for (int i = 0; i < n / 2; ++i) {
+            int x = Math.min(nums[i], nums[n - i - 1]);
+            int y = Math.max(nums[i], nums[n - i - 1]);
             d[2] += 2;
-            d[limit * 2 + 1] -= 2;
-
-            d[a + 1] -= 1;
-            d[b + limit + 1] += 1;
-
-            d[a + b] -= 1;
-            d[a + b + 1] += 1;
+            d[x + 1] -= 2;
+            d[x + 1] += 1;
+            d[x + y] -= 1;
+            d[x + y + 1] += 1;
+            d[y + limit + 1] -= 1;
+            d[y + limit + 1] += 2;
         }
-        int ans = n, s = 0;
-        for (int i = 2; i <= limit * 2; ++i) {
+        int ans = n;
+        for (int i = 2, s = 0; i < d.length; ++i) {
             s += d[i];
-            if (ans > s) {
-                ans = s;
-            }
+            ans = Math.min(ans, s);
         }
         return ans;
     }
@@ -167,26 +162,25 @@ class Solution {
 public:
     int minMoves(vector<int>& nums, int limit) {
         int n = nums.size();
-        vector<int> d(limit * 2 + 2);
-        for (int i = 0; i < n >> 1; ++i) {
-            int a = min(nums[i], nums[n - i - 1]);
-            int b = max(nums[i], nums[n - i - 1]);
-
-            d[2] += 2;
-            d[limit * 2 + 1] -= 2;
-
-            d[a + 1] -= 1;
-            d[b + limit + 1] += 1;
-
-            d[a + b] -= 1;
-            d[a + b + 1] += 1;
-        }
-        int ans = n, s = 0;
-        for (int i = 2; i <= limit * 2; ++i) {
-            s += d[i];
-            if (ans > s) {
-                ans = s;
+        int d[limit * 2 + 2];
+        memset(d, 0, sizeof(d));
+        for (int i = 0; i < n / 2; ++i) {
+            int x = nums[i], y = nums[n - i - 1];
+            if (x > y) {
+                swap(x, y);
             }
+            d[2] += 2;
+            d[x + 1] -= 2;
+            d[x + 1] += 1;
+            d[x + y] -= 1;
+            d[x + y + 1] += 1;
+            d[y + limit + 1] -= 1;
+            d[y + limit + 1] += 2;
+        }
+        int ans = n;
+        for (int i = 2, s = 0; i <= limit * 2; ++i) {
+            s += d[i];
+            ans = min(ans, s);
         }
         return ans;
     }
@@ -197,25 +191,25 @@ public:
 
 ```go
 func minMoves(nums []int, limit int) int {
-	d := make([]int, limit*2+2)
 	n := len(nums)
-	for i := 0; i < n>>1; i++ {
-		a, b := min(nums[i], nums[n-i-1]), max(nums[i], nums[n-i-1])
+	d := make([]int, 2*limit+2)
+	for i := 0; i < n/2; i++ {
+		x, y := nums[i], nums[n-1-i]
+		if x > y {
+			x, y = y, x
+		}
 		d[2] += 2
-		d[limit*2+1] -= 2
-
-		d[a+1] -= 1
-		d[b+limit+1] += 1
-
-		d[a+b] -= 1
-		d[a+b+1] += 1
+		d[x+1] -= 2
+		d[x+1] += 1
+		d[x+y] -= 1
+		d[x+y+1] += 1
+		d[y+limit+1] -= 1
+		d[y+limit+1] += 2
 	}
 	ans, s := n, 0
-	for _, v := range d[2 : limit*2+1] {
-		s += v
-		if ans > s {
-			ans = s
-		}
+	for _, x := range d[2:] {
+		s += x
+		ans = min(ans, s)
 	}
 	return ans
 }
@@ -228,25 +222,21 @@ function minMoves(nums: number[], limit: number): number {
     const n = nums.length;
     const d: number[] = Array(limit * 2 + 2).fill(0);
     for (let i = 0; i < n >> 1; ++i) {
-        const a = Math.min(nums[i], nums[n - i - 1]);
-        const b = Math.max(nums[i], nums[n - i - 1]);
-
+        const x = Math.min(nums[i], nums[n - 1 - i]);
+        const y = Math.max(nums[i], nums[n - 1 - i]);
         d[2] += 2;
-        d[limit * 2 + 1] -= 2;
-
-        d[a + 1] -= 1;
-        d[b + limit + 1] += 1;
-
-        d[a + b] -= 1;
-        d[a + b + 1] += 1;
+        d[x + 1] -= 2;
+        d[x + 1] += 1;
+        d[x + y] -= 1;
+        d[x + y + 1] += 1;
+        d[y + limit + 1] -= 1;
+        d[y + limit + 1] += 2;
     }
     let ans = n;
     let s = 0;
-    for (let i = 2; i <= limit * 2; ++i) {
+    for (let i = 2; i < d.length; ++i) {
         s += d[i];
-        if (ans > s) {
-            ans = s;
-        }
+        ans = Math.min(ans, s);
     }
     return ans;
 }

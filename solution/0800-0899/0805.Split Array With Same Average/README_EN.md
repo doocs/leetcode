@@ -58,7 +58,51 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search + Binary Enumeration
+
+According to the problem requirements, we need to determine if the array $\textit{nums}$ can be divided into two subarrays $A$ and $B$ such that the average values of the two subarrays are equal.
+
+Let the sum of the array $\textit{nums}$ be $s$, and the number of elements be $n$. The sum and number of elements of subarray $A$ are $s_1$ and $k$, respectively. Then the sum of subarray $B$ is $s_2 = s - s_1$, and the number of elements is $n - k$. Thus:
+
+$$
+\frac{s_1}{k} = \frac{s_2}{n - k} = \frac{s-s_1}{n-k}
+$$
+
+Rearranging, we get:
+
+$$
+s_1 \times (n-k) = (s-s_1) \times k
+$$
+
+Simplifying, we get:
+
+$$
+\frac{s_1}{k} = \frac{s}{n}
+$$
+
+This means we need to find a subarray $A$ such that its average value equals the average value of the array $\textit{nums}$. We consider subtracting the average value of the array $\textit{nums}$ from each element of the array $\textit{nums}$, transforming the problem into finding a subarray in the array $\textit{nums}$ whose sum is $0$.
+
+However, the average value of the array $\textit{nums}$ may not be an integer, and floating-point calculations may have precision issues. We can multiply each element of the array $\textit{nums}$ by $n$, i.e., $nums[i] \leftarrow nums[i] \times n$. The above equation becomes:
+
+$$
+\frac{s_1\times n}{k} = s
+$$
+
+Now, we subtract the integer $s$ from each element of the array $\textit{nums}$, transforming the problem into finding a subarray $A$ in the array $nums$ whose sum is $0$.
+
+The length of the array $\textit{nums}$ ranges from $[1, 30]$. If we use brute force to enumerate subarrays, the time complexity is $O(2^n)$, which will time out. We can use binary search to reduce the time complexity to $O(2^{n/2})$.
+
+We divide the array $\textit{nums}$ into left and right parts. The subarray $A$ can exist in three cases:
+
+1. Subarray $A$ is entirely in the left part of the array $\textit{nums}$;
+2. Subarray $A$ is entirely in the right part of the array $\textit{nums}$;
+3. Subarray $A$ is partially in the left part and partially in the right part of the array $\textit{nums}$.
+
+We can use binary enumeration to first enumerate the sums of all subarrays in the left part. If there is a subarray with a sum of $0$, we return `true` immediately. Otherwise, we store the sums in a hash table $\textit{vis}$. Then we enumerate the sums of all subarrays in the right part. If there is a subarray with a sum of $0$, we return `true` immediately. Otherwise, we check if the hash table $\textit{vis}$ contains the opposite of the current sum. If it does, we return `true`.
+
+Note that we cannot select all elements from both the left and right parts simultaneously, as this would leave subarray $B$ empty, which does not meet the problem requirements. In implementation, we only need to consider $n-1$ elements of the array.
+
+The time complexity is $O(n \times 2^{\frac{n}{2}})$, and the space complexity is $O(2^{\frac{n}{2}})$.
 
 <!-- tabs:start -->
 

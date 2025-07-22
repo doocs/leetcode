@@ -55,7 +55,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们可以遍历字符串 $\textit{s}$，统计其中等于 $\textit{letter}$ 的字符的个数，然后根据公式 $\textit{count} \times 100 \, / \, \textit{len}(\textit{s})$ 计算百分比。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{s}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -89,9 +93,7 @@ class Solution {
 class Solution {
 public:
     int percentageLetter(string s, char letter) {
-        int cnt = 0;
-        for (char& c : s) cnt += c == letter;
-        return cnt * 100 / s.size();
+        return 100 * ranges::count(s, letter) / s.size();
     }
 };
 ```
@@ -100,13 +102,7 @@ public:
 
 ```go
 func percentageLetter(s string, letter byte) int {
-	cnt := 0
-	for i := range s {
-		if s[i] == letter {
-			cnt++
-		}
-	}
-	return cnt * 100 / len(s)
+	return strings.Count(s, string(letter)) * 100 / len(s)
 }
 ```
 
@@ -114,12 +110,8 @@ func percentageLetter(s string, letter byte) int {
 
 ```ts
 function percentageLetter(s: string, letter: string): number {
-    let count = 0;
-    let total = s.length;
-    for (let i of s) {
-        if (i === letter) count++;
-    }
-    return Math.floor((count / total) * 100);
+    const count = s.split('').filter(c => c === letter).length;
+    return Math.floor((100 * count) / s.length);
 }
 ```
 
@@ -128,13 +120,8 @@ function percentageLetter(s: string, letter: string): number {
 ```rust
 impl Solution {
     pub fn percentage_letter(s: String, letter: char) -> i32 {
-        let mut count = 0;
-        for c in s.chars() {
-            if c == letter {
-                count += 1;
-            }
-        }
-        ((count * 100) / s.len()) as i32
+        let count = s.chars().filter(|&c| c == letter).count();
+        (100 * count as i32 / s.len() as i32) as i32
     }
 }
 ```

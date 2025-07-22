@@ -7,6 +7,7 @@ source: Weekly Contest 301 Q2
 tags:
     - Design
     - Hash Table
+    - Ordered Set
     - Heap (Priority Queue)
 ---
 
@@ -89,9 +90,6 @@ The space complexity is $O(n)$.
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class SmallestInfiniteSet:
     def __init__(self):
         self.s = SortedSet(range(1, 1001))

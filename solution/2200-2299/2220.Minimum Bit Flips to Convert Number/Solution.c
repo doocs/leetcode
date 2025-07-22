@@ -1,9 +1,9 @@
 int minBitFlips(int start, int goal) {
-    int tmp = start ^ goal;
+    int x = start ^ goal;
     int ans = 0;
-    while (tmp) {
-        ans += tmp & 1;
-        tmp >>= 1;
+    while (x) {
+        ans += (x & 1);
+        x >>= 1;
     }
     return ans;
 }

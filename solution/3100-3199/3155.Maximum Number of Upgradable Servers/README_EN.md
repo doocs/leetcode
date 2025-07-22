@@ -74,7 +74,7 @@ tags:
 
 ### Solution 1: Mathematics
 
-For each data center, we assume that we can upgrade $x$ servers, then $x \times \text{upgrade[i]} \leq \text{count[i]} \times \text{sell[i]} + \text{money[i]}$. That is, $x \leq \frac{\text{count[i]} \times \text{sell[i]} + \text{money[i]}}{\text{upgrade[i]} + \text{sell[i]}}$. Also, $x \leq \text{count[i]}$, so we can take the minimum of the two.
+For each data center, we assume that we can upgrade $x$ servers, then $x \times \textit{upgrade[i]} \leq \textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}$. That is, $x \leq \frac{\textit{count[i]} \times \textit{sell[i]} + \textit{money[i]}}{\textit{upgrade[i]} + \textit{sell[i]}}$. Also, $x \leq \textit{count[i]}$, so we can take the minimum of the two.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 

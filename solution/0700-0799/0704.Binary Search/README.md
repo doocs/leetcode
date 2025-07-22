@@ -17,19 +17,23 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个&nbsp;<code>n</code>&nbsp;个元素有序的（升序）整型数组&nbsp;<code>nums</code> 和一个目标值&nbsp;<code>target</code> &nbsp;，写一个函数搜索&nbsp;<code>nums</code>&nbsp;中的 <code>target</code>，如果目标值存在返回下标，否则返回 <code>-1</code>。</p>
+<p>给定一个&nbsp;<code>n</code>&nbsp;个元素有序的（升序）整型数组&nbsp;<code>nums</code> 和一个目标值&nbsp;<code>target</code> &nbsp;，写一个函数搜索&nbsp;<code>nums</code>&nbsp;中的 <code>target</code>，如果&nbsp;<code>target</code> 存在返回下标，否则返回 <code>-1</code>。</p>
 
-<p><br>
+<p>你必须编写一个具有 <code>O(log n)</code> 时间复杂度的算法。</p>
+
+<p><br />
 <strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 9
+<pre>
+<strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 9
 <strong>输出:</strong> 4
 <strong>解释:</strong> 9 出现在 <code>nums</code> 中并且下标为 4
 </pre>
 
 <p><strong>示例&nbsp;2:</strong></p>
 
-<pre><strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 2
+<pre>
+<strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 2
 <strong>输出:</strong> -1
 <strong>解释:</strong> 2 不存在 <code>nums</code> 中因此返回 -1
 </pre>
@@ -54,14 +58,14 @@ tags:
 
 我们定义二分查找的左边界 $l=0$，右边界 $r=n-1$。
 
-每一次循环，我们计算中间位置 $\text{mid}=(l+r)/2$，然后比较 $\text{nums}[\text{mid}]$ 和 $\text{target}$ 的大小。
+每一次循环，我们计算中间位置 $\textit{mid}=(l+r)/2$，然后比较 $\textit{nums}[\textit{mid}]$ 和 $\textit{target}$ 的大小。
 
--   如果 $\text{nums}[\text{mid}] \geq \text{target}$，说明 $\text{target}$ 在左半部分，我们将右边界 $r$ 移动到 $\text{mid}$；
--   否则，说明 $\text{target}$ 在右半部分，我们将左边界 $l$ 移动到 $\text{mid}+1$。
+-   如果 $\textit{nums}[\textit{mid}] \geq \textit{target}$，说明 $\textit{target}$ 在左半部分，我们将右边界 $r$ 移动到 $\textit{mid}$；
+-   否则，说明 $\textit{target}$ 在右半部分，我们将左边界 $l$ 移动到 $\textit{mid}+1$。
 
-循环结束的条件是 $l<r$，此时 $\text{nums}[l]$ 就是我们要找的目标值，如果 $\text{nums}[l]=\text{target}$，返回 $l$，否则返回 $-1$。
+循环结束的条件是 $l<r$，此时 $\textit{nums}[l]$ 就是我们要找的目标值，如果 $\textit{nums}[l]=\textit{target}$，返回 $l$，否则返回 $-1$。
 
-时间复杂度 $O(\log n)$，其中 $n$ 是数组 $\text{nums}$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

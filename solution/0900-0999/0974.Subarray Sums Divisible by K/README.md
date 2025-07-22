@@ -59,17 +59,17 @@ tags:
 
 ### 方法一：哈希表 + 前缀和
 
-假设存在 $i \leq j$，使得 $nums[i,..j]$ 的和能被 $k$ 整除，如果我们令 $s_i$ 表示 $nums[0,..i]$ 的和，令 $s_j$ 表示 $nums[0,..j]$ 的和，那么 $s_j - s_i$ 能被 $k$ 整除，即 $(s_j - s_i) \bmod k = 0$，也即 $s_j \bmod k = s_i \bmod k$。因此，我们可以用哈希表统计前缀和模 $k$ 的值的个数，从而快速判断是否存在满足条件的子数组。
+假设存在 $i \leq j$，使得 $\textit{nums}[i,..j]$ 的和能被 $k$ 整除，如果我们令 $s_i$ 表示 $\textit{nums}[0,..i]$ 的和，令 $s_j$ 表示 $\textit{nums}[0,..j]$ 的和，那么 $s_j - s_i$ 能被 $k$ 整除，即 $(s_j - s_i) \bmod k = 0$，也即 $s_j \bmod k = s_i \bmod k$。因此，我们可以用哈希表统计前缀和模 $k$ 的值的个数，从而快速判断是否存在满足条件的子数组。
 
-我们用一个哈希表 $cnt$ 统计前缀和模 $k$ 的值的个数，即 $cnt[i]$ 表示前缀和模 $k$ 的值为 $i$ 的个数。初始时 $cnt[0]=1$。用变量 $s$ 表示前缀和，初始时 $s = 0$。
+我们用一个哈希表 $\textit{cnt}$ 统计前缀和模 $k$ 的值的个数，即 $\textit{cnt}[i]$ 表示前缀和模 $k$ 的值为 $i$ 的个数。初始时 $\textit{cnt}[0]=1$。用变量 $s$ 表示前缀和，初始时 $s = 0$。
 
-接下来，从左到右遍历数组 $nums$，对于遍历到的每个元素 $x$，我们计算 $s = (s + x) \bmod k$，然后更新答案 $ans = ans + cnt[s]$，其中 $cnt[s]$ 表示前缀和模 $k$ 的值为 $s$ 的个数。最后我们将 $cnt[s]$ 的值加 $1$，继续遍历下一个元素。
+接下来，从左到右遍历数组 $\textit{nums}$，对于遍历到的每个元素 $x$，我们计算 $s = (s + x) \bmod k$，然后更新答案 $\textit{ans} = \textit{ans} + \textit{cnt}[s]$，其中 $\textit{cnt}[s]$ 表示前缀和模 $k$ 的值为 $s$ 的个数。最后我们将 $\textit{cnt}[s]$ 的值加 $1$，继续遍历下一个元素。
 
-最终，我们返回答案 $ans$。
+最终，我们返回答案 $\textit{ans}$。
 
 > 注意，由于 $s$ 的值可能为负数，因此我们可以将 $s$ 模 $k$ 的结果加上 $k$，再对 $k$ 取模，以确保 $s$ 的值为非负数。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -141,15 +141,13 @@ func subarraysDivByK(nums []int, k int) (ans int) {
 
 ```ts
 function subarraysDivByK(nums: number[], k: number): number {
-    const counter = new Map();
-    counter.set(0, 1);
-    let s = 0,
-        ans = 0;
-    for (const num of nums) {
-        s += num;
-        const t = ((s % k) + k) % k;
-        ans += counter.get(t) || 0;
-        counter.set(t, (counter.get(t) || 0) + 1);
+    const cnt: { [key: number]: number } = { 0: 1 };
+    let s = 0;
+    let ans = 0;
+    for (const x of nums) {
+        s = (((s + x) % k) + k) % k;
+        ans += cnt[s] || 0;
+        cnt[s] = (cnt[s] || 0) + 1;
     }
     return ans;
 }

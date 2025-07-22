@@ -21,13 +21,13 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个下标从&nbsp;<strong>0</strong>&nbsp;开始的字符串数组&nbsp;<code>words</code>&nbsp;，和一个下标从 <strong>0</strong>&nbsp;开始的 <strong>二进制</strong>&nbsp;数组&nbsp;<code>groups</code>&nbsp;，两个数组长度都是&nbsp;<code>n</code>&nbsp;。</p>
+<p>给定一个字符串数组&nbsp;<code>words</code>&nbsp;，和一个&nbsp;<strong>二进制</strong>&nbsp;数组&nbsp;<code>groups</code>&nbsp;，两个数组长度都是&nbsp;<code>n</code>&nbsp;。</p>
 
-<p>你需要从&nbsp;<code>words</code>&nbsp;中选出&nbsp;<strong>最长<span data-keyword="subsequence-array">子序列</span></strong>。如果对于序列中的任何两个连续串，二进制数组&nbsp;<code>groups</code>&nbsp;中它们的对应元素不同，则&nbsp;<code>words</code> 的子序列是不同的。</p>
+<p>如果&nbsp;<code>words</code>&nbsp;的一个 <span data-keyword="subsequence-array">子序列</span> 是交替的，那么对于序列中的任意两个连续字符串，它们在&nbsp;<code>groups</code>&nbsp;中相同索引的对应元素是 <strong>不同</strong> 的（也就是说，不能有连续的 0 或 1），</p>
 
-<p>正式来说，你需要从下标&nbsp;<code>[0, 1, ..., n - 1]</code>&nbsp;中选出一个&nbsp;<strong>最长子序列</strong>&nbsp;，将这个子序列记作长度为 <code>k</code> 的&nbsp;<code>[i<sub>0</sub>, i<sub>1</sub>, ..., i<sub>k - 1</sub>]</code>&nbsp;，对于所有满足&nbsp;<code>0 &lt;= j&nbsp;&lt; k - 1</code>&nbsp;的&nbsp;<code>j</code>&nbsp;都有&nbsp;<code>groups[i<sub>j</sub>] != groups[i<sub>j + 1</sub>]</code>&nbsp;。</p>
+<p>你需要从&nbsp;<code>words</code>&nbsp;中选出&nbsp;<strong>最长交替<span data-keyword="subsequence-array">子序列</span></strong>。</p>
 
-<p>请你返回一个字符串数组，它是下标子序列&nbsp;<strong>依次</strong>&nbsp;对应&nbsp;<code>words</code>&nbsp;数组中的字符串连接形成的字符串数组。如果有多个答案，返回 <strong>任意</strong> 一个。</p>
+<p>返回选出的子序列。如果有多个答案，返回 <strong>任意</strong> 一个。</p>
 
 <p><b>注意：</b><code>words</code>&nbsp;中的元素是不同的&nbsp;。</p>
 
@@ -87,9 +87,7 @@ tags:
 
 ```python
 class Solution:
-    def getWordsInLongestSubsequence(
-        self, n: int, words: List[str], groups: List[int]
-    ) -> List[str]:
+    def getLongestSubsequence(self, words: List[str], groups: List[int]) -> List[str]:
         return [words[i] for i, x in enumerate(groups) if i == 0 or x != groups[i - 1]]
 ```
 
@@ -97,7 +95,8 @@ class Solution:
 
 ```java
 class Solution {
-    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+    public List<String> getLongestSubsequence(String[] words, int[] groups) {
+        int n = groups.length;
         List<String> ans = new ArrayList<>();
         for (int i = 0; i < n; ++i) {
             if (i == 0 || groups[i] != groups[i - 1]) {
@@ -114,7 +113,8 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<string> getWordsInLongestSubsequence(int n, vector<string>& words, vector<int>& groups) {
+    vector<string> getLongestSubsequence(vector<string>& words, vector<int>& groups) {
+        int n = groups.size();
         vector<string> ans;
         for (int i = 0; i < n; ++i) {
             if (i == 0 || groups[i] != groups[i - 1]) {
@@ -129,7 +129,7 @@ public:
 #### Go
 
 ```go
-func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []string) {
+func getLongestSubsequence(words []string, groups []int) (ans []string) {
 	for i, x := range groups {
 		if i == 0 || x != groups[i-1] {
 			ans = append(ans, words[i])
@@ -142,9 +142,9 @@ func getWordsInLongestSubsequence(n int, words []string, groups []int) (ans []st
 #### TypeScript
 
 ```ts
-function getWordsInLongestSubsequence(n: number, words: string[], groups: number[]): string[] {
+function getLongestSubsequence(words: string[], groups: number[]): string[] {
     const ans: string[] = [];
-    for (let i = 0; i < n; ++i) {
+    for (let i = 0; i < groups.length; ++i) {
         if (i === 0 || groups[i] !== groups[i - 1]) {
             ans.push(words[i]);
         }
@@ -157,19 +157,13 @@ function getWordsInLongestSubsequence(n: number, words: string[], groups: number
 
 ```rust
 impl Solution {
-    pub fn get_words_in_longest_subsequence(
-        n: i32,
-        words: Vec<String>,
-        groups: Vec<i32>,
-    ) -> Vec<String> {
-        let mut ans = vec![];
-
-        for i in 0..n {
-            if i == 0 || groups[i as usize] != groups[(i - 1) as usize] {
-                ans.push(words[i as usize].clone());
+    pub fn get_longest_subsequence(words: Vec<String>, groups: Vec<i32>) -> Vec<String> {
+        let mut ans = Vec::new();
+        for (i, &g) in groups.iter().enumerate() {
+            if i == 0 || g != groups[i - 1] {
+                ans.push(words[i].clone());
             }
         }
-
         ans
     }
 }

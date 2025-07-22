@@ -1,6 +1,3 @@
-from sortedcontainers import SortedSet
-
-
 class Solution:
     def minReverseOperations(
         self, n: int, p: int, banned: List[int], k: int

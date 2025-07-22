@@ -295,9 +295,7 @@ class Solution {
         int n = nums.length;
         boolean[] vis = new boolean[n + 2];
         Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            idx[i] = i;
-        }
+        Arrays.setAll(idx, i -> i);
         Arrays.sort(idx, (i, j) -> nums[i] - nums[j]);
         long ans = 0;
         for (int i : idx) {

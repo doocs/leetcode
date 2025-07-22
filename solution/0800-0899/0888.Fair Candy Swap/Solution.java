@@ -11,9 +11,9 @@ class Solution {
         }
         int diff = (s1 - s2) >> 1;
         for (int a : aliceSizes) {
-            int target = a - diff;
-            if (s.contains(target)) {
-                return new int[] {a, target};
+            int b = a - diff;
+            if (s.contains(b)) {
+                return new int[] {a, b};
             }
         }
         return null;

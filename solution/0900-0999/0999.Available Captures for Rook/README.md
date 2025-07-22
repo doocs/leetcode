@@ -18,49 +18,47 @@ tags:
 
 <!-- description:start -->
 
-<p>在一个 8 x 8 的棋盘上，有一个白色的车（<code>Rook</code>），用字符 <code>&#39;R&#39;</code> 表示。棋盘上还可能存在空方块，白色的象（<code>Bishop</code>）以及黑色的卒（<code>pawn</code>），分别用字符 <code>&#39;.&#39;</code>，<code>&#39;B&#39;</code> 和 <code>&#39;p&#39;</code> 表示。不难看出，大写字符表示的是白棋，小写字符表示的是黑棋。</p>
+<p>给定一个&nbsp;<code>8 x 8</code> 的棋盘，<strong>只有一个</strong> 白色的车，用字符 <code>'R'</code> 表示。棋盘上还可能存在白色的象&nbsp;<code>'B'</code>&nbsp;以及黑色的卒&nbsp;<code>'p'</code>。空方块用字符 <code>'.'</code>&nbsp;表示。</p>
 
-<p>车按国际象棋中的规则移动。东，西，南，北四个基本方向任选其一，然后一直向选定的方向移动，直到满足下列四个条件之一：</p>
+<p>车可以按水平或竖直方向（上，下，左，右）移动任意个方格直到它遇到另一个棋子或棋盘的边界。如果它能够在一次移动中移动到棋子的方格，则能够 <strong>吃掉</strong> 棋子。</p>
 
-<ul>
-	<li>棋手选择主动停下来。</li>
-	<li>棋子因到达棋盘的边缘而停下。</li>
-	<li>棋子移动到某一方格来捕获位于该方格上敌方（黑色）的卒，停在该方格内。</li>
-	<li>车不能进入/越过已经放有其他友方棋子（白色的象）的方格，停在友方棋子前。</li>
-</ul>
+<p>注意：车不能穿过其它棋子，比如象和卒。这意味着如果有其它棋子挡住了路径，车就不能够吃掉棋子。</p>
 
-<p>你现在可以控制车移动一次，请你统计有多少敌方的卒处于你的捕获范围内（即，可以被一步捕获的棋子数）。</p>
+<p>返回白车 <strong>攻击</strong>&nbsp;范围内 <strong>兵的数量</strong>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/images/1253_example_1_improved.png" style="height: 305px; width: 300px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/images/1253_example_1_improved.png" style="height: 305px; width: 300px;" /></p>
 
-<pre><strong>输入：</strong>[[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;R&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;]]
+<pre>
+<strong>输入：</strong>[[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","R",".",".",".","p"],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 <strong>输出：</strong>3
 <strong>解释：
-</strong>在本例中，车能够捕获所有的卒。
+</strong>在本例中，车能够吃掉所有的卒。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/images/1253_example_2_improved.png" style="height: 306px; width: 300px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/images/1253_example_2_improved.png" style="height: 306px; width: 300px;" /></p>
 
-<pre><strong>输入：</strong>[[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;B&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;B&quot;,&quot;R&quot;,&quot;B&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;B&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;]]
+<pre>
+<strong>输入：</strong>[[".",".",".",".",".",".",".","."],[".","p","p","p","p","p",".","."],[".","p","p","B","p","p",".","."],[".","p","B","R","B","p",".","."],[".","p","p","B","p","p",".","."],[".","p","p","p","p","p",".","."],[".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".","."]]
 <strong>输出：</strong>0
 <strong>解释：
-</strong>象阻止了车捕获任何卒。
+</strong>象阻止了车吃掉任何卒。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/images/1253_example_3_improved.png" style="height: 305px; width: 300px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0999.Available%20Captures%20for%20Rook/images/1253_example_3_improved.png" style="height: 305px; width: 300px;" /></p>
 
-<pre><strong>输入：</strong>[[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;p&quot;,&quot;p&quot;,&quot;.&quot;,&quot;R&quot;,&quot;.&quot;,&quot;p&quot;,&quot;B&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;B&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;]]
+<pre>
+<strong>输入：</strong>[[".",".",".",".",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".","p",".",".",".","."],["p","p",".","R",".","p","B","."],[".",".",".",".",".",".",".","."],[".",".",".","B",".",".",".","."],[".",".",".","p",".",".",".","."],[".",".",".",".",".",".",".","."]]
 <strong>输出：</strong>3
 <strong>解释： </strong>
-车可以捕获位置 b5，d6 和 f5 的卒。
+车可以吃掉位置 b5，d6 和 f5 的卒。
 </pre>
 
 <p>&nbsp;</p>
@@ -68,9 +66,10 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>board.length == board[i].length == 8</code></li>
-	<li><code>board[i][j]</code> 可以是&nbsp;<code>&#39;R&#39;</code>，<code>&#39;.&#39;</code>，<code>&#39;B&#39;</code>&nbsp;或&nbsp;<code>&#39;p&#39;</code></li>
-	<li>只有一个格子上存在&nbsp;<code>board[i][j] == &#39;R&#39;</code></li>
+	<li><code>board.length == 8</code></li>
+	<li><code>board[i].length == 8</code></li>
+	<li><code>board[i][j]</code> 可以是&nbsp;<code>'R'</code>，<code>'.'</code>，<code>'B'</code>&nbsp;或&nbsp;<code>'p'</code></li>
+	<li>只有一个格子上存在&nbsp;<code>board[i][j] == 'R'</code></li>
 </ol>
 
 <!-- description:end -->
@@ -81,11 +80,10 @@ tags:
 
 ### 方法一：模拟
 
-我们先遍历棋盘，找到车的位置 $(x, y)$，然后从 $(x, y)$ 出发，向上下左右四个方向遍历：
+我们先遍历棋盘，找到车的位置 $(i, j)$，然后从 $(i, j)$ 出发，向上下左右四个方向遍历：
 
--   如果遇到象或者边界，那么该方向停止遍历；
--   如果遇到卒，那么答案加一，然后该方向停止遍历；
--   否则，继续遍历。
+-   如果不是边界且不是象，则继续向前走；
+-   如果是卒，则答案加一，并停止该方向的遍历。
 
 遍历完四个方向后，即可得到答案。
 
@@ -98,21 +96,20 @@ tags:
 ```python
 class Solution:
     def numRookCaptures(self, board: List[List[str]]) -> int:
-        ans = 0
         dirs = (-1, 0, 1, 0, -1)
-        for i in range(8):
-            for j in range(8):
+        n = len(board)
+        for i in range(n):
+            for j in range(n):
                 if board[i][j] == "R":
+                    ans = 0
                     for a, b in pairwise(dirs):
-                        x, y = i, j
-                        while 0 <= x + a < 8 and 0 <= y + b < 8:
-                            x, y = x + a, y + b
+                        x, y = i + a, j + b
+                        while 0 <= x < n and 0 <= y < n and board[x][y] != "B":
                             if board[x][y] == "p":
                                 ans += 1
                                 break
-                            if board[x][y] == "B":
-                                break
-        return ans
+                            x, y = x + a, y + b
+                    return ans
 ```
 
 #### Java
@@ -120,28 +117,28 @@ class Solution:
 ```java
 class Solution {
     public int numRookCaptures(char[][] board) {
-        int ans = 0;
-        int[] dirs = {-1, 0, 1, 0, -1};
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
+        final int[] dirs = {-1, 0, 1, 0, -1};
+        int n = board.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (board[i][j] == 'R') {
+                    int ans = 0;
                     for (int k = 0; k < 4; ++k) {
-                        int x = i, y = j;
-                        int a = dirs[k], b = dirs[k + 1];
-                        while (x + a >= 0 && x + a < 8 && y + b >= 0 && y + b < 8
-                            && board[x + a][y + b] != 'B') {
-                            x += a;
-                            y += b;
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        while (x >= 0 && x < n && y >= 0 && y < n && board[x][y] != 'B') {
                             if (board[x][y] == 'p') {
                                 ++ans;
                                 break;
                             }
+                            x += dirs[k];
+                            y += dirs[k + 1];
                         }
                     }
+                    return ans;
                 }
             }
         }
-        return ans;
+        return 0;
     }
 }
 ```
@@ -152,27 +149,28 @@ class Solution {
 class Solution {
 public:
     int numRookCaptures(vector<vector<char>>& board) {
-        int ans = 0;
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
+        const int dirs[5] = {-1, 0, 1, 0, -1};
+        int n = board.size();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (board[i][j] == 'R') {
+                    int ans = 0;
                     for (int k = 0; k < 4; ++k) {
-                        int x = i, y = j;
-                        int a = dirs[k], b = dirs[k + 1];
-                        while (x + a >= 0 && x + a < 8 && y + b >= 0 && y + b < 8 && board[x + a][y + b] != 'B') {
-                            x += a;
-                            y += b;
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        while (x >= 0 && x < n && y >= 0 && y < n && board[x][y] != 'B') {
                             if (board[x][y] == 'p') {
                                 ++ans;
                                 break;
                             }
+                            x += dirs[k];
+                            y += dirs[k + 1];
                         }
                     }
+                    return ans;
                 }
             }
         }
-        return ans;
+        return 0;
     }
 };
 ```
@@ -181,25 +179,93 @@ public:
 
 ```go
 func numRookCaptures(board [][]byte) (ans int) {
-	dirs := [5]int{-1, 0, 1, 0, -1}
-	for i := 0; i < 8; i++ {
-		for j := 0; j < 8; j++ {
-			if board[i][j] == 'R' {
-				for k := 0; k < 4; k++ {
-					x, y := i, j
-					a, b := dirs[k], dirs[k+1]
-					for x+a >= 0 && x+a < 8 && y+b >= 0 && y+b < 8 && board[x+a][y+b] != 'B' {
-						x, y = x+a, y+b
-						if board[x][y] == 'p' {
-							ans++
-							break
-						}
-					}
-				}
-			}
-		}
-	}
-	return
+    dirs := []int{-1, 0, 1, 0, -1}
+    n := len(board)
+    for i := 0; i < n; i++ {
+        for j := 0; j < n; j++ {
+            if board[i][j] == 'R' {
+                for k := 0; k < 4; k++ {
+                    x, y := i + dirs[k], j + dirs[k+1]
+                    for x >= 0 && x < n && y >= 0 && y < n && board[x][y] != 'B' {
+                        if board[x][y] == 'p' {
+                            ans++
+                            break
+                        }
+                        x += dirs[k]
+                        y += dirs[k+1]
+                    }
+                }
+                return
+            }
+        }
+    }
+    return
+}
+```
+
+#### TypeScript
+
+```ts
+function numRookCaptures(board: string[][]): number {
+    const dirs = [-1, 0, 1, 0, -1];
+    const n = board.length;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (board[i][j] === 'R') {
+                let ans = 0;
+                for (let k = 0; k < 4; k++) {
+                    let [x, y] = [i + dirs[k], j + dirs[k + 1]];
+                    while (x >= 0 && x < n && y >= 0 && y < n && board[x][y] !== 'B') {
+                        if (board[x][y] === 'p') {
+                            ans++;
+                            break;
+                        }
+                        x += dirs[k];
+                        y += dirs[k + 1];
+                    }
+                }
+                return ans;
+            }
+        }
+    }
+    return 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_rook_captures(board: Vec<Vec<char>>) -> i32 {
+        let dirs = [-1, 0, 1, 0, -1];
+        let n = board.len();
+        for i in 0..n {
+            for j in 0..n {
+                if board[i][j] == 'R' {
+                    let mut ans = 0;
+                    for k in 0..4 {
+                        let mut x = i as i32 + dirs[k];
+                        let mut y = j as i32 + dirs[k + 1];
+                        while x >= 0
+                            && x < n as i32
+                            && y >= 0
+                            && y < n as i32
+                            && board[x as usize][y as usize] != 'B'
+                        {
+                            if board[x as usize][y as usize] == 'p' {
+                                ans += 1;
+                                break;
+                            }
+                            x += dirs[k];
+                            y += dirs[k + 1];
+                        }
+                    }
+                    return ans;
+                }
+            }
+        }
+        0
+    }
 }
 ```
 

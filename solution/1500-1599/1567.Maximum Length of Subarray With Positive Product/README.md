@@ -69,7 +69,21 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义两个长度为 $n$ 的数组 $f$ 和 $g$，其中 $f[i]$ 表示以 $\textit{nums}[i]$ 结尾的乘积为正数的最长子数组的长度，而 $g[i]$ 表示以 $\textit{nums}[i]$ 结尾的乘积为负数的最长子数组的长度。
+
+初始时，如果 $\textit{nums}[0] > 0$，则 $f[0] = 1$，否则 $f[0] = 0$；如果 $\textit{nums}[0] < 0$，则 $g[0] = 1$，否则 $g[0] = 0$。我们初始化答案 $ans = f[0]$。
+
+接下来，我们从 $i = 1$ 开始遍历数组 $\textit{nums}$，对于每个 $i$，我们有以下几种情况：
+
+-   如果 $\textit{nums}[i] > 0$，那么 $f[i]$ 可以由 $f[i - 1]$ 转移而来，即 $f[i] = f[i - 1] + 1$，而 $g[i]$ 的值取决于 $g[i - 1]$ 是否为 $0$，如果 $g[i - 1] = 0$，则 $g[i] = 0$，否则 $g[i] = g[i - 1] + 1$；
+-   如果 $\textit{nums}[i] < 0$，那么 $f[i]$ 的值取决于 $g[i - 1]$ 是否为 $0$，如果 $g[i - 1] = 0$，则 $f[i] = 0$，否则 $f[i] = g[i - 1] + 1$，而 $g[i]$ 可以由 $f[i - 1]$ 转移而来，即 $g[i] = f[i - 1] + 1$。
+-   然后，我们更新答案 $ans = \max(ans, f[i])$。
+
+遍历结束后，返回答案 $ans$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -78,29 +92,21 @@ tags:
 ```python
 class Solution:
     def getMaxLen(self, nums: List[int]) -> int:
-        f1 = 1 if nums[0] > 0 else 0
-        f2 = 1 if nums[0] < 0 else 0
-        res = f1
-        for num in nums[1:]:
-            pf1, pf2 = f1, f2
-            if num > 0:
-                f1 += 1
-                if f2 > 0:
-                    f2 += 1
-                else:
-                    f2 = 0
-            elif num < 0:
-                pf1, pf2 = f1, f2
-                f2 = pf1 + 1
-                if pf2 > 0:
-                    f1 = pf2 + 1
-                else:
-                    f1 = 0
-            else:
-                f1 = 0
-                f2 = 0
-            res = max(res, f1)
-        return res
+        n = len(nums)
+        f = [0] * n
+        g = [0] * n
+        f[0] = int(nums[0] > 0)
+        g[0] = int(nums[0] < 0)
+        ans = f[0]
+        for i in range(1, n):
+            if nums[i] > 0:
+                f[i] = f[i - 1] + 1
+                g[i] = 0 if g[i - 1] == 0 else g[i - 1] + 1
+            elif nums[i] < 0:
+                f[i] = 0 if g[i - 1] == 0 else g[i - 1] + 1
+                g[i] = f[i - 1] + 1
+            ans = max(ans, f[i])
+        return ans
 ```
 
 #### Java
@@ -108,24 +114,23 @@ class Solution:
 ```java
 class Solution {
     public int getMaxLen(int[] nums) {
-        int f1 = nums[0] > 0 ? 1 : 0;
-        int f2 = nums[0] < 0 ? 1 : 0;
-        int res = f1;
-        for (int i = 1; i < nums.length; ++i) {
+        int n = nums.length;
+        int[] f = new int[n];
+        int[] g = new int[n];
+        f[0] = nums[0] > 0 ? 1 : 0;
+        g[0] = nums[0] < 0 ? 1 : 0;
+        int ans = f[0];
+        for (int i = 1; i < n; ++i) {
             if (nums[i] > 0) {
-                ++f1;
-                f2 = f2 > 0 ? f2 + 1 : 0;
+                f[i] = f[i - 1] + 1;
+                g[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
             } else if (nums[i] < 0) {
-                int pf1 = f1, pf2 = f2;
-                f2 = pf1 + 1;
-                f1 = pf2 > 0 ? pf2 + 1 : 0;
-            } else {
-                f1 = 0;
-                f2 = 0;
+                f[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
+                g[i] = f[i - 1] + 1;
             }
-            res = Math.max(res, f1);
+            ans = Math.max(ans, f[i]);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -136,24 +141,23 @@ class Solution {
 class Solution {
 public:
     int getMaxLen(vector<int>& nums) {
-        int f1 = nums[0] > 0 ? 1 : 0;
-        int f2 = nums[0] < 0 ? 1 : 0;
-        int res = f1;
-        for (int i = 1; i < nums.size(); ++i) {
+        int n = nums.size();
+        vector<int> f(n, 0), g(n, 0);
+        f[0] = nums[0] > 0 ? 1 : 0;
+        g[0] = nums[0] < 0 ? 1 : 0;
+        int ans = f[0];
+
+        for (int i = 1; i < n; ++i) {
             if (nums[i] > 0) {
-                ++f1;
-                f2 = f2 > 0 ? f2 + 1 : 0;
+                f[i] = f[i - 1] + 1;
+                g[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
             } else if (nums[i] < 0) {
-                int pf1 = f1, pf2 = f2;
-                f2 = pf1 + 1;
-                f1 = pf2 > 0 ? pf2 + 1 : 0;
-            } else {
-                f1 = 0;
-                f2 = 0;
+                f[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
+                g[i] = f[i - 1] + 1;
             }
-            res = max(res, f1);
+            ans = max(ans, f[i]);
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -162,36 +166,36 @@ public:
 
 ```go
 func getMaxLen(nums []int) int {
-	f1, f2 := 0, 0
+	n := len(nums)
+	f := make([]int, n)
+	g := make([]int, n)
 	if nums[0] > 0 {
-		f1 = 1
+		f[0] = 1
 	}
 	if nums[0] < 0 {
-		f2 = 1
+		g[0] = 1
 	}
-	res := f1
-	for i := 1; i < len(nums); i++ {
+	ans := f[0]
+
+	for i := 1; i < n; i++ {
 		if nums[i] > 0 {
-			f1++
-			if f2 > 0 {
-				f2++
+			f[i] = f[i-1] + 1
+			if g[i-1] > 0 {
+				g[i] = g[i-1] + 1
 			} else {
-				f2 = 0
+				g[i] = 0
 			}
 		} else if nums[i] < 0 {
-			pf1, pf2 := f1, f2
-			f2 = pf1 + 1
-			if pf2 > 0 {
-				f1 = pf2 + 1
+			if g[i-1] > 0 {
+				f[i] = g[i-1] + 1
 			} else {
-				f1 = 0
+				f[i] = 0
 			}
-		} else {
-			f1, f2 = 0, 0
+			g[i] = f[i-1] + 1
 		}
-		res = max(res, f1)
+		ans = max(ans, f[i])
 	}
-	return res
+	return ans
 }
 ```
 
@@ -199,24 +203,186 @@ func getMaxLen(nums []int) int {
 
 ```ts
 function getMaxLen(nums: number[]): number {
-    // 连续正数计数n1, 连续负数计数n2
-    let n1 = nums[0] > 0 ? 1 : 0,
-        n2 = nums[0] < 0 ? 1 : 0;
-    let ans = n1;
-    for (let i = 1; i < nums.length; ++i) {
-        let cur = nums[i];
-        if (cur == 0) {
-            (n1 = 0), (n2 = 0);
-        } else if (cur > 0) {
-            ++n1;
-            n2 = n2 > 0 ? n2 + 1 : 0;
-        } else {
-            let t1 = n1,
-                t2 = n2;
-            n1 = t2 > 0 ? t2 + 1 : 0;
-            n2 = t1 + 1;
+    const n = nums.length;
+    const f: number[] = Array(n).fill(0);
+    const g: number[] = Array(n).fill(0);
+
+    if (nums[0] > 0) {
+        f[0] = 1;
+    }
+    if (nums[0] < 0) {
+        g[0] = 1;
+    }
+
+    let ans = f[0];
+    for (let i = 1; i < n; i++) {
+        if (nums[i] > 0) {
+            f[i] = f[i - 1] + 1;
+            g[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
+        } else if (nums[i] < 0) {
+            f[i] = g[i - 1] > 0 ? g[i - 1] + 1 : 0;
+            g[i] = f[i - 1] + 1;
         }
-        ans = Math.max(ans, n1);
+
+        ans = Math.max(ans, f[i]);
+    }
+
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划（空间优化）
+
+我们发现，对于每个 $i$，$f[i]$ 和 $g[i]$ 的值只与 $f[i - 1]$ 和 $g[i - 1]$ 有关，因此我们可以使用两个变量 $f$ 和 $g$ 分别记录 $f[i - 1]$ 和 $g[i - 1]$ 的值，从而将空间复杂度优化至 $O(1)$。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def getMaxLen(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = int(nums[0] > 0)
+        g = int(nums[0] < 0)
+        ans = f
+        for i in range(1, n):
+            ff = gg = 0
+            if nums[i] > 0:
+                ff = f + 1
+                gg = 0 if g == 0 else g + 1
+            elif nums[i] < 0:
+                ff = 0 if g == 0 else g + 1
+                gg = f + 1
+            f, g = ff, gg
+            ans = max(ans, f)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int getMaxLen(int[] nums) {
+        int n = nums.length;
+        int f = nums[0] > 0 ? 1 : 0;
+        int g = nums[0] < 0 ? 1 : 0;
+        int ans = f;
+
+        for (int i = 1; i < n; i++) {
+            int ff = 0, gg = 0;
+            if (nums[i] > 0) {
+                ff = f + 1;
+                gg = g == 0 ? 0 : g + 1;
+            } else if (nums[i] < 0) {
+                ff = g == 0 ? 0 : g + 1;
+                gg = f + 1;
+            }
+            f = ff;
+            g = gg;
+            ans = Math.max(ans, f);
+        }
+
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int getMaxLen(vector<int>& nums) {
+        int n = nums.size();
+        int f = nums[0] > 0 ? 1 : 0;
+        int g = nums[0] < 0 ? 1 : 0;
+        int ans = f;
+
+        for (int i = 1; i < n; i++) {
+            int ff = 0, gg = 0;
+            if (nums[i] > 0) {
+                ff = f + 1;
+                gg = g == 0 ? 0 : g + 1;
+            } else if (nums[i] < 0) {
+                ff = g == 0 ? 0 : g + 1;
+                gg = f + 1;
+            }
+            f = ff;
+            g = gg;
+            ans = max(ans, f);
+        }
+
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func getMaxLen(nums []int) int {
+	n := len(nums)
+	var f, g int
+	if nums[0] > 0 {
+		f = 1
+	} else if nums[0] < 0 {
+		g = 1
+	}
+	ans := f
+	for i := 1; i < n; i++ {
+		ff, gg := 0, 0
+		if nums[i] > 0 {
+			ff = f + 1
+			gg = 0
+			if g > 0 {
+				gg = g + 1
+			}
+		} else if nums[i] < 0 {
+			ff = 0
+			if g > 0 {
+				ff = g + 1
+			}
+			gg = f + 1
+		}
+		f, g = ff, gg
+		ans = max(ans, f)
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function getMaxLen(nums: number[]): number {
+    const n = nums.length;
+    let [f, g] = [0, 0];
+    if (nums[0] > 0) {
+        f = 1;
+    } else if (nums[0] < 0) {
+        g = 1;
+    }
+    let ans = f;
+    for (let i = 1; i < n; i++) {
+        let [ff, gg] = [0, 0];
+        if (nums[i] > 0) {
+            ff = f + 1;
+            gg = g > 0 ? g + 1 : 0;
+        } else if (nums[i] < 0) {
+            ff = g > 0 ? g + 1 : 0;
+            gg = f + 1;
+        }
+        [f, g] = [ff, gg];
+        ans = Math.max(ans, f);
     }
     return ans;
 }

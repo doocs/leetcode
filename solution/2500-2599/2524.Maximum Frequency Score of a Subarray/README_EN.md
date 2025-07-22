@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README_EN.md
 tags:
+    - Stack
     - Array
     - Hash Table
     - Math
@@ -62,7 +63,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Sliding Window + Fast Power
+
+We use a hash table $\textit{cnt}$ to maintain the elements of the window of size $k$ and their frequencies.
+
+First, calculate the score of all elements in the initial window of size $k$. Then, use a sliding window to add one element at a time and remove the leftmost element, while updating the score using fast power.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 

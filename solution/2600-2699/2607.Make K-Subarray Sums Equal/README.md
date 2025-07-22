@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2607.Ma
 rating: 2071
 source: 第 101 场双周赛 Q3
 tags:
+    - 贪心
     - 数组
     - 数学
     - 数论

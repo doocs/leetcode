@@ -66,7 +66,19 @@ Person 5 can see no one since nobody is to the right of them.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Monotonic Stack
+
+We observe that for the $i$-th person, the people he can see must be strictly increasing in height from left to right.
+
+Therefore, we can traverse the array $\textit{heights}$ in reverse order, using a stack $\textit{stk}$ that is monotonically increasing from top to bottom to record the heights of the people we have traversed.
+
+For the $i$-th person, if the stack is not empty and the top element of the stack is less than $\textit{heights}[i]$, we increment the count of people the $i$-th person can see, then pop the top element of the stack, until the stack is empty or the top element of the stack is greater than or equal to $\textit{heights}[i]$. If the stack is not empty at this point, it means the top element of the stack is greater than or equal to $\textit{heights}[i]$, so we increment the count of people the $i$-th person can see by 1.
+
+Next, we push $\textit{heights}[i]$ onto the stack and continue to the next person.
+
+After traversing, we return the answer array $\textit{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{heights}$.
 
 <!-- tabs:start -->
 

@@ -79,7 +79,24 @@ The total number of candies will be 6.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS + Hash Set
+
+The problem gives a set of boxes, each of which may have a state (open/closed), candies, keys, and other boxes inside. Our goal is to use the initially given boxes to open as many more boxes as possible and collect the candies inside. We can unlock new boxes by obtaining keys, and get more resources through boxes nested inside other boxes.
+
+We use BFS to simulate the entire exploration process.
+
+We use a queue $q$ to represent the currently accessible and **already opened** boxes; two sets, $\textit{has}$ and $\textit{took}$, are used to record **all boxes we own** and **boxes we have already processed**, to avoid duplicates.
+
+Initially, add all $\textit{initialBoxes}$ to $\textit{has}$. If an initial box is open, immediately add it to the queue $\textit{q}$ and accumulate its candies.
+
+Then perform BFS, taking boxes out of $\textit{q}$ one by one:
+
+-   Obtain the keys in the box $\textit{keys[box]}$ and add any boxes that can be unlocked to the queue;
+-   Collect other boxes contained in the box $\textit{containedBoxes[box]}$. If a contained box is open and has not been processed, process it immediately;
+
+Each box is processed at most once, and candies are accumulated once. Finally, return the total number of candies $\textit{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the total number of boxes.
 
 <!-- tabs:start -->
 
@@ -95,25 +112,31 @@ class Solution:
         containedBoxes: List[List[int]],
         initialBoxes: List[int],
     ) -> int:
-        q = deque([i for i in initialBoxes if status[i] == 1])
-        ans = sum(candies[i] for i in initialBoxes if status[i] == 1)
-        has = set(initialBoxes)
-        took = {i for i in initialBoxes if status[i] == 1}
+        q = deque()
+        has, took = set(initialBoxes), set()
+        ans = 0
 
+        for box in initialBoxes:
+            if status[box]:
+                q.append(box)
+                took.add(box)
+                ans += candies[box]
         while q:
-            i = q.popleft()
-            for k in keys[i]:
-                status[k] = 1
-                if k in has and k not in took:
-                    ans += candies[k]
-                    took.add(k)
-                    q.append(k)
-            for j in containedBoxes[i]:
-                has.add(j)
-                if status[j] and j not in took:
-                    ans += candies[j]
-                    took.add(j)
-                    q.append(j)
+            box = q.popleft()
+            for k in keys[box]:
+                if not status[k]:
+                    status[k] = 1
+                    if k in has and k not in took:
+                        q.append(k)
+                        took.add(k)
+                        ans += candies[k]
+
+            for b in containedBoxes[box]:
+                has.add(b)
+                if status[b] and b not in took:
+                    q.append(b)
+                    took.add(b)
+                    ans += candies[b]
         return ans
 ```
 
@@ -123,35 +146,36 @@ class Solution:
 class Solution {
     public int maxCandies(
         int[] status, int[] candies, int[][] keys, int[][] containedBoxes, int[] initialBoxes) {
-        int ans = 0;
-        int n = status.length;
-        boolean[] has = new boolean[n];
-        boolean[] took = new boolean[n];
         Deque<Integer> q = new ArrayDeque<>();
-        for (int i : initialBoxes) {
-            has[i] = true;
-            if (status[i] == 1) {
-                ans += candies[i];
-                took[i] = true;
-                q.offer(i);
+        Set<Integer> has = new HashSet<>();
+        Set<Integer> took = new HashSet<>();
+        int ans = 0;
+        for (int box : initialBoxes) {
+            has.add(box);
+            if (status[box] == 1) {
+                q.offer(box);
+                took.add(box);
+                ans += candies[box];
             }
         }
         while (!q.isEmpty()) {
-            int i = q.poll();
-            for (int k : keys[i]) {
-                status[k] = 1;
-                if (has[k] && !took[k]) {
-                    ans += candies[k];
-                    took[k] = true;
-                    q.offer(k);
+            int box = q.poll();
+            for (int k : keys[box]) {
+                if (status[k] == 0) {
+                    status[k] = 1;
+                    if (has.contains(k) && !took.contains(k)) {
+                        q.offer(k);
+                        took.add(k);
+                        ans += candies[k];
+                    }
                 }
             }
-            for (int j : containedBoxes[i]) {
-                has[j] = true;
-                if (status[j] == 1 && !took[j]) {
-                    ans += candies[j];
-                    took[j] = true;
-                    q.offer(j);
+            for (int b : containedBoxes[box]) {
+                has.add(b);
+                if (status[b] == 1 && !took.contains(b)) {
+                    q.offer(b);
+                    took.add(b);
+                    ans += candies[b];
                 }
             }
         }
@@ -165,40 +189,50 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int maxCandies(vector<int>& status, vector<int>& candies, vector<vector<int>>& keys, vector<vector<int>>& containedBoxes, vector<int>& initialBoxes) {
-        int ans = 0;
-        int n = status.size();
-        vector<bool> has(n);
-        vector<bool> took(n);
+    int maxCandies(
+        vector<int>& status,
+        vector<int>& candies,
+        vector<vector<int>>& keys,
+        vector<vector<int>>& containedBoxes,
+        vector<int>& initialBoxes) {
         queue<int> q;
-        for (int& i : initialBoxes) {
-            has[i] = true;
-            if (status[i]) {
-                ans += candies[i];
-                took[i] = true;
-                q.push(i);
+        unordered_set<int> has, took;
+        int ans = 0;
+
+        for (int box : initialBoxes) {
+            has.insert(box);
+            if (status[box]) {
+                q.push(box);
+                took.insert(box);
+                ans += candies[box];
             }
         }
+
         while (!q.empty()) {
-            int i = q.front();
+            int box = q.front();
             q.pop();
-            for (int k : keys[i]) {
-                status[k] = 1;
-                if (has[k] && !took[k]) {
-                    ans += candies[k];
-                    took[k] = true;
-                    q.push(k);
+
+            for (int k : keys[box]) {
+                if (!status[k]) {
+                    status[k] = 1;
+                    if (has.count(k) && !took.count(k)) {
+                        q.push(k);
+                        took.insert(k);
+                        ans += candies[k];
+                    }
                 }
             }
-            for (int j : containedBoxes[i]) {
-                has[j] = true;
-                if (status[j] && !took[j]) {
-                    ans += candies[j];
-                    took[j] = true;
-                    q.push(j);
+
+            for (int b : containedBoxes[box]) {
+                has.insert(b);
+                if (status[b] && !took.count(b)) {
+                    q.push(b);
+                    took.insert(b);
+                    ans += candies[b];
                 }
             }
         }
+
         return ans;
     }
 };
@@ -207,41 +241,147 @@ public:
 #### Go
 
 ```go
-func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]int, initialBoxes []int) int {
-	ans := 0
-	n := len(status)
-	has := make([]bool, n)
-	took := make([]bool, n)
-	var q []int
-	for _, i := range initialBoxes {
-		has[i] = true
-		if status[i] == 1 {
-			ans += candies[i]
-			took[i] = true
-			q = append(q, i)
+func maxCandies(status []int, candies []int, keys [][]int, containedBoxes [][]int, initialBoxes []int) (ans int) {
+	q := []int{}
+	has := make(map[int]bool)
+	took := make(map[int]bool)
+	for _, box := range initialBoxes {
+		has[box] = true
+		if status[box] == 1 {
+			q = append(q, box)
+			took[box] = true
+			ans += candies[box]
 		}
 	}
 	for len(q) > 0 {
-		i := q[0]
+		box := q[0]
 		q = q[1:]
-		for _, k := range keys[i] {
-			status[k] = 1
-			if has[k] && !took[k] {
-				ans += candies[k]
-				took[k] = true
-				q = append(q, k)
+		for _, k := range keys[box] {
+			if status[k] == 0 {
+				status[k] = 1
+				if has[k] && !took[k] {
+					q = append(q, k)
+					took[k] = true
+					ans += candies[k]
+				}
 			}
 		}
-		for _, j := range containedBoxes[i] {
-			has[j] = true
-			if status[j] == 1 && !took[j] {
-				ans += candies[j]
-				took[j] = true
-				q = append(q, j)
+		for _, b := range containedBoxes[box] {
+			has[b] = true
+			if status[b] == 1 && !took[b] {
+				q = append(q, b)
+				took[b] = true
+				ans += candies[b]
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxCandies(
+    status: number[],
+    candies: number[],
+    keys: number[][],
+    containedBoxes: number[][],
+    initialBoxes: number[],
+): number {
+    const q: number[] = [];
+    const has: Set<number> = new Set();
+    const took: Set<number> = new Set();
+    let ans = 0;
+
+    for (const box of initialBoxes) {
+        has.add(box);
+        if (status[box] === 1) {
+            q.push(box);
+            took.add(box);
+            ans += candies[box];
+        }
+    }
+
+    while (q.length > 0) {
+        const box = q.pop()!;
+
+        for (const k of keys[box]) {
+            if (status[k] === 0) {
+                status[k] = 1;
+                if (has.has(k) && !took.has(k)) {
+                    q.push(k);
+                    took.add(k);
+                    ans += candies[k];
+                }
+            }
+        }
+
+        for (const b of containedBoxes[box]) {
+            has.add(b);
+            if (status[b] === 1 && !took.has(b)) {
+                q.push(b);
+                took.add(b);
+                ans += candies[b];
+            }
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{HashSet, VecDeque};
+
+impl Solution {
+    pub fn max_candies(
+        mut status: Vec<i32>,
+        candies: Vec<i32>,
+        keys: Vec<Vec<i32>>,
+        contained_boxes: Vec<Vec<i32>>,
+        initial_boxes: Vec<i32>,
+    ) -> i32 {
+        let mut q: VecDeque<i32> = VecDeque::new();
+        let mut has: HashSet<i32> = HashSet::new();
+        let mut took: HashSet<i32> = HashSet::new();
+        let mut ans = 0;
+
+        for &box_ in &initial_boxes {
+            has.insert(box_);
+            if status[box_ as usize] == 1 {
+                q.push_back(box_);
+                took.insert(box_);
+                ans += candies[box_ as usize];
+            }
+        }
+
+        while let Some(box_) = q.pop_front() {
+            for &k in &keys[box_ as usize] {
+                if status[k as usize] == 0 {
+                    status[k as usize] = 1;
+                    if has.contains(&k) && !took.contains(&k) {
+                        q.push_back(k);
+                        took.insert(k);
+                        ans += candies[k as usize];
+                    }
+                }
+            }
+
+            for &b in &contained_boxes[box_ as usize] {
+                has.insert(b);
+                if status[b as usize] == 1 && !took.contains(&b) {
+                    q.push_back(b);
+                    took.insert(b);
+                    ans += candies[b as usize];
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 

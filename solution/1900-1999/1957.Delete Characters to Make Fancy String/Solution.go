@@ -1,11 +1,9 @@
 func makeFancyString(s string) string {
-	ans := []rune{}
-	for _, c := range s {
-		n := len(ans)
-		if n > 1 && ans[n-1] == c && ans[n-2] == c {
-			continue
+	ans := []byte{}
+	for i, ch := range s {
+		if c := byte(ch); i < 2 || c != s[i-1] || c != s[i-2] {
+			ans = append(ans, c)
 		}
-		ans = append(ans, c)
 	}
 	return string(ans)
 }

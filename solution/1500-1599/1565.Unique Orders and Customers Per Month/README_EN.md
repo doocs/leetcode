@@ -82,7 +82,9 @@ In January 2021 we have two orders from 2 different customers, but only one of t
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Conditional Filtering + Grouping Statistics
+
+We can first filter out orders with an amount greater than $20$, and then group by month to count the number of orders and customers.
 
 <!-- tabs:start -->
 
@@ -96,7 +98,28 @@ SELECT
     COUNT(DISTINCT customer_id) AS customer_count
 FROM Orders
 WHERE invoice > 20
-GROUP BY month;
+GROUP BY 1;
+```
+
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def unique_orders_and_customers(orders: pd.DataFrame) -> pd.DataFrame:
+    filtered_orders = orders[orders["invoice"] > 20]
+    filtered_orders["month"] = (
+        filtered_orders["order_date"].dt.to_period("M").astype(str)
+    )
+    result = (
+        filtered_orders.groupby("month")
+        .agg(
+            order_count=("order_id", "count"), customer_count=("customer_id", "nunique")
+        )
+        .reset_index()
+    )
+    return result
 ```
 
 <!-- tabs:end -->

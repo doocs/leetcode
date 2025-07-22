@@ -85,7 +85,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate all $i$, $j$, and $k$ where $i \lt j \lt k$, and check if they simultaneously satisfy $|\textit{arr}[i] - \textit{arr}[j]| \le a$, $|\textit{arr}[j] - \textit{arr}[k]| \le b$, and $|\textit{arr}[i] - \textit{arr}[k]| \le c$. If they do, we increment the answer by one.
+
+After enumerating all possible triplets, we get the answer.
+
+The time complexity is $O(n^3)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -170,6 +176,75 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function countGoodTriplets(arr: number[], a: number, b: number, c: number): number {
+    let n = arr.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            for (let k = j + 1; k < n; ++k) {
+                if (
+                    Math.abs(arr[i] - arr[j]) <= a &&
+                    Math.abs(arr[j] - arr[k]) <= b &&
+                    Math.abs(arr[i] - arr[k]) <= c
+                ) {
+                    ++ans;
+                }
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_good_triplets(arr: Vec<i32>, a: i32, b: i32, c: i32) -> i32 {
+        let n = arr.len();
+        let mut ans = 0;
+
+        for i in 0..n {
+            for j in i + 1..n {
+                for k in j + 1..n {
+                    if (arr[i] - arr[j]).abs() <= a && (arr[j] - arr[k]).abs() <= b && (arr[i] - arr[k]).abs() <= c {
+                        ans += 1;
+                    }
+                }
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountGoodTriplets(int[] arr, int a, int b, int c) {
+        int n = arr.Length;
+        int ans = 0;
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                for (int k = j + 1; k < n; ++k) {
+                    if (Math.Abs(arr[i] - arr[j]) <= a && Math.Abs(arr[j] - arr[k]) <= b && Math.Abs(arr[i] - arr[k]) <= c) {
+                        ++ans;
+                    }
+                }
+            }
+        }
+
+        return ans;
+    }
 }
 ```
 

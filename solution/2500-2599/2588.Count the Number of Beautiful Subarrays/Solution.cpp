@@ -6,8 +6,7 @@ public:
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt[mask];
-            ++cnt[mask];
+            ans += cnt[mask]++;
         }
         return ans;
     }

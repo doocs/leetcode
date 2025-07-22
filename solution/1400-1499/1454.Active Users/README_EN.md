@@ -100,7 +100,13 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Using Window Functions
+
+First, we join the `Logins` table and the `Accounts` table, and remove duplicates to get the temporary table `T`.
+
+Then, we use the window function `ROW_NUMBER()` to calculate the base login date `g` for each user `id`. If a user logs in for 5 consecutive days, their `g` values are the same.
+
+Finally, we group by `id` and `g` to count the number of logins for each user. If the number of logins is greater than or equal to 5, then the user is considered active.
 
 <!-- tabs:start -->
 
@@ -108,18 +114,30 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 
 ```sql
 # Write your MySQL query statement below
-WITH t AS
-    (SELECT *,
-		 SUM(id) over(partition by id
-    ORDER BY  login_date range interval 4 day preceding)/id cnt
-    FROM
-        (SELECT DISTINCT *
-        FROM Accounts
-        JOIN Logins using(id) ) tt )
-    SELECT DISTINCT id,
-		 name
-FROM t
-WHERE cnt=5;
+WITH
+    T AS (
+        SELECT DISTINCT *
+        FROM
+            Logins
+            JOIN Accounts USING (id)
+    ),
+    P AS (
+        SELECT
+            *,
+            DATE_SUB(
+                login_date,
+                INTERVAL ROW_NUMBER() OVER (
+                    PARTITION BY id
+                    ORDER BY login_date
+                ) DAY
+            ) g
+        FROM T
+    )
+SELECT DISTINCT id, name
+FROM P
+GROUP BY id, g
+HAVING COUNT(*) >= 5
+ORDER BY 1;
 ```
 
 <!-- tabs:end -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sleep/README_EN.md
+tags:
+    - JavaScript
 ---
 
 <!-- problem:start -->
@@ -15,6 +17,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2621.Sl
 <!-- description:start -->
 
 <p>Given&nbsp;a positive integer <code>millis</code>, write an asynchronous function that sleeps for <code>millis</code>&nbsp;milliseconds. It can resolve any value.</p>
+
+<p><strong>Note</strong> that <em>minor</em> deviation from <code>millis</code> in the actual sleep duration is acceptable.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -58,6 +62,23 @@ sleep(100).then(() =&gt; {
 
 ```ts
 async function sleep(millis: number): Promise<void> {
+    return new Promise(r => setTimeout(r, millis));
+}
+
+/**
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
     return new Promise(r => setTimeout(r, millis));
 }
 

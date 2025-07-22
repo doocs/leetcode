@@ -86,9 +86,50 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Half Enumeration + Mathematics
+
+For a k-mirror number, we can divide it into two parts: the first half and the second half. For numbers with even length, the first and second halves are exactly the same; for numbers with odd length, the first and second halves are the same, but the middle digit can be any digit.
+
+We can enumerate the numbers in the first half, and then construct the complete k-mirror number based on the first half. The specific steps are as follows:
+
+1. **Enumerate Lengths**: Start enumerating the length of the numbers from 1, until we find enough k-mirror numbers that meet the requirements.
+2. **Calculate the Range of the First Half**: For a number of length $l$, the range of the first half is $[10^{(l-1)/2}, 10^{(l+1)/2})$.
+3. **Construct k-Mirror Numbers**: For each number $i$ in the first half, if the length is even, use $i$ directly as the first half; if the length is odd, divide $i$ by 10 to get the first half. Then reverse the digits of the first half and append them to form the complete k-mirror number.
+4. **Check k-Mirror Numbers**: Convert the constructed number to base $k$ and check whether it is a palindrome.
+5. **Accumulate the Result**: If it is a k-mirror number, add it to the result and decrease the counter $n$. When $n$ reaches 0, return the result.
+
+The time complexity mainly depends on the length being enumerated and the range of the first half. Since the maximum value of $n$ is 30, the number of enumerations is limited in practice. The space complexity is $O(1)$, since only a constant amount of extra space is
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def kMirror(self, k: int, n: int) -> int:
+        def check(x: int, k: int) -> bool:
+            s = []
+            while x:
+                s.append(x % k)
+                x //= k
+            return s == s[::-1]
+
+        ans = 0
+        for l in count(1):
+            x = 10 ** ((l - 1) // 2)
+            y = 10 ** ((l + 1) // 2)
+            for i in range(x, y):
+                v = i
+                j = i if l % 2 == 0 else i // 10
+                while j > 0:
+                    v = v * 10 + j % 10
+                    j //= 10
+                if check(v, k):
+                    ans += v
+                    n -= 1
+                    if n == 0:
+                        return ans
+```
 
 #### Java
 
@@ -96,16 +137,61 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 class Solution {
     public long kMirror(int k, int n) {
         long ans = 0;
-        for (int l = 1;; ++l) {
+        for (int l = 1;; l++) {
             int x = (int) Math.pow(10, (l - 1) / 2);
             int y = (int) Math.pow(10, (l + 1) / 2);
             for (int i = x; i < y; i++) {
                 long v = i;
-                for (int j = l % 2 == 0 ? i : i / 10; j > 0; j /= 10) {
+                int j = (l % 2 == 0) ? i : i / 10;
+                while (j > 0) {
                     v = v * 10 + j % 10;
+                    j /= 10;
                 }
-                String ss = Long.toString(v, k);
-                if (check(ss.toCharArray())) {
+                if (check(v, k)) {
+                    ans += v;
+                    n--;
+                    if (n == 0) {
+                        return ans;
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean check(long x, int k) {
+        List<Integer> s = new ArrayList<>();
+        while (x > 0) {
+            s.add((int) (x % k));
+            x /= k;
+        }
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            if (!s.get(i).equals(s.get(j))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long kMirror(int k, int n) {
+        long long ans = 0;
+        for (int l = 1;; ++l) {
+            int x = pow(10, (l - 1) / 2);
+            int y = pow(10, (l + 1) / 2);
+            for (int i = x; i < y; ++i) {
+                long long v = i;
+                int j = (l % 2 == 0) ? i : i / 10;
+                while (j > 0) {
+                    v = v * 10 + j % 10;
+                    j /= 10;
+                }
+                if (check(v, k)) {
                     ans += v;
                     if (--n == 0) {
                         return ans;
@@ -115,13 +201,112 @@ class Solution {
         }
     }
 
-    private boolean check(char[] c) {
-        for (int i = 0, j = c.length - 1; i < j; i++, j--) {
-            if (c[i] != c[j]) {
+private:
+    bool check(long long x, int k) {
+        vector<int> s;
+        while (x > 0) {
+            s.push_back(x % k);
+            x /= k;
+        }
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j) {
+            if (s[i] != s[j]) {
                 return false;
             }
         }
         return true;
+    }
+};
+```
+
+#### Go
+
+```go
+func kMirror(k int, n int) int64 {
+	check := func(x int64, k int) bool {
+		s := []int{}
+		for x > 0 {
+			s = append(s, int(x%int64(k)))
+			x /= int64(k)
+		}
+		for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+			if s[i] != s[j] {
+				return false
+			}
+		}
+		return true
+	}
+
+	var ans int64 = 0
+	for l := 1; ; l++ {
+		x := pow10((l - 1) / 2)
+		y := pow10((l + 1) / 2)
+		for i := x; i < y; i++ {
+			v := int64(i)
+			j := i
+			if l%2 != 0 {
+				j = i / 10
+			}
+			for j > 0 {
+				v = v*10 + int64(j%10)
+				j /= 10
+			}
+			if check(v, k) {
+				ans += v
+				n--
+				if n == 0 {
+					return ans
+				}
+			}
+		}
+	}
+}
+
+func pow10(exp int) int {
+	res := 1
+	for i := 0; i < exp; i++ {
+		res *= 10
+	}
+	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function kMirror(k: number, n: number): number {
+    function check(x: number, k: number): boolean {
+        const s: number[] = [];
+        while (x > 0) {
+            s.push(x % k);
+            x = Math.floor(x / k);
+        }
+        for (let i = 0, j = s.length - 1; i < j; i++, j--) {
+            if (s[i] !== s[j]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let ans = 0;
+    for (let l = 1; ; l++) {
+        const x = Math.pow(10, Math.floor((l - 1) / 2));
+        const y = Math.pow(10, Math.floor((l + 1) / 2));
+        for (let i = x; i < y; i++) {
+            let v = i;
+            let j = l % 2 === 0 ? i : Math.floor(i / 10);
+            while (j > 0) {
+                v = v * 10 + (j % 10);
+                j = Math.floor(j / 10);
+            }
+            if (check(v, k)) {
+                ans += v;
+                n--;
+                if (n === 0) {
+                    return ans;
+                }
+            }
+        }
     }
 }
 ```

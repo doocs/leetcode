@@ -77,7 +77,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
-<strong>输出：</strong>null
+<strong>输出：</strong>No intersection
 <strong>解释：</strong>从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。
 由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。
 这两个链表不相交，因此返回 null 。
@@ -110,13 +110,13 @@ tags:
 
 ### 方法一：双指针
 
-我们使用两个指针 $a$, $b$ 分别指向两个链表 $headA$, $headB$。
+我们使用两个指针 $a$, $b$ 分别指向两个链表 $\textit{headA}$, $\textit{headB}$。
 
-同时遍历链表，当 $a$ 到达链表 $headA$ 的末尾时，重新定位到链表 $headB$ 的头节点；当 $b$ 到达链表 $headB$ 的末尾时，重新定位到链表 $headA$ 的头节点。
+同时遍历链表，当 $a$ 到达链表 $\textit{headA}$ 的末尾时，重新定位到链表 $\textit{headB}$ 的头节点；当 $b$ 到达链表 $\textit{headB}$ 的末尾时，重新定位到链表 $\textit{headA}$ 的头节点。
 
 若两指针相遇，所指向的结点就是第一个公共节点。若没相遇，说明两链表无公共节点，此时两个指针都指向 `null`，返回其中一个即可。
 
-时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别是链表 $headA$ 和 $headB$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(m + n)$，其中 $m$ 和 $n$ 分别是链表 $\textit{headA}$ 和 $\textit{headB}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -233,9 +233,8 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
  */
 
 function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
-    let a = headA;
-    let b = headB;
-    while (a != b) {
+    let [a, b] = [headA, headB];
+    while (a !== b) {
         a = a ? a.next : headB;
         b = b ? b.next : headA;
     }
@@ -260,9 +259,8 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
  * @return {ListNode}
  */
 var getIntersectionNode = function (headA, headB) {
-    let a = headA;
-    let b = headB;
-    while (a != b) {
+    let [a, b] = [headA, headB];
+    while (a !== b) {
         a = a ? a.next : headB;
         b = b ? b.next : headA;
     }

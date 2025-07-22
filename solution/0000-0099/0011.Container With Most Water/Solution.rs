@@ -1,14 +1,14 @@
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
-        let mut i = 0;
-        let mut j = height.len() - 1;
+        let mut l = 0;
+        let mut r = height.len() - 1;
         let mut ans = 0;
-        while i < j {
-            ans = ans.max(height[i].min(height[j]) * ((j - i) as i32));
-            if height[i] <= height[j] {
-                i += 1;
+        while l < r {
+            ans = ans.max(height[l].min(height[r]) * ((r - l) as i32));
+            if height[l] < height[r] {
+                l += 1;
             } else {
-                j -= 1;
+                r -= 1;
             }
         }
         ans

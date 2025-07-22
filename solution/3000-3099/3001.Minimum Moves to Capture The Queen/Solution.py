@@ -2,17 +2,12 @@ class Solution:
     def minMovesToCaptureTheQueen(
         self, a: int, b: int, c: int, d: int, e: int, f: int
     ) -> int:
-        def check(dirs, sx, sy, bx, by) -> bool:
-            for dx, dy in pairwise(dirs):
-                for k in range(1, 8):
-                    x = sx + dx * k
-                    y = sy + dy * k
-                    if not (1 <= x <= 8 and 1 <= y <= 8) or (x, y) == (bx, by):
-                        break
-                    if (x, y) == (e, f):
-                        return True
-            return False
-
-        dirs1 = (-1, 0, 1, 0, -1)
-        dirs2 = (-1, 1, 1, -1, -1)
-        return 1 if check(dirs1, a, b, c, d) or check(dirs2, c, d, a, b) else 2
+        if a == e and (c != a or (d - b) * (d - f) > 0):
+            return 1
+        if b == f and (d != b or (c - a) * (c - e) > 0):
+            return 1
+        if c - e == d - f and (a - e != b - f or (a - c) * (a - e) > 0):
+            return 1
+        if c - e == f - d and (a - e != f - b or (a - c) * (a - e) > 0):
+            return 1
+        return 2

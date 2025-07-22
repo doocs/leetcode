@@ -1,38 +1,76 @@
+type Queue []string
+
+func (q *Queue) Push(s string) {
+	*q = append(*q, s)
+}
+
+func (q *Queue) Pop() string {
+	s := (*q)[0]
+	*q = (*q)[1:]
+	return s
+}
+
+func (q *Queue) Empty() bool {
+	return len(*q) == 0
+}
+
 func minimumMoves(grid [][]int) int {
-	left := [][2]int{}
-	right := [][2]int{}
-	for i := 0; i < 3; i++ {
-		for j := 0; j < 3; j++ {
-			if grid[i][j] == 0 {
-				left = append(left, [2]int{i, j})
-			} else {
-				for k := 1; k < grid[i][j]; k++ {
-					right = append(right, [2]int{i, j})
+	q := Queue{f(grid)}
+	vis := map[string]bool{f(grid): true}
+	dirs := []int{-1, 0, 1, 0, -1}
+
+	for ans := 0; ; ans++ {
+		sz := len(q)
+		for ; sz > 0; sz-- {
+			p := q.Pop()
+			if p == "111111111" {
+				return ans
+			}
+			cur := g(p)
+
+			for i := 0; i < 3; i++ {
+				for j := 0; j < 3; j++ {
+					if cur[i][j] > 1 {
+						for d := 0; d < 4; d++ {
+							x, y := i+dirs[d], j+dirs[d+1]
+							if x >= 0 && x < 3 && y >= 0 && y < 3 && cur[x][y] < 2 {
+								nxt := make([][]int, 3)
+								for r := range nxt {
+									nxt[r] = append([]int(nil), cur[r]...)
+								}
+								nxt[i][j]--
+								nxt[x][y]++
+								s := f(nxt)
+								if !vis[s] {
+									vis[s] = true
+									q.Push(s)
+								}
+							}
+						}
+					}
 				}
 			}
 		}
 	}
-	cal := func(a, b [2]int) int {
-		return abs(a[0]-b[0]) + abs(a[1]-b[1])
-	}
-	n := len(left)
-	f := make([]int, 1<<n)
-	f[0] = 0
-	for i := 1; i < 1<<n; i++ {
-		f[i] = 1 << 30
-		k := bits.OnesCount(uint(i))
-		for j := 0; j < n; j++ {
-			if i>>j&1 == 1 {
-				f[i] = min(f[i], f[i^(1<<j)]+cal(left[k-1], right[j]))
-			}
-		}
-	}
-	return f[(1<<n)-1]
 }
 
-func abs(x int) int {
-	if x < 0 {
-		return -x
+func f(grid [][]int) string {
+	var sb strings.Builder
+	for _, row := range grid {
+		for _, x := range row {
+			sb.WriteByte(byte(x) + '0')
+		}
 	}
-	return x
+	return sb.String()
+}
+
+func g(s string) [][]int {
+	grid := make([][]int, 3)
+	for i := range grid {
+		grid[i] = make([]int, 3)
+		for j := 0; j < 3; j++ {
+			grid[i][j] = int(s[i*3+j] - '0')
+		}
+	}
+	return grid
 }

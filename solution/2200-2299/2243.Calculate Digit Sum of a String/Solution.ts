@@ -1,12 +1,14 @@
 function digitSum(s: string, k: number): string {
-    let ans = [];
     while (s.length > k) {
+        const t: number[] = [];
         for (let i = 0; i < s.length; i += k) {
-            let cur = s.slice(i, i + k);
-            ans.push(cur.split('').reduce((a, c) => a + parseInt(c), 0));
+            const x = s
+                .slice(i, i + k)
+                .split('')
+                .reduce((a, b) => a + +b, 0);
+            t.push(x);
         }
-        s = ans.join('');
-        ans = [];
+        s = t.join('');
     }
     return s;
 }

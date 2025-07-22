@@ -23,14 +23,14 @@ tags:
 <p>You are given a <strong>0-indexed</strong> integer array <code>piles</code>, where <code>piles[i]</code> represents the number of stones in the <code>i<sup>th</sup></code> pile, and an integer <code>k</code>. You should apply the following operation <strong>exactly</strong> <code>k</code> times:</p>
 
 <ul>
-	<li>Choose any <code>piles[i]</code> and <strong>remove</strong> <code>floor(piles[i] / 2)</code> stones from it.</li>
+	<li>Choose any <code>piles[i]</code> and <strong>remove</strong> <code>ceil(piles[i] / 2)</code> stones from it.</li>
 </ul>
 
 <p><strong>Notice</strong> that you can apply the operation on the <strong>same</strong> pile more than once.</p>
 
 <p>Return <em>the <strong>minimum</strong> possible total number of stones remaining after applying the </em><code>k</code><em> operations</em>.</p>
 
-<p><code>floor(x)</code> is the <b>greatest</b> integer that is <strong>smaller</strong> than or <strong>equal</strong> to <code>x</code> (i.e., rounds <code>x</code> down).</p>
+<p><code>ceil(x)</code> is the <b>smallest</b> integer that is <strong>greater</strong> than or <strong>equal</strong> to <code>x</code> (i.e., rounds <code>x</code> up).</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -178,15 +178,14 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 ```ts
 function minStoneSum(piles: number[], k: number): number {
-    const pq = new MaxPriorityQueue();
+    const pq = new MaxPriorityQueue<number>();
     for (const x of piles) {
         pq.enqueue(x);
     }
     while (k--) {
-        pq.enqueue((pq.dequeue().element + 1) >> 1);
+        pq.enqueue((pq.dequeue() + 1) >> 1);
     }
-
-    return pq.toArray().reduce((a, b) => a + b.element, 0);
+    return pq.toArray().reduce((a, b) => a + b, 0);
 }
 ```
 

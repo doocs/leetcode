@@ -1,10 +1,12 @@
 class Solution:
     def maximumNumber(self, num: str, change: List[int]) -> str:
         s = list(num)
+        changed = False
         for i, c in enumerate(s):
-            if change[int(c)] > int(c):
-                while i < len(s) and int(s[i]) <= change[int(s[i])]:
-                    s[i] = str(change[int(s[i])])
-                    i += 1
+            d = str(change[int(c)])
+            if changed and d < c:
                 break
-        return ''.join(s)
+            if d > c:
+                changed = True
+                s[i] = d
+        return "".join(s)

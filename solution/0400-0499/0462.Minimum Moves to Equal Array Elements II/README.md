@@ -115,7 +115,9 @@ public:
         sort(nums.begin(), nums.end());
         int k = nums[nums.size() >> 1];
         int ans = 0;
-        for (int& v : nums) ans += abs(v - k);
+        for (int& v : nums) {
+            ans += abs(v - k);
+        }
         return ans;
     }
 };
@@ -147,8 +149,8 @@ func abs(x int) int {
 ```ts
 function minMoves2(nums: number[]): number {
     nums.sort((a, b) => a - b);
-    const mid = nums[nums.length >> 1];
-    return nums.reduce((r, v) => r + Math.abs(v - mid), 0);
+    const k = nums[nums.length >> 1];
+    return nums.reduce((r, v) => r + Math.abs(v - k), 0);
 }
 ```
 
@@ -158,45 +160,14 @@ function minMoves2(nums: number[]): number {
 impl Solution {
     pub fn min_moves2(mut nums: Vec<i32>) -> i32 {
         nums.sort();
-        let mid = nums[nums.len() / 2];
-        let mut res = 0;
+        let k = nums[nums.len() / 2];
+        let mut ans = 0;
         for num in nums.iter() {
-            res += (num - mid).abs();
+            ans += (num - k).abs();
         }
-        res
+        ans
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：排序 + 前缀和
-
-如果我们不知道中位数的性质，也可以使用前缀和的方法来求解。
-
-时间复杂度 $O(n\log n)$，空间复杂度 $O(n)$。
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minMoves2(self, nums: List[int]) -> int:
-        def move(i):
-            v = nums[i]
-            a = v * i - s[i]
-            b = s[-1] - s[i + 1] - v * (n - i - 1)
-            return a + b
-
-        nums.sort()
-        s = [0] + list(accumulate(nums))
-        n = len(nums)
-        return min(move(i) for i in range(n))
 ```
 
 <!-- tabs:end -->

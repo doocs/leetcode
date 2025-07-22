@@ -1,17 +1,17 @@
 func longestSquareStreak(nums []int) int {
 	s := map[int]bool{}
-	for _, v := range nums {
-		s[v] = true
+	for _, x := range nums {
+		s[x] = true
 	}
 	ans := -1
-	for _, v := range nums {
+	for x := range s {
 		t := 0
-		for s[v] {
-			v *= v
+		for s[x] {
+			x *= x
 			t++
 		}
-		if t > 1 && t > ans {
-			ans = t
+		if t > 1 {
+			ans = max(ans, t)
 		}
 	}
 	return ans

@@ -1,17 +1,11 @@
 impl Solution {
-    pub fn get_words_in_longest_subsequence(
-        n: i32,
-        words: Vec<String>,
-        groups: Vec<i32>,
-    ) -> Vec<String> {
-        let mut ans = vec![];
-
-        for i in 0..n {
-            if i == 0 || groups[i as usize] != groups[(i - 1) as usize] {
-                ans.push(words[i as usize].clone());
+    pub fn get_longest_subsequence(words: Vec<String>, groups: Vec<i32>) -> Vec<String> {
+        let mut ans = Vec::new();
+        for (i, &g) in groups.iter().enumerate() {
+            if i == 0 || g != groups[i - 1] {
+                ans.push(words[i].clone());
             }
         }
-
         ans
     }
 }

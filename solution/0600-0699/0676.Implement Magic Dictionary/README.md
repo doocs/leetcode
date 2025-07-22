@@ -89,28 +89,32 @@ magicDictionary.search("leetcoded"); // 返回 False
 
 ```python
 class Trie:
-    __slots__ = ["children", "is_end"]
+    __slots__ = "children", "is_end"
 
     def __init__(self):
-        self.children = {}
+        self.children: List[Optional[Trie]] = [None] * 26
         self.is_end = False
 
     def insert(self, w: str) -> None:
         node = self
         for c in w:
-            if c not in node.children:
-                node.children[c] = Trie()
-            node = node.children[c]
+            idx = ord(c) - ord("a")
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
         node.is_end = True
 
     def search(self, w: str) -> bool:
-        def dfs(i: int, node: Trie, diff: int) -> bool:
+        def dfs(i: int, node: Optional[Trie], diff: int) -> bool:
             if i == len(w):
                 return diff == 1 and node.is_end
-            if w[i] in node.children and dfs(i + 1, node.children[w[i]], diff):
+            j = ord(w[i]) - ord("a")
+            if node.children[j] and dfs(i + 1, node.children[j], diff):
                 return True
             return diff == 0 and any(
-                dfs(i + 1, node.children[c], 1) for c in node.children if c != w[i]
+                node.children[k] and dfs(i + 1, node.children[k], 1)
+                for k in range(26)
+                if k != j
             )
 
         return dfs(0, self, 0)
@@ -426,53 +430,59 @@ class MagicDictionary {
 #### Rust
 
 ```rust
-use std::collections::HashMap;
-
-#[derive(Clone)]
 struct Trie {
-    children: Vec<Option<Box<Trie>>>,
+    children: [Option<Box<Trie>>; 26],
     is_end: bool,
 }
 
 impl Trie {
     fn new() -> Self {
         Trie {
-            children: vec![None; 26],
+            children: Default::default(),
             is_end: false,
         }
     }
 
-    fn insert(&mut self, word: &str) {
+    fn insert(&mut self, w: &str) {
         let mut node = self;
-        for &ch in word.as_bytes() {
-            let index = (ch - b'a') as usize;
-            node = node.children[index].get_or_insert_with(|| Box::new(Trie::new()));
+        for c in w.chars() {
+            let i = (c as usize) - ('a' as usize);
+            if node.children[i].is_none() {
+                node.children[i] = Some(Box::new(Trie::new()));
+            }
+            node = node.children[i].as_mut().unwrap();
         }
         node.is_end = true;
     }
 
-    fn search(&self, word: &str, diff: i32) -> bool {
-        if word.is_empty() {
+    fn search(&self, w: &str) -> bool {
+        self.dfs(w, 0, 0)
+    }
+
+    fn dfs(&self, w: &str, i: usize, diff: usize) -> bool {
+        if i == w.len() {
             return diff == 1 && self.is_end;
         }
 
-        let index = (word.as_bytes()[0] - b'a') as usize;
-        if let Some(child) = &self.children[index] {
-            if child.search(&word[1..], diff) {
+        let j = (w.chars().nth(i).unwrap() as usize) - ('a' as usize);
+
+        if let Some(child) = &self.children[j] {
+            if child.dfs(w, i + 1, diff) {
                 return true;
             }
         }
 
         if diff == 0 {
-            for (i, child) in self.children.iter().enumerate() {
-                if i != index && child.is_some() {
-                    if child.as_ref().unwrap().search(&word[1..], 1) {
-                        return true;
+            for k in 0..26 {
+                if k != j {
+                    if let Some(child) = &self.children[k] {
+                        if child.dfs(w, i + 1, 1) {
+                            return true;
+                        }
                     }
                 }
             }
         }
-
         false
     }
 }
@@ -481,88 +491,23 @@ struct MagicDictionary {
     trie: Trie,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MagicDictionary {
     fn new() -> Self {
-        MagicDictionary { trie: Trie::new() }
+        MagicDictionary {
+            trie: Trie::new(),
+        }
     }
 
     fn build_dict(&mut self, dictionary: Vec<String>) {
-        for word in dictionary {
-            self.trie.insert(&word);
+        for w in dictionary {
+            self.trie.insert(&w);
         }
     }
 
     fn search(&self, search_word: String) -> bool {
-        self.trie.search(&search_word, 0)
+        self.trie.search(&search_word)
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Trie:
-    __slots__ = ["children", "is_end"]
-
-    def __init__(self):
-        self.children: [Trie | None] = [None] * 26
-        self.is_end = False
-
-    def insert(self, w: str) -> None:
-        node = self
-        for c in w:
-            idx = ord(c) - ord("a")
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-        node.is_end = True
-
-    def search(self, w: str) -> bool:
-        def dfs(i: int, node: [Trie | None], diff: int) -> bool:
-            if i == len(w):
-                return diff == 1 and node.is_end
-            j = ord(w[i]) - ord("a")
-            if node.children[j] and dfs(i + 1, node.children[j], diff):
-                return True
-            return diff == 0 and any(
-                node.children[k] and dfs(i + 1, node.children[k], 1)
-                for k in range(26)
-                if k != j
-            )
-
-        return dfs(0, self, 0)
-
-
-class MagicDictionary:
-    def __init__(self):
-        self.trie = Trie()
-
-    def buildDict(self, dictionary: List[str]) -> None:
-        for w in dictionary:
-            self.trie.insert(w)
-
-    def search(self, searchWord: str) -> bool:
-        return self.trie.search(searchWord)
-
-
-# Your MagicDictionary object will be instantiated and called as such:
-# obj = MagicDictionary()
-# obj.buildDict(dictionary)
-# param_2 = obj.search(searchWord)
 ```
 
 <!-- tabs:end -->

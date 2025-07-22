@@ -87,7 +87,7 @@ Based on the problem description, the value of the cells we move through in sequ
 
 During this process, we can maintain two arrays `rowMax` and `colMax`, which record the maximum increasing length of each row and column, respectively. Initially, all elements of these two arrays are $0$.
 
-For all cell positions corresponding to each value, we traverse them in order of position. For each position $(i, j)$, we can calculate the maximum increasing length ending at that position as $1 + \max(\text{rowMax}[i], \text{colMax}[j])$, update the answer, and then update `rowMax[i]` and `colMax[j]`.
+For all cell positions corresponding to each value, we traverse them in order of position. For each position $(i, j)$, we can calculate the maximum increasing length ending at that position as $1 + \max(\textit{rowMax}[i], \textit{colMax}[j])$, update the answer, and then update `rowMax[i]` and `colMax[j]`.
 
 Finally, return the answer.
 

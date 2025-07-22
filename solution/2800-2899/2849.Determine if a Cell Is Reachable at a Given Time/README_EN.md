@@ -57,7 +57,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Discussion
+
+If the starting point and the destination are the same, then we can only reach the destination within the given time if $t \neq 1$.
+
+Otherwise, we can calculate the difference in the x and y coordinates between the starting point and the destination, and then take the maximum value. If the maximum value is less than or equal to the given time, then we can reach the destination within the given time.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -141,8 +147,9 @@ function isReachableAtTime(sx: number, sy: number, fx: number, fy: number, t: nu
 ```cs
 public class Solution {
     public bool IsReachableAtTime(int sx, int sy, int fx, int fy, int t) {
-        if (sx == fx && sy == fy)
+        if (sx == fx && sy == fy) {
             return t != 1;
+        }
         return Math.Max(Math.Abs(sx - fx), Math.Abs(sy - fy)) <= t;
     }
 }

@@ -75,7 +75,7 @@ tags:
 ```python
 class Solution:
     def countKeyChanges(self, s: str) -> int:
-        return sum(a.lower() != b.lower() for a, b in pairwise(s))
+        return sum(a != b for a, b in pairwise(s.lower()))
 ```
 
 #### Java

@@ -75,7 +75,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting + Enumeration
+
+We can use an array $\textit{cnt}$ of length $121$ to record the number of people of each age.
+
+Next, we enumerate all possible age pairs $(\textit{ax}, \textit{ay})$. If $\textit{ax}$ and $\textit{ay}$ satisfy the conditions given in the problem, these age pairs $(\textit{ax}, \textit{ay})$ can send friend requests to each other.
+
+If $\textit{ax} = \textit{ay}$, meaning the ages are the same, then the number of friend requests between $\textit{ax}$ and $\textit{ay}$ is $\textit{cnt}[\textit{ax}] \times (\textit{cnt}[\textit{ax}] - 1)$. Otherwise, if the ages are different, the number of friend requests between $\textit{ax}$ and $\textit{ay}$ is $\textit{cnt}[\textit{ax}] \times \textit{cnt}[\textit{ay}]$. We accumulate these friend request counts into the answer.
+
+The time complexity is $O(n + m^2)$, where $n$ is the length of the array $\textit{ages}$, and $m$ is the maximum age, which is $121$ in this problem.
 
 <!-- tabs:start -->
 
@@ -84,16 +92,14 @@ tags:
 ```python
 class Solution:
     def numFriendRequests(self, ages: List[int]) -> int:
-        counter = Counter(ages)
+        cnt = [0] * 121
+        for x in ages:
+            cnt[x] += 1
         ans = 0
-        for i in range(1, 121):
-            n1 = counter[i]
-            for j in range(1, 121):
-                n2 = counter[j]
-                if not (j <= 0.5 * i + 7 or j > i or (j > 100 and i < 100)):
-                    ans += n1 * n2
-                    if i == j:
-                        ans -= n2
+        for ax, x in enumerate(cnt):
+            for ay, y in enumerate(cnt):
+                if not (ay <= 0.5 * ax + 7 or ay > ax or (ay > 100 and ax < 100)):
+                    ans += x * (y - int(ax == ay))
         return ans
 ```
 
@@ -102,20 +108,16 @@ class Solution:
 ```java
 class Solution {
     public int numFriendRequests(int[] ages) {
-        int[] counter = new int[121];
-        for (int age : ages) {
-            ++counter[age];
+        final int m = 121;
+        int[] cnt = new int[m];
+        for (int x : ages) {
+            ++cnt[x];
         }
         int ans = 0;
-        for (int i = 1; i < 121; ++i) {
-            int n1 = counter[i];
-            for (int j = 1; j < 121; ++j) {
-                int n2 = counter[j];
-                if (!(j <= 0.5 * i + 7 || j > i || (j > 100 && i < 100))) {
-                    ans += n1 * n2;
-                    if (i == j) {
-                        ans -= n2;
-                    }
+        for (int ax = 1; ax < m; ++ax) {
+            for (int ay = 1; ay < m; ++ay) {
+                if (!(ay <= 0.5 * ax + 7 || ay > ax || (ay > 100 && ax < 100))) {
+                    ans += cnt[ax] * (cnt[ay] - (ax == ay ? 1 : 0));
                 }
             }
         }
@@ -130,16 +132,16 @@ class Solution {
 class Solution {
 public:
     int numFriendRequests(vector<int>& ages) {
-        vector<int> counter(121);
-        for (int age : ages) ++counter[age];
+        const int m = 121;
+        vector<int> cnt(m);
+        for (int x : ages) {
+            ++cnt[x];
+        }
         int ans = 0;
-        for (int i = 1; i < 121; ++i) {
-            int n1 = counter[i];
-            for (int j = 1; j < 121; ++j) {
-                int n2 = counter[j];
-                if (!(j <= 0.5 * i + 7 || j > i || (j > 100 && i < 100))) {
-                    ans += n1 * n2;
-                    if (i == j) ans -= n2;
+        for (int ax = 1; ax < m; ++ax) {
+            for (int ay = 1; ay < m; ++ay) {
+                if (!(ay <= 0.5 * ax + 7 || ay > ax || (ay > 100 && ax < 100))) {
+                    ans += cnt[ax] * (cnt[ay] - (ax == ay ? 1 : 0));
                 }
             }
         }
@@ -151,25 +153,49 @@ public:
 #### Go
 
 ```go
-func numFriendRequests(ages []int) int {
-	counter := make([]int, 121)
-	for _, age := range ages {
-		counter[age]++
+func numFriendRequests(ages []int) (ans int) {
+	cnt := [121]int{}
+	for _, x := range ages {
+		cnt[x]++
 	}
-	ans := 0
-	for i := 1; i < 121; i++ {
-		n1 := counter[i]
-		for j := 1; j < 121; j++ {
-			n2 := counter[j]
-			if !(j <= i/2+7 || j > i || (j > 100 && i < 100)) {
-				ans += n1 * n2
-				if i == j {
-					ans -= n2
-				}
+	for ax, x := range cnt {
+		for ay, y := range cnt {
+			if ay <= ax/2+7 || ay > ax || (ay > 100 && ax < 100) {
+				continue
+			}
+			if ax == ay {
+				ans += x * (x - 1)
+			} else {
+				ans += x * y
 			}
 		}
 	}
-	return ans
+
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numFriendRequests(ages: number[]): number {
+    const m = 121;
+    const cnt = Array(m).fill(0);
+    for (const x of ages) {
+        cnt[x]++;
+    }
+
+    let ans = 0;
+    for (let ax = 0; ax < m; ax++) {
+        for (let ay = 0; ay < m; ay++) {
+            if (ay <= 0.5 * ax + 7 || ay > ax || (ay > 100 && ax < 100)) {
+                continue;
+            }
+            ans += cnt[ax] * (cnt[ay] - (ax === ay ? 1 : 0));
+        }
+    }
+
+    return ans;
 }
 ```
 

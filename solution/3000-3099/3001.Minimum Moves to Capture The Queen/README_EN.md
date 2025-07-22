@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3001.Mi
 rating: 1796
 source: Weekly Contest 379 Q2
 tags:
-    - Array
+    - Math
     - Enumeration
 ---
 
@@ -74,7 +74,17 @@ It is impossible to capture the black queen in less than two moves since it is n
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+According to the problem description, we can categorize the scenarios for capturing the black queen as follows:
+
+1. The white rook and the black queen are in the same row with no other pieces in between. In this case, the white rook only needs to move once.
+2. The white rook and the black queen are in the same column with no other pieces in between. In this case, the white rook only needs to move once.
+3. The white bishop and the black queen are on the same diagonal `\` with no other pieces in between. In this case, the white bishop only needs to move once.
+4. The white bishop and the black queen are on the same diagonal `/` with no other pieces in between. In this case, the white bishop only needs to move once.
+5. In other cases, only two moves are needed.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -85,50 +95,35 @@ class Solution:
     def minMovesToCaptureTheQueen(
         self, a: int, b: int, c: int, d: int, e: int, f: int
     ) -> int:
-        def check(dirs, sx, sy, bx, by) -> bool:
-            for dx, dy in pairwise(dirs):
-                for k in range(1, 8):
-                    x = sx + dx * k
-                    y = sy + dy * k
-                    if not (1 <= x <= 8 and 1 <= y <= 8) or (x, y) == (bx, by):
-                        break
-                    if (x, y) == (e, f):
-                        return True
-            return False
-
-        dirs1 = (-1, 0, 1, 0, -1)
-        dirs2 = (-1, 1, 1, -1, -1)
-        return 1 if check(dirs1, a, b, c, d) or check(dirs2, c, d, a, b) else 2
+        if a == e and (c != a or (d - b) * (d - f) > 0):
+            return 1
+        if b == f and (d != b or (c - a) * (c - e) > 0):
+            return 1
+        if c - e == d - f and (a - e != b - f or (a - c) * (a - e) > 0):
+            return 1
+        if c - e == f - d and (a - e != f - b or (a - c) * (a - e) > 0):
+            return 1
+        return 2
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private final int[] dirs1 = {-1, 0, 1, 0, -1};
-    private final int[] dirs2 = {-1, 1, 1, -1, -1};
-    private int e, f;
-
     public int minMovesToCaptureTheQueen(int a, int b, int c, int d, int e, int f) {
-        this.e = e;
-        this.f = f;
-        return check(dirs1, a, b, c, d) || check(dirs2, c, d, a, b) ? 1 : 2;
-    }
-
-    private boolean check(int[] dirs, int sx, int sy, int bx, int by) {
-        for (int d = 0; d < 4; ++d) {
-            for (int k = 1; k < 8; ++k) {
-                int x = sx + dirs[d] * k;
-                int y = sy + dirs[d + 1] * k;
-                if (x < 1 || x > 8 || y < 1 || y > 8 || (x == bx && y == by)) {
-                    break;
-                }
-                if (x == e && y == f) {
-                    return true;
-                }
-            }
+        if (a == e && (c != a || (d - b) * (d - f) > 0)) {
+            return 1;
         }
-        return false;
+        if (b == f && (d != b || (c - a) * (c - e) > 0)) {
+            return 1;
+        }
+        if (c - e == d - f && (a - e != b - f || (a - c) * (a - e) > 0)) {
+            return 1;
+        }
+        if (c - e == f - d && (a - e != f - b || (a - c) * (a - e) > 0)) {
+            return 1;
+        }
+        return 2;
     }
 }
 ```
@@ -139,23 +134,19 @@ class Solution {
 class Solution {
 public:
     int minMovesToCaptureTheQueen(int a, int b, int c, int d, int e, int f) {
-        int dirs[2][5] = {{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}};
-        auto check = [&](int i, int sx, int sy, int bx, int by) {
-            for (int d = 0; d < 4; ++d) {
-                for (int k = 1; k < 8; ++k) {
-                    int x = sx + dirs[i][d] * k;
-                    int y = sy + dirs[i][d + 1] * k;
-                    if (x < 1 || x > 8 || y < 1 || y > 8 || (x == bx && y == by)) {
-                        break;
-                    }
-                    if (x == e && y == f) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        };
-        return check(0, a, b, c, d) || check(1, c, d, a, b) ? 1 : 2;
+        if (a == e && (c != a || (d - b) * (d - f) > 0)) {
+            return 1;
+        }
+        if (b == f && (d != b || (c - a) * (c - e) > 0)) {
+            return 1;
+        }
+        if (c - e == d - f && (a - e != b - f || (a - c) * (a - e) > 0)) {
+            return 1;
+        }
+        if (c - e == f - d && (a - e != f - b || (a - c) * (a - e) > 0)) {
+            return 1;
+        }
+        return 2;
     }
 };
 ```
@@ -164,23 +155,16 @@ public:
 
 ```go
 func minMovesToCaptureTheQueen(a int, b int, c int, d int, e int, f int) int {
-	dirs := [2][5]int{{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}}
-	check := func(i, sx, sy, bx, by int) bool {
-		for d := 0; d < 4; d++ {
-			for k := 1; k < 8; k++ {
-				x := sx + dirs[i][d]*k
-				y := sy + dirs[i][d+1]*k
-				if x < 1 || x > 8 || y < 1 || y > 8 || (x == bx && y == by) {
-					break
-				}
-				if x == e && y == f {
-					return true
-				}
-			}
-		}
-		return false
+	if a == e && (c != a || (d-b)*(d-f) > 0) {
+		return 1
 	}
-	if check(0, a, b, c, d) || check(1, c, d, a, b) {
+	if b == f && (d != b || (c-a)*(c-e) > 0) {
+		return 1
+	}
+	if c-e == d-f && (a-e != b-f || (a-c)*(a-e) > 0) {
+		return 1
+	}
+	if c-e == f-d && (a-e != f-b || (a-c)*(a-e) > 0) {
 		return 1
 	}
 	return 2
@@ -198,29 +182,63 @@ function minMovesToCaptureTheQueen(
     e: number,
     f: number,
 ): number {
-    const dirs: number[][] = [
-        [-1, 0, 1, 0, -1],
-        [-1, 1, 1, -1, -1],
-    ];
-    const check = (i: number, sx: number, sy: number, bx: number, by: number): boolean => {
-        for (let d = 0; d < 4; ++d) {
-            for (let k = 1; k < 8; ++k) {
-                const x = sx + dirs[i][d] * k;
-                const y = sy + dirs[i][d + 1] * k;
-                if (x < 1 || x > 8 || y < 1 || y > 8) {
-                    break;
-                }
-                if (x === bx && y === by) {
-                    break;
-                }
-                if (x === e && y === f) {
-                    return true;
-                }
-            }
+    if (a === e && (c !== a || (d - b) * (d - f) > 0)) {
+        return 1;
+    }
+    if (b === f && (d !== b || (c - a) * (c - e) > 0)) {
+        return 1;
+    }
+    if (c - e === d - f && (a - e !== b - f || (a - c) * (a - e) > 0)) {
+        return 1;
+    }
+    if (c - e === f - d && (a - e !== f - b || (a - c) * (a - e) > 0)) {
+        return 1;
+    }
+    return 2;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_moves_to_capture_the_queen(a: i32, b: i32, c: i32, d: i32, e: i32, f: i32) -> i32 {
+        if a == e && (c != a || (d - b) * (d - f) > 0) {
+            return 1;
         }
-        return false;
-    };
-    return check(0, a, b, c, d) || check(1, c, d, a, b) ? 1 : 2;
+        if b == f && (d != b || (c - a) * (c - e) > 0) {
+            return 1;
+        }
+        if c - e == d - f && (a - e != b - f || (a - c) * (a - e) > 0) {
+            return 1;
+        }
+        if c - e == f - d && (a - e != f - b || (a - c) * (a - e) > 0) {
+            return 1;
+        }
+        return 2;
+    }
+}
+```
+
+#### Cangjie
+
+```cj
+class Solution {
+    func minMovesToCaptureTheQueen(a: Int64, b: Int64, c: Int64, d: Int64, e: Int64, f: Int64): Int64 {
+        if (a == e && (c != a || (d - b) * (d - f) > 0)) {
+            return 1
+        }
+        if (b == f && (d != b || (c - a) * (c - e) > 0)) {
+            return 1
+        }
+        if (c - e == d - f && (a - e != b - f || (a - c) * (a - e) > 0)) {
+            return 1
+        }
+        if (c - e == f - d && (a - e != f - b || (a - c) * (a - e) > 0)) {
+            return 1
+        }
+        2
+    }
 }
 ```
 

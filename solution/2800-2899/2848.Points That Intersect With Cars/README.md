@@ -60,9 +60,13 @@ tags:
 
 ### 方法一：差分数组
 
-我们创建一个长度为 $110$ 的差分数组 $d$，然后遍历给定的数组，对于每个区间 $[a, b]$，我们令 $d[a]$ 增加 $1$，$d[b + 1]$ 减少 $1$。最后我们遍历差分数组 $d$，求每个位置的前缀和 $s$，如果 $s > 0$，则说明该位置被覆盖，我们将答案增加 $1$。
+根据题目描述，我们需要给每个区间 $[\textit{start}_i, \textit{end}_i]$ 增加一个车辆，我们可以使用差分数组来实现。
 
-时间复杂度 $O(n)$，空间复杂度 $O(M)$。其中 $n$ 是给定数组的长度，而 $M$ 是数组中元素的最大值。
+我们定义一个长度为 $102$ 的数组 $d$，对于每个区间 $[\textit{start}_i, \textit{end}_i]$，我们将 $d[\textit{start}_i]$ 加 $1$，将 $d[\textit{end}_i + 1]$ 减 $1$。
+
+最后，我们对 $d$ 进行前缀和运算，统计前缀和大于 $0$ 的个数即可。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(m)$，其中 $n$ 是给定数组的长度，而 $m$ 是数组中的最大值，本题中 $m \leq 102$。
 
 <!-- tabs:start -->
 
@@ -71,10 +75,11 @@ tags:
 ```python
 class Solution:
     def numberOfPoints(self, nums: List[List[int]]) -> int:
-        d = [0] * 110
-        for a, b in nums:
-            d[a] += 1
-            d[b + 1] -= 1
+        m = 102
+        d = [0] * m
+        for start, end in nums:
+            d[start] += 1
+            d[end + 1] -= 1
         return sum(s > 0 for s in accumulate(d))
 ```
 
@@ -83,16 +88,17 @@ class Solution:
 ```java
 class Solution {
     public int numberOfPoints(List<List<Integer>> nums) {
-        int[] d = new int[110];
+        int[] d = new int[102];
         for (var e : nums) {
-            d[e.get(0)]++;
-            d[e.get(1) + 1]--;
+            int start = e.get(0), end = e.get(1);
+            ++d[start];
+            --d[end + 1];
         }
         int ans = 0, s = 0;
         for (int x : d) {
             s += x;
             if (s > 0) {
-                ans++;
+                ++ans;
             }
         }
         return ans;
@@ -106,10 +112,11 @@ class Solution {
 class Solution {
 public:
     int numberOfPoints(vector<vector<int>>& nums) {
-        int d[110]{};
-        for (auto& e : nums) {
-            d[e[0]]++;
-            d[e[1] + 1]--;
+        int d[102]{};
+        for (const auto& e : nums) {
+            int start = e[0], end = e[1];
+            ++d[start];
+            --d[end + 1];
         }
         int ans = 0, s = 0;
         for (int x : d) {
@@ -125,10 +132,11 @@ public:
 
 ```go
 func numberOfPoints(nums [][]int) (ans int) {
-	d := [110]int{}
+	d := [102]int{}
 	for _, e := range nums {
-		d[e[0]]++
-		d[e[1]+1]--
+		start, end := e[0], e[1]
+		d[start]++
+		d[end+1]--
 	}
 	s := 0
 	for _, x := range d {
@@ -145,18 +153,147 @@ func numberOfPoints(nums [][]int) (ans int) {
 
 ```ts
 function numberOfPoints(nums: number[][]): number {
-    const d: number[] = Array(110).fill(0);
-    for (const [a, b] of nums) {
-        d[a]++;
-        d[b + 1]--;
+    const d: number[] = Array(102).fill(0);
+    for (const [start, end] of nums) {
+        ++d[start];
+        --d[end + 1];
     }
     let ans = 0;
     let s = 0;
     for (const x of d) {
         s += x;
-        if (s > 0) {
-            ans++;
+        ans += s > 0 ? 1 : 0;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：哈希表 + 差分 + 排序
+
+如果题目的区间范围较大，我们可以使用哈希表来存储区间的起点和终点，然后对哈希表的键进行排序，再进行前缀和统计。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为给定数组的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfPoints(self, nums: List[List[int]]) -> int:
+        d = defaultdict(int)
+        for start, end in nums:
+            d[start] += 1
+            d[end + 1] -= 1
+        ans = s = last = 0
+        for cur, v in sorted(d.items()):
+            if s > 0:
+                ans += cur - last
+            s += v
+            last = cur
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numberOfPoints(List<List<Integer>> nums) {
+        TreeMap<Integer, Integer> d = new TreeMap<>();
+        for (var e : nums) {
+            int start = e.get(0), end = e.get(1);
+            d.merge(start, 1, Integer::sum);
+            d.merge(end + 1, -1, Integer::sum);
         }
+        int ans = 0, s = 0, last = 0;
+        for (var e : d.entrySet()) {
+            int cur = e.getKey(), v = e.getValue();
+            if (s > 0) {
+                ans += cur - last;
+            }
+            s += v;
+            last = cur;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numberOfPoints(vector<vector<int>>& nums) {
+        map<int, int> d;
+        for (const auto& e : nums) {
+            int start = e[0], end = e[1];
+            ++d[start];
+            --d[end + 1];
+        }
+        int ans = 0, s = 0, last = 0;
+        for (const auto& [cur, v] : d) {
+            if (s > 0) {
+                ans += cur - last;
+            }
+            s += v;
+            last = cur;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numberOfPoints(nums [][]int) (ans int) {
+	d := map[int]int{}
+	for _, e := range nums {
+		start, end := e[0], e[1]
+		d[start]++
+		d[end+1]--
+	}
+	keys := []int{}
+	for k := range d {
+		keys = append(keys, k)
+	}
+	s, last := 0, 0
+	sort.Ints(keys)
+	for _, cur := range keys {
+		if s > 0 {
+			ans += cur - last
+		}
+		s += d[cur]
+		last = cur
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfPoints(nums: number[][]): number {
+    const d = new Map<number, number>();
+    for (const [start, end] of nums) {
+        d.set(start, (d.get(start) || 0) + 1);
+        d.set(end + 1, (d.get(end + 1) || 0) - 1);
+    }
+    const keys = [...d.keys()].sort((a, b) => a - b);
+    let [ans, s, last] = [0, 0, 0];
+    for (const cur of keys) {
+        if (s > 0) {
+            ans += cur - last;
+        }
+        s += d.get(cur)!;
+        last = cur;
     }
     return ans;
 }

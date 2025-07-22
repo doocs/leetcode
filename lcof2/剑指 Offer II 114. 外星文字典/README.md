@@ -287,6 +287,140 @@ public:
 };
 ```
 
+#### Go
+
+```go
+func alienOrder(words []string) string {
+	n := len(words)
+	if n == 0 {
+		return ""
+	}
+	if n == 1 {
+		return words[0]
+	}
+	inDegree := make(map[byte]int)
+	graph := make(map[byte][]byte)
+	for _, word := range words {
+		for i := 0; i < len(word); i++ {
+			inDegree[word[i]] = 0
+		}
+	}
+	for i := 0; i < n-1; i++ {
+		w1, w2 := words[i], words[i+1]
+		minLen := len(w1)
+		if len(w2) < minLen {
+			minLen = len(w2)
+		}
+		foundDifference := false
+		for j := 0; j < minLen; j++ {
+			if w1[j] != w2[j] {
+				inDegree[w2[j]]++
+				graph[w1[j]] = append(graph[w1[j]], w2[j])
+				foundDifference = true
+				break
+			}
+		}
+		if !foundDifference && len(w1) > len(w2) {
+			return ""
+		}
+	}
+	queue := make([]byte, 0)
+	for k := range inDegree {
+		if inDegree[k] == 0 {
+			queue = append(queue, k)
+		}
+	}
+	res := make([]byte, 0)
+	for len(queue) > 0 {
+		node := queue[0]
+		queue = queue[1:]
+		res = append(res, node)
+		for _, next := range graph[node] {
+			inDegree[next]--
+			if inDegree[next] == 0 {
+				queue = append(queue, next)
+			}
+		}
+	}
+	if len(res) != len(inDegree) {
+		return ""
+	}
+	return string(res)
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func alienOrder(_ words: [String]) -> String {
+        var graph = Array(repeating: Set<Int>(), count: 26)
+        var indegree = Array(repeating: 0, count: 26)
+        var seen = Array(repeating: false, count: 26)
+        var letterCount = 0
+
+        for i in 0..<words.count - 1 {
+            for char in words[i] {
+                let index = Int(char.asciiValue! - Character("a").asciiValue!)
+                if !seen[index] {
+                    seen[index] = true
+                    letterCount += 1
+                }
+            }
+            let minLength = min(words[i].count, words[i + 1].count)
+            for j in 0..<minLength {
+                let char1 = words[i][words[i].index(words[i].startIndex, offsetBy: j)]
+                let char2 = words[i + 1][words[i + 1].index(words[i + 1].startIndex, offsetBy: j)]
+
+                if char1 != char2 {
+                    let c1 = Int(char1.asciiValue! - Character("a").asciiValue!)
+                    let c2 = Int(char2.asciiValue! - Character("a").asciiValue!)
+
+                    if !graph[c1].contains(c2) {
+                        graph[c1].insert(c2)
+                        indegree[c2] += 1
+                    }
+                    break
+                }
+
+                if j == minLength - 1 && words[i].count > words[i + 1].count {
+                    return ""
+                }
+            }
+        }
+
+        for char in words[words.count - 1] {
+            let index = Int(char.asciiValue! - Character("a").asciiValue!)
+            if !seen[index] {
+                seen[index] = true
+                letterCount += 1
+            }
+        }
+
+        var queue = [Int]()
+        for i in 0..<26 {
+            if seen[i] && indegree[i] == 0 {
+                queue.append(i)
+            }
+        }
+
+        var order = ""
+        while !queue.isEmpty {
+            let u = queue.removeFirst()
+            order += String(UnicodeScalar(u + Int(Character("a").asciiValue!))!)
+            for v in graph[u] {
+                indegree[v] -= 1
+                if indegree[v] == 0 {
+                    queue.append(v)
+                }
+            }
+        }
+
+        return order.count == letterCount ? order : ""
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

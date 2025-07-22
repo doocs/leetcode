@@ -8,6 +8,8 @@ tags:
     - 贪心
     - 数组
     - 二分查找
+    - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->
@@ -24,7 +26,7 @@ tags:
 
 <p>对于一个下标对&nbsp;<code>i</code>&nbsp;和&nbsp;<code>j</code>&nbsp;，这一对的差值为&nbsp;<code>|nums[i] - nums[j]|</code>&nbsp;，其中&nbsp;<code>|x|</code>&nbsp;表示 <code>x</code>&nbsp;的 <strong>绝对值</strong>&nbsp;。</p>
 
-<p>请你返回 <code>p</code>&nbsp;个下标对对应数值 <strong>最大差值</strong>&nbsp;的 <strong>最小值</strong>&nbsp;。</p>
+<p>请你返回 <code>p</code>&nbsp;个下标对对应数值 <strong>最大差值</strong>&nbsp;的 <strong>最小值</strong>&nbsp;。我们定义空集的最大值为零。</p>
 
 <p>&nbsp;</p>
 
@@ -65,11 +67,11 @@ tags:
 
 我们注意到，最大差值具备单调性，即如果最大差值 $x$ 满足条件，那么 $x-1$ 也一定满足条件。因此我们可以使用二分查找的方法，找到最小的满足条件的最大差值。
 
-我们可以将数组 `nums` 排序，然后枚举最大差值 $x$，判断是否存在 $p$ 个下标对，每个下标对对应数值取差值的最大值不超过 $x$。如果存在，那么我们就可以将 $x$ 减小，否则我们就将 $x$ 增大。
+我们可以将数组 $\textit{nums}$ 排序，然后枚举最大差值 $x$，判断是否存在 $p$ 个下标对，每个下标对对应数值取差值的最大值不超过 $x$。如果存在，那么我们就可以将 $x$ 减小，否则我们就将 $x$ 增大。
 
-判断是否存在 $p$ 个下标对，每个下标对对应数值取差值的最大值不超过 $x$，可以使用贪心的方法。我们从左到右遍历数组 `nums`，对于当前遍历到的下标 $i$，如果 $i+1$ 位置的数与 $i$ 位置的数的差值不超过 $x$，那么我们就可以将 $i$ 和 $i+1$ 位置的数作为一个下标对，更新下标对的数量 $cnt$，然后将 $i$ 的值增加 $2$。否则，我们就将 $i$ 的值增加 $1$。遍历结束，如果 $cnt$ 的值大于等于 $p$，那么就说明存在 $p$ 个下标对，每个下标对对应数值取差值的最大值不超过 $x$，否则就说明不存在。
+判断是否存在 $p$ 个下标对，每个下标对对应数值取差值的最大值不超过 $x$，可以使用贪心的方法。我们从左到右遍历数组 $\textit{nums}$，对于当前遍历到的下标 $i$，如果 $i+1$ 位置的数与 $i$ 位置的数的差值不超过 $x$，那么我们就可以将 $i$ 和 $i+1$ 位置的数作为一个下标对，更新下标对的数量 $cnt$，然后将 $i$ 的值增加 $2$。否则，我们就将 $i$ 的值增加 $1$。遍历结束，如果 $cnt$ 的值大于等于 $p$，那么就说明存在 $p$ 个下标对，每个下标对对应数值取差值的最大值不超过 $x$，否则就说明不存在。
 
-时间复杂度 $O(n \times (\log n + \log m))$，其中 $n$ 是数组 `nums` 的长度，而 $m$ 是数组 `nums` 中的最大值与最小值的差值。空间复杂度 $O(1)$。
+时间复杂度 $O(n \times (\log n + \log m))$，其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $m$ 是数组 $\textit{nums}$ 中的最大值与最小值的差值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -173,6 +175,185 @@ func minimizeMax(nums []int, p int) int {
 		}
 		return cnt >= p
 	})
+}
+```
+
+#### TypeScript
+
+```ts
+function minimizeMax(nums: number[], p: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let l = 0,
+        r = nums[n - 1] - nums[0] + 1;
+    const check = (diff: number): boolean => {
+        let cnt = 0;
+        for (let i = 0; i < n - 1; ++i) {
+            if (nums[i + 1] - nums[i] <= diff) {
+                ++cnt;
+                ++i;
+            }
+        }
+        return cnt >= p;
+    };
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimize_max(mut nums: Vec<i32>, p: i32) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let (mut l, mut r) = (0, nums[n - 1] - nums[0] + 1);
+
+        let check = |diff: i32| -> bool {
+            let mut cnt = 0;
+            let mut i = 0;
+            while i < n - 1 {
+                if nums[i + 1] - nums[i] <= diff {
+                    cnt += 1;
+                    i += 2;
+                } else {
+                    i += 1;
+                }
+            }
+            cnt >= p
+        };
+
+        while l < r {
+            let mid = (l + r) / 2;
+            if check(mid) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        l
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinimizeMax(int[] nums, int p) {
+        Array.Sort(nums);
+        int n = nums.Length;
+        int l = 0, r = nums[n - 1] - nums[0] + 1;
+
+        bool check(int diff) {
+            int cnt = 0;
+            for (int i = 0; i < n - 1; ++i) {
+                if (nums[i + 1] - nums[i] <= diff) {
+                    ++cnt;
+                    ++i;
+                }
+            }
+            return cnt >= p;
+        }
+
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        return l;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @param Integer $p
+     * @return Integer
+     */
+    function minimizeMax($nums, $p) {
+        sort($nums);
+        $n = count($nums);
+        $l = 0;
+        $r = $nums[$n - 1] - $nums[0] + 1;
+
+        $check = function ($diff) use ($nums, $n, $p) {
+            $cnt = 0;
+            for ($i = 0; $i < $n - 1; ++$i) {
+                if ($nums[$i + 1] - $nums[$i] <= $diff) {
+                    ++$cnt;
+                    ++$i;
+                }
+            }
+            return $cnt >= $p;
+        };
+
+        while ($l < $r) {
+            $mid = intdiv($l + $r, 2);
+            if ($check($mid)) {
+                $r = $mid;
+            } else {
+                $l = $mid + 1;
+            }
+        }
+
+        return $l;
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func minimizeMax(_ nums: [Int], _ p: Int) -> Int {
+        var nums = nums.sorted()
+        let n = nums.count
+        var l = 0
+        var r = nums[n - 1] - nums[0] + 1
+
+        func check(_ diff: Int) -> Bool {
+            var cnt = 0
+            var i = 0
+            while i < n - 1 {
+                if nums[i + 1] - nums[i] <= diff {
+                    cnt += 1
+                    i += 2
+                } else {
+                    i += 1
+                }
+            }
+            return cnt >= p
+        }
+
+        while l < r {
+            let mid = (l + r) >> 1
+            if check(mid) {
+                r = mid
+            } else {
+                l = mid + 1
+            }
+        }
+
+        return l
+    }
 }
 ```
 

@@ -70,9 +70,9 @@ tags:
 
 ### 方法一：一次遍历
 
-遍历矩阵，若出现元素与其左上角的元素不等的情况，返回 `false`。否则，遍历结束后返回 `true`。
+根据题目描述，托普利茨矩阵的特点是：矩阵中每个元素都与其左上角的元素相等。因此，我们只需要遍历矩阵中的每个元素，检查它是否与左上角的元素相等即可。
 
-时间复杂度 $O(m \times n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -82,11 +82,11 @@ tags:
 class Solution:
     def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
         m, n = len(matrix), len(matrix[0])
-        return all(
-            matrix[i][j] == matrix[i - 1][j - 1]
-            for i in range(1, m)
-            for j in range(1, n)
-        )
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][j] != matrix[i - 1][j - 1]:
+                    return False
+        return True
 ```
 
 #### Java
@@ -142,6 +142,40 @@ func isToeplitzMatrix(matrix [][]int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function isToeplitzMatrix(matrix: number[][]): boolean {
+    const [m, n] = [matrix.length, matrix[0].length];
+    for (let i = 1; i < m; ++i) {
+        for (let j = 1; j < n; ++j) {
+            if (matrix[i][j] !== matrix[i - 1][j - 1]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_toeplitz_matrix(matrix: Vec<Vec<i32>>) -> bool {
+        let (m, n) = (matrix.len(), matrix[0].len());
+        for i in 1..m {
+            for j in 1..n {
+                if matrix[i][j] != matrix[i - 1][j - 1] {
+                    return false;
+                }
+            }
+        }
+        true
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -150,11 +184,10 @@ func isToeplitzMatrix(matrix [][]int) bool {
  * @return {boolean}
  */
 var isToeplitzMatrix = function (matrix) {
-    const m = matrix.length;
-    const n = matrix[0].length;
+    const [m, n] = [matrix.length, matrix[0].length];
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
-            if (matrix[i][j] != matrix[i - 1][j - 1]) {
+            if (matrix[i][j] !== matrix[i - 1][j - 1]) {
                 return false;
             }
         }

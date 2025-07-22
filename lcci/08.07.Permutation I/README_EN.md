@@ -51,7 +51,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I
 
 ### Solution 1: DFS (Backtracking)
 
-We design a function $dfs(i)$ to represent that the first $i$ positions have been filled, and now the $i+1$ position needs to be filled. We enumerate all possible characters, if this character has not been filled, we fill in this character, and then continue to fill the next position until all positions are filled.
+We design a function $\textit{dfs}(i)$ to represent that the first $i$ positions have been filled, and now we need to fill the $(i+1)$-th position. Enumerate all possible characters, and if the character has not been used, fill in this character and continue to fill the next position until all positions are filled.
 
 The time complexity is $O(n \times n!)$, where $n$ is the length of the string. There are $n!$ permutations in total, and each permutation takes $O(n)$ time to construct.
 
@@ -63,22 +63,20 @@ The time complexity is $O(n \times n!)$, where $n$ is the length of the string. 
 class Solution:
     def permutation(self, S: str) -> List[str]:
         def dfs(i: int):
-            if i == n:
+            if i >= n:
                 ans.append("".join(t))
                 return
             for j, c in enumerate(S):
-                if vis[j]:
-                    continue
-                vis[j] = True
-                t.append(c)
-                dfs(i + 1)
-                t.pop()
-                vis[j] = False
+                if not vis[j]:
+                    vis[j] = True
+                    t[i] = c
+                    dfs(i + 1)
+                    vis[j] = False
 
+        ans = []
         n = len(S)
         vis = [False] * n
-        ans = []
-        t = []
+        t = list(S)
         dfs(0)
         return ans
 ```
@@ -88,30 +86,31 @@ class Solution:
 ```java
 class Solution {
     private char[] s;
-    private boolean[] vis = new boolean['z' + 1];
+    private char[] t;
+    private boolean[] vis;
     private List<String> ans = new ArrayList<>();
-    private StringBuilder t = new StringBuilder();
 
     public String[] permutation(String S) {
         s = S.toCharArray();
+        int n = s.length;
+        vis = new boolean[n];
+        t = new char[n];
         dfs(0);
         return ans.toArray(new String[0]);
     }
 
     private void dfs(int i) {
-        if (i == s.length) {
-            ans.add(t.toString());
+        if (i >= s.length) {
+            ans.add(new String(t));
             return;
         }
-        for (char c : s) {
-            if (vis[c]) {
-                continue;
+        for (int j = 0; j < s.length; ++j) {
+            if (!vis[j]) {
+                vis[j] = true;
+                t[i] = s[j];
+                dfs(i + 1);
+                vis[j] = false;
             }
-            vis[c] = true;
-            t.append(c);
-            dfs(i + 1);
-            t.deleteCharAt(t.length() - 1);
-            vis[c] = false;
         }
     }
 }
@@ -125,22 +124,20 @@ public:
     vector<string> permutation(string S) {
         int n = S.size();
         vector<bool> vis(n);
+        string t = S;
         vector<string> ans;
-        string t;
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) {
             if (i >= n) {
-                ans.push_back(t);
+                ans.emplace_back(t);
                 return;
             }
             for (int j = 0; j < n; ++j) {
-                if (vis[j]) {
-                    continue;
+                if (!vis[j]) {
+                    vis[j] = true;
+                    t[i] = S[j];
+                    dfs(i + 1);
+                    vis[j] = false;
                 }
-                vis[j] = true;
-                t.push_back(S[j]);
-                dfs(i + 1);
-                t.pop_back();
-                vis[j] = false;
             }
         };
         dfs(0);
@@ -153,23 +150,22 @@ public:
 
 ```go
 func permutation(S string) (ans []string) {
-	t := []byte{}
-	vis := make([]bool, len(S))
+	t := []byte(S)
+	n := len(t)
+	vis := make([]bool, n)
 	var dfs func(int)
 	dfs = func(i int) {
-		if i >= len(S) {
+		if i >= n {
 			ans = append(ans, string(t))
 			return
 		}
 		for j := range S {
-			if vis[j] {
-				continue
+			if !vis[j] {
+				vis[j] = true
+				t[i] = S[j]
+				dfs(i + 1)
+				vis[j] = false
 			}
-			vis[j] = true
-			t = append(t, S[j])
-			dfs(i + 1)
-			t = t[:len(t)-1]
-			vis[j] = false
 		}
 	}
 	dfs(0)
@@ -184,7 +180,7 @@ function permutation(S: string): string[] {
     const n = S.length;
     const vis: boolean[] = Array(n).fill(false);
     const ans: string[] = [];
-    const t: string[] = [];
+    const t: string[] = Array(n).fill('');
     const dfs = (i: number) => {
         if (i >= n) {
             ans.push(t.join(''));
@@ -195,9 +191,8 @@ function permutation(S: string): string[] {
                 continue;
             }
             vis[j] = true;
-            t.push(S[j]);
+            t[i] = S[j];
             dfs(i + 1);
-            t.pop();
             vis[j] = false;
         }
     };
@@ -217,7 +212,7 @@ var permutation = function (S) {
     const n = S.length;
     const vis = Array(n).fill(false);
     const ans = [];
-    const t = [];
+    const t = Array(n).fill('');
     const dfs = i => {
         if (i >= n) {
             ans.push(t.join(''));
@@ -228,9 +223,8 @@ var permutation = function (S) {
                 continue;
             }
             vis[j] = true;
-            t.push(S[j]);
+            t[i] = S[j];
             dfs(i + 1);
-            t.pop();
             vis[j] = false;
         }
     };
@@ -243,33 +237,30 @@ var permutation = function (S) {
 
 ```swift
 class Solution {
-    private var s: [Character] = []
-    private var vis: [Bool] = Array(repeating: false, count: 128)
-    private var ans: [String] = []
-    private var t: String = ""
-
     func permutation(_ S: String) -> [String] {
-        s = Array(S)
+        var ans: [String] = []
+        let s = Array(S)
+        var t = s
+        var vis = Array(repeating: false, count: s.count)
+        let n = s.count
+
+        func dfs(_ i: Int) {
+            if i >= n {
+                ans.append(String(t))
+                return
+            }
+            for j in 0..<n {
+                if !vis[j] {
+                    vis[j] = true
+                    t[i] = s[j]
+                    dfs(i + 1)
+                    vis[j] = false
+                }
+            }
+        }
+
         dfs(0)
         return ans
-    }
-
-    private func dfs(_ i: Int) {
-        if i == s.count {
-            ans.append(t)
-            return
-        }
-        for c in s {
-            let index = Int(c.asciiValue!)
-            if vis[index] {
-                continue
-            }
-            vis[index] = true
-            t.append(c)
-            dfs(i + 1)
-            t.removeLast()
-            vis[index] = false
-        }
     }
 }
 ```

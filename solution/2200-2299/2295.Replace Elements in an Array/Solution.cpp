@@ -6,9 +6,9 @@ public:
             d[nums[i]] = i;
         }
         for (auto& op : operations) {
-            int a = op[0], b = op[1];
-            nums[d[a]] = b;
-            d[b] = d[a];
+            int x = op[0], y = op[1];
+            nums[d[x]] = y;
+            d[y] = d[x];
         }
         return nums;
     }

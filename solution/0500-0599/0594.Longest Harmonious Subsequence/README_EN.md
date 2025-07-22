@@ -22,54 +22,51 @@ tags:
 
 <p>We define a harmonious array as an array where the difference between its maximum value and its minimum value is <b>exactly</b> <code>1</code>.</p>
 
-<p>Given an integer array <code>nums</code>, return <em>the length of its longest harmonious subsequence among all its possible subsequences</em>.</p>
-
-<p>A <strong>subsequence</strong> of array is a sequence that can be derived from the array by deleting some or no elements without changing the order of the remaining elements.</p>
+<p>Given an integer array <code>nums</code>, return the length of its longest harmonious <span data-keyword="subsequence-array">subsequence</span> among all its possible subsequences.</p>
 
 <p>&nbsp;</p>
-
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,3,2,2,5,2,3,7]</span></p>
 
-<strong>Input:</strong> nums = [1,3,2,2,5,2,3,7]
+<p><strong>Output:</strong> <span class="example-io">5</span></p>
 
-<strong>Output:</strong> 5
+<p><strong>Explanation:</strong></p>
 
-<strong>Explanation:</strong> The longest harmonious subsequence is [3,2,2,2,3].
-
-</pre>
+<p>The longest harmonious subsequence is <code>[3,2,2,2,3]</code>.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,2,3,4]</span></p>
 
-<strong>Input:</strong> nums = [1,2,3,4]
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
 
-<strong>Output:</strong> 2
+<p><strong>Explanation:</strong></p>
 
-</pre>
+<p>The longest harmonious subsequences are <code>[1,2]</code>, <code>[2,3]</code>, and <code>[3,4]</code>, all of which have a length of 2.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [1,1,1,1]</span></p>
 
-<strong>Input:</strong> nums = [1,1,1,1]
+<p><strong>Output:</strong> <span class="example-io">0</span></p>
 
-<strong>Output:</strong> 0
+<p><strong>Explanation:</strong></p>
 
-</pre>
+<p>No harmonic subsequence exists.</p>
+</div>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
-    <li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
-
-    <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
-
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->
@@ -80,9 +77,9 @@ tags:
 
 ### Solution 1: Hash Table
 
-We can use a hash table $\text{cnt}$ to record the occurrence count of each element in the array $\text{nums}$. Then, we iterate through each key-value pair $(x, c)$ in the hash table. If the key $x + 1$ exists in the hash table, then the sum of occurrences of elements $x$ and $x + 1$, $c + \text{cnt}[x + 1]$, forms a harmonious subsequence. We just need to find the maximum length among all harmonious subsequences.
+We can use a hash table $\textit{cnt}$ to record the occurrence count of each element in the array $\textit{nums}$. Then, we iterate through each key-value pair $(x, c)$ in the hash table. If the key $x + 1$ exists in the hash table, then the sum of occurrences of elements $x$ and $x + 1$, $c + \textit{cnt}[x + 1]$, forms a harmonious subsequence. We just need to find the maximum length among all harmonious subsequences.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -170,6 +167,28 @@ function findLHS(nums: number[]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn find_lhs(nums: Vec<i32>) -> i32 {
+        let mut cnt = HashMap::new();
+        for &x in &nums {
+            *cnt.entry(x).or_insert(0) += 1;
+        }
+        let mut ans = 0;
+        for (&x, &c) in &cnt {
+            if let Some(&y) = cnt.get(&(x + 1)) {
+                ans = ans.max(c + y);
+            }
+        }
+        ans
+    }
 }
 ```
 

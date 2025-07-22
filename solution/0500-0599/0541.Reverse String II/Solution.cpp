@@ -1,7 +1,8 @@
 class Solution {
 public:
     string reverseStr(string s, int k) {
-        for (int i = 0, n = s.size(); i < n; i += (k << 1)) {
+        int n = s.size();
+        for (int i = 0; i < n; i += 2 * k) {
             reverse(s.begin() + i, s.begin() + min(i + k, n));
         }
         return s;

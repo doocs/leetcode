@@ -65,7 +65,15 @@ There are 2 asterisks considered. Therefore, we return 2.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We define an integer variable $\textit{ok}$ to indicate whether we can count when encountering `*`. Initially, $\textit{ok}=1$, meaning we can count.
+
+Traverse the string $s$. If we encounter `*`, we decide whether to count based on the value of $\textit{ok}$. If we encounter `|`, we toggle the value of $\textit{ok}$.
+
+Finally, return the count result.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

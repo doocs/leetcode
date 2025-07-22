@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3213.Construct%20String%20with%20Minimum%20Cost/README_EN.md
+rating: 2170
+source: Weekly Contest 405 Q4
 tags:
     - Array
     - String

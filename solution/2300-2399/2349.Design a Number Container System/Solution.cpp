@@ -1,25 +1,27 @@
 class NumberContainers {
 public:
-    map<int, int> mp;
-    map<int, set<int>> t;
-
     NumberContainers() {
     }
 
     void change(int index, int number) {
-        auto it = mp.find(index);
-        if (it != mp.end()) {
-            t[it->second].erase(index);
-            it->second = number;
-        } else
-            mp[index] = number;
-        t[number].insert(index);
+        if (d.contains(index)) {
+            int oldNumber = d[index];
+            g[oldNumber].erase(index);
+            if (g[oldNumber].empty()) {
+                g.erase(oldNumber);
+            }
+        }
+        d[index] = number;
+        g[number].insert(index);
     }
 
     int find(int number) {
-        auto it = t.find(number);
-        return it == t.end() || it->second.empty() ? -1 : *it->second.begin();
+        return g.contains(number) ? *g[number].begin() : -1;
     }
+
+private:
+    unordered_map<int, int> d;
+    unordered_map<int, set<int>> g;
 };
 
 /**

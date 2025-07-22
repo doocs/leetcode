@@ -19,7 +19,7 @@ tags:
 
 <p>给你一个整数数组 <code>nums</code>，和一个整数 <code>k</code> 。</p>
 
-<p>在一个操作中，您可以选择 <code>0 &lt;= i &lt; nums.length</code> 的任何索引 <code>i</code> 。将 <code>nums[i]</code> 改为 <code>nums[i] + x</code> ，其中 <code>x</code> 是一个范围为 <code>[-k, k]</code> 的整数。对于每个索引 <code>i</code> ，最多 <strong>只能 </strong>应用 <strong>一次</strong> 此操作。</p>
+<p>在一个操作中，您可以选择 <code>0 &lt;= i &lt; nums.length</code> 的任何索引 <code>i</code> 。将 <code>nums[i]</code> 改为 <code>nums[i] + x</code> ，其中 <code>x</code> 是一个范围为 <code>[-k, k]</code> 的任意整数。对于每个索引 <code>i</code> ，最多 <strong>只能 </strong>应用 <strong>一次</strong> 此操作。</p>
 
 <p><code>nums</code>&nbsp;的&nbsp;<strong>分数&nbsp;</strong>是&nbsp;<code>nums</code>&nbsp;中最大和最小元素的差值。&nbsp;</p>
 
@@ -69,11 +69,11 @@ tags:
 
 ### 方法一：数学
 
-根据题目描述，我们可以将数组中的最大值加上 $k$，最小值减去 $k$，这样可以使得数组中的最大值和最小值之差变小。
+根据题目描述，我们可以将数组中的最大值减去 $k$，最小值加上 $k$，这样可以使得数组中的最大值和最小值之差变小。
 
-因此，最终的答案就是 $\max(nums) - \min(nums) - 2 \times k$。
+因此，最终的答案就是 $\max(\textit{nums}) - \min(\textit{nums}) - 2 \times k$ 和 $0$ 之间的较大值。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 `nums` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

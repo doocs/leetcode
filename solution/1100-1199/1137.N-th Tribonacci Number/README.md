@@ -132,43 +132,14 @@ func tribonacci(n int) int {
 
 ```ts
 function tribonacci(n: number): number {
-    if (n === 0) {
-        return 0;
+    let [a, b, c] = [0, 1, 1];
+    while (n--) {
+        let d = a + b + c;
+        a = b;
+        b = c;
+        c = d;
     }
-    if (n < 3) {
-        return 1;
-    }
-    const a = [
-        [1, 1, 0],
-        [1, 0, 1],
-        [1, 0, 0],
-    ];
-    return pow(a, n - 3)[0].reduce((a, b) => a + b);
-}
-
-function mul(a: number[][], b: number[][]): number[][] {
-    const [m, n] = [a.length, b[0].length];
-    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            for (let k = 0; k < b.length; ++k) {
-                c[i][j] += a[i][k] * b[k][j];
-            }
-        }
-    }
-    return c;
-}
-
-function pow(a: number[][], n: number): number[][] {
-    let res = [[1, 1, 0]];
-    while (n) {
-        if (n & 1) {
-            res = mul(res, a);
-        }
-        a = mul(a, a);
-        n >>= 1;
-    }
-    return res;
+    return a;
 }
 ```
 
@@ -202,16 +173,18 @@ class Solution {
      * @return Integer
      */
     function tribonacci($n) {
-        if ($n == 0) {
-            return 0;
-        } elseif ($n == 1 || $n == 2) {
-            return 1;
+        $a = 0;
+        $b = 1;
+        $c = 1;
+
+        while ($n--) {
+            $d = $a + $b + $c;
+            $a = $b;
+            $b = $c;
+            $c = $d;
         }
-        $dp = [0, 1, 1];
-        for ($i = 3; $i <= $n; $i++) {
-            $dp[$i] = $dp[$i - 1] + $dp[$i - 2] + $dp[$i - 3];
-        }
-        return $dp[$n];
+
+        return $a;
     }
 }
 ```
@@ -253,32 +226,24 @@ $$
 #### Python3
 
 ```python
+import numpy as np
+
+
 class Solution:
     def tribonacci(self, n: int) -> int:
-        def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
-            m, n = len(a), len(b[0])
-            c = [[0] * n for _ in range(m)]
-            for i in range(m):
-                for j in range(n):
-                    for k in range(len(a[0])):
-                        c[i][j] = c[i][j] + a[i][k] * b[k][j]
-            return c
-
-        def pow(a: List[List[int]], n: int) -> List[List[int]]:
-            res = [[1, 1, 0]]
-            while n:
-                if n & 1:
-                    res = mul(res, a)
-                n >>= 1
-                a = mul(a, a)
-            return res
-
         if n == 0:
             return 0
         if n < 3:
             return 1
-        a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]]
-        return sum(pow(a, n - 3)[0])
+        factor = np.asmatrix([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
+        res = np.asmatrix([(1, 1, 0)], np.dtype("O"))
+        n -= 3
+        while n:
+            if n & 1:
+                res *= factor
+            factor *= factor
+            n >>= 1
+        return res.sum()
 ```
 
 #### Java
@@ -421,6 +386,50 @@ func pow(a [][]int, n int) [][]int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function tribonacci(n: number): number {
+    if (n === 0) {
+        return 0;
+    }
+    if (n < 3) {
+        return 1;
+    }
+    const a = [
+        [1, 1, 0],
+        [1, 0, 1],
+        [1, 0, 0],
+    ];
+    return pow(a, n - 3)[0].reduce((a, b) => a + b);
+}
+
+function mul(a: number[][], b: number[][]): number[][] {
+    const [m, n] = [a.length, b[0].length];
+    const c = Array.from({ length: m }, () => Array.from({ length: n }, () => 0));
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < b.length; ++k) {
+                c[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    return c;
+}
+
+function pow(a: number[][], n: number): number[][] {
+    let res = [[1, 1, 0]];
+    while (n) {
+        if (n & 1) {
+            res = mul(res, a);
+        }
+        a = mul(a, a);
+        n >>= 1;
+    }
+    return res;
+}
+```
+
 #### JavaScript
 
 ```js
@@ -469,37 +478,58 @@ function pow(a, n) {
 }
 ```
 
-<!-- tabs:end -->
+#### PHP
 
-<!-- solution:end -->
+```php
+class Solution {
+    /**
+     * @param Integer $n
+     * @return Integer
+     */
+    function tribonacci($n) {
+        if ($n === 0) {
+            return 0;
+        }
+        if ($n < 3) {
+            return 1;
+        }
 
-<!-- solution:start -->
+        $a = [[1, 1, 0], [1, 0, 1], [1, 0, 0]];
 
-### 方法三
+        $res = $this->pow($a, $n - 3);
+        return array_sum($res[0]);
+    }
 
-<!-- tabs:start -->
+    private function mul($a, $b) {
+        $m = count($a);
+        $n = count($b[0]);
+        $p = count($b);
 
-#### Python3
+        $c = array_fill(0, $m, array_fill(0, $n, 0));
 
-```python
-import numpy as np
+        for ($i = 0; $i < $m; ++$i) {
+            for ($j = 0; $j < $n; ++$j) {
+                for ($k = 0; $k < $p; ++$k) {
+                    $c[$i][$j] += $a[$i][$k] * $b[$k][$j];
+                }
+            }
+        }
 
+        return $c;
+    }
 
-class Solution:
-    def tribonacci(self, n: int) -> int:
-        if n == 0:
-            return 0
-        if n < 3:
-            return 1
-        factor = np.mat([(1, 1, 0), (1, 0, 1), (1, 0, 0)], np.dtype("O"))
-        res = np.mat([(1, 1, 0)], np.dtype("O"))
-        n -= 3
-        while n:
-            if n & 1:
-                res *= factor
-            factor *= factor
-            n >>= 1
-        return res.sum()
+    private function pow($a, $n) {
+        $res = [[1, 1, 0]];
+        while ($n > 0) {
+            if ($n & 1) {
+                $res = $this->mul($res, $a);
+            }
+            $a = $this->mul($a, $a);
+            $n >>= 1;
+        }
+        return $res;
+    }
+}
 ```
 
 <!-- tabs:end -->

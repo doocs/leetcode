@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2524.Maximum%20Frequency%20Score%20of%20a%20Subarray/README.md
 tags:
+    - 栈
     - 数组
     - 哈希表
     - 数学
@@ -64,11 +65,11 @@ tags:
 
 ### 方法一：哈希表 + 滑动窗口 + 快速幂
 
-我们用哈希表 `cnt` 维护窗口大小为 $k$ 的元素及其出现的次数。
+我们用哈希表 $\textit{cnt}$ 维护窗口大小为 $k$ 的元素及其出现的次数。
 
 先算出初始窗口为 $k$ 的所有元素的分数。然后利用滑动窗口，每次加入一个元素，并移除最左边的元素，同时利用快速幂更新分数。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 

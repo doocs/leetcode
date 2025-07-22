@@ -6,7 +6,10 @@ tags:
     - Depth-First Search
     - Breadth-First Search
     - Graph
+    - Array
     - Interactive
+    - Matrix
+    - Shortest Path
     - Heap (Priority Queue)
 ---
 

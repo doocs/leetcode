@@ -3,12 +3,12 @@ func areSentencesSimilar(sentence1 []string, sentence2 []string, similarPairs []
 		return false
 	}
 	s := map[string]bool{}
-	for _, e := range similarPairs {
-		s[e[0]+"."+e[1]] = true
+	for _, p := range similarPairs {
+		s[p[0]+"#"+p[1]] = true
 	}
-	for i, a := range sentence1 {
-		b := sentence2[i]
-		if a != b && !s[a+"."+b] && !s[b+"."+a] {
+	for i, x := range sentence1 {
+		y := sentence2[i]
+		if x != y && !s[x+"#"+y] && !s[y+"#"+x] {
 			return false
 		}
 	}

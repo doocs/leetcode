@@ -56,7 +56,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们首先用一个数组 $\textit{cnt}$ 记录 $\textit{num}$ 中每个数字的出现次数。
+
+如果 $\textit{num}$ 是负数，那么数字应该按照从大到小的顺序排列，因此我们从 $9$ 到 $0$ 遍历 $\textit{cnt}$，将数字按照出现次数从大到小的顺序排列。
+
+如果是正数，我们首先找到第一个非 $0$ 的数字，将其放在第一位，然后按照从小到大的顺序排列剩余的数字。
+
+时间复杂度 $O(\log n)$，其中 $n$ 为数字 $\textit{num}$ 的大小。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -65,30 +73,30 @@ tags:
 ```python
 class Solution:
     def smallestNumber(self, num: int) -> int:
-        if num == 0:
-            return 0
-        cnt = [0] * 10
         neg = num < 0
         num = abs(num)
+        cnt = [0] * 10
         while num:
-            num, v = divmod(num, 10)
-            cnt[v] += 1
-        ans = ""
+            cnt[num % 10] += 1
+            num //= 10
+        ans = 0
         if neg:
-            for i in range(9, -1, -1):
-                if cnt[i]:
-                    ans += str(i) * cnt[i]
-            return -int(ans)
+            for i in reversed(range(10)):
+                for _ in range(cnt[i]):
+                    ans *= 10
+                    ans += i
+            return -ans
         if cnt[0]:
             for i in range(1, 10):
                 if cnt[i]:
-                    ans += str(i)
+                    ans = i
                     cnt[i] -= 1
                     break
         for i in range(10):
-            if cnt[i]:
-                ans += str(i) * cnt[i]
-        return int(ans)
+            for _ in range(cnt[i]):
+                ans *= 10
+                ans += i
+        return ans
 ```
 
 #### Java
@@ -96,21 +104,19 @@ class Solution:
 ```java
 class Solution {
     public long smallestNumber(long num) {
-        if (num == 0) {
-            return 0;
-        }
-        int[] cnt = new int[10];
         boolean neg = num < 0;
         num = Math.abs(num);
-        while (num != 0) {
-            cnt[(int) (num % 10)]++;
+        int[] cnt = new int[10];
+        while (num > 0) {
+            ++cnt[(int) (num % 10)];
             num /= 10;
         }
         long ans = 0;
         if (neg) {
             for (int i = 9; i >= 0; --i) {
-                while (cnt[i]-- > 0) {
+                while (cnt[i] > 0) {
                     ans = ans * 10 + i;
+                    --cnt[i];
                 }
             }
             return -ans;
@@ -118,15 +124,16 @@ class Solution {
         if (cnt[0] > 0) {
             for (int i = 1; i < 10; ++i) {
                 if (cnt[i] > 0) {
-                    ans = ans * 10 + i;
-                    cnt[i]--;
+                    --cnt[i];
+                    ans = i;
                     break;
                 }
             }
         }
         for (int i = 0; i < 10; ++i) {
-            while (cnt[i]-- > 0) {
+            while (cnt[i] > 0) {
                 ans = ans * 10 + i;
+                --cnt[i];
             }
         }
         return ans;
@@ -140,31 +147,38 @@ class Solution {
 class Solution {
 public:
     long long smallestNumber(long long num) {
-        if (num == 0) return 0;
-        vector<int> cnt(10);
         bool neg = num < 0;
         num = abs(num);
-        while (num) {
-            cnt[num % 10]++;
+        int cnt[10]{};
+        while (num > 0) {
+            ++cnt[num % 10];
             num /= 10;
         }
         long long ans = 0;
         if (neg) {
-            for (int i = 9; i >= 0; --i)
-                while (cnt[i]--) ans = ans * 10 + i;
+            for (int i = 9; i >= 0; --i) {
+                while (cnt[i] > 0) {
+                    ans = ans * 10 + i;
+                    --cnt[i];
+                }
+            }
             return -ans;
         }
         if (cnt[0]) {
             for (int i = 1; i < 10; ++i) {
-                if (cnt[i]) {
-                    ans = ans * 10 + i;
-                    cnt[i]--;
+                if (cnt[i] > 0) {
+                    --cnt[i];
+                    ans = i;
                     break;
                 }
             }
         }
-        for (int i = 0; i < 10; ++i)
-            while (cnt[i]--) ans = ans * 10 + i;
+        for (int i = 0; i < 10; ++i) {
+            while (cnt[i] > 0) {
+                ans = ans * 10 + i;
+                --cnt[i];
+            }
+        }
         return ans;
     }
 };
@@ -173,44 +187,186 @@ public:
 #### Go
 
 ```go
-func smallestNumber(num int64) int64 {
-	if num == 0 {
-		return 0
-	}
-	cnt := make([]int, 10)
+func smallestNumber(num int64) (ans int64) {
 	neg := num < 0
-	if neg {
-		num = -num
-	}
-	for num != 0 {
+	num = max(num, -num)
+	cnt := make([]int, 10)
+
+	for num > 0 {
 		cnt[num%10]++
 		num /= 10
 	}
-	ans := 0
+
 	if neg {
 		for i := 9; i >= 0; i-- {
-			for j := 0; j < cnt[i]; j++ {
-				ans = ans*10 + i
+			for cnt[i] > 0 {
+				ans = ans*10 + int64(i)
+				cnt[i]--
 			}
 		}
-		return -int64(ans)
+		return -ans
 	}
+
 	if cnt[0] > 0 {
 		for i := 1; i < 10; i++ {
 			if cnt[i] > 0 {
-				ans = ans*10 + i
 				cnt[i]--
+				ans = int64(i)
 				break
 			}
 		}
 	}
+
 	for i := 0; i < 10; i++ {
-		for j := 0; j < cnt[i]; j++ {
-			ans = ans*10 + i
+		for cnt[i] > 0 {
+			ans = ans*10 + int64(i)
+			cnt[i]--
 		}
 	}
-	return int64(ans)
+
+	return ans
 }
+```
+
+#### TypeScript
+
+```ts
+function smallestNumber(num: number): number {
+    const neg = num < 0;
+    num = Math.abs(num);
+    const cnt = Array(10).fill(0);
+
+    while (num > 0) {
+        cnt[num % 10]++;
+        num = Math.floor(num / 10);
+    }
+
+    let ans = 0;
+    if (neg) {
+        for (let i = 9; i >= 0; i--) {
+            while (cnt[i] > 0) {
+                ans = ans * 10 + i;
+                cnt[i]--;
+            }
+        }
+        return -ans;
+    }
+
+    if (cnt[0] > 0) {
+        for (let i = 1; i < 10; i++) {
+            if (cnt[i] > 0) {
+                cnt[i]--;
+                ans = i;
+                break;
+            }
+        }
+    }
+
+    for (let i = 0; i < 10; i++) {
+        while (cnt[i] > 0) {
+            ans = ans * 10 + i;
+            cnt[i]--;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_number(num: i64) -> i64 {
+        let mut neg = num < 0;
+        let mut num = num.abs();
+        let mut cnt = vec![0; 10];
+
+        while num > 0 {
+            cnt[(num % 10) as usize] += 1;
+            num /= 10;
+        }
+
+        let mut ans = 0;
+        if neg {
+            for i in (0..10).rev() {
+                while cnt[i] > 0 {
+                    ans = ans * 10 + i as i64;
+                    cnt[i] -= 1;
+                }
+            }
+            return -ans;
+        }
+
+        if cnt[0] > 0 {
+            for i in 1..10 {
+                if cnt[i] > 0 {
+                    cnt[i] -= 1;
+                    ans = i as i64;
+                    break;
+                }
+            }
+        }
+
+        for i in 0..10 {
+            while cnt[i] > 0 {
+                ans = ans * 10 + i as i64;
+                cnt[i] -= 1;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var smallestNumber = function (num) {
+    const neg = num < 0;
+    num = Math.abs(num);
+    const cnt = Array(10).fill(0);
+
+    while (num > 0) {
+        cnt[num % 10]++;
+        num = Math.floor(num / 10);
+    }
+
+    let ans = 0;
+    if (neg) {
+        for (let i = 9; i >= 0; i--) {
+            while (cnt[i] > 0) {
+                ans = ans * 10 + i;
+                cnt[i]--;
+            }
+        }
+        return -ans;
+    }
+
+    if (cnt[0] > 0) {
+        for (let i = 1; i < 10; i++) {
+            if (cnt[i] > 0) {
+                cnt[i]--;
+                ans = i;
+                break;
+            }
+        }
+    }
+
+    for (let i = 0; i < 10; i++) {
+        while (cnt[i] > 0) {
+            ans = ans * 10 + i;
+            cnt[i]--;
+        }
+    }
+
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

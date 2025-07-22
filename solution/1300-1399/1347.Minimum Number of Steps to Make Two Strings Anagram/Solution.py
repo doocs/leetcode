@@ -3,8 +3,6 @@ class Solution:
         cnt = Counter(s)
         ans = 0
         for c in t:
-            if cnt[c] > 0:
-                cnt[c] -= 1
-            else:
-                ans += 1
+            cnt[c] -= 1
+            ans += cnt[c] < 0
         return ans

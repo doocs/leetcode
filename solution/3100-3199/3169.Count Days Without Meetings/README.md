@@ -82,11 +82,11 @@ tags:
 
 ### 方法一：排序
 
-我们不妨将所有会议按照开始时间排序，用一个变量 $\text{last}$ 记录此前会议的最晚结束时间。
+我们不妨将所有会议按照开始时间排序，用一个变量 $\textit{last}$ 记录此前会议的最晚结束时间。
 
-然后我们遍历所有会议，对于每一个会议 $(\text{st}, \text{ed})$，如果 $\text{last} < \text{st}$，说明 $\text{last}$ 到 $\text{st}$ 之间的时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。然后我们更新 $\text{last} = \max(\text{last}, \text{ed})$。
+然后我们遍历所有会议，对于每一个会议 $(\textit{st}, \textit{ed})$，如果 $\textit{last} < \textit{st}$，说明 $\textit{last}$ 到 $\textit{st}$ 之间的时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。然后我们更新 $\textit{last} = \max(\textit{last}, \textit{ed})$。
 
-最后，如果 $\text{last} < \text{days}$，说明最后一次会议结束后还有时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。
+最后，如果 $\textit{last} < \textit{days}$，说明最后一次会议结束后还有时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为会议的数量。
 
@@ -180,6 +180,29 @@ function countDays(days: number, meetings: number[][]): number {
     }
     ans += days - last;
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_days(days: i32, mut meetings: Vec<Vec<i32>>) -> i32 {
+        meetings.sort_by_key(|m| m[0]);
+        let mut ans = 0;
+        let mut last = 0;
+
+        for e in meetings {
+            let st = e[0];
+            let ed = e[1];
+            if last < st {
+                ans += st - last - 1;
+            }
+            last = last.max(ed);
+        }
+
+        ans + (days - last)
+    }
 }
 ```
 

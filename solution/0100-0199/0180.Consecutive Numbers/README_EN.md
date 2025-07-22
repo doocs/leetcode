@@ -26,7 +26,7 @@ tags:
 | num         | varchar |
 +-------------+---------+
 In SQL, id is the primary key for this table.
-id is an autoincrement column.
+id is an autoincrement column starting from 1.
 </pre>
 
 <p>&nbsp;</p>

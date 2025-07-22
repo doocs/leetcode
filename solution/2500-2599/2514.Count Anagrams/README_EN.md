@@ -70,23 +70,17 @@ tags:
 #### Python3
 
 ```python
-mod = 10**9 + 7
-f = [1]
-for i in range(1, 10**5 + 1):
-    f.append(f[-1] * i % mod)
-
-
 class Solution:
     def countAnagrams(self, s: str) -> int:
-        ans = 1
+        mod = 10**9 + 7
+        ans = mul = 1
         for w in s.split():
-            cnt = Counter(w)
-            ans *= f[len(w)]
-            ans %= mod
-            for v in cnt.values():
-                ans *= pow(f[v], -1, mod)
-                ans %= mod
-        return ans
+            cnt = Counter()
+            for i, c in enumerate(w, 1):
+                cnt[c] += 1
+                mul = mul * cnt[c] % mod
+                ans = ans * i % mod
+        return ans * pow(mul, -1, mod) % mod
 ```
 
 #### Java
@@ -184,32 +178,6 @@ func pow(x, n int) int {
 	}
 	return res
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def countAnagrams(self, s: str) -> int:
-        mod = 10**9 + 7
-        ans = mul = 1
-        for w in s.split():
-            cnt = Counter()
-            for i, c in enumerate(w, 1):
-                cnt[c] += 1
-                mul = mul * cnt[c] % mod
-                ans = ans * i % mod
-        return ans * pow(mul, -1, mod) % mod
 ```
 
 <!-- tabs:end -->

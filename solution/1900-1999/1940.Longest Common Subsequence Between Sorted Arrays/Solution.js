@@ -3,14 +3,17 @@
  * @return {number[]}
  */
 var longestCommonSubsequence = function (arrays) {
-    const m = new Map();
-    const rs = [];
-    const len = arrays.length;
-    for (let i = 0; i < len; i++) {
-        for (let j = 0; j < arrays[i].length; j++) {
-            m.set(arrays[i][j], (m.get(arrays[i][j]) || 0) + 1);
-            if (m.get(arrays[i][j]) === len) rs.push(arrays[i][j]);
+    const cnt = Array(101).fill(0);
+    for (const row of arrays) {
+        for (const x of row) {
+            ++cnt[x];
         }
     }
-    return rs;
+    const ans = [];
+    for (let i = 0; i < 101; ++i) {
+        if (cnt[i] === arrays.length) {
+            ans.push(i);
+        }
+    }
+    return ans;
 };

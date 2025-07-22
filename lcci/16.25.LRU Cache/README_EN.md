@@ -67,7 +67,7 @@ When accessing a node, if the node exists, we delete it from its original positi
 
 When inserting a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. If it does not exist, we first check if the cache is full. If it is full, we delete the node at the tail of the list and insert the new node at the head of the list.
 
-The time complexity is $O(1)$, and the space complexity is $O(\text{capacity})$.
+The time complexity is $O(1)$, and the space complexity is $O(\textit{capacity})$.
 
 <!-- tabs:start -->
 

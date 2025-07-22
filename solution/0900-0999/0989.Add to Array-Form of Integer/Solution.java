@@ -1,13 +1,12 @@
 class Solution {
     public List<Integer> addToArrayForm(int[] num, int k) {
-        int i = num.length - 1, carry = 0;
-        LinkedList<Integer> ans = new LinkedList<>();
-        while (i >= 0 || k > 0 || carry > 0) {
-            carry += (i < 0 ? 0 : num[i--]) + k % 10;
-            ans.addFirst(carry % 10);
-            carry /= 10;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = num.length - 1; i >= 0 || k > 0; --i) {
+            k += (i >= 0 ? num[i] : 0);
+            ans.add(k % 10);
             k /= 10;
         }
+        Collections.reverse(ans);
         return ans;
     }
 }

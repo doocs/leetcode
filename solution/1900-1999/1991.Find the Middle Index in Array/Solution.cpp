@@ -1,13 +1,13 @@
 class Solution {
 public:
     int findMiddleIndex(vector<int>& nums) {
-        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
+        int l = 0, r = accumulate(nums.begin(), nums.end(), 0);
         for (int i = 0; i < nums.size(); ++i) {
-            right -= nums[i];
-            if (left == right) {
+            r -= nums[i];
+            if (l == r) {
                 return i;
             }
-            left += nums[i];
+            l += nums[i];
         }
         return -1;
     }

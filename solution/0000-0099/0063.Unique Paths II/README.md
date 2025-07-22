@@ -18,13 +18,13 @@ tags:
 
 <!-- description:start -->
 
-<p>一个机器人位于一个<meta charset="UTF-8" />&nbsp;<code>m x n</code>&nbsp;网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
+<p>给定一个&nbsp;<code>m x n</code>&nbsp;的整数数组&nbsp;<code>grid</code>。一个机器人初始位于 <strong>左上角</strong>（即 <code>grid[0][0]</code>）。机器人尝试移动到 <strong>右下角</strong>（即 <code>grid[m - 1][n - 1]</code>）。机器人每次只能向下或者向右移动一步。</p>
 
-<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish”）。</p>
+<p>网格中的障碍物和空位置分别用 <code>1</code> 和 <code>0</code> 来表示。机器人的移动路径中不能包含 <strong>任何</strong>&nbsp;有障碍物的方格。</p>
 
-<p>现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？</p>
+<p>返回机器人能够到达右下角的不同路径数量。</p>
 
-<p>网格中的障碍物和空位置分别用 <code>1</code> 和 <code>0</code> 来表示。</p>
+<p>测试用例保证答案小于等于 <code>2 * 10<sup>9</sup></code>。</p>
 
 <p>&nbsp;</p>
 
@@ -65,13 +65,13 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $dfs(i, j)$ 表示从网格 $(i, j)$ 到网格 $(m - 1, n - 1)$ 的路径数。其中 $m$ 和 $n$ 分别是网格的行数和列数。
+我们设计一个函数 $\textit{dfs}(i, j)$ 表示从网格 $(i, j)$ 到网格 $(m - 1, n - 1)$ 的路径数。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
-函数 $dfs(i, j)$ 的执行过程如下：
+函数 $\textit{dfs}(i, j)$ 的执行过程如下：
 
--   如果 $i \ge m$ 或者 $j \ge n$，或者 $obstacleGrid[i][j] = 1$，则路径数为 $0$；
+-   如果 $i \ge m$ 或者 $j \ge n$，或者 $\textit{obstacleGrid}[i][j] = 1$，则路径数为 $0$；
 -   如果 $i = m - 1$ 且 $j = n - 1$，则路径数为 $1$；
--   否则，路径数为 $dfs(i + 1, j) + dfs(i, j + 1)$。
+-   否则，路径数为 $\textit{dfs}(i + 1, j) + \textit{dfs}(i, j + 1)$。
 
 为了避免重复计算，我们可以使用记忆化搜索的方法。
 
@@ -135,9 +135,8 @@ class Solution {
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         int m = obstacleGrid.size(), n = obstacleGrid[0].size();
-        int f[m][n];
-        memset(f, -1, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) {
+        vector<vector<int>> f(m, vector<int>(n, -1));
+        auto dfs = [&](this auto&& dfs, int i, int j) {
             if (i >= m || j >= n || obstacleGrid[i][j]) {
                 return 0;
             }
@@ -206,6 +205,64 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn unique_paths_with_obstacles(obstacle_grid: Vec<Vec<i32>>) -> i32 {
+        let m = obstacle_grid.len();
+        let n = obstacle_grid[0].len();
+        let mut f = vec![vec![-1; n]; m];
+        Self::dfs(0, 0, &obstacle_grid, &mut f)
+    }
+
+    fn dfs(i: usize, j: usize, obstacle_grid: &Vec<Vec<i32>>, f: &mut Vec<Vec<i32>>) -> i32 {
+        let m = obstacle_grid.len();
+        let n = obstacle_grid[0].len();
+        if i >= m || j >= n || obstacle_grid[i][j] == 1 {
+            return 0;
+        }
+        if i == m - 1 && j == n - 1 {
+            return 1;
+        }
+        if f[i][j] != -1 {
+            return f[i][j];
+        }
+        let down = Self::dfs(i + 1, j, obstacle_grid, f);
+        let right = Self::dfs(i, j + 1, obstacle_grid, f);
+        f[i][j] = down + right;
+        f[i][j]
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} obstacleGrid
+ * @return {number}
+ */
+var uniquePathsWithObstacles = function (obstacleGrid) {
+    const m = obstacleGrid.length;
+    const n = obstacleGrid[0].length;
+    const f = Array.from({ length: m }, () => Array(n).fill(-1));
+    const dfs = (i, j) => {
+        if (i >= m || j >= n || obstacleGrid[i][j] === 1) {
+            return 0;
+        }
+        if (i === m - 1 && j === n - 1) {
+            return 1;
+        }
+        if (f[i][j] === -1) {
+            f[i][j] = dfs(i + 1, j) + dfs(i, j + 1);
+        }
+        return f[i][j];
+    };
+    return dfs(0, 0);
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -214,12 +271,12 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 
 ### 方法二：动态规划
 
-我们定义 $f[i][j]$ 表示到达网格 $(i,j)$ 的路径数。
+我们可以使用动态规划的方法，定义一个二维数组 $f$，其中 $f[i][j]$ 表示从网格 $(0,0)$ 到网格 $(i,j)$ 的路径数。
 
-首先初始化 $f$ 第一列和第一行的所有值，然后遍历其它行和列，有两种情况：
+我们首先初始化 $f$ 的第一列和第一行的所有值，然后遍历其它行和列，有两种情况：
 
--   若 $obstacleGrid[i][j] = 1$，说明路径数为 $0$，那么 $f[i][j] = 0$；
--   若 $obstacleGrid[i][j] = 0$，则 $f[i][j] = f[i - 1][j] + f[i][j - 1]$。
+-   若 $\textit{obstacleGrid}[i][j] = 1$，说明路径数为 $0$，那么 $f[i][j] = 0$；
+-   若 $\textit{obstacleGrid}[i][j] = 0$，则 $f[i][j] = f[i - 1][j] + f[i][j - 1]$。
 
 最后返回 $f[m - 1][n - 1]$ 即可。
 
@@ -357,29 +414,6 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 }
 ```
 
-#### TypeScript
-
-```ts
-function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
-    const m = obstacleGrid.length;
-    const n = obstacleGrid[0].length;
-    const f: number[][] = Array.from({ length: m }, () => Array(n).fill(-1));
-    const dfs = (i: number, j: number): number => {
-        if (i >= m || j >= n || obstacleGrid[i][j] === 1) {
-            return 0;
-        }
-        if (i === m - 1 && j === n - 1) {
-            return 1;
-        }
-        if (f[i][j] === -1) {
-            f[i][j] = dfs(i + 1, j) + dfs(i, j + 1);
-        }
-        return f[i][j];
-    };
-    return dfs(0, 0);
-}
-```
-
 #### Rust
 
 ```rust
@@ -411,6 +445,41 @@ impl Solution {
         f[m - 1][n - 1]
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} obstacleGrid
+ * @return {number}
+ */
+var uniquePathsWithObstacles = function (obstacleGrid) {
+    const m = obstacleGrid.length;
+    const n = obstacleGrid[0].length;
+    const f = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; i++) {
+        if (obstacleGrid[i][0] === 1) {
+            break;
+        }
+        f[i][0] = 1;
+    }
+    for (let i = 0; i < n; i++) {
+        if (obstacleGrid[0][i] === 1) {
+            break;
+        }
+        f[0][i] = 1;
+    }
+    for (let i = 1; i < m; i++) {
+        for (let j = 1; j < n; j++) {
+            if (obstacleGrid[i][j] === 1) {
+                continue;
+            }
+            f[i][j] = f[i - 1][j] + f[i][j - 1];
+        }
+    }
+    return f[m - 1][n - 1];
+};
 ```
 
 <!-- tabs:end -->

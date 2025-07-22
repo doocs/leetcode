@@ -91,7 +91,13 @@ The characters are printed as follows:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We initialize the answer variable $\textit{ans}$ to the length of the string, indicating that we need at least $\textit{ans}$ seconds to type the string.
+
+Next, we traverse the string. For each character, we calculate the minimum distance between the current character and the previous character, and add this distance to the answer. Then we update the current character to the previous character and continue traversing.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -100,13 +106,11 @@ The characters are printed as follows:
 ```python
 class Solution:
     def minTimeToType(self, word: str) -> int:
-        ans = prev = 0
-        for c in word:
-            curr = ord(c) - ord('a')
-            t = abs(prev - curr)
-            t = min(t, 26 - t)
-            ans += t + 1
-            prev = curr
+        ans, a = len(word), ord("a")
+        for c in map(ord, word):
+            d = abs(c - a)
+            ans += min(d, 26 - d)
+            a = c
         return ans
 ```
 
@@ -115,14 +119,12 @@ class Solution:
 ```java
 class Solution {
     public int minTimeToType(String word) {
-        int ans = 0;
-        int prev = 0;
+        int ans = word.length();
+        char a = 'a';
         for (char c : word.toCharArray()) {
-            int curr = c - 'a';
-            int t = Math.abs(prev - curr);
-            t = Math.min(t, 26 - t);
-            ans += t + 1;
-            prev = curr;
+            int d = Math.abs(a - c);
+            ans += Math.min(d, 26 - d);
+            a = c;
         }
         return ans;
     }
@@ -135,14 +137,12 @@ class Solution {
 class Solution {
 public:
     int minTimeToType(string word) {
-        int ans = 0;
-        int prev = 0;
-        for (char& c : word) {
-            int curr = c - 'a';
-            int t = abs(prev - curr);
-            t = min(t, 26 - t);
-            ans += t + 1;
-            prev = curr;
+        int ans = word.length();
+        char a = 'a';
+        for (char c : word) {
+            int d = abs(a - c);
+            ans += min(d, 26 - d);
+            a = c;
         }
         return ans;
     }
@@ -153,22 +153,29 @@ public:
 
 ```go
 func minTimeToType(word string) int {
-	ans, prev := 0, 0
+	ans := len(word)
+	a := rune('a')
 	for _, c := range word {
-		curr := int(c - 'a')
-		t := abs(prev - curr)
-		t = min(t, 26-t)
-		ans += t + 1
-		prev = curr
+		d := int(max(a-c, c-a))
+		ans += min(d, 26-d)
+		a = c
 	}
 	return ans
 }
+```
 
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+#### TypeScript
+
+```ts
+function minTimeToType(word: string): number {
+    let a = 'a'.charCodeAt(0);
+    let ans = word.length;
+    for (const c of word) {
+        const d = Math.abs(c.charCodeAt(0) - a);
+        ans += Math.min(d, 26 - d);
+        a = c.charCodeAt(0);
+    }
+    return ans;
 }
 ```
 

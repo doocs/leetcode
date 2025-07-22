@@ -1,49 +1,46 @@
 class Solution {
 public:
     long long minimumCost(vector<int>& nums, int k, int dist) {
-        multiset<int> sml, big;
-        int sz = dist + 1;
-        long long sum = 0, ans = 0;
-        for (int i = 1; i <= sz; i++) {
-            sml.insert(nums[i]);
-            sum += nums[i];
+        --k;
+        multiset<int> l(nums.begin() + 1, nums.begin() + dist + 2), r;
+        long long s = accumulate(nums.begin(), nums.begin() + dist + 2, 0LL);
+        while (l.size() > k) {
+            int x = *l.rbegin();
+            l.erase(l.find(x));
+            s -= x;
+            r.insert(x);
         }
-        while (sml.size() > k - 1) {
-            big.insert(*sml.rbegin());
-            sum -= *sml.rbegin();
-            sml.erase(sml.find(*sml.rbegin()));
-        }
-        ans = sum;
-        for (int i = sz + 1; i < nums.size(); i++) {
-            sum += nums[i];
-            sml.insert(nums[i]);
-            if (big.find(nums[i - sz]) != big.end()) {
-                big.erase(big.find(nums[i - sz]));
+        long long ans = s;
+        for (int i = dist + 2; i < nums.size(); ++i) {
+            int x = nums[i - dist - 1];
+            auto it = l.find(x);
+            if (it != l.end()) {
+                l.erase(it);
+                s -= x;
             } else {
-                sum -= nums[i - sz];
-                sml.erase(sml.find(nums[i - sz]));
+                r.erase(r.find(x));
             }
-
-            while (sml.size() > k - 1) {
-                sum -= *sml.rbegin();
-                big.insert(*sml.rbegin());
-                sml.erase(sml.find(*sml.rbegin()));
+            int y = nums[i];
+            if (y < *l.rbegin()) {
+                l.insert(y);
+                s += y;
+            } else {
+                r.insert(y);
             }
-            while (sml.size() < k - 1) {
-                sum += *big.begin();
-                sml.insert(*big.begin());
-                big.erase(big.begin());
+            while (l.size() == k - 1) {
+                int x = *r.begin();
+                r.erase(r.find(x));
+                l.insert(x);
+                s += x;
             }
-            while (!sml.empty() && !big.empty() && *sml.rbegin() > *big.begin()) {
-                sum -= *sml.rbegin() - *big.begin();
-                sml.insert(*big.begin());
-                big.insert(*sml.rbegin());
-                sml.erase(sml.find(*sml.rbegin()));
-                big.erase(big.begin());
+            while (l.size() == k + 1) {
+                int x = *l.rbegin();
+                l.erase(l.find(x));
+                s -= x;
+                r.insert(x);
             }
-            ans = min(ans, sum);
+            ans = min(ans, s);
         }
-        int p = 0;
-        return nums[0] + ans;
+        return ans;
     }
 };

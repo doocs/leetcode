@@ -6,27 +6,24 @@
  *     Right *TreeNode
  * }
  */
-func findFrequentTreeSum(root *TreeNode) []int {
-	counter := make(map[int]int)
-	mx := 0
-	var dfs func(root *TreeNode) int
+func findFrequentTreeSum(root *TreeNode) (ans []int) {
+	cnt := map[int]int{}
+	var mx int
+	var dfs func(*TreeNode) int
 	dfs = func(root *TreeNode) int {
 		if root == nil {
 			return 0
 		}
 		s := root.Val + dfs(root.Left) + dfs(root.Right)
-		counter[s]++
-		if mx < counter[s] {
-			mx = counter[s]
-		}
+		cnt[s]++
+		mx = max(mx, cnt[s])
 		return s
 	}
 	dfs(root)
-	var ans []int
-	for k, v := range counter {
+	for k, v := range cnt {
 		if v == mx {
 			ans = append(ans, k)
 		}
 	}
-	return ans
+	return
 }

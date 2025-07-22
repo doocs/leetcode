@@ -1,6 +1,4 @@
 function nearestExit(maze: string[][], entrance: number[]): number {
-    const m = maze.length;
-    const n = maze[0].length;
     const dir = [0, 1, 0, -1, 0];
     const q = [[...entrance, 0]];
     maze[entrance[0]][entrance[1]] = '+';

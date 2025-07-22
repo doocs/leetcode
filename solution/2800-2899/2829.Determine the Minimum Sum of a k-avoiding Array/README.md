@@ -61,9 +61,9 @@ tags:
 
 ### 方法一：贪心 + 模拟
 
-我们从正整数 $i=1$ 开始，依次判断 $i$ 是否可以加入数组中，如果可以加入，则将 $i$ 加入数组中，累加到答案中，然后将 $k-i$ 置为已访问，表示 $k-i$ 不能加入数组中。循环直到数组长度为 $n$。
+我们从正整数 $i = 1$ 开始，依次判断 $i$ 是否可以加入数组中，如果可以加入，则将 $i$ 加入数组中，累加到答案中，然后将 $k - i$ 置为已访问，表示 $k-i$ 不能加入数组中。循环直到数组长度为 $n$。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n + k)$，空间复杂度 $O(n + k)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -77,9 +77,9 @@ class Solution:
         for _ in range(n):
             while i in vis:
                 i += 1
-            vis.add(i)
             vis.add(k - i)
             s += i
+            i += 1
         return s
 ```
 
@@ -89,16 +89,15 @@ class Solution:
 class Solution {
     public int minimumSum(int n, int k) {
         int s = 0, i = 1;
-        boolean[] vis = new boolean[k + n * n + 1];
+        boolean[] vis = new boolean[n + k + 1];
         while (n-- > 0) {
             while (vis[i]) {
                 ++i;
             }
-            vis[i] = true;
             if (k >= i) {
                 vis[k - i] = true;
             }
-            s += i;
+            s += i++;
         }
         return s;
     }
@@ -112,17 +111,16 @@ class Solution {
 public:
     int minimumSum(int n, int k) {
         int s = 0, i = 1;
-        bool vis[k + n * n + 1];
+        bool vis[n + k + 1];
         memset(vis, false, sizeof(vis));
         while (n--) {
             while (vis[i]) {
                 ++i;
             }
-            vis[i] = true;
             if (k >= i) {
                 vis[k - i] = true;
             }
-            s += i;
+            s += i++;
         }
         return s;
     }
@@ -134,16 +132,16 @@ public:
 ```go
 func minimumSum(n int, k int) int {
 	s, i := 0, 1
-	vis := make([]bool, k+n*n+1)
+	vis := make([]bool, n+k+1)
 	for ; n > 0; n-- {
 		for vis[i] {
 			i++
 		}
-		vis[i] = true
 		if k >= i {
 			vis[k-i] = true
 		}
 		s += i
+		i++
 	}
 	return s
 }
@@ -155,18 +153,39 @@ func minimumSum(n int, k int) int {
 function minimumSum(n: number, k: number): number {
     let s = 0;
     let i = 1;
-    const vis: boolean[] = Array(n * n + k + 1);
+    const vis: boolean[] = Array(n + k + 1).fill(false);
     while (n--) {
         while (vis[i]) {
             ++i;
         }
-        vis[i] = true;
         if (k >= i) {
             vis[k - i] = true;
         }
-        s += i;
+        s += i++;
     }
     return s;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_sum(n: i32, k: i32) -> i32 {
+        let (mut s, mut i) = (0, 1);
+        let mut vis = std::collections::HashSet::new();
+
+        for _ in 0..n {
+            while vis.contains(&i) {
+                i += 1;
+            }
+            vis.insert(k - i);
+            s += i;
+            i += 1;
+        }
+
+        s
+    }
 }
 ```
 

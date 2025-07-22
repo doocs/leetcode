@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0634.Fi
 tags:
     - 数学
     - 动态规划
+    - 组合数学
 ---
 
 <!-- problem:start -->

@@ -68,6 +68,12 @@ tags:
 
 ### 方法一：排序 + 贪心
 
+根据题目描述，我们可以将小行星按质量从小到大排序，然后依次遍历小行星，如果行星的质量小于小行星的质量，那么行星将被摧毁，返回 `false`，否则行星将获得这颗小行星的质量。
+
+如果所有小行星都能被摧毁，返回 `true`。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是小行星的数量。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -76,10 +82,10 @@ tags:
 class Solution:
     def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
         asteroids.sort()
-        for v in asteroids:
-            if mass < v:
+        for x in asteroids:
+            if mass < x:
                 return False
-            mass += v
+            mass += x
         return True
 ```
 
@@ -90,11 +96,11 @@ class Solution {
     public boolean asteroidsDestroyed(int mass, int[] asteroids) {
         Arrays.sort(asteroids);
         long m = mass;
-        for (int v : asteroids) {
-            if (m < v) {
+        for (int x : asteroids) {
+            if (m < x) {
                 return false;
             }
-            m += v;
+            m += x;
         }
         return true;
     }
@@ -107,11 +113,13 @@ class Solution {
 class Solution {
 public:
     bool asteroidsDestroyed(int mass, vector<int>& asteroids) {
-        sort(asteroids.begin(), asteroids.end());
+        ranges::sort(asteroids);
         long long m = mass;
-        for (int v : asteroids) {
-            if (m < v) return false;
-            m += v;
+        for (int x : asteroids) {
+            if (m < x) {
+                return false;
+            }
+            m += x;
         }
         return true;
     }
@@ -122,13 +130,12 @@ public:
 
 ```go
 func asteroidsDestroyed(mass int, asteroids []int) bool {
-	m := mass
 	sort.Ints(asteroids)
-	for _, v := range asteroids {
-		if m < v {
+	for _, x := range asteroids {
+		if mass < x {
 			return false
 		}
-		m += v
+		mass += x
 	}
 	return true
 }
@@ -139,14 +146,52 @@ func asteroidsDestroyed(mass int, asteroids []int) bool {
 ```ts
 function asteroidsDestroyed(mass: number, asteroids: number[]): boolean {
     asteroids.sort((a, b) => a - b);
-
     for (const x of asteroids) {
-        if (mass < x) return false;
+        if (mass < x) {
+            return false;
+        }
         mass += x;
     }
-
     return true;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn asteroids_destroyed(mass: i32, mut asteroids: Vec<i32>) -> bool {
+        let mut mass = mass as i64;
+        asteroids.sort_unstable();
+        for &x in &asteroids {
+            if mass < x as i64 {
+                return false;
+            }
+            mass += x as i64;
+        }
+        true
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} mass
+ * @param {number[]} asteroids
+ * @return {boolean}
+ */
+var asteroidsDestroyed = function (mass, asteroids) {
+    asteroids.sort((a, b) => a - b);
+    for (const x of asteroids) {
+        if (mass < x) {
+            return false;
+        }
+        mass += x;
+    }
+    return true;
+};
 ```
 
 <!-- tabs:end -->

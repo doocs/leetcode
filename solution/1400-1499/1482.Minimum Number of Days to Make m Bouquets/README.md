@@ -90,7 +90,21 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二分查找
+
+根据题目描述，如果一个天数 $t$ 可以满足制作 $m$ 束花，那么对任意 $t' > t$，也一定可以满足制作 $m$ 束花。因此，我们可以使用二分查找的方法找到最小的满足制作 $m$ 束花的天数。
+
+我们记花园中最大的开花天数为 $mx$，接下来，我们定义二分查找的左边界 $l = 1$，右边界 $r = mx + 1$。
+
+然后，我们进行二分查找，对于每一个中间值 $\textit{mid} = \frac{l + r}{2}$，我们判断是否可以制作 $m$ 束花。如果可以，我们将右边界 $r$ 更新为 $\textit{mid}$，否则，我们将左边界 $l$ 更新为 $\textit{mid} + 1$。
+
+最终，当 $l = r$ 时，结束二分查找。此时如果 $l > mx$，说明无法制作 $m$ 束花，返回 $-1$，否则返回 $l$。
+
+因此，问题转换为判断一个天数 $\textit{days}$ 是否可以制作 $m$ 束花。
+
+我们可以使用一个函数 $\text{check}(\textit{days})$ 来判断是否可以制作 $m$ 束花。具体地，我们从左到右遍历花园中的每一朵花，如果当前花开的天数小于等于 $\textit{days}$，我们将当前花加入到当前花束中，否则，我们将当前花束清空。当当前花束中的花的数量等于 $k$ 时，我们将当前花束的数量加一，并清空当前花束。最后，我们判断当前花束的数量是否大于等于 $m$，如果是，说明可以制作 $m$ 束花，否则，说明无法制作 $m$ 束花。
+
+时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别为花园中的花的数量和最大的开花天数，本题中 $M \leq 10^9$。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -99,59 +113,50 @@ tags:
 ```python
 class Solution:
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
-        if m * k > len(bloomDay):
-            return -1
-
-        def check(day: int) -> bool:
+        def check(days: int) -> int:
             cnt = cur = 0
-            for bd in bloomDay:
-                cur = cur + 1 if bd <= day else 0
+            for x in bloomDay:
+                cur = cur + 1 if x <= days else 0
                 if cur == k:
                     cnt += 1
                     cur = 0
             return cnt >= m
 
-        left, right = min(bloomDay), max(bloomDay)
-        while left < right:
-            mid = (left + right) >> 1
-            if check(mid):
-                right = mid
-            else:
-                left = mid + 1
-        return left
+        mx = max(bloomDay)
+        l = bisect_left(range(mx + 2), True, key=check)
+        return -1 if l > mx else l
 ```
 
 #### Java
 
 ```java
 class Solution {
+    private int[] bloomDay;
+    private int m, k;
+
     public int minDays(int[] bloomDay, int m, int k) {
-        if (m * k > bloomDay.length) {
-            return -1;
-        }
-        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
-        for (int bd : bloomDay) {
-            min = Math.min(min, bd);
-            max = Math.max(max, bd);
-        }
-        int left = min, right = max;
-        while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (check(bloomDay, m, k, mid)) {
-                right = mid;
+        this.bloomDay = bloomDay;
+        this.m = m;
+        this.k = k;
+        final int mx = (int) 1e9;
+        int l = 1, r = mx + 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
+        return l > mx ? -1 : l;
     }
 
-    private boolean check(int[] bloomDay, int m, int k, int day) {
+    private boolean check(int days) {
         int cnt = 0, cur = 0;
-        for (int bd : bloomDay) {
-            cur = bd <= day ? cur + 1 : 0;
+        for (int x : bloomDay) {
+            cur = x <= days ? cur + 1 : 0;
             if (cur == k) {
-                cnt++;
+                ++cnt;
                 cur = 0;
             }
         }
@@ -166,36 +171,28 @@ class Solution {
 class Solution {
 public:
     int minDays(vector<int>& bloomDay, int m, int k) {
-        if (m * k > bloomDay.size()) {
-            return -1;
-        }
-        int mi = INT_MIN, mx = INT_MAX;
-        for (int& bd : bloomDay) {
-            mi = min(mi, bd);
-            mx = max(mx, bd);
-        }
-        int left = mi, right = mx;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (check(bloomDay, m, k, mid)) {
-                right = mid;
+        int mx = ranges::max(bloomDay);
+        int l = 1, r = mx + 1;
+        auto check = [&](int days) {
+            int cnt = 0, cur = 0;
+            for (int x : bloomDay) {
+                cur = x <= days ? cur + 1 : 0;
+                if (cur == k) {
+                    cnt++;
+                    cur = 0;
+                }
+            }
+            return cnt >= m;
+        };
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (check(mid)) {
+                r = mid;
             } else {
-                left = mid + 1;
+                l = mid + 1;
             }
         }
-        return left;
-    }
-
-    bool check(vector<int>& bloomDay, int m, int k, int day) {
-        int cnt = 0, cur = 0;
-        for (int& bd : bloomDay) {
-            cur = bd <= day ? cur + 1 : 0;
-            if (cur == k) {
-                ++cnt;
-                cur = 0;
-            }
-        }
-        return cnt >= m;
+        return l > mx ? -1 : l;
     }
 };
 ```
@@ -204,40 +201,55 @@ public:
 
 ```go
 func minDays(bloomDay []int, m int, k int) int {
-	if m*k > len(bloomDay) {
-		return -1
-	}
-	mi, mx := 0, 1000000000
-	for _, bd := range bloomDay {
-		mi = min(mi, bd)
-		mx = max(mx, bd)
-	}
-	left, right := mi, mx
-	for left < right {
-		mid := (left + right) >> 1
-		if check(bloomDay, m, k, mid) {
-			right = mid
-		} else {
-			left = mid + 1
+	mx := slices.Max(bloomDay)
+	if l := sort.Search(mx+2, func(days int) bool {
+		cnt, cur := 0, 0
+		for _, x := range bloomDay {
+			if x <= days {
+				cur++
+				if cur == k {
+					cnt++
+					cur = 0
+				}
+			} else {
+				cur = 0
+			}
 		}
+		return cnt >= m
+	}); l <= mx {
+		return l
 	}
-	return left
-}
+	return -1
 
-func check(bloomDay []int, m, k, day int) bool {
-	cnt, cur := 0, 0
-	for _, bd := range bloomDay {
-		if bd <= day {
-			cur++
-		} else {
-			cur = 0
-		}
-		if cur == k {
-			cnt++
-			cur = 0
-		}
-	}
-	return cnt >= m
+}
+```
+
+#### TypeScript
+
+```ts
+function minDays(bloomDay: number[], m: number, k: number): number {
+    const mx = Math.max(...bloomDay);
+    let [l, r] = [1, mx + 1];
+    const check = (days: number): boolean => {
+        let [cnt, cur] = [0, 0];
+        for (const x of bloomDay) {
+            cur = x <= days ? cur + 1 : 0;
+            if (cur === k) {
+                cnt++;
+                cur = 0;
+            }
+        }
+        return cnt >= m;
+    };
+    while (l < r) {
+        const mid = (l + r) >> 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l > mx ? -1 : l;
 }
 ```
 

@@ -64,7 +64,15 @@ The answer string came from the fourth looped one, where you could cut from the 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We first traverse the string array `strs`. For each string $s$, if the reversed string $t$ is greater than $s$, we replace $s$ with $t$.
+
+Then we enumerate each position $i$ in the string array `strs` as a split point, dividing the string array `strs` into two parts: $strs[i + 1:]$ and $strs[:i]$. We then concatenate these two parts to get a new string $t$. Next, we enumerate each position $j$ in the current string $strs[i]$. The suffix part is $a = strs[i][j:]$, and the prefix part is $b = strs[i][:j]$. We can concatenate $a$, $t$, and $b$ to get a new string $cur$. If $cur$ is greater than the current answer, we update the answer. This considers the case where $strs[i]$ is reversed. We also need to consider the case where $strs[i]$ is not reversed, i.e., concatenate $a$, $t$, and $b$ in reverse order to get a new string $cur$. If $cur$ is greater than the current answer, we update the answer.
+
+Finally, we return the answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string array `strs`.
 
 <!-- tabs:start -->
 

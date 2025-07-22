@@ -69,9 +69,9 @@ tags:
 
 ### 方法一：哈希表或数组
 
-我们观察到，每一次操作，都可以把数组 `nums` 中相同且非零的元素减少到 $0$，因此，我们只需要统计数组 `nums` 中有多少个不同的非零元素，即为最少操作数。统计不同的非零元素，可以使用哈希表或数组来实现。
+我们观察到，每一次操作，都可以把数组 $\textit{nums}$ 中相同且非零的元素减少到 $0$，因此，我们只需要统计数组 $\textit{nums}$ 中有多少个不同的非零元素，即为最少操作数。统计不同的非零元素，可以使用哈希表或数组来实现。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -141,9 +141,9 @@ func minimumOperations(nums []int) (ans int) {
 
 ```ts
 function minimumOperations(nums: number[]): number {
-    const set = new Set(nums);
-    set.delete(0);
-    return set.size;
+    const s = new Set(nums);
+    s.delete(0);
+    return s.size;
 }
 ```
 
@@ -153,9 +153,9 @@ function minimumOperations(nums: number[]): number {
 use std::collections::HashSet;
 impl Solution {
     pub fn minimum_operations(nums: Vec<i32>) -> i32 {
-        let mut set = nums.iter().collect::<HashSet<&i32>>();
-        set.remove(&0);
-        set.len() as i32
+        let mut s = nums.iter().collect::<HashSet<&i32>>();
+        s.remove(&0);
+        s.len() as i32
     }
 }
 ```

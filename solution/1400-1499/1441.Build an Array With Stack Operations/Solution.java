@@ -1,13 +1,14 @@
 class Solution {
     public List<String> buildArray(int[] target, int n) {
-        int cur = 0;
         List<String> ans = new ArrayList<>();
-        for (int v : target) {
-            while (++cur < v) {
-                ans.add("Push");
-                ans.add("Pop");
+        int cur = 1;
+        for (int x : target) {
+            while (cur < x) {
+                ans.addAll(List.of("Push", "Pop"));
+                ++cur;
             }
             ans.add("Push");
+            ++cur;
         }
         return ans;
     }

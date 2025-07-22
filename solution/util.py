@@ -54,9 +54,7 @@ contest_readme_en = load_template("contest_readme_template_en")
 category_readme_cn = load_template("category_readme_template")
 category_readme_en = load_template("category_readme_template_en")
 
-category_dict = {
-    "Database": "数据库",
-}
+category_dict = {"Database": "数据库"}
 
 
 def load_cookies() -> Tuple[str, str]:
@@ -163,6 +161,7 @@ def generate_readme(result):
 def generate_question_readme(result):
     for item in result:
         if not item["content_cn"] and not item["content_en"]:
+            print(f"Skip {item['frontend_question_id']} {item['title_cn']}")
             continue
         path = (
             f'./{item["sub_folder"]}/{item["frontend_question_id"]}.{item["title_en"]}'
@@ -177,11 +176,11 @@ def generate_question_readme(result):
         readme_template_cn, readme_template_en = select_templates(category)
         paid_only = " 🔒" if item["paid_only"] else ""
         rating_item = rating_dict.get(str(item["frontend_question_id"]))
-        rating = rating_item.get('Rating', 0) if rating_item else ''
+        rating = rating_item.get("Rating", 0) if rating_item else ""
         source = (
-            rating_item.get('ContestID_zh') + " " + rating_item.get('ProblemIndex')
+            rating_item.get("ContestID_zh") + " " + rating_item.get("ProblemIndex")
             if rating_item
-            else ''
+            else ""
         )
         # 生成 metadata
         """
@@ -195,20 +194,22 @@ def generate_question_readme(result):
         edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README.md
         ---
         """
+        cat = category_dict.get(category, category)
+        cat = cat.title() if cat and cat[0].islower() else cat
         metadata = {
-            "tags": item["tags_cn"],
+            "tags": item["tags_cn"] or [cat],
             "difficulty": item["difficulty_cn"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_cn"]}',
             "source": source,
         }
-        if not item['tags_cn']:
-            metadata.pop('tags')
+        if not item["tags_cn"] or metadata["tags"] == ["Algorithms"]:
+            metadata.pop("tags")
         if not rating:
-            metadata.pop('rating')
+            metadata.pop("rating")
         if not source:
-            metadata.pop('source')
+            metadata.pop("source")
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )
@@ -228,24 +229,26 @@ def generate_question_readme(result):
             )
 
         source = (
-            rating_item.get('ContestID_en') + " " + rating_item.get('ProblemIndex')
+            rating_item.get("ContestID_en") + " " + rating_item.get("ProblemIndex")
             if rating_item
-            else ''
+            else ""
         )
+
+        cat = category.title() if category and category[0].islower() else category
         metadata = {
-            "tags": item["tags_en"],
+            "tags": item["tags_en"] or [cat],
             "difficulty": item["difficulty_en"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_en"]}',
             "source": source,
         }
-        if not item['tags_cn']:
-            metadata.pop('tags')
+        if not item["tags_cn"] or metadata["tags"] == ["Algorithms"]:
+            metadata.pop("tags")
         if not rating:
-            metadata.pop('rating')
+            metadata.pop("rating")
         if not source:
-            metadata.pop('source')
+            metadata.pop("source")
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )
@@ -354,36 +357,46 @@ def refresh(result):
         path_cn = unquote(str(question["relative_path_cn"]).replace("/solution", "."))
         path_en = unquote(str(question["relative_path_en"]).replace("/solution", "."))
 
-        with open(path_cn, "r", encoding="utf-8") as f1:
-            cn_content = f1.read()
-        with open(path_en, "r", encoding="utf-8") as f2:
-            en_content = f2.read()
+        try:
+            with open(path_cn, "r", encoding="utf-8") as f1:
+                cn_content = f1.read()
+        except Exception as e:
+            print(f"Failed to open {path_cn}: {e}")
+            continue
+        try:
+            with open(path_en, "r", encoding="utf-8") as f2:
+                en_content = f2.read()
+        except Exception as e:
+            print(f"Failed to open {path_en}: {e}")
+            continue
 
         category = question["category"]
 
         readme_template_cn, readme_template_en = select_templates(category)
         rating_item = rating_dict.get(str(front_question_id))
-        rating = int(rating_item.get('Rating', 0)) if rating_item else ''
+        rating = int(rating_item.get("Rating", 0)) if rating_item else ""
         source = (
-            rating_item.get('ContestID_zh') + " " + rating_item.get('ProblemIndex')
+            rating_item.get("ContestID_zh") + " " + rating_item.get("ProblemIndex")
             if rating_item
-            else ''
+            else ""
         )
-
+        cat = category_dict.get(category, category)
+        cat = cat.title() if cat and cat[0].islower() else cat
         metadata = {
-            "tags": question["tags_cn"],
+            "tags": question["tags_cn"] or [cat],
             "difficulty": question["difficulty_cn"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_cn"]}',
             "source": source,
         }
-        if not question['tags_cn']:
-            metadata.pop('tags')
+
+        if (not question["tags_cn"] and not cat) or metadata["tags"] == ["Algorithms"]:
+            metadata.pop("tags")
         if not rating:
-            metadata.pop('rating')
+            metadata.pop("rating")
         if not source:
-            metadata.pop('source')
+            metadata.pop("source")
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )
@@ -402,25 +415,28 @@ def refresh(result):
         )
 
         source = (
-            rating_item.get('ContestID_en') + " " + rating_item.get('ProblemIndex')
+            rating_item.get("ContestID_en") + " " + rating_item.get("ProblemIndex")
             if rating_item
-            else ''
+            else ""
         )
 
+        cat = category.title() if category and category[0].islower() else category
         metadata = {
-            "tags": question["tags_en"],
+            "tags": question["tags_en"] or [cat],
             "difficulty": question["difficulty_en"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_en"]}',
             "source": source,
         }
-        if not question['tags_en']:
-            metadata.pop('tags')
+        if (not question["tags_en"] and not [category]) or metadata["tags"] == [
+            "Algorithms"
+        ]:
+            metadata.pop("tags")
         if not rating:
-            metadata.pop('rating')
+            metadata.pop("rating")
         if not source:
-            metadata.pop('source')
+            metadata.pop("source")
         yaml_metadata = yaml.dump(
             metadata, default_flow_style=False, allow_unicode=True
         )

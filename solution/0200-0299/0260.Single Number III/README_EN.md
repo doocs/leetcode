@@ -236,4 +236,48 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Hash Table
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function singleNumber(nums: number[]): number[] {
+    const set = new Set<number>();
+
+    for (const x of nums) {
+        if (set.has(x)) set.delete(x);
+        else set.add(x);
+    }
+
+    return [...set];
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+function singleNumber(nums) {
+    const set = new Set();
+
+    for (const x of nums) {
+        if (set.has(x)) set.delete(x);
+        else set.add(x);
+    }
+
+    return [...set];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

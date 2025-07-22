@@ -64,7 +64,13 @@ Since the third round will generate the final winner, you need to output the ans
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can use an array $s$ of length $n$ to store the ID of each team, and then simulate the process of the matches.
+
+In each round of matches, we pair up the first $n$ elements in array $s$ two by two, and then store the ID of the winners in the first $n/2$ positions of array $s$. After that, we halve $n$ and continue to the next round of matches, until $n$ is reduced to $1$. At this point, the first element in array $s$ is the final match-up scheme.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of teams.
 
 <!-- tabs:start -->
 
@@ -73,12 +79,12 @@ Since the third round will generate the final winner, you need to output the ans
 ```python
 class Solution:
     def findContestMatch(self, n: int) -> str:
-        team = [str(i + 1) for i in range(n)]
+        s = [str(i + 1) for i in range(n)]
         while n > 1:
             for i in range(n >> 1):
-                team[i] = f'({team[i]},{team[n - 1 - i]})'
+                s[i] = f"({s[i]},{s[n - i - 1]})"
             n >>= 1
-        return team[0]
+        return s[0]
 ```
 
 #### Java
@@ -86,16 +92,16 @@ class Solution:
 ```java
 class Solution {
     public String findContestMatch(int n) {
-        String[] team = new String[n];
+        String[] s = new String[n];
         for (int i = 0; i < n; ++i) {
-            team[i] = "" + (i + 1);
+            s[i] = String.valueOf(i + 1);
         }
-        for (; n > 1; n /= 2) {
-            for (int i = 0; i < n / 2; ++i) {
-                team[i] = "(" + team[i] + "," + team[n - 1 - i] + ")";
+        for (; n > 1; n >>= 1) {
+            for (int i = 0; i < n >> 1; ++i) {
+                s[i] = String.format("(%s,%s)", s[i], s[n - i - 1]);
             }
         }
-        return team[0];
+        return s[0];
     }
 }
 ```
@@ -106,14 +112,16 @@ class Solution {
 class Solution {
 public:
     string findContestMatch(int n) {
-        vector<string> team(n);
-        for (int i = 0; i < n; ++i) team[i] = to_string(i + 1);
+        vector<string> s(n);
+        for (int i = 0; i < n; ++i) {
+            s[i] = to_string(i + 1);
+        }
         for (; n > 1; n >>= 1) {
             for (int i = 0; i < n >> 1; ++i) {
-                team[i] = "(" + team[i] + "," + team[n - 1 - i] + ")";
+                s[i] = "(" + s[i] + "," + s[n - i - 1] + ")";
             }
         }
-        return team[0];
+        return s[0];
     }
 };
 ```
@@ -122,17 +130,30 @@ public:
 
 ```go
 func findContestMatch(n int) string {
-	team := make([]string, n)
-	for i := range team {
-		team[i] = strconv.Itoa(i + 1)
+	s := make([]string, n)
+	for i := 0; i < n; i++ {
+		s[i] = strconv.Itoa(i + 1)
 	}
-	for n > 1 {
+	for ; n > 1; n >>= 1 {
 		for i := 0; i < n>>1; i++ {
-			team[i] = "(" + team[i] + "," + team[n-1-i] + ")"
+			s[i] = fmt.Sprintf("(%s,%s)", s[i], s[n-i-1])
 		}
-		n >>= 1
 	}
-	return team[0]
+	return s[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function findContestMatch(n: number): string {
+    const s: string[] = Array.from({ length: n }, (_, i) => (i + 1).toString());
+    for (; n > 1; n >>= 1) {
+        for (let i = 0; i < n >> 1; ++i) {
+            s[i] = `(${s[i]},${s[n - i - 1]})`;
+        }
+    }
+    return s[0];
 }
 ```
 

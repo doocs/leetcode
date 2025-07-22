@@ -29,7 +29,7 @@ tags:
 
 <p>If two robots collide, the robot with <strong>lower health</strong> is <strong>removed</strong> from the line, and the health of the other robot <strong>decreases</strong> <strong>by one</strong>. The surviving robot continues in the <strong>same</strong> direction it was going. If both robots have the <strong>same</strong> health, they are both<strong> </strong>removed from the line.</p>
 
-<p>Your task is to determine the <strong>health</strong> of the robots that survive the collisions, in the same <strong>order </strong>that the robots were given,<strong> </strong>i.e. final heath of robot 1 (if survived), final health of robot 2 (if survived), and so on. If there are no survivors, return an empty array.</p>
+<p>Your task is to determine the <strong>health</strong> of the robots that survive the collisions, in the same <strong>order </strong>that the robots were given,<strong> </strong>i.e. final health of robot 1 (if survived), final health of robot 2 (if survived), and so on. If there are no survivors, return an empty array.</p>
 
 <p>Return <em>an array containing the health of the remaining robots (in the order they were given in the input), after no further collisions can occur.</em></p>
 
@@ -270,6 +270,94 @@ func survivedRobotsHealths(positions []int, healths []int, directions string) []
 
 	return result
 }
+```
+
+#### TypeScript
+
+```ts
+function survivedRobotsHealths(
+    positions: number[],
+    healths: number[],
+    directions: string,
+): number[] {
+    const idx = Array.from({ length: positions.length }, (_, i) => i);
+    const stk: number[] = [];
+
+    idx.sort((a, b) => positions[a] - positions[b]);
+
+    for (let iRight of idx) {
+        while (stk.length) {
+            const iLeft = stk.at(-1)!;
+            const havePair = directions[iLeft] === 'R' && directions[iRight] === 'L';
+            if (!havePair) break;
+
+            if (healths[iLeft] === healths[iRight]) {
+                healths[iLeft] = healths[iRight] = iRight = -1;
+                stk.pop();
+                break;
+            }
+
+            if (healths[iLeft] < healths[iRight]) {
+                healths[iLeft] = -1;
+                healths[iRight]--;
+                stk.pop();
+            } else {
+                healths[iRight] = iRight = -1;
+                healths[iLeft]--;
+                break;
+            }
+        }
+
+        if (iRight !== -1) stk.push(iRight);
+    }
+
+    return healths.filter(i => ~i);
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} positions
+ * @param {number[]} healths
+ * @param {string} directions
+ * @return {number[]}
+ */
+var survivedRobotsHealths = function (positions, healths, directions) {
+    const idx = Array.from({ length: positions.length }, (_, i) => i);
+    const stk = [];
+
+    idx.sort((a, b) => positions[a] - positions[b]);
+
+    for (let iRight of idx) {
+        while (stk.length) {
+            const iLeft = stk.at(-1);
+            const havePair = directions[iLeft] === 'R' && directions[iRight] === 'L';
+            if (!havePair) break;
+
+            if (healths[iLeft] === healths[iRight]) {
+                healths[iLeft] = healths[iRight] = iRight = -1;
+                stk.pop();
+                break;
+            }
+
+            if (healths[iLeft] < healths[iRight]) {
+                healths[iLeft] = -1;
+                healths[iRight]--;
+                stk.pop();
+            } else {
+                healths[iRight] = iRight = -1;
+                healths[iLeft]--;
+                break;
+            }
+        }
+
+        if (iRight !== -1) stk.push(iRight);
+    }
+
+    return healths.filter(i => ~i);
+};
 ```
 
 <!-- tabs:end -->

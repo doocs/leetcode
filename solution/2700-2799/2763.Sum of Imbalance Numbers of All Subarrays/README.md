@@ -94,9 +94,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def sumImbalanceNumbers(self, nums: List[int]) -> int:
         n = len(nums)

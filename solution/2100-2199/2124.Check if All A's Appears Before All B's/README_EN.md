@@ -64,7 +64,13 @@ There are no &#39;a&#39;s, hence, every &#39;a&#39; appears before every &#39;b&
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+According to the problem statement, the string $s$ consists only of characters `a` and `b`.
+
+To ensure that all `a`s appear before all `b`s, the condition that must be met is that `b` should not appear before `a`. In other words, the substring "ba" should not be present in the string $s$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -92,7 +98,7 @@ class Solution {
 class Solution {
 public:
     bool checkString(string s) {
-        return s.find("ba") == string::npos;
+        return !s.contains("ba");
     }
 };
 ```
@@ -102,6 +108,24 @@ public:
 ```go
 func checkString(s string) bool {
 	return !strings.Contains(s, "ba")
+}
+```
+
+#### TypeScript
+
+```ts
+function checkString(s: string): boolean {
+    return !s.includes('ba');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn check_string(s: String) -> bool {
+        !s.contains("ba")
+    }
 }
 ```
 

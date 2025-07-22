@@ -74,6 +74,10 @@ tags:
 
 ### 方法一：哈希表 + DFS
 
+我们用一个哈希表 $\textit{s}$ 记录数组 $\textit{nodes}$ 中所有节点的值，然后使用深度优先搜索，当遍历到的节点为空或者节点的值在哈希表 $\textit{s}$ 中时，返回当前节点。否则，递归遍历左右子树，如果左右子树的返回值都不为空，说明当前节点就是最近公共祖先，否则返回不为空的那个子树的返回值。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是二叉树的节点数和数组 $\textit{nodes}$ 的长度。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -160,13 +164,21 @@ class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, vector<TreeNode*>& nodes) {
         unordered_set<int> s;
-        for (auto node : nodes) s.insert(node->val);
-        function<TreeNode*(TreeNode*)> dfs = [&](TreeNode* root) -> TreeNode* {
-            if (!root || s.count(root->val)) return root;
+        for (auto node : nodes) {
+            s.insert(node->val);
+        }
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> TreeNode* {
+            if (!root || s.contains(root->val)) {
+                return root;
+            }
             auto left = dfs(root->left);
             auto right = dfs(root->right);
-            if (!left) return right;
-            if (!right) return left;
+            if (!left) {
+                return right;
+            }
+            if (!right) {
+                return left;
+            }
             return root;
         };
         return dfs(root);

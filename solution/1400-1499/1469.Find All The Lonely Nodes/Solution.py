@@ -6,8 +6,8 @@
 #         self.right = right
 class Solution:
     def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
-        def dfs(root):
-            if root is None or (root.left is None and root.right is None):
+        def dfs(root: Optional[TreeNode]):
+            if root is None or root.left == root.right:
                 return
             if root.left is None:
                 ans.append(root.right.val)

@@ -1,16 +1,10 @@
 function makeEqual(words: string[]): boolean {
-    let n = words.length;
-    let letters = new Array(26).fill(0);
-    for (let word of words) {
-        for (let i = 0; i < word.length; ++i) {
-            ++letters[word.charCodeAt(i) - 97];
+    const cnt: Record<string, number> = {};
+    for (const w of words) {
+        for (const c of w) {
+            cnt[c] = (cnt[c] || 0) + 1;
         }
     }
-
-    for (let i = 0; i < letters.length; ++i) {
-        if (letters[i] % n != 0) {
-            return false;
-        }
-    }
-    return true;
+    const n = words.length;
+    return Object.values(cnt).every(v => v % n === 0);
 }

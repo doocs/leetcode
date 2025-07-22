@@ -67,11 +67,11 @@ tags:
 
 ### 方法一：排序 + 前缀和 + 二分查找
 
-根据题目描述，对于每个 $queries[i]$，我们需要找到一个子序列，使得该子序列的元素和不超过 $queries[i]$，且该子序列的长度最大化。显然，我们应该选择尽可能小的元素，这样才能使得子序列的长度最大化。
+根据题目描述，对于每个 $\textit{queries[i]}$，我们需要找到一个子序列，使得该子序列的元素和不超过 $\textit{queries[i]}$，且该子序列的长度最大化。显然，我们应该选择尽可能小的元素，这样才能使得子序列的长度最大化。
 
-因此，我们可以先将数组 $nums$ 进行升序排序，然后对于每个 $queries[i]$，我们可以使用二分查找，找到最小的下标 $j$，使得 $nums[0] + nums[1] + \cdots + nums[j] \gt queries[i]$。此时 $nums[0] + nums[1] + \cdots + nums[j - 1]$ 就是满足条件的子序列的元素和，且该子序列的长度为 $j$。因此，我们可以将 $j$ 加入答案数组中。
+因此，我们可以先将数组 $\textit{nums}$ 进行升序排序，然后对于每个 $\textit{queries[i]}$，我们可以使用二分查找，找到最小的下标 $j$，使得 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries[i]}$。此时 $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ 就是满足条件的子序列的元素和，且该子序列的长度为 $j$。因此，我们可以将 $j$ 加入答案数组中。
 
-时间复杂度 $O((n + m) \times \log n)$，空间复杂度 $O(n)$ 或 $O(\log n)$。其中 $n$ 和 $m$ 分别是数组 $nums$ 和 $queries$ 的长度。
+时间复杂度 $O((n + m) \times \log n)$，空间复杂度 $O(n)$ 或 $O(\log n)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums}$ 和 $\textit{queries}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -97,22 +97,10 @@ class Solution {
         int m = queries.length;
         int[] ans = new int[m];
         for (int i = 0; i < m; ++i) {
-            ans[i] = search(nums, queries[i]);
+            int j = Arrays.binarySearch(nums, queries[i] + 1);
+            ans[i] = j < 0 ? -j - 1 : j;
         }
         return ans;
-    }
-
-    private int search(int[] nums, int x) {
-        int l = 0, r = nums.length;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (nums[mid] > x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
     }
 }
 ```
@@ -123,13 +111,13 @@ class Solution {
 class Solution {
 public:
     vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         for (int i = 1; i < nums.size(); i++) {
             nums[i] += nums[i - 1];
         }
         vector<int> ans;
-        for (auto& q : queries) {
-            ans.push_back(upper_bound(nums.begin(), nums.end(), q) - nums.begin());
+        for (const auto& q : queries) {
+            ans.emplace_back(upper_bound(nums.begin(), nums.end(), q) - nums.begin());
         }
         return ans;
     }
@@ -159,24 +147,7 @@ function answerQueries(nums: number[], queries: number[]): number[] {
     for (let i = 1; i < nums.length; i++) {
         nums[i] += nums[i - 1];
     }
-    const ans: number[] = [];
-    const search = (nums: number[], x: number) => {
-        let l = 0;
-        let r = nums.length;
-        while (l < r) {
-            const mid = (l + r) >> 1;
-            if (nums[mid] > x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        return l;
-    };
-    for (const q of queries) {
-        ans.push(search(nums, q));
-    }
-    return ans;
+    return queries.map(q => _.sortedIndex(nums, q + 1));
 }
 ```
 
@@ -185,23 +156,37 @@ function answerQueries(nums: number[], queries: number[]): number[] {
 ```rust
 impl Solution {
     pub fn answer_queries(mut nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
         nums.sort();
-        queries
-            .into_iter()
-            .map(|query| {
-                let mut sum = 0;
-                for i in 0..n {
-                    sum += nums[i];
-                    if sum > query {
-                        return i as i32;
-                    }
-                }
-                n as i32
-            })
-            .collect()
+
+        for i in 1..nums.len() {
+            nums[i] += nums[i - 1];
+        }
+
+        queries.iter().map(|&q| {
+            match nums.binary_search(&q) {
+                Ok(idx) => idx as i32 + 1,
+                Err(idx) => idx as i32,
+            }
+        }).collect()
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number[]} queries
+ * @return {number[]}
+ */
+var answerQueries = function (nums, queries) {
+    nums.sort((a, b) => a - b);
+    for (let i = 1; i < nums.length; i++) {
+        nums[i] += nums[i - 1];
+    }
+    return queries.map(q => _.sortedIndex(nums, q + 1));
+};
 ```
 
 #### C#
@@ -209,24 +194,17 @@ impl Solution {
 ```cs
 public class Solution {
     public int[] AnswerQueries(int[] nums, int[] queries) {
-        int[] result = new int[queries.Length];
         Array.Sort(nums);
-        for (int i = 0; i < queries.Length; i++) {
-            result[i] = getSubsequent(nums, queries[i]);
+        for (int i = 1; i < nums.Length; ++i) {
+            nums[i] += nums[i - 1];
         }
-        return result;
-
-    }
-
-    public int getSubsequent(int[] nums,int query) {
-        int sum = 0;
-        for (int i = 0; i < nums.Length; i++) {
-            sum += nums[i];
-            if (sum > query) {
-                return i;
-            }
+        int m = queries.Length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int j = Array.BinarySearch(nums, queries[i] + 1);
+            ans[i] = j < 0 ? -j - 1 : j;
         }
-        return nums.Length;
+        return ans;
     }
 }
 ```

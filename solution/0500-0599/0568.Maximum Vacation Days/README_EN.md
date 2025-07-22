@@ -211,6 +211,59 @@ func maxVacationDays(flights [][]int, days [][]int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function maxVacationDays(flights: number[][], days: number[][]): number {
+    const n = flights.length;
+    const K = days[0].length;
+    const inf = Number.NEGATIVE_INFINITY;
+    const f: number[][] = Array.from({ length: K + 1 }, () => Array(n).fill(inf));
+    f[0][0] = 0;
+    for (let k = 1; k <= K; k++) {
+        for (let j = 0; j < n; j++) {
+            f[k][j] = f[k - 1][j];
+            for (let i = 0; i < n; i++) {
+                if (flights[i][j]) {
+                    f[k][j] = Math.max(f[k][j], f[k - 1][i]);
+                }
+            }
+            f[k][j] += days[j][k - 1];
+        }
+    }
+    return Math.max(...f[K]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_vacation_days(flights: Vec<Vec<i32>>, days: Vec<Vec<i32>>) -> i32 {
+        let n = flights.len();
+        let k = days[0].len();
+        let inf = i32::MIN;
+
+        let mut f = vec![vec![inf; n]; k + 1];
+        f[0][0] = 0;
+
+        for step in 1..=k {
+            for j in 0..n {
+                f[step][j] = f[step - 1][j];
+                for i in 0..n {
+                    if flights[i][j] == 1 {
+                        f[step][j] = f[step][j].max(f[step - 1][i]);
+                    }
+                }
+                f[step][j] += days[j][step - 1];
+            }
+        }
+
+        *f[k].iter().max().unwrap()
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

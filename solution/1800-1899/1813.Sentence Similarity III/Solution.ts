@@ -1,16 +1,14 @@
 function areSentencesSimilar(sentence1: string, sentence2: string): boolean {
-    const words1 = sentence1.split(' ');
-    const words2 = sentence2.split(' ');
-    if (words1.length < words2.length) {
-        return areSentencesSimilar(sentence2, sentence1);
-    }
+    const [words1, words2] = [sentence1.split(' '), sentence2.split(' ')];
     const [m, n] = [words1.length, words2.length];
-    let [i, j] = [0, 0];
-    while (i < n && words1[i] === words2[i]) {
-        ++i;
+
+    if (m > n) return areSentencesSimilar(sentence2, sentence1);
+
+    let [l, r] = [0, 0];
+    for (let i = 0; i < n; i++) {
+        if (l === i && words1[i] === words2[i]) l++;
+        if (r === i && words2[n - i - 1] === words1[m - r - 1]) r++;
     }
-    while (j < n && words1[m - 1 - j] === words2[n - 1 - j]) {
-        ++j;
-    }
-    return i + j >= n;
+
+    return l + r >= m;
 }

@@ -7,8 +7,7 @@ class Encrypter {
             mp.put(keys[i], values[i]);
         }
         for (String w : dictionary) {
-            w = encrypt(w);
-            cnt.put(w, cnt.getOrDefault(w, 0) + 1);
+            cnt.merge(encrypt(w), 1, Integer::sum);
         }
     }
 

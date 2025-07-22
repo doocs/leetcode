@@ -4,6 +4,7 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0014.Longest%20Common%20Prefix/README_EN.md
 tags:
     - Trie
+    - Array
     - String
 ---
 
@@ -43,7 +44,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= strs.length &lt;= 200</code></li>
 	<li><code>0 &lt;= strs[i].length &lt;= 200</code></li>
-	<li><code>strs[i]</code> consists of only lowercase English letters.</li>
+	<li><code>strs[i]</code> consists of only lowercase English letters if it is non-empty.</li>
 </ul>
 
 <!-- description:end -->
@@ -248,6 +249,22 @@ def longest_common_prefix(strs)
 
   idx > 0 ? strs[0][0..idx] : ''
 end
+```
+
+#### C
+
+```c
+char* longestCommonPrefix(char** strs, int strsSize) {
+    for (int i = 0; strs[0][i]; i++) {
+        for (int j = 1; j < strsSize; j++) {
+            if (strs[j][i] != strs[0][i]) {
+                strs[0][i] = '\0';
+                return strs[0];
+            }
+        }
+    }
+    return strs[0];
+}
 ```
 
 <!-- tabs:end -->

@@ -11,12 +11,13 @@ func isBipartite(graph [][]int) bool {
 		}
 		return p[x]
 	}
-	for u, g := range graph {
-		for _, v := range g {
-			if find(u) == find(v) {
+	for a, bs := range graph {
+		for _, b := range bs {
+			pa, pb := find(a), find(b)
+			if pa == pb {
 				return false
 			}
-			p[find(v)] = find(g[0])
+			p[pb] = find(bs[0])
 		}
 	}
 	return true

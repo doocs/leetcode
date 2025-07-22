@@ -80,7 +80,7 @@ tags:
 
 答案为所有 $f[x][y]$ 中的最大值。
 
-时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\text{nums}$ 的长度，而 $k$ 为给定的正整数。
+时间复杂度 $O(n \times k)$，空间复杂度 $O(k^2)$。其中 $n$ 为数组 $\textit{nums}$ 的长度，而 $k$ 为给定的正整数。
 
 #### Python3
 
@@ -175,6 +175,47 @@ function maximumLength(nums: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_length(nums: Vec<i32>, k: i32) -> i32 {
+        let k = k as usize;
+        let mut f = vec![vec![0; k]; k];
+        let mut ans = 0;
+        for x in nums {
+            let x = (x % k as i32) as usize;
+            for j in 0..k {
+                let y = (j + k - x) % k;
+                f[x][y] = f[y][x] + 1;
+                ans = ans.max(f[x][y]);
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaximumLength(int[] nums, int k) {
+        int[,] f = new int[k, k];
+        int ans = 0;
+        foreach (int num in nums) {
+            int x = num % k;
+            for (int j = 0; j < k; ++j) {
+                int y = (j - x + k) % k;
+                f[x, y] = f[y, x] + 1;
+                ans = Math.Max(ans, f[x, y]);
+            }
+        }
+        return ans;
+    }
 }
 ```
 

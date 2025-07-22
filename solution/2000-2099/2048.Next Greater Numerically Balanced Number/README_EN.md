@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2048.Ne
 rating: 1734
 source: Weekly Contest 264 Q2
 tags:
+    - Hash Table
     - Math
     - Backtracking
+    - Counting
     - Enumeration
 ---
 

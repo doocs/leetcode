@@ -22,14 +22,14 @@ class Solution {
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            ans.add(q.peekLast().val);
-            for (int n = q.size(); n > 0; --n) {
+            ans.add(q.peekFirst().val);
+            for (int k = q.size(); k > 0; --k) {
                 TreeNode node = q.poll();
-                if (node.left != null) {
-                    q.offer(node.left);
-                }
                 if (node.right != null) {
                     q.offer(node.right);
+                }
+                if (node.left != null) {
+                    q.offer(node.left);
                 }
             }
         }

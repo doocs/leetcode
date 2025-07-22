@@ -1,4 +1,5 @@
 class Solution {
+
     /**
      * @param String $s
      * @param String[] $words
@@ -7,47 +8,53 @@ class Solution {
     function findSubstring($s, $words) {
         $cnt = [];
         foreach ($words as $w) {
-            if (!isset($cnt[$w])) {
-                $cnt[$w] = 1;
-            } else {
+            if (isset($cnt[$w])) {
                 $cnt[$w]++;
+            } else {
+                $cnt[$w] = 1;
             }
         }
+
+        $ans = [];
         $m = strlen($s);
         $n = count($words);
         $k = strlen($words[0]);
-        $ans = [];
-        for ($i = 0; $i < $k; ++$i) {
-            $cnt1 = [];
+
+        for ($i = 0; $i < $k; $i++) {
             $l = $i;
             $r = $i;
-            $t = 0;
+            $cnt1 = [];
             while ($r + $k <= $m) {
-                $w = substr($s, $r, $k);
+                $t = substr($s, $r, $k);
                 $r += $k;
-                if (!array_key_exists($w, $cnt)) {
+
+                if (!isset($cnt[$t])) {
                     $cnt1 = [];
                     $l = $r;
-                    $t = 0;
                     continue;
                 }
-                if (!isset($cnt1[$w])) {
-                    $cnt1[$w] = 1;
+
+                if (isset($cnt1[$t])) {
+                    $cnt1[$t]++;
                 } else {
-                    $cnt1[$w]++;
+                    $cnt1[$t] = 1;
                 }
-                ++$t;
-                while ($cnt1[$w] > $cnt[$w]) {
-                    $remove = substr($s, $l, $k);
+
+                while ($cnt1[$t] > $cnt[$t]) {
+                    $w = substr($s, $l, $k);
+                    $cnt1[$w]--;
+                    if ($cnt1[$w] == 0) {
+                        unset($cnt1[$w]);
+                    }
                     $l += $k;
-                    $cnt1[$remove]--;
-                    $t--;
                 }
-                if ($t == $n) {
+
+                if ($r - $l == $n * $k) {
                     $ans[] = $l;
                 }
             }
         }
+
         return $ans;
     }
 }

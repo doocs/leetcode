@@ -7,6 +7,7 @@ source: 第 301 场周赛 Q2
 tags:
     - 设计
     - 哈希表
+    - 有序集合
     - 堆（优先队列）
 ---
 
@@ -27,7 +28,7 @@ tags:
 <ul>
 	<li><code>SmallestInfiniteSet()</code> 初始化 <strong>SmallestInfiniteSet</strong> 对象以包含 <strong>所有</strong> 正整数。</li>
 	<li><code>int popSmallest()</code> <strong>移除</strong> 并返回该无限集中的最小整数。</li>
-	<li><code>void addBack(int num)</code> 如果正整数 <code>num</code> <strong>不</strong> 存在于无限集中，则将一个 <code>num</code> <strong>添加</strong> 到该无限集最后。</li>
+	<li><code>void addBack(int num)</code> 如果正整数 <code>num</code> <strong>不</strong> 存在于无限集中，则将一个 <code>num</code> <strong>添加</strong> 到该无限集中。</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -90,9 +91,6 @@ smallestInfiniteSet.popSmallest(); // 返回 5 ，并将其从集合中移除。
 #### Python3
 
 ```python
-from sortedcontainers import SortedSet
-
-
 class SmallestInfiniteSet:
     def __init__(self):
         self.s = SortedSet(range(1, 1001))

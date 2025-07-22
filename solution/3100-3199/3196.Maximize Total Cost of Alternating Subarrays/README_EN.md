@@ -102,12 +102,12 @@ tags:
 
 Based on the problem description, if the current number has not been flipped, then the next one can either be flipped or not flipped; if the current number has been flipped, then the next one can only remain unflipped.
 
-Therefore, we define a function $\text{dfs}(i, j)$, which represents starting from the $i$-th number, whether the $i$-th number can be flipped, where $j$ indicates whether the $i$-th number is flipped. If $j = 0$, it means the $i$-th number cannot be flipped, otherwise, it can be flipped. The answer is $\text{dfs}(0, 0)$.
+Therefore, we define a function $\textit{dfs}(i, j)$, which represents starting from the $i$-th number, whether the $i$-th number can be flipped, where $j$ indicates whether the $i$-th number is flipped. If $j = 0$, it means the $i$-th number cannot be flipped, otherwise, it can be flipped. The answer is $\textit{dfs}(0, 0)$.
 
 The execution process of the function $dfs(i, j)$ is as follows:
 
--   If $i \geq \text{len}(nums)$, it means the array has been fully traversed, return $0$;
--   Otherwise, the $i$-th number can remain unflipped, in which case the answer is $nums[i] + \text{dfs}(i + 1, 1)$; if $j = 1$, it means the $i$-th number can be flipped, in which case the answer is $\max(\text{dfs}(i + 1, 0) - nums[i])$. We take the maximum of the two.
+-   If $i \geq \textit{len}(nums)$, it means the array has been fully traversed, return $0$;
+-   Otherwise, the $i$-th number can remain unflipped, in which case the answer is $nums[i] + \textit{dfs}(i + 1, 1)$; if $j = 1$, it means the $i$-th number can be flipped, in which case the answer is $\max(\textit{dfs}(i + 1, 0) - nums[i])$. We take the maximum of the two.
 
 To avoid repeated calculations, we can use memoization to save the results that have already been computed.
 
@@ -172,20 +172,20 @@ public:
         int n = nums.size();
         long long f[n][2];
         fill(f[0], f[n], LLONG_MIN);
-        auto dfs = [&](auto&& dfs, int i, int j) -> long long {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> long long {
             if (i >= n) {
                 return 0;
             }
             if (f[i][j] != LLONG_MIN) {
                 return f[i][j];
             }
-            f[i][j] = nums[i] + dfs(dfs, i + 1, 1);
+            f[i][j] = nums[i] + dfs(i + 1, 1);
             if (j) {
-                f[i][j] = max(f[i][j], -nums[i] + dfs(dfs, i + 1, 0));
+                f[i][j] = max(f[i][j], -nums[i] + dfs(i + 1, 0));
             }
             return f[i][j];
         };
-        return dfs(dfs, 0, 0);
+        return dfs(0, 0);
     }
 };
 ```

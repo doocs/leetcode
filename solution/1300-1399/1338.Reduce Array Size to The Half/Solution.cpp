@@ -1,7 +1,7 @@
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        int mx = *max_element(arr.begin(), arr.end());
+        int mx = ranges::max(arr);
         int cnt[mx + 1];
         memset(cnt, 0, sizeof(cnt));
         for (int& x : arr) {

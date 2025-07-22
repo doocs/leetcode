@@ -30,7 +30,7 @@ tags:
 <p>两个句子是相似的，如果:</p>
 
 <ul>
-	<li>它们具有 <strong>相同的长度</strong> (即相同的字数)</li>
+	<li>它们具有 <strong>相同的长度</strong> (即相同的词数)</li>
 	<li><code>sentence1[i]</code>&nbsp;和&nbsp;<code>sentence2[i]</code>&nbsp;是相似的</li>
 </ul>
 

@@ -111,9 +111,6 @@ The time complexity of each operation is $O(\log n)$, where $n$ is the number of
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class SORTracker:
 
     def __init__(self):

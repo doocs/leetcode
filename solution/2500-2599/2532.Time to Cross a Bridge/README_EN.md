@@ -42,7 +42,8 @@ tags:
 
 <ul>
 	<li>Only one worker can use the bridge at a time.</li>
-	<li>When the bridge is unused prioritize the <strong>least efficient</strong> worker on the right side to cross. If there are no workers on the right side, prioritize the <strong>least efficient</strong> worker on the left side to cross.</li>
+	<li>When the bridge is unused prioritize the <strong>least efficient</strong> worker (who have picked up the box) on the right side to cross. If not,&nbsp;prioritize the <strong>least efficient</strong> worker on the left side to cross.</li>
+	<li>If enough workers have already been dispatched from the left side to pick up all the remaining boxes, <strong>no more</strong> workers will be sent from the left side.</li>
 </ul>
 
 <p>Return the <strong>elapsed minutes</strong> at which the last box reaches the <strong>left side of the bridge</strong>.</p>
@@ -69,25 +70,17 @@ The whole process ends after 7 minutes. We return 6 because the problem asks for
 <p><strong class="example">Example 2:</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">n = 3, k = 2, time = [[1,9,1,8],[10,10,10,10]]</span></p>
+<p><strong>Input:</strong> <span class="example-io">n = 3, k = 2, time =</span> [[1,5,1,8],[10,10,10,10]]</p>
 
-<p><strong>Output:</strong> <span class="example-io">50</span></p>
+<p><strong>Output:</strong> 37</p>
 
 <p><strong>Explanation:</strong></p>
 
 <pre>
-From 0  to 10: worker 1 crosses the bridge to the right.
-From 10 to 20: worker 1 picks up a box from the right warehouse.
-From 10 to 11: worker 0 crosses the bridge to the right.
-From 11 to 20: worker 0 picks up a box from the right warehouse.
-From 20 to 30: worker 1 crosses the bridge to the left.
-From 30 to 40: worker 1 puts a box at the left warehouse.
-From 30 to 31: worker 0 crosses the bridge to the left.
-From 31 to 39: worker 0 puts a box at the left warehouse.
-From 39 to 40: worker 0 crosses the bridge to the right.
-From 40 to 49: worker 0 picks up a box from the right warehouse.
-From 49 to 50: worker 0 crosses the bridge to the left.
+<img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2500-2599/2532.Time%20to%20Cross%20a%20Bridge/images/378539249-c6ce3c73-40e7-4670-a8b5-7ddb9abede11.png" style="width: 450px; height: 176px;" />
 </pre>
+
+<p>The last box reaches the left side at 37 seconds. Notice, how we <strong>do not</strong> put the last boxes down, as that would take more time, and they are already on the left with the workers.</p>
 </div>
 
 <p>&nbsp;</p>
@@ -97,7 +90,7 @@ From 49 to 50: worker 0 crosses the bridge to the left.
 	<li><code>1 &lt;= n, k &lt;= 10<sup>4</sup></code></li>
 	<li><code>time.length == k</code></li>
 	<li><code>time[i].length == 4</code></li>
-	<li><code>1 &lt;= leftToRight<sub>i</sub>, pickOld<sub>i</sub>, rightToLeft<sub>i</sub>, putNew<sub>i</sub> &lt;= 1000</code></li>
+	<li><code>1 &lt;= left<sub>i</sub>, pick<sub>i</sub>, right<sub>i</sub>, put<sub>i</sub> &lt;= 1000</code></li>
 </ul>
 
 <!-- description:end -->
@@ -106,7 +99,30 @@ From 49 to 50: worker 0 crosses the bridge to the left.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Priority Queue (Max-Heap and Min-Heap) + Simulation
+
+First, we sort the workers by efficiency in descending order, so the worker with the highest index has the lowest efficiency.
+
+Next, we use four priority queues to simulate the state of the workers:
+
+-   `wait_in_left`: Max-heap, storing the indices of workers currently waiting on the left bank;
+-   `wait_in_right`: Max-heap, storing the indices of workers currently waiting on the right bank;
+-   `work_in_left`: Min-heap, storing the time when workers currently working on the left bank finish placing boxes and the indices of the workers;
+-   `work_in_right`: Min-heap, storing the time when workers currently working on the right bank finish picking up boxes and the indices of the workers.
+
+Initially, all workers are on the left bank, so `wait_in_left` stores the indices of all workers. We use the variable `cur` to record the current time.
+
+Then, we simulate the entire process. First, we check if any worker in `work_in_left` has finished placing boxes at the current time. If so, we move the worker to `wait_in_left` and remove the worker from `work_in_left`. Similarly, we check if any worker in `work_in_right` has finished picking up boxes. If so, we move the worker to `wait_in_right` and remove the worker from `work_in_right`.
+
+Next, we check if there are any workers waiting on the left bank at the current time, denoted as `left_to_go`. At the same time, we check if there are any workers waiting on the right bank, denoted as `right_to_go`. If there are no workers waiting to cross the river, we directly update `cur` to the next time when a worker finishes placing boxes and continue the simulation.
+
+If `right_to_go` is `true`, we take a worker from `wait_in_right`, update `cur` to the current time plus the time it takes for the worker to cross from the right bank to the left bank. If all workers have crossed to the right bank at this point, we directly return `cur` as the answer; otherwise, we move the worker to `work_in_left`.
+
+If `left_to_go` is `true`, we take a worker from `wait_in_left`, update `cur` to the current time plus the time it takes for the worker to cross from the left bank to the right bank, then move the worker to `work_in_right` and decrement the number of boxes.
+
+Repeat the above process until the number of boxes is zero. At this point, `cur` is the answer.
+
+The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ and $k$ are the number of workers and the number of boxes, respectively.
 
 <!-- tabs:start -->
 

@@ -81,8 +81,8 @@ In summary, we can get:
 
 $$
 dfs(i, j) = \begin{cases}
-0, & \text{if } i = j \\
-\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}, & \text{if } i < j
+0, & \textit{if } i = j \\
+\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}, & \textit{if } i < j
 \end{cases}
 $$
 
@@ -90,8 +90,8 @@ In the above recursive process, we can use the method of memoization search to a
 
 $$
 dfs(i, j) = \begin{cases}
-0, & \text{if } i = j \\
-\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
+0, & \textit{if } i = j \\
+\min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
 \end{cases}
 $$
 
@@ -270,8 +270,8 @@ Define $f[i][j]$ to represent the minimum possible sum of all non-leaf node valu
 
 $$
 f[i][j] = \begin{cases}
-0, & \text{if } i = j \\
-\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \text{if } i < j
+0, & \textit{if } i = j \\
+\min_{i \leq k < j} \{f[i][k] + f[k + 1][j] + g[i][k] \cdot g[k + 1][j]\}, & \textit{if } i < j
 \end{cases}
 $$
 

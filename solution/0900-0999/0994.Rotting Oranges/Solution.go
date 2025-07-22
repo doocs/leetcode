@@ -1,4 +1,4 @@
-func orangesRotting(grid [][]int) (ans int) {
+func orangesRotting(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
 	q := [][2]int{}
 	cnt := 0
@@ -12,7 +12,7 @@ func orangesRotting(grid [][]int) (ans int) {
 		}
 	}
 	dirs := [5]int{-1, 0, 1, 0, -1}
-	for ; len(q) > 0 && cnt > 0; ans++ {
+	for ans := 1; len(q) > 0 && cnt > 0; ans++ {
 		for k := len(q); k > 0; k-- {
 			p := q[0]
 			q = q[1:]
@@ -21,7 +21,9 @@ func orangesRotting(grid [][]int) (ans int) {
 				if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 {
 					grid[x][y] = 2
 					q = append(q, [2]int{x, y})
-					cnt--
+					if cnt--; cnt == 0 {
+						return ans
+					}
 				}
 			}
 		}
@@ -29,5 +31,5 @@ func orangesRotting(grid [][]int) (ans int) {
 	if cnt > 0 {
 		return -1
 	}
-	return
+	return 0
 }

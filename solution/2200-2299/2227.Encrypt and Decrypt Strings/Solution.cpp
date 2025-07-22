@@ -4,14 +4,20 @@ public:
     unordered_map<char, string> mp;
 
     Encrypter(vector<char>& keys, vector<string>& values, vector<string>& dictionary) {
-        for (int i = 0; i < keys.size(); ++i) mp[keys[i]] = values[i];
-        for (auto v : dictionary) cnt[encrypt(v)]++;
+        for (int i = 0; i < keys.size(); ++i) {
+            mp[keys[i]] = values[i];
+        }
+        for (auto v : dictionary) {
+            cnt[encrypt(v)]++;
+        }
     }
 
     string encrypt(string word1) {
         string res = "";
         for (char c : word1) {
-            if (!mp.count(c)) return "";
+            if (!mp.count(c)) {
+                return "";
+            }
             res += mp[c];
         }
         return res;

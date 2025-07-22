@@ -27,7 +27,7 @@ tags:
 	<li><code>i &lt; j</code>&nbsp;且&nbsp;<code>nums[i] &gt; nums[j]</code></li>
 </ul>
 
-<p>请你返回&nbsp;<code>[0, 1, 2, ..., n - 1]</code>&nbsp;的&nbsp;<span data-keyword="permutation">排列</span> <code>perm</code>&nbsp;的数目，满足对 <strong>所有</strong>&nbsp;的&nbsp;<code>requirements[i]</code>&nbsp;都有&nbsp;<code>perm[0..end<sub>i</sub>]</code>&nbsp;恰好有&nbsp;<code>cnt<sub>i</sub></code>&nbsp;个逆序对。</p>
+<p>请你返回&nbsp;<code>[0, 1, 2, ..., n - 1]</code>&nbsp;的&nbsp;<span data-keyword="permutation">排列</span> <code>perm</code>&nbsp;的数目，满足对 <strong>所有</strong>&nbsp;的&nbsp;<code>requirements[i]</code>&nbsp;都满足&nbsp;<code>perm[0..end<sub>i</sub>]</code>&nbsp;中恰好有&nbsp;<code>cnt<sub>i</sub></code>&nbsp;个逆序对。</p>
 
 <p>由于答案可能会很大，将它对&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;<strong>取余</strong>&nbsp;后返回。</p>
 
@@ -129,7 +129,7 @@ $$
 f[i][j] = \sum_{k=0}^{\min(i, j)} f[i-1][j-k]
 $$
 
-由于题目要求 $[0..\text{end}_i]$ 的逆序对数量为 $\text{cnt}_i$，因此，当我们计算 $i = \text{end}_i$ 时，我们只需要计算 $f[i][\text{cnt}_i]$ 即可。其余的 $f[i][..]$ 都为 $0$。
+由于题目要求 $[0..\textit{end}_i]$ 的逆序对数量为 $\textit{cnt}_i$，因此，当我们计算 $i = \textit{end}_i$ 时，我们只需要计算 $f[i][\textit{cnt}_i]$ 即可。其余的 $f[i][..]$ 都为 $0$。
 
 时间复杂度 $O(n \times m \times \min(n, m))$，空间复杂度 $O(n \times m)$。其中 $m$ 是逆序对数量的最大值。本题中 $m \le 400$。
 

@@ -91,7 +91,7 @@ tags:
 由于我们可以选择跳过或者不跳过第 $i$ 条道路的休息时间，因此我们可以列出状态转移方程：
 
 $$
-f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \text{不跳过第 $i$ 条道路的休息时间} \\ f[i-1][j-1]+\frac{d_i}{s} & \text{跳过第 $i$ 条道路的休息时间} \end{aligned}\right.
+f[i][j]=\min\left\{\begin{aligned} \lceil f[i-1][j]+\frac{d_i}{s}\rceil & \textit{不跳过第 $i$ 条道路的休息时间} \\ f[i-1][j-1]+\frac{d_i}{s} & \textit{跳过第 $i$ 条道路的休息时间} \end{aligned}\right.
 $$
 
 其中 $\lceil x\rceil$ 表示将 $x$ 向上取整。需要注意的是，由于我们需要保证恰好跳过 $j$ 次休息时间，因此我们必须有 $j\le i$；另外，如果 $j=0$，不能跳过任何休息时间。
@@ -119,26 +119,6 @@ class Solution:
                     f[i][j] = min(f[i][j], f[i - 1][j - 1] + x / speed)
         for j in range(n + 1):
             if f[n][j] <= hoursBefore + eps:
-                return j
-        return -1
-```
-
-#### Python3
-
-```python
-class Solution:
-    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
-        n = len(dist)
-        f = [[inf] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 0
-        for i, x in enumerate(dist, 1):
-            for j in range(i + 1):
-                if j < i:
-                    f[i][j] = min(f[i][j], ((f[i - 1][j] + x - 1) // speed + 1) * speed)
-                if j:
-                    f[i][j] = min(f[i][j], f[i - 1][j - 1] + x)
-        for j in range(n + 1):
-            if f[n][j] <= hoursBefore * speed:
                 return j
         return -1
 ```

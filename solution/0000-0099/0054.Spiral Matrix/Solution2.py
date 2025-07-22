@@ -8,11 +8,11 @@ class Solution:
             ans.append(matrix[i][j])
             matrix[i][j] += 300
             x, y = i + dirs[k], j + dirs[k + 1]
-            if not 0 <= x < m or not 0 <= y < n or matrix[x][y] > 100:
+            if x < 0 or x >= m or y < 0 or y >= n or matrix[x][y] > 100:
                 k = (k + 1) % 4
-            i = i + dirs[k]
-            j = j + dirs[k + 1]
-        # for i in range(m):
-        #     for j in range(n):
-        #         matrix[i][j] -= 300
+            i += dirs[k]
+            j += dirs[k + 1]
+        for i in range(m):
+            for j in range(n):
+                matrix[i][j] -= 300
         return ans

@@ -18,4 +18,4 @@ class Solution:
             else:
                 mi1 = x
         ans = max(ans - mi1 + mx1, ans - mi2 + mx2, -1)
-        return -1 if ans % 2 else ans
+        return -1 if ans < 0 else ans

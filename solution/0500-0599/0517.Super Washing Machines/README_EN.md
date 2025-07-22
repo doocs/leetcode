@@ -75,7 +75,7 @@ If the total number of clothes in the washing machines cannot be divided evenly 
 
 Otherwise, suppose the total number of clothes in the washing machines is $s$, then the number of clothes in each washing machine will eventually become $k = s / n$.
 
-We define $a_i$ as the difference between the number of clothes in the $i$-th washing machine and $k$, that is, $a_i = \text{machines}[i] - k$. If $a_i > 0$, it means that the $i$-th washing machine has extra clothes and needs to pass them to the adjacent washing machine; if $a_i < 0$, it means that the $i$-th washing machine lacks clothes and needs to get them from the adjacent washing machine.
+We define $a_i$ as the difference between the number of clothes in the $i$-th washing machine and $k$, that is, $a_i = \textit{machines}[i] - k$. If $a_i > 0$, it means that the $i$-th washing machine has extra clothes and needs to pass them to the adjacent washing machine; if $a_i < 0$, it means that the $i$-th washing machine lacks clothes and needs to get them from the adjacent washing machine.
 
 We define the sum of the differences in the number of clothes in the first $i$ washing machines as $s_i = \sum_{j=0}^{i-1} a_j$. If we regard the first $i$ washing machines as one group and the remaining washing machines as another group. Then if $s_i$ is a positive number, it means that the first group of washing machines has extra clothes and needs to pass them to the second group of washing machines; if $s_i$ is a negative number, it means that the first group of washing machines lacks clothes and needs to get them from the second group of washing machines.
 

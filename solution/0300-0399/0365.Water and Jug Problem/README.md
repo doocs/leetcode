@@ -76,7 +76,7 @@ tags:
 
 ### 方法一：DFS
 
-我们不妨记 $\text{jug1Capacity}$ 为 $x$, $\text{jug2Capacity}$ 为 $y$, $\text{targetCapacity}$ 为 $z$。
+我们不妨记 $\textit{jug1Capacity}$ 为 $x$, $\textit{jug2Capacity}$ 为 $y$, $\textit{targetCapacity}$ 为 $z$。
 
 接下来，我们设计一个函数 $dfs(i, j)$，表示当前 $jug1$ 中有 $i$ 升水，$jug2$ 中有 $j$ 升水，是否可以得到 $z$ 升水。
 
@@ -89,7 +89,7 @@ tags:
 
 答案即为 $dfs(0, 0)$。
 
-时间复杂度 $O(x + y)$，空间复杂度 $O(x + y)$。其中 $x$ 和 $y$ 分别为 $\text{jug1Capacity}$ 和 $\text{jug2Capacity}$。
+时间复杂度 $O(x + y)$，空间复杂度 $O(x + y)$。其中 $x$ 和 $y$ 分别为 $\textit{jug1Capacity}$ 和 $\textit{jug2Capacity}$。
 
 <!-- tabs:start -->
 

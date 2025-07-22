@@ -80,9 +80,9 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 
 ### Solution 1: Counting + Custom Sorting
 
-For each candidate, we can count the number of votes they receive in each ranking, and then compare the number of votes according to different rankings. If the number of votes is the same, we compare the letters.
+For each candidate, we can count the number of votes they receive at each rank, then compare the vote counts for different ranks in order. If the vote counts are the same, we compare the letters.
 
-The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Where $n$ is the number of candidates.
+The time complexity is $O(n \times m + m^2 \times \log m)$, and the space complexity is $O(m^2)$. Here, $n$ is the length of $\textit{votes}$, and $m$ is the number of candidates, i.e., the length of $\textit{votes}[0]$.
 
 <!-- tabs:start -->
 
@@ -91,12 +91,12 @@ The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^
 ```python
 class Solution:
     def rankTeams(self, votes: List[str]) -> str:
-        n = len(votes[0])
-        cnt = defaultdict(lambda: [0] * n)
+        m = len(votes[0])
+        cnt = defaultdict(lambda: [0] * m)
         for vote in votes:
             for i, c in enumerate(vote):
                 cnt[c][i] += 1
-        return "".join(sorted(votes[0], key=lambda x: (cnt[x], -ord(x)), reverse=True))
+        return "".join(sorted(cnt, key=lambda c: (cnt[c], -ord(c)), reverse=True))
 ```
 
 #### Java
@@ -104,29 +104,28 @@ class Solution:
 ```java
 class Solution {
     public String rankTeams(String[] votes) {
-        int n = votes[0].length();
-        int[][] cnt = new int[26][n];
+        int m = votes[0].length();
+        int[][] cnt = new int[26][m + 1];
         for (var vote : votes) {
-            for (int i = 0; i < n; ++i) {
-                cnt[vote.charAt(i) - 'A'][i]++;
+            for (int i = 0; i < m; ++i) {
+                ++cnt[vote.charAt(i) - 'A'][i];
             }
         }
-        Character[] cs = new Character[n];
-        for (int i = 0; i < n; ++i) {
-            cs[i] = votes[0].charAt(i);
+        Character[] s = new Character[m];
+        for (int i = 0; i < m; ++i) {
+            s[i] = votes[0].charAt(i);
         }
-        Arrays.sort(cs, (a, b) -> {
+        Arrays.sort(s, (a, b) -> {
             int i = a - 'A', j = b - 'A';
-            for (int k = 0; k < n; ++k) {
-                int d = cnt[i][k] - cnt[j][k];
-                if (d != 0) {
-                    return d > 0 ? -1 : 1;
+            for (int k = 0; k < m; ++k) {
+                if (cnt[i][k] != cnt[j][k]) {
+                    return cnt[j][k] - cnt[i][k];
                 }
             }
             return a - b;
         });
         StringBuilder ans = new StringBuilder();
-        for (char c : cs) {
+        for (var c : s) {
             ans.append(c);
         }
         return ans.toString();
@@ -140,25 +139,25 @@ class Solution {
 class Solution {
 public:
     string rankTeams(vector<string>& votes) {
-        int n = votes[0].size();
-        int cnt[26][n];
-        memset(cnt, 0, sizeof cnt);
-        for (auto& vote : votes) {
-            for (int i = 0; i < n; ++i) {
-                cnt[vote[i] - 'A'][i]++;
+        int m = votes[0].size();
+        array<array<int, 27>, 26> cnt{};
+
+        for (const auto& vote : votes) {
+            for (int i = 0; i < m; ++i) {
+                ++cnt[vote[i] - 'A'][i];
             }
         }
-        string ans = votes[0];
-        sort(ans.begin(), ans.end(), [&](auto& a, auto& b) {
+        string s = votes[0];
+        ranges::sort(s, [&](char a, char b) {
             int i = a - 'A', j = b - 'A';
-            for (int k = 0; k < n; ++k) {
+            for (int k = 0; k < m; ++k) {
                 if (cnt[i][k] != cnt[j][k]) {
                     return cnt[i][k] > cnt[j][k];
                 }
             }
             return a < b;
         });
-        return ans;
+        return string(s.begin(), s.end());
     }
 };
 ```
@@ -167,24 +166,83 @@ public:
 
 ```go
 func rankTeams(votes []string) string {
-	cnt := [26][26]int{}
+	m := len(votes[0])
+	cnt := [26][27]int{}
 	for _, vote := range votes {
-		for i, c := range vote {
-			cnt[c-'A'][i]++
+		for i, ch := range vote {
+			cnt[ch-'A'][i]++
 		}
 	}
-	ans := []byte(votes[0])
-	sort.Slice(ans, func(i, j int) bool {
-		cnt1, cnt2 := cnt[ans[i]-'A'], cnt[ans[j]-'A']
-		for k, a := range cnt1 {
-			b := cnt2[k]
-			if a != b {
-				return a > b
+	s := []rune(votes[0])
+	sort.Slice(s, func(i, j int) bool {
+		a, b := s[i]-'A', s[j]-'A'
+		for k := 0; k < m; k++ {
+			if cnt[a][k] != cnt[b][k] {
+				return cnt[a][k] > cnt[b][k]
 			}
 		}
-		return ans[i] < ans[j]
+		return s[i] < s[j]
 	})
-	return string(ans)
+	return string(s)
+}
+```
+
+#### TypeScript
+
+```ts
+function rankTeams(votes: string[]): string {
+    const m = votes[0].length;
+    const cnt: number[][] = Array.from({ length: 26 }, () => Array(m + 1).fill(0));
+    for (const vote of votes) {
+        for (let i = 0; i < m; i++) {
+            cnt[vote.charCodeAt(i) - 65][i]++;
+        }
+    }
+    const s: string[] = votes[0].split('');
+    s.sort((a, b) => {
+        const i = a.charCodeAt(0) - 65;
+        const j = b.charCodeAt(0) - 65;
+        for (let k = 0; k < m; k++) {
+            if (cnt[i][k] !== cnt[j][k]) {
+                return cnt[j][k] - cnt[i][k];
+            }
+        }
+        return a.localeCompare(b);
+    });
+    return s.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn rank_teams(votes: Vec<String>) -> String {
+        let m = votes[0].len();
+        let mut cnt = vec![vec![0; m + 1]; 26];
+
+        for vote in &votes {
+            for (i, ch) in vote.chars().enumerate() {
+                cnt[(ch as u8 - b'A') as usize][i] += 1;
+            }
+        }
+
+        let mut s: Vec<char> = votes[0].chars().collect();
+
+        s.sort_by(|&a, &b| {
+            let i = (a as u8 - b'A') as usize;
+            let j = (b as u8 - b'A') as usize;
+
+            for k in 0..m {
+                if cnt[i][k] != cnt[j][k] {
+                    return cnt[j][k].cmp(&cnt[i][k]);
+                }
+            }
+            a.cmp(&b)
+        });
+
+        s.into_iter().collect()
+    }
 }
 ```
 

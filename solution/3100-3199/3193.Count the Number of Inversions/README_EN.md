@@ -123,7 +123,7 @@ $$
 f[i][j] = \sum_{k=0}^{\min(i, j)} f[i-1][j-k]
 $$
 
-Since the problem requires the number of inversions in $[0..\text{end}_i]$ to be $\text{cnt}_i$, when we calculate for $i = \text{end}_i$, we only need to compute $f[i][\text{cnt}_i]$. The rest of $f[i][..]$ will be $0$.
+Since the problem requires the number of inversions in $[0..\textit{end}_i]$ to be $\textit{cnt}_i$, when we calculate for $i = \textit{end}_i$, we only need to compute $f[i][\textit{cnt}_i]$. The rest of $f[i][..]$ will be $0$.
 
 The time complexity is $O(n \times m \times \min(n, m))$, and the space complexity is $O(n \times m)$. Here, $m$ is the maximum number of inversions, and in this problem, $m \le 400$.
 

@@ -1,17 +1,21 @@
 impl Solution {
     pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
-        let mut stack = vec![];
-        for num in arr.iter() {
-            if !stack.is_empty() && num < stack.last().unwrap() {
-                let max = stack.pop().unwrap();
-                while !stack.is_empty() && num < stack.last().unwrap() {
-                    stack.pop();
-                }
-                stack.push(max);
+        let mut stk = Vec::new();
+        for &v in arr.iter() {
+            if stk.is_empty() || v >= *stk.last().unwrap() {
+                stk.push(v);
             } else {
-                stack.push(*num);
+                let mut mx = stk.pop().unwrap();
+                while let Some(&top) = stk.last() {
+                    if top > v {
+                        stk.pop();
+                    } else {
+                        break;
+                    }
+                }
+                stk.push(mx);
             }
         }
-        stack.len() as i32
+        stk.len() as i32
     }
 }

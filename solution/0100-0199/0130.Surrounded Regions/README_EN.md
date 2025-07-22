@@ -28,7 +28,7 @@ tags:
 	<li><strong>Surround</strong>: The region is surrounded with <code>&#39;X&#39;</code> cells if you can <strong>connect the region </strong>with <code>&#39;X&#39;</code> cells and none of the region cells are on the edge of the <code>board</code>.</li>
 </ul>
 
-<p>A <strong>surrounded region is captured</strong> by replacing all <code>&#39;O&#39;</code>s with <code>&#39;X&#39;</code>s in the input matrix <code>board</code>.</p>
+<p>To capture a <strong>surrounded region</strong>, replace all <code>&#39;O&#39;</code>s with <code>&#39;X&#39;</code>s <strong>in-place</strong> within the original board. You do not need to return anything.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

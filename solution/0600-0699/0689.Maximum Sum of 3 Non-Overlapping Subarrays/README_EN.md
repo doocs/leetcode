@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0689.Ma
 tags:
     - Array
     - Dynamic Programming
+    - Prefix Sum
+    - Sliding Window
 ---
 
 <!-- problem:start -->

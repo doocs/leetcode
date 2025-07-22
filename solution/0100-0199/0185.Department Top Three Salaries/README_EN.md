@@ -104,6 +104,13 @@ In the Sales department:
 - There is no third-highest salary as there are only two employees
 </pre>
 
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>There are no employees with the <strong>exact</strong> same name, salary <em>and</em> department.</li>
+</ul>
+
 <!-- description:end -->
 
 ## Solutions

@@ -69,15 +69,18 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 
 ### Solution 1: Counting + Two Pointers
 
-We use a hash table or array $need$ to count the number of occurrences of each character in string $t$, and another hash table or array $window$ to count the number of occurrences of each character in the sliding window. In addition, we define two pointers $j$ and $i$ to point to the left and right boundaries of the window, respectively. The variable $cnt$ represents how many characters in $t$ are already included in the window. The variables $k$ and $mi$ represent the starting position and length of the minimum covering substring, respectively.
+We use a hash table or array $\textit{need}$ to count the occurrences of each character in string $t$, and another hash table or array $\textit{window}$ to count the occurrences of each character in the sliding window. Additionally, we define two pointers $l$ and $r$ to point to the left and right boundaries of the window, a variable $\textit{cnt}$ to represent how many characters from $t$ are already included in the window, and variables $k$ and $\textit{mi}$ to represent the starting position and length of the minimum window substring.
 
-We traverse the string $s$ from left to right. For the currently traversed character $s[i]$:
+We traverse the string $s$ from left to right. For the current character $s[r]$:
 
-We add it to the window, i.e., $window[s[i]] = window[s[i]] + 1$. If $need[s[i]] \geq window[s[i]]$ at this time, it means that $s[i]$ is a "necessary character", so we increment $cnt$ by one. If $cnt$ equals the length of $t$, it means that all characters in $t$ are already included in the window at this time, so we can try to update the starting position and length of the minimum covering substring. If $i - j + 1 \lt mi$, it means that the substring represented by the current window is shorter, so we update $mi = i - j + 1$ and $k = j$. Then, we try to move the left boundary $j$. If $need[s[j]] \geq window[s[j]]$ at this time, it means that $s[j]$ is a "necessary character". When moving the left boundary, the character $s[j]$ will be removed from the window, so we need to decrement $cnt$ by one, then update $window[s[j]] = window[s[j]] - 1$, and move $j$ one step to the right. If $cnt$ does not equal the length of $t$, it means that all characters in $t$ are not yet included in the window at this time, so we don't need to move the left boundary, just move $i$ one step to the right and continue to traverse.
+-   We add it to the window, i.e., $\textit{window}[s[r]] = \textit{window}[s[r]] + 1$. If $\textit{need}[s[r]] \geq \textit{window}[s[r]]$, it means $s[r]$ is a "necessary character", and we increment $\textit{cnt}$ by one.
+-   If $\textit{cnt}$ equals the length of $t$, it means the window already contains all characters from $t$, and we can try to update the starting position and length of the minimum window substring. If $r - l + 1 < \textit{mi}$, it means the current window represents a shorter substring, so we update $\textit{mi} = r - l + 1$ and $k = l$.
+-   Then, we try to move the left boundary $l$. If $\textit{need}[s[l]] \geq \textit{window}[s[l]]$, it means $s[l]$ is a "necessary character", and moving the left boundary will remove $s[l]$ from the window. Therefore, we need to decrement $\textit{cnt}$ by one, update $\textit{window}[s[l]] = \textit{window}[s[l]] - 1$, and move $l$ one position to the right.
+-   If $\textit{cnt}$ is not equal to the length of $t$, it means the window does not yet contain all characters from $t$, so we do not need to move the left boundary. Instead, we move $r$ one position to the right and continue traversing.
 
-After the traversal, if the minimum covering substring is not found, return an empty string, otherwise return $s[k:k+mi]$.
+After the traversal, if no minimum window substring is found, return an empty string. Otherwise, return $s[k:k+\textit{mi}]$.
 
-The time complexity is $O(m + n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the lengths of strings $s$ and $t$ respectively; and $C$ is the size of the character set, in this problem $C = 128$.
+The time complexity is $O(m + n)$, and the space complexity is $O(|\Sigma|)$. Here, $m$ and $n$ are the lengths of strings $s$ and $t$, respectively; and $|\Sigma|$ is the size of the character set, which is $128$ in this problem.
 
 <!-- tabs:start -->
 
@@ -88,20 +91,22 @@ class Solution:
     def minWindow(self, s: str, t: str) -> str:
         need = Counter(t)
         window = Counter()
-        cnt, j, k, mi = 0, 0, -1, inf
-        for i, c in enumerate(s):
+        cnt = l = 0
+        k, mi = -1, inf
+        for r, c in enumerate(s):
             window[c] += 1
             if need[c] >= window[c]:
                 cnt += 1
             while cnt == len(t):
-                if i - j + 1 < mi:
-                    mi = i - j + 1
-                    k = j
-                if need[s[j]] >= window[s[j]]:
+                if r - l + 1 < mi:
+                    mi = r - l + 1
+                    k = l
+                if need[s[l]] >= window[s[l]]:
                     cnt -= 1
-                window[s[j]] -= 1
-                j += 1
-        return '' if k < 0 else s[k : k + mi]
+                window[s[l]] -= 1
+                l += 1
+        return "" if k < 0 else s[k : k + mi]
+
 ```
 
 #### Java
@@ -111,25 +116,27 @@ class Solution {
     public String minWindow(String s, String t) {
         int[] need = new int[128];
         int[] window = new int[128];
-        int m = s.length(), n = t.length();
-        for (int i = 0; i < n; ++i) {
-            ++need[t.charAt(i)];
+        for (char c : t.toCharArray()) {
+            ++need[c];
         }
-        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
-        for (int i = 0; i < m; ++i) {
-            ++window[s.charAt(i)];
-            if (need[s.charAt(i)] >= window[s.charAt(i)]) {
+        int m = s.length(), n = t.length();
+        int k = -1, mi = m + 1, cnt = 0;
+        for (int l = 0, r = 0; r < m; ++r) {
+            char c = s.charAt(r);
+            if (++window[c] <= need[c]) {
                 ++cnt;
             }
             while (cnt == n) {
-                if (i - j + 1 < mi) {
-                    mi = i - j + 1;
-                    k = j;
+                if (r - l + 1 < mi) {
+                    mi = r - l + 1;
+                    k = l;
                 }
-                if (need[s.charAt(j)] >= window[s.charAt(j)]) {
+                c = s.charAt(l);
+                if (window[c] <= need[c]) {
                     --cnt;
                 }
-                --window[s.charAt(j++)];
+                --window[c];
+                ++l;
             }
         }
         return k < 0 ? "" : s.substring(k, k + mi);
@@ -143,29 +150,36 @@ class Solution {
 class Solution {
 public:
     string minWindow(string s, string t) {
-        int need[128]{};
-        int window[128]{};
-        int m = s.size(), n = t.size();
-        for (char& c : t) {
+        vector<int> need(128, 0);
+        vector<int> window(128, 0);
+        for (char c : t) {
             ++need[c];
         }
-        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
-        for (int i = 0; i < m; ++i) {
-            ++window[s[i]];
-            if (need[s[i]] >= window[s[i]]) {
+
+        int m = s.length(), n = t.length();
+        int k = -1, mi = m + 1, cnt = 0;
+
+        for (int l = 0, r = 0; r < m; ++r) {
+            char c = s[r];
+            if (++window[c] <= need[c]) {
                 ++cnt;
             }
+
             while (cnt == n) {
-                if (i - j + 1 < mi) {
-                    mi = i - j + 1;
-                    k = j;
+                if (r - l + 1 < mi) {
+                    mi = r - l + 1;
+                    k = l;
                 }
-                if (need[s[j]] >= window[s[j]]) {
+
+                c = s[l];
+                if (window[c] <= need[c]) {
                     --cnt;
                 }
-                --window[s[j++]];
+                --window[c];
+                ++l;
             }
         }
+
         return k < 0 ? "" : s.substr(k, mi);
     }
 };
@@ -175,27 +189,32 @@ public:
 
 ```go
 func minWindow(s string, t string) string {
-	need := [128]int{}
-	window := [128]int{}
-	for _, c := range t {
-		need[c]++
+	need := make([]int, 128)
+	window := make([]int, 128)
+	for i := 0; i < len(t); i++ {
+		need[t[i]]++
 	}
-	cnt, j, k, mi := 0, 0, -1, 1<<30
-	for i, c := range s {
-		window[c]++
-		if need[c] >= window[c] {
+
+	m, n := len(s), len(t)
+	k, mi, cnt := -1, m+1, 0
+
+	for l, r := 0, 0; r < m; r++ {
+		c := s[r]
+		if window[c]++; window[c] <= need[c] {
 			cnt++
 		}
-		for cnt == len(t) {
-			if i-j+1 < mi {
-				mi = i - j + 1
-				k = j
+		for cnt == n {
+			if r-l+1 < mi {
+				mi = r - l + 1
+				k = l
 			}
-			if need[s[j]] >= window[s[j]] {
+
+			c = s[l]
+			if window[c] <= need[c] {
 				cnt--
 			}
-			window[s[j]]--
-			j++
+			window[c]--
+			l++
 		}
 	}
 	if k < 0 {
@@ -209,69 +228,80 @@ func minWindow(s string, t string) string {
 
 ```ts
 function minWindow(s: string, t: string): string {
-    const need: number[] = new Array(128).fill(0);
-    const window: number[] = new Array(128).fill(0);
-    for (const c of t) {
-        ++need[c.charCodeAt(0)];
+    const need: number[] = Array(128).fill(0);
+    const window: number[] = Array(128).fill(0);
+    for (let i = 0; i < t.length; i++) {
+        need[t.charCodeAt(i)]++;
     }
-    let cnt = 0;
-    let j = 0;
-    let k = -1;
-    let mi = 1 << 30;
-    for (let i = 0; i < s.length; ++i) {
-        ++window[s.charCodeAt(i)];
-        if (need[s.charCodeAt(i)] >= window[s.charCodeAt(i)]) {
-            ++cnt;
+    const [m, n] = [s.length, t.length];
+    let [k, mi, cnt] = [-1, m + 1, 0];
+    for (let l = 0, r = 0; r < m; r++) {
+        let c = s.charCodeAt(r);
+        if (++window[c] <= need[c]) {
+            cnt++;
         }
-        while (cnt === t.length) {
-            if (i - j + 1 < mi) {
-                mi = i - j + 1;
-                k = j;
+        while (cnt === n) {
+            if (r - l + 1 < mi) {
+                mi = r - l + 1;
+                k = l;
             }
-            if (need[s.charCodeAt(j)] >= window[s.charCodeAt(j)]) {
-                --cnt;
+
+            c = s.charCodeAt(l);
+            if (window[c] <= need[c]) {
+                cnt--;
             }
-            --window[s.charCodeAt(j++)];
+            window[c]--;
+            l++;
         }
     }
-    return k < 0 ? '' : s.slice(k, k + mi);
+    return k < 0 ? '' : s.substring(k, k + mi);
 }
 ```
 
 #### Rust
 
 ```rust
+use std::collections::HashMap;
+
 impl Solution {
     pub fn min_window(s: String, t: String) -> String {
-        let (mut need, mut window, mut cnt) = ([0; 256], [0; 256], 0);
+        let mut need: HashMap<char, usize> = HashMap::new();
+        let mut window: HashMap<char, usize> = HashMap::new();
         for c in t.chars() {
-            need[c as usize] += 1;
+            *need.entry(c).or_insert(0) += 1;
         }
-        let (mut j, mut k, mut mi) = (0, -1, 1 << 31);
-        for (i, c) in s.chars().enumerate() {
-            window[c as usize] += 1;
-            if need[c as usize] >= window[c as usize] {
+        let m = s.len();
+        let n = t.len();
+        let mut k = -1;
+        let mut mi = m + 1;
+        let mut cnt = 0;
+
+        let s_bytes = s.as_bytes();
+        let mut l = 0;
+        for r in 0..m {
+            let c = s_bytes[r] as char;
+            *window.entry(c).or_insert(0) += 1;
+            if window[&c] <= *need.get(&c).unwrap_or(&0) {
                 cnt += 1;
             }
-
-            while cnt == t.len() {
-                if i - j + 1 < mi {
-                    k = j as i32;
-                    mi = i - j + 1;
+            while cnt == n {
+                if r - l + 1 < mi {
+                    mi = r - l + 1;
+                    k = l as i32;
                 }
-                let l = s.chars().nth(j).unwrap() as usize;
-                if need[l] >= window[l] {
+
+                let c = s_bytes[l] as char;
+                if window[&c] <= *need.get(&c).unwrap_or(&0) {
                     cnt -= 1;
                 }
-                window[l] -= 1;
-                j += 1;
+                *window.entry(c).or_insert(0) -= 1;
+                l += 1;
             }
         }
         if k < 0 {
-            return "".to_string();
+            return String::new();
         }
-        let k = k as usize;
-        s[k..k + mi].to_string()
+        s[k as usize..(k as usize + mi)].to_string()
     }
 }
 ```
@@ -283,26 +313,38 @@ public class Solution {
     public string MinWindow(string s, string t) {
         int[] need = new int[128];
         int[] window = new int[128];
+
         foreach (var c in t) {
-            ++need[c];
+            need[c]++;
         }
-        int cnt = 0, j = 0, k = -1, mi = 1 << 30;
-        for (int i = 0; i < s.Length; ++i) {
-            ++window[s[i]];
-            if (need[s[i]] >= window[s[i]]) {
-                ++cnt;
+
+        int m = s.Length, n = t.Length;
+        int k = -1, mi = m + 1, cnt = 0;
+
+        int l = 0;
+        for (int r = 0; r < m; r++) {
+            char c = s[r];
+            window[c]++;
+
+            if (window[c] <= need[c]) {
+                cnt++;
             }
-            while (cnt == t.Length) {
-                if (i - j + 1 < mi) {
-                    mi = i - j + 1;
-                    k = j;
+
+            while (cnt == n) {
+                if (r - l + 1 < mi) {
+                    mi = r - l + 1;
+                    k = l;
                 }
-                if (need[s[j]] >= window[s[j]]) {
-                    --cnt;
+
+                c = s[l];
+                if (window[c] <= need[c]) {
+                    cnt--;
                 }
-                --window[s[j++]];
+                window[c]--;
+                l++;
             }
         }
+
         return k < 0 ? "" : s.Substring(k, mi);
     }
 }

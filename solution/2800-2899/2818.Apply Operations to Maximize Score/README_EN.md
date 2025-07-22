@@ -10,6 +10,7 @@ tags:
     - Array
     - Math
     - Number Theory
+    - Sorting
     - Monotonic Stack
 ---
 

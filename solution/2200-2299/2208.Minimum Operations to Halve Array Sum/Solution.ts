@@ -1,16 +1,15 @@
 function halveArray(nums: number[]): number {
     let s: number = nums.reduce((a, b) => a + b) / 2;
-    const h = new MaxPriorityQueue();
-    for (const v of nums) {
-        h.enqueue(v, v);
+    const pq = new MaxPriorityQueue();
+    for (const x of nums) {
+        pq.enqueue(x, x);
     }
-    let ans: number = 0;
+    let ans = 0;
     while (s > 0) {
-        let { element: t } = h.dequeue();
-        t /= 2;
+        const t = pq.dequeue().element / 2;
         s -= t;
-        h.enqueue(t, t);
-        ans += 1;
+        ++ans;
+        pq.enqueue(t, t);
     }
     return ans;
 }

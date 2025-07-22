@@ -1,12 +1,13 @@
 func maximumSumScore(nums []int) int64 {
-	n := len(nums)
-	s := make([]int64, n+1)
-	for i, v := range nums {
-		s[i+1] = s[i] + int64(v)
+	l, r := 0, 0
+	for _, x := range nums {
+		r += x
 	}
-	var ans int64 = math.MinInt64
-	for i := 0; i < n; i++ {
-		ans = max(ans, max(s[i+1], s[n]-s[i]))
+	ans := math.MinInt64
+	for _, x := range nums {
+		l += x
+		ans = max(ans, max(l, r))
+		r -= x
 	}
-	return ans
+	return int64(ans)
 }

@@ -3,26 +3,28 @@
  * @return {boolean}
  */
 var containsCycle = function (grid) {
-    const m = grid.length;
-    const n = grid[0].length;
-    let p = Array.from({ length: m * n }, (_, i) => i);
-    function find(x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
-    }
-    const dirs = [0, 1, 0];
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            for (let k = 0; k < 2; ++k) {
-                const x = i + dirs[k];
-                const y = j + dirs[k + 1];
-                if (x < m && y < n && grid[x][y] == grid[i][j]) {
-                    if (find(x * n + y) == find(i * n + j)) {
-                        return true;
+    const [m, n] = [grid.length, grid[0].length];
+    const vis = Array.from({ length: m }, () => Array(n).fill(false));
+    const dirs = [-1, 0, 1, 0, -1];
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (!vis[i][j]) {
+                const q = [[i, j, -1, -1]];
+                vis[i][j] = true;
+                for (const [x, y, px, py] of q) {
+                    for (let k = 0; k < 4; k++) {
+                        const [nx, ny] = [x + dirs[k], y + dirs[k + 1]];
+                        if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                            if (grid[nx][ny] !== grid[x][y] || (nx === px && ny === py)) {
+                                continue;
+                            }
+                            if (vis[nx][ny]) {
+                                return true;
+                            }
+                            q.push([nx, ny, x, y]);
+                            vis[nx][ny] = true;
+                        }
                     }
-                    p[find(x * n + y)] = find(i * n + j);
                 }
             }
         }

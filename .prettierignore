@@ -16,7 +16,6 @@ node_modules/
 /solution/0100-0199/0177.Nth Highest Salary/Solution.sql
 /solution/0100-0199/0178.Rank Scores/Solution2.sql
 /solution/0500-0599/0586.Customer Placing the Largest Number of Orders/Solution2.sql
-/solution/1400-1499/1454.Active Users/Solution.sql
 /solution/1600-1699/1635.Hopper Company Queries I/Solution.sql
 /solution/2100-2199/2118.Build the Equation/Solution.sql
 /solution/2100-2199/2175.The Change in Global Rankings/Solution.sql
@@ -26,3 +25,5 @@ node_modules/
 /solution/2200-2299/2253.Dynamic Unpivoting of a Table/Solution.sql
 /solution/3100-3199/3150.Invalid Tweets II/Solution.sql
 /solution/3100-3199/3198.Find Cities in Each State/Solution.sql
+/solution/3300-3399/3328.Find Cities in Each State II/Solution.sql
+/solution/3400-3499/3451.Find Invalid IP Addresses/Solution.sql

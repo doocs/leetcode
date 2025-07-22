@@ -72,7 +72,7 @@ tags:
 
 观察棋盘我们发现，颜色相同的两个格子 $(x_1, y_1)$ 和 $(x_2, y_2)$ 满足 $x_1 + y_1$ 和 $x_2 + y_2$ 均为奇数或偶数。
 
-因此，我们可以根据 `coordinates` 获取对应的坐标 $(x, y)$，如果 $x + y$ 为奇数，则格子为白色，返回 `true`，否则返回 `false`。
+因此，我们可以根据 $\textit{coordinates}$ 获取对应的坐标 $(x, y)$，如果 $x + y$ 为奇数，则格子为白色，返回 $\textit{true}$，否则返回 $\textit{false}$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -142,9 +142,7 @@ impl Solution {
  * @return {boolean}
  */
 var squareIsWhite = function (coordinates) {
-    const x = coordinates.charAt(0).charCodeAt();
-    const y = coordinates.charAt(1).charCodeAt();
-    return (x + y) % 2 == 1;
+    return (coordinates[0].charCodeAt() + coordinates[1].charCodeAt()) % 2 == 1;
 };
 ```
 

@@ -29,11 +29,13 @@ tags:
 	<li>Subtract <code>2<sup>k</sup></code> from <code>nums[i]</code> and <code>nums[j]</code>.</li>
 </ul>
 
-<p>A subarray is <strong>beautiful</strong> if it is possible to make all of its elements equal to <code>0</code> after applying the above operation any number of times.</p>
+<p>A subarray is <strong>beautiful</strong> if it is possible to make all of its elements equal to <code>0</code> after applying the above operation any number of times (including zero).</p>
 
 <p>Return <em>the number of <strong>beautiful subarrays</strong> in the array</em> <code>nums</code>.</p>
 
 <p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
+
+<p><strong>Note</strong>: Subarrays where all elements are initially 0 are considered beautiful, as no operation is needed.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -112,8 +114,7 @@ class Solution {
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt.getOrDefault(mask, 0);
-            cnt.merge(mask, 1, Integer::sum);
+            ans += cnt.merge(mask, 1, Integer::sum) - 1;
         }
         return ans;
     }
@@ -131,8 +132,7 @@ public:
         int mask = 0;
         for (int x : nums) {
             mask ^= x;
-            ans += cnt[mask];
-            ++cnt[mask];
+            ans += cnt[mask]++;
         }
         return ans;
     }
@@ -168,6 +168,27 @@ function beautifulSubarrays(nums: number[]): number {
         cnt.set(mask, (cnt.get(mask) || 0) + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn beautiful_subarrays(nums: Vec<i32>) -> i64 {
+        let mut cnt = HashMap::new();
+        cnt.insert(0, 1);
+        let mut ans = 0;
+        let mut mask = 0;
+        for &x in nums.iter() {
+            mask ^= x;
+            ans += *cnt.get(&mask).unwrap_or(&0);
+            *cnt.entry(mask).or_insert(0) += 1;
+        }
+        ans
+    }
 }
 ```
 

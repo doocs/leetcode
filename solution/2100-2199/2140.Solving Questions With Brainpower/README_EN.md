@@ -77,18 +77,18 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 
 <!-- solution:start -->
 
-### Solution 1: Memoization Search
+### Solution 1: Memoization
 
-We design a function $dfs(i)$, which represents the maximum score that can be obtained starting from the $i$-th problem. Therefore, the answer is $dfs(0)$.
+We design a function $\textit{dfs}(i)$, which represents the maximum score that can be obtained starting from the $i$-th question. The answer is $\textit{dfs}(0)$.
 
-The calculation method of the function $dfs(i)$ is as follows:
+The function $\textit{dfs}(i)$ is calculated as follows:
 
--   If $i \geq n$, it means that all problems have been solved, return $0$;
--   Otherwise, let the score of the $i$-th problem be $p$, and the number of problems to skip be $b$, then $dfs(i) = \max(p + dfs(i + b + 1), dfs(i + 1))$.
+-   If $i \geq n$, it means all questions have been solved, so return $0$;
+-   Otherwise, let the score of the $i$-th question be $p$, and the number of questions to skip be $b$. Then, $\textit{dfs}(i) = \max(p + \textit{dfs}(i + b + 1), \textit{dfs}(i + 1))$.
 
-To avoid repeated calculations, we can use the method of memoization search, using an array $f$ to record the values of all already computed $dfs(i)$.
+To avoid repeated calculations, we can use memoization by storing the values of $\textit{dfs}(i)$ in an array $f$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of problems.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of questions.
 
 <!-- tabs:start -->
 
@@ -144,7 +144,7 @@ public:
         int n = questions.size();
         long long f[n];
         memset(f, 0, sizeof(f));
-        function<long long(int)> dfs = [&](int i) -> long long {
+        auto dfs = [&](this auto&& dfs, int i) -> long long {
             if (i >= n) {
                 return 0;
             }
@@ -198,6 +198,32 @@ function mostPoints(questions: number[][]): number {
         return (f[i] = Math.max(p + dfs(i + b + 1), dfs(i + 1)));
     };
     return dfs(0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn most_points(questions: Vec<Vec<i32>>) -> i64 {
+        let n = questions.len();
+        let mut f = vec![-1; n];
+
+        fn dfs(i: usize, questions: &Vec<Vec<i32>>, f: &mut Vec<i64>) -> i64 {
+            if i >= questions.len() {
+                return 0;
+            }
+            if f[i] != -1 {
+                return f[i];
+            }
+            let p = questions[i][0] as i64;
+            let b = questions[i][1] as usize;
+            f[i] = (p + dfs(i + b + 1, questions, f)).max(dfs(i + 1, questions, f));
+            f[i]
+        }
+
+        dfs(0, &questions, &mut f)
+    }
 }
 ```
 
@@ -302,6 +328,24 @@ function mostPoints(questions: number[][]): number {
         f[i] = Math.max(f[i + 1], p + (j > n ? 0 : f[j]));
     }
     return f[0];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn most_points(questions: Vec<Vec<i32>>) -> i64 {
+        let n = questions.len();
+        let mut f = vec![0; n + 1];
+        for i in (0..n).rev() {
+            let p = questions[i][0] as i64;
+            let b = questions[i][1] as usize;
+            let j = i + b + 1;
+            f[i] = f[i + 1].max(p + if j > n { 0 } else { f[j] });
+        }
+        f[0]
+    }
 }
 ```
 

@@ -12,9 +12,8 @@ function orangesRotting(grid: number[][]): number {
             }
         }
     }
-    let ans: number = 0;
     const dirs: number[] = [-1, 0, 1, 0, -1];
-    for (; q.length && cnt; ++ans) {
+    for (let ans = 1; q.length && cnt; ++ans) {
         const t: number[][] = [];
         for (const [i, j] of q) {
             for (let d = 0; d < 4; ++d) {
@@ -22,11 +21,13 @@ function orangesRotting(grid: number[][]): number {
                 if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
                     grid[x][y] = 2;
                     t.push([x, y]);
-                    cnt--;
+                    if (--cnt === 0) {
+                        return ans;
+                    }
                 }
             }
         }
         q.splice(0, q.length, ...t);
     }
-    return cnt > 0 ? -1 : ans;
+    return cnt > 0 ? -1 : 0;
 }

@@ -68,7 +68,13 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can iterate through the string $s$ and use an array $\textit{ans}$ to record the current answer. For each character $\textit{s[i]}$, if $i < 2$ or $s[i]$ is not equal to $s[i - 1]$, or $s[i]$ is not equal to $s[i - 2]$, we add $s[i]$ to $\textit{ans}$.
+
+Finally, we concatenate the characters in $\textit{ans}$ to get the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -78,11 +84,10 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 class Solution:
     def makeFancyString(self, s: str) -> str:
         ans = []
-        for c in s:
-            if len(ans) > 1 and ans[-1] == ans[-2] == c:
-                continue
-            ans.append(c)
-        return ''.join(ans)
+        for i, c in enumerate(s):
+            if i < 2 or c != s[i - 1] or c != s[i - 2]:
+                ans.append(c)
+        return "".join(ans)
 ```
 
 #### Java
@@ -91,12 +96,11 @@ class Solution:
 class Solution {
     public String makeFancyString(String s) {
         StringBuilder ans = new StringBuilder();
-        for (char c : s.toCharArray()) {
-            int n = ans.length();
-            if (n > 1 && ans.charAt(n - 1) == c && ans.charAt(n - 2) == c) {
-                continue;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (i < 2 || c != s.charAt(i - 1) || c != s.charAt(i - 2)) {
+                ans.append(c);
             }
-            ans.append(c);
         }
         return ans.toString();
     }
@@ -110,10 +114,11 @@ class Solution {
 public:
     string makeFancyString(string s) {
         string ans = "";
-        for (char& c : s) {
-            int n = ans.size();
-            if (n > 1 && ans[n - 1] == c && ans[n - 2] == c) continue;
-            ans.push_back(c);
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s[i];
+            if (i < 2 || c != s[i - 1] || c != s[i - 2]) {
+                ans += c;
+            }
         }
         return ans;
     }
@@ -124,16 +129,46 @@ public:
 
 ```go
 func makeFancyString(s string) string {
-	ans := []rune{}
-	for _, c := range s {
-		n := len(ans)
-		if n > 1 && ans[n-1] == c && ans[n-2] == c {
-			continue
+	ans := []byte{}
+	for i, ch := range s {
+		if c := byte(ch); i < 2 || c != s[i-1] || c != s[i-2] {
+			ans = append(ans, c)
 		}
-		ans = append(ans, c)
 	}
 	return string(ans)
 }
+```
+
+#### TypeScript
+
+```ts
+function makeFancyString(s: string): string {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; ++i) {
+        if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
+            ans.push(s[i]);
+        }
+    }
+    return ans.join('');
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var makeFancyString = function (s) {
+    const ans = [];
+    for (let i = 0; i < s.length; ++i) {
+        if (s[i] !== s[i - 1] || s[i] !== s[i - 2]) {
+            ans.push(s[i]);
+        }
+    }
+    return ans.join('');
+};
 ```
 
 #### PHP
@@ -145,15 +180,14 @@ class Solution {
      * @return String
      */
     function makeFancyString($s) {
-        $rs = '';
+        $ans = '';
         for ($i = 0; $i < strlen($s); $i++) {
-            if ($s[$i] == $s[$i + 1] && $s[$i] == $s[$i + 2]) {
-                continue;
-            } else {
-                $rs .= $s[$i];
+            $c = $s[$i];
+            if ($i < 2 || $c !== $s[$i - 1] || $c !== $s[$i - 2]) {
+                $ans .= $c;
             }
         }
-        return $rs;
+        return $ans;
     }
 }
 ```

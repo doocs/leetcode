@@ -22,7 +22,7 @@ tags:
 
 <!-- description:start -->
 
-<p>You are given a array <code>points</code> representing integer coordinates of some points on a 2D plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
+<p>You are given an array <code>points</code> representing integer coordinates of some points on a 2D plane, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
 <p>The distance between two points is defined as their <span data-keyword="manhattan-distance">Manhattan distance</span>.</p>
 
@@ -112,9 +112,6 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, 
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def minimumDistance(self, points: List[List[int]]) -> int:
         sl1 = SortedList()

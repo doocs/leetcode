@@ -12,11 +12,10 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 			q = append(q, i)
 		}
 	}
-	cnt := 0
 	for len(q) > 0 {
 		i := q[0]
 		q = q[1:]
-		cnt++
+		numCourses--
 		for _, j := range g[i] {
 			indeg[j]--
 			if indeg[j] == 0 {
@@ -24,5 +23,5 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 			}
 		}
 	}
-	return cnt == numCourses
+	return numCourses == 0
 }

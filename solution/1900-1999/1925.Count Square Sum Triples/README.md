@@ -53,7 +53,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们在 $[1, n)$ 的范围内枚举 $a$ 和 $b$，然后计算 $c = \sqrt{a^2 + b^2}$，如果 $c$ 是整数且 $c \leq n$，那么就找到了一个平方和三元组，答案加一。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -62,14 +68,14 @@ tags:
 ```python
 class Solution:
     def countTriples(self, n: int) -> int:
-        res = 0
-        for a in range(1, n + 1):
-            for b in range(1, n + 1):
-                t = a**2 + b**2
-                c = int(sqrt(t))
-                if c <= n and c**2 == t:
-                    res += 1
-        return res
+        ans = 0
+        for a in range(1, n):
+            for b in range(1, n):
+                x = a * a + b * b
+                c = int(sqrt(x))
+                if c <= n and c * c == x:
+                    ans += 1
+        return ans
 ```
 
 #### Java
@@ -77,17 +83,17 @@ class Solution:
 ```java
 class Solution {
     public int countTriples(int n) {
-        int res = 0;
-        for (int a = 1; a <= n; ++a) {
-            for (int b = 1; b <= n; ++b) {
-                int t = a * a + b * b;
-                int c = (int) Math.sqrt(t);
-                if (c <= n && c * c == t) {
-                    ++res;
+        int ans = 0;
+        for (int a = 1; a < n; a++) {
+            for (int b = 1; b < n; b++) {
+                int x = a * a + b * b;
+                int c = (int) Math.sqrt(x);
+                if (c <= n && c * c == x) {
+                    ans++;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -98,17 +104,17 @@ class Solution {
 class Solution {
 public:
     int countTriples(int n) {
-        int res = 0;
-        for (int a = 1; a <= n; ++a) {
-            for (int b = 1; b <= n; ++b) {
-                int t = a * a + b * b;
-                int c = (int) sqrt(t);
-                if (c <= n && c * c == t) {
-                    ++res;
+        int ans = 0;
+        for (int a = 1; a < n; ++a) {
+            for (int b = 1; b < n; ++b) {
+                int x = a * a + b * b;
+                int c = static_cast<int>(sqrt(x));
+                if (c <= n && c * c == x) {
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -116,18 +122,35 @@ public:
 #### Go
 
 ```go
-func countTriples(n int) int {
-	res := 0
-	for a := 1; a <= n; a++ {
-		for b := 1; b <= n; b++ {
-			t := a*a + b*b
-			c := int(math.Sqrt(float64(t)))
-			if c <= n && c*c == t {
-				res++
+func countTriples(n int) (ans int) {
+	for a := 1; a < n; a++ {
+		for b := 1; b < n; b++ {
+			x := a*a + b*b
+			c := int(math.Sqrt(float64(x)))
+			if c <= n && c*c == x {
+				ans++
 			}
 		}
 	}
-	return res
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countTriples(n: number): number {
+    let ans = 0;
+    for (let a = 1; a < n; a++) {
+        for (let b = 1; b < n; b++) {
+            const x = a * a + b * b;
+            const c = Math.floor(Math.sqrt(x));
+            if (c <= n && c * c === x) {
+                ans++;
+            }
+        }
+    }
+    return ans;
 }
 ```
 

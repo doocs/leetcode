@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1967.Nu
 rating: 1231
 source: Weekly Contest 254 Q1
 tags:
+    - Array
     - String
 ---
 
@@ -72,7 +73,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+Traverse each string $p$ in the array $\textit{patterns}$ and check if it is a substring of $\textit{word}$. If it is, increment the answer by one.
+
+After traversing, return the answer.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(1)$. Here, $n$ and $m$ are the lengths of $\textit{patterns}$ and $\textit{word}$, respectively.
 
 <!-- tabs:start -->
 
@@ -132,13 +139,17 @@ func numOfStrings(patterns []string, word string) (ans int) {
 
 ```ts
 function numOfStrings(patterns: string[], word: string): number {
-    let ans = 0;
-    for (const p of patterns) {
-        if (word.includes(p)) {
-            ++ans;
-        }
+    return patterns.filter(p => word.includes(p)).length;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_of_strings(patterns: Vec<String>, word: String) -> i32 {
+        patterns.iter().filter(|p| word.contains(&**p)).count() as i32
     }
-    return ans;
 }
 ```
 

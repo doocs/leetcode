@@ -20,9 +20,5 @@ function largestSumAfterKNegations(nums: number[], k: number): number {
             }
         }
     }
-    let ans = 0;
-    for (const [key, value] of cnt.entries()) {
-        ans += key * value;
-    }
-    return ans;
+    return Array.from(cnt.entries()).reduce((acc, [k, v]) => acc + k * v, 0);
 }

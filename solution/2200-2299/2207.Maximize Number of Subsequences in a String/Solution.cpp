@@ -2,13 +2,17 @@ class Solution {
 public:
     long long maximumSubsequenceCount(string text, string pattern) {
         long long ans = 0;
-        char a = pattern[0], b = pattern[1];
-        vector<int> cnt(26);
+        int x = 0, y = 0;
         for (char& c : text) {
-            if (c == b) ans += cnt[a - 'a'];
-            cnt[c - 'a']++;
+            if (c == pattern[1]) {
+                ++y;
+                ans += x;
+            }
+            if (c == pattern[0]) {
+                ++x;
+            }
         }
-        ans += max(cnt[a - 'a'], cnt[b - 'a']);
+        ans += max(x, y);
         return ans;
     }
 };

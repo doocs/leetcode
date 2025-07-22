@@ -63,13 +63,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：模拟
+### 方法一：脑筋急转弯
 
 根据题意，字符串 $s$ 仅由字符 `a`, `b` 组成。
 
 要使得所有 `a` 都在 `b` 之前出现，需要满足 `b` 之后不会出现 `a`，也就是说，字符串 "ba" 不是字符串 $s$ 的子串，条件才能成立。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $s$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -97,7 +97,7 @@ class Solution {
 class Solution {
 public:
     bool checkString(string s) {
-        return s.find("ba") == string::npos;
+        return !s.contains("ba");
     }
 };
 ```
@@ -107,6 +107,24 @@ public:
 ```go
 func checkString(s string) bool {
 	return !strings.Contains(s, "ba")
+}
+```
+
+#### TypeScript
+
+```ts
+function checkString(s: string): boolean {
+    return !s.includes('ba');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn check_string(s: String) -> bool {
+        !s.contains("ba")
+    }
 }
 ```
 

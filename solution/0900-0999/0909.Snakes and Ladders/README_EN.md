@@ -34,15 +34,15 @@ tags:
 
 </ul>
 
-<p>A board square on row <code>r</code> and column <code>c</code> has a snake or ladder if <code>board[r][c] != -1</code>. The destination of that snake or ladder is <code>board[r][c]</code>. Squares <code>1</code> and <code>n<sup>2</sup></code> do not have a snake or ladder.</p>
+<p>A board square on row <code>r</code> and column <code>c</code> has a snake or ladder if <code>board[r][c] != -1</code>. The destination of that snake or ladder is <code>board[r][c]</code>. Squares <code>1</code> and <code>n<sup>2</sup></code> are not the starting points of any snake or ladder.</p>
 
-<p>Note that you only take a snake or ladder at most once per move. If the destination to a snake or ladder is the start of another snake or ladder, you do <strong>not</strong> follow the subsequent&nbsp;snake or ladder.</p>
+<p>Note that you only take a snake or ladder at most once per dice roll. If the destination to a snake or ladder is the start of another snake or ladder, you do <strong>not</strong> follow the subsequent&nbsp;snake or ladder.</p>
 
 <ul>
 	<li>For example, suppose the board is <code>[[-1,4],[-1,3]]</code>, and on the first move, your destination square is <code>2</code>. You follow the ladder to square <code>3</code>, but do <strong>not</strong> follow the subsequent ladder to <code>4</code>.</li>
 </ul>
 
-<p>Return <em>the least number of moves required to reach the square </em><code>n<sup>2</sup></code><em>. If it is not possible to reach the square, return </em><code>-1</code>.</p>
+<p>Return <em>the least number of dice rolls required to reach the square </em><code>n<sup>2</sup></code><em>. If it is not possible to reach the square, return </em><code>-1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -73,7 +73,7 @@ This is the lowest possible number of moves to reach the last square, so return 
 	<li><code>n == board.length == board[i].length</code></li>
 	<li><code>2 &lt;= n &lt;= 20</code></li>
 	<li><code>board[i][j]</code> is either <code>-1</code> or in the range <code>[1, n<sup>2</sup>]</code>.</li>
-	<li>The squares labeled <code>1</code> and <code>n<sup>2</sup></code> do not have any ladders or snakes.</li>
+	<li>The squares labeled <code>1</code> and <code>n<sup>2</sup></code> are not the starting points of any snake or ladder.</li>
 </ul>
 
 <!-- description:end -->
@@ -274,6 +274,52 @@ function snakesAndLadders(board: number[][]): number {
         }
     }
     return -1;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{HashSet, VecDeque};
+
+impl Solution {
+    pub fn snakes_and_ladders(board: Vec<Vec<i32>>) -> i32 {
+        let n = board.len();
+        let m = (n * n) as i32;
+        let mut q = VecDeque::new();
+        q.push_back(1);
+        let mut vis = HashSet::new();
+        vis.insert(1);
+        let mut ans = 0;
+
+        while !q.is_empty() {
+            for _ in 0..q.len() {
+                let x = q.pop_front().unwrap();
+                if x == m {
+                    return ans;
+                }
+                for y in x + 1..=i32::min(x + 6, m) {
+                    let (mut i, mut j) = ((y - 1) / n as i32, (y - 1) % n as i32);
+                    if i % 2 == 1 {
+                        j = (n as i32 - 1) - j;
+                    }
+                    i = (n as i32 - 1) - i;
+                    let z = if board[i as usize][j as usize] == -1 {
+                        y
+                    } else {
+                        board[i as usize][j as usize]
+                    };
+                    if !vis.contains(&z) {
+                        vis.insert(z);
+                        q.push_back(z);
+                    }
+                }
+            }
+            ans += 1;
+        }
+
+        -1
+    }
 }
 ```
 

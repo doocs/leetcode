@@ -3,25 +3,23 @@
  * @return {string[]}
  */
 var permutation = function (S) {
-    const cs = S.split('').sort();
-    const ans = [];
-    const n = cs.length;
+    const s = S.split('').sort();
+    const n = s.length;
+    const t = Array(n).fill('');
     const vis = Array(n).fill(false);
-    const t = [];
+    const ans = [];
     const dfs = i => {
-        if (i === n) {
+        if (i >= n) {
             ans.push(t.join(''));
             return;
         }
         for (let j = 0; j < n; ++j) {
-            if (vis[j] || (j > 0 && !vis[j - 1] && cs[j] === cs[j - 1])) {
-                continue;
+            if (!vis[j] && (j === 0 || s[j] !== s[j - 1] || vis[j - 1])) {
+                vis[j] = true;
+                t[i] = s[j];
+                dfs(i + 1);
+                vis[j] = false;
             }
-            vis[j] = true;
-            t.push(cs[j]);
-            dfs(i + 1);
-            t.pop();
-            vis[j] = false;
         }
     };
     dfs(0);

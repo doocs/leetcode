@@ -24,7 +24,7 @@ tags:
 
 <p>In one <strong>operation</strong>, you can swap any two <strong>adjacent</strong> elements if they have the <strong>same</strong> number of <span data-keyword="set-bit">set bits</span>. You are allowed to do this operation <strong>any</strong> number of times (<strong>including zero</strong>).</p>
 
-<p>Return <code>true</code> <em>if you can sort the array, else return </em><code>false</code>.</p>
+<p>Return <code>true</code> <em>if you can sort the array in ascending order, else return </em><code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

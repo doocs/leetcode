@@ -1,17 +1,16 @@
 class Solution {
     public int threeSumSmaller(int[] nums, int target) {
         Arrays.sort(nums);
-        int ans = 0;
-        for (int i = 0, n = nums.length; i < n; ++i) {
-            int j = i + 1;
-            int k = n - 1;
+        int ans = 0, n = nums.length;
+        for (int i = 0; i + 2 < n; ++i) {
+            int j = i + 1, k = n - 1;
             while (j < k) {
-                int s = nums[i] + nums[j] + nums[k];
-                if (s >= target) {
-                    --k;
-                } else {
+                int x = nums[i] + nums[j] + nums[k];
+                if (x < target) {
                     ans += k - j;
                     ++j;
+                } else {
+                    --k;
                 }
             }
         }

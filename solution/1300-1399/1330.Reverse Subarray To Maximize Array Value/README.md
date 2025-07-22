@@ -30,14 +30,16 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,3,1,5,4]
+<pre>
+<strong>输入：</strong>nums = [2,3,1,5,4]
 <strong>输出：</strong>10
 <strong>解释：</strong>通过翻转子数组 [3,1,5] ，数组变成 [2,5,1,3,4] ，数组值为 10 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,4,9,24,2,1,10]
+<pre>
+<strong>输入：</strong>nums = [2,4,9,24,2,1,10]
 <strong>输出：</strong>68
 </pre>
 
@@ -46,8 +48,9 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 3*10^4</code></li>
-	<li><code>-10^5 &lt;= nums[i] &lt;= 10^5</code></li>
+	<li><code>2 &lt;= nums.length &lt;= 3*10<sup>4</sup></code></li>
+	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+	<li>答案保证在 32 位整数范围内。</li>
 </ul>
 
 <!-- description:end -->

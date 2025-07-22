@@ -95,11 +95,15 @@ We cannot group the segments together because an empty space with no buildings s
 
 <!-- solution:start -->
 
-### Solution 1: Differential Ordered Hash Table
+### Solution 1: Difference Array + Hash Table
 
-We use the differential idea and an ordered hash table `height` to record the height change at each position, and `cnt` to record the change in the number of buildings. By calculating the prefix sum of the ordered hash table, we can get the height and the number of buildings at each position.
+We can use the difference array concept, utilizing a hash table $\textit{cnt}$ to record the change in the number of buildings at each position, and another hash table $\textit{d}$ to record the change in height at each position.
 
-Finally, we traverse the ordered hash table. For each position, if both the height and the number of buildings are not zero, it means that there is a building at this position. We then check whether the average height of the building at this time is the same as that of the previous building. If it is the same, we merge them; otherwise, we add it to the result set.
+Next, we sort the hash table $\textit{d}$ by its keys, use a variable $\textit{s}$ to record the current total height, and a variable $\textit{m}$ to record the current number of buildings.
+
+Then, we traverse the hash table $\textit{d}$. For each position, if $\textit{m}$ is not 0, it means there are buildings at the previous positions. We calculate the average height. If the average height of the buildings at the current position is the same as that of the previous buildings, we merge them; otherwise, we add the current position to the result set.
+
+Finally, we return the result set.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of buildings.
 
@@ -110,25 +114,26 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 ```python
 class Solution:
     def averageHeightOfBuildings(self, buildings: List[List[int]]) -> List[List[int]]:
-        height = defaultdict(int)
         cnt = defaultdict(int)
-        for s, e, h in buildings:
-            cnt[s] += 1
-            cnt[e] -= 1
-            height[s] += h
-            height[e] -= h
+        d = defaultdict(int)
+        for start, end, height in buildings:
+            cnt[start] += 1
+            cnt[end] -= 1
+            d[start] += height
+            d[end] -= height
+        s = m = 0
+        last = -1
         ans = []
-        i = h = n = 0
-        for j in sorted(cnt.keys()):
-            if n:
-                t = [i, j, h // n]
-                if ans and ans[-1][1] == i and ans[-1][2] == t[-1]:
-                    ans[-1][1] = j
+        for k, v in sorted(d.items()):
+            if m:
+                avg = s // m
+                if ans and ans[-1][2] == avg and ans[-1][1] == last:
+                    ans[-1][1] = k
                 else:
-                    ans.append(t)
-            i = j
-            h += height[j]
-            n += cnt[j]
+                    ans.append([last, k, avg])
+            s += v
+            m += cnt[k]
+            last = k
         return ans
 ```
 
@@ -137,36 +142,34 @@ class Solution:
 ```java
 class Solution {
     public int[][] averageHeightOfBuildings(int[][] buildings) {
-        TreeMap<Integer, Integer> height = new TreeMap<>();
-        TreeMap<Integer, Integer> cnt = new TreeMap<>();
-        for (var v : buildings) {
-            int s = v[0], e = v[1], h = v[2];
-            cnt.put(s, cnt.getOrDefault(s, 0) + 1);
-            cnt.put(e, cnt.getOrDefault(e, 0) - 1);
-            height.put(s, height.getOrDefault(s, 0) + h);
-            height.put(e, height.getOrDefault(e, 0) - h);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        TreeMap<Integer, Integer> d = new TreeMap<>();
+        for (var e : buildings) {
+            int start = e[0], end = e[1], height = e[2];
+            cnt.merge(start, 1, Integer::sum);
+            cnt.merge(end, -1, Integer::sum);
+            d.merge(start, height, Integer::sum);
+            d.merge(end, -height, Integer::sum);
         }
-        int i = 0, h = 0, n = 0;
-        List<int[]> res = new ArrayList<>();
-        for (int j : cnt.keySet()) {
-            if (n > 0) {
-                int[] t = new int[] {i, j, h / n};
-                int k = res.size() - 1;
-                if (k >= 0 && res.get(k)[1] == i && res.get(k)[2] == t[2]) {
-                    res.get(k)[1] = j;
+        int s = 0, m = 0;
+        int last = -1;
+        List<int[]> ans = new ArrayList<>();
+        for (var e : d.entrySet()) {
+            int k = e.getKey(), v = e.getValue();
+            if (m > 0) {
+                int avg = s / m;
+                if (!ans.isEmpty() && ans.get(ans.size() - 1)[2] == avg
+                    && ans.get(ans.size() - 1)[1] == last) {
+                    ans.get(ans.size() - 1)[1] = k;
                 } else {
-                    res.add(t);
+                    ans.add(new int[] {last, k, avg});
                 }
             }
-            h += height.get(j);
-            n += cnt.get(j);
-            i = j;
+            s += v;
+            m += cnt.get(k);
+            last = k;
         }
-        int[][] ans = new int[res.size()][3];
-        for (i = 0; i < ans.length; ++i) {
-            ans[i] = res.get(i);
-        }
-        return ans;
+        return ans.toArray(new int[0][]);
     }
 }
 ```
@@ -177,27 +180,35 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> averageHeightOfBuildings(vector<vector<int>>& buildings) {
-        map<int, int> height, cnt;
-        for (auto& v : buildings) {
-            int s = v[0], e = v[1], h = v[2];
-            cnt[s]++, cnt[e]--;
-            height[s] += h, height[e] -= h;
+        unordered_map<int, int> cnt;
+        map<int, int> d;
+
+        for (const auto& e : buildings) {
+            int start = e[0], end = e[1], height = e[2];
+            cnt[start]++;
+            cnt[end]--;
+            d[start] += height;
+            d[end] -= height;
         }
+
+        int s = 0, m = 0;
+        int last = -1;
         vector<vector<int>> ans;
-        int i = 0, h = 0, n = 0;
-        for (auto& [j, _] : cnt) {
-            if (n) {
-                vector<int> t = {i, j, h / n};
-                if (ans.size() && ans.back()[1] == i && ans.back()[2] == t[2]) {
-                    ans.back()[1] = j;
+
+        for (const auto& [k, v] : d) {
+            if (m > 0) {
+                int avg = s / m;
+                if (!ans.empty() && ans.back()[2] == avg && ans.back()[1] == last) {
+                    ans.back()[1] = k;
                 } else {
-                    ans.push_back(t);
+                    ans.push_back({last, k, avg});
                 }
             }
-            i = j;
-            h += height[j];
-            n += cnt[j];
+            s += v;
+            m += cnt[k];
+            last = k;
         }
+
         return ans;
     }
 };
@@ -207,36 +218,77 @@ public:
 
 ```go
 func averageHeightOfBuildings(buildings [][]int) [][]int {
-	height := make(map[int]int)
 	cnt := make(map[int]int)
-	for _, v := range buildings {
-		s, e, h := v[0], v[1], v[2]
-		cnt[s]++
-		cnt[e]--
-		height[s] += h
-		height[e] -= h
+	d := make(map[int]int)
+
+	for _, e := range buildings {
+		start, end, height := e[0], e[1], e[2]
+		cnt[start]++
+		cnt[end]--
+		d[start] += height
+		d[end] -= height
 	}
-	keys := make([]int, len(cnt))
-	for k := range cnt {
+
+	s, m := 0, 0
+	last := -1
+	var ans [][]int
+
+	keys := make([]int, 0, len(d))
+	for k := range d {
 		keys = append(keys, k)
 	}
 	sort.Ints(keys)
-	i, h, n := 0, 0, 0
-	ans := [][]int{}
-	for _, j := range keys {
-		if n > 0 {
-			t := []int{i, j, h / n}
-			if len(ans) > 0 && ans[len(ans)-1][1] == i && ans[len(ans)-1][2] == t[2] {
-				ans[len(ans)-1][1] = j
+
+	for _, k := range keys {
+		v := d[k]
+		if m > 0 {
+			avg := s / m
+			if len(ans) > 0 && ans[len(ans)-1][2] == avg && ans[len(ans)-1][1] == last {
+				ans[len(ans)-1][1] = k
 			} else {
-				ans = append(ans, t)
+				ans = append(ans, []int{last, k, avg})
 			}
 		}
-		i = j
-		h += height[j]
-		n += cnt[j]
+		s += v
+		m += cnt[k]
+		last = k
 	}
+
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function averageHeightOfBuildings(buildings: number[][]): number[][] {
+    const cnt = new Map<number, number>();
+    const d = new Map<number, number>();
+    for (const [start, end, height] of buildings) {
+        cnt.set(start, (cnt.get(start) || 0) + 1);
+        cnt.set(end, (cnt.get(end) || 0) - 1);
+        d.set(start, (d.get(start) || 0) + height);
+        d.set(end, (d.get(end) || 0) - height);
+    }
+    let [s, m] = [0, 0];
+    let last = -1;
+    const ans: number[][] = [];
+    const sortedKeys = Array.from(d.keys()).sort((a, b) => a - b);
+    for (const k of sortedKeys) {
+        const v = d.get(k)!;
+        if (m > 0) {
+            const avg = Math.floor(s / m);
+            if (ans.length > 0 && ans.at(-1)![2] === avg && ans.at(-1)![1] === last) {
+                ans[ans.length - 1][1] = k;
+            } else {
+                ans.push([last, k, avg]);
+            }
+        }
+        s += v;
+        m += cnt.get(k)!;
+        last = k;
+    }
+    return ans;
 }
 ```
 

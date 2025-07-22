@@ -236,6 +236,109 @@ public:
 };
 ```
 
+#### Go
+
+```go
+func openLock(deadends []string, target string) int {
+	dead := map[string]bool{}
+	for _, s := range deadends {
+		dead[s] = true
+	}
+	if dead["0000"] {
+		return -1
+	}
+	if target == "0000" {
+		return 0
+	}
+	q := []string{"0000"}
+	visited := map[string]bool{"0000": true}
+	step := 0
+	for len(q) > 0 {
+		step++
+		size := len(q)
+		for i := 0; i < size; i++ {
+			cur := q[0]
+			q = q[1:]
+			for j := 0; j < 4; j++ {
+				for k := -1; k <= 1; k += 2 {
+					next := cur[:j] + string((cur[j]-'0'+byte(k)+10)%10+'0') + cur[j+1:]
+					if next == target {
+						return step
+					}
+					if !dead[next] && !visited[next] {
+						q = append(q, next)
+						visited[next] = true
+					}
+				}
+			}
+		}
+	}
+	return -1
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func openLock(_ deadends: [String], _ target: String) -> Int {
+        let deadSet = Set(deadends)
+        if deadSet.contains(target) || deadSet.contains("0000") {
+            return -1
+        }
+        if target == "0000" {
+            return 0
+        }
+
+        var visited = Set<String>()
+        var queue = ["0000"]
+        visited.insert("0000")
+        var step = 0
+
+        while !queue.isEmpty {
+            step += 1
+            for _ in 0..<queue.count {
+                let status = queue.removeFirst()
+                for neighbor in getNeighbors(status) {
+                    if visited.contains(neighbor) || deadSet.contains(neighbor) {
+                        continue
+                    }
+                    if neighbor == target {
+                        return step
+                    }
+                    queue.append(neighbor)
+                    visited.insert(neighbor)
+                }
+            }
+        }
+
+        return -1
+    }
+
+    private func getNeighbors(_ lock: String) -> [String] {
+        var neighbors = [String]()
+        var chars = Array(lock)
+        for i in 0..<4 {
+            let original = chars[i]
+            chars[i] = prevChar(original)
+            neighbors.append(String(chars))
+            chars[i] = nextChar(original)
+            neighbors.append(String(chars))
+            chars[i] = original
+        }
+        return neighbors
+    }
+
+    private func prevChar(_ c: Character) -> Character {
+        return c == "0" ? "9" : Character(UnicodeScalar(c.asciiValue! - 1))
+    }
+
+    private func nextChar(_ c: Character) -> Character {
+        return c == "9" ? "0" : Character(UnicodeScalar(c.asciiValue! + 1))
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

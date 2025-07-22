@@ -55,6 +55,7 @@ tags:
 	<li><code>1 &lt;= expression.length &lt;= 20</code></li>
 	<li><code>expression</code> consists of digits and the operator <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, and <code>&#39;*&#39;</code>.</li>
 	<li>All the integer values in the input expression are in the range <code>[0, 99]</code>.</li>
+	<li>The integer values in the input expression do not have a leading <code>&#39;-&#39;</code> or <code>&#39;+&#39;</code> denoting the sign.</li>
 </ul>
 
 <!-- description:end -->

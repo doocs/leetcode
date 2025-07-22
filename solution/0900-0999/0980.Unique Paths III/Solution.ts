@@ -12,9 +12,7 @@ function uniquePathsIII(grid: number[][]): number {
             }
         }
     }
-    const vis: boolean[][] = Array(m)
-        .fill(0)
-        .map(() => Array(n).fill(false));
+    const vis: boolean[][] = Array.from({ length: m }, () => Array(n).fill(false));
     vis[x][y] = true;
     const dirs = [-1, 0, 1, 0, -1];
     const dfs = (i: number, j: number, k: number): number => {

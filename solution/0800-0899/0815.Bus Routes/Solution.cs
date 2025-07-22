@@ -4,51 +4,52 @@ public class Solution {
             return 0;
         }
 
-        Dictionary<int, HashSet<int>> stopToRoutes = new Dictionary<int, HashSet<int>>();
-        List<HashSet<int>> routeToStops = new List<HashSet<int>>();
-
+        // Use Dictionary to map stops to bus routes
+        var g = new Dictionary<int, List<int>>();
         for (int i = 0; i < routes.Length; i++) {
-            routeToStops.Add(new HashSet<int>());
             foreach (int stop in routes[i]) {
-                routeToStops[i].Add(stop);
-                if (!stopToRoutes.ContainsKey(stop)) {
-                    stopToRoutes[stop] = new HashSet<int>();
+                if (!g.ContainsKey(stop)) {
+                    g[stop] = new List<int>();
                 }
-                stopToRoutes[stop].Add(i);
+                g[stop].Add(i);
             }
         }
 
-        Queue<int> queue = new Queue<int>();
-        HashSet<int> visited = new HashSet<int>();
-        int ans = 0;
-
-        foreach (int routeId in stopToRoutes[source]) {
-            queue.Enqueue(routeId);
-            visited.Add(routeId);
+        // If source or target is not in the mapping, return -1
+        if (!g.ContainsKey(source) || !g.ContainsKey(target)) {
+            return -1;
         }
 
-        while (queue.Count > 0) {
-            int count = queue.Count;
-            ans++;
+        // Initialize queue and visited sets
+        var q = new Queue<int[]>();
+        var visBus = new HashSet<int>();
+        var visStop = new HashSet<int>();
+        q.Enqueue(new int[] { source, 0 });
+        visStop.Add(source);
 
-            for (int i = 0; i < count; i++) {
-                int routeId = queue.Dequeue();
+        // Begin BFS
+        while (q.Count > 0) {
+            var current = q.Dequeue();
+            int stop = current[0], busCount = current[1];
 
-                foreach (int stop in routeToStops[routeId]) {
-                    if (stop == target) {
-                        return ans;
-                    }
+            // If the current stop is the target stop, return the bus count
+            if (stop == target) {
+                return busCount;
+            }
 
-                    foreach (int nextRoute in stopToRoutes[stop]) {
-                        if (!visited.Contains(nextRoute)) {
-                            visited.Add(nextRoute);
-                            queue.Enqueue(nextRoute);
+            // Traverse all bus routes passing through the current stop
+            foreach (int bus in g[stop]) {
+                if (visBus.Add(bus)) {
+                    // Traverse all stops on this bus route
+                    foreach (int nextStop in routes[bus]) {
+                        if (visStop.Add(nextStop)) {
+                            q.Enqueue(new int[] { nextStop, busCount + 1 });
                         }
                     }
                 }
             }
         }
 
-        return -1;
+        return -1; // If unable to reach the target stop, return -1
     }
 }

@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1910.Re
 rating: 1460
 source: Biweekly Contest 55 Q2
 tags:
+    - Stack
     - String
+    - Simulation
 ---
 
 <!-- problem:start -->

@@ -4,7 +4,7 @@
  * @return {number[]}
  */
 var getModifiedArray = function (length, updates) {
-    const d = new Array(length).fill(0);
+    const d = Array(length).fill(0);
     for (const [l, r, c] of updates) {
         d[l] += c;
         if (r + 1 < length) {

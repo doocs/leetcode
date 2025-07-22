@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def plusOne(self, head: ListNode) -> ListNode:
+    def plusOne(self, head: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(0, head)
         target = dummy
         while head:

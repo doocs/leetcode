@@ -174,9 +174,9 @@ The smallest element of averages, 5.5, is returned.</div>
 
 ### Solution 1: Sorting
 
-First, we sort the array $\text{nums}$. Then, we start taking elements from both ends of the array, calculating the sum of the two elements, and taking the minimum value. Finally, we return the minimum value divided by 2 as the answer.
+First, we sort the array $\textit{nums}$. Then, we start taking elements from both ends of the array, calculating the sum of the two elements, and taking the minimum value. Finally, we return the minimum value divided by 2 as the answer.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\text{nums}$.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -187,7 +187,7 @@ class Solution:
     def minimumAverage(self, nums: List[int]) -> float:
         nums.sort()
         n = len(nums)
-        return min(nums[i] + nums[n - i - 1] for i in range(n // 2)) / 2
+        return min(nums[i] + nums[-i - 1] for i in range(n // 2)) / 2
 ```
 
 #### Java
@@ -247,6 +247,19 @@ function minimumAverage(nums: number[]): number {
         ans = Math.min(ans, nums[i] + nums[n - 1 - i]);
     }
     return ans / 2;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_average(mut nums: Vec<i32>) -> f64 {
+        nums.sort();
+        let n = nums.len();
+        let ans = (0..n / 2).map(|i| nums[i] + nums[n - i - 1]).min().unwrap();
+        ans as f64 / 2.0
+    }
 }
 ```
 

@@ -11,13 +11,12 @@
  */
 
 function deleteMiddle(head: ListNode | null): ListNode | null {
-    if (!head || !head.next) return null;
-    let fast = head.next,
-        slow = head;
-    while (fast.next && fast.next.next) {
+    const dummy = new ListNode(0, head);
+    let [slow, fast] = [dummy, head];
+    while (fast && fast.next) {
         slow = slow.next;
         fast = fast.next.next;
     }
     slow.next = slow.next.next;
-    return head;
+    return dummy.next;
 }

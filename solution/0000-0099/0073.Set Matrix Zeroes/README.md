@@ -66,13 +66,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数组标记
+### Solution 1: Array Marking
 
-我们分别用数组 `rows` 和 `cols` 标记待清零的行和列。
+Let the number of rows and columns of the matrix be $m$ and $n$, respectively. We use an array $\textit{rows}$ of length $m$ and an array $\textit{cols}$ of length $n$ to record which rows and columns need to be set to zero.
 
-然后再遍历一遍矩阵，将 `rows` 和 `cols` 中标记的行和列对应的元素清零。
+First, we traverse the matrix. When we find a zero element in the matrix, we set the corresponding row and column markers to $\text{true}$. That is, if $\textit{matrix}[i][j] = 0$, then $\textit{rows}[i] = \textit{cols}[j] = \text{true}$.
 
-时间复杂度 $O(m\times n)$，空间复杂度 $O(m+n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+Finally, we traverse the matrix again and use the markers in $\textit{rows}$ and $\textit{cols}$ to update the elements in the matrix. When we find that $\textit{rows}[i]$ or $\textit{cols}[j]$ is $\text{true}$, we set $\textit{matrix}[i][j]$ to zero.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -82,15 +84,15 @@ tags:
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
         m, n = len(matrix), len(matrix[0])
-        rows = [0] * m
-        cols = [0] * n
-        for i, row in enumerate(matrix):
-            for j, v in enumerate(row):
-                if v == 0:
-                    rows[i] = cols[j] = 1
+        row = [False] * m
+        col = [False] * n
         for i in range(m):
             for j in range(n):
-                if rows[i] or cols[j]:
+                if matrix[i][j] == 0:
+                    row[i] = col[j] = True
+        for i in range(m):
+            for j in range(n):
+                if row[i] or col[j]:
                     matrix[i][j] = 0
 ```
 
@@ -100,19 +102,18 @@ class Solution:
 class Solution {
     public void setZeroes(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
-        boolean[] rows = new boolean[m];
-        boolean[] cols = new boolean[n];
+        boolean[] row = new boolean[m];
+        boolean[] col = new boolean[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (matrix[i][j] == 0) {
-                    rows[i] = true;
-                    cols[j] = true;
+                    row[i] = col[j] = true;
                 }
             }
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (rows[i] || cols[j]) {
+                if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
             }
@@ -128,19 +129,18 @@ class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
-        vector<bool> rows(m);
-        vector<bool> cols(n);
+        vector<bool> row(m);
+        vector<bool> col(n);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (!matrix[i][j]) {
-                    rows[i] = 1;
-                    cols[j] = 1;
+                if (matrix[i][j] == 0) {
+                    row[i] = col[j] = true;
                 }
             }
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (rows[i] || cols[j]) {
+                if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
             }
@@ -153,20 +153,19 @@ public:
 
 ```go
 func setZeroes(matrix [][]int) {
-	m, n := len(matrix), len(matrix[0])
-	rows := make([]bool, m)
-	cols := make([]bool, n)
-	for i, row := range matrix {
-		for j, v := range row {
-			if v == 0 {
-				rows[i] = true
-				cols[j] = true
+	row := make([]bool, len(matrix))
+	col := make([]bool, len(matrix[0]))
+	for i := range matrix {
+		for j, x := range matrix[i] {
+			if x == 0 {
+				row[i] = true
+				col[j] = true
 			}
 		}
 	}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if rows[i] || cols[j] {
+	for i := range matrix {
+		for j := range matrix[i] {
+			if row[i] || col[j] {
 				matrix[i][j] = 0
 			}
 		}
@@ -183,19 +182,18 @@ func setZeroes(matrix [][]int) {
 function setZeroes(matrix: number[][]): void {
     const m = matrix.length;
     const n = matrix[0].length;
-    const rows: boolean[] = new Array(m).fill(false);
-    const cols: boolean[] = new Array(n).fill(false);
+    const row: boolean[] = Array(m).fill(false);
+    const col: boolean[] = Array(n).fill(false);
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (matrix[i][j] === 0) {
-                rows[i] = true;
-                cols[j] = true;
+                row[i] = col[j] = true;
             }
         }
     }
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (rows[i] || cols[j]) {
+            if (row[i] || col[j]) {
                 matrix[i][j] = 0;
             }
         }
@@ -213,19 +211,18 @@ function setZeroes(matrix: number[][]): void {
 var setZeroes = function (matrix) {
     const m = matrix.length;
     const n = matrix[0].length;
-    const rows = new Array(m).fill(false);
-    const cols = new Array(n).fill(false);
+    const row = Array(m).fill(false);
+    const col = Array(n).fill(false);
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (matrix[i][j] == 0) {
-                rows[i] = true;
-                cols[j] = true;
+            if (matrix[i][j] === 0) {
+                row[i] = col[j] = true;
             }
         }
     }
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if (rows[i] || cols[j]) {
+            if (row[i] || col[j]) {
                 matrix[i][j] = 0;
             }
         }
@@ -239,18 +236,18 @@ var setZeroes = function (matrix) {
 public class Solution {
     public void SetZeroes(int[][] matrix) {
         int m = matrix.Length, n = matrix[0].Length;
-        bool[] rows = new bool[m], cols = new bool[n];
+        bool[] row = new bool[m], col = new bool[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (matrix[i][j] == 0) {
-                    rows[i] = true;
-                    cols[j] = true;
+                    row[i] = true;
+                    col[j] = true;
                 }
             }
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (rows[i] || cols[j]) {
+                if (row[i] || col[j]) {
                     matrix[i][j] = 0;
                 }
             }

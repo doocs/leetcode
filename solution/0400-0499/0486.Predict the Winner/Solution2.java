@@ -1,5 +1,5 @@
 class Solution {
-    public boolean PredictTheWinner(int[] nums) {
+    public boolean predictTheWinner(int[] nums) {
         int n = nums.length;
         int[][] f = new int[n][n];
         for (int i = 0; i < n; ++i) {

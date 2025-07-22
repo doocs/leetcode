@@ -62,32 +62,107 @@ Regardless of the outcome, it takes at most 14 drops to determine f.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ to represent the minimum number of operations to determine $f$ in $i$ floors with two eggs. Initially, $f[0] = 0$, and the rest $f[i] = +\infty$. The answer is $f[n]$.
+
+Considering $f[i]$, we can enumerate the first egg thrown from the $j$-th floor, where $1 \leq j \leq i$. At this point, there are two cases:
+
+-   The egg breaks. At this time, we have one egg left and need to determine $f$ in $j - 1$ floors, which requires $j - 1$ operations. Therefore, the total number of operations is $1 + (j - 1)$;
+-   The egg does not break. At this time, we have two eggs left and need to determine $f$ in $i - j$ floors, which requires $f[i - j]$ operations. Therefore, the total number of operations is $1 + f[i - j]$.
+
+In summary, we can obtain the state transition equation:
+
+$$
+f[i] = \min_{1 \leq j \leq i} \{1 + \max(j - 1, f[i - j])\}
+$$
+
+Finally, we return $f[n]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the number of floors.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def twoEggDrop(self, n: int) -> int:
+        f = [0] + [inf] * n
+        for i in range(1, n + 1):
+            for j in range(1, i + 1):
+                f[i] = min(f[i], 1 + max(j - 1, f[i - j]))
+        return f[n]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int twoEggDrop(int n) {
+        int[] f = new int[n + 1];
+        Arrays.fill(f, 1 << 29);
+        f[0] = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                f[i] = Math.min(f[i], 1 + Math.max(j - 1, f[i - j]));
+            }
+        }
+        return f[n];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int twoEggDrop(int n) {
+        int f[n + 1];
+        memset(f, 0x3f, sizeof(f));
+        f[0] = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                f[i] = min(f[i], 1 + max(j - 1, f[i - j]));
+            }
+        }
+        return f[n];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func twoEggDrop(n int) int {
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = 1 << 29
+	}
+	f[0] = 0
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= i; j++ {
+			f[i] = min(f[i], 1+max(j-1, f[i-j]))
+		}
+	}
+	return f[n]
+}
+```
 
+#### TypeScript
+
+```ts
+function twoEggDrop(n: number): number {
+    const f: number[] = Array(n + 1).fill(Infinity);
+    f[0] = 0;
+    for (let i = 1; i <= n; ++i) {
+        for (let j = 1; j <= i; ++j) {
+            f[i] = Math.min(f[i], 1 + Math.max(j - 1, f[i - j]));
+        }
+    }
+    return f[n];
+}
 ```
 
 <!-- tabs:end -->

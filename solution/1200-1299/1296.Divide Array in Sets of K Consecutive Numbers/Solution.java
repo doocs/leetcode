@@ -1,19 +1,18 @@
 class Solution {
     public boolean isPossibleDivide(int[] nums, int k) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int v : nums) {
-            cnt.put(v, cnt.getOrDefault(v, 0) + 1);
+        if (nums.length % k != 0) {
+            return false;
         }
         Arrays.sort(nums);
-        for (int v : nums) {
-            if (cnt.containsKey(v)) {
-                for (int x = v; x < v + k; ++x) {
-                    if (!cnt.containsKey(x)) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        for (int x : nums) {
+            if (cnt.getOrDefault(x, 0) > 0) {
+                for (int y = x; y < x + k; ++y) {
+                    if (cnt.merge(y, -1, Integer::sum) < 0) {
                         return false;
-                    }
-                    cnt.put(x, cnt.get(x) - 1);
-                    if (cnt.get(x) == 0) {
-                        cnt.remove(x);
                     }
                 }
             }

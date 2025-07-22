@@ -66,7 +66,7 @@ Weather table:
 +---------+------------+--------+
 <strong>Explanation:</strong> 
 For city 1, the maximum degree was recorded on 2022-07-07 with 24 degrees.
-For city 1, the maximum degree was recorded on 2022-08-07 and 2022-08-17 with 37 degrees. We choose the earlier date (2022-08-07).
+For city 2, the maximum degree was recorded on 2022-08-07 and 2022-08-17 with 37 degrees. We choose the earlier date (2022-08-07).
 For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
 </pre>
 

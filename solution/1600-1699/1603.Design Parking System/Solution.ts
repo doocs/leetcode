@@ -1,15 +1,15 @@
 class ParkingSystem {
-    private count: [number, number, number];
+    private cnt: [number, number, number, number];
 
     constructor(big: number, medium: number, small: number) {
-        this.count = [big, medium, small];
+        this.cnt = [0, big, medium, small];
     }
 
     addCar(carType: number): boolean {
-        if (this.count[carType - 1] === 0) {
+        if (this.cnt[carType] === 0) {
             return false;
         }
-        this.count[carType - 1]--;
+        this.cnt[carType]--;
         return true;
     }
 }

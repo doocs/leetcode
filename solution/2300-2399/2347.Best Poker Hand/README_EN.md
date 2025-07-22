@@ -78,7 +78,17 @@ Note that we cannot make a &quot;Flush&quot; or a &quot;Three of a Kind&quot;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+We first traverse the array $\textit{suits}$ to check if adjacent elements are equal. If they are, we return `"Flush"`.
+
+Next, we use a hash table or array $\textit{cnt}$ to count the quantity of each card:
+
+-   If any card appears $3$ times, return `"Three of a Kind"`;
+-   Otherwise, if any card appears $2$ times, return `"Pair"`;
+-   Otherwise, return `"High Card"`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{ranks}$.
 
 <!-- tabs:start -->
 

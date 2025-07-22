@@ -1,14 +1,10 @@
 impl Solution {
-    pub fn get_words_in_longest_subsequence(
-        n: i32,
-        words: Vec<String>,
-        groups: Vec<i32>,
-    ) -> Vec<String> {
+    pub fn get_words_in_longest_subsequence(words: Vec<String>, groups: Vec<i32>) -> Vec<String> {
         fn check(s: &str, t: &str) -> bool {
             s.len() == t.len() && s.chars().zip(t.chars()).filter(|(a, b)| a != b).count() == 1
         }
 
-        let n = n as usize;
+        let n = groups.len();
 
         let mut f = vec![1; n];
         let mut g = vec![-1; n];

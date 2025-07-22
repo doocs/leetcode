@@ -3,7 +3,7 @@ public:
     int superEggDrop(int k, int n) {
         int f[n + 1][k + 1];
         memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i < 1) {
                 return 0;
             }

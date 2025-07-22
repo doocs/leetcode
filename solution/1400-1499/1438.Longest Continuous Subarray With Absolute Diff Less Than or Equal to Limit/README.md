@@ -87,9 +87,6 @@ tags:
 #### Python3
 
 ```python
-from sortedcontainers import SortedList
-
-
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
         sl = SortedList()

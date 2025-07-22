@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3174.Cl
 rating: 1255
 source: Biweekly Contest 132 Q1
 tags:
-    - Hash Table
+    - Stack
     - String
     - Simulation
 ---
@@ -29,6 +29,8 @@ tags:
 </ul>
 
 <p>Return the resulting string after removing all digits.</p>
+
+<p><strong>Note</strong> that the operation <em>cannot</em> be performed on a digit that does not have any non-digit character to its left.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -72,7 +72,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们可以先计算出爱丽丝和鲍勃的糖果总数之差，除以二得到需要交换的糖果数之差 $\textit{diff}$，用一个哈希表 $\textit{s}$ 存储鲍勃的糖果盒中的糖果数，然后遍历爱丽丝的糖果盒，对于每个糖果数 $\textit{a}$，我们判断 $\textit{a} - \textit{diff}$ 是否在哈希表 $\textit{s}$ 中，如果存在，说明找到了一组答案，返回即可。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是爱丽丝和鲍勃的糖果盒的数量。
 
 <!-- tabs:start -->
 
@@ -84,9 +88,8 @@ class Solution:
         diff = (sum(aliceSizes) - sum(bobSizes)) >> 1
         s = set(bobSizes)
         for a in aliceSizes:
-            target = a - diff
-            if target in s:
-                return [a, target]
+            if (b := (a - diff)) in s:
+                return [a, b]
 ```
 
 #### Java
@@ -105,9 +108,9 @@ class Solution {
         }
         int diff = (s1 - s2) >> 1;
         for (int a : aliceSizes) {
-            int target = a - diff;
-            if (s.contains(target)) {
-                return new int[] {a, target};
+            int b = a - diff;
+            if (s.contains(b)) {
+                return new int[] {a, b};
             }
         }
         return null;
@@ -127,9 +130,9 @@ public:
         unordered_set<int> s(bobSizes.begin(), bobSizes.end());
         vector<int> ans;
         for (int& a : aliceSizes) {
-            int target = a - diff;
-            if (s.count(target)) {
-                ans = vector<int>{a, target};
+            int b = a - diff;
+            if (s.count(b)) {
+                ans = vector<int>{a, b};
                 break;
             }
         }
@@ -138,19 +141,44 @@ public:
 };
 ```
 
+#### Go
+
+```go
+func fairCandySwap(aliceSizes []int, bobSizes []int) []int {
+	s1, s2 := 0, 0
+	s := map[int]bool{}
+	for _, a := range aliceSizes {
+		s1 += a
+	}
+	for _, b := range bobSizes {
+		s2 += b
+		s[b] = true
+	}
+	diff := (s1 - s2) / 2
+	for _, a := range aliceSizes {
+		if b := a - diff; s[b] {
+			return []int{a, b}
+		}
+	}
+	return nil
+}
+```
+
 #### TypeScript
 
 ```ts
 function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
-    let s1 = aliceSizes.reduce((a, c) => a + c, 0);
-    let s2 = bobSizes.reduce((a, c) => a + c, 0);
-    let diff = (s1 - s2) >> 1;
-    for (let num of aliceSizes) {
-        let target = num - diff;
-        if (bobSizes.includes(target)) {
-            return [num, target];
+    const s1 = aliceSizes.reduce((acc, cur) => acc + cur, 0);
+    const s2 = bobSizes.reduce((acc, cur) => acc + cur, 0);
+    const diff = (s1 - s2) >> 1;
+    const s = new Set(bobSizes);
+    for (const a of aliceSizes) {
+        const b = a - diff;
+        if (s.has(b)) {
+            return [a, b];
         }
     }
+    return [];
 }
 ```
 

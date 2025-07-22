@@ -19,37 +19,51 @@ tags:
 
 <!-- description:start -->
 
-<p>You have a convex <code>n</code>-sided polygon where each vertex has an integer value. You are given an integer array <code>values</code> where <code>values[i]</code> is the value of the <code>i<sup>th</sup></code> vertex (i.e., <strong>clockwise order</strong>).</p>
+<p>You have a convex <code>n</code>-sided polygon where each vertex has an integer value. You are given an integer array <code>values</code> where <code>values[i]</code> is the value of the <code>i<sup>th</sup></code> vertex in <strong>clockwise order</strong>.</p>
 
-<p>You will <strong>triangulate</strong> the polygon into <code>n - 2</code> triangles. For each triangle, the value of that triangle is the product of the values of its vertices, and the total score of the triangulation is the sum of these values over all <code>n - 2</code> triangles in the triangulation.</p>
+<p><strong>Polygon</strong> <strong>triangulation</strong> is a process where you divide a polygon into a set of triangles and the vertices of each triangle must also be vertices of the original polygon. Note that no other shapes other than triangles are allowed in the division. This process will result in <code>n - 2</code> triangles.</p>
 
-<p>Return <em>the smallest possible total score that you can achieve with some triangulation of the polygon</em>.</p>
+<p>You will <strong>triangulate</strong> the polygon. For each triangle, the <em>weight</em> of that triangle is the product of the values at its vertices. The total score of the triangulation is the sum of these <em>weights</em> over all <code>n - 2</code> triangles.</p>
+
+<p>Return the<em> minimum possible score </em>that you can achieve with some<em> </em><strong>triangulation</strong><em> </em>of the polygon.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape1.jpg" style="width: 201px; height: 133px;" />
-<pre>
-<strong>Input:</strong> values = [1,2,3]
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> The polygon is already triangulated, and the score of the only triangle is 6.
-</pre>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape1.jpg" /></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">values = [1,2,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">6</span></p>
+
+<p><strong>Explanation:</strong> The polygon is already triangulated, and the score of the only triangle is 6.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape2.jpg" style="width: 446px; height: 163px;" />
-<pre>
-<strong>Input:</strong> values = [3,7,4,5]
-<strong>Output:</strong> 144
-<strong>Explanation:</strong> There are two triangulations, with possible scores: 3*7*5 + 4*5*7 = 245, or 3*4*5 + 3*4*7 = 144.
-The minimum score is 144.
-</pre>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape2.jpg" /></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">values = [3,7,4,5]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">144</span></p>
+
+<p><strong>Explanation:</strong> There are two triangulations, with possible scores: 3*7*5 + 4*5*7 = 245, or 3*4*5 + 3*4*7 = 144.<br />
+The minimum score is 144.</p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape3.jpg" style="width: 207px; height: 163px;" />
-<pre>
-<strong>Input:</strong> values = [1,3,1,4,1,5]
-<strong>Output:</strong> 13
-<strong>Explanation:</strong> The minimum score triangulation has score 1*1*3 + 1*1*4 + 1*1*5 + 1*1*1 = 13.
-</pre>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape3.jpg" /></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">values = [1,3,1,4,1,5]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">13</span></p>
+
+<p><strong>Explanation:</strong> The minimum score triangulation is 1*1*3 + 1*1*4 + 1*1*5 + 1*1*1 = 13.</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -66,7 +80,20 @@ The minimum score is 144.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization
+
+We design a function $\text{dfs}(i, j)$, which represents the minimum score after triangulating the polygon from vertex $i$ to $j$. The answer is $\text{dfs}(0, n - 1)$.
+
+The calculation process of $\text{dfs}(i, j)$ is as follows:
+
+-   If $i + 1 = j$, it means the polygon has only two vertices and cannot be triangulated, so we return $0$;
+-   Otherwise, we enumerate a vertex $k$ between $i$ and $j$, i.e., $i \lt k \lt j$. Triangulating the polygon from vertex $i$ to $j$ can be divided into two subproblems: triangulating the polygon from vertex $i$ to $k$ and triangulating the polygon from vertex $k$ to $j$. The minimum scores of these two subproblems are $\text{dfs}(i, k)$ and $\text{dfs}(k, j)$, respectively. The score of the triangle formed by vertices $i$, $j$, and $k$ is $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$. Thus, the minimum score for this triangulation is $\text{dfs}(i, k) + \text{dfs}(k, j) + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$. We take the minimum value of all possibilities, which is the value of $\text{dfs}(i, j)$.
+
+To avoid repeated calculations, we can use memoization, i.e., use a hash table or an array to store the already computed function values.
+
+Finally, we return $\text{dfs}(0, n - 1)$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of vertices in the polygon.
 
 <!-- tabs:start -->
 
@@ -199,7 +226,39 @@ function minScoreTriangulation(values: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+We can convert the memoization approach in Solution 1 into a dynamic programming approach.
+
+Define $f[i][j]$ as the minimum score after triangulating the polygon from vertex $i$ to $j$. Initially, $f[i][j] = 0$, and the answer is $f[0][n-1]$.
+
+For $f[i][j]$ (where $i + 1 \lt j$), we first initialize $f[i][j]$ to $\infty$.
+
+We enumerate a vertex $k$ between $i$ and $j$, i.e., $i \lt k \lt j$. Triangulating the polygon from vertex $i$ to $j$ can be divided into two subproblems: triangulating the polygon from vertex $i$ to $k$ and triangulating the polygon from vertex $k$ to $j$. The minimum scores of these two subproblems are $f[i][k]$ and $f[k][j]$, respectively. The score of the triangle formed by vertices $i$, $j$, and $k$ is $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$. Thus, the minimum score for this triangulation is $f[i][k] + f[k][j] + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$. We take the minimum value of all possibilities, which becomes the value of $f[i][j]$.
+
+In summary, we can derive the state transition equation:
+
+$$
+f[i][j]=
+\begin{cases}
+0, & i+1=j \\
+\infty, & i+1<j \\
+\min_{i<k<j} \{f[i][k]+f[k][j]+\text{values}[i] \times \text{values}[k] \times \text{values}[j]\}, & i+1<j
+\end{cases}
+$$
+
+Note that when enumerating $i$ and $j$, there are two possible enumeration strategies:
+
+1. Enumerate $i$ from large to small and $j$ from small to large. This ensures that when calculating the state $f[i][j]$, the states $f[i][k]$ and $f[k][j]$ have already been computed.
+2. Enumerate the interval length $l$ from small to large, where $3 \leq l \leq n$. Then enumerate the left endpoint $i$ of the interval, and the right endpoint can be calculated as $j = i + l - 1$. This also ensures that when calculating the larger interval $f[i][j]$, the smaller intervals $f[i][k]$ and $f[k][j]$ have already been computed.
+
+Finally, we return $f[0][n-1]$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of vertices in the polygon.
+
+Related problems:
+
+-   [1312. Minimum Insertion Steps to Make a String Palindrome](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
 
 <!-- tabs:start -->
 
@@ -304,7 +363,11 @@ function minScoreTriangulation(values: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Dynamic Programming (Alternative Implementation)
+
+In Solution 2, we mentioned two enumeration strategies. Here, we use the second strategy: enumerate the interval length $l$ from small to large, where $3 \leq l \leq n$. Then, enumerate the left endpoint $i$ of the interval, and the right endpoint can be calculated as $j = i + l - 1$.
+
+The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$ is the number of vertices in the polygon.
 
 <!-- tabs:start -->
 

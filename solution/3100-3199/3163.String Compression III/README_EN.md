@@ -205,6 +205,119 @@ function compressedString(word: string): string {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {string} word
+ * @return {string}
+ */
+var compressedString = function (word) {
+    const ans = [];
+    const n = word.length;
+    for (let i = 0; i < n; ) {
+        let j = i + 1;
+        while (j < n && word[j] === word[i]) {
+            ++j;
+        }
+        let k = j - i;
+        while (k) {
+            const x = Math.min(k, 9);
+            ans.push(x + word[i]);
+            k -= x;
+        }
+        i = j;
+    }
+    return ans.join('');
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Two Pointers
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function compressedString(word: string): string {
+    let res = '';
+
+    for (let i = 1, j = 0; i <= word.length; i++) {
+        if (word[i] !== word[j] || i - j === 9) {
+            res += i - j + word[j];
+            j = i;
+        }
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function compressedString(word) {
+    let res = '';
+
+    for (let i = 1, j = 0; i <= word.length; i++) {
+        if (word[i] !== word[j] || i - j === 9) {
+            res += i - j + word[j];
+            j = i;
+        }
+    }
+
+    return res;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: RegExp
+
+<!-- tabs:start -->
+
+#### TypeScript
+
+```ts
+function compressedString(word: string): string {
+    const regex = /(.)\1{0,8}/g;
+    let m: RegExpMatchArray | null = null;
+    let res = '';
+
+    while ((m = regex.exec(word))) {
+        res += m[0].length + m[1];
+    }
+
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+function compressedString(word) {
+    const regex = /(.)\1{0,8}/g;
+    let m = null;
+    let res = '';
+
+    while ((m = regex.exec(word))) {
+        res += m[0].length + m[1];
+    }
+
+    return res;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

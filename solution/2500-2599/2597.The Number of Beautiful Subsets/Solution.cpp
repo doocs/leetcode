@@ -5,7 +5,7 @@ public:
         int cnt[1010]{};
         int n = nums.size();
 
-        function<void(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) {
             if (i >= n) {
                 ++ans;
                 return;

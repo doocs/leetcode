@@ -1,15 +1,12 @@
 class Solution {
     public String kthDistinct(String[] arr, int k) {
-        Map<String, Integer> counter = new HashMap<>();
-        for (String v : arr) {
-            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String s : arr) {
+            cnt.merge(s, 1, Integer::sum);
         }
-        for (String v : arr) {
-            if (counter.get(v) == 1) {
-                --k;
-                if (k == 0) {
-                    return v;
-                }
+        for (String s : arr) {
+            if (cnt.get(s) == 1 && --k == 0) {
+                return s;
             }
         }
         return "";

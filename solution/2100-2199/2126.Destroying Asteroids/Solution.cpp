@@ -1,11 +1,13 @@
 class Solution {
 public:
     bool asteroidsDestroyed(int mass, vector<int>& asteroids) {
-        sort(asteroids.begin(), asteroids.end());
+        ranges::sort(asteroids);
         long long m = mass;
-        for (int v : asteroids) {
-            if (m < v) return false;
-            m += v;
+        for (int x : asteroids) {
+            if (m < x) {
+                return false;
+            }
+            m += x;
         }
         return true;
     }

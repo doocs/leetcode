@@ -94,10 +94,10 @@ tags:
 函数 $dfs(i, j, k)$ 的计算过程如下：
 
 -   如果 $i \lt 0$ 或 $j \lt 0$，返回 $0$。
--   如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \text{limit}$ 时返回 $1$，否则返回 $0$。
--   如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \text{limit}$ 时返回 $1$，否则返回 $0$。
--   如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\text{limit}$ 个 $0$，即不允许出现倒数第 $\text{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \text{limit} - 1, j, 1)$。
--   如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\text{limit}$ 个 $1$，即不允许出现倒数第 $\text{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \text{limit} - 1, 0)$。
+-   如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
+-   如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
+-   如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $0$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \textit{limit} - 1, j, 1)$。
+-   如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $1$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \textit{limit} - 1, 0)$。
 
 为了避免重复计算，我们使用记忆化搜索的方法。
 
@@ -176,41 +176,34 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     int numberOfStableArrays(int zero, int one, int limit) {
-        this->limit = limit;
-        f = vector<vector<array<ll, 2>>>(zero + 1, vector<array<ll, 2>>(one + 1, {-1, -1}));
-        return (dfs(zero, one, 0) + dfs(zero, one, 1)) % mod;
-    }
-
-private:
-    const int mod = 1e9 + 7;
-    int limit;
-    vector<vector<array<ll, 2>>> f;
-
-    ll dfs(int i, int j, int k) {
-        if (i < 0 || j < 0) {
-            return 0;
-        }
-        if (i == 0) {
-            return k == 1 && j <= limit;
-        }
-        if (j == 0) {
-            return k == 0 && i <= limit;
-        }
-        ll& res = f[i][j][k];
-        if (res != -1) {
+        const int mod = 1e9 + 7;
+        using ll = long long;
+        vector<vector<array<ll, 2>>> f = vector<vector<array<ll, 2>>>(zero + 1, vector<array<ll, 2>>(one + 1, {-1, -1}));
+        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> ll {
+            if (i < 0 || j < 0) {
+                return 0;
+            }
+            if (i == 0) {
+                return k == 1 && j <= limit;
+            }
+            if (j == 0) {
+                return k == 0 && i <= limit;
+            }
+            ll& res = f[i][j][k];
+            if (res != -1) {
+                return res;
+            }
+            if (k == 0) {
+                res = (dfs(i - 1, j, 0) + dfs(i - 1, j, 1) - dfs(i - limit - 1, j, 1) + mod) % mod;
+            } else {
+                res = (dfs(i, j - 1, 0) + dfs(i, j - 1, 1) - dfs(i, j - limit - 1, 0) + mod) % mod;
+            }
             return res;
-        }
-        if (k == 0) {
-            res = (dfs(i - 1, j, 0) + dfs(i - 1, j, 1) - dfs(i - limit - 1, j, 1) + mod) % mod;
-        } else {
-            res = (dfs(i, j - 1, 0) + dfs(i, j - 1, 1) - dfs(i, j - limit - 1, 0) + mod) % mod;
-        }
-        return res;
+        };
+        return (dfs(zero, one, 0) + dfs(zero, one, 1)) % mod;
     }
 };
 ```
@@ -271,12 +264,12 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 
 我们定义 $f[i][j][k]$ 表示使用 $i$ 个 $0$ 和 $j$ 个 $1$ 且最后一个数字是 $k$ 的稳定二进制数组的个数。那么答案就是 $f[zero][one][0] + f[zero][one][1]$。
 
-初始时，我们有 $f[i][0][0] = 1$，其中 $1 \leq i \leq \min(\text{limit}, \text{zero})$；有 $f[0][j][1] = 1$，其中 $1 \leq j \leq \min(\text{limit}, \text{one})$。
+初始时，我们有 $f[i][0][0] = 1$，其中 $1 \leq i \leq \min(\textit{limit}, \textit{zero})$；有 $f[0][j][1] = 1$，其中 $1 \leq j \leq \min(\textit{limit}, \textit{one})$。
 
 状态转移方程如下：
 
--   $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \text{limit} - 1][j][1]$。
--   $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \text{limit} - 1][0]$。
+-   $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$。
+-   $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$。
 
 时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。
 
@@ -295,16 +288,10 @@ class Solution:
             f[0][j][1] = 1
         for i in range(1, zero + 1):
             for j in range(1, one + 1):
-                f[i][j][0] = (
-                    f[i - 1][j][0]
-                    + f[i - 1][j][1]
-                    - (0 if i - limit - 1 < 0 else f[i - limit - 1][j][1])
-                ) % mod
-                f[i][j][1] = (
-                    f[i][j - 1][0]
-                    + f[i][j - 1][1]
-                    - (0 if j - limit - 1 < 0 else f[i][j - limit - 1][0])
-                ) % mod
+                x = 0 if i - limit - 1 < 0 else f[i - limit - 1][j][1]
+                y = 0 if j - limit - 1 < 0 else f[i][j - limit - 1][0]
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x) % mod
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y) % mod
         return sum(f[zero][one]) % mod
 ```
 
@@ -323,12 +310,10 @@ class Solution {
         }
         for (int i = 1; i <= zero; ++i) {
             for (int j = 1; j <= one; ++j) {
-                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1]
-                                 - (i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1]) + mod)
-                    % mod;
-                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1]
-                                 - (j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0]) + mod)
-                    % mod;
+                long x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+                long y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
             }
         }
         return (int) ((f[zero][one][0] + f[zero][one][1]) % mod);
@@ -354,12 +339,10 @@ public:
         }
         for (int i = 1; i <= zero; ++i) {
             for (int j = 1; j <= one; ++j) {
-                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1]
-                                 - (i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1]) + mod)
-                    % mod;
-                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1]
-                                 - (j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0]) + mod)
-                    % mod;
+                ll x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+                ll y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
             }
         }
         return (f[zero][one][0] + f[zero][one][1]) % mod;
@@ -395,6 +378,35 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 		}
 	}
 	return (f[zero][one][0] + f[zero][one][1]) % mod
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfStableArrays(zero: number, one: number, limit: number): number {
+    const mod = 1e9 + 7;
+    const f: number[][][] = Array.from({ length: zero + 1 }, () =>
+        Array.from({ length: one + 1 }, () => [0, 0]),
+    );
+
+    for (let i = 1; i <= Math.min(limit, zero); i++) {
+        f[i][0][0] = 1;
+    }
+    for (let j = 1; j <= Math.min(limit, one); j++) {
+        f[0][j][1] = 1;
+    }
+
+    for (let i = 1; i <= zero; i++) {
+        for (let j = 1; j <= one; j++) {
+            const x = i - limit - 1 < 0 ? 0 : f[i - limit - 1][j][1];
+            const y = j - limit - 1 < 0 ? 0 : f[i][j - limit - 1][0];
+            f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod) % mod;
+            f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod) % mod;
+        }
+    }
+
+    return (f[zero][one][0] + f[zero][one][1]) % mod;
 }
 ```
 

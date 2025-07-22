@@ -1,33 +1,27 @@
 class Solution {
-    private var n: Int = 0
-    private var cs: [Character] = []
-    private var ans: [String] = []
-    private var vis: [Bool] = []
-    private var t: String = ""
-
     func permutation(_ S: String) -> [String] {
-        cs = Array(S)
-        n = cs.count
-        cs.sort()
-        vis = Array(repeating: false, count: n)
+        var ans: [String] = []
+        var s: [Character] = Array(S).sorted()
+        var t: [Character] = Array(repeating: " ", count: s.count)
+        var vis: [Bool] = Array(repeating: false, count: s.count)
+        let n = s.count
+
+        func dfs(_ i: Int) {
+            if i >= n {
+                ans.append(String(t))
+                return
+            }
+            for j in 0..<n {
+                if !vis[j] && (j == 0 || s[j] != s[j - 1] || vis[j - 1]) {
+                    vis[j] = true
+                    t[i] = s[j]
+                    dfs(i + 1)
+                    vis[j] = false
+                }
+            }
+        }
+
         dfs(0)
         return ans
-    }
-
-    private func dfs(_ i: Int) {
-        if i == n {
-            ans.append(t)
-            return
-        }
-        for j in 0..<n {
-            if vis[j] || (j > 0 && !vis[j - 1] && cs[j] == cs[j - 1]) {
-                continue
-            }
-            vis[j] = true
-            t.append(cs[j])
-            dfs(i + 1)
-            t.removeLast()
-            vis[j] = false
-        }
     }
 }

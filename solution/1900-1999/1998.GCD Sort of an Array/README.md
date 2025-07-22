@@ -34,29 +34,32 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [7,21,3]
+<pre>
+<strong>输入：</strong>nums = [7,21,3]
 <strong>输出：</strong>true
 <strong>解释：</strong>可以执行下述操作完成对 [7,21,3] 的排序：
-- 交换 7 和 21 因为 gcd(7,21) = 7 。nums = [<em><strong>21</strong></em>,<em><strong>7</strong></em>,3]
-- 交换 21 和 3 因为 gcd(21,3) = 3 。nums = [<em><strong>3</strong></em>,7,<em><strong>21</strong></em>]
+- 交换 7 和 21 因为 gcd(7,21) = 7 。nums = [<u><strong>21</strong></u>,<u><strong>7</strong></u>,3]
+- 交换 21 和 3 因为 gcd(21,3) = 3 。nums = [<u><strong>3</strong></u>,7,<u><strong>21</strong></u>]
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [5,2,6,2]
+<pre>
+<strong>输入：</strong>nums = [5,2,6,2]
 <strong>输出：</strong>false
 <strong>解释：</strong>无法完成排序，因为 5 不能与其他元素交换。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>nums = [10,5,9,3,15]
+<pre>
+<strong>输入：</strong>nums = [10,5,9,3,15]
 <strong>输出：</strong>true
 <strong>解释：</strong>
 可以执行下述操作完成对 [10,5,9,3,15] 的排序：
-- 交换 10 和 15 因为 gcd(10,15) = 5 。nums = [<em><strong>15</strong></em>,5,9,3,<em><strong>10</strong></em>]
-- 交换 15 和 3 因为 gcd(15,3) = 3 。nums = [<em><strong>3</strong></em>,5,9,<em><strong>15</strong></em>,10]
-- 交换 10 和 15 因为 gcd(10,15) = 5 。nums = [3,5,9,<em><strong>10</strong></em>,<em><strong>15</strong></em>]
+- 交换 10 和 15 因为 gcd(10,15) = 5 。nums = [<u><strong>15</strong></u>,5,9,3,<u><strong>10</strong></u>]
+- 交换 15 和 3 因为 gcd(15,3) = 3 。nums = [<u><strong>3</strong></u>,5,9,<u><strong>15</strong></u>,10]
+- 交换 10 和 15 因为 gcd(10,15) = 5 。nums = [3,5,9,<u><strong>10</strong></u>,<u><strong>15</strong></u>]
 </pre>
 
 <p>&nbsp;</p>

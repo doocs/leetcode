@@ -20,8 +20,8 @@ tags:
 
 <ul>
 	<li>全部字母都是大写，比如 <code>"USA"</code> 。</li>
-	<li>单词中所有字母都不是大写，比如 <code>"leetcode"</code> 。</li>
-	<li>如果单词不只含有一个字母，只有首字母大写，&nbsp;比如&nbsp;<code>"Google"</code> 。</li>
+	<li>所有字母都不是大写，比如 <code>"leetcode"</code> 。</li>
+	<li>只有首字母大写，&nbsp;比如&nbsp;<code>"Google"</code> 。</li>
 </ul>
 
 <p>给你一个字符串 <code>word</code> 。如果大写用法正确，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>

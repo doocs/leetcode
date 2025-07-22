@@ -11,18 +11,18 @@
  */
 class Solution {
 public:
-    int s = 0;
-
     TreeNode* bstToGst(TreeNode* root) {
+        int s = 0;
+        auto dfs = [&](this auto&& dfs, TreeNode* root) {
+            if (!root) {
+                return;
+            }
+            dfs(root->right);
+            s += root->val;
+            root->val = s;
+            dfs(root->left);
+        };
         dfs(root);
         return root;
-    }
-
-    void dfs(TreeNode* root) {
-        if (!root) return;
-        dfs(root->right);
-        s += root->val;
-        root->val = s;
-        dfs(root->left);
     }
 };

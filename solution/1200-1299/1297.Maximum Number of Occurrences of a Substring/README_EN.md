@@ -61,7 +61,11 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+According to the problem description, if a long string meets the condition, then its substring of length $\textit{minSize}$ must also meet the condition. Therefore, we only need to enumerate all substrings of length $\textit{minSize}$ in $s$, then use a hash table to record the occurrence frequency of all substrings, and find the maximum frequency as the answer.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of the string $s$ and $\textit{minSize}$, respectively. In this problem, $m$ does not exceed $26$.
 
 <!-- tabs:start -->
 
@@ -143,6 +147,24 @@ func maxFreq(s string, maxLetters int, minSize int, maxSize int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxFreq(s: string, maxLetters: number, minSize: number, maxSize: number): number {
+    const cnt = new Map<string, number>();
+    let ans = 0;
+    for (let i = 0; i < s.length - minSize + 1; ++i) {
+        const t = s.slice(i, i + minSize);
+        const ss = new Set(t.split(''));
+        if (ss.size <= maxLetters) {
+            cnt.set(t, (cnt.get(t) || 0) + 1);
+            ans = Math.max(ans, cnt.get(t)!);
+        }
+    }
+    return ans;
 }
 ```
 

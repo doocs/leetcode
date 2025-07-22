@@ -73,12 +73,8 @@ The time complexity is $O(\log n)$, where $n$ is the given integer. The space co
 ```python
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        x, y = 1, 0
-        while n:
-            n, v = divmod(n, 10)
-            x *= v
-            y += v
-        return x - y
+        nums = list(map(int, str(n)))
+        return prod(nums) - sum(nums)
 ```
 
 #### Java
@@ -190,25 +186,6 @@ int subtractProductAndSum(int n) {
     }
     return x - y;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def subtractProductAndSum(self, n: int) -> int:
-        nums = list(map(int, str(n)))
-        return prod(nums) - sum(nums)
 ```
 
 <!-- tabs:end -->

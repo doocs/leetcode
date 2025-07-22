@@ -1,10 +1,10 @@
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
-        ans = j = mask = 0
-        for i, x in enumerate(nums):
+        ans = mask = l = 0
+        for r, x in enumerate(nums):
             while mask & x:
-                mask ^= nums[j]
-                j += 1
-            ans = max(ans, i - j + 1)
+                mask ^= nums[l]
+                l += 1
             mask |= x
+            ans = max(ans, r - l + 1)
         return ans
