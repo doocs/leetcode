@@ -1,6 +1,6 @@
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
-        d = defaultdict(int)
+        d = [0] * (max(nums) + 1)
         s = list(accumulate(nums, initial=0))
         ans = j = 0
         for i, v in enumerate(nums, 1):
