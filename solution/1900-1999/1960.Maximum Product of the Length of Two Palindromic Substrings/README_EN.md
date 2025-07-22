@@ -66,7 +66,6 @@ tags:
 #### Python3
 
 ```python
-
 class Solution:
     def maxProduct(self, s: str) -> int:
         n = len(s)
@@ -101,14 +100,11 @@ class Solution:
             suffix[~i] = max(suffix[~i], suffix[~i + 1])
 
         return max(prefix[i - 1] * suffix[i] for i in range(1, n))
-
-
 ```
 
 #### Java
 
 ```java
-
 class Solution {
     public long maxProduct(String s) {
         int n = s.length();
@@ -162,13 +158,11 @@ class Solution {
         return P;
     }
 }
-
 ```
 
 #### C++
 
 ```cpp
-
 class Solution {
 public:
     long long maxProduct(string s) {
@@ -206,13 +200,11 @@ public:
         return res;
     }
 };
-
 ```
 
 #### Go
 
 ```go
-
 func maxProduct(s string) int64 {
 	n := len(s)
 	hlen := make([]int, n)
@@ -270,21 +262,6 @@ func maxProduct(s string) int64 {
 
 	return res
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 ```
 
 <!-- tabs:end -->
