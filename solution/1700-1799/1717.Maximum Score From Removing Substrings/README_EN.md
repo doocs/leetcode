@@ -259,6 +259,44 @@ function maximumGain(s: string, x: number, y: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_gain(s: String, mut x: i32, mut y: i32) -> i32 {
+        let (mut a, mut b) = ('a', 'b');
+        if x < y {
+            std::mem::swap(&mut x, &mut y);
+            std::mem::swap(&mut a, &mut b);
+        }
+
+        let mut ans = 0;
+        let mut cnt1 = 0;
+        let mut cnt2 = 0;
+
+        for c in s.chars() {
+            if c == a {
+                cnt1 += 1;
+            } else if c == b {
+                if cnt1 > 0 {
+                    ans += x;
+                    cnt1 -= 1;
+                } else {
+                    cnt2 += 1;
+                }
+            } else {
+                ans += cnt1.min(cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
+            }
+        }
+
+        ans += cnt1.min(cnt2) * y;
+        ans
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -291,81 +329,38 @@ function maximumGain(s, x, y) {
 }
 ```
 
-<!-- tabs:end -->
+#### C#
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Greedy + Stack
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function maximumGain(s: string, x: number, y: number): number {
-    const stk: string[] = [];
-    const pairs: Record<string, string> = { a: 'b', b: 'a' };
-    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
-    let str = [...s];
-    let ans = 0;
-    let havePairs = true;
-
-    while (havePairs) {
-        for (const p of pair) {
-            havePairs = true;
-
-            for (const ch of str) {
-                if (stk.at(-1) === p && ch === pairs[p]) {
-                    stk.pop();
-                } else stk.push(ch);
-            }
-
-            if (str.length === stk.length) havePairs = false;
-
-            const multiplier = p === 'a' ? x : y;
-            ans += (multiplier * (str.length - stk.length)) / 2;
-            str = [...stk];
-            stk.length = 0;
+```cs
+public class Solution {
+    public int MaximumGain(string s, int x, int y) {
+        char a = 'a', b = 'b';
+        if (x < y) {
+            (x, y) = (y, x);
+            (a, b) = (b, a);
         }
-    }
 
-    return ans;
-}
-```
-
-#### JavaeScript
-
-```js
-function maximumGain(s, x, y) {
-    const stk = [];
-    const pairs = { a: 'b', b: 'a' };
-    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
-    let str = [...s];
-    let ans = 0;
-    let havePairs = true;
-
-    while (havePairs) {
-        for (const p of pair) {
-            havePairs = true;
-
-            for (const ch of str) {
-                if (stk.at(-1) === p && ch === pairs[p]) {
-                    stk.pop();
-                } else stk.push(ch);
+        int ans = 0, cnt1 = 0, cnt2 = 0;
+        foreach (char c in s) {
+            if (c == a) {
+                cnt1++;
+            } else if (c == b) {
+                if (cnt1 > 0) {
+                    ans += x;
+                    cnt1--;
+                } else {
+                    cnt2++;
+                }
+            } else {
+                ans += Math.Min(cnt1, cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
             }
-
-            if (str.length === stk.length) havePairs = false;
-
-            const multiplier = p === 'a' ? x : y;
-            ans += (multiplier * (str.length - stk.length)) / 2;
-            str = [...stk];
-            stk.length = 0;
         }
-    }
 
-    return ans;
+        ans += Math.Min(cnt1, cnt2) * y;
+        return ans;
+    }
 }
 ```
 
