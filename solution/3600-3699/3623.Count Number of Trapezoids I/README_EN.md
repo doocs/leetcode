@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3623.Count%20Number%20of%20Trapezoids%20I/README_EN.md
+tags:
+    - Geometry
+    - Array
+    - Hash Table
+    - Math
 ---
 
 <!-- problem:start -->
