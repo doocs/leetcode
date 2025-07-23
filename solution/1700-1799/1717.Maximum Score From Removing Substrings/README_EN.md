@@ -76,23 +76,23 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 
 ### Solution 1: Greedy
 
-Let's assume that the score of the substring "ab" is always not lower than the score of the substring "ba". If not, we can swap "a" and "b", and simultaneously swap $x$ and $y$.
+We can assume that the score of substring "ab" is always no less than the score of substring "ba". If not, we can swap "a" and "b", and simultaneously swap $x$ and $y$.
 
-Next, we only need to consider the case where the string contains only "a" and "b". If the string contains other characters, we can treat them as a dividing point, splitting the string into several substrings that contain only "a" and "b", and then calculate the score for each substring separately.
+Next, we only need to consider the case where the string contains only "a" and "b". If the string contains other characters, we can treat them as split points, dividing the string into several substrings that contain only "a" and "b", and then calculate the score for each substring separately.
 
-We observe that, for a substring containing only "a" and "b", no matter what operations are taken, in the end, there will only be one type of character left, or an empty string. Since each operation will delete one "a" and one "b" simultaneously, the total number of operations is fixed. We can greedily delete "ab" first, then "ba", to ensure the maximum score.
+We observe that for a substring containing only "a" and "b", no matter what operations we take, we will eventually be left with only one type of character, or an empty string. Since each operation removes one "a" and one "b" simultaneously, the total number of operations is fixed. We can greedily remove "ab" first, then remove "ba", which ensures the maximum score.
 
-Therefore, we can use two variables $\textit{cnt1}$ and $\textit{cnt2}$ to record the number of "a" and "b", respectively. Then, we traverse the string, update $\textit{cnt1}$ and $\textit{cnt2}$ based on the current character, and calculate the score.
+Therefore, we can use two variables $\textit{cnt1}$ and $\textit{cnt2}$ to record the counts of "a" and "b" respectively, then traverse the string and update $\textit{cnt1}$ and $\textit{cnt2}$ according to different cases of the current character, while calculating the score.
 
-For the current character $c$:
+For the current character $c$ being traversed:
 
--   If $c$ is "a", since we need to delete "ab" first, we do not eliminate this character at this time, only increase $\textit{cnt1}$;
--   If $c$ is "b", if $\textit{cnt1} > 0$ at this time, we can eliminate an "ab" and add $x$ points; otherwise, we can only increase $\textit{cnt2}$;
--   If $c$ is another character, then for this substring, we are left with $\textit{cnt2}$ "b" and $\textit{cnt1}$ "a", we can eliminate $\min(\textit{cnt1}, \textit{cnt2})$ "ab" and add $y$ points.
+-   If $c$ is "a", since we want to remove "ab" first, we don't eliminate this character at this time, only increment $\textit{cnt1}$;
+-   If $c$ is "b", if $\textit{cnt1} > 0$ at this time, we can eliminate one "ab" and add $x$ points; otherwise, we can only increment $\textit{cnt2}$;
+-   If $c$ is another character, then for this substring, we have $\textit{cnt2}$ "b"s and $\textit{cnt1}$ "a"s left. We can eliminate $\min(\textit{cnt1}, \textit{cnt2})$ "ba"s and add several $y$ points.
 
-After the traversal is finished, we also need to additionally handle the remaining "ab", adding several $y$ points.
+After traversal, we need to handle the remaining "ba"s and add several $y$ points.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
