@@ -268,6 +268,93 @@ function solveQueries(nums: number[], queries: number[]): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn solve_queries(nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let m = n * 2;
+        let mut d = vec![m as i32; m];
+        let mut left = HashMap::new();
+
+        for i in 0..m {
+            let x = nums[i % n];
+            if let Some(&l) = left.get(&x) {
+                d[i] = d[i].min((i - l) as i32);
+            }
+            left.insert(x, i);
+        }
+
+        let mut right = HashMap::new();
+
+        for i in (0..m).rev() {
+            let x = nums[i % n];
+            if let Some(&r) = right.get(&x) {
+                d[i] = d[i].min((r - i) as i32);
+            }
+            right.insert(x, i);
+        }
+
+        for i in 0..n {
+            d[i] = d[i].min(d[i + n]);
+        }
+
+        queries.iter().map(|&query| {
+            if d[query as usize] >= n as i32 {
+                -1
+            } else {
+                d[query as usize]
+            }
+        }).collect()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<int> SolveQueries(int[] nums, int[] queries) {
+        int n = nums.Length;
+        int m = n * 2;
+        int[] d = new int[m];
+        Array.Fill(d, m);
+
+        Dictionary<int, int> left = new Dictionary<int, int>();
+        for (int i = 0; i < m; i++) {
+            int x = nums[i % n];
+            if (left.ContainsKey(x)) {
+                d[i] = Math.Min(d[i], i - left[x]);
+            }
+            left[x] = i;
+        }
+
+        Dictionary<int, int> right = new Dictionary<int, int>();
+        for (int i = m - 1; i >= 0; i--) {
+            int x = nums[i % n];
+            if (right.ContainsKey(x)) {
+                d[i] = Math.Min(d[i], right[x] - i);
+            }
+            right[x] = i;
+        }
+
+        for (int i = 0; i < n; i++) {
+            d[i] = Math.Min(d[i], d[i + n]);
+        }
+
+        List<int> ans = new List<int>();
+        foreach (int query in queries) {
+            ans.Add(d[query] >= n ? -1 : d[query]);
+        }
+
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
