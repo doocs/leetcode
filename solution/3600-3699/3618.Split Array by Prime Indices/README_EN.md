@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3618.Split%20Array%20by%20Prime%20Indices/README_EN.md
+tags:
+    - Array
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->
@@ -19,13 +23,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3618.Sp
 <p>Split <code>nums</code> into two arrays <code>A</code> and <code>B</code> using the following rule:</p>
 
 <ul>
-	<li>Elements at <strong>prime</strong> indices in <code>nums</code> must go into array <code>A</code>.</li>
+	<li>Elements at <strong><span data-keyword="prime-number">prime</span></strong> indices in <code>nums</code> must go into array <code>A</code>.</li>
 	<li>All other elements must go into array <code>B</code>.</li>
 </ul>
 
 <p>Return the <strong>absolute</strong> difference between the sums of the two arrays: <code>|sum(A) - sum(B)|</code>.</p>
-
-<p>A <strong>prime</strong> number is a natural number greater than 1 with only two factors, 1 and itself.</p>
 
 <p><strong>Note:</strong> An empty array has a sum of 0.</p>
 

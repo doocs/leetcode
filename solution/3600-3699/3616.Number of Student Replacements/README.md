@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3616.Number%20of%20Student%20Replacements/README.md
+tags:
+    - 数组
+    - 模拟
 ---
 
 <!-- problem:start -->
